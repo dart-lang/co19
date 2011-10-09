@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion Applies the function [f] to each element of the collection
+ * @description Check forEach() on empty list
+ * @author msyabro
+ */
+
+
+main() {
+  DoubleLinkedList list = new DoubleLinkedList();
+  
+  int count = 0;
+  list.forEach(void f(var element) {
+    count++;
+  });
+  
+  Expect.isTrue(count == 0);
+}

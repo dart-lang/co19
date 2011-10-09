@@ -1,0 +1,73 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion 15.10.2.7: The production QuantifierPrefix :: * evaluates by
+ *            returning the two results 0 and infinity.
+ * @description Checks that this quantifier is applied correctly in various
+ *              scenarios.
+ * @3rdparty sputnik-v1:S15.10.2.7_A4_T1.js-S15.10.2.7_A4_T19.js
+ * @author rodionov
+ */
+ 
+
+main() {
+  check("[^\"]*", "\"beast\"-nickname", "", 0, [""]);
+  check("[^\"]*", "alice said: \"don\'t\"", "", 0, ["alice said: "]);
+  check("[^\"]*", "before\'i\'start", "", 0, ["before\'i\'start"]);
+  check("[^\"]*", "alice \"sweep\": \"don\'t\"", "", 0, ["alice "]);
+  check("[^\"]*", "alice \u0022sweep\u0022: \"don\'t\"", "", 0, ["alice "]);
+  check("[\"\'][^\"\']*[\"\']", "alice \u0022sweep\u0022: \"don\'t\"", "", 6, ["\"sweep\""]);
+  check("[\"\'][^\"\']*[\"\']", "alice cries out: \'don\'t\'", "", 17, ["\'don\'"]);
+  checkNeg("[\"\'][^\"\']*[\"\']", "alice cries out: don\'t");
+  check("[\"\'][^\"\']*[\"\']", "alice cries out: \"\"", "", 17, ["\"\""]);
+  check("d*", "abcddddefg", "", 0, [""]);
+  check("cd*", "abcddddefg", "", 2, ["cdddd"]);
+  check("cx*d", "abcddddefg", "", 2, ["cd"]);
+  check("(x*)(x+)", "xxxxxxx", "", 0, ["xxxxxxx", "xxxxxx", "x"]);
+  check(@"(\d*)(\d+)", "0123456789", "", 0, ["0123456789", "012345678", "9"]);
+  check(@"(\d*)\d(\d+)", "0123456789", "", 0, ["0123456789", "01234567", "9"]);
+  check("(x+)(x*)", "xxxxxxx", "", 0, ["xxxxxxx", "xxxxxxx", ""]);
+  check(@"x*y+$", "xxxxxxyyyyyy", "", 0, ["xxxxxxyyyyyy"]);
+  check(@"[\d]*[\s]*bc.", "abcdef", "", 1, ["bcd"]);
+  check(@"bc..[\d]*[\s]*", "abcdef", "", 1, ["bcde"]);
+  check(".*", "a1b2c3", "", 0, ["a1b2c3"]);
+  checkNeg("[xyz]*1", "a0.b2.c3");
+}
+
+void check(String pattern, String str, String flags = "", int matchPos = -1, Array<String> expectedGroups = null) {
+  RegExp re = new RegExp(pattern, flags);
+  Match fm = re.firstMatch(str);
+  Logger.println("\nPattern: \"$pattern\"\n" +
+      "String: \"$str\"\n" + 
+      "Flags: \"$flags\"\n" + 
+      "Exp. groups: \"$expectedGroups\"");
+  Logger.println("group count: " + fm.groupCount());
+  if(null == fm) {
+    Expect.fail("\"$pattern\" !~ \"$str\"");
+  }
+  if(matchPos >= 0) {
+    Expect.equals(matchPos, fm.start(0));
+  }
+  if(null != expectedGroups) {
+    Expect.equals(expectedGroups.length, fm.groupCount() + 1);
+    
+    for(int i = 0; i <= fm.groupCount(); i++) {
+      String expGr = expectedGroups[i];
+      String actGr = fm.group(i);
+      Logger.println("\tgroup $i: $expGr == $actGr ??");
+      if(expGr != actGr) {
+        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
+      }
+    }
+  }
+}
+
+void checkNeg(String pattern, String str, String flags = "") {
+  RegExp re = new RegExp(pattern, flags);
+  if(null != re.firstMatch(str)) {
+    Expect.fail("\"$pattern\" ~ \"$str\"");
+  }
+}

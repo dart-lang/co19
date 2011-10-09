@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion bool every(bool f(T element))
+ * Returns true if every elements of the collection satisify the predicate [f].
+ * Returns false otherwise.
+ * @description Simple checks.
+ * @author pagolubev
+ * @reviewer msyabro
+ */
+
+
+main() {
+  bool foo(int x) { return x > 0; }
+
+  Set<int> s = new Set<int>();
+  Expect.isTrue(s.every(foo));
+
+  s.addAll([1, 17, 5, 3, 11]);
+  Expect.isTrue(s.every(foo));
+  Expect.isTrue(s.containsAll([1, 17, 5, 3, 11]));
+  Expect.isTrue(s.length == 5);
+
+  s.add(-1);
+  Expect.isTrue(!s.every(foo));
+  Expect.isTrue(s.containsAll([1, 17, 5, 3, 11, -1]));
+  Expect.isTrue(s.length == 6);
+
+  s.remove(-1);
+  Expect.isTrue(s.every(foo));
+}
