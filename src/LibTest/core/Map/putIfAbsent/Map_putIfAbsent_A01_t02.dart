@@ -7,19 +7,24 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Try to pass argument function with incorrect return type.
- * @static-type-error
- * @author msyabro
- * @reviewer varlax
- * @needsreview: this is rather compiler check 
+ * @description Tries to modify map in the function.
+ * @author varlax
  */
 
 
 main() {
-  int putIfAbsent() { return 1;}
-  Map<String, bool> map = new Map<String, bool>();
+  int i = 1;
+  Map<String, Object> map = new Map<String, Object>();
+  Object putIfAbsent() {
+    map["1"] = 10;
+    return i;
+  }
   
-  map.putIfAbsent("1", putIfAbsent);
+  Expect.isTrue(map.putIfAbsent("1", putIfAbsent) == 1);
+  Expect.isTrue(map["1"] == 1);
   
-  Expect.isTrue(map.containsKey("1"));
+  /*i = 2;
+  
+  Expect.isTrue( map.putIfAbsent("1", putIfAbsent) == 1);
+  Expect.isTrue(map["1"] == 10);*/
 }

@@ -5,22 +5,18 @@
  */
 /**
  * @assertion Returns whether this map contains the given [key].
- * @description Try to pass [key] of different type
- * @static-type-error
+ * @description Tries to use a [key] type without hashCode.
+ * @dynamic-type-error
  * @author msyabro
  * @reviewer varlax
- * @needsreview: this is rather compiler check 
  */
  
 class A {
   A() {}
-  int hashCode() {
-    return 1;
-  }
 }
 
 
 main() {
-  Map<String, Object> map = new Map<String, Object>();
+  Map<A, Object> map = new Map<A, Object>();
   map.containsKey(new A());
 }

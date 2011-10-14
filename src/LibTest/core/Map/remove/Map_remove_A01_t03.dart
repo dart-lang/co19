@@ -6,17 +6,15 @@
 /**
  * @assertion Removes the association for the given [key]. Returns null if
  * [key] is not in the map.
- * @description Try to remove key of different type
- * @static-type-error
+ * @description Try to remove key of type that does not have hashCode()
+ * @dynamic-type-error
  * @author msyabro
  * @reviewer varlax
- * @needsreview: this is rather compiler check 
-*/
+ */
  
 
 main() {
-  Map<String, Object> map = new Map<String, Object>();
+  Map<Object, Object> map = new Map<Object, Object>();
   
-  map["1"] = "1";
-  Expect.isTrue(map.remove(1) == null);
+  map.remove(new Object());
 }

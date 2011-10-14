@@ -5,16 +5,17 @@
  */
 /**
  * @assertion If the string is not already all upper case, returns a new string
- * where all characters of this string are made upper case. Returns this otherwise.
- * @description Check that if the string is already in upper case then it is returned instead of a new string.
+ *            where all characters of this string are made upper case. Returns
+ *            this otherwise.
+ * @description Checks that if the string is already in upper case then it is
+ *              returned instead of a new string.
  * @author msyabro
  * @reviewer rodionov
  */
- 
 
 main() {
   String str = "ALL CHARACTERS IN UPPER CASE";
   String str2 = str.toUpperCase();
-  
+
   Expect.isTrue(str === str2);
 }

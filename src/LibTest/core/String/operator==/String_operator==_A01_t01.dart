@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Returns whether the two strings are equal.
- * @description Check that operator works correctly
+ * @description Checks that this operator works correctly
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

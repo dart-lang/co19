@@ -5,14 +5,16 @@
  */
 /**
  * @assertion Returns the last location of [other] in this string, searching
- * backward starting at [fromIndex] (inclusive).
- * @description Try to pass out of range index
+ *            backward starting at [fromIndex] (inclusive).
+ * @description Tries to pass an index that is out of range
  * @author msyabro
+ * @reviewer rodionov
  */
 
-
 main() {
-  Expect.isTrue("a".lastIndexOf("a", -1) == -1);    
   String str = "string";
-  Expect.isTrue(str.lastIndexOf("s", str.length) == 0); 
+  Expect.isTrue(str.lastIndexOf("s", -1) == -1);
+  Expect.isTrue(str.lastIndexOf("s", 0x80000000) == 0);
+  Expect.isTrue(str.lastIndexOf("s", str.length) == 0);
+  Expect.isTrue(str.lastIndexOf("s", 0x7fffffff) == 0);
 }

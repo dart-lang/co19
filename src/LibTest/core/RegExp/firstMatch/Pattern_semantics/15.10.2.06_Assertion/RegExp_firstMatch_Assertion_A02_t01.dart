@@ -15,30 +15,32 @@
  *            true.</li>
  *            <li>Return false.</li>
  *            </ol>
- * @description Checks that the $ assertion is interpreted correctly
+ * @description Checks that the $ assertion is interpreted correctly.
  * @3rdparty sputnik-v1:S15.10.2.6_A1_T1.js-S15.10.2.6_A1_T5.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  checkNeg(@"s$", "pairs\nmakes\tdouble", "");
-  check(@"e$", "pairs\nmakes\tdouble", "");
-  check(@"s$", "pairs\nmakes\tdouble", "m");
-  check(@"[^e]$", "pairs\nmakes\tdouble", "mg");
-  check(@"es$", "pairs\nmakes\tdoubl\u0065s", "mg");
+  checkNeg(@"s$", "pairs\nmakes\tdouble");
+  check(@"e$", "pairs\nmakes\tdouble");
+  check(@"s$", "pairs\nmakes\tdouble", multiLine: true);
+  check(@"[^e]$", "pairs\nmakes\tdouble", multiLine: true);
+  check(@"es$", "pairs\nmakes\tdoubl\u0065s", multiLine: true);
+  check(@"\$+$", "\$\$\$\$\$\$");
 }
 
-void check(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

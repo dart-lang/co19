@@ -8,22 +8,18 @@
  * @description Checks that the assertion is true.
  * @3rdparty sputnik-v1:S15.10.2.5_A1_T4.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", "", ["zaacbbbcac", "z", "ac", "a", "", "c"]);
-  check("(z)((a+)?(b+)?(c))*", "zaacbbbc", "", ["zaacbbbc", "z", "bbbc", "", "bbb", "c"]);
+  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", ["zaacbbbcac", "z", "ac", "a", "", "c"]);
+  check("(z)((a+)?(b+)?(c))*", "zaacbbbc", ["zaacbbbc", "z", "bbbc", "", "bbb", "c"]);
 }
 
-void check(String pattern, String str, String flags = "", Array<String> expectedGroups = null) {
-  Logger.println("\nPattern: \"$pattern\"\n" +
-      "String: \"$str\"\n" + 
-      "Flags: \"$flags\"\n" + 
-      "Exp. groups: \"$expectedGroups\"");
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str,  List<String> expectedGroups) {
+  RegExp re = new RegExp(pattern, false, false);
   Match fm = re.firstMatch(str);
-  Logger.println("group count: " + fm.groupCount());
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
@@ -33,7 +29,6 @@ void check(String pattern, String str, String flags = "", Array<String> expected
     for(int i = 0; i <= fm.groupCount(); i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      Logger.println("\t$expGr == $actGr ??");
       if(expGr != actGr) {
         Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
@@ -41,9 +36,3 @@ void check(String pattern, String str, String flags = "", Array<String> expected
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
-}

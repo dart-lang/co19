@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Converts [other] to a string and creates a new string by
- * concatenating this string with the converted [other].
- * @description Check operator on custom class
+ *            concatenating this string with the converted [other].
+ * @description Checks how this operator works with an argument of custom type
  * @author msyabro
  * @reviewer rodionov
  */

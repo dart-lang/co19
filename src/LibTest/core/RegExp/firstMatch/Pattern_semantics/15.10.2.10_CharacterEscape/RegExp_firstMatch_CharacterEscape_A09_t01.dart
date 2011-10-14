@@ -13,17 +13,18 @@
  * @3rdparty sputnik-v1:S15.10.2.10_A5.1_T1.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  * @needsreview
  */
  
 
 main() {
-  const String nonIdent = @"""~`!@#$%^&*()-+={[}]|\:;'<,>./"?""";
+  String nonIdent = @"""~`!@#$%^&*()-+={[}]|\:;'<,>./"?""";
   
   StringBuffer errStr = new StringBuffer();
   for(int i = 0; i < nonIdent.length; i++) {
     String ch = nonIdent[i];
-    RegExp re = new RegExp("\\" + ch, "g");
+    RegExp re = new RegExp("\\" + ch, false, false);
     if(null == re.firstMatch(nonIdent)) {
       errStr.append("\"\\${ch}\" does not match itself\n");
     } 

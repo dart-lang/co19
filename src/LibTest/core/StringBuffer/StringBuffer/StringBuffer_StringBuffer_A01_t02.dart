@@ -5,13 +5,16 @@
  */
 /**
  * @assertion Creates the string buffer with an initial content.
- * @description Try to pass null to constructor
+ * @description Tries to pass an argument that is null or isn't a String,
+ * correct string conversion expected ("null" in case of null)
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
 
 
 main() {
-  StringBuffer sb = new StringBuffer(null);
-  Expect.isTrue(sb.toString() == "null");
+  Expect.equals("null", new StringBuffer(null).toString());
+  Expect.equals("1", new StringBuffer(1).toString());
+  Expect.equals("true", new StringBuffer(true).toString());
 }

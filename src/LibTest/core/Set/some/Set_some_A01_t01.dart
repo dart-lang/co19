@@ -7,7 +7,8 @@
  * @assertion bool some(bool f(T element))
  * Returns true if one element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Simple checks.
+ * @description Checks that this method works as specified with a collection of integers
+ * and a simple predicate (numerical comparison).
  * @author pagolubev
  * @needsreview Spec ambiguity: 'exactly one' or 'at least one'.
  * Implementation returns true when at least one element satisfies the predicate.

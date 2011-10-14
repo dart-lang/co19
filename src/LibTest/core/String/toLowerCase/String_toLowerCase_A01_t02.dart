@@ -5,16 +5,17 @@
  */
 /**
  * @assertion If the string is not already all lower case, returns a new string
- * where all characters of this string are made lower case. Returns this otherwise.
- * @description Check that if the string is already in lower case, it is returned instead of a new string.
+ *            where all characters of this string are made lower case. Returns
+ *            this otherwise.
+ * @description Checks that if the string is already in lower case, it is
+ *              returned instead of a new string.
  * @author msyabro
  * @reviewer rodionov
  */
- 
 
 main() {
   String str = "all characters in lower case";
   String str2 = str.toLowerCase();
-  
+
   Expect.isTrue(str === str2);
 }

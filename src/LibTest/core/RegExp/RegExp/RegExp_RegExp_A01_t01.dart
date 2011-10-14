@@ -8,16 +8,17 @@
  * @description Checks that it is possible to create a RegExp instance with various valid arguments
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = const RegExp(@".", "i");
-  re = const RegExp(@"\t", "m");
-  re = const RegExp(@"[a-b]", "g");
-  re = const RegExp(@"1?","mig");
-  re = const RegExp(@"abc\u0042", "i");
-  re = const RegExp(@"(ajkfjka,af)", "");
-  re = const RegExp(@"^\w\t\s$", "");
-  re = const RegExp(@"a|b", "gmi");
+  RegExp re = new RegExp(@".", false, true);
+  re = new RegExp(@"[a-b]", false, false);
+  re = new RegExp(@"1?", true, true);
+  re = new RegExp(@"abc\u0042", false, true);
+  re = new RegExp(@"(ajkfjka,af)", false, false);
+  re = new RegExp(@"^\w\t\s$", false, false);
+  re = new RegExp(@"a|b", true, true);
+  re = new RegExp(@"\t", true, false);
 }

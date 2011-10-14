@@ -10,39 +10,35 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A3_T1.js-S15.10.2.7_A3_T14.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check(@"\s+java\s+", "language  java\n", "", 8, ["  java\n"]);
-  check(@"\s+java\s+", "\t java object", "", 0, ["\t java "]);
+  check(@"\s+java\s+", "language  java\n", 8, ["  java\n"]);
+  check(@"\s+java\s+", "\t java object", 0, ["\t java "]);
   checkNeg(@"\s+java\s+", "\t javax package");
   checkNeg(@"\s+java\s+", "java\n\nobject");
-  check(@"[a-z]+\d+", "x 2 ff 55 x2 as1 z12 abc12.0", "", 10, ["x2"]);
-  check(@"[a-z]+\d+", "__abc123.0", "", 2, ["abc123"]);
-  check(@"[a-z]+(\d+)", "x 2 ff 55 x2 as1 z12 abc12.0", "", 10, ["x2", "2"]);
-  check(@"[a-z]+(\d+)", "__abc123.0", "", 2, ["abc123", "123"]);
-  check("d+", "abcdddddefg", "", 3, ["ddddd"]);
+  check(@"[a-z]+\d+", "x 2 ff 55 x2 as1 z12 abc12.0", 10, ["x2"]);
+  check(@"[a-z]+\d+", "__abc123.0", 2, ["abc123"]);
+  check(@"[a-z]+(\d+)", "x 2 ff 55 x2 as1 z12 abc12.0", 10, ["x2", "2"]);
+  check(@"[a-z]+(\d+)", "__abc123.0", 2, ["abc123", "123"]);
+  check("d+", "abcdddddefg", 3, ["ddddd"]);
   checkNeg("o+", "abcdddddefg");
-  check("d+", "abcdefg", "", 3, ["d"]);
-  check("(b+)(b+)(b+)", "abbbbbbbc", "", 1, ["bbbbbbb", "bbbbb", "b", "b"]);
-  check("(b+)(b*)", "abbbbbbbc", "", 1, ["bbbbbbb", "bbbbbbb", ""]);
-  check("b*b+", "abbbbbbbc", "", 1, ["bbbbbbb"]);
+  check("d+", "abcdefg", 3, ["d"]);
+  check("(b+)(b+)(b+)", "abbbbbbbc", 1, ["bbbbbbb", "bbbbb", "b", "b"]);
+  check("(b+)(b*)", "abbbbbbbc", 1, ["bbbbbbb", "bbbbbbb", ""]);
+  check("b*b+", "abbbbbbbc", 1, ["bbbbbbb"]);
 }
 
-void check(String pattern, String str, String flags = "", int matchPos = -1, Array<String> expectedGroups = null) {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, [int matchPos = -1, List<String> expectedGroups = null]) {
+  RegExp re = new RegExp(pattern, false, false);
   Match fm = re.firstMatch(str);
-  Logger.println("\nPattern: \"$pattern\"\n" +
-      "String: \"$str\"\n" + 
-      "Flags: \"$flags\"\n" + 
-      "Exp. groups: \"$expectedGroups\"");
-  Logger.println("group count: " + fm.groupCount());
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start(0));
+    Expect.equals(matchPos, fm.start());
   }
   if(null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount() + 1);
@@ -50,7 +46,6 @@ void check(String pattern, String str, String flags = "", int matchPos = -1, Arr
     for(int i = 0; i <= fm.groupCount(); i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      Logger.println("\tgroup $i: $expGr == $actGr ??");
       if(expGr != actGr) {
         Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
@@ -58,8 +53,8 @@ void check(String pattern, String str, String flags = "", int matchPos = -1, Arr
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str) {
+  RegExp re = new RegExp(pattern, false, false);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

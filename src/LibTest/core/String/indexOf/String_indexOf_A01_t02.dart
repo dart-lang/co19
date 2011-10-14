@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the first location of [other] in this string 
- * starting at [startIndex] (inclusive).
- * @description Try to pass out of range index
+ * @assertion Returns the first location of [other] in this string starting at
+ *            [startIndex] (inclusive).
+ * @description Tries to pass an index that is out of range
  * @author msyabro
- * @needsreview If index less then 0, indexOf always returns -1. Is it right?
+ * @reviewer rodionov
+ * @needsreview If index is less then 0, indexOf always returns -1. Is it right?
  */
 
 

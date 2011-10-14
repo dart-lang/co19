@@ -7,7 +7,7 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Try to pass incorrect [key]
+ * @description Tries to pass incorrect [key].
  * @static-type-error
  * @author msyabro
  * @reviewer varlax

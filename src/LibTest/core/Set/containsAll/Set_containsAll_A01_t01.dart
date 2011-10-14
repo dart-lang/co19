@@ -6,7 +6,8 @@
 /**
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
- * @description Some basic checks.
+ * @description Checks that this method returns true if all element from the argument collection
+ * were added to the set prior to that (and not removed since) and false otherwise.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -16,7 +17,7 @@ main() {
   Set<int> s = new Set<int>();
 
   Expect.isTrue(s.containsAll([]));
-  Expect.isTrue(!s.containsAll([5, 2]));
+  Expect.isFalse(s.containsAll([5, 2]));
 
   s.addAll([-1, 3, 7]);
 
@@ -24,6 +25,6 @@ main() {
   Expect.isTrue(s.containsAll([3]));
   Expect.isTrue(s.containsAll([-1, 7]));
   Expect.isTrue(s.containsAll([-1, 3, 7]));
-  Expect.isTrue(!s.containsAll([1, 2]));
-  Expect.isTrue(!s.containsAll([-1, 3, 7, 1]));
+  Expect.isFalse(s.containsAll([1, 2]));
+  Expect.isFalse(s.containsAll([-1, 3, 7, 1]));
 }

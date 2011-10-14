@@ -5,21 +5,16 @@
  */
 /**
  * @assertion Returns the length of the buffer.
- * @description Check that correct value is returned
+ * @description Checks that a correct value is returned
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
-  StringBuffer sb = new StringBuffer();
-  Expect.isTrue(sb.length == 0);
-  
-  sb.add("");
-  Expect.isTrue(sb.length == 0);
-  
-  sb.add("string");
-  Expect.isTrue(sb.length == 6);
-  
-  sb.clear();
-  Expect.isTrue(sb.length == 0);
+  Expect.equals(0, new StringBuffer().length);
+  Expect.equals(0, new StringBuffer("").length);
+  Expect.equals(1, new StringBuffer("\u0000").length);
+  Expect.equals(1, new StringBuffer(" ").length);
+  Expect.equals(6, new StringBuffer("string").length);
 }

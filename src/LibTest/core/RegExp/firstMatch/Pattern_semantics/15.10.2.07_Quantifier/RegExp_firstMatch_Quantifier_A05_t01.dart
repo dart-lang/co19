@@ -10,32 +10,30 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A6_T1.js-S15.10.2.7_A6_T6.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check(@"b{2,}c", "aaabbbbcccddeeeefffff", "", 3, ["bbbbc"]);
+  check(@"b{2,}c", "aaabbbbcccddeeeefffff",3, ["bbbbc"]);
   checkNeg(@"b{8,}c", "aaabbbbcccddeeeefffff");
-  check(@"\d{1,}", "wqe456646dsff", "", 3, ["456646"]);
-  check(@"(123){1,}", "123123", "", 0, ["123123", "123"]);
-  check(@"(123){1,}?", "123123", "", 0, ["123", "123"]);
-  check(@"(123){1,}x\1", "123123x123", "", 0, ["123123x123", "123"]);
-  check(@"x{1,2}x{1,}", "xxxxxxx", "", 0, ["xxxxxxx"]);
+  check(@"\d{1,}", "wqe456646dsff", 3, ["456646"]);
+  check(@"(123){1,}", "123123", 0, ["123123", "123"]);
+  check(@"(123){1,}?", "123123", 0, ["123", "123"]);
+  check(@"(123){1,}x\1", "123123x123", 0, ["123123x123", "123"]);
+  check(@"x{1,2}x{1,}", "xxxxxxx", 0, ["xxxxxxx"]);
+  check(@"(a{1,2})\1{1,}", "aaaaaaaa", 0, ["aaaaaaaa", "aa"]);
+  check(@"(a{1,2})\1{1,}", "aaaaaaaaa", 0, ["aaaaaaaa", "aa"]);
 }
 
-void check(String pattern, String str, String flags = "", int matchPos = -1, Array<String> expectedGroups = null) {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+  RegExp re = new RegExp(pattern, false, false);
   Match fm = re.firstMatch(str);
-  Logger.println("\nPattern: \"$pattern\"\n" +
-      "String: \"$str\"\n" +
-      "Flags: \"$flags\"\n" +
-      "Exp. groups: \"$expectedGroups\"");
-  Logger.println("group count: " + fm.groupCount());
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start(0));
+    Expect.equals(matchPos, fm.start());
   }
   if(null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount() + 1);
@@ -43,7 +41,6 @@ void check(String pattern, String str, String flags = "", int matchPos = -1, Arr
     for(int i = 0; i <= fm.groupCount(); i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      Logger.println("\t$expGr == $actGr ??");
       if(expGr != actGr) {
         Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
@@ -51,8 +48,8 @@ void check(String pattern, String str, String flags = "", int matchPos = -1, Arr
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str) {
+  RegExp re = new RegExp(pattern, false, false);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

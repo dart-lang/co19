@@ -6,7 +6,8 @@
 /**
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
- * @description Passes an array containing an element w/o hashCode() function.
+ * @description Passes a list containing an element of type that doesn't implement hashCode() method,
+ * expects NoSuchMethodException.
  * @author pagolubev
  * @reviewer msyabro
  */

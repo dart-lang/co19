@@ -13,12 +13,13 @@
  * @3rdparty sputnik-v1:S15.10.2.10_A3.1_T1.js, S15.10.2.10_A3.1_T2.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  * @needsreview
  */
  
 
 main() {
-  const Map<String, String> alphabet = const {
+  Map<String, String> alphabet = const {
     "41" : "A", "42" : "B", "43" : "C", "44" : "D", "45" : "E", "46" : "F", "47" : "G",
     "48" : "H", "49" : "I", "4A" : "J", "4B" : "K", "4C" : "L", "4D" : "M", "4E" : "N",
     "4F" : "O", "50" : "P", "51" : "Q", "52" : "R", "53" : "S", "54" : "T", "55" : "U",
@@ -26,13 +27,13 @@ main() {
     "61" : "a", "62" : "b", "63" : "c", "64" : "d", "65" : "e", "66" : "f", "67" : "g",
     "68" : "h", "69" : "i", "6A" : "j", "6B" : "k", "6C" : "l", "6D" : "m", "6E" : "n",
     "6F" : "o", "70" : "p", "71" : "q", "72" : "r", "73" : "s", "74" : "t", "75" : "u",
-    "76" : "v", "77" : "w", "78" : "x", "79" : "y", "7A" : "z"
-    ,"00" : "\u0000", "01" : "\u0001", "0A" : "\u000A", "FF" : "\u00FF" 
+    "76" : "v", "77" : "w", "78" : "x", "79" : "y", "7A" : "z", 
+    "00" : "\u0000", "01" : "\u0001", "0A" : "\u000A", "FF" : "\u00FF" 
   };
   
   StringBuffer errStr = new StringBuffer();
   alphabet.forEach(void f(String key, String value) {
-    RegExp re = new RegExp("\\x" + key, "");
+    RegExp re = new RegExp("\\x" + key, false, false);
     if(null == re.firstMatch(value)) {
       errStr.append("\"\\x${key}\" does not match \"${value}\"\n");
     } 

@@ -32,30 +32,30 @@
  *            except for \b, \B, and backreferences. Inside a CharacterClass, \b
  *            means the backspace character, while \B and backreferences raise
  *            errors. Using a backreference inside a ClassAtom causes an error.
- * @description Checks that using \B or a backreference in place of a ClassAtom
- *              results in an error
+ * @description Checks that NonEmptyClassRanges work correctly.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
- * @author rodionov
- * @needsreview
+ * @author msyabro
  */
  
-
 main() {
-  checkNeg(@"[\B]?", "a");
-  checkNeg(@"[\1]?", "a");
-  checkNeg(@"(a)[\1]?", "aa");
-  checkNeg(@"(a)[\B]?", "aa");
-  checkNeg(@"(a)(b)[\1-\2]", "aba");
+  check("[a-c\\d]+", "\n\nabc324234\n");
+  check("[--0]", "/");
+  check("[---]", "-");
+  check("[a-cA-C]", "bB");
+  check(@"[\u0061-\c007A]", "f");
+  checkNeg(@"[a-z]+", "ABCDEF");
 }
 
-void checkNeg(String pattern, String testStr = "") {
-  bool fail = false;
-  try {
-    RegExp re = new RegExp(pattern, "");
-    re.firstMatch(testStr);
-    fail = true;
-  } catch (var ok) { } // FIXME
-  if(fail) {
-    Expect.fail("Some exception expected");
+void check(String pattern, String str) {
+  RegExp re = new RegExp(pattern, false, false);
+  if(null == re.firstMatch(str)) {
+    Expect.fail("\"$pattern\" !~ \"$str\"");
+  }
+}
+
+void checkNeg(String pattern, String str) {
+  RegExp re = new RegExp(pattern, false, false);
+  if(null != re.firstMatch(str)) {
+    Expect.fail("\"$pattern\" ~ \"$str\"");
   }
 }

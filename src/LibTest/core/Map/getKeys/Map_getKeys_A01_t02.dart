@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns a collection containing all the keys in the map.
- * @description Check that returned collection is not backed by the map
+ * @description Check that returned collection is not backed by the map.
  * @author msyabro
  * @reviewer varlax
  */
@@ -17,7 +17,7 @@ main() {
   map["1"] = 1;
   map["2"] = 2;
   
-  Array a = map.getKeys();
+  List a = map.getKeys();
   
   a[1] = "3";
   Expect.isTrue(map["3"] == null);
@@ -27,6 +27,6 @@ main() {
   Expect.isTrue(a.length == 2);
   Expect.isTrue(!map.containsKey("2"));
   
-  //a.clear();    //Can't clear because returned array is unextendable
+  //a.clear();    //Can't clear because returned list is unextendable
   //Expect.isTrue(!map.isEmpty());
 }

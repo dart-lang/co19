@@ -15,11 +15,12 @@
  * @author rodionov
  * @reviewer iefremov
  * @needsreview
+ * @reviewer msyabro
  */
  
 
 main() {
-  const Map<String, String> codes = const {
+  Map<String, String> codes = const {
     "0041" : "A", "0042" : "B", "0043" : "C", "0044" : "D", "0045" : "E", "0046" : "F", "0047" : "G",
     "0048" : "H", "0049" : "I", "004A" : "J", "004B" : "K", "004C" : "L", "004D" : "M", "004E" : "N",
     "004F" : "O", "0050" : "P", "0051" : "Q", "0052" : "R", "0053" : "S", "0054" : "T", "0055" : "U",
@@ -47,7 +48,7 @@ main() {
   
   StringBuffer errStr = new StringBuffer();
   codes.forEach(void f(String key, String value) {
-    RegExp re = new RegExp("\\u" + key, "");
+    RegExp re = new RegExp("\\u" + key, false, false);
     if(null == re.firstMatch(value)) {
       errStr.append("\"\\u${key}\" does not match \"${value}\"\n");
     } 

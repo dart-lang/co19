@@ -5,23 +5,20 @@
  */
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
- * @description Try to pass [key] of different type
+ * @description Tries to call operator without [key].
  * @static-type-error
  * @author msyabro
  * @reviewer varlax
  * @needsreview: this is rather compiler check 
-*/
+ */
 
 class A {
   A() {}
-  int hashCode() {
-    return 1;
-  }
 }
 
 
 main() {
   Map<int, Object> map = new Map<int, Object>();
   
-  map[new A()];
+  map[];
 }

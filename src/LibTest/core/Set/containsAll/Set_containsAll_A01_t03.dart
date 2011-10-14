@@ -6,7 +6,8 @@
 /**
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
- * @description Passes an array containing an element w/o hashCode() function.
+ * @description Passes a list containing elements of type that doesn't implement
+ * hashCode() function, expects NoSuchMethodException.
  * @author pagolubev
  * @reviewer msyabro
  */

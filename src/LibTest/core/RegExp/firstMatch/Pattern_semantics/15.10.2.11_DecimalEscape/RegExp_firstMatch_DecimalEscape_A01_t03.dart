@@ -24,28 +24,29 @@
  * @3rdparty sputnik-v1:S15.10.2.11_A1_T2.js,S15.10.2.11_A1_T3.js
  * @author rodionov
  * @reviewer iefremov
- * @needsreview
+ * @reviewer msyabro
+ * @needsreview undocumented
  */
  
-
 main() {
-  check(@"\1");
-  check(@"\2");
-  check(@"\3");
-  check(@"\4");
-  check(@"\10");
-  check(@"\100");
-  check(@"(A)\2", "AA");
+  checkNeg(@"\1");
+  checkNeg(@"\2");
+  checkNeg(@"\3");
+  checkNeg(@"\4");
+  checkNeg(@"\10");
+  checkNeg(@"\100");
+  checkNeg(@"(A)\2", "AA");
 }
 
-void check(String pattern, String testStr = "") {
+void checkNeg(String pattern, [String testStr = ""]) {
   bool fail = false;
-  try {
-    RegExp re = new RegExp(pattern, "");
-    re.firstMatch(testStr);
-    fail = true;
-  } catch (var ok) { } // FIXME
+  //try {
+    RegExp re = new RegExp(pattern, false, false);
+    Expect.equals(null, re.firstMatch(testStr));
+    //re.firstMatch(testStr);
+    //fail = true;
+  /*} catch (var ok) { } // FIXME
   if(fail) {
     Expect.fail("Some exception expected");
-  }
+  }*/
 }

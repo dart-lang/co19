@@ -6,7 +6,7 @@
 /**
  * @assertion void add(T value)
  * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Checks that the value will be added to the set if the set contains no equal value.
+ * @description Checks that the value is added to the set if it doesn't already contain an equal one.
  * @author pagolubev
  * @reviewer msyabro
  */

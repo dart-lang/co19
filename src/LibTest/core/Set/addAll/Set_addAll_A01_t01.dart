@@ -6,7 +6,7 @@
 /**
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
- * @description Simple checks.
+ * @description Adds some integers to the set and checks that all of the unique ones are actually added.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -18,7 +18,7 @@ main() {
   s.addAll([]);
   Expect.isTrue(s.length == 0);
 
-  Array<int> a = [1, 3, 3, 3, 7, -7, 3, 3, 9];
+  List<int> a = [1, 3, 3, 3, 7, -7, 3, 3, 9];
   s.addAll(a);
   Expect.isTrue(s.length == 5);
   for(int i = 0; i < a.length; i++) {

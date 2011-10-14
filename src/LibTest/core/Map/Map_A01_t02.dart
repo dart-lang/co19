@@ -6,7 +6,7 @@
 /**
  * @assertion A [Map] is an associative container, mapping a key to a value.
  * Null values are supported.
- * @description Check that multiple values for a key are not supported
+ * @description Checks that multiple values for a key are not supported.
  * @author msyabro
  * @reviewer varlax
  */

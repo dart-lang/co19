@@ -7,7 +7,8 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Check that the new mapping added only if the key is not present in the map and the value is returned.
+ * @description Checks that the new mapping added only if the key is not present
+ * in the map. Checks the value is returned.
  * @author msyabro
  * @reviewer varlax
  */

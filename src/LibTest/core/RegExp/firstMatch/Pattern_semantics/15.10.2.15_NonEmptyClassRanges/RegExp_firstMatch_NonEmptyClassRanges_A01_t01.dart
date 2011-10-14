@@ -33,27 +33,25 @@
  *            means the backspace character, while \B and backreferences raise
  *            errors. Using a backreference inside a ClassAtom causes an error.
  * @description Checks that specifying a range using ClassAtoms that evaluate to
- *              more than a single character results in an error.
+ *            more than a single character results in an error.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
  * @author rodionov
- * @needsreview
+ * @reviewer msyabro
+ * @needsreview Such regular expressions work both in Dart and JavaScript.
+ *           But specification says: "If A does not contain exactly one character or B does not
+ *           contain exactly one character then throw a SyntaxError exception."
  */
  
-
 main() {
-  // classAtom that is an end of a range represents more than 1 character
   checkNeg(@"[a-\w]", "a");
   checkNeg(@"[\W-z]", "a");
+  checkNeg(@"[\W-\d]", "a");
 }
 
-void checkNeg(String pattern, String testStr = "") {
-  bool fail = false;
+void checkNeg(String pattern, String str) {
   try {
-    RegExp re = new RegExp(pattern, "");
-    re.firstMatch(testStr);
-    fail = true;
-  } catch (var ok) { } // FIXME
-  if(fail) {
-    Expect.fail("Some exception expected");
-  }
+    RegExp re = new RegExp(pattern, false, false);
+    re.firstMatch(str);
+    Expect.fail("IllegalJSRegExpException is expected");
+  } catch(IllegalJSRegExpException ok) {}
 }

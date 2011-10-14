@@ -13,12 +13,13 @@
  *              from the basic plane)
  * @3rdparty sputnik-v1:S15.10.2.12_A1_T1.js-S15.10.2.12_A1_T5.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp("\\s", "g");
-  Array<String> errors = new Array<String>();
+  RegExp re = new RegExp("\\s", false, false);
+  List<String> errors = new List<String>();
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     switch(alpha) {
       // white space as per chapter 7.2

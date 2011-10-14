@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns whether this string ends with [other].
- * @description Checks basic cases
+ * @description Checks some basic cases
  * @author msyabro
  * @reviewer rodionov
  */

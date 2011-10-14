@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Try to pass [key] without hashCode()
+ * @description Tries to pass [key] without hashCode().
  * @dynamic-type-error
  * @author msyabro
  * @reviewer varlax

@@ -6,7 +6,7 @@
 /**
  * @assertion void clear()
  * Removes all elements of the collection.
- * @description Simple checks.
+ * @description Checks that clear() indeed removes all elements from the set.
  * @author pagolubev
  * @reviewer msyabro
  */

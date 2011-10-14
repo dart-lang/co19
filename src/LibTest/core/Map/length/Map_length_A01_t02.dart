@@ -5,9 +5,8 @@
  */
 /**
  * @assertion The number of {key, value} pairs in the map.
- * @description Check that size of map can be more than MAX_INT
+ * @description Checks that the size of map can be more than MAX_INT.
  * @author msyabro
- * @exclude
  * @reviewer varlax
  */
  

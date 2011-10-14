@@ -5,15 +5,15 @@
  */
 /**
  * @assertion Gets the scalar character code at the given [index].
- * @description Check that returned code point is correct
+ * @description Checks that the returned code point is correct
  * @author msyabro
+ * @reviewer rodionov
  */
-
 
 main() {
   Expect.isTrue("a".charCodeAt(0) == 0x61);
   Expect.isTrue(" ".charCodeAt(0) == 0x20);
-  
+
   Expect.isTrue("abcdefghij".charCodeAt(9) == 0x6A);
-  Expect.isTrue("\x10000".charCodeAt(0) == 0x10000);
+  Expect.isTrue("\u{10000}".charCodeAt(0) == 0x10000);
 }

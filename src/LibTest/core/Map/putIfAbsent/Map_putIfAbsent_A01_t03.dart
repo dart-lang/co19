@@ -7,7 +7,7 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Try to pass function that returns nothing (has void return type)
+ * @description Tries to pass function that returns nothing (has void return type)
  * @needsreview There is no analog of this function in Java. And it's not clear
  * what the result should be: pair [[key], null] must be added 
  * or nothing should be added to the map

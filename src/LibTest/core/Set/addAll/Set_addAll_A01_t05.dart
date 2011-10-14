@@ -6,8 +6,8 @@
 /**
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
- * @description Passes an array containing an element with hashCode() function
- * returning string.
+ * @description Passes a list containing an element of type whose hashCode() method
+ * returns a string value instead of int.
  * @dynamic-type-error
  * @author pagolubev
  * @reviewer msyabro

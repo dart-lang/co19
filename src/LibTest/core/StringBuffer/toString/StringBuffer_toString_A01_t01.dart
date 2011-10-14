@@ -5,24 +5,25 @@
  */
 /**
  * @assertion Returns the contents of buffer as a concatenated string.
- * @description Check that method returns correct String
+ * @description Checks that this method returns a correct String
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
   StringBuffer sb = new StringBuffer();
-  Expect.isTrue(sb.toString() == "");
+  Expect.equals("", sb.toString());
   
   sb = new StringBuffer("string");
-  Expect.isTrue(sb.toString() == "string");
+  Expect.equals("string", sb.toString());
   
   sb.clear();
-  Expect.isTrue(sb.toString() == "");
+  Expect.equals("", sb.toString());
   
   sb.add("");
-  Expect.isTrue(sb.toString() == "");
+  Expect.equals("", sb.toString());
   
   sb.add("string");
-  Expect.isTrue(sb.toString() == "string");
+  Expect.equals("string", sb.toString());
 }

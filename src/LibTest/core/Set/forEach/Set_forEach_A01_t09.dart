@@ -6,7 +6,7 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Checks that forEach() doesn't change the set.
+ * @description Checks that invoking forEach() doesn't change the set by itself.
  * @author msyabro
  */
 

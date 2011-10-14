@@ -37,62 +37,24 @@
  *              end limit causes an error.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
  * @author rodionov
- * @needsreview
+ * @needsreview undocumented behavior on error
+ * @reviewer msyabro
  */
  
-
 main() {
   checkNeg(@"[z-a]", "a");
   checkNeg(@"[9-0]", "a");
   checkNeg(@"[b-ac-e]", "a");
   checkNeg(@"[a-dc-b]", "a");
   checkNeg(@"[c-eb-a]", "a");
-  checkNeg(@"[\db-G]", "a");
-  checkNeg(@"[\Db-G]", "a");
-  checkNeg(@"[\sb-G]", "a");
-  checkNeg(@"[\Sb-G]", "a");
-  checkNeg(@"[\wb-G]", "a");
-  checkNeg(@"[\Wb-G]", "a");
-  checkNeg(@"[\0b-G]", "a");
-  checkNeg(@"[\10b-G]", "a");
-  checkNeg(@"[\bd-G]", "a");
-  checkNeg(@"[\Bd-G]", "a");
-  checkNeg(@"[\td-G]", "a");
-  checkNeg(@"[\nd-G]", "a");
-  checkNeg(@"[\vd-G]", "a");
-  checkNeg(@"[\fd-G]", "a");
-  checkNeg(@"[\rd-G]", "a");
-  checkNeg(@"[\c0001d-G]", "a");
-  checkNeg(@"[\u0061d-G]", "a");
-  checkNeg(@"[\x0061d-G]", "a");
-  checkNeg(@"[b-G\d]", "a");
-  checkNeg(@"[b-G\D]", "a");
-  checkNeg(@"[b-G\s]", "a");
-  checkNeg(@"[b-G\S]", "a");
-  checkNeg(@"[b-G\w]", "a");
-  checkNeg(@"[b-G\W]", "a");
-  checkNeg(@"[b-G\0]", "a");
-  checkNeg(@"[b-G\10]", "a");
-  checkNeg(@"[d-G\b]", "a");
-  checkNeg(@"[d-G\B]", "a");
-  checkNeg(@"[d-G\t]", "a");
-  checkNeg(@"[d-G\n]", "a");
-  checkNeg(@"[d-G\r]", "a");
-  checkNeg(@"[d-G\f]", "a");
-  checkNeg(@"[d-G\v]", "a");
-  checkNeg(@"[d-G\c0001]", "a");
-  checkNeg(@"[d-G\u0061]", "a");
-  checkNeg(@"[d-G\x0061]", "a");
+  
+  
 }
 
-void checkNeg(String pattern, String testStr = "") {
-  bool fail = false;
+void checkNeg(String pattern, [String testStr = ""]) {
   try {
-    RegExp re = new RegExp(pattern, "");
+    RegExp re = new RegExp(pattern, false, false);
     re.firstMatch(testStr);
-    fail = true;
-  } catch (var ok) { } // FIXME
-  if(fail) {
-    Expect.fail("Some exception expected");
-  }
+    Expect.fail("IllegalJSRegExpException is expected");
+  } catch (IllegalJSRegExpException ok) { } 
 }

@@ -4,23 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether this string contains [other] starting
- * at [startIndex] (inclusive).
- * @description Check that function works correctly
+ * @assertion Returns whether this string contains [other] starting at
+ *            [startIndex] (inclusive).
+ * @description Checks that this function works correctly
  * @author msyabro
+ * @reviewer rodionov
  */
- 
 
 main() {
   String str = "String with <pattern>";
-  RegExp pattern = const RegExp("<.*>", "");
+  RegExp pattern = const RegExp("<.*>", false, false);
+
+  Expect.isTrue(str.contains("", 0));
+  Expect.isTrue(str.contains(pattern, 0));
+  Expect.isTrue(str.contains(pattern, 12));
+  Expect.isFalse(str.contains(pattern, 13));
   
-  Expect.isTrue(str.contains("", 0) == true);
-  Expect.isTrue(str.contains(pattern, 0) == true);
-  Expect.isTrue(str.contains(pattern, 12) == true);
-  Expect.isTrue(str.contains(pattern, 13) == false);
-  Expect.isTrue("".contains("", 0) == true);
-  Expect.isTrue("".contains("a", 0) == false);
-  Expect.isTrue("abc".contains("ac", 0) == false);
-  Expect.isTrue("abc".contains("a_c", 0) == false);
+  Expect.isTrue("".contains("", 0));
+  Expect.isFalse("".contains("a", 0));
+  Expect.isFalse("abc".contains("ac", 0));
+  Expect.isFalse("abc".contains("a_c", 0));
 }

@@ -7,7 +7,8 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Exception thrown by the argument function breaks operation and is passed through to the caller.
+ * @description Checks that an exception thrown by the argument function
+ * breaks operation and is passed through to the caller.
  * @author varlax
  */
 

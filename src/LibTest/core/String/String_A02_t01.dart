@@ -6,21 +6,22 @@
 /**
  * @assertion Strings do not contain surrogates:
  *    - if all characters of the String are 8 bits code points, the
- *      String is an array of bytes. Otherwise
+ *      String is a list of bytes. Otherwise
  *    - if all code points can be represented in UTF-16 without
- *      surrogates, the String is an array of 16 bits code points.
+ *      surrogates, the String is a list of 16 bits code points.
  *      Otherwise
  *    - the String is stored in UTF-32, ie 32 bits code points.
- * @description Check that String can be stored in UTF-32
+ * @description Checks that String can be stored in UTF-32
  * @author msyabro
  */
 
+//TODO this belongs to LangGuideTest suite, if we're keeping it
 
 main() {
   String str = "a"; //UTF-8;
-  str = str + "\x1d02"; //UTF-16;
-  str = str + "\x10000"; //UTF-32;
+  str = str + "\u1d02"; //UTF-16;
+  str = str + "\u{10000}"; //UTF-32;
   
-  Expect.isTrue(str == "\x0061\x1d02\x10000");
-  Expect.isTrue(str.length == 3);
+  Expect.equals(str, "\u0061\u1d02\u{10000}");
+  Expect.equals(3, str.length);
 }

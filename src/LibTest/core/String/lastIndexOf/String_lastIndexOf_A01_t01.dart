@@ -8,6 +8,7 @@
  * backward starting at [fromIndex] (inclusive).
  * @description Checks that the correct index is returned
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

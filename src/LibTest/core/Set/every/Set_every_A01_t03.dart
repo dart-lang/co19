@@ -5,27 +5,19 @@
  */
 /**
  * @assertion bool every(bool f(T element))
- * Returns true if every elements of the collection satisify the predicate [f].
+ * Returns true if every element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Checks that 'ObjectNotClosureException' is thrown
- * when a non-function object is passed to every().
- * @author pagolubev
- * @reviewer msyabro
+ * @description Checks that invoking every() doesn't change the set by itself.
+ * @author msyabro
  */
 
 
 main() {
+  bool foo(int x) { return x > 0; }
   Set<int> s = new Set<int>();
-  s.addAll([1, 2]);
+  s.addAll([-1, -3, -11]);
+  Expect.isTrue(!s.every(foo));
 
-  try {
-    s.every(null);
-    Expect.fail("Expected ObjectNotClosureException.");
-  } catch(ObjectNotClosureException e) {}
-
-  int x;
-  try {
-    s.every(x);
-    Expect.fail("Expected ObjectNotClosureException.");
-  } catch(ObjectNotClosureException e) {}
+  Expect.isTrue(s.length == 3);
+  Expect.isTrue(s.containsAll([-1, -3, -11]));
 }

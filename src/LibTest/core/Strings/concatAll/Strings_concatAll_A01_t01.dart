@@ -5,21 +5,16 @@
  */
 /**
  * @assertion Concatenates all the given strings to create a new string.
- * @description Check that all strings are concatenated
+ * @description Checks that strings from the provided list are concatenated
+ *              correctly
  * @author msyabro
+ * @reviewer rodionov
  */
 
-
 main() {
-  String str = Strings.concatAll([]);
-  Expect.isTrue(str == "");
-  
-  str = Strings.concatAll(["", "", ""]);
-  Expect.isTrue(str == "");
-  
-  str = Strings.concatAll(["1", "2", "3", "4", "5"]);
-  Expect.isTrue(str == "12345");
-  
-  str = Strings.concatAll(["string"]);
-  Expect.isTrue(str == "string");
+  Expect.equals("", Strings.concatAll([]));
+  Expect.equals("foobar", Strings.concatAll([ "foo", "", "bar" ]));
+  Expect.equals("", Strings.concatAll([ "", "", "" ]));
+  Expect.equals("12345", Strings.concatAll([ "1", "2", "3", "4", "5" ]));
+  Expect.equals("string", Strings.concatAll([ "string" ]));
 }

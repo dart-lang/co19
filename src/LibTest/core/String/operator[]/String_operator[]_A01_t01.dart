@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Gets the code point at the given [index].
- * @description Check some trivial cases
+ * @assertion Gets the character (as [String]) at the given [index].
+ * @description Checks some trivial cases
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

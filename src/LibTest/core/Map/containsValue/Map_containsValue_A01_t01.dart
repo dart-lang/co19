@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns whether this map contains the given [value].
- * @description checks that the method returns true if this map contains a mapping
+ * @description Checks that the method returns true if this map contains a mapping
  * for the specified key.
  * @author msyabro
  * @reviewer varlax

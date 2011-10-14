@@ -6,8 +6,8 @@
 /**
  * @assertion Collection<T> filter(bool f(T element));
  * Returns a new collection with the elements of this collection that satisfy the predicate [f].
- * We say that an element satisfies the predicate [f] if [:f(element):] returns true.
- * @description Nested filter().
+ * An element satisfies the predicate [f] if [:f(element):] returns true.
+ * @description Checks that nested invocation of filter() does not cause any errors.
  * @author pagolubev
  * @reviewer msyabro
  */

@@ -11,11 +11,12 @@
  * @3rdparty sputnik-v1:S15.10.2.12_A5_T1.js-S15.10.2.12_A5_T3.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp("\\d", "g");
+  RegExp re = new RegExp("\\d", false, false);
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     if(alpha >= 0x0030 && alpha <= 0x0039) {
       // a decimal digit

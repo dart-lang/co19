@@ -6,7 +6,7 @@
 /**
  * @assertion bool isSubsetOf(Collection<T> collection)
  * Returns true if [collection] contains all the elements of this collection.
- * @description Simple checks.
+ * @description Checks that this method works as specified in various simple scenarios.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -21,11 +21,11 @@ main() {
 
   s.addAll([1, -3, 6]);
 
-  Expect.isTrue(!s.isSubsetOf([]));
+  Expect.isFalse(s.isSubsetOf([]));
 
-  Expect.isTrue(!s.isSubsetOf([2, 7, 5]));
+  Expect.isFalse(s.isSubsetOf([2, 7, 5]));
 
-  Expect.isTrue(!s.isSubsetOf([-3, 1, 1]));
+  Expect.isFalse(s.isSubsetOf([-3, 1, 1]));
 
   Expect.isTrue(s.isSubsetOf([-3, 1, 6]));
 

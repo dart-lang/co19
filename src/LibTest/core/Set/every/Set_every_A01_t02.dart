@@ -5,9 +5,9 @@
  */
 /**
  * @assertion bool every(bool f(T element))
- * Returns true if every elements of the collection satisify the predicate [f].
+ * Returns true if every element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Nested every().
+ * @description Checks that nested invocations of every() on the same set do not cause any errors.
  * @author pagolubev
  * @reviewer msyabro
  */

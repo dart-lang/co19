@@ -23,6 +23,7 @@
  * @3rdparty sputnik-v1:S15.10.2.11_A1_T4.js - S15.10.2.11_A1_T9.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
@@ -36,6 +37,6 @@ main() {
 }
 
 void check(String pattern, String testStr) {
-  RegExp re = new RegExp(pattern, "g");
+  RegExp re = new RegExp(pattern, false, false);
   Expect.isTrue(null != re.firstMatch(testStr));
 }

@@ -18,8 +18,9 @@
  * @description Checks that a valid disjunction pattern works as described and that the captured groups have correct values.
  * @3rdparty sputnik-v1:S15.10.2.3_A1_T1.js-S15.10.2.3_A1_T17.js
  * @author rodionov
- * @note We're assuming JS's undefined values translate to nulls in Dart.
+ * @note We're assuming JS's undefined values are translated to nulls in Dart.
  * @needsreview
+ * @reviewer msyabro
  */
  
 
@@ -27,29 +28,26 @@ main() {
   check("a|ab", "abc");
   check("\\d{3}|[a-z]{4}", "2, 12 and of course repeat 12");
   checkNeg("\\d{3}|[a-z]{4}", "2, 12 and 23 AND 0.00.1");
-  check("ab|cd|ef", "AEKFCD", "i");
+  check("ab|cd|ef", "AEKFCD", ignoreCase: true);
   checkNeg("ab|cd|ef", "AEKFCD");
   check("11111|111", "1111111111111111");
   check("xyz|...", "abc");
-  check("(ab|cd)+|ef",                  "AEKFCD",       "i",  ["CD", "CD"]);
-  check("(ab|cd)+|ef",                  "AEKFCDab",     "i",  ["CDab", "ab"]);
-  check("(ab|cd)+|ef",                  "AEKeFCDab",    "i",  ["eF", ""]);
-  check("(.)..|abc",                    "abc",          "",   ["abc", "a"]);
-  check(".+: gr(a|e)y",                 "color: grey",  "",   ["color: grey", "e"]);
-  check("(Rob)|(Bob)|(Robert)|(Bobby)", "Hi Bob",       "",   ["Bob", "", "Bob", "", ""]);
-  check("()|",                          "",             "",   ["", ""]);
-  check("|()",                          "",             "",   ["", ""]);
-  check("((a)|(ab))((c)|(bc))",         "abc",          "",   ["abc", "a", "a", "", "bc", "", "bc"]);
+  check("(ab|cd)+|ef",                  "AEKFCD",       ignoreCase:true,  expectedGroups:["CD", "CD"]);
+  check("(ab|cd)+|ef",                  "AEKFCDab",     ignoreCase:true,  expectedGroups:["CDab", "ab"]);
+  check("(ab|cd)+|ef",                  "AEKeFCDab",    ignoreCase:true,  expectedGroups:["eF", ""]);
+  check("(.)..|abc",                    "abc",          expectedGroups:["abc", "a"]);
+  check(".+: gr(a|e)y",                 "color: grey",  expectedGroups:["color: grey", "e"]);
+  check("(Rob)|(Bob)|(Robert)|(Bobby)", "Hi Bob",       expectedGroups:["Bob", "", "Bob", "", ""]);
+  check("()|",                          "",             expectedGroups:["", ""]);
+  check("|()",                          "",             expectedGroups:["", ""]);
+  check("((a)|(ab))((c)|(bc))",         "abc",          expectedGroups:["abc", "a", "a", "", "bc", "", "bc"]);
+  check("((a)|(b))c",                   "aebc",         expectedGroups:["bc", "b", "", "b"]);
 }
 
-void check(String pattern, String str, String flags = "", Array<String> expectedGroups = null) {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false,
+    List<String> expectedGroups = null]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   Match fm = re.firstMatch(str);
-  Logger.println("\nPattern: \"$pattern\"\n" +
-      "String: \"$str\"\n" + 
-      "Flags: \"$flags\"\n" + 
-      "Exp. groups: \"$expectedGroups\"");
-  Logger.println("group count: " + fm.groupCount());
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
@@ -59,7 +57,6 @@ void check(String pattern, String str, String flags = "", Array<String> expected
     for(int i = 0; i <= fm.groupCount(); i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      Logger.println("\tgroup $i: $expGr == $actGr ??");
       if(expGr != actGr) {
         Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
@@ -67,8 +64,8 @@ void check(String pattern, String str, String flags = "", Array<String> expected
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str) {
+  RegExp re = new RegExp(pattern, false, false);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

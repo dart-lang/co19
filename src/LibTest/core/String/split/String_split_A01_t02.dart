@@ -4,26 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Splits the string around matches of [pattern]. Returns
- * an array of substrings.
- * @description Check the contents of resulting array
+ * @assertion Splits the string around matches of [pattern]. Returns a list of
+ *            substrings.
+ * @description Checks the contents of resulting list
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
-  Array<String> ss = "1,2".split(",");
-  Expect.isTrue(ss[0] == "1" && ss[1] == "2");
-  
-  ss = "12345".split(",");
-  Expect.isTrue(ss[0] == "12345");
-  
-  ss = "12345,".split(",");
-  Expect.isTrue(ss[0] == "12345" && ss[1] == "");
-  
-  ss = "1, 2, 3, 4, 5".split(new RegExp("\\d", "g"));
-  Expect.isTrue(ss[0] == "" && ss[1] == ", " && ss[2] == ", " && ss[3] == ", " && ss[4] == ", " && ss[5] == "");
-  
-  ss = "12".split("");
-  Expect.isTrue(ss[0] == "1" && ss[1] == "2");
+  checkArrayEquals("1,2".split(","), ["1", "2"]);
+  checkArrayEquals("12345".split(","), ["12345"]);
+  checkArrayEquals("12345,".split(","), ["12345", ""]);
+  checkArrayEquals("1, 2, 3, 4, 5".split(new RegExp("\\d", false, false)), ["", ", ", ", ", ", ", ", ", ""]);
+  checkArrayEquals("12".split(""), ["1", "2"]);
+}
+
+void checkArrayEquals(List expected, List actual) {
+  Expect.equals(expected.length, actual.length);
+  for(var i = 0; i < expected.length; i += 1) {
+    Expect.equals(expected[i], actual[i]);
+  }
 }

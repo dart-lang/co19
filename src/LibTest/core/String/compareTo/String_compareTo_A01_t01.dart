@@ -4,24 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion returns -1 if the string less then [other],
- * 1 if he string greater then [other]
- * 0 if strings are equal
- * @description Check that method returns correct value
+ * @assertion returns -1 if the string is lexicographically less then [other], 1 if it is greater
+ *            than [other] and 0 if the strings are equal
+ * @description Checks that this method returns the correct value
  * @author msyabro
+ * @reviewer rodionov
  */
 
+main()
+{
+  Expect.equals(0, "".compareTo(""));
+  Expect.equals(-1, "".compareTo("a"));
 
-main() {
-  Expect.isTrue("".compareTo("") == 0);
-  Expect.isTrue("".compareTo("a") == -1);
-  
-  Expect.isTrue("ABC".compareTo("abc") == -1);
-  Expect.isTrue("abc".compareTo("ABC") == 1);
-  
-  Expect.isTrue("a".compareTo("b") == -1);
-  Expect.isTrue("a".compareTo("a") == 0);
-  Expect.isTrue("baaaaaaaaaaaaa".compareTo("a") == 1);
-  
-  Expect.isTrue("\uffff".compareTo("\ufffe") == 1);
+  Expect.equals(-1, "ABC".compareTo("abc"));
+  Expect.equals(1, "abc".compareTo("ABC"));
+
+  Expect.equals(-1, "a".compareTo("b"));
+  Expect.equals(0, "a".compareTo("a"));
+  Expect.equals(1, "baaaaaaaaaaaaa".compareTo("a"));
+
+  Expect.equals(1, "\uffff".compareTo("\ufffe"));
 }

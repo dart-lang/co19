@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Try to pass function that returns something 
+ * @description Tries to pass function that returns something.
  * @author msyabro
  * @reviewer varlax
  * @needsreview should fail static type check??

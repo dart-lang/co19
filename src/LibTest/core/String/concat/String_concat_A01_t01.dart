@@ -7,6 +7,7 @@
  * @assertion Creates a new string by concatenating this string with [other].
  * @description Checks that concatenation works correctly
  * @author msyabro
+ * @reviewer rodionov
  */
  
 

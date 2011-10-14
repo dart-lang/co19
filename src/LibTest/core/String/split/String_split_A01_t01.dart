@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Splits the string around matches of [pattern]. Returns
- * an array of substrings.
- * @description Check the length of resulting array
+ * @assertion Splits the string around matches of [pattern]. Returns a list of
+ *            substrings.
+ * @description Checks the length of resulting list
  * @author msyabro
  * @reviewer rodionov
  * @needsreview
@@ -14,24 +14,17 @@
 
 
 main() {
-  Array<String> splittedStrings = "1, 2, 3, 4, 5".split(",");
-  Expect.isTrue(splittedStrings.length == 5);
+  Expect.equals(5, "1, 2, 3, 4, 5".split(",").length);
   
-  splittedStrings = "10011".split("1");
-  Expect.isTrue(splittedStrings.length == 4); // empty tokens are included
+  Expect.equals(4, "10011".split("1").length);
+
+  Expect.equals(6, "1, 2, 3, 4, 5".split(new RegExp("\\d", false, false)).length); // empty tokens are included
   
-  splittedStrings = "1, 2, 3, 4, 5".split(new RegExp("\\d", "g"));
-  Expect.isTrue(splittedStrings.length == 6); // empty tokens are included
+  Expect.equals(1, "12345".split(",").length);
   
-  splittedStrings = "12345".split(",");
-  Expect.isTrue(splittedStrings.length == 1);
+  Expect.equals(2, "12345,".split(",").length);
   
-  splittedStrings = "12345,".split(",");
-  Expect.isTrue(splittedStrings.length == 2);
+  Expect.equals(0, "".split("").length); // is it right?
   
-  splittedStrings = "".split("");
-  Expect.isTrue(splittedStrings.length == 0); //is it right?
-  
-  splittedStrings = "12".split("");
-  Expect.isTrue(splittedStrings.length == 2); // also questionable
+  Expect.equals(2, "12".split("").length); // also questionable
 }

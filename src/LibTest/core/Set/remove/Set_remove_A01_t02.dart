@@ -7,9 +7,9 @@
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
  * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Passes null to remove().
+ * @description Passes null argument to remove(), expects a NullPointerException.
  * @author pagolubev
- * @needsreview Behavior not specified. Assumes NullPointerException.
+ * @needsreview Behavior not specified. Assumes a NullPointerException should be thrown.
  * @reviewer msyabro
  */
 

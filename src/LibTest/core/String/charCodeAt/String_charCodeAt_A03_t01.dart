@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Throws NullPointerException if [index] is null
- * @description Check that exception is thrown
+ * @description Tries to pass null as argument and expects a NullPointerException
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
 

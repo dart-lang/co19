@@ -6,7 +6,8 @@
 /**
  * @assertion void removeAll(Collection<T> collection)
  * Removes all the elements of the given collection from the set.
- * @description Passes an element w/o hashCode() function to remove().
+ * @description Passes an element of type that doesn't implement the hashCode() function
+ * as argument to removeAll(), expects a NoSuchMethodException.
  * @author pagolubev
  * @reviewer msyabro
  */

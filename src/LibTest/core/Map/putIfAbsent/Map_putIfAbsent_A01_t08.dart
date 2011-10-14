@@ -7,7 +7,7 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Try to pass not Function object as [ifAbsent] and check ObjectNotClosureException is thrown.
+ * @description Tries to pass non-function object as [ifAbsent] and check ObjectNotClosureException is thrown.
  * @author msyabro
  * @reviewer varlax
  * @needsreview undocumented

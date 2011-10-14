@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
- * @description Try to pass [key] without hashCode()
+ * @description Tries to pass [key] without hashCode().
  * @dynamic-type-error
  * @author msyabro
  * @reviewer varlax

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Try to pass null as [key] and check that NPE is thrown.
+ * @description Tries to pass null as [key] and check that NPE is thrown.
  * @author msyabro
  * @reviewer varlax
  */

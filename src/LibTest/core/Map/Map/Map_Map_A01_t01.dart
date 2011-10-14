@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Constructs a map with the default implementation.
- * @description Check that map can be created with key of any type
+ * @description Checks that map can be created with key of function type.
  * @needsreview In one of samples in specification declaration of Map
  * is as follows
  * Map<K implements Hashable, V> factory HashMap<K, V>

@@ -7,20 +7,20 @@
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
  * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Passes an element with hashCode() function returning string.
- * @dynamic-type-error
- * @author pagolubev
- * @reviewer msyabro
+ * @description Checks correctness of the set after rehashing (triggered by remove()).
+ * @author msyabro
  */
-
-class A {
-  A() {}
-  hashCode() { return 'anm'; }
-}
 
 
 main() {
-  Set s = new Set();
-  s.addAll([1, 2]);
-  s.remove(new A());
+  Set<int> s = new Set<int>();
+
+  for(int i = 0; i < 1000; i++) {
+    s.add(i);
+  }
+
+  for(int i = 0; i < 1000; i++) {
+    s.remove(i);
+    Expect.isFalse(s.contains(i));
+  }
 }

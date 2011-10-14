@@ -6,9 +6,12 @@
 /**
  * @assertion void add(T value)
  * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Checks add() with collisions.
+ * @description Checks that elements with the same hash code that are not equal according
+ * to == operator do not replace each other when added to the set but those that are equal
+ * replace each other.
  * @author pagolubev
  * @reviewer msyabro
+ * @reviewer rodionov
  */
 
 class A {
@@ -22,11 +25,10 @@ class A {
 main() {
   Set<int> s = new Set<int>();
 
-  int firstValue  = 27;
   int numValues = 19;
-  for(int i = firstValue; i < firstValue + numValues; i++) {
+  for(int i = 0; i < numValues; i++) {
     s.add(new A(i));
-    int expectedSize = i - firstValue + 1;
+    int expectedSize = i + 1;
     Expect.isTrue(s.contains(new A(i)));
     Expect.isTrue(s.length == expectedSize);
 

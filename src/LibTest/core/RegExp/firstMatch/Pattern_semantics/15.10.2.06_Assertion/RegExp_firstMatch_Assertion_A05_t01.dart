@@ -10,27 +10,21 @@
  * @description Checks that the assertion is true.
  * @3rdparty sputnik-v1:S15.10.2.6_A5_T1.js-S15.10.2.6_A5_T2.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", "", 0);
+  check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", 0);
 }
 
-void check(String pattern, String str, String flags = "", int matchPos = -1) {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, int matchPos) {
+  RegExp re = new RegExp(pattern, false, false);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start(0));
-  }
-}
-
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
+    Expect.equals(matchPos, fm.start());
   }
 }

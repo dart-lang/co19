@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion [yet to be written]
- * @description Tries to pass null as argument
+ * @assertion Passing null as argument results in IllegalArgumentException
+ * @description Tries to pass null as argument and expects an IllegalArgumentException
  * @author rodionov
- * @needsreview
+ * @needsreview Undocumented
  */
 
 
 main() {
-  checkIAE("string");
+  check("string");
 }
 
-void checkIAE(String str1) {
+void check(String str1) {
   try {
     str1.concat(null);
     Expect.fail("IllegalArgumentException is expected");

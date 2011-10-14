@@ -5,14 +5,19 @@
  */
 /**
  * @assertion Adds [obj] to the buffer. Returns [this].
- * @description Try to pass null as [obj]
+ * @description Tries to pass null or an object that isn't a String as argument,
+ *              correct string conversion expected ("null" in case of null)
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
-
 
 main() {
   StringBuffer sb = new StringBuffer();
   sb.add(null);
-  Expect.isTrue(sb.toString() == "null");
+  Expect.equals("null", sb.toString());
+  sb.add(1);
+  Expect.equals("null1", sb.toString());
+  sb.add(true);
+  Expect.equals("null1true", sb.toString());
 }

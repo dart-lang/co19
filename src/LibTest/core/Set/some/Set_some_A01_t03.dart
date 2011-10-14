@@ -7,25 +7,17 @@
  * @assertion bool some(bool f(T element))
  * Returns true if one element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Checks that 'ObjectNotClosureException' is thrown
- * when a non-function object is passed to some().
- * @author pagolubev
- * @reviewer msyabro
+ * @description Checks that invoking some() doesn't change the set by itself.
+ * @author msyabro
  */
 
 
 main() {
+  bool foo(int x) { return x > 0; }
   Set<int> s = new Set<int>();
-  s.addAll([1, 2]);
+  s.addAll([-1, -3, -11]);
+  Expect.isTrue(!s.some(foo));
 
-  try {
-    s.some(null);
-    Expect.fail("Expected ObjectNotClosureException.");
-  } catch(ObjectNotClosureException e) {}
-
-  int x;
-  try {
-    s.some(x);
-    Expect.fail("Expected ObjectNotClosureException.");
-  } catch(ObjectNotClosureException e) {}
+  Expect.isTrue(s.length == 3);
+  Expect.isTrue(s.containsAll([-1, -3, -11]));
 }

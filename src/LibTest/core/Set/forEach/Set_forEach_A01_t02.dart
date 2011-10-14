@@ -6,7 +6,7 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Checks forEach() on empty set.
+ * @description Checks that forEach() can be invoked on an empty set without any errors.
  * @author pagolubev
  * @reviewer msyabro
  */

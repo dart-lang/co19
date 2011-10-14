@@ -19,43 +19,44 @@
  *            its argument is between -1 and InputLength (exclusive) and the
  *            input character at the position specified by e is one of: latin
  *            letters (both cases), arabic numerals or the underscore.
- * @description Checks that the \b assertion is interpreted correctly
+ * @description Checks that the \b assertion is interpreted correctly.
  * @3rdparty sputnik-v1:S15.10.2.6_A3_T1.js-S15.10.2.6_A3_T15.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check(@"\bp", "pilot\nsoviet robot\topenoffice", "", 0);
-  check(@"ot\b", "pilot\nsoviet robot\topenoffice", "", 3);
-  checkNeg(@"\bot", "pilot\nsoviet robot\topenoffice", "");
-  check(@"\bso", "pilot\nsoviet robot\topenoffice", "", 6);
-  checkNeg(@"so\b", "pilot\nsoviet robot\topenoffice", "");
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", "", 3);
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", "i", 10);
-  check(@"\bro", "pilot\nsoviet robot\topenoffice", "", 13);
-  checkNeg(@"r\b", "pilot\nsoviet robot\topenoffice", "");
-  check(@"\brobot\b", "pilot\nsoviet robot\topenoffice", "", 13);
-  check(@"\b\w{5}\b", "pilot\nsoviet robot\topenoffice", "", 0);
-  check(@"\bop", "pilot\nsoviet robot\topenoffice", "", 19);
-  checkNeg(@"op\b", "pilot\nsoviet robot\topenoffice", "");
-  check(@"e\b", "pilot\nsoviet robot\topenoffic\u0065", "", 28);
-  checkNeg(@"\be", "pilot\nsoviet robot\topenoffic\u0065", "");
+  check(@"\bp", "pilot\nsoviet robot\topenoffice",  matchPos: 0);
+  check(@"ot\b", "pilot\nsoviet robot\topenoffice", matchPos: 3);
+  checkNeg(@"\bot", "pilot\nsoviet robot\topenoffice");
+  check(@"\bso", "pilot\nsoviet robot\topenoffice", matchPos: 6);
+  checkNeg(@"so\b", "pilot\nsoviet robot\topenoffice");
+  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", matchPos: 3);
+  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ignoreCase: true, matchPos: 10);
+  check(@"\bro", "pilot\nsoviet robot\topenoffice", matchPos: 13);
+  checkNeg(@"r\b", "pilot\nsoviet robot\topenoffice");
+  check(@"\brobot\b", "pilot\nsoviet robot\topenoffice", matchPos: 13);
+  check(@"\b\w{5}\b", "pilot\nsoviet robot\topenoffice", matchPos: 0);
+  check(@"\bop", "pilot\nsoviet robot\topenoffice", matchPos: 19);
+  checkNeg(@"op\b", "pilot\nsoviet robot\topenoffice");
+  check(@"e\b", "pilot\nsoviet robot\topenoffic\u0065", matchPos: 28);
+  checkNeg(@"\be", "pilot\nsoviet robot\topenoffic\u0065");
 }
 
-void check(String pattern, String str, String flags = "", int matchPos = -1) {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false, int matchPos = -1]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start(0));
+    Expect.equals(matchPos, fm.start());
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

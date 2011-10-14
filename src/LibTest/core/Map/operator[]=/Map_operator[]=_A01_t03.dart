@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Try to pass [key] of different type
+ * @description Tries to call operator without [key].
  * @static-type-error
  * @author msyabro
  * @reviewer varlax
@@ -14,13 +14,10 @@
 
 class A {
   A() {}
-  int hashCode() {
-    return 1;
-  }
 }
 
 
 main() {
   Map<int, Object> map = new Map<int, Object>();
-  map[new A()] = 1;
+  map[] = 1;
 }

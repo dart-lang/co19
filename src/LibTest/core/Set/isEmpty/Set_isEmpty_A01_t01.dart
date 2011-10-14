@@ -6,7 +6,7 @@
 /**
  * @assertion bool isEmpty()
  * Returns true if there is no element in the collection.
- * @description Simple checks.
+ * @description Checks that this method works as specified on simple sets.
  * @author pagolubev
  * @reviewer msyabro
  */

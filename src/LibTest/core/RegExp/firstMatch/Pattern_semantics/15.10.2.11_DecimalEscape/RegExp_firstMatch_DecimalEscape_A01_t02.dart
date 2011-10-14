@@ -22,14 +22,15 @@
  *              pattern results in an error.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview
+ * @reviewer msyabro
+ * @needsreview Undocumented in Dart
  */
  
 
 main() {
   bool fail = false;
   try {
-    RegExp re = new RegExp(@"\00", "");
+    RegExp re = new RegExp(@"\00", false, false);
     fail = true;
   } catch (var ok) {}
   if(fail) {//FIXME
@@ -38,7 +39,7 @@ main() {
 
   fail = false;
   try {
-    RegExp re = new RegExp(@"\011", "");
+    RegExp re = new RegExp(@"\011", false, false);
     fail = true;
   } catch (var ok) {}
   if(fail) {//FIXME

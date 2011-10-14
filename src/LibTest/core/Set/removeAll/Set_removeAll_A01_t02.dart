@@ -6,9 +6,9 @@
 /**
  * @assertion void removeAll(Collection<T> collection)
  * Removes all the elements of the given collection from the set.
- * @description Passes an array containing null to removeAll().
+ * @description Passes a list containing null as argument to removeAll(), expects a NullPointerException.
  * @author pagolubev
- * @needsreview Behavior is not specified. Assuption: NullPointerException.
+ * @needsreview Behavior not specified. Assumes a NullPointerException should be thrown.
  * @reviewer msyabro
  */
 

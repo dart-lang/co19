@@ -6,7 +6,7 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Checks nested forEach().
+ * @description Checks that nested invocations of forEach() do not cause any errors.
  * @author pagolubev
  * @reviewer msyabro
  */

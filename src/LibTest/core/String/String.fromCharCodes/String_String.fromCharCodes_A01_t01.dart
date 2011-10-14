@@ -5,13 +5,14 @@
  */
 /**
  * @assertion Allocates a new String for the specified [charCodes].
- * @description Check that correct string is created
+ * @description Checks that a correct string is created
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
-  String str = new String.fromCharCodes(['a', 'b', 'c', 'd']);
+  String str = new String.fromCharCodes([0x61, 0x62, 0x63, 0x64]);
   Expect.isTrue(str == "abcd");
   
   str = new String.fromCharCodes([]);

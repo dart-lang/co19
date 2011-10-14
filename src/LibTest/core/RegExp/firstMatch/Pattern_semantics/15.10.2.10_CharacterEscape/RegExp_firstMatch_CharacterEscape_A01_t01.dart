@@ -5,16 +5,17 @@
  */
 /**
  * @assertion 15.10.2.10: The production CharacterEscape :: t evaluates by returning the character \u0009
- * @description Checks that \t evaluates to \u0009
+ * @description Checks that \t evaluates to \u0009.
  * @3rdparty sputnik-v1:S15.10.2.10_A1.1_T1.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp("\\t", "");
+  RegExp re = new RegExp("\\t", false, false);
   Expect.isTrue(null != re.firstMatch("\u0009"));
-  re = new RegExp("\\t\\t", "");
-  Expect.isTrue(null != re.firstMatch("\u0009\\u0009asf"));
+  re = new RegExp("\\t\\t", false, false);
+  Expect.isTrue(null != re.firstMatch("\u0009\u0009asf"));
 }

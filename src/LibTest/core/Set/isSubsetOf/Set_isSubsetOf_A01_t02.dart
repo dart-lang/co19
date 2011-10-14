@@ -6,9 +6,9 @@
 /**
  * @assertion bool isSubsetOf(Collection<T> collection)
  * Returns true if [collection] contains all the elements of this collection.
- * @description Passes an array containing null to isSubsetOf().
+ * @description Passes a list containing null elements to isSubsetOf(), expects NullPointerException.
  * @author pagolubev
- * @needsreview Behavior is not specified. Assumes NullPointerException.
+ * @needsreview Behavior is not specified. Assuming a NullPointerException should be thrown.
  * @reviewer msyabro
  */
 

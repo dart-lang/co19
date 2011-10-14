@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Nested forEach
+ * @description Nested forEach.
  * @author msyabro
  * @reviewer varlax
  */

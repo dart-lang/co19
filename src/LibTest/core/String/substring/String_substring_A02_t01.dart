@@ -4,26 +4,29 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws IndexOutOfRangeException if [startIndex] or [endIndex] is out of bounds.
- * @description Check that exception is thrown when the arguments are out of bounds or in incorrect order.
+ * @assertion Throws IndexOutOfRangeException if [startIndex] or [endIndex] is
+ *            out of bounds.
+ * @description Checks that the correct exception is thrown when the arguments
+ *              are out of bounds or in incorrect order.
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview Undocumented
  */
  
 
 main() {
   String string = "stringWithSubstring";
   
-  checkIOOR(string, -1, 6);
-  checkIOOR(string, 2, 1);
-  checkIOOR(string, 0, string.length + 1);
-  checkIOOR(string, 0, 0x7FFFFFFF);
-  checkIOOR(string, 0x80000000, 0);
-  checkIOOR(string, 0x80000000, 0x7FFFFFFF);
-  checkIOOR(string, 0x7FFFFFFF, 0x80000000);
+  check(string, -1, 6);
+  check(string, 2, 1);
+  check(string, 0, string.length + 1);
+  check(string, 0, 0x7FFFFFFF);
+  check(string, 0x80000000, 0);
+  check(string, 0x80000000, 0x7FFFFFFF);
+  check(string, 0x7FFFFFFF, 0x80000000);
 }
 
-void checkIOOR(String str, int start, int end) {
+void check(String str, int start, int end) {
   try {
     str.substring(start, end);
     Expect.fail("IndexOutOfRangeException is expected");

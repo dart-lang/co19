@@ -5,21 +5,23 @@
  */
 /**
  * @assertion Adds [obj] to the buffer. Returns [this].
- * @description Check that String is appended to the buffer
+ * @description Checks that the String argument is appended to the buffer
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
-  StringBuffer sb = new StringBuffer("buffer");
-  Expect.isTrue(sb.toString() == "buffer");
-  
+  StringBuffer sb = new StringBuffer();
+  sb.add("buffer");
+  Expect.equals("buffer", sb.toString());
+
   sb.add("");
-  Expect.isTrue(sb.toString() == "buffer");
-  
+  Expect.equals("buffer", sb.toString());
+
   sb.add(sb.toString());
-  Expect.isTrue(sb.toString() == "bufferbuffer");
-  
+  Expect.equals("bufferbuffer", sb.toString());
+
   sb.add("\u0000");
-  Expect.isTrue(sb.toString() == "bufferbuffer\u0000");
+  Expect.equals("bufferbuffer\u0000", sb.toString());
 }

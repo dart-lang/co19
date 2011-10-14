@@ -6,7 +6,7 @@
 /**
  * @assertion void removeAll(Collection<T> collection)
  * Removes all the elements of the given collection from the set.
- * @description Simple checks.
+ * @description Checks that removeAll() works as specified in various simple scenarios.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -30,8 +30,8 @@ main() {
   s.removeAll([5, -6, 2, 19, 8, 8]);
   Expect.isTrue(s.length == 3);
   Expect.isTrue(s.containsAll([1, -3, -2]));
-  Expect.isTrue(!s.contains(-6));
-  Expect.isTrue(!s.contains(19));
-  Expect.isTrue(!s.contains(8));
-  Expect.isTrue(!s.contains(2));
+  Expect.isFalse(s.contains(-6));
+  Expect.isFalse(s.contains(19));
+  Expect.isFalse(s.contains(8));
+  Expect.isFalse(s.contains(2));
 }

@@ -19,30 +19,27 @@
  * @description Checks that this assertion is true.
  * @3rdparty sputnik-v1:S15.10.2.8_A5_T1.js-S15.10.2.8_A5_T2.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check(@"[a-z]+", "ABC def ghi", "ig", 0, ["ABC"]);
-  check(@"[a-z]+", "ABC def ghi", "", 4, ["def"]);
-  checkNeg(@"[A-Z]+", "ß", "i");
-  checkNeg(@"[A-Z]+", "\u0131", "i");
-  checkNeg(@"[A-Z]+", "\u017F", "i");
+  check(@"[a-z]+", "ABC def ghi", ignoreCase: true, matchPos: 0, expectedGroups: ["ABC"]);
+  check(@"[a-z]+", "ABC def ghi", matchPos: 4, expectedGroups: ["def"]);
+  checkNeg(@"[A-Z]+", "ß", ignoreCase: true);
+  checkNeg(@"[A-Z]+", "\u0131", ignoreCase: true);
+  checkNeg(@"[A-Z]+", "\u017F", ignoreCase: true);
 }
 
-void check(String pattern, String str, String flags = "", int matchPos = -1, Array<String> expectedGroups = null) {
-  Logger.println("\nPattern: \"$pattern\"\n" +
-      "String: \"$str\"\n" +
-      "Flags: \"$flags\"\n" +
-      "Exp. groups: \"$expectedGroups\"");
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false,
+    int matchPos = -1, List<String> expectedGroups = null]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   Match fm = re.firstMatch(str);
-  Logger.println("group count: " + fm.groupCount());
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start(0));
+    Expect.equals(matchPos, fm.start());
   }
   if(null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount() + 1);
@@ -50,7 +47,6 @@ void check(String pattern, String str, String flags = "", int matchPos = -1, Arr
     for(int i = 0; i <= fm.groupCount(); i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      Logger.println("\t$expGr == $actGr ??");
       if(expGr != actGr) {
         Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
@@ -58,8 +54,8 @@ void check(String pattern, String str, String flags = "", int matchPos = -1, Arr
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

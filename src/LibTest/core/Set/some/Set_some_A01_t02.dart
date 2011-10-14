@@ -7,7 +7,7 @@
  * @assertion bool some(bool f(T element))
  * Returns true if one element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Nested some().
+ * @description Checks that nested invocations of some() on the same set do not cause any errors.
  * @author pagolubev
  * @reviewer msyabro
  */

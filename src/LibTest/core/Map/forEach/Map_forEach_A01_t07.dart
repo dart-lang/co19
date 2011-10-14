@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Try to remove or add pairs in [f]
+ * @description Tries to remove or add pairs in [f].
  * @author msyabro
  * @needsreview undocumented
  */
@@ -20,7 +20,8 @@ main() {
   map.forEach(void func(String key, Object value) {
     map["3"] = key;
   });
-  Expect.isTrue(map["3"] == "1");//Bug or not? pair was added but forEach processed it not the last
+  Expect.isTrue(map.containsKey("3"));
+  Expect.equals(3, map.length);
   
   int i = 0;
   map.forEach(void func(String key, Object value) {

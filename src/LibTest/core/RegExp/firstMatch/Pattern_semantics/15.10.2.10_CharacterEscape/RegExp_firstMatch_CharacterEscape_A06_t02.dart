@@ -22,46 +22,47 @@
  *              supported ones).
  * @author rodionov
  * @needsreview
+ * @reviewer msyabro
  */
  
 
 main() {
-  // Not sure this test makes sense at all.
-//    List<int> errors = new List<int>();
-//    for(var alpha = 0x0021; alpha < 0x0040; alpha++) {
-//      RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), "");
-//      String str = new String.fromCharCodes([alpha % 32]);
-//      if(null != re.firstMatch(str)) {
-//        errors.addLast(alpha);
-//      }
-//    }
-//
-//    for(var alpha = 0x005B; alpha < 0x0060; alpha++) {
-//      RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), "");
-//      String str = new String.fromCharCodes([alpha % 32]);
-//      if(null != re.firstMatch(str)) {
-//        errors.addLast(alpha);
-//      }
-//    }
-//
-//    for(var alpha = 0x007B; alpha <= 0x044F; alpha++) {
-//      if(alpha % 32 == 0) {
-//       continue; // \u0000 seems to match anything??!
-//      }
-//      RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), "");
-//      String str = new String.fromCharCodes([alpha % 32]);
-//      if(null != re.firstMatch(str)) {
-//        errors.addLast(alpha);
-//      }
-//    }
-//    
-//    if(errors.length > 0) {
-//      StringBuffer errStr = new StringBuffer();
-//      void f(int alpha) {
-//        errStr.append("\"\\c" + new String.fromCharCodes([alpha]) + "\" matches \"" 
-//            + new String.fromCharCodes([alpha % 32]) + "\", although it should not\n");
-//      }
-//      errors.forEach(f);
-//      Expect.fail(errStr.toString());
-//    }
+// Not sure this test makes sense at all.
+  List<int> errors = new List<int>();
+  for(var alpha = 0x0021; alpha < 0x0040; alpha++) {
+    RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), false, false);
+    String str = new String.fromCharCodes([alpha % 32]);
+    if(null != re.firstMatch(str)) {
+      errors.addLast(alpha);
+    }
+  }
+
+  for(var alpha = 0x005B; alpha < 0x0060; alpha++) {
+    RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), false, false);
+    String str = new String.fromCharCodes([alpha % 32]);
+    if(null != re.firstMatch(str)) {
+      errors.addLast(alpha);
+    }
+  }
+
+  for(var alpha = 0x007B; alpha <= 0x044F; alpha++) {
+    if(alpha % 32 == 0) {
+      continue; // \u0000 seems to match anything??!
+    }
+    RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), false, false);
+    String str = new String.fromCharCodes([alpha % 32]);
+    if(null != re.firstMatch(str)) {
+      errors.addLast(alpha);
+    }
+  }
+    
+  if(errors.length > 0) {
+    StringBuffer errStr = new StringBuffer();
+    void f(int alpha) {
+      errStr.add("\"\\c" + new String.fromCharCodes([alpha]) + "\" matches \"" 
+          + new String.fromCharCodes([alpha % 32]) + "\", although it should not\n");
+    }
+    errors.forEach(f);
+    Expect.fail(errStr.toString());
+  }
 }

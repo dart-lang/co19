@@ -6,7 +6,7 @@
 /**
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
- * @description Passes an array containing null to addAll().
+ * @description Passes a list containing null to addAll(), expects a NullPointerException.
  * @author pagolubev
  * @needsreview Behavior not specified. Test assumes NullPointerException.
  * @reviewer msyabro

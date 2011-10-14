@@ -5,16 +5,10 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Try to pass function with different types of parameters as [f]
- * @static-type-error
- * @author msyabro
- * @reviewer varlax
- * @needsreview: this is rather compiler check 
+ * @description Checks that an exception thrown by the argument
+ * function breaks iteration and is passed through to the caller.
+ * @author varlax
  */
- 
-class A {
-  A() {}
-}
 
 
 main() {
@@ -22,8 +16,14 @@ main() {
   
   map["1"] = 3;
   map["2"] = 5;
+  map["3"] = 8;
   
-  void f(A x, A y) {}
-  
-  map.forEach(f);
+  int count = 0;
+  try {
+    map.forEach(void func(String key, Object value) {
+      if (count++ > 0) throw new NullPointerException();
+    });
+    Expect.fail("NullPointerException should be thrown");
+  } catch(NullPointerException e) {}
+  Expect.isTrue(count == 2);
 }

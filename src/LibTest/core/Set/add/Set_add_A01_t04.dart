@@ -6,7 +6,8 @@
 /**
  * @assertion void add(T value)
  * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Adds an element of type w/o hashCode() method.
+ * @description Tries to add an element of type that doesn't implement hashCode() method to the set,
+ * NoSuchMethodException is expected.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -20,7 +21,7 @@ main() {
   Set<A> s = new Set<A>();
   try {
     s.add(new A());
-    Expect.fail("Expected NoSuchMethodException.");
+    Expect.fail("NoSuchMethodException expected.");
   } catch (NoSuchMethodException e) {
   }
 }

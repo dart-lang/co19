@@ -5,16 +5,17 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that using a null pattern argument results in NullPointerException
+ * @description Checks that using a null pattern argument results in NullPointerException.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview
+ * @reviewer msyabro
+ * @needsreview undocumented
  */
  
 
 main() {
   try {
-    RegExp re = const RegExp(null, "");
+    RegExp re = const RegExp(null, false, false);
     Expect.fail("NullPointerException expected");
   } catch (NullPointerException ok) { }
 }

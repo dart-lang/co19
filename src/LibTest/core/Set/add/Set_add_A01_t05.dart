@@ -6,7 +6,8 @@
 /**
  * @assertion void add(T value)
  * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Adds an element with hashCode() method returning string.
+ * @description Tries to add an element of type whose hashCode() method returns a string
+ * value instead of int.
  * @dynamic-type-error
  * @author pagolubev
  * @reviewer msyabro

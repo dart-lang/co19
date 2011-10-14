@@ -6,7 +6,7 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Checks that forEach() surpasses each element of the set.
+ * @description Checks that forEach() browses every element of the set.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -16,7 +16,7 @@ main() {
   Set<int> s = new Set<int>();
   s.addAll([1, 2, 3, 4, 5]);
 
-  Array<int> a = new Array(s.length);
+  List<int> a = new List(s.length);
   int i = 0;
 
   s.forEach(void f(int x) {

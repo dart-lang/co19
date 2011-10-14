@@ -5,27 +5,25 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that using an invalid pattern results in IllegalJSRegExpException
+ * @description Checks that using an invalid pattern results in
+ *              IllegalJSRegExpException.
  * @3rdparty sputnik-v1:S15.10.1_A1_T1.js-S15.10.1_A1_T16.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  * @needsreview undocumented behavior. Exception is unspecified.
  */
 
 
 void check(String pattern) {
-  bool fail = true;
   try {
-    RegExp re = new RegExp(pattern, "");
-    fail = true;
-  } catch(var ok) {} //FIXME! specify type of exception.
-  if(fail) {
-    Expect.fail("Exception expected for pattern" + pattern);
+    RegExp re = new RegExp(pattern, false, false);
+    Expect.fail("IllegalJSRegExpException expected");
+  } catch(IllegalJSRegExpException ok) {
   }
 }
 
 main() {
-    check("{{");
     check("[a---z]");
     check("??");
     check("a**");

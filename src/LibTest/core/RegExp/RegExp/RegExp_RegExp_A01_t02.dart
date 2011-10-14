@@ -5,29 +5,20 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that using invalid flags argument results in exception.
+ * @description Checks that null flags arguments can be used.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview
+ * @reviewer msyabro
+ * @needsreview undocumented. Do we need this test?
  */
- 
 
 main() {
-  bool fail = false;
-  try {
-    RegExp re = const RegExp(".", "ii");
-    fail = true;
-  } catch(var ok) { } //FIXME!
-  if(fail) {
-    Expect.fail("Some Exception expected");
-  }
+  RegExp re = new RegExp(@".", null, null);
+  Expect.isFalse(re.firstMatch("a") == null);
 
-  fail = false;
-  try {
-    RegExp re = const RegExp(".", ".");
-    fail = true;
-  } catch (var ok) {} //FIXME!
-  if(fail) {
-    Expect.fail("Some Exception expected");
-  }
+  re = new RegExp(@".", true, null);
+  Expect.isFalse(re.firstMatch("b\na") == null);
+
+  re = new RegExp(@".", null, true);
+  Expect.isFalse(re.firstMatch("A") == null);
 }

@@ -4,16 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if [charCodes] is null.
- * @description Check that exception is thrown
+ * @assertion null list elements result in an IllegalArgumentException
+ * @description Tries to pass a list with null values
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
 
 
-main() {
+void check(List list) {
   try {
-    String str = new String.fromCharCodes(null);
-    Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+    String str = new String.fromCharCodes(list);
+    Expect.fail("IllegalArgumentException is expected");
+  } catch(IllegalArgumentException e) {}
+}
+
+main() {
+  check([null]);
+  check([0, 1, 2, 3, null]);
+  check([null, null]);
 }

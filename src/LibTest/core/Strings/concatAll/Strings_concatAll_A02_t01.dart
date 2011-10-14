@@ -5,15 +5,16 @@
  */
 /**
  * @assertion Throws NullPointerException if argument is null.
- * @description Check that NullPointerException is thrown
+ * @description Checks that passing a null argument results in NullPointerException
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
 
 
 main() {
   try {
-    String str = Strings.concatAll(null);
+    Strings.concatAll(null);
     Expect.fail("NullPointerException is expected");
   } catch(NullPointerException e) {}
 }

@@ -6,9 +6,9 @@
 /**
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
- * @description Passes an array containing null to containsAll().
+ * @description Passes a list containing null elements as argument, expects NullPointerException.
  * @author pagolubev
- * @needsreview Behavior is not specified. Assumes NullPointerException.
+ * @needsreview Undocumented
  * @reviewer msyabro
  */
 

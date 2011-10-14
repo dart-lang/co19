@@ -5,20 +5,22 @@
  */
 /**
  * @assertion Clears the string buffer.
- * @description Check that method clears the buffer
+ * @description Checks that this method really clears the buffer
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
   StringBuffer sb = new StringBuffer();
   sb.clear();
+  Expect.equals("", sb.toString());
   
-  Expect.isTrue(sb.toString() == "");
-  
-  sb.add("aaa");
-  Expect.isTrue(sb.toString() == "aaa");
-  
+  sb = new StringBuffer("aaa");
   sb.clear();
-  Expect.isTrue(sb.toString() == "");
+  Expect.equals("", sb.toString());
+  
+  sb = new StringBuffer("");
+  sb.clear();
+  Expect.equals("", sb.toString());
 }

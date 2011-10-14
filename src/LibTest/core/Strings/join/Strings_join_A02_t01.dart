@@ -5,31 +5,23 @@
  */
 /**
  * @assertion Throws NullPointerException if one of arguments is null.
- * @description Check that NullPointerException is thrown
+ * @description Checks that passing a null argument results in NullPointerException
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
- * When array is empty exeption is not thrown
  */
 
 
 main() {
+  check(null, "");
+  check(["1", "2"], null);
+  //check([], null);         //TODO: add test for empty lists
+  check(null, null);
+}
+
+void check(List<String> arr, String sep) {
   try {
-    String str = Strings.join(null, "");
-    Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
-  
-  try {
-    String str = Strings.join(["1", "2"], null);
-    Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
-  
-  try {
-    String str = Strings.join([], null);//Exception is not thrown
-    Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
-  
-  try {
-    String str = Strings.join(null, null);
+    Strings.join(arr, sep);
     Expect.fail("NullPointerException is expected");
   } catch(NullPointerException e) {}
 }

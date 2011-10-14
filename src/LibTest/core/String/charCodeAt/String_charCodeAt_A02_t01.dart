@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Throws IndexOutOfRangeException if [index] is out of bounds
- * @description Check that exception is thrown
+ * @description Checks that an IndexOutOfRangeException is thrown when the index is out of range
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
 
@@ -17,10 +18,11 @@ void checkIOOR(String str, int index) {
     Expect.fail("IndexOutOfRangeException is expected");
   } catch(IndexOutOfRangeException e) {}
 }
+
 main() {
   checkIOOR("", 0);
   checkIOOR("string", -1);
-  checkIOOR("string", 0xffffffff);
+  checkIOOR("string", 0x80000000);
   checkIOOR("string", 0x7fffffff);
   checkIOOR("string", 6);
 }

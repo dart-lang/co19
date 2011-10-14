@@ -6,7 +6,7 @@
 /**
  * @assertion A [Map] is an associative container, mapping a key to a value.
  * Null values are supported.
- * @description Check work of map with hashcode collisions
+ * @description Checks thet the map works correctly with hashcode collisions.
  * @author msyabro
  * @reviewer varlax
  */

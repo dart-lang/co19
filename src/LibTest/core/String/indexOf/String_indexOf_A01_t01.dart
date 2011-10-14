@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the first location of [other] in this string 
- * starting at [startIndex] (inclusive).
- * @description Checks that correct index is found
+ * @assertion Returns the first location of [other] in this string starting at
+ *            [startIndex] (inclusive).
+ * @description Checks that the correct index is returned
  * @author msyabro
+ * @reviewer rodionov
  */
-
 
 main() {
   Expect.isTrue("string".indexOf("tr", 0) == 1);
@@ -18,5 +18,5 @@ main() {
   Expect.isTrue("a".indexOf("a", 0) == 0);
   Expect.isTrue("".indexOf("", 0) == 0);
 
-  Expect.isTrue("\u0000\u0001".indexOf("\u0000") == 0);
+  Expect.isTrue("\u0000\u0001".indexOf("\u0000", 0) == 0);
 }

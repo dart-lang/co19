@@ -14,19 +14,20 @@
  * @3rdparty sputnik-v1:S15.10.2.10_A4.1_T1.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  * @needsreview
  */
  
 
 main() {
-  const Map<String, String> codes = const {
+  Map<String, String> codes = const {
     "0000" : "\u0000", "0001" : "\u0001", "000A" : "\u000A", "000F" : "\u000F",
     "00FF" : "\u00FF", "0FFF" : "\u0FFF", "FFFF" : "\uFFFF", "F00F" : "\uF00F"
   };
   
   StringBuffer errStr = new StringBuffer();
   codes.forEach(void f(String key, String value) {
-    RegExp re = new RegExp("\\u" + key, "");
+    RegExp re = new RegExp("\\u" + key, false, false);
     if(null == re.firstMatch(value)) {
       errStr.append("\"\\u${key}\" does not match \"${value}\"\n");
     } 

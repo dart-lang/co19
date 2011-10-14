@@ -6,12 +6,13 @@
 /**
  * @assertion Collection<T> filter(bool f(T element));
  * Returns a new collection with the elements of this collection that satisfy the predicate [f].
- * We say that an element satisfies the predicate [f] if [:f(element):] returns true.
- * @description Passes to filter() a function that modifies an element.
+ * An element satisfies the predicate [f] if [:f(element):] returns true.
+ * @description Passes a function that modifies an element as argument to filter().
  * @author pagolubev
  * @needsreview Set behaviour when elements are modified while iterating
  * with filter() is not specified. Currently element modification does
  * not change its position in the hash table.
+ * @reviewer msyabro
  */
 
 class A {
@@ -34,7 +35,10 @@ main() {
   Set<A> filtered = s.filter(foo);
 
   Expect.isTrue(s.length == 2);
-  Expect.isTrue(s.contains(new A(2)));
+  Expect.isFalse(s.contains(new A(1)));
+  Expect.isFalse(s.contains(new A(-1)));
+
+  Expect.isTrue(s.contains(new A(2)));//?????
   Expect.isTrue(s.contains(new A(-2)));
 
   Expect.isTrue(filtered.length == 2);

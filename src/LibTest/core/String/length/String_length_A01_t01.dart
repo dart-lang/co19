@@ -5,8 +5,9 @@
  */
 /**
  * @assertion The length of the string.
- * @description Check that field contains correct value
+ * @description Checks that this field contains a correct value
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
@@ -17,8 +18,8 @@ main() {
   Expect.isTrue("\"".length == 1);
   Expect.isTrue('''""'''.length == 2);
   Expect.isTrue("""''''''""".length == 6);
-  $CHECK("""
-  """.length == 4);//4 spaces before closing triple-quote
+  Expect.isTrue("""
+  """.length == 2);//2 spaces before closing triple-quote
   
   String str = "string";
   Expect.isTrue(str.length == 6);

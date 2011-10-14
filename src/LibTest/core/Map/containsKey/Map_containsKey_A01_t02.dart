@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns whether this map contains the given [key].
- * @description Try to pass null as [key] and check that NPE is thrown.
+ * @description Tries to pass null as [key] and checks that NPE is thrown.
  * @author msyabro
  * @reviewer varlax
  */

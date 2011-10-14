@@ -7,7 +7,7 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Try to pass incorrect function if [key] is already in the map
+ * @description Tries to pass incorrect function if [key] is already in the map
  * @author msyabro
  * @needsreview undocumented
  * @reviewer varlax

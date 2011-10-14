@@ -8,20 +8,21 @@
  * @description Check that this exception is thrown when appropriate
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview undocumented
  */
  
 
 main() {
   String str = "String with <pattern>";
-  RegExp pattern = const RegExp("<.*>", "");
+  RegExp pattern = const RegExp("<.*>", false, false);
   
-  checkIOOR(str, pattern, -1);
-  checkIOOR(str, pattern, str.length);
-  checkIOOR(str, pattern, 0x80000000);
-  checkIOOR(str, pattern, 0x7fffffff);
+  check(str, pattern, -1);
+  check(str, pattern, str.length);
+  check(str, pattern, 0x80000000);
+  check(str, pattern, 0x7fffffff);
 }
 
-void checkIOOR(String str, Pattern pattern, int idx) {
+void check(String str, Pattern pattern, int idx) {
   try {
     str.contains(pattern, idx);
     Expect.fail("IndexOutOfRangeException is expected");

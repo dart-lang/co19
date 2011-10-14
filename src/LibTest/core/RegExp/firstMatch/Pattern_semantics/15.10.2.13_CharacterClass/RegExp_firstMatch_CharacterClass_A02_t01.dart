@@ -23,6 +23,7 @@
  *              described.
  * @3rdparty sputnik-v1:S15.10.2.13_A2_T1.js-S15.10.2.13_A2_T8.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
@@ -38,14 +39,14 @@ main() {
 }
 
 void check(String pattern, String str) {
-  RegExp re = new RegExp(pattern, "");
+  RegExp re = new RegExp(pattern, false, false);
   if(null == re.firstMatch(str)) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 }
 
 void checkNeg(String pattern, String str) {
-  RegExp re = new RegExp(pattern, "");
+  RegExp re = new RegExp(pattern, false, false);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

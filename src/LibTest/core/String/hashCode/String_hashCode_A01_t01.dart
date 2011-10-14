@@ -5,11 +5,16 @@
  */
 /**
  * @assertion Returns hash code of the string
- * @description Check that hash code is calculated correctly
+ * @description Check that the returned hash code fulfills the requirements
+ * (equal objects have equal hash codes, different objects don't)
  * @author msyabro
- * @needsreview calculating method is undocumented
+ * @reviewer rodionov
  */
 
 
 main() {
+  String str1 = "a", str2 = "aa";
+  Expect.isTrue(str1.hashCode != str2.hashCode());
+  Expect.equals(str1.concat(str1).hashCode(), str2.hashCode());
+  Expect.equals("".hashCode(), "".hashCode());
 }

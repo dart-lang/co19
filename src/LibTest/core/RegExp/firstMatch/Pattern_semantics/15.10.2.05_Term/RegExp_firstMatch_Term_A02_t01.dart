@@ -18,25 +18,26 @@
  * @description Checks that matches are ordered according to this rule.
  * @3rdparty sputnik-v1:S15.10.2.5_A1_T3.js-S15.10.2.5_A1_T2.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  check("(aa|aabaac|ba|b|c)*", "aabaac", "", ["aaba", "ba"]);
-  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", "", ["aaaaaaaaa,aaaaaa", "aaa"]);
-  check(@"^(a+)\1*,\1+$", "aaaaaa,aaaaaaaaa", "", ["aaaaaa,aaaaaaaaa", "aaa"]);
-  check(@"^(a+?)\1*,\1+$", "aaaaaaaaa,aaaaaa", "", ["aaaaaaaaa,aaaaaa", "a"]);
-  check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", "", ["aaaaaa,aaaaaaaaa", "a"]);
+  check("(aa|aabaac|ba|b|c)*", "aabaac", ["aaba", "ba"]);
+  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", ["aaaaaaaaa,aaaaaa", "aaa"]);
+  check(@"^(a+)\1*,\1+$", "aaaaaa,aaaaaaaaa", ["aaaaaa,aaaaaaaaa", "aaa"]);
+  check(@"^(a+?)\1*,\1+$", "aaaaaaaaa,aaaaaa", ["aaaaaaaaa,aaaaaa", "a"]);
+  check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", ["aaaaaa,aaaaaaaaa", "a"]);
 }
 
-void check(String pattern, String str, String flags = "", Array<String> expectedGroups = null) {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, List<String> expectedGroups) {
+  RegExp re = new RegExp(pattern, false, false);
   Match fm = re.firstMatch(str);
-  Logger.println("\nPattern: \"$pattern\"\n" +
+  /*print("\nPattern: \"$pattern\"\n" +
       "String: \"$str\"\n" + 
       "Flags: \"$flags\"\n" + 
       "Exp. groups: \"$expectedGroups\"");
-  Logger.println("group count: " + fm.groupCount());
+  print("group count: " + fm.groupCount());*/
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
@@ -46,7 +47,7 @@ void check(String pattern, String str, String flags = "", Array<String> expected
     for(int i = 0; i <= fm.groupCount(); i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      Logger.println("\t$expGr == $actGr ??");
+      //print("\t$expGr == $actGr ??");
       if(expGr != actGr) {
         Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
@@ -54,9 +55,3 @@ void check(String pattern, String str, String flags = "", Array<String> expected
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
-}

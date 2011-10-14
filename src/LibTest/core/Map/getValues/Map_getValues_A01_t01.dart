@@ -20,7 +20,7 @@ main() {
   map["1"] = 1;
   map["2"] = 2;
   
-  Array arr = map.getValues();
+  List arr = map.getValues();
   Expect.isTrue(arr.length == 2);
   Expect.isTrue(arr.indexOf(1,0) != -1 && arr.indexOf(2,0) != -1);
   

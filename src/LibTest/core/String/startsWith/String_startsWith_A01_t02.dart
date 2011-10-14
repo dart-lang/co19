@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns whether this string starts with [other].
- * @description Checks case sensitivity
+ * @description Checks that this method is case sensitive
  * @author msyabro
  * @reviewer rodionov
  */

@@ -5,33 +5,20 @@
  */
 /**
  * @assertion Joins all the given strings to create a new string.
- * @description Check that all strings are joined with separator between them
+ * @description Checks that strings from the specified list are joined
+ *              correctly using the specified separator.
  * @author msyabro
+ * @reviewer rodionov
  */
 
-
 main() {
-  String str = Strings.join(["1", "2", "3"], "");
-  Expect.isTrue(str == "123");
-  
-  str = Strings.join(["1", "2", "3"], ",");
-  Expect.isTrue(str == "1,2,3");
-  
-  str = Strings.join([], ",");
-  Expect.isTrue(str == "");
-  
-  str = Strings.join([], "");
-  Expect.isTrue(str == "");
-  
-  str = Strings.join(["1"], ",");
-  Expect.isTrue(str == "1");
-  
-  str = Strings.join(["1", "1"], "1");
-  Expect.isTrue(str == "111");
-  
-  str = Strings.join(["", "", ""], "1");
-  Expect.isTrue(str == "11");
-  
-  str = Strings.join(["aa", "bb"], " long separator ");
-  Expect.isTrue(str == "aa long separator bb");
+  Expect.equals("123", Strings.join([ "1", "2", "3" ], ""));
+  Expect.equals("1,2,3", Strings.join([ "1", "2", "3" ], ","));
+  Expect.equals("", Strings.join([], ","));
+  Expect.equals("", Strings.join([], ""));
+  Expect.equals("1", Strings.join([ "1" ], ","));
+  Expect.equals("111", Strings.join([ "1", "1" ], "1"));
+  Expect.equals("11", Strings.join([ "", "", "" ], "1"));
+  Expect.equals("aa long separator bb", Strings.join([ "aa", "bb" ],
+      " long separator "));
 }

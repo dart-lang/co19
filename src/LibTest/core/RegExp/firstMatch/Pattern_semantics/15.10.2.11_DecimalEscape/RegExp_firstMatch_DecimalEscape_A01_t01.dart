@@ -22,10 +22,11 @@
  * @3rdparty sputnik-v1:S15.10.2.11_A1_T1.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp(@"\0", "");
+  RegExp re = new RegExp(@"\0", false, false);
   Expect.isTrue(null != re.firstMatch("\u0000"));
 }

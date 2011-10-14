@@ -5,17 +5,14 @@
  */
 /**
  * @assertion If the string is not already all upper case, returns a new string
- * where all characters of this string are made upper case. Returns this otherwise.
- * @description Check basic cases
+ *            where all characters of this string are made upper case. Returns
+ *            this otherwise.
+ * @description Checks basic cases (latin alphabet)
  * @author msyabro
  * @reviewer rodionov
  */
- 
 
 main() {
-  String str = "lowercase";
-  String str2 = "Almostlowercase";
-  
-  Expect.isTrue(str.toUpperCase() == "LOWERCASE");
-  Expect.isTrue(str2.toUpperCase() == "ALMOSTLOWERCASE");
+  Expect.equals("LOWERCASE", "lowercase".toUpperCase());
+  Expect.equals("ALMOSTLOWERCASE", "Almostlowercase".toUpperCase());
 }

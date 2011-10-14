@@ -6,8 +6,8 @@
 /**
  * @assertion bool contains(T value)
  * Returns true if [value] is in the set.
- * @description Checks that method returns true if an element was added to the set.
- * Otherwise returns false.
+ * @description Checks that this method returns true if an element was added to the set prior to that (and not removed since)
+ * and false otherwise.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -19,7 +19,7 @@ main() {
   int firstValue  = 27;
   int numValues = 19;
   for(int i = firstValue; i < firstValue + numValues; i++) {
-    Expect.isTrue(!s.contains(i));
+    Expect.isFalse(s.contains(i));
     s.add(i);
     Expect.isTrue(s.contains(i));
   }

@@ -5,18 +5,17 @@
  */
 /**
  * @assertion Returns whether this string is empty.
- * @description Checks that this method works
+ * @description Checks that this method works correctly
  * @author msyabro
- * @needsreview First newline is removed in multiline string
- * if it is immediately following the first triple-quote,
- * should leading whitespaces in each line be removed or be kept?
+ * @reviewer rodionov
  */
 
 
 main() {
   Expect.isTrue("".isEmpty() == true);
   Expect.isTrue(" ".isEmpty() == false);
-  $CHECK("""
-  """.isEmpty() == false); //???? 
+  Expect.isTrue("""
+  """.isEmpty() == false); 
   Expect.isTrue("\u0000".isEmpty() == false);
+  Expect.isTrue("u0000".isEmpty() == false);
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns a collection containing all the values in the map.
- * @description Check that returned collection is not backed by the map
+ * @description Check that returned collection is not backed by the map.
  * @author msyabro
  * @reviewer varlax
  */
@@ -19,7 +19,7 @@ main() {
   
   Collection a = map.getValues();
   
-  //a.clear(); //Can't clear because returned array is unextendable
+  //a.clear(); //Can't clear because returned list is unextendable
   //Expect.isTrue(map.length == 2);
   a[0] = 3;
   Expect.isTrue(!map.containsValue(3));

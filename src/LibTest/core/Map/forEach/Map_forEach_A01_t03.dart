@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Try to pass function with different signature as [f]
+ * @description Tries to pass function with wrong signature as [f]
  * @static-type-error
  * @author msyabro
  * @reviewer varlax

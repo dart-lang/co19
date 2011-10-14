@@ -5,9 +5,11 @@
  */
 /**
  * @assertion Throws an IndexOutOfRangeException if [index] is out of bounds.
- * @description Check some trivial cases
+ * @description Checks that passing an argument that is out of this string's
+ * valid index range results in an IndexOutOfRangeException
  * @author msyabro
- * @needsreview
+ * @reviewer rodionov
+ * @needsreview Undocumented
  */
 
 

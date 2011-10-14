@@ -7,7 +7,8 @@
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
  * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Passes an element w/o hashCode() function to remove().
+ * @description Passes an element of type that doesn't implement the hashCode() function
+ * as argument to remove(), expects a NoSuchMethodException.
  * @author pagolubev
  * @reviewer msyabro
  */

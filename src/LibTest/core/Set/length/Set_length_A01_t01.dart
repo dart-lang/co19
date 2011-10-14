@@ -6,7 +6,7 @@
 /**
  * @assertion int length
  * Returns the number of elements in the collection.
- * @description Checks number returned by length.
+ * @description Checks that the value returned by length is correct in various scenarios.
  * @author pagolubev
  * @reviewer msyabro
  */

@@ -15,36 +15,37 @@
  *            true.</li>
  *            <li>Return false.</li>
  *            </ol>
- * @description Checks that the ^ assertion is interpreted correctly
+ * @description Checks that the ^ assertion is interpreted correctly.
  * @3rdparty sputnik-v1:S15.10.2.6_A2_T1.js-S15.10.2.6_A2_T10.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  checkNeg("^m", "pairs\nmakes\tdouble", "");
-  check("^m", "pairs\nmakes\tdouble", "m");
-  check(@"^\d+", "abc\n123xyz", "m");
-  check("^p[a-z]", "pairs\nmakes\tdouble\npesos", "");
-  checkNeg("^p[b-z]", "pairs\nmakes\tdouble\npesos", "");
-  check("^p[b-z]", "pairs\nmakes\tdouble\npesos", "m");
-  check("^[^p]", "pairs\nmakes\tdouble\npesos", "m");
-  check("^ab", "abcde", "");
-  checkNeg("^..^e", "ab\ncde", "");
-  checkNeg("^xxx", "yyyyy", "");
-  check(@"^\^+", "^^^x", "");
+  checkNeg("^m", "pairs\nmakes\tdouble");
+  check("^m", "pairs\nmakes\tdouble", multiLine: true);
+  check(@"^\d+", "abc\n123xyz", multiLine: true);
+  check("^p[a-z]", "pairs\nmakes\tdouble\npesos");
+  checkNeg("^p[b-z]", "pairs\nmakes\tdouble\npesos");
+  check("^p[b-z]", "pairs\nmakes\tdouble\npesos", multiLine: true);
+  check("^[^p]", "pairs\nmakes\tdouble\npesos", multiLine: true);
+  check("^ab", "abcde");
+  checkNeg("^..^e", "ab\ncde");
+  checkNeg("^xxx", "yyyyy");
+  check(@"^\^+", "^^^x");
 }
 
-void check(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 }
 
-void checkNeg(String pattern, String str, String flags = "") {
-  RegExp re = new RegExp(pattern, flags);
+void checkNeg(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
+  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

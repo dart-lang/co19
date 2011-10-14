@@ -6,7 +6,7 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Passes to forEach() a function that modifies an element.
+ * @description Passes a function that modifies the set as argument to forEach().
  * @author pagolubev
  * @needsreview Set behaviour when elements are modified while iterating
  * with forEach() is not specified. Currently element modification does
@@ -31,6 +31,8 @@ main() {
   });
 
   Expect.isTrue(s.length == 2);
+  Expect.isFalse(s.contains(new A(1)));
+  Expect.isFalse(s.contains(new A(-1)));
   Expect.isTrue(s.contains(new A(2)));
   Expect.isTrue(s.contains(new A(-2)));
 }

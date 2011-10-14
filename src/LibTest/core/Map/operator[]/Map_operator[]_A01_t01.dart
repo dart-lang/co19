@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
- * @description Test checks that the method returns the value to which the specified key is
+ * @description Checks that the method returns the value to which the specified key is
  * mapped, or null if this map contains no mapping for the key.
  * @author msyabro
  * @reviewer varlax

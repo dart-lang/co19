@@ -5,16 +5,17 @@
  */
 /**
  * @assertion 15.10.2.10: The production CharacterEscape :: r evaluates by returning the character \u000D
- * @description Checks that \r evaluates to \u000D
+ * @description Checks that \r evaluates to \u000D.
  * @3rdparty sputnik-v1:S15.10.2.10_A1.5_T1.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp("\\r", "");
+  RegExp re = new RegExp("\\r", false, false);
   Expect.isTrue(null != re.firstMatch("\u000D"));
-  re = new RegExp("\\r\\r", "");
+  re = new RegExp("\\r\\r", false, false);
   Expect.isTrue(null != re.firstMatch("\u000D\u000Dasf"));
 }

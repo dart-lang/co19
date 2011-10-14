@@ -5,15 +5,17 @@
  */
 /**
  * @assertion Concatenates all the given strings to create a new string.
- * @description Try to pass array with not String objects
+ * @description Tries to pass a list with elements that aren't String
  * @static-type-error
  * @author msyabro
- * @needsreview test finishes without any output, but any code after
- * String str = Strings.concatAll([1, 2, 3]);
- * will not be executed
+ * @reviewer rodionov
  */
 
-
 main() {
-  String str = Strings.concatAll([1, 2, 3]);
+
+  String str = Strings.concatAll([ "1", 2 ]);
+
+  str = Strings.concatAll([ 1, "2", 3 ]);
+
+  str = Strings.concatAll([ "1", 2.0, (3/0.0) ]);
 }

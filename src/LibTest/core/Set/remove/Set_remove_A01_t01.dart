@@ -7,7 +7,7 @@
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
  * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Basic remove() checks.
+ * @description Checks that remove() works as specified in various simple scenarios.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -19,7 +19,7 @@ main() {
   Expect.isTrue(!s.remove(0));
   Expect.isTrue(s.length == 0);
 
-  Array<int> a = [-7, 5, 3, -22, 6, -1];
+  List<int> a = [-7, 5, 3, -22, 6, -1];
   s.addAll(a);
 
   Expect.isTrue(!s.remove(0));

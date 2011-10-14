@@ -15,10 +15,10 @@
   
 main() {
   
-  Array keys = new Array(2);
+  List keys = new List(2);
   keys[0] = 0;
   keys[1] = 0;
-  Array values = new Array(2);
+  List values = new List(2);
   void f(int i, Object value) {
     keys[i] += 1;
     values[i] = value;

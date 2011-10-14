@@ -13,11 +13,12 @@
  *              (tested vs all characters from the basic plane)
  * @3rdparty sputnik-v1:S15.10.2.12_A3_T1.js-S15.10.2.12_A3_T5.js
  * @author rodionov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp("\\w", "g");
+  RegExp re = new RegExp("\\w", false, false);
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     String ch = new String.fromCharCodes([alpha]);
     switch(true) {

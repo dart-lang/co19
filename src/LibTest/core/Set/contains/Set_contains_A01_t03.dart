@@ -6,7 +6,7 @@
 /**
  * @assertion bool contains(T value)
  * Returns true if [value] is in the set.
- * @description Passes element of type with no hashCode() method.
+ * @description Passes an element of type that doesn't implement hashCode() method.
  * @author pagolubev
  * @reviewer msyabro
  */

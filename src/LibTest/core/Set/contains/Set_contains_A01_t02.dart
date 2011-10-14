@@ -6,9 +6,9 @@
 /**
  * @assertion bool contains(T value)
  * Returns true if [value] is in the set.
- * @description Passes null to contains().
+ * @description Passes null as argument, expects NullPointerException.
  * @author pagolubev
- * @needsreview Behavior is not specified. Assumes NullPointerException.
+ * @needsreview Undocumented
  * @reviewer msyabro
  */
 

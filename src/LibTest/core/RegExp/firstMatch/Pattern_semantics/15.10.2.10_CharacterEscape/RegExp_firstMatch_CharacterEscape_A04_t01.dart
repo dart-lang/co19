@@ -5,16 +5,17 @@
  */
 /**
  * @assertion 15.10.2.10: The production CharacterEscape :: f evaluates by returning the character \u000C
- * @description Checks that \f evaluates to \u000C
+ * @description Checks that \f evaluates to \u000C.
  * @3rdparty sputnik-v1:S15.10.2.10_A1.4_T1.js
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
  
 
 main() {
-  RegExp re = new RegExp("\\f", "");
+  RegExp re = new RegExp("\\f", false, false);
   Expect.isTrue(null != re.firstMatch("\u000C"));
-  re = new RegExp("\\f\\f", "");
+  re = new RegExp("\\f\\f", false, false);
   Expect.isTrue(null != re.firstMatch("\u000C\u000Casf"));
 }

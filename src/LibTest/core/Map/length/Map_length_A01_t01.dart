@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The number of {key, value} pairs in the map.
- * @description checks that in length stored correct size of the map.
+ * @description Checks that in length stored correct size of the map.
  * @author msyabro
  * @reviewer varlax
  */

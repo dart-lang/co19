@@ -5,28 +5,17 @@
  */
 /**
  * @assertion Returns whether the buffer is empty.
- * @description Check that method returns true if the buffer is 
- * empty and false otherwise
+ * @description Checks that this method returns true if the buffer is empty and false
+ *              otherwise
  * @author msyabro
+ * @reviewer rodionov
  */
-
 
 main() {
   StringBuffer sb = new StringBuffer();
   Expect.isTrue(sb.isEmpty());
-  
-  sb.add("");
-  Expect.isTrue(sb.isEmpty());
-  
-  sb.add(null);
-  Expect.isTrue(!sb.isEmpty());
-  
-  sb.clear();
-  Expect.isTrue(sb.isEmpty());
-  
-  sb.add("abc");
-  Expect.isTrue(!sb.isEmpty());
-  
-  sb = new StringBuffer();
-  Expect.isTrue(sb.isEmpty());
+  Expect.isTrue(sb.add("").isEmpty());
+  Expect.isFalse(sb.add(null).isEmpty());
+  Expect.isTrue(sb.clear().isEmpty());
+  Expect.isFalse(sb.add("abc").isEmpty());
 }
