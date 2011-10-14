@@ -26,7 +26,7 @@ class A {
 }
 
 
-void main() {
+main() {
   int f2() { return 2; }
   Expect.isTrue(2 == f2());
 

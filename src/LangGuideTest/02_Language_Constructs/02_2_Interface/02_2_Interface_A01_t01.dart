@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/** 
+/**
  * @assertion An interface introduces a named type that classes can implement. An interface 
  * specifies a set of inherited interfaces, a set of instance method signatures, and a set of constants. 
  * @description Checks virtual calls through interfaces.
@@ -34,7 +34,7 @@ class C implements I {
 }
 
 
-void main() {
+main() {
   C c = new C();
   I2 i2 = c;
   I3 i3 = c;

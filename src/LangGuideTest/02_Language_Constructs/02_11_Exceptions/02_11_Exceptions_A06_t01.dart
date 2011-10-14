@@ -13,7 +13,7 @@ class A {
 }
 
 
-void main() {
+main() {
   try {}
   catch (A e) {}
   catch (final A e) {}
@@ -23,14 +23,15 @@ void main() {
   catch (var e) {}
 
   try {}
-  catch (var e, StackTrace trace) {}
+  catch (Object e, Object trace) {}
 
   try {}
-  catch (var e, final StackTrace trace) {}
+  catch (var e, var trace) {}
+
+  try {}
+  catch (Object e, final Object trace) {}
 
   try {}
   catch (var e, final trace) {}
 
-  try {}
-  catch (var e, var trace) {}
 }

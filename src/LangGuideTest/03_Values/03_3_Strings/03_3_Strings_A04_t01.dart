@@ -13,7 +13,7 @@
  */
 
 
-void main() {
+main() {
   Expect.isTrue(@"raw string\t\n" == "raw string\\t\\n");
 
   Expect.isTrue(@"quotes can't be escaped\" == "quotes can't be escaped\\");

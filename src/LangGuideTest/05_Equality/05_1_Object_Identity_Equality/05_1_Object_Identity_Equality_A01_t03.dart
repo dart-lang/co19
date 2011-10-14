@@ -11,7 +11,7 @@
  */
 
 
-void main() {
-  var x = NaN;
+main() {
+  var x = double.NAN;
   Expect.isTrue(x === x);
 }

@@ -17,4 +17,4 @@ class A {
   A.c2() : A() {}
 }
 
-void main() {}
+main() {}

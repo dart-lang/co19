@@ -18,4 +18,4 @@ class C {
 }
 
 
-void main() {}
+main() {}

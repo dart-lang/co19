@@ -21,9 +21,9 @@ class B {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(!(12 === 12.0));
-  Expect.isTrue(!(new Array[1, 2] === new Array[1, 2]));
+  Expect.isTrue(!([1, 2] === [1, 2]));
   A a1 = new A();
   A a2 = new A();
   Expect.isTrue(!(a1 === a2));

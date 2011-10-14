@@ -35,7 +35,7 @@ void bar() {
   }
 }
  
-void main() {
+main() {
   barFin = fooFin = caught = false;
   try {
     foo();

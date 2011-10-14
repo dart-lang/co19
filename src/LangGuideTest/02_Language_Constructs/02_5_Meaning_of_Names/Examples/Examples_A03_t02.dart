@@ -17,4 +17,4 @@ class A {}
   static void x() {}
 }
 
-void main() {}
+main() {}

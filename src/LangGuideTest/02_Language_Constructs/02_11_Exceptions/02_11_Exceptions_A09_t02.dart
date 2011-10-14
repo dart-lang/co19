@@ -22,7 +22,7 @@ class A {
 }
 
   
-void main() {
+main() {
   try {
     A.foo();
   } catch(var e) {

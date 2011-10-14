@@ -15,6 +15,6 @@
  */
  
 
-void main() {
+main() {
   true ? true : false;
 }

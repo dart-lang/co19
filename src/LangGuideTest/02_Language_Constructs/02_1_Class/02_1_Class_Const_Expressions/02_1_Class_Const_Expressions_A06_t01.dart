@@ -16,6 +16,6 @@ class C {
   final v;
 }
 
-void main() {
+main() {
   var c = new C();
 }

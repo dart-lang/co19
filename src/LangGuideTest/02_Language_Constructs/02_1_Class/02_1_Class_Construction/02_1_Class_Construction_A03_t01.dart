@@ -17,6 +17,6 @@ class C {
   final i;
 }
 
-void main() {
+main() {
   C c = new C();
 }

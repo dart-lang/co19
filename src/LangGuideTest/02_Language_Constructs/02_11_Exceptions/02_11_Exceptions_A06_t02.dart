@@ -11,7 +11,7 @@
  */
 
 
-void main() {
+main() {
   try {}
   catch(e) {}
 }

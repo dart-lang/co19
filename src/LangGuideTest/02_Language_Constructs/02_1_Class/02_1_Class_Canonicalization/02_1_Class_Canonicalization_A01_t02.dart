@@ -28,7 +28,7 @@ class C extends A {
   const C(foo, bar) : super.c1(foo, bar);
 }
 
-void main() {
+main() {
   Expect.isTrue(const A.c1(1, 2) === const A.c1(1, 2));
   Expect.isTrue(const A.c1(1, 2) !== const A.c2(1, 2));
   Expect.isTrue(const A.c1(1, 2) === const A.c2(2, 1));

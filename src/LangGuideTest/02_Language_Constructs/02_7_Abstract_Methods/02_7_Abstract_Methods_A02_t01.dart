@@ -12,12 +12,12 @@
  * @compile-error
  */
 
-interface A {
+class A {
 
-  void f([int x = 1]);
+  abstract void f([int x = 1]);
 
 }
 
 
 
-void main() {}
+main() {}

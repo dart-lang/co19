@@ -19,7 +19,7 @@
  * @reviewer msyabro
  */
 
-void main() {}
+main() {}
 
 class A {
   operator !==() {}

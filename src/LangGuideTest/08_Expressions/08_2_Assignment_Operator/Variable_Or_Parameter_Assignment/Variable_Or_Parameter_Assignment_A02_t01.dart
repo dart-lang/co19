@@ -12,7 +12,7 @@
  */
 
 
-void main() {
+main() {
   final c;
   c = 1;
 }

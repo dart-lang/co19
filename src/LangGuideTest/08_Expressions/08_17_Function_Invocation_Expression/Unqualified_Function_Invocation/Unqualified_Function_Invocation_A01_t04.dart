@@ -20,6 +20,6 @@
  */
 
 
-void main() {
+main() {
   int(1, 1);
 }

@@ -21,6 +21,6 @@ class C {
 }
 
 
-void main() {
+main() {
   new I();
 }

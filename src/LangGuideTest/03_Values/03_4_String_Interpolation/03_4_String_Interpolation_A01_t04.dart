@@ -16,7 +16,7 @@
  */
 
 
-void main() {
+main() {
   var x$y = 1;
   "$x$y";
 }

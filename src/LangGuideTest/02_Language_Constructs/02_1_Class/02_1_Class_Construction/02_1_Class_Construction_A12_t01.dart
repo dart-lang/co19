@@ -23,7 +23,7 @@ class B extends A {
 }
 
 
-void main() {
+main() {
   B b = new B();
-  Expect.isTrue(b.ok == 2);
+  Expect.equals(2, b.ok);
 }

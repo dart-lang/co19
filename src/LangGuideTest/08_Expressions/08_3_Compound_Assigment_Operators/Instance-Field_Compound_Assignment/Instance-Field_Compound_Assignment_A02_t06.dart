@@ -18,7 +18,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   Expect.isTrue( (a.i >>>= 3) == 536870911);
 }

@@ -4,27 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If either operand of arithmetic operation is a double, 
- * then the other operand is converted to a double first (if necessary) 
- * and the operation returns a double.
- * @description Check that result will be double if either operand is double
+ * @assertion Sign of the modulo (%) is always positive.
+ * @description Check that result of % is always positive 
  * @author akuznecov
+ * @reviewer msyabro
  */
 
 
-void main() {
-  Expect.isTrue((4.0 + 2) is double);  
-  Expect.isTrue((4 + 2.0) is double);  
-
-  Expect.isTrue((4.0 - 2) is double);  
-  Expect.isTrue((4 - 2.0) is double);  
-
-  Expect.isTrue((4.0 * 2) is double);  
-  Expect.isTrue((4 * 2.0) is double);  
-
-  Expect.isTrue((4.0 / 2) is double);  
-  Expect.isTrue((4 / 2.0) is double);  
-
-  Expect.isTrue((4.0 % 2) is double);  
-  Expect.isTrue((4 % 2.0) is double);  
+main() {
+  // Example 102
+  Expect.isTrue((17 % 3) == 2);
+  Expect.isTrue((17 % -3) == 2);
+  Expect.isTrue((-17 % 3) == 1);
+  Expect.isTrue((-17 % -3) == 1);
 }

@@ -13,6 +13,6 @@
  */
  
 
-void main() {
+main() {
   true || false;
 }

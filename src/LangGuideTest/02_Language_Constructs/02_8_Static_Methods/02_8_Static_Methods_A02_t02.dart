@@ -8,7 +8,8 @@
  * @description Checks calling static method without prefixing from subclass static method.
  * @author pagolubev
  * @reviewer iefremov
- * @compile-error
+ * @needsreview Specification says: "The static methods of a class C are those static methods declared by C" (7.6).
+ * Does that mean that static methods of the super class can't be accessed from the subclass without prefixing?
  */
 
 class A {
@@ -20,6 +21,6 @@ class B extends A {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(B.bar() == 1);
 }

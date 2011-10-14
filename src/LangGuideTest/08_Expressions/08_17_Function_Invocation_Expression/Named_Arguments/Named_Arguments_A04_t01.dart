@@ -7,14 +7,12 @@
  * @assertion It is a noSuchMethod situation to attempt to pass a named argument as both a positional argument and named argument.
  * @description Check that named argument can not be passed as a positional argument
  * @author msyabro
- * @needsreview previously in a02_t[12] theese checked without exceptions
+ * @compile-error
  */
 
 
 void func(int p, [int np]) {}
 
-void main() {
-  try {
-    func(np:1);
-  } catch(NoSuchMethodException e) {}
+main() {
+  func(np:1, 2);
 }

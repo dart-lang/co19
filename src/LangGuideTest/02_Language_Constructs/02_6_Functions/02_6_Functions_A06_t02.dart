@@ -11,13 +11,11 @@
  * @reviewer pagolubev
  */
 
-
-
-static int f([int x]) {
+int f([int x]) {
   return x;
 }
 
-void main() {
-   Expect.isTrue(f() == null;);
+main() {
+   Expect.isTrue(f() == null);
    Expect.isTrue(f(6031769) == 6031769);
 }

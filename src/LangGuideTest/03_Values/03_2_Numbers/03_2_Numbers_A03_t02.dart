@@ -5,21 +5,21 @@
  */
 /**
  * @assertion Underflows and overflows are ignored.
- * @description Assign some values greater than maximum finite double.
+ * @description Assign some values less than minimum finite double.
  * @author pagolubev
  * @reviewer akuznecov
  */
 
 
-void main() {
+main() {
   double x;
 
-  x = 1e1000;
-  x = -1e1000;
+  x = 1e-1000;
+  x = -1e-1000;
 
-  x = 1.7976931348623167e308;
-  x = -1.7976931348623167e308;
+  x = 4.9406564584124644e-324;
+  x = -4.9406564584124644e-324;
 
-  x = 1e308d + 1e308;
-  x = -1e308d - 1e308;
+  x = 4.9406564584124654e-324 / 2;
+  x = -4.9406564584124654e-324 / 2;
 }

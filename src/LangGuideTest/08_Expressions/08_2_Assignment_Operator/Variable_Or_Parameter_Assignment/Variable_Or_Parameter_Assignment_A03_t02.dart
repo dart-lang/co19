@@ -23,7 +23,7 @@ void foo(var x, var y) {
   Expect.isTrue(y == 10);
 }
 
-void main() {
+main() {
   var x;
   Expect.isTrue((x = 1) == 1);
 

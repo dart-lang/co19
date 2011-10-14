@@ -26,7 +26,7 @@ class IFactory {
 }
 
 
-void main() {
+main() {
   IClass i = new I(42);
   Expect.isTrue(i.x == 42);
 }

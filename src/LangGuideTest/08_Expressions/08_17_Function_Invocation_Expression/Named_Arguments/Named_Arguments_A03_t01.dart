@@ -6,13 +6,13 @@
 /**
  * @assertion Positional arguments are always passed to the formal parameter in the same position.
  * @description Try to pass positional argument in different position
- * @compile-error
+ * @dynamic-type-error
  * @author msyabro
  */
 
 
 void func(int x, bool y) {}
 
-void main() {
+main() {
   func(true, 1);
 }

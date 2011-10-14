@@ -11,9 +11,9 @@
 
 
 void func1(int p1, int p2, [int np1, int np2]) {}
-void func2(int p1, int p2 = 1, [int np1, int np2]) {}
+void func2(int p1, int p2, [int np1 = 1, int np2]) {}
 
-void main() {
+main() {
   func1(1, 1, 1, 1);
   func2(1,1,1);
 }

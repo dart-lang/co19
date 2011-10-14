@@ -17,7 +17,7 @@
  */
 
 
-void main() {
+main() {
   String s = "First line\nSecond line\n";
 
   String s1 = """

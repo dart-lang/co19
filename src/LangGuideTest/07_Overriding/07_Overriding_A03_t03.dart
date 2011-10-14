@@ -20,4 +20,4 @@ class B extends A {
 }
 
 
-void main() {}
+main() {}

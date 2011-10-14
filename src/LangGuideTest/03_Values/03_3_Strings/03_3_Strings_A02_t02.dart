@@ -27,7 +27,7 @@
  */
 
 
-void main() {
+main() {
   Expect.isTrue("ab\"cd".length == 5);
   Expect.isTrue('ab\"cd'.length == 5);
 

@@ -24,7 +24,7 @@ void check(var a) {
   }
 }
 
-void main() {
+main() {
   check(new A(-1));
   check("test");
   check(1);

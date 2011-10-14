@@ -23,7 +23,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   Expect.isTrue(a.func(1, 1) == 2);
 }

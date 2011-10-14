@@ -12,6 +12,6 @@
  */
  
 
-void main() {
+main() {
   Expect.isTrue( (true || false) is bool);
 }

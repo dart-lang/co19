@@ -4,16 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion When comparing a double d to a rational r then the rational is 
- * first converted into a double.
- * @description Test equality operator for rational to double comparsion
+ * @assertion All arithmetic operations return precise numbers if the operands are precise. 
+ * If both arguments of an arithmetic operation are integers and result yields integer, 
+ * then the result will be a integer
+ * @description Check the type of result of arithmetical operations on integers
  * @author akuznecov
- * @needsreview Are rationals still supported?
  */
 
 
-void main() {
-  // 0.3 == 0.3d // => true
-  Expect.equals(new Rational(0.3), 0.3);
-  Expect.equals(0.3, new Rational(0.3));
+main() {
+  Expect.isTrue((8 / 4) is double);
+  Expect.isTrue((6 / 4) is double);  
 }

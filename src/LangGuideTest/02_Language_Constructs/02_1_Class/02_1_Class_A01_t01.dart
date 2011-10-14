@@ -18,7 +18,7 @@ class B {
 }
 
 
-void main() {
+main() {
   var a = new A();
   var b = new B();
 }

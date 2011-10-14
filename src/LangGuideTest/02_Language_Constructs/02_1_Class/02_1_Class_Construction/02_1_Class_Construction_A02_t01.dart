@@ -15,6 +15,6 @@ class C {
   C C.makeC() { return this;}
 }
 
-void main() {
+main() {
   var c =  new C.makeC();
 }

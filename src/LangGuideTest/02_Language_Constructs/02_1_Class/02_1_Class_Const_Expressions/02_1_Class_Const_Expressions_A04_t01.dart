@@ -23,6 +23,6 @@ class C {
   final v;
 }
 
-void main() {
+main() {
   final c = new C();
 }

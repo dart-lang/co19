@@ -22,7 +22,7 @@ class A {
 
 
 
-void main() {
+main() {
    A a = new A();
    Expect.isTrue(a.a == 42);
    Expect.isTrue(a.b == 6031769);

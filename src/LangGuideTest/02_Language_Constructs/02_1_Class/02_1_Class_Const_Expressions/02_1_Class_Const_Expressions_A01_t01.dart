@@ -21,7 +21,7 @@ class B {
 }
 
 
-void main() {
+main() {
   final a = const A();
   final b = const B(1);
   Expect.isTrue(b.i == 1);

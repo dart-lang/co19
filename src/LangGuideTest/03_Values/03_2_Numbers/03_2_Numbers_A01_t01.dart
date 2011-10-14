@@ -4,47 +4,59 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Rationals are exact numbers. Integers are a subtype of rationals.
- * All arithmetic operations (+, -, etc.) working on two rationals will yield an exact rational.
- * If the result is an integer (i.e. without decimals) then the result-type is int.
- * @description Checks that integers are read as int and int is a subtype of Rational.
+ * @assertion Double-literals have to be written as decimals or exponent without any suffix.
+ * @description Checks that decimals are read as doubles.
  * @author pagolubev
- * @reviewer akuznecov
- * @needsreview Are rationals still supported?
  */
 
 
-void checkInt(var x) {
-  Expect.isTrue(x is Rational);
-  Expect.isTrue(x is int);
-}
+main() {
+  Expect.isTrue(+0.0 is double);
+  Expect.isTrue(0.0 is double);
+  Expect.isTrue(-0.0 is double);
 
-void checkFraction(var x) {
-  Expect.isTrue(x is Rational);
-  Expect.isTrue(!(x is int));
-}
+  Expect.isTrue(+0.0 is double);
+  Expect.isTrue(0.0 is double);
+  Expect.isTrue(-0.0 is double);
 
-void main() {
-  checkInt(0);
-  checkInt(-1);
-  checkInt(3);
+  Expect.isTrue(+.0 is double);
+  Expect.isTrue(.0 is double);
+  Expect.isTrue(-.0 is double);
 
-  checkInt(2147483648);
-  Expect.isTrue(2147483648 > 0);
+  Expect.isTrue(+0.0 is double);
+  Expect.isTrue(0.0 is double);
+  Expect.isTrue(-0.0 is double);
 
-  checkInt(-2147483649);
-  Expect.isTrue(-2147483649 <0);
+  Expect.isTrue(9.99 is double);
+  Expect.isTrue(.99 is double);
+  Expect.isTrue(-.99 is double);
+  Expect.isTrue(-13.99 is double);
+  Expect.isTrue(7.0 is double);
+  Expect.isTrue(-2.0 is double);
+  Expect.isTrue(2e5 is double);
+  Expect.isTrue(1e0 is double);
+  Expect.isTrue(1e-1 is double);
 
-  checkInt(9223372036854775808);
-  Expect.isTrue(9223372036854775808 > 0);
+  Expect.isTrue(4.9406564584124654e-324 is double); // min subnormal
+  Expect.isTrue(4.9406564584124653e-324 is double);
 
-  checkInt(-9223372036854775809);
-  Expect.isTrue(-9223372036854775809 < 0);
+  Expect.isTrue(-4.9406564584124654e-324 is double);
+  Expect.isTrue(-4.9406564584124653e-324 is double);
 
-  checkFraction(5/7);
-  checkFraction(0.3);
-  checkFraction(-3/7);
-  checkFraction(-0.001);
-  checkFraction(19.999);
-  checkFraction(184467440737095516202 / 19446744073709551620);
+  Expect.isTrue(2.2250738585072009e-308 is double); // max subnormal
+  Expect.isTrue(2.2250738585072012e-308 is double);
+
+  Expect.isTrue(-2.2250738585072009e-308 is double);
+  Expect.isTrue(-2.2250738585072012e-308 is double);
+
+  Expect.isTrue(2.2250738585072000e-308 is double);
+  Expect.isTrue(-2.2250738585072000e-308 is double);
+
+  Expect.isTrue(2.2250738585072014e-308 is double); // min normal
+  Expect.isTrue(-2.2250738585072014e-308 is double);
+
+  Expect.isTrue(1.7976931348623157e308 is double); // max double
+  Expect.isTrue(-1.7976931348623157e308 is double);
+  Expect.isTrue(1e1000 is double);
+  Expect.isTrue(-1e1000 is double);
 }

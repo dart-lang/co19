@@ -20,7 +20,7 @@ class B extends A{
 }
 
 
-void main() {
+main() {
   A a;
   B b = new B();
   a = b;

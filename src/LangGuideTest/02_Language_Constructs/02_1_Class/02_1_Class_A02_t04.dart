@@ -15,5 +15,5 @@
 class C extends C {}
 
 
-void main() {
+main() {
 }

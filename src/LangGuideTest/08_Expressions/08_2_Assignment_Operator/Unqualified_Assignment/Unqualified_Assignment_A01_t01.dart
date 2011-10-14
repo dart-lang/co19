@@ -15,6 +15,6 @@
 
 int x;
 
-void main() {
+main() {
   x = 1;
 }

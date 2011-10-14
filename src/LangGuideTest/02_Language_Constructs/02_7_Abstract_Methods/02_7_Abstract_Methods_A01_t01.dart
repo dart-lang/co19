@@ -12,12 +12,12 @@
  */
 
 class A {
-  void f();
+  abstract void f();
 
-  f2(int x, int y, ...z);
+  abstract f2(int x, int y);
 
-  int f3(int x, int y, [int v, int w]);
+  abstract int f3(int x, int y, [int v, int w]);
 }
 
 
-void main() {}
+main() {}

@@ -23,4 +23,4 @@ class C2 extends C1 {
 }
 
 
-void main() {}
+main() {}

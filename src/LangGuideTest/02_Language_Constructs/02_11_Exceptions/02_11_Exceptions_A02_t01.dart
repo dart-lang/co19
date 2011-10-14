@@ -15,7 +15,7 @@
  */
 
 
-void main() {
+main() {
   try {
     throw 1;
     Expect.fail("Line past 'throw' statement is reached.");

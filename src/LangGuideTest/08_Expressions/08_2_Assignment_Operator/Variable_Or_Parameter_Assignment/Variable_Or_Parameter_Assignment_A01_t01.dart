@@ -19,7 +19,7 @@ void foo(var x) {
   x = 5 + 2 / 3;
 }
 
-void main() {
+main() {
   var x;
   x = 1;
   x = 5 + 2 / 3;

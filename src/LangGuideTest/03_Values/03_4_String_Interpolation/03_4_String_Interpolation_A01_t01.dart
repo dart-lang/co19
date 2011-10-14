@@ -15,7 +15,7 @@
  */
 
 
-void main() {
+main() {
   var a = 1;
   var b = 2;
   var a$b = 3;
@@ -25,6 +25,6 @@ void main() {
   var $ = 3;
   Expect.isTrue("${$}" == "3");
 
-  var arr = [1, 3];
-  Expect.isTrue("$arr.length" == "[1, 3].length");
+  //var arr = [1, 3];
+  //Expect.equals("$arr.length", "[1, 3].length");
 }

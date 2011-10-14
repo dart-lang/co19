@@ -23,7 +23,7 @@ class A {
 
 A foo() { return new A(); }
 
-void main() {
+main() {
   int x;
   x = foo();
 }

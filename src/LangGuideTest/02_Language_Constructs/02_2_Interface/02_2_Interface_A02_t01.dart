@@ -18,6 +18,6 @@ interface I factory Factory  {
 }
 
 
-void main() {
+main() {
   
 }

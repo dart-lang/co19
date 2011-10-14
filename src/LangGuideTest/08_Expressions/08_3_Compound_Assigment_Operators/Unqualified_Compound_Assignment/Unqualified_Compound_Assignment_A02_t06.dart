@@ -13,7 +13,7 @@
  */
 
 
-void main() {
+main() {
   var i = -2;
   Expect.isTrue( (i >>>= 3) == 536870911);
 }

@@ -12,7 +12,7 @@
  */
 
 
-void main() {
+main() {
   try {}
   catch (var e) {}
   finally {}

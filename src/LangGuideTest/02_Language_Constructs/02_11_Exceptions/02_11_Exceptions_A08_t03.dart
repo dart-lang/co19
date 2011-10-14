@@ -13,7 +13,7 @@
  */
 
 
-void main() {
+main() {
   bool fin = false;
   for(int i = 0; i != 1; i=1) {
     try {

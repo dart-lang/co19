@@ -22,7 +22,7 @@ class C {
 }
 
 
-void main() {
+main() {
   new C();
   Expect.isTrue(null == new I());
 }

@@ -11,7 +11,7 @@
  */
 
 
-void main() {
+main() {
   Expect.isTrue(2 + 5 == 7); 
   Expect.isTrue(2 - 5 == -3); 
   Expect.isTrue(2 * -5 == -10); 

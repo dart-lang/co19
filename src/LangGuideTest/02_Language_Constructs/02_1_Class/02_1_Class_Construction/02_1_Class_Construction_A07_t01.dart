@@ -16,7 +16,7 @@ class A {
 }
 
 
-void main() {
+main() {
   var a = new A();
   Expect.isTrue(a.v == 42);
 }

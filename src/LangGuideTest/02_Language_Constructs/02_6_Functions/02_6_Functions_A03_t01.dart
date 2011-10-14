@@ -28,7 +28,7 @@ class A {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(A.f1(1) == null);
   Expect.isTrue(A.f2() == null);
   Expect.isTrue(A.f3() == null);

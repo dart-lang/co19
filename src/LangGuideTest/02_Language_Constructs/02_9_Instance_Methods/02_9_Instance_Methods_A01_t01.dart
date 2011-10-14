@@ -19,7 +19,7 @@ class A {
 
 
 
-void main() {
+main() {
   A a = new A();
   Expect.isTrue(a.foo() == 1);
   Expect.isTrue(a.bar() == 2);

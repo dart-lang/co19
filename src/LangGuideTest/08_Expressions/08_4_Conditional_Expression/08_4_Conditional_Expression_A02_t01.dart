@@ -14,7 +14,7 @@
  */
  
 
-void main() {
+main() {
   var x = 0;
   var res;
   res = (true ? (x = 1) : (x = 2));

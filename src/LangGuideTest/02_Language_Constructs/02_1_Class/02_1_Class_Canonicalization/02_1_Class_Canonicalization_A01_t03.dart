@@ -12,7 +12,7 @@
  */
 
 
-void main() {
+main() {
   Expect.isTrue(const [] === const []);
   Expect.isTrue(const [1] === const [1]);
   Expect.isTrue(const [""] === const [""]);

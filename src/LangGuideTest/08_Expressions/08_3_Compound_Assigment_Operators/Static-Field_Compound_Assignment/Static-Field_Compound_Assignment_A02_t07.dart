@@ -16,7 +16,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A.i = 1;
   Expect.isTrue( (A.i += 1) == 2);
 }

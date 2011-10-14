@@ -16,6 +16,6 @@ class A {
 }
 
 
-void main() {
+main() {
   A.f();
 }

@@ -20,7 +20,7 @@ class A extends B {
 }
 
 
-void main() {
+main() {
   A a = new A();
   a.b = 1;
   Expect.isTrue(a.b == 1);     

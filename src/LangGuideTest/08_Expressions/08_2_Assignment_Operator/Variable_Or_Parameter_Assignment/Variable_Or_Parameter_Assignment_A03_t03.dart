@@ -24,7 +24,7 @@ void bar(int x) {
   x = foo();
 }
 
-void main() {
+main() {
   int x;
   x = null;
   x = foo();

@@ -23,7 +23,7 @@ class B {
 }
 
 
-void main() {
+main() {
   bool capture = false;
   try {
     throw new A(-1);

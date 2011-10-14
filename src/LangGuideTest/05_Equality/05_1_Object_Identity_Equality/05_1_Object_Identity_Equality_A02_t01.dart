@@ -16,4 +16,4 @@ class A {
 }
 
 
-void main() {}
+main() {}

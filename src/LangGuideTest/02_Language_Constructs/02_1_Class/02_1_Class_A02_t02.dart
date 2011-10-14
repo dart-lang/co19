@@ -17,4 +17,4 @@ class C2 {}
 class C extends C1, C2 { }
 
 
-void main() {}
+main() {}

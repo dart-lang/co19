@@ -20,7 +20,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   try {
     a.func(1, 1);

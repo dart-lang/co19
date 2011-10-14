@@ -20,6 +20,6 @@ class A {
 
 
 
-void main() {
+main() {
    Object o = new A();
 }

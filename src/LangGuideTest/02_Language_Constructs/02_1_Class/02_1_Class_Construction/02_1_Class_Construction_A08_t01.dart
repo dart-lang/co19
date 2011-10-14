@@ -21,7 +21,7 @@ class C {
 }
 
 
-void main() {
+main() {
   var c = new C(42, "z", 6031769); 
   Expect.isTrue(c.v == 42);
   Expect.isTrue(c.c == 6031769);

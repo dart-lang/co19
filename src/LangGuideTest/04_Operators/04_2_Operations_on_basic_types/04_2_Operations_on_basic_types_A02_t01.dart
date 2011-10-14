@@ -12,7 +12,7 @@
  */
 
 
-void main() {
+main() {
   // and
   Expect.isTrue((3 & 3) == 3);
   Expect.isTrue((3 & 2) == 2);

@@ -11,9 +11,10 @@
  * @description Checks NaN.
  * @author iefremov
  * @reviewer pagolubev
+ * @needsreview duplicate of 04_2_Operations_on_basic_types_A04_t01.dart
  */
 
 
-void main() {
-  Expect.isTrue(!(NaN == NaN));
+main() {
+  Expect.isTrue(!(double.NAN == double.NAN));
 }

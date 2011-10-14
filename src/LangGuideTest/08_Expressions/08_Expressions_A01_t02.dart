@@ -18,7 +18,7 @@ class B {
 }
 
 
-void main() { 
+main() { 
    A a;
    B b = new B();
    a = b;

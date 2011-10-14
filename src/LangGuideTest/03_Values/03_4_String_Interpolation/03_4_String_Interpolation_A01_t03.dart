@@ -15,7 +15,7 @@
  */
 
 
-void main() {
+main() {
   int x = y = 2;
   "${x/y}";
 }

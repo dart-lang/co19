@@ -18,6 +18,6 @@ class A {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(null == new A());
 }

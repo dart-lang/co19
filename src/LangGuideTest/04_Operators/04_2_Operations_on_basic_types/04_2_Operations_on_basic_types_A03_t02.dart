@@ -13,7 +13,7 @@
 // the return types of overloaded operators must be checked too
 
 
-void main() {
+main() {
   Expect.isTrue((1.1 < 2.1) is bool);
   Expect.isTrue((1.1 > 2.1) is bool);
   Expect.isTrue((1.1 <= 2.1) is bool);

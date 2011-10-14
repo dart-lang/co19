@@ -19,6 +19,6 @@
 void func() {}
 
 
-void main() {
+main() {
   func.x = 1;
 }

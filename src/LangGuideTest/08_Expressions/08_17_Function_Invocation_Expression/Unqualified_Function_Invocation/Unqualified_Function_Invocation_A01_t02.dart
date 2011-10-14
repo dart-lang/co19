@@ -27,6 +27,6 @@ class A {
   }
 }
 
-void main() {
+main() {
   A.check();
 }

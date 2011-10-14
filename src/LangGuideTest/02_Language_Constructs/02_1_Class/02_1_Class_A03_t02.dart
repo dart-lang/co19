@@ -15,5 +15,5 @@ interface I1{} interface I2{} interface I3{}
 class B extends A implements I1, I2, I3{}
 
 
-void main() {
+main() {
 }

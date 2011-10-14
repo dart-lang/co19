@@ -21,7 +21,7 @@ class C implements I1, I2, I3 {
 }
 
 
-void main() {
+main() {
   I1 i1 = new C();
   I2 i2 = new C();
   I3 i3 = new C();

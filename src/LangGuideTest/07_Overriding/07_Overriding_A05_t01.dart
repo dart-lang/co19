@@ -26,6 +26,6 @@ class C2 extends C1 {
 }
 
 
-void main() {
+main() {
   C1 c = new C2();
 }

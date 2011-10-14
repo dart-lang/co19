@@ -22,5 +22,5 @@ class C extends A {
   const C() : super();
 }
  
-void main() {
+main() {
 }

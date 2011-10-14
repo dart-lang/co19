@@ -14,6 +14,6 @@
 
 void func(int p1, int p2, [int np]) {}
 
-void main() {
+main() {
   func(1, np:1, 1);
 }

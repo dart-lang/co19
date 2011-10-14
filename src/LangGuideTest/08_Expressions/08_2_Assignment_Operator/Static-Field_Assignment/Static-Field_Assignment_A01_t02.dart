@@ -20,6 +20,6 @@ interface I {
 }
 
 
-void main() {
+main() {
   I.x = 1;
 }

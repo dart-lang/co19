@@ -17,4 +17,4 @@ class A {}
 interface A {}
 
 
-void main() {}
+main() {}

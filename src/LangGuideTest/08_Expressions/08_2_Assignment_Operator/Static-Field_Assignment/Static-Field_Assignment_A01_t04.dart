@@ -18,6 +18,6 @@
 int x
 
 
-void main() {
+main() {
   x.x = 1;
 }

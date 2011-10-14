@@ -12,7 +12,7 @@
  */
 
 
-void main() {
+main() {
   bool ok = false;
 
   try {}

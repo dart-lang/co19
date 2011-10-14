@@ -17,7 +17,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   Expect.isTrue( (a.i *= 2) == 4);
 }

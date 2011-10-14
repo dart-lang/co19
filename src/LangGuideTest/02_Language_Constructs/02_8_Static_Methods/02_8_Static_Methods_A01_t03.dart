@@ -13,6 +13,6 @@
  */
 
 
-void main() {
+main() {
   static void foo() {};
 }

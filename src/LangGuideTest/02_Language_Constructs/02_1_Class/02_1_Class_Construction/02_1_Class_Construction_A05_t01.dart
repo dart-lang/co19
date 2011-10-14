@@ -23,7 +23,7 @@ class C extends Super {
   var v2;
 }
 
-void main() {
+main() {
   C c = new C();
   c = new C.c2();
   c = new C.c3();

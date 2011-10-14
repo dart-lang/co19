@@ -25,7 +25,7 @@ class A {
 }
 
   
-void main() {
+main() {
   A.caught = false;
   bool caught = false;
 

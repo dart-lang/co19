@@ -11,7 +11,7 @@
  */
 
 
-void main() {
+main() {
   try {
     try {
       throw 1;

@@ -29,6 +29,6 @@ class C {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(new I().f() == 42);  
 }

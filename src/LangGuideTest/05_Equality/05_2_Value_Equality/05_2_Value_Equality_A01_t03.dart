@@ -23,7 +23,7 @@ class B {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(!(12 == "12"));
   Expect.isTrue(!(new A(1) == new A(1)));
   Expect.isTrue(!(new B() == new B()));

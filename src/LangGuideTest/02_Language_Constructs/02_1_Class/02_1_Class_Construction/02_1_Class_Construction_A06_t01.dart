@@ -18,6 +18,6 @@ class C {
 
 
 
-void main() {
+main() {
   var c = new C();
 }

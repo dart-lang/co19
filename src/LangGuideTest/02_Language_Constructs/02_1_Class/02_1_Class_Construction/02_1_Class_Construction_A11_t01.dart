@@ -19,26 +19,26 @@ class Global {
 }
 
 class A {
-  A() { Global.checksum.append("A"); }
+  A() { Global.checksum.add("A"); }
 }
 
 class B extends A {
-  B() : super() { Global.checksum.append("B");}
+  B() : super() { Global.checksum.add("B");}
 }
 
 class Z {
-  Z() {Global.checksum.append("Z");}
+  Z() {Global.checksum.add("Z");}
 }
 
 class C {
-  C() : b = new B(), z = new Z() { Global.checksum.append("C");}
+  C() : b = new B(), z = new Z() { Global.checksum.add("C");}
   
   B b;
   Z z;
 }
 
 
-void main() {
+main() {
   Global.checksum = new StringBuffer();
   C c = new C();
   Expect.isTrue(Global.checksum.toString() == "ABZC");

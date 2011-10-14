@@ -23,6 +23,6 @@ int func(var x, var y) {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(func(1 , 1) == 2);
 }

@@ -21,7 +21,7 @@ class C {
   var z;
 }
 
-void main() {
+main() {
   C c = new C();
   Expect.isTrue(c.v == 1);
   Expect.isTrue(c.i == 42);

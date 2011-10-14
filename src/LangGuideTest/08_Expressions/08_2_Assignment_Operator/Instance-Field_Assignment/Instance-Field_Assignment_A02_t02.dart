@@ -21,7 +21,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   Expect.isTrue((a.x = 1) == 1);
 

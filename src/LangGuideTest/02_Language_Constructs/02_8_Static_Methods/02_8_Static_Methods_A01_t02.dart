@@ -17,5 +17,5 @@ interface A {
 }
 
 
-void main() {
+main() {
 }

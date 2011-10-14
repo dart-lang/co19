@@ -11,7 +11,7 @@
  */
 
 
-void main() {
+main() {
   Expect.isTrue(5.0 + 4.0 == 9.0); 
   Expect.isTrue(4.0 - 5.0 == -1.0); 
   Expect.isTrue(2.0 * -3.0 == -6.0); 

@@ -14,7 +14,7 @@
  */
 
 
-void main() {
+main() {
   var x;
   x = 1;
   Expect.isTrue(x == 1);

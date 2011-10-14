@@ -17,7 +17,7 @@ class C {
   factory C.makeC() {return new C();}
 }
 
-void main() {
+main() {
   var c1 = new C();
   var c2 = new C.make();
   var c3 = new C.makeC();   

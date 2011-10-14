@@ -15,6 +15,6 @@
  */
  
 
-void main() {
+main() {
   var b = true || (Expect.fail("Second part must not be evaluated"));
 }

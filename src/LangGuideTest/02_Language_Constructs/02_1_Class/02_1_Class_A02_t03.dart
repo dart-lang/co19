@@ -15,4 +15,4 @@ interface I {}
 class C1 extends I {}
 
 
-void main(){}
+main(){}

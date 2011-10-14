@@ -13,7 +13,7 @@
  */
 
 
-void main() {
+main() {
   try {}
   finally {}
   catch(var e) {}

@@ -24,6 +24,6 @@ class B extends A {
 }
 
 
-void main() {
+main() {
    Expect.isTrue(new A.f(42).x == 42);
 }

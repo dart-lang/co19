@@ -24,6 +24,6 @@ class B extends A {
   const B() : super();
 } 
 
-void main() {
+main() {
   var b = new B();
 }

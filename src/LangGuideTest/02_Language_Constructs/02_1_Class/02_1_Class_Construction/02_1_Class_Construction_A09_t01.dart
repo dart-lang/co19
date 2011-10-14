@@ -16,7 +16,7 @@ class C {
 }
 
 
-void main() {
+main() {
   var c = new C();
   Expect.isTrue(c == c.v);
 }

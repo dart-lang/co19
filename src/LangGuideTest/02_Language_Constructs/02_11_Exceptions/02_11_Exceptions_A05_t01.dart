@@ -41,7 +41,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   a.bar();
   Expect.isTrue(a.capture);

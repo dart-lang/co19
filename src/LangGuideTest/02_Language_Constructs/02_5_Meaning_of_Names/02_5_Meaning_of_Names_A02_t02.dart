@@ -43,7 +43,7 @@ class C extends B {
 }
 
 
-void main() {
+main() {
   C c = new C();
   c.foo();
 }

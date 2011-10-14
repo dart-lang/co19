@@ -16,6 +16,6 @@
  */
 
 
-void main() {
+main() {
   "ab$cd";
 }

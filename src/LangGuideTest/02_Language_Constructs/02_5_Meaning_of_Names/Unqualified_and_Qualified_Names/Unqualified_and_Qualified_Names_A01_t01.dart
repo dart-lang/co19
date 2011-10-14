@@ -19,6 +19,6 @@ class A {
 }
 
 
-void main() {
+main() {
   A.a;
 }

@@ -15,6 +15,6 @@ class C {
   C C() {}
 }
 
-void main() {
+main() {
   var c = new C();
 }

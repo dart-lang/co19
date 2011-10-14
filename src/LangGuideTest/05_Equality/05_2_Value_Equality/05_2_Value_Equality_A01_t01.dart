@@ -14,12 +14,12 @@
  */
 
 class A {
-  A(this.x) {}
-  int x;
+  const A(this.x);
+  final int x;
 }
 
 
-void main() {
+main() {
   Expect.isTrue(12 == 12);
   Expect.isTrue(const A(1) == const A(1));
   var a1 = new A(1);

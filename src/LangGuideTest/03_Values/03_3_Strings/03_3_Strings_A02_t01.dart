@@ -26,7 +26,7 @@
  */
 
 
-void main() {
+main() {
   "\x61b\u0063d\e";
   "string with smiley: \u263a";
   "same in black: \u{263b}";

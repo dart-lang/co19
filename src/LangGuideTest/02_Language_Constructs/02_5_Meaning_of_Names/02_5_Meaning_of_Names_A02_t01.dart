@@ -29,7 +29,7 @@ class B extends A {
 }
 
 
-void main() {
+main() {
   B b = new B();
   b.foo();
 }

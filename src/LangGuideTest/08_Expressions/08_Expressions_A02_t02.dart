@@ -21,7 +21,7 @@ class B {
 
 void func(A a) {}
 
-void main() {
+main() {
   B b = new B();
   func(b);
 }

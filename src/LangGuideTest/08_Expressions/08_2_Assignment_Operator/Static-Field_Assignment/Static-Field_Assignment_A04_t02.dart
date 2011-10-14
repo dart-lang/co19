@@ -19,7 +19,7 @@ class A {
 }
 
 
-void main() {
+main() {
   Expect.isTrue((A.x = 1) == 1);
 
   Expect.isTrue((A.x = 5 + 3) == 8);

@@ -12,7 +12,7 @@
  */
  
 
-void main() {
+main() {
 label:
   var x = 1;
 label:

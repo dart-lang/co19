@@ -15,4 +15,4 @@ class A {}
 class B implements A {}
 
 
-void main() {}
+main() {}

@@ -6,19 +6,13 @@
 /**
  * @assertion An abstract method is a function declaration without a body.
  * An abstract method is a member of a class or an interface.
- * @description Checks that abstract method can be a member of an interface.
+ * @description Checks that a local function can not be an abstract method.
  * @author pagolubev
  * @reviewer iefremov
+ * @compile-error
  */
 
-interface A {
-  f1();
 
-  f2(int x, int y, ...z);
-
-  int f3(int x, int y, [int v, int w]);
-}
-
-
-void main() {
+main() {
+  abstract void f();
 }

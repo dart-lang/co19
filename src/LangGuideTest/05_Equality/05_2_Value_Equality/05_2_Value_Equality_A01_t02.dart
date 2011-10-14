@@ -16,6 +16,6 @@
 
 
 
-void main() {
+main() {
   Expect.isTrue(12 == 12.0);
 }

@@ -24,7 +24,7 @@ class C extends A {
 }
 
 
-void main() {
+main() {
   bool capture = false;
   try {
     throw new C(1);

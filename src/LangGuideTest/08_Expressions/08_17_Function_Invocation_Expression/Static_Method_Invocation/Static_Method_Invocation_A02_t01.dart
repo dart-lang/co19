@@ -17,6 +17,6 @@ class A {
 }
 
 
-void main() {
+main() {
   A.func(1, 1);
 }

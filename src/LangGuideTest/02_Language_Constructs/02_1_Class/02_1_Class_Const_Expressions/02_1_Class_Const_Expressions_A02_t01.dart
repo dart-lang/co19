@@ -16,4 +16,4 @@ class C {
   int i;
 }
 
-void main() {}
+main() {}

@@ -12,7 +12,7 @@
  */ 
 
 class B {
-  B(){}
+  const B();
 }
 
 class A extends Object{
@@ -21,6 +21,6 @@ class A extends Object{
 }
 
 
-void main() {
+main() {
   final a = const A();
 }

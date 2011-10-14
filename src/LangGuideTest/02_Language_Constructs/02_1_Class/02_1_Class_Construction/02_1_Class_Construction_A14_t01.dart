@@ -20,7 +20,7 @@ class A {
 }
 
 
-void main() {
+main() {
    var a = new A.c1(42);
    var b = new A.c2("42");
    Expect.isTrue(a.i == 42);

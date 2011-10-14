@@ -17,4 +17,4 @@ class A
   bool x;
 }
 
-void main() {}
+main() {}

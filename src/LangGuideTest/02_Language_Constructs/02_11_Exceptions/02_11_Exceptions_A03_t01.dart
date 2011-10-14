@@ -29,7 +29,7 @@ void check(var a) {
   }
 }
 
-void main() {
+main() {
   check(new A());
   check(1);
   check("");

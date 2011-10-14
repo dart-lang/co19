@@ -12,6 +12,6 @@
  */
 
 
-void main() {
+main() {
   A.x = 1;
 }

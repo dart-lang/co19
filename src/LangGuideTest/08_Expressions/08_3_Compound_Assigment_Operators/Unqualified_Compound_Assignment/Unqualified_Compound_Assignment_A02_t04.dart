@@ -12,7 +12,7 @@
  */
  
 
-void main() {
+main() {
   var i = 1;
   Expect.isTrue( (i <<= 1) == 2);
 }

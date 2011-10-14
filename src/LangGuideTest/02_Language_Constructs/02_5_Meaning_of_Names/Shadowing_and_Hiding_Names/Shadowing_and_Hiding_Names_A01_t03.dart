@@ -22,7 +22,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   a.foo(-3);
 }

@@ -15,7 +15,7 @@
  */
 
 
-void main() {
+main() {
   "foo";
   'bar';
 }

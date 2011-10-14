@@ -20,7 +20,7 @@ class A {
 }
 
 
-void main() {
+main() {
   A a = new A();
   a.i |= 1;
   a.i ^= 1;

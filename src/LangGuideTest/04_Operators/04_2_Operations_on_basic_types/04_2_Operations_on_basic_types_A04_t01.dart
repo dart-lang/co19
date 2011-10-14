@@ -11,7 +11,7 @@
  */
 
 
-void main() {
+main() {
   Expect.isTrue(-0.0 == 0.0);
-  Expect.isTrue(NaN != NaN);
+  Expect.isTrue(double.NAN != double.NAN);
 }

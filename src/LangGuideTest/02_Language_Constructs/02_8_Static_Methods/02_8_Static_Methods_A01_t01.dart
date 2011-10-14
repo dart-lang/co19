@@ -17,7 +17,7 @@ class A {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(1 == A.foo());
   Expect.isTrue(1 == A.bar());
 }

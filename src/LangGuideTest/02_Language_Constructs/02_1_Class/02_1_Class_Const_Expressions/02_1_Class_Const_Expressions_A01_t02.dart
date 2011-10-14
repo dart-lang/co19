@@ -16,4 +16,4 @@ class A {
   const A() {};
 }
 
-void main() {}
+main() {}

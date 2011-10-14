@@ -16,6 +16,6 @@ class C {
   const C();
 }
 
-void main() {
+main() {
   final c = new C();
 }

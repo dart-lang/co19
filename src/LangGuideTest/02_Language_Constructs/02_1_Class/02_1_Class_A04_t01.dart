@@ -16,7 +16,7 @@ class A {
 }
 
 
-void main() {
+main() {
   Expect.isTrue(null != new A().toString());
   Expect.isTrue(null != new A().dynamic);
   //new A().noSuchMethod(""); TODO
