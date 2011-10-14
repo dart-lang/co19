@@ -6,14 +6,12 @@
 /**
  * @assertion Interface Date extends Comparable.
  * @description Checks that Date is Comparable and has .compareTo() method.
- * @author akuznecov
- * @needsreview How Comparable and operator == are related? TO DO: Add tests on operator ==.
- * @reviewer pagolubev
+ * @author hlodvig
+ * @reviewer iefremov
  */
 
 
 main() {
-  Date date = new Date(1991, 8, 18);
-  Expect.isTrue(date is Comparable);
-  Expect.isTrue(date.compareTo(new Date(1991, 8, 18)) == 0);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0) is Comparable);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 0);
 }

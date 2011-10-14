@@ -6,35 +6,44 @@
 /**
  * @assertion Interface Date extends Comparable.
  * @description Checks Date.compareTo() implementaion.
- * @author akuznecov
- * @reviewer pagolubev
- * @needsreview Result of the compareTo() when dates were constructed with invalid
- * [year], [month], [day] values (i.e. out of their calendar range or null) is not specified.
+ * @author hlodvig
+ * @reviewer iefremov
  */
 
 
-int compare(date1, date2) {
-  return date1.compareTo(date2);
-}
-
 main() {
-  Expect.isTrue(compare(new Date(1991, 8, 18), new Date(1991, 8, 18)) == 0);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 0);
 
-  Expect.isTrue(compare(new Date(1991, 8, 19), new Date(1991, 8, 18)) == 1);
-  Expect.isTrue(compare(new Date(1991, 8, 18), new Date(1991, 8, 19)) == -1);
+  Expect.isTrue(new Date(2001, 8, 19, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 19, 0, 0, 0, 0)) == -1);
 
-  Expect.isTrue(compare(new Date(1991, 9, 18), new Date(1991, 8, 18)) == 1);
-  Expect.isTrue(compare(new Date(1991, 8, 18), new Date(1991, 9, 18)) == -1);
+  Expect.isTrue(new Date(2001, 9, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 9, 18, 0, 0, 0, 0)) == -1);
 
-  Expect.isTrue(compare(new Date(1992, 8, 18), new Date(1991, 8, 18)) == 1);
-  Expect.isTrue(compare(new Date(1991, 8, 18), new Date(1992, 8, 18)) == -1);
+  Expect.isTrue(new Date(2002, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2002, 8, 18, 0, 0, 0, 0)) == -1);
 
-  Expect.isTrue(compare(new Date(1991, 9, 18), new Date(1991, 8, 19)) == 1);
-  Expect.isTrue(compare(new Date(1991, 8, 19), new Date(1991, 9, 18)) == -1);
+  Expect.isTrue(new Date(2001, 9, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 19, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 19, 0, 0, 0, 0).compareTo(new Date(2001, 9, 18, 0, 0, 0, 0)) == -1);
 
-  Expect.isTrue(compare(new Date(1992, 8, 18), new Date(1991, 8, 19)) == 1);
-  Expect.isTrue(compare(new Date(1991, 8, 19), new Date(1992, 8, 18)) == -1);
+  Expect.isTrue(new Date(2002, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 19, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 19, 0, 0, 0, 0).compareTo(new Date(2002, 8, 18, 0, 0, 0, 0)) == -1);
 
-  Expect.isTrue(compare(new Date(1992, 8, 18), new Date(1991, 9, 18)) == 1);
-  Expect.isTrue(compare(new Date(1991, 9, 18), new Date(1992, 8, 18)) == -1);
+  Expect.isTrue(new Date(2002, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 9, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 9, 18, 0, 0, 0, 0).compareTo(new Date(2002, 8, 18, 0, 0, 0, 0)) == -1);
+
+  Expect.isTrue(new Date(2001, 8, 18, 1, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 1, 0, 0, 0)) == -1);
+
+  Expect.isTrue(new Date(2001, 8, 18, 1, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 1, 0, 0, 0)) == -1);
+
+  Expect.isTrue(new Date(2001, 8, 18, 0, 1, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 1, 0, 0)) == -1);
+
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 1, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 1, 0)) == -1);
+
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 1).compareTo(new Date(2001, 8, 18, 0, 0, 0, 0)) == 1);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).compareTo(new Date(2001, 8, 18, 0, 0, 0, 1)) == -1);
 }

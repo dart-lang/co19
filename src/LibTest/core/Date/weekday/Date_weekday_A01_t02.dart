@@ -6,16 +6,17 @@
 /**
  * @assertion int get weekday()
  * Returns the week day [MON..SUN]. If the date is invalid throws an exception.
- * @description Checks exception is thrown when the date is invalid.
+ * @description Checks that an exception is thrown when the date is invalid.
  * @author pagolubev
+ * @reviewer rodionov
  * @needsreview Exception is not specified.
  */
 
 
 void check(Date date) {
   try {
-    date.weekday;
-    Expect.fail("Exception expected.");
+    int wd = date.weekday;
+    Expect.fail("Exception expected."); // TODO
   } catch (var e) {}
 }
 

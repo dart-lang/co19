@@ -4,15 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion const Date(int year, int month, int day)
- * No checks are performed on the input values.
- * @description Construct Date with default implementation.
- * @author akuznecov
- * @reviewer pagolubev
+ * @assertion Date(int year, int month, int day, int hours, int minutes, int
+ *            seconds, int milliseconds) constructs a [Date] instance based
+ *            on the individual parts
+ * @description Normal int values passed as arguments.
+ * @author hlodvig
+ * @reviewer iefremov
  */
 
-
 main() {
-  Date date = new Date(1991, 8, 18);
-  Expect.isTrue(date is Date);
+  Date dt = new Date(2001, 1, 2, 3, 4, 5, 6);
+  Expect.equals(2001, dt.year);
+  Expect.equals(1, dt.month);
+  Expect.equals(2, dt.day);
+  Expect.equals(3, dt.hours);
+  Expect.equals(4, dt.minutes);
+  Expect.equals(5, dt.seconds);
+  Expect.equals(6, dt.milliseconds);
+  Expect.isTrue(dt is Date);
 }
+  

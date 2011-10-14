@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion DateTime.withTimeZone(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds, TimeZone timeZone) 
- *  constructs a [DateTime] instance based on the individual parts
- * @description Try to pass non-int value as TimeZone
+ * @assertion Date.withTimeZone(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds, TimeZone timeZone)
+ *  constructs a [Date] instance based on the individual parts
+ * @description Tries to pass non-int value as day.
  * @dynamic-type-error
  * @author hlodvig
  * @reviewer iefremov
@@ -14,5 +14,5 @@
  */
 
 main(){
-  DateTime dt = new DateTime.withTimeZone(1, 1, 1, 1, 1, 1, 1, "UTC");
+  Date dt = new Date.withTimeZone(1, 1, "1", 1, 1, 1, 1, new TimeZone.utc());
 }

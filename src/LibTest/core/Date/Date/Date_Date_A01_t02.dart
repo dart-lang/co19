@@ -4,29 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion const Date(int year, int month, int day)
- * No checks are performed on the input values.
- * @description Checks that any integers are accepted in constructor.
- * @author akuznecov
- * @needsreview Why -2^64-1 complement for 2^64 is -(2^64-1) or -9223372036854775807
+ * @assertion Date(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds)
+ * constructs a [Date] instance based on the individual parts
+ * @description Tries to pass null for each argument.
+ * @author hlodvig
+ * @reviewer iefremov
+ * @needsreview
  */
 
+void check(y, m, d, h, min, sec, ms, field) {
+  try {
+    new Date(y, m, d, h, min, sec, ms);
+    Expect.fail("NullPointerException expected with the passed null value of the "+field);
+  } catch(NullPointerException ok) {}
+}
 
-main() {
-  Date date;
-
-  date = new Date(1991, 8, 18);   // correct
-
-  date = new Date(18, 8, 1991); // incorrect, but accepted
-
-  date = new Date(-1991, 8, 18);
-  date = new Date(1991, -8, 18);
-  date = new Date(1991, 8, -18);
-  date = new Date(-1991, -8, -18);
-
-  date = new Date(1991, 13, 18);
-  date = new Date(1991, 8, 32);
-
-  date = new Date(9223372036854775808, 9223372036854775808, 9223372036854775808); // 2^64
-  date = new Date(-9223372036854775809, -9223372036854775809, -9223372036854775809); // -2^64-1
+main(){
+  check(null, 1, 1, 1, 1, 1, 1, "year");
+  check(1, null, 1, 1, 1, 1, 1, "month");
+  check(1, 1, null, 1, 1, 1, 1, "day");
+  check(1, 1, 1, null, 1, 1, 1, "hours");
+  check(1, 1, 1, 1, null, 1, 1, "minutes");
+  check(1, 1, 1, 1, 1, null, 1, "seconds");
+  check(1, 1, 1, 1, 1, 1, null, "milliseconds");
 }

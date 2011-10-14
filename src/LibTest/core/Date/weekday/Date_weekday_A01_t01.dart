@@ -5,14 +5,21 @@
  */
 /**
  * @assertion int get weekday()
- * Returns the week day [MON..SUN]. If the date is invalid throws an exception.
+ * Returns the week day [MON..SUN].
  * @description Checks property value when date is valid.
  * @author akuznecov
  * @reviewer pagolubev
+ * @reviewer rodionov
  */
 
 
 main() {
   Date date = new Date(1991, 8, 18);
-  Expect.isTrue(date.weekday == Date.SUN);
+  Expect.equals(Date.SUN, date.weekday);
+  
+  date = new Date(2011, 10, 4);
+  Expect.equals(Date.TUE, date.weekday);
+  
+  date = new Date(1, 1, 1);
+  Expect.equals(Date.SAT, date.weekday);
 }
