@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds all elements of [collection] at the end of the list. The
- *            length of the list is extended by the length of [collection].
- * @description Checks that all elements of the [collection] are added to the end of the list.
+ * @assertion Adds all elements of [collection] at the end of the queue. The
+ *            length of the queue is extended by the length of [collection].
+ * @description Checks that all elements of the [collection] are added to the empty queue.
  * @author msyabro
+ * @reviewer varlax
  */
 
 check(List expected, Queue actual) {
@@ -19,32 +20,32 @@ check(List expected, Queue actual) {
 }
  
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   List b = [1, 2, "1", "2", 1, 2, "1", "2"];
-  list.addAll(b);
-  check([1, 2, "1", "2", 1, 2, "1", "2"], list);
+  queue.addAll(b);
+  check([1, 2, "1", "2", 1, 2, "1", "2"], queue);
 
-  list = new Queue();
+  queue = new Queue();
   Set set = new Set.from([1, 2, 3, 4, 5]);
-  list.addAll(set);
-  check([1, 2, 3, 4, 5], list);
+  queue.addAll(set);
+  check([1, 2, 3, 4, 5], queue);
   
-  list = new Queue();
+  queue = new Queue();
   Queue tmp = new Queue();
   tmp.addLast(1);
   tmp.addLast(2);
-  list.addAll(tmp);
-  check([1, 2],list);
+  queue.addAll(tmp);
+  check([1, 2],queue);
   
-  list = new Queue();
-  list.addAll([]);
-  check([], list);
+  queue = new Queue();
+  queue.addAll([]);
+  check([], queue);
   
-  list = new Queue();
-  list.addAll(new Queue());
-  check([], list);
+  queue = new Queue();
+  queue.addAll(new Queue());
+  check([], queue);
   
-  list = new Queue();
-  list.addAll(new Set());
-  check([], list);
+  queue = new Queue();
+  queue.addAll(new Set());
+  check([], queue);
 }

@@ -7,6 +7,8 @@
  * @assertion Gets the next element in the iteration.
  * @description Checksthat next element in the iteration is taken when the list is changed.
  * @author msyabro
+ * @reviewer varlax
+ * @needsreview implementation specific
  */
 
 

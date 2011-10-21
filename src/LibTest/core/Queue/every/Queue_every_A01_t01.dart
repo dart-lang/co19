@@ -8,6 +8,7 @@
  * predicate [f]. Returns false otherwise.
  * @description Checks that the method iterates over each element of the list
  * @author msyabro
+ * @reviewer varlax
  */
 
 

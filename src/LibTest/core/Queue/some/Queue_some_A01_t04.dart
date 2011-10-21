@@ -6,8 +6,9 @@
 /**
  * @assertion Returns true if one element of the collection satisfies the
  * predicate [f]. Returns false otherwise.
- * @description Checks that the method some() returns correct value.
+ * @description Checks that the method some() returns correct value for various predicates.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
@@ -21,25 +22,25 @@ main() {
   bool res = list.some(bool f(int element) {
     return element > 0;
   });
-  Expect.isTrue(res == true);
+  Expect.isTrue(res);
   
   res = list.some(bool f(int element) {
     return element < 1000;
   });
-  Expect.isTrue(res == true);
+  Expect.isTrue(res);
   
   res = list.some(bool f(int element) {
     return element < -1000;
   });
-  Expect.isTrue(res == false);
+  Expect.isFalse(res);
   
   res = list.some(bool f(int element) {
     return true;
   });
-  Expect.isTrue(res == true);
+  Expect.isTrue(res);
   
   res = list.some(bool f(int element) {
     return false;
   });
-  Expect.isTrue(res == false);
+  Expect.isFalse(res);
 }

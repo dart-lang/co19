@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the end of the list.
- * @description Checks that [value] is added to the end of the list.
+ * @assertion Adds [value] at the end of the queue.
+ * @description Checks that [value] is added to the end of the queue.
  * @author msyabro
+ * @reviewer varlax
  */
 
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   for (var i = 0; i <= 10000; i++) {
-    list.addLast(i);
-    Expect.equals(i, list.last());
-    Expect.equals(i+1, list.length);
+    queue.addLast(i);
+    Expect.equals(i, queue.last());
+    Expect.equals(i+1, queue.length);
   }
 }

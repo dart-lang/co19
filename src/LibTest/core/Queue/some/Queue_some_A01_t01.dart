@@ -6,8 +6,9 @@
 /**
  * @assertion Returns true if one element of the collection satisfies the
  * predicate [f]. Returns false otherwise.
- * @description Checks that some() does not iterate over each element of the list
+ * @description Checks that iteration stops after finding the matching element.
  * @author msyabro
+ * @reviewer varlax
  */
 
 

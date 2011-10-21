@@ -6,9 +6,9 @@
 /**
  * @assertion Returns a new collection with the elements of this collection
  * that satisfy the predicate [f].
- * @description Tries to change the list from [f]
+ * @description Tries to change the list from [f] and checks that no exception occured.
  * @author msyabro
- * @needsreview Can changes in list affect iteration?
+ * @reviewer varlax
  */
 
 
@@ -22,7 +22,7 @@ main() {
     return true;
   });
   Expect.isTrue(list.isEmpty());
-  Expect.isTrue(res.length == 2);//????
+  //Expect.isTrue(res.length == 2);//????
   
   for(int i = 0; i < 100; i++) {
     list.addLast(i);

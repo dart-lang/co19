@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Returns an [Iterator] that iterates over this [Iterable] object.
- * @description Checks that [Iterator] counts all elements of the list.
+ * @description Checks that [Iterator] iterates over all elements of the list.
  * @author msyabro
+ * @reviewer varlax
  */
 
 void checkIterator(Queue list) {

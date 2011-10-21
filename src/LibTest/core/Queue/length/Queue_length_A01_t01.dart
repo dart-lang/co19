@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Returns the number of elements in the collection.
- * @description Checks that method works correctly.
+ * @description Checks that method returns size of collection.
  * @author msyabro
+ * @reviewer varlax
  */
 
 

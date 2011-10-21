@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Returns an [Iterator] that iterates over this [Iterable] object.
- * @description Checks that [Iterator] is returned.
+ * @description Checks that correctly typed [Iterator] is returned.
  * @author msyabro
+ * @reviewer varlax
  */
 
 class A {

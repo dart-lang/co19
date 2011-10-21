@@ -7,6 +7,7 @@
  * @assertion Gets the next element in the iteration.
  * @description Checks that next element in the iteration is taken.
  * @author msyabro
+ * @reviewer varlax
  */
 
 void checkNext(Queue list) {
@@ -22,8 +23,8 @@ main() {
   checkNext(list);
 
   list = new Queue();
-  for (var i=0; i < list.length; i++) {
-    list.add(list.length - i);
+  for (var i=0; i < 100; i++) {
+    list.add( -i);
   }
   checkNext(list);
 

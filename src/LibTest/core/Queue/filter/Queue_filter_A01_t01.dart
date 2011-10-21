@@ -8,6 +8,7 @@
  * that satisfy the predicate [f].
  * @description Checks that the method iterates over each element of the list
  * @author msyabro
+ * @reviewer varlax
  */
 
 

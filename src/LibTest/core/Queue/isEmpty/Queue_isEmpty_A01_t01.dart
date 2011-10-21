@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Returns true if there is no element in the collection.
- * @description Checks that method works correctly.
+ * @description Checks that method returns true only if queue is empty.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
@@ -16,10 +17,10 @@ main() {
   Expect.isTrue(list.isEmpty());
   
   list.addLast(1);
-  Expect.isTrue(!list.isEmpty());
+  Expect.isFalse(list.isEmpty());
   
   list.addFirst(1);
-  Expect.isTrue(!list.isEmpty());
+  Expect.isFalse(list.isEmpty());
   
   list.removeFirst();
   list.removeFirst();

@@ -6,8 +6,9 @@
 /**
  * @assertion Returns true if one element of the collection satisfies the
  * predicate [f]. Returns false otherwise.
- * @description Tries to change the list from [f].
+ * @description Tries to change the list from [f] and checks that no exception is thrown.
  * @author msyabro
+ * @reviewer varlax
  */
 
 

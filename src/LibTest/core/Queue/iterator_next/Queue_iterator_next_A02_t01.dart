@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws a [NoNextElementException] if no element is left.
+ * @assertion Throws a [NoMoreElementsException] if no element is left.
  * @description Checks that exception is thrown if no element is left.
  * @author msyabro
- * @needsreview Exception is different from one in documentation
+ * @reviewer varlax
  */
 
 main() {

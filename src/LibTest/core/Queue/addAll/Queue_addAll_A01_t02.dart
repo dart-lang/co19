@@ -4,16 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds all elements of [collection] at the end of the list. The
- *            length of the list is extended by the length of [collection].
- * @description Tries to call the method with null parameter.
+ * @assertion Adds all elements of [collection] at the end of the queue. The
+ *            length of the queue is extended by the length of [collection].
+ * @description Checks that method appends new elements and does not affect 
+ * the existing elements of the queue.
  * @author msyabro
- * @needsreview undocumented exception
+ * @reviewer varlax
  */
 
+check(List expected, Queue actual) {
+  Expect.equals(expected.length, actual.length);
+  int i = 0;
+  actual.forEach(void func(var element) {
+    Expect.equals(expected[i++], element);
+  });
+}
+ 
 main() {
-  try {
-    new Queue().addAll(null);
-    Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  Queue queue = new Queue();
+  Expect.isTrue(queue.length == 0);
+  queue.addAll(["1","2","3"]);
+  check(["1", "2", "3"], queue);
+
+  queue.addAll([null,0, false, "0"]);
+  check(["1", "2", "3", null, 0, false, "0"], queue);
 }

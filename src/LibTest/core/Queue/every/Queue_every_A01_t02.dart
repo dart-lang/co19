@@ -6,9 +6,9 @@
 /**
  * @assertion Returns true if every elements of the collection satisify the
  * predicate [f]. Returns false otherwise.
- * @description Checks every() on empty list
+ * @description Checks every() on empty list returns true.
  * @author msyabro
- * @needsreview some() on empty lists returns false, but every() returns true
+ * @reviewer varlax
  */
 
 

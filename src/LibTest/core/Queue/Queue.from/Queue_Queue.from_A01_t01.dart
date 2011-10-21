@@ -6,12 +6,13 @@
 /**
  * @assertion Creates a [Queue] that contains all elements of
  * [other].
- * @description Checks that created list contains all elements of [other].
+ * @description Checks that created list contains all elements of [other] collection.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
-void check(List l, Collection c) {
+void check(Queue l, Collection c) {
   Expect.isTrue(l.length == c.length);
   c.forEach(void compare(var element) {
     Expect.isTrue(l.removeFirst() == element);
@@ -35,8 +36,8 @@ main() {
   list = new Queue.from(new Queue());
   check(list, []);
   
-  list = new Queue.from([]);
-  check(list, []);
+  list = new Queue.from([tmp, tmp, set]);
+  check(list, [tmp, tmp, set]);
   
   list = new Queue.from(new Set());
   check(list, []);

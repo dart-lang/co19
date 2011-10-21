@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates empty list
- * @description Checks that empty list is created.
+ * @assertion Creates empty queue.
+ * @description Checks that empty queue is created.
  * @author msyabro
- * @needsreview undocumented
+ * @reviewer varlax
  */
 
 

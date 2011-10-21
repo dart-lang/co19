@@ -6,8 +6,9 @@
 /**
  * @assertion Returns true if every elements of the collection satisify the
  * predicate [f]. Returns false otherwise.
- * @description Checks that the method returns correct value
+ * @description Checks that the method returns correct value for various predicates.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
@@ -21,20 +22,20 @@ main() {
   bool res = list.every(bool f(int element) {
     return element > 0;
   });
-  Expect.isTrue(res == false);
+  Expect.isFalse(res);
   
   res = list.every(bool f(int element) {
     return element < 1000;
   });
-  Expect.isTrue(res == true);
+  Expect.isTrue(res);
   
   res = list.every(bool f(int element) {
     return true;
   });
-  Expect.isTrue(res == true);
+  Expect.isTrue(res);
   
   res = list.every(bool f(int element) {
     return false;
   });
-  Expect.isTrue(res == false);
+  Expect.isFalse(res);
 }

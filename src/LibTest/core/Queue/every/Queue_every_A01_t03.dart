@@ -8,13 +8,15 @@
  * predicate [f]. Returns false otherwise.
  * @description Tries to pass non-function object as argument [f]
  * @author msyabro
+ * @reviewer varlax
  */
 
 
 main() {
   Queue list = new Queue();
   
-  int x;
+  //empty queue just ignores invalid arg
+  int x = 0;
   list.every(null);
   list.every(x);
 

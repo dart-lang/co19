@@ -5,21 +5,22 @@
  */
 /**
  * @assertion Applies the function [f] to each element of the collection.
- * @description Checks that forEach() iterates over each element of the list.
+ * @description Checks that forEach() iterates over each element of the queue.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   
   for(int i = 0; i < 100; i++) {
-    list.addLast(i);
+    queue.addLast(i);
   }
   
   List a = new List(100);
   
-  list.forEach(void f(var element) {
+  queue.forEach(void f(var element) {
     a[element] = element;
   });
   

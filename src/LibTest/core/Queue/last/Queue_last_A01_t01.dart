@@ -4,22 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the last element of the list.
+ * @assertion Returns the last element of the queue.
  * @description Check that method returns the last element.
- * element of the list
+ * element of the queue
  * @author msyabro
+ * @reviewer varlax
  */
 
 
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   
-  list.addFirst(1);
-  Expect.isTrue(list.last() == 1);
+  queue.addFirst(1);
+  Expect.isTrue(queue.last() == 1);
   
-  list.addFirst(2);
-  Expect.isTrue(list.last() == 1);
+  queue.addFirst(2);
+  Expect.isTrue(queue.last() == 1);
   
-  list.addLast(null);
-  Expect.isTrue(list.last() == null);
+  queue.addLast(null);
+  Expect.isTrue(queue.last() == null);
 }

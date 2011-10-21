@@ -4,22 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the first element of the list.
+ * @assertion Returns the first element of the queue.
  * @description Checks that the method returns the first 
- * element of the list.
+ * element of the queue.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   
-  list.addFirst(1);
-  Expect.isTrue(list.first() == 1);
+  queue.addFirst(1);
+  Expect.isTrue(queue.first() == 1);
   
-  list.addLast(2);
-  Expect.isTrue(list.first() == 1);
+  queue.addLast(2);
+  Expect.isTrue(queue.first() == 1);
   
-  list.addFirst(null);
-  Expect.isTrue(list.first() == null);
+  queue.addFirst(null);
+  Expect.isTrue(queue.first() == null);
 }

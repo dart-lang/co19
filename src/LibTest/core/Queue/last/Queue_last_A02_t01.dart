@@ -4,26 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an exception if the list is empty.
+ * @assertion Throws an EmptyQueueException if the queue is empty.
  * @description Checks that exception is thrown if no element is left.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   
   try {
-    list.last();
+    queue.last();
     Expect.fail("Exception is expected");
-  } catch(Object e) {}
+  } catch(EmptyQueueException e) {}
   
-  list.addFirst(1);
-  list.addFirst(2);
-  list.clear();
+  queue.addFirst(1);
+  queue.addFirst(2);
+  queue.clear();
   
   try {
-    list.last();
+    queue.last();
     Expect.fail("Exception is expected");
-  } catch(Object e) {}
+  } catch(EmptyQueueException e) {}
 }

@@ -8,6 +8,7 @@
  * predicate [f]. Returns false otherwise.
  * @description Checks that exception thrown in [f] breaks the iteration
  * @author msyabro
+ * @reviewer varlax
  */
 
 
@@ -20,9 +21,10 @@ main() {
   int count = 0;
   try {
     list.every(bool func(var element) {
+      count++;
       throw "Exception";
     });
   } catch(Object e) {
-    Expect.isTrue(count == 0);
+    Expect.equals(1, count);
   }
 }

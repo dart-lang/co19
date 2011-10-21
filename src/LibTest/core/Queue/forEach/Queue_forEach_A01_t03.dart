@@ -7,6 +7,7 @@
  * @assertion Applies the function [f] to each element of the collection.
  * @description Tries to pass non-function object as [f].
  * @author msyabro
+ * @reviewer varlax
  */
 
 

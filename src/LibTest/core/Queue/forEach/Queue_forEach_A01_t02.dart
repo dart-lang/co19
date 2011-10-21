@@ -7,6 +7,7 @@
  * @assertion Applies the function [f] to each element of the collection.
  * @description Checks forEach() on empty list.
  * @author msyabro
+ * @reviewer varlax
  */
 
 

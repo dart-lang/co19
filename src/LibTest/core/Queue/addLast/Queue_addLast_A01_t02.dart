@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the end of the list.
- * @description Checks that method does not affect the content of the list
+ * @assertion Adds [value] at the end of the queue.
+ * @description Checks that method does not affect other elements of the queue
  * @author msyabro
+ * @reviewer varlax
  */
 
 check(List expected, Queue actual) {
@@ -18,12 +19,12 @@ check(List expected, Queue actual) {
 }
  
 main() {
-  Queue list = new Queue();
-  Expect.isTrue(list.length == 0);
-  list.addLast(null);
-  check([null], list);
-  list.addLast(0);
-  check([null, 0], list);
-  list.addLast("1");
-  check([null, 0, "1"], list);
+  Queue queue = new Queue();
+  Expect.isTrue(queue.length == 0);
+  queue.addLast(null);
+  check([null], queue);
+  queue.addLast(0);
+  check([null, 0], queue);
+  queue.addLast("1");
+  check([null, 0, "1"], queue);
 }

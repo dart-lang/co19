@@ -8,7 +8,7 @@
  * that satisfy the predicate [f].
  * @description Tries to pass non-function object as [f]
  * @author msyabro
- * @needsreview undocumented
+ * @reviewer varlax
  */
 
 

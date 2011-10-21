@@ -4,21 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the beginning of the list.
- * @description Checks that [value] is added to the beginning of the list.
+ * @assertion Adds [value] at the beginning of the queue.
+ * @description Checks that [value] is added to the beginning of the queue.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
 main() {
-  Queue list = new Queue();
+  Queue queue = new Queue();
   
-  list.addFirst(1);
-  Expect.isTrue(list.first() == 1);
+  queue.addFirst(1);
+  Expect.isTrue(queue.first() == 1);
   
-  list.addFirst(null);
-  Expect.isTrue(list.first() == null);
+  queue.addFirst(null);
+  Expect.isTrue(queue.first() == null);
   
-  list.addFirst(list);
-  Expect.isTrue(list.first() === list);
+  queue.addFirst(queue);
+  Expect.isTrue(queue.first() === queue);
 }

@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes all elements of the collection.
- * @description Check that all elements of the collection removed.
+ * @assertion Removes all elements of the queue.
+ * @description Check that all elements of the queue removed.
  * @author msyabro
+ * @reviewer varlax
  */
 
 
@@ -17,6 +18,7 @@ main() {
   
   list.addFirst(1);
   list.addFirst(1);
+  Expect.isFalse(list.isEmpty());
   list.clear();
   Expect.isTrue(list.isEmpty());
 }

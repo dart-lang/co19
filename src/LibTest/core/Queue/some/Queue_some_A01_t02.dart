@@ -8,6 +8,7 @@
  * predicate [f]. Returns false otherwise.
  * @description Checks the method some() on empty list.
  * @author msyabro
+ * @reviewer varlax
  */
 
 

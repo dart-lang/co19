@@ -6,8 +6,9 @@
 /**
  * @assertion Returns a new collection with the elements of this collection
  * that satisfy the predicate [f].
- * @description Checks that filter() returns correct collection
+ * @description Checks that filter() returns correct collection for various predicates.
  * @author msyabro
+ * @reviewer varlax
  */
 
 

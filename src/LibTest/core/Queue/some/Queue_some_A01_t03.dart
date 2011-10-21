@@ -8,6 +8,7 @@
  * predicate [f]. Returns false otherwise.
  * @description Tries to pass non-function object as [f].
  * @author msyabro
+ * @reviewer varlax
  */
 
 

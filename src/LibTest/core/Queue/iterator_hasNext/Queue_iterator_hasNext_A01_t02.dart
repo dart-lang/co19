@@ -7,6 +7,8 @@
  * @assertion Returns whether the [Iterator] has elements left.
  * @description Checks that [Iterator] has no elements left when the list is cleared.
  * @author msyabro
+ * @reviewer varlax
+ * @needsreview implementation specific
  */
 
 main() {

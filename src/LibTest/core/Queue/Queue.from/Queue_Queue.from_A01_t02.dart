@@ -6,8 +6,9 @@
 /**
  * @assertion Creates a [Queue] that contains all elements of
  * [other].
- * @description Checks constructor with custom class
+ * @description Checks constructor with custom Iterable.
  * @author msyabro
+ * @reviewer varlax
  */
 
 class CustomIterator<T> implements Iterator<T> {
@@ -52,4 +53,9 @@ void check(List l, Collection c) {
 main() {
   Queue<int> list = new Queue.from(new IterableClass());
   check(list, [1, 2, 3]);
+
+  IterableClass copy = new IterableClass();
+  copy.internalArray = [null,null,"sdsd",copy];
+  list = new Queue.from(copy);
+  check(list, [null,null,"sdsd",copy]);
 }
