@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
+ * Checks that every element of [expected] is also in [actual], and that every element of [actual] is also in [expected].  
+ * @description Checks that using Iterables with non-equal contents results in ExpectException
+ *              being thrown.
+ * @author rodionov
+ * @reviewer varlax
+ */
+
+main() {
+  check([true],[false]);
+
+  check(new Set.from([0, 235892385, 1.2, "abracadabra"]), 
+      [0, 235892385, 2.1, "abracadabra"]);
+  check(new Set.from([0, 235892385, 23, "abracadabra"]), 
+      [0, 235892385, .32, "abracadabra"], "");
+  check(new Set.from([0, 235892385, '', "abracadabra"]), 
+      [0, 235892385, 54, "abracadabra"], "not empty");
+  
+  var foo = new Object();
+  check(new Queue.from([0, 235892385, true, foo, "abracadabra"]), 
+      [0, 235892385, true, foo, "abrAcadabra"]);
+  check(new Queue.from([0, 235892385, true, foo, "abracadabra"]), 
+      [0, 235892385, true, foo, "abrAcadabra"], "");
+  check(new Queue.from([0, 235892385, true, foo, "abracadabra"]), 
+      [0, 235892385, true, foo, "abrAcadabra"], "not empty");
+
+  check(new Set.from([double.NAN]), [double.NAN]);
+  check(new Set.from([double.NAN]), [double.NAN], "");
+  check(new Set.from([double.NAN]), [double.NAN], "not empty");
+
+  check(new Queue.from([double.NAN]), new Set.from([double.NAN]));
+  check(new Queue.from([double.NAN]), new Set.from([double.NAN]), "");
+  check(new Queue.from([double.NAN]), new Set.from([double.NAN]), "not empty");
+}
+
+void check(Iterable arg1, Iterable arg2, [String reason = null]) {
+  try {
+    Expect.setEquals(arg1, arg2, reason);
+    throw new Exception("ExpectException expected");
+  } catch (ExpectException e) {
+  }
+}
