@@ -9,6 +9,8 @@
  * [ifAbsent]. Returns the value in the map.
  * @description Tries to modify map in the function.
  * @author varlax
+ * @reviewer msyabro
+ * @needsreview undocumented
  */
 
 

@@ -8,6 +8,7 @@
  * The pattern to search for in [str]. 
  * @description Checks that this property holds the correct pattern.
  * @author rodionov
+ * @reviewer msyabro
  */
 
 main() {

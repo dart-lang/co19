@@ -7,6 +7,7 @@
  * @assertion Creates an empty set
  * @description Checks that an empty set is created.
  * @author rodionov
+ * @reviewer msyabro
  * @needsreview undocumented
  */
 

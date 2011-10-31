@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Date add(Time other) returns a new [Date]
+ * @assertion Date add(Duration other) returns a new instance of [Date]
  * @description Checks that this instance is not modified
  * @author hlodvig
+ * @reviewer msyabro
  */
 
 void check(Date dt, y, m, d, h, min, s, ms){
@@ -21,7 +22,16 @@ void check(Date dt, y, m, d, h, min, s, ms){
 
 main() {
   Date dt = new Date(2001, 2, 3, 4, 5, 6, 7);
-  dt.add(new Time(1, 1, 1, 1, 1));
   
+  dt.add(new Duration(1, 1, 1, 1, 1));
+  check(dt, 2001, 2, 3, 4, 5, 6, 7);
+
+  dt.add(new Duration(0, 0, 0, 0, 0));
+  check(dt, 2001, 2, 3, 4, 5, 6, 7);
+  
+  dt.add(new Duration(-10000, -10000, -10000, -10000, -10000));
+  check(dt, 2001, 2, 3, 4, 5, 6, 7);
+
+  dt.add(new Duration(10000, 10000, 10000, 10000, 10000));
   check(dt, 2001, 2, 3, 4, 5, 6, 7);
 }

@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a new list of the given length.
+ * @assertion Creates a fixed size list of the given length.
  * @description Checks that created list contains exactly length elements.
  * @author iefremov
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 
@@ -37,7 +38,7 @@ void check(List a, int size) {
 }
 
 main() {
-  List a = new List(0);
+  List a = new List(length: 0);
   Expect.isTrue(a.length == 0);
   try {
     a[0] = 1;

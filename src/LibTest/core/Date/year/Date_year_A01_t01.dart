@@ -7,10 +7,9 @@
  * @assertion int get year() Returns the year of the date.
  * @description Creates a new Date with various integer year values (zero,
  *              positive, negative, equal to and exceeding the extreme values of
- *              32 and 64-bit integers), and reads the value back. No error is
- *              expected as the constructor doesn't perform any checks on its
- *              arguments.
+ *              32 and 64-bit integers), and reads the value back.
  * @author rodionov
+ * @reviewer msyabro
  */
 
 
@@ -28,7 +27,7 @@ main() {
 }
 
 void check(int y) {
-  Date date = new Date(y, 8, 18);
+  Date date = new Date(y, 8, 18, 0, 0, 0, 0);
   Expect.isTrue(date.year is int);
   Expect.equals(y, date.year);
 }

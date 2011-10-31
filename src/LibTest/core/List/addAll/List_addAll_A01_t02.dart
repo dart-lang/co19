@@ -6,15 +6,27 @@
 /**
  * @assertion Appends all elements of the collection to the end of list.
  * Extends the length of the list by the length of collection.
- * @description Attempt to call this method with null parameter.
+ * @description Checks that method does not affect the previous content of the list
  * @author vasya
  * @reviewer iefremov
- * @needsreview undocumented exception
+ * @reviewer msyabro
  */
 
+checkArrayEquals(List expected, List actual) {
+  Expect.equals(expected.length, actual.length);
+  for(int i = 0; i < expected.length; i++) {
+    Expect.equals(expected[i], actual[i]);
+    Expect.identical(expected[i], actual[i]);
+  }
+}
+ 
 main() {
-  try {
-    new List().addAll(null);
-    Expect.fail("NullPointerException expected when calling a.addAll()");
-  } catch(NullPointerException e) {}
+  List a = new List();
+  Expect.isTrue(a.length == 0);
+  List b = ["1","2","3"];
+  a.addAll(b);
+  checkArrayEquals(["1", "2", "3"], a);
+
+  a.addAll([null,0, false, "0"]);
+  checkArrayEquals(["1", "2", "3", null, 0, false, "0"], a);
 }

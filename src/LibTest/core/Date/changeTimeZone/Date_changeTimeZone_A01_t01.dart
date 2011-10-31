@@ -7,10 +7,10 @@
  * @assertion Date changeTimeZone(TimeZone targetTimeZone) returns [Date].
  * @description Checks that changeTimeZone method returns Date instance
  * @author hlodvig
+ * @reviewer msyabro
  */
 
 main() {
   Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).changeTimeZone(new TimeZone.utc()) is Date);
   Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).changeTimeZone(new TimeZone.local()) is Date);
-  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).changeTimeZone(new TimeZone(new Time(0, 3, 0, 0, 0))) is Date);
 }

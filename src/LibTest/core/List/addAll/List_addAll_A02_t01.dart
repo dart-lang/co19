@@ -10,7 +10,7 @@
  * if the list is not extendable.
  * @author vasya
  * @reviewer iefremov
- * @needsreview
+ * @reviewer varlax
  */
 
 void check(list, collection) {

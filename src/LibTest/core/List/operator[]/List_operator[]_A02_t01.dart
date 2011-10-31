@@ -5,13 +5,11 @@
  */
 /**
  * @assertion Throws an out of bounds exception if [index] is out of bounds.
- * @description Checks that the exception is thrown.
+ * @description Checks fixed size arrays, that the exception is thrown.
  * @author iefremov
  * @reviewer msyabro
- * @needsreview
+ * @reviewer varlax
  */
-
-
 
 void check(List a, int idx) {
   try {
@@ -24,8 +22,13 @@ main() {
   check([], 0);
   check([], 1);
   check([], -1);
-  check([], 6031769);
+  check(const[], 6031769);
   check([1], 2);
   check([null,null,null,null], 5);
   check([null,null,null,null], -1);
+
+  var ls = new List(123); 
+  check(ls, 124);
+  check(ls, -1);
 }
+

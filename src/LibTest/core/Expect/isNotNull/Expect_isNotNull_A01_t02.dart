@@ -5,7 +5,7 @@
  */
 /**
  * @assertion static void isNotNull(var actual, [String reason = null])
- * Checks whether [actual] is null.
+ * Checks whether [actual] is not null.
  * @description Checks that using a null argument results in ExpectException
  *              being thrown, regardless of whether the reason (2nd argument) is null.
  * @author rodionov

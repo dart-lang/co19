@@ -5,15 +5,28 @@
  */
 /**
  * @assertion Adds [value] at the end of the list, extending the length by one.
- * @description Attempt to call this method without parameters.
+ * @description Checks that method does not affect the existing content of the list
  * @author vasya
  * @reviewer iefremov
- * @needsreview
+ * @reviewer msyabro
+ * @reviewer varlax
  */
 
+checkArrayEquals(List expected, List actual) {
+  Expect.equals(expected.length, actual.length);
+  for(int i = 0; i < expected.length; i++) {
+    Expect.equals(expected[i], actual[i]);
+    Expect.identical(expected[i], actual[i]);
+  }
+}
+ 
 main() {
-  try {
-    new List().add();
-    Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}
+  List a = new List();
+  Expect.isTrue(a.length == 0);
+  a.add(null);
+  checkArrayEquals([null], a);
+  a.add(0);
+  checkArrayEquals([null, 0], a);
+  a.add("1");
+  checkArrayEquals([null, 0, "1"], a);
 }

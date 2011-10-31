@@ -6,6 +6,7 @@
 /**
  * @assertion Returns a list of the scalar character codes of this string.
  * @description Checks that the correct charcodes are returned.
+ * @reviewer pagolubev
  * @author rodionov
  */
 

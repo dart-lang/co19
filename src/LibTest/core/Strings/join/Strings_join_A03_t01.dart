@@ -7,6 +7,7 @@
  * @assertion Throws NullPointerException if the list contains null elements
  * @description Checks that passing a list containing null elements results in NullPointerException
  * @author rodionov
+ * @reviewer pagolubev
  * @needsreview undocumented
  */
 

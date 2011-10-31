@@ -10,6 +10,7 @@
  * The optional [check] function can provide additional validation that the correct exception is being thrown.
  * @description Checks that exception thrown by the optional check function is not caught.
  * @author varlax
+ * @reviewer msyabro
  */
 
 main() {

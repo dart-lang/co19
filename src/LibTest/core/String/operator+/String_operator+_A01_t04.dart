@@ -7,6 +7,7 @@
  * @assertion Converts [other] to a string and creates a new string by
  *            concatenating this string with the converted [other].
  * @description Checks that this operator works correctly with a null argument
+ * @reviewer pagolubev
  * @author rodionov
  */
 

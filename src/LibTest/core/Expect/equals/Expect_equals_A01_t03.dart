@@ -8,6 +8,7 @@
  * Checks whether the expected and actual values are equal (using [:==:]).
  * @description Checks that object equality is checked with == operator (on expected value).
  * @author varlax
+ * @reviewer msyabro
  */
 
 class A {
@@ -48,6 +49,7 @@ main() {
 
   try {
     Expect.equals(b, null);
+    check(false);
   } catch (ExpectException ee) {
     check(b.checked === null);
   }

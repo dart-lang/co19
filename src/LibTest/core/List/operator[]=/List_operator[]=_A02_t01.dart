@@ -5,13 +5,12 @@
  */
 /**
  * @assertion Throws an out of bounds exception if [index] is out of bounds.
- * @description Checks that the exception is thrown.
+ * @description Checks that the exception is thrown, for fixed size and growable arrays.
  * @author iefremov
+ * @author varlax
  * @reviewer msyabro
- * @needsreview
+ * @reviewer varlax
  */
-
-
 
 void check(List a, int idx) {
   try {
@@ -24,8 +23,9 @@ main() {
   check([], 0);
   check([], 1);
   check([], -1);
-  check([], 6031769);
-  check([1], 2);
-  check([null,null,null,null], 5);
-  check([null,null,null,null], -1);
+  check(new List(), 6031769);
+  check(new List(123), 6031769);
+  check(new List.from([1]), 2);
+  check(new List.fromList([null,null,null,null], 1, 3), 5);
+  check(new List.from([null,null,null,null]), -1);
 }

@@ -9,6 +9,7 @@
  * if the list is not extendable.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 main() {
@@ -16,5 +17,10 @@ main() {
   try {
     a.addLast(null);
     Expect.fail("UnsupportedOperationException expected when calling a.push()");
+  } catch(UnsupportedOperationException ok) {}
+
+  try {
+    new List(100).addLast(null);
+    Expect.fail("UnsupportedOperationException expected when calling a.add()");
   } catch(UnsupportedOperationException ok) {}
 }

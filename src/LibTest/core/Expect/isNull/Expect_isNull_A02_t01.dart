@@ -9,6 +9,7 @@
  * @description Checks that message of thrown ExpectException includes 
  *              representation of the actual value, as well as the reason.
  * @author varlax
+ * @reviewer msyabro
  */
 
 main() {

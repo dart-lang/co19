@@ -9,6 +9,7 @@
  * @description Checks that message of thrown ExpectException includes 
  *              representation of the expected and mismatched elements, as well as the reason.
  * @author varlax
+ * @reviewer msyabro
  */
 
 main() {
@@ -33,9 +34,11 @@ main() {
 
   check([1,2,3], [1,2,3,4]);
   check([0,1,2,3], [1,2,3], "235dsf435g gret sd");
+
+  check([1, 5, 3], [1, 10, 3], index: 1);
 }
 
-void check(List arg1, List arg2, [String reason = null]) {
+void check(List arg1, List arg2, [String reason = null, int index = 0]) {
   try {
     Expect.listEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
@@ -44,8 +47,9 @@ void check(List arg1, List arg2, [String reason = null]) {
       if(!e.message.contains(arg1.length.toString(), 0) && !e.message.contains(arg2.length.toString(), 0)) {
         throw "exception message (" + e.message + ") doesn't mention list lengths";
       }
+      if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason";
     } else {
-      var a1 = arg1[0], a2 = arg2[0];
+      var a1 = arg1[index], a2 = arg2[index];
       if (!e.message.contains(a1 !== null ? a1.toString() : "null", 0)) throw "no expected value";
       if (!e.message.contains(a2 !== null ? a2.toString() : "null", 0)) throw "no actual value";
       if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason";

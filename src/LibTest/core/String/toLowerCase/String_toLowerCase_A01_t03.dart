@@ -8,6 +8,7 @@
  *            where all characters of this string are made lower case. Returns
  *            this otherwise.
  * @description Checks that this method does not affect non-alphabetic strings
+ * @reviewer pagolubev
  * @author msyabro
  */
 

@@ -11,7 +11,9 @@
  *              arguments (including special values) and that it is double.
  * Assumptions taken from ECMA-262 spec, ch. 11.5.3.
  * @author rodionov
- * @needsreview verify whether Ecma-262 rules should really be applied
+ * @reviewer pagolubev
+ * @needsreview verify whether Ecma-262 rules should really be applied.
+ * other % tests assume the result is always not less than zero.
  */
 
 main() {
@@ -28,10 +30,10 @@ main() {
   final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
-  check(0, MIN_DOUBLE, 0);
-  check(0, NEG_MIN_DOUBLE, 0);
-  check(0, MAX_DOUBLE, 0);
-  check(0, NEG_MAX_DOUBLE, 0);
+  check(0, 0, MIN_DOUBLE);
+  check(0, 0, NEG_MIN_DOUBLE);
+  check(0, 0, MAX_DOUBLE);
+  check(0, 0, NEG_MAX_DOUBLE);
   check(1, 1, MAX_DOUBLE);
   check(1, 1, NEG_MAX_DOUBLE);
   check(1, 1, double.INFINITY);

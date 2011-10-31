@@ -8,7 +8,7 @@
  * @description Argument function [f] is not applicable to the elements of the list.
  * @author vasya
  * @dynamic-type-error
- * @reiviewer msyabro
+ * @reviewer msyabro
  */
 
 main() {

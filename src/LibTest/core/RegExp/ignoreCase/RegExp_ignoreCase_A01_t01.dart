@@ -7,6 +7,7 @@
  * @assertion final bool ignoreCase
  * Whether this regular expression is case insensitive.   
  * @description Checks that this property holds the correct value.
+ * @reviewer pagolubev
  * @author rodionov
  */
  

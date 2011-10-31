@@ -8,6 +8,7 @@
  * Creates a [Set] that contains all elements of [other].
  * @description Checks that this constructor works correctly with a custom Iterable implementation
  * @author rodionov
+ * @reviewer msyabro
  */
 
 class CustomIterator<T> implements Iterator<T> {

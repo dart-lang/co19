@@ -4,21 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Date add(Time other) do not affect timeZone
- * @description Checks that the timeZone is not affected
+ * @assertion Date add(Duration other) does not affect TimeZone
+ * @description Checks that the TimeZone is not affected
  * @author hlodvig
+ * @reviewer msyabro
  */
 
 main() {
-  Date dt = new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone(new Time(0, 3, 0, 0, 0)));
-  dt = dt.add(new Time(0, 0, 0, 0, 0));
-  Expect.equals(new TimeZone(new Time(0, 3, 0, 0, 0)), dt.timeZone);
+  Date dt = new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone.local());
+  dt = dt.add(new Duration(0, 0, 0, 0, 0));
+  Expect.equals(new TimeZone.local(), dt.timeZone);
 
-  dt = new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone(new Time(0, 7, 0, 0, 0)));
-  dt = dt.add(new Time(9223372036854775808, 9223372036854775808, 9223372036854775808, 9223372036854775808, 9223372036854775808));
-  Expect.equals(new TimeZone(new Time(0, 7, 0, 0, 0)), dt.timeZone);
+  dt = new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone.local());
+  dt = dt.add(new Duration(9223372036854775808, 9223372036854775808, 9223372036854775808, 9223372036854775808, 9223372036854775808));
+  Expect.equals(new TimeZone.local(), dt.timeZone);
 
-  dt = new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone(new Time(0, -3, 0, 0, 0)));
-  dt = dt.add(new Time(-9223372036854775808, -9223372036854775808, -9223372036854775808, -9223372036854775808, 9223372036854775808));
-  Expect.equals(new TimeZone(new Time(0, -3, 0, 0, 0)), dt.timeZone);
+  dt = new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone.local());
+  dt = dt.add(new Duration(-9223372036854775808, -9223372036854775808, -9223372036854775808, -9223372036854775808, 9223372036854775808));
+  Expect.equals(new TimeZone.local(), dt.timeZone);
 }

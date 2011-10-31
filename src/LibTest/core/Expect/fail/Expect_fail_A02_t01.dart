@@ -8,6 +8,7 @@
  * Descriptive error message is provided. 
  * @description Checks that message of thrown ExpectException is set to the msg argument.
  * @author varlax
+ * @reviewer msyabro
  */
 
 main() {

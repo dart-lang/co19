@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies the function [f] to each element of the collection
+ * @assertion Applies the function [f] to each element of the collection.
  * @description Tries to change the list from [f] and checks no exception is thrown.
  * @author msyabro
  * @reviewer varlax

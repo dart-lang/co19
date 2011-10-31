@@ -4,17 +4,36 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a new list of the given length.
- * @description Tries to pass negative value.
- * @author vasya
- * @reviewer iefremov
+ * @assertion Creates a fixed size list of the given length.
+ * @description Checks that created list does not allow operations affecting list size.
+ * @author varlax
  * @reviewer msyabro
- * @needsreview undocumented
  */
 
-main() {
+check(List l) {
   try {
-    List a = new List(-1);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
+    l.clear();
+    Expect.fail("UnsupportedOperationException expected");
+  } catch (UnsupportedOperationException ok) {}
+
+  try {
+    l.length = 123;
+    Expect.fail("UnsupportedOperationException expected");
+  } catch (UnsupportedOperationException ok) {}
+
+  try {
+    l.add(null);
+    Expect.fail("UnsupportedOperationException expected");
+  } catch (UnsupportedOperationException ok) {}
+
+  try {
+    l.removeLast();
+    Expect.fail("UnsupportedOperationException expected");
+  } catch (UnsupportedOperationException ok) {}
+
+}
+
+main() {
+  check(new List<String>(0));
+  check(new List(10));
 }

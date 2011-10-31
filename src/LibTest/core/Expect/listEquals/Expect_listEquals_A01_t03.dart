@@ -8,6 +8,7 @@
  * Checks that all elements in [expected] and [actual] are equal [:==:].
  * @description Checks that operator == on elements is used for checking.
  * @author varlax
+ * @reviewer msyabro
  */
 class A {
   operator ==(var b) {
@@ -38,6 +39,7 @@ main() {
   try {
     var c = new C();
     Expect.listEquals([c], [c]);
+    check(false);
   } catch (ExpectException ee) {
   }
 }

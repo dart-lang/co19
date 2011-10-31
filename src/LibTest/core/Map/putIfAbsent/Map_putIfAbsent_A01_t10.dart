@@ -10,6 +10,7 @@
  * @description Checks that an exception thrown by the argument function
  * breaks operation and is passed through to the caller.
  * @author varlax
+ * @reviewer msyabro
  */
 
 

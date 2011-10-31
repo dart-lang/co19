@@ -12,6 +12,7 @@
  *      Otherwise
  *    - the String is stored in UTF-32, ie 32 bits code points.
  * @description Checks that String can be stored in UTF-32
+ * @reviewer pagolubev
  * @author msyabro
  */
 

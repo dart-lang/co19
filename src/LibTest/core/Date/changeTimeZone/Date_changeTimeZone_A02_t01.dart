@@ -8,16 +8,15 @@
  *  in the given [targetTimeZone] time zone
  * @description Checks that timeZone is set correctly in the new instance
  * @author hlodvig
+ * @reviewer msyabro
  */
 
 void check(dt){
   Expect.equals(new TimeZone.utc(), dt.changeTimeZone(new TimeZone.utc()).timeZone);
   Expect.equals(new TimeZone.local(), dt.changeTimeZone(new TimeZone.local()).timeZone);
-  Expect.equals(new TimeZone(new Time(0, 3, 0, 0, 0)), dt.changeTimeZone(new TimeZone(new Time(0, 3, 0, 0, 0))).timeZone);
 }
 
 main() {
   check(new Date.withTimeZone(2001, 2, 3, 4, 5, 6, 7, new TimeZone.utc()));
   check(new Date.withTimeZone(2001, 2, 3, 4, 5, 6, 7, new TimeZone.local()));
-  check(new Date.withTimeZone(2001, 2, 3, 4, 5, 6, 7, new TimeZone(new Time(0, 3, 0, 0, 0))));
 }

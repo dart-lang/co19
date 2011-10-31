@@ -6,9 +6,10 @@
 /**
  * @assertion Date(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds)
  * constructs a [Date] in local timezone
- * @description Check that the default timezone is local one.
+ * @description Checks that the default timezone is local one.
  * @author hlodvig
  * @reviewer iefremov
+ * @reviewer msyabro
  */
 
 main() {

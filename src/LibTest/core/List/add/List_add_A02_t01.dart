@@ -9,12 +9,17 @@
  * if the list is not extendable.
  * @author vasya
  * @reviewer iefremov
- * @needsreview
+ * @reviewer varlax
  */
 
 main() {
   try {
     new List(0).add(null);
+    Expect.fail("UnsupportedOperationException expected when calling a.add()");
+  } catch(UnsupportedOperationException ok) {}
+
+  try {
+    new List(100).add(null);
     Expect.fail("UnsupportedOperationException expected when calling a.add()");
   } catch(UnsupportedOperationException ok) {}
 }

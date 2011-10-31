@@ -9,6 +9,7 @@
  * @description Checks that created set contains all elements of [other].
  * Both empty and non-empty argument collections are tested.
  * @author rodionov
+ * @reviewer msyabro
  */
 
 main() {

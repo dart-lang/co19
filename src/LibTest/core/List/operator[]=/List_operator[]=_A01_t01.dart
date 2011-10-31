@@ -5,14 +5,11 @@
  */
 /**
  * @assertion Assigns the index'th element of the list to the given value.
- * Throws an out of bounds exception if [index] is out of
- * bounds.
- * @description Checks that needed element is correctly assigned. 
+ * @description Checks that needed element is correctly assigned in fixed size lists. 
  * @author iefremov
  * @reviewer msyabro
+ * @reviewer varlax
  */
-
-
 
 void arrayEquals(List expected, List actual) {
   Expect.isTrue(expected.length == actual.length);
@@ -31,8 +28,8 @@ main() {
   a[0] = a;
   Expect.isTrue(a === a[0]);
 
-  a = [1,2,3];
-  a[1] = null;
+  a = new List(3);
+  a[0] = 1;a[2] = 3;
   arrayEquals([1, null, 3], a);
   a[2] = null;
   arrayEquals([1, null, null], a);

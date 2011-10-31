@@ -5,9 +5,10 @@
  */
 /**
  * @assertion Adds [value] at the end of the list, extending the length by one.
- * @description Checks that [value] is added to the end of the list
+ * @description Checks extendable lists, that [value] is added to the end of the list
  * and the length is extended by one.
  * @author vasya
+ * @author varlax
  * @reviewer iefremov
  * @reviewer msyabro
  */
@@ -18,5 +19,14 @@ main() {
     a.add(i);
     Expect.equals(i, a[i]);
     Expect.equals(i+1, a.length);
+  }
+
+  List<int> b = new List.from(const<int>[]);
+  b.add(null);
+  Expect.isNull(b[0]);
+  for (var i = 1; i <= 314148; i++) {
+    b.add(i);
+    Expect.equals(i, b[i]);
+    Expect.equals(i+1, b.length);
   }
 }

@@ -13,6 +13,7 @@
  * @description Checks that the contents of parentheses are correctly captured. More complex test.
  * @3rdparty sputnik-v1:S15.10.2.8_A3_T17.js
  * @author rodionov
+ * @reviewer pagolubev
  */
  
 
@@ -49,4 +50,3 @@ void check(String pattern, String str, [bool multiLine = false, bool ignoreCase 
     }
   }
 }
-

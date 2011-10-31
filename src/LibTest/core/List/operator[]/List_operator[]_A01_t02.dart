@@ -5,21 +5,26 @@
  */
 /**
  * @assertion Returns the index'th element in the list.
- * @description Checks retrieving by arbitrary index.
- * @author iefremov
+ * @description Checks extendable arrays.
+ * @author varlax
  * @reviewer msyabro
  */
-
-
-
 main() {
-  Expect.isTrue([1, 2, 3][0] === 1);
-  Expect.isTrue([1, null, 3][1] === null);
-  Expect.isTrue([1, 2, null][2] === null);
-  
-  var a = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-  for(int i = 0; i < a.length; ++i) {
-    Expect.isTrue(a[i] === i);
-    Expect.isTrue(a[a.length-1-i] === a.length-1-i);
+  Expect.isTrue(new List.from([1, 0])[0] == 1);
+  var a = [];
+  Expect.isTrue(new List.from([a, 0])[0] === a);
+  Expect.isTrue(new List.fromList([null, 0],0,2)[0] === null);
+  Expect.isTrue(new List.from([1, 2, 3])[0] == 1);
+  Expect.isTrue(new List.from([null, null, null])[0] == null);
+
+  Expect.isTrue(new List.from([1, 2, 3])[2] === 3);
+  Expect.isTrue(new List.from([1, null, 3])[1] === null);
+  Expect.isTrue(new List.fromList([1, 2, null], -1, 10)[2] === null);
+ 
+  var b = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+  a = new List.fromList(b, 1, 10);
+  for(int i = 1; i <= a.length; ++i) {
+    Expect.isTrue(a[i-1] === i);
+    Expect.isTrue(a[a.length-i] === a.length+1-i);
   }
 }

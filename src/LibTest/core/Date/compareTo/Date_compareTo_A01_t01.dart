@@ -8,6 +8,7 @@
  * @description Checks that Date is Comparable and has .compareTo() method.
  * @author hlodvig
  * @reviewer iefremov
+ * @reviewer msyabro
  */
 
 

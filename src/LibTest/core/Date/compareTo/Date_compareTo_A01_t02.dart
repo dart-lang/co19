@@ -5,9 +5,10 @@
  */
 /**
  * @assertion Interface Date extends Comparable.
- * @description Checks Date.compareTo() implementaion.
+ * @description Checks Date.compareTo() implementation.
  * @author hlodvig
  * @reviewer iefremov
+ * @reviewer msyabro
  */
 
 

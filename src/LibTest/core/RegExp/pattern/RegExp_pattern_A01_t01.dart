@@ -7,6 +7,7 @@
  * @assertion final String pattern
  * The pattern of this regular expression. 
  * @description Checks that this property holds the correct string.
+ * @reviewer pagolubev
  * @author rodionov
  */
  

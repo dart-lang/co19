@@ -7,6 +7,7 @@
  * @assertion final bool multiLine
  * Whether this regular expression matches multiple lines.  
  * @description Checks that this property holds the correct value.
+ * @reviewer pagolubev
  * @author rodionov
  */
  

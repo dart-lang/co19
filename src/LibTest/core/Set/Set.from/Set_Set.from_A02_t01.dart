@@ -7,6 +7,7 @@
  * @assertion Throws NullPointerException if [other] is null
  * @description Checks that NullPointerException is thrown is the argument is null.
  * @author rodionov
+ * @reviewer msyabro
  * @needsreview undocumented
  */
 

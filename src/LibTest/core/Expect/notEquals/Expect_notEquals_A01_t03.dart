@@ -8,6 +8,7 @@
  * Checks whether the unexpected and actual values are not equal (using [:!=:]).
  * @description Checks that object equality is checked with == operator (on unexpected value).
  * @author varlax
+ * @reviewer msyabro
  */
 
 class A {
@@ -52,6 +53,7 @@ main() {
   a = new B();
   try {
     Expect.notEquals(b, a);
+    check(false);
   } catch (ExpectException ee) {
     check(b.checked === a);
   }

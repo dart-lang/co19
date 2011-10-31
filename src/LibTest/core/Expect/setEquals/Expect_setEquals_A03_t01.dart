@@ -9,13 +9,14 @@
  * @description Checks that message of thrown ExpectException includes 
  *              representation of extra and missing elements, as well as the reason.
  * @author varlax
+ * @reviewer msyabro
  */
 
 main() {
   check(
-      [0, 235892385, true, "abracadabra"], 
-      [0, 235892385, false , "abracadabra"], 
-      [true,false]
+      [0, 235892385, 1, "abracadabra"],
+      [0, 235892385, 2 , "abracadabra"],
+      [1, 2]
       );
   
   check([1,2,3],[2,3],[1], "blah sdsder rt3 4");

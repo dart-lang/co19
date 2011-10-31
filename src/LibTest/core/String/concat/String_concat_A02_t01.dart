@@ -7,6 +7,7 @@
  * @assertion Passing null as argument results in IllegalArgumentException
  * @description Tries to pass null as argument and expects an IllegalArgumentException
  * @author rodionov
+ * @reviewer pagolubev
  * @needsreview Undocumented
  */
 

@@ -10,6 +10,7 @@
  * @description Checks that message of thrown ExpectException includes 
  *              representation of the mismatched region, as well as the reason.
  * @author varlax
+ * @reviewer msyabro
  */
 
 main() {
@@ -23,7 +24,7 @@ main() {
   check("", null, "null", reason: "not empty");
 }
 
-void check(String exp, String act, String arg1, [String arg2 = null, String reason = null]) {
+void check(var exp, var act, String arg1, [String arg2 = null, String reason = null]) {
   try {
     Expect.stringEquals(exp, act, reason);
     throw new Exception("ExpectException expected");
@@ -31,8 +32,8 @@ void check(String exp, String act, String arg1, [String arg2 = null, String reas
 //    print(e.message);
     if (!e.message.contains(exp.toString(), 0)) throw "no expected value";
     if (!e.message.contains(act.toString(), 0)) throw "no actual value";
-    if (arg1 !== null && !e.message.contains(arg1.toString(), 0)) throw "no correct diff";
-    if (arg2 !== null && !e.message.contains(arg2.toString(), 0)) throw "no correct diff";
+    if (arg1 !== null && !e.message.contains(arg1, 0)) throw "no correct diff";
+    if (arg2 !== null && !e.message.contains(arg2, 0)) throw "no correct diff";
     if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason"; 
   }
 }

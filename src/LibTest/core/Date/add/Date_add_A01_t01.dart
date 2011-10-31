@@ -4,11 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Date add(Time other) returns [Date].
+ * @assertion Date add(Duration other) returns [Date].
  * @description Checks that the method returns Date instance
  * @author hlodvig
+ * @reviewer msyabro
  */
 
 main() {
-  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Time(0, 0, 0, 0, 0)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(0, 0, 0, 0, 0)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(0, 0, 0, 0, 0)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(-100000, -100000, -100000, -100000, -100000)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(100000, 100000, 100000, 100000, 100000)) is Date);
 }

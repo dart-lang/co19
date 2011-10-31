@@ -6,13 +6,27 @@
 /**
  * @assertion Date.withTimeZone(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds, TimeZone timeZone)
  *  constructs a [Date] instance based on the individual parts
- * @description Tries to pass non-int value as year.
- * @dynamic-type-error
+ * @description Tries to pass null value as one of the arguments.
  * @author hlodvig
  * @reviewer iefremov
- * @needsreview possibly merge with similar tests?
+ * @reviewer msyabro
+ * @needsreview unspecified exception
  */
 
-main(){
-  Date dt = new Date.withTimeZone("1", 1, 1, 1, 1, 1, 1, new TimeZone.utc());
+void check(y, m, d, h, min, sec, ms, tz, field) {
+  try {
+    new Date.withTimeZone(y, m, d, h, min, sec, ms, tz);
+    Expect.fail("NullPointerException expected with the passed null value of the "+field);
+  } catch(NullPointerException ok) {}
+}
+
+main() {
+  check(null, 1, 1, 1, 1, 1, 1, new TimeZone.utc(), "year");
+  check(1, null, 1, 1, 1, 1, 1, new TimeZone.utc(), "month");
+  check(1, 1, null, 1, 1, 1, 1, new TimeZone.utc(), "day");
+  check(1, 1, 1, null, 1, 1, 1, new TimeZone.utc(), "hours");
+  check(1, 1, 1, 1, null, 1, 1, new TimeZone.utc(), "minutes");
+  check(1, 1, 1, 1, 1, null, 1, new TimeZone.utc(), "seconds");
+  check(1, 1, 1, 1, 1, 1, null, new TimeZone.utc(), "milliseconds");
+  check(1, 1, 1, 1, 1, 1, 1, null, "timeZone");
 }

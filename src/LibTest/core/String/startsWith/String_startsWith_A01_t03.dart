@@ -6,6 +6,7 @@
 /**
  * @assertion Returns whether this string starts with [other].
  * @description Checks basic cases
+ * @reviewer pagolubev
  * @author msyabro
  */
 

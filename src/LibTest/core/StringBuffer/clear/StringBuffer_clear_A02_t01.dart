@@ -6,6 +6,7 @@
 /**
  * @assertion Returns [this]
  * @description Checks that this method returns the same object
+ * @reviewer pagolubev
  * @author rodionov
  */
 
@@ -13,10 +14,10 @@
 main() {
   StringBuffer sb = new StringBuffer();
   Expect.isTrue(sb === sb.clear());
-  
+
   sb = new StringBuffer("");
   Expect.isTrue(sb === sb.clear());
-  
+
   sb = new StringBuffer("aaa");
   Expect.isTrue(sb === sb.clear());
 }

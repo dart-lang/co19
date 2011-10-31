@@ -11,13 +11,13 @@
  * Both empty and non-empty Sets are tested.
  * @author rodionov
  * @needsreview Undocumented
+ * @reviewer msyabro
  */
 
 
 main() {
   check(new Set.from([]));
   check(new Set.from([1, 2, 3]));
-//  check(new Set.from([new Object(), new Object()]));
 }
 
 void check(Set s) {

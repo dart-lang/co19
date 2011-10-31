@@ -9,6 +9,7 @@
  * @description Normal int values passed as arguments.
  * @author hlodvig
  * @reviewer iefremov
+ * @reviewer msyabro
  */
 
 main(){
@@ -21,7 +22,6 @@ main(){
   Expect.equals(5, dt1.seconds, 5);
   Expect.equals(6, dt1.milliseconds, 6);
   Expect.equals(new TimeZone.utc(), dt1.timeZone);
-  Expect.isTrue(dt1 is Date);
 
   Date dt2 = new Date.withTimeZone(2001, 1, 2, 3, 4, 5, 6, new TimeZone.local());
   Expect.equals(2001, dt2.year);
@@ -32,16 +32,4 @@ main(){
   Expect.equals(5, dt2.seconds);
   Expect.equals(6, dt2.milliseconds);
   Expect.equals(new TimeZone.local(), dt2.timeZone);
-  Expect.isTrue(dt2 is Date);
-
-  Date dt3 = new Date.withTimeZone(2001, 1, 2, 3, 4, 5, 6, new TimeZone(new Time(0, 3, 0, 0, 0)));
-  Expect.equals(2001, dt3.year);
-  Expect.equals(1, dt3.month);
-  Expect.equals(2, dt3.day);
-  Expect.equals(3, dt3.hours);
-  Expect.equals(4, dt3.minutes);
-  Expect.equals(5, dt3.seconds);
-  Expect.equals(6, dt3.milliseconds);
-  Expect.equals(new TimeZone(new Time(0, 3, 0, 0, 0)), dt3.timeZone);
-  Expect.isTrue(dt3 is Date);
 }

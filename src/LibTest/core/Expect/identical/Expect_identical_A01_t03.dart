@@ -8,6 +8,7 @@
  * Checks whether the expected and actual values are identical (using [:===:]).
  * @description Checks that equality operator is not used.
  * @author varlax
+ * @reviewer msyabro
  */
 
 class A {

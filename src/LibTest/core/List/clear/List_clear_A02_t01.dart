@@ -8,8 +8,8 @@
  * the list is not extendable.
  * @description Checks that exception is thrown if the list is not extendable.
  * @author vasya
- * @needsreview 
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 main() {

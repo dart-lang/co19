@@ -8,15 +8,14 @@
  *  [value] equals to [this.value]
  * @description Checks that this.value is equal to newDateTime.value
  * @author hlodvig
+ * @reviewer msyabro
  */
 void check(dt){
   Expect.equals(dt.value, dt.changeTimeZone(new TimeZone.utc()).value);
   Expect.equals(dt.value, dt.changeTimeZone(new TimeZone.local()).value);
-  Expect.equals(dt.value, dt.changeTimeZone(new TimeZone(new Time(0, 3, 0, 0, 0))).value);
 }
 
 main() {
   check(new Date.withTimeZone(2001, 2, 3, 4, 5, 6, 7, new TimeZone.utc()));
   check(new Date.withTimeZone(2001, 2, 3, 4, 5, 6, 7, new TimeZone.local()));
-  check(new Date.withTimeZone(2001, 2, 3, 4, 5, 6, 7, new TimeZone(new Time(0, 3, 0, 0, 0))));
 }

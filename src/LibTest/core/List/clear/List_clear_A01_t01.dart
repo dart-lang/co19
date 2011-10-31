@@ -9,6 +9,7 @@
  * @description Checks that the length of the list becomes zero.
  * @author vasya
  * @reviewer msyabro 
+ * @reviewer varlax
  */
 
 main() {
@@ -40,7 +41,7 @@ main() {
   a.clear();
   Expect.isTrue(a.length == 0);
 
-  a.addAll([[],[null],[1,2,3,4],["one", "two", "three", "four"]]);
+  a = new List.from([[],[null],[1,2,3,4],["one", "two", "three", "four"]]);
   Expect.isTrue(a.length == 4);
   a.clear();
   Expect.isTrue(a.length == 0);

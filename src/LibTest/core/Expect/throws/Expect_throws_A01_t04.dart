@@ -8,11 +8,12 @@
  * typedef bool _CheckExceptionFn(exception)
  * Calls the function [f] and verifies that it throws an exception.
  * The optional [check] function can provide additional validation that the correct exception is being thrown.
- * @description Checks that the optional check function is called with with the thrown object.
+ * @description Checks that the optional check function is called with the thrown object.
  * @author varlax
+ * @reviewer msyabro
  */
 
-typedef bool checkFn(exception);
+//typedef bool checkFn(exception);
 typedef void test();
 
 
