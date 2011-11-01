@@ -12,7 +12,7 @@
  */ 
 
 class C {
-  C C.makeC() { return this;}
+  C C.makeC() {}
 }
 
 main() {
