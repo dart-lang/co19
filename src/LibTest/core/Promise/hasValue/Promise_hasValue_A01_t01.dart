@@ -27,7 +27,7 @@ check(val) {
   Expect.isTrue(p.hasValue());
   
   p = new Promise();
-  p.fail(err);
+  p.fail("error");
   Expect.isTrue(p.hasValue());
 }
 

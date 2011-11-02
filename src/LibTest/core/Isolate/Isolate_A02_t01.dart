@@ -29,9 +29,9 @@ class TestIsolate extends Isolate {
 void main() {
   TestIsolate i = new TestIsolate();
   i.spawn().then((SendPort port) {
-     port.call('get i').receive(void (var i) {
+     port.call('get i').receive((var i, SendPort replyTo) {
         Expect.isTrue(i == 11);
-     })
+     });
   });
   
 }

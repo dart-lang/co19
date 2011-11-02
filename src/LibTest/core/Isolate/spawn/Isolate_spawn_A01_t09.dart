@@ -32,6 +32,7 @@ void main() {
   void func2(Promise hp) {
     hp.addCompleteHandler(func3);	
   }
+  
   light.spawn().then(func1).addCompleteHandler(func2);
   
 }

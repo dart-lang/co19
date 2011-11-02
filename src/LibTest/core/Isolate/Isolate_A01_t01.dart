@@ -32,10 +32,10 @@ void main() {
   i.i=222;
   Expect.isTrue(i.i == 222);
   i.spawn().then((SendPort port) {
-     port.call('get i').receive(void (var i) {
-        Expect.isTrue(i == 111);
+     port.call('get i').receive((var message, SendPort replyTo) {
+        Expect.isTrue(message == 111);
         Expect.isTrue(i.i == 222);
-     })
+     });
   });
   
 }

@@ -7,74 +7,74 @@
  * @assertion Spawns new isolate
  * @description Checks spawning isolate from itself.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 class TestIsolate extends Isolate {
-  TestIsolate(): super.light() {}
+   String name = "Alice";
+
+   TestIsolate(): super.light() {}
+        
+   void act(var message, SendPort replyTo) {
+      void reply(var message, SendPort fromBob) {
+        if (message == "Ok") {
+           print(name + ".act.reply <- " + message);
+           replyTo.send("Spawned", fromBob);
+         } else {
+           Expect.fail(name + ".reply <- " + message+": It does not want to be Bob");
+         }
+      }
+
+      if (message == "Spawn") {
+        print(name + ".act <- " + message);
+        this.spawn().addCompleteHandler(void func(SendPort portB) {
+          portB.call("Your name is Bob").receive(reply);
+        });
+      } else if (message == "Who is it?") {
+        print(name + ".act <- " + message);
+        replyTo.send(name, null);
+      } else if (message.startsWith("Your name is")) {
+        name = message.split(" ").last();
+        print(name + ".act <- " + message+"; new name="+name);
+        replyTo.send("Ok", port);
+      } else {
+        Expect.fail(name + ".act <- "+message);
+      }
+    }    
   
   void main() {
-    String name = "Alice";
-    
-    port.receive(void func(var message, SendPort replyTo) {
-      print(name + " <- " + message);
-      if(message == "Spawn") {
-        ReceivePort rPort = new ReceivePort();
-        
-        Promise p = this.spawn();
-
-        p.addCompleteHandler(void func(SendPort port) {
-          rPort.receive(void func(var message, SendPort s) {
-            if(message == "Ok") {
-              replyTo.send("Spawned", port);
-              rPort.close();
-            } else {
-              Expect.fail("It does not want to be Bob");
-            }
-          });
-          
-          port.send("Your name is Bob", rPort);
-        });
-      }  else if(message == "Who is it?") {
-        replyTo.send(name, null);
-      } else if(message.startsWith("Your name is")) {
-        name = message.split(" ").last();
-        replyTo.send("Ok", null);
-      } else {
-        Expect.fail("Incorrect message");
-      }
-    });
+    port.receive(act);
   }
 }
 
 void main() {
-  TestIsolate i = new TestIsolate();
-  Promise p = i.spawn();
-  
-  p.addCompleteHandler(void func(SendPort port) {
-    ReceivePort portAlice = new ReceivePort();
-    ReceivePort portBob = new ReceivePort();
+  new TestIsolate().spawn().addCompleteHandler(void func(SendPort toAlice) {
+    ReceivePort fromAlice = new ReceivePort();
+    ReceivePort fromBob = new ReceivePort();
     
-    portAlice.receive( void func(var message, SendPort replyTo) {
-      print("Main <- " + message);
+    toAlice.send("Spawn", fromAlice);
+
+    fromAlice.receive( void func(var message, SendPort toBob) {
       if(message == "Spawned") {
-        replyTo.send("Who is it?", portBob);
-        port.send("Who is it?", portAlice);
+        print("fromAlice <- " + message);
+        toBob.send("Who is it?", fromBob);
+        toAlice.send("Who is it?", fromAlice);
       } else if(message == "Alice") {
-        portAlice.close();
+        print("fromAlice <- " + message);
+        fromAlice.close();
       } else {
-        Expect.fail("Wrong isolate");//not Alice
+        Expect.fail("fromAlice<- " + message);
       }
     });
-    
-    portBob.receive( void func(var message, SendPort replyTo) {
-      print("Main <- " + message);
+
+    fromBob.receive( void func(var message, SendPort unused){
       if(message == "Bob") {
-        portBob.close();
+        print("fromBob <- " + message);
+        fromBob.close();
       } else {
-        Expect.fail("Wrong isolate"); //not Bob
+        Expect.fail("fromBob <- " + message); //not Bob
       }
     });
   
-    port.send("Spawn", portAlice);
   });
 }

@@ -7,6 +7,7 @@
  * @assertion Spawns new isolate
  * @description Tries to spawn one isolate twice.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 class TestIsolate extends Isolate {
@@ -20,29 +21,18 @@ class TestIsolate extends Isolate {
 }
 
 void main() {
-  TestIsolate i = new TestIsolate();
-  Promise<SendPort> portA = i.spawn();//Spawn new Isolate
-  Promise<SendPort> portB = i.spawn(); //Spawn Isolate one more time
-  Expect.isFalse(portA == portB);
-  
-  ReceivePort rPortA = new ReceivePort(); //Create SendPort and ReceivePort
-  SendPort sPortA = rPortA.toSendPort();   // for feedback from isolate
-  rPortA.receive(void func(var message, SendPort replyTo) {
+  void callbackA(var message, SendPort replyTo) {
     Expect.equals(3, message);
-    rPortA.close();
-  });
-  
-  ReceivePort rPortB = new ReceivePort();
-  SendPort sPortB = rPortB.toSendPort();
-  rPortB.receive(void func(var message, SendPort replyTo) {
+  }
+  void callbackB(var message, SendPort replyTo) {
     Expect.equals(6, message);
-    rPortB.close();
+  }
+    
+  new TestIsolate().spawn().addCompleteHandler(void func(SendPort result) {
+    result.call(1).receive(callbackA);
   });
-  
-  portA.addCompleteHandler(void func(SendPort result) {
-    result.send(1, sPortA);//send message to isolate
+  new TestIsolate().spawn().addCompleteHandler(void func(SendPort result) {
+    result.call(2).receive(callbackB);
   });
-  portB.addCompleteHandler(void func(SendPort result) {
-    result.send(2, sPortB);//send message to isolate
-  });
+
 }

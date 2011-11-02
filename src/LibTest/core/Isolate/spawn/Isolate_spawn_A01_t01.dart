@@ -24,12 +24,11 @@ class TestIsolate extends Isolate {
 }
 
 void main() {
-  TestIsolate i = new TestIsolate();
   void receiveHandler (var res, SendPort replyTo) {
         Expect.isTrue(res);
         print("Ok");
   }
-  i.spawn().then(void f(SendPort port) {
+  new TestIsolate().spawn().then(void f(SendPort port) {
      port.call('check').receive(receiveHandler);
   });
 }

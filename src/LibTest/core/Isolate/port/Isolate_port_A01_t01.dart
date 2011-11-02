@@ -11,12 +11,15 @@
  * @reviewer kaigorodov
  */
 
+class TestIsolate extends Isolate {
+  main() {}
+}
+
 void main() {
-  Isolate i = new Isolate();
+  Isolate i = new TestIsolate();
   void check(SendPort port) {
     Expect.equals(null, i.port);
   }
-  check();
   Expect.equals(null, i.port);
   i.spawn().then(check);
 }

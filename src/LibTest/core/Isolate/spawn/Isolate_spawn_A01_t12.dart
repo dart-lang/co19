@@ -7,54 +7,36 @@
  * @assertion Spawns new isolate
  * @description Spawns many isolates.
  * @author msyabro
+ * @reviewer kaigorodov
+ * @expected-output message=0
  */
 
 class AddIsolate extends Isolate {
-  AddIsolate(): super();		
+  AddIsolate(): super();
   
-  void main() {
-    SendPort replPort;
-    ReceivePort rPort = new ReceivePort();
-    
-    rPort.receive(void f(var message, SendPort replyTo) {
-      replPort.send(message, null);
-      rPort.close();
-    });
-    port.receive(void func(var message, SendPort replyTo) {
-      if(message < 85) {
-        replPort = replyTo;
-      
-        Promise p = this.spawn();
-      
-        p.addCompleteHandler(void f(SendPort port) {
-          port.send(++message, rPort);
+  void act(int message, SendPort replyTo) {
+      message--;
+      if(message > 0) {
+        this.spawn().addCompleteHandler((SendPort port) {
+          port.send((message), replyTo);
         });
       } else {
-        if(replPort == null) {
-          replPort = replyTo;
-        }
         replyTo.send(message, null);
-        rPort.close();
       }
-    }); //receive
+  }	
+  
+  void main() {
+    port.receive(act);
   }
 }
 
-void main() {
-  AddIsolate addIsolate = new AddIsolate();
-  Promise p = addIsolate.spawn();
+void callback(var message, SendPort replyTo) {
+   print("message="+message); // expected-output
+}
   
-  p.addCompleteHandler(void func(SendPort port) {
-    ReceivePort rPort = new ReceivePort();
-    
-    rPort.receive(void func(var message, SendPort replyTo) {
-      if(message == 85) {
-        print("Ok");
-        rPort.close();
-        
-      }
-    });
-    
-    port.send(1, rPort);
+void main() {
+  int isolateCount=10;
+  new AddIsolate().spawn().addCompleteHandler(void func(SendPort port) {
+     port.call(isolateCount).receive(callback);
   });
 }

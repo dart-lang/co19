@@ -20,8 +20,12 @@ main() {
   Promise p = new Promise();
   p.fail("test fail");
 
+  bool fail = false;
   try {
     p.value;
+    fail = true;
+  } catch(var i) {}
+  if(fail) {
     Expect.fail("Some exception is expected");
   }
 }

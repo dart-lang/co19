@@ -9,6 +9,7 @@
  * @description Checks that the method returns non-null if the isolate is used as an entry-point.
  * @expected-output Ok
  * @author kaigorodov
+ * @reviewer msyabro
  */
 
 class TestIsolate extends Isolate {
