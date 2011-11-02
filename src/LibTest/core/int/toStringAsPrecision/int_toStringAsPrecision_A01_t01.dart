@@ -9,6 +9,7 @@
  * @description Checks that this method returns correct value.
  * @author vasya
  * @author msyabro
+ * @reviewer pagolubev
  * @needsreview Unimplemented and undocumented
  */
 
