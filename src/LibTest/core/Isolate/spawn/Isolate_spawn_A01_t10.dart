@@ -27,7 +27,7 @@ class TestIsolate extends Isolate {
 
       if (message == "Spawn") {
         print(name + ".act <- " + message);
-        this.spawn().addCompleteHandler(void func(SendPort portB) {
+        this.spawn().then(void func(SendPort portB) {
           portB.call("Your name is Bob").receive(reply);
         });
       } else if (message == "Who is it?") {
@@ -48,7 +48,7 @@ class TestIsolate extends Isolate {
 }
 
 void main() {
-  new TestIsolate().spawn().addCompleteHandler(void func(SendPort toAlice) {
+  new TestIsolate().spawn().then(void func(SendPort toAlice) {
     ReceivePort fromAlice = new ReceivePort();
     ReceivePort fromBob = new ReceivePort();
     

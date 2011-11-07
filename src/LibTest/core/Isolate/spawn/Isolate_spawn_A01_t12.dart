@@ -17,7 +17,7 @@ class AddIsolate extends Isolate {
   void act(int message, SendPort replyTo) {
       message--;
       if(message > 0) {
-        this.spawn().addCompleteHandler((SendPort port) {
+        this.spawn().then((SendPort port) {
           port.send((message), replyTo);
         });
       } else {
@@ -36,7 +36,7 @@ void callback(var message, SendPort replyTo) {
   
 void main() {
   int isolateCount=10;
-  new AddIsolate().spawn().addCompleteHandler(void func(SendPort port) {
+  new AddIsolate().spawn().then(void func(SendPort port) {
      port.call(isolateCount).receive(callback);
   });
 }

@@ -28,10 +28,10 @@ void main() {
     Expect.equals(6, message);
   }
     
-  new TestIsolate().spawn().addCompleteHandler(void func(SendPort result) {
+  new TestIsolate().spawn().then(void func(SendPort result) {
     result.call(1).receive(callbackA);
   });
-  new TestIsolate().spawn().addCompleteHandler(void func(SendPort result) {
+  new TestIsolate().spawn().then(void func(SendPort result) {
     result.call(2).receive(callbackB);
   });
 

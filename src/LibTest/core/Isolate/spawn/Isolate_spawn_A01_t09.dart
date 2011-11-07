@@ -30,9 +30,9 @@ void main() {
     	print ('Ok');
   }
   void func2(Promise hp) {
-    hp.addCompleteHandler(func3);	
+    hp.then(func3);
   }
   
-  light.spawn().then(func1).addCompleteHandler(func2);
+  light.spawn().then(func1).then(func2);
   
 }
