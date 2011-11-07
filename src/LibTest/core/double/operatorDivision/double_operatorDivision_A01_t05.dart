@@ -24,11 +24,11 @@ check(d) {
   Expect.isTrue(d > 0, 'Incorrect input: $d');
 
   Expect.equals(1/0, d / .0);
-  Expect.equals(1/0, d / (-.0));
+  Expect.equals(-1/0, d / (-.0));
 
   d = -d;
   Expect.equals(-1/0, d / .0);
-  Expect.equals(-1/0, d / (-.0));
+  Expect.equals(1/0, d / (-.0));
 }
 
 main() {

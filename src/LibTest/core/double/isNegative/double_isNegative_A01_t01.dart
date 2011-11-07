@@ -13,7 +13,7 @@
 
 main() {
   Expect.isFalse(.0.isNegative());
-  Expect.isFalse((-.0).isNegative());
+  Expect.isTrue((-.0).isNegative());
 
   double min = 4.9406564584124654e-324;
   Expect.isFalse(min.isNegative());
