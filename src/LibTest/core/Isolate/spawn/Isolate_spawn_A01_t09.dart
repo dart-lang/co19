@@ -23,16 +23,13 @@ class TestIsolate extends Isolate {
 void main() {
   TestIsolate light = new TestIsolate.light();
   TestIsolate heavy = new TestIsolate.heavy();
+  void func2(SendPort p) {
+    print ('Ok');
+  }
   void func1(SendPort p) {
-    return heavy.spawn();
+    heavy.spawn().then(func2);
   } 
-  void func3(var res) {
-    	print ('Ok');
-  }
-  void func2(Promise hp) {
-    hp.then(func3);
-  }
-  
-  light.spawn().then(func1).then(func2);
+
+  light.spawn().then(func1);
   
 }
