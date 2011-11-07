@@ -17,13 +17,12 @@ void main() {
   
   ReceivePort singleShot = sPort.call("message");
   
-  singleShot.receive(void func(var message, SendPort replyTo) {
+  rPort.receive(void func(var message, SendPort replyTo) {
     Expect.equals(message, "message");
-    print(message);
     replyTo.send("Ok", null);
   });
   
-  rPort.receive(void func(var message, SendPort replyTo) {
+  singleShot.receive(void func(var message, SendPort replyTo) {
     if(message == "Ok") {
       rPort.close();
     }
