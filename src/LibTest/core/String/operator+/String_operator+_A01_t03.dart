@@ -19,6 +19,6 @@ main() {
   Expect.isTrue(str + 1 == "result: 1");
   Expect.isTrue(str + true == "result: true");
   Expect.isTrue(str + false == "result: false");
-  Expect.isTrue(str + 2.5 == "result: 2.500000");
-  Expect.isTrue(str + 2e2 == "result: 200.000000");
+  Expect.isTrue(str + 2.5 == "result: 2.5");
+  Expect.isTrue(str + 2e2 == "result: 200.0");
 }
