@@ -6,19 +6,18 @@
 /**
  * @assertion An instance-field compound assignment lhs.identifier OP= rhs is evaluated in a fashion that is equivalent to:
  * (function($0) { return $0.identifier = $0.identifier OP rhs; })(lhs)
- * @description Check that operator >>>= works correctly
+ * @description Check that operator ~/= works correctly
  * @author msyabro
- * @reviewer iefremov
- * @needsreview Current spec does not specify the behavior of >>>= on non-integers.
+ * @reviewer pagolubev
  */
 
 class A {
   var i;
-  A(): i = -2 {}
+  A(): i = 1 {}
 }
 
 
 main() {
   A a = new A();
-  Expect.isTrue( (a.i >>>= 3) == 536870911);
+  Expect.isTrue( (a.i ~/= 2) == 0);
 }

@@ -6,14 +6,13 @@
 /**
  * @assertion An unqualified compound assignment identifier OP= rhs is evaluated in a fashion that is equivalent to:
  * identifier = identifier OP rhs
- * @description Check that operator >>>= works correctly
+ * @description Check that operator ~/= works correctly
  * @author msyabro
- * @reviewer iefremov
- * @needsreview Current spec does not specify the behavior of >>>= on non-integers.
+ * @reviewer pagolubev
  */
 
 
 main() {
-  var i = -2;
-  Expect.isTrue( (i >>>= 3) == 536870911);
+  var i = 1;
+  Expect.isTrue( (i ~/= 2) == 0);
 }
