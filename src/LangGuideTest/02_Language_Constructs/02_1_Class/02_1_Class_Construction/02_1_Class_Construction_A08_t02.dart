@@ -24,5 +24,5 @@ class A {
 
 
 main() {
-  
+  var a = new A(0);
 }
