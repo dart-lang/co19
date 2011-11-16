@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Starts the [StopWatch]. The [elapsed] count is increasing
- *            monotonically. If the [StopWatch] has been stopped, then calling
- *            start again restarts it. If the [StopWatch] is currently running,
+ * @assertion Starts the [Stopwatch]. The [elapsed] count is increasing
+ *            monotonically. If the [Stopwatch] has been stopped, then calling
+ *            start again restarts it. If the [Stopwatch] is currently running,
  *            then calling start does nothing.
  * @description Checks that calling this method on a stopwatch that was stopped
  *              restarts it, causing the elapsed count to reset and then start increasing again.
@@ -16,7 +16,7 @@
  */
 
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   print("Freq: " + sw.frequency() + "Hz");
   sw.start();
   // run the counter up

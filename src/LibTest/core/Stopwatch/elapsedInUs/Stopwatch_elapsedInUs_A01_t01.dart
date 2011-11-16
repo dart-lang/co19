@@ -13,7 +13,7 @@
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   Expect.equals(0, sw.elapsedInUs());
   sw.start();
   for(int i = 0; i < 1000000; i++) {

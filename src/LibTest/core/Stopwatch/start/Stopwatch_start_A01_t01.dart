@@ -4,19 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the elapsed number of clock ticks since calling [start]
- *            while the [StopWatch] is running. Returns the elapsed number of
- *            clock ticks between calling [start] and calling [stop]. Returns 0
- *            if the [StopWatch] has never been started. The elapsed number of
- *            clock ticks increases by [frequency] every second.
- * @description Checks that the elapsed tick count increases all the time once
- *              the stopwatch is started.
+ * @assertion Starts the [Stopwatch]. The [elapsed] count is increasing
+ *            monotonically. If the [Stopwatch] has been stopped, then calling
+ *            start again restarts it. If the [Stopwatch] is currently running,
+ *            then calling start does nothing.
+ * @description Checks that calling this method on a stopwatch that wasn't
+ *              previously running starts it, causing the elapsed count to increase.
  * @author rodionov
  * @reviewer pagolubev
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   sw.start();
   int e0 = sw.elapsed();
   int et = e0;

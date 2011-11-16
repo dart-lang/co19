@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Returns the elapsed number of clock ticks since calling [start]
- *            while the [StopWatch] is running. Returns the elapsed number of
+ *            while the [Stopwatch] is running. Returns the elapsed number of
  *            clock ticks between calling [start] and calling [stop]. Returns 0
- *            if the [StopWatch] has never been started. The elapsed number of
+ *            if the [Stopwatch] has never been started. The elapsed number of
  *            clock ticks increases by [frequency] every second.
  * @description Checks that the elapsed tick count does not change between
  *              invocations of stop() and start().
@@ -16,7 +16,7 @@
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   sw.start();
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {

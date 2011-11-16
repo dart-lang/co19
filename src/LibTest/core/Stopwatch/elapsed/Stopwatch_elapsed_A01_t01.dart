@@ -5,20 +5,27 @@
  */
 /**
  * @assertion Returns the elapsed number of clock ticks since calling [start]
- *            while the [StopWatch] is running. Returns the elapsed number of
+ *            while the [Stopwatch] is running. Returns the elapsed number of
  *            clock ticks between calling [start] and calling [stop]. Returns 0
- *            if the [StopWatch] has never been started. The elapsed number of
+ *            if the [Stopwatch] has never been started. The elapsed number of
  *            clock ticks increases by [frequency] every second.
- * @description Checks that this method returns 0 if the stopwatch has never been started.
+ * @description Checks that the elapsed tick count increases all the time once
+ *              the stopwatch is started.
  * @author rodionov
  * @reviewer pagolubev
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
+  sw.start();
+  int e0 = sw.elapsed();
+  int et = e0;
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {
-      Expect.equals(0, sw.elapsed());
+      Expect.isTrue(sw.elapsed() >= et);
+      et = sw.elapsed();
     }
   }
+  // assuming that a million iterations takes long enough
+  Expect.isTrue(sw.elapsed() > e0);
 }

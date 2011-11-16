@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a [StopWatch] in stopped state with a zero elapsed count.
+ * @assertion Creates a [Stopwatch] in stopped state with a zero elapsed count.
  * @description Checks that this constructor executes without error and the
  *              elapsed count is indeed 0 and doesn't change.
  * @author rodionov
@@ -12,7 +12,7 @@
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   Expect.equals(0, sw.elapsed());
   for(int i = 0; i < 1000000; i++) {
     Expect.equals(0, sw.elapsed());

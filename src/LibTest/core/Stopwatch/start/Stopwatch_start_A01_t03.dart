@@ -4,23 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Starts the [StopWatch]. The [elapsed] count is increasing
- *            monotonically. If the [StopWatch] has been stopped, then calling
- *            start again restarts it. If the [StopWatch] is currently running,
+ * @assertion Starts the [Stopwatch]. The [elapsed] count is increasing
+ *            monotonically. If the [Stopwatch] has been stopped, then calling
+ *            start again restarts it. If the [Stopwatch] is currently running,
  *            then calling start does nothing.
- * @description Checks that calling this method on a stopwatch that wasn't
- *              previously running starts it, causing the elapsed count to increase.
+ * @description Checks that calling this method when the Stopwatch is already running
+ * doesn't do anything.
  * @author rodionov
  * @reviewer pagolubev
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
+  sw.start();
+  sw.start();
+  sw.start();
+  sw.start();
+  sw.start();
+  sw.start();
   sw.start();
   int e0 = sw.elapsed();
   int et = e0;
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {
+      sw.start();
       Expect.isTrue(sw.elapsed() >= et);
       et = sw.elapsed();
     }

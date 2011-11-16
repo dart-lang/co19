@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stops the [StopWatch]. The [elapsed] count stops increasing. If
- *            the [StopWatch] is currently not running, then calling stop does
+ * @assertion Stops the [Stopwatch]. The [elapsed] count stops increasing. If
+ *            the [Stopwatch] is currently not running, then calling stop does
  *            nothing.
  * @description Checks that this method indeed stops the stopwatch.
  * @author rodionov
@@ -13,7 +13,7 @@
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   sw.start();
   for(int i = 0; i < 1000000; i++) {
     if(i % 1000 == 0) {

@@ -13,7 +13,7 @@
  */
  
 main() {
-  StopWatch sw = new StopWatch();
+  Stopwatch sw = new Stopwatch();
   int f = sw.frequency();
   Expect.isTrue(f > 0, "stopwatch frequency is not positive: $f");
   sw.start();
