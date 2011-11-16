@@ -4,17 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If S is the static type of a member m of G, then the static type of the member m of G<A1, ..., An> is
- * [A1, ..., An / T1, ..., Tn]S where T1, ..., Tn are the formal type parameters of G.
- * Let Bi1, ..., Biki, be the bounds of Ti, 1 <= i <= n. It is a static type warning if Ai is not a subtype of
- * [A1, ... , An / T1, ... , Tn]Bij , 1 <= j <= ki.
- * @description Trivial check - type annotation with type parameter breaking the bound.
- * @author iefremov
+ * @assertion It is a static type warning if Ai,  i in [1..n] does not denote
+ * a type in the enclosing lexical scope.
+ * @description Checks that a static type warning is produced if a type parameter of G does
+ * not denote an accessible type.
+ * @author rodionov
+ * @reviewer iefremov
  * @static-type-error
  */
 
-class A<T extends String> {}
-
 main() {
-  A<int> a;
+  List<UnknownType> a = null;
 }
+
