@@ -14,8 +14,8 @@
 main() {
   try {
     assert(true == false);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
     Expect.equals("true == false", e.failedAssertion);
   }
 }

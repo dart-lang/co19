@@ -6,17 +6,17 @@
 /**
  * @assertion Undocumented
  * @description Checks that this method causes no error and the result is not null and is indeed a String
-                when the AssertError is raised using a throwNew static method.
+                when the AssertionError is raised using assert statement.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview undocumented
+ * @needsreview Mark this test for checked mode only
  */
  
 main() {
   try {
-    AssertError.throwNew(1, 2);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
+    assert(1 == 2);
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
     Expect.isTrue(e.toString() != null);
     Expect.isTrue(e.toString() is String);
   }

@@ -22,8 +22,8 @@ main() {
 
 void check(int start, int end) {
   try {
-    AssertError.throwNew(start, end);
+    AssertionError.throwNew(start, end);
     Expect.fail("Something expected");
-  } catch (AssertError e) {
+  } catch (AssertionError e) {
   }
 }

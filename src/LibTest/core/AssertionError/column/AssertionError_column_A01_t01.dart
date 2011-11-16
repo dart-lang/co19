@@ -6,7 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that the column is recorded correctly when the
- *              AssertError is raised using a throwNew static method.
+ *              AssertionError is raised using a throwNew static method.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
@@ -14,9 +14,9 @@
 
 check(int errorStart, int errorEnd, int expectedColumn) {
   try {
-    AssertError.throwNew(errorStart, errorEnd);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
+    AssertionError.throwNew(errorStart, errorEnd);
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
     Expect.equals(expectedColumn, e.column);
   }
 }

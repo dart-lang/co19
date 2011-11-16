@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that the URL is recorded correctly.
+ * @description Checks that the line is recorded correctly when the AssertionError
+ *              is raised using the assert statement.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview Mark this test for checked mode only.
@@ -13,10 +14,9 @@
  
 main() {
   try {
-    assert(true == false);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
-    Expect.isTrue(e.url.endsWith("LibTest/core/AssertError/url/AssertError_url_A01_t01.dart"));
-    print(e.url);
+    assert(true == false); // this is line 17
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
+    Expect.equals(17, e.line);
   }
 }

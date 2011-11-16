@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that the line is recorded correctly when the AssertError
+ * @description Checks that the line is recorded correctly when the AssertionError
  *              is raised using [:throwNew():] static method.
  * @author rodionov
  * @reviewer msyabro
@@ -14,9 +14,9 @@
  
 check(int errorStart, int errorEnd, int expectedLine) {
   try {
-    AssertError.throwNew(errorStart, errorEnd);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
+    AssertionError.throwNew(errorStart, errorEnd);
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
     Expect.equals(expectedLine, e.line);
   }
 }

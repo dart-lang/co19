@@ -6,7 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that invoking this method with integer arguments that are
- *              positive and in order results in AssertError.
+ *              positive and in order results in AssertionError.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
@@ -18,8 +18,8 @@ main() {
 
 void check(int start, int end) {
   try {
-    AssertError.throwNew(start, end);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
+    AssertionError.throwNew(start, end);
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
   }
 }

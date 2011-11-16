@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that the URL is recorded correctly when AssertError
+ * @description Checks that the URL is recorded correctly when AssertionError
  * is raised using a throwNew static method.
  * @author msyabro
  * @reviewer pagolubev
@@ -14,9 +14,9 @@
 
 main() {
   try {
-    AssertError.throwNew(1, 2);
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
-    Expect.isTrue(e.url.endsWith("LibTest/core/AssertError/url/AssertError_url_A01_t02.dart"));
+    AssertionError.throwNew(1, 2);
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
+    Expect.isTrue(e.url.endsWith("LibTest/core/AssertionError/url/AssertionError_url_A01_t02.dart"));
   }
 }

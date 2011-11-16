@@ -5,8 +5,7 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that the column is recorded correctly when the
- *              AssertError is raised using assert statement.
+ * @description Checks that the URL is recorded correctly.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview Mark this test for checked mode only.
@@ -14,10 +13,10 @@
  
 main() {
   try {
-    assert(true == false);
-    // ....^ this is col 12
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
-    Expect.equals(12, e.column);
+    assert(false);
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
+    Expect.isTrue(e.url.endsWith("LibTest/core/AssertionError/url/AssertionError_url_A01_t01.dart"));
+    print(e.url);
   }
 }

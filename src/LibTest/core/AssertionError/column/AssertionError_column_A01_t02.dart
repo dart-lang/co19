@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that the line is recorded correctly when the AssertError
- *              is raised using the assert statement.
+ * @description Checks that the column is recorded correctly when the
+ *              AssertionError is raised using assert statement.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview Mark this test for checked mode only.
@@ -14,9 +14,10 @@
  
 main() {
   try {
-    assert(true == false); // this is line 17
-    Expect.fail("AssertError expected");
-  } catch (AssertError e) {
-    Expect.equals(17, e.line);
+    assert(true == false);
+    // ....^ this is col 12
+    Expect.fail("AssertionError expected");
+  } catch (AssertionError e) {
+    Expect.equals(12, e.column);
   }
 }
