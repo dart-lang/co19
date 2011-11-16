@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If specified, the replyTo port will be
- * provided to the receiver to facilitate exchanging sequences of
- * messages.
- * @description Tries to reply to itself.
+ * @assertion If specified, the replyTo port will be provided to the receiver
+ * to facilitate exchanging sequences of messages.
+ * @description The replyTo port is the same as this SendPort.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -20,8 +20,7 @@ void main() {
     replyTo.send(message, replyTo);
     if(message == 100) {
       print("Done");
-      rPort.close(); //If message isn't sent to replyTo, test will not finish
-      rReply.close();
+      rPort.close();
     }
   });
   
