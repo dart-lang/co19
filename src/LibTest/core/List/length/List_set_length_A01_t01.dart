@@ -34,5 +34,5 @@ main() {
   a= new List.from([]);
   check(a);
 
-  check(new List.fromList(a, -1, 100));
+  check(new List.from(a));
 }

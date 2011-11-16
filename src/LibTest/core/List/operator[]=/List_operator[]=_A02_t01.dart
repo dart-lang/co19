@@ -26,6 +26,6 @@ main() {
   check(new List(), 6031769);
   check(new List(123), 6031769);
   check(new List.from([1]), 2);
-  check(new List.fromList([null,null,null,null], 1, 3), 5);
+  check(new List.from([null,null,null,null]), 5);
   check(new List.from([null,null,null,null]), -1);
 }

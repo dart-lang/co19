@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NullPointerException] if [index] is [:null:].
+ * @assertion Throws [IllegalArgumentException] if [index] is [:null:].
  * @description Checks that the exception is thrown, for fixed size and growable arrays.
  * @author varlax
  * @reviewer msyabro
@@ -13,8 +13,8 @@
 void check(List a) {
   try {
     a[null] = new Object();
-    Expect.fail("expected NPE");
-  } catch(NullPointerException ok) {}
+    Expect.fail("expected IllegalArgumentException");
+  } catch(IllegalArgumentException ok) {}
 }
 
 main() {
@@ -22,5 +22,5 @@ main() {
   check(new List());
   check(new List(123));
   check(new List.from([1]));
-  check(new List.fromList([null,null,null,null], 1, 3));
+  check(new List.from([null,null,null,null]));
 }

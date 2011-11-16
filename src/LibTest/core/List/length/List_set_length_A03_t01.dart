@@ -17,7 +17,6 @@ main() {
   Expect.listEquals([0,1,2,3,4,5,6,7,8,9], a);
 
 
-  List<int> b = new List.fromList([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17], 5, 123);
-  b.length = 10;
+  List<int> b = new List.from([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]).getRange(5,10);
   Expect.listEquals([5,6,7,8,9,10,11,12,13,14], b);
 }
