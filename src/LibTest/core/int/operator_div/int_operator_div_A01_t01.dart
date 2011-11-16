@@ -17,7 +17,7 @@
 // @3rdparty sputnik-v1/lib/math_precision.js
 double getPrecision(num number) {
   var log2num = Math.log(number.abs()) / Math.LN2;
-  int pernum = log2num.ceil();
+  double pernum = log2num.ceil();
   return(Math.pow(2, -51 + pernum));
 }
 

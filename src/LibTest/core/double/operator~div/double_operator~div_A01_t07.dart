@@ -19,13 +19,13 @@ check(double expected, double a, double b) {
 }
 
 main() {
-  check(.0, 1.1, 2);
+  check(.0, 1.1, 2.0);
   check(.0, 5.0, 10.0);
   check(2.0, 6.0, 3.0);
   check(1.0, 17.0, 17.0);
   check(23.0, 11.735, .5);
   check(12.0, 6.1, .5);
   check(.0, 0.1, 1.0);
-  check(4, 1.254e12, 2.567e11);
-  check(100.0, 1, 0.01);
+  check(4.0, 1.254e12, 2.567e11);
+  check(100.0, 1.0, 0.01);
 }

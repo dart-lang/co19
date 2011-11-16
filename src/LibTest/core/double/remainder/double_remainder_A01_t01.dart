@@ -25,6 +25,6 @@ main() {
   x = -1.19; y = -.2;
   Expect.equals( -0.1899999999999999, x.remainder(y) );
 
-  x = -1.19; y = 20;
+  x = -1.19; y = 20.0;
   Expect.equals(-1.19, x.remainder(y) );
 }
