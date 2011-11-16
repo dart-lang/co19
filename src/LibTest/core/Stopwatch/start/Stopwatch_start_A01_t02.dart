@@ -9,10 +9,9 @@
  *            start again restarts it. If the [Stopwatch] is currently running,
  *            then calling start does nothing.
  * @description Checks that calling this method on a stopwatch that was stopped
- *              restarts it, causing the elapsed count to reset and then start increasing again.
+ *              causes it to resume count.
  * @author rodionov
  * @reviewer pagolubev
- * @needsreview
  */
 
 main() {
@@ -30,12 +29,12 @@ main() {
   print("Elapsed: " + sw.elapsed());
   sw.stop();
   print("Elapsed: " + sw.elapsed());
+  e1 = sw.elapsed();
   sw.start();
   print("Elapsed: " + sw.elapsed());
   // gotta verify the assumption
-  Expect.isTrue(sw.elapsed() >= 0);
-  // restart implies counter reset, right?
-  Expect.isTrue(sw.elapsed() < e1);
+  Expect.isTrue(sw.elapsed() >= e1);
+
   int e0 = sw.elapsed();
   int et = e0;
   for(int i = 0; i < 1000000; i++) {
