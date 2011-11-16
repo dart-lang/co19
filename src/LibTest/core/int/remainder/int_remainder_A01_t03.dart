@@ -16,14 +16,8 @@
 
 main() {
   check(1, 0);
-  check(1, 0.0);
-  check(1, -0.0);
   check(-1, 0);
-  check(-1, 0.0);
-  check(-1, -0.0);
   check(0, 0);
-  check(0, 0.0);
-  check(0, -0.0);
 }
   
 void check(int x, num z) {
