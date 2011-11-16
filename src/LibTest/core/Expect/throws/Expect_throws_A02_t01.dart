@@ -5,34 +5,31 @@
  */
 /**
  * @assertion static void throws(void f(), [_CheckExceptionFn check = null, String reason = null])
- * typedef bool _CheckExceptionFn(exception)
- * Passing null as the first argument results in NullPointerException. 
- * @description Checks that NullPointerException is thrown if the first argument is null.
- * @author rodionov
- * @reviewer varlax
- * @needsreview Undocumented
+ * Descriptive error message is provided in case of failure.
+ * @description Checks that message of thrown ExpectException includes 
+ *              the specified reason argument if any, both when the tested method
+ *              doesn't throw any exceptions and when the check function returns false.
+ * @author varlax
+ * @reviewer rodionov
  */
 
 typedef bool checkFn(exception);
+typedef void test();
 
 main() {
-  check();
-  check(reason: "");
-  check(reason: "not empty");
+  check(() {return;}, null, "sdsds sd dsf");
+  check(() {return;}, (e) => true, "sdsds sd dsf");
+  check(() {return;}, (e) => false, "sdsds sd dsf");
 
-  check((e) => true);
-  check((e) => true, "");
-  check((e) => true, "not empty");
-
-  check((e) => false);
-  check((e) => false, "");
-  check((e) => false, "not empty");
+  check(() {throw "";}, (e) => false, "sdsds sd dsf");
 }
 
-void check([checkFn check = null, String reason = null]) {
+
+void check(test tFun, [checkFn checkFun = null, String reason = null]) {
   try {
-    Expect.throws(null, check, reason);
-    Expect.fail("NullPointerException expected");
-  } catch (NullPointerException e) {
+    Expect.throws(tFun, checkFun, reason);
+    Expect.fail("ExpectException expected");
+  } catch (ExpectException e) {
+    if (!e.message.contains(reason, 0)) throw "reason ($reason) not mentioned in ExpectException message (" + e.message + ")";
   }
 }
