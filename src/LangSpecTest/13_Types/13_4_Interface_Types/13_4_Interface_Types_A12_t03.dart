@@ -29,6 +29,8 @@ class B {
   B() {}
 }
 
+A f(){}
+
 main() {
-  B b = new A();
+  B b = f();
 }

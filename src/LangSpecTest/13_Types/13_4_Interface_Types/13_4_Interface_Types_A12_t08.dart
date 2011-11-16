@@ -28,6 +28,8 @@ class C<T, S, U, X, Y, Z> {}
 
 class D<T, S, U, X, Y, Z> {}
 
+D<A, B, int, num, Object, Map<List, Map<List, List>>> checker(){}
+
 main() {
-  C<A, B, int, num, Object, Map<List, Map<List, List>>> c = new D<A, B, int, num, Object, Map<List, Map<List, List>>>();
+  C<A, B, int, num, Object, Map<List, Map<List, List>>> c = checker();
 }

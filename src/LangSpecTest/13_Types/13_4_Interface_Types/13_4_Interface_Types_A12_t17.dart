@@ -24,6 +24,8 @@
 class A<T, S, U, W> {}
 class B<S, U> extends A<S, S, U, U>{}
 
+B<int, double> checker(){}
+
 main() {
-  A<int, int, double, int> a = new B<int, double>();
+  A<int, int, double, int> a = checker();
 }

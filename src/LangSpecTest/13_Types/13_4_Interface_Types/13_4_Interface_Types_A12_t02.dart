@@ -21,6 +21,8 @@
  * @reviewer rodionov
  */
 
+int f(){}
+
 main() {
-  double d = 1;
+  double d = f();
 }

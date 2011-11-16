@@ -33,6 +33,8 @@ class C<T> {
   C() {}
 }
 
+C<B> f(){}
+
 main() {
-  C<A> c = new C<B>();
+  C<A> c = f();
 }

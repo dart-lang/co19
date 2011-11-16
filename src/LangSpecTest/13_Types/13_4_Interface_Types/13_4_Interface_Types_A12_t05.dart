@@ -32,6 +32,8 @@ class C<T, S, U> {
   C() {}
 }
 
+C<num, double, B> f() {}
+
 main() {
-  C<int, num, A> c = new C<num, double, B>();
+  C<int, num, A> c = f();
 }

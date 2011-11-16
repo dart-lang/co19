@@ -21,6 +21,8 @@
  * @reviewer rodionov
  */
 
+String f() {}
+
 main() {
-  int i = "";
+  int i = f();
 }

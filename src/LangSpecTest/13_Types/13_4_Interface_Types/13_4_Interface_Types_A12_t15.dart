@@ -24,6 +24,8 @@
 class A<T> {}
 class B extends A<int> {}
 
+A<double> checker(){}
+
 main() {
-  B b = new A<double>();
+  B b = checker();
 }
