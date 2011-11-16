@@ -20,6 +20,6 @@ class B {
 
 main() { 
    A a;
-   B b = new B();
+   B b;
    a = b;
 }

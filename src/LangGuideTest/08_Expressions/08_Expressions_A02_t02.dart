@@ -22,6 +22,6 @@ class B {
 void func(A a) {}
 
 main() {
-  B b = new B();
+  B b;
   func(b);
 }
