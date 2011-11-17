@@ -33,6 +33,4 @@ main() {
   Expect.isTrue(s.length == 2);
   Expect.isFalse(s.contains(new A(1)));
   Expect.isFalse(s.contains(new A(-1)));
-  Expect.isTrue(s.contains(new A(2)));
-  Expect.isTrue(s.contains(new A(-2)));
 }
