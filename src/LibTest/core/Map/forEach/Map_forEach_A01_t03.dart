@@ -6,20 +6,21 @@
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
  * @description Tries to pass function with wrong signature as [f]
- * @static-type-error
+ * @dynamic-type-error
  * @author msyabro
- * @reviewer varlax
- * @needsreview: this is rather compiler check 
+ * @needsreview undocumented
  */
 
+check(var func) {
+  Map m = {"1": 3, "2": 5};
+  try {
+    m.forEach(func);
+    Expect.fail("ClosureArgumentMismatchException is expected");
+  } catch(ClosureArgumentMismatchException e) {}
+}
 
 main() {
-  Map<String, Object> map = new Map<String, Object>();
-  
-  map["1"] = 3;
-  map["2"] = 5;
-  
-  void f() {}
-  
-  map.forEach(f);
+  check(void f() {});
+  check(void f(var a){});
+  check(void f(var a, var b, var c){});
 }

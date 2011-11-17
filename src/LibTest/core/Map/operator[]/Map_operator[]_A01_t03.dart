@@ -6,16 +6,11 @@
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
  * @description Tries to call operator without [key].
- * @static-type-error
+ * @compile-error
  * @author msyabro
  * @reviewer varlax
- * @needsreview: this is rather compiler check 
+ * @needsreview this is rather compiler check
  */
-
-class A {
-  A() {}
-}
-
 
 main() {
   Map<int, Object> map = new Map<int, Object>();
