@@ -9,11 +9,9 @@
  * the left operand is the dividend and the right operand is the divisor.
  * @description Checks that this operator returns correct value for double
  *              arguments (including special values) and that it is double.
- * Assumptions taken from ECMA-262 spec, ch. 11.5.3.
  * @author rodionov
  * @reviewer pagolubev
- * @needsreview verify whether Ecma-262 rules should really be applied.
- * other % tests assume the result is always not less than zero.
+ * @needsreview modulo operation is not specified (issue 493).
  */
 
 main() {
@@ -22,8 +20,8 @@ main() {
 
   check(0.25, 1, 0.375);
   check(0.25, 1, -0.375);
-  check(-0.25, -1, 0.375);
-  check(-0.25, -1, -0.375);
+  check(0.125, -1, 0.375);
+  check(0.125, -1, -0.375);
 
   final double MIN_DOUBLE = Math.pow(2.0, -1074);
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
@@ -37,21 +35,17 @@ main() {
   check(1, 1, MAX_DOUBLE);
   check(1, 1, NEG_MAX_DOUBLE);
   check(1, 1, double.INFINITY);
-  check(-1, -1, double.INFINITY);
+  check(double.INFINITY, -1, double.INFINITY);
   check(1, 1, double.NEGATIVE_INFINITY);
-  check(-1, -1, double.NEGATIVE_INFINITY);
+  check(double.INFINITY, -1, double.NEGATIVE_INFINITY);
   check(0x1000000000000000000000, 0x1000000000000000000000, double.INFINITY);
-  check(-0x1000000000000000000000, -0x1000000000000000000000, double.INFINITY);
+  check(double.INFINITY, -0x1000000000000000000000, double.INFINITY);
   check(0x1000000000000000000000, 0x1000000000000000000000, double.NEGATIVE_INFINITY);
-  check(-0x1000000000000000000000, -0x1000000000000000000000, double.NEGATIVE_INFINITY);
+  check(double.INFINITY, -0x1000000000000000000000, double.NEGATIVE_INFINITY);
   
-  Expect.isTrue((1 % double.NAN).isNAN());
-  Expect.isTrue((0x1000000000000000000000 % double.NAN).isNAN());
-  Expect.isTrue(((-0x1000000000000000000000) % double.NAN).isNAN());
-  Expect.isTrue((1 % 0.0).isNAN());
-  Expect.isTrue((1 % -0.0).isNAN());
-  Expect.isTrue((0x1000000000000000000000 % 0.0).isNAN());
-  Expect.isTrue(((-0x1000000000000000000000) % 0.0).isNAN());
+  Expect.isTrue((1 % double.NAN).isNaN());
+  Expect.isTrue((0x1000000000000000000000 % double.NAN).isNaN());
+  Expect.isTrue(((-0x1000000000000000000000) % double.NAN).isNaN());
 }
 
 void check(num ex, int a, double b) {
