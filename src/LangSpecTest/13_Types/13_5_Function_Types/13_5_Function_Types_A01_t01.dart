@@ -10,9 +10,10 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Some checks against function types with no arguments: S is void, T is any type.
- * Checks the assignability also.
+ * @description Checks that this statement is true for function types with no arguments: S is void, T is any type.
+ * Also checks their mutual assignability.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef void check_t();
@@ -28,22 +29,22 @@ typedef List t8();
 typedef List<int> t9();
 typedef Map<int, List<List<List>>> t10();
 typedef t10 t11();
-typedef t11 t12(int);
 
 
 class Checker<T> {
   Checker(f) {
-    Expect.isTrue(f is t1);
+    Expect.isTrue(f is check_t);
     //check assignability () -> S = () -> T
-    t1 check1 = f;
+    check_t check1 = f;
     //vice versa () -> T = () -> S
-    T t = void check_tf(){};
+    check_t void_func;
+    T t = void_func;
   }
 }
 
 main() {
-  new Checker<t1>  (f(){});
-  new Checker<t2>  (void f(){});
+  new Checker<t1>  (f() {});
+  new Checker<t2>  (void f() {});
   new Checker<t3>  (int f() {});
   new Checker<t4>  (String f() {});
   new Checker<t5>  (double f() {});
@@ -52,6 +53,5 @@ main() {
   new Checker<t8>  (List f() {});
   new Checker<t9>  (List<int> f() {});
   new Checker<t10> (Map<int, List<List<List>>> f() {});
-  new Checker<t11> (t10 f(){});
-  new Checker<t12> (t11 f(int){});
+  new Checker<t11> (t10 f() {});
 }
