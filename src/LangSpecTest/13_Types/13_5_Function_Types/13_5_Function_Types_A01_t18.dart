@@ -10,24 +10,26 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is not a subtype of function type t2 if number of formal parameters of t1
- * does not match to number of formal parameters of t2.
+ * @description Checks that function type t1 is not a subtype of function type t2 if they have different number
+ * of formal parameters.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef f1(int x);
 typedef f2(int x, int y);
 
 main() {
-  Expect.isFalse(f(){} is f1);
-  Expect.isFalse(f(int x, var y){} is f1);
-  Expect.isFalse(f([int x]){} is f1);
-  Expect.isFalse(f(var x){} is f1);
+  Expect.isFalse(f() {} is f1);
+  Expect.isFalse(f(int x, var y) {} is f1);
+  Expect.isFalse(f(int x, int y) {} is f1);
+  Expect.isFalse(f([int x]) {} is f1);
+  Expect.isFalse(f([var x]) {} is f1);
 
-  Expect.isFalse(f(){} is f2);
-  Expect.isFalse(f(int x){} is f2);
-  Expect.isFalse(f(int y){} is f2);
-  Expect.isFalse(f(int x, [int y]){} is f2);
-  Expect.isFalse(f([int x, int y]){} is f2);
-  Expect.isFalse(f(int x, int y, int z){} is f2);
+  Expect.isFalse(f() {} is f2);
+  Expect.isFalse(f(int x) {} is f2);
+  Expect.isFalse(f(int y) {} is f2);
+  Expect.isFalse(f(int x, [int y]) {} is f2);
+  Expect.isFalse(f([int x, int y]) {} is f2);
+  Expect.isFalse(f(int x, int y, int z) {} is f2);
 }
