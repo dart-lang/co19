@@ -5,13 +5,15 @@
  */
 /**
  * @assertion The special type void may only be used as the return type of a function:
- * it is a compile-time error to use void in any other context.
- * @description Checks 'is' operator with void.
+ * it is a compile-time error to use void in any other context (for example,
+ * as a type argument, or as the type of a variable or parameter).
+ * @description Checks that specifying void on the right side of an is-expression causes a compile-time error.
  * @author iefremov
+ * @reviewer rodionov
  * @compile-error
  */
 
 main() {
-  assert(null is void);
+  bool b = null is void;
 }
 

@@ -35,15 +35,9 @@ class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   }
 }
 
-class DynHelper<A, B, C> {
-  DynHelper() {
-    new Checker_I<I<A, B, C>>().check();
-  }
-}
-
 main() {
   new Checker_I().check();
-  new DynHelper();
+  new Checker_I<I<Dynamic, Dynamic, Dynamic>>().check();
   new Checker_I<I<f_1, int, List<Map<int, Map<int, int>>>>>().check();
   new Checker_I<I<f_2, int, List<Map<int, Map<int, int>>>>>().check();
   new Checker_I<J<f_1, int, List<Map<int, Map<int, int>>>>>().check();

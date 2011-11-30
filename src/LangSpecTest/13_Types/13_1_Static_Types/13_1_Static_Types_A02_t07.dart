@@ -14,9 +14,10 @@
  * typeList:
  * type (',' type)*
  * ;
- * @description Checks that type can not be parameterized with non-type, for example with null.
+ * @description Checks that a generic type can not be parameterized with non-type (using null).
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class G<T> {

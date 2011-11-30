@@ -10,15 +10,18 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is not a subtype of function type t2 if order of optional parameters of t1
- * does not match to order of optional parameters of t2.
+ * @description Checks that function type t1 is not a subtype of function type t2 if the order
+ * of its optional parameters does not match that of t2.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef f1([int x, double d, String s]);
 
 main() {
-  Expect.isFalse(f([double d, int x, String s]){} is f1);
-  Expect.isFalse(f([double d, String s, int x]){} is f1);
-  Expect.isFalse(f([String s, double d, int x]){} is f1);
+  Expect.isFalse(f([int x, String s, double d]) {} is f1);
+  Expect.isFalse(f([double d, int x, String s]) {} is f1);
+  Expect.isFalse(f([double d, String s, int x]) {} is f1);
+  Expect.isFalse(f([String s, double d, int x]) {} is f1);
+  Expect.isFalse(f([String s, int x, double d]) {} is f1);
 }

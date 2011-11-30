@@ -5,14 +5,14 @@
  */
 /**
  * @assertion It is a static type warning if a generic type is not provided the correct number of type arguments.
- * @description Checks that warning is produced if a number of arguments is greater than needed.
+ * @description Checks that a warning is produced if the number of arguments is greater than required.
  * @author iefremov
- * @static-type-error
- * @needsreview This warning (or, possibly, a compile error) exists, but the assertion was removed from the latest spec.
+ * @reviewer rodionov
+ * @compile-error
+ * @needsreview This actually produces a compile error, even though the assertion was removed from spec.
  */
 
 class A<T, S> {
-  A(){}
 }
 
 main() {

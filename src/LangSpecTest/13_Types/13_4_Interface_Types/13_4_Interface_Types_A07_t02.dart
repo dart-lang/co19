@@ -8,21 +8,11 @@
  * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks that null is Dynamic.
- * Dynamic type argument is produced by failing to supply any type arguments for a generic type that uses them (see 13.6).
  * @author iefremov
  * @reviewer rodionov
  */
 
-class CheckDynamic<D> {
-  CheckDynamic() {
-  }
-  
-  void check() {
-    Expect.isTrue(null is D);
-  }
-}
-
 main() {
-  new CheckDynamic().check();
+  Expect.isTrue(null is Dynamic);
 }
 

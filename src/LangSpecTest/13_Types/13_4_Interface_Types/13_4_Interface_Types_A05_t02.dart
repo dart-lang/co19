@@ -5,8 +5,8 @@
  */
 /**
  * @assertion A type T is more specific than a type S, written T << S, if T is S.
- * T is a subtype of S, written T <: S, if [⊥/Dynamic]T << S.
- * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
+ * T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
+ * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks that a generic type T with a single type parameter is a subtype of itself and
  * T is assignable to itself.
  * @author iefremov

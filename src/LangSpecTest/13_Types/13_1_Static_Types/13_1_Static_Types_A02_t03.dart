@@ -16,6 +16,7 @@
  * ;
  * @description Checks that closing angle bracket is a must.
  * @author iefremov
+ * @reviewer rodionov
  * @compile-error
  */
 

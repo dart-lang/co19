@@ -18,9 +18,9 @@ class IManyArgs<A, B, C, D, E> {}
 class CManyArgs<A, B, C> extends IManyArgs<int, A, B, C, double> {}
 
 // these produce the required static type for static checker 
-// but won't fail at compile time because they returns null after all
-IManyArgs<int, G, G, G, double> make1(){}
-IManyArgs<int, List, Map, Queue, double> make2(){}
+// but won't fail at compile time because they return null after all
+IManyArgs<int, G, G, G, double> make1() {}
+IManyArgs<int, List, Map, Queue, double> make2() {}
 
 main() {
   Expect.isTrue(new CManyArgs<G, G, G>() is IManyArgs<int, G, G, G, double>);

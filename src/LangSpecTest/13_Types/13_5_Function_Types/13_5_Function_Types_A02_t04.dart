@@ -5,28 +5,25 @@
  */
 /**
  * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
- * @description Checks that various function literals implement the interface Function.
+ * @description Checks that function literals implement the interface Function.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
-  Expect.isTrue(f1() {} is Function);
-  Expect.isTrue(void f2() {} is Function);
-  Expect.isTrue(Object f3() {} is Function);
-  Expect.isTrue(int f4() {} is Function);
-  Expect.isTrue(f5(var x) {} is Function);
-  Expect.isTrue(void f6(var x) {} is Function);
-  Expect.isTrue(String f7([var x]) {} is Function);
-  Expect.isTrue(Object f8(var x, int z, [Object o, var v = 1]) {} is Function);
+  Expect.isTrue(f() {} is Function);
+  Expect.isTrue(void f() {} is Function);
+  Expect.isTrue(Object f() {} is Function);
+  Expect.isTrue(int f() {} is Function);
+  Expect.isTrue(f(var x) {} is Function);
+  Expect.isTrue(void f(var x) {} is Function);
+  Expect.isTrue(String f([var x]) {} is Function);
+  Expect.isTrue(Object f(var x, int z, [Object o, var v = 1]) {} is Function);
 
-  var f = (var x) => null;
-  Expect.isTrue(f is Function);
-  f = (int x) => x;
-  Expect.isTrue(f is Function);
-  f = ([var x]) => "aa";
-  Expect.isTrue(f is Function);
-  f = (var x, int z, [Object o, var v = 1]) => x + z + o + v;
-  Expect.isTrue(f is Function);
+  Expect.isTrue(((var x) => null) is Function);
+  Expect.isTrue(((int x) => x) is Function);
+  Expect.isTrue((([var x]) => "aa") is Function);
+  Expect.isTrue(((var x, int z, [Object o, var v = 1]) => x + z + o + v) is Function);
 
 }
 

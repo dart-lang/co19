@@ -14,8 +14,9 @@
  * @description Checks that formal parameter list is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef void f;
 
-main(){}
+main() {}

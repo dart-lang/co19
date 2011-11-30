@@ -14,9 +14,10 @@
  * typeList:
  * type (',' type)*
  * ;
- * @description Checks that comma is a must between types in a type list.
+ * @description Checks that the list of type arguments must be comma-separated.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class G<A, B> {

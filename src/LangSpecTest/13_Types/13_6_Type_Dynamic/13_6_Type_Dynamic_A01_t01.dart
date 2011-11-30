@@ -6,18 +6,14 @@
 /**
  * @assertion If no static type annotation has been provided the type system assumes
  * the declaration has the unknown type (Dynamic).
- * @description Checks that the local variable without type annotation has the unknown type. Note: all possible
- * declarations are tested in the corresponding chapters.
+ * @description Checks that a local variable without any type annotation has the unknown type. 
+ * Note: all possible declarations are tested in the corresponding chapters.
  * @author iefremov
+ * @reviewer rodionov
  */
 
-class DynChecker<T> {
-  DynChecker() {
-    var x;
-    Expect.isTrue(x is T);
-  }
-}
-
 main() {
+  var x;
+  Expect.isTrue(x is Dynamic);
 }
 

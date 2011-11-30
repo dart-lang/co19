@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A type T is more specific than a type S, written T << S, if S is Dynamic.
- * << is a partial order on types. T is a subtype of S, written T <: S, if [⊥/Dynamic]T << S.
+ * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks that a Dynamic variable can be assigned a value of any type. 
  * @author iefremov
@@ -23,7 +23,7 @@ main() {
   var x4 = false;
   var x5 = bool f(){};
   var x6 = new List();
-  var x7 = new Map<List<List>, Map<int, Map>>();
+  var x7 = new Map<int, int>();
   var x8 = 1;
   var x9 = 1.0;
   var x10 = "1";

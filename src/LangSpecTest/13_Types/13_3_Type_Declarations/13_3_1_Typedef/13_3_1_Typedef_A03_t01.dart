@@ -9,6 +9,7 @@
  * are subtypes of given type t1 that declares no return type, therefore the return type of t1 should be Dynamic.
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview Currently the test will pass if omitted annotation is taken to be Object.
  */
 
 typedef f1();

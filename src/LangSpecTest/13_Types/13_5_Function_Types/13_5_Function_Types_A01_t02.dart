@@ -10,8 +10,10 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Positive checks against function types with no arguments: S is some type, T is Dynamic (assignable to S).
+ * @description Checks that this statement is true for function types with no arguments:
+ * S is some type, T is Dynamic (assignable to S).
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef t1();
@@ -44,5 +46,5 @@ void checkAll(Function f) {
 }
 
 main() {
-  checkAll(f(){});
+  checkAll(f() {});
 }

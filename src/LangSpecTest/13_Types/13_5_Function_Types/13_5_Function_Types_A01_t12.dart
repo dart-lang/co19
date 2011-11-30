@@ -10,18 +10,20 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks some functions with several optional parameters (interface, generic, function, Dynamic).
+ * @description Checks that this statement is true for functions with several optional parameters 
+ * (interface, generic, function, Dynamic).
  * @author iefremov
+ * @reviewer rodionov
  */
 
-interface A{}
-interface A1{}
-interface A2{}
-interface B extends A, A1, A2{}
-interface C extends B{}
-interface D extends C{}
+interface A {}
+interface A1 {}
+interface A2 {}
+interface B extends A, A1, A2 {}
+interface C extends B {}
+interface D extends C {}
 
-class G<T, S, U, W> {G(){}}
+class G<T, S, U, W> {}
 
 typedef interfacesFunc([A a, B b, C c, D d]);
 typedef genericsFunc([Map<num, int> m, List<List<B>> l, G<A, B, C, D> g]);
@@ -40,18 +42,18 @@ typedef okWithDynamicFunc_2([int x, bool y, List<Map> z, interfacesFunc v]);
 
 
 main() {
-  Expect.isTrue(f([D a, B b, C c, A d]){} is interfacesFunc);
-  Expect.isTrue(f([A a, A b, A c, A d]){} is interfacesFunc);
-  Expect.isTrue(f([D a, A1 b, A1 c, A1 d]){} is interfacesFunc);
-  Expect.isTrue(f([D a, A2 b, A2 c, A2 d]){} is interfacesFunc);
-  Expect.isTrue(f([D a, D b, D c, D d]){} is interfacesFunc);
-  Expect.isTrue(f([var a, var b, var c, var d]){} is interfacesFunc);
-  Expect.isTrue(f([Object a, Object b, Object c, Object d]){} is interfacesFunc);
+  Expect.isTrue(f([D a, B b, C c, A d]) {} is interfacesFunc);
+  Expect.isTrue(f([A a, A b, A c, A d]) {} is interfacesFunc);
+  Expect.isTrue(f([D a, A1 b, A1 c, A1 d]) {} is interfacesFunc);
+  Expect.isTrue(f([D a, A2 b, A2 c, A2 d]) {} is interfacesFunc);
+  Expect.isTrue(f([D a, D b, D c, D d]) {} is interfacesFunc);
+  Expect.isTrue(f([var a, var b, var c, var d]) {} is interfacesFunc);
+  Expect.isTrue(f([Object a, Object b, Object c, Object d]) {} is interfacesFunc);
 
-  Expect.isTrue(f([Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g]){} is genericsFunc);
-  Expect.isTrue(f([Map<int, int> m, List<List<D>> l, G<D, D, D, D> g]){} is genericsFunc);
-  Expect.isTrue(f([var m, var l, var g]){} is genericsFunc);
-  Expect.isTrue(f([Object m, Object l, Object g]){} is genericsFunc);
+  Expect.isTrue(f([Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g]) {} is genericsFunc);
+  Expect.isTrue(f([Map<int, int> m, List<List<D>> l, G<D, D, D, D> g]) {} is genericsFunc);
+  Expect.isTrue(f([var m, var l, var g]) {} is genericsFunc);
+  Expect.isTrue(f([Object m, Object l, Object g]) {} is genericsFunc);
 
   Expect.isTrue(f([A x, G y, mixFunc z, var v]) {} is dynamicFunc);
   Expect.isTrue(f([int x, bool y, List<Map> z, interfacesFunc v]) {} is dynamicFunc);

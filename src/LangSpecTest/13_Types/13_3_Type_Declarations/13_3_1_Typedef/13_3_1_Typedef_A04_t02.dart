@@ -10,6 +10,7 @@
  * of t1 should be Dynamic.
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview Currently the test will pass if omitted annotation is taken to be Object.
  */
 
 typedef f1([x]);

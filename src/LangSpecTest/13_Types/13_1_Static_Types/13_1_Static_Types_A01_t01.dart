@@ -6,13 +6,10 @@
 /**
  * @assertion Static type annotations are used during static checking and when running programs in
  * checked mode. They have no effect whatsoever in production mode.
- * @description Checks that static type annotation has no effect in scripting mode.
+ * @description This assertion is verified by many tests in the whole suite. So no special testing is not needed.
  * @author iefremov
- * @needsreview TODO: Need scripting mode support!
  */
 
 main() {
-  String foo = "foo";
-  List bar = foo;
-  int numb3r = "not really";
+
 }

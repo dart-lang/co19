@@ -16,9 +16,9 @@ class G<T> {}
 class NonGeneric extends G<int> {}
 
 // these produce the required static type for static checker 
-// but won't fail at compile time because they returns null after all
-G makeG(){}
-G<int> makeGint(){}
+// but won't fail at compile time because they return null after all
+G makeG() {}
+G<int> makeGint() {}
 
 main() {
   Expect.isTrue(new NonGeneric() is G);

@@ -5,9 +5,11 @@
  */
 /**
  * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
- * @description Checks that various methods (including static ones) implement the interface Function.
+ * @description Checks that both instance and static methods of classes also implement Function.
  * @author iefremov
- * @needsreview looks like it is impossible to check constructors, operators and getters/setters.
+ * @reviewer rodionov
+ * @needsreview looks like it is impossible to check constructors, operators and getters/setters because they
+ * can't be referenced like methods.
  */
 
 class C {
@@ -50,4 +52,3 @@ main() {
   Expect.isTrue(C.f7s is Function);
   Expect.isTrue(C.f8s is Function);
 }
-

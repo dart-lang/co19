@@ -14,11 +14,15 @@
  */
 
 interface I {}
-interface J extends I factory C {}
+interface J extends I factory C {
+  J();
+}
 
-class C implements J {}
+class C implements J {
+  J(){return new C();}
+}
 
 main() {
-  assert(new J() is I);
+  Expect.isTrue(new J() is I);
 }
 

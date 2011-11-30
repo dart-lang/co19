@@ -10,27 +10,23 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is not a subtype of function type t2 if only one formal parameter of
- * one type is not assignable to the corresponding parameter of another type.
+ * @description Checks that function type t1 is not a subtype of function type t2 
+ * even if just one of its formal parameters has a type that is not mutually assignable
+ * with the type of the corresponding formal parameter of t2.
  * @author iefremov
+ * @reviewer rodionov
  */
 
-interface A{}
-interface A1{}
-interface A2{}
-interface B extends A, A1, A2{}
-interface C extends B{}
-interface D extends C{}
+interface B {}
 
 typedef B func(Object o);
 typedef B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]);
 
-
 main() {
-                  //double vs int
-  Expect.isFalse(B f(double i, B b, Map<int, num> m, var x, [var ox, D ob, List<num> ol, bool obool]){} is f1);
-                         //func vs D
-  Expect.isFalse(D f(int i, func b, Map<int, int> m, func x, [func ox, D ob, List<int> ol, bool obool]){} is f1);
-                                        //func vs num
-  Expect.isFalse(C f(num i, A b, Map<Object, func> m, var x, [var ox, A2 ob, List ol, Object obool]){} is f1);
+  Expect.isFalse(B f(double i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {} is f1);
+  //                 ^^^ double <=/=> int
+  Expect.isFalse(B f(int i, func b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {} is f1);
+  //                        ^^^ func <=/=> B
+  Expect.isFalse(B f(int i, B b, Map<int, func> m, var x, [var ox, B ob, List<num> ol, bool obool]) {} is f1);
+  //                                      ^^^ func <=/=> num
 }

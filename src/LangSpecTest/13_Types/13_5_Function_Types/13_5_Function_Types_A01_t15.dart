@@ -11,12 +11,13 @@
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
  * @description Checks that function type t1 is not a subtype of function type t2 if return types of t1 and t2
- * are not assignable.
+ * are not mutually assignable.
  * @author iefremov
+ * @reviewer rodionov
  */
 
-interface A{}
-interface B{}
+interface A {}
+interface B {}
 
 typedef int f1();
 typedef A f3();
@@ -24,26 +25,26 @@ typedef List<A> f4();
 typedef f1 f5();
 
 main() {
-  Expect.isFalse(double f(){} is f1);
-  Expect.isFalse(bool f(){} is f1);
-  Expect.isFalse(A f(){} is f1);
-  Expect.isFalse(List<int> f(){} is f1);
-  Expect.isFalse(f3 f(){} is f1);
+  Expect.isFalse(double f() {} is f1);
+  Expect.isFalse(bool f() {} is f1);
+  Expect.isFalse(A f() {} is f1);
+  Expect.isFalse(List<int> f() {} is f1);
+  Expect.isFalse(f3 f() {} is f1);
 
-  Expect.isFalse(double f(){} is f3);
-  Expect.isFalse(bool f(){} is f3);
-  Expect.isFalse(List<int> f(){} is f3);
-  Expect.isFalse(f3 f(){} is f3);
+  Expect.isFalse(double f() {} is f3);
+  Expect.isFalse(bool f() {} is f3);
+  Expect.isFalse(List<int> f() {} is f3);
+  Expect.isFalse(f3 f() {} is f3);
 
-  Expect.isFalse(double f(){} is f4);
-  Expect.isFalse(bool f(){} is f4);
-  Expect.isFalse(A f(){} is f4);
-  Expect.isFalse(List<int> f(){} is f4);
-  Expect.isFalse(f3 f(){} is f4);
+  Expect.isFalse(double f() {} is f4);
+  Expect.isFalse(bool f() {} is f4);
+  Expect.isFalse(A f() {} is f4);
+  Expect.isFalse(List<int> f() {} is f4);
+  Expect.isFalse(f3 f() {} is f4);
 
-  Expect.isFalse(double f(){} is f5);
-  Expect.isFalse(bool f(){} is f5);
-  Expect.isFalse(A f(){} is f5);
-  Expect.isFalse(List<int> f(){} is f5);
-  Expect.isFalse(f4 f(){} is f5);
+  Expect.isFalse(double f() {} is f5);
+  Expect.isFalse(bool f() {} is f5);
+  Expect.isFalse(A f() {} is f5);
+  Expect.isFalse(List<int> f() {} is f5);
+  Expect.isFalse(f4 f() {} is f5);
 }

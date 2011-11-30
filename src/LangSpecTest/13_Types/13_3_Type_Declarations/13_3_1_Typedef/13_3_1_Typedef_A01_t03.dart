@@ -11,11 +11,12 @@
  * functionPrefix:
  *   returnType? identifier
  * ;
- * @description Checks that semicolon is a must.
+ * @description Checks that the semicolon is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef void f<T>()
 
-main(){}
+main() {}

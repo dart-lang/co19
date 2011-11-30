@@ -17,10 +17,10 @@ class G<T> {}
 class Generic<T> extends G<T> {}
 
 // these produce the required static type for static checker 
-// but won't fail at compile time because they returns null after all
-G makeG(){}
-G<int> makeGint(){}
-G<Object> makeGObject(){}
+// but won't fail at compile time because they return null after all
+G makeG() {}
+G<int> makeGint() {}
+G<Object> makeGObject() {}
 
 main() {
   Expect.isTrue(new Generic() is G);

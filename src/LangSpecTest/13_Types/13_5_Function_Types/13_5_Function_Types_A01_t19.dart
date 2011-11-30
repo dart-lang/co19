@@ -10,9 +10,10 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is not a subtype of function type t2 if number of optional parameters of t2
- * is greater than number of optional parameters of t1.
+ * @description Checks that function type t1 is not a subtype of function type t2 if it has fewer
+ * optional parameters.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef f1([int x]);
@@ -20,7 +21,11 @@ typedef f2([int x, int y]);
 typedef f3([int x, int y, int z]);
 
 main() {
-  Expect.isFalse(f(){} is f1);
-  Expect.isFalse(f([int x]){} is f2);
-  Expect.isFalse(f([int x, int y]){} is f3);
+  Expect.isFalse(f() {} is f1);
+
+  Expect.isFalse(f([int x]) {} is f2);
+  Expect.isFalse(f([var x]) {} is f2);
+
+  Expect.isFalse(f([int x, int y]) {} is f3);
+  Expect.isFalse(f([var x, var y]) {} is f3);
 }

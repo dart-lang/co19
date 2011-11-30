@@ -16,6 +16,7 @@
  * ;
  * @description Checks that the type argument can be parameterized as well.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class G<T> {
@@ -23,5 +24,6 @@ class G<T> {
 }
 
 main() {
-  G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> t;
+  G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> t =
+    new G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>();
 }

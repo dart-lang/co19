@@ -11,11 +11,12 @@
  * functionPrefix:
  *   returnType? identifier
  * ;
- * @description Checks that identifier is a must.
+ * @description Checks that identifier must be present.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef <T>();
 
-main(){}
+main() {}

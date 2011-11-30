@@ -41,8 +41,9 @@ main() {
 
   List<Map<int, double>> l6 = new List<Map>();
   List<Map> l6_ = new List<Map<int, double>>();
-  
-  List<Map<int, double>> l7 = new List<Map<num, num>>();
+
+  List<Map<num, num>> l7_super;
+  List<Map<int, double>> l7 =  l7_super;
   List<Map<num, num>> l7_ = new List<Map<int, double>>();
 
   List<f> l8 = new List<f>();

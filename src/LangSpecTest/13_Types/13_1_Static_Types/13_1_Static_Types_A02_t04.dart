@@ -16,6 +16,7 @@
  * ;
  * @description Checks that type list can not be empty.
  * @author iefremov
+ * @reviewer rodionov
  * @compile-error
  */
 

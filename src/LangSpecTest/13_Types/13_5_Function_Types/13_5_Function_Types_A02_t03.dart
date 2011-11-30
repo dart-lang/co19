@@ -7,6 +7,7 @@
  * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
  * @description Checks that various closures implement the interface Function.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
@@ -28,4 +29,3 @@ main() {
   Expect.isTrue(f7 is Function);
   Expect.isTrue(f8 is Function);
 }
-

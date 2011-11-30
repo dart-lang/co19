@@ -7,6 +7,7 @@
  * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
  * @description Checks that various global functions types are a subtype of Function.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 f1() {}

@@ -9,17 +9,19 @@
  * @description Checks that Object is a supertype of an an interface that meets this requirement.
  * @author iefremov
  * @reviewer rodionov
- * @needsreview It's currently impossible to check whether a type is a direct supertype of another
+ * @needsreview It's currently impossible to check whether a type is a "direct supertype" of another
  * without some sort of reflection framework.
  */
 
 interface J factory C {
+  J();
 }
 
 class C implements J {
+  J(){return new C();}
 }
 
 main() {
-  assert(new J() is Object);
+  Expect.isTrue(new J() is Object);
 }
 

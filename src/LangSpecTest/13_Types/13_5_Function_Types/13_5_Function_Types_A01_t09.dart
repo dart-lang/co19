@@ -10,13 +10,15 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that only types but not names of the formal parameters are considered.
+ * @description Checks that formal parameter names have no effect on determing whether or not a function is
+ * a subtype of another, only their types are important.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef f(int someComplexName);
 
 main() {
   Expect.isTrue(f(int someOtherComplexName6031769) {} is f);
-  Expect.isFalse(f(double someComplexName){} is f);
+  Expect.isFalse(f(double someComplexName) {} is f);
 }

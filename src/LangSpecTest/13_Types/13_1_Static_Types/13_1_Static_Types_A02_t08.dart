@@ -14,20 +14,16 @@
  * typeList:
  * type (',' type)*
  * ;
- * @description Checks that type can be qualified (imported from some library and used with prefix).
- * @author iefremov
+ * @description Checks that a generic type can not be parameterized with non-type (using local variable).
+ * @compile-error
+ * @author rodionov
+ * @reviewer iefremov
  */
 
-#import("somelib.dart", prefix:"somelibprefix");
+class G<T> {
+}
 
 main() {
-  somelibprefix.ClassFromSomeLib v1;
-  somelibprefix.ClassFromSomeLib<int, String, double> v2;
-  somelibprefix.ClassFromSomeLib
-    <
-    somelibprefix.ClassFromSomeLib,
-    somelibprefix.ClassFromSomeLib,
-    somelibprefix.ClassFromSomeLib
-    >
-    v3;
+  int foo;
+  G<foo> t;
 }

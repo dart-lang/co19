@@ -10,40 +10,45 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is not a subtype of function type t2 if optional parameter
- * of t1 is not assignable to corresponding parameter of t2 (t1 and t2 both have a single optional parameter).
+ * @description Checks that function type t1 is not a subtype of function type t2 if an optional parameter
+ * of t1 is not assignable to a corresponding parameter of t2 (both t1 and t2 have a single optional parameter).
  * @author iefremov
+ * @reviewer rodionov
  */
 
-interface A{}
-interface B{}
+interface A {}
+interface B {}
 
-typedef f1([int a]);
-typedef f3([A a]);
-typedef f4([List<A> a]);
-typedef f5([f1 a]);
+typedef f1([int p]);
+typedef f3([A p]);
+typedef f4([List<A> p]);
+typedef f5([f1 p]);
 
 main() {
-  Expect.isFalse(f([double p]){} is f1);
-  Expect.isFalse(f([bool p]){} is f1);
-  Expect.isFalse(f([A p]){} is f1);
-  Expect.isFalse(f([List<int> p]){} is f1);
-  Expect.isFalse(f([f3 p]){} is f1);
+  Expect.isFalse(f([double p]) {} is f1);
+  Expect.isFalse(f([bool p]) {} is f1);
+  Expect.isFalse(f([A p]) {} is f1);
+  Expect.isFalse(f([List<int> p]) {} is f1);
+  Expect.isFalse(f([f3 p]) {} is f1);
                    
-  Expect.isFalse(f([double p]){} is f3);
-  Expect.isFalse(f([bool p]){} is f3);
-  Expect.isFalse(f([List<int> p]){} is f3);
-  Expect.isFalse(f([f3 p]){} is f3);
+  Expect.isFalse(f([double p]) {} is f3);
+  Expect.isFalse(f([bool p]) {} is f3);
+  Expect.isFalse(f([List<int> p]) {} is f3);
+  Expect.isFalse(f([f3 p]) {} is f3);
+  Expect.isFalse(f([B p]) {} is f3);
                    
-  Expect.isFalse(f([double p]){} is f4);
-  Expect.isFalse(f([bool p]){} is f4);
-  Expect.isFalse(f([A p]){} is f4);
-  Expect.isFalse(f([List<int> p]){} is f4);
-  Expect.isFalse(f([f3 p]){} is f4);
+  Expect.isFalse(f([double p]) {} is f4);
+  Expect.isFalse(f([bool p]) {} is f4);
+  Expect.isFalse(f([A p]) {} is f4);
+  Expect.isFalse(f([List<int> p]) {} is f4);
+  Expect.isFalse(f([List<B> p]) {} is f4);
+  Expect.isFalse(f([f3 p]) {} is f4);
                    
-  Expect.isFalse(f([double p]){} is f5);
-  Expect.isFalse(f([bool p]){} is f5);
-  Expect.isFalse(f([A p]){} is f5);
-  Expect.isFalse(f([List<int> p]){} is f5);
-  Expect.isFalse(f([f4 p]){} is f5);
+  Expect.isFalse(f([double p]) {} is f5);
+  Expect.isFalse(f([bool p]) {} is f5);
+  Expect.isFalse(f([A p]) {} is f5);
+  Expect.isFalse(f([List<int> p]) {} is f5);
+  Expect.isFalse(f([f3 p]) {} is f5);
+  Expect.isFalse(f([f4 p]) {} is f5);
+  Expect.isFalse(f([f5 p]) {} is f5);
 }

@@ -29,7 +29,8 @@ class Checker<T extends Super> {
   Checker(T t) {
     Expect.isTrue(t is Super);
     Super ss = t;
-    T tt = new Super();
+    Super f() {}
+    T tt = f();
   }
 }
 

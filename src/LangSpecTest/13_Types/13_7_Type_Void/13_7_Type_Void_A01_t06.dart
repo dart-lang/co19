@@ -5,9 +5,11 @@
  */
 /**
  * @assertion The special type void may only be used as the return type of a function:
- * it is a compile-time error to use void in any other context.
- * @description Trying to extend void.
+ * it is a compile-time error to use void in any other context (for example,
+ * as a type argument, or as the type of a variable or parameter).
+ * @description Checks that putting void in a class's extends clause causes a compile-time error.
  * @author iefremov
+ * @reviewer rodionov
  * @compile-error
  */
 

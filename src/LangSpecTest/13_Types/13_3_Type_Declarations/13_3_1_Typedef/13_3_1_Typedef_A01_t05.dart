@@ -11,11 +11,12 @@
  * functionPrefix:
  *   returnType? identifier
  * ;
- * @description Checks that typedef keyword is a must.
+ * @description Checks that the typedef declaration cannot include function body.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
-f();
+typedef f() {};
 
-main(){}
+main() {}
