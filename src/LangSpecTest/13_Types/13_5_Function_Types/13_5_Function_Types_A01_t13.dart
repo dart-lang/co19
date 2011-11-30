@@ -10,16 +10,44 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is a subtype of function type t2 even if t1 lacks some optional parameters.
- * @author iefremov
+ * @description Checks that this statement is true even if the subtype function type has more optional
+ * parameters than the supertype as long as the supertype's optional parameters match the beginning
+ * of the list of subtype's optional parameters.
+ * @author rodionov
+ * @reviewer iefremov
  */
 
-typedef f1([var x]);
-typedef f2([var x, var y, var z]);
+interface A {}
+interface A1 {}
+interface A2 {}
+interface B extends A, A1, A2 {}
+interface C extends B {}
+interface D extends C {}
+
+class G<T, S, U, W> {}
+
+typedef interfacesFunc(A aa, [A a, B b, C c, D d]);
+typedef genericsFunc([Map<num, int> m, List<List<B>> l, G<A, B, C, D> g]);
+typedef dynamicFunc([var x, var y, var z, var v]);
+typedef funcFunc([interfacesFunc f1, genericsFunc f2, dynamicFunc f3]);
+typedef mixFunc([var x, B b, G<A, B, C, D> g, funcFunc f]);
+
+typedef okWithInterfacesFunc_1(A aa, [A a, A1 b, A1 c, A1 d]);
+typedef okWithInterfacesFunc_2(A aa, [D a, D b, D c, D d]);
+
+typedef okWithGenericsFunc_1([Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g]);
+typedef okWithGenericsFunc_2([Map<int, int> m, List<List<D>> l, G<D, D, D, D> g]);
+
+typedef okWithDynamicFunc_1([A x, G y, mixFunc z, var v]);
+typedef okWithDynamicFunc_2([int x, bool y, List<Map> z, interfacesFunc v]);
+
 
 main() {
-  Expect.isTrue(f(){} is f1);
-  Expect.isTrue(f(){} is f2);
-  Expect.isTrue(f([var x]){} is f2);
-  Expect.isTrue(f([var x, var y]){} is f2);
+  Expect.isTrue(f(var vv, [D a, B b, C c, A d, var xx, Map xxx, Object xxxx]) {} is interfacesFunc);
+
+  Expect.isTrue(f([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
+
+  Expect.isTrue(f([A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx, mixFunc xxxx]) {} is dynamicFunc);
+
+  Expect.isTrue(f([okWithInterfacesFunc_2 f1, okWithGenericsFunc_2 f2, okWithDynamicFunc_2 f3, mixFunc xx, funcFunc xxx]) {} is funcFunc);
 }
