@@ -10,39 +10,39 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Positive checks against function types with no arguments: S is some type, T is some other type assignable to S.
+ * @description Checks that this statement is true for function types with no arguments: 
+ * S is some type, T is some other type assignable to S.
  * @author iefremov
+ * @reviewer rodionov
  */
 
-typedef t1();
-typedef Object t6();
-typedef num t13();
+typedef returnsDynamic();
+typedef Object returnsObject();
+typedef num returnsNum();
 
 main() {
   //() -> T is () -> Dynamic
-  Expect.isTrue(void f(){} is t1);
-  Expect.isTrue(int f(){} is t1);
-  Expect.isTrue(String f(){} is t1);
-  Expect.isTrue(double f(){} is t1);
-  Expect.isTrue(Object f(){} is t1);
-  Expect.isTrue(t1 f(){} is t1);
-  Expect.isTrue(List f(){} is t1);
-  Expect.isTrue(List<int> f(){} is t1);
-  Expect.isTrue(Map<int, List<List<List>>> f(){} is t1);
-  Expect.isTrue(t10 f(){} is t1);
-  Expect.isTrue(t11 f(){} is t1);
+  Expect.isTrue(void f() {} is returnsDynamic);
+  Expect.isTrue(int f() {} is returnsDynamic);
+  Expect.isTrue(String f() {} is returnsDynamic);
+  Expect.isTrue(double f() {} is returnsDynamic);
+  Expect.isTrue(Object f() {} is returnsDynamic);
+  Expect.isTrue(returnsDynamic f() {} is returnsDynamic);
+  Expect.isTrue(List f() {} is returnsDynamic);
+  Expect.isTrue(List<int> f() {} is returnsDynamic);
+  Expect.isTrue(Map<int, List<List<List>>> f() {} is returnsDynamic);
 
   //() -> T is () -> Object
-  Expect.isTrue(int f(){} is t6);
-  Expect.isTrue(String f(){} is t6);
-  Expect.isTrue(double f(){} is t6);
-  Expect.isTrue(Object f(){} is t6);
-  Expect.isTrue(List f(){} is t6);
-  Expect.isTrue(List<int> f(){} is t6);
-  Expect.isTrue(Map<int, List<List<List>>> f(){} is t6);
+  Expect.isTrue(int f() {} is returnsObject);
+  Expect.isTrue(String f() {} is returnsObject);
+  Expect.isTrue(double f() {} is returnsObject);
+  Expect.isTrue(Object f() {} is returnsObject);
+  Expect.isTrue(List f() {} is returnsObject);
+  Expect.isTrue(List<int> f() {} is returnsObject);
+  Expect.isTrue(Map<int, List<List<List>>> f() {} is returnsObject);
 
   //() -> T is () -> num
-  Expect.isTrue(int f(){} is t13);
-  Expect.isTrue(double f(){} is t13);
-  Expect.isTrue(num f(){} is t13);
+  Expect.isTrue(int f() {} is returnsNum);
+  Expect.isTrue(double f() {} is returnsNum);
+  Expect.isTrue(num f() {} is returnsNum);
 }
