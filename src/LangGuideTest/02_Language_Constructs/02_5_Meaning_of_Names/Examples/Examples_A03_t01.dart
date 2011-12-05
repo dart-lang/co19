@@ -12,7 +12,7 @@
  * @author msyabro
  */
 
-class A
+class A {
   int x;
   bool x;
 }
