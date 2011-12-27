@@ -11,7 +11,6 @@
  * @description Checks that a static warning is produced when a class declares an abstract
  * method with the same name as a static setter in its superclass.
  * @static-type-error
- * @compile-error
  * @author rodionov
  */
 
