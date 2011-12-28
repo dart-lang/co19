@@ -14,6 +14,8 @@
  * @needsreview this is rather compiler check
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 class A {
   A() {}
   int hashCode() {
@@ -29,5 +31,7 @@ main() {
   Map<String, bool> map = new Map<String, bool>();
 
   var key = new A();
-  map.putIfAbsent(key, putIfAbsent);
+  checkTypeError( () {
+    map.putIfAbsent(key, putIfAbsent);
+  });
 }
