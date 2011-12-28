@@ -15,5 +15,8 @@
 typedef f(var a, var b, var c, var z = null);
 
 main() {
+  try {
+    Expect.isFalse(_(){} is f);
+  }catch(var x){}
 }
 

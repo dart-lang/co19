@@ -19,4 +19,8 @@
 
 typedef f() {};
 
-main() {}
+main() {
+  try {
+    Expect.isFalse(null is f);
+  } catch(var x){}
+}

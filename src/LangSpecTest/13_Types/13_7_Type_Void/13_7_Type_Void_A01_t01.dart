@@ -16,6 +16,8 @@
 class A<T> {}
 
 main() {
-  A<void> a = null;
+  try {
+    A<void> a = null;
+  } catch(var x){}
 }
 

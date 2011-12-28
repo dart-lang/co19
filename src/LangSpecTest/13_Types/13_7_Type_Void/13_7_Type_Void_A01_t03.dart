@@ -15,6 +15,8 @@
  */
 
 main() {
-  f(void) {};
+  try {
+    f(void) {};
+  } catch(var x){}
 }
 

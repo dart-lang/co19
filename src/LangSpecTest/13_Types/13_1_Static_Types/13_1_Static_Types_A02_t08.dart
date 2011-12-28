@@ -24,6 +24,8 @@ class G<T> {
 }
 
 main() {
-  int foo;
-  G<foo> t;
+  try {
+    int foo;
+    G<foo> t;
+  } catch(var x){}
 }

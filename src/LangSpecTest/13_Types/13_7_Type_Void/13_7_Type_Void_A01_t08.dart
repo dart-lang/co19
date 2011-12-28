@@ -16,5 +16,8 @@
 interface A extends void {}
 
 main() {
+  try {
+    Expect.isFalse(null is A);
+  } catch(var x){}
 }
 

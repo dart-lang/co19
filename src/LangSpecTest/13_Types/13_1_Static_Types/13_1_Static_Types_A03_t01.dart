@@ -16,7 +16,9 @@ class A<T, S> {
 }
 
 main() {
-  A<int> a;
+  try {
+    A<int> a;
+  } catch(var x){}
 }
 
 

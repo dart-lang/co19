@@ -19,4 +19,7 @@
 
 typedef <T>();
 
-main() {}
+main() {
+  try {
+  } catch(var x){}
+}

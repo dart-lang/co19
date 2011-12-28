@@ -16,5 +16,8 @@
 class A extends void {}
 
 main() {
+  try {
+    new A();
+  } catch(var x){}
 }
 

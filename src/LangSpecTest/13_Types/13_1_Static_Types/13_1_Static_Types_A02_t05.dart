@@ -25,5 +25,7 @@ class G<A, B> {
 }
 
 main() {
-  G<int double> g;
+  try {
+    G<int double> g;
+  } catch(var x){}
 }

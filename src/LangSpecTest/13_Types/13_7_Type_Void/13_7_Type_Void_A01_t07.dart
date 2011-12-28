@@ -16,5 +16,8 @@
 class A implements void {}
 
 main() {
+  try {
+    new A();
+  } catch(var x){}
 }
 

@@ -14,6 +14,8 @@
  */
 
 main() {
-  bool b = null is void;
+  try {
+    bool b = null is void;
+  } catch(var x){}
 }
 

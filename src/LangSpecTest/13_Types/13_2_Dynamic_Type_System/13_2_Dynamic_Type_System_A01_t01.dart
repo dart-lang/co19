@@ -14,8 +14,12 @@
  * @reviewer iefremov
  */
 
+#import("../../../Utils/dynamic_check.dart");
+
 main() {
   var i = 1;
-  String v = i;
+  checkTypeError( () {
+    String v = i;
+  });
 }
 

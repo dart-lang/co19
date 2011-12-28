@@ -15,5 +15,8 @@ interface A {}
 typedef A B;
 
 main() {
+  try {
+    Expect.isFalse(null is B);
+  }catch(var x){}
 }
 

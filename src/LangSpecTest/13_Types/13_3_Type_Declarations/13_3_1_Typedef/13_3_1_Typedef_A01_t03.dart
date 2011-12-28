@@ -19,4 +19,8 @@
 
 typedef void f<T>()
 
-main() {}
+main() {
+  try {
+    Expect.isFalse(null is f);
+  } catch(var x){}
+}

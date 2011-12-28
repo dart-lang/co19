@@ -14,6 +14,8 @@
  */
 
 main() {
-  void v = null;
+  try {
+    void v = null;
+  } catch(var x){}
 }
 

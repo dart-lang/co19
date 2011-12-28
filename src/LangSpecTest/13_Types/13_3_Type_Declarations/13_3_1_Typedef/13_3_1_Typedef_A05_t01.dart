@@ -15,5 +15,8 @@ class A {}
 typedef A B;
 
 main() {
+  try {
+    new A();
+  }catch(var x){}
 }
 

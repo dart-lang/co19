@@ -14,5 +14,8 @@
 typedef int integer;
 
 main() {
+  try {
+    Expect.isFalse(null is integer);
+  }catch(var x){}
 }
 
