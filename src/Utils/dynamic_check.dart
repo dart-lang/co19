@@ -2,7 +2,8 @@
 
 _isCheckedMode() {
   try {
-    String i = true;
+    var i = 1;
+    String s = i;
     return false;
   } catch(var e) {
     return true;
