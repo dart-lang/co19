@@ -25,6 +25,7 @@
  * @author msyabro
  * @reviewer rodionov
  * @reviewer iefremov
+ * @needsreview issue 497
  */
 
 class A {

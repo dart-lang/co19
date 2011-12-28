@@ -10,6 +10,7 @@
  * @author kaigorodov
  * @reviewer iefremov
  * @compile-error
+ * @needsreview issue 991
  */
 
 final foo;

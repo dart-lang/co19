@@ -12,7 +12,7 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
- * @needsreview issue 981
+ * @needsreview issue 981, issue 986
  */
 
 class A {

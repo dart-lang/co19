@@ -13,6 +13,7 @@
  * a direct superclass of the first one.
  * @static-type-error
  * @author rodionov
+ * @needsreview issue 986
  */
 
 class A {

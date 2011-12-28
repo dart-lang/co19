@@ -10,6 +10,7 @@
  * (if these exist) and in the non-static members of G.
  * @description Checks that type parameters are in scope in the type parameters bounds.
  * @author iefremov
+ * @needsreview issue 987
  */
 
 class A<T extends T,

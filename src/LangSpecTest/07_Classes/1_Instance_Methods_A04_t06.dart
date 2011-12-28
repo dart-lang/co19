@@ -11,6 +11,7 @@
  * are wildly different.
  * @static-type-error
  * @author rodionov
+ * @needsreview issue 986
  */
 
 class A {

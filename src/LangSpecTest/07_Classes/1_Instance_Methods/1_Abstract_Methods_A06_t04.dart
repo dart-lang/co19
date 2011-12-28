@@ -12,6 +12,7 @@
  * method with the same name as a static method in its superclass.
  * @static-type-error
  * @author rodionov
+ * @needsreview issue 986
  */
 
 class A {

@@ -12,6 +12,7 @@
  * @static-type-error
  * @reviewer msyabro
  * @reviewer rodionov
+ * @needsreview issue 986
  */
 
 class A {

@@ -12,6 +12,7 @@
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview issue 990
  */
 
 class S {

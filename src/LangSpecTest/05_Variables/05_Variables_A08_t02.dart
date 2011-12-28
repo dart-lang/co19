@@ -10,6 +10,7 @@
  * marked final is not initialized.
  * @author iefremov
  * @compile-error
+ * @needsreview issue 991
  */
 
 final foo; // error

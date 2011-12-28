@@ -12,6 +12,7 @@
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov
+ * @needsreview issue 986
  */
 
 class A {

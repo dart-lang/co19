@@ -10,6 +10,7 @@
  * a static variable in a superclass indeed results in a static warning. 
  * @static-type-error
  * @author rodionov
+ * @needsreview issue 986
  */
 
 class A {

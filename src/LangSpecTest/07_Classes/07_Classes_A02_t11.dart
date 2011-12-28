@@ -35,6 +35,7 @@
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview issue 989
  */
 
 class A {

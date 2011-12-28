@@ -17,6 +17,7 @@
  * @compile-error
  * @author vasya
  * @reviewer rodionov
+ * @needsreview issue 985
  */
 
 class F {
