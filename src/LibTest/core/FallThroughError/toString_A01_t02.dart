@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
- * @description Checks that the line is recorded correctly when the
- *              FallThroughError is raised the intended way (control reaching
- *              the end of a non-empty switch statement's case).
+ * @assertion Undocumented.
+ * @description Checks that this method causes no error and the result is not
+ *              null and is indeed a String. FallThroughError raised using the
+ *              proper method (incorrect switch statement).
  * @author rodionov
  * @reviewer msyabro
- * @needsreview undocumented
+ * @needsreview Undocumented
  */
  
 main() {
@@ -21,13 +21,14 @@ main() {
         break;
       case false:
         print("not so great!");
-      default: // this is line 24
+      default:
         print("just awesome!");
         break;
     }
+    
     Expect.fail("FallThroughError expected");
   } catch (FallThroughError e) {
-    Expect.equals(24, e.line);
+    Expect.isTrue(e.toString() != null);
+    Expect.isTrue(e.toString() is String);
   }
 }
-

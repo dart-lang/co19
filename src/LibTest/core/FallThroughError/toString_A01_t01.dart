@@ -7,16 +7,15 @@
  * @assertion Undocumented
  * @description Checks that this method causes no error and the result is not
  *              null and is indeed a String. FallThroughError raised using the
- *              throwNew static method.
+ *              constructor.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview undocumented
+ * @needsreview Undocumented
  */
  
 main() {
   try {
-    FallThroughError.throwNew(1);
-    Expect.fail("FallThroughError expected");
+    throw const FallThroughError();
   } catch (FallThroughError e) {
     Expect.isTrue(e.toString() != null);
     Expect.isTrue(e.toString() is String);
