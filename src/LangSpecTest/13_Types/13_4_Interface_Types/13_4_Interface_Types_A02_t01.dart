@@ -14,7 +14,7 @@
  */
 
 interface I {}
-interface J extends I factory C {
+interface J extends I default C {
   J();
 }
 

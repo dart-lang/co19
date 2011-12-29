@@ -38,4 +38,3 @@ main() {
   check(2001, 1, 1, 24, 0, 0, 0); //Why is this allowed and why is [:day:] automatically increased?
   check(0x7fffffffffffffff, 12, 31, 24, 59, 59, 999);
 }
-  

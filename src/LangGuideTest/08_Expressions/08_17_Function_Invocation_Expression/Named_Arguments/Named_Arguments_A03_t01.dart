@@ -10,9 +10,12 @@
  * @author msyabro
  */
 
+#import("../../../../Utils/dynamic_check.dart");
 
 void func(int x, bool y) {}
 
 main() {
-  func(true, 1);
+  checkTypeError( () {
+    func(true, 1);
+  });
 }

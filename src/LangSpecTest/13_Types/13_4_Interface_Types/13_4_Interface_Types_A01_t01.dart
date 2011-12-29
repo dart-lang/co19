@@ -13,7 +13,7 @@
  * without some sort of reflection framework.
  */
 
-interface J factory C {
+interface J default C {
   J();
 }
 

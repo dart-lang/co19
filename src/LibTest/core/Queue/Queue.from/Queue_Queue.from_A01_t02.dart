@@ -9,6 +9,7 @@
  * @description Checks constructor with custom Iterable.
  * @author msyabro
  * @reviewer varlax
+ * @reviewer iefremov
  */
 
 class CustomIterator<T> implements Iterator<T> {
@@ -43,7 +44,7 @@ class IterableClass implements Iterable {
 }
 
 
-void check(List l, Collection c) {
+void check(Queue l, Collection c) {
   Expect.isTrue(l.length == c.length);
   c.forEach(void compare(var element) {
     Expect.isTrue(l.removeFirst() == element);
@@ -56,6 +57,5 @@ main() {
 
   IterableClass copy = new IterableClass();
   copy.internalArray = [null,null,"sdsd",copy];
-  list = new Queue.from(copy);
-  check(list, [null,null,"sdsd",copy]);
+  check(new Queue.from(copy), [null,null,"sdsd",copy]);
 }

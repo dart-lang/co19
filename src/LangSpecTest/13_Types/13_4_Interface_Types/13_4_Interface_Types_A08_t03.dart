@@ -45,9 +45,9 @@ main() {
   fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]){};
 
   //function on the right is a supertype of f1_*
-  f1_1 fvar_1 = B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-  f1_2 fvar_2 = B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-  f1_3 fvar_3 = B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-  f1_4 fvar_4 = B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
+  f1_1 fvar_1 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
+  f1_2 fvar_2 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
+  f1_3 fvar_3 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
+  f1_4 fvar_4 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
 
 }

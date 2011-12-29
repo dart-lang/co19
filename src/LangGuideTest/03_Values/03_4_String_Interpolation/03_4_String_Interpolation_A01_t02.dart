@@ -15,8 +15,8 @@
 
 
 main() {
-  Expect.isTrue("\$123.23" == @"$123.23");
+  Expect.equals(@"$123.23", "\$123.23");
 
   var price = 123.23;
-  Expect.isTrue("\$$price" == @"$123.23");
+  Expect.equals(@"$123.23", "\$$price");
 }

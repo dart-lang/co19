@@ -12,6 +12,8 @@
  * @reviewer msyabro
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 class A {
   factory A() {
     return new Object();
@@ -21,5 +23,7 @@ class A {
 
 
 main() {
-   Object o = new A();
+  checkTypeError(() {
+    Object o = new A();
+  });
 }

@@ -14,13 +14,13 @@
 
 main(){
   Date dt1 = new Date.withTimeZone(2001, 1, 2, 3, 4, 5, 6, new TimeZone.utc());
-  Expect.equals(2001, dt1.year, 2001);
-  Expect.equals(1, dt1.month, 1);
-  Expect.equals(2, dt1.day, 2);
-  Expect.equals(3, dt1.hours, 3);
-  Expect.equals(4, dt1.minutes, 4);
-  Expect.equals(5, dt1.seconds, 5);
-  Expect.equals(6, dt1.milliseconds, 6);
+  Expect.equals(2001, dt1.year);
+  Expect.equals(1, dt1.month);
+  Expect.equals(2, dt1.day);
+  Expect.equals(3, dt1.hours);
+  Expect.equals(4, dt1.minutes);
+  Expect.equals(5, dt1.seconds);
+  Expect.equals(6, dt1.milliseconds);
   Expect.equals(new TimeZone.utc(), dt1.timeZone);
 
   Date dt2 = new Date.withTimeZone(2001, 1, 2, 3, 4, 5, 6, new TimeZone.local());

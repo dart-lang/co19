@@ -15,8 +15,8 @@
  * @reviewer rodionov
  */
 
-interface I<A, B, C> {}
-interface J<A, B, C> extends I<A, B, C> {}
+interface I<A, B, T> {}
+interface J<A, B, T> extends I<A, B, T> {}
 interface K extends J {}
 class C implements K {}
 
@@ -31,7 +31,7 @@ class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   check() {
     Expect.isTrue(new Checker_I<T>() is Checker_I<I>);
     Checker_I<I<f, num, List<Map<num, Map>>>> i1 = new Checker_I<T>();
-    Checker_I<T> i2 = Checker_I<I<f, num, List<Map<num, Map>>>> f() {} ();
+    Checker_I<T> i2 = Checker_I<I<f, num, List<Map<num, Map>>>> _() {} ();
   }
 }
 

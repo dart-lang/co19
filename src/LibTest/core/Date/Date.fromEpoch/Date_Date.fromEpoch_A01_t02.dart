@@ -9,7 +9,7 @@
  * @description Checks that timeZone parameter cannot be [:null:]
  * @author hlodvig
  * @reviewer msyabro
- * @needsreview API do not specify which exception should or should not be raised if null is passed
+ * @needsreview API does not specify which exception should or should not be raised if null is passed
  * to the function. Also it states the "must not be null", not the "can not be null".
  */
 

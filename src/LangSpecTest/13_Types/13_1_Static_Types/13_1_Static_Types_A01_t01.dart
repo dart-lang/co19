@@ -6,8 +6,10 @@
 /**
  * @assertion Static type annotations are used during static checking and when running programs in
  * checked mode. They have no effect whatsoever in production mode.
- * @description This assertion is verified by many tests in the whole suite. So no special testing is not needed.
+ * @description TODO:
  * @author iefremov
+ * @needsreview TODO: invent a way to check that static type annotations do not cause compile-time errors in scripting mode.
+ * It looks like it should be supported by harness.
  */
 
 main() {

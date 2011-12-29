@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this constructor executes without error for various arguments (including null).
+ * @description Checks that this constructor executes without error for various strings and null.
  * @author rodionov
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -13,11 +13,7 @@
  
 main() {
   new IllegalArgumentException(null);
-  new IllegalArgumentException([]);
-  new IllegalArgumentException([null]);
-  new IllegalArgumentException(1);
-  new IllegalArgumentException(true);
   new IllegalArgumentException("");
   new IllegalArgumentException("foo");
-  new IllegalArgumentException(new Object());
+  new IllegalArgumentException("You are not paid to think!");
 }

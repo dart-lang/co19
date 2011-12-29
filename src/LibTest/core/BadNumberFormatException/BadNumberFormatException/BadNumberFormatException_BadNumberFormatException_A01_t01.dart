@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this constructor executes without error for various arguments (including null).
+ * @description Checks that this constructor executes without error for various String arguments and null.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
@@ -13,10 +13,7 @@
  
 main() {
   new BadNumberFormatException(null);
-  new BadNumberFormatException(true);
-  new BadNumberFormatException(1);
   new BadNumberFormatException("asdgfsdjkg");
-  new BadNumberFormatException([]);
-  new BadNumberFormatException([null]);
-  new BadNumberFormatException([1, true]);
+  new BadNumberFormatException("");
+  new BadNumberFormatException("You are not paid to think!");
 }

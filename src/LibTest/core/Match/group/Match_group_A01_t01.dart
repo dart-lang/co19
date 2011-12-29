@@ -9,9 +9,10 @@
  * @description Checks that correct group is returned.
  * @author rodionov
  * @reviewer msyabro
+ * @reviewer iefremov
  */
 
-void check(String str, String pattern, String expected, [bool multiLine = false, bool ignoreCase = false]) {
+void check(String str, String pattern, List<String> expected, [bool multiLine = false, bool ignoreCase = false]) {
   RegExp re = new RegExp(pattern, multiLine, ignoreCase);
   Match m = re.firstMatch(str);
   Expect.equals(expected.length, m.groupCount() + 1);

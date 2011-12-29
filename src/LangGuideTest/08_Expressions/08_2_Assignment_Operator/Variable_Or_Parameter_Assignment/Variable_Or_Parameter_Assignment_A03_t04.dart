@@ -16,6 +16,8 @@
  * @reviewer msyabro
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 class A {
   A() {}
 }
@@ -25,5 +27,7 @@ A foo() { return new A(); }
 
 main() {
   int x;
-  x = foo();
+  checkTypeError(() {
+    x = foo();
+  });
 }
