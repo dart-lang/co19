@@ -14,7 +14,7 @@
  * @reviewer rodionov
  */
 
-class A {
+class A implements Hashable {
   A(this.x) {}
   bool operator==(A other) { return x == other.x; }
   int hashCode() { return -1; }
@@ -23,7 +23,7 @@ class A {
 
 
 main() {
-  Set<int> s = new Set<int>();
+  Set s = new Set();
 
   int numValues = 19;
   for(int i = 0; i < numValues; i++) {

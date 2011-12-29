@@ -12,7 +12,7 @@
  * @reviewer msyabro
  */
 
-class A {
+class A implements Hashable {
   A(this.x) {}
   bool operator==(A other) { return x == other.x; }
   int hashCode() { return -1; }

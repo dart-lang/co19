@@ -11,7 +11,7 @@
  * @reviewer varlax
  */
 
-class A {
+class A implements Hashable {
   String s;
   A(this.s) {}
   int hashCode() {

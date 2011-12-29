@@ -6,14 +6,11 @@
 /**
  * @assertion Constructs a map with the default implementation.
  * @description Checks that map can be created with key of function type.
- * @needsreview In one of samples in specification declaration of Map
- * is as follows
- * Map<K implements Hashable, V> factory HashMap<K, V>
- * so Map can't be created with arbitrary key,
- * but in current sources declaration is
- * Map<K, V> default HashMap<K, V>
+ * @needsreview Currently functions are not hashable so this tests
+ * is rejected in checked mode. However, the dart team is aware of this issue: Issue 167
  * @author msyabro
  * @reviewer varlax
+ * @reviewer iefremov
  */
  
 typedef void SomeFunction();
@@ -22,9 +19,10 @@ class A { }
 
 
 main() {
-  Map<String, String> stringStringMap = new Map<String, String>();
+
+//  Map<String, String> stringStringMap = new Map<String, String>();
   
-  Map<SomeFunction, String> funcStringMap = new Map<SomeFunction, String>();
+//  Map<SomeFunction, String> funcStringMap = new Map<SomeFunction, String>();
   
-  Map<A, A> classClassMap = new Map<A, A>();
+//  Map<A, A> classClassMap = new Map<A, A>();
 }
