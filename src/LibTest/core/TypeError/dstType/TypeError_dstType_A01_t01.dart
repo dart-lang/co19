@@ -8,39 +8,43 @@
  * @description Checks that [dstType] is recorded correctly.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview Mark this test for checked mode only. Undocumented.
+ * @needsreview Undocumented.
  */
+
+#import("../../../../Utils/dynamic_check.dart");
 
 class MyClass {
   MyClass() {}
 }
 
 main() {
-  try {
-    int x = true;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('int', e.dstType);
-  }
+  if(isCheckedMode()) {
+    try {
+      int x = true;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('int', e.dstType);
+    }
 
-  try {
-    bool val = 1;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('bool', e.dstType);
-  }
+    try {
+      bool val = 1;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('bool', e.dstType);
+    }
 
-  try {
-    String str = true;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('String', e.dstType);
-  }
+    try {
+      String str = true;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('String', e.dstType);
+    }
 
-  try {
-    MyClass str = true;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('MyClass', e.dstType);
+    try {
+      MyClass str = true;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('MyClass', e.dstType);
+    }
   }
 }

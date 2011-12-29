@@ -8,28 +8,32 @@
  * @description Checks that [failedAssertion] is recorded correctly.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only. Undocumented
+ * @needsreview Undocumented
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
-  try {
-    int x = true;
-    Expect.fail("TypeError expected");
-  } catch (TypeError e) {
-    Expect.equals(@"$expr instanceof int", e.failedAssertion);
-  }
+  if(isCheckedMode()) {
+    try {
+      int x = true;
+      Expect.fail("TypeError expected");
+    } catch (TypeError e) {
+      Expect.equals(@"$expr instanceof int", e.failedAssertion);
+    }
 
-  try {
-    bool x = 1;
-    Expect.fail("TypeError expected");
-  } catch (TypeError e) {
-    Expect.equals(@"$expr instanceof bool", e.failedAssertion);
-  }
+    try {
+      bool x = 1;
+      Expect.fail("TypeError expected");
+    } catch (TypeError e) {
+      Expect.equals(@"$expr instanceof bool", e.failedAssertion);
+    }
 
-  try {
-    String x = 1;
-    Expect.fail("TypeError expected");
-  } catch (TypeError e) {
-    Expect.equals(@"$expr instanceof String", e.failedAssertion);
+    try {
+      String x = 1;
+      Expect.fail("TypeError expected");
+    } catch (TypeError e) {
+      Expect.equals(@"$expr instanceof String", e.failedAssertion);
+    }
   }
 }

@@ -8,14 +8,17 @@
  * @description Checks that the column is recorded correctly when the TypeError is raised.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only.
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
-  try {
-    int x = true;
-    Expect.fail("TypeError expected");
-  } catch (TypeError e) {
-    Expect.equals(13, e.column);
+  if(isCheckedMode()) {
+    try {
+      int x = true;
+      Expect.fail("TypeError expected");
+    } catch (TypeError e) {
+      Expect.equals(15, e.column);
+    }
   }
 }

@@ -8,14 +8,17 @@
  * @description Checks that the line is recorded correctly when the TypeError is raised.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only.
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
-  try {
-    int x = true; // this is line 16
-    Expect.fail("TypeError expected");
-  } catch (TypeError e) {
-    Expect.equals(16, e.line);
+  if(isCheckedMode()) {
+    try {
+      int x = true; // this is line 18
+      Expect.fail("TypeError expected");
+    } catch (TypeError e) {
+      Expect.equals(18, e.line);
+    }
   }
 }

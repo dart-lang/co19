@@ -8,28 +8,32 @@
  * @description Checks that [dstName] is recorded correctly.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview Mark this test for checked mode only. Undocumented.
+ * @needsreview Undocumented.
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
-  try {
-    int x = true;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('x', e.dstName);
-  }
+  if(isCheckedMode()) {
+    try {
+      int x = true;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('x', e.dstName);
+    }
 
-  try {
-    bool val = 1;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('val', e.dstName);
-  }
+    try {
+      bool val = 1;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('val', e.dstName);
+    }
 
-  try {
-    String str = true;
-    Expect.fail("TypeError is expected");
-  } catch(TypeError e) {
-    Expect.equals('str', e.dstName);
+    try {
+      String str = true;
+      Expect.fail("TypeError is expected");
+    } catch(TypeError e) {
+      Expect.equals('str', e.dstName);
+    }
   }
 }
