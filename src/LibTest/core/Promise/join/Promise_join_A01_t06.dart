@@ -10,19 +10,23 @@
  * [joinDone]. When [joinDone] returns true, this instance is marked as
  * complete with the last value that was computed.
  * @description Checks that calling this method with non-function object results in ObjectNotClosureException
+ * in scripting mode
  * @author msyabro
  * @reviewer kaigorodov
  */
 
+#import("../../../../Utils/dynamic_check.dart");
 
 check(Object obj) {
-  Promise p = new Promise();
-  Promise p1 = new Promise();
-  p.join([p1], obj);
-  try {
-    p1.complete(1);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  if(!isCheckedMode()) {
+    Promise p = new Promise();
+    Promise p1 = new Promise();
+    p.join([p1], obj);
+    try {
+      p1.complete(1);
+      Expect.fail("ObjectNotClosureException is expected");
+    } catch(ObjectNotClosureException e) {}
+  }
 }
 
 main() {

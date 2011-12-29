@@ -13,18 +13,22 @@
  *  - this.cancel   --> r.error (the cancellation is shown as an error to r)
  *  - r.cancel      --> this continues executing regardless.
  * @description Checks that calling this method with non-function object results in ObjectNotClosureException
+ * in scripting mode
  * @author msyabro
  * @reviewer kaigorodov
  */
 
+#import("../../../../Utils/dynamic_check.dart");
 
 check(Object obj) {
-  Promise p = new Promise();
-  Promise p1 = p.then(obj);
-  try {
-    p.complete(1);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  if(!isCheckedMode()) {
+    Promise p = new Promise();
+    Promise p1 = p.then(obj);
+    try {
+      p.complete(1);
+      Expect.fail("ObjectNotClosureException is expected");
+    } catch(ObjectNotClosureException e) {}
+  }
 }
 
 main() {

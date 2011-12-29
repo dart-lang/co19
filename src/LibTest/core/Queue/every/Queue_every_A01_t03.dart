@@ -12,23 +12,46 @@
  */
 
 
+#import("../../../../Utils/dynamic_check.dart");
+
+check(f()) {
+  try {
+    f();
+    if(isCheckedMode()) {
+      Expect.fail("TypeError is expected");
+    } else {
+      Expect.fail("ObjectNotClosureException is expected");
+    }
+  } catch(TypeError e) {
+    if(!isCheckedMode()) {
+      Expect.fail("Type error in scripting mode");
+    }
+  } catch(ObjectNotClosureException e) {
+    if(isCheckedMode()) {
+      Expect.fail("ObjectNotClosureException in checked mode");
+    }
+  }
+}
+
 main() {
   Queue list = new Queue();
   
   //empty queue just ignores invalid arg
   int x = 0;
   list.every(null);
-  list.every(x);
+
+  checkTypeError( () {
+    list.every(x);
+  });
 
   list.addLast(1);
   
   try {
     list.every(null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
-  
-  try {
+  } catch(ObjectNotClosureException e){}
+
+  check( () {
     list.every(x);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  });
 }

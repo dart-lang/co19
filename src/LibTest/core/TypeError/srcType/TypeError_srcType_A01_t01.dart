@@ -11,6 +11,8 @@
  * @needsreview Mark this test for checked mode only. Undocumented.
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
 class MyClass {
   MyClass() {}
 }
@@ -18,29 +20,29 @@ class MyClass {
 main() {
   try {
     int x = "string";
-    Expect.fail("TypeError is expected");
+    if(isCheckedMode()) {Expect.fail("TypeError is expected");}
   } catch(TypeError e) {
     Expect.equals('OneByteString', e.srcType);
   }
 
   try {
     bool val = 1;
-    Expect.fail("TypeError is expected");
+    if(isCheckedMode()) {Expect.fail("TypeError is expected");}
   } catch(TypeError e) {
     Expect.equals('Smi', e.srcType);
   }
 
   try {
     String str = new MyClass();
-    Expect.fail("TypeError is expected");
+    if(isCheckedMode()) {Expect.fail("TypeError is expected");}
   } catch(TypeError e) {
     Expect.equals('MyClass', e.srcType);
   }
 
   try {
     MyClass str = [];
-    Expect.fail("TypeError is expected");
+    if(isCheckedMode()) {Expect.fail("TypeError is expected");}
   } catch(TypeError e) {
-    Expect.equals('GrowableObjectArray<var>', e.srcType);
+    Expect.equals('GrowableObjectArray<Dynamic>', e.srcType);
   }
 }

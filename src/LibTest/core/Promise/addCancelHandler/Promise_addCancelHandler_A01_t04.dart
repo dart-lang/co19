@@ -7,18 +7,22 @@
  * @assertion void addCancelHandler(void cancelHandler())
  * Register a handler to execute when [cancel] is called.
  * @description Checks that calling this method with non-function object results in ObjectNotClosureException
+ * in scripting mode
  * @author msyabro
  * @reviewer kaigorodov
  */
 
+#import("../../../../Utils/dynamic_check.dart");
 
 check(Object obj) {
-  Promise p = new Promise();
-  p.addCancelHandler(obj);
-  try {
-    p.cancel();
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    if(!isCheckedMode()) {
+    Promise p = new Promise();
+    p.addCancelHandler(obj);
+    try {
+      p.cancel();
+      Expect.fail("ObjectNotClosureException is expected");
+    } catch(ObjectNotClosureException e) {}
+  }
 }
 
 main() {
