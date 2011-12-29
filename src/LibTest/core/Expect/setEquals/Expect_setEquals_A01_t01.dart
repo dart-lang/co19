@@ -14,14 +14,9 @@
 
 main() {
   Expect.setEquals([1,2,3], [2,3,1]);
-  Expect.setEquals([null], [null]);
+  Expect.setEquals([], []);
 
-  Object foo = new Object();
   Expect.setEquals(new Set.from([0, 235892385, "abracadabra"]), [ 235892385, "abracadabra", 0]);
-  Expect.setEquals(new Queue.from([0, 235892385, true, foo, "abracadabra"]),
-      [true, 0, foo, 235892385, "abracadabra"], "");
-  Expect.setEquals(new Queue.from([0, 235892385, true, foo, "abracadabra"]),
-      [true, 0, foo, 235892385, "abracadabra"], "not empty");
 
   Expect.setEquals(new Set.from([0, 235892385, "abracadabra"]),
       new Queue.from([0, 235892385, "abracadabra"]));

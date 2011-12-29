@@ -13,7 +13,7 @@
  */
 
 main() {
-  check([true],[false]);
+  check([],[0]);
 
   check(new Set.from([0, 235892385, 1.2, "abracadabra"]), 
       [0, 235892385, 2.1, "abracadabra"]);
@@ -22,14 +22,6 @@ main() {
   check(new Set.from([0, 235892385, '', "abracadabra"]), 
       [0, 235892385, 54, "abracadabra"], "not empty");
   
-  var foo = new Object();
-  check(new Queue.from([0, 235892385, true, foo, "abracadabra"]), 
-      [0, 235892385, true, foo, "abrAcadabra"]);
-  check(new Queue.from([0, 235892385, true, foo, "abracadabra"]), 
-      [0, 235892385, true, foo, "abrAcadabra"], "");
-  check(new Queue.from([0, 235892385, true, foo, "abracadabra"]), 
-      [0, 235892385, true, foo, "abrAcadabra"], "not empty");
-
   check(new Set.from([double.NAN]), [double.NAN]);
   check(new Set.from([double.NAN]), [double.NAN], "");
   check(new Set.from([double.NAN]), [double.NAN], "not empty");
