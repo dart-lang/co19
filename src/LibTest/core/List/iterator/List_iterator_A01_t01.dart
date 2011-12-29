@@ -5,37 +5,34 @@
  */
 /**
  * @assertion Returns an [Iterator] that iterates over this [Iterable] object.
- * @description Checks that [Iterator] is returned.
+ * @description Checks that the returned [Iterator] iterates all elements of the list.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
-class A {
-  A() {}
+void checkIterator(List a) {
+  Iterator it = a.iterator();
+  int i = 0;
+  while (it.hasNext()) {
+    Expect.isTrue(it.next() == a[i++]);
+  }
+  Expect.equals(a.length, i);
 }
 
 main() {
-  Expect.isTrue([].iterator() is Iterator);
+  checkIterator([]);
+  checkIterator(const [null,0,"1", false, const []]);
+  checkIterator(new List(300));
 
-  Expect.isTrue(new List(null).iterator() is Iterator);
+  List a = new List(365);
+  for (var i=0; i < a.length; i++) {
+    a[i] = i;
+  }
+  checkIterator(a);
 
-  List a = new List(0);
-  Expect.isTrue(a.iterator() is Iterator<Object>);
-
-  a = new List<int>(10);
-  Expect.isTrue(a.iterator() is Iterator<int>);
-  Expect.isFalse(a.iterator() is Iterator<bool>);
-  Expect.isFalse(a.iterator() is Iterator<String>);
-
-  a = new List<bool>();
-  Expect.isTrue(a.iterator() is Iterator<bool>);
-
-  a = new List<String>(1);
-  Expect.isTrue(a.iterator() is Iterator<String>);
-
-  a = new List<A>(1000);
-  Expect.isTrue(a.iterator() is Iterator<A>);
-
-  a = new List<List>(5);
-  Expect.isTrue(a.iterator() is Iterator<List>);
+  List l = new List();
+  l.addAll(["0","1","2","3","4","5"]);
+  a = new List.from(l);
+  checkIterator(a);
 }

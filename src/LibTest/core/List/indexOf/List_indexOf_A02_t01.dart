@@ -4,19 +4,54 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns -1 if given element is not found. 
- * @description Checks that -1 is returned, if the element is not present
- * in the list.
+ * @assertion There is no restriction on the value of [startIndex]. 
+ * If it is negative, it has the same effect as if it were zero: this entire list may be searched. 
+ * If it is greater than the [:length:] of this list, it has the same effect 
+ * as if it were equal to the [:length:]: -1 is returned.
+ * @description Checks that [startIndex] can be out of bounds.
  * @author iefremov
+ * @author varlax
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
+checkList(List list, var elem, int idx, int expected) {
+  Expect.equals(expected, list.indexOf(elem, idx));
+}
+check(List ls) {
+  checkList(ls, 42, -1, 0);
+  checkList(ls, 777, -1, -1);
+  checkList(ls, null, -1, -1);
+  checkList(ls, 0, -1, 1);
+
+  checkList(ls, 42, 7, -1);
+  checkList(ls, 777, 7, -1);
+  checkList(ls, null, 7, -1);
+  checkList(ls, 0, 7, -1);
+
+  checkList(ls, 42, 6031769, -1);
+  checkList(ls, 777, 6031769, -1);
+  checkList(ls, null, 6031769, -1);
+  checkList(ls, 0, 6031769, -1);
+
+  checkList(ls, 42, -6031769, 0);
+  checkList(ls, 777, -6031769, -1);
+  checkList(ls, null, -6031769, -1);
+  checkList(ls, 0, -6031769, 1);
+}
 
 main() {
-  List a = [42, 0, -1, 42, -1, 6031769, 0];
-  Expect.isTrue(a.indexOf(3.14, 0) == -1);
-  Expect.isTrue(a.indexOf(null, 0) == -1);
-  Expect.isTrue(a.indexOf(a, 0) == -1);
-  Expect.isTrue(a.indexOf(42, 4) == -1);
-  Expect.isTrue(a.indexOf(-1, 5) == -1);
+  var a = [42, 0, -1, 42, -1, 6031769, 0];
+  check(a);
+
+  check(new List.from(a));
+
+  check(const<int>[42, 0, -1, 42, -1, 6031769, 0]);
+
+  List<int> b = new List<int>(a.length);
+  for(var i = 0; i<a.length; i++) {
+    b[i] = a[i];
+  }
+  check(b);
 }
+

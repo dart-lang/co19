@@ -5,9 +5,10 @@
  */
 /**
  * @assertion Returns whether the [Iterator] has elements left.
- * @description Checks if the [Iterator] has elements left.
+ * @description Checks that true is returned only if the [Iterator] has elements left.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 main() {
@@ -35,6 +36,14 @@ main() {
   Expect.isFalse(it.hasNext());
 
   a.length = 1;
+  it = a.iterator();
+  Expect.isTrue(it.hasNext());
+
+  a = const[];
+  it = a.iterator();
+  Expect.isFalse(it.hasNext());
+
+  a = const[1];
   it = a.iterator();
   Expect.isTrue(it.hasNext());
 }

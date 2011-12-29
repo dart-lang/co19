@@ -22,7 +22,7 @@ main() {
   Expect.isTrue([1, null, 3][1] === null);
   Expect.isTrue([1, 2, null][2] === null);
   
-  a = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+  a = const [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
   List ls = new List<int>(a.length);
   for (int i in a) {
     Expect.isTrue(a[i] === i);

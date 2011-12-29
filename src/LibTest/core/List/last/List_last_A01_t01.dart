@@ -8,6 +8,7 @@
  * @description Checks that the last element of the list is returned.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 main() {
@@ -40,4 +41,7 @@ main() {
 
   a = [null, 0, "0", false, -1];
   Expect.equals(-1, a.last());
+
+  a = const [null, 0, "0", false];
+  Expect.equals(false, a.last());
 }

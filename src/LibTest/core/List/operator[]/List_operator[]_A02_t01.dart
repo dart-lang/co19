@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Throws an out of bounds exception if [index] is out of bounds.
- * @description Checks fixed size arrays, that the exception is thrown.
+ * @description Checks that the exception is thrown.
  * @author iefremov
+ * @author varlax
  * @reviewer msyabro
  * @reviewer varlax
  */
@@ -23,12 +24,21 @@ main() {
   check([], 1);
   check([], -1);
   check(const[], 6031769);
-  check([1], 2);
-  check([null,null,null,null], 5);
-  check([null,null,null,null], -1);
+  check(const [1], 2);
+  check(const [null,null,null,null], 5);
+  check(const [null,null,null,null], -1);
 
   var ls = new List(123); 
   check(ls, 124);
   check(ls, -1);
+
+  check(new List(), 0);
+  check(new List(), 1);
+  check(new List(), -1);
+  check(new List.from([]), 6031769);
+  check(new List.from([1]), 2);
+  check(new List.from([null,null,null,null]), 5);
+  check(new List.from([null,null,null,null]), -1);
+
 }
 

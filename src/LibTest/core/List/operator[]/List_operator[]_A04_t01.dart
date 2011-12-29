@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [IllegalArgumentException] if [index] is [:null:] if the list is not extendable.
- * @description Checks that the exception is thrown as expected, for fixed lists.
+ * @assertion Throws [IllegalArgumentException] if [index] is [:null:].
+ * @description Checks that the exception is thrown as expected.
  * @author msyabro
- * @needsreview Undocumented.
+ * @reviewer varlax
  */
 
 void main() {
@@ -18,6 +18,12 @@ void main() {
   } catch(IllegalArgumentException ok) {}
 
   a = new List(0);
+  try {
+    a[null];
+    Expect.fail("expected IllegalArgumentException");
+  } catch(IllegalArgumentException ok) {}
+
+  a = const[];
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");

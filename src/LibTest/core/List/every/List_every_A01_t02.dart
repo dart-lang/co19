@@ -8,12 +8,13 @@
  * @description Checks that the predicate method is called for each element until the first false result.
  * @author vasya
  * @author msyabro
+ * @reviewer varlax
  */
 
  //Checks that [every] calls [predicate] a [count] number of times
 check(List a, bool predicate(var e), int count) {
   int actualCount = 0;
-  a.every(void f(var e) {
+  a.every(f(var e) {
     actualCount++;
     return predicate(e);
   });

@@ -10,6 +10,7 @@
  * if the length of the list cannot be changed.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 main() {
@@ -17,6 +18,11 @@ main() {
   a[0] = 0;
   try {
     a.removeLast();
+    Expect.fail("UnsupportedOperationException expected when calling a.removeLast()");
+  } catch( UnsupportedOperationException ok ) {}
+
+  try {
+    const[1].removeLast();
     Expect.fail("UnsupportedOperationException expected when calling a.removeLast()");
   } catch( UnsupportedOperationException ok ) {}
 }

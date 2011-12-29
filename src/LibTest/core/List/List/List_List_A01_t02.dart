@@ -31,6 +31,16 @@ check(List l) {
     Expect.fail("UnsupportedOperationException expected");
   } catch (UnsupportedOperationException ok) {}
 
+  try {
+    l.insertRange(0,1);
+    Expect.fail("UnsupportedOperationException expected");
+  } catch (UnsupportedOperationException ok) {}
+
+  try {
+    l.removeRange(0,1);
+    Expect.fail("UnsupportedOperationException expected");
+  } catch (UnsupportedOperationException ok) {}
+
 }
 
 main() {

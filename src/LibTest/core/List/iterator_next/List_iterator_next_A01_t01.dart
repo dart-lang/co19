@@ -8,6 +8,7 @@
  * @description Checks that next element in the iteration is got.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 void checkNext(List a) {
@@ -21,6 +22,7 @@ void checkNext(List a) {
 
 main() {
   checkNext([null,0,"1",false]);
+  checkNext(const [null,0,"1",false]);
 
   List a = new List(17495);
   for (var i=0; i < a.length; i++) {

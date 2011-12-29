@@ -4,29 +4,43 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [IllegalArgumentException] if [index] is [:null:] if the list is extendable.
- * @description Checks that the exception is thrown as expected, for extendable lists.
+ * @assertion Throws [IllegalArgumentException] if [index] is of invalid type.
+ * @description Checks that the exception is thrown as expected.
  * @author varlax
- * @reviewer msyabro
- * @needsreview Undocumented.
  */
 
+#import("../../../../Utils/dynamic_check.dart");
+
+check(List a) {
+  checkTypeError( () {
+    try {
+      var idx = 0.1;
+      a[idx];
+      Expect.fail("expected IllegalArgumentException");
+    } catch(IllegalArgumentException ok) {}
+  });
+
+  checkTypeError( () {
+    try {
+      var idx = '23';
+      a[idx];
+      Expect.fail("expected IllegalArgumentException");
+    } catch(IllegalArgumentException ok) {}
+  });
+
+  checkTypeError( () {
+    try {
+      var idx = false;
+      a[idx];
+      Expect.fail("expected IllegalArgumentException");
+    } catch(IllegalArgumentException ok) {}
+  });
+ 
+}
+
 void main() {
-  var a = [null];
-  try {
-    a[null];
-    Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
-
-  a = new List.from([a, 1, true]);
-  try {
-    a[null];
-    Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
-
-  a = new List.from(<int>[null, 1, 0]);
-  try {
-    a[null];
-    Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  check(const [null]);
+  check(['sd','sd']);
+  check(new List.from(<int>[null, 1, 0]));
+  check(new List(100));
 }

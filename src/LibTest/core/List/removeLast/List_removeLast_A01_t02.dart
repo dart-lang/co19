@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Pops and returns the last element of the list.
- * @description Tries to pop the last element of an empty list.
+ * @assertion Throws an [IndexOutOfRangeException] if the list is empty.
+ * @description Checks that exception is thrown as expected.
  * @author vasya
  * @reviewer msyabro
- * @needsreview undocumented
+ * @reviewer varlax
  */
 
 main() {

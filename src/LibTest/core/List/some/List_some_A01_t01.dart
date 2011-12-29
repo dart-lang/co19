@@ -31,6 +31,6 @@ main() {
   bool f1 (int e) { return (e > 1); }
   a = [1,2,3,4];
   Expect.isTrue(a.some(f1));
-  a.copyFrom([-2,-3,-4], 0, 1, 3);
+  a.setRange(1, 3, [-2,-3,-4]);
   Expect.isFalse(a.some(f1));
 }

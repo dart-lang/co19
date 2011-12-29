@@ -5,10 +5,13 @@
  */
 /**
  * @assertion Returns true if every element of the list satisfy the predicate [f]. Returns false otherwise.
- * @description Check that true is returned if every element of the list satisfies the predicate [f].
+ * @description Check that true is returned only if every element of the list satisfies the predicate [f].
  * @author vasya
  * @reviewer iefremov
+ * @reviewer varlax
  */
+
+#import("../../../../Utils/dynamic_check.dart");
 
 main() {
   List a = [0,1,2,3,4,5,6,7,8,9];
@@ -19,18 +22,16 @@ main() {
   Expect.isTrue(a.every( bool f(Collection e) { return (e is List); } ));
   Expect.isFalse(a.every( bool f(Collection e) { return (e is Set); } ));
 
-  a = new List<String>(0);
-  Expect.isTrue(a.every( bool f(String e) { return (e.isEmpty()); } ));
-
-  a = new List<int>(96547);
-  Expect.isTrue(a.every( bool f(int e) { return (e == null); } ));
-
   a = [1,2,3];
   bool f (int e) { return (e > 0); }
   Expect.isTrue(a.every(f));
   List b = new List.from(a);
   Expect.isTrue(a.length == b.length && b.every(f));
 
-  a.copyFrom([-1,-2,-3],0,0,3);
-  Expect.isFalse(a.every(f));
+  try {
+    checkTypeError(() {
+      a.insertRange(0,3,[-1,-2,-3]);
+      a.every(f);
+    });
+  } catch(NoSuchMethodException ok){}
 }

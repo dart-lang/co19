@@ -5,21 +5,25 @@
  */
 /**
  * @assertion Returns true if there is no element in the list.
- * @description Checks that the method returns true if there is no elements,
+ * @description Checks various lists, that the method returns true if there is no elements,
  * in the list, false otherwise.
  * @author vasya
  * @reviewer iefremov
+ * @reviewer varlax
  */
 
 
 main() {
-  Expect.isTrue([].isEmpty() == true);
-  Expect.isTrue([null].isEmpty() == false);
-  Expect.isTrue([0,1,2,3,4].isEmpty() == false);
-  Expect.isTrue([[]].isEmpty() == false);
+  Expect.isTrue([].isEmpty());
+  Expect.isFalse([null].isEmpty());
+  Expect.isFalse(const[0,1,2,3,4].isEmpty());
+  Expect.isFalse([[]].isEmpty());
+
+  Expect.isTrue(new List.from([]).isEmpty());
+  Expect.isFalse(new List.from([[]]).isEmpty());
 
   List a = new List(0);
-  Expect.isTrue(a.isEmpty() == true);
-  a = new List(46985698);
-  Expect.isTrue(a.isEmpty() == false);
+  Expect.isTrue(a.isEmpty());
+  a = new List(469);
+  Expect.isFalse(a.isEmpty());
 }

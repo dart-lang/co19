@@ -8,12 +8,13 @@
  * @description Checks that method is called for each element until the first true result
  * @author vasya
  * @author msyabro
+ * @reviewer varlax
  */
 
  //Checks that [some] calls [predicate] a [count] number of times
 check(List a, bool predicate(var e), int count) {
   int actualCount = 0;
-  a.some(void f(var e) {
+  a.some((var e) {
     actualCount++;
     return predicate(e);
   });

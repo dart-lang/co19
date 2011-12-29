@@ -17,4 +17,10 @@ main() {
     a.length = 1;
     Expect.fail("UnsupportedOperationException expected when calling a.length");
   } catch( UnsupportedOperationException ok ) {}
+
+  a = const[1,2,3];
+  try {
+    a.length = 1;
+    Expect.fail("UnsupportedOperationException expected when calling a.length");
+  } catch( UnsupportedOperationException ok ) {}
 }

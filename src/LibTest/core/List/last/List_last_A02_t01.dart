@@ -8,12 +8,19 @@
  * @description Checks that IndexOutOfRangeException is thrown if the list is empty.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
-main() {
-  List a = new List();
+check(List a) {
   try {
     a.last();
     Expect.fail("IndexOutOfRangeException expected when calling a.last()");
   } catch( IndexOutOfRangeException ok ) {}
+}
+
+main() {
+  check(new List());
+  //check(new List(10));
+  check([]);
+  check(const[]);
 }

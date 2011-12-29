@@ -7,13 +7,18 @@
  * @assertion Throws a [NoNextElementException] if no element is left.
  * @description Checks that the exception is thrown.
  * @author vasya
- * @needsreview
  * @reviewer msyabro
+ * @reviewer varlax
  */
 
 main() {
   try {
     [].iterator().next();
+    Expect.fail("NoMoreElementsException expected when calling it.next()");
+  } catch( NoMoreElementsException ok ) { }
+
+  try {
+    const [].iterator().next();
     Expect.fail("NoMoreElementsException expected when calling it.next()");
   } catch( NoMoreElementsException ok ) { }
 

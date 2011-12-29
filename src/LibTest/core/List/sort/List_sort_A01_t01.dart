@@ -13,11 +13,7 @@
  * @description Sort empty list without comparator
  * @author iefremov
  * @reviewer msyabro
- * @needsreview Add tests for wrong type of the argument
  */
-
-
-
 
 main() {
   [].sort(null);    
