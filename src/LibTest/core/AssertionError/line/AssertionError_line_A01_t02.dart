@@ -9,14 +9,19 @@
  *              is raised using the assert statement.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only.
+ * @needsreview undocumented
  */
  
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
+  if(!isCheckedMode()) {
+    return;
+  }
   try {
-    assert(true == false); // this is line 17
+    assert(true == false); // this is line 22
     Expect.fail("AssertionError expected");
   } catch (AssertionError e) {
-    Expect.equals(17, e.line);
+    Expect.equals(22, e.line);
   }
 }

@@ -8,15 +8,19 @@
  * @description Checks that the URL is recorded correctly.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only.
+ * @needsreview undocumented
  */
  
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
+  if(!isCheckedMode()) {
+    return;
+  }
   try {
     assert(false);
     Expect.fail("AssertionError expected");
   } catch (AssertionError e) {
     Expect.isTrue(e.url.endsWith("LibTest/core/AssertionError/url/AssertionError_url_A01_t01.dart"));
-    print(e.url);
   }
 }

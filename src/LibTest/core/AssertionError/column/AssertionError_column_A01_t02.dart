@@ -9,10 +9,15 @@
  *              AssertionError is raised using assert statement.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only.
+ * @needsreview undocumented
  */
- 
+
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
+  if(!isCheckedMode()) {
+    return;
+  }
   try {
     assert(true == false);
     // ....^ this is col 12

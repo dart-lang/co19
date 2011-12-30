@@ -8,10 +8,15 @@
  * @description Checks that the assertion text is recorded correctly.
  * @author rodionov
  * @reviewer msyabro
- * @needsreview Mark this test for checked mode only. Undocumented
+ * @needsreview undocumented
  */
- 
+
+#import("../../../../Utils/dynamic_check.dart");
+
 main() {
+  if(!isCheckedMode()) {
+    return;
+  }
   try {
     assert(true == false);
     Expect.fail("AssertionError expected");
