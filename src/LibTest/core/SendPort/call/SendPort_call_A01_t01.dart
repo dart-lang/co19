@@ -8,25 +8,24 @@
  * send port with replyTo set to the opened port, and returns the receive port.
  * @description Checks that opened port is single-shot and replyTo is set to the 
  * opened port.
+ * @expected-output message1 received
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
-  ReceivePort singleShot = sPort.call("message");
+  ReceivePort singleShot = sPort.call("message1");
   
   rPort.receive(void func(var message, SendPort replyTo) {
-    Expect.equals(message, "message");
-    replyTo.send("Ok", null);
+    replyTo.send(message+" received", null);
   });
   
   singleShot.receive(void func(var message, SendPort replyTo) {
-    if(message == "Ok") {
-      rPort.close();
-    }
+    print(message);
+    rPort.close();
   });
-  
   
 }

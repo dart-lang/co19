@@ -8,7 +8,7 @@
  * pending or future messages on this receive port.
  * @description Checks that only last callback is called.
  * @author msyabro
- * @needsreview undocumented
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -20,8 +20,11 @@ void main() {
   });
   
   rPort.receive(void func(var message, SendPort replyTo) {
-    rPort.close();
+    replyTo.send(message);
   });
   
-  sPort.send(null, null);
+  sPort.call(111).receive(void func(var message, SendPort replyTo) {
+    rPort.close();
+    Expect.equals(111, message);
+  });
 }

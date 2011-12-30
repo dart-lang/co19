@@ -8,6 +8,7 @@
  * The returned port must be explicitly closed through [ReceivePort.close].
  * @description Checks that port is created.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {

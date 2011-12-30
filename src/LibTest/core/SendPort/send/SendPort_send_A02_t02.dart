@@ -4,25 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Multiple invocations of [close] are allowed but ignored.
- * @description Checks multiple invocation of [close].
- * @author msyabro
- * @reviewer kaigorodov
+ * @assertion If the message contains any receive ports,
+ * they are translated to the corresponding send port before being transmitted.
+ * @description Checks that ReceivePort as a message is converted to SendPort automatically.
+ * @author kaigorodov
+ * @reviewer msyabro
  */
-
+ 
 void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
-  int x = 1;
   rPort.receive(void func(var message, SendPort replyTo) {
-    x *= message;
-    replyTo.send(x);
+    print(message);
+    Expect.isTrue(message is SendPort);
+    rPort.close();
   });
-  
-  rPort.close();
-  rPort.close();
-  rPort.close();
-  
-  sPort.send(2, sPort);
+
+  sPort.send(rPort, null);
 }

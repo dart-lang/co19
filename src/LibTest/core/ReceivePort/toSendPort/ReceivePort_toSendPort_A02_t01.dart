@@ -10,12 +10,16 @@
  * @description Checks that all returned SendPorts are the same.
  * ReceivePort is the same
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   for(int i = 0; i < 100; i++) {
-    Expect.identical(sPort, rPort.toSendPort());
+//    Expect.identical(sPort, rPort.toSendPort());
+    Expect.isTrue(sPort === rPort.toSendPort());
   }
+
+  rPort.close();
 }

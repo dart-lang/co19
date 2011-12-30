@@ -8,6 +8,7 @@
  * consistent with the == operator.
  * @description Checks that [hashCode] is consistent with operator ==.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -21,10 +22,8 @@ void main() {
   r1.close();
   r2.close();
   
-  print(s1.hashCode());
-  print(s2.hashCode());
-  print(s3.hashCode());
-  
-  Expect.isFalse(s1.hashCode() == s2.hashCode());
+  Expect.isFalse(s1 == s2);
+  Expect.notEquals(s1.hashCode(), s2.hashCode());
+  Expect.isTrue(s2 == s3);
   Expect.equals(s2.hashCode(), s3.hashCode());
 }

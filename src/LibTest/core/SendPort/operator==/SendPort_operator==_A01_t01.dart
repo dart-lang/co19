@@ -9,17 +9,17 @@
  * @description Checks that two SendPorts equals only if they
  * point to the same ReceivePort.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
   ReceivePort r1 = new ReceivePort();
-  ReceivePort r2 = r1;
-  ReceivePort r3 = new ReceivePort();
+  ReceivePort r2 = new ReceivePort();
   
   SendPort s1 = r1.toSendPort();
-  SendPort s2 = r2.toSendPort();
-  SendPort s3 = r3.toSendPort();
-  SendPort s4 = r3.toSendPort();
+  SendPort s2 = r1.toSendPort();
+  SendPort s3 = r2.toSendPort();
+  SendPort s4 = r2.toSendPort();
   
   Expect.isTrue(s1 == s2);
   Expect.isTrue(s3 == s4);
@@ -31,5 +31,4 @@ void main() {
   
   r1.close();
   r2.close();
-  r3.close();
 }

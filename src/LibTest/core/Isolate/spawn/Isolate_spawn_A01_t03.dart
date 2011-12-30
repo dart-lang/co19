@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Spawns new isolate
+ * @assertion Spawns a new isolate, using this instance as template.
  * @description Checks that light and heavy isolates 
  * can be spawned simultaneously.
  * @author msyabro

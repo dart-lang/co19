@@ -8,6 +8,7 @@
  * pending or future messages on this receive port.
  * @description Checks that callback function is called when message is sent.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -15,6 +16,8 @@ void main() {
   SendPort sPort = rPort.toSendPort();
   int x = 1;
   
+  sPort.send(2, sPort);
+
   rPort.receive(void func(var message, SendPort replyTo) {
     x *= message;
     if(x < 120) {
@@ -25,5 +28,4 @@ void main() {
     }
   });
   
-  sPort.send(2, sPort);
 }

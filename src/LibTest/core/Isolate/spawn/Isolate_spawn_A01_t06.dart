@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Spawns new isolate
+ * @assertion Spawns a new isolate, using this instance as template.
  * @description Spawns many isolates.
  * @author msyabro
  * @reviewer kaigorodov
@@ -23,7 +23,7 @@ class AddIsolate extends Isolate {
       } else {
         replyTo.send(message, null);
       }
-  }	
+  }
   
   void main() {
     port.receive(act);
@@ -33,7 +33,7 @@ class AddIsolate extends Isolate {
 void callback(var message, SendPort replyTo) {
    print("message="+message); // expected-output
 }
-  
+	 
 void main() {
   int isolateCount=10;
   new AddIsolate().spawn().then(void func(SendPort port) {

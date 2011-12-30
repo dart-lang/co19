@@ -6,7 +6,9 @@
 /**
  * @assertion Converts this receive port to a send port.
  * @description Checks that SendPort is created.
+ * @expected-output message1 received
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -15,9 +17,9 @@ void main() {
   int x = 1;
   
   rPort.receive(void func(var message, SendPort replyTo) {
-    print("it works");
+    print(message+" received");
     rPort.close();
   });
   
-  sPort.send("ss", null);
+  sPort.send("message1", null);
 }

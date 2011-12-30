@@ -8,13 +8,15 @@
  * pending or future messages on this receive port.
  * @description Tries to pass non-function object as [callback].
  * @author msyabro
- * @runtime-error //no exception is thrown
+ * @runtime-error
+ * @reviewer kaigorodov
+ * @needsreview Undocumented
  */
 
 void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
-  
+
   rPort.receive(null);
   sPort.send(2, sPort);
 }

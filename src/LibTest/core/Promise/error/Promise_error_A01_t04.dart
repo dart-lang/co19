@@ -8,6 +8,7 @@
  * Error that occurred while computing the value, if any; null otherwise.
  * @description Checks that [: error :] value of a cancelled promise returns null.
  * @author kaigorodov
+ * @reviewer msyabro
  */
 
 

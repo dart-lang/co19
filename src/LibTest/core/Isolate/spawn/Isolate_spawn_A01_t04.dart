@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Spawns new isolate
+ * @assertion Spawns a new isolate, using this instance as template.
  * @description Checks spawning isolate from itself.
  * @author msyabro
  * @reviewer kaigorodov
@@ -36,7 +36,7 @@ class TestIsolate extends Isolate {
       } else if (message.startsWith("Your name is")) {
         name = message.split(" ").last();
         print(name + ".act <- " + message+"; new name="+name);
-        replyTo.send("Ok", port);
+        replyTo.send("Ok", port.toSendPort());
       } else {
         Expect.fail(name + ".act <- "+message);
       }
@@ -52,13 +52,13 @@ void main() {
     ReceivePort fromAlice = new ReceivePort();
     ReceivePort fromBob = new ReceivePort();
     
-    toAlice.send("Spawn", fromAlice);
+    toAlice.send("Spawn", fromAlice.toSendPort());
 
     fromAlice.receive( void func(var message, SendPort toBob) {
       if(message == "Spawned") {
         print("fromAlice <- " + message);
-        toBob.send("Who is it?", fromBob);
-        toAlice.send("Who is it?", fromAlice);
+        toBob.send("Who is it?", fromBob.toSendPort());
+        toAlice.send("Who is it?", fromAlice.toSendPort());
       } else if(message == "Alice") {
         print("fromAlice <- " + message);
         fromAlice.close();

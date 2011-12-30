@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If specified, the replyTo port will be
- * provided to the receiver to facilitate exchanging sequences of
- * messages.
+ * @assertion If specified, the replyTo port will be provided to the receiver
+ * to facilitate exchanging sequences of messages.
  * @description Checks that message is sent to [replyTo] port.
+ * @expected-output Done
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -17,19 +18,19 @@ void main() {
   ReceivePort rReply = new ReceivePort();
   SendPort sReply = rReply.toSendPort();
   
-  rReply.receive(void func(var message, SendPort replyTo) {
-    message++;
-    replyTo.send(message, sReply);
-  });
-  
   rPort.receive(void func(var message, SendPort replyTo) {
     message ++;
     replyTo.send(message, sPort);
     if(message == 100) {
       print("Done");
-      rPort.close(); //If message isn't sent to replyTo, test will not finish
+      rPort.close();
       rReply.close();
     }
+  });
+  
+  rReply.receive(void func(var message, SendPort replyTo) {
+    message++;
+    replyTo.send(message, sReply);
   });
   
   sPort.send(1, sReply);

@@ -9,9 +9,9 @@
  * throwing the message away before it can be processed.
  * @description Checks that single shot receive port is closed
  * after receiving the message.
+ * @expected-output message1
  * @author msyabro
- * @needsreview How to check that the port is closed?
- * Apparently one can still send messages to the closed port.
+ * @reviewer kaigorodov
  */
 
 void main() {
@@ -20,9 +20,9 @@ void main() {
   
   rPort.receive(void func(var message, SendPort replyTo) {
     print(message);
-    sPort.send("another message", null);
+    sPort.send("message2", null);
   });
   
-  sPort.send("message", null);
+  sPort.send("message1", null);
   
 }
