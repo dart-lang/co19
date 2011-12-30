@@ -16,9 +16,9 @@
  */
 
 class C<T extends int, S extends String> {
-  set foo(T t) { foo_ = t; }
+  set foo(T t) { _foo = t; }
 
-  S get foo() { return foo_; }
+  S get foo() { return _foo; }
   
   var _foo;
 }

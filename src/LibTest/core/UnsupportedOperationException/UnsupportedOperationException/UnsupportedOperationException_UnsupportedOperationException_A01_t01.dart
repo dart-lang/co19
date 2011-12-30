@@ -14,9 +14,5 @@
 main() {
   new UnsupportedOperationException(null);
   new UnsupportedOperationException("");
-  new UnsupportedOperationException(11);
-  new UnsupportedOperationException(false);
-  new UnsupportedOperationException([]);
-  new UnsupportedOperationException([null]);
-  new UnsupportedOperationException(["", 1, false, []]);
+  new UnsupportedOperationException("11");
 }

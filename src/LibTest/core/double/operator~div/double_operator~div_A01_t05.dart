@@ -28,7 +28,7 @@ check(d) {
 
   d = -d;
   Expect.equals(-1/0, d ~/ .0);
-  Expect.equals(-1/0, d ~/ (-.0));
+  Expect.equals(1/0, d ~/ (-.0));
 }
 
 main() {

@@ -7,7 +7,7 @@
  * @assertion num operator %(num other) 
  * The % operator yields the remainder of its operands from an implied division;
  * the left operand is the dividend and the right operand is the divisor.
- * @description Checks that passing a zero (both integer and double) as argument
+ * @description Checks that passing a zero as argument
  * results in IntegerDivisionByZeroException
  * @author vasya
  * @reviewer msyabro
@@ -17,14 +17,8 @@
 
 main() {
   check(1, 0);
-  check(1, 0.0);
-  check(1, -0.0);
   check(-1, 0);
-  check(-1, 0.0);
-  check(-1, -0.0);
   check(0, 0);
-  check(0, 0.0);
-  check(0, -0.0);
 }
   
 void check(int x, num z) {
