@@ -12,7 +12,7 @@
 
 interface I {}
 
-interface I2 extends I factory A {
+interface I2 extends I default A {
   I2();
 }
 

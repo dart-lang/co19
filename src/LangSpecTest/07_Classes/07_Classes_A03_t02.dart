@@ -28,7 +28,7 @@
  * @author msyabro
  */
 
-interface I factory A {
+interface I default A {
   I();
 }
 

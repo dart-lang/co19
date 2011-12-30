@@ -14,7 +14,7 @@ interface I0 {}
 
 interface I1 extends I0 {}
 
-interface I2 extends I1 factory A {
+interface I2 extends I1 default A {
   I2();
 }
 

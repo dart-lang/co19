@@ -13,7 +13,7 @@
 
 interface Factory {}
 
-interface I factory Factory  {
+interface I default Factory  {
   I();
 }
 

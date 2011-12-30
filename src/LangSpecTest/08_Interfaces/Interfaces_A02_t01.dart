@@ -17,7 +17,7 @@ class F  {
   factory I(int i, [bool b = true]) {}
 }
 
-interface I factory F {
+interface I default F {
   I(int i, [bool b = true]);
 }
 

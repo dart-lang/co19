@@ -10,7 +10,7 @@
  * @reviewer msyabro
  */
 
-interface I factory IFactory {
+interface I default IFactory {
   I(x);
 }
 

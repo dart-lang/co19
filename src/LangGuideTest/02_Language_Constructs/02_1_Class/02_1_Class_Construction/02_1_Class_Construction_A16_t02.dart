@@ -10,7 +10,7 @@
  * @author iefremov
  * @reviewer msyabro
  */ 
-interface I factory C {
+interface I default C {
   I();
 }
 

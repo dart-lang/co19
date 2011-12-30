@@ -14,7 +14,7 @@
  * @reviewer kaigorodov
  */
 
-interface I factory C {
+interface I default C {
   I.foo([var v]);
   I.foo(var v);
 }
