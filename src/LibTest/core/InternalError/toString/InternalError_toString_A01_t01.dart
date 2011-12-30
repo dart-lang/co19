@@ -13,7 +13,7 @@
  */
  
 main() {
-  var e = new InternalError(1);
+  var e = new InternalError("");
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }
