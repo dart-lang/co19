@@ -7,6 +7,7 @@
  * @assertion Creates a map with the default implementation.
  * @description Checks that an empty LinkedHashMap is created
  * @author msyabro
+ * @reviewer pagolubev
  */
 
 main() {

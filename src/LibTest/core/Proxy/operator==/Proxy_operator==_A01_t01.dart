@@ -6,10 +6,10 @@
 /**
  * @assertion bool operator ==(var other)
  * @description Undocumented.
- * @author 
+ * @author pagolubev
  */
 
 
 main() {
-  Expect.fail("");
+  Expect.fail("Not implemented");
 }

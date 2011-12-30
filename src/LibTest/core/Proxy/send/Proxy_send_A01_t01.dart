@@ -6,10 +6,10 @@
 /**
  * @assertion void send(Array message)
  * @description Undocumented.
- * @author 
+ * @author pagolubev
  */
 
 
 main() {
-  Expect.fail("");
+  Expect.fail("Not implemented");
 }

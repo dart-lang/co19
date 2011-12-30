@@ -8,6 +8,7 @@
  * that preserves insertion order.
  * @description Checks that LinkedHashMap preserves insertion order.
  * @author msyabro
+ * @reviewer pagolubev
  */
 
 checkOrder(Map map, List keyOrder, List valuesOrder) {

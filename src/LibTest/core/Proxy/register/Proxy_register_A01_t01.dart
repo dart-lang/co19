@@ -6,10 +6,10 @@
 /**
  * @assertion static ReceivePort register(Dispatcher dispatcher)
  * @description Undocumented.
- * @author 
+ * @author pagolubev
  */
 
 
 main() {
-  Expect.fail("");
+  Expect.fail("Not implemented");
 }

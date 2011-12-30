@@ -6,10 +6,10 @@
 /**
  * @assertion Proxy.forIsolate(Isolate isolate)
  * @description Undocumented.
- * @author 
+ * @author pagolubev
  */
 
 
 main() {
-  Expect.fail("");
+  Expect.fail("Not implemented");
 }

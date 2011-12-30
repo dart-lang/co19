@@ -6,10 +6,10 @@
 /**
  * @assertion Proxy.forReply(Promise<SendPort> port)
  * @description Undocumented.
- * @author 
+ * @author pagolubev
  */
 
 
 main() {
-  Expect.fail("");
+  Expect.fail("Not implemented");
 }

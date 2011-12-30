@@ -8,13 +8,14 @@
  * @description Checks that created hash map contains all elements of [other].
  * Both empty and non-empty argument maps are tested.
  * @author msyabro
+ * @reviewer pagolubev
  */
 
 check(Map m1, Map m2) {
   Expect.equals(m1.length, m2.length);
   m1.forEach((var key, var value) {
     Expect.isTrue(m2.containsKey(key));
-    Expect.isTrue(m2.containsValue(value));
+    Expect.equals(value, m2[key]);
   });
 }
 

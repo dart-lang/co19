@@ -6,10 +6,10 @@
 /**
  * @assertion Dispatcher(this.target)
  * @description Undocumented.
- * @author 
+ * @author pagolubev
  */
 
 
 main() {
-  Expect.fail("");
+  Expect.fail("Not implemented");
 }
