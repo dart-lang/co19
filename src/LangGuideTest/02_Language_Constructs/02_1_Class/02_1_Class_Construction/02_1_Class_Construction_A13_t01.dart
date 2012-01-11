@@ -13,8 +13,9 @@
  */ 
 
 class C {
-  C() : v = this.c, c = 1, v = this.c {}
+  C() : v = this.c, c = 1, z = this.c {}
   var v;
+  var z;
   final c;
 }
 
