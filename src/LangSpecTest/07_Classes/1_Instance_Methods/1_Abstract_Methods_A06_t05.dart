@@ -11,7 +11,7 @@
  * @description Checks that a static warning is produced when a class declares an abstract
  * method with the same name as a static variable in its superclass even if it is not
  * a direct superclass of the first one.
- * @static-type-error
+ * @static-warning
  * @author rodionov
  * @needsreview issue 986
  */

@@ -10,7 +10,7 @@
  * @description Checks that a static warning is produced when assigning result of
  * T get v() invocation to a variable whose type may not be assigned to T. 
  * The variable declaration is of the form final T v;.
- * @static-type-error
+ * @static-warning
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov

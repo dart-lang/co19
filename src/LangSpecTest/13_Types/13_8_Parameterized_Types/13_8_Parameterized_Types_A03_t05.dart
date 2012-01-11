@@ -11,7 +11,7 @@
  * @description Several type arguments, the first one violates the bound.
  * @author rodionov
  * @reviewer iefremov
- * @static-type-error
+ * @static-warning
  */
 
 class F1 {}

@@ -11,7 +11,7 @@
  * @description Several type arguments, the last one violates the bound.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 class A<T extends String, S extends Object, U extends int> {}

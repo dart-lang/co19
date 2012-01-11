@@ -16,7 +16,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that two generic types are not assignable even if just one type argument is not assignable.
  * Using complex function types as type arguments.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

@@ -9,7 +9,7 @@
  * @description Checks that declaring a static variable with the same name as
  * a static method in a superclass indeed results in a static warning. 
  * @author pagolubev
- * @static-type-error
+ * @static-warning
  * @reviewer msyabro
  * @reviewer rodionov
  * @needsreview issue 986

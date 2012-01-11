@@ -8,7 +8,7 @@
  * factory M or the form factory M.id is M.
  * @description Checks that a static warning is produced when assigning the
  * result of invoking factory constructor M to the variable whose type is not assignable to M.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

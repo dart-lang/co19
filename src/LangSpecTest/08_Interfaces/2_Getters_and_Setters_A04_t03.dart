@@ -13,7 +13,7 @@
  * another getter m2 and the type of m1 is not a subtype of m2's.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-type-error
+ * @static-warning
  */
 
 interface S {

@@ -8,7 +8,7 @@
  * has a type that is assignable to the type of the expression.
  * Otherwise, a type warning must be produced during static analysis.
  * @description Class B is not assignable to class A
- * @static-type-error
+ * @static-warning
  * @author msyabro
  * @reviewer akuznecov
  */

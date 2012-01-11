@@ -15,7 +15,7 @@
  * T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that unrelated generic types are not assignable even if all their type arguments are.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

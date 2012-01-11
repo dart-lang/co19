@@ -7,7 +7,7 @@
  * @assertion Variables can be assigned the result of expressions whose type is assignable to the type of the variable.
  * Otherwise, a type warning must be produced during static analysis.
  * @description Class B is not assignable to class A
- * @static-type-error
+ * @static-warning
  * @author msyabro
  * @reviewer akuznecov
  */

@@ -9,7 +9,7 @@
  * @description Checks that a static type warning is produced if G is not a generic type.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 class A {}

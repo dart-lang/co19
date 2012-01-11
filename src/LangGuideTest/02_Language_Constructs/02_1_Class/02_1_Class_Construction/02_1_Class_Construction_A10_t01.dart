@@ -8,7 +8,7 @@
  * type-checker will verify that the field's type and the type in the constructor are assignable.
  * @description Checks incompatible types of the field and the argument.
  * @author iefremov
- * @static-type-error
+ * @static-warning
  * @reviewer msyabro
  */ 
 

@@ -11,7 +11,7 @@
  * to a variable whose type is not assignable to M<T1,...,Tn> produces a static warning.
  * Factory constructor name is that of an interface that specifies the constructor's enclosing
  * class as its default implementation.
- * @static-type-error
+ * @static-warning
  * @author rodionov
  */
 

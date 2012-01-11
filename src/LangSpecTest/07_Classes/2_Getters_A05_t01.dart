@@ -8,7 +8,7 @@
  * or method m2 and the type of m1 is not a subtype of the type of m2. 
  * @description Checks that a static warning is produced when the return type of m1
  * is void and the return type of m2 is String.
- * @static-type-error
+ * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov

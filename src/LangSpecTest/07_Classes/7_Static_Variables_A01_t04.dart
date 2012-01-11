@@ -12,7 +12,7 @@
  * static field's type, by attempting to assign the result of its invocation to a variable
  * of incompatible type. Static warning expected.
  * @author pagolubev
- * @static-type-error
+ * @static-warning
  * @reviewer msyabro
  * @reviewer rodionov
  */

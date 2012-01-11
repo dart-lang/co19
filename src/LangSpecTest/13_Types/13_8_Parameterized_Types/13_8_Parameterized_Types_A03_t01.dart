@@ -11,7 +11,7 @@
  * @description Trivial check: a single type argument violates the bound.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 class A<T extends String> {}

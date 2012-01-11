@@ -11,7 +11,7 @@
  * @description Checks that the formal parameter type of this implicit setter
  * is correct and the same as the type of the static variable by attempting to
  * pass a value of incompatible type (String) to it. Static warning expected.
- * @static-type-error
+ * @static-warning
  * @author pagolubev
  * @reviewer msyabro
  * @reviewer rodionov

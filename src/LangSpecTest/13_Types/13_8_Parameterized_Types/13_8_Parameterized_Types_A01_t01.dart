@@ -9,7 +9,7 @@
  * @description Checks that a static type warning is produced if G is not an accessible type.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 main() {

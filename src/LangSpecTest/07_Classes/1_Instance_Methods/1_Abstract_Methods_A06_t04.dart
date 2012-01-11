@@ -10,7 +10,7 @@
  * named n and a static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an abstract
  * method with the same name as a static method in its superclass.
- * @static-type-error
+ * @static-warning
  * @author rodionov
  * @needsreview issue 986
  */

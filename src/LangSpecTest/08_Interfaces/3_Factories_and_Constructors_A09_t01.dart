@@ -10,7 +10,7 @@
  * the same name differ between kI and kF.
  * @description Checks that it is a static type warning if the types of 
  * named optional parameters with the same name differ between kI and kF.
- * @static-type-error
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  */

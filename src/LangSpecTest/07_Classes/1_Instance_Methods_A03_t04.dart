@@ -9,7 +9,7 @@
  * @description Checks that a static warning is produced when the type of the overriding
  * method is not a subtype of the method being overridden even if the class declaring m1
  * is not a direct subtype of the class declaring m2.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

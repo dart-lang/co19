@@ -14,7 +14,7 @@
  * mutually assignable.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-type-error
+ * @static-warning
  */
 
 interface S {

@@ -11,7 +11,7 @@
  * where the factory is declared.
  * @description Checks that static warning is produced if the factory constructor
  * name is neither of the two specified options.
- * @static-type-error
+ * @static-warning
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

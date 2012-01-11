@@ -8,7 +8,7 @@
  * the function type of all overridden functions, a warning must be issued during static type check.
  * @description Parameter of the overriden function is not assignable to parameter of a function
  * @author msyabro
- * @static-type-error
+ * @static-warning
  * @reviewer pagolubev
  */
 

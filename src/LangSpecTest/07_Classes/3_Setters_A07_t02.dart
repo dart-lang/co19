@@ -9,7 +9,7 @@
  * @description Checks that it is a static warning if a class defines a setter and
  * a getter of the same name with argument/return types that are not mutually
  * assignable. Types in getter/setter signatures provided explicitly (String and double).
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

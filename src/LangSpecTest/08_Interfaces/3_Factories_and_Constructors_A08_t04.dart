@@ -11,7 +11,7 @@
  * @description Checks that a mismatch in required parameter types between a named
  * interface constructor and its corresponding factory constructor results in a static
  * type warning.
- * @static-type-error
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

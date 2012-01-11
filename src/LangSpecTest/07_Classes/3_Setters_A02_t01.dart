@@ -7,7 +7,7 @@
  * @assertion If no return type is specified, the return type of the setter is Dynamic.
  * @description Darts does not currently allow to invoke a setter like a regular method, 
  * so that its return value can be obtained.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

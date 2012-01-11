@@ -7,7 +7,7 @@
  * @assertion It is a static warning if a setter declares a return type other than void. 
  * @description Checks that a static warning is produced if a setter declares
  * no return type (which implicitly means Dynamic).
- * @static-type-error
+ * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov

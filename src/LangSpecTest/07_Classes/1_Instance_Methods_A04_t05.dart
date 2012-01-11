@@ -9,7 +9,7 @@
  * @description Checks that a static warning is produced when a class declares an instance
  * method with the same name as a static variable in its superclass even if it's not a direct
  * superclass.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

@@ -9,7 +9,7 @@
  * @description Checks that a static warning is produced if G has fewer type parameters than needed.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 class A<T, U> {}

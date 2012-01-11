@@ -13,7 +13,7 @@
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 class A {

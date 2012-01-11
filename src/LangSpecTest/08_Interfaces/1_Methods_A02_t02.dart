@@ -10,7 +10,7 @@
  * @description Checks that it is a static warning if an interface method m1
  *              overrides an interface method m2 and the type of m1 is not a
  *              subtype of the type of m2 (incompatible required parameter types).
- * @static-type-error
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

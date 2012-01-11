@@ -8,7 +8,7 @@
  * same name as a static member of one of its superclasses.
  * @description Checks that declaring a static variable with the same name as
  * a static variable in a superclass indeed results in a static warning. 
- * @static-type-error
+ * @static-warning
  * @author rodionov
  * @needsreview issue 986
  */

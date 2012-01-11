@@ -21,7 +21,7 @@
  * assertion. Members in question are variables of incompatible types.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-type-error
+ * @static-warning
  */
 
 interface SI1 {

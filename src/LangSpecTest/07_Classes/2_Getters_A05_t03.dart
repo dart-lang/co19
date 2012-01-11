@@ -9,7 +9,7 @@
  * @description Checks that a static warning is produced even if the overriding
  * getter is implicit as long as the return types of both getters are not mutually
  * assignable.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

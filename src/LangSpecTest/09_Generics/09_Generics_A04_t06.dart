@@ -9,7 +9,7 @@
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the non-static members of G.
  * @description Checks that example of F-bounded quantification is parsed correctly.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @needsreview issue 964
  */

@@ -9,7 +9,7 @@
  * @description Checks that a warning is produced when using int as a generic type argument in place of String.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  * @needsreview This warning (or, possibly, a compile error) exists, but the assertion was removed from the latest spec.
  */
 

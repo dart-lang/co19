@@ -13,7 +13,7 @@
  * and a setter with the same name but not mutually assignable return/parameter types.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-type-error
+ * @static-warning
  */
 
 interface i  {

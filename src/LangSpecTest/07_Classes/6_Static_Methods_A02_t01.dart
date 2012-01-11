@@ -8,7 +8,7 @@
  * same name as a static member of one of its superclasses.
  * @description Checks that it is a static warning if a class has a static
  * method with the same name as a static field of one of its superclasses.
- * @static-type-error
+ * @static-warning
  * @author vasya
  * @reviewer pagolubev
  * @reviewer rodionov

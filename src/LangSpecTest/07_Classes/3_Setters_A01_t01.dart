@@ -10,7 +10,7 @@
  * ;
  * @description Checks that various valid setter declarations do not cause any errors.
  * Note: using non-void return type will cause a static warning.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

@@ -10,7 +10,7 @@
  * not denote an accessible type.
  * @author rodionov
  * @reviewer iefremov
- * @static-type-error
+ * @static-warning
  */
 
 main() {

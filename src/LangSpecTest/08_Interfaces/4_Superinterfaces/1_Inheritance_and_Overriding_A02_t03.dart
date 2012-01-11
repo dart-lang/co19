@@ -21,7 +21,7 @@
  * assertion. Members in question are methods with different number of required parameters.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-type-error
+ * @static-warning
  */
 
 interface SI1 {

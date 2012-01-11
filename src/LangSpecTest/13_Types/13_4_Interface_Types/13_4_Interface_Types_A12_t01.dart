@@ -16,7 +16,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that String cannot be assigned to int (static warning) as such assignment doesn't
  * meet any of these conditions.
- * @static-type-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

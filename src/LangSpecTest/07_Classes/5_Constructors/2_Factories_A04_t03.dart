@@ -12,7 +12,7 @@
  * Factory constructor name is that of its enclosing class.
  * @author iefremov
  * @reviewer rodionov
- * @static-type-error
+ * @static-warning
  */
 
 class S1 {}
