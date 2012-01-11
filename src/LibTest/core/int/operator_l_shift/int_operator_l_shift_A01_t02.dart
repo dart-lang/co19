@@ -8,10 +8,10 @@
  * This operator implements bit-wise left-shift operation.
  * @description Uses a large number as an argument, possibly making the result too large to fit in memory.
  * @author vasya
- * @runtime-error
  * @reviewer msyabro
  * @reviewer rodionov
  * @needsreview No restrictions on this operator's argument or result are documented.
+ * @needsreview issues 1136, 1137
  */
 
 main() {

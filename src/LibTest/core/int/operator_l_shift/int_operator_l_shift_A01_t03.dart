@@ -8,11 +8,14 @@
  * This operator implements bit-wise left-shift operation.
  * @description Uses a negative number as argument.
  * @author vasya
- * @runtime-error
  * @reviewer msyabro
  * @needsreview undocumented
+ * @needsreview issue 1137
  */
 
 main() {
-  int val = 1 << (-1);
+  try {
+    int val = 1 << (-1);
+    Expect.fail("IllegalArgumentException expected for negative argument!");
+  } catch(IllegalArgumentException ok){}
 }
