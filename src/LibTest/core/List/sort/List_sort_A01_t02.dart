@@ -15,24 +15,6 @@
  * @reviewer pagolubev
  */
 
-
-
-void arrayEquals(List expected, List actual) {
-  Expect.isTrue(expected.length == actual.length);
-  for(var i = 0; i < expected.length; i+=1) {
-    Expect.isTrue(expected[i] === actual[i]);
-    Expect.isTrue(expected[i] == actual[i]);
-  }
-}
-
-void dumpArray(var a) {
-  for(int i = 0; i < a.length; ++i) {
-    Logger.print(a[i]);
-    Logger.print(" ");
-  }
-  print("");
-}
-
 main() {
   int c(var a, var b) {
     return a < b ? -1 : (a == b ? 0 : 1);
@@ -57,7 +39,7 @@ main() {
       var a_copy = new List(length);
       a_copy.copyFrom(a, 0, 0, length);
       a_copy.sort(c);
-      arrayEquals(expected, a_copy);
+      Expect.listEquals(expected, a_copy);
     }
 
     void permute(int n) {
