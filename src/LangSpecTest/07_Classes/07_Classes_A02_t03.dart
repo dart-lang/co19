@@ -39,7 +39,7 @@
 
 class A {
   const A(): this.anotherConstructor() {}
-  A.anotherConstructor():
+  A.anotherConstructor() {}
 }
 
 main() {
