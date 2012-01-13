@@ -15,7 +15,7 @@
  * @reviewer kaigorodov
  */
 
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 check(Object obj) {
   if(!isCheckedMode()) {

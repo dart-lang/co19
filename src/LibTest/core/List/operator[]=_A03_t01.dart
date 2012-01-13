@@ -10,7 +10,7 @@
  * @reviewer msyabro
  */
 
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 void check(List a) {
   try {

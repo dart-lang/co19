@@ -14,7 +14,7 @@
  * @needsreview this is rather compiler check
  */
 
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 class A {
   A() {}

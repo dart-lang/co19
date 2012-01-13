@@ -12,7 +12,7 @@
  * @reviewer varlax
  */
 
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 typedef bool f(var e);
 

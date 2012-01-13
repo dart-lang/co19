@@ -11,7 +11,7 @@
  * @reviewer varlax
  */
 
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 main() {
   List a = [0,1,2,3,4,5,6,7,8,9];

@@ -11,7 +11,7 @@
  * @needsreview undocumented
  */
  
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 main() {
   if(!isCheckedMode()) {
@@ -21,6 +21,6 @@ main() {
     assert(false);
     Expect.fail("AssertionError expected");
   } catch (AssertionError e) {
-    Expect.isTrue(e.url.endsWith("LibTest/core/AssertionError/url/AssertionError_url_A01_t01.dart"));
+    Expect.isTrue(e.url.endsWith("LibTest/core/AssertionError/url_A01_t01.dart"));
   }
 }

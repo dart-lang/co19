@@ -10,7 +10,7 @@
  */
 
 
-#import("../../../../Utils/dynamic_check.dart");
+#import("../../../Utils/dynamic_check.dart");
 
 void check(dstSize, srcSize, dstOffset, count) {
   List src = new List(srcSize);
