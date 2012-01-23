@@ -12,6 +12,7 @@
  *              causes it to resume count.
  * @author rodionov
  * @reviewer pagolubev
+ * @needsreview issue 477
  */
 
 main() {
