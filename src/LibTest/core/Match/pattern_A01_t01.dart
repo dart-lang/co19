@@ -9,6 +9,7 @@
  * @description Checks that this property holds the correct pattern.
  * @author rodionov
  * @reviewer msyabro
+ * @note issue 1301
  */
 
 main() {

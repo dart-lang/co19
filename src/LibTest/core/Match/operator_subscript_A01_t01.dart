@@ -9,6 +9,7 @@
  * @description Checks that the correct group is returned when valid index is used.
  * @author rodionov
  * @reviewer msyabro
+ * @note issue 1290
  */
  
 main() {
@@ -17,7 +18,7 @@ main() {
   check("((a)|(ab))((c)|(bc))", "abc", ["abc", "a", "a", "", "bc", "", "bc"]);
   check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", ["aaaaaaaaa,aaaaaa", "aaa"]);
   check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", ["aaaaaa,aaaaaaaaa", "a"]);
-  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", ["zaacbbbcac", "z", "ac", "a", "", "c"]);
+  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", ["zaacbbbcac", "z", "ac", "a", "", "c"]); // issue 1290
   check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ["Ot"]);
   check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ["et"], ignoreCase: true);
   check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", ["robot"]);
