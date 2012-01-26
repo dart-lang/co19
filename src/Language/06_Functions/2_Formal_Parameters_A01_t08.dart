@@ -18,12 +18,12 @@
  * namedFormalParameters:
  *   '[' defaultFormalParameter (', ' defaultFormalParameter)* ']'
  * ;
- * @description Checks that a closing square bracket is a must in a named parameters list.
+ * @description Checks that a opening square bracket is a must in a named parameters list.
  * @compile-error
  * @author iefremov
  */
 
-void f([) {}
+void f(]) {}
 
 main () {
   try {
