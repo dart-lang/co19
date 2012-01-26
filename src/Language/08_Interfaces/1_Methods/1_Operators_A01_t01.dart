@@ -37,7 +37,6 @@ interface I {
   I operator ~();
   I operator <<(I shiftAmount);
   I operator >>(I shiftAmount);
-  I operator >>>(I shiftAmount);
 
   // negate operation
   I operator negate();
@@ -67,7 +66,6 @@ main() {
   try {~i;} catch (NullPointerException e) {}
   try {i << i;} catch (NullPointerException e) {}
   try {i >> i;} catch (NullPointerException e) {}
-  try {i >>> i;} catch (NullPointerException e) {}
   try {-i;} catch (NullPointerException e) {}
   try {i[0];} catch (NullPointerException e) {}
   try {i[0] = i;} catch (NullPointerException e) {}
