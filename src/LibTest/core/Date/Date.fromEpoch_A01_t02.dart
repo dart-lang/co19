@@ -11,6 +11,7 @@
  * @reviewer msyabro
  * @needsreview API does not specify which exception should or should not be raised if null is passed
  * to the function. Also it states the "must not be null", not the "can not be null".
+ * @needsreview issue 445
  */
 
 main() {
