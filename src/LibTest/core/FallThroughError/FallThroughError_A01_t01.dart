@@ -8,6 +8,7 @@
  * @description Checks that this method causes no error and
  * @author rodionov
  * @needsreview Undocumented
+ * @needsreview issue 1269
  */
  
 main() {
