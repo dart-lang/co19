@@ -40,6 +40,9 @@ main() {
   // (2^70) ^ (2^70 - 1) = 2^71 - 1
   Expect.equals(0x7FFFFFFFFFFFFFFFFF, 0x400000000000000000 ^ 0x3FFFFFFFFFFFFFFFFF);
   
-  // TODO: negative arguments
+  Expect.equals(-2, 1 ^ (-1));
+  Expect.equals(-0x10000000000000001, (-1) ^ 0x010000000000000000); // 1 << 64
+  // TODO: add more checks when it's clear how larger integers are represented in binary
+  //Expect.equals(0x7fffffffffffffffff, (-1) ^ 0x800000000000000000); // 1 << 71
 }
 
