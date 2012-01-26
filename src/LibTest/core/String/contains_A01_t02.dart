@@ -9,17 +9,32 @@
  * @description Checks method with out of bounds [startIndex]
  * @author msyabro
  * @reviewer rodionov
- * @needsreview undocumented
+ * @needsreview Issue 1289
  */
- 
 
 main() {
   String str = "String with <pattern>";
   RegExp pattern = const RegExp("<.*>", false, false);
 
-  Expect.isTrue(str.contains(pattern, -1));
-  Expect.isFalse(str.contains(pattern, str.length));
-  Expect.isFalse(str.contains(pattern, 0x80000000));
-  Expect.isFalse(str.contains(pattern, 0x7fffffff));
+  try {
+    str.contains(pattern, -1);
+    Expect.fail("IndexOutOfRangeException expected!");
+  } catch(IndexOutOfRangeException ok){}
+
+  try {
+    str.contains(pattern, 0x7fffffff);
+    Expect.fail("IndexOutOfRangeException expected!");
+  } catch(IndexOutOfRangeException ok){}
+
+  try {
+    str.contains(pattern, 0x80000000);
+    Expect.fail("IndexOutOfRangeException expected!");
+  } catch(IndexOutOfRangeException ok){}
+
+  try {
+    str.contains(pattern, str.length);
+    Expect.fail("IndexOutOfRangeException expected!");
+  } catch(IndexOutOfRangeException ok){}
+
 }
 
