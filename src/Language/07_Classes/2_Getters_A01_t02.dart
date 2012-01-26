@@ -13,6 +13,7 @@
  * @compile-error
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @needsreview get is a pseudo-keyword. Issue 379
  */
 
 class C {

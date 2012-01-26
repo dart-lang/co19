@@ -18,6 +18,7 @@
  * @compile-error
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @needsreview operator is a pseudo-keyword. Issue 379
  */
 
 class C {

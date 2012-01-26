@@ -13,6 +13,7 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @needsreview set is a pseudo-keyword. Issue 379
  */
 
 class C {
