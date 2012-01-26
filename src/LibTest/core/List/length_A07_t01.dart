@@ -13,27 +13,24 @@
 #import("../../../Utils/dynamic_check.dart");
 
 main() {
+  if(isCheckedMode()) {
+    return;
+  }
   List a = new List();
 
-  checkTypeError( () {
-    try {
-      a.length = "12";
-      Expect.fail("Exception expected when setting ga.length to negative");
-    } catch(IllegalArgumentException ok){}
-  });
+  try {
+    a.length = "12";
+    Expect.fail("Exception expected when setting list length to string");
+  } catch(var ok){}
 
   List<int> b = new List.from(<int>[1,3,5]);
-  checkTypeError( () {
-    try {
-      b.length = 12.43;
-      Expect.fail("Exception expected when setting ga.length to negative");
-    } catch(IllegalArgumentException ok){}
-  });
+  try {
+    b.length = 12.43;
+    Expect.fail("Exception expected when setting list length to double");
+  } catch(var ok){}
 
-  checkTypeError( () {
-    try {
-      b.length = a;
-      Expect.fail("Exception expected when setting ga.length to negative");
-    } catch(IllegalArgumentException ok){}
-  });
+  try {
+    b.length = a;
+    Expect.fail("Exception expected when setting list length to array");
+  } catch(var ok){}
 }

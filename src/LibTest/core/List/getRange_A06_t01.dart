@@ -16,7 +16,7 @@ void check(List l, start, length) {
     try {
       l.getRange(start, length);
       Expect.fail("IAE expected when calling List.getRange()");
-    } catch(IllegalArgumentException ok) {}
+    } catch(var ok) {}
   }
 }
 
