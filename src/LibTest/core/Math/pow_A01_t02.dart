@@ -8,7 +8,7 @@
  * @description Checks the method with integer arguments
  * @author pagolubev
  * @reviewer msyabro
- * @needsreview
+ * @needsreview issue 1267
  */
 
 main() {
