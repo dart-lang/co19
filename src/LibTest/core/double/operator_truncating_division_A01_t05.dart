@@ -6,7 +6,8 @@
 /**
  * @assertion double operator ~/(num other)
  * @description Checks that if passed argument is a zero and 'this' is nonzero
- * double the result is an infinity with the same sign as 'this'.
+ * double the result is an infinity. The result sign is positive if
+ * operands have the same sign, negative otherwise.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -24,7 +25,7 @@ check(d) {
   Expect.isTrue(d > 0, 'Incorrect input: $d');
 
   Expect.equals(1/0, d ~/ .0);
-  Expect.equals(1/0, d ~/ (-.0));
+  Expect.equals(-1/0, d ~/ (-.0));
 
   d = -d;
   Expect.equals(-1/0, d ~/ .0);
