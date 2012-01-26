@@ -31,6 +31,8 @@ main() {
   check(@"(?!a|b)|c", "", 0, [""]);
   check(@"(?!a|b)|c", "bc", 1, [""]);
   check(@"(?!a|b)|c", "d", 0, [""]);
+  
+  // issue 1290
   check(@"(.*?)a(?!(a+)b\2c)\2(.*)", "baaabaac", 0, ["baaabaac", "ba", "", "abaac"]);
 }
 

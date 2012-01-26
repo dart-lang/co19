@@ -37,7 +37,7 @@
  *              end limit while CharacterClass contains another atoms causes an error.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
  * @author rodionov
- * @needsreview unodcumented behavior on error
+ * @needsreview undocumented behavior on error
  * @reviewer msyabro
  */
  
@@ -49,8 +49,8 @@ main() {
   checkNeg(@"[\wb-G]", "a");
   checkNeg(@"[\Wb-G]", "a");
   checkNeg(@"[\0b-G]", "a");
-  checkNeg(@"[\bd-G]", "a");
-  checkNeg(@"[\Bd-G]", "a");
+//  checkNeg(@"[\bd-G]", "a");
+//  checkNeg(@"[\Bd-G]", "a");
   checkNeg(@"[\td-G]", "a");
   checkNeg(@"[\nd-G]", "a");
   checkNeg(@"[\vd-G]", "a");
@@ -67,8 +67,8 @@ main() {
   checkNeg(@"[b-G\w]", "a");
   checkNeg(@"[b-G\W]", "a");
   checkNeg(@"[b-G\0]", "a");
-  checkNeg(@"[d-G\b]", "a");
-  checkNeg(@"[d-G\B]", "a");
+//  checkNeg(@"[d-G\b]", "a");
+//  checkNeg(@"[d-G\B]", "a");
   checkNeg(@"[d-G\t]", "a");
   checkNeg(@"[d-G\n]", "a");
   checkNeg(@"[d-G\r]", "a");

@@ -36,6 +36,7 @@
  * @author rodionov
  * @needsreview undocumented behavior on error
  * @reviewer msyabro
+ * @note issue 1299
  */
  
 main() {

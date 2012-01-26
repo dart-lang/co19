@@ -40,6 +40,7 @@
  * @needsreview Such regular expressions work both in Dart and JavaScript.
  *           But specification says: "If A does not contain exactly one character or B does not
  *           contain exactly one character then throw a SyntaxError exception."
+ * @note issue 1298
  */
  
 main() {

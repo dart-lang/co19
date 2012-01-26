@@ -23,6 +23,7 @@
  * @author rodionov
  * @needsreview
  * @reviewer msyabro
+ * @note Issue 1293
  */
  
 

@@ -9,6 +9,7 @@
  * @description Checks that the returned Match is correctly initialized.
  * @author rodionov
  * @reviewer msyabro
+ * @note Issue 1290
  */
  
 main() {
@@ -17,7 +18,10 @@ main() {
   check("((a)|(ab))((c)|(bc))", "abc", false, false, [0, 3, "abc", "a", "a", "", "bc", "", "bc"]);
   check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false, [0, 16, "aaaaaaaaa,aaaaaa", "aaa"]);
   check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false, [0, 16, "aaaaaa,aaaaaaaaa", "a"]);
+  
+  // Issue 1290
   check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", false, false, [0, 10, "zaacbbbcac", "z", "ac", "a", "", "c"]);
+  
   check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, [3, 5, "Ot"]);
   check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, [10, 12, "et"]);
   check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false, [0, 5, "robot"]);

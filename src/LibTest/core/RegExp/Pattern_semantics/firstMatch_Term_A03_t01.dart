@@ -9,6 +9,7 @@
  * @3rdparty sputnik-v1:S15.10.2.5_A1_T4.js
  * @author rodionov
  * @reviewer msyabro
+ * @note issue 1290
  */
  
 

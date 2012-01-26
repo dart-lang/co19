@@ -24,6 +24,7 @@
  * @reviewer iefremov
  * @reviewer msyabro
  * @needsreview Undocumented in Dart
+ * @note Issue 1294
  */
  
 

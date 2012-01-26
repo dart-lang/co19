@@ -9,6 +9,7 @@
  * @description Tests this method with various patterns, flags and input strings.
  * @author rodionov
  * @reviewer msyabro
+ * @note issue 1297
  */
 
 main() {
@@ -294,7 +295,6 @@ main() {
   check("[a-z][^1-9][a-z]", "a1b  b2c  c3d  def  f4g");
   check(@"[\*&$]{3}", @"123*&$abc");
   check(@"[\d][\n][^\d]", "line1\nline2");
-  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2");
   check(@"[\+--]", ",");
   check("[--0]", "/");
   check("[---]", "-");
@@ -312,6 +312,7 @@ main() {
   check("[^a-z]{4}", @"abc#$%def%&*@ghi");
   check("[^]", @"abc#$%def%&*@ghi");
   check(@"[^\b]+", "easy\bto\u0008ride");
+  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
 void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
