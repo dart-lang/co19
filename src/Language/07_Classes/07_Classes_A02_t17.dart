@@ -13,16 +13,14 @@
  *   methodSignature functionBody
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   functionSignature redirection |
- *   namedConstructorSignature redirection |
- *   abstract getterSignature |
- *   abstract setterSignature |
- *   abstract operatorSignature |
- *   abstract functionSignature |
- *   static final type? staticFinalDeclarationList |
- *   static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)?
+ *   | constructorSignature (redirection | initializers)?
+ *   | abstract getterSignature
+ *   | abstract setterSignature
+ *   | abstract operatorSignature
+ *   | abstract functionSignature
+ *   | static final type? staticFinalDeclarationList
+ *   | static? initializedVariableDeclaration
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*

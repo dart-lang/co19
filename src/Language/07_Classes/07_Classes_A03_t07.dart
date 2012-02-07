@@ -13,25 +13,27 @@
  *   methodSignature functionBody
  * ;
  * methodSignature:
- *   factoryConstructorSignature |
- *   static functionSignature |
- *   getterSignature |
- *   setterSignature |
- *   operatorSignature |
- *   functionSignature initializers? |
- *   namedConstructorSignature initializers?
+ *   factoryConstructorSignature
+ *   | static? functionSignature
+ *   | getterSignature
+ *   | setterSignature
+ *   | operatorSignature
+ *   | constructorSignature initializers?
  * ;
- * @description Checks that a named constructor definition can be declared without body.
- * @author msyabro
+ * @description Checks that it is a compile-time error if a static getter
+ * method definition does not include a body.
  * @reviewer rodionov
- * @reviewer iefremov
- * @needsreview issue 497
+ * @compile-error
+ * @author msyabro
  */
 
 class A {
-  A.B();
+  static get val();
+  static var _val;
 }
 
 main() {
-  A a = new A.B();
+  try {
+    A a = new A();
+  } catch(var e) {}
 }

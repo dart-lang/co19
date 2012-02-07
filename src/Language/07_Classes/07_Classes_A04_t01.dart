@@ -13,25 +13,22 @@
  *   methodSignature functionBody
  * ;
  * methodSignature:
- *   factoryConstructorSignature |
- *   static functionSignature |
- *   getterSignature |
- *   setterSignature |
- *   operatorSignature |
- *   functionSignature initializers? |
- *   namedConstructorSignature initializers?
+ *   factoryConstructorSignature
+ *   | static? functionSignature
+ *   | getterSignature
+ *   | setterSignature
+ *   | operatorSignature
+ *   | constructorSignature initializers?
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   functionSignature redirection |
- *   namedConstructorSignature redirection |
- *   abstract getterSignature |
- *   abstract setterSignature |
- *   abstract operatorSignature |
- *   abstract functionSignature |
- *   static final type? staticFinalDeclarationList |
- *   static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)?
+ *   | constructorSignature (redirection | initializers)?
+ *   | abstract getterSignature
+ *   | abstract setterSignature
+ *   | abstract operatorSignature
+ *   | abstract functionSignature
+ *   | static final type? staticFinalDeclarationList
+ *   | static? initializedVariableDeclaration
  * ;
  * @compile-error
  * @description Checks that a class can't be defined inside another class as it is not among

@@ -13,16 +13,14 @@
  *   methodSignature functionBody
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   functionSignature redirection |
- *   namedConstructorSignature redirection |
- *   abstract getterSignature |
- *   abstract setterSignature |
- *   abstract operatorSignature |
- *   abstract functionSignature |
- *   static final type? staticFinalDeclarationList |
- *   static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)?
+ *   | constructorSignature (redirection | initializers)?
+ *   | abstract getterSignature
+ *   | abstract setterSignature
+ *   | abstract operatorSignature
+ *   | abstract functionSignature
+ *   | static final type? staticFinalDeclarationList
+ *   | static? initializedVariableDeclaration
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -47,10 +45,7 @@ class B {
   const B();
   B.anotherConstructor(): this.oneMoreConstructor();
   B.oneMoreConstructor() {}
-
-  static var nonInitialized;
-  static var initialized = 1;
-  static int typed;
+  static final initialized = 1;
 }
 
 class C {
@@ -60,13 +55,16 @@ class C {
 
 class D {
   D();
+  D.name() : a = 2;
   var x, y = 2, z;
   int a = 1;
+  static int typed;
 }
 
 class E {
   E(): this.D();
-  E.D() {}
+  E.D();
+  static var nonInitialized;
 }
 
 class F {

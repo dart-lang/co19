@@ -13,20 +13,18 @@
  *   methodSignature functionBody
  * ;
  * methodSignature:
- *   factoryConstructorSignature |
- *   static functionSignature |
- *   getterSignature |
- *   setterSignature |
- *   operatorSignature |
- *   functionSignature initializers? |
- *   namedConstructorSignature initializers?
+ *   factoryConstructorSignature
+ *   | static? functionSignature
+ *   | getterSignature
+ *   | setterSignature
+ *   | operatorSignature
+ *   | constructorSignature initializers?
  * ;
  * @description Checks that it is a compile-time error if a function
  * method definition does not include a body.
  * @reviewer rodionov
  * @compile-error
  * @author msyabro
- * @needsreview Undocumented. Issue 497
  */
 
 class A {

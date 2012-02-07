@@ -13,16 +13,14 @@
  *   methodSignature functionBody
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   functionSignature redirection |
- *   namedConstructorSignature redirection |
- *   abstract getterSignature |
- *   abstract setterSignature |
- *   abstract operatorSignature |
- *   abstract functionSignature |
- *   static final type? staticFinalDeclarationList |
- *   static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)?
+ *   | constructorSignature (redirection | initializers)?
+ *   | abstract getterSignature
+ *   | abstract setterSignature
+ *   | abstract operatorSignature
+ *   | abstract functionSignature
+ *   | static final type? staticFinalDeclarationList
+ *   | static? initializedVariableDeclaration
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -30,17 +28,16 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that it is a compile-time error if a constructor
- * declaration with initializers includes a body.
+ * @description Checks that it is a compile-time error if an abstract
+ * operator declaration includes a body.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Spec obviously wrong about this, issue 497 filed
+ * @needsreview issue 989
  */
 
 class A {
-  A(): x = 1 {}
-  var x;
+  abstract operator==(A other) {}
 }
 
 main() {

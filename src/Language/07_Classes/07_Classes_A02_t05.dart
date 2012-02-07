@@ -13,16 +13,14 @@
  *   methodSignature functionBody
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   functionSignature redirection |
- *   namedConstructorSignature redirection |
- *   abstract getterSignature |
- *   abstract setterSignature |
- *   abstract operatorSignature |
- *   abstract functionSignature |
- *   static final type? staticFinalDeclarationList |
- *   static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)?
+ *   | constructorSignature (redirection | initializers)?
+ *   | abstract getterSignature
+ *   | abstract setterSignature
+ *   | abstract operatorSignature
+ *   | abstract functionSignature
+ *   | static final type? staticFinalDeclarationList
+ *   | static? initializedVariableDeclaration
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -30,20 +28,18 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that it is a compile-time error if a constructor
- * declaration includes a body.
+ * @description Checks that it is a compile-time error if an abstract method
+ * declaration with initializers includes a body.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
- * @needsreview Spec obviously wrong about this, issue 497 filed
  */
 
 class A {
-  A() {}
+  abstract f() {}
 }
 
 main() {
   try {
-    A a = new A();
-  } catch(var e) {}
+    A a = const A();
+  } catch(var e){}
 }

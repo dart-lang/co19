@@ -7,22 +7,20 @@
  * @assertion classDefinition:
  * class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
-* ;
+ * ;
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   functionSignature redirection |
- *   namedConstructorSignature redirection |
- *   abstract getterSignature |
- *   abstract setterSignature |
- *   abstract operatorSignature |
- *   abstract functionSignature |
- *   static final type? staticFinalDeclarationList |
- *   static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)?
+ *   | constructorSignature (redirection | initializers)?
+ *   | abstract getterSignature
+ *   | abstract setterSignature
+ *   | abstract operatorSignature
+ *   | abstract functionSignature
+ *   | static final type? staticFinalDeclarationList
+ *   | static? initializedVariableDeclaration
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -30,19 +28,19 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that it is a compile-time error if a static final
- * variable declaration does not include explicit initializer.
+ * @description Checks that it is a compile-time error if a static initialized
+ * variable declaration does not end with a semicolon.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
 class A {
-  static final val;
+  static int v
 }
 
 main() {
   try {
-    A.val;
+    A.v;
   } catch(var e) {}
 }
