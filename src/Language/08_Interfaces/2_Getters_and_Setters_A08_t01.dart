@@ -9,7 +9,7 @@
  * as getters and setters in classes.
  * 7.3: It is a static warning if a setter declares a return type other than void.
  * @description Check that it is a static warning if a setter declares a return type other than void.
- * @static-type error
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  */
