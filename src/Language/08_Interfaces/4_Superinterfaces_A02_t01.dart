@@ -13,7 +13,7 @@
  * @reviewer rodionov
  */
 
-typedef void foo() {}
+typedef void foo();
 
 interface I extends foo {}
 
