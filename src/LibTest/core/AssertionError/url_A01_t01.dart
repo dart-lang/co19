@@ -19,7 +19,7 @@ main() {
   }
   try {
     assert(false);
-    Expect.fail("AssertionError expected");
+    throw "AssertionError expected";
   } catch (AssertionError e) {
     Expect.isTrue(e.url.endsWith("LibTest/core/AssertionError/url_A01_t01.dart"));
   }
