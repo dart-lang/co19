@@ -8,13 +8,11 @@
  * apply to abstract methods.
  * 7.1: It is a compile-time error if an instance method m1 overrides an instance
  * member m2 and m1 does not declare all the named parameters declared by m2 in the same order.
- * @description Checks that a compile-time error is produced when the overriding non-abstract 
+ * @description Checks that a compile-time error is not produced when the overriding non-abstract
  * instance method has more named parameters than the abstract method being overridden (2 vs 1)
  * and both have the same number of required parameters of the same type.
- * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 978
  */
 
 class A {
