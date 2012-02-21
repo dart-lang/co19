@@ -62,8 +62,8 @@ main() {
   checkNeg("[]a", "\0a\0a");
   checkNeg("a[]", "\0a\0a");
   checkNeg("ab[erst]de", "abcde");
-  check(@"[\d][\12-\14]{1,}[^\d]", "line1\n\n\n\n\nline2");
-  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
+//  check(@"[\d][\12-\14]{1,}[^\d]", "line1\n\n\n\n\nline2");
+//  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
 void check(String pattern, String str) {

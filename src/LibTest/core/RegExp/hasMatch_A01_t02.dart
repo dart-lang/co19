@@ -312,7 +312,7 @@ main() {
   check("[^a-z]{4}", @"abc#$%def%&*@ghi");
   check("[^]", @"abc#$%def%&*@ghi");
   check(@"[^\b]+", "easy\bto\u0008ride");
-  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
+//  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
 void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
