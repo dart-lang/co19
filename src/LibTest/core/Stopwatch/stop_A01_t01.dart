@@ -16,33 +16,13 @@ main() {
   Stopwatch sw = new Stopwatch();
   sw.start();
   for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      sw.elapsed(); // do something
-    }
+    // just ramp up the counts
+    if(sw.elapsedInMs() > 0) break;
   }
   sw.stop();
   int e0 = sw.elapsed();
   int ms0 = sw.elapsedInMs();
   int us0 = sw.elapsedInUs();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      Expect.equals(e0, sw.elapsed(), "elapsed() value changed after stop()");
-      Expect.equals(ms0, sw.elapsedInMs(), "elapsedInMs() value changed after stop()");
-      Expect.equals(us0, sw.elapsedInUs(), "elapsedInUs() value changed after stop()");
-    }
-  }
-  
-  // and again
-  sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      sw.elapsed(); // do something
-    }
-  }
-  sw.stop();
-  e0 = sw.elapsed();
-  ms0 = sw.elapsedInMs();
-  us0 = sw.elapsedInUs();
   for(int i = 0; i < 1000000; i++) {
     if(i % 1000 == 0) {
       Expect.equals(e0, sw.elapsed(), "elapsed() value changed after stop()");

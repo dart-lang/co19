@@ -7,33 +7,35 @@
  * @assertion Returns the [elapsed] counter converted to microseconds.
  * @description Checks that the proportion between values returned by elapsed()
  *              and this method is correct and that this value is never
- *              negative.
+ *              negative. Checks several successive different values returned by elapsedInUs().
+ * @note stops the StopWatch before measuring the proportion and resumes afterwards
  * @author rodionov
  * @reviewer pagolubev
  */
  
 main() {
+  final int LOTS_OF_REPS  = 1000000000; // long enough for the us count to become positive
+  int countdown = 10;
+  
   Stopwatch sw = new Stopwatch();
   Expect.equals(0, sw.elapsedInUs());
   sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      int us = sw.elapsedInUs();
-      Expect.isTrue(us >= 0, "The result of elapsedInUs() ($us) is negative");
-    }
-  }
-  sw.stop();
-  print("elapsed ticks: " + sw.elapsed() + ", in us: " + sw.elapsedInUs());
-  Expect.equals(sw.elapsedInUs(), (sw.elapsed() * 1000000) ~/ sw.frequency());
+  int i, us, lastUs = 0;
+  for(i = 0; i < LOTS_OF_REPS && countdown > 0; i++) {
+    if(i % 100 == 0) {
+      us = sw.elapsedInUs();
+      Expect.isFalse(us < 0, "The result of elapsedInUs()  was negative: $us");
 
-  sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      int us = sw.elapsedInUs();
-      Expect.isTrue(us >= 0, "The result of elapsedInUs() ($us) is negative");
+      if(us > lastUs) {
+        sw.stop();
+        print("elapsed ticks: ${sw.elapsed()}, in us: ${sw.elapsedInUs()}");
+        Expect.equals(sw.elapsedInUs(), (sw.elapsed() * 1000000) ~/ sw.frequency());
+        countdown--;
+        lastUs = us;
+        sw.start();
+      }
     }
   }
   sw.stop();
-  print("elapsed ticks: " + sw.elapsed() + ", in ms: " + sw.elapsedInUs());
-  Expect.equals(sw.elapsedInUs(), (sw.elapsed() * 1000000) ~/ sw.frequency());
+  Expect.isTrue(i < LOTS_OF_REPS, "microsecond count of a started StopWatch didn't increase soon enough, last value: $us");
 }

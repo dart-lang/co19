@@ -17,30 +17,20 @@
  
 main() {
   Stopwatch sw = new Stopwatch();
-  sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.isTrue(sw.elapsed() > 0);
-    }
-  }
-  sw.stop();
-  int e0 = sw.elapsed();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.equals(e0, sw.elapsed());
-    }
-  }
+  final int LOTS_OF_REPS  = 1000000000; // long enough for the elapsed count to change
+  final int FEWER_REPS    = 1000000; 
+  int i, elapsed, e0;
   
-  // and again
   sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.isTrue(sw.elapsed() > 0);
-    }
+  for(i = 0; i < LOTS_OF_REPS; i++) {
+    elapsed = sw.elapsed();
+    if(sw.elapsed() > 0) break;
   }
+  Expect.isTrue(i < LOTS_OF_REPS, "Elapsed count of a started StopWatch didn't increase soon enough, last value: $elapsed");
   sw.stop();
+  
   e0 = sw.elapsed();
-  for(int i = 0; i < 1000000; i++) {
+  for(i = 0; i < FEWER_REPS; i++) {
     if(i % 100 == 0) {
       Expect.equals(e0, sw.elapsed());
     }

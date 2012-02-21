@@ -7,33 +7,35 @@
  * @assertion Returns the [elapsed] counter converted to milliseconds.
  * @description Checks that the proportion between values returned by elapsed()
  *              and this method is correct and that this value is never
- *              negative.
+ *              negative. Checks several successive different values returned by elapsedInMs().
+ * @note stops the StopWatch before measuring the proportion and resumes afterwards
  * @author rodionov
  * @reviewer pagolubev
  */
  
 main() {
+  final int LOTS_OF_REPS  = 1000000000; // long enough for the ms count to become positive
+  int countdown = 10;
+  
   Stopwatch sw = new Stopwatch();
   Expect.equals(0, sw.elapsedInMs());
   sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      int ms = sw.elapsedInMs();
-      Expect.isTrue(ms >= 0, "The result of elapsedInMs() ($ms) is negative");
-    }
-  }
-  sw.stop();
-  print("elapsed ticks: " + sw.elapsed() + ", in ms: " + sw.elapsedInMs());
-  Expect.equals(sw.elapsedInMs(), (sw.elapsed() * 1000) ~/ sw.frequency());
+  int i, ms, lastMs = 0;
+  for(i = 0; i < LOTS_OF_REPS && countdown > 0; i++) {
+    if(i % 100 == 0) {
+      ms = sw.elapsedInMs();
+      Expect.isFalse(ms < 0, "The result of elapsedInMs()  was negative: $ms");
 
-  sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      int ms = sw.elapsedInMs();
-      Expect.isTrue(ms >= 0, "The result of elapsedInMs() ($ms) is negative");
+      if(ms > lastMs) {
+        sw.stop();
+        print("elapsed ticks: ${sw.elapsed()}, in ms: ${sw.elapsedInMs()}");
+        Expect.equals(sw.elapsedInMs(), (sw.elapsed() * 1000) ~/ sw.frequency());
+        countdown--;
+        lastMs = ms;
+        sw.start();
+      }
     }
   }
   sw.stop();
-  print("elapsed ticks: " + sw.elapsed() + ", in ms: " + sw.elapsedInMs());
-  Expect.equals(sw.elapsedInMs(), (sw.elapsed() * 1000) ~/ sw.frequency());
+  Expect.isTrue(i < LOTS_OF_REPS, "millisecond count of a started StopWatch didn't increase soon enough, last value: $ms");
 }
