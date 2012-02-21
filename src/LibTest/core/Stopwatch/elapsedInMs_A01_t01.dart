@@ -14,7 +14,7 @@
  */
  
 main() {
-  final int LOTS_OF_REPS  = 1000000000; // long enough for the ms count to become positive
+  final int LOTS_OF_REPS  = 100000000; // long enough for the ms count to become positive
   int countdown = 10;
   
   Stopwatch sw = new Stopwatch();
