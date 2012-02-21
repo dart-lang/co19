@@ -43,7 +43,7 @@ main() {
   check("[--0]", "/");
   check("[---]", "-");
   check("[a-cA-C]", "bB");
-  check(@"[\u0061-\c007A]", "f");
+  check(@"[\u0061-\u007A]", "f");
   checkNeg(@"[a-z]+", "ABCDEF");
 }
 
