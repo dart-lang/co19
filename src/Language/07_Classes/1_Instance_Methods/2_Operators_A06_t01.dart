@@ -4,22 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to declare an optional named parameter in an operator.
- * @description Checks that a compile-time error is produced if a user-defined
- * operator [] specifies an optional named parameter.
- * @compile-error
- * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
- * @needsreview issue 979
+ * @assertion The operator call can have any arity.
+ * @description Checks that the operator call can have any arity.
+ * @author msyabro
+ * @needsreview Issue 1604
  */
 
-class C {
-  operator[]([var o]) {}
+class Nullary {
+  operator call() {}
+}
+
+class Unary {
+  operator call(p1) {}
+}
+
+class Binary {
+  operator call(p1, p2){}
+}
+
+class Ternary {
+  operator call(p1, p2, p3) {}
+}
+
+class Quaternary {
+  operator call(p1, p2, p3, p4) {}
+}
+
+class Quinary {
+  operator call(p1, p2, p3, p4, p5) {}
 }
 
 main() {
-  try {
-    var x = new C()[1];
-  } catch(var e) {}
+  new Nullary()();
+  new Unary()(1);
+  new Binary()(1, 2);
+  new Ternary()(1, 2, 3);
+  new Quaternary()(1, 2, 3, 4);
+  new Quinary()(1, 2, 3, 4, 5);
 }

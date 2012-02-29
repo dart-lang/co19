@@ -6,7 +6,7 @@
 /**
  * @assertion
  * operatorSignature: returnType? operator operator formalParameterList ;
- * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate ;
+ * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call;
  * unaryOperator: negateOperator ;
  * binaryOperator: multiplicativeOperator | additiveOperator | shiftOperator |
  *   relationalOperator | equalityOperator | bitwiseOperator ;
@@ -14,10 +14,12 @@
  * negateOperator: '!' | '~' ;
  * @description Checks that any return type (including function type, type parameter,
  * void or no return type at all) can be specified for any operator.
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
  * @needsreview The assertion probably would change, because of inconsistencies in the grammar (issue 954)
+ * @needsreview Issue 1604
  */
 
 typedef int foo(double);
@@ -31,6 +33,7 @@ class C<T> {
   Dynamic operator ~() {}
   foo operator *(var v) {}
   T operator >(var v) {}
+  bool operator call(u, v) {}
 }
 
 main() {
@@ -42,6 +45,7 @@ main() {
     c[c] = c;
     -c;
     x = ~c;
+    x = c(1, 2);
   } catch (var ok) {}
 }
 

@@ -4,23 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to declare an optional named parameter in an operator.
+ * @assertion It is a compile-time error to declare an optional named parameter in an operator,
+ * with the exception of the operator call.
  * @description Checks that a compile-time error is produced if a user-defined
- * operator []= specifies one optional named parameter.
+ * operator [] specifies an optional named parameter.
  * @compile-error
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
- * @needsreview issue 979
  */
 
 class C {
-  operator[]=([var v]) {}
+  operator[]([var o]) {}
 }
 
 main() {
   try {
-    C c = new C();
-    c[0] = null;
+    var x = new C()[1];
   } catch(var e) {}
 }

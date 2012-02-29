@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to declare an optional named parameter in an operator.
+ * @assertion It is a compile-time error to declare an optional named parameter in an operator,
+ * with the exception of the operator call.
  * @description Checks that a compile-time error is produced if a user-defined
  * operator [] specifies an optional named parameter in addition to the required one.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 979
  */
 
 class C {
