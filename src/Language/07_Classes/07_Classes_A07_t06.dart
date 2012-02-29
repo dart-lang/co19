@@ -15,7 +15,7 @@
 
 class C {
   String f(int f);
-  abstract int set f(boolean b);
+  abstract int set f(bool b);
 }
 
 main() {
