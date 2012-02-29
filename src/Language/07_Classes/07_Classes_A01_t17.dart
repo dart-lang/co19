@@ -8,28 +8,14 @@
  * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
- * classMemberDefinition:
- *   declaration ';' |
- *   methodSignature functionBody
- * ;
- * methodSignature:
- *   factoryConstructorSignature
- *   | static? functionSignature
- *   | getterSignature
- *   | setterSignature
- *   | operatorSignature
- *   | constructorSignature initializers?
- * ;
- * @description Checks that it is a compile-time error if a function
- * method definition does not include a body.
- * @reviewer rodionov
+ * @description Checks that it is a compile-time error if an abstract class type definition
+ * is missing both opening and closing curly brackets.
+ * Class body is empty.
  * @compile-error
  * @author msyabro
  */
 
-class A {
-  f();
-}
+abstract class A
 
 main() {
   try {

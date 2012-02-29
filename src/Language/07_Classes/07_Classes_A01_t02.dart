@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- * class identifier typeParameters? superclass? interfaces?
+ * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
  * @description Checks that it is a compile-time error if a class type definition

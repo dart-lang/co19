@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- * class identifier typeParameters? superclass? interfaces?
+ * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
  * @compile-error

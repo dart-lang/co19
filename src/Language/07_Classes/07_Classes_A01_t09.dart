@@ -5,13 +5,13 @@
  */
 /**
  * @assertion classDefinition:
- * class identifier typeParameters? superclass? interfaces?
+ * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
- * @compile-error
  * @description Checks that it is a compile-time error if a class type definition
  * with an implements clause is missing both opening and closing curly brackets. 
  * Class body is empty.
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */

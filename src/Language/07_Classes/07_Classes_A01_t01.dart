@@ -5,13 +5,14 @@
  */
 /**
  * @assertion classDefinition:
- * class identifier typeParameters? superclass? interfaces?
+ * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
  * @description Checks that various class definitions that are valid according to
  * this syntax do not cause any errors and can be instantiated.
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview issue 1603
  */
 
 interface I {}
@@ -29,6 +30,10 @@ class G<S, T> extends F<T> {}
 class H<T> implements I {}
 class K extends G<int, int> implements I {}
 class L<T extends A, S extends B> implements IT<T> {}
+
+abstract class M {}
+abstract class N<T, U> extends A {}
+abstract class O extends N<int, int> implements I {}
 
 main() {
   A a = new A();
