@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion It is a run-time error to attempt to modify a constant list literal.
+ * @description Checks that it is a run-time error to attempt to modify
+ * a constant list literal.
+ * @author msyabro
+ * @needsreview Issue 1553
+ * @reviewer kaigorodov
+ */
+
+main() {
+  bool b;
+  try {
+    b = false;
+    (const []).add(1);
+    b = true;
+  } catch(var e) {}
+  if(b) Expect.fail("Exception is expected");
+
+  try {
+    b = false;
+    (const [1, 2, 3])[0] = 5;
+    b = true;
+  } catch(var e) {}
+  if(b) Expect.fail("Exception is expected");
+
+  try {
+    b = false;
+    (const [true, false]).removeLast();
+    b = true;
+  } catch(var e) {}
+  if(b) Expect.fail("Exception is expected");
+
+  try {
+    b = false;
+    (const [""]).clear();
+    b = true;
+  } catch(var e) {}
+  if(b) Expect.fail("Exception is expected");
+
+  try {
+    b = false;
+    (const []).clear();
+    b = true;
+  } catch(var e) {}
+  if(b) Expect.fail("Exception is expected");
+
+  try {
+    b = false;
+    (const []).addLast(1);
+    b = true;
+  } catch(var e) {}
+  if(b) Expect.fail("Exception is expected");
+}
