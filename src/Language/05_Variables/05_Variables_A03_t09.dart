@@ -4,23 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top level variable marked final must be initialized to a compile-time 
- * constant or a compile-time error occurs. 
- * @description Checks that a top level variable marked final may be initialized to 
- * a compile-time constant.
+ * @assertion A final variable is a variable whose declaration includes the modifier final. 
+ * A final variable can only be assigned once, when it is initialized, or a compile-time error occurs.
+ * @description Checks that a final variable is assigned at declaration.
  * @author vasya
- * @reviewer iefremov
+ * @reviewer msyabro
  */
 
 final int i = -100;
 final bool b = false;
 final String s = "string";
-final double pi = Math.PI;
-final List l = const [0,1,2,3];
-final Map m = const {'a': 1, 'b': 2};
-final String e = "OneTwo";
 
 main() {
+  final double pi = Math.PI;
+  final List l = const [0,1,2,3];
+  final Map m = const {'a': 1, 'b': 2};
+  final String e = "OneTwo";
+
   Expect.isTrue(-100 === i);
   Expect.isTrue(false === b);
   Expect.isTrue("string" === s);

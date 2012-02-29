@@ -4,16 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top level variable marked final must be initialized to a compile-time 
- * constant or a compile-time error occurs. 
- * @description Checks that it is a compile-time error occurs if a top level variable
- * marked final is not initialized.
- * @author iefremov
+ * @assertion It is a compile-time error if a top level variable is initialized with
+ * an expression that is not a compile-time constant.
+ * @description Checks that it is a compile-time error if a top level variable is
+ * initialized with an expression that is not a compile-time constant.
  * @compile-error
- * @needsreview issue 991
+ * @author msyabro
  */
 
-final foo; // error
+var foo = new Object(); // error
 
 main() {
   try {

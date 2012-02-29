@@ -12,15 +12,29 @@
  * finalVarOrType: final type? | var | type ;
  * @description Checks various valid variable declarations.
  * @author iefremov
+ * @reviewer msyabro
  */
+
+final topLevelFinal = const {};
+final int someConstant = 1;
+bool __1;
+var i2 = 2;
 
 main() {
   final String $tring = "";
+  final v1 = 1, v2 = 2;
   final f = null;
+  var init = 5;
   var v;
   int i;
 
   String $tring2, $tring3, $$$tring;
   var $, $$, $$$;
+  Object list = [], map = {};
+
+  topLevelFinal;
+  someConstant;
+  __1;
+  i2;
 }
 
