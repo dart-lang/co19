@@ -10,6 +10,7 @@
  * (if these exist) and in the non-static members of G.
  * @description Checks that type parameters are in scope in the non-static members of G
  * (if G is a class or interface declaration).
+ * @static-warning
  * @author iefremov
  */
 
