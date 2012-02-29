@@ -8,18 +8,21 @@
  * the type parameters of G. The type parameters of a generic class or interface
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the non-static members of G.
- * @description Checks that a compile-time error is produced if type parameter is used
- * as a type annotation of a static variable.
- * @compile-error
+ * @description Checks that a type parameter is not in scope in a static context.
+ * Using it as a type annotation of a static variable and triggering TypeError
+ * by trying to assign a value to that variable.
+ * @static-warning
  * @author iefremov
  */
+
+#import("../../Utils/dynamic_check.dart");
 
 class C<T> {
   static T t;
 }
 
 main() {
-  try {
+  checkTypeError(() {
     C.t = null;
-  } catch(var x){}
+  });
 }
