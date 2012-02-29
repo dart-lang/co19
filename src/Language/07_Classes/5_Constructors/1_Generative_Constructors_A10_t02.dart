@@ -19,7 +19,7 @@
 var x;
 
 class C  {
-  C() : x = 5 {};
+  C() : x = 5 {}
 }
 
 main() {

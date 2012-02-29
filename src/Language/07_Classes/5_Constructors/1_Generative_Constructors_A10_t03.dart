@@ -16,7 +16,7 @@
 class C  {
   static var x = null;
   
-  C() : x = 5 {};
+  C() : x = 5 {}
 }
 
 main() {

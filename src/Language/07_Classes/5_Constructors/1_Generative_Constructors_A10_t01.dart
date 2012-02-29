@@ -21,7 +21,7 @@ class A {
 }
 
 class C extends A {
-  C() : x = 5 {};
+  C() : x = 5 {}
 }
 
 main() {
