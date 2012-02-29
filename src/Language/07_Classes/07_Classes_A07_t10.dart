@@ -9,6 +9,7 @@
  * both are instance members or both are static members.
  * @description Checks that a class can declare a getter and a setter of the same name provided
  * both are instance members (abstract or not) or both are static members.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

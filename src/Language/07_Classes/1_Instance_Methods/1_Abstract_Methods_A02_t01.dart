@@ -7,6 +7,7 @@
  * @assertion Invoking an abstract method always results in a run-time error.
  * This may be NoSuchMethodError or a subclass, such as AbstractMethodError.
  * @description Checks that NoSuchMethodException is thrown when calling an abstract method.
+ * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov
