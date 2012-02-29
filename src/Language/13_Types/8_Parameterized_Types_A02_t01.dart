@@ -13,7 +13,11 @@
  * @static-warning
  */
 
+#import("../../Utils/dynamic_check.dart");
+
 main() {
-  List<UnknownType> a = null;
+  checkTypeError(() {
+    List<UnknownType> a = null;
+  });
 }
 
