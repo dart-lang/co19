@@ -4,22 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
- * @description Checks that various closures implement the interface Function.
+ * @assertion All functions implement the interface Function. However not all function types are a subtype of Function.
+ * @description Checks that various global functions types are a subtype of Function.
  * @author iefremov
  * @reviewer rodionov
  */
 
-main() {
-  f1() {}
-  void f2() {}
-  Object f3() {}
-  int f4() {}
-  f5(var x) {}
-  void f6(var x) {}
-  String f7([var x]) {}
-  Object f8(var x, int z, [Object o, var v = 1]) {}
+f1() {}
+void f2() {}
+Object f3() {}
+int f4() {}
+f5(var x) {}
+void f6(var x) {}
+String f7([var x]) {}
+Object f8(var x, int z, [Object o, var v = 1]) {}
 
+main() {
   Expect.isTrue(f1 is Function);
   Expect.isTrue(f2 is Function);
   Expect.isTrue(f3 is Function);
@@ -29,3 +29,4 @@ main() {
   Expect.isTrue(f7 is Function);
   Expect.isTrue(f8 is Function);
 }
+

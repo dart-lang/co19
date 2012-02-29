@@ -4,29 +4,29 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
- * @description Checks that various global functions types are a subtype of Function.
- * @author iefremov
- * @reviewer rodionov
+ * @assertion If an interface type I includes the special operator call, and the type of call
+ * is the function type F, then I is considered to be a subtype of F.
+ * @description Checks that interfaces with operator call of type F are subtypes of F.
+ * @author msyabro
+ * @needsreview Issue 1604
  */
 
-f1() {}
-void f2() {}
-Object f3() {}
-int f4() {}
-f5(var x) {}
-void f6(var x) {}
-String f7([var x]) {}
-Object f8(var x, int z, [Object o, var v = 1]) {}
+typedef void f(p1, p2);
+typedef int g(p1, p2, [p3]);
 
-main() {
-  Expect.isTrue(f1 is Function);
-  Expect.isTrue(f2 is Function);
-  Expect.isTrue(f3 is Function);
-  Expect.isTrue(f4 is Function);
-  Expect.isTrue(f5 is Function);
-  Expect.isTrue(f6 is Function);
-  Expect.isTrue(f7 is Function);
-  Expect.isTrue(f8 is Function);
+interface I {
+  operator call(p1, p2);
 }
 
+class IImpl implements I {}
+
+class C {
+  int operator call(p1, p2, [p3]) {}
+}
+
+main() {
+  I i = new IImpl();
+  C c = new C();
+  Expect.isTrue(i is f);
+  Expect.isTrue(c is g);
+}

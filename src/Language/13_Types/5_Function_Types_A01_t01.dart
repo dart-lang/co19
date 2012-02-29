@@ -12,6 +12,7 @@
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
  * @description Checks that this statement is true for function types with no arguments: S is void, T is any type.
  * Also checks their mutual assignability.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

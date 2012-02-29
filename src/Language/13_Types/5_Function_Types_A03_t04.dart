@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion All functions implement the interface Function, so all function types are a subtype of Function.
+ * @assertion All functions implement the interface Function. However not all function types are a subtype of Function.
  * @description Checks that function literals implement the interface Function.
  * @author iefremov
  * @reviewer rodionov
