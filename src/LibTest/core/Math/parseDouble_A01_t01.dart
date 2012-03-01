@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Converts String to Double
- * @description Checks that correct string can be converted to Double.
+ * @assertion double parseDouble(String str)
+ * Parses a String representation of a double, and returns a double.
+ * @description Checks that correct string can be converted to double.
  * @author msyabro
  * @reviewer pagolubev
  */
@@ -25,12 +26,9 @@ main() {
   Expect.isTrue(Math.parseDouble("-2e0") == -2.0);
   Expect.isTrue(Math.parseDouble("1.1e2") == 110);
   Expect.isTrue(Math.parseDouble("1E1") == 10);
-  
-  Expect.isTrue(Math.parseDouble("0xa") == 10);
-  Expect.isTrue(Math.parseDouble("0X10") == 16);
-  
-  Expect.isTrue(Math.parseDouble("Infinity") == 1/0);
-  Expect.isTrue(Math.parseDouble("-Infinity") == -1/0);
+
+  Expect.isTrue(Math.parseDouble("Infinity") == double.INFINITY);
+  Expect.isTrue(Math.parseDouble("-Infinity") == double.NEGATIVE_INFINITY);
   Expect.isTrue(Math.parseDouble("NaN").isNaN());
   Expect.isTrue(Math.parseDouble("-NaN").isNaN());
   

@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws BadNumberFormatException if String 
- * can not be converted to Double
- * @description Checks that exception is thrown if String 
- * can not be converted to Double.
+ * @assertion double parseDouble(String str)
+ * Throws a BadNumberFormatException if str cannot be parsed as a double.
+ * @description Checks that exception is thrown if [str] 
+ * can not be converted to double.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview undocumented
+ * @needsreview issue 1929
  */
 
 void checkBNFE(String str) {
@@ -28,8 +28,12 @@ main() {
   checkBNFE("2/2");
   checkBNFE("-");
   checkBNFE("+-1");
+  checkBNFE("0X10");
+  checkBNFE("0xa");
   
   checkBNFE("1.");
   checkBNFE("1.e0");
   checkBNFE("2E2.0");
+  checkBNFE("InfiNIty");
+  checkBNFE("nan");
 }
