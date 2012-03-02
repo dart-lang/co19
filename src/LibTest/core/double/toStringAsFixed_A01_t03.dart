@@ -13,7 +13,7 @@
 
 check(String expected, int digits) {
   Expect.equals(expected, .0.toStringAsFixed(digits));
-  Expect.equals(expected, (-.0).toStringAsFixed(digits));
+  Expect.equals('-$expected', (-.0).toStringAsFixed(digits));
 }
 
 main() {
