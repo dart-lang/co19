@@ -6,7 +6,8 @@
 /**
  * @assertion Date.fromString(String formattedString) constructs a new [Date] instance
  * based on [formattedString]
- * @description Checks that [timeZone] is set according to ISO 8061 format.
+ * @description Checks that [timeZone] is set according to ISO 8601 standard. If time
+ * ends with 'Z' timezone is set to UTC, else timezone is set to local.
  * @author hlodvig
  * @reviewer msyabro
  */
