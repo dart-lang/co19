@@ -4,13 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Date.fromString(String formattedString) constructs a new instance with 
- * the [timeZone] set to the local time-zone.
- * @description Checks that the timezone of the new instance is the local timezone.
- * @author hlodvig
- * @reviewer msyabro
+ * @assertion Throws NullPointerException if [formattedString] is null.
+ * @description Checks that the correct exception is thrown.
+ * @author msyabro
+ * @reviewer pagolubev
  */
 
-main(){
-  Expect.equals(new TimeZone.local(), new Date.fromString(new Date.now().toString()).timeZone);
+main() {
+  try {
+    new Date.fromString(null);
+    Expect.fail("NullPointerException is expected");
+  } catch(NullPointerException e) {}
 }

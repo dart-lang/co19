@@ -6,29 +6,12 @@
 /**
  * @assertion Date.fromString(String formattedString) constructs a new [Date] instance
  * based on [formattedString]
- * @description Checks that a string in the correct format but with incorrect components raises an exception.
- * @author msyabro
- * @reviewer pagolubev
- * @needsreview Format is not specified. The assumption was made by the results of [:toString():].
+ * @description Checks that [timeZone] is set according to ISO 8061 format.
+ * @author hlodvig
+ * @reviewer msyabro
  */
 
-check(String str) {
-  try {
-    new Date.fromString(str);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-}
-
-main() {
-  check("-2001-1-1 0:0:0.0"); //Why is incorrect to set negative year?
-  check("2001-0-1 0:0:0.0");
-  check("2001-13-1 0:0:0.0");
-  check("2001-1-0 0:0:0.0");
-  check("2001-1-32 0:0:0.0");
-  check("2001-1-1 25:0:0.0");
-  check("2001-1-1 0:60:0.0");
-  check("2001-1-1 0:0:60.0");
-  check("2001-1-1 0:0:0.1000");
-  check("2001-s-1 0:0:0.0");
-  check("s-t-r i:n:g.");
+main(){
+  Expect.equals(new TimeZone.local(), new Date.fromString('2000-01-01 00:00:00').timeZone);
+  Expect.equals(new TimeZone.utc(), new Date.fromString('2000-01-01 00:00:00Z').timeZone);
 }
