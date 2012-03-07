@@ -21,15 +21,22 @@ foo(x, y) {
   return (x + y); 
 }
 
-bar(int x, int y) {
-  return x % y;
+bar(var x) {
+  return x.run();
+}
+
+class A {
+  run() {
+    throw 1;
+  }
 }
 
 main() {
   Expect.equals(3, foo(1, 2));
   Expect.equals("foobar", foo("foo", "bar"));
-  Expect.equals(1, bar(3, 2));
+
   try {
-    Expect.equals(100, bar(1, 0)); // can't be true, can it?
-  } catch (IntegerDivisionByZeroException ok) {}
+    Expect.equals(100, bar(new A())); // can't be true, can it?
+    Expect.fail("Exception expected when evaluating a return statement!");
+  } catch (int ok) {}
 }
