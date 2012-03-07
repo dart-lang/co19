@@ -14,6 +14,8 @@
  * @reviewer kaigorodov
  */
 
+#import('dart:isolate');
+
 var topLevelVariable;
 
 class TestIsolate extends Isolate {
