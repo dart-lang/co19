@@ -14,6 +14,8 @@
  * @reviewer rodionov
  */
 
+#import("../../Utils/dynamic_check.dart");
+
 interface A {}
 interface A1 {}
 interface A2 {}
@@ -30,24 +32,32 @@ typedef B f1_2(int i, B b, Map<int, num> m, var x, [var ox, B ob]);
 typedef B f1_3(int i, B b, Map<int, num> m, var x, [var ox]);
 typedef B f1_4(int i, B b, Map<int, num> m, var x);
 
-
 main() {
   //functions on the right are subtypes of f1
   f1 fvar = B f(int i, B b, Map<int, num> m, var x, [var ox, D ob, List<num> ol, bool obool]){};
   fvar = D f(int i, D b, Map<int, int> m, func x, [func ox, D ob, List<int> ol, bool obool]){};
   fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]){};
-
-  fvar = C f(num i, A b, Map<Object, Object> m, var x){};
-  fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox]){};
-  fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob]){};
-  fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol]){};
-
   fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]){};
+  fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool, var more1]){};
+  fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool, var more1, int more2]){};
 
-  //function on the right is a supertype of f1_*
+  //functions on the right are supertypes of f1
+  checkTypeError(() {
+    fvar = C f(num i, A b, Map<Object, Object> m, var x){};
+  });
+  checkTypeError(() {
+    fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox]){};
+  });
+  checkTypeError(() {
+    fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob]){};
+  });
+  checkTypeError(() {
+    fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol]){};
+  });
+
+  //function on the right is a subtype of f1_*
   f1_1 fvar_1 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
   f1_2 fvar_2 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
   f1_3 fvar_3 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
   f1_4 fvar_4 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-
 }
