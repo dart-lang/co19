@@ -23,6 +23,6 @@ class C<T> {
 
 main() {
   checkTypeError(() {
-    C.t = null;
+    C.t = new Object();
   });
 }
