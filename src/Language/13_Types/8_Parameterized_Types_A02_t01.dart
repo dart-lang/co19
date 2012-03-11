@@ -17,7 +17,7 @@
 
 main() {
   checkTypeError(() {
-    List<UnknownType> a = null;
+    List<UnknownType> a = new List();
   });
 }
 
