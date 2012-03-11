@@ -26,5 +26,5 @@ main() {
     } catch(C ex) {
       Expect.fail("This clause shouldn't be executed");
     }
-  catch(Object o) {}
+  } catch(Object o) {}
 }
