@@ -12,16 +12,13 @@
  * label:
  * identifier ':'
  * ;
- * @description Checks that it is a compile-time error if a statement is marked by more than one label.
- * @compile-error
- * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
+ * @description Checks that a statement can be marked with multiple labels (see the grammar in ch.11).
+ * @author iefremov
  */
 
-
 main() {
-  try {
-    K: L: while(true) { break K; }
-  } catch(var x) {}
+  label1: label2: label3: var x;
+  k: l: var x2;
+  $: $$: $$$: var x3;
+  a: b: c: d: e: f: g: h: i: j: k: l: m: n: o: p: q: r: s: t: u: v: w: x: y: z: var x4;
 }
