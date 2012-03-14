@@ -23,7 +23,7 @@
 
 f() {}
 positionalParameters(p1, p2, p3) {}
-namedParameters([name1, $$$, __]) {}
+namedParameters([name1, $$$, u__]) {}
 bothParameters(p1, [name]) {}
 
 class A {
@@ -40,53 +40,53 @@ main() {
 
   //literals
   positionalParameters(null, "", 1);
-  namedParameters(name1: [], $$$: {}, __: false);
+  namedParameters(name1: [], $$$: {}, u__: false);
   bothParameters(true, name: {"key1": 1, "key2": 2});
 
   //functionExpressions
   positionalParameters(()=>[], (){}, void f(param) {});
-  namedParameters($$$: int g(x) {return x + 1;}, __: func() => 1, name1: ()=> ()=> 1);
+  namedParameters($$$: int g(x) {return x + 1;}, u__: func() => 1, name1: ()=> ()=> 1);
   bothParameters(() => 1 + 1, name: () {return true;});
 
   //constants and instance creation
   positionalParameters(const [1, 2], const {}, const A());
-  namedParameters(__: const [], $$$: new A(), name1: const A());
+  namedParameters(u__: const [], $$$: new A(), name1: const A());
   bothParameters(const {"1": 2}, name: new A());
 
   //invocation
   positionalParameters(f(), A.sm(), o.m());
-  namedParameters(name1: o.v, $$$: f(), __: positionalParameters(1, 1, 1));
+  namedParameters(name1: o.v, $$$: f(), u__: positionalParameters(1, 1, 1));
   bothParameters(o.v, name: f());
 
   //assignment and equality
   positionalParameters(1 == 2, true != false, [] === null);
-  namedParameters($$$: o = 1, __: o += 5, name1: o !== o);
+  namedParameters($$$: o = 1, u__: o += 5, name1: o !== o);
   bothParameters(f === f, name: o = 10);
 
   //logical and relational expressions
   positionalParameters(1 < 2, 2 > 3, 3 <= 4);
   // NOTE: o is reassigned to an int above, relational and bitwise expressions below that
   // involve this variable shouldn't be surprising
-  namedParameters(name1: o <= 7, __: true || false, $$$: false && false);
+  namedParameters(name1: o <= 7, u__: true || false, $$$: false && false);
   bothParameters(o < o, name: 0 > 0);
 
   //bitwise and shift expressions
   positionalParameters(1 & 10, 0 | 0, o ^ o);
-  namedParameters(name1: 9 << 0, $$$: -8 >> 1, __: o & 0);
+  namedParameters(name1: 9 << 0, $$$: -8 >> 1, u__: o & 0);
   bothParameters(1 << 1, name: 2 | -2);
 
   //additive expressions
   positionalParameters(1 + 2, 0.0 - 3, "" + "");
-  namedParameters(name1: "str" + "ing", $$$: o + -2, __: 2 - 3);
+  namedParameters(name1: "str" + "ing", $$$: o + -2, u__: 2 - 3);
   bothParameters(1e3 + 0.2, name: 1 - 1);
 
   //multiplicative expressions
   positionalParameters(2 * 3, 1 /2, 0 % 7);
-  namedParameters(name1: 1 ~/ 1, $$$: 0 * 0, __: 0 / 8);
+  namedParameters(name1: 1 ~/ 1, $$$: 0 * 0, u__: 0 / 8);
   bothParameters(0.5 * 0.2, name: o ~/ 1);
 
   //unary expressions
   positionalParameters(-++o, -~2, o++);
-  namedParameters(name1: -o--, $$$: ~~0, __:--o);
+  namedParameters(name1: -o--, $$$: ~~0, u__:--o);
   bothParameters(!!false, -~-o);
 }
