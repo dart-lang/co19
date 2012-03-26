@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The following names are allowed for user-defined operators: 
- * ==, <, >, <=,>=, -, +, /, ~/, *, %, |, ^, &, <<, >>, >>>, []=, [], ~, negate.
+ * <, >, <=,>=, -, +, /, ~/, *, %, |, ^, &, <<, >>, >>>, []=, [], ~, call, equals, negate.
  * @description Checks that operator = cannot be defined in a user class.
  * @compile-error
  * @author iefremov

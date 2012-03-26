@@ -6,7 +6,7 @@
 /**
  * @assertion
  * operatorSignature: returnType? operator operator formalParameterList ;
- * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call;
+ * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call | equals;
  * unaryOperator: negateOperator ;
  * binaryOperator: multiplicativeOperator | additiveOperator | shiftOperator |
  *   relationalOperator | equalityOperator | bitwiseOperator ;

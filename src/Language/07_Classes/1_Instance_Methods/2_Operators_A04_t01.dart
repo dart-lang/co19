@@ -6,7 +6,7 @@
 /**
  * @assertion It is a compile-time error if the number of formal parameters 
  * of the user-declared operator with one of the names: 
- * ==, <, >, <=, >=, -, +, ~/, /, *, %, |, ^, &, <<, >>, >>>, [] is not 1.
+ * equals, <, >, <=, >=, -, +, ~/, /, *, %, |, ^, &, <<, >>, >>>, [] is not 1.
  * @description Checks that a compile-time error is produced if a user-defined
  * operator == specifies two parameters.
  * @compile-error
@@ -16,7 +16,7 @@
  */
 
 class C {
-  operator ==(var val, var val2) {}
+  operator equals(var val, var val2) {}
 }
 
 main() {

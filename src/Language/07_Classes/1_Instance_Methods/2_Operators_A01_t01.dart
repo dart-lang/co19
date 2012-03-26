@@ -6,7 +6,7 @@
 /**
  * @assertion
  * operatorSignature: returnType? operator operator formalParameterList ;
- * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call;
+ * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call | equals;
  * unaryOperator: negateOperator ;
  * binaryOperator: multiplicativeOperator | additiveOperator | shiftOperator |
  *   relationalOperator | equalityOperator | bitwiseOperator ;
@@ -34,6 +34,7 @@ class C<T> {
   foo operator *(var v) {}
   T operator >(var v) {}
   bool operator call(u, v) {}
+  bool operator equals(C other) {}
 }
 
 main() {
@@ -46,6 +47,7 @@ main() {
     -c;
     x = ~c;
     x = c(1, 2);
+    x = c == c;
   } catch (var ok) {}
 }
 
