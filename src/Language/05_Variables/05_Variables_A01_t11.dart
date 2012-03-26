@@ -8,8 +8,8 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalVarOrType identifier ;
- * finalVarOrType: final type? | var | type ;
+ * declaredIdentifier: finalConstVarOrType identifier ;
+ * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that an expression cannot be omitted after '=' in the initialized identifier.
  * @author iefremov
  * @compile-error

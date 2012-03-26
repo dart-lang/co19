@@ -4,20 +4,48 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
- * a top level variable declaration with the built-in identifier static.
- * @description Checks that it is a compile-time error occurs if a top level variable declaration
- * is prefaced with the built-in identifier static.
- * @author vasya
- * @reviewer kaigorodov
- * @compile-error
+ * @assertion If a variable declaration does not explicitly specify a type, 
+ * the type of the declared variable(s) is Dynamic, the unknown type (13.6). 
+ * @description Checks that no static warnings are produced when trying to access various
+ * non-existent members and properties of a variable. It means that the return type of the getter is Dynamic.
+ * @author iefremov
  */
 
-#import("library1.dart");
 
 main() {
-  try {
-    foo = 1;
-  } catch(var x){}
-}
+  var foo;
 
+  try {
+    foo.abyr = null;
+    Expect.fail("NullPointerException expected");
+  } catch(NullPointerException ok) {}
+
+  try {
+    foo.abyr(1, 2, 3);
+    Expect.fail("NullPointerException expected");
+  } catch(NullPointerException ok) {}
+
+  try {
+    foo.abyrvalg = null;
+    Expect.fail("NullPointerException expected");
+  } catch(NullPointerException ok) {}
+
+
+  final boo = null;
+
+  try {
+    boo.abyr = null;
+    Expect.fail("NullPointerException expected");
+  } catch(NullPointerException ok) {}
+
+  try {
+    boo.abyr(1, 2, 3);
+    Expect.fail("NullPointerException expected");
+  } catch(NullPointerException ok) {}
+
+  try {
+    boo.abyrvalg = null;
+    Expect.fail("NullPointerException expected");
+  } catch(NullPointerException ok) {}
+
+}

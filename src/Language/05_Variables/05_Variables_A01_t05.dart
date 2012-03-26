@@ -8,8 +8,8 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalVarOrType identifier ;
- * finalVarOrType: final type? | var | type ;
+ * declaredIdentifier: finalConstVarOrType identifier ;
+ * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that variable declaration cannot contain both 'var' and 'type'.
  * @author iefremov
  * @compile-error

@@ -4,26 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A static variable is a variable that is not associated with a 
- * particular instance, but rather with an entire library or class. 
- * @description Checks that a static variable is associated with a class.
- * @author vasya
- * @reviewer kaigorodov
+ * @assertion A constant variable is a variable whose declaration includes the modifier
+ * const. A constant variable is always implicitly final.
+ * @description Checks that a compile-time error occurs if a local typed constant variable is redefined.
+ * @compile-error
+ * @author msyabro
+ * @reviewer iefremov
  */
 
-class C {
-  static var foo;
-  static bool b = true;
-  static int i = -1;
-  static double d = 1.9999;
-  static String s = "static";
-}
-
 main() {
-  Expect.equals(null, C.foo);
-  Expect.equals(true, C.b);
-  Expect.equals(-1, C.i);
-  Expect.equals(1.9999, C.d);
-  Expect.equals("static", C.s);
+  try {
+    const int foo = 1;
+    foo = 2;
+  } catch(var x){}
 }
 

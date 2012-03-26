@@ -8,8 +8,8 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalVarOrType identifier ;
- * finalVarOrType: final type? | var | type ;
+ * declaredIdentifier: finalConstVarOrType identifier ;
+ * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks various valid variable declarations.
  * @author iefremov
  * @reviewer msyabro
@@ -19,11 +19,15 @@ final topLevelFinal = const {};
 final int someConstant = 1;
 bool __1;
 var i2 = 2;
+const topLevelConst = 1;
+const String stringConstant = '';
 
 main() {
   final String $tring = "";
   final v1 = 1, v2 = 2;
   final f = null;
+  const constant = true;
+  const bool anotherConstant = 1 < 2;
   var init = 5;
   var v;
   int i;
@@ -31,9 +35,13 @@ main() {
   String $tring2, $tring3, $$$tring;
   var $, $$, $$$;
   Object list = [], map = {};
+  final x = {}, y = [];
+  const a = const {}, b = const [];
 
   topLevelFinal;
   someConstant;
+  topLevelConst;
+  stringConstant;
   __1;
   i2;
 }

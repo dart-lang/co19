@@ -4,48 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a variable declaration does not explicitly specify a type, 
- * the type of the declared variable(s) is Dynamic, the unknown type (13.6). 
- * @description Checks that no static warnings are produced when trying to access various
- * non-existent members and properties of a variable. It means that the return type of the getter is Dynamic.
- * @author iefremov
+ * @assertion A static variable is a variable that is not associated with a 
+ * particular instance, but rather with an entire library or class. 
+ * @description Checks that a static variable is not associated with a particular instance.
+ * @author kaigorodov
+ * @reviewer iefremov
  */
-
+ 
+class Cl {
+  static var _foo=1;
+  int get foo() {
+    return _foo;
+  }
+  void set foo(int val) {
+    _foo=val;
+  }
+}
 
 main() {
-  var foo;
-
-  try {
-    foo.abyr = null;
-    Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
-
-  try {
-    foo.abyr(1, 2, 3);
-    Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
-
-  try {
-    foo.abyrvalg = null;
-    Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
-
-
-  final boo = null;
-
-  try {
-    boo.abyr = null;
-    Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
-
-  try {
-    boo.abyr(1, 2, 3);
-    Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
-
-  try {
-    boo.abyrvalg = null;
-    Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
-
+  Cl c1=new Cl();
+  Cl c2=new Cl();
+  Expect.equals(1, c1.foo);
+  c2.foo=2;
+  Expect.equals(2, c1.foo);
 }
+

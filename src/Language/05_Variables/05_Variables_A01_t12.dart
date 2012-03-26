@@ -10,14 +10,15 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that variable declaration must have at least one identifier after the comma.
- * @author iefremov
+ * @description Checks that variable declaration cannot contain both 'const' and 'var'.
+ * @author msyabro
+ * @reviewer iefremov
  * @compile-error
  */
 
 main() {
   try {
-    var x, ;
+    const var x = 1;
   }
   catch(var x) {}
 }

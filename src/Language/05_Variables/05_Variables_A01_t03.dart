@@ -8,9 +8,9 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalVarOrType identifier ;
- * finalVarOrType: final type? | var | type ;
- * @description Checks that finalVarOrType is a must in variable declaration.
+ * declaredIdentifier: finalConstVarOrType identifier ;
+ * finalConstVarOrType: final type? | const type? | var | type ;
+ * @description Checks that finalConstVarOrType is a must in variable declaration.
  * @author iefremov
  * @compile-error
  */

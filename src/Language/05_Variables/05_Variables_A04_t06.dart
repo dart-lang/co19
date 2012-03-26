@@ -6,17 +6,17 @@
 /**
  * @assertion A constant variable is a variable whose declaration includes the modifier
  * const. A constant variable is always implicitly final.
- * @description Checks that a compile-time error occurs if a global constant variable is redefined.
+ * @description Checks that a compile-time error occurs if a local typed constant variable is not
+ * initialized at declaration.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
-const foo = true;
-
 main() {
   try {
-    foo = false;
+    const int foo;
+    Expect.equals(null, foo);
   } catch(var x){}
 }
 

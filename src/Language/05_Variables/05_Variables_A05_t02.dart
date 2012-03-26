@@ -4,24 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable that is both static and final must be initialized to 
- * a compile-time constant (10.1) or a compile-time error occurs. 
- * @description Checks that a compile-time error occurs if a static final variable is
+ * @assertion A constant variable must be initialized to a compile-time constant (10.1).
+ * @description Checks that a compile-time error occurs if a constant variable is
  * initialized to a non compile-time constant.
- * @author vasya
- * @reviewer kaigorodov
+ * @author msyabro
+ * @reviewer iefremov
  * @compile-error
  */
 
-class Foo { }
-
-class C {
-  static final Foo foo = new Foo();
-}
+class Foo {}
+const Foo foo = new Foo();
 
 main() {
   try {
-    Expect.isTrue(C.foo is Foo);
+    Expect.isTrue(foo is Foo);
   } catch(var x){}
 }
 

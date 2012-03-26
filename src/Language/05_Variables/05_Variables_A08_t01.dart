@@ -4,21 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a top level variable is initialized with
- * an expression that is not a compile-time constant.
- * @description Checks that it is a compile-time error if a final top level variable is
- * initialized with an expression that is not a compile-time constant.
+ * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
+ * a top level variable declaration with the built-in identifier static.
+ * @description Checks that a compile-time error occurs if a top level variable declaration
+ * is prefaced with the built-in identifier static.
  * @author vasya
  * @reviewer kaigorodov
- * @reviewer iefremov
  * @compile-error
  */
 
-final foo = new List(); // error
+#import("library1.dart");
 
 main() {
   try {
-    Expect.isTrue(foo is List);
+    foo = 1;
   } catch(var x){}
 }
 
