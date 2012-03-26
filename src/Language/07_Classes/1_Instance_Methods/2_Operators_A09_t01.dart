@@ -4,22 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the return type of the user-declared operator []=
- * is explicitly declared and not void.
+ * @assertion It is a static warning if the return type
+ * of the user-declared operator equals is explicitly declared and is not bool.
  * @description Checks that it is a static warning if the return type of
- * the user-declared operator []= is not void.
+ * the user-declared operator equals is explicitly declared and is not bool.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @needsreview Issue 1601
  */
 
 class C {
-  int operator[]=(index, value) {}
-  operator[](index) {}
+  int operator equals(C other) {}
 }
 
 main() {
   C c = new C();
-  c[0] = null;
+  c == new C();
 }
