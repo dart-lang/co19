@@ -9,7 +9,7 @@
  * When this future gets a value, [transformation] will be called on the
  * value, and the returned future will receive the result.
  * @description Checks that [transformation] is not called
- * if a promise completes with an exception.
+ * if a future completes with an exception.
  * @author msyabro
  * @reviewer kaigorodov
  */

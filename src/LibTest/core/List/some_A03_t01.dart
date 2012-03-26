@@ -36,7 +36,6 @@ main() {
   check(false);
   check(1);
   check("every");
-  check(new Promise<f>());
   check([1, 2, 3]);
   check(new A());
 }
