@@ -19,6 +19,7 @@
  *   variableDeclaration ';'
  * ;
  * @description Checks that valid interface declarations don't produce a compile-time error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
