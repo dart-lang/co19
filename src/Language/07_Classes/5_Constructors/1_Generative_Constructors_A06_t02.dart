@@ -15,7 +15,7 @@
 var global = "";
 
 class A {
-  A() {global += "A";}
+  A() {global = "${global}A";}
 }
 
 class C extends A {
@@ -24,6 +24,6 @@ class C extends A {
 }
 
 main() {
-  var c = new C(_() {global += "C";});
+  var c = new C(_() {global = "${global}C";});
   Expect.equals("CA", global, "implicit superinitializer was called before initializers!");
 }

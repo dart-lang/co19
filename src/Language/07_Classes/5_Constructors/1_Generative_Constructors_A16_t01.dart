@@ -4,24 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The initializing formal does effect the type of the constructor function 
- * exactly as if a formal parameter named id in the same position would.
- * @description Checks that an initializing formal affects the type of the constructor
- * function the same way a regular formal parameter of the same static type would.
- * @author rodionov
- * @needsreview There doesn't seem to be a way to reference a constructor the same way
- * you can reference a method.
+ * @assertion If an explicit type is attached to the initializing formal, that is its static
+ * type. Otherwise, the type of an initializing formal named id is Tid, where Tid is
+ * the type of the field named id in the immediately enclosing class.
+ * @description Checks that it's a static-type warning if an explicit type
+ * of an initializing formal is not assignable to the type of the corresponding field.
+ * @static-warning
+ * @author msyabro
+ * @reviewer iefremov
  */
 
-typedef void FI(int);
-typedef void FS(String);
+#import('../../../Utils/dynamic_check.dart');
 
 class C {
-  int x;
-  C(this.x) {}
+  C(int this.x) {}
+
+  String x;
 }
 
 main() {
-//  Expect.isTrue(C.C is FI);
-//  Expect.isFalse(C.C is FS);
+  checkTypeError(() => new C(1));
 }
+
+

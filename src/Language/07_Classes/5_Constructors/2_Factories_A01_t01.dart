@@ -48,12 +48,13 @@ class Z implements I {
 class AImpl implements lib.A {
   int methodA() { return 1; }
   int methodB() { return 2; }
- }
+}
 
- class ADef {
+class ADef {
   // References an interface in another library
   factory lib.A () { return new AImpl(); }
- }
+  factory lib.A.named() {return new AImpl();}
+}
 
  main() {
   new Iface(1);
@@ -78,6 +79,11 @@ class AImpl implements lib.A {
   new Z.named2(1, new C(), "");
 
   var val = new lib.A();
+  Expect.equals(true, (val is AImpl));
+  Expect.equals(1, val.methodA());
+  Expect.equals(2, val.methodB());
+
+  val = new lib.A.named();
   Expect.equals(true, (val is AImpl));
   Expect.equals(1, val.methodA());
   Expect.equals(2, val.methodB());

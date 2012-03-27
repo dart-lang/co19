@@ -4,5 +4,6 @@
 // References a factory class in another library
 interface A default test.ADef {
  A();
+  A.named();
  int methodA();
 }

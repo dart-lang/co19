@@ -8,7 +8,7 @@
  * - First, a fresh instance (7.5.1) i of the immediately enclosing class is allocated.
  * - Next, the instance variable declarations of the immediately enclosing class are
  *   visited in the order they appear in the program text. For each such declaration
- *   d, if d has the form finalVarOrType v = e; then the instance variable v
+ *   d, if d has the form finalConstVarOrType v = e; then the instance variable v
  *   of i is bound to the value of e (which is necessarily a compile-time constant).
  * - Next, any initializing formals declared in the constructor's parameter list are
  *   executed in the order they appear in the program text. 
@@ -25,7 +25,7 @@
 
 var log;
 writeLog(var v) {
-  log += v;
+  log = '$log$v';
 }
 
 class C {
