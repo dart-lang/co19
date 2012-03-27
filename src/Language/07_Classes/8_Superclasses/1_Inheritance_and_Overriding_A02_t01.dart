@@ -6,7 +6,7 @@
 /**
  * @assertion Let C be a class declared in library L, with superclass S and let
  * C declare an instance member m, and assume S declares an instance member m'
- * with the same name as m. Then m overrides m' if m is accessible (3.2) to L
+ * with the same name as m. Then m overrides m' iff m' is accessible (3.2) to L
  * and one of the following holds:
  * - m is an instance method.
  * - m is a getter and m' is a getter or a method.
