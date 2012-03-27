@@ -17,9 +17,9 @@ main() {
   {
     var i = "1";
     Expect.equals("1", i);
-    i += "2";
+    i = "${i}2";
     Expect.equals("12", i);
-    i += "3";
+    i = "${i}3";
     Expect.equals("123", i);
   }
 }

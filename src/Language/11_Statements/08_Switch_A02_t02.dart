@@ -26,7 +26,7 @@
 String log = "";
 
 f(value) {
-  log += value.toString();
+  log = '$log$value';
   return value;
 }
 

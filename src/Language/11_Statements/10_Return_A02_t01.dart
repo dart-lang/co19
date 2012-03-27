@@ -33,7 +33,7 @@ class A {
 
 main() {
   Expect.equals(3, foo(1, 2));
-  Expect.equals("foobar", foo("foo", "bar"));
+  //Expect.equals("foobar", foo("foo", "bar"));
 
   try {
     Expect.equals(100, bar(new A())); // can't be true, can it?

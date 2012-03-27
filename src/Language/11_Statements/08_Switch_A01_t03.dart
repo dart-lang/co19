@@ -26,9 +26,9 @@ foo(value, value2){
     case 0: 
       result = "0";
       switch(value2) {
-        case "foo": result += "FOO"; break;
-        case "bar": result += "BAR"; break;
-        default: result += "NULL";
+        case "foo": result = "${result}FOO"; break;
+        case "bar": result = "${result}BAR"; break;
+        default: result = "${result}NULL";
       }
       break;
     default: result = "NULL";

@@ -35,7 +35,7 @@ main() {
   e = true || false;
   Expect.equals(true, e);
 
-  e = "A" + "B";
+  e = "A" "B";
   Expect.equals("AB", e);
 
   e = foo(0, 1, 2);

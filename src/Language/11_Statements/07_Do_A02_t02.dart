@@ -22,7 +22,7 @@ main() {
   var log = "";
   do
     log += "statement";
-  while (bool (){log+="expression"; return false;}());
-  Expect.equals("statementexpression", log);
+  while (bool (){log="${log} expression"; return false;}());
+  Expect.equals("statement expression", log);
 }
 

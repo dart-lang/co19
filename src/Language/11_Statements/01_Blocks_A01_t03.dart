@@ -12,27 +12,28 @@
  */
 
 main() {
-  var i = "1";
+  var i = new StringBuffer();
+  i.add(1);
   {
-    i += "2";
+    i.add(2);
     {
-      i += "3";
+      i.add(3);
     }
-    i += "4";
+    i.add(4);
     {
-      i += "5";
+      i.add(5);
       {
-        i += "6";
+        i.add(6);
       }
-      i += "7";
+      i.add(7);
     }
-    i += "8";
+    i.add(8);
     {
-      i += "9";
+      i.add(9);
     }
-    i += "10";
+    i.add(10);
   }
-  i += "11";
-  Expect.equals("1234567891011", i);
+  i.add(11);
+  Expect.equals("1234567891011", i.toString());
 }
 

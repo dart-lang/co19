@@ -27,7 +27,7 @@
 main() {
   String log = "";
   for (var i = 0; i < 1; i++) {
-    log += "ok";
+    log =  "${log}ok";
   }
   Expect.equals("ok", log);
 }
