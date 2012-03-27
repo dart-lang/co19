@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If no constructor is specified for a class C, it implicitly has
+ * @assertion Iff no constructor is specified for a class C, it implicitly has
  * a default constructor C() : super() {}, unless it is class Object.
  * @description Checks that 'default' constructor is not generated if the class 
  * declares a named constructor.

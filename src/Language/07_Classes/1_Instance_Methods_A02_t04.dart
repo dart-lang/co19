@@ -15,11 +15,11 @@
  */
 
 class A {
-  f([var x1, var x2, var wrongOrder1, var wrongOrder2]) { return x1+wrongOrder2; }
+  f([var x1, var x2, var wrongOrder1, var wrongOrder2]) { return '$x1$wrongOrder2'; }
 }
 
 class C extends A {
-  f([var x1, var x2, var wrongOrder2, var wrongOrder1]) { return x1+wrongOrder1; }
+  f([var x1, var x2, var wrongOrder2, var wrongOrder1]) { return '$x1$wrongOrder1'; }
 }
 
 main() {

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the implements clause of an class C
+ * @assertion It is a compile-time error if the implements clause of a class C
  * includes a type expression that does not denote a class or interface available
  * in the lexical scope of C.
  * @description Checks that it is a compile-time error when the type expression

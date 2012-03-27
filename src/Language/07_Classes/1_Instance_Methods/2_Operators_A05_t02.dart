@@ -12,7 +12,6 @@
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov
- * @needsreview issue 979
  */
 
 class C {

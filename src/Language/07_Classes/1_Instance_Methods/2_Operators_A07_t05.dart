@@ -8,6 +8,7 @@
  * with the exception of the operator call.
  * @description Checks that operator call can contain optional named parameters.
  * @author msyabro
+ * @reviewer iefremov
  * @needsreview Issue 1604
  */
 

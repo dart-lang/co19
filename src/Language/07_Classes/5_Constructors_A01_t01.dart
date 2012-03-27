@@ -6,6 +6,8 @@
 /**
  * @assertion A constructor name always begins with the name of its immediately enclosing
  * class or interface, and may optionally be followed by a dot and an identifier.
+ * It is a compile-time error if the name of a non-factory constructor is not a
+ * constructor name.
  * @description Checks that a compile-error is produced when a named constructor
  * definition does not begin with the name of its class.
  * @author iefremov

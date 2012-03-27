@@ -10,6 +10,7 @@
  * are accessed using a variable whose type is a class type implementing that superinterface and whose
  * value is null. NullPointerException is fully expected and caught. 
  * @author rodionov
+ * @needsreview - static-warning is produced
  */
 
 interface I {
