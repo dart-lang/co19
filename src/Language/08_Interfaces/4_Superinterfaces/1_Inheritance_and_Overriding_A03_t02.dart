@@ -8,7 +8,7 @@
  * inherited from its superinterfaces.
  * Let I be an interface declared in library L, with superinterface S and let I declare 
  * an instance member m, and assume S declares an instance member m' with the same name as m. 
- * Then m overrides m' iff m is accessible (3.2) to L and one of the following holds:
+ * Then m overrides m' iff m' is accessible (3.2) to L and one of the following holds:
  * - m is an instance method.
  * - m is a getter and m' is a getter or a method.
  * - m is a setter and m' is a setter or a method.
@@ -21,7 +21,7 @@
  * without any static type warnings if its type is a subtype of the superinterface's getter's type.
  * @author rodionov
  * @reviewer kaigorodov
- * @note Only makes sense when static checker is used (and dartc's seems to be stricter than VM's)
+ * @note Only makes sense when static checker is used
  */
 
 interface I {
