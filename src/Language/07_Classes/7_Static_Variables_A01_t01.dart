@@ -4,25 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A static variable declaration of one of the forms static T v;,
- * static T v = e; or static final T v = e; always induces an implicit static
- * getter function (7.2) with signature static T get v() whose invocation
- * evaluates to the value stored in v.
- * @description Checks that one can indeed retrieve the value of a static variable declared
- * using either way, by invoking these getters.
- * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
+ * @assertion A static variable declaration of one of the forms static T v;, static T v = e;,
+ * static  const T v = e;  or static final T v = e; always induces an implicit static
+ * getter function with signature static T get v().
+ * @description Checks that the returned type of this implicit getter is the same as the
+ * static field's type by assigning the result of its invocation to a variable of the same type.
+ * @author msyabro
  */
 
 class A {
   static int a;
-  static int b = 1;
-  static final int c = 2;
+  static bool b = true;
+  static final String c = '';
+  static const List l = const [];
 }
 
 main() {
-  Expect.equals(null, A.a);
-  Expect.equals(1, A.b);
-  Expect.equals(2, A.c);
+  int a = A.a;
+  bool b = A.b;
+  String c = A.c;
+  List l = A.l;
 }

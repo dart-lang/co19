@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A static variable declaration of the form static var v; or the
+ * @assertion A non-final static variable declaration of the form static var v; or the
  * form static var v = e; always induces an implicit static setter function
  * with signature static set v(x) whose execution sets the value of v to the
  * incoming argument x.

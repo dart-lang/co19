@@ -4,25 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A static variable declaration of one of the forms static var v;,
- * static var v = e; or static final v = e; always induces an implicit static
- * getter function with signature static get v() whose invocation evaluates to
- * the value stored in v.
- * @description Checks that one can indeed retrieve the value of a static variable
- * declared using either way, by invoking these getters.
- * @author pagolubev
+ * @assertion A static variable declaration of one of the forms static var  v;,
+ * static var  v = e; static  const v = e;  or static final v = e; always induces
+ * an implicit static getter function with signature static get v().
+ * @description Checks that the returned type of this implicit getter is the same as the
+ * static field's type (Dynamic), by making sure there're no static warnings when invoking
+ * non-existing methods on the value returned by these getters.
+ * @author rodionov
  * @reviewer msyabro
- * @reviewer rodionov
+ * @note This test only makes sense in the presence of static checker.
  */
 
 class A {
   static var a;
-  static var b = 1;
-  static final c = 2;
+  static var b = null;
+  static final c = null;
+  static const d = null;
 }
 
 main() {
-  Expect.equals(null, A.a);
-  Expect.equals(1, A.b);
-  Expect.equals(2, A.c);
+  try {
+    A.a.nonexistent();
+  } catch (NullPointerException e) {}
+  
+  try {
+    A.b.nonexistent();
+  } catch (NullPointerException e) {}
+  
+  try {
+    A.c.nonexistent();
+  } catch (NullPointerException e) {}
+
+  try {
+    A.d.nonexistent();
+  } catch (NullPointerException e) {}
 }
