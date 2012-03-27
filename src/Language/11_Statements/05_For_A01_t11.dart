@@ -21,6 +21,7 @@
  * do not cause any errors.
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
  */
 
 bool f() {return true;}
@@ -33,9 +34,10 @@ main() {
   for(int i = 100; i < 101;) break;
   for(int i = 100;;) break;
   for(;;) break;
-  for(var f = () => null;;) break;
-  for(final f = const [];;) break;
-  for(var f = {};;) break;
+  for(var y = () => null;;) break;
+  for(var y = () {for(;;) break;} ;;) break;
+  for(final y = const [];;) break;
+  for(var y = {};;) break;
   for(x = {};;) break;
   for(x = null;;) break;
 
@@ -45,8 +47,15 @@ main() {
   
   for(f(); f(); f(), f()) break;
   for(f(); f() ? true : false;) break;
-  for(f() ? f() : 25.0; f() ? false : true; 1 ? "foo" : 11, i * 2) break;
+  for(f() ? f() : 25.0; f() ? false : true; false ? "foo" : 11, i * 2) break;
 
-
+  //foreach
+  for(var i in [1, 2]) break;
+  for(int i  in [1, 2]) break;
+  for(final i in const []) break;
+  for(final String s in ['a', 'b', 'c']) break;
+  for(const x in []) break;
+  for(const int x in const [1, 2, 3]) break;
+  for(i in const [1, 2, 3, 4, 5]) break;
 }
 

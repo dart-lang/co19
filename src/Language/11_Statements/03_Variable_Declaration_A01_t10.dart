@@ -15,7 +15,7 @@
 
 main() {
   try {
-    var i = i;
+    int i = i;
   } catch (var ok) {}
 }
 

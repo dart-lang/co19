@@ -19,6 +19,7 @@
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
  * @description Checks that it is a dynamic type error if c is not of type bool
  * in checked mode. 
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

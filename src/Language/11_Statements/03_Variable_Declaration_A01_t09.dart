@@ -14,7 +14,7 @@
 main() {
   try {
     Expect.equals(null, i);
-    var i;
+    int i;
   } catch (var ok) {}
 }
 
