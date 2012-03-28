@@ -20,7 +20,7 @@
  * @reviewer kaigorodov
  */
 
-String buffer;
+StringBuffer buffer;
 
 class S {
   var f;
@@ -28,17 +28,17 @@ class S {
 
 class A extends S {
   operator+(otherOperand) {
-    buffer += "1";
+    buffer.add(1);
   }
   operator-(otherOperand) {
-    buffer += "2";
+    buffer.add(2);
   }
   test() {
-    buffer = "";
+    buffer = new StringBuffer();
     try {
       super.f(new A() + 1, new A() - 1);
     } catch(ObjectNotClosureException e) {
-      Expect.equals("12", buffer);
+      Expect.equals("12", buffer.toString());
     }
   }
 }

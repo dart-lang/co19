@@ -9,22 +9,45 @@
  * of the getter invocation super.m. If vg is a function then it is called with the
  * evaluated argument list. The value of i is the value returned after vg is executed.
  * If vg is not a function then an ObjectNotAClosure is thrown.
- * @description Checks that ObjectNotClosureException is thrown if getter is not a function
- * and getter is declared explicitly.
+ * @description Checks that the value of the expression is the value returned after vg is executed.
  * @author msyabro
+ * @reviewer kaigorodov
  * @needsreview Issue 1244
  */
 
+f1() {
+  return "v";
+}
+
+f2() {
+  return false;
+}
+
+f3() {
+  return 1;
+}
+
+f4() {
+  return null;
+}
+
 class S {
-  get func() {}
+  Function func;
 }
 
 class A extends S {
-  test() {
-    try {
-      super.func();
-      Expect.fail("ObjectNotClosureException is expected");
-    } catch(ObjectNotClosureException e) {}
+  test()  {
+    super.func = f1;
+    Expect.equals("v", super.func());
+
+    super.func = f2;
+    Expect.equals(false, super.func());
+
+    super.func = f3;
+    Expect.equals(1, super.func());
+  
+    super.func = f4;
+    Expect.equals(null, super.func());
   }
 }
 

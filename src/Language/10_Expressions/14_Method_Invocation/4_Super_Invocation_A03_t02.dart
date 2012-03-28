@@ -12,6 +12,7 @@
  * @description Checks that ObjectNotClosureException is thrown if getter is not a function
  * and getter is declared implicitly.
  * @author msyabro
+ * @reviewer kaigorodov
  * @needsreview Issue 1244
  */
 

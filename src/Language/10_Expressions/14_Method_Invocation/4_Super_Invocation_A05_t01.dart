@@ -11,6 +11,7 @@
  * a super method invocation occurs in a top-level function.
  * @compile-error
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 main() {

@@ -9,8 +9,9 @@
  * arguments m, this, [o1, ... , on] and fxn+1 : on+1, ... , xn+k : on+kg. Then the
  * method noSuchMethod() is looked up in S and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
- * @description Checks the result of invocation if the method and getter lookups have failed.
+ * @description Checks the result of invocation if the method noSuchMethod() invoked.
  * @author msyabro
+ * @reviewer kaigorodov
  * @needsreview Issue 1244
  */
 

@@ -17,29 +17,29 @@
  * @reviewer kaigorodov
  */
 
-String buffer;
+StringBuffer buffer;
 
 class A {
   operator+(otherOperand) {
-    buffer += "2";
+    buffer.add(2);
   }
   operator-(otherOperand) {
-    buffer += "3";
+    buffer.add(3);
   }
 }
 
 class C {
   static get m() {
-    buffer += "1";
+    buffer.add(1);
     return func;
   }
   static func(arg1, arg2) {
-    buffer += "4";
+    buffer.add(4);
   }
 }
 
 main()  {
-  buffer = "";
+  buffer = new StringBuffer();
   C.m(new A() + 1, new A() - 1);
-  Expect.equals("1234", buffer);
+  Expect.equals("1234", buffer.toString());
 }

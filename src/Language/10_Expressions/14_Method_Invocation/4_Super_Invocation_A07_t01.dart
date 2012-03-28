@@ -9,6 +9,7 @@
  * @description Checks that it is a static type warning if S.m can not be assigned to a function type.
  * @static-warning
  * @author msyabro
+ * @reviewer kaigorodov
  * @needsreview Issue 1244
  */
 
