@@ -13,6 +13,7 @@
  * in the class C.
  * @expected-output C.m()
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class S {

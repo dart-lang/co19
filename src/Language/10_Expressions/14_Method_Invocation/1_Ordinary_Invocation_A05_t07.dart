@@ -15,29 +15,31 @@
  * arguments m, this, [o1, ... , on] and fxn+1 : on+1, ... , xn+k : on+kg. Then the
  * method noSuchMethod() is looked up in o and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
- * @description Checks that noSuchMethod is called when vg is not a function (doesn't have the method call)
- * and getter is declared explicitly.
+ * @description Checks that noSuchMethod() is invoked on functions if the method and getter lookup has failed.
  * @author msyabro
- * @needsreview issue 1604
  */
 
-class TestException {}
-
-class A {
-  noSuchMethod(funcName, funcArgs) {
-    Expect.equals('call', funcName);
-    throw new TestException();
-  }
-}
+func() {}
 
 class C {
-  get func() => new A();
+  method() {}
 }
 
 main()  {
-  var o = new C();
+  localFunc() {}
+
   try {
-    o.func();
-    Expect.fail("TestException is expected");
-  } catch(TestException e) {}
+    func.someMethod();
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
+
+  try {
+    localFunc.someMethod();
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
+
+  try {
+    new C().method.someMethod();
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 }

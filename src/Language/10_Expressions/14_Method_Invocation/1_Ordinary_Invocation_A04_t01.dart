@@ -19,44 +19,44 @@
  * @reviewer kaigorodov
  */
 
-String buffer;
+StringBuffer buffer;
 
 class A {
   operator+(otherOperand) {
-    buffer += "2";
+    buffer.add(2);
     return null;
   }
   operator-(otherOperand) {
-    buffer += "3";
+    buffer.add(3);
     return null;
   }
 }
 
 class B {
   B() {
-    buffer += "5";
+    buffer.add(5);
   }
 }
 
 class C {
   C() {
-    buffer += "4";
+    buffer.add(4);
   }
 }
 
 class O {
   operator+(otherOperand) {
-    buffer += "1";
+    buffer.add(1);
     return new O();
   }
   method(var a, var b, [var c = null, var d = null]) {}
 }
 
 main() {
-  buffer = "";
+  buffer = new StringBuffer();
   var o = new O();
   (o + 1).method(new A() + 1, new A() - 2, d: new C(), c: new B());
-  Expect.equals("12345", buffer);
+  Expect.equals("12345", buffer.toString());
 }
 
 
