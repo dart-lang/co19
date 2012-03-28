@@ -13,10 +13,11 @@
  * class or interface accessible in the current scope. Named constructor case.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {
   try {
-    const A.named();
+    const UnavailableType.named();
   } catch(var e) {}
 }

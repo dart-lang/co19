@@ -13,6 +13,7 @@
  * @description Checks that type arguments are bound correctly when evaluating
  * the initializer list.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class D {}
@@ -22,22 +23,42 @@ var p2;
 var p3;
 
 class A<T, U, V> {
-  A():this.redirected();
-  A.redirected(): x = p1, y = p2, z = p3 {}
+  A() : this.redirected();
+  
+  A.redirected(): x = p1, y = p2, z = p3 {
+    Expect.equals(1, x);
+    Expect.equals("", y);
+    Expect.isNotNull(z);
+    Expect.identical(p3, z);
+    Expect.isTrue(z is D);
+  }
+  
   T x;
   U y;
   V z;
 }
 
 class B <T extends A> {
-  B():this.redirected();
-  B.redirected(): t = new A() {}
+  B() : this.redirected();
+  
+  B.redirected(): t = new A() {
+    Expect.isNotNull(t);
+    Expect.isTrue(t is A);
+  }
+
   T t;
 }
 
 class C<T, U> {
-  C.name():this.redirected();
-  C.redirected(): a = p1, b = p3 {}
+  C.name() : this.redirected();
+  
+  C.redirected(): a = p1, b = p3 {
+    Expect.equals(p1, a);
+    Expect.identical(p3, b);
+    Expect.isNotNull(b);
+    Expect.isTrue(b is D);
+  }
+
   T a;
   U b;
 }

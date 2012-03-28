@@ -12,6 +12,7 @@
  * evaluation of e is i.
  * @description Checks that arguments of a constructor and instance variables are bound correctly.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 int factoryA = 0;
@@ -47,9 +48,8 @@ class B implements J{
 }
 
 main() {
-  new I(1 + 2, "a" + "b");
+  new I(1 + 2, "a" "b");
   new J.name(20/ 2, true && false);
   Expect.equals(1, factoryA);
   Expect.equals(1, factoryB);
 }
-

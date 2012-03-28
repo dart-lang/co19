@@ -9,9 +9,10 @@
  *   new type ('.' identifier)? arguments
  * ;
  * @description Checks that it is a compile-time error if
- * a named constructor is invoked without an identifier.
+ * a the identifier of a named constructor in a new expression is empty.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {

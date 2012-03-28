@@ -17,42 +17,43 @@
  * @description Checks the order of a new expression with named constructor evaluation
  * taking into account the evaluation of the super constructor.
  * @author msyabro
- * @needsreview Issue 257, TODO: file issue on documentation, evaluation order of superclass body is not documented
+ * @reviewer rodionov
  */
 
 var evalOrder;
 
 f(p1) {
-  evalOrder += p1.toString();
+  evalOrder.add(p1);
 }
 
 class A {
-  operator+(otherOperand) {
-    evalOrder += otherOperand.toString();
-    return otherOperand + 3;
+  logAndAdd1(arg) {
+    evalOrder.add(arg);
+    return arg + 1;
   }
-  operator-(otherOperand) {
-    evalOrder += otherOperand.toString();
-    return otherOperand + 1;
+  
+  logAndAdd3(arg) {
+    evalOrder.add(arg);
+    return arg + 3;
   }
 }
 
 class S {
   S(p1): x = f(p1) {
-    evalOrder += "5";
+    evalOrder.add(5);
   }
   var x;
 }
 
 class C extends S {
-  C.name(p1): super(new A() - 2), y = f(p1) {
-    evalOrder += "6";
+  C.name(p1): super(new A().logAndAdd1(2)), y = f(p1) {
+    evalOrder.add(6);
   }
   var y;
 }
 
 main() {
-  evalOrder = "";
-  new C.name(new A() + 1);
-  Expect.equals("123456", evalOrder);
+  evalOrder = new StringBuffer();
+  new C.name(new A().logAndAdd3(1));
+  Expect.equals("123456", evalOrder.toString());
 }

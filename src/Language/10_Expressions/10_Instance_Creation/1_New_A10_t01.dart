@@ -12,6 +12,7 @@
  * of another constructor call. The result of the evaluation of e is i.
  * @description Checks that arguments of a constructor and instance variables are bound correctly.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 f(p1) {

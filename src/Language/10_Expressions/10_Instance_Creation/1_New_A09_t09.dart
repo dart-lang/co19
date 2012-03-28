@@ -17,12 +17,14 @@
  * @description Checks the order of a new expression with named constructor evaluation
  * taking into account the evaluation of the super constructor which is a redirecting one.
  * @author iefremov
- * @needsreview Issue 257, TODO: file issue on documentation, evaluation order of superclass body is not documented
+ * @reviewer rodionov
+ * @note http://code.google.com/p/dart/issues/detail?id=1372
  */
 
-var evalOrder = "";
+var evalOrder = '';
+
 log(var s) {
-  evalOrder += s;
+  evalOrder = '$evalOrder$s';
 }
 
 class A {
@@ -46,6 +48,8 @@ class B extends A {
 main() {
   new B();
   Expect.equals("123", evalOrder, "Super constructor was not executed properly!");
+  
+  evalOrder = "";
   new B.b2();
-  Expect.equals("123123", evalOrder, "Super constructor was not executed properly!");
+  Expect.equals("123", evalOrder, "Super constructor was not executed properly!");
 }

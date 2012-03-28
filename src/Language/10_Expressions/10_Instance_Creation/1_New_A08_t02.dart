@@ -17,8 +17,10 @@
  * First, if q is a generative constructor, then:
  * A fresh instance, i, of class C is allocated.
  * @description Checks that a fresh instance is allocated with every constructor invocation
- * even if the class has only constant constructor.
+ * even if the class has only constant constructors, one of which is being invoked by the new
+ * expression.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {

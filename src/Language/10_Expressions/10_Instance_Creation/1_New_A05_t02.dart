@@ -6,16 +6,17 @@
 /**
  * @assertion If T is a parameterized type S < U1, ... , Um >, let R = S. It is a
  * compile-time error if S is not a generic type with m type parameters.
- * @description Checks that it is a compile-time error if S is not a generic type.
+ * @description Checks that it is a compile-time error if S is a generic type but
+ * has fewer type parameters than provided in the new expression.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-class A {}
+class A<T> {}
 
 main() {
   try {
-    new A<int>();
+    new A<int, bool>();
   } catch(var e) {}
 }

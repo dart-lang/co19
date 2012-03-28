@@ -6,27 +6,21 @@
 /**
  * @assertion Let e be a constant object expression of the form
  * const T.id(a1, .., an, xn+1: an+1, …, xn+k: an+k) or the form
- * const T(a1, .., an, xn+1: an+1, …, xn+k: an+k). It is a compile-time error
- * if T includes any type variables.
- * @description Checks that it is a compile-time error if T
- * includes any type variables as a type argument.
+ * const T(a1, .., an, xn+1: an+1, …, xn+k: an+k). It is a compile-time error if
+ * T is not a class or interface accessible in the current scope,
+ * optionally followed by type arguments.
+ * @description Checks that it is a compile-time error if T is a reference to
+ * a static method.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
-class S<U> {
-  const S();
-}
-
-class A<T> {
-  test() {
-    const S<T>(); //type variable as a type argument
-  }
+class A {
+  static method() {}
 }
 
 main() {
   try {
-    new A<int>().test();
+    const A.method();
   } catch(var e) {}
 }

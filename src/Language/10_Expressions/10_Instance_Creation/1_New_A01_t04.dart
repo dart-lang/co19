@@ -12,6 +12,7 @@
  * a constructor is invoked without new (or const) keyword.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {

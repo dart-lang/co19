@@ -10,21 +10,19 @@
  * in an uncaught exception being thrown.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
-  const A(var p1, var p2): x = p1 + p2;
+  const A(): x = 1 ~/ 0; // IntegerDivisionByZeroException
   final x;
 }
 
 class B {
   const B();
-  /*operator+(otherB) {
-    return new B();
-  }*/
 }
 
-var a = const A(const B(), const B());
+final a = const A();
 
 main() {
   try {

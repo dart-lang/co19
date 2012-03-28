@@ -22,7 +22,8 @@
  * a subtype of its bound in interface R.
  * @static-warning
  * @author msyabro
- * @needsreview Issue 1380
+ * @reviewer rodionov
+ * @needsreview http://code.google.com/p/dart/issues/detail?id=1380
  */
 
 #import("../../../Utils/dynamic_check.dart");

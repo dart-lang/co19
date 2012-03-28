@@ -14,9 +14,10 @@
  * V1, ... , Vm. Finally, the body of q is executed with respect to the bindings that
  * resulted from the evaluation of the argument list. The result of the evaluation
  * of e is i.
- * @description Checks that [:this:] is bound correctly when evaluating
+ * @description Checks that this.varName initializers are bound correctly when evaluating
  * the initializer list.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

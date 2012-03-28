@@ -11,6 +11,7 @@
  * declares a non-constant constructor with the same name as the declaration of T.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class  T {

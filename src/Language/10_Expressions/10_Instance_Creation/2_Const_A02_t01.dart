@@ -13,10 +13,11 @@
  * class or interface accessible in the current scope.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {
   try {
-    const A();
+    const UnavailableType();
   } catch(var e) {}
 }

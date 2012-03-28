@@ -15,6 +15,7 @@
  * of the named constructor.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

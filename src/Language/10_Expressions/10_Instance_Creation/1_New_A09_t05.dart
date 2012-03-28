@@ -17,31 +17,32 @@
  * @description Checks the order of a new expression evaluation with
  * named constructor.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 var evalOrder;
 
 f(p1) {
-  evalOrder += p1.toString();
+  evalOrder.add(p1);
 }
 
 class A {
-  operator+(otherOperand) {
-    evalOrder += otherOperand.toString();
-    return otherOperand + 2;
+  logAndAdd2(arg) {
+    evalOrder.add(arg);
+    return arg + 2;
   }
 }
 
 class C {
   C.name(p1, p2): x = f(p1), y = f(p2) {
-    evalOrder += "5";
+    evalOrder.add(5);
   }
   var x;
   var y;
 }
 
 main() {
-  evalOrder = "";
-  new C.name(new A() + 1, new A() + 2);
-  Expect.equals("12345", evalOrder);
+  evalOrder = new StringBuffer();
+  new C.name(new A().logAndAdd2(1), new A().logAndAdd2(2));
+  Expect.equals("12345", evalOrder.toString());
 }

@@ -12,6 +12,7 @@
  * a constant object expression does not have arguments.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {

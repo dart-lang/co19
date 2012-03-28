@@ -12,14 +12,15 @@
  * evaluation of e is i.
  * @description Checks the order of a new expression evaluation.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 var evalOrder;
 
 class A {
-  operator+(otherOperand) {
-    evalOrder += otherOperand.toString();
-    return otherOperand + 2;
+  logAndAdd2(arg) {
+    evalOrder.add(arg);
+    return arg + 2;
   }
 }
 
@@ -29,12 +30,12 @@ interface I default F{
 
 class F {
   factory I(p1, p2) {
-    evalOrder += "3";
+    evalOrder.add(3);
   }
 }
 
 main() {
-  evalOrder = "";
-  new I(new A() + 1, new A() + 2);
-  Expect.equals("123", evalOrder);
+  evalOrder = new StringBuffer();
+  new I(new A().logAndAdd2(1), new A().logAndAdd2(2));
+  Expect.equals("123", evalOrder.toString());
 }

@@ -5,12 +5,13 @@
  */
 /**
  * @assertion If e of the form new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) it is
- * compile-time error if the type T does not declare a constructor with the same
+ * a compile-time error if the type T does not declare a constructor with the same
  * name as the declaration of T.
  * @description Checks that it is a compile-time error if a class does not declare
  * a constructor with the same name.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

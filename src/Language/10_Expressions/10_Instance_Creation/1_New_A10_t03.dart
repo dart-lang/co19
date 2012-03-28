@@ -12,32 +12,33 @@
  * of another constructor call. The result of the evaluation of e is i.
  * @description Checks the order of a new expression evaluation.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 var evalOrder;
 
 f(p1) {
-  evalOrder += p1.toString();
+  evalOrder.add(p1);
 }
 
 class A {
-  operator+(otherOperand) {
-    evalOrder += otherOperand.toString();
-    return otherOperand + 2;
+  logAndAdd2(arg) {
+    evalOrder.add(arg);
+    return arg + 2;
   }
 }
 
 class C {
-  C(p1): this.redirected(p1, new A() + 2);
+  C(p1): this.redirected(p1, new A().logAndAdd2(2));
   C.redirected(p1, p2): x = f(p1), y = f(p2) {
-    evalOrder += "5";
+    evalOrder.add(5);
   }
   var x;
   var y;
 }
 
 main() {
-  evalOrder = "";
-  new C(new A() + 1);
-  Expect.equals("12345", evalOrder);
+  evalOrder = new StringBuffer();
+  new C(new A().logAndAdd2(1));
+  Expect.equals("12345", evalOrder.toString());
 }

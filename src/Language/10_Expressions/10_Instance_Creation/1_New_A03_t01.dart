@@ -6,10 +6,11 @@
 /**
  * @assertion If e of the form new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) it is a
  * compile-time error if T.id is not the name of a constructor declared by the type T.
- * @description Checks that it is a compile-time error if a class does not declare
- * named constructor T.id.
+ * @description Checks that it is a compile-time error if the type being instantiated 
+ * does not declare a named constructor T.id.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {}

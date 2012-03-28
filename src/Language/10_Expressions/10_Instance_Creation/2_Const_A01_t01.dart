@@ -8,15 +8,17 @@
  * constObjectExpression:
  *   const type ('.' identifier)? arguments
  * ;
- * @description Checks that various new expressions don't
+ * @description Checks that various valid constant object expressions don't
  * produce compile-time errors.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
   const A();
   const A.anotherConstructor(p1, p2);
 }
+
 class B {
   const B(p1);
   const B.b([p1, p2]);
@@ -32,6 +34,7 @@ main() {
 
   const B(const A());
   const B.b(p2: "", p1: null);
+  const B.b(p2: "p2");
 
   const C._1(const [], const {});
 }

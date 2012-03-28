@@ -9,9 +9,10 @@
  * It is a static warning if the static type of ai, 1 <= i <= n+ k may not be assigned
  * to the type of the corresponding formal parameter of the constructor T.id (respectively T).
  * @description Checks that it is a static warning if the static type of arguments may not
- * be assigned to the type of the corresponding formal parameter of the constructor T.
+ * be assigned to the type of the corresponding formal parameter of the invoked constant constructor of T.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
@@ -20,6 +21,6 @@ class A {
 
 main() {
   try {
-    const A(1, "2");
+    const A(0x1, "2");
   } catch(TypeError e) {}
 }

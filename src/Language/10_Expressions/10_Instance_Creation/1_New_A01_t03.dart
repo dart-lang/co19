@@ -9,9 +9,10 @@
  *   new type ('.' identifier)? arguments
  * ;
  * @description Checks that it is a compile-time error if
- * a new expression does not provide the type name.
+ * a new expression is missing the type name.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {

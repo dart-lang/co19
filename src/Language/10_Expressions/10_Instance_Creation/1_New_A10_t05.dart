@@ -13,25 +13,26 @@
  * @description Checks that result of a new expression with redirecting constructor
  * is instance of class C.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
-  A(): this.redirected();
+  A() : this.redirected();
   A.redirected() {}
 }
 
 class B {
-  B(p1, p2): this.redirected(p1, p2);
+  B(p1, p2) : this.redirected(p1, p2);
   B.redirected(p1, p2) {}
 }
 
 class C {
-  C(p1, [p2]): this.redirected(p1, p2);
+  C(p1, [p2]) : this.redirected(p1, p2);
   C.redirected(p1, [p2]) {}
 }
 
 class D {
-  D.name(): this.redirected();
+  D.name() : this.redirected();
   D.redirected() {}
 }
 

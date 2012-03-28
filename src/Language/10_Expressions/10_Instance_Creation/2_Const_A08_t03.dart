@@ -16,9 +16,10 @@
  *   value of the field f in j. If  vif  === vjf for all fields f in i, then the value of e is j,
  *   otherwise the value of e is i.
  * Otherwise the value of e is i.
- * @description Checks that constant object expressions yield identical values if
- * all fields in constructed class are identical.
+ * @description Checks that constant object expressions yield identical objects if
+ * all fields in constructed instances are identical.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
@@ -26,10 +27,16 @@ class A {
   final x;
 }
 
+class B {
+  const B(arg): foo = arg;
+  final foo;
+}
 
 main() {
   var o = const A();
   for(int i = 0; i < 10; i++) {
-    Expect.isTrue(const A() === o);
+    Expect.identical(o, const A());
   }
+
+  Expect.identical(const B(const Object()), const B(const Object()));
 }

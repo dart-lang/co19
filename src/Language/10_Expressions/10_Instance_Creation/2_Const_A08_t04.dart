@@ -17,8 +17,9 @@
  *   otherwise the value of e is i.
  * Otherwise the value of e is i.
  * @description Checks that a fresh instance of an object is created
- * if not all fields in i are identical to the fields in j.
+ * if any of the fields in i are not identical to the fields in j.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
@@ -27,16 +28,15 @@ class A {
   final y;
 }
 
-
 main() {
   var o1 = const A(1);
   var o2 = const A(2);
   Expect.isFalse(o1 === o2);
 
   for(int i = 0; i < 10; i++) {
-    Expect.isTrue(const A(1) === o1);
+    Expect.identical(o1, const A(1));
     Expect.isFalse(const A(1) === o2);
-    Expect.isTrue(const A(2) === o2);
+    Expect.identical(o2, const A(2));
     Expect.isFalse(const A(2) === o1);
   }
 }

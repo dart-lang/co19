@@ -8,15 +8,17 @@
  * newExpression:
  *   new type ('.' identifier)? arguments
  * ;
- * @description Checks that various new expressions don't
+ * @description Checks that various valid new expressions don't
  * produce compile-time errors.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
   A() {}
   A.anotherConstructor(p1, p2) {}
 }
+
 class B {
   B(p1) {}
   B.b([p1, p2]) {}

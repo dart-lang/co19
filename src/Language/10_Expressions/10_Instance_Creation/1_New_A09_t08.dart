@@ -14,8 +14,9 @@
  * V1, ... , Vm. Finally, the body of q is executed with respect to the bindings that
  * resulted from the evaluation of the argument list. The result of the evaluation
  * of e is i.
- * @description Checks that the result of a new expression is i.
+ * @description Checks that the result of a new expression is i (the freshly allocated instance).
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

@@ -11,7 +11,8 @@
  * @description Checks that it is a dynamic-type error if a type argument is not
  * a subtype of type parameter bound of interface R.
  * @author msyabro
- * @needsreview Issue 1380
+ * @reviewer rodionov
+ * @note http://code.google.com/p/dart/issues/detail?id=1380
  */
 
 #import("../../../Utils/dynamic_check.dart");

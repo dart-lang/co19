@@ -12,6 +12,7 @@
  * T.id (respectively T).
  * @description Checks that the static type of a new expression is T.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

@@ -11,12 +11,13 @@
  * a subtype of type parameter bound of class C.
  * @static-warning
  * @author msyabro
- * @needsreview Issue 1380
+ * @reviewer rodionov
+ * @note http://code.google.com/p/dart/issues/detail?id=1380
  */
 
 #import("../../../Utils/dynamic_check.dart");
 
-interface R<T> default C {
+interface R<T> default C<T extends num> {
   R();
 }
 

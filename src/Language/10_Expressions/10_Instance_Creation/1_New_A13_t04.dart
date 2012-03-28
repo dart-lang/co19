@@ -12,6 +12,7 @@
  * evaluation of e is i.
  * @description Checks that the result of a new expression is object i.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class Stub implements I1, I2{

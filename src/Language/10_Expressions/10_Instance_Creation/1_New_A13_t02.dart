@@ -12,6 +12,7 @@
  * evaluation of e is i.
  * @description Checks that type arguments are bound correctly.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class D {}
@@ -30,6 +31,7 @@ class A<T, U, V> {
     U y = p2;
     V z = p3;
   }
+  
   A() {}
 }
 

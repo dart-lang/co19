@@ -17,6 +17,7 @@
  * @description Checks that type arguments are bound correctly when evaluating
  * the initializer list.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class D {}
@@ -26,21 +27,35 @@ var p2;
 var p3;
 
 class A<T, U, V> {
-  A(): x = p1, y = p2, z = p3 {}
   T x;
   U y;
   V z;
+  A(): x = p1, y = p2, z = p3 {
+    Expect.equals(1, x);
+    Expect.equals("", y);
+    Expect.isNotNull(z);
+    Expect.identical(p3, z);
+    Expect.isTrue(z is D);
+  }
 }
 
 class B <T extends A> {
-  B(): t = new A() {}
   T t;
+  B(): t = new A() {
+    Expect.isNotNull(t);
+    Expect.isTrue(t is A);
+  }
 }
 
 class C<T, U> {
-  C.name(): a = p1, b = p3 {}
   T a;
   U b;
+  C.name(): a = p1, b = p3 {
+    Expect.equals(p1, a);
+    Expect.identical(p3, b);
+    Expect.isNotNull(b);
+    Expect.isTrue(b is D);
+  }
 }
 
 main() {

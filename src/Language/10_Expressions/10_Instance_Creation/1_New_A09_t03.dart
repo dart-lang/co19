@@ -15,27 +15,31 @@
  * resulted from the evaluation of the argument list. The result of the evaluation
  * of e is i.
  * @description Checks the order of a new expression evaluation: first the
- * argument list is evaluated, then the initializer list, and then the
- * constructor body.
+ * initializers in class member variable declarations are evaluated, then the constructor argument list,
+ * then the constructor's initializer list, and then the constructor body.
  * @author msyabro
+ * @reviewer rodionov
+ * @note There seems to be no way to verify that the initializers in class member variable declarations
+ * are evaluated first since they have to be compile-time constants and as such cannot modify any outside
+ * variables.
  */
 
 var evalOrder;
 
 f(p1) {
-  evalOrder += p1.toString();
+  evalOrder = '$evalOrder$p1';
 }
 
 class A {
-  operator+(otherOperand) {
-    evalOrder += otherOperand.toString();
-    return otherOperand + 2;
+  logAndAdd2(arg) {
+    evalOrder = '$evalOrder$arg';
+    return arg + 2;
   }
 }
 
 class C {
   C(p1, p2): x = f(p1), y = f(p2) {
-    evalOrder += "5";
+    evalOrder = "${evalOrder}5";
   }
   var x;
   var y;
@@ -43,6 +47,6 @@ class C {
 
 main() {
   evalOrder = "";
-  new C(new A() + 1, new A() + 2);
+  new C(new A().logAndAdd2(1), new A().logAndAdd2(2));
   Expect.equals("12345", evalOrder);
 }

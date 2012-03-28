@@ -6,13 +6,14 @@
 /**
  * @assertion If T is a parameterized type S<U1, ,.., Um>, let R = S;
  * It is a compile time error if S is not a generic type with m type parameters.
- * @description Checks that it is a compile-time error if S is not a generic type.
+ * @description Checks that it is a compile-time error if S is a generic type
+ * with fewer type parameters than provided in the constant object expression.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-class  S {
+class S<T> {
   const S();
 }
 

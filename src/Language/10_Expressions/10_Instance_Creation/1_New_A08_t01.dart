@@ -18,6 +18,7 @@
  * A fresh instance, i, of class C is allocated.
  * @description Checks that a fresh instance is allocated with every constructor invocation.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {}
