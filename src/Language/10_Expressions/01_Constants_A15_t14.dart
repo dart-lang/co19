@@ -7,7 +7,7 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that an assignment expression cannot be used to initialize
- * a static final variable.
+ * a constant variable.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
@@ -18,7 +18,7 @@ class A {
   final z = null;
 }
 
-final m = ((const A()).z = 1);
+const m = ((const A()).z = 1);
 
 main() {
   try {

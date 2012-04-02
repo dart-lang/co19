@@ -7,7 +7,7 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that a method invocation expression cannot be used to initialize
- * a static final variable.
+ * a constant variable.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
@@ -17,7 +17,7 @@ class A {
   static m() {}
 }
 
-final m = A.m();
+const m = A.m();
 
 main() {
   try {

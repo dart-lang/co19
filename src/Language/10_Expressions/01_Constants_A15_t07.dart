@@ -7,7 +7,7 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that a new expression invoking a const constructor
- * cannot be used to initialize a static final variable.
+ * cannot be used to initialize a constant variable.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
@@ -16,7 +16,7 @@
 class A {
   const A();
 }
-final a = new A();
+const a = new A();
 
 main() {
   try {

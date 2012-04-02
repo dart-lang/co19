@@ -6,17 +6,18 @@
 /**
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
- * @description Checks that a string literal that involves string interpolation
- * cannot be assigned to a static final variable.
+ * @description Checks that a string literal that involves string interpolation,
+ * that is a constant expression not evaluated to numeric, string or boolean value,
+ * cannot be assigned to a constant variable.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final i1 = "${2+2}";
+const l = "${const {'k1': 1, 'k2': 2}}";
 
 main() {
   try {
-    print(i1);
+    print(l);
   } catch(var x) {}
 }

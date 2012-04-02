@@ -6,19 +6,20 @@
 /**
  * @assertion An expression of one of the forms !e, e1 && e2 or e1 || e2, where e, e1 and
  * e2 are constant expressions that evaluate to a boolean value is a constant expression.
- * @description Checks that various expressions of the specified forms can be assigned 
- * to a static final variable and are, therefore, constant expressions.
+ * @description Checks that various expressions of the specified forms can be elements
+ * of a constant list literal and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
  */
 
-final x = !true;
-final x2 = !false;
-final x3 = true && false;
-final x4 = x3 || x2;
-final x5 = (!x || x2) && !(x2 == x3);
+final constList = const [
+  !true,
+  !false,
+  true && false,
+  true || false,
+  (!true || true) && !(false == true),
+];
 
 main() {
-  var z = x || x2 || x3 || x4 || x5;
-  Expect.isTrue(z);
+  Expect.isTrue(constList is List);
 }

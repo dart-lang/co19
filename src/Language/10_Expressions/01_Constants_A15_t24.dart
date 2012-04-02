@@ -7,13 +7,13 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that an expression of the form e1 === e2 cannot be used to initialize
- * a static final variable if e1 is null and e2 is null.
+ * a constant variable if e1 is null and e2 is null.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final m = (null === null);
+const m = (null === null);
 
 main() {
   try {

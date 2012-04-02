@@ -7,13 +7,13 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that an expression of the form e1 || e2 cannot be used to initialize
- * a static final variable if e2 is integer.
+ * a constant variable if e2 is integer.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final m = (true || 0);
+const m = (true || 0);
 
 main() {
   try {

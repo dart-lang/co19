@@ -7,13 +7,13 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that a type test expression cannot be used to initialize
- * a static final variable.
+ * a constant variable.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final m = (null is Object);
+const m = null is Object;
 
 main() {
   try {

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion A constant constructor invocation is a constant expression.
- * @description Checks that a value created using constant constructor can be assigned 
- * to a static final variable and is, therefore, a constant expression.
+ * @description Checks that a value created using constant constructor can be
+ * an element of a constant list literal and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -16,8 +16,10 @@ class A {
   final a;
 }
 
-final x = const A();
+final constList = const [
+  const A()
+];
 
 main() {
-  Expect.equals("hello", x.a);
+  Expect.isTrue(constList is List);
 }

@@ -7,7 +7,7 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that an expression of the form e1 == e2 cannot be used to initialize
- * a static final variable if e1 does not evaluate to a numeric, string or boolean value.
+ * a constant variable if e1 does not evaluate to a numeric, string or boolean value.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
@@ -18,7 +18,7 @@ class A {
 }
 
 final a = const A();
-final m = (a == 1);
+const m = (a == 1);
 
 main() {
   try {

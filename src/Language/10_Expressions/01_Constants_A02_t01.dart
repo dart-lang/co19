@@ -5,16 +5,17 @@
  */
 /**
  * @assertion A literal boolean (10.4) is a constant expression.
- * @description Checks that various literal booleans can be assigned to a static final variable
+ * @description Checks that various literal booleans can be elements of a constant list literal
  * and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
  */
 
-final i1 = true;
-final i2 = false;
+final constList = const [
+  true,
+  false
+];
 
 main() {
-  Expect.isTrue(i1);
-  Expect.isFalse(i2);
+  Expect.isTrue(constList is List);
 }

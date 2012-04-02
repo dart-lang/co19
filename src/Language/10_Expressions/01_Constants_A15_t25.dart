@@ -7,13 +7,13 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that an expression of the form !e cannot be used to initialize
- * a static final variable if e does not evaluate to a boolean value.
+ * a constant variable if e does not evaluate to a boolean value.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final m = !1;
+const m = !1;
 
 main() {
   try {

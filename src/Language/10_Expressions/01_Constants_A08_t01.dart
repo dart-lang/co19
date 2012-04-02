@@ -5,14 +5,14 @@
  */
 /**
  * @assertion A constant list literal is a constant expression.
- * @description Checks that a constant list literal can be assigned to a static final variable
- * and is, therefore, a constant expression.
+ * @description Checks that a constant list literal can be an element of
+ * a constant list literal and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
  */
 
-final x = const ["hello", "world"];
+final constList = const [const ["hello", "world"]];
 
 main() {
-  Expect.equals("hello", x[0]);
+  Expect.isTrue(constList is List);
 }

@@ -4,19 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A reference to a static final variable or to a final top-level variable(5) is a constant expression.
- * @description Checks that a reference to a static final class variable can be assigned
- * to a top-level final variable and is, therefore, a constant expression.
+ * @assertion A reference to a constant variable is a constant expression.
+ * @description Checks that a reference to a constant variable can be an element
+ * of a constant list literal and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
+ * @reviewer msyabro
  */
 
-class C {
-  static final x = "hello";
-}
+const x = '';
+const bool y = false;
 
-final x = C.x;
+final constList = const [
+  x,
+  y
+];
 
 main() {
-  Expect.equals("hello", x);
+  Expect.isTrue(constList is List);
 }

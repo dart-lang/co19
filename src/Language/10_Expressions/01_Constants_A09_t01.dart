@@ -5,14 +5,14 @@
  */
 /**
  * @assertion A constant map literal is a constant expression.
- * @description Checks that a constant map literal can be assigned to a static final variable
- * and is, therefore, a constant expression.
+ * @description Checks that a constant map literal can be an element of
+ * a constant list literal and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
  */
 
-final x = const {"a" : 1, "b" : 2};
+final constList = const [const {"a" : 1, "b" : 2}];
 
 main() {
-  Expect.equals(x["a"], 1);
+  Expect.isTrue(constList is List);
 }

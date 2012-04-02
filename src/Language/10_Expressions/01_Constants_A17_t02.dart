@@ -7,22 +7,22 @@
  * @assertion It is a compile-time error if the value of a compile-time constant expression
  * depends on itself
  * @description Checks that it is a compile-time error if there is a circular reference in
- * a final variable's initialization.
+ * a constant variable's initialization.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final a1 = a10;
-final a2 = a1;
-final a3 = a2;
-final a4 = a3;
-final a5 = a4;
-final a6 = a5;
-final a7 = a6;
-final a8 = a7;
-final a9 = a8;
-final a10 = a9;
+const a1 = a10;
+const a2 = a1;
+const a3 = a2;
+const a4 = a3;
+const a5 = a4;
+const a6 = a5;
+const a7 = a6;
+const a8 = a7;
+const a9 = a8;
+const a10 = a9;
 
 main() {
   try {

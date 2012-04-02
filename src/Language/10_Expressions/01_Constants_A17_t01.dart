@@ -6,13 +6,13 @@
 /**
  * @assertion It is a compile-time error if the value of a compile-time constant expression
  * depends on itself
- * @description Checks that it is a compile-time error if a final variable is initialized with itself.
+ * @description Checks that it is a compile-time error if a constant variable is initialized with itself.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
  */
 
-final m = m;
+const m = m;
 
 main() {
   try {

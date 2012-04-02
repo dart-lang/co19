@@ -7,12 +7,12 @@
  * @assertion  All possible constant expressions are prescribed in assertions
  * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
  * @description Checks that an expression of the form e1 ~/ e2 cannot be used to initialize
- * a static final variable if e1 and e2 are both doubles.
+ * a constant variable if e1 and e2 are both doubles.
  * @author iefremov
  * @compile-error
  */
 
-final m = 3.14 ~/ 2.7;
+const m = 3.14 ~/ 2.7;
 
 main() {
   try {

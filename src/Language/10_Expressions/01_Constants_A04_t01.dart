@@ -5,14 +5,14 @@
  */
 /**
  * @assertion null is a constant expression.
- * @description Checks that null can be assigned to a static final variable
+ * @description Checks that null can be an element of a constant list literal
  * and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
  */
 
-final x = null;
+final constList = const [null];
 
 main() {
-  Expect.isNull(x);
+  Expect.isTrue(constList is List);
 }
