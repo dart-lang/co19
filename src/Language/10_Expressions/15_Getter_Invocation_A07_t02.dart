@@ -12,6 +12,7 @@
  * static type of i is the declared return type of C.m.
  * @description Checks that static setter m is invoked when evaluating a setter invocation C.m = e.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class TestException {}
@@ -25,7 +26,6 @@ class C {
 main()  {
   try {
     C.m = 1;
-    Expect.fail("Exception is expected");
+    Expect.fail("TestException is expected");
   }  catch(TestException e) {}
 }
-

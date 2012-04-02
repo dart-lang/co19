@@ -12,6 +12,7 @@
  * @description Checks that the value of a top-level getter invocation
  * is the result returned by the call to the getter function.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 get a() {

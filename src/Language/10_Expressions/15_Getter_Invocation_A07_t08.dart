@@ -13,6 +13,7 @@
  * @description Checks that the static type of a getter invocation expression
  * of the form C.m is the declared return type of the getter.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
@@ -27,9 +28,13 @@ class C {
   static String get v() {}
 }
 
+class D {
+  static double v;
+}
+
 main()  {
   int resInt = A.v;
   bool resBool = B.v;
   String resString = C.v;
+  double resDbl = D.v;
 }
-

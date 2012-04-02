@@ -4,32 +4,54 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the getter lookup has failed, then a new instance im of the predefined
- * interface InvocationMirror is created by calling its factory constructor with arguments `get m`,
- * this, [] and fg. Then the method noSuchMethod() is looked
- * up in o and invoked with argument im, and the result of this invocation is the
- * result of evaluating i.
- * @description Checks that the method noSuchMethod is invoked with the specified arguments
- * if the setter lookup has failed.
+ * @assertion If the getter lookup has failed, then a new instance im  of the predefined interface
+ * InvocationMirror  is created, such that :
+ * im.isGetter evaluates to true.
+ * im.memberName evaluates to ‘m’.
+ * im.arguments.positionalArguments evaluates to [].
+ * im.arguments.namedArguments evaluates to {}.
+ * Then the method noSuchMethod() is looked up in o and invoked with argument im,
+ * and the result of this invocation is the result of evaluating i.
+ * @description Checks that the result of invocation in case of failed getter lookup is the result
+ * of invoking the appropriate noSuchMethod method.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Check the contents of InvocationMirror argument when it's available
  */
 
-class TestException {}
+class A {
+  noSuchMethod(InvocationMirror im) {
+    return "v";
+  }
+}
+
+class B {
+  noSuchMethod(InvocationMirror im) {
+    return true;
+  }
+}
 
 class C {
-  noSuchMethod(String fname, List args) {
-    Expect.isTrue(fname.contains("s3tt3r"));
-    // TODO check InvocationMirror contents
-   throw new TestException();
+  noSuchMethod(InvocationMirror im) {
+    return 1;
+  }
+}
+
+class D {
+  noSuchMethod(InvocationMirror im) {
+    return null;
   }
 }
 
 main()  {
-  var o = new C();
-  try {
-    o.s3tt3r = 1;
-    Expect.fail("TestException is expected");
-  } catch(TestException e) {}
+  var classWithGetter = new A();
+  Expect.equals("v", classWithGetter.v);
+
+  classWithGetter = new B();
+  Expect.equals(true, classWithGetter.v);
+
+  classWithGetter = new C();
+  Expect.equals(1, classWithGetter.v);
+
+  classWithGetter = new D();
+  Expect.equals(null, classWithGetter.v);
 }

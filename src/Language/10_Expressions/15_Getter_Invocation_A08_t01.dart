@@ -12,6 +12,7 @@
  * @description Checks that a getter function m is invoked
  * when evaluating a top-level getter invocation of the form m.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class TestException {}
@@ -23,7 +24,6 @@ get v() {
 main()  {
   try {
     v;
-    Expect.fail("Exception is expected");
+    Expect.fail("TestException is expected");
   }  catch(TestException e) {}
 }
-

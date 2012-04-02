@@ -12,6 +12,7 @@
  * @description Checks that the static type of a top-level getter invocation expression
  * is the declared return type of the getter.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 int get a() {}

@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If getter lookup has also failed, then a new instance im of the predefined
- * interface InvocationMirror is created by calling its factory constructor with
- * arguments m, this, [o1, ... , on] and fxn+1 : on+1, ... , xn+k : on+kg. Then the
+ * @assertion If the getter lookup has also failed,  then a new instance im
+ * of the predefined interface InvocationMirror is created  by calling its factory constructor
+ * with arguments ‘m’,  this, [e1, …, en] and {xn+1:en+1, …, xn+k : en+k}. Then the
  * method noSuchMethod() is looked up in S and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod is invoked if method and getter lookups have failed.
@@ -19,7 +19,7 @@
 class TestException {}
 
 class S {
-  noSuchMethod(var name, var argList) {
+  noSuchMethod(InvocationMirror im) {
     throw new TestException();
   }
 }

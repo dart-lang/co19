@@ -12,6 +12,7 @@
  * @description Checks that a setter function m is invoked
  * when evaluating a top-level setter invocation of the form m = e.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class TestException {}
@@ -23,7 +24,6 @@ set v(val) {
 main()  {
   try {
     v = 1;
-    Expect.fail("Exception is expected");
+    Expect.fail("TestException is expected");
   }  catch(TestException e) {}
 }
-

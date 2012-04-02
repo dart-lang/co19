@@ -10,13 +10,15 @@
  * in vg with respect to the current library L.
  * Next, c is executed with respect to the bindings of the evaluated argument
  * list. The value of i is the value returned after c is executed.
- * If the getter lookup has also failed, then a new instance im of the predefined
- * interface InvocationMirror is created by calling its factory constructor with
- * arguments m, this, [o1, ... , on] and fxn+1 : on+1, ... , xn+k : on+kg. Then the
+ * If getter lookup has also failed, then a new instance im  of the predefined interface
+ * InvocationMirror is created by calling its factory constructor with arguments
+ * ‘m’,  this, [o1, …, on] and {xn+1:on+1, …, xn+k : on+k}. Then the
  * method noSuchMethod() is looked up in o and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod() is invoked on functions if the method and getter lookup has failed.
+ * @static-warning
  * @author msyabro
+ * @reviewer iefremov
  */
 
 func() {}

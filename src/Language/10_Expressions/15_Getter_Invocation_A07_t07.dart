@@ -10,10 +10,11 @@
  * It is a compile-time error if there is no class C in the enclosing lexical scope
  * of i, or if C does not declare, implicitly or explicitly, a getter named m. The
  * static type of i is the declared return type of C.m.
- * @description Checks that it is a compile-time error if C does not declare
- * corresponding setter
+ * @description Checks that it is a compile-time error if C does not declare explicitly
+ * or implicitly a setter with the appropriate name.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

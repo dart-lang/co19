@@ -12,6 +12,7 @@
  * static type of i is the declared return type of C.m.
  * @description Checks that static getter m is invoked when evaluating a getter invocation C.m.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class TestException {}
@@ -25,7 +26,6 @@ class C {
 main()  {
   try {
     C.m;
-    Expect.fail("Exception is expected");
+    Expect.fail("TestException is expected");
   }  catch(TestException e) {}
 }
-

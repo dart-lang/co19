@@ -10,8 +10,10 @@
  * It is a compile-time error if there is no class C in the enclosing lexical scope
  * of i, or if C does not declare, implicitly or explicitly, a getter named m. The
  * static type of i is the declared return type of C.m.
- * @description Checks the value of a getter invocation of the form C.m.
+ * @description Checks that the value of a getter invocation of the form C.m is the value
+ * returned by the appropriate getter function in C.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
