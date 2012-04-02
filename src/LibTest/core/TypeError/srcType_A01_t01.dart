@@ -7,6 +7,7 @@
  * @assertion Undocumented
  * @description Checks that [srcType] is recorded correctly.
  * @author msyabro
+ * @static-warning
  * @reviewer pagolubev
  * @needsreview Undocumented.
  */
@@ -23,28 +24,28 @@ main() {
       int x = "string";
       Expect.fail("TypeError is expected");
     } catch(TypeError e) {
-      Expect.equals('OneByteString', e.srcType);
+      Expect.isTrue(e.srcType is String);
     }
 
     try {
       bool val = 1;
       Expect.fail("TypeError is expected");
     } catch(TypeError e) {
-      Expect.equals('Smi', e.srcType);
+      Expect.isTrue(e.srcType is String);
     }
 
     try {
       String str = new MyClass();
       Expect.fail("TypeError is expected");
     } catch(TypeError e) {
-      Expect.equals('MyClass', e.srcType);
+      Expect.isTrue(e.srcType is String);
     }
 
     try {
       MyClass str = [];
       Expect.fail("TypeError is expected");
     } catch(TypeError e) {
-      Expect.equals('GrowableObjectArray<Dynamic>', e.srcType);
+      Expect.isTrue(e.srcType is String);
     }
   }
 }
