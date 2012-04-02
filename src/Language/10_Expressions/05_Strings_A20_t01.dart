@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The first new-line character in a multi-line string is ignored (?)
- * @description Checks that equal strings constructed at compile-time are canonicalized.
+ * @description Checks that the first new-line in a multi-line string is ignored.
  * @author iefremov
  * @needsreview undocumented
  * @needsreview issue 240

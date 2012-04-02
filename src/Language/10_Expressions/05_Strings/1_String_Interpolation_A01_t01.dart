@@ -76,7 +76,7 @@ class Test {
     "${10 ^ 10}";
 
     //additional expressions
-    "${'a' + 'b'}";
+    "${0.5 + 9}";
     '${0 - 10}';
 
     //multiplicative expressions

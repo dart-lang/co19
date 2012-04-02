@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  An interpolated string “s1${e}s2’” is equivalent to “s1” + e.toString() + “s2”,
- * assuming + is the string concatenation operator.
+ * @assertion  An interpolated string "s1${e}s2" is equivalent to the
+ * concatenation of the strings "s1", e.toString() and "s2".
  * @description Checks that if evaluation of expression e results in exception,
  * string interpolation "s1${e}s2" raises the same exception.
  * @static-warning

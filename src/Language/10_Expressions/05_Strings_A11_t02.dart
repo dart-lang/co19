@@ -8,6 +8,9 @@
  * \u{HEX_DIGIT_SEQUENCE} is the unicode scalar value represented by the HEX_DIGIT_SEQUENCE.
  * It is a compile-time error when the value of the HEX_DIGIT_SEQUENCE
  * is not a valid unicode scalar value.
+ * HEX_DIGIT_SEQUENCE:
+ *  HEX_DIGIT HEX_DIGIT? HEX_DIGIT? HEX_DIGIT? HEX_DIGIT? HEX_DIGIT?
+ * ;
  * @description Checks that it is a compile-time error when the value
  * of the HEX_DIGIT_SEQUENCE is too long.
  * @compile-error
@@ -17,6 +20,6 @@
 
 main() {
   try {
-    '\u{1213414141414141414}';
+    '\u{121341}';
   } catch(var e) {}
 }

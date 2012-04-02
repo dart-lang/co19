@@ -16,6 +16,7 @@
  * single-quotes string literal has fewer than 3 closing quotes.
  * @compile-error
  * @author rodionov
+ * @reviewer msyabro
  */
 
 main() {

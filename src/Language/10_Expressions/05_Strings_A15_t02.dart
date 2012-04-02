@@ -6,14 +6,14 @@
 /**
  * @assertion Any string may be prefixed with the character @,
  * indicating that it is a raw string, in which case no escapes are recognized.
- * @description Checks string interpolation is not performed for raw strings.
+ * @description Checks that string interpolation is not performed for raw strings.
  * @author kaigorodov
- * @note issue #1767
+ * @reviewer rodionov
  */
 
 main() {
-  String a='b';
-  Expect.isTrue ( '$a' == 'b');
+  String a = 'b';
+  Expect.isTrue('$a' == 'b');
   Expect.isFalse(@'$a' == 'b');
   Expect.isTrue (@'$a' == '\$a');
 }
