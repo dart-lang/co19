@@ -15,9 +15,6 @@
  * @compile-error
  * @author vasya
  * @reviewer rodionov
- * @needsreview this test actually contradicts the current spec, but that is expected to be
- * amended in v0.08
- * @needsreview issue 143
  */
 
 

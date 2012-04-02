@@ -23,11 +23,11 @@ switchTest(value) {
   var result;
   
   switch(value) {
-    label: case 1:
-      result = 1;
+    case 1:
+      {result = 1;}
       break;
       
-    case 7 << 2:
+    label: case 7 << 2:
       result = 2;
       break;
       
@@ -45,10 +45,11 @@ switchTest(value) {
       result = 5;
       break;
       
-    case (() => 1.1)():
-      result = 6;
+    case (() => 1.1)(): {
+      var x=3;
+      result = x*2;
       break;
-      
+      }
     $: case null:
       result = 7;
       break;

@@ -15,8 +15,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview this test actually contradicts the current spec, but that is expected to be
- * amended in v0.08
  */
 
 main() {
