@@ -4,18 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if T does not denote a
+ * @assertion It is a run-time error if T does not denote a
  * type available in the current lexical scope.
- * @description Checks that it is a compile-time error if T does not denote a
+ * @description Checks that it is a run-time error if T does not denote a
  * type available in the current lexical scope.
- * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov 
  */
 
 main() {
+  bool exception = true;
   try {
   	null is Undeclared;
+  	exception = false;
  } catch (var e) {
+ }
+
+ if(!exception) {
+   Expect.fail("Exception is expected");
  }
 }

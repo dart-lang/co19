@@ -4,16 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of an is-expression is bool.
- * @description Checks that the static checker does not raise warnings when assigning bool
- * variables to the result of the is-expression.
+ * @assertion It is a compile-time error if T is a parameterized type of the form
+ * G < T1, ... , Tn > and G is not a generic type with n type parameters.
+ * @description Checks that it a compile-time error if G is not a generic type.
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer iefremov
  */
 
+class G {}
+
 main() {
-  bool e = 1 is int;
-  e = 1 is String;
-  e = 1 is ! bool;
-  e = 1 is ! Object;
+  try {
+  	1 is G<int, bool>;
+ } catch (var e) {
+ }
 }
