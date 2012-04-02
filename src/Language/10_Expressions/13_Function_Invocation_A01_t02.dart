@@ -10,7 +10,7 @@
  *  A return statement immediately nested in the body of f is executed.
  *  The last statement of the body completes execution.
  * @description Checks that execution of a function body terminates after
- * an return statement
+ * a return statement
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -18,7 +18,7 @@
 int x;
 
 void f() {
-  return 1;
+  return;
   x = 1;
 }
 

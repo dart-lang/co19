@@ -18,6 +18,7 @@
  * don't cause compile-time errors.
  * @author msyabro
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 #import("../../Utils/dynamic_check.dart");
@@ -62,7 +63,7 @@ class A {
     //logical and relational expressions
     (1 < 2) || (id > 1 ? 1 : id);
     ([] && {}) || (2 > 2.0);
-    (null || this) && (id > 7);
+    (null || this) && (id <= 7);
 
     //bitwise and shift expressions
     (arr[1] ^ method()) && (new S() & true);
@@ -79,6 +80,11 @@ class A {
     //unary expressions
     (--id) || (id++);
     (~-id) && (!!false);
+
+    // selector operator invocations
+    try {
+      id[2.0] || topLevelFunction()[0] && [1, 2][0];
+    } catch(NoSuchMethodException ok) {}
 
      id && id || id; 
   }

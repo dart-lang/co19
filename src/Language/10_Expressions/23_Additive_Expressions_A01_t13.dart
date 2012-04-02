@@ -21,7 +21,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 1225
  */
 
 class A <T> {

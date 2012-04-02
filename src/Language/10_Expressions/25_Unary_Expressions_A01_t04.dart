@@ -23,6 +23,7 @@
  * @description Checks that incrementOperator can't be used with
  * a reference to an type defined with typedef.
  * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

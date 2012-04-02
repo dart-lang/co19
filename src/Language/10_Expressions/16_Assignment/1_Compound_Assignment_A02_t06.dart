@@ -20,10 +20,12 @@ class C {
     ++getterInvocation;
     return _v;
   }
+  
   static set v(val) {
     ++setterInvocation;
     _v = val;
   }
+  
   static var _v;
 
   static int setterInvocation;

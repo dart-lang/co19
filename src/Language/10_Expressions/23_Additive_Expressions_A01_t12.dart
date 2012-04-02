@@ -19,9 +19,9 @@
  * @description Checks that a type declared with typedef can't be used
  * as right operand in an additive expression.
  * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1225
  */
 
 typedef f();

@@ -22,6 +22,7 @@
  * ;
  * @description Checks that '!' can't be used with
  * a reference to an type defined with typedef.
+ * @static-warning
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov

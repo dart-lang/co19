@@ -7,7 +7,7 @@
  * @assertion A runtime list literal <E>[e1... en]  is evaluated as follows:
  *   First, the expressions e1... en are evaluated in left to right order, yielding objects o1... on.
  *   A fresh instance a that implements the built-in interface List<E> is allocated.
- *   The ith element of a is set to oi+1, 0 <= i <= n.
+ *   The ith element of a is set to oi+1, 0 <= i < n.
  *   The result of the evaluation is a.
  * @description Checks that the result of evaluation is an object that implements interface List<E>.
  * @author msyabro

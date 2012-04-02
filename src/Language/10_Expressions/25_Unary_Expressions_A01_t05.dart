@@ -25,7 +25,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @note this is regression test for #issue 1225
  */
 
 class A <T> {

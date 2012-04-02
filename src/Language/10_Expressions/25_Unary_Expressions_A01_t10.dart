@@ -22,6 +22,7 @@
  * ;
  * @description Checks that expressions of the form [incrementOperator assignableExpressions]
  * don't cause compile-time errors.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @note issue #1300

@@ -30,14 +30,14 @@ class TestIsolate extends Isolate {
 }
 
 main() {
-  receiveHandler(var message, SendPort replyTo) {
+  receiveHandler(var message) {
     Expect.equals("New value", message);
     Expect.equals(1, topLevelVariable);
   }
 
   new TestIsolate().spawn().then(void f(SendPort port) {
     topLevelVariable = 1;
-    port.call('check').receive(receiveHandler);
+    port.call('check').then(receiveHandler);
   });
 }
 

@@ -12,6 +12,7 @@
  * @description Checks that it is a compile-time error if T is a type alias.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 typedef int f(int x, int y);

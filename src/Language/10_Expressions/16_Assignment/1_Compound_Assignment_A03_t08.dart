@@ -9,10 +9,12 @@
  * @description Checks that an expression of the form e1.v>>= e2 is equivalent to
  * ((x) => x.v = x.v >> e2)(e1) where x is a variable that is not used in e2.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {
   C(this.v);
+  
   operator>>(val) {
     C c = new C(v >> val);
     return c;
@@ -27,10 +29,12 @@ class A {
     getterInvocation = 0;
     setterInvocation = 0;
   }
+  
   get c() {
     ++getterInvocation;
     return _c;
   }
+  
   set c(val) {
     ++setterInvocation;
     _c = val;

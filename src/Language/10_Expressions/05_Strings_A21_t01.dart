@@ -9,26 +9,21 @@
  * @description Checks that various string literal separated by a whitespace
  * are concatenated to form a single string literal.
  * @author msyabro
- * @needsreview Issue 2102
  */
 
 
 main() {
   //Empty single-quoted strings
   '' '';
-  '''';
   ''
   '';
   ''@'';
-  @'''';
 
   //Empty double-quoted strings
   "" "";
   ""
   "";
-  """";
   ""@"";
-  @"""";
 
   //Empty multi-line strings
   """""" """""";
@@ -58,7 +53,6 @@ main() {
   'st' 'ring';
   "0" "1" "2" "3";
   'a''b''c''d'
-  '''a';
   "b""";
   '1'@'2';
   """11"""'''111''';

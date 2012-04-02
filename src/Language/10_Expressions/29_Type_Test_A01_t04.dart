@@ -11,9 +11,9 @@
  * @description Checks that it is a compile-time error when
  * using a typedef in the left part of the expression
  * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1225
  */
 
 typedef f();

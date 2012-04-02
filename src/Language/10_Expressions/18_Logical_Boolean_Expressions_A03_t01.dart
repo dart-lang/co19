@@ -8,11 +8,16 @@
  * evaluation of e1; if e1 does not evaluate to true, the result of evaluating b
  * is false, otherwise e2 is evaluated to an object o, which is then subjected to
  * boolean conversion producing an object r, which is the value of b.
- * @description Checks that an expression of the form e1 && e2 is evaluated correctly.
+ * @description Checks that an expression of the form e1 && e2 is evaluated correctly
+ * (meaning it produces TypeError when e1 does not evaluate to a boolean and performs
+ * boolean conversion for e2 otherwise, provided e1 is true).
  * @author msyabro
  * @static-warning
- * @needsreview Works only in scripting mode
+ * @reviewer rodionov
+ * @needsreview
  */
+
+#import('../../Utils/dynamic_check.dart');
 
 main() {
   Expect.isTrue(true && true);
@@ -20,8 +25,13 @@ main() {
   Expect.isFalse(false && true);
   Expect.isFalse(false && false);
 
-  //only in scripting mode, raises static type warnings
-  try {Expect.isFalse(0 && 1); } catch(TypeError e) {}
-  try {Expect.isFalse("" && 2); } catch(TypeError e) {}
-  try {Expect.isFalse(null && []); } catch(TypeError e) {}
+  checkTypeError(() => Expect.isFalse(true && 1));
+  checkTypeError(() => Expect.isFalse(true && ""));
+  checkTypeError(() => Expect.isFalse(true && []));
+  checkTypeError(() => Expect.isFalse(true && {}));
+  checkTypeError(() => Expect.isFalse(true && () => null));
+
+  checkTypeError(() => Expect.isFalse(0 && 1));
+  checkTypeError(() => Expect.isFalse("" && 2));
+  checkTypeError(() => Expect.isFalse(null && []));
 }

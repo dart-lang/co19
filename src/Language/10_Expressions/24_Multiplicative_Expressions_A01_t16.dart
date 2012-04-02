@@ -22,7 +22,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1225: Type variable can be used as an operand
  */
 
 class A<T> {

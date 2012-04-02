@@ -21,6 +21,6 @@
 
 main() {
   try {
-    <int>{, "key1": 1, "key2" : 2, "key3":3};
+    var map=<int>{, "key1": 1, "key2" : 2, "key3":3};
   } catch(var e) {}
 }

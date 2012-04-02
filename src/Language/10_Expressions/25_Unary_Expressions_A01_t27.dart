@@ -22,6 +22,7 @@
  * ;
  * @description Checks that expressions with the prefix operator which fit into this production
  * don't cause compile-time errors.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -50,6 +51,7 @@ class A extends S {
     //prefix operators with identifier
     -x;
     ~x;
+    ~~x;
     try {!x;} catch(var e){}
     try {!~x;} catch(var e){}
     try {~!x;} catch(var e){}
@@ -68,7 +70,10 @@ class A extends S {
     try {!this;} catch(var e) {}
 
     try {-true;} catch(var e) {}
-    try {!false;} catch(var e) {}
+    !!false;
+    !!!true;
+    !!!!false;
+    !!!!!!true;
     try {~true;} catch(var e) {}
 
     try {-[];} catch(var e) {}

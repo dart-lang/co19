@@ -7,7 +7,7 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expression ':' expression)?
+ *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that super can't be used in a conditional expression
  * as the second expression.

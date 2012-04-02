@@ -7,7 +7,7 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expression ':' expression)?
+ *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that a reference to a class declaration
  * can't be used as the condition in a conditional expression.

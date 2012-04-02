@@ -8,14 +8,13 @@
  * to form a single string literal.
  * @description Checks the value of concatenated string literal.
  * @author msyabro
- * @needsreview Issue 2102
  */
 
 
 main() {
   Expect.equals("", ""'');
   Expect.equals('a', 'a''');
-  Expect.equals('a', '''a');
+  Expect.equals('a', '' 'a');
   Expect.equals('ab', 'a''b');
   Expect.equals("12", "1""2");
   Expect.equals(@'\n\n', @'\n'@'\n');

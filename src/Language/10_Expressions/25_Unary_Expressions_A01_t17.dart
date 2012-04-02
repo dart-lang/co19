@@ -23,8 +23,8 @@
  * @description Checks that '-' can't be used with
  * a reference to an type defined with typedef.
  * @compile-error
+ * @static-warning
  * @author msyabro
- * @note issue 1225
  * @reviewer kaigorodov
  */
 

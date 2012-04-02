@@ -36,6 +36,7 @@
  * @description Checks that a reference to a type defined with typedef
  * can't be used in the left hand side of an assignment.
  * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

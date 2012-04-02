@@ -20,9 +20,9 @@
  * @description Checks that reference to a type defined with typedef can't be used
  * as the left operand of a multiplicative expression.
  * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1225
  */
 
 typedef int f();

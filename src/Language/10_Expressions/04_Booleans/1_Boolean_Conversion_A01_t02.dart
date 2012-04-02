@@ -10,6 +10,7 @@
  *   return v === true;
  * }(o)
  * @description Checks that objects that are not bool and not null are converted to false.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @needsreview issue 1552

@@ -7,12 +7,13 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expression ':' expression)?
+ *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that various expressions fitted into this grammar
  * don't cause compile-time errors.
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview: TODO: add negative tests on expression with cascades once cascades are implemented
  */
 
 topLevelFunction() {}
@@ -61,7 +62,7 @@ class A {
     try { (1 >> 1) ? true << false : false >> true;} catch(var e) {}
 
     //additive expressions
-    try {("" + '') ? [] - [] : {} + {};} catch(var e){}
+    try {(1e10 + -0.5) ? [] - [] : {} + {};} catch(var e){}
 
     //multiplicative expressions
     try {(true*false) ? 7 / 8 : new A() % const S(); } catch(var e) {}

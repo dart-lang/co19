@@ -21,7 +21,7 @@
  * as the second operand in a relational expression.
  * @compile-error
  * @author msyabro
- * @needsreview Issue 1225
+ * @reviewer rodionov
  */
 
 class A<T> {

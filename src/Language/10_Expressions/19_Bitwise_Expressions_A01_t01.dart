@@ -24,11 +24,11 @@
  * ;
  * A bitwise expression is either an equality expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
- * @description Checks that various expression fitted into this grammar
+ * @description Checks that various bitwise expression which are valid according to this grammar
  * don't cause compile-time errors.
  * @author msyabro
- * @needsreview 'functionExpression' can be an operand by spec but is not allowed by implementation.
- * Issue 1189.
+ * @reviewer rodionov
+ * @note http://code.google.com/p/dart/issues/detail?id=1189
  */
 
 topLevelFunction() {}

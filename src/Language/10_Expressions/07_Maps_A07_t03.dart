@@ -7,7 +7,7 @@
  * @assertion A runtime map literal <V>{k1:e1... kn :en}  is evaluated as follows:
  *   First, the expressions e1...en are evaluated in left to right order, yielding objects o1... on.
  *   A fresh instance m that implements the built-in interface Map<String, V> is allocated.
- *   Let ui be the value of the compile-time constant string specified by ki.
+ *   Let ui be the value of the string literal specified by ki.
  * An entry with key ui and value oi is added to m, 0 <= i < n.
  *   The result of the evaluation is m.
  * @description Checks that entries with keys ui and values oi are added to the resulted map object.

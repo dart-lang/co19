@@ -29,7 +29,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1225
  */
 
 class A<T> {

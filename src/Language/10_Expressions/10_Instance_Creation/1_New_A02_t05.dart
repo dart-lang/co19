@@ -13,6 +13,7 @@
  * a top-level variable.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 var a;

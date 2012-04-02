@@ -15,7 +15,7 @@
  * expression refers to a function type definition.
  * @compile-error
  * @author kaigorodov 
- * @needsreview Issue1006
+ * @reviewer rodionov 
  */
 
 typedef int add(int a, int b);

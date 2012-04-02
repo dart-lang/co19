@@ -7,14 +7,13 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expression ':' expression)?
+ *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that a type variable
  * can't be used as the condition in a conditional expression.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1225
  */
 
 interface I {}

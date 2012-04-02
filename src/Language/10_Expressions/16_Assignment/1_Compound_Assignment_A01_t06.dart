@@ -7,10 +7,12 @@
  * @assertion A compound assignment of the form v op= e is equivalent to v=v op e.
  * @description Checks that an expression of the form v -= e is equivalent to v = v - e.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {
   C(this.v);
+  
   operator-(val) {
     C c = new C(v - val);
     return c;
@@ -25,10 +27,12 @@ class A {
     getterInvocation = 0;
     setterInvocation = 0;
   }
+  
   get c() {
     ++getterInvocation;
     return _c;
   }
+  
   set c(val) {
     ++setterInvocation;
     _c = val;
@@ -49,8 +53,8 @@ class A {
 }
 
 main() {
-  new A(3).test(3, 3-3);
-  new A(10).test(1, 10-1);
-  new A(5).test(7, 5-7);
-  new A(-2).test(1, -2-1);
+  new A(3).test(3, 3 - 3);
+  new A(10).test(1, 10 - 1);
+  new A(5).test(7, 5 - 7);
+  new A(-2).test(1, -2 - 1);
 }

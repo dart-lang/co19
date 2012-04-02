@@ -13,6 +13,7 @@
  * a top-level function.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 func() {}
