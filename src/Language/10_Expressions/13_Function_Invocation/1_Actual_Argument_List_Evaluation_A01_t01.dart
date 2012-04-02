@@ -77,7 +77,7 @@ main() {
 
   //additive expressions
   positionalParameters(1 + 2, 0.0 - 3, "" + "");
-  namedParameters(name1: "str" + "ing", $$$: o + -2, u__: 2 - 3);
+  namedParameters(name1: .5 + 8, $$$: o + -2, u__: 2 - 3);
   bothParameters(1e3 + 0.2, name: 1 - 1);
 
   //multiplicative expressions

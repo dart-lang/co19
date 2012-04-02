@@ -32,8 +32,8 @@ m2(p1) {
 
 class A {
   test() {
-    Expect.equals(0, m("a" + "b"));
-    Expect.equals(2, m2("a" + "b"));
+    Expect.equals(0, m("a" "b"));
+    Expect.equals(2, m2("a" "b"));
   }
 }
 

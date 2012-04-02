@@ -9,26 +9,30 @@
  * @description Checks that an expression of the form e1 + e2 is
  * equivalent to the method invocation e1.operator+(e2).
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
-int counter=0;
+var logStr = "";
 
 class A {
   final int value;
-  const A(var v):value=v;
+
+  const A(var v) : value=v;
+  
   operator+(var v) {
-    counter+=1;
+    logStr = "${logStr}+";
     return new A(value+v);
   }
   operator-(var v) {
-    counter+=2;
+    logStr = "${logStr}-";
     return new A(v-value);
   }
 }
 
 main() {
+  logStr = "";
   A a = new A(2);
   a + 3;
   a - 2;
-  Expect.equals(3, counter);
+  Expect.equals("+-", logStr);
 }

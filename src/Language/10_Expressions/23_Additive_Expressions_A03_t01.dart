@@ -9,29 +9,34 @@
  * @description Checks that an expression of the form super + e2 is
  * equivalent to the method invocation super.operator+(e2).
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
-int counter=0;
+var logStr = "";
 
 class S {
   final value;
-  const S(var v):value=v;
+  
+  const S(var v) : value=v;
+  
   operator+(var v) {
-    counter+=1;
+    logStr = "${logStr}+";
     return new A(value+v);
   }
   operator-(var v) {
-    counter+=2;
+    logStr = "${logStr}-";
     return new A(v-value);
   }
 }
 
 class A extends S {
   A(var v) : super(v) {}
+  
   test() {
+    logStr = "";
     super + 5;
     super - 4;
-    Expect.equals(3, counter);
+    Expect.equals("+-", logStr);
   }
 }
 

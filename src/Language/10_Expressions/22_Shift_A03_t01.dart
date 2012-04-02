@@ -9,25 +9,28 @@
  * @description Checks that an expressions of the form super << e2
  * is equivalent to the method invocation super.operator<<(e2).
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
+var logStr = "";
+
 class S {
-  int counter=0;
   operator<<(var v) {
-    counter+=1;
+    logStr = "${logStr}<<";
     return true;
   }
   operator>>(var v) {
-    counter+=2;
+    logStr = "${logStr}>>";
     return true;
   }
 }
 
 class A extends S {
   test() {
+    logStr = "";
     super << 1;
     super >> 1;
-    Expect.equals(3, counter);
+    Expect.equals("<<>>", logStr);
   }
 }
 

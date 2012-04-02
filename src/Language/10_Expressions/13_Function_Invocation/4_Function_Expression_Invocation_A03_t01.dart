@@ -24,7 +24,7 @@ main() {
   } catch(ObjectNotClosureException ok) {}
 
   try {
-    ("String" + 1)(null, null);
+    ("String1")(null, null);
     Expect.fail("ObjectNotClosureException is expected");
   } catch(ObjectNotClosureException e) {}
 

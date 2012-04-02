@@ -14,22 +14,22 @@
  * @reviewer rodionov
  */
 
-String buffer;
+StringBuffer buffer;
 
 func(p1, p2, [p3, p4]) {}
 
 class A {
   operator+(otherOperand) {
-    buffer += "A";
+    buffer.add("A");
   }
   operator-(otherOperand) {
-    buffer += "B";
+    buffer.add("B");
   }
   operator*(otherOperand) {
-    buffer += "C";
+    buffer.add("C");
   }
   operator/(otherOperand) {
-    buffer += "D";
+    buffer.add("D");
   }
 }
 
@@ -42,14 +42,14 @@ bar(x, y) {
 }
 
 main() {
-  buffer = "";
+  buffer = new StringBuffer();
   func(new A() + 1, new A() - 1, p4: new A() * 1, p3: new A() / 1);
-  Expect.equals("ABCD", buffer);
+  Expect.equals("ABCD", buffer.toString());
 
   // shuffle the named arguments
-  buffer = "";
+  buffer.clear();
   func(new A() + 1, new A() - 1, p3: new A() * 1, p4: new A() / 1);
-  Expect.equals("ABCD", buffer);
+  Expect.equals("ABCD", buffer.toString());
   
   bar(foo(), foo());
 }

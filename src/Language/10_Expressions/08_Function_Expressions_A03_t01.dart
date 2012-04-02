@@ -45,7 +45,7 @@ main() {
   numf = i() => 0;
 
   stringFunc sf = s() => "";
-  sf = () => "a" + "b";
+  sf = () => "a""b";
 
   listFunc lf = l() => [];
   lf = () => const [1, 2, 3];

@@ -46,7 +46,7 @@ main() {
   numf = double nf() => 1.0;
 
   stringFunc sf = String sf1() => "";
-  sf = String sf2() {"a" + "b";};
+  sf = String sf2() {"a""b";};
 
   listFunc lf = List lf1() => [];
   lf = List lf2() {const [1, 2, 3];};
