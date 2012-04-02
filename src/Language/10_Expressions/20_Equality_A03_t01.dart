@@ -4,33 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An equality expression of the form super == e is
- * equivalent to the method invocation super.==(e).
- * @description Checks that expression of the form super == e is
- * equivalent to the method invocation super.==(e).
+ * @assertion Evaluation of an equality expression ee of the form super == e proceeds as
+ * follows:
+ * - The expression e is evaluated to an object o.
+ * - If this === o evaluates to true, then ee evaluates to true. Otherwise,
+ * - If either this or o is null, then ee evaluates to false. Otherwise,
+ * - ee is equivalent to the method invocation super.equals(o).
+ * @description Checks that if this === e2, the result of an equality expression is true.
  * @author msyabro
  * @reviewer kaigorodov
  * @note issue 1242
  */
 
-class TestException {}
-
 class S {
-  operator==(var val) {
-    throw new TestException();
+  operator equals(other) {
+    throw 'This operator should not be invoked'.
   }
 }
 
-class A extends S {
+class C extends S {
   test() {
-    try {
-      super == 1;
-      Expect.fail("operator == was not called");
-    } catch(TestException e) {}
+    Expect.isTrue(super == this);
   }
 }
 
 main() {
-  A a = new A();
-  a.test();
+  new C().test();
+
 }
+

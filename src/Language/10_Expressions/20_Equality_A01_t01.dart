@@ -17,10 +17,11 @@
  * ;
  * An equality expression is either a relational expression, or an invocation of
  * a equality operator on either super or an expression e1, with argument e2.
- * @description Checks that various expression fitted into this grammar
+ * @description Checks that various equality expression which are valid according to this grammar
  * don't cause compile-time errors.
  * @author msyabro
- * @needsreview issue 1242
+ * @reviewer rodionov
+ * @note http://code.google.com/p/dart/issues/detail?id=1242
  */
 
 topLevelFunction() {}
