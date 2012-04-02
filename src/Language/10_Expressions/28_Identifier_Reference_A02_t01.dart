@@ -14,17 +14,16 @@
  * BUILT_IN_IDENTIFIER:
  *   abstract |
  *   assert |
+ *   call |
  *   Dynamic |
+ *   equals |
  *   factory |
  *   get |
  *   implements |
- *   import |
  *   interface |
- *   library |
  *   negate |
  *   operator |
  *   set |
- *   source |
  *   static |
  *   typedef
  * ;
@@ -42,28 +41,26 @@ main() {
   abstract;
   bool assert;
   assert;
+  var call;
+  call;
   Dynamic Dynamic;
   Dynamic;
+  String equals;
+  equals;
   var factory;
   factory;
   int get;
   get;
   String implements;
   implements;
-  var import;
-  import;
   int interface;
   interface;
-  var library;
-  library;
   double negate;
   negate;
   int operator;
   operator;
   var set;
   set;
-  var source;
-  source;
   int static;
   static;
   Function typedef;
