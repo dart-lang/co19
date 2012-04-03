@@ -23,7 +23,7 @@ typedef int typeG();
 typedef void typeH(p1, p2);
 
 final x = 'x';
-int y = 'y';
+String y = 'y';
 var z;
 
 int a, b, c = 1;
