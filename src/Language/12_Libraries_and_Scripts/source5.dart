@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 class F {
-  F();
+  F() {}
 }
 
 interface I default F {

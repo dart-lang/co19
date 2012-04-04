@@ -25,7 +25,6 @@
 
 #source('source.dart');
 #source('source3.dart');
-#source('source5.dart');
 
 #resource("favicon.ico"); //VM reports error - issue 732
 
