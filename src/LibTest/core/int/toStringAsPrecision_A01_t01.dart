@@ -25,16 +25,16 @@ main() {
   Expect.equals("123456789",123456789.toStringAsPrecision(9));
   Expect.equals("123456789.0",123456789.toStringAsPrecision(10));
   
-  Expect.equals("0.0",0.toStringAsPrecision(1));
-  Expect.equals("0.00",0.toStringAsPrecision(2));
-  Expect.equals("0.000",0.toStringAsPrecision(3));
-  Expect.equals("0.0000",0.toStringAsPrecision(4));
-  Expect.equals("0.00000",0.toStringAsPrecision(5));
-  Expect.equals("0.000000",0.toStringAsPrecision(6));
-  Expect.equals("0.0000000",0.toStringAsPrecision(7));
-  Expect.equals("0.00000000",0.toStringAsPrecision(8));
-  Expect.equals("0.000000000",0.toStringAsPrecision(9));
-  Expect.equals("0.0000000000",0.toStringAsPrecision(10));
+  Expect.equals("0",0.toStringAsPrecision(1));
+  Expect.equals("0.0",0.toStringAsPrecision(2));
+  Expect.equals("0.00",0.toStringAsPrecision(3));
+  Expect.equals("0.000",0.toStringAsPrecision(4));
+  Expect.equals("0.0000",0.toStringAsPrecision(5));
+  Expect.equals("0.00000",0.toStringAsPrecision(6));
+  Expect.equals("0.000000",0.toStringAsPrecision(7));
+  Expect.equals("0.0000000",0.toStringAsPrecision(8));
+  Expect.equals("0.00000000",0.toStringAsPrecision(9));
+  Expect.equals("0.000000000",0.toStringAsPrecision(10));
   
   Expect.equals("1e+1",10.toStringAsPrecision(1));
   Expect.equals("10",10.toStringAsPrecision(2));
