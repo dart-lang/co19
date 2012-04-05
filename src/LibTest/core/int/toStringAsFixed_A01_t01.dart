@@ -26,7 +26,7 @@ main() {
   Expect.equals("10.000000000",10.toStringAsFixed(9));
   Expect.equals("10.0000000000",10.toStringAsFixed(10));
   
-  Expect.equals("0", 0.toStringAsFixed(0));
+  Expect.equals("0.", 0.toStringAsFixed(0));
   Expect.equals("0.0", 0.toStringAsFixed(1));
   Expect.equals("0.00", 0.toStringAsFixed(2));
   Expect.equals("0.000", 0.toStringAsFixed(3));
