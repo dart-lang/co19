@@ -11,6 +11,7 @@
  * @description Checks that it is a compile-time error if a factory constructor is constant.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 class C {

@@ -7,23 +7,20 @@
  * @assertion It is a compile-time error if an initializing formal is used by a function other
  * than a non-redirecting generative constructor.
  * @description Checks that it is a compile-time error when the initializing formal
- * syntax is used by a factory constructor.
+ * syntax is used by a redirecting generative constructor.
  * @compile-error
- * @author rodionov
+ * @author msyabro
  * @reviewer iefremov
  */
 
-interface I default C {
-  I(int x);
-}
-
 class C {
-  int x;
-  factory I(this.x) {}
+  var x;
+  C() {}
+  C.redirect(this.x): this.C();
 }
 
 main() {
   try {
-    new I(null);
+    new C.redirect(null);
   } catch(var v) {}
 }

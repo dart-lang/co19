@@ -6,22 +6,25 @@
 /**
  * @assertion A formal constructor parameter is either a formal parameter (6.2)
  * or an initializing formal. An initializing formal has the form this.id, 
- * where id is the name of an instance variable of the immediately enclosing class. 
- * It is a compile-time error if an initializing formal is used by function other 
- * than a generative constructor.
- * @description Checks that it is a compile-time error when the initializing formal
- * syntax is used by a static method.
+ * where id is the name of an instance variable of the immediately enclosing class.
+ * It is a compile-time error if id is not the name of an instance variable of the immediately enclosing class.
+ * @description Checks that it is a compile-time error if id is the name
+ * of an instance variable of the superclass.
  * @compile-error
- * @author rodionov
+ * @author msyabro
+ * @reviewer iefremov
  */
 
-class C {
-  int x;
-  static foo(this.x) {}
+class S {
+  var x;
+}
+
+class C extends S{
+  C(this.x) {}
 }
 
 main() {
   try {
-    C.foo(null);
+    new C(null);
   } catch(var v) {}
 }

@@ -8,13 +8,18 @@
  * or an initializing formal. An initializing formal has the form this.id, 
  * where id is the name of an instance variable of the immediately enclosing class.
  * It is a compile-time error if id is not the name of an instance variable of the immediately enclosing class.
- * @description Checks that it is a compile-time error if id does not refer to any member of the class.
+ * @description Checks that it is a compile-time error if id is the name
+ * of a variable of the superinterface.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
-class C {
+interface I {
+  var x;
+}
+
+class C implements I{
   C(this.x) {}
 }
 

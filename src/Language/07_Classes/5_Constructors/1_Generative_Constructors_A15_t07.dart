@@ -8,18 +8,23 @@
  * or an initializing formal. An initializing formal has the form this.id, 
  * where id is the name of an instance variable of the immediately enclosing class.
  * It is a compile-time error if id is not the name of an instance variable of the immediately enclosing class.
- * @description Checks that it is a compile-time error if id does not refer to any member of the class.
- * @compile-error
+ * @description Checks that various correct constructor parameters does not produce compile-time errors.
  * @author msyabro
  * @reviewer iefremov
  */
 
 class C {
-  C(this.x) {}
+  C() {}
+  C.formal(p1, var p2, int p3, final p4, const p5, $()) {}
+  C.initialFormal(this.x, int this.y, this.z) {}
+  C.mixed(p1, this.x, [p2, this.y]) {}
+
+  int x, y, z;
 }
 
 main() {
-  try {
-    new C(null);
-  } catch(var v) {}
+  new C();
+  new C.formal(1, 2, 3, 4, 5, null);
+  new C.initialFormal(1, 2, 3);
+  new C.mixed(null, null);
 }

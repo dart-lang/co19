@@ -4,24 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If an explicit type is attached to the initializing formal, that is its static
- * type. Otherwise, the type of an initializing formal named id is Tid, where Tid is
- * the type of the field named id in the immediately enclosing class.
- * @description Checks that the type of an initializing formal is the type of the corresponding field.
- * @author msyabro
+ * @assertion It is a compile-time error if an initializing formal is used by a function other
+ * than a non-redirecting generative constructor.
+ * @description Checks that it is a compile-time error when the initializing formal
+ * syntax is used by a factory constructor (as an optional parameter).
+ * @compile-error
+ * @author rodionov
  * @reviewer iefremov
  */
 
-#import('../../../Utils/dynamic_check.dart');
+interface I default C {
+  I([int x]);
+}
 
 class C {
-  C(this.x) {}
-  String x;
+  int x;
+  factory I([this.x]) {}
 }
 
 main() {
-  new C('');
-  checkTypeError(() => new C(1));
+  try {
+    new I(null);
+  } catch(var v) {}
 }
-
-

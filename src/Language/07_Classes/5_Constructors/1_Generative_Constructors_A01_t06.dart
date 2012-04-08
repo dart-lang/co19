@@ -7,21 +7,19 @@
  * @assertion constructorSignature:
  * identifier formalParameterList | namedConstructorSignature  ;
  * namedConstructorSignature:  identifier '.' identifier formalParameterList ;
- * @description Checks valid constructor declarations.
- * @author vasya
- * @reviewer pagolubev
+ * @description Checks that constructor name cannot contain 3 identifiers.
+ * @compile-error
+ * @author kaigorodov
  * @reviewer iefremov
  */
 
 class C {
-  C(String s, var x, [Object o, var z = const []]);
-  C.c1();
-  C.c2(String s, var x, [Object o, var z = const []]) {}
+  C.c1.c2();
 }
 
 
 main() {
-  new C("", null, 1);
-  new C.c1();
-  new C.c2("", null, 1);
+  try {
+    new C.c1.c2();
+  } catch(var x) {}
 }
