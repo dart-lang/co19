@@ -15,7 +15,7 @@
  *   identifier
  * ;
  * fieldFormalParameter:
- *   finalVarOrType? this '.' identifier
+ *   finalConstVarOrType? this '.' identifier
  * ;
  * @description Checks that static variable declaration can't be a positional parameter
  * @compile-error
