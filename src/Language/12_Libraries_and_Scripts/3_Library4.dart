@@ -5,5 +5,4 @@
 #library("main for import");
 
 main() {
-  print('Ok');
 }

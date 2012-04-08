@@ -7,7 +7,6 @@
  * @assertion It is a run time error if library does not declare or import a top level function main().
  * @description Checks that if script does not have a top-level function main()
  * it can be imported.
- * @expected-output Ok
  * @author vasya
  * @reviewer msyabro
  */

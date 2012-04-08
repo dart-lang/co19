@@ -10,7 +10,7 @@
  * ' stringLiteral)? `) `;'
  * ;
  * @description Checks that it is a compile-time error when an import directive
- * is migging both parentheses, URI and prefix.
+ * is missing both parentheses, URI and prefix.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
