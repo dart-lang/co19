@@ -8,7 +8,6 @@
  * the result of a lookup of method m in class C with respect to library L, where
  * C is the class of o.
  * @description Checks that only the method in class C is found.
- * @expected-output C.method
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -22,10 +21,15 @@ class B {
 }
 
 class C {
-  method() {  print("C.method"); }
+  method() {throw "C"; }
 }
 
 main() {
   var o = new C();
-  o.method();
+  try {
+    o.method();
+    Expect.fail("Wrong method was called!");
+  } catch(String s) {
+    Expect.equals("C", s, "Wrong method was called!");
+  }
 }

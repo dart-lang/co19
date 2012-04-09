@@ -11,21 +11,18 @@
  * Otherwise, we say that the method lookup has failed.
  * @description Checks that the method m in the superclass is not selected if method m exists
  * in the class C.
- * @expected-output C.m()
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 class S {
  int m() {
-   print("S.m()"); 
    return 12346;
  }
 }
 
 class C extends S {
  int m() { 
-   print("C.m()"); 
    return 12345;
  }
 }
