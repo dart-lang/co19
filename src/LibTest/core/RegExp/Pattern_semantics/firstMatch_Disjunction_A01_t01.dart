@@ -34,14 +34,14 @@ main() {
   check("xyz|...", "abc");
   check("(ab|cd)+|ef",                  "AEKFCD",       ignoreCase:true,  expectedGroups:["CD", "CD"]);
   check("(ab|cd)+|ef",                  "AEKFCDab",     ignoreCase:true,  expectedGroups:["CDab", "ab"]);
-  check("(ab|cd)+|ef",                  "AEKeFCDab",    ignoreCase:true,  expectedGroups:["eF", ""]);
+  check("(ab|cd)+|ef",                  "AEKeFCDab",    ignoreCase:true,  expectedGroups:["eF", null]);
   check("(.)..|abc",                    "abc",          expectedGroups:["abc", "a"]);
   check(".+: gr(a|e)y",                 "color: grey",  expectedGroups:["color: grey", "e"]);
-  check("(Rob)|(Bob)|(Robert)|(Bobby)", "Hi Bob",       expectedGroups:["Bob", "", "Bob", "", ""]);
+  check("(Rob)|(Bob)|(Robert)|(Bobby)", "Hi Bob",       expectedGroups:["Bob", null, "Bob", null, null]);
   check("()|",                          "",             expectedGroups:["", ""]);
-  check("|()",                          "",             expectedGroups:["", ""]);
-  check("((a)|(ab))((c)|(bc))",         "abc",          expectedGroups:["abc", "a", "a", "", "bc", "", "bc"]);
-  check("((a)|(b))c",                   "aebc",         expectedGroups:["bc", "b", "", "b"]);
+  check("|()",                          "",             expectedGroups:["", null]);
+  check("((a)|(ab))((c)|(bc))",         "abc",          expectedGroups:["abc", "a", "a", null, "bc", null, "bc"]);
+  check("((a)|(b))c",                   "aebc",         expectedGroups:["bc", "b", null, "b"]);
 }
 
 void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false,

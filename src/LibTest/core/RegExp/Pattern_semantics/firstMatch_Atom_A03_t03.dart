@@ -23,7 +23,7 @@ main() {
 <p>Kibology for all</p>
 <p>All for Kibology</p>
 </body>""";
-  String html = "<html>\n" + body + "\n</html>";
+  String html = "<html>\n$body\n</html>";
   check(@"<body.*>((.*\n?)*?)</body>", html, ignoreCase:true , matchPos: 7,
       expectedGroups: [body, "\n<p>Kibology for all</p>\n<p>All for Kibology</p>\n", "<p>All for Kibology</p>\n"]);
 }

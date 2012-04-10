@@ -29,14 +29,14 @@
 main() {
 // ctrl+[A-Z]
   for(var alpha = 0x0041; alpha <= 0x005A; alpha++) {
-    RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), false, false);
+    RegExp re = new RegExp("\\c${new String.fromCharCodes([alpha])}", false, false);
     String str = new String.fromCharCodes([alpha % 32]);
     Expect.isTrue(null != re.firstMatch(str));
   }
 
 // ctrl+[a-z]
   for(var alpha = 0x0061; alpha <= 0x007A; alpha++) {
-    RegExp re = new RegExp("\\c" + new String.fromCharCodes([alpha]), false, false);
+    RegExp re = new RegExp("\\c${new String.fromCharCodes([alpha])}", false, false);
     String str = new String.fromCharCodes([alpha % 32]);
     Expect.isTrue(null != re.firstMatch(str));
   }

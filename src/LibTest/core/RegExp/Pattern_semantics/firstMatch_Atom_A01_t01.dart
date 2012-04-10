@@ -26,7 +26,7 @@ main() {
   check(@"(?=(a+))", "baaabac", 1, ["", "aaa"]);
   check(@"(?=(a+))a*b\1", "baaabac", 3, ["aba", "a"]);
   check(@"[Jj]ava([Ss]cript)?(?=\:)", "just Javascript: the way 0f jedi", 5, ["Javascript", "script"]);
-  check(@"[Jj]ava([Ss]cript)?(?=\:)", "taste of java: the cookbook", 9, ["java", ""]);
+  check(@"[Jj]ava([Ss]cript)?(?=\:)", "taste of java: the cookbook", 9, ["java", null]);
   checkNeg(@"[Jj]ava([Ss]cript)?(?=\:)", "rhino is JavaScript engine");
   checkNeg(@"a(?=b)a", "aba");
   checkNeg(@"(?=a)b\1", "aabb");

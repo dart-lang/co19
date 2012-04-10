@@ -33,9 +33,9 @@ main() {
   
   StringBuffer errStr = new StringBuffer();
   alphabet.forEach(void f(String key, String value) {
-    RegExp re = new RegExp("\\x" + key, false, false);
+    RegExp re = new RegExp("\\x$key", false, false);
     if(null == re.firstMatch(value)) {
-      errStr.append("\"\\x${key}\" does not match \"${value}\"\n");
+      errStr.add("\"\\x${key}\" does not match \"${value}\"\n");
     } 
   });
   

@@ -16,7 +16,7 @@
 
 main() {
   check("java(script)?", "state: javascript is an extension of ecma script", 7, ["javascript", "script"]);
-  check("java(script)?", "state: java and javascript are vastly different", 7, ["java", ""]);
+  check("java(script)?", "state: java and javascript are vastly different", 7, ["java", null]);
   checkNeg("java(script)?", "state: both Java and JavaScript used in web development");
   check("cd?e", "abcdef", 2, ["cde"]);
   check("cdx?e", "abcdef", 2, ["cde"]);

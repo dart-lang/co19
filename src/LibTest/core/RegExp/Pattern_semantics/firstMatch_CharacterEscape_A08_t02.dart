@@ -48,9 +48,9 @@ main() {
   
   StringBuffer errStr = new StringBuffer();
   codes.forEach(void f(String key, String value) {
-    RegExp re = new RegExp("\\u" + key, false, false);
+    RegExp re = new RegExp("\\u$key", false, false);
     if(null == re.firstMatch(value)) {
-      errStr.append("\"\\u${key}\" does not match \"${value}\"\n");
+      errStr.add("\"\\u${key}\" does not match \"${value}\"\n");
     } 
   });
   

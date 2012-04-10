@@ -22,29 +22,29 @@
 main() {
   String TextSE = "[^<]+";
   String UntilHyphen = "[^-]*-";
-  String Until2Hyphens = UntilHyphen + "([^-]" + UntilHyphen + ")*-";
-  String CommentCE = Until2Hyphens + ">?";
+  String Until2Hyphens = "$UntilHyphen([^-]$UntilHyphen)*-";
+  String CommentCE = "$Until2Hyphens>?";
   String UntilRSBs = "[^]]*]([^]]+])*]+";
-  String CDATA_CE = UntilRSBs + "([^]>]" + UntilRSBs + ")*>";
+  String CDATA_CE = '$UntilRSBs([^]>]$UntilRSBs)*>';
   String S = "[ \\n\\t\\r]+";
   String NameStrt = "[A-Za-z_:]|[^\\x00-\\x7F]";
   String NameChar = "[A-Za-z0-9_:.-]|[^\\x00-\\x7F]";
-  String Name = "(" + NameStrt + ")(" + NameChar + ")*";
-  String QuoteSE = '"[^"]' + "*" + '"' + "|'[^']*'";
-  String DT_IdentSE = S + Name + "(" + S + "(" + Name + "|" + QuoteSE + "))*";
-  String MarkupDeclCE = "([^]\"'><]+|" + QuoteSE + ")*>";
+  String Name = "($NameStrt)($NameChar)*";
+  String QuoteSE = '"[^"]' "*" '"'  "|'[^']*'";
+  String DT_IdentSE = "$S$Name($S($Name|$QuoteSE))*";
+  String MarkupDeclCE = "([^]\"'><]+|$QuoteSE)*>";
   String S1 = "[\\n\\r\\t ]";
   String UntilQMs = "[^?]*\\?+";
-  String PI_Tail = "\\?>|" + S1 + UntilQMs + "([^>?]" + UntilQMs + ")*>";
-  String DT_ItemSE = "<(!(--" + Until2Hyphens + ">|[^-]" + MarkupDeclCE + ")|\\?" + Name + "(" + PI_Tail + "))|%" + Name + ";|" + S;
-  String DocTypeCE = DT_IdentSE + "(" + S + ")?(\\[(" + DT_ItemSE + ")*](" + S + ")?)?>?";
-  String DeclCE = "--(" + CommentCE + ")?|\\[CDATA\\[(" + CDATA_CE + ")?|DOCTYPE(" + DocTypeCE + ")?";
-  String PI_CE = Name + "(" + PI_Tail + ")?";
-  String EndTagCE = Name + "(" + S + ")?>?";
-  String AttValSE = '"[^<"]' + "*" + '"' + "|'[^<']*'";
-  String ElemTagCE = Name + "(" + S + Name + "(" + S + ")?=(" + S + ")?(" + AttValSE + "))*(" + S + ")?/?>?";
-  String MarkupSPE = "<(!(" + DeclCE + ")?|\\?(" + PI_CE + ")?|/(" + EndTagCE + ")?|(" + ElemTagCE + ")?)";
-  String XML_SPE = TextSE + "|" + MarkupSPE;
+  String PI_Tail = "\\?>|$S1$UntilQMs([^>?]$UntilQMs)*>";
+  String DT_ItemSE = "<(!(--$Until2Hyphens>|[^-]$MarkupDeclCE)|\\?$Name($PI_Tail))|%$Name;|$S";
+  String DocTypeCE = "$DT_IdentSE($S)?(\\[($DT_ItemSE)*]($S)?)?>?";
+  String DeclCE = "--($CommentCE)?|\\[CDATA\\[($CDATA_CE)?|DOCTYPE($DocTypeCE)?";
+  String PI_CE = "$Name($PI_Tail)?";
+  String EndTagCE = "$Name($S)?>?";
+  String AttValSE = '"[^<"]' "*" '"' "|'[^<']*'";
+  String ElemTagCE = "$Name($S$Name($S)?=($S)?($AttValSE))*($S)?/?>?";
+  String MarkupSPE = "<(!($DeclCE)?|\\?($PI_CE)?|/($EndTagCE)?|($ElemTagCE)?)";
+  String XML_SPE = "$TextSE|$MarkupSPE";
   
   List<String> patterns = [TextSE, UntilHyphen, Until2Hyphens, CommentCE, UntilRSBs, CDATA_CE, S, NameStrt, NameChar,
                             Name, QuoteSE, DT_IdentSE, MarkupDeclCE, S1,UntilQMs, PI_Tail, DT_ItemSE, DocTypeCE, DeclCE, 

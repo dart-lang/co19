@@ -22,7 +22,7 @@
 
 main() {
   check(@"\b(\w+) \1\b", "do you listen the the band", 14, ["the the", "the"]);
-  check(@"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x01u00FFu00FFx04x04x23", 6, ["x01x01", "x01", ""]);
+  check(@"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x01u00FFu00FFx04x04x23", 6, ["x01x01", "x01", null]);
   check(@"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x05u00FFu00FFx04x04x23", 12, ["u00FFu00FF", "u00FF", "FF"]);
   check(@"(a*)b\1+", "baaac", 0, ["b", ""]);
   checkNeg(@"(a*)b\2", "aaaaaaaaab"); //??
@@ -57,12 +57,12 @@ void checkNeg(String pattern, String str) {
   }
 }
 
-void checkEx(String pattern, String str) {
-  try {
-    RegExp re = new RegExp(pattern, false, false);
-    re.firstMatch(str);
-    Expect.fail("An error expected");
-  } catch(var ok) {
-     TODO
-  }
-}
+//void checkEx(String pattern, String str) {
+//  try {
+//    RegExp re = new RegExp(pattern, false, false);
+//    re.firstMatch(str);
+//    Expect.fail("An error expected");
+//  } catch(var ok) {
+//     //TODO
+//  }
+//}
