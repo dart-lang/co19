@@ -14,7 +14,7 @@
  * @description  Checks that it is a compile-time error if identifier
  * expression refers to a function type definition.
  * @compile-error
- * @author kaigorodov 
+ * @author kaigorodov
  * @reviewer rodionov 
  */
 

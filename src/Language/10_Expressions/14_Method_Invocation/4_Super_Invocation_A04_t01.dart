@@ -6,7 +6,7 @@
 /**
  * @assertion If the getter lookup has also failed,  then a new instance im
  * of the predefined interface InvocationMirror is created  by calling its factory constructor
- * with arguments ‘m’,  this, [e1, …, en] and {xn+1:en+1, …, xn+k : en+k}. Then the
+ * with arguments â€˜mâ€™,  this, [e1, â€¦, en] and {xn+1:en+1, â€¦, xn+k : en+k}. Then the
  * method noSuchMethod() is looked up in S and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod is invoked if method and getter lookups have failed.

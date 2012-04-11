@@ -12,7 +12,7 @@
  * If the setter lookup has failed, then a new instance im  of the predefined interface
  * InvocationMirror is created, such that :
  * im.isSetter evaluates to true.
- * im.memberName evaluates to ‘v’.
+ * im.memberName evaluates to â€˜vâ€™.
  * im.arguments.positionalArguments evaluates to [o2].
  * im.arguments.namedArguments evaluates to {}.
  * Then the method noSuchMethod() is looked up in o1 with argument im. The value of the assignment expression is

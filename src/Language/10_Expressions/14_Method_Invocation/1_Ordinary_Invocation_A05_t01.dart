@@ -12,7 +12,7 @@
  * list. The value of i is the value returned after c is executed.
  * If getter lookup has also failed, then a new instance im  of the predefined interface
  * InvocationMirror is created by calling its factory constructor with arguments
- * ‘m’,  this, [o1, …, on] and {xn+1:on+1, …, xn+k : on+k}. Then the
+ * â€˜mâ€™,  this, [o1, â€¦, on] and {xn+1:on+1, â€¦, xn+k : on+k}. Then the
  * method noSuchMethod() is looked up in o and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
  * @description Checks that if vg is a function, it is executed with respect to

@@ -80,7 +80,7 @@ class A {
     //unary expressions
     (--id) || (id++);
     (~-id) && (!!false);
-
+    
     // selector operator invocations
     try {
       id[2.0] || topLevelFunction()[0] && [1, 2][0];

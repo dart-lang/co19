@@ -13,7 +13,7 @@
  * If the evaluation succeeded yielding an object o, let r = o, otherwise let r = null.
  * In any case, r is stored into v. The value of e is r. Otherwise
  *    e evaluates to the current binding of id.  This case also applies if d is a library function declaration,
- * as these are equivalent to function-valued variable declarations.
+  * as these are equivalent to function-valued variable declarations.
  *  - If d is a local variable or formal parameter then e evaluates to the current binding of id.
  * This case also applies if d is a local function declaration,
  * as these are equivalent to function-valued variable declarations.
@@ -35,7 +35,7 @@ func() {
 }
 
 main() {
-    try {
-      func();
-    } catch(var e) {}
+  try {
+    func();
+  } catch(var e) {}
 }

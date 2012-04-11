@@ -7,7 +7,7 @@
  * @assertion If the getter lookup has failed, then a new instance im  of the predefined interface
  * InvocationMirror  is created, such that :
  * im.isGetter evaluates to true.
- * im.memberName evaluates to ‘m’.
+ * im.memberName evaluates to â€˜mâ€™.
  * im.arguments.positionalArguments evaluates to [].
  * im.arguments.namedArguments evaluates to {}.
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
