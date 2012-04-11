@@ -19,11 +19,11 @@ main() {
   check(".+: gr(a|e)y", "color: grey", 0, [0, 0, 0], ["color: grey", "color: grey", "color: grey"]);
   check(".+: gr(a|e)y", "color: grey", 0, [1, 1], ["e", "e"]);
   
-  check("((a)|(ab))((c)|(bc))", "abc", 0, [0, 1, 2, 3, 4, 5, 6], ["abc", "a", "a", "", "bc", "", "bc"]);
+  check("((a)|(ab))((c)|(bc))", "abc", 0, [0, 1, 2, 3, 4, 5, 6], ["abc", "a", "a", null, "bc", null, "bc"]);
   check("((a)|(ab))((c)|(bc))", "abc", 0, [0], ["abc"]);
   check("((a)|(ab))((c)|(bc))", "abc", 0, [1, 1], ["a", "a"]);
-  check("((a)|(ab))((c)|(bc))", "abc", 0, [3, 3, 3, 0, 4, 4, 4], ["", "", "", "abc", "bc", "bc", "bc"]);
-  check("((a)|(ab))((c)|(bc))", "abc", 0, [6, 4, 2, 1, 3, 5, 0], ["bc", "bc", "a", "a", "", "", "abc"]);
+  check("((a)|(ab))((c)|(bc))", "abc", 0, [3, 3, 3, 0, 4, 4, 4], [null, null, null, "abc", "bc", "bc", "bc"]);
+  check("((a)|(ab))((c)|(bc))", "abc", 0, [6, 4, 2, 1, 3, 5, 0], ["bc", "bc", "a", "a", null, null, "abc"]);
   check("((a)|(ab))((c)|(bc))", "abc", 0, [6, 6, 6, 6, 6, 6, 6, 6], ["bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc"]);
   check("((a)|(ab))((c)|(bc))", "abc", 0,
       [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], 

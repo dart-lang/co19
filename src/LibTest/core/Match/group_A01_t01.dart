@@ -25,7 +25,7 @@ main() {
   check("ABCDEF", "(([A-Z])*)", ["ABCDEF", "ABCDEF", "F"]);
   check("a", @"((((((((a))))))))", ["a","a","a","a","a","a","a","a","a"]);
   check("AEKFCD", @"(ab|cd)+|ef", ["CD", "CD"], ignoreCase: true);
-  check("abc", @"((a)|(ab))((c)|(bc))", ["abc", "a", "a", "", "bc", "", "bc"]);
+  check("abc", @"((a)|(ab))((c)|(bc))", ["abc", "a", "a", null, "bc", null, "bc"]);
   check("aa", @"(a)(\1)", ["aa", "a", "a"]);
   check("a", @"[a-z]", ["a"]);
 }
