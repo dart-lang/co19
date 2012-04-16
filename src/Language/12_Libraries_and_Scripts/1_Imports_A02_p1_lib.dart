@@ -10,6 +10,7 @@ final bFoo = "B_FOO";
 
 class B {
   B () {}
+  B.spec () {}
   foo() { return "1_Imports_A02_p1_lib.foo()"; }
   var bar = "1_Imports_A02_p1_lib.bar";
   //static final FOO = "B.FOO";

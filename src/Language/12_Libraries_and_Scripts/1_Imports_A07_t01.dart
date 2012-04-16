@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile-time error if the value of prefix is not a valid identifier.
- * @description Checks that it is a compile-time error if the value of prefix begins with space.
+ * @description Checks that it is a compile-time error if the value of prefix begins with a space.
  * @compile-error
  * @author vasya
  * @reviewer msyabro

@@ -11,17 +11,16 @@
  * added to the scope of A.
  * - Otherwise, each non-private top level declaration d of B is added to the
  * scope of A under the name P.d, as is the name P.
- * @description Checks that names imported from library B with prefix P can't
- * be used without a prefix.
+ * @description Checks that imports of an imported library are not accessible.
+ * @author kaigorodov
+ * @reviewer iefremov
  * @compile-error
- * @author msyabro
- * @reviewer rodionov
  */
 
-#import("1_Imports_A02_lib.dart", prefix: 'P');
+#import("1_Imports_A02_lib.dart", prefix: "PP");
 
 main() {
   try {
-    aFoo === 'A_FOO';
-  } catch(var e) {}
+    new PP.P.B.spec().foo();
+  } catch(var x) {}
 }

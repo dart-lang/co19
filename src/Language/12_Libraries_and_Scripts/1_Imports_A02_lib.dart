@@ -26,3 +26,11 @@ interface J extends P.I default K {
   static final FOO = "J.FOO";  
 }
 
+class SubList<T> {
+  List<T> list;
+  SubList():list=new List<T>(){}
+  
+  void add(T v) {
+    list.add(v);
+  }
+}
