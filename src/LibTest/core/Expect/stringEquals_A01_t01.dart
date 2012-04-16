@@ -23,7 +23,7 @@ main() {
   Expect.stringEquals(null, null, "");
   Expect.stringEquals(null, null, "not empty");
   
-  Expect.stringEquals("foo" + "bar", "foob" + "ar");
-  Expect.stringEquals("foo" + "bar", "foob" + "ar", "");
-  Expect.stringEquals("foo" + "bar", "foob" + "ar", "not empty");
+  Expect.stringEquals("foo" "bar", "foob" "ar");
+  Expect.stringEquals("foo" "bar", "foob" "ar", "");
+  Expect.stringEquals("foo" "bar", "foob" "ar", "not empty");
 }

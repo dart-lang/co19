@@ -20,8 +20,8 @@
 
 main() {
   String str = "a"; //UTF-8;
-  str = str + "\u1d02"; //UTF-16;
-  str = str + "\u{10000}"; //UTF-32;
+  str = "$str\u1d02"; //UTF-16;
+  str = "$str\u{10000}"; //UTF-32;
   
   Expect.equals(str, "\u0061\u1d02\u{10000}");
   Expect.equals(3, str.length);

@@ -16,7 +16,7 @@
 void check(y, m, d, h, min, sec, ms, tz, field) {
   try {
     new Date.withTimeZone(y, m, d, h, min, sec, ms, tz);
-    Expect.fail("NullPointerException expected with the passed null value of the "+field);
+    Expect.fail("NullPointerException expected with the passed null value of the $field");
   } catch(NullPointerException ok) {}
 }
 

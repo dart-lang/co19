@@ -17,11 +17,11 @@ typedef bool checkFn(exception);
 typedef void test();
 
 main() {
-  check(() {return;}, null, "sdsds sd dsf");
-  check(() {return;}, (e) => true, "sdsds sd dsf");
-  check(() {return;}, (e) => false, "sdsds sd dsf");
+  check(() {return;}, null, "sdsds sd dsf1");
+  check(() {return;}, (e) => true, "sdsds sd dsf2");
+  check(() {return;}, (e) => false, "sdsds sd dsf3");
 
-  check(() {throw "";}, (e) => false, "sdsds sd dsf");
+  check(() {throw "";}, (e) => false, "sdsds sd dsf4");
 }
 
 
@@ -30,6 +30,6 @@ void check(test tFun, [checkFn checkFun = null, String reason = null]) {
     Expect.throws(tFun, checkFun, reason);
     Expect.fail("ExpectException expected");
   } catch (ExpectException e) {
-    if (!e.message.contains(reason, 0)) throw "reason ($reason) not mentioned in ExpectException message (" + e.message + ")";
+    if (!e.message.contains(reason, 0)) throw "reason ($reason) not mentioned in ExpectException message (${e.message})";
   }
 }

@@ -22,7 +22,7 @@ void check(String msg) {
     Expect.fail(msg);
     throw new Exception("ExpectException expected");
   } catch (ExpectException e) {
-    if (!e.message.contains(msg.toString(), 0)) throw "ExpectException message: '" + e.message 
-      + "' doesn't contain the argument of fail() (" + msg.toString() + ")";
+    if (!e.message.contains(msg.toString(), 0)) throw "ExpectException message: '${e.message}'"
+      " doesn't contain the argument of fail() ( ${ msg.toString()} )";
   }
 }

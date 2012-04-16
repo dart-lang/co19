@@ -45,7 +45,7 @@ void check(List arg1, List arg2, [String reason = null, int index = 0]) {
   } catch (ExpectException e) {
     if(arg1.length !== arg2.length) {
       if(!e.message.contains(arg1.length.toString(), 0) && !e.message.contains(arg2.length.toString(), 0)) {
-        throw "exception message (" + e.message + ") doesn't mention list lengths";
+        throw "exception message ( ${e.message} ) doesn't mention list lengths";
       }
       if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason";
     } else {
@@ -53,17 +53,17 @@ void check(List arg1, List arg2, [String reason = null, int index = 0]) {
       String a1str = a1 !== null ? a1.toString() : "null", 
           a2str = a2 !== null ? a2.toString() : "null";
 
-      if (!e.message.contains("" + index, 0)) 
-        throw "exception message: (" + e.message + ") doesn't mention the index of first mismatch ($index)";
+      if (!e.message.contains('$index', 0))
+        throw "exception message: ( ${e.message} ) doesn't mention the index of first mismatch ($index)";
       
       if (!e.message.contains(a1str, 0)) 
-        throw "exception message: (" + e.message + ") doesn't mention the expected value ($a1str)";
+        throw "exception message: ( ${e.message} ) doesn't mention the expected value ($a1str)";
           
       if (!e.message.contains(a2str, 0)) 
-        throw "exception message: (" + e.message + ") doesn't mention the actual value ($a2str)";
+        throw "exception message: ( ${e.message} ) doesn't mention the actual value ($a2str)";
       
       if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) 
-        "exception message: (" + e.message + ") doesn't mention the specified reason ($reason)";;
+        "exception message: ( ${e.message} ) doesn't mention the specified reason ($reason)";;
     }
   }
 }

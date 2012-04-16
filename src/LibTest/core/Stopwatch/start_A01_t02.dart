@@ -17,7 +17,7 @@
 
 main() {
   Stopwatch sw = new Stopwatch();
-  print("Freq: " + sw.frequency() + "Hz");
+  print("Freq: ${sw.frequency()}Hz");
   sw.start();
   // run the counter up
   for(int i = 0; i < 1000000; i++) {
@@ -27,12 +27,12 @@ main() {
     }
   }
   int e1 = sw.elapsed();
-  print("Elapsed: " + sw.elapsed());
+  print("Elapsed: ${sw.elapsed()}");
   sw.stop();
-  print("Elapsed: " + sw.elapsed());
+  print("Elapsed: ${sw.elapsed()}");
   e1 = sw.elapsed();
   sw.start();
-  print("Elapsed: " + sw.elapsed());
+  print("Elapsed: ${sw.elapsed()}");
   // gotta verify the assumption
   Expect.isTrue(sw.elapsed() >= e1);
 
@@ -45,6 +45,6 @@ main() {
     }
   }
   // assuming that a million iterations takes long enough
-  print("Elapsed: " + sw.elapsed());
+  print("Elapsed: ${sw.elapsed()}");
   Expect.isTrue(sw.elapsed() > e0);
 }

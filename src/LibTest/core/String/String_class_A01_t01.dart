@@ -19,9 +19,6 @@ main() {
   str.concat("string");
   Expect.isTrue(str == s);
 
-  str + "string";
-  Expect.isTrue(str == s);
-
   str.substring(0, 1);
   Expect.isTrue(str == s);
 
