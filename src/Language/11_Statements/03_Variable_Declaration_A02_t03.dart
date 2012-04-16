@@ -9,6 +9,7 @@
  * @description Checks that the variable must be declared before it is used.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
@@ -17,4 +18,3 @@ main() {
     var i;
   } catch (var ok) {}
 }
-

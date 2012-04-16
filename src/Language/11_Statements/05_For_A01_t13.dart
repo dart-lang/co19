@@ -17,15 +17,20 @@
  *   initializedVariableDeclaration ';' |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error when the loop parts
- * in a 'id in expression' loop variety are missing the expression.
+ * @description Checks that it is a compile-time error when the loop variable
+ * in a 'id in expression' is not a simple variable.
  * @compile-error
- * @author iefremov
- * @reviewer rodionov
+ * @author kaigorodov
+ * @reviewer iefremov
  */
+
+class C {
+  int i;
+}
 
 main() {
   try {
-    for ( var x in  ) break;
+    C c=new C();
+    for (c.i in new List(100)) break;
   } catch(var x){}
 }

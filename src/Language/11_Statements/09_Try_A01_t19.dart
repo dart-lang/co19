@@ -16,9 +16,10 @@
  *   finally block
  * ;
  * @description Checks that it is a compile-time error if "try" is followed by
- * return statement, not a block.
+ * a return statement instead of a block.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

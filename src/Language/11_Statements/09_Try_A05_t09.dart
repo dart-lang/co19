@@ -26,8 +26,10 @@
  * proceeds as follows:
  * The statement s1 is executed in the dynamic scope of the exception handler
  * defined by the try statement. Then, the finally clause is executed.
- * @description Checks that a return statement inside a finally clause aborts the stack unwinding.
+ * @description Checks that a throw statement inside a finally clause replaces the current exception
+ * and unwinds the call stack from the new location.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 foo() {
@@ -38,7 +40,6 @@ foo() {
   }
 }
 
-
 main() {
   try {
     foo();
@@ -48,5 +49,4 @@ main() {
   } catch(bool b) {
     Expect.isTrue(b, "Wrong object was thrown!");
   }
-
 }

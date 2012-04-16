@@ -17,15 +17,15 @@
  *   initializedVariableDeclaration ';' |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error when the loop parts
- * in a 'id in expression' loop variety are missing the expression.
+ * @description Checks that it is a compile-time error when the loop variable
+ * in a 'id in expression' includes initializer.
  * @compile-error
- * @author iefremov
+ * @author kaigorodov
  * @reviewer rodionov
  */
 
 main() {
   try {
-    for ( var x in  ) break;
+    for ( var l=1 in new List(100)) break;
   } catch(var x){}
 }

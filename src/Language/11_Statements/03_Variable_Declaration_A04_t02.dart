@@ -7,9 +7,10 @@
  * @assertion Executing a variable declaration statement T id = e;  is equivalent
  * to evaluating the assignment expression id = e, except that the assignment 
  * is considered legal even if the variable is final.
- * @description Checks that an expression e is evaluated correctly in a variable
- * declaration statement with several declarations.
+ * @description Checks that an expression e is evaluated correctly in a multiple variable
+ * declaration statement.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 foo(p1) {
@@ -36,4 +37,3 @@ check(p1) {
 main() {
   check(1);
 }
-

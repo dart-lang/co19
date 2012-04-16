@@ -9,6 +9,7 @@
  * For i in 1..n; si is executed.
  * @description Checks that nested block statements are executed as expected.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

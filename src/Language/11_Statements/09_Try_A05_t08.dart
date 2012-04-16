@@ -28,6 +28,7 @@
  * defined by the try statement. Then, the finally clause is executed.
  * @description Checks that a return statement inside a finally clause aborts the stack unwinding.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 foo() {
@@ -42,7 +43,7 @@ foo() {
 main() {
   try {
     Expect.isTrue(foo(), "finally clause was not executed properly!");
-  } catch(var e) {
-    Expect.fail("Caught exception aborted by return in finally clause.");
+  } catch(int e) {
+    Expect.fail("return statement in finally clause failed to abort the unwinding of the call stack.");
   }
 }

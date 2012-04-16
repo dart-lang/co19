@@ -9,9 +9,11 @@
  * p1, T2 p2) s, catch ( final T1 p1, final p2) s, catch ( final T1 p1, final T2 p2) s
  * or catch ( final T1 p1, var p2) s matches an object o if o is null or if the type
  * of o is a subtype of T1.
- * @description Checks that it is fine to put first the most common catch clause and that
- * an exception can not be caught with unmatching clauses.
+ * @description Checks that it is not an error when the least specific catch clause is
+ * placed first, followed by more specific, and therefore redundant, catch clauses
+ * and that an exception can not be caught with clauses that don't match.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class A {}

@@ -14,6 +14,7 @@
  * statement or case clause within the innermost function containing the continue statement.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 

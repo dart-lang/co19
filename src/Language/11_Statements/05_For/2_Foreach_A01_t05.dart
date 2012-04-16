@@ -8,8 +8,9 @@
  * the the following code:
  * var n0 = e.iterator(); while (n0.hasNext()) { finalConstVarOrType id = n0.next();
  * s } where n0 is an identifier that does not occur anywhere in the program.
- * @description Checks that all needed methods are executed in the correct order.
+ * @description Checks that all of the mentioned methods are executed in the specified order.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 var log = "";

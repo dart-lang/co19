@@ -10,6 +10,7 @@
  * available in a scope that is a "sibling" to the one it was declared in.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
@@ -22,4 +23,3 @@ main() {
     }
   } catch (var ok) {}
 }
-

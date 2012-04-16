@@ -19,8 +19,9 @@
  * by executing sn+1. If v is true, then let m be the smallest non-negative integer
  * such that sk+m is non-blank; the statement sk+m is executed.
  * @description Checks that expressions in case clauses consequent to the matching
- * case are not executed.
+ * case are not evaluated.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 String log = "";

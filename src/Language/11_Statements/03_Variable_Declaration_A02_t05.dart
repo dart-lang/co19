@@ -10,6 +10,7 @@
  * available in a scope that encloses the one it was declared in.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
@@ -20,4 +21,3 @@ main() {
     id = null;
   } catch (var ok) {}
 }
-

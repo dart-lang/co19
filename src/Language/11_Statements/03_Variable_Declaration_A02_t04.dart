@@ -7,10 +7,11 @@
  * @assertion A variable declaration statement var id; or var id = e; introduces
  * a new variable named id with static type Dynamic into the innermost enclosing scope.
  * @description Checks that a variable is introduced into the scope
- * after a variable declaration statement is evaluated. Using it (the variable)
- * in the statement produces a compile-time error.
+ * after a variable declaration statement is evaluated and it is a compile-time
+ * error when the variable is referenced in the right-hand part of its own declaration.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {
@@ -18,4 +19,3 @@ main() {
     var i = i;
   } catch (var ok) {}
 }
-

@@ -8,9 +8,11 @@
  * a new variable named id with static type Dynamic into the innermost enclosing scope.
  * @description Checks that a variable is introduced into the scope
  * after a variable declaration statement is evaluated. Checks that a variable name
- * is not available in a local function that is used to initialize this variable.
+ * is not available in a local function that is used in the initializing expression
+ * of that variable's declaration.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
@@ -19,4 +21,3 @@ main() {
     var f = () {x = f};
   } catch (var x) {}
 }
-

@@ -11,6 +11,8 @@
  * Execution of an expression statement e; proceeds by evaluating e.
  * @description Checks that any expression can form a statement.
  * @author iefremov
+ * @reviewer rodionov
+ * @note issue http://code.google.com/p/dart/issues/detail?id=1489
  */
 
 var v;

@@ -11,9 +11,8 @@
  * @description Checks that a finally statement is executed if the control
  * is transferred from a try block using a return statement.
  * @author iefremov
- * @needsreview issue 1795
+ * @reviewer rodionov
  */
-
 
 foo() {
   try {
@@ -22,7 +21,6 @@ foo() {
     return 2;
   }
 }
-
 
 main() {
   Expect.equals(2, foo(), "A finally clause was not executed correctly!");

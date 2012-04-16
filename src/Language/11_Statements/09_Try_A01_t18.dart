@@ -15,10 +15,11 @@
  * finallyPart:
  *   finally block
  * ;
- * @description Checks that it is a compile-time error if a catch clause specifies
+ * @description Checks that it is a compile-time error when a catch clause specifies
  * a second parameter with a previously declared id, without a type or 'final' attribute.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

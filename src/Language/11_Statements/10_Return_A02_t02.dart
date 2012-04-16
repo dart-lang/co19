@@ -11,7 +11,7 @@
  * @description Checks that a finally statement is executed if the control
  * is transferred from a try block using a return statement.
  * @author iefremov
- * @needsreview issue 1795
+ * @reviewer rodionov
  */
 
 var flag = false;
@@ -23,7 +23,6 @@ foo() {
     flag = true;
   }
 }
-
 
 main() {
   foo();

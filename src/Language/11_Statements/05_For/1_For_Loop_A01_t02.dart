@@ -20,6 +20,7 @@
  * @description Checks that if c is not empty then it is evaluated every iteration using
  * the current value of iteration variable. 
  * @author iefremov
+ * @reviewer rodionov
  */
 
 
@@ -33,4 +34,3 @@ main() {
   for(var i = 0; f(i); i++) ;
   Expect.equals("012345678910", log);
 }
-

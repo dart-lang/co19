@@ -6,15 +6,14 @@
 /**
  * @assertion A variable declaration statement T id; or T id = e; introduces 
  * a new variable id with static type T into the innermost enclosing scope.
- * @description Checks that the variable must be declared before it is used.
- * @compile-error
- * @author iefremov
- * @reviewer rodionov
+ * @description Checks that the type T in a variable declaration can be parameterized.
+ * @author kaigorodov
+ * @reviewer iefremov
  */
 
+class T<K,V> {}
+
 main() {
-  try {
-    Expect.equals(null, i);
-    int i;
-  } catch (var ok) {}
+  T<int, String> id;
 }
+
