@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The expression  e is equivalent to the method invocation e.negate().
- * @description Checks that the expression  e is equivalent to the method invocation e.negate().
+ * @assertion The expression -e is equivalent to the method invocation e.negate().
+ * @description Checks that the expression -e is equivalent to the method invocation e.negate().
  * @author msyabro
  * @reviewer kaigorodov
  */

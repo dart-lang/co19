@@ -10,18 +10,15 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that a variable declaration cannot contain the 'factory' keyword.
- * @author kaigorodov
+ * @description Checks that variable can't be initialized with itself.
+ * @author hlodvig
  * @reviewer iefremov
  * @compile-error
+ * @needsreview TODO: find a proper assertion for this test. Ensure that there is no duplicates.
  */
-
-class C {
-  factory var x = 1;
-}
 
 main() {
   try {
-    new C();
-  } catch(var x) {}
+    var x = x;
+  } catch(var z) {}
 }

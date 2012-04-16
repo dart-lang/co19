@@ -10,18 +10,14 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that a variable declaration cannot contain the 'factory' keyword.
- * @author kaigorodov
+ * @description Checks that only assignment operator is admitted when variable is initialized.
+ * @author hlodvig
  * @reviewer iefremov
  * @compile-error
  */
 
-class C {
-  factory var x = 1;
-}
-
 main() {
   try {
-    new C();
-  } catch(var x) {}
+    var x++;
+  } catch(var z) {}
 }
