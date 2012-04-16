@@ -6,6 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that the column is recorded correctly when the TypeError is raised.
+ * @static-warning
  * @author rodionov
  * @reviewer msyabro
  */

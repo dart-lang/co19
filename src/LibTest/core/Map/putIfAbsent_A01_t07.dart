@@ -8,6 +8,7 @@
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
  * @description Tries to pass incorrect function if [key] is already in the map
+ * @static-warning
  * @author msyabro
  * @needsreview undocumented
  * @reviewer varlax

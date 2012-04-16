@@ -6,6 +6,7 @@
 /**
  * @assertion Applies the function [f] to each element of the collection.
  * @description Tries to pass non-function object as [f].
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  */

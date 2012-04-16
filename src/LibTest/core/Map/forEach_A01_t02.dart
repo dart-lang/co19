@@ -6,6 +6,7 @@
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
  * @description Tries to pass non-function object as [f] and check that ObjectNotClosureException is thrown.
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  * @needsreview undocumented

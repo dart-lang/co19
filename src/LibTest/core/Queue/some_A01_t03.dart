@@ -7,6 +7,7 @@
  * @assertion Returns true if one element of the collection satisfies the
  * predicate [f]. Returns false otherwise.
  * @description Tries to pass non-function object as [f].
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  */

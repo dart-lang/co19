@@ -6,6 +6,7 @@
 /**
  * @assertion Method fails gracefully if supplied with argument of invalid type.
  * @description Checks that IllegalArgumentException is thrown.
+ * @static-warning
  * @author varlax
  */
 

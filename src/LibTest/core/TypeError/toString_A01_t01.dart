@@ -6,6 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that this method causes no error and the result is not null and is indeed a String.
+ * @static-warning
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented

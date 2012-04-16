@@ -7,6 +7,7 @@
  * @assertion Returns a new collection with the elements of this collection
  * that satisfy the predicate [f].
  * @description Tries to pass non-function object as [f]
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  */

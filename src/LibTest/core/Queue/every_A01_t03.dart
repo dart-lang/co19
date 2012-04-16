@@ -7,6 +7,7 @@
  * @assertion Returns true if every elements of the collection satisify the
  * predicate [f]. Returns false otherwise.
  * @description Tries to pass non-function object as argument [f]
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  */
