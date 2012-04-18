@@ -11,10 +11,10 @@
  * member named id if it exists. If no such member exists, let d be the declaration
  * of the static member name id declared in a superclass of the current class, if it
  * exists.
- * @description  Checks that identifier expression can refer to a static variable
+ * @description  Checks that identifier expression can not refer to a static variable
  * in a superclass of the current class
- * @author msyabro
- * @reviewer kaigorodov 
+ * @compile-error
+ * @author iefremov
  */
 
 class A {
@@ -28,6 +28,7 @@ class B extends A {
 }
 
 main() {
-  B b = new B();
-  Expect.isTrue(b.func()==3);
+  try {
+    print(new B().func());
+  } catch(var x) {}
 }

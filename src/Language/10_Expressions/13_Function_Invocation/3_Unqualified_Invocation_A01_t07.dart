@@ -12,30 +12,27 @@
  * variable then i is interpreted as a function expression invocation.
  *  - Otherwise, if fid is a static method of the enclosing class C, i is equivalent
  * the static method invocation C.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- *  - Otherwise, if there is an accessible static method named id declared in
- * a superclass S of the immediately enclosing class C then i is equivalent to the
- * static method invocation S.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- *  - Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
+ * Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
  * an+1, ... , xn+k : an+k).
  * @description Checks that if fid is a static method of the superclass S,
- * i is equivalent to the static method invocation S.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @author msyabro
- * @reviewer rodionov
+ * then unqualified function invocation expression should produce a compile-time error.
+ * @compile-error
+ * @author iefremov
  */
 
 class S {
-  static m(p1) {
-    Expect.equals(2, p1);
-    return p1 + 1;
+  static m() {
   }
 }
 
 class C extends S {
   test() {
-    Expect.equals(3, m(2));
+    m();
   }
 }
 
 main() {
-  new C().test();
+  try {
+    print(new C().test());
+  } catch(var x) {}
 }

@@ -12,10 +12,7 @@
  * variable then i is interpreted as a function expression invocation.
  *  - Otherwise, if fid is a static method of the enclosing class C, i is equivalent
  * the static method invocation C.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- *  - Otherwise, if there is an accessible static method named id declared in
- * a superclass S of the immediately enclosing class C then i is equivalent to the
- * static method invocation S.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- *  - Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
+ * Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
  * an+1, ... , xn+k : an+k).
  * @description Checks that an unqualified invocation is resolved correctly and the innermost
  * matching declaration is used.
@@ -25,12 +22,6 @@
 
 m() {
   return "library function";
-}
-
-class S {
-  static m() {
-    return "static superclass method";
-  }
 }
 
 class A {
@@ -54,12 +45,6 @@ class B {
   }
 }
 
-class C extends S {
-  test() {
-    Expect.equals("static superclass method", m());
-  }
-}
-
 class D {
   test() {
     Expect.equals("library function", m());
@@ -69,6 +54,5 @@ class D {
 main() {
   new A().test();
   new B().test();
-  new C().test();
   new D().test();
 }
