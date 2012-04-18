@@ -10,6 +10,7 @@
  * a const constructor and vice versa.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 class A {

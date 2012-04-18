@@ -32,7 +32,7 @@
  * in a single-line single-quotes string literal is preceded by a backslash character.
  * @compile-error
  * @author msyabro
- * @needsreview  Issue 1549
+ * @reviewer rodionov
  */
 
 main() {

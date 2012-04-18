@@ -6,59 +6,60 @@
 /**
  * @assertion Adjacent single line strings are implicitly concatenated
  * to form a single string literal.
- * @description Checks that various string literal separated by a whitespace
+ * @description Checks that various string literal separated by whitespace
  * are concatenated to form a single string literal.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 
 main() {
   //Empty single-quoted strings
-  '' '';
-  ''
-  '';
-  ''@'';
+  Expect.equals('', '' '');
+  Expect.equals('', ''
+  '');
+  Expect.equals('', ''@'');
 
   //Empty double-quoted strings
-  "" "";
-  ""
-  "";
-  ""@"";
+  Expect.equals('', "" "");
+  Expect.equals('', ""
+  "");
+  Expect.equals('', ""@"");
 
   //Empty multi-line strings
-  """""" """""";
-  '''''' '''''';
-  """""""""""";
-  '''''''''''';
+  Expect.equals('', """""" """""");
+  Expect.equals('', '''''' '''''');
+  Expect.equals('', """""""""""");
+  Expect.equals('', '''''''''''');
 
-  //Empty mixed strings
-  '' "";
-  ''"";
-  ""'';
-  ""
-  '';
-  '''''' "";
-  """"""'';
-  '''''''';
-  """""""";
+  //Empty mixed quotes strings
+  Expect.equals('', '' "");
+  Expect.equals('', ''"");
+  Expect.equals('', ""'');
+  Expect.equals('', ""
+  '');
+  Expect.equals('', '''''' "");
+  Expect.equals('', """"""'');
+  Expect.equals('', '''''''');
+  Expect.equals('', """""""");
 
-  '' '' '';
-  '' "" '';
+  Expect.equals('', '' '' '');
+  Expect.equals('', '' "" '');
+  Expect.equals('', ""
   ""
-  ""
-  "";
-  '' "" '''''' """""";
+  "");
+  Expect.equals('', '' "" '''''' """""");
 
   //Non-empty strings
-  'st' 'ring';
-  "0" "1" "2" "3";
-  'a''b''c''d'
-  "b""";
-  '1'@'2';
-  """11"""'''111''';
-  "${1}"'${[2, 1, 1]}';
-  '''
+  Expect.equals('string', 'st' 'ring');
+  Expect.equals('0123', "0" "1" "2" "3");
+  Expect.equals('abcdb', 'a''b''c''d'
+  "b""");
+  Expect.equals('12', '1'@'2');
+  Expect.equals('11111', """11"""'''111''');
+  Expect.equals('1[2, 1, 1]', "${1}"'${[2, 1, 1]}');
+  Expect.equals('  abc\n  defa\n  bc', '''
   abc
   def''' """a
-  bc""";
+  bc""");
 }

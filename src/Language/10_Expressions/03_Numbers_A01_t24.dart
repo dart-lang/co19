@@ -10,9 +10,11 @@
  *  EXPONENT: ('e' | 'E') ('+' | '-')? DIGIT+
  *  HEX NUMBER: '0x' HEX DIGIT+ | '0X' HEX DIGIT+ ;
  *  HEX DIGIT: 'a'..'f' | 'A'..'F' | DIGIT ;
- * @description Checks that spaces between an unary plus and a number are not allowed.
+ * @description Checks that it is a compile-time error when there're whitespace characters
+ * between an unary plus and the following digits.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {

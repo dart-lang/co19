@@ -13,6 +13,7 @@
  * @description Checks that a plus sign without digits does not make a numeric literal.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {

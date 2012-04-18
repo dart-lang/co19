@@ -6,8 +6,9 @@
 /**
  * @assertion Adjacent single line strings are implicitly concatenated
  * to form a single string literal.
- * @description Checks the value of concatenated string literal.
+ * @description Checks that the value of a concatenated string literal is correct.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

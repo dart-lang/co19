@@ -12,9 +12,10 @@
  * im.arguments.namedArguments evaluates to {}.
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
- * @description Checks that the method noSuchMethod is invoked with the specified argument
+ * @description Checks that the method noSuchMethod is invoked with the specified arguments
  * if getter lookup has failed.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class TestException {}
