@@ -14,25 +14,13 @@
  * defaultCase:
  * label? (case expression ':')* default ':' statements
  * ;.
- * @description Checks that it is a compile-time error if a label is not followed
- * by case or default keywords.
- * @compile-error
- * @author kaigorodov
- * @reviewer iefremov
+ * @description Checks that case clause that contains labeled statement doesn't produce any errors.
+ * @author iefremov
  */
 
-foo (value){
-  var result;
-  
-  switch(value) {
-    case 0: break;
-    label: result=1;
-  }  
-  return result;
-}
-
 main() {
-  try {
-    foo(1);
-  } catch(var x) {}
+  switch(1) {
+    case 0: break;
+    label: print("hello");
+  }
 }

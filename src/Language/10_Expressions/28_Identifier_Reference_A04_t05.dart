@@ -13,7 +13,6 @@
  * exists.
  * @description  Checks that identifier expression can not refer to a static variable
  * in a superclass of the current class
- * @compile-error
  * @author iefremov
  */
 
@@ -30,5 +29,5 @@ class B extends A {
 main() {
   try {
     print(new B().func());
-  } catch(var x) {}
+  } catch(NoSuchMethodException ok) {}
 }
