@@ -16,14 +16,23 @@
 
 #import("../../Utils/dynamic_check.dart");
 
+bool flag = false;
+
 class C<T> {
   static f() {
-    checkTypeError(() {
-      Expect.isTrue(null is T);
-    });
+    try {
+      null is T;
+      flag = true;
+    } catch(var x) {
+      if(isCheckedMode()) {
+        Expect.isTrue(x is TypeError,
+          "Using malformed type in a type test expression should result in a TypeError!");
+      }
+    }
   }
 }
 
 main() {
   C.f();
+  Expect.isFalse(flag, "Using malformed type in a type test expression should result in a run-time error!");
 }
