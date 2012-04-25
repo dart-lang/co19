@@ -17,16 +17,15 @@
  * ;
  * A multiplicative expression is either a unary expression, or an invocation
  * of a multiplicative operator on either super or an expression e1, with argument e2.
- * @description Checks that two multiplicative operators ~/ can't be placed
- * one after another in a multiplicative expression.
+ * @description Checks that assignment expression cannot be used as the second operand
+ * of a multiplicative expression.
  * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
+ * @author rodionov
+ * @reviewer iefremov
  */
 
+
 main() {
-  try {
-    2 ~/ ~/ 2;
-  } catch(var e) {}
+  var foo;
+  try {1 * foo = 2;} catch (var ok) {}
 }

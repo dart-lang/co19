@@ -22,7 +22,8 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
-*/
+ * @reviewer rodionov
+ */
 
 main() {
   try {
