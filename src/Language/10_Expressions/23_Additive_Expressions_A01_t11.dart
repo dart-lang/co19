@@ -16,12 +16,13 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a type declared with typedef can't be used
+ * @description Checks that a function type alias name can't be used
  * as left operand in an additive expression.
  * @compile-error
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 typedef f();

@@ -16,18 +16,15 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a reference to a class declaration can't be used
- * as left operand in an additive expression.
+ * @description Checks that assignment expression cannot be used as the second operand
+ * of an additive expression.
  * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
+ * @author rodionov
+ * @reviewer iefremov
  */
 
-class A {}
 
 main() {
-  try {
-    A + 1;
-  } catch(var e) {}
+  var foo;
+  try {1 + foo = 2;} catch (var ok) {}
 }

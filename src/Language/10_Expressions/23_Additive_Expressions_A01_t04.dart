@@ -23,7 +23,7 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 1229
+ * @reviewer rodionov
  */
 
 main() {
