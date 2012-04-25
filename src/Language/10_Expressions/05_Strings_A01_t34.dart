@@ -29,8 +29,9 @@
  *   | '\r'
  * ;
  * @description Checks that a string can contain
- * new line symbols except \r and \n.
+ * any unicode new line symbols other than \r and \n.
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {

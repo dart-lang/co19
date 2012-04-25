@@ -32,10 +32,12 @@
  * string contains \r
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {
   try {
-    @'strig';
+    @'stri
+g';
   } catch(var e) {}
 }

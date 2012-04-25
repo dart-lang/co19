@@ -32,10 +32,12 @@
  * string contains \r.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {
   try {
-    'string';
+    'stri
+ng';
   } catch(var e) {}
 }

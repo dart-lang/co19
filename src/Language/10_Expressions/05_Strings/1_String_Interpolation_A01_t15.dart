@@ -15,6 +15,7 @@
  * between two adjacent string literals.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {

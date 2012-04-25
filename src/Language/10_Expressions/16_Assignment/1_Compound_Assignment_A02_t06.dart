@@ -7,6 +7,7 @@
  * @assertion A compound assignment of the form C.v op= e is equivalent to C.v=C.v op e.
  * @description Checks that an expression of the form C.v -= e is equivalent to C.v = C.v - e.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {
