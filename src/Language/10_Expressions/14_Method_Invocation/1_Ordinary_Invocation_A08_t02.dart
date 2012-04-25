@@ -4,30 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If S.m does not exist, or if F is not a function type,
- * the static type of i is Dynamic;
+ * @assertion Let T be the static type of o. If T.m does not exist, 
+ * or if F is not a function type, the static type of i is Dynamic;
  * otherwise the static type of i is the declared return type of F.
  * @description Checks that the static type of a method invocation is the declared return type of F.
  * @author msyabro
- * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
-class S {
+class C {
   int f1() {}
   bool f2() {}
   String f3() {}
-  S f4() {}
-}
-
-class A extends S {
-  test() {
-    int resultInt = super.f1();
-    bool resultBool = super.f2();
-    String resultString = super.f3();
-    S resultC = super.f4();
-  }
+  C f4() {}
 }
 
 main() {
-  new A().test();
+  C o = new C();
+  int resultInt = o.f1();
+  bool resultBool = o.f2();
+  String resultString = o.f3();
+  C resultC = o.f4();
 }

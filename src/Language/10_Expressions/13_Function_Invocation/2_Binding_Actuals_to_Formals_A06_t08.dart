@@ -6,10 +6,11 @@
 /**
  * @assertion Let Ti be the static type of ai, let Si be the type of pi, i from 1 to n + k and let
  * Sq be the type of the named parameter q of f. It is a static warning if m < n or if m > n + k.
- * @description Checks that it is a static warning if the number of argument is more than number
- * of parameters of a static method.
+ * @description Checks that it is a static warning if more actual arguments than there're formal
+ * parameters are provided to a static method invocation.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

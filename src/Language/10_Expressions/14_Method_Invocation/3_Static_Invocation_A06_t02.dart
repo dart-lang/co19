@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let T be the static type of o. If T.m does not exist, 
- * or if F is not a function type, the static type of i is Dynamic;
- * otherwise the static type of i is the declared return type of F.
- * @description Checks that the static type of an ordinary invocation is Dynamic
+ * @assertion If F is not a function type, the static type of i is Dynamic.
+ * Otherwise the static type of i is the declared return type of F.
+ * @description Checks that the static type of a method invocation is Dynamic
  * when F is not a function type (but can be assigned to it) by ensuring that 
  * there's no static warning when a result of such invocation is being assigned 
  * to variables with various declared types.
@@ -15,35 +14,33 @@
  */
 
 class C {
-  Object f1;
+  static Object f1;
 }
 
 class A {}
 
 main() {
-  C c = new C();
-  
   try {
-    String foo = c.f1();
+    String foo = C.f1();
   } catch(ObjectNotClosureException e) {}
 
   try {
-    bool foo = c.f1();
+    bool foo = C.f1();
   } catch(ObjectNotClosureException e) {}
 
   try {
-    A foo = c.f1();
+    A foo = C.f1();
   } catch(ObjectNotClosureException e) {}
 
   try {
-    Object foo = c.f1();
+    Object foo = C.f1();
   } catch(ObjectNotClosureException e) {}
 
   try {
-    List foo = c.f1();
+    List foo = C.f1();
   } catch(ObjectNotClosureException e) {}
 
   try {
-    Map foo = c.f1();
+    Map foo = C.f1();
   } catch(ObjectNotClosureException e) {}
 }

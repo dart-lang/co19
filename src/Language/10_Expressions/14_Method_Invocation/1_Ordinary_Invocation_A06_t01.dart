@@ -9,6 +9,7 @@
  * @description Checks that it is a static type warning if T does not have an instance member named m.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {}

@@ -6,9 +6,11 @@
 /**
  * @assertion Let T be the static type of o. It is a static type warning if T does not have
  * an accessible instance member named m.
- * @description Checks that it is a static type warning if member m in T is inaccessible.
+ * @description Checks that it is a static type warning if member m exists in T 
+ * but is inaccessible.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  */
 
 #import("lib.dart");
@@ -28,4 +30,3 @@ main() {
     o._func();
   } catch(NullPointerException e) {}
 }
-

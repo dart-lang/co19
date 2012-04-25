@@ -10,6 +10,7 @@
  * C.m can not be assigned to a function type.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {

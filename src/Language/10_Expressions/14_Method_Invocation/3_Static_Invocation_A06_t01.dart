@@ -8,6 +8,7 @@
  * Otherwise the static type of i is the declared return type of F.
  * @description Checks that the static type of a method invocation is the declared return type of F.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class C {
