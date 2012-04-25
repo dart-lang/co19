@@ -32,4 +32,8 @@ e"""
           '''
 f''';
   Expect.equals('abcdef', s);
+
+  // "a""""""b""" should be tokenized as "a" """""b""", aka. "a" '""b'.
+  Expect.isTrue('a""b' === "a""""""b""");
+  Expect.isTrue('a""b' === """a""""""""b""");
 }
