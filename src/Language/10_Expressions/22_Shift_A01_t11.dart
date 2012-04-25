@@ -11,7 +11,6 @@
  * ;
  * shiftOperator:
  *   '<<' |
- *   '>>>' |
  *   '>>'
  * ;
  * A shift expression is either an additive expression, or an invocation
