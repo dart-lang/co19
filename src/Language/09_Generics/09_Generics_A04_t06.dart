@@ -14,11 +14,14 @@
  * @needsreview issue 964
  */
 
+#import("../../Utils/dynamic_check.dart");
 
 class Enum<E extends Enum<E>> {}
 class Things extends Enum<Things> {}
 class SubThings extends Things {}
 
 main() {
-  var x = new Enum<SubThings>(); //intentional static warning
+  checkTypeError(() {
+    var x = new Enum<SubThings>(); //intentional static warning
+  });
 }
