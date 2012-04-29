@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of the form op e is equivalent to the method invocation e:op().
+ * @assertion An expression of the form op e is equivalent to the method invocation e.op().
  * @description Checks that an expression of the form ~ e is equivalent to the method invocation e.operator~().
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 class TestException {}

@@ -20,11 +20,12 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that a statement can't be used with incrementOperator.
+ * @description Checks that a non-expression statement can't be used with incrementOperator.
  * variable declaration statement
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

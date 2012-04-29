@@ -24,6 +24,7 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 class S {}
@@ -40,4 +41,3 @@ main() {
   A a = new A();
   a.test();
 }
-

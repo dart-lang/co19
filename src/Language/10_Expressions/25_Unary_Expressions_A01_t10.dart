@@ -20,11 +20,12 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that expressions of the form [incrementOperator assignableExpressions]
+ * @description Checks that unary expressions of the form [incrementOperator assignableExpression]
  * don't cause compile-time errors.
- * @static-warning
+ * static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  * @note issue #1300
  */
 
@@ -44,10 +45,12 @@ class A  extends S{
     ++id;
     --id;
 
-    //super
-    --super.x;
-    ++super[0];
+    //invocation of getter or list access on super
+    --super.x; // issue 1300
+    ++super[0]; // issue 1300
 
+    //invocation of a method, getter or list access operator on an expression e.
+    
     //thisExpression
     try { --this[0]; } catch(var e) {}
     try { ++this.x;  } catch(var e) {}
@@ -92,57 +95,28 @@ class A  extends S{
     try { --const [1, 2, 3][0];} catch(var e) {}
     try { ++const {"1":1}.x;} catch(var e) {}
 
-    //(functionInvocation)
-    try { ++(topLevelFunction())[0];} catch(var e) {}
-    try { --(topLevelFunction()).x;} catch(var e) {}
+    //functionInvocation
+    try { ++topLevelFunction()[0];} catch(var e) {}
+    try { --topLevelFunction().x;} catch(var e) {}
 
-    //(methodInvocation)
-    try { ++(this.method())[1]; } catch(var e) {}
-    try { --(this.method()).x; } catch(var e) {}
+    //methodInvocation
+    try { ++this.method()[1]; } catch(var e) {}
+    try { --this.method().x; } catch(var e) {}
 
-    //(assignmentExpression)
+    //(...)
     try { ++(id = 2)[0];} catch(var e) {}
     try { --(id += 1).x;} catch(var e) {}
-
-    //(conditionalExpression)
+    try { --(super.x)[0];} catch(var e) {}
     try { ++(true ? 1 : 2)[1];} catch(var e) {}
-    try { --(false ? "a" : "b").x;} catch(var e) {}
-
-    //(logicalBooleanExpression)
     try { --(true || false)[0];} catch(var e) {}
-    try { ++(false && true).x; } catch(var e) {}
-
-    //(bitwiseExpression)
     try { ++(id & 1)[0];} catch(var e) {}
-    try { --(id ^ 1).x;} catch(var e) {}
-
-    //(equalityExpression)
     try { ++(1 == 1)[0];} catch(var e) {}
-    try { --(1 === 1).x;} catch(var e) {}
-
-    //(relationalExpression)
-    try { ++(1 < 1)["a"];} catch(var e) {}
     try { --(2 <= 3).x;} catch(var e) {}
-
-    //(shiftExpression)
     try { ++(1 << 1)[0];} catch(var e) {}
-    try { --(1 >> 1).x;} catch(var e) {}
-
-    //(additiveExpression)
     try { ++(0 + 0)[0];} catch(var e) {}
-    try { --(2 - 10).prop;} catch(var e) {}
-
-    //(multiplicativeExpression)
     try { --(1 * 5)[4];} catch(var e) {}
-    try { ++(0 / 2).res;} catch(var e) {}
-
-    //(unaryExpression)
     try { ++(id++)[0];} catch(var e) {}
-    try { --(id--).x;} catch(var e) {}
-
-    //(isExpression)
     try { ++(1 is int)[0];} catch(var e) {}
-    try { --(1 is ! bool).id;} catch(var e) {}
 
   }
   var id;

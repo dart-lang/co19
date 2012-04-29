@@ -8,6 +8,7 @@
  * @description Checks that the expression -e is equivalent to the method invocation e.negate().
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 class TestException {}

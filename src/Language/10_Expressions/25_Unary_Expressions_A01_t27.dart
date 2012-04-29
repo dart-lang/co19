@@ -20,35 +20,36 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that expressions with the prefix operator which fit into this production
+ * @description Checks that expressions with a prefix operator which fit into this production
  * don't cause compile-time errors.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 class S {
   var x = 1;
   operator negate() {}
+  operator[](var ind) {return x;}
+  operator[]=(var ind, var val) {x = val;}
 }
 
 class A extends S {
   test() {
-    //combination of prefix and postfix operator
+    //prefixOperator postfixExpression
     -x--;
     try {!x++;} catch(var e){}
     ~x--;
 
     //combination of prefix and increment operator
-    --x;
-    ++x;
-    - --x;
+    try {- --x;} catch(var e){}
     try {!--x;} catch(var e){}
-    ~--x;
-    -++x;
-    ~++x;
+    try {~--x;} catch(var e){}
+    try {-++x;} catch(var e){}
+    try {~++x;} catch(var e){}
 
-    //prefix operators with identifier
+    //prefixOperator postfixExpression>primary>identifier
     -x;
     ~x;
     ~~x;
@@ -57,8 +58,8 @@ class A extends S {
     try {~!x;} catch(var e){}
 
     //prefix operators with literals
-    -1;
-    ~2;
+    try {-1;} catch(var e){}
+    try {~2;} catch(var e){}
     try {!3;} catch(var e){}
 
     try {-null;} catch(var e) {}
@@ -88,6 +89,11 @@ class A extends S {
     try {-(){}[0];} catch(var e) {}
     try {! new S();} catch(var e) {}
     try {~(1 + 2);} catch(var e) {}
+    
+    // super with selector
+    try {-super[0];} catch (var ok) {}
+    try {~super.x;} catch (var ok) {}
+    try {!super[0];} catch (var ok) {}
   }
 }
 

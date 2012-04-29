@@ -20,11 +20,12 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that a statement can't be used with '-'.
- * throw statement
+ * @description Checks that it's a compile-time error when a '-'
+ * precedes a statement that isn't an expression (throw statement).
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

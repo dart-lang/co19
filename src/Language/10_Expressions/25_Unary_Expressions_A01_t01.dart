@@ -20,10 +20,11 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that expressions with the prefix operator which fit into this production
+ * @description Checks that expressions composed from prefix/unary operators and super that fit into this production
  * don't cause compile-time errors.
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  * @note see also A01/t27
  * @note issue #1288
  */
@@ -31,18 +32,23 @@
 class S {
   var x=1;
   operator negate() {}
+  operator~() {}
 }
 
 class A extends S {
   test() {
-    //super
     -super;
     !super;
     ~super;
-    --super.x;
+    --super; // should be interpreted as -(-super);
+    !!super;
+    ~~super;
     !-super;
+    -!super;
     ~-super;
+    -~super;
     !~super;
+    ~!super;
   }
 }
 

@@ -5,14 +5,16 @@
  */
 /**
  * @assertion The expression !e is equivalent to the expression e ? false : true.
- * @description Checks that expression !e is equivalent to the expression e ? false : true.
+ * @description Checks that expression !e is equivalent to the expression e ? false : true
+ * when e is a value of type bool.
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
-  bool v=true;
-  Expect.equals(v ? false : true, !v);
-  v=false;
-  Expect.equals(v ? false : true, !v);
+  var v = true;
+  Expect.isFalse(!v);
+  v = false;
+  Expect.isTrue(!v);
 }

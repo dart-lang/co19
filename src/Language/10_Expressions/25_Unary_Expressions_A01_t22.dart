@@ -24,6 +24,7 @@
  * a reference to a type variable.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  * @reviewer kaigorodov
  */
 

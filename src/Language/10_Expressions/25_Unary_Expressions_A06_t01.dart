@@ -8,6 +8,7 @@
  * @description Checks that the expression -super is equivalent to the method invocation super.negate().
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  * @note issue #1288
  */
 
@@ -22,7 +23,7 @@ class S {
 class A extends S{
   test() {
     try {
-      var x= -super;
+      var x = -super;
       Expect.fail("Operator negate was not called");
     } catch(TestException e) {}
   }

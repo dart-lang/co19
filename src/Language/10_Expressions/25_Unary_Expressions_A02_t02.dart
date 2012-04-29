@@ -5,9 +5,11 @@
  */
 /**
  * @assertion The expression !e is equivalent to the expression e ? false : true.
- * @description Checks that expression !!e is equivalent to the expression e.
+ * @description Checks that expression !!e is equivalent to the expression e when e
+ * is a boolean.
  * @author hlodvig
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
 main() {
