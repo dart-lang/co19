@@ -8,12 +8,11 @@
  * Let d be the innermost declaration in the enclosing lexical scope whose name
  * is id. It is a compile-time error if d is a class, interface or type variable. If no such
  * declaration exists in the lexical scope, let d be the declaration of the inherited
- * member named id if it exists. If no such member exists, let d be the declaration
- * of the static member name id declared in a superclass of the current class, if it
- * exists.
+ * member named id if it exists.
  * @description  Checks that identifier expression can not refer to a static variable
  * in a superclass of the current class
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class A {
