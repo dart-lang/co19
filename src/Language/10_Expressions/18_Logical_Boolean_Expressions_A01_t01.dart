@@ -31,19 +31,15 @@ class S {
 
 class A {
   int method() {return 3;}
-  var id;
+  var id = 6;
   
   test() {
-    var arr=new List<int>(2);
+    var arr = [1, 2];
     
     //literals
     1 && "1";
     false || null;
     [1, 2, 3, 4] && {"1": 2, "3": 4};
-
-    //function expressions
-    (){} || ()=>({});
-    (void f() {return null;}) && void g(int x) => 7;
 
     //constants and instance creation
     const [] || [];
@@ -55,31 +51,30 @@ class A {
     this.method() && topLevelFunction();
     method() || id;
 
-    //assignment and equality
-    (arr[1] = 2) && (1 === 2);
-    (id !== id) || (true == false);
-    ((id=1) != 1) && 0;
+    //equality
+    id !== id || true == false;
+    1 != 1 && 0;
 
     //logical and relational expressions
-    (1 < 2) || (id > 1 ? 1 : id);
-    ([] && {}) || (2 > 2.0);
-    (null || this) && (id <= 7);
+    1 < 2 || id > 1 ? 1 : id;
+    [] && {} || 2 > 2.0;
+    null || this && id <= 7;
 
     //bitwise and shift expressions
-    (arr[1] ^ method()) && (new S() & true);
-    (id | method()) || (id >> method());
+    arr[1] ^ method() && new S() & true;
+    id | method() || id >> method();
 
     //additive expressions
-    (1 + 2) && 2;
-    (0 - 0) || (id + method());
+    1 + 2 && 2;
+    0 - 0 || id + method();
 
     //multiplicative expressions
-    (id * method()) || (id / arr[1]);
-    (id % method()) || (id ~/ arr[1]);
+    id * method() || id / arr[1];
+    id % method() || id ~/ arr[1];
 
     //unary expressions
-    (--id) || (id++);
-    (~-id) && (!!false);
+    --id || id++;
+    ~-id && !!false;
     
     // selector operator invocations
     try {
@@ -87,6 +82,10 @@ class A {
     } catch(NoSuchMethodException ok) {}
 
      id && id || id; 
+
+     //function expressions
+     (){} || ()=>({});
+     void f() {return null;} && void g(int x) => 7; // issue 1189
   }
 }
 
