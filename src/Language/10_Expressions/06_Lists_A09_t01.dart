@@ -13,6 +13,8 @@
  * @reviewer rodionov
  */
 
+#import("../../Utils/dynamic_check.dart");
+
 class C {
   const C();
 }
@@ -20,6 +22,12 @@ class C {
 main() {
   List<int> lInt = <int>[];
   lInt = const <int>[1, 2];
+
+  checkTypeError((){lInt = <num>[];});
+  checkTypeError((){lInt = const <num>[1, 2];});
+
+  List<num> lNum = <int>[];
+  lNum = const <int>[1, 2];
 
   List<bool> lBool = <bool> [true];
   lBool = const <bool> [false, 1 < 1];
