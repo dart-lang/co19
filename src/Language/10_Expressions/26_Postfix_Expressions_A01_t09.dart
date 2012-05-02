@@ -19,14 +19,15 @@
  * A postfix expression is either a primary expression, a function, method or
  * getter invocation, or an invocation of a postfix operator on an expression e.
  * @description Checks that a statement can't be used with postfixOperator.
- * variable declaration statement.
+ * This test is using a variable declaration statement.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
   try {
-    var x++;
+    var x;++;
   } catch(var e) {}
 }

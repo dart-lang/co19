@@ -18,11 +18,13 @@
  * ;
  * A postfix expression is either a primary expression, a function, method or
  * getter invocation, or an invocation of a postfix operator on an expression e.
- * @description Checks that a reference to a type defined with typedef can't be used with postfixOperator.
+ * @description Checks that a reference to a function type alias name
+ * can't be used with postfixOperator.
  * @compile-error
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 typedef f();

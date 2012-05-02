@@ -18,10 +18,11 @@
  * ;
  * A postfix expression is either a primary expression, a function, method or
  * getter invocation, or an invocation of a postfix operator on an expression e.
- * @description Checks that super can't be used with postfixOperator.
+ * @description Checks that a lone super can't be used with postfixOperator.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 class S {}
