@@ -11,6 +11,7 @@
  * an abstract method with the same name.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class A {

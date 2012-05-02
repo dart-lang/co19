@@ -7,10 +7,11 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that a type parameter correctly hides a typedef declaration and
+ * @description Checks that a type parameter correctly hides a function type alias and
  * a static warning is produced.
  * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef foo();

@@ -7,10 +7,11 @@
  * @assertion Dart is lexically scoped and uses a single namespace for variables, functions and types.
  * It is a compile-time error if there is more than one entity, other than a setter and a getter,
  * with the same name declared in the same scope.
- * @description Checks that it is a compile-time error if a local function declares two formal
- * parameters with a same name and one of them is optional.
+ * @description Checks that it is a compile-time error if a local function declares a positional
+ * and an optional parameters with the same name.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

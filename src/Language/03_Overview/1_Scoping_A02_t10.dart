@@ -8,7 +8,7 @@
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
  * @description Checks that both compile-time error and a static warning are produced if
- * a variable is used in a block before it's shadowing declaration.
+ * a variable is used in a block before its shadowing declaration.
  * @author iefremov
  * @static-warning
  * @compile-error

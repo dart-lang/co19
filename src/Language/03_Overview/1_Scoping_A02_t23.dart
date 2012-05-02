@@ -7,13 +7,14 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that a warning is produced if a local variable introduces a name
- * that is identical to an interface available in the current scope.
+ * @description Checks that a warning is produced if a local variable declaration introduces
+ * a name that is identical to the name of an interface available in the current scope.
  * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
-interface I{}
+interface I {}
 
 main() {
   var I;

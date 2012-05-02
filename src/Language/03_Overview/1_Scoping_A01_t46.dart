@@ -11,6 +11,7 @@
  * identically named constructors.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class A {

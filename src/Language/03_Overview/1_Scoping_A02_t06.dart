@@ -13,12 +13,13 @@
  * @static-warning
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class C {}
 class G<C> {
   G() {
-    new C();
+    new C(); // non-static scope - type variable shadows the class name
   }
 }
 

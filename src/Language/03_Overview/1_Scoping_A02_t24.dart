@@ -9,6 +9,7 @@
  * lexically enclosing scope.
  * @description Checks that labels and variables do not hide each other and no warnings are produced.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 

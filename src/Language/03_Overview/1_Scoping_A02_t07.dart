@@ -11,6 +11,7 @@
  * hides a function name.
  * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

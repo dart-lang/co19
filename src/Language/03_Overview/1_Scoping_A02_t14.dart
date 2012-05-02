@@ -7,10 +7,12 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that a static warning is produced if a shadowing local variable
- * is declared inside of a statement of a for loop.
+ * @description Checks that a static warning is produced if a local variable
+ * declared inside a for loop shadows another local variable declared in an
+ * enclosing lexical scope.
  * @author iefremov
  * @static-warning
+ * @reviewer rodionov
  */
 
 var flag = false;

@@ -8,9 +8,10 @@
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
  * @description Checks that a warning is produced if a local variable introduces a name
- * that is identical to a type declared using typedef available in the current scope.
+ * that is identical to a function type alias available in the current scope.
  * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef foo();

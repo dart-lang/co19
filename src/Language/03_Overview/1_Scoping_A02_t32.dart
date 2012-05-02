@@ -7,23 +7,14 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that a static warning is produced if a for loop variable
- * shadows another local variable declared in an enclosing lexical scope.
- * @author iefremov
+ * @description Checks that a warning is produced if a local variable introduces a name
+ * that is identical to a class name available in the current scope.
  * @static-warning
+ * @author iefremov
  */
 
-var flag = false;
-once() {
-  if(flag) {
-    return flag;
-  }
-  flag = true;
-  return false;
-}
+class C{}
 
 main() {
-  var x = 1;
-  for(var x = 42; once(); );
-  Expect.equals(1, x);
+  var C = new C();
 }

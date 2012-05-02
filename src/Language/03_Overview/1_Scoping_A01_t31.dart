@@ -11,6 +11,7 @@
  * parameters with a same name.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

@@ -7,9 +7,10 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that variables declared in different case clauses of a switch do not shadow
- * each other.
+ * @description Checks that variables declared in different case clauses of a switch statement
+ * do not shadow each other.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

@@ -10,15 +10,14 @@
  * @description Checks that that a static warning is produced if a type variable hides a class name.
  * Checks also that using a type variable name in a static context causes a compile-time error.
  * @static-warning
- * @compile-error
  * @author iefremov
- * @needsreview Not sure if I deduced this test correctly.
- * @needsreview Issue 2241
+ * @reviewer rodionov
+ * @note Issue 2241
  */
 
 class C {}
 class G<C> {
-  static f() => new C();
+  static f() => new C(); // class, not type variable
 }
 
 main() {

@@ -7,10 +7,12 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that a static warning is produced if a shadowing local variable
- * is declared inside of a statement of an else statement.
+ * @description Checks that a static warning is produced if a local variable
+ * declared inside an else statement shadows another local variable declared in an 
+ * enclosing lexical scope.
  * @author iefremov
  * @static-warning
+ * @reviewer rodionov
  */
 
 var flag = false;
@@ -20,6 +22,10 @@ never() {
 
 main() {
   var x = 1;
-  if(never()) var y = 42; else var x = 0;
+  if(never()) {
+    var y = 42; 
+  } else {
+    var x = 0;
+  }
   Expect.equals(1, x);
 }

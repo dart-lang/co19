@@ -10,6 +10,7 @@
  * @description Checks that that a static warning is produced if a local variable hides a function parameter.
  * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 f(p) {

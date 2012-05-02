@@ -7,12 +7,14 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that a warning is not produced if a variable is initialized with
- * a function literal named as that variable.
+ * @description Checks that no static warning is produced when a variable is initialized at declaration
+ * with a function literal that has the same name because the name of that variable is not in the scope
+ * of its own initialization expression.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
-  var x = x(){};
-  x();
+  var x = x(){ return x;};
+  Expect.isTrue(x() is Function);
 }

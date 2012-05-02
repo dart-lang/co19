@@ -7,10 +7,12 @@
  * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
- * @description Checks that it is possible to init a variable v with a variable that v shadows.
+ * @description Checks that it is possible to initialize a variable v with the value of 
+ * a variable it shadows.
  * Checks that a static warning is produced as well.
  * @author iefremov
  * @static-warning
+ * @reviewer rodionov
  */
 
 var f = 1;

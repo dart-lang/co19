@@ -11,6 +11,7 @@
  * declares two identically named variables.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

@@ -11,6 +11,7 @@
  * in a for loop declares two identically named variables.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
