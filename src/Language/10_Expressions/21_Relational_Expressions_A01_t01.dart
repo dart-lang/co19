@@ -95,6 +95,7 @@ class A extends S {
     try {id >= id;} catch(var e) {}
 
     //function expression is primary is postfix expr. is shift expr.
+    // issue 1189
     try { ()=>0 < 1; } catch(var e) {}
     try { void f(var x) {} <= 0.5; } catch(var e) {}
     try { int f()=> 1 > double g() {return 0.5;} } catch(var e) {}
