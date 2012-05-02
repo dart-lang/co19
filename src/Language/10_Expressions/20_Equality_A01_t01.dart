@@ -22,6 +22,7 @@
  * @author msyabro
  * @reviewer rodionov
  * @note http://code.google.com/p/dart/issues/detail?id=1242
+ * @note http://code.google.com/p/dart/issues/detail?id=1189
  */
 
 topLevelFunction() {}
@@ -35,7 +36,7 @@ class A extends S {
   var id;
 
   test() {
-    //super
+    //super - issue 1242
     super == this;
     super != 1;
     super === new Object();
@@ -47,9 +48,9 @@ class A extends S {
     [1, 2, 3, 4] === {"1": 2, "3": 4};
     true !== false;
 
-    //function expressions
+    //function expressions -- issue 1189
     (){} == ()=>{};
-    void f() {return null;} === void g(int x) => 7;
+    void f() {return null;} === void g(int x) => 7; 
     () => [] != 1;
     int func() {} !== new Object();
 
@@ -65,41 +66,31 @@ class A extends S {
     id !== id;
     method() != id;
 
-    //assignment and equality
-    try {(1[1] = 2) === (1 === 2);} catch(var e) {}
-    try {(id !== id) == (true == false);} catch(var e) {}
-    try {(3(2(1)) != 1(2(3))) != 0;} catch(var e) {}
-    try {(id = _id) !== id;} catch(var e) {}
+    //relational expressions
+    try {1 < 2 == true > false;} catch(var e) {}
+    try {true >= false === id > 7;} catch(var e) {}
 
-    //logical and relational expressions
-    try {(1 < 2) == (true > false ? 1 : id);} catch(var e) {}
-    try {(true >= false) === ([] && {});} catch(var e) {}
-    try {(null || this) != (id > 7);} catch(var e) {}
-    try {(1 && 1) !== (2 || 2);} catch(var e) {}
-
-    //bitwise and shift expressions
-    try {(1[1] ^ 2(2)) == (new S() & true);} catch(var e) {}
-    try {(id | method())=== null;} catch(var e) {}
-    try {({}() >> []()) !=(){};} catch(var e) {}
-    try {(1 << 2) != (null >> null);} catch(var e) {}
+    //shift expressions
+    try {1 >> -1 != (){};} catch(var e) {}
+    try {1 << 2 != null >> null;} catch(var e) {}
 
     //additive expressions
-    try { (1 + 2) == 2;} catch(var e ) {}
-    try { (0 - 0) != (null + null);} catch(var e ) {}
-    try { ([] + ({} === (){})) === 0;} catch(var e ) {}
-    try { ("" - '') !== 0;} catch(var e ) {}
+    try { 1 + 2 == 2;} catch(var e ) {}
+    try { 0 - 0 != null + null;} catch(var e ) {}
+    try { [] + {} === 0;} catch(var e ) {}
+    try { "" - '' !== 0;} catch(var e ) {}
 
     //multiplicative expressions
-    try {(true * false) == (id.id / []());} catch(var e) {}
-    try {(this[1] % null(1)) === ((topLevelFunction()[0]++) ~/ {}()[0]);} catch(var e) {}
-    try {(2 * 3) !== (0/0);} catch(var e) {}
-    try {(0 ~/ 1) != (1 - -1);} catch(var e) {}
+    try {true * false == id.id / []();} catch(var e) {}
+    try {this[1] % null(1) === topLevelFunction()[0]++ ~/ {}()[0];} catch(var e) {}
+    try {2 * 3 !== 0 / 0;} catch(var e) {}
+    try {0 ~/ 1 != 1 - -1;} catch(var e) {}
 
     //unary expressions
-    try {(-this) == (~this);} catch(var e) {}
-    try {(--id) === (id++);} catch(var e) {}
-    try {(~-id) != (!!false);} catch(var e) {}
-    try {(++1[1]) !== (()=>2[0]--);} catch(var e) {}
+    try {-this == ~this;} catch(var e) {}
+    try {--id === id++;} catch(var e) {}
+    try {~-id != !!false;} catch(var e) {}
+    try {++1[1] !== ()=>2[0]--;} catch(var e) {}
   }
 }
 

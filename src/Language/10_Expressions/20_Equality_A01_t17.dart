@@ -17,11 +17,12 @@
  * ;
  * An equality expression is either a relational expression, or an invocation of
  * a equality operator on either super or an expression e1, with argument e2.
- * @description Checks that an equality expression with operator !==
- * can consist only of two operands.
+ * @description Checks that equality expressions cannot be operands of another
+ * equality expression.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
