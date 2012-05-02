@@ -5,15 +5,15 @@
  */
 /**
  * @assertion The static type of a function literal of the form
- * T0 id(T1 a1, …, Tn an, [Tn+1  xn+1 = d1, …, Tn+k xn+k = dk]){s}
- * or the form T0 id(T1 a1, …, Tn an, [Tn+1  xn+1 = d1, …, Tn+k xn+k = dk]) => e is
- * (T1, …, Tn, [Tn+1 xn+1, .., Tn+k xn+k]) →T0.
- * In any case where Ti ,1 <= i <= n,  is not specified,
+ * T0 id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ..., Tn+k xn+k = dk]){s}
+ * or the form T0 id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ..., Tn+k xn+k = dk]) => e is
+ * (T1, ..., Tn, [Tn+1 xn+1, .., Tn+k xn+k]) -> T0.
+ * In any case where Ti ,1 <= i <= n is not specified,
  * it is considered to have been specified as Dynamic.
  * @description Checks that the static type of function literal of the form
- * T0 id(T1 a1, …, Tn an, [Tn+1  xn+1 = d1, …, Tn+k xn+k = dk]){s}
- * or T0 id(T1 a1, …, Tn an, [Tn+1  xn+1 = d1, …, Tn+k xn+k = dk]) => e
- * is (T1, …, Tn, [Tn+1 xn+1, .., Tn+k xn+k]) →T0.
+ * T0 id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ..., Tn+k xn+k = dk]){s}
+ * or T0 id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ..., Tn+k xn+k = dk]) => e
+ * is (T1, ..., Tn, [Tn+1 xn+1, .., Tn+k xn+k]) -> T0.
  * @author msyabro
  * @reviewer rodionov
  */
