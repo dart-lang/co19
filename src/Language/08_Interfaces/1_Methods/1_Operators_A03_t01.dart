@@ -14,7 +14,7 @@
  */
 
 interface I {
-  bool operator ==(I other) {};
+  bool operator +(I other) {}
 }
 
 class A implements I {}

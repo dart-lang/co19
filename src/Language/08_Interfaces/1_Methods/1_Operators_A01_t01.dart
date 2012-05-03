@@ -6,8 +6,8 @@
 /**
  * @assertion Operators are instance methods with special names.
  * Some, but not all, operators may be defined by user code, as described in section 7.1.2.
- * 7.1.2: The following names are allowed for user-defined operators: ==, <, >, <=,
- * >=, -, +, *, ~/, %, |, ^, &, <<, >>, >>>, []=, [], ~, negate.
+ * 7.1.2: The following names are allowed for user-defined operators:
+ * <, >, <=, >=, -, +, /, ~/,  *, %, |, ^, &, <<, >>, []=, [], ~, call, equals, negate.
  * @description Checks that the listed operators can be user-defined and can be declared
  * in an interface.
  * @author vasya
@@ -24,7 +24,7 @@ interface I {
   I operator ~/(I other);
 
   // Relational operations.
-  bool operator ==(I other);
+  bool operator equals(I other);
   bool operator <(I other);
   bool operator <=(I other);
   bool operator >(I other);
@@ -44,6 +44,9 @@ interface I {
   // get/set operations
   I operator[](int index);
   void operator[]=(int index, I value);
+
+  //call operator
+  void call(p1, p2);
 }
 
 main() {
@@ -69,5 +72,6 @@ main() {
   try {-i;} catch (NullPointerException e) {}
   try {i[0];} catch (NullPointerException e) {}
   try {i[0] = i;} catch (NullPointerException e) {}
+  try {i(0, 0);} catch (NullPointerException e) {}
 }
 

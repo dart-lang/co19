@@ -6,8 +6,8 @@
 /**
  * @assertion Operators are instance methods with special names.
  * Some, but not all, operators may be defined by user code, as described in section 7.1.2.
- * 7.1.2: The following names are allowed for user-defined operators: ==, <, >, <=,
- * >=, -, +, *, ~/, %, |, ^, &, <<, >>, >>>, []=, [], ~, negate.
+ * 7.1.2: The following names are allowed for user-defined operators:
+ * <, >, <=, >=, -, +, /, ~/,  *, %, |, ^, &, <<, >>, []=, [], ~, call, equals, negate.
  * @description Checks that trying to declare operators not listed above (++) in an interface
  * results in a compile time error.
  * @author vasya
@@ -16,7 +16,7 @@
  */
 
 interface I {
-  bool operator ++(I other);  
+  bool operator ++(I other);
 }
 
 class A implements I {}
