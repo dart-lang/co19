@@ -5,14 +5,17 @@
  */
 /**
  * @assertion Let I be an interface named NI with factory class F, and let NF be the
- * name of F. If F implements I then it is a compile-time error if I and F do not
- * have the same number of type parameters.
+ * name of F. It is a compile-time error if I and F do not have the same number
+ * of type parameters. If I has n type parameters, then the name of the ith type
+ * parameter of I must be identical to the name of the ith type parameter of F ,
+ * for i ∈ 1..n, or a compile-time error occurs.
  * @description Checks that it is a compile-time error if an interface 
- * has fewer or more type parameters than its declared factory class as long as the latter
+ * has fewer type parameters than its declared factory class as long as the latter
  * does not implement the former.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
+ * @reviewer msyabro
  */
 
 class C<S, T> {
@@ -23,17 +26,8 @@ interface I<T> default C<T, T> {
   I();
 }
 
-class C2<T> {
-  factory I2() {}
-}
-
-interface I2<S, T> default C2<S> {
-  I2();
-}
-
 main() {
   try {
     new I();
-    new I2();
   } catch(var e) {}
 }

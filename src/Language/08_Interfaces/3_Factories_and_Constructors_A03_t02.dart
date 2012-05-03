@@ -5,8 +5,10 @@
  */
 /**
  * @assertion Let I be an interface named NI with factory class F, and let NF be the
- * name of F. If F implements I then it is a compile-time error if I and F do not
- * have the same number of type parameters.
+ * name of F. It is a compile-time error if I and F do not have the same number
+ * of type parameters. If I has n type parameters, then the name of the ith type
+ * parameter of I must be identical to the name of the ith type parameter of F ,
+ * for i ∈ 1..n, or a compile-time error occurs.
  * @description Checks that it is a compile-time error if an interface 
  * has more type parameters than its declared factory class if the latter implements the former.
  * @compile-error

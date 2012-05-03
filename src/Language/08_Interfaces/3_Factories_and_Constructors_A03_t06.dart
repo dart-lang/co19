@@ -9,24 +9,23 @@
  * of type parameters. If I has n type parameters, then the name of the ith type
  * parameter of I must be identical to the name of the ith type parameter of F ,
  * for i ∈ 1..n, or a compile-time error occurs.
- * @description Checks that it is a compile-time error if an interface 
- * has fewer type parameters than its declared factory class if the latter implements the former.
+ * @description Checks that it is a compile-time error if the names of type parameters of an interface
+ * differ from the names of type parameters of its factory class and the latter does not implement the former.
  * @compile-error
- * @author rodionov
- * @reviewer kaigorodov
+ * @author msyabro
+ * @reviewer iefremov
  */
 
-class C<S, T> implements I<T> {
-  C() {}
+class C<S, T> {
+  factory I() {}
 }
 
-interface I<T> default C<T, T> {
+interface I<U, T> default C<S, T> {
   I();
 }
 
 main() {
   try {
-    new I<int>();
+    new I<int, bool>();
   } catch(var e) {}
 }
-
