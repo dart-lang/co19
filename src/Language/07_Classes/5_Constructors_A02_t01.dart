@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Iff no constructor is specified for a class C, it implicitly has
- * a default constructor C() : super() {}, unless it is class Object.
+ * a default constructor C() : super() {}, unless C is class Object.
  * @description Checks that it is possible to create an instance of the class that doesn't
  * declare any constructors.
  * @author iefremov
