@@ -12,29 +12,23 @@
  *   If d is of one of the forms static const v = e; or static const T v = e;
  * the result of the getter is the value of the compile time constant e. Otherwise
  *   The result of executing the getter method is the value stored in v.
- * @description Checks the result of the getter and that the initializer expression is evaluated only once.
+ * @description Checks the result of the getter of a constant static variable.
  * @author msyabro
  * @reviewer iefremov
  */
 
-String log = "";
-writeLog(int i) {
-  log = "${log}${i}";
-  return i;
+class Const {
+  const Const(this.x);
+  final x;
 }
 
 class C {
-  static var a = writeLog(1);
-  static int b = writeLog(2);
-  static final c = writeLog(3);
-  static final int d = writeLog(4);
+  static const sConst = const Const(1);
+  static const int sConstTyped = 2;
 }
 
-main() {
-  Expect.equals(4, C.d);
-  Expect.equals(1, C.a);
-  Expect.equals(2, C.b);
-  Expect.equals(3, C.c);
 
-  Expect.equals("4123", log, "Lazy static getters execution was wrong!");
+main() {
+  Expect.equals(1, C.sConst.x);
+  Expect.equals(2, C.sConstTyped);
 }
