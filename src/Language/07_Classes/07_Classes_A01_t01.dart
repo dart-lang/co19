@@ -12,7 +12,6 @@
  * this syntax do not cause any errors and can be instantiated.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 1603
  */
 
 interface I {}
