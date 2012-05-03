@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An instance variable declaration of one of the forms 
- * var v;, final v;, var v = e; or final v = e; always induces an 
- * implicit getter function (7.2) with signature get v() 
- * whose invocation evaluates to the value stored in v.
+ * @assertion An instance variable declaration of one of the forms
+ * var v;, final v;, var v = e;, const  v = e; or final v = e;
+ * always induces an implicit getter function with signature get v()
+ * whose  invocation evaluates to the value stored in v.
  * @description Trivially checks that instance variables declared as in
  * assertion are accessible.
  * @author vasya
@@ -21,6 +21,7 @@ class C {
   var v2 = "bar";
   final v3 = 1;
   final v4;
+  const v5 = 0.2;
 }
 
 main() {
@@ -29,4 +30,5 @@ main() {
   Expect.equals("bar", c.v2);
   Expect.equals(1, c.v3);
   Expect.equals(3, c.v4);
+  Expect.equals(0.2, c.v5);
 }

@@ -8,15 +8,14 @@
  * has one of the forms T v = e;, var v = e;, const T v = e;, const v = e;,
  * final T v = e; or final v = e; and the expression e is not a compile-time constant.
  * @description Checks that it is a compile error if an instance variable is declared
- * in the form T v = e; and e is not a compile-time constant.
+ * in the form const v = e; and e is not a compile-time constant.
  * @compile-error
- * @author vasya
- * @reviewer pagolubev
+ * @author msyabro
  * @reviewer iefremov
  */
 
 class C {
-  Object foo = new Object();
+  const foo = new Object();
 }
 
 main() {

@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If an instance variable declaration has one of the forms T v = e;,
- * var v = e;, final T v = e; or final v = e; then the expression e 
- * must be a compile-time constant (10.1).
+ * @assertion It is a compile-time error if an instance variable declaration
+ * has one of the forms T v = e;, var v = e;, const T v = e;, const v = e;,
+ * final T v = e; or final v = e; and the expression e is not a compile-time constant.
  * @description Checks that it is a compile error if an instance variable is declared
  * in the form final v = e; and e is not a compile-time constant.
  * @compile-error

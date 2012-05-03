@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An instance variable declaration of one of the forms T v;, final T v;,
- * T v = e; or final T v = e; always induces an implicit getter function (7.2) with
- * signature T get v() whose invocation evaluates to the value stored in v.
+ * @assertion An instance variable declaration of one of the forms
+ * T v;, final T v; , T v = e;, const T v = e;  or final T v = e;
+ * always induces an implicit getter function with signature T get v()
+ * whose  invocation evaluates to the value stored in v.
  * @description Trivially checks that instance variables declared as in assertion are accessible.
  * @author vasya
  * @reviewer pagolubev
@@ -19,6 +20,7 @@ class C {
   final bool v2;
   String v3 = "bar";
   final int v4 = 1;
+  const double x = 1.1;
 }
 
 main() {
@@ -27,4 +29,5 @@ main() {
   Expect.equals(false, c.v2);
   Expect.equals("bar", c.v3);
   Expect.equals(1, c.v4);
+  Expect.equals(1.2, c.x);
 }
