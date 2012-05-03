@@ -7,18 +7,18 @@
  * @assertion It is a compile-time error if the implements clause of a class C
  * includes a type expression that does not denote a class or interface available
  * in the lexical scope of C.
- * @description Checks that it is possible to specify type expression that denotes a class
- * in the implements clause.
- * @author iefremov
- * @needsreview issue 554
- * @reviewer rodionov
+ * @description Checks that it is a compile-time error when the type expression
+ * in a class's implements clause denotes a type variable.
+ * @compile-error
+ * @author rodionov
+ * @reviewer iefremov
+ * @needsreview VM crash: issue 887
  */
 
-class foo {}
-
-class A implements foo {}
+class A<T> implements T {}
 
 main() {
-  A a = new A();
-  Expect.isTrue(a is foo);
+  try {
+    A a = new A();
+  } catch(var x){}
 }
