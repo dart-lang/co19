@@ -12,7 +12,7 @@
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
- * @note Issue 2241
+ * @note Issue 2241, 2629
  */
 
 class C {}
