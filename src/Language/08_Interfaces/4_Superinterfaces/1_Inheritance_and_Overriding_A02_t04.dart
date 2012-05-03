@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the above rule would cause multiple members m1,..., mk with
+ * @assertion If there are multiple members m1,..., mk with
  * the same name n to be inherited (because identically named members existed
  * in several superinterfaces) then at most one member is inherited. If the static
  * types T1,..., Tk of the members m1,..., mk are not identical, then there must
