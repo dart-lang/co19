@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of null is ⊥ which allows null to be assigned everywhere 
+ * @assertion The static type of null is bottom which allows null to be assigned everywhere
  * without complaint by the static checker.
  * @description Checks that null is assignable to any type without static type warnings.
  * @author hlodvig
