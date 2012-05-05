@@ -50,12 +50,12 @@ main() {
   for(f() ? f() : 25.0; f() ? false : true; false ? "foo" : 11, i * 2) break;
 
   //foreach
-  for(var i in [1, 2]) break;
+  for(var i in [1, 2]) {break;}
   for(int i  in [1, 2]) break;
   for(final i in const []) break;
-  for(final String s in ['a', 'b', 'c']) break;
+  for(final String s in ['a', 'b', 'c']) {break;}
   for(const x in []) break;
   for(const int x in const [1, 2, 3]) break;
-  for(i in const [1, 2, 3, 4, 5]) break;
+  for(i in const [1, 2, 3, 4, 5]) break;  //i is declared earlier
 }
 
