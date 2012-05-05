@@ -15,7 +15,7 @@
 
 var log = "";
 addLog(String s) {
-  log += s;
+  log = '$log$s';
 }
 
 class TestIterator implements Iterator {

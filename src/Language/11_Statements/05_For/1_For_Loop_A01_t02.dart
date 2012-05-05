@@ -26,7 +26,7 @@
 
 var log = "";
 f(int i) {
-  log += i.toString();
+  log = '$log$i';
   return i != 10;
 }
 
