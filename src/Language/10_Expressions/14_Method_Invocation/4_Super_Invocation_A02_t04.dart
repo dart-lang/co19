@@ -37,7 +37,7 @@ class A extends S {
     buffer = new StringBuffer();
     try {
       super.f(new A() + 1, new A() - 1);
-    } catch(ObjectNotClosureException e) {
+    } catch(NoSuchMethodException e) {
       Expect.equals("12", buffer.toString());
     }
   }

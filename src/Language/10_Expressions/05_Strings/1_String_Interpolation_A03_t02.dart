@@ -39,8 +39,8 @@ class C {
 
     try {
       '${id()}';
-      Expect.fail("ObjectNotClosureException is expected");
-    } catch(ObjectNotClosureException e) {}
+      Expect.fail("NoSuchMethodException is expected");
+    } catch(NoSuchMethodException e) {}
   }
 }
 

@@ -5,14 +5,14 @@
  */
 /**
  * @assertion Evaluation of i proceeds as follows:
- * First, if the member m declared by C is a getter, then let f be the result of
- * evaluating the getter invocation C.m. If f is not a function then an ObjectNotAClosure is thrown.
+ * First, if the member m declared by C is a getter, then i is equivalent
+ * to the expression C.m.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
  * Otherwise, let f be the the method m declared in class C.
  * Next, the argument list(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated.
  * The body of f is then executed with respect to the bindings that resulted
  * from the evaluation of the argument list. The value of i is the value returned
  * after the body of f is executed.
- * @description Checks that an ObjectNotClosureException is thrown if m is not a function
+ * @description Checks that a NoSuchMethodException is thrown if m is not a function
  * and getter is declared explicitly.
  * @author msyabro
  * @reviewer kaigorodov
@@ -25,6 +25,6 @@ class C {
 main()  {
   try {
     C.func();
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 }

@@ -21,35 +21,36 @@ main() {
   int e = 1;
   try {
     e();
-  } catch(ObjectNotClosureException ok) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException ok) {}
 
   try {
     ("String1")(null, null);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     []();
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     null(p1: 1);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     new Object()();
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     f()();
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     false();
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 }

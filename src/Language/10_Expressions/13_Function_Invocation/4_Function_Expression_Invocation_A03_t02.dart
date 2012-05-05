@@ -30,21 +30,21 @@ main() {
   foo = 1;
   try {
     foo(null, 1, 2);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     nullvar(null, 1, 2);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     (new A()).getter(null, 1, 2);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 
   try {
     (new A()).field("foo", "bar");
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+    Expect.fail("NoSuchMethodException is expected");
+  } catch(NoSuchMethodException e) {}
 }

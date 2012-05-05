@@ -39,8 +39,8 @@ class Foo {
 
     try {
       staticgetter2();
-      Expect.fail("ObjectNotClosureException expected");
-    } catch (ObjectNotClosureException ok) {}
+      Expect.fail("NoSuchMethodException expected");
+    } catch (NoSuchMethodException ok) {}
   }
 }
 
@@ -52,8 +52,8 @@ main() {
   var varnotfunc = 1;
   try {
     varnotfunc();
-    Expect.fail("ObjectNotClosureException expected");
-  } catch (ObjectNotClosureException ok) {}
+    Expect.fail("NoSuchMethodException expected");
+  } catch (NoSuchMethodException ok) {}
 
   localfunc() {
     return "localfunc";
@@ -66,8 +66,8 @@ main() {
 
   try {
     libgetter2();
-    Expect.fail("ObjectNotClosureException expected");
-  } catch (ObjectNotClosureException ok) {}
+    Expect.fail("NoSuchMethodException expected");
+  } catch (NoSuchMethodException ok) {}
 
   Expect.equals("libfunc", libfunc());
 }

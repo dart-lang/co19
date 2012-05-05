@@ -6,10 +6,9 @@
 /**
  * @assertion If the method lookup has failed, then let g be the result of looking up getter
  * m in S with respect to L. If the getter lookup succeeded, let vg be the value
- * of the getter invocation super.m. If vg is a function then it is called with the
- * evaluated argument list. The value of i is the value returned after vg is executed.
- * If vg is not a function then an ObjectNotAClosure is thrown.
- * @description Checks that ObjectNotClosureException is thrown if getter is not a function
+ * of the getter invocation super.m. Then the value of i is the value of
+ * the method invocation vg.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
+ * @description Checks that NoSuchMethodException is thrown if getter is not a function
  * and getter is declared explicitly.
  * @author msyabro
  * @reviewer kaigorodov
@@ -24,8 +23,8 @@ class A extends S {
   test() {
     try {
       super.func();
-      Expect.fail("ObjectNotClosureException is expected");
-    } catch(ObjectNotClosureException e) {}
+      Expect.fail("NoSuchMethodException is expected");
+    } catch(NoSuchMethodException e) {}
   }
 }
 

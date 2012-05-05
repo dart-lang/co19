@@ -23,25 +23,25 @@ class A {}
 main() {
   try {
     String foo = C.f1();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 
   try {
     bool foo = C.f1();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 
   try {
     A foo = C.f1();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 
   try {
     Object foo = C.f1();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 
   try {
     List foo = C.f1();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 
   try {
     Map foo = C.f1();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 }

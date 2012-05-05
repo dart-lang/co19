@@ -38,8 +38,8 @@ class A {
 
     try {
       n("a", 1);
-      Expect.fail("ObjectNotClosureException expected");
-    } catch (ObjectNotClosureException ok) {}
+      Expect.fail("NoSuchMethodException expected");
+    } catch (NoSuchMethodException ok) {}
   }
 }
 

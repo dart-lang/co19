@@ -25,27 +25,27 @@ class S extends C {
   void test() {
     try {
       String foo = super.obj();
-    } catch (ObjectNotClosureException ex) {}
+    } catch (NoSuchMethodException ex) {}
 
     try {
       bool foo = super.dyn();
-    } catch (ObjectNotClosureException ex) {}
+    } catch (NoSuchMethodException ex) {}
 
     try {
       C foo = super.obj();
-    } catch (ObjectNotClosureException ex) {}
+    } catch (NoSuchMethodException ex) {}
 
     try {
       Object foo = super.dyn();
-    } catch (ObjectNotClosureException ex) {}
+    } catch (NoSuchMethodException ex) {}
 
     try {
       List foo = super.obj();
-    } catch (ObjectNotClosureException ex) {}
+    } catch (NoSuchMethodException ex) {}
 
     try {
       Map foo = super.dyn();
-    } catch (ObjectNotClosureException ex) {}
+    } catch (NoSuchMethodException ex) {}
   }
 }
 

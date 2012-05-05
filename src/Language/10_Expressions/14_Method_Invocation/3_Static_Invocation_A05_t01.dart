@@ -20,5 +20,5 @@ class C {
 main() {
   try {
     C.m();
-  } catch(ObjectNotClosureException e) {}
+  } catch(NoSuchMethodException e) {}
 }

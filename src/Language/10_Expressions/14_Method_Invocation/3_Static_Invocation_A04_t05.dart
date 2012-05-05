@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Evaluation of i proceeds as follows:
- * First, if the member m declared by C is a getter, then let f be the result of
- * evaluating the getter invocation C.m. If f is not a function then an ObjectNotAClosure is thrown.
+ * First, if the member m declared by C is a getter, then i is equivalent
+ * to the expression C.m.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
  * Otherwise, let f be the the method m declared in class C.
  * Next, the argument list(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated.
  * The body of f is then executed with respect to the bindings that resulted
