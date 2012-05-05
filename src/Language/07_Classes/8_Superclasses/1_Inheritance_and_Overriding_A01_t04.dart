@@ -7,28 +7,28 @@
  * @assertion A class C inherits any instance members of its superclass that
  * are not overridden by members declared in C. A class may override instance members
  * that would otherwise have been inherited from its superclass.
- * @description Checks that a subclass inherits the instance members of its superclass(es).
- * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
+ * @description Checks that static members don't conflict with static methods of a class.
+ * @author msyabro
+ * @reviewer iefremov
  */
 
-class A {
-  int val;
+class S {
+  static var v;
+  static int i;
+  static method() {}
+  static int iMethod() {}
 }
 
-class B extends A {
-  foo() {
-    ++val;
-  }
+class C extends S {
+  static v() {}
+  static i() {}
+  static method() {}
+  static iMethod() {}
 }
-
-class C extends B {}
 
 main() {
-  C c = new C();
-  c.val = 5;
-  Expect.equals(5, c.val);
-  c.foo();
-  Expect.equals(6, c.val);
+  C.v();
+  C.i();
+  C.method();
+  C.iMethod();
 }
