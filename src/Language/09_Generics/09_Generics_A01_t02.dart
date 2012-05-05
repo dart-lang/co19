@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class (7), interface (8) or type alias may be generic.
+ * @assertion A class declaration,  interface declaration or type alias G may be generic.
  * typeParameter: identifier (extends type)? ;
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks various correct generic class declarations.
