@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of one of the forms -e, e1 - e2, e1 * e2, e1 / e2, e1 > e2, e1 < e2,
+ * @assertion An expression of one of the forms -e, e1 - e2, e1 * e2,  e1 / e2, e1 ~/ e2, e1 > e2, e1 < e2,
  * e1 >= e2, e1 <= e2 or e1 % e2, where e1 and e2 are constant expressions
- * that evaluate to a numeric value is a constant expression.
+ * that evaluate to a numeric value or to null is a constant expression.
  * @description Checks that various expressions of the specified forms can be
  * elements of a constant list literal and are, therefore, constant expressions.
  * @author iefremov
@@ -59,7 +59,12 @@ final constList = const [
   1.42 < 2.42,
   1.42 >= 2.42,
   1.42 <= 2.42,
-  1.42 % 2.42
+  1.42 % 2.42,
+
+  1.42 ~/ 1.42,
+  5 ~/ 1,
+  0.2 ~/ 2,
+  1 ~/ (2 + 1)
 ];
 
 
