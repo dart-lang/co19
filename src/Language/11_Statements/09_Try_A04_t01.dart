@@ -12,6 +12,7 @@
  * first exception parameter matches any object.
  * @author rodionov
  * @reviewer iefremov
+ * @needsreview issue 3076
  */
 
 #import("../../Utils/dynamic_check.dart");
@@ -70,13 +71,15 @@ main() {
   }
   Expect.isTrue(success);
 
-  checkTypeError((){
-    success = false;
-    try {
-      throw null;
-    } catch (var p1, int st) {
-      success = true;
-    }
-    Expect.isTrue(success);
-  });
+// pending issue 3076
+  
+//  checkTypeError((){
+//    success = false;
+//    try {
+//      throw null;
+//    } catch (var p1, int st) {
+//      success = true;
+//    }
+//    Expect.isTrue(success);
+//  });
 }

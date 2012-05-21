@@ -42,7 +42,7 @@ main() {
   check(badboy2, (e) => false);
 
   Expect.throws(badboy3);
-  Expect.throws(badboy3, (e) => true, "");
+  Expect.throws(badboy3, (e) => e is NullPointerException, "");
   check(badboy3, (e) => false, "not empty");
 }
 

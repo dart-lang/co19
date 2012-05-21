@@ -18,10 +18,10 @@ typedef void test();
 
 
 main() {
-  var err = null;
+  var err = 0;
   test t = (){throw err;};
 
-  Expect.throws(t, (e){Expect.isNull(e);return true;});
+  Expect.throws(t, (e){return e === err;});
   
   err = "hello";
   Expect.throws(t, (e){return e === err;});
