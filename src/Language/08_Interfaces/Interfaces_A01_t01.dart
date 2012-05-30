@@ -19,12 +19,11 @@
  *   variableDeclaration ';'
  * ;
  * @description Checks that valid interface declarations don't produce a compile-time error
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 
-interface A default ClassA{
+interface A default ClassA {
   static final x = 1;
   const A();
 
@@ -33,7 +32,7 @@ interface A default ClassA{
 }
 
 interface B extends A default ClassB{
-  B(a, b, c);
+  B(a, b, [c = 0]);
   B.C();
 
   operator~();
@@ -50,6 +49,7 @@ interface D<T, S> {
   f(x);
   g([y]);
   h();
+  i([x = 1]);
 }
 
 interface E<T extends num> extends D<B, T> {
@@ -62,7 +62,7 @@ class ClassA implements A {
 }
 
 class ClassB implements B {
-  factory B(a, b, c) {}
+  factory B(a, b, [c = 0]) {}
   factory B.c() {}
   ClassB(a, b, c) {}
   ClassB.C() {}

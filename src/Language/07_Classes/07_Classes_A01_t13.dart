@@ -8,11 +8,12 @@
  * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
- * @compile-error
  * @description Checks that it is a compile-time error if a class type definition
  * uses square brackets instead of the curly ones. 
  * Class body is empty.
+ * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A []

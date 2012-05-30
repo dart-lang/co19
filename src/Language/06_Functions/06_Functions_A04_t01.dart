@@ -7,6 +7,7 @@
  * @assertion If the last statement of a function is not a return statement, the statement
  * return null; is implicitly appended to the function body.
  * @description Checks that the statement return null; is implicitly appended to the function body.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

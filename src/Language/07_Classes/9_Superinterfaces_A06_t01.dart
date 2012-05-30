@@ -8,9 +8,9 @@
  * However, its implicit interface does.
  * @description Checks that there's no static warning when members inherited from a superinterface
  * are accessed using a variable whose type is a class type implementing that superinterface and whose
- * value is null. NullPointerException is fully expected and caught. 
+ * value is null. NullPointerException is fully expected and caught.
+ * @static-warning
  * @author rodionov
- * @needsreview - static-warning is produced
  */
 
 interface I {

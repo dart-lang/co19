@@ -11,6 +11,7 @@
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
+ * @needsreview issue 3182
  */
 
 void foo() {}

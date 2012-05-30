@@ -21,6 +21,7 @@
  * @description Checks that at least one formal parameter after a comma is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 void f(var p1, ) {}

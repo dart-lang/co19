@@ -12,6 +12,7 @@
  * produce a compile-time error.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 foo([final p = 1]) {

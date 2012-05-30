@@ -29,9 +29,10 @@
  *   identifier '=' expression
  * ;
  * @description Checks that it is a compile-time error if an abstract method
- * declaration with initializers includes a body.
+ * declaration includes a body.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 class A {
@@ -40,6 +41,6 @@ class A {
 
 main() {
   try {
-    A a = const A();
+    A a = new A();
   } catch(var e){}
 }

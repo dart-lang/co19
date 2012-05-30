@@ -13,6 +13,7 @@
  * uses different styles of opening and closing brackets. 
  * Class body is not empty.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A (

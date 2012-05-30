@@ -14,22 +14,21 @@
  * a direct subclass of the other.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {
   abstract foo(int x);
 }
 
-class Foo extends A {}
+abstract class B extends A {
+}
 
-class C extends Foo {
+class C extends B {
   foo(String x) {}
 }
 
 main() {
-  try {
-    new A().foo(2);
     new C().foo("1");
-  } catch(NoSuchMethodException ok) {}
 }
 

@@ -11,6 +11,7 @@
  * @description Checks that a compile-time error is not produced when the overriding non-abstract
  * instance method has more named parameters than the abstract method being overridden (2 vs 1)
  * and both have the same number of required parameters of the same type.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

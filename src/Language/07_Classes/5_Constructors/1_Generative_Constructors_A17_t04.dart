@@ -9,6 +9,7 @@
  * the type of the field named id in the immediately enclosing class.
  * @description Checks that the type of an initializing formal is the type of the corresponding field.
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 #import('../../../Utils/dynamic_check.dart');

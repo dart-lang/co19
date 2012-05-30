@@ -11,8 +11,9 @@
  * variable is initialized more than once in an initializer list (referenced as both
  * this.name and just name).
  * @compile-error
- * @author rodionov
  * @note Issue 921 filed
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

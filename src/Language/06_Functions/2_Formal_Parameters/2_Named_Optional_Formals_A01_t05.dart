@@ -11,6 +11,7 @@
  * @description Checks that a statement cannot be used instead of expression.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 f([var x = var z]) {}

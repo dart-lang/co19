@@ -10,6 +10,7 @@
  * @description Checks that static methods can access static members of the class they're
  * declared in using both fully qualified and shortened syntax.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

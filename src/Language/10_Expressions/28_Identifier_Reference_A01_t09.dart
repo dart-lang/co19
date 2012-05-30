@@ -7,8 +7,7 @@
  * @assertion An identifier expression consists of a single identifier; it provides access to an
  * object via an unqualified name.
  * identifier:
- *   IDENTIFIER |
- *   BUILD_IN_IDENTIFIER
+ *   IDENTIFIER
  * ;
  * IDENTIFIER_NO_DOLLAR:
  *   IDENTIFIER_START_NO_DOLLAR IDENTIFIER_PART_NO_DOLLAR*

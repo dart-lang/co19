@@ -12,6 +12,7 @@
  * instance method has the same set of named parameters as the abstract method being overriden, 
  * but in a different order.
  * @compile-error
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview issue 978

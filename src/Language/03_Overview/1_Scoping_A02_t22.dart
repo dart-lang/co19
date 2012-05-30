@@ -12,6 +12,7 @@
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview issue 3180
  */
 
 typedef foo();

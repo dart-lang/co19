@@ -15,6 +15,7 @@
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview issue 3078
  */
 
 class C {

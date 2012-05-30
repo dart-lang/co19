@@ -11,6 +11,7 @@
  * declares two identically named parameters and the one of them is optional.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  * @needsreview issue 2240
  */
 

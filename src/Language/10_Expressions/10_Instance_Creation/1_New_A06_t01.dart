@@ -14,7 +14,7 @@
  * not a parameterized type, then for i from 1 to m, let Vi = Dynamic, otherwise let
  * Vi = Ui.
  * Evaluation of e proceeds as follows:
- * First, if q is a generative constructor, then:
+ * First, if q is a generative constructor (regardless of whether q is redirecting or not), then:
  * If R != C then let Wi be the type parameters of R (if any) and let Di be the
  * bound of Wi, i from 1 to m. In checked mode, it is a dynamic type error if Vi is
  * not a subtype of [V1, ... , Vm/W1, ... , Wm]Di, i from 1 to m.
@@ -37,7 +37,7 @@ class A<T> implements R<T>{
 }
 
 main() {
-  checkTypeError( () {
+ checkTypeError( () {
     new R<bool>();
   });
 }

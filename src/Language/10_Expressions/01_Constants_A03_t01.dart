@@ -5,7 +5,8 @@
  */
 /**
  * @assertion A literal string where any interpolated expression is a
- * compile-time constant that evaluates to a numeric, string or boolean value.
+ * compile-time constant that evaluates to a numeric, string or boolean value or to null,
+ * is a constant expression.
  * @description Checks that various literal strings can be elements of a constant list literal
  * and are, therefore, constant expressions.
  * @author iefremov
@@ -41,7 +42,8 @@ final constListInterpolation = const [
   '${1}',
   "{1 + 1}",
   '${true}',
-  '${2 > 1}'
+  '${2 > 1}',
+  '${null}'
 ];
 
 final constListConcatenation = const [

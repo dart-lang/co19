@@ -12,6 +12,7 @@
  * in an interface.
  * @author vasya
  * @reviewer rodionov
+ * @needsreview 2506
  */
 
 interface I {

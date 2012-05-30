@@ -9,6 +9,7 @@
  * @description Checks that no static warnings are produced when trying to access various
  * non-existent members and properties of a variable. It means that the return type of the getter is Dynamic.
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 

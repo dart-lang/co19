@@ -9,6 +9,7 @@
  * @description Checks that it is a compile-time error if the extends clause of an interface includes
  * a local variable name.
  * @compile-error
+ * @needsreview issue 3182
  * @author rodionov
  * @reviewer kaigorodov
  */

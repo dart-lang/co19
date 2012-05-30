@@ -7,8 +7,11 @@
  * @assertion Dart supports two levels of privacy: public and private.
  * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
- * @description Checks that type parameters names can begin with an underscore.
+ * @description Checks that type parameter names can begin with an underscore and
+ * are still accessible in the appropriate scope.
+ * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 class G<_, _$, __> {

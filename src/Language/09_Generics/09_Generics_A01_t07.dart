@@ -10,6 +10,7 @@
  * @description Checks that opening bracket is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 class C T>{}

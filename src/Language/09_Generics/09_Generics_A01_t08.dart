@@ -10,6 +10,7 @@
  * @description Checks that a comma must be succeeded by a typeParameter.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 class C<T, >{}

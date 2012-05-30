@@ -6,7 +6,7 @@
 /**
  * @assertion Relational expressions invoke the relational operators on objects.
  * relationalExpression:
- *   shiftExpression (isOperator type | relationalOperator shiftExpression)? |
+ *   shiftExpression (typeTest | relationalOperator shiftExpression)? |
  *   super relationalOperator shiftExpression
  * ;
  * relationalOperator:

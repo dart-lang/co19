@@ -11,6 +11,7 @@
  * shadows another local variable declared in an enclosing lexical scope.
  * @author iefremov
  * @static-warning
+ * @reviewer rodionov
  */
 
 var flag = false;

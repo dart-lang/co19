@@ -8,16 +8,16 @@
  * typeParameter: identifier (extends type)? ;
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks that a compile-time error is produced when trying
- * to use a type parameter with type parameters as a type parameter bound .
+ * to use a type parameter with type arguments .
  * @compile-error
  * @author iefremov
- * @needsreview undocumented: issue 955
+ * @reviewer kaigorodov
  */
 
-class C<T extends T<T>>{}
+class C<T, U<T>){}
 
 main() {
   try {
-    new C();
+    new C<int, int>();
   }catch(var x){}
 }

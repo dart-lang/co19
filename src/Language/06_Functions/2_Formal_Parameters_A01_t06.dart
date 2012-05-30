@@ -21,6 +21,7 @@
  * @description Checks that at least one named formal parameter in a named parameters list is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 void f([]) {}

@@ -11,8 +11,9 @@
  * redirection: ':' this ('.' identifier)? arguments
  * @description Checks that a redirecting constructor can't be followed by
  * the initializer list.
- * @author iefremov
  * @compile-error
+ * @author iefremov
+ * @reviewer kaigorodov
  */
 
 

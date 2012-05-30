@@ -9,9 +9,9 @@
  * The static methods of a class C are those static methods declared by C.
  * @description Checks that it is a compile-time error when a superclass's
  * static method is being accessed using a subclass's name.
- * @author rodionov
  * @compile-error
- * @needsreview not explicitly documented in this chapter
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S {

@@ -13,6 +13,7 @@
  * uses regular brackets instead of the curly ones. 
  * Class body is empty.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A ()

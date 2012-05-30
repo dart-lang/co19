@@ -10,9 +10,10 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that variable declaration must contain an identifier.
+ * @description Checks that a variable declaration must contain an identifier.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {
@@ -21,4 +22,3 @@ main() {
   }
   catch(var x) {}
 }
-

@@ -11,10 +11,11 @@
  * a function and an abstract setter of the same name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {
-  String f(int f);
+  String f(int f){}
   abstract int set f(bool b);
 }
 

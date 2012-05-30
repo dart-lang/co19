@@ -6,6 +6,7 @@
 /**
  * @assertion An interpolated string "s1${e}s2" is equivalent to the
  * concatenation of the strings "s1", e.toString() and "s2".
+ * It is a runtime error if e.toString() does not return an object of type String.
  * @description Checks that an interpolated string "s1${e}s2" is equivalent to the
  * concatenation of the strings "s1", e.toString() and "s2".
  * @author msyabro
@@ -58,4 +59,3 @@ main() {
   buffer.add(2);
   Expect.equals(buffer.toString(), "${"${1}" "${2}"}");
 }
-

@@ -12,6 +12,7 @@
  * another abstract method with the same name and a different number of required parameters
  * even if the class declaring the second method is not a direct superclass of the other.
  * @compile-error
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview issue 978

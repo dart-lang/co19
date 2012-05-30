@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a static warning if a built-in identifier is used as the name of
- * a user-defined declaration, be it a variable, function, type or label,
+ * a user-defined variable, function or label,
  * with the exception of user defined operators named negate or call.
  * @description Checks that it is a static warning if a label
  * is named abstract.

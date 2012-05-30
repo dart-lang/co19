@@ -9,11 +9,12 @@
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks various correct generic typedefs declarations.
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 interface I{}
 
-typedef f1<T extends T>();
+typedef f1<T>();
 typedef f2<$, $$, $$$>();
 typedef f3<T extends f1<T>, S extends I, V extends Function>();
 typedef f4<T extends f3<U, S, V>, U extends T, V extends U, S>();

@@ -10,6 +10,7 @@
  * @description Checks that private fields/methods inherited from a class declared in another library
  * are not visible and do not overload members from a super class declared in the current library.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 #library("2_Privacy_A01_t21");
@@ -29,8 +30,6 @@ class C extends B {
 
 main() {
   try {
-    C c = new C();
-    Expect.equals(54, c._var);
-    Expect.equals(42, c._func());
+    new C().test();
   } catch(var x) {}
 }

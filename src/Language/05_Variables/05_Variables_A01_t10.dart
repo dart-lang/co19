@@ -10,9 +10,11 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that a statement cannot be used instead of expression in the initialized declaration.
+ * @description Checks that a non-expression statement cannot be used instead of expression in an initialized 
+ * variable declaration.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {
@@ -21,4 +23,3 @@ main() {
   }
   catch(var x) {}
 }
-

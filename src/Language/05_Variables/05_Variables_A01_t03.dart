@@ -13,12 +13,12 @@
  * @description Checks that finalConstVarOrType is a must in variable declaration.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {
   try {
-    x = 1;
+    x;
   }
-  catch(var x) {}
+  catch(var wtvr) {}
 }
-

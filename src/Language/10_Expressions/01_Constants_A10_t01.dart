@@ -6,7 +6,7 @@
 /**
  * @assertion  An expression of one of the forms e1 == e2, e1 != e2, e1 === e2 or
  * e1 !== e2, where e1 and e2 are constant expressions that evaluate to a
- * numeric, string or boolean value is a constant expression.
+ * numeric, string or boolean value or to null is a constant expression.
  * @description Checks that various expressions of the specified forms can be elements
  * of a constant list literal and are, therefore, constant expressions.
  * @author iefremov
@@ -20,7 +20,8 @@ final constList = const [
   true !== false,
   (true != 1),
   "a" === false,
-  ((1 == 2) != ("" == "b")) === (false !== true)
+  ((1 == 2) != ("" == "b")) === (false !== true) ,
+  (null === '')
 ];
 
 main() {

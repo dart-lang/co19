@@ -10,6 +10,7 @@
  * @description Checks that at least one typeParameter is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 class C<>{}

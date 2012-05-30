@@ -10,6 +10,7 @@
  * final local variable and v is not initialized at its point of declaration.
  * @description Checks that a compile-time error occurs if a global typed final variable is redefined.
  * @author msyabro
+ * @reviewer iefremov
  * @compile-error
  */
 

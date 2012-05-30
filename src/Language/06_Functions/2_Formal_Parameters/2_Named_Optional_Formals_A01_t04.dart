@@ -11,6 +11,7 @@
  * @description Checks that expression after '=' is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 f([var x = ]) {}

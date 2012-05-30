@@ -9,6 +9,7 @@
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks that a generic syntax is not confused
  * with relational expressions.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

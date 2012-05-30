@@ -8,9 +8,9 @@
  * it is a static warning if a declaration introduces a name that is available in a
  * lexically enclosing scope.
  * @description Checks that a static warning is produced if a type parameter hides a library prefix.
- * @author iefremov
  * @static-warning
- * @needsreview Issue 2244 (not documented?)
+ * @author iefremov
+ * @reviewer kaigorodov
  */
 
 #import("lib.dart", prefix:"prefix");

@@ -14,7 +14,7 @@
  * not a parameterized type, then for i from 1 to m, let Vi = Dynamic, otherwise let
  * Vi = Ui.
  * Evaluation of e proceeds as follows:
- * First, if q is a generative constructor, then:
+ * First, if q is a generative constructor (regardless of whether q is redirecting or not), then:
  * A fresh instance, i, of class C is allocated.
  * @description Checks that a fresh instance is allocated with every constructor invocation.
  * @author msyabro

@@ -14,7 +14,7 @@
  * the final variable declaration.
  * @compile-error
  * @author iefremov
- * @needsreview issue 966
+ * @reviewer kaigorodov
  */
 
 double id1(int a1, [double x1 = 1.0]){

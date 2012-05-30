@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A super method invocation has the form
- * super:m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
+ * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that it is a compile-time error if named
  * arguments precede positional arguments.
  * @compile-error

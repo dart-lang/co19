@@ -13,20 +13,22 @@
  * being completely identical).
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {
   int foo(var x) {}
 }
 
-class C extends A {
+class B extends A {
   abstract String foo(var x);
 }
 
+class C extends B {
+  String foo(var x) {}
+}
+
 main() {
-  new A().foo(2);
-  try {
-    new C().foo(1);
-  } catch (NoSuchMethodException ok) {}
+  new C().foo(2);
 }
 

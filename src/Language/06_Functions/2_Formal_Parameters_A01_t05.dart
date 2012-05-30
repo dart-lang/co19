@@ -22,6 +22,7 @@
  * parameters list is a must.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 void f([var p1, ]) {}

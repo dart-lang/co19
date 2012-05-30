@@ -9,12 +9,12 @@
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks various correct generic interface declarations.
  * @author iefremov
- * @needsreview issue 964
+ * @reviewer kaigorodov
  */
 
 interface I{}
 
-interface I1<T extends T>{}
+interface I1<T>{}
 interface I2<$, $$, $$$>{}
 interface I3<T extends I1<T>, S extends I, V extends Function>{}
 interface I4<T extends I3<U, S, V>, U extends I1<U>, V extends Function, S extends I>{}

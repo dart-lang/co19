@@ -6,7 +6,7 @@
 /**
  * @assertion A fresh instance is an instance whose identity is distinct from
  * any previously allocated instance of its class. A generative constructor
- * always allocates a fresh instance of its immediately enclosing class.
+ * always operates on a fresh instance of its immediately enclosing class.
  * @description Checks that instances created using different invocations
  * of a generative constructor are not identical.
  * @author pagolubev

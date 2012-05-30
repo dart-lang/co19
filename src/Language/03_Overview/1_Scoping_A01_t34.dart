@@ -11,6 +11,7 @@
  * type parameters.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  * @needsreview issue 2239
  */
 

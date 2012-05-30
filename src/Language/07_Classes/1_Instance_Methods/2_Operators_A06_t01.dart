@@ -7,6 +7,7 @@
  * @assertion The operator call can have any arity.
  * @description Checks that the operator call can have any arity.
  * @author msyabro
+ * @reviewer iefremov
  * @needsreview Issue 1604
  */
 

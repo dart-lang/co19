@@ -11,6 +11,7 @@
  * a variable and an abstract getter of the same name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

@@ -9,8 +9,9 @@
  * It is a compile-time error if a variable v is a final top-level variable or a
  * final local variable and v is not initialized at its point of declaration.
  * @description Checks that a compile-time error occurs if local typed final variable is redefined.
- * @author msyabro
  * @compile-error
+ * @author msyabro
+ * @reviewer kaigorodov
  */
 
 main() {

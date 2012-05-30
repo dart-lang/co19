@@ -8,11 +8,11 @@
  * abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
- * @description Checks that it is a compile-time error if an abstract class type definition
+ * @description Checks that it is a compile-time error if an abstract class declaration
  * is missing both opening and closing curly brackets.
- * Class body is empty.
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 abstract class A

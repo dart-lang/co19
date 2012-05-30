@@ -10,6 +10,8 @@
  * the user-declared operator negate is explicitly declared and not a numerical type.
  * @static-warning
  * @author msyabro
+ * @reviewer iefremov
+ * @needsreview issue 3224
  */
 
 class C {

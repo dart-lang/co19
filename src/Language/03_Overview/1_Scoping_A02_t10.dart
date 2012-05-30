@@ -12,6 +12,7 @@
  * @author iefremov
  * @static-warning
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {

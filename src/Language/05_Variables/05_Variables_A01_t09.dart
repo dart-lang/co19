@@ -10,9 +10,11 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that expression after '=' is a must in initialized variable declaration.
+ * @description Checks that it is a compile-time error if the right-hand expression is missing
+ * in an initialized variable declaration.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {
@@ -21,4 +23,3 @@ main() {
   }
   catch(var x) {}
 }
-

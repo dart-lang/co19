@@ -8,8 +8,10 @@
  * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that various private class members are perfectly accessible inside the library
- * where the class is declared even when accessed using an instance of a subclass.
+ * where the class is declared even when accessed via a subclass instance.
+ * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 interface _I default _A {
@@ -37,7 +39,7 @@ class B extends _A {}
 class C extends B {}
 
 main() {
-  _A a = new C();
+  C a = new C();
   Expect.equals(54, a._var);
   Expect.equals("abyrvalg", _A._staticvar);
   Expect.equals("final!", a._finalvar);
@@ -49,7 +51,6 @@ main() {
     a._abstractfun();
   } catch(NoSuchMethodException ok){}
 
-  a = new C();
   Expect.equals(100500, a._getter);
 
   try {

@@ -10,9 +10,10 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that variable declaration cannot contain both 'final' and 'var'.
+ * @description Checks that a variable declaration cannot contain both 'final' and 'var'.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {
@@ -21,4 +22,3 @@ main() {
   }
   catch(var x) {}
 }
-

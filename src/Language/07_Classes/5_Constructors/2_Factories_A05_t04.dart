@@ -9,6 +9,7 @@
  * @description Checks that it is fine if M is a name of an arbitrary class, since
  * all classes have an implied interface.
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 class Z{}

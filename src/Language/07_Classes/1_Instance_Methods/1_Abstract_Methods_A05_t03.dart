@@ -13,20 +13,23 @@
  * types are not mutually assignable.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {
   foo([int x]) {}
 }
 
-class C extends A {
+class B extends A {
   abstract foo([String x]);
 }
 
+class C extends B {
+  foo([String x]) {}
+}
+
 main() {
-  try {
     new A().foo(2);
-    new C().foo(1);
-  } catch(NoSuchMethodException ok) {}
+    new C().foo("1");
 }
 

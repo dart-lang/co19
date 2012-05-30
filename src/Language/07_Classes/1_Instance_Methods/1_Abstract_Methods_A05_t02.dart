@@ -13,6 +13,7 @@
  * types are not mutually assignable.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {
@@ -24,9 +25,6 @@ class C extends A {
 }
 
 main() {
-  try {
-    new A().foo(2);
     new C().foo("1");
-  } catch(NoSuchMethodException ok) {}
 }
 

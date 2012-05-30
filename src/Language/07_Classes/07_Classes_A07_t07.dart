@@ -11,6 +11,7 @@
  * a variable and a function of the same name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

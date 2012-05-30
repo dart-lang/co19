@@ -9,7 +9,7 @@
  * proceeds as follows:
  * First, the argument list (a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated
  * yielding actual argument objects o1, ... , on+k. Let S be the superclass of
- * the class of this, and let f be the result of looking up method m in S with
+ * the immediately enclosing class, and let f be the result of looking up method m in S with
  * respect to the current library L. If the method lookup succeeded, the body of
  * f is executed with respect to the bindings that resulted from the evaluation of
  * the argument list, and with this bound to the current value of this. The value

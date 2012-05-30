@@ -8,6 +8,7 @@
  * are not overridden by members declared in C. A class may override instance members
  * that would otherwise have been inherited from its superclass.
  * @description Checks that static members are not inherited.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

@@ -10,8 +10,8 @@
  * final local variable and v is not initialized at its point of declaration.
  * @description Checks that a compile-time error occurs if a global typed final variable is not assigned.
  * @author msyabro
+ * @reviewer iefremov
  * @compile-error
- * @needsreview issue 991
  */
 
 final int foo;

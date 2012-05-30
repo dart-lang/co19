@@ -12,6 +12,7 @@
  * an interface from another file.
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview issue 2478
  */
 
 #library("test");

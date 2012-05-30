@@ -11,6 +11,8 @@
  * that is identical to a class name available in the current scope.
  * @static-warning
  * @author iefremov
+ * @reviewer rodionov
+ * @needsreview issue 3180
  */
 
 class C{}

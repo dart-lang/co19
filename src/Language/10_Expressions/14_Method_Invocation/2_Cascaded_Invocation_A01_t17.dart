@@ -7,7 +7,11 @@
  * @assertion A cascaded method invocation has the form e..suffix where suffix is a sequence
  * of operator, method, getter or setter invocations.
  * cascadeSection:
- *   '..'  (assignableSelector arguments*)+ (assignmentOperator expression)?
+ * '..'  (cascadeSelector arguments*)(assignableSelector arguments*)* (assignmentOperator expressionWithoutCascade)?
+ * ;
+ * cascadeSelector:
+ *  '[ ' expression '] '
+ *  | identifier
  * ;
  * @description Checks that it is a compile-time error if suffix is an additive expression.
  * @compile-error

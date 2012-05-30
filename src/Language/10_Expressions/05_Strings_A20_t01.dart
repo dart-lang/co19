@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The first new-line character in a multi-line string is ignored (?)
+ * @assertion If the first line of a multiline string consists solely of whitespace
+ * characters then that line is ignored, including the new line at its end.
  * @description Checks that the first new-line in a multi-line string is ignored.
  * @author iefremov
- * @needsreview undocumented
- * @needsreview issue 240
+ * @reviewer rodionov
  */
 
 
@@ -21,9 +21,12 @@ main() {
 ''';
   Expect.identical('''''', s1, "The first new-line character in a multi-line string should be ignored!");
 
-  s1 = """
+  // tabs and spaces at the beginning of a multiline string
+  s1 = """  	  
 abyr, abyr
 abyrvalg
 """;
-  Expect.identical("""abyr, abyr\nabyrvalg\n""", s1);
+  Expect.identical("""abyr, abyr
+abyrvalg
+""", s1);
 }

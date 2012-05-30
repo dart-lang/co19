@@ -6,10 +6,6 @@
 /**
  * @assertion An identifier expression consists of a single identifier; it provides access to an
  * object via an unqualified name.
- * identifier:
- *   IDENTIFIER |
- *   BUILD_IN_IDENTIFIER
- * ;
  * BUILT_IN_IDENTIFIER:
  *   abstract |
  *   assert |

@@ -21,7 +21,10 @@
  * @reviewer iefremov
  */
 
-class A {}
+class A {
+  operator <<(other) => other;
+  operator >>(other) => other;
+}
 
 class B extends A {
   void test() {

@@ -19,7 +19,7 @@ void g(var x, [var y = 1]) {}
 void h([var x, var y = true, var z]) {}
 void i([a = const [const []]]){}
 void j([m = const {"foo":"bar", "boo" : const [], "zoo" : const{"x":"y"}}]){}
-void x([f([p, v, a]) = null]) {}
+void k([func([p, v, a]) = null]) {}
 
 void f_func([void func(var p) = null]) {}
 void f_undeclared([u = 1]) {}
@@ -31,7 +31,7 @@ main() {
   h(x:3);
   i();
   j();
-  x();
+  k();
 
   f_func();
   f_undeclared();

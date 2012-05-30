@@ -21,8 +21,7 @@
  */
 
 class S {
-  static m() {
-  }
+  static m() {}
 }
 
 class C extends S {
@@ -34,5 +33,6 @@ class C extends S {
 main() {
   try {
     print(new C().test());
+    Expect.fail("NoSuchMethodException expected.");
   } catch(NoSuchMethodException ok) {}
 }

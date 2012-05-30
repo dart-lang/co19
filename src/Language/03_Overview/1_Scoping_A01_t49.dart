@@ -10,8 +10,9 @@
  * @description Checks that it is a compile-time error if a prefix of an imported library
  * and a typedef declaration share the same name.
  * @compile-error
+ * @note see also tests against 12_Libraries_and_Scripts/2_Imports_A08
  * @author iefremov
- * @needsreview Issue 2244 (not documented?)
+ * @reviewer kaigorodov
  */
 
 #import("lib.dart", prefix:"pr");

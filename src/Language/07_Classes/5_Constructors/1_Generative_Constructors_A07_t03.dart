@@ -10,8 +10,9 @@
  * @description Checks that a compile-time error is produced if the same instance
  * variable is initialized more than once in an initializer list (referenced by just the name).
  * @compile-error
- * @author rodionov
  * @note Issue 921 filed
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

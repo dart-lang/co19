@@ -10,6 +10,7 @@
  * method and a static member method with the same name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {

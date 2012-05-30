@@ -15,6 +15,7 @@
  * @author kaigorodov
  * @reviewer iefremov
  * @compile-error
+ * @needsreview issue 3220
  */
 
 interface I factory A {

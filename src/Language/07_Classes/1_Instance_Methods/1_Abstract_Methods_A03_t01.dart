@@ -10,8 +10,10 @@
  * instance member m2 and m1 has a different number of required parameters than m2.
  * @description Checks that a compile-error is produced when an abstract method overrides
  * a non-abstract instance method with the same name and a different number of required parameters.
+ * @static-warning
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {

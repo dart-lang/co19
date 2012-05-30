@@ -5,21 +5,29 @@
  */
 /**
  * @assertion An expression of one of the forms !e, e1 && e2 or e1 || e2, where e, e1 and
- * e2 are constant expressions that evaluate to a boolean value is a constant expression.
- * @description Checks that various expressions of the specified forms can be elements
- * of a constant list literal and are, therefore, constant expressions.
+ * e2 are constant expressions that evaluate to a boolean value or to null is a constant expression.
+ * @description Checks that various expressions of the specified forms can be used within the
+ * initializer list of a constant constructor and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
  */
 
-final constList = const [
-  !true,
-  !false,
-  true && false,
-  true || false,
-  (!true || true) && !(false == true),
-];
+class C {
+  final a, b, c, d, e, f, g, h, i;
+  const C() :
+    a = !true,
+    b = !false, 
+    c = true && false,
+    d = false || true,
+    e = (!true || true) && !(false == true),
+    f = false || null,
+    g = true && null,
+    h = !null,
+    i = null || null;
+}
 
 main() {
-  Expect.isTrue(constList is List);
+  try {
+    const C();
+  } catch (var ok) {} // NPEs and whatnot
 }

@@ -11,6 +11,7 @@
  * a function and a getter of the same name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

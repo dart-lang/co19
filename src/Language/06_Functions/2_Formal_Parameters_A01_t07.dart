@@ -21,6 +21,7 @@
  * @description Checks that a closing square bracket is a must in named parameters list.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 void f([) {}

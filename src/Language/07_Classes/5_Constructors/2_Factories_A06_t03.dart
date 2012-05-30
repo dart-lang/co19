@@ -10,6 +10,7 @@
  * from factory constructor M produces a dynamic type error.
  * @dynamic-type-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("../../../Utils/dynamic_check.dart");

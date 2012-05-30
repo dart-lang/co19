@@ -10,9 +10,11 @@
  * initializedIdentifier: identifier ('=' expression)? ;
  * declaredIdentifier: finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
- * @description Checks that a comma between two identifiers in variable declaration is a must.
+ * @description Checks different variables in a single variable declaration must be delimited
+ * by commas.
  * @author iefremov
  * @compile-error
+ * @reviewer rodionov
  */
 
 main() {
@@ -21,4 +23,3 @@ main() {
   }
   catch(var x) {}
 }
-

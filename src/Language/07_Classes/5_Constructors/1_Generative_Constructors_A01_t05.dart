@@ -7,10 +7,11 @@
  * @assertion constructorSignature:
  * identifier formalParameterList | namedConstructorSignature  ;
  * namedConstructorSignature:  identifier '.' identifier formalParameterList ;
- * @description Checks that it is a compile-time error if a named constructor has
- * the return type
+ * @description Checks that it is a compile-time error if a named constructor declares
+ * a return type
  * @compile-error
  * @author msyabro
+ * @reviewer iefremov
  */
 
 class C {

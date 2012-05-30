@@ -9,12 +9,12 @@
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks various correct generic class declarations.
  * @author iefremov
- * @needsreview issue 964
+ * @reviewer kaigorodov
  */
 
 interface I{}
 
-class C1<T extends T>{}
+class C1<T>{}
 class C2<$, $$, $$$>{}
 class C3<T extends C1<T>, S extends I, V extends Function>{}
 class C4<T extends C3<U, S, V>, U extends C1<U>, V extends Function, S extends I>{}

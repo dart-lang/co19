@@ -11,6 +11,7 @@
  * invocation result. If the static type is indeed Dynamic there should not be any static warnings.
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview issue 3223
  */
 
 class A {

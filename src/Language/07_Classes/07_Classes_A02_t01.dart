@@ -74,6 +74,8 @@ class F {
 
 class Abstract {
   abstract func();
+  abstract funcWithParams(p1, p2);
+  abstract funcWithOptionalParams([p1 = 1, p2 = 2]);
   abstract get val();
   abstract set val(var v);
   abstract operator==(Abstract other);

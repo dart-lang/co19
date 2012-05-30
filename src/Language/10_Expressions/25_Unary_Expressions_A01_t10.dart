@@ -22,7 +22,7 @@
  * ;
  * @description Checks that unary expressions of the form [incrementOperator assignableExpression]
  * don't cause compile-time errors.
- * static-warning
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

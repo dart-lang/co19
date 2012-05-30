@@ -11,6 +11,7 @@
  * a function and a setter of the same name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

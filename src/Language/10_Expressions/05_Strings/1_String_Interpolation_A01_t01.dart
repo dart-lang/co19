@@ -28,7 +28,7 @@ class S {
 
 class Test {
   method() {}
-  var id = "aidee";
+  var id = null;
 
   expressions() {
     //literals

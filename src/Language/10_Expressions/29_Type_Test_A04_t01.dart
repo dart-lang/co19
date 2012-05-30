@@ -10,7 +10,8 @@
  * type available in the current lexical scope.
  * @static-warning
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
+ * @needsreview issue 3282
  */
 
 main() {

@@ -10,6 +10,7 @@
  * final local variable and v is not initialized at its point of declaration.
  * @description Checks that a compile-time error occurs if local typed final variable is not assigned.
  * @author msyabro
+ * @reviewer iefremov
  * @compile-error
  */
 

@@ -14,7 +14,7 @@
  * not a parameterized type, then for i from 1 to m, let Vi = Dynamic, otherwise let
  * Vi = Ui.
  * Evaluation of e proceeds as follows:
- * First, if q is a generative constructor, then:
+ * First, if q is a generative constructor (regardless of whether q is redirecting or not), then:
  * Regardless of whether R != C, let Ti be the type parameters of C (if any)
  * and let Bi be the bound of Ti, i from 1 to m. In checked mode, it is a dynamic
  * type error if Vi is not a subtype of [V1, ... ,Vm/T1, ... , Tm]Bi. i from 1 to m.

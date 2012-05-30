@@ -11,8 +11,9 @@
  * an initializer for a variable that is initialized by means of an initializing formal of k
  * (field initializer uses just the variable name).
  * @compile-error
- * @author rodionov
  * @note Issue 921 filed
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

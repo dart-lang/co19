@@ -6,12 +6,13 @@
 /**
  * @assertion  An interpolated string "s1${e}s2" is equivalent to the
  * concatenation of the strings "s1", e.toString() and "s2".
+ * It is a runtime error if e.toString() does not return an object of type String.
  * @description Checks that if evaluation of expression e results in exception,
  * string interpolation "s1${e}s2" raises the same exception.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1553
+ * @needsreview Issue 1553, 1604
  */
 
 class C {
@@ -39,8 +40,8 @@ class C {
 
     try {
       "${id()}";
-      Expect.fail("ObjectNotClosureException is expected");
-    } catch(ObjectNotClosureException e) {}
+      Expect.fail("NoSuchMethodException is expected");
+    } catch(NoSuchMethodException e) {}
   }
 }
 

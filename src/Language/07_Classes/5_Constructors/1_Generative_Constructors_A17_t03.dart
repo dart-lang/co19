@@ -10,6 +10,7 @@
  * @description Checks that the type of an initializing formal is the type of the corresponding field.
  * @static-warning
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 #import('../../../Utils/dynamic_check.dart');

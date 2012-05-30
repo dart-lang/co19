@@ -12,6 +12,7 @@
  * Factory constructor name is that of an interface that specifies the constructor's enclosing
  * class as its default implementation.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S1 {}

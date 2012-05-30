@@ -12,8 +12,7 @@
  * its implements clause. 
  * @compile-error
  * @author rodionov
- * @needsreview Not sure if it's possible at all for a programmer to reference a class's
- * induced interface in any expression.
+ * @reviewer kaigorodov
  */
 
 interface I {}

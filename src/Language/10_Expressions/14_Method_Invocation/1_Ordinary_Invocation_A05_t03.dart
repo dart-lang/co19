@@ -13,9 +13,10 @@
  * arguments m, this, [o1, ..., on] and fxn+1 : on+1, ..., xn+k : on+kg. 
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
- * @description Checks that noSuchMethod is called when vg is not a function (doesn't have the method call)
+ * @description Checks that noSuchMethod() is called when vg is not a function (doesn't have the method call)
  * and getter is declared explicitly.
  * @author msyabro
+ * @reviewer iefremov
  * @needsreview issue 1604
  */
 

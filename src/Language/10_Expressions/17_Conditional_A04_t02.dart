@@ -11,6 +11,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview 3221
  */
 
 class A {}

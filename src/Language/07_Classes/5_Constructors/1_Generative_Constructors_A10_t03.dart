@@ -11,6 +11,7 @@
  * an initializer for a static class variable.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C  {

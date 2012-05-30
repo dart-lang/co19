@@ -23,7 +23,7 @@ interface S {
   void m();
 }
 
-interface I extends S  {
+interface I extends S {
   int m;
 }
 

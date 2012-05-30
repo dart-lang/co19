@@ -28,7 +28,7 @@ func(int x) => x + x + 1;
 proc() {}
 
 class A {
-  f() {return f() {return 20;};}
+  f() {return () {return 20;};}
   g(int arg) {return arg + arg;}
   h(int arg) => f()() + g(arg);
 }

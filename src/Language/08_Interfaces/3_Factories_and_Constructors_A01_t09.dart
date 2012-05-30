@@ -14,6 +14,7 @@
  * @description Checks that there is no error when the factory clause mentions a specific
  * type as the factory's class type parameter (both interface and its factory class are generics
  * with the same number of type parameters and the latter does not implement the former).
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @reviewer msyabro

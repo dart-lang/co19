@@ -7,10 +7,14 @@
  * @assertion A cascaded method invocation has the form e..suffix where suffix is a sequence
  * of operator, method, getter or setter invocations.
  * cascadeSection:
- *   '..'  (assignableSelector arguments*)+ (assignmentOperator expression)?
+ * '..'  (cascadeSelector arguments*)(assignableSelector arguments*)* (assignmentOperator expressionWithoutCascade)?
+ * ;
+ * cascadeSelector:
+ *  '[ ' expression '] '
+ *  | identifier
  * ;
  * @description Checks that various correct cascaded invocations
- * does not produce compile-time errors.
+ * do not produce compile-time errors.
  * @author msyabro
  * @reviewer iefremov
  */
@@ -76,4 +80,3 @@ main() {
   o.. m1() .. + 2 .. [1] .. y = x .. statVar .. x .. m2(1, 2);
 
 }
-

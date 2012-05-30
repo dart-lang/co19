@@ -11,6 +11,7 @@
  * to specify a parameterized type parameter.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 class C<T<T>>{}

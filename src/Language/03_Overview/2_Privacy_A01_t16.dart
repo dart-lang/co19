@@ -9,6 +9,7 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that prefix names can begin with an underscore.
  * @author iefremov
+ * @reviewer kaigorodov
  * @needsreview Issue 2242
  */
 
@@ -16,5 +17,5 @@
 
 main() {
   _abc.accessibleVariable = 54;
-  Expect.equals(1, _abc.accessibleVariable);
+  Expect.equals(54, _abc.accessibleVariable);
 }

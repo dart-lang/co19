@@ -12,8 +12,9 @@
  * typedef T0 F (T1 a1, ..., Tn an, [Tn+1 xn+1, ..., Tn+k xn+k]).
  * @description Checks that a local function cannot be used before it is declared
  * (a compile-time error is produced).
- * @author iefremov
  * @compile-error
+ * @author iefremov
+ * @reviewer kaigorodov
  */
 
 main() {

@@ -7,9 +7,11 @@
  * @assertion Dart supports two levels of privacy: public and private.
  * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
- * @description Checks that various private instance class members are not accessible in a script
- * that imports a library where the class is declared.
+ * @description Checks that trying to access private instance class members from a script
+ * that imports the library where the class is declared result in a NoSuchMethodException.
+ * @static-warning
  * @author iefremov
+ * @reviewer rodionov
  */
 
 #import("lib.dart");
@@ -23,9 +25,9 @@ check(f) {
 
 main() {
   var c = new ClassWithPrivateMembers();
-  check(() => c._var = 1);
-  check(() => c._fun());
-  check(() => print(c._finalvar));
-  check(() => print(c._getter));
-  check(() => c._setter = 1);
+  check(() {c._var = 1;});
+  check(() {c._fun();});
+  check(() {print(c._finalvar);});
+  check(() {print(c._getter);});
+  check(() {c._setter = 1;});
 }

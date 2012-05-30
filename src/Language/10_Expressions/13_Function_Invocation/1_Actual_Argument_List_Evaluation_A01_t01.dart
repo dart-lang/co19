@@ -44,7 +44,7 @@ main() {
   bothParameters(true, name: {"key1": 1, "key2": 2});
 
   //functionExpressions
-  positionalParameters(()=>[], (){}, void f(param) {});
+  positionalParameters(()=>[], (){}, void g(param) {});
   namedParameters($$$: int g(x) {return x + 1;}, u__: func() => 1, name1: ()=> ()=> 1);
   bothParameters(() => 1 + 1, name: () {return true;});
 

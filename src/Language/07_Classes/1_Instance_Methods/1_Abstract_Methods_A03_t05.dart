@@ -12,8 +12,9 @@
  * has one optional parameter and the abstract method being overridden has 1 required parameter 
  * and 1 optional parameter of the same name.
  * @compile-error
+ * @static-warning
  * @author rodionov
- * @needsreview issue 978
+ * @reviewer kaigorodov
  */
 
 class A {

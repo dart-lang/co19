@@ -7,10 +7,11 @@
  * @assertion Dart supports two levels of privacy: public and private.
  * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
- * @description Checks that various private class members are perfectly accessible in a subclass
+ * @description Checks that various private class members are perfectly accessible to a subclass
  * that is declared in the same script.
  * @static-warning Subclass of an abstract class does not implement an abstract method.
  * @author iefremov
+ * @reviewer kaigorodov
  * @needsreview Issue 2243
  */
 

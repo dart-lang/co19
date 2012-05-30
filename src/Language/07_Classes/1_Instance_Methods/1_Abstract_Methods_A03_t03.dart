@@ -11,6 +11,7 @@
  * @description Checks that a compile-error is produced when an abstract method overrides
  * another abstract method with the same name and a different number of required parameters.
  * @compile-error
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview issue 978
