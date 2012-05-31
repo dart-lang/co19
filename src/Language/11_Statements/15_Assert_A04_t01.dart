@@ -8,6 +8,7 @@
  * to either bool or () -> bool.
  * @description Checks that there is no static type warning if the type of e is Dynamic
  * or bottom.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

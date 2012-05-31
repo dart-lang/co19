@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Libraries are units of privacy. A private declaration declared within a library
- * L can only be accessed by code within L. Any attempt to access a private
- * member declaration from outside L will cause a method, getter or setter lookup failure.
+ * L can only be accessed by code within L. Any attempt to access a private member declaration
+ * from outside L will cause a run-time error.
  * @description Checks that private declarations are accessed by code within a library.
  * @author vasya
  * @reviewer msyabro

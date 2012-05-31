@@ -5,15 +5,14 @@
  */
 /**
  * @assertion The switch statement supports dispatching control among a large number of cases.
- * switchStatement:
  * switch '(' expression ')' '{' switchCase* defaultCase? '}'
  * ;
  * switchCase:
- * label? (case expression ':')+ statements
+ * label* (case expression ':') statements
  * ;
  * defaultCase:
- * label? (case expression ':')* default ':' statements
- * ;.
+ * label* default ':' statements
+ * ;
  * @description Checks that it is a compile-time error if the switch expression is missing.
  * @compile-error
  * @author vasya

@@ -8,8 +8,8 @@
 
 #library("Library_with_all_directives");
 
-#import('3_Library1.dart');
-#import('3_Library2.dart');
+#import('4_Library1.dart');
+#import('4_Library2.dart');
 
 #source('source.dart');
 #source('source3.dart');

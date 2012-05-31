@@ -18,13 +18,16 @@
  * @dynamic-type-error
  * @static-warning
  * @author msyabro
- * @needsreview Issue 396
+ * @reviewer iefremov
+ * @needsreview Issue 3282
  */
 
 #import("../../Utils/dynamic_check.dart");
 
 class C<T, U, V> {}
 class Bounded<T extends num> {}
+class BoundedInt<T extends int> {}
+class NonGeneric{}
 
 main() {
   checkTypeError( () {
@@ -34,10 +37,31 @@ main() {
     Expect.isTrue(null is C<int>);
   });
   checkTypeError( () {
+    Expect.isTrue(null is C<int, int, int, int>);
+  });
+  checkTypeError( () {
     Expect.isTrue(null is C <int, double, MalformedType>);
   });
   checkTypeError( () {
     Expect.isTrue(null is Bounded<String>);
+  });
+  checkTypeError( () {
+    Expect.isTrue(null is BoundedInt<num>);
+  });
+  checkTypeError( () {
+    Expect.isTrue(null is NonGeneric<String>);
+  });
+  checkTypeError( () {
+    Expect.isTrue(null is C<C<int, int>, C, C>);
+  });
+  checkTypeError( () {
+    Expect.isTrue(null is C<Bounded<String>, C, C>);
+  });
+  checkTypeError( () {
+    Expect.isTrue(null is C<C<MalformedType>, C, C>);
+  });
+  checkTypeError( () {
+    Expect.isTrue(null is C<NonGeneric<int>, C, C>);
   });
 }
 

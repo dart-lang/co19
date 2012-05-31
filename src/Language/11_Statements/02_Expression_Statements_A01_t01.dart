@@ -18,14 +18,14 @@
 
 foo(x, y, z) { return x + y - z; }
 
-var x;
+var v;
 
 bar() {
-  x = 1;
+  v = 1;
 }
 
 bar2() {
-  x = 2;
+  v = 2;
 }
 
 main() {
@@ -42,10 +42,10 @@ main() {
   Expect.equals(-1, e);
   
   bar();
-  Expect.equals(1, x);
+  Expect.equals(1, v);
   
   false ? bar() : bar2();
-  Expect.equals(2, x);
+  Expect.equals(2, v);
   
   true || false;
 }

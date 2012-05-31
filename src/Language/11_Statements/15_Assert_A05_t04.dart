@@ -5,7 +5,7 @@
  */
 /**
  * @assertion If a lexically visible declaration named assert is in scope, an assert statement
- * assert e; is interpreted as an expression statement (assert(e));.
+ * assert(e); is interpreted as an expression statement (assert(e));.
  * @description Checks that a function declaration named assert with fewer or more than 1 required
  * parameter still shadows the assert statement, even when the latter is used with a single argument.
  * @author rodionov

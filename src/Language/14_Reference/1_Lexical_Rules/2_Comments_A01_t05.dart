@@ -25,7 +25,7 @@ main() {
 
   try {
     // throw foo;
-  } catch (var foo) {
+  } catch (var e) {
     Expect.fail("unexpected exception");
   }
 }

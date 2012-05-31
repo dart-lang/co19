@@ -21,6 +21,7 @@ interface I default IImpl{
 
 class IImpl implements I {
   IImpl() {}
+  var _foo;
   _bar(p1) => p1 + 1;
 }
 

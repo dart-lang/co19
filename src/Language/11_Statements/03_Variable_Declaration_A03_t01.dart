@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion In all cases, iff the variable declaration is prefixed with the 
- * final modifier, the variable is marked as final.
+ * @assertion In all cases, iff the variable declaration is prefixed with either the const
+ * or the final modifier, the variable is marked as final.
  * @description Checks that if the variable declaration is prefixed with the
  * final modifier, then that variable cannot be assigned a new value outside of
  * this declaration.
@@ -17,6 +17,8 @@
 
 main() {
   final id = 0;
-  id = 1;
+  try {
+    id = 1;
+  } catch(var e) {}
 }
 

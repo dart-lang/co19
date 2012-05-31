@@ -5,12 +5,12 @@
  */
 /**
  * @assertion If a lexically visible declaration named assert is in scope, an assert statement
- * assert e; is interpreted as an expression statement (assert(e));.
+ * assert(e); is interpreted as an expression statement (assert(e));.
  * @description Checks that it is possible to have a function declaration named assert
  * invoke itself recursively using the same syntax as assert statement.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 1731
+ * @needsreview issue 1731, issue 3268
  */
 
 #import("../../Utils/dynamic_check.dart");

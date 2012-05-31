@@ -5,15 +5,14 @@
  */
 /**
  * @assertion The switch statement supports dispatching control among a large number of cases.
- * switchStatement:
  * switch '(' expression ')' '{' switchCase* defaultCase? '}'
  * ;
  * switchCase:
- * label? (case expression ':')+ statements
+ * label* (case expression ':') statements
  * ;
  * defaultCase:
- * label? (case expression ':')* default ':' statements
- * ;.
+ * label* default ':' statements
+ * ;
  * @description Checks that nested switch statements modifying the same variables work correctly.
  * @author vasya
  * @reviewer rodionov

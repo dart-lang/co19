@@ -11,10 +11,11 @@
  * T is a subtype of S<G1> as well as S<G2> and every other supertype of S.
  * @author iefremov
  * @reviewer rodionov
+ * @needsreview issue 3277
  */
 
 
-interface S<T> {}
+interface S<Type> {}
 
 interface S1 extends S<int> {}
 

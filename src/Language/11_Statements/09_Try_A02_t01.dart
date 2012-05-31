@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A catch clause of one of the forms catch (T1 p1, T2 p2) s, catch (T1 p1,
+ * @assertion A catch clause of one of the forms catch (T1 p1) s, catch (T1 p1, T2 p2) s, catch (T1 p1,
  * final p2) s, catch (T1 p1, final T2 p2) s, catch (T1 p1, var p2) s, catch ( final T1
  * p1, T2 p2) s, catch ( final T1 p1, final p2) s, catch ( final T1 p1, final T2 p2) s
  * or catch ( final T1 p1, var p2) s matches an object o if o is null or if the type

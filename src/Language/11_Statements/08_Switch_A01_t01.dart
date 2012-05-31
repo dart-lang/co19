@@ -9,14 +9,15 @@
  * switch '(' expression ')' '{' switchCase* defaultCase? '}'
  * ;
  * switchCase:
- * label? (case expression ':')+ statements
+ * label* (case expression ':') statements
  * ;
  * defaultCase:
- * label? (case expression ':')* default ':' statements
- * ;.
+ * label* default ':' statements
+ * ;
  * @description Checks that a switch statement with all kinds of case expressions works as expected.
  * @author rodionov
  * @reviewer iefremov
+ * @needsreview issue 2238
  */
 
 switchTest(value) {
@@ -30,28 +31,9 @@ switchTest(value) {
     label: case 7 << 2:
       result = 2;
       break;
-      
-    label2: case "abyrvalg".substring(4, 7):
+
+    case 'val':
       result = 3;
-      break;
-      
-    case 1 < 2:
-      result = 3;
-      result = "I think it should be four"; 
-      result = 4;
-      break;
-      
-    case false: 
-      result = 5;
-      break;
-      
-    case (() => 1.1)(): {
-      var x=3;
-      result = x*2;
-      break;
-      }
-    $: case null:
-      result = 7;
       break;
       
     default:
@@ -64,10 +46,7 @@ main() {
   Expect.equals(1, switchTest(1));
   Expect.equals(2, switchTest(28));
   Expect.equals(3, switchTest("val"));
-  Expect.equals(4, switchTest(true));
-  Expect.equals(5, switchTest(false));
-  Expect.equals(6, switchTest(1.1));
-  Expect.equals(7, switchTest(null));
+  Expect.equals(-1, switchTest(null));
   Expect.equals(-1, switchTest(0));
   Expect.equals(-1, switchTest("abyrvalg"));
   
@@ -86,5 +65,9 @@ main() {
   
   switch(1) {
     $: default:
+  }
+
+  switch(1) {
+    l1: l2: l3: case(1):
   }
 }

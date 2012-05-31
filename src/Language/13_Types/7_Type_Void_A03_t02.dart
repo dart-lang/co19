@@ -12,6 +12,7 @@
  * @reviewer iefremov
  * @needsreview Assertion of this test cites non-normative text.
  * Possibly, this text in the spec should be normative?
+ * issue 3272
  */
 
 void foo() {return;}

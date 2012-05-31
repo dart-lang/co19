@@ -13,7 +13,7 @@
  * functionTypeAlias |
  * functionSignature functionBody |
  * returnType? getOrSet identifier formalParameterList function-Body |
- * final type? staticFinalDeclarationList ';' |
+ * (final | const) type? staticFinalDeclarationList ';' |
  * variableDeclaration ';'
  * ;
  * getOrSet:

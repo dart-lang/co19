@@ -9,7 +9,7 @@
  * The catch clauses are examined in order, starting with catch1, until either
  * a catch clause that matches the current exception (11.14) is found, or the list
  * of catch clauses has been exhausted. If a catch clause catchk is found, then
- * pk1 is bound to the current exception, pk2 is bound to the current stack trace
+ * pk1 is bound to the current exception, pk2, if declared, is bound to the current stack trace
  * (11.14), and then catchk is executed. If no catch clause is found, the finally
  * clause is executed. Then, execution resumes at the end of the try statement.
  * A finally clause "finally s" defines an exception handler h that executes by

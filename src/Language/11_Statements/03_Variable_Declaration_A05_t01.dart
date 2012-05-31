@@ -4,50 +4,33 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable declaration statement of the form T id; is equivalent to T id = null;.
- * @description Checks that a variable declaration statement T id; is equivalent
- * to a variable declaration of the form T id = null, regardless of the type T.
+ * @assertion Executing a variable declaration statement T id = e;  is equivalent
+ * to evaluating the assignment expression id = e, except that the assignment 
+ * is considered legal even if the variable is final.
+ * @description Checks that a variable declaration statement T id = e; indeed results in
+ * variable id being assigned the value of e, whether or not it's final.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-class C {}
-interface I { }
-typedef f();
-
 main() {
-  var id;
-  Expect.equals(null, id);
-  
-  bool id0;
-  Expect.equals(null, id0);
-  
-  int id1;
-  Expect.equals(null, id1);
-  
-  double d;
-  Expect.equals(null, d);
-  
-  String id2;
-  Expect.equals(null, id2);
-  
-  Object id3;
-  Expect.equals(null, id3);
-  
-  C id4;
-  Expect.equals(null, id4);
-  
-  I id5;
-  Expect.equals(null, id5);
-  
-  List<double> id6;
-  Expect.equals(null, id6);
-  
-  Map<int, String> id7;
-  Expect.equals(null, id7);
+  var v;
 
-  f id8;
-  Expect.equals(null, id8);
+  bool id = false;
+  v = false;
+  Expect.isTrue(id == v);
+
+  final int id1 = 11;
+  v = 11;
+  Expect.isTrue(id1 == v);
+
+  final String id2 = "id2";
+  v =  "id2";
+  Expect.isTrue(id2 == v);
+
+  Object id3 = null;
+  v =  null;
+  Expect.isTrue(id3 == v);
 }
 

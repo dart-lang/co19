@@ -5,22 +5,21 @@
  */
 /**
  * @assertion It is a static warning if the type of e is may not be assigned to 
- * the type of ek for all k in 1..n.
+ * the type of ek.
  * @description Checks that a static warning is produced if the type of the switch expression's
  * value cannot be assigned to any of the case expression types.
  * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
+ * @reviewer msyabro
+ * @needsreview issue 3269
  */
 
-class C {}
 
 main() {
   switch(false) {
     case 0:
-    case 1.0:
-    case "false":
-    case new C():
+    case 1:
   }  
 }

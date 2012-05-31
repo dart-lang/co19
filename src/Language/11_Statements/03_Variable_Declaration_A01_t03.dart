@@ -21,4 +21,3 @@ main() {
     T id
   } catch (var ok) {}
 }
-

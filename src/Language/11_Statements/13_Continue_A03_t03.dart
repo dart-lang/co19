@@ -11,7 +11,9 @@
  * Furthermore, let s1,...,sn be those try statements that are both
  * enclosed in sE and that enclose sc, and that have a finally clause. Lastly, let
  * fj be the finally clause of sj, 1 <= j <= n. Executing sc first executes f1,...,fn
- * in innermost-clause-first order and then transfers control to sE.
+ * in innermost-clause-first order. Then, if sE is a case  clause control is transferred
+ * to the case clause; otherwise, sE is necessarily a loop and execution resumes
+ * after the last statement in the loop body.
  * @description Checks that the execution of "continue L;" statement transfer control to the
  * the enclosing labeled statement and that all finally clauses between them are executed
  * in the innermost-clause-first order.

@@ -4,38 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of a switch statement switch (e) { case e1 : s1 ... case en : sn
- * default sn+1 } proceeds as follows:
- * The statement var n = e; is evaluated, where n is a variable whose name
- * is distinct from any other variable in the program. Next, the case clause case
- * e1 : s1 is executed if it exists. If case e1 : s1 does not exist, then the default
- * clause is executed by executing sn+1.
- * Execution of a case clause case ek : sk of a switch statement switch (e) 
- * { case e1 : s1 ... case en : sn default sn+1 } proceeds as follows:
- * The expression n == ek is evaluated to an object o which is then subjected
- * to boolean conversion yielding a value v. If v is false, or if sk is empty, 
- * the following case, case ek+1 : sk+1 is executed if it exists. 
- * If case ek+1 : sk+1 does not exist, then the default clause is executed
- * by executing sn+1. If v is true, then let m be the smallest non-negative integer
- * such that sk+m is non-blank; the statement sk+m is executed.
- * @description Checks that expressions in case clauses consequent to the matching
- * case are not evaluated.
- * @author iefremov
- * @reviewer rodionov
+ * @assertion Execution of a switch statement of the form
+ * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
+ * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn}
+ * proceeds as follows:
+ * The statement var id = e; is evaluated, where id is a variable whose name is
+ * distinct from any other variable in the program. It is a run time error if
+ * the value of e is not an instance of the same type as the constants e1 … en.
+ * Next, the case clause case e1: s1 is executed if it exists.
+ * If case e1: s1 does not exist, then the default clause is executed by executing sn+1.
+ * @description Checks that if a switch statement does not have any case clauses, the default
+ * clause is executed.
+ * @author msyabro
  */
 
-String log = "";
-
-f(value) {
-  log = '$log$value';
-  return value;
+foo(p) {
+  switch(p) {
+    default: return 1;
+  }
 }
 
 main() {
-  switch(1) {
-    case f(1) :
-    case f(2) :
-    case f(null) :
-  }
-  Expect.equals("1", log, "To many expressions were executed in a switch!");
+  Expect.equals(1, foo(1));
+  Expect.equals(1, foo(null));
+  Expect.equals(1, foo(''));
 }

@@ -10,6 +10,7 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @needsreview issue 3221
  */
 
 main() {
