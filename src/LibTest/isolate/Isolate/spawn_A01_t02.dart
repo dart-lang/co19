@@ -23,18 +23,18 @@ class TestIsolate extends Isolate {
 }
 
 void main() {
-  void callbackA(var message, SendPort replyTo) {
+  void callbackA(var message) {
     Expect.equals(3, message);
   }
-  void callbackB(var message, SendPort replyTo) {
+  void callbackB(var message) {
     Expect.equals(6, message);
   }
     
   new TestIsolate().spawn().then(void func(SendPort result) {
-    result.call(1).receive(callbackA);
+    result.call(1).then(callbackA);
   });
   new TestIsolate().spawn().then(void func(SendPort result) {
-    result.call(2).receive(callbackB);
+    result.call(2).then(callbackB);
   });
 
 }

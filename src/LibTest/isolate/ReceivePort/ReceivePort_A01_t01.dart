@@ -6,7 +6,7 @@
 /**
  * @assertion Opens a long-lived port for receiving messages. 
  * The returned port must be explicitly closed through [ReceivePort.close].
- * @description Checks that port is created.
+ * @description Checks that the port is created without exceptions.
  * @author msyabro
  * @reviewer kaigorodov
  */

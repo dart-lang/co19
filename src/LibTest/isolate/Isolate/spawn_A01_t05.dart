@@ -18,7 +18,7 @@ class AddIsolate extends Isolate {
   void main() {
     port.receive(void func(var message, SendPort replyTo) {
       if(message[0] == 1) {
-        new MultiplyIsolate().spawn().then(void func(SendPort port) {
+        new MultiplyIsolate().spawn().then(void foo(SendPort port) {
           port.send([2, message[1] + message[2], 2], replyTo);
         });
       } else if(message[0] == 3) {
@@ -34,7 +34,7 @@ class MultiplyIsolate extends Isolate {
   
   void main() {
     port.receive(void func(var message, SendPort replyTo) {
-      new AddIsolate().spawn().then(void func(SendPort port) {
+      new AddIsolate().spawn().then(void foo(SendPort port) {
         port.send([3, message[1] * message[2], 2], replyTo);
       });
     });
@@ -43,7 +43,7 @@ class MultiplyIsolate extends Isolate {
 
 void main() {
   new AddIsolate().spawn().then(void func(SendPort port) {
-    port.call([1, 2, 2]).receive(void func(var message, SendPort replyTo) {
+    port.call([1, 2, 2]).then(void foo(var message) {
       Expect.equals(message, 10);
       print("Ok");
     });

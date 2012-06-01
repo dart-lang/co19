@@ -14,15 +14,15 @@
 #import('dart:isolate');
 
 class TestIsolate extends Isolate {
-  int i;
+  int v;
   
-  TestIsolate(): super(), i=11;
-  TestIsolate.light(): super(), i=22;
-  TestIsolate.heavy(): super(), i=33;
+  TestIsolate(): super(), v=11;
+  TestIsolate.light(): super(), v=22;
+  TestIsolate.heavy(): super(), v=33;
   
   void main() {
      port.receive(void func(var message, SendPort replyTo) {
-        replyTo.send(i);
+        replyTo.send(v);
         port.close();
     });
   }
@@ -31,8 +31,8 @@ class TestIsolate extends Isolate {
 void main() {
   TestIsolate i = new TestIsolate();
   i.spawn().then((SendPort port) {
-     port.call('get i').receive((var i, SendPort replyTo) {
-        Expect.isTrue(i == 11);
+     port.call('get v').then((var v) {
+        Expect.isTrue(v == 11);
      });
   });
   

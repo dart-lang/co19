@@ -6,6 +6,7 @@
 /**
  * @assertion Creates a new isolate-template for a heavy isolate.
  * @description Checks that an isolate is created.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

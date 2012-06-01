@@ -7,7 +7,7 @@
  * @assertion Tests whether [other] is a SendPort 
  * pointing to the same ReceivePort as this one.
  * @description Checks that two SendPorts equals only if they
- * point to the same ReceivePort.
+ * point to the same ReceivePort even after closing the ReceivePort.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -32,5 +32,20 @@ void main() {
   Expect.isFalse(s2 == s4);
   
   r1.close();
+  Expect.isTrue(s1 == s2);
+  Expect.isTrue(s3 == s4);
+
+  Expect.isFalse(s1 == s3);
+  Expect.isFalse(s1 == s4);
+  Expect.isFalse(s2 == s3);
+  Expect.isFalse(s2 == s4);
+
   r2.close();
+  Expect.isTrue(s1 == s2);
+  Expect.isTrue(s3 == s4);
+
+  Expect.isFalse(s1 == s3);
+  Expect.isFalse(s1 == s4);
+  Expect.isFalse(s2 == s3);
+  Expect.isFalse(s2 == s4);
 }

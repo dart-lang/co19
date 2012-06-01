@@ -6,6 +6,7 @@
 /**
  * @assertion Redirects to [Isolate.light].
  * @description Checks that an isolate is created.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

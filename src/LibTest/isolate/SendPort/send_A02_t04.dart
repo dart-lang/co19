@@ -7,40 +7,47 @@
  * @assertion The content of message can be: primitive values (null, num, bool,
  * double, String), instances of SendPort, and lists and maps whose elements are
  * any of these. Lists and maps are also allowed to be cyclic.
- * @description Checks that various primitive values could be sent properly.
+ * @description Checks that SendPorts, lists and maps containing SendPorts could be sent properly.
  * @author iefremov
  */
 
 #import('dart:isolate');
 #import('send_A02_util.dart');
 
+final int MESSAGES_NUM = 4;
+
 f() {
   int i = 0;
   port.receive((message, replyTo) {
-    Expect.equals(messagesList[i], message);
     i++;
     replyTo.send(message);
-    if(i == messagesList.length) {
+    if(i == MESSAGES_NUM) {
       port.close();
     }
   });
 }
 
-
 void main() {
   SendPort sport = spawnFunction(f);
   SendPort replyTo = port.toSendPort();
+  var messages = [sport, port.toSendPort(), [sport], {"1":port.toSendPort()}];
 
   int i = 0;
   port.receive((message, reply) {
-    Expect.equals(messagesList[i], message);
+    if(messages[i] is List) {
+      deepListEquals(messages[i], message);
+    } else if(messages[i] is Map) {
+      deepMapEquals(messages[i], message);
+    } else {
+      Expect.equals(messages[i], message);
+    }
     i++;
-    if(i == messagesList.length) {
+    if(i == MESSAGES_NUM) {
       port.close();
     }
   });
 
-  for(var v in messagesList) {
+  for(var v in messages) {
     sport.send(v, replyTo);
   }
 }

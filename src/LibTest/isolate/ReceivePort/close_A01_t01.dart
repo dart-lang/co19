@@ -20,6 +20,7 @@ void main() {
   int x = 1;
   rPort.receive(void func(var message, SendPort replyTo) {
     x = message;
+    throw "Closed port cannot receive messages!";
   });
 
   rPort.close();

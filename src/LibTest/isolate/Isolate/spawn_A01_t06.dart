@@ -32,13 +32,13 @@ class AddIsolate extends Isolate {
   }
 }
 
-void callback(var message, SendPort replyTo) {
-   print("message="+message); // expected-output
+void callback(var message) {
+   print("message=$message"); // expected-output
 }
 	 
 void main() {
   int isolateCount=10;
   new AddIsolate().spawn().then(void func(SendPort port) {
-     port.call(isolateCount).receive(callback);
+     port.call(isolateCount).then(callback);
   });
 }

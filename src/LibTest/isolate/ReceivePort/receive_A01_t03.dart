@@ -6,7 +6,7 @@
 /**
  * @assertion Sets up a callback function for receiving
  * pending or future messages on this receive port.
- * @description Checks that only last callback is called.
+ * @description Checks that only the last callback is called.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +25,7 @@ void main() {
     replyTo.send(message);
   });
   
-  sPort.call(111).receive(void func(var message, SendPort replyTo) {
+  sPort.call(111).then(void func(var message) {
     rPort.close();
     Expect.equals(111, message);
   });

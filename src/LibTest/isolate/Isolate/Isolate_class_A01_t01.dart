@@ -34,7 +34,7 @@ void main() {
   i.i=222;
   Expect.isTrue(i.i == 222);
   i.spawn().then((SendPort port) {
-     port.call('get i').receive((var message, SendPort replyTo) {
+     port.call('get i').then((var message) {
         Expect.isTrue(message == 111);
         Expect.isTrue(i.i == 222);
      });

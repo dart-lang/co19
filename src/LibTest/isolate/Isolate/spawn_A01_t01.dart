@@ -8,7 +8,6 @@
  * @description Checks that the new isolate is of the same class as the template.
  * @author kaigorodov
  * @reviewer msyabro
- * @expected-output Ok
  */
 
 #import('dart:isolate');
@@ -25,12 +24,12 @@ class TestIsolate extends Isolate {
   }
 }
 
+
 void main() {
-  void receiveHandler (var res, SendPort replyTo) {
+  void receiveHandler (var res) {
         Expect.isTrue(res);
-        print("Ok");
   }
   new TestIsolate().spawn().then(void f(SendPort port) {
-     port.call('check').receive(receiveHandler);
+     port.call('check').then(receiveHandler);
   });
 }

@@ -4,24 +4,55 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the message contains any receive ports,
- * they are translated to the corresponding send port before being transmitted.
- * @description Checks that ReceivePort as a message is converted to SendPort automatically.
- * @author kaigorodov
- * @reviewer msyabro
+ * @assertion The content of message can be: primitive values (null, num, bool,
+ * double, String), instances of SendPort, and lists and maps whose elements are
+ * any of these. Lists and maps are also allowed to be cyclic.
+ * @description Checks that various lists could be sent properly.
+ * @author iefremov
  */
 
 #import('dart:isolate');
- 
+#import('send_A02_util.dart');
+
+f() {
+  int i = 0;
+  var lists = makeLists();
+  port.receive((message, replyTo) {
+    deepListEquals(lists[i], message);
+    i++;
+
+    replyTo.send(message);
+    if(i == lists.length) {
+     port.close();
+    }
+  });
+}
+
+makeLists() {
+  var lists = [
+    const [], const [1,2,3], const [const[], const[const[]]],
+    messagesList, [messagesList], [[], [messagesList]], [{"1" : messagesMap}]
+  ];
+
+  return lists;
+}
+
 void main() {
-  ReceivePort rPort = new ReceivePort();
-  SendPort sPort = rPort.toSendPort();
-  
-  rPort.receive(void func(var message, SendPort replyTo) {
-    print(message);
-    Expect.isTrue(message is SendPort);
-    rPort.close();
+  SendPort sport = spawnFunction(f);
+  SendPort replyTo = port.toSendPort();
+
+  var lists = makeLists();
+
+  int i = 0;
+  port.receive((message, reply) {
+    deepListEquals(lists[i], message);
+    i++;
+    if(i == lists.length) {
+     port.close();
+    }
   });
 
-  sPort.send(rPort, null);
+  for(var v in lists) {
+    sport.send(v, replyTo);
+  }
 }

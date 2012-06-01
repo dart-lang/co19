@@ -20,7 +20,7 @@ void main() {
   
   rPort.receive(void func(var message, SendPort replyTo) {
     rPort.close();
-    print(message+" received");
+    print("$message received");
   });
   
   sPort.send("message1", null);

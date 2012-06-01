@@ -5,9 +5,9 @@
  */
 /**
  * @assertion The content of message can be: primitive values (null, num, bool,
- * double, String), instances of SendPort, and lists and maps whose elements are
+ * double, String), instances of SendPort, and maps and maps whose elements are
  * any of these. Lists and maps are also allowed to be cyclic.
- * @description Checks that various primitive values could be sent properly.
+ * @description Checks that various maps could be sent properly.
  * @author iefremov
  */
 
@@ -16,31 +16,43 @@
 
 f() {
   int i = 0;
+  var maps = makeMaps();
   port.receive((message, replyTo) {
-    Expect.equals(messagesList[i], message);
+    deepMapEquals(maps[i], message);
     i++;
     replyTo.send(message);
-    if(i == messagesList.length) {
-      port.close();
+    if(i == maps.length) {
+     port.close();
     }
   });
 }
 
+makeMaps() {
+  var maps = [
+    const {}, const {"1:":1, "2":2, "3":3}, const {"1":const{}, "2":const{"1":const{}}},
+    messagesMap, {"1":messagesMap}, {"1":{}, "2":{"3":messagesMap}},
+    {"1" : messagesList}
+  ];
+
+  return maps;
+}
 
 void main() {
   SendPort sport = spawnFunction(f);
   SendPort replyTo = port.toSendPort();
 
+  var maps = makeMaps();
+
   int i = 0;
   port.receive((message, reply) {
-    Expect.equals(messagesList[i], message);
+    deepMapEquals(maps[i], message);
     i++;
-    if(i == messagesList.length) {
-      port.close();
+    if(i == maps.length) {
+     port.close();
     }
   });
 
-  for(var v in messagesList) {
+  for(var v in maps) {
     sport.send(v, replyTo);
   }
 }

@@ -4,11 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a new single-shot receive port, sends a message to this
- * send port with replyTo set to the opened port, and returns the receive port.
- * @description Checks that opened port is single-shot and replyTo is set to the 
+ * @assertion Sends a message to this send port and returns a Future of the reply.
+ * @description Checks that the opened port is single-shot and replyTo is set to the
  * opened port.
- * @expected-output message1 received
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -19,13 +17,13 @@ void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
-  ReceivePort singleShot = sPort.call("message1");
+  Future callReceive = sPort.call("message1");
   
   rPort.receive(void func(var message, SendPort replyTo) {
-    replyTo.send(message+" received", null);
+    replyTo.send("$message received", null);
   });
   
-  singleShot.receive(void func(var message, SendPort replyTo) {
+  callReceive.then(void func(var message) {
     print(message);
     rPort.close();
   });
