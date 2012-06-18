@@ -10,25 +10,38 @@
  * @description Checks that IndexOutOfRangeException is thrown if [start] 
  * is out of range in [:this:].
  * @author varlax
+ * @reviewer iefremov
  */
 
-
-void check(int dstSize, int srcSize, int dstOffset, int count) {
-  List src = new List(srcSize);
-  List dst = new List(dstSize);
+checkList(dst, dstOffset, count, src) {
   try {
     dst.setRange(dstOffset, count, src, 0);
     Expect.fail("expected IndexOutOfRangeException");
   } catch(IndexOutOfRangeException ok) {}
+}
+
+void check(int dstSize, int srcSize, int dstOffset, int count) {
+  List src = new List(srcSize);
+  List dst = new List(dstSize);
+  checkList(dst, dstOffset, count, src);
 
   src = new List();
   src.length = srcSize;
   dst = new List();
   dst.length = dstSize;
-  try {
-    dst.setRange(dstOffset, count, src, 0);
-    Expect.fail("expected IndexOutOfRangeException");
-  } catch(IndexOutOfRangeException ok) {}
+  checkList(dst, dstOffset, count, src);
+
+  src = [];
+  src.length = srcSize;
+  dst = [];
+  dst.length = dstSize;
+  checkList(dst, dstOffset, count, src);
+
+  src = new List.from([]);
+  src.length = srcSize;
+  dst = new List.from([]);
+  dst.length = dstSize;
+  checkList(dst, dstOffset, count, src);
 }
 
 main() {

@@ -11,8 +11,7 @@
  * @reviewer varlax
  */
 
-main() {
-  var a = new List();
+check(a) {
   var b = [0,1,2,3,4,5,6,7,8,9];
   a.addAll(b);
   Expect.equals(b.length, a.length);
@@ -30,4 +29,10 @@ main() {
   a.removeRange(0, 99);
   Expect.equals(1, a.length);
   Expect.equals(-1, a[0]);
+}
+
+main() {
+  check(new List());
+  check([]);
+  check(new List.from([]));
 }

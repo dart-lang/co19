@@ -10,8 +10,7 @@
  * @reviewer msyabro
  */
 
-main() {
-  List a = new List();
+check(a) {
   Expect.isTrue(a.length == 0);
   a.add(null);
   Expect.isTrue(a.length == 1);
@@ -39,4 +38,10 @@ main() {
   Expect.isTrue(a.length == 100);
   o = a.removeLast();
   Expect.isTrue(a.length == 99 && o == b[99]);
+}
+
+main() {
+  check(new List());
+  check([]);
+  check(new List.from([]));
 }

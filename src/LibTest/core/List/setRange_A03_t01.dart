@@ -12,23 +12,35 @@
  * @reviewer varlax
  */
 
-
-void check(int dstSize, int srcSize, int startFrom) {
-  List dst = new List(dstSize);
-  List src = new List(srcSize);
+checkList(src, dst, startFrom) {
   try {
     dst.setRange(0, 1, src, startFrom);
     Expect.fail("expected IndexOutOfRangeException");
   } catch(IndexOutOfRangeException ok) {}
+}
+
+void check(int dstSize, int srcSize, int startFrom) {
+  List dst = new List(dstSize);
+  List src = new List(srcSize);
+  checkList(src, dst, startFrom);
 
   dst = new List();
   dst.length = dstSize;
   src = new List();
   src.length = srcSize;
-  try {
-    dst.setRange(0, 1, src, startFrom);
-    Expect.fail("expected IndexOutOfRangeException");
-  } catch(IndexOutOfRangeException ok) {}
+  checkList(src, dst, startFrom);
+
+  dst = [];
+  dst.length = dstSize;
+  src = [];
+  src.length = srcSize;
+  checkList(src, dst, startFrom);
+
+  dst = new List.from([]);
+  dst.length = dstSize;
+  src = new List.from([]);
+  src.length = srcSize;
+  checkList(src, dst, startFrom);
 }
 
 main() {

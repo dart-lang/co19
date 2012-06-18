@@ -11,42 +11,38 @@
  * @reviewer varlax
  */
 
-//compares content and length of two arrays
-checkArrayEquals(List expected, List actual) {
-  Expect.equals(expected.length, actual.length);
-  
-  for(int i = 0; i < expected.length; i++) {
-    Expect.equals(expected[i], actual[i]);
-    Expect.identical(expected[i], actual[i]);
-  }
-}
-
- 
 main() {
   List a = new List();
   a.addLast("1");
-  checkArrayEquals(["1"], a);
+  Expect.listEquals(["1"], a);
   a.addLast("2");
-  checkArrayEquals(["1", "2"], a);
+  Expect.listEquals(["1", "2"], a);
   Expect.equals(a[1], "2");
 
   a = new List();
   a.addLast(null);
-  checkArrayEquals([null], a);
+  Expect.listEquals([null], a);
   Expect.equals(a[0], null);
   a.addLast("");
-  checkArrayEquals([null, ""], a);
+  Expect.listEquals([null, ""], a);
   Expect.equals(a[1], "");
   a.addLast(0);
-  checkArrayEquals([null, "", 0], a);
+  Expect.listEquals([null, "", 0], a);
   Expect.equals(a[2], 0);
 
   a = new List.from([]);
   List b = [null];
   a.addLast(b);
   Expect.equals(a[0], b);
-  checkArrayEquals([b], a);
+  Expect.listEquals([b], a);
   List c = [];
   a.addLast(c);
-  checkArrayEquals([b, c], a);
+  Expect.listEquals([b, c], a);
+
+  a = [];
+  a.addLast(b);
+  Expect.equals(a[0], b);
+  Expect.listEquals([b], a);
+  a.addLast(c);
+  Expect.listEquals([b, c], a);
 }

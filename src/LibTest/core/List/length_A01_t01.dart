@@ -35,4 +35,5 @@ main() {
   check(a);
 
   check(new List.from(a));
+  check([]);
 }

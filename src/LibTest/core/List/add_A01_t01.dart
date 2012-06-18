@@ -29,4 +29,12 @@ main() {
     Expect.equals(i, b[i]);
     Expect.equals(i+1, b.length);
   }
+
+  List c = [];
+  for (var i = 0; i <= 314148; i++) {
+    c.add(i);
+    Expect.equals(i, c[i]);
+    Expect.equals(i+1, c.length);
+  }
+
 }

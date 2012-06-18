@@ -22,4 +22,9 @@ main() {
     b.length = null;
     Expect.fail("Exception expected when setting ga.length to negative");
   } catch(NullPointerException ok){}
+
+  try {
+    [].length = null;
+    Expect.fail("Exception expected when setting ga.length to negative");
+  } catch(NullPointerException ok){}
 }

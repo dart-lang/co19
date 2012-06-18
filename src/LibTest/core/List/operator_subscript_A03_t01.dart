@@ -7,6 +7,8 @@
  * @assertion Throws [IllegalArgumentException] if [index] is of invalid type.
  * @description Checks that the exception is thrown as expected.
  * @author varlax
+ * @reviewer iefremov
+ * @needsreview issue 3223
  */
 
 #import("../../../Utils/dynamic_check.dart");
@@ -42,5 +44,6 @@ void main() {
   check(const [null]);
   check(['sd','sd']);
   check(new List.from(<int>[null, 1, 0]));
+  check(new List(100));
   check(new List(100));
 }

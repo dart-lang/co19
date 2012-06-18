@@ -11,8 +11,6 @@
  * @reviewer varlax
  */
 
-
-
 void check(List a, int size) {
   Expect.isTrue(size > 0);
 

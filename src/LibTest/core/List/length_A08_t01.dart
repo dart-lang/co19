@@ -15,6 +15,8 @@
 main() {
   Expect.isTrue([].length == 0);
   Expect.isTrue(new List().length == 0);
+  Expect.isTrue(new List(0).length == 0);
+  Expect.isTrue(new List(100).length == 100);
   Expect.isTrue([null].length == 1);
   Expect.isTrue([null, null].length == 2);
   Expect.isTrue(new List.from([0, 1, 2, 3]).length == 4);

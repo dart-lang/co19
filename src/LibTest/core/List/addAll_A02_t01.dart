@@ -14,14 +14,15 @@
  */
 
 void check(list, collection) {
-    try {
-      list.addAll(collection);
-      Expect.fail("UnsupportedOperationException expected when calling a.addAll()");
-    } catch(UnsupportedOperationException ok) {}
+  try {
+    list.addAll(collection);
+    Expect.fail("UnsupportedOperationException expected when calling a.addAll()");
+  } catch(UnsupportedOperationException ok) {}
 }
 
 main() {
   check(new List(100), ["1", "2", "3"]);
   check(new List(0), [null]);
   check(new List(1), new List(34567));
+  check(const [], new List(34567));
 }

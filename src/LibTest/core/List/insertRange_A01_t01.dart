@@ -37,4 +37,8 @@ main() {
   l = new List();
   l.length = 13;
   check(l, 12, 769);
+
+  l = new List.from([]);
+  l.length = 13;
+  check(l, 12, 769);
 }

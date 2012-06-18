@@ -7,6 +7,8 @@
  * @assertion The element is searched by equality (operator ==).
  * @description Checks searching custom objects.
  * @author varlax
+ * @reviewer iefremov
+ * @needsreview not documented
  */
 
 checkList(List list, var elem, int expected) {
@@ -31,6 +33,5 @@ main() {
   Eq e = new Eq();
   a[3]=e;
   checkList(a,new Eq(),3);
-
 }
 

@@ -6,7 +6,7 @@
 /**
  * @assertion Returns a sub list copy of this list, from [start] to
  * [:start + length:].
- * @description Checks fixed size lists with valid ranges.
+ * @description Checks lists with valid ranges.
  * @author vasya
  * @reviewer varlax
  */
@@ -23,6 +23,24 @@ main() {
   List l = new List(100);
   for (var i = 0; i < l.length; i++){
     l[i] = i;
+  }
+  check(l, 0, 100);
+  check(l, 0, 1);
+  check(l, 99, 1);
+  check(l, 90, 9);
+
+  l = [];
+  for (var i = 0; i < 100; i++){
+    l.add(i);
+  }
+  check(l, 0, 100);
+  check(l, 0, 1);
+  check(l, 99, 1);
+  check(l, 90, 9);
+
+  l = new List.from([]);
+  for (var i = 0; i < 100; i++){
+    l.add(i);
   }
   check(l, 0, 100);
   check(l, 0, 1);

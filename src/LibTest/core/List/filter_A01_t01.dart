@@ -10,22 +10,33 @@
  * @reviewer iefremov
  */
 
-
-void arrayEquals(List expected, List actual) {
-  Expect.isTrue(expected.length == actual.length);
-  for(var i = 0; i < expected.length; i+=1) {
-    Expect.isTrue(expected[i] === actual[i]);
-    Expect.isTrue(expected[i] == actual[i]);
-  }
-}
-
 main() {
   bool f(int e) { return (e > 1); }
   List a = [-1,0,1,2,3,4].filter(f);
   for(var i = 0; i < a.length; i++) {
     Expect.isTrue(f(a[i]));
   }
-  arrayEquals([2,3,4], a);
+  Expect.listEquals([2,3,4], a);
+
+  a = new List.from([-1,0,1,2,3,4]).filter(f);
+  for(var i = 0; i < a.length; i++) {
+    Expect.isTrue(f(a[i]));
+  }
+  Expect.listEquals([2,3,4], a);
+
+  a = const [-1,0,1,2,3,4].filter(f);
+  for(var i = 0; i < a.length; i++) {
+    Expect.isTrue(f(a[i]));
+  }
+  Expect.listEquals([2,3,4], a);
+
+  a = new List();
+  a.addAll([-1,0,1,2,3,4]);
+  a = a.filter(f);
+  for(var i = 0; i < a.length; i++) {
+    Expect.isTrue(f(a[i]));
+  }
+  Expect.listEquals([2,3,4], a);
 
   bool f1(Object e) { return (e == null); } 
   List b = [null,[null],"",0,[0,1,2], null];
@@ -33,7 +44,7 @@ main() {
   for(var i = 0; i < a.length; i++) {
     Expect.isTrue(f1(a[i]));
   }
-  arrayEquals([null, null], a);
+  Expect.listEquals([null, null], a);
 
   bool f2(String e) { return (e == "list"); }
   b = new List<String>(534768);
@@ -42,7 +53,7 @@ main() {
   for(var i = 0; i < a.length; i++) {
     Expect.isTrue(f2(a[i]));
   }
-  arrayEquals(["list"], a);
+  Expect.listEquals(["list"], a);
 
   bool f3(String e) { return (e.isEmpty()); } 
   a = ["1","2","3"].filter(f3);

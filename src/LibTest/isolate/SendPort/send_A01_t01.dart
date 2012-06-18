@@ -7,7 +7,7 @@
  * @assertion Sends an asynchronous message to this send port. 
  * The message is copied to the receiving isolate.
  * @description Checks that message is sent to the ReceivePort.
- * @expected-output message1 received
+ * @runtime-error
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,7 +20,7 @@ void main() {
   
   rPort.receive(void func(var message, SendPort replyTo) {
     rPort.close();
-    print("$message received");
+    throw "message received correctly!";
   });
   
   sPort.send("message1", null);

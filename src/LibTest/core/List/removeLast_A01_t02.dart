@@ -11,10 +11,15 @@
  * @reviewer varlax
  */
 
-main() {
-  List a = new List();
+check(a) {
   try {
     a.removeLast();
     Expect.fail("IndexOutOfRangeException expected when calling a.removeLast()");
   } catch( IndexOutOfRangeException ok ) {}
+}
+
+main() {
+  check(new List());
+  check([]);
+  check(new List.from([]));
 }

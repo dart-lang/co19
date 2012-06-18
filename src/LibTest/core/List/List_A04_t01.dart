@@ -8,6 +8,7 @@
  * @description Checks that IllegalArgumentException is thrown.
  * @static-warning
  * @author varlax
+ * @reviewer iefremov
  */
 
 #import("../../../Utils/dynamic_check.dart");

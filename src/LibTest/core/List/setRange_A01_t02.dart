@@ -11,34 +11,35 @@
  * @description Checks that all needed elements are copied.
  * @author iefremov
  * @reviewer msyabro
- * * @reviewer varlax
+ * @reviewer varlax
  */
 
-
-void check(List src, List dst, int srcOffset, int dstOffset, int count) {
-    dst.copyFrom(src, srcOffset, dstOffset, count);
-
-}
-
-void arrayEquals(List expected, List actual) {
-  Expect.isTrue(expected.length == actual.length);
-  for(var i = 0; i < expected.length; i+=1) {
-    Expect.isTrue(expected[i] === actual[i]);
-    Expect.isTrue(expected[i] == actual[i]);
-  }
-}
-
-main() {  
-  List dst = new List(5);
+check(dst) {
   List src = [dst, null];
   src[1] = src;
 
   dst.setRange(0, 2, src);
-  arrayEquals([dst, src, null, null, null], dst);
+  Expect.listEquals([dst, src, null, null, null], dst);
 
   dst.setRange(4, 1, src);
-  arrayEquals([dst, src, null, null, dst], dst);
+  Expect.listEquals([dst, src, null, null, dst], dst);
 
   dst.setRange(2, 2, src);
-  arrayEquals([dst, src, dst, src, dst], dst);
+  Expect.listEquals([dst, src, dst, src, dst], dst);
+}
+
+main() {
+  check(new List(5));
+
+  var a = [];
+  a.length = 5;
+  check(a);
+
+  a = new List();
+  a.length = 5;
+  check(a);
+
+  a = new List.from([]);
+  a.length = 5;
+  check(a);
 }

@@ -7,35 +7,31 @@
  * @assertion Throws exception if [index] is of invalid type or null.
  * @description Checks that the exception is thrown as expected.
  * @author varlax
+ * @reviewer iefremov
  */
 
 #import("../../../Utils/dynamic_check.dart");
 
 check(List a) {
-  checkTypeError( () {
-    try {
-      var idx = 0.1;
-      a.indexOf(1,idx);
-      Expect.fail("expected IllegalArgumentException");
-    } catch(Exception ok) {}
+  Expect.throws( () {
+    var idx = 0.1;
+    a.indexOf(1,idx);
   });
 
-  checkTypeError( () {
-    try {
-      var idx = '32';
-      a.indexOf(1,idx);
-      Expect.fail("expected IllegalArgumentException");
-    } catch(Exception ok) {}
+  Expect.throws( () {
+    var idx = '32';
+    a.indexOf(1,idx);
   });
 
-  try {
+  Expect.throws( () {
     a.indexOf(1,null);
-    Expect.fail("expected IllegalArgumentException");
-  } catch(Exception ok) {}
- 
+  });
 }
 
 void main() {
+  if(isCheckedMode()) {
+    return;
+  }
   check(const [null]);
   check(['sd','sd']);
   check(new List.from(<int>[null, 1, 0]));

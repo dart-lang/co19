@@ -23,7 +23,19 @@ void main() {
     Expect.fail("expected IllegalArgumentException");
   } catch(IllegalArgumentException ok) {}
 
-  a = const[];
+  a = new List();
+  try {
+    a[null];
+    Expect.fail("expected IllegalArgumentException");
+  } catch(IllegalArgumentException ok) {}
+
+  a = new List.from([]);
+  try {
+    a[null];
+    Expect.fail("expected IllegalArgumentException");
+  } catch(IllegalArgumentException ok) {}
+
+  a = [];
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");

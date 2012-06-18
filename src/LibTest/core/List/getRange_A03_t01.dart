@@ -10,10 +10,21 @@
  * @reviewer varlax
  */
 
-main() {
-  List l = new List(1);
+check(list, arg) {
   try {
-    l.getRange(0, -1);
+    list.getRange(0, arg);
     Expect.fail("IllegalArgumentException expected when calling List.getRange()");
   } catch(IllegalArgumentException ok) {}
+}
+
+main() {
+  check(new List(1), -1);
+  check(new List(1), -(1<<65));
+  check([1], -1);
+  check([1], -(1<<65));
+  check(const [1], -1);
+  check(const [1], -(1<<65));
+  check(new List(), -1);
+  check(new List(), -(1<<65));
+
 }

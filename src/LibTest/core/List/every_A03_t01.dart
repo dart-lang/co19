@@ -7,6 +7,7 @@
  * @assertion Throws [ObjectNotClosureException] if argument is not a function.
  * @description Checks that ObjectNotClosureException exception is thrown if the argument
  * is not a closure.
+ * @needsreview not documented
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro

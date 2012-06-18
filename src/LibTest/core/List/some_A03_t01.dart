@@ -19,12 +19,25 @@ class A {
   A() {}
 }
 
-check(var arg) {
-  List<String> a = ["1","2","3"];
+checkList(list, arg) {
   try {
-    a.some(arg);
+    list.some(arg);
     Expect.fail("ObjectNotClosureException expected when calling a.every()");
   } catch(ObjectNotClosureException e) {}
+}
+
+check(var arg) {
+  checkList(["1","2","3"], arg);
+  checkList(const ["1","2","3"], arg);
+  checkList(new List.from(["1","2","3"]), arg);
+
+  var a = new List(3);
+  a.setRange(0, 3, ["1","2","3"]);
+  checkList(a, arg);
+
+  var b = new List();
+  b.addAll(["1","2","3"]);
+  checkList(b, arg);
 }
  
 main() {

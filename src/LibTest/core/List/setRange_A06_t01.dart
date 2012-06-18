@@ -7,22 +7,23 @@
  * @assertion Throws [NullPointerException] if [from] is [:null:].
  * @description Checks that NPE is thrown as expected.
  * @author varlax
+ * @reviewer iefremov
  */
 
+check(list) {
+  try {
+    list.setRange(0, 1, null);
+    Expect.fail("expected NPE");
+  } catch(NullPointerException ok) {}
+}
 
 main() {
-  int dstSize = 10;
-  List dst = new List(dstSize);
-  try {
-    dst.setRange(0, 1, null);
-    Expect.fail("expected NPE");
-  } catch(NullPointerException ok) {}
+  check(new List(10));
 
-  dst = new List();
-  dst.length = dstSize;
-  try {
-    dst.setRange(0, 1, null, 0);
-    Expect.fail("expected NPE");
-  } catch(NullPointerException ok) {}
+  var dst = new List();
+  dst.length = 10;
+  check(dst);
+  check([1,2,3]);
+  check(new List.from([1,2,3]));
 }
 

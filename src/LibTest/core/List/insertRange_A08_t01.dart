@@ -8,17 +8,13 @@
  * @description Checks that an Exception is thrown
  * if any of arguments is invalid.
  * @author varlax
+ * @reviewer iefremov
  */
 
 #import("../../../Utils/dynamic_check.dart");
 
 void check(List l, start, length) {
-  checkTypeError( () {
-    try {
-      l.insertRange(start, length);
-      Expect.fail("Exception expected when calling List.insertRange()");
-    } catch(Exception ok) {}
-  });
+  Expect.throws(() => l.insertRange(start, length));
 }
 
 main() {
@@ -36,4 +32,14 @@ main() {
   check(new List(1), 0, 0.1);
   check(new List(1), 0.1, 1.0 );
   check(new List(1), true, false);
+
+  check(new List(), '0', 1);
+  check(new List(), 0, 0.1);
+  check(new List(), 0.1, 1.0 );
+  check(new List(), true, false);
+
+  check(new List.from([]), '0', 1);
+  check(new List.from([]), 0, 0.1);
+  check(new List.from([]), 0.1, 1.0 );
+  check(new List.from([]), true, false);
 }

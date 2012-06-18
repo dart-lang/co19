@@ -12,21 +12,13 @@
  * @reviewer varlax
  */
 
-checkArrayEquals(List expected, List actual) {
-  Expect.equals(expected.length, actual.length);
-  for(int i = 0; i < expected.length; i++) {
-    Expect.equals(expected[i], actual[i]);
-    Expect.identical(expected[i], actual[i]);
-  }
-}
- 
 main() {
   List a = new List();
   Expect.isTrue(a.length == 0);
   a.add(null);
-  checkArrayEquals([null], a);
+  Expect.listEquals([null], a);
   a.add(0);
-  checkArrayEquals([null, 0], a);
+  Expect.listEquals([null, 0], a);
   a.add("1");
-  checkArrayEquals([null, 0, "1"], a);
+  Expect.listEquals([null, 0, "1"], a);
 }

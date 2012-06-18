@@ -16,4 +16,9 @@ main() {
     new List().addAll(null);
     Expect.fail("NullPointerException expected when calling a.addAll()");
   } catch(NullPointerException e) {}
+
+  try {
+    [].addAll(null);
+    Expect.fail("NullPointerException expected when calling a.addAll()");
+  } catch(NullPointerException e) {}
 }

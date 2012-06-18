@@ -35,4 +35,8 @@ main() {
     return e < 3;
   }
   check([], lessThan3);
+  check(const [], lessThan3);
+  check(new List(), lessThan3);
+  check(new List(0), lessThan3);
+  check(new List.from([]), lessThan3);
 }

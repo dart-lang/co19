@@ -37,7 +37,7 @@ main() {
 
     void check() {
       var a_copy = new List(length);
-      a_copy.copyFrom(a, 0, 0, length);
+      a_copy.setRange(0, length, a);
       a_copy.sort(c);
       Expect.listEquals(expected, a_copy);
     }

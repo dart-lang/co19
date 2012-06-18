@@ -8,6 +8,7 @@
  * range at the end of the array.
  * @description Checks that array is appended if start equals to array length.
  * @author varlax
+ * @reviewer iefremov
  */
 
 void check(List src, int length, [val]) {
@@ -31,5 +32,9 @@ main() {
   l = [1,2,3,4,5];
   check(l, 50, 10);
 
+  check(l, 20000);
+
+  l = new List.from([1,2,3,4,5]);
+  check(l, 50, 10);
   check(l, 20000);
 }

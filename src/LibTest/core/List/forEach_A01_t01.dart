@@ -15,7 +15,6 @@ class A {
   bool checked;
 }
 
-
 main() {
   List<A> a = new List(100);
   for (int i = 0; i < a.length; i++) {

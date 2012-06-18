@@ -9,21 +9,35 @@
  * if the list is not empty.
  * @author pagolubev
  * @reviewer varlax
+ * @needsreview issue 3223
  */
 
 #import("../../../Utils/dynamic_check.dart");
+
+check(list, arg) {
+  try {
+    list.forEach(arg);
+    Expect.fail("ObjectNotClosureException expected.");
+  } catch(ObjectNotClosureException e) {}
+}
 
 main() {
   if(isCheckedMode()) {
     return;
   }
-  try {
-    [1, -1].forEach(null);
-    Expect.fail("ObjectNotClosureException expected.");
-  } catch(ObjectNotClosureException e) {}
-  try {
-    var f = 123;
-    [1, -1].forEach(f);
-    Expect.fail("ObjectNotClosureException expected.");
-  } catch(ObjectNotClosureException e) {}
+  check([1], 1);
+  check([1], null);
+  check([1], "");
+  check([1], 3.14);
+
+  check(const [1], 1);
+  check(const [1], null);
+  check(const [1], "");
+  check(const [1], 3.14);
+
+  check(new List.from([1]), 1);
+  check(new List.from([1]), null);
+  check(new List.from([1]), "");
+  check(new List.from([1]), 3.14);
+
 }

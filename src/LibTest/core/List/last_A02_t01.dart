@@ -20,7 +20,7 @@ check(List a) {
 
 main() {
   check(new List());
-  //check(new List(10));
   check([]);
   check(const[]);
+  check(new List.from([]));
 }

@@ -33,4 +33,26 @@ main() {
   Expect.isTrue(a.some(f1));
   a.setRange(1, 3, [-2,-3,-4]);
   Expect.isFalse(a.some(f1));
+
+  //const []
+  a = const ["", "1", const [], const [null]];
+  Expect.isTrue(a.some(f));
+  b = new List.from(a);
+  Expect.isTrue(b.some(f));
+
+  a = const [1,2,3,4];
+  Expect.isTrue(a.some(f1));
+  a = const [1, -2,-3,-4];
+  Expect.isFalse(a.some(f1));
+
+  //List.from
+  a = new List.from(["", "1", [], [null]]);
+  Expect.isTrue(a.some(f));
+  b = new List.from(a);
+  Expect.isTrue(b.some(f));
+
+  a = new List.from([1,2,3,4]);
+  Expect.isTrue(a.some(f1));
+  a.setRange(1, 3, [-2,-3,-4]);
+  Expect.isFalse(a.some(f1));
 }

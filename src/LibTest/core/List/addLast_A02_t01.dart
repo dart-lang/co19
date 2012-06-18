@@ -23,4 +23,9 @@ main() {
     new List(100).addLast(null);
     Expect.fail("UnsupportedOperationException expected when calling a.add()");
   } catch(UnsupportedOperationException ok) {}
+
+  try {
+    const [].addLast(null);
+    Expect.fail("UnsupportedOperationException expected when calling a.add()");
+  } catch(UnsupportedOperationException ok) {}
 }

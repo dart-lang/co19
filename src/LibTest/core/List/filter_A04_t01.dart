@@ -7,19 +7,20 @@
  * @assertion Any error in the predicate [f] breaks the cycle.
  * @description Checks that predicate exception goes through to the caller
  * @author varlax
+ * @reviewer iefremov
  */
 
 check(List a, bool predicate(var e), exc) {
   int actualCount = 0;
-  try {
-  a.filter(f(var e) {
-    actualCount++;
-    return predicate(e);
-  });  
-    Expect.fail("should not swallow predicate exceptions");
-  } catch (var e) {
-    Expect.identical(exc,e);                 
-  }  
+  Expect.throws(
+    () {
+      a.filter(f(var e) {
+        actualCount++;
+        return predicate(e);
+      });
+    },
+    (e) {return exc === e;}
+  );
   Expect.equals(1, actualCount);
 }
 
@@ -38,4 +39,6 @@ main() {
     throw 3;
   }
   check([1, 2, 3, 4, 5], lessThan3, 3);
+  check(const [1, 2, 3, 4, 5], lessThan3, 3);
+  check(new List.from([1, 2, 3, 4, 5]), lessThan3, 3);
 }

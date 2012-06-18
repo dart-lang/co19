@@ -34,4 +34,7 @@ main() {
   check(2, 1, -1);
   check(44, 42, -2);
   check(6031769, 100500, -6031769);
+
+  Expect.throws(() => [].setRange(0, -1, []));
+  Expect.throws(() => new List.from([]).setRange(0, -1, []));
 }

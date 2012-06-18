@@ -40,4 +40,9 @@ main() {
     a.clear();
     Expect.fail("UnsupportedOperationException expected when calling a.clear()");
   } catch(UnsupportedOperationException ok) {}
+
+  try {
+    const [].clear();
+    Expect.fail("UnsupportedOperationException expected when calling a.clear()");
+  } catch(UnsupportedOperationException ok) {}
 }

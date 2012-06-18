@@ -12,7 +12,6 @@
  */
 
 void check(List src, int start, int length) {
-  
   try {
     src.insertRange(start, length);
     Expect.fail("UnsupportedOperationException expected when calling List.insertRange()");

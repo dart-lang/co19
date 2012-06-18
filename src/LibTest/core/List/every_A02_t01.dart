@@ -15,6 +15,8 @@
 
 main() {
   Expect.isTrue([].every(bool f(var v) {return true;}));
+  Expect.isTrue(const [].every(bool f(var v) {return true;}));
+  Expect.isTrue(new List.from([]).every(bool f(var v) {return true;}));
   Expect.isTrue([].every(bool f(var v) {return false;}));  
   Expect.isTrue([].every(bool f(var v) {Expect.fail("Should not be executed");}));
   

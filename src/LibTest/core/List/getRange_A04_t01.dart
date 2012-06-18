@@ -12,9 +12,7 @@
  * @reviewer varlax
  */
 
-void check(int listSize, int start, int length) {
-  List l = new List();
-  l.length = listSize;
+void check(List l, int start, int length) {
   try {
     l.getRange(start, length);
     Expect.fail("IndexOutOfRangeException expected when calling List.getRange()");
@@ -22,8 +20,26 @@ void check(int listSize, int start, int length) {
 }
 
 main() {
-  check(0,0,1);
-  check(10,1,10);
-  check(1099,0,1100);
-  check(10789, 10000, 10000);
+  check(new List(0),0,1);
+  check(new List(10),1,10);
+  check(new List(1099),0,1100);
+  check(new List(10789), 10000, 10000);
+
+  List l = new List();
+  check(l,0,1);
+  l.length = 10;
+  check(l,1,10);
+  l.length = 1099;
+  check(l,0,1100);
+  l.length = 10789;
+  check(l, 10000, 10000);
+
+  l = [];
+  check(l,0,1);
+  l.length = 10;
+  check(l,1,10);
+  l.length = 1099;
+  check(l,0,1100);
+  l.length = 10789;
+  check(l, 10000, 10000);
 }

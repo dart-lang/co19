@@ -32,5 +32,4 @@ main() {
     Expect.isTrue(ls[i] === i);
     Expect.isTrue(ls[a.length-1-i] === a.length-1-i);
   }
-
 }

@@ -7,7 +7,6 @@
  * @assertion If specified, the replyTo port will be provided to the receiver
  * to facilitate exchanging sequences of messages.
  * @description Checks that message is sent to [replyTo] port.
- * @expected-output Done
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -24,7 +23,6 @@ void main() {
     message ++;
     replyTo.send(message, sPort);
     if(message == 100) {
-      print("Done");
       rPort.close();
       rReply.close();
     }

@@ -21,4 +21,22 @@ main() {
   check(l, 100);
   check(l, 999);
   check(l, 1000);
+
+  l = [1,2,3];
+  check(l, 0);
+  check(l, 100);
+  check(l, 999);
+  check(l, 1000);
+
+  l = const [1,2,3];
+  check(l, 0);
+  check(l, 100);
+  check(l, 999);
+  check(l, 1000);
+
+  l = new List.from([1,2,3]);
+  check(l, 0);
+  check(l, 100);
+  check(l, 999);
+  check(l, 1000);
 }

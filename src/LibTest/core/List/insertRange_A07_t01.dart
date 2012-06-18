@@ -19,8 +19,15 @@ void check(List l, int start, int length) {
 }
 
 main() {
-  check(null, 0, 1);
   check(new List(), null, 1);
   check(new List(), 1, null);
   check(new List(), null, null);
+
+  check([], null, 1);
+  check([], 1, null);
+  check([], null, null);
+
+  check(new List.from([]), null, 1);
+  check(new List.from([]), 1, null);
+  check(new List.from([]), null, null);
 }

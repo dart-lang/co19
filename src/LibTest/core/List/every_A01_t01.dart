@@ -27,6 +27,10 @@ main() {
   Expect.isTrue(a.every(f));
   List b = new List.from(a);
   Expect.isTrue(a.length == b.length && b.every(f));
+  List c = new List();
+  c.addAll([1,2,3]);
+  Expect.isTrue(a.length == b.length && b.every(f));
+
 
   try {
     checkTypeError(() {

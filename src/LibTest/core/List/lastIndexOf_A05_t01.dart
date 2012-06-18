@@ -7,6 +7,7 @@
  * @assertion The element is searched by equality (operator ==).
  * @description Checks searching custom objects.
  * @author varlax
+ * @reviewer iefremov
  */
 
 checkList(List list, var elem, int expected) {

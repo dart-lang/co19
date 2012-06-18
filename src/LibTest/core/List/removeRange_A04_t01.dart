@@ -4,19 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion �
- * Throws an [IllegalArgumentException] if [length] is negative.
+ * @assertion Throws an [IllegalArgumentException] if [length] is negative.
  * @description Checks that an [IllegalArgumentException] is thrown 
  * if [length] is negative.
  * @author vasya
- * @needsreview
+ * @reviewer iefremov
  */
+
+check(list) {
+  try {
+    list.removeRange(0, -1);
+    Expect.fail("IllegalArgumentException expected when calling List.removeRange()");
+  } catch(IllegalArgumentException ok) {}
+}
 
 main() {
   var a = new List();
   a.length = 1;
-  try {
-    a.removeRange(0, -1);
-    Expect.fail("IllegalArgumentException expected when calling List.removeRange()");
-  } catch(IllegalArgumentException ok) {}
+  check(a);
+  check([1]);
+  check(new List.from([1]));
 }

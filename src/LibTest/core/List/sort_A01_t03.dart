@@ -18,12 +18,12 @@
 
 
 void check(var a) {
-  int c(var a, var b) {
-    return a < b ? -1 : (a == b ? 0 : 1);
+  int c(var x, var y) {
+    return x < y ? -1 : (x == y ? 0 : 1);
   }
 
   var a_copy = new List(a.length);
-  a_copy.copyFrom(a, 0, 0, a.length);
+  a_copy.setRange(0, a.length, a);
   a_copy.sort(c);
 
   for(int i = 1; i < a.length; ++i) {

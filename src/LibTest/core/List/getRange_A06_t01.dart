@@ -7,16 +7,17 @@
  * @assertion Method fails gracefully if supplied with argument of invalid type.
  * @description Throws [IllegalArgumentException] if [start] or [length] is not an int.
  * @author varlax
+ * @reviewer iefremov
  */
 
 #import("../../../Utils/dynamic_check.dart");
 
 void check(List l, start, length) {
   if(!isCheckedMode()) {
-    try {
-      l.getRange(start, length);
-      Expect.fail("IAE expected when calling List.getRange()");
-    } catch(var ok) {}
+    Expect.throws(
+    () {
+        l.getRange(start, length);
+    });
   }
 }
 

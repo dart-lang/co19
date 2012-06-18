@@ -36,4 +36,6 @@ main() {
     return e > 3;
   }
   check([1, 2, 3, 4, 5], greaterThan3, 4);
+  check(const [1, 2, 3, 4, 5], greaterThan3, 4);
+  check(new List.from(const [1, 2, 3, 4, 5]), greaterThan3, 4);
 }

@@ -15,20 +15,12 @@
  * @reviewer msyabro
  */
 
-void arrayEquals(List expected, List actual) {
-  Expect.equals(expected.length, actual.length);
-  for(var i = 0; i < expected.length; i+=1) {
-    Expect.identical(expected[i], actual[i]);
-    Expect.equals(expected[i], actual[i]);
-  }
-}
-
 void check(var actual, var expected) {
   int c(var a, var b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
   actual.sort(c);
-  arrayEquals(expected, actual);
+  Expect.listEquals(expected, actual);
 }
 
 main() {

@@ -16,7 +16,14 @@ main() {
   a.length = 10;
   Expect.listEquals([0,1,2,3,4,5,6,7,8,9], a);
 
+  a = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+  a.length = 10;
+  Expect.listEquals([0,1,2,3,4,5,6,7,8,9], a);
 
-  List<int> b = new List.from([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]).getRange(5,10);
-  Expect.listEquals([5,6,7,8,9,10,11,12,13,14], b);
+  a = new List();
+  for(var i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]) {
+    a.add(i);
+  }
+  a.length = 10;
+  Expect.listEquals([0,1,2,3,4,5,6,7,8,9], a);
 }

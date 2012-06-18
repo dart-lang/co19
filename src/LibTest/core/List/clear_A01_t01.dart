@@ -45,4 +45,9 @@ main() {
   Expect.isTrue(a.length == 4);
   a.clear();
   Expect.isTrue(a.length == 0);
+
+  a = [[],[null],[1,2,3,4],["one", "two", "three", "four"]];
+  Expect.isTrue(a.length == 4);
+  a.clear();
+  Expect.isTrue(a.length == 0);
 }

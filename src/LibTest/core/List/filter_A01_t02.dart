@@ -35,4 +35,8 @@ main() {
   a = [new A(false)];
   a.filter(f);
   Expect.isTrue(a[0].checked);
+
+  a = new List.from([new A(false)]);
+  a.filter(f);
+  Expect.isTrue(a[0].checked);
 }

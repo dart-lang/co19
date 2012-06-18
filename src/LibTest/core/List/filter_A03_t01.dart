@@ -20,13 +20,18 @@ class A {
   A() {}
 }
 
+ch(list, arg) {
+  try {
+    list.filter(arg);
+    Expect.fail("ObjectNotClosureException expected when calling a.every()");
+  } catch(ObjectNotClosureException e) {}
+}
+
 check(var arg) {
   if(!isCheckedMode()) {
-    List<String> a = ["1","2","3"];
-    try {
-      a.filter(arg);
-      Expect.fail("ObjectNotClosureException expected when calling a.every()");
-    } catch(ObjectNotClosureException e) {}
+    ch(["1","2","3"], arg);
+    ch(const ["1","2","3"], arg);
+    ch(new List.from(["1","2","3"]), arg);
   }
 }
  

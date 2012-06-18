@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Returns empty collection if no matching elements is found.
- * @description Checks this method behavior when this list is empty.
+ * @description Checks that the given function is not executed and an empty
+ * collection is returned if the list is empty.
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer msyabro
@@ -16,5 +17,11 @@ main() {
   var a = [].filter(bool f(var v){return true;});
   Expect.isTrue(a.isEmpty());
   a = [].filter(bool f(var v){Expect.fail("Should not be executed");});
+  Expect.isTrue(a.isEmpty());
+  a = const [].filter(bool f(var v){Expect.fail("Should not be executed");});
+  Expect.isTrue(a.isEmpty());
+  a = new List().filter(bool f(var v){Expect.fail("Should not be executed");});
+  Expect.isTrue(a.isEmpty());
+  a = new List.from([]).filter(bool f(var v){Expect.fail("Should not be executed");});
   Expect.isTrue(a.isEmpty());
 }

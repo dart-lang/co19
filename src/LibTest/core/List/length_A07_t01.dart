@@ -8,6 +8,7 @@
  * @description Checks that IllegalArgumentException is thrown.
  * @static-warning
  * @author varlax
+ * @reviewer iefremov
  * @needsreview undocumented
  */
 
@@ -18,20 +19,9 @@ main() {
     return;
   }
   List a = new List();
-
-  try {
-    a.length = "12";
-    Expect.fail("Exception expected when setting list length to string");
-  } catch(var ok){}
+  Expect.throws(() => a.length = "12");
 
   List<int> b = new List.from(<int>[1,3,5]);
-  try {
-    b.length = 12.43;
-    Expect.fail("Exception expected when setting list length to double");
-  } catch(var ok){}
-
-  try {
-    b.length = a;
-    Expect.fail("Exception expected when setting list length to array");
-  } catch(var ok){}
+  Expect.throws(() => b.length = 12.43);
+  Expect.throws(() => b.length = a);
 }

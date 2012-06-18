@@ -11,14 +11,6 @@
  * @reviewer varlax
  */
 
-void arrayEquals(List expected, List actual) {
-  Expect.isTrue(expected.length == actual.length);
-  for(var i = 0; i < expected.length; i+=1) {
-    Expect.isTrue(expected[i] === actual[i]);
-    Expect.isTrue(expected[i] == actual[i]);
-  }
-}
-
 main() {
   List a = [null];
   a[0] = 1;
@@ -30,11 +22,11 @@ main() {
 
   a = new List(3);
   a[0] = 1;a[2] = 3;
-  arrayEquals([1, null, 3], a);
+  Expect.listEquals([1, null, 3], a);
   a[2] = null;
-  arrayEquals([1, null, null], a);
+  Expect.listEquals([1, null, null], a);
   a[0] = null;
-  arrayEquals([null, null, null], a);
+  Expect.listEquals([null, null, null], a);
   a[1] = 100500;
-  arrayEquals([null, 100500, null], a);
+  Expect.listEquals([null, 100500, null], a);
 }

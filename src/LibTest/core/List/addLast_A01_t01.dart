@@ -8,6 +8,7 @@
  * @description Checks that [value] is appended to the end of the list.
  * @author vasya
  * @reviewer msyabro
+ * @reviewer iefremov
  */
  
 
@@ -15,6 +16,14 @@ main() {
   List a = new List();
   for (var i = 0; i <= 214748; i++) {
     a.addLast(i);
+    Expect.equals(i, a[i]);
+    Expect.equals(i+1, a.length);
+  }
+
+  a = [];
+  for (var i = 0; i <= 214748; i++) {
+    a.addLast(i);
     Expect.equals(a[i], i);
+    Expect.equals(i+1, a.length);
   }
 }

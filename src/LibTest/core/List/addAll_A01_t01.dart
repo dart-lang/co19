@@ -12,14 +12,6 @@
  * @reviewer msyabro
  */
 
-checkArrayEquals(List expected, List actual) {
-  Expect.equals(expected.length, actual.length);
-  for(int i = 0; i < expected.length; i++) {
-    Expect.equals(expected[i], actual[i]);
-    Expect.identical(expected[i], actual[i]);
-  }
-}
- 
 main() {
   List a = new List();
   List b = new List(1000);
@@ -35,24 +27,49 @@ main() {
   a = new List();
   Set set = new Set.from([1, 2, 3, 4, 5]);
   a.addAll(set);
-  checkArrayEquals([1, 2, 3, 4, 5], a);
+  Expect.listEquals([1, 2, 3, 4, 5], a);
   
   a = new List();
   Queue list = new Queue();
   list.addLast(1);
   list.addLast(2);
   a.addAll(list);
-  checkArrayEquals([1, 2],a);
+  Expect.listEquals([1, 2],a);
   
   a = new List();
   a.addAll([]);
-  checkArrayEquals([], a);
+  Expect.listEquals([], a);
   
   a = new List();
   a.addAll(new Queue());
-  checkArrayEquals([], a);
+  Expect.listEquals([], a);
   
   a = new List();
   a.addAll(new Set());
-  checkArrayEquals([], a);
+  Expect.listEquals([], a);
+
+  a = [];
+  set = new Set.from([1, 2, 3, 4, 5]);
+  a.addAll(set);
+  Expect.listEquals([1, 2, 3, 4, 5], a);
+
+  a = [];
+  list = new Queue();
+  list.addLast(1);
+  list.addLast(2);
+  a.addAll(list);
+  Expect.listEquals([1, 2],a);
+
+  a = [];
+  a.addAll([]);
+  Expect.listEquals([], a);
+
+  a = [];
+  a.addAll(new Queue());
+  Expect.listEquals([], a);
+
+  a = [];
+  a.addAll(new Set());
+  Expect.listEquals([], a);
+
 }

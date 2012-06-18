@@ -7,6 +7,7 @@
  * @assertion If [start] is not specified, searches the entire list.
  * @description Checks searching w/o start.
  * @author varlax
+ * @reviewer iefremov
  */
 
 checkList(List list, var elem, int expected) {

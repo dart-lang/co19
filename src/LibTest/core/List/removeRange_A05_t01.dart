@@ -12,13 +12,25 @@
  * @reviewer varlax
  */
 
-void check(int listSize, int start, int length) {
-  List l = new List();
-  l.length = listSize;
+checkList(l, start, length) {
   try {
     l.removeRange(start, length);
     Expect.fail("IndexOutOfRangeException expected when calling List.removeRange()");
-  } catch(IndexOutOfRangeException ok) {}   
+  } catch(IndexOutOfRangeException ok) {}
+}
+
+void check(int listSize, int start, int length) {
+  List l = new List();
+  l.length = listSize;
+  checkList(l, start, length);
+
+  l = [];
+  l.length = listSize;
+  checkList(l, start, length);
+
+  l = new List.from([]);
+  l.length = listSize;
+  checkList(l, start, length);
 }
 
 main() {
