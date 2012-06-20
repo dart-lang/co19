@@ -5,13 +5,36 @@
  */
 /**
  * @assertion
- * operatorSignature: returnType? operator operator formalParameterList ;
- * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call | equals;
- * unaryOperator: negateOperator ;
- * binaryOperator: multiplicativeOperator | additiveOperator | shiftOperator |
- *   relationalOperator | equalityOperator | bitwiseOperator ;
- * prefixOperator: '-' | negateOperator ;
- * negateOperator: '!' | '~' ;
+ * operatorSignature: 
+ *   returnType? operator operator formalParameterList 
+ * ;
+ * operator: 
+ *   unaryOperator | 
+ *   binaryOperator | 
+ *   '[]' | 
+ *   '[]=' | 
+ *   negate | 
+ *   equals
+ * ;
+ * unaryOperator: 
+ *   negateOperator 
+ * ;
+ * binaryOperator: 
+ *   multiplicativeOperator | 
+ *   additiveOperator | 
+ *   shiftOperator |
+ *   relationalOperator | 
+ *   equalityOperator | 
+ *   bitwiseOperator 
+ * ;
+ * prefixOperator: 
+ *   '-' | 
+ *   negateOperator 
+ * ;
+ * negateOperator: 
+ *   '!' |
+ *   '~'
+ * ;
  * @description Checks that any return type (including function type, type parameter,
  * void or no return type at all) can be specified for any operator.
  * @author iefremov
@@ -32,7 +55,6 @@ class C<T> {
   Dynamic operator ~() {}
   foo operator *(var v) {}
   T operator >(var v) {}
-  bool operator call(u, v) {}
   bool operator equals(C other) {}
 }
 
@@ -45,8 +67,6 @@ main() {
     c[c] = c;
     -c;
     x = ~c;
-    x = c(1, 2);
     x = c == c;
   } catch (var ok) {}
 }
-

@@ -4,19 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a formal parameter is
- * declared as a constant variable.
- * @description Checks that it is a compile-time error if a positional
- * parameter is declared as a constant variable.
+ * @assertion The formal parameter list of a function introduces a new scope 
+ * known as the function's formal parameter scope. The formal parameter scope 
+ * of a function f is enclosed in the scope where f is declared.
+ * The body of a function introduces a new scope known as the function's body
+ * scope. The body of a function f is enclosed in the scope introduced by formal
+ * parameter scope of f.
+ * @description Checks that the function scopes are enclosed in the scope where it's
+ * declared and not the one where it's invoked.
  * @compile-error
- * @author msyabro
- * @reviewer iefremov
+ * @author rodionov
  */
 
-void f(const x) {}
+f() {
+  var x = foo;
+}
 
 main () {
   try {
-    f(1);
+    var foo = 1;
+    f();
   } catch(var x){}
 }

@@ -22,17 +22,16 @@
  *   | static final type? staticFinalDeclarationList
  *   | static? initializedVariableDeclaration
  * ;
- * @description Checks that it is a compile-time error when a static method has
- * the same name as the enclosing class.
+ * @description Checks that it is a compile-time error when constructor is declared static.
  * @compile-error
- * @author rodionov
  * @needsreview issue 3284
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {
-  static C();
+  static C(){}
 }
-
 
 main() {
   try {

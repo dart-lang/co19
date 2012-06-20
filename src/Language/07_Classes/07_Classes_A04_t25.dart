@@ -30,8 +30,9 @@
  *   | static final type? staticFinalDeclarationList
  *   | static? initializedVariableDeclaration
  * ;
- * @compile-error
  * @description Checks that a static abstract setter can't be used in place of a class member definition.
+ * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

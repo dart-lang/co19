@@ -5,13 +5,36 @@
  */
 /**
  * @assertion
- * operatorSignature: returnType? operator operator formalParameterList ;
- * operator: unaryOperator | binaryOperator | '[]' | '[]=' | negate | call | equals;
- * unaryOperator: negateOperator ;
- * binaryOperator: multiplicativeOperator | additiveOperator | shiftOperator |
- *   relationalOperator | equalityOperator | bitwiseOperator ;
- * prefixOperator: '-' | negateOperator ;
- * negateOperator: '!' | '~' ;
+ * operatorSignature: 
+ *   returnType? operator operator formalParameterList 
+ * ;
+ * operator: 
+ *   unaryOperator | 
+ *   binaryOperator | 
+ *   '[]' | 
+ *   '[]=' | 
+ *   negate | 
+ *   equals
+ * ;
+ * unaryOperator: 
+ *   negateOperator 
+ * ;
+ * binaryOperator: 
+ *   multiplicativeOperator | 
+ *   additiveOperator | 
+ *   shiftOperator |
+ *   relationalOperator | 
+ *   equalityOperator | 
+ *   bitwiseOperator 
+ * ;
+ * prefixOperator: 
+ *   '-' | 
+ *   negateOperator 
+ * ;
+ * negateOperator: 
+ *   '!' |
+ *   '~'
+ * ;
  * @description Checks that it is a compile-time error if a class defines an
  * operator without a formal parameter list.
  * @author iefremov
@@ -30,4 +53,3 @@ main() {
     var x = -c;
   } catch(var x){}
 }
-

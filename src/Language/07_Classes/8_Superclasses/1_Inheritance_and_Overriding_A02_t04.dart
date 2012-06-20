@@ -14,6 +14,7 @@
  * @description Checks that m does not override m' if m' is not accessible and there's
  * no compile-time error if the two methods have different number of required parameters
  * or different sets of named parameters.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

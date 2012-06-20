@@ -12,7 +12,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @note issue 629 documents the possibly incorrect compile error message produced in this case
  */
 
 typedef void foo();

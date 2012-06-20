@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if M is not the name of the immediately
+ * @assertion It is a static warning if M is not the name of the immediately
  * enclosing class or the name of an interface in the enclosing lexical scope.
- * @description Checks that there is no errors when M is the name of
+ * @description Checks that there is no errors or warnings when M is the name of
  * the enclosing class's superclass.
  * @author rodionov
  * @reviewer iefremov

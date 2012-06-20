@@ -9,8 +9,8 @@
  * @description Checks that there's no static warning when members inherited from a superinterface
  * are accessed using a variable whose type is a class type implementing that superinterface and whose
  * value is null. NullPointerException is fully expected and caught.
- * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 interface I {
@@ -18,7 +18,7 @@ interface I {
   void bar();
 }
 
-class C implements I {}
+abstract class C implements I {}
 
 main () {
   C c = null;

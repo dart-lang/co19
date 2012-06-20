@@ -9,18 +9,17 @@
  * - A constructor name
  * - The name of a constructor of an interface that is in scope at the point
  * where the factory is declared.
- * @description Checks that static warning is produced if the factory constructor
- * name is neither of the two specified options.
+ * @description Checks that a static warning is produced when a factory constructor
+ * uses a (named) constructor name that doesn't exist in the corresponding interface.
  * @static-warning
- * @compile-error
- * @author iefremov
- * @reviewer rodionov
- * @needsreview issue 3078
+ * @author rodionov
  */
+
+interface S default C {}
 
 class C {
   C() {}
-  factory redOctober() {}
+  factory S.nonExistent() {}
 }
 
 main() {

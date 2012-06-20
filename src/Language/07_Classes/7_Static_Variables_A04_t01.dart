@@ -14,7 +14,6 @@
  * @author pagolubev
  * @reviewer msyabro
  * @reviewer rodionov
- * @note issue 627 documents the failure of this tests in dartc mode
  */
 
 class A {

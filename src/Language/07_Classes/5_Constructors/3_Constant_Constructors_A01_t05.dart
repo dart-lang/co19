@@ -9,12 +9,12 @@
  * is declared as abstract.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {
   const abstract C();
 }
-
 
 main() {
   try {

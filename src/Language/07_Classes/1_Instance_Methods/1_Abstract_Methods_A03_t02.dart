@@ -11,7 +11,7 @@
  * @description Checks that a compile-error is produced when a non-abstract instance method overrides
  * an abstract method with the same name and a different number of required parameters.
  * @compile-error
- * @static-warnign
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview issue 978

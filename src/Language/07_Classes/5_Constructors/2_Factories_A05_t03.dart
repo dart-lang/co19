@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if M is not the name of the immediately
+ * @assertion It is a static warning if M is not the name of the immediately
  * enclosing class or the name of an interface in the enclosing lexical scope.
- * @description Checks that it is a compile-time error when M is the name of
+ * @description Checks that it is a static type warning when M is the name of
  * a function type alias.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @compile-error
  * @needsreview issue 980
  */
 

@@ -22,11 +22,11 @@
  *   | static final type? staticFinalDeclarationList
  *   | static? initializedVariableDeclaration
  * ;
- * @description Checks that it is a compile-time error when an abstract method has
- * an invalid name that includes the dot character and also has a const modifier.
+ * @description Checks that it is a compile-time error when a constant constructor is declared abstract.
  * @compile-error
- * @author rodionov
  * @needsreview issue 3284
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {
@@ -36,6 +36,6 @@ class C {
 
 main() {
   try {
-    new C();
+    new C.id();
   } catch(var x) {}
 }

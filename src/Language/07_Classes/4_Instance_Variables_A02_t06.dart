@@ -14,6 +14,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
+ * @needsreview issue 3323
  */
 
 class A {

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the interface induced by a class C is a
+ * @assertion It is a compile-time error if the interface of a class C is a
  * superinterface of itself.
  * @description Ch. 7: When a class name appears as a type or interface, that name 
  * denotes the interface of the class.
