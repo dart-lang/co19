@@ -4,9 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
- * it is a static warning if a declaration introduces a name that is available in a
- * lexically enclosing scope.
+ * @assertion If a declaration d named n is in the namespace induced by a scope S, 
+ * then d hides any declaration named n that is available in the lexically enclosing 
+ * scope of S. 
+ * It is a static warning if a declaration hides a name in a lexically enclosing
+ * scope, unless such hiding is explicitly permitted by this specification.
  * @description Checks that no static warning is produced when a variable is initialized at declaration
  * with a function literal that has the same name because the name of that variable is not in the scope
  * of its own initialization expression.

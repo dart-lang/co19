@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
- * it is a static warning if a declaration introduces a name that is available in a
- * lexically enclosing scope.
+ * @assertion If a declaration d named n is in the namespace induced by a scope S, 
+ * then d hides any declaration named n that is available in the lexically enclosing 
+ * scope of S. 
+ * It is a static warning if a declaration hides a name in a lexically enclosing
+ * scope, unless such hiding is explicitly permitted by this specification.
  * @description Checks that that a static warning is produced if a type variable hides a class name.
- * Checks also that using a type variable name in a static context causes a compile-time error.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
- * @note Issue 2241, 2629
+ * @needsreview review again once issue 2629 is resolved
  */
 
 class C {}

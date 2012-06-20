@@ -4,14 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Names in nested scopes may hide names in lexically enclosing scopes, however,
- * it is a static warning if a declaration introduces a name that is available in a
- * lexically enclosing scope.
+ * @assertion Labels are not included in the induced namespace of a scope; instead they
+ * have their own dedicated namespace.
  * @description Checks that labels and variables do not hide each other and no warnings are produced.
  * @author iefremov
  * @reviewer rodionov
  */
-
 
 main() {
   var v = 54;
