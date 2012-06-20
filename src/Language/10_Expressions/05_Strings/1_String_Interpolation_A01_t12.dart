@@ -4,23 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is possible to embed expressions within string literals, such that the these
+ * @assertion It is possible to embed expressions within non-raw string literals, such that these
  * expressions are evaluated, and the resulting values are converted into strings and concatenated
  * with the enclosing string. This process is known as string interpolation.
  * STRING_INTERPOLATION:
  *   '$' IDENTIFIER_NO_DOLLAR
  *   | '$' '{' Expression '}'
  * ;
- * @description Checks that it is a compile-time error if the identifier in a string
- * interpolation construct (without the curly braces) is a method name.
- * @compile-error
- * @author rodionov
+ * @description Checks that it is no compile-time error if the identifier in a string
+ * interpolation construct is a method name.
+ * @author kaigorodov
  */
 
 foo() {}
 
 main() {
-  try {
-    "$foo";
-  } catch(var e) {}
+  "${foo}";
 }
