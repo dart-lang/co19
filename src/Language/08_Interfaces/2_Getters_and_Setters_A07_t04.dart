@@ -15,6 +15,7 @@
  * @author kaigorodov
  * @reviewer iefremov
  * @compile-error
+ * @static-warning
  * @needsreview issue 972
  */
 

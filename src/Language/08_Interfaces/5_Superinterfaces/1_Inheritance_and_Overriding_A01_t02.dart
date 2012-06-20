@@ -6,11 +6,13 @@
 /**
  * @assertion An interface I inherits any members of its superinterfaces that 
  * are not overridden by members declared in I.
- * @description Checks that an interface inherits static members of its superinterfaces
- * (which can only be final initialized fields, according to grammar).
+ * @description Checks that an interface does not inherit static members of its 
+ * superinterfaces (which can only be final initialized fields, according to grammar).
+ * Expects a NoSuchMethodException when trying to access a superinterface's static member
+ * via a subinterface, as specified in ch. 10.15.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
- * @needsreview issue 967
  */
 
 interface S {
@@ -21,6 +23,7 @@ interface I extends S {
 }
 
 main() {
-  Expect.equals(S.foo, I.foo);
+  try {
+    var x = S.foo;
+  } catch (NoSuchMethodException ok) {}
 }
-

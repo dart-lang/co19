@@ -7,32 +7,25 @@
  * @assertion An interface may contain getter and/or setter signatures.
  * These are subject to the same compile-time and static checking rules 
  * as getters and setters in classes.
- * 7.3: It is a compile-time error if a class has both a setter and a method with the
- * same name. This restriction holds regardless of whether the setter is defined
- * explicitly or implicitly, or whether the setter or the method are inherited or not.
+ * 7.2: It is a compile-time error if a class has both a getter and a method with the
+ * same name. This restriction holds regardless of whether the getter is defined
+ * explicitly or implicitly, or whether the getter or the method are inherited or not.
  * @description Checks that it is a compile-time error if an interface attempts to override
- * a method inherited from a superinterface with an implicit setter.
+ * a method inherited from a superinterface with an explicit getter.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @reviewer iefremov
- * @compile-error
- * @static-warning
- * @needsreview issue 972
- * @needsreview issue 973
  */
 
 interface S {
-  void s(int x);
+  int m();
 }
 
 interface I extends S  {
-  int s;
+  String get m();
 }
 
-class A implements I {}
-
 main() {
-  try {
-    new A().s = 1;
-  } catch(var e) {}
+  I j = null;
+  try {j.m1();} catch (NullPointerException e) {}
 }

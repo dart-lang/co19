@@ -7,24 +7,24 @@
  * @assertion An interface may contain getter and/or setter signatures.
  * These are subject to the same compile-time and static checking rules 
  * as getters and setters in classes.
- * 7.2: It is a static warning if a getter m1 overrides a getter or method m2
+ * 7.2: It is a static warning if a getter m1 overrides a getter m2
  * and the type of m1 is not a subtype of the type of m2.
  * @description Checks that it is a static warning if a getter m1 overrides
- * a method m2 and the type of m1 is not a subtype of m2's.
+ * another getter m2 and the type of m1 is not a subtype of m2's.
  * @author rodionov
  * @reviewer kaigorodov
  * @static-warning
  */
 
 interface S {
-  int m();
+  int get m();
 }
 
 interface I extends S  {
-  String get m();
+  void get m();
 }
 
 main() {
-  I j = null;
-  try {j.m1();} catch (NullPointerException e) {}
+  I i = null;
+  try {i.m1();} catch (NullPointerException e) {}
 }

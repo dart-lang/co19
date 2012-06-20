@@ -13,6 +13,7 @@
  * @description Checks that it is a compile-time error if an interface attempts to override
  * a method inherited from a superinterface with an implicit getter.
  * @author vasya
+ * @static-warning
  * @compile-error
  * @reviewer rodionov
  * @needsreview issue 972

@@ -14,6 +14,7 @@
  * an explicit setter inherited from a superinterface with a method.
  * @author kaigorodov
  * @reviewer iefremov
+ * @static-warning
  * @compile-error
  * @needsreview issue 972
  */

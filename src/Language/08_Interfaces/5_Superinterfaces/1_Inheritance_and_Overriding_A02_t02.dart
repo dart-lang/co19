@@ -18,18 +18,19 @@
  * @description Checks that there's a static warning produced when attempting to access
  * an interface member that is not inherited from either of the two superinterfaces
  * that declare a member with the same name because of the conflict described in this
- * assertion. Members in question are methods with differing sets of named parameters.
+ * assertion. Members in question are methods with different number of required parameters.
  * @author rodionov
  * @reviewer kaigorodov
  * @static-warning
+ * @needsreview issue 3306
  */
 
 interface SI1 {
-  void foo(var v, [int foo, int bar]);
+  void foo(var v);
 }
 
 interface SI2 {
-  void foo(var v, [int foo, int b4r]);
+  void foo(var v, var vv);
 }
 
 interface I extends SI1, SI2 {}
@@ -37,5 +38,5 @@ interface I extends SI1, SI2 {}
 main() {
   I i = null;
   
-  try {i.foo(null, null, null);} catch (NullPointerException npe) {}
+  try {i.foo(null);} catch (NullPointerException npe) {}
 }

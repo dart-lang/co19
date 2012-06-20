@@ -7,7 +7,7 @@
  * @assertion An interface may contain getter and/or setter signatures.
  * These are subject to the same compile-time and static checking rules 
  * as getters and setters in classes.
- * 7.3: It is a static warning if a setter m1 overrides a setter or method m2
+ * 7.3: It is a static warning if a setter m1 overrides a setter m2
  * and the type of m1 is not a subtype of the type of m2.
  * @description Checks that it is a static warning if a setter m1 overrides
  * another setter m2 and the type of m1 is not a subtype of m2's.

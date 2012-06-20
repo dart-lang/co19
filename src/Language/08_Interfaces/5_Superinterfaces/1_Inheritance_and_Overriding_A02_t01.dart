@@ -22,6 +22,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  * @static-warning
+ * @needsreview issue 3306
  */
 
 interface SI1 {
