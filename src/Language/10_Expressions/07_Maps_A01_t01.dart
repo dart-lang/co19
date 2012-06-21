@@ -29,76 +29,81 @@ class Test  {
   var id;
 
   expressions() {
-    {};
+    var x;
+    x = {};
 
-    {"1": 1, "2": true, "3": null, "4": ""};
-    {"map": {"1": 1, "2": 2}, "list": []};
+    x = {"1": 1, "2": true, "3": null, "4": ""};
+    x = {"map": {"1": 1, "2": 2}, "list": []};
 
-    {"": (){}, "f": f() => 1, "g": void g(p1) {return p1;}};
+    x = {"": (){}, "f": f() => 1, "g": void g(p1) {return p1;}};
 
-    {"top-level": topFunc(), "method": this.method()};
+    x = {"top-level": topFunc(), "method": this.method()};
 
-    {"assignment": id = 1, "compound": id *= 1};
+    x = {"assignment": id = 1, "compound": id *= 1};
 
-    {"==": id == 1, "===": 1 === 2, "!=": true != false};
+    x = {"==": id == 1, "===": 1 === 2, "!=": true != false};
 
-    {">": 1 > 2, ">=": 3 >= 3, "<=": 0 <= 4, "<": id < 1};
+    x = {">": 1 > 2, ">=": 3 >= 3, "<=": 0 <= 4, "<": id < 1};
 
-    {"||": true || false, "&&": false && false};
+    x = {"||": true || false, "&&": false && false};
 
-    {"|": 20 | 0, "&": 7 & 2, "^": 1 ^ 1};
+    x = {"|": 20 | 0, "&": 7 & 2, "^": 1 ^ 1};
 
-    {"+": 1e7 + 1e-7, "-": 7 - 100e-100};
+    x = {"+": 1e7 + 1e-7, "-": 7 - 100e-100};
 
-    {"*": 2 * 3, "/": 0 / 1, "%": 5 % 1, "~/": .5 ~/ 2};
+    x = {"*": 2 * 3, "/": 0 / 1, "%": 5 % 1, "~/": .5 ~/ 2};
 
-    {"conditional": 1 + 2 > 3 ? [] : 1 < 3 ? {} : () {}};
+    x = {"conditional": 1 + 2 > 3 ? [] : 1 < 3 ? {} : () {}};
 
-    {"this": this, "new": new Test()};
+    x = {"this": this, "new": new Test()};
 
-    {"class": const S(), "map": const {}, "list": const [1]};
+    x = {"class": const S(), "map": const {}, "list": const [1]};
 
-    {"<<": 1 << 1, ">>": 10 >> 2};
+    x = {"<<": 1 << 1, ">>": 10 >> 2};
 
-    {"-": -1, "!": !true, "~": ~id};
+    x = {"-": -1, "!": !true, "~": ~id};
 
-    {"++": id++, "--": --id};
+    x = {"++": id++, "--": --id};
 
-    {"is bool": true is bool, "is not int": false is! int};
+    x = {"is bool": true is bool, "is not int": false is! int};
   }
 
   constants() {
-    const {};
+    var x;
+    x = const {};
 
-    const <int> {"key1": 1, "key2": 2 + 2};
-    const <String> {"1": "2", "3": "4"};
-    const <List> {"l1": const [], "l2": const [1, 2, 3]};
-    const <Map> {"" : const {}};
-    const {"int": 1, "bool" : true, "S": const S(), "list": const []};
+    x = const <int> {"key1": 1, "key2": 2 + 2};
+    x = const <String> {"1": "2", "3": "4"};
+    x = const <List> {"l1": const [], "l2": const [1, 2, 3]};
+    x = const <Map> {"" : const {}};
+    x = const {"int": 1, "bool" : true, "S": const S(), "list": const []};
   }
 
   typeVariables() {
-    <int> {"key": 1};
-    <String> {"key": "value"};
-    <bool> {"key": true};
-    <Test> {"key": new Test()};
-    <Function> {"key": (){}};
+    var x;
+    x = <int> {"key": 1};
+    x = <String> {"key": "value"};
+    x = <bool> {"key": true};
+    x = <Test> {"key": new Test()};
+    x = <Function> {"key": (){}};
   }
 
   endsWithComma() {
-    {"1": 2,};
-    const {"1": true, "2": false,};
-    <int> {"key": 1,};
+    var x;
+    x = {"1": 2,};
+    x = const {"1": true, "2": false,};
+    x = <int> {"key": 1,};
   }
 
   interpolation() {
     var x = 1;
     var y = true;
     var z = new Object();
+    var map;
 
-    <int>{"variable $x" : 1, "${x + 1}": 2};
-    <bool>{"variable $y": true, "${y && false}": false};
-    <Object>{"variable $z": new Object()};
+    map = <int>{"variable $x" : 1, "${x + 1}": 2};
+    map = <bool>{"variable $y": true, "${y && false}": false};
+    map = <Object>{"variable $z": new Object()};
   }
 
 }

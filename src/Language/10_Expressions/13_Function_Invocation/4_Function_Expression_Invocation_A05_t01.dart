@@ -21,12 +21,12 @@ f(p1, [p2]) {
 main() {
   var foo = f;
   
-  Expect.equals("3", (localf(p1) => "$p1")(3));
-  Expect.equals("3", (localf(p1) => "$p1").call(3));
+  Expect.equals("3", ((p1) => "$p1")(3));
+  Expect.equals("3", ((p1) => "$p1").call(3));
 
   Expect.equals("1null", foo(1));
   Expect.equals("1null", foo.call(1));
 
-  Expect.equals(5, localf(p1, p2) {Expect.equals(0, p1);Expect.equals(5, p2);return p1 + p2;}(0, 5));
-  Expect.equals(5, localf(p1, p2) {Expect.equals(0, p1);Expect.equals(5, p2);return p1 + p2;}.call(0, 5));
+  Expect.equals(5, (p1, p2) {Expect.equals(0, p1);Expect.equals(5, p2);return p1 + p2;}(0, 5));
+  Expect.equals(5, (p1, p2) {Expect.equals(0, p1);Expect.equals(5, p2);return p1 + p2;}.call(0, 5));
 }

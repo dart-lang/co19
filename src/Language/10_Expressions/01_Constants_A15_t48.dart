@@ -4,17 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A literal number (10.3) is a constant expression.
- * @description Checks that a function is not a constant expression.
+ * @assertion  All possible constant expressions are prescribed in assertions
+ * 01_Constants_A01 - 01_Constants_A14 and 01_Constants_A19.
+ * There are no other constant expressions.
+ * @description Checks that an instance method is not a constant expression.
  * @compile-error
  * @author kaigorodov
  * @reviewer msyabro
  */
 
-final constList = const [main]; //a constant list can contain only constant expressions
+class Bad {
+  void m() {}
+
+ test() {
+   var list = const [m]; //a constant list can contain only constant expressions
+ }
+}
+
 
 main() {
   try {
-    Expect.isTrue(constList is List);
+    Bad b=new Bad();
+    b.test();
   } catch(var x) {}
 }

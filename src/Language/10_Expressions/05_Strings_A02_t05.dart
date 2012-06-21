@@ -5,12 +5,24 @@
  */
 /**
  * @assertion stringLiteral:
- *   '@'? MULTI_LINE_STRING
- *   | SINGLE_LINE_STRING
+ *   MULTI_LINE_STRING+ |
+ *   SINGLE_LINE_STRING
  * ;
  * MULTI_LINE_STRING:
- *   '"""'  (~ '"""')* '"""'
- *   | ''''' (~ ''''')* '''''
+ *   '"""' STRING CONTENT TDQ* '"""' |
+ *   ''''' STRING CONTENT TSQ* ''''' |
+ *   '"""'  (~ '"""')* '"""' |
+ *   ''''' (~ ''''')* '''''
+ * ;
+ * STRING CONTENT TDQ:
+ *   ~( '\' | '"""' | '$') |
+ *   '\' ~( NEWLINE ) |
+ *   STRING_INTERPOLATION
+ * ;
+ * STRING CONTENT TSQ:
+ *   ~( '\' | ''''' | '$') |
+ *   '\' ~( NEWLINE ) |
+ *   STRING_INTERPOLATION
  * ;
  * @description Checks that it is a compile-time error when a raw multi-line
  * single-quotes string literal contains another triplet of single quotes.

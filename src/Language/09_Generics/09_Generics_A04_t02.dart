@@ -11,6 +11,7 @@
  * @description Checks that type parameters are in scope in the extends and implements clauses of G
  * (if G is a generic class or interface declaration).
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 class C<T, U>{}
@@ -18,9 +19,9 @@ class C<T, U>{}
 class A<N, S, U> extends C<S, U> implements I<S, U, N>
 { }
 
-interface J<A, B>{}
+interface J<U, V>{}
 
-interface I<H, C, I> extends J<C, I>
+interface I<X, Y, Z> extends J<Y, Z>
 { }
 
 

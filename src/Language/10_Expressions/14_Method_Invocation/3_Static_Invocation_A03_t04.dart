@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if C does not declare a static method or getter m.
- * @description Checks that it is a compile-time error if interface C does not declare
+ * @assertion It is a static warning if C does not declare a static method or getter m.
+ * @description Checks that it is a static warning if interface C does not declare
  * a static method or getter m.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
-interface I{
+interface I {
 }
 
 main() {

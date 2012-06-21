@@ -7,9 +7,9 @@
  * @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as follows:
  * The expression e1 is evaluated to an object o1. Then, the expression e2 is
  * evaluated to an object o2.  In checked mode, it is a dynamic type error if o2 is not null and the interface
- * induced by the class of o2 is not a subtype of the actual type of e1.v.
+ * of the class of o2 is not a subtype of the actual type of e1.v.
  * @description Checks that it is a dynamic type error if o2 is not null and the interface
- * induced by the class of o2 is not a subtype of the actual type of e1.v.
+ * of the class of o2 is not a subtype of the actual type of e1.v.
  * @dynamic-type-error
  * @author msyabro
  * @reviewer kaigorodov

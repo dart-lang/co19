@@ -8,8 +8,8 @@
  * object via an unqualified name.
  * BUILT_IN_IDENTIFIER:
  *   abstract |
+ *   as |
  *   assert |
- *   call |
  *   Dynamic |
  *   equals |
  *   factory |
@@ -36,8 +36,8 @@ main() {
   abstract;
   bool assert;
   assert;
-  var call;
-  call;
+  var as;
+  as;
   Dynamic Dynamic;
   Dynamic;
   String equals;

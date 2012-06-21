@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is possible to embed expressions within string literals, such that the these
+ * @assertion It is possible to embed expressions within non-raw string literals, such that these
  * expressions are evaluated, and the resulting values are converted into strings and concatenated
  * with the enclosing string. This process is known as string interpolation.
  * STRING_INTERPOLATION:

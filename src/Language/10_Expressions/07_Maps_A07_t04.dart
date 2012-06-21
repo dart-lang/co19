@@ -5,11 +5,11 @@
  */
 /**
  * @assertion A runtime map literal <V>{k1:e1... kn :en}  is evaluated as follows:
- *   First, the expressions e1...en are evaluated in left to right order, yielding objects o1... on.
- *   A fresh instance m that implements the built-in interface Map<String, V> is allocated.
- *   Let ui be the value of the string literal specified by ki.
- * An entry with key ui and value oi is added to m, 0 <= i < n.
- *   The result of the evaluation is m.
+ *   - First, the expressions e1...en are evaluated in left to right order, yielding objects o1... on.
+ *   - A fresh instance m that implements the built-in interface Map<String, V> is allocated.
+ *   - Let ui be the value of the string literal specified by ki.
+ *     The operator []= is invoked on m with first argument ui and second argument oi, 0 <= i < n.
+ *   - The result of the evaluation is m.
  * @description Checks that the result of a runtime map literal <V>{k1:e1... kn :en}
  * is an object that implements interface Map<String, V>.
  * @author msyabro

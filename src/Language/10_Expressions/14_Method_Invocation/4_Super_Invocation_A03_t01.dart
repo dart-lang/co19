@@ -10,8 +10,8 @@
  * the method invocation vg.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
  * @description Checks that if vg is a function, then it is called with the evaluated argument list.
  * @author msyabro
- * @needsreview Issue 1244
  * @reviewer kaigorodov
+ * @needsreview issue 1604
  */
 
 class TestException {}

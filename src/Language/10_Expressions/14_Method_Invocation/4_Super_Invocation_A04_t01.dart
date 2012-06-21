@@ -9,11 +9,11 @@
  * with arguments ‘m’,  this, [e1, …, en] and {xn+1:en+1, …, xn+k : en+k}. Then the
  * method noSuchMethod() is looked up in S and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
- * @description Checks that noSuchMethod is invoked if method and getter lookups have failed.
+ * @description Checks that noSuchMethod is invoked if there're no members, instance or static,
+ * with the required name in the invoking class's superclass.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1244
  */
 
 class TestException {}

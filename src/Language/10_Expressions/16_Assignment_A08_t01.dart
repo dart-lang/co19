@@ -8,10 +8,11 @@
  * evaluation of the expression (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
  * @description Checks that an assignment of the form e1[e2] = e3 is evaluated correctly.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {
-  var v;
+  var v, i;
 
   operator[](idx) {
     return v;
@@ -19,17 +20,25 @@ class C {
 
   operator[]=(idx, val) {
     v = val;
+    i = idx;
   }
 }
 
 main() {
   C c = new C();
-  c[0] = 1;
+  var res=(c[-10] = 1);
+  Expect.equals(1, res);
   Expect.equals(1, c.v);
-  c[true] = 2;
+  Expect.equals(-10, c.i);
+
+  Expect.equals(2, c[true] = 2);
   Expect.equals(2, c.v);
+  Expect.equals(true, c.i);
+
   c["foo"] = 1;
   Expect.equals(1, c.v);
+  Expect.equals("foo", c.i);
+
   c[-1.1] = 2 * 6;
   Expect.equals(12, c.v);
 }

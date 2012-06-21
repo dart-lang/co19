@@ -5,7 +5,8 @@
  */
 /**
  * @assertion  All possible constant expressions are prescribed in assertions
- * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
+ * 01_Constants_A01 - 01_Constants_A14 and 01_Constants_A19.
+ * There are no other constant expressions.
  * @description Checks that a string literal that involves string interpolation,
  * that evaluates to a string value, but not a constant expression,
  * cannot be assigned to a constant variable.

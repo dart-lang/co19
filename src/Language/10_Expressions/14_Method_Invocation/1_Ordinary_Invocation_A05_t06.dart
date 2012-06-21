@@ -16,6 +16,7 @@
  * @description Checks the result of invocation if the method and getter lookup has failed.
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview issue 3326
  */
 
 class A {

@@ -7,6 +7,8 @@
  * @assertion An expression e may always be enclosed in parentheses, but this never has any semantic effect on e.
  * @description Checks that any expression can be enclosed in parentheses.
  * @author msyabro
+ * @reviewer kaigorodov
+ * @needsreview issue 3400
  */
 
 class C {
@@ -102,6 +104,9 @@ class C {
     //type test
     (1 is int);
     (2 is! int);
+    
+    // type cast
+    (1 as int);
   }
 }
 

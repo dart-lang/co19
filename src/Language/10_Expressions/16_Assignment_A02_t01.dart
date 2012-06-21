@@ -5,9 +5,9 @@
  */
 /**
  * @assertion In checked mode, it is a dynamic type error if o is not null and the interface
- * induced by the class of o is not a subtype of the actual type of v.
- * @description Checks that it is a dynamic type error if the interface induced
- * by the class of o is not a subtype of the actual type of v
+ * of the class of o is not a subtype of the actual type of v.
+ * @description Checks that it is a dynamic type error if the interface of
+ * the class of o is not a subtype of the actual type of v
  * @dynamic-type-error
  * @author msyabro
  * @reviewer kaigorodov

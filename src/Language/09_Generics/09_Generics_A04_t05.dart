@@ -13,6 +13,7 @@
  * by trying to assign a value to that variable.
  * @static-warning
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
 #import("../../Utils/dynamic_check.dart");

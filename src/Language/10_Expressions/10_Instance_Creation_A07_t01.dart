@@ -8,6 +8,7 @@
  * @description Checks that different whitespace characters and line terminators are allowed
  *  in instance creation expressions.
  * @author hlodvig
+ * @reviewer kaigorodov
  */
 
 class A {

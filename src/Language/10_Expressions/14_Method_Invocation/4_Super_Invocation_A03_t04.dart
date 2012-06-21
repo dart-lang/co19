@@ -11,7 +11,7 @@
  * @description Checks that the value of the expression is the value returned after vg is executed.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1244
+ * @needsreview issue 1604
  */
 
 f1() {

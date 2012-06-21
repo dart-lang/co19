@@ -5,13 +5,12 @@
  */
 /**
  * @assertion The static type of a function literal of the form
- * id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1,... Tn+k xn+k = dk]){s} or the form
  * (T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ..., Tn+k xn+k = dk]) {s} is
  * (T1, ..., Tn, [Tn+1 xn+1, .., Tn+k xn+k]) -> Dynamic.
  * In any case where Ti ,1 <= i <= n is not specified,
  * it is considered to have been specified as Dynamic.
  * @description Checks that a static warning occurs when assigning a function literal
- * of the form id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1,... Tn+k xn+k = dk]){s}
+ * of the form (T1 a1, ..., Tn an, [Tn+1  xn+1 = d1,... Tn+k xn+k = dk]){s}
  * to a variable whose type is not a function type.
  * @static-warning
  * @author msyabro
@@ -22,5 +21,5 @@
 
 main() {
   bool b;
-  checkTypeError( () {b = id(int x, int y, [double a, double b]){var x = 0; ++x; return ++x;};});
+  checkTypeError( () {b = (int x, int y, [double a, double b]){var x = 0; ++x; return ++x;};});
 }

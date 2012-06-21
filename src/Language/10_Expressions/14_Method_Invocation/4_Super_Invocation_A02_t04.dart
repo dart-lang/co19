@@ -16,7 +16,6 @@
  * of i is the value returned after f is executed.
  * @description Checks that the argument list is evaluated before the method lookup.
  * @author msyabro
- * @needsreview Issue 1244
  * @reviewer kaigorodov
  */
 

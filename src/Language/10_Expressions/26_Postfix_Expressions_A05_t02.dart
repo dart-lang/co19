@@ -10,9 +10,10 @@
  * (a, i){var r = a[i]; a[i] = r + 1; return r}(e1 , e2 ) in implementation
  * (basically, that postfix ++ works via operator+ in the described manner).
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
-bool plusInvoked = false;
+int plusInvoked = 0;
 
 class A {
   final String value;
@@ -20,16 +21,16 @@ class A {
   A(this.value);
   
   operator +(var other) {
-    plusInvoked = true;
+    plusInvoked++;
     return new A("${value}${other}");
   }
 }
 
 main() {
   List e1 = [new A("foo")];
-  Expect.isFalse(plusInvoked);
+  Expect.equals(0, plusInvoked);
 
   Expect.equals("foo", (e1[0]++).value);
-  Expect.isTrue(plusInvoked);
+  Expect.equals(1, plusInvoked);
   Expect.equals("foo1", e1[0].value);
 }

@@ -19,7 +19,7 @@
 
 class C {
   operator equals(other) {
-    throw 'This operator should not be invoked'.
+    throw 'This operator should not be invoked.';
   }
 }
 

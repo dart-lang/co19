@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if C does not denote a class in the current scope.
- * @description Checks that it is a compile-time error if C does not denote a class in the current scope.
- * @compile-error
+ * @assertion It is a static warning if C does not denote a class in the current scope. 
+ * @description Checks that it is a static warning if C does not denote a class in the current scope.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

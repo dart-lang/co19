@@ -20,8 +20,11 @@ final constList = const [
   true !== false,
   (true != 1),
   "a" === false,
-  ((1 == 2) != ("" == "b")) === (false !== true) ,
-  (null === '')
+  ((1 == 2) != ("" == "b")) === (false !== true),
+  null === '',
+  1 === null,
+  null == null,
+  null === null
 ];
 
 main() {

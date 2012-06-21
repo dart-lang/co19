@@ -6,7 +6,7 @@
 /**
  * @assertion A function literal is an object that encapsulates an executable unit of code.
  * functionExpression:
- *   (returnType? identifier)? formalParameterList functionExpressionBody
+ *   formalParameterList functionExpressionBody
  * ;
  * functionExpressionBody:
  *   '=>' expression

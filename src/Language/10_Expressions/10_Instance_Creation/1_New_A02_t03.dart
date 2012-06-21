@@ -14,6 +14,7 @@
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
+ * @needsreview issue 3309
  */
 
 func() {}

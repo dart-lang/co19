@@ -11,7 +11,7 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @note http://code.google.com/p/dart/issues/detail?id=2492 
+ * @note http://code.google.com/p/dart/issues/detail?id=2492, issue 3307
  */
 
 main() {

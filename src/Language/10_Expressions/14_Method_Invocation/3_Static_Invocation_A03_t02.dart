@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if C does not declare a static method or getter m.
- * @description Checks that it is a compile-time error if C does not declare
- * a static method m though its superclass does.
- * @compile-error
+ * @assertion It is a static warning if C does not declare a static method or getter m.
+ * @description Checks that it is a static warning if C does not declare
+ * a static method m even though its superclass does.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 class S {
   static m() {}
 }
 
-class C extends S{}
+class C extends S {}
 
 main() {
   try {

@@ -9,8 +9,9 @@
  * @description Checks that a string with the \x sequence followed by more than 2 hexadecimal digit
  * characters is interpreted correctly.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {
-  Expect.stringEquals("\x4FFF", "OFF");
+  Expect.stringEquals("\x4F4F", "O4F");
 }

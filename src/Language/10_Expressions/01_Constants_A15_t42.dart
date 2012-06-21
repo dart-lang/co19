@@ -5,7 +5,8 @@
  */
 /**
  * @assertion  All possible constant expressions are prescribed in assertions
- * 01_Constants_A01 - 01_Constants_A14. There are no other constant expressions.
+ * 01_Constants_A01 - 01_Constants_A14 and 01_Constants_A19.
+ * There are no other constant expressions.
  * @description Checks that it is a compile-time error when an expression of the form e1 & e2
  * where e1 or e2 does not evaluate to an integer value, is used to initialize a constant variable. 
  * @compile-error

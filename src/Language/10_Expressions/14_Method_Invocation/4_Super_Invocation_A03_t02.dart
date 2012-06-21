@@ -12,7 +12,6 @@
  * and getter is declared implicitly.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1244
  */
 
 class S {

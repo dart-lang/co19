@@ -8,6 +8,7 @@
  * @description Checks that different whitespace characters and line terminators are allowed
  *  in function invocation expressions.
  * @author hlodvig
+ * @reviewer kaigorodov
  */
 
 var x;

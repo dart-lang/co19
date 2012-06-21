@@ -14,7 +14,7 @@
  * ee is equivalent to the method invocation super.equals(o2).
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1242
+ * @note issue 1242, issue 3308
  */
 
 class TestException {}

@@ -8,20 +8,18 @@
  * the type parameters of G. The type parameters of a generic class or interface
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the non-static members of G.
- * @description Checks that example of F-bounded quantification is parsed correctly.
+ * @description Checks bounds of type parameters are checked at runtime.
  * @static-warning
  * @author iefremov
- * @needsreview issue 964
+ * @reviewer kaigorodov
  */
 
 #import("../../Utils/dynamic_check.dart");
 
 class Enum<E extends Enum<E>> {}
-class Things extends Enum<Things> {}
-class SubThings extends Things {}
 
 main() {
   checkTypeError(() {
-    var x = new Enum<SubThings>(); //intentional static warning
+    var x = new Enum<int>(); //intentional static warning
   });
 }

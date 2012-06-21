@@ -15,6 +15,7 @@
  * ee is equivalent to the method invocation o1.equals(o2).
  * @author msyabro
  * @reviewer iefremov
+ * @needsreview issue 3308
  */
 
 class TestException {}

@@ -5,18 +5,30 @@
  */
 /**
  * @assertion stringLiteral:
- *   '@'? MULTI_LINE_STRING
- *   | SINGLE_LINE_STRING
+ *   MULTI_LINE_STRING+ |
+ *   SINGLE_LINE_STRING
  * ;
  * MULTI_LINE_STRING:
- *   '"""'  (~ '"""')* '"""'
- *   | ''''' (~ ''''')* '''''
+ *   '"""' STRING CONTENT TDQ* '"""' |
+ *   ''''' STRING CONTENT TSQ* ''''' |
+ *   '"""'  (~ '"""')* '"""' |
+ *   ''''' (~ ''''')* '''''
+ * ;
+ * STRING CONTENT TDQ:
+ *   ~( '\' | '"""' | '$') |
+ *   '\' ~( NEWLINE ) |
+ *   STRING_INTERPOLATION
+ * ;
+ * STRING CONTENT TSQ:
+ *   ~( '\' | ''''' | '$') |
+ *   '\' ~( NEWLINE ) |
+ *   STRING_INTERPOLATION
  * ;
  * @description Checks that various valid multi-line string literals
  * don't produce a compile-time error.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1498
+ * @needsreview Issue 1498, 2353
  */
 
 main() {

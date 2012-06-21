@@ -9,9 +9,11 @@
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the non-static members of G.
  * @description Checks that a type parameter in a static context is not in scope.
- * Using it in a type test expression results to a TypeError in checked mode.
+ * Using it in a type test expression results in a TypeError in checked mode.
  * @static-warning
  * @author iefremov
+ * @reviewer kaigorodov
+ * @needsreview issue 3282
  */
 
 #import("../../Utils/dynamic_check.dart");

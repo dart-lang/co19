@@ -10,8 +10,9 @@
  * @description Checks that a string with the \u sequence followed by more than 4 hexadecimal digit
  * characters is interpreted correctly.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {
-  Expect.stringEquals("\u004FFF", "OFF");
+  Expect.stringEquals("\u004F1F", "O1F");
 }

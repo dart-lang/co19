@@ -10,19 +10,20 @@
  * (if these exist) and in the non-static members of G.
  * @description Checks that type parameters are in scope in the non-static members of G
  * (if G is a class or interface declaration).
- * @static-warning
  * @author iefremov
+ * @reviewer kaigorodov
  */
 
-
 class A<N, S, U> {
-  final U field;
+  final List<U> field;
+  
   A(N n, S s) : field = new List<U>() {
     Expect.isTrue(n is N);
     Expect.isTrue(s is S);
   }
 
   A.empty() : field = null{}
+  
   factory A.f(S s) {
     Expect.isTrue(s is S);
     return new A.empty();
@@ -30,15 +31,16 @@ class A<N, S, U> {
 
   const A.c(U u, S s) : field = const [null];
 
-  N get getter(){
-    return 1;
+  List<U> get getter(){
+    return field;
   }
+  
   void set setter(S s){}
 }
 
-interface J<A, B>{}
+interface J<Aa, B>{}
 
-interface I<H, C, I> extends J<C, I>
+interface I<H, C, K> extends J<C, K>
 { }
 
 

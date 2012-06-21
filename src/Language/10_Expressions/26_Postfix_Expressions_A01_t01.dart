@@ -23,7 +23,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
- * @needsreview Issues 1189, 1300, 1994, 2709 and 91 @ co19
+ * @needsreview Issues 1189, 1300, 1994, 2709
  */
 
 class S {
@@ -93,9 +93,8 @@ class A  extends S {
     try {"".c--;} catch(var e) {}
 
     //mapLiteral
-    // see issues 91 @ co19 and 1994
-//    try { {"1" : 1, "2" : 2}["1"]++; } catch(var e) {}
-//    try { {"1" : 1, "2" : 2}.prop--; } catch(var e) {}
+    try { true ? {"1" : 1, "2" : 2}["1"]++ : null; } catch(var e) {}
+    try { true ? {"1" : 1, "2" : 2}.prop-- : null; } catch(var e) {}
     try { const {"1":1}.x;} catch(var e) {}
     try { const {"1":1}.x++;} catch(var e) {}
 

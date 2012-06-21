@@ -23,7 +23,7 @@ class A {
   test() {
     try {abstract();} catch (NoSuchMethodException ok) {}
     try {++assert;} catch (NoSuchMethodException ok) {}
-    try {1 + call;} catch (NoSuchMethodException ok) {}
+    try {1 + as;} catch (NoSuchMethodException ok) {}
     // skipping Dynamic as it's also a type name and thus causes a compile-time error
     try {1 << equals;} catch (NoSuchMethodException ok) {}
     try {1 * factory;} catch (NoSuchMethodException ok) {}

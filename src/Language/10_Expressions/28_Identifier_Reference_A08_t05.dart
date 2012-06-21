@@ -6,12 +6,13 @@
 /**
  * @assertion It is a static warning if a built-in identifier is used as the name of
  * a user-defined variable, function or label,
- * with the exception of user defined operators named negate or call.
+ * with the exception of user defined operator named negate.
  * @description Checks that it is a static warning if a variable
  * is named assert.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
+ * @needsreview issue 3228
  */
 
 main() {

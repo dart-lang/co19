@@ -10,7 +10,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1244, issue 3266, issue 3267
+ * @needsreview issue 3266, issue 3267
  */
 
 #import("lib.dart");

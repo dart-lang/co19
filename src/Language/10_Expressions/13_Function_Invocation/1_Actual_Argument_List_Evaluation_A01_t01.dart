@@ -76,7 +76,7 @@ main() {
   bothParameters(1 << 1, name: 2 | -2);
 
   //additive expressions
-  positionalParameters(1 + 2, 0.0 - 3, "" + "");
+  positionalParameters(1 + 2, 0.0 - 3, -0.4 - 11);
   namedParameters(name1: .5 + 8, $$$: o + -2, u__: 2 - 3);
   bothParameters(1e3 + 0.2, name: 1 - 1);
 
