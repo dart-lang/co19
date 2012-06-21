@@ -4,19 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the value of an actual argument 
- * to the prefix combinator is not a valid identifier or the empty string.
- * @description Checks that it is a compile-time error if prefix is the reserved word const.
- * @compile-error
- * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
+ * @assertion It is compile time error if an actual argument to the prefix 
+ * combinator denotes a name that is declared by the importing library.
+ * @description Checks that it is not an error when the prefix value duplicates
+ * an imported name rather than local declaration.
+ * @author rodionov
  */
 
-#import("2_Imports_lib.dart", prefix: "const");
+#import("2_Imports_A07_t05_lib1.dart");
+#import("2_Imports_A07_t05_lib2.dart", prefix: "foo");
 
 main() {
   try {
-    Expect.equals(1, const.foo);
-  } catch(var e) {}
+    foo.bar x; // foo is also a declaration in lib1
+  } catch (var ok) {}
 }

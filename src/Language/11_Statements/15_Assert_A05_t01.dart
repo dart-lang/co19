@@ -10,7 +10,6 @@
  * and possibly some optional parameters can shadow the assert statement.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 1731
  */
 
 #import("../../Utils/dynamic_check.dart");

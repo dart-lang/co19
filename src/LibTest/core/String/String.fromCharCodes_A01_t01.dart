@@ -23,4 +23,7 @@ main() {
   
   str = new String.fromCharCodes([0]);
   Expect.isTrue(str == "\u0000");
+
+  str = new String.fromCharCodes([0x61, 0, 0x62]);
+  Expect.isTrue(str == 'a\u0000b');
 }

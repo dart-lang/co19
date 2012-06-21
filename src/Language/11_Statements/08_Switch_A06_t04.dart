@@ -13,6 +13,7 @@
  * is a compile-time constant of type double.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {

@@ -12,7 +12,7 @@
  * @reviewer msyabro
  */
 
-#source("${new StringBuffer('source').toString()}.dart");
+#source("source".toString());
 
 main() {
   try {

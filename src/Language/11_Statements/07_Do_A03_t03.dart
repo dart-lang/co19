@@ -6,8 +6,9 @@
 /**
  * @assertion It is a static type warning if the type of e can not be assigned to bool.
  * @description Checks that it is a static type warning if the type of e may not be assigned to bool.
- * @author hlodvig
  * @static-warning
+ * @author hlodvig
+ * @reviewer rodionov
  */
 
 main() {
@@ -17,4 +18,3 @@ main() {
     } while ({});
   } catch (TypeError ok) {}
 }
-

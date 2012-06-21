@@ -10,13 +10,16 @@
  * sequence of the default clause is not a break, continue, return or throw statement.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview issue 2862
  */
 
 main() {
-  switch(1) {
-    case 0: false;
-            break;
-    default: true;
-  }
+  try {
+    switch(1) {
+      case 0: false;
+              break;
+      default: true;
+    }
+  } catch (var ok) {}
 }

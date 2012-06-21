@@ -4,20 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is compile time error if the value of an actual argument 
- * to the prefix combinator denotes a name that is declared by the importing library.
- * @description Checks that it is a compile-time error if prefix value duplicates
- * a local identifier.
+ * @assertion It is a compile-time error if any of the optional arguments ai, 1 <= i <= n,
+ * is not a compile-time constant. 
+ * @description Checks that it is a compile-time error if the list provided as
+ * argument to the show combinator includes a non-constant string expression. 
  * @compile-error
  * @author rodionov
+ * @needsreview issue 2508 - show combinator not implemented yet
  */
 
-#import("2_Imports_lib.dart", prefix: "prefix");
-
-class prefix {}
+#import("2_Imports_lib.dart", show: ["aFoo", "A".toString()]);
 
 main() {
   try {
-    Expect.equals(1, prefix.foo);
+    print(aFoo);
   } catch(var e) {}
 }

@@ -16,6 +16,7 @@
  * @description Checks that if a switch statement does not have any case clauses, the default
  * clause is executed.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 foo(p) {

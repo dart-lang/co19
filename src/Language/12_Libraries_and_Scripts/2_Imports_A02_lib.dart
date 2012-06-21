@@ -13,7 +13,7 @@ typedef aTypeAlias(p1, p2);
 aFunc() => 'aFunc';
 
 class A extends P.B {
-  A() { bar = "1_Imports_A02_lib.bar"; }
+  A() { bar = "2_Imports_A02_lib.bar"; }
   static final FOO = "A.FOO";
 }
 

@@ -13,8 +13,9 @@
  * defaultCase:
  * label* default ':' statements
  * ;
- * @description Checks that case clause that contains labeled statement doesn't produce any errors.
+ * @description Checks that a case clause that contains labeled statement doesn't produce any errors.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {

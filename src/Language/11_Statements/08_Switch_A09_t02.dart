@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Execution of a case clause case ek: sk of a switch statement
- * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn} proceeds as follows:
+ * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn} 
+ * proceeds as follows:
  * The expression ek == id  is evaluated  to an object o which is then subjected to
  * boolean conversion yielding a value v.
  * If v is not true, the following case,  case ek+1: sk+1 is executed if it exists.
@@ -16,6 +17,7 @@
  * the current case clause is empty or the last case clause.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview issue 2862
  */
 
@@ -52,12 +54,12 @@ main() {
  Expect.equals(3, test(3));
  Expect.equals(null, test(100));
 
- Expect.throws(() => test(2));
+ Expect.throws(() {test(2);});
 
  Expect.equals(null, testEmptyCases(5));
  Expect.equals(null, testEmptyCases(6));
  Expect.equals(2, testEmptyCases(3));
 
- Expect.throws(()=> testEmptyCases(1));
- Expect.throws(()=> testEmptyCases(2));
+ Expect.throws(() {testEmptyCases(1);});
+ Expect.throws(() {testEmptyCases(2);});
 }

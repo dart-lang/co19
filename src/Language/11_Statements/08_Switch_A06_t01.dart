@@ -13,6 +13,7 @@
  * is not a compile-time constant.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

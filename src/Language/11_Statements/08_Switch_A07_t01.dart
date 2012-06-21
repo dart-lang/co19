@@ -8,6 +8,7 @@
  * The scope of a case clause ends immediately after the case clause’s statement.
  * @description Checks that names from scopes of different case clauses don't conflict.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 foo(p) {

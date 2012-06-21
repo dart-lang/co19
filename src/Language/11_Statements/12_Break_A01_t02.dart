@@ -9,8 +9,9 @@
  * breakStatement:
  * break identifier? ';'
  * ;
- * @description Checks that a break statement can break itself.
+ * @description Checks that a break statement can reference its own label.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 

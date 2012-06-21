@@ -21,22 +21,17 @@ main() {
   RegExp re = new RegExp("\\w", false, false);
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     String ch = new String.fromCharCodes([alpha]);
-    switch(true) {
-      case alpha >= 0x0030 && alpha <= 0x0039: // the 10 digits
-      case alpha >= 0x0041 && alpha <= 0x005A: // the uppercase english
-                                                // letters
-      case alpha >= 0x0061 && alpha <= 0x007A: // the lowercase english
-                                                // letters
-      case alpha == 0x005F: // the underscore
+    if((alpha >= 0x0030 && alpha <= 0x0039) // the 10 digits
+      || (alpha >= 0x0041 && alpha <= 0x005A) // the uppercase english letters
+      || (alpha >= 0x0061 && alpha <= 0x007A) // the lowercase english letters
+      || (alpha == 0x005F)) {// the underscore
         if(null == re.firstMatch(ch)) {
           Expect.fail("\\w !~ '$ch'");
         }
-        break;
-      default:
-        if(null != re.firstMatch(ch)) {
-          Expect.fail("\\w ~ '$ch'");
-        }
-        break;
+    } else {
+      if(null != re.firstMatch(ch)) {
+        Expect.fail("\\w ~ '$ch'");
+      }
     }
   }
 }

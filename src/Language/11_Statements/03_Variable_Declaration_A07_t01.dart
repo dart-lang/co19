@@ -8,6 +8,7 @@
  * @description Checks that different whitespace characters and line terminators are allowed for
  *  variable declarations.
  * @author hlodvig
+ * @reviewer kaigorodov
  */
 
 main() {

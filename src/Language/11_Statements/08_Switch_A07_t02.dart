@@ -6,9 +6,10 @@
 /**
  * @assertion A case clause introduces a new scope, nested in the lexically surrounding scope.
  * The scope of a case clause ends immediately after the case clause’s statement.
- * @description Checks that the scope of a case close ends immediately after the case clause’s statement.
+ * @description Checks that the scope of a case clause ends immediately after the case clause’s statement.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {

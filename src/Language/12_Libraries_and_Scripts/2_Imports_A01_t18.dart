@@ -6,17 +6,23 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- * `#' `import' `(' stringLiteral (`, ' `prefix:
- * ' stringLiteral)? `) `;'
+ *   `#import' `(' stringLiteral
+ *     (`, ' `export:' (true | false))? 
+ *     (`, ' combinator)* 
+ *     (`, ' `prefix:' stringLiteral)? `)' `;'
  * ;
- * @description Checks that it is a compile-time error when there is no prefix
- * after comma in an import directive.
+ * combinator:
+ *   `show:' listLiteral |
+ *   `hide:' listLiteral
+ * ;
+ * @description Checks that it is a compile-time error when there is no prefix, export
+ * or combinator part after comma in an import directive.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-#import('1_Imports_lib.dart',);
+#import('2_Imports_lib.dart',);
 
 main() {
   try {

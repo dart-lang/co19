@@ -19,10 +19,10 @@ main() {
   L: while(true) {
     for(;;) {
       do {
-        switch(true) {
-          case false:
+        switch(1) {
+          case 0:
             break;
-          case true:
+          case 1:
             break L;
         }
         Expect.fail("This code shouldn't be executed");

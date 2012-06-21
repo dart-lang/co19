@@ -15,11 +15,11 @@
  
 main() {
   try {
-    switch(false) {
-      case true:
+    switch(2) {
+      case 1:
         print("great!");
         break;
-      case false:
+      case 2:
         print("not so great!");
       default:
         print("just awesome!");

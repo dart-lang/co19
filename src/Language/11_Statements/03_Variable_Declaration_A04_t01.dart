@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iff the variable declaration is prefixed with the const  modifier, the variable is marked as constant.
+ * @assertion Iff the variable declaration is prefixed with the const  modifier, 
+ * the variable is marked as constant.
  * @description Checks that if the variable declaration is prefixed with the
  * const modifier, then variable must be initialized to a constant expression.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {

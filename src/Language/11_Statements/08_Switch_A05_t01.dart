@@ -13,6 +13,7 @@
  * of a switch statement without a default case have different types.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 

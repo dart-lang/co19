@@ -4,16 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the optional argument a (prefix value) is not
- * a compile-time constant, or if a involves string interpolation.
- * @description Checks that it is a compile-time error if URI is not a compile-time constant. 
+ * @assertion It is a compile-time error if an actual argument to the prefix combinator
+ * is not a compile-time constant string that denotes either a valid identifier or the empty string.
+ * @description Checks that it is a compile-time error if the value of prefix begins 
+ * with a space character.
  * @compile-error
  * @author vasya
  * @reviewer msyabro
- * @needsreview issue 1774
  */
 
-#import("${2 - 1}_Imports_lib.dart");
+#import("2_Imports_lib.dart", prefix: " foo");
 
 main() {
   try {

@@ -9,6 +9,7 @@
  * @description Checks that it is a compile-time error if value of the URI s involves string interpolation.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 #source("${'source'}.dart");

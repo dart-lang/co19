@@ -4,19 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the optional argument a (prefix value) is not
- * a compile-time constant, or if a involves string interpolation.
- * @description Checks that it is a compile-time error if the prefix involves string interpolation.
+ * @assertion It is a compile-time error if an actual argument to the prefix combinator
+ * is not a compile-time constant string that denotes either a valid identifier or the empty string.
+ * @description Checks that it is a compile-time error if the value of prefix 
+ * contains a dot character.
  * @compile-error
  * @author vasya
  * @reviewer msyabro
  */
 
-#import("2_Imports_lib.dart", prefix: "x${new A()}");
-
-class A {
-  toString() => 'prefix';
-}
+#import("2_Imports_lib.dart", prefix: "foo.Prefix");
 
 main() {
   try {

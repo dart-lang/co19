@@ -19,8 +19,7 @@
 main() {
   var log = "";
   do
-    log += "statement";
-  while (bool (){log="${log} expression"; return false;}());
-  Expect.equals("statement expression", log);
+    log.concat("ping");
+  while (bool (){log = "${log} pong"; print(log);return false;}());
+  Expect.equals("ping pong", log);
 }
-

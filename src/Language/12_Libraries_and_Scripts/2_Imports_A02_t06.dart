@@ -12,43 +12,51 @@
  * The current library is the library currently being compiled. The import modifies 
  * the import namespace of the current library in a manner that is determined
  * by the imported library and by the optional arguments provided in the import.
- * Imports assume a global namespace of libraries (at least per isolate). They also
- * assume the library is in control, rather than the other way around.
  * 
- * Compiling an import directive of the form #import(s1, c: a); proceeds as follows:
- * - If the contents of the URI that is value of s1 have not yet been compiled
- * in the current isolate then they are compiled to yield a library B. 
- * It is compile-time error if s1 does not denote a URI that contains the source
- * code for a Dart library.
- * - Otherwise, the contents of the URI denoted by s1 have been compiled into
- * a library B within the current library.
+ * Compiling an import directive of the form #import(s1, export: b, 
+ * c1: a1 ... cn: an, prefix: s); proceeds as follows:
+ *   - If the contents of the URI that is the value of s1 have not yet been compiled
+ *     in the current isolate then they are compiled to yield a library B.
+ *   - Otherwise, the contents of the URI denoted by s1 have been compiled into
+ *     a library B within the current isolate.
  * 
- * Then, let NS be the the mapping of names to declarations defined by
- * c(a, NS1) where NS1 is the public namespace of B, and c is one of the following 
- * namespace combinators:
- * - prefix(s, n) takes a string s and a namespace n
- *   - If s is the empty string, the result is n.
- *   - Otherwise, the result is a namespace that has, for each entry mapping
- *   key k to declaration d in n, an entry mapping s.k to d.
- * - show(l, n) takes a list of strings l and a namespace n, and produces a
- * namespace that maps each string k in l to the same element that n does,
- * and is undefined otherwise.
+ * Then, let ImportNamespace be the the mapping of names to declarations
+ * defined by cn(...(c1(ExportedB, a1) where ExportedB is the exported namespace
+ * of B, and ci,  1 <= i <= n is one of the following namespace combinators:
+ *   - show(l, n) takes a list of strings l and a namespace n, and produces a
+ *     namespace that maps each string k in l to the same element that n does,
+ *     and is undefined otherwise.
+ *   - hide(l, n) takes a list of strings l and a namespace n, and produces a
+ *     namespace that is identical to n except that it is undefined for each string
+ *     k in l.
+ * If b is true, then for each entry mapping key k to declaration d in ImportNamespace
+ * an entry mapping k to d is added to the exported namespace of L unless a top-level 
+ * declaration with the name k exists in L. We say that L re-exports library B, 
+ * and also that L re-exports namespace ImportNamespace. When no confusion can arise, 
+ * we may simply state that L re-exports B, or that L re-exports ImportNamespace.
  * 
- * Then, a mapping from each name in NS to the corresponding value in NS
- * is added to the import namespace of the current library.
- * @description Checks that a library may be imported several times with different prefixes.
- * @author vasya
- * @reviewer hlodvig
+ * The prefix combinator, prefix(s, n), takes a string s and a namespace n.
+ * If s is the empty string, the result is n. Otherwise, the result is a namespace
+ * that has, for each entry mapping key k to declaration d in n, an entry mapping
+ * s.k to d.
+ * 
+ * Then, for each entry mapping key k to declaration d in prefix(s, ImportNamespace),
+ * d is made available in the top level scope of L unless either:
+ *   - a declaration with the name k exists in L, OR
+ *   - a prefix combinator with initial argument k is used in L.
+ *   
+ * We say that the namespace prefix(s, ImportNamespace) has been imported
+ * into L. An import directive that has no export: argument specified is assumed
+ * to have the argument export: false. An import directive that has no prefix:
+ * argument is assumed to have the argument prefix: "".
+ * @description Checks that generics can be imported.
+ * @author kaigorodov
+ * @reviewer iefremov
  */
 
-#import("2_Imports_lib.dart");
-#import("2_Imports_lib.dart", prefix: "A");
-#import("2_Imports_lib.dart", prefix: "B");
-#import("2_Imports_lib.dart", prefix: "C");
+#import("2_Imports_A02_lib.dart", prefix: "P");
 
 main() {
-  Expect.equals(1, foo);
-  Expect.equals(1, A.foo);
-  Expect.equals(1, B.foo);
-  Expect.equals(1, C.foo);
+  P.SubList<int> sl= new P.SubList<int>();
+  sl.add(11);  
 }

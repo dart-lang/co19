@@ -10,9 +10,10 @@
  * is not a compile-time constant.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
-#resource('${'favicon.ico'.toString()}');
+#resource('favicon.ico'.toString());
 
 main() {
   try {

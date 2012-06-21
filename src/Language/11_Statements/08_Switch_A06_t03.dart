@@ -12,6 +12,7 @@
  * @description Checks that it is a compile-time error if a case expression is null
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {

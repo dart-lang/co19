@@ -7,13 +7,13 @@
  * @assertion It is a compile-time error if a typedef refers to itself via a chain of references
  * that does not include a class or interface type.
  * @description Checks using a name introduced by a typedef declaration can be used inside
- * this declaration as a name of a type argument or as a name of a formal parameters without
+ * this declaration as a name of a type argument or as a name of a formal parameter without
  * errors or warnings.
  * @author iefremov
- * @needsreview
+ * @reviewer rodionov
  */
 
-typedef f<f>(f, [f]);
+typedef f<f>(f);
 
 main() {
 }

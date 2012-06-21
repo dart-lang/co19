@@ -10,11 +10,12 @@
  * DIGIT: '0' .. '9' ;
  * WHITESPACE: ('\t' | ' ' | NEWLINE)+ ;
  * @description Checks that Unicode whitespaces other than WHITESPACE are not permitted in the source code.
- * Checks symbol \u000b.
+ * Checks symbol U+000b.
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
-   //(\u000b)
+   // U+000b
 }

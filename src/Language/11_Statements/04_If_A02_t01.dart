@@ -9,7 +9,6 @@
  * In checked mode, it is a dynamic type error if o is not of type bool.
  * @description Checks that it is a dynamic type error if the expression
  * does not evaluate to a value of type bool in checked mode.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

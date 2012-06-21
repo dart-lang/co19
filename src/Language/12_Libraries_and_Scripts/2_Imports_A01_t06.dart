@@ -6,8 +6,14 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- * `#' `import' `(' stringLiteral (`, ' `prefix:
- * ' stringLiteral)? `) `;'
+ *   `#import' `(' stringLiteral
+ *     (`, ' `export:' (true | false))? 
+ *     (`, ' combinator)* 
+ *     (`, ' `prefix:' stringLiteral)? `)' `;'
+ * ;
+ * combinator:
+ *   `show:' listLiteral |
+ *   `hide:' listLiteral
  * ;
  * @description Checks that it is a compile-time error when the import directive
  * is missing parentheses entirely.
@@ -16,7 +22,7 @@
  * @reviewer rodionov
  */
 
-#import "1_Imports_lib.dart", prefix: "P";
+#import "2_Imports_lib.dart", prefix: "P";
 
 main() {
   try {

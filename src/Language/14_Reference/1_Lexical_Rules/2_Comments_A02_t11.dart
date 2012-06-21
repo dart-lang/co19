@@ -10,8 +10,9 @@
  * MULTI LINE COMMENT:
  * '/''*' (MULTI LINE COMMENT | ~ '*''/')* '*''/'
  * ;
- * @description Checks that unicode symbols, including non-CRLF line breaks are perfectly ignored within comments.
+ * @description Checks that unicode symbols, including non-CRLF line breaks are completely ignored within comments.
  * @author iefremov
+ * @reviewer rodionov
  */
 
 main() {
@@ -27,9 +28,9 @@ main() {
   */
 
   //below are various unicode line breaks:
-  //-> <-(\u2029)-> <-(\u2028)-><-(\u0085)-><(\u000b)-><-(\u000c)
+  //-> <-(U+2029)-> <-(U+2028)-><-(U+0085)-><(U+000b)-><-(U+000c)
 
   /*below are various unicode line breaks:
-  -> <-(\u2029)-> <-(\u2028)-><-(\u0085)-><(\u000b)-><-(\u000c)
+  -> <-(U+2029)-> <-(U+2028)-><-(U+0085)-><(U+000b)-><-(U+000c)
   */
 }

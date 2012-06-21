@@ -6,8 +6,8 @@
 /**
  * @assertion It is a compile-time error if the compilation unit found at the
  * specified URI is not a library declaration.
- * @description Checks that it is a compile-time error if an import tag's URI does not denote
- * an existing file.
+ * @description Checks that it is a compile-time error if the URI in an import directive
+ * does not denote an existing file.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov

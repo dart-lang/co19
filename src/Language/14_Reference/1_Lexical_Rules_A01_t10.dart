@@ -9,6 +9,7 @@
  * @description Checks that various whitespaces are represented
  * as a sequence of Unicode code points.
  * @author iefremov
+ * @needsreview sync with a correct list of whitespace unicode characters
  */
 
 main() {

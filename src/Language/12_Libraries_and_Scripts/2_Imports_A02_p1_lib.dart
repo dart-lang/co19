@@ -11,8 +11,8 @@ final bFoo = "B_FOO";
 class B {
   B () {}
   B.spec () {}
-  foo() { return "1_Imports_A02_p1_lib.foo()"; }
-  var bar = "1_Imports_A02_p1_lib.bar";
+  foo() { return "2_Imports_A02_p1_lib.foo()"; }
+  var bar = "2_Imports_A02_p1_lib.bar";
   //static final FOO = "B.FOO";
   get value() { return _value; }
   set value(val) { _value = val; }

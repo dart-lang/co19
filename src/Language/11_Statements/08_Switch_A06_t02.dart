@@ -13,6 +13,7 @@
  * is a compile-time constant of type bool.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 main() {

@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression statement consists of an expression.
+ * @assertion An expression statement consists of an expression other than a map literal.
  * expressionStatement:
- * expression? ';' |
+ *   expression? ';' |
  * ; 
  * Execution of an expression statement e; proceeds by evaluating e.
+ * It is a compile-time error if a map literal appears in a place where a statement is expected.
  * @description Checks that an empty expression statement consisting of just a semicolon is perfectly valid.
  * @author rodionov
  * @reviewer iefremov

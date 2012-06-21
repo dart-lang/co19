@@ -32,7 +32,7 @@ typedef t1_3 t2_2(t1_4 f1, t1_1 f2);
 typedef K bound(J j, complexFunction_t1 f1, [num i, complexFunction_t2 f2]);
 typedef C param1(K j, t1_1 f1, [int i, t2_1 f2]);
 typedef K param2(C j, t1_4 f1, [double i, t2_2 f2]);
-typedef I param3(J j, t1_2 f2, [double i, t2_2 f2]);
+typedef I param3(J j, t1_2 f1, [double i, t2_2 f2]);
 typedef param4(var x, var y, [var i, var f2]);
 typedef J param5(I j, t1_1 f1, [Object i, t2_1 f2]);
 

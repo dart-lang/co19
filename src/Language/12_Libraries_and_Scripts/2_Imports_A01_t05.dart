@@ -6,18 +6,24 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- * `#' `import' `(' stringLiteral (`, ' `prefix:
- * ' stringLiteral)? `) `;'
+ *   `#import' `(' stringLiteral
+ *     (`, ' `export:' (true | false))? 
+ *     (`, ' combinator)* 
+ *     (`, ' `prefix:' stringLiteral)? `)' `;'
  * ;
- * @description Checks that it is a compile-time error if the URI is an arbitrary sequence
- * of symbols.
+ * combinator:
+ *   `show:' listLiteral |
+ *   `hide:' listLiteral
+ * ;
+ * @description Checks that it is a compile-time error if the first and only element
+ * in the parentheses is an arbitrary sequence of symbols.
  * @compile-error
  * @author vasya
  * @reviewer hlodvig
  * @reviewer msyabro
  */
 
-#import(1_Imports_lib.dart);
+#import(2_Imports_lib.dart);
 
 main() {
   try {

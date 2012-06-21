@@ -31,8 +31,8 @@ typedef dynamicFunc(var x, var y, var z, var v);
 typedef funcFunc(interfacesFunc f1, genericsFunc f2, dynamicFunc f3);
 typedef mixFunc(var x, B b, G<A, B, C, D> g, funcFunc);
 
-typedef okWithInterfacesFunc_1(A a, A1 b, A1 d, A1 d);
-typedef okWithInterfacesFunc_2(D a, D b, D d, D d);
+typedef okWithInterfacesFunc_1(A a, A1 b, A1 c, A1 d);
+typedef okWithInterfacesFunc_2(D a, D b, D c, D d);
 
 typedef okWithGenericsFunc_1(Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g);
 typedef okWithGenericsFunc_2(Map<int, int> m, List<List<D>> l, G<D, D, D, D> g);

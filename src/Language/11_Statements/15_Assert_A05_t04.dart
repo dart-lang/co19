@@ -7,10 +7,9 @@
  * @assertion If a lexically visible declaration named assert is in scope, an assert statement
  * assert(e); is interpreted as an expression statement (assert(e));.
  * @description Checks that a function declaration named assert with fewer or more than 1 required
- * parameter still shadows the assert statement, even when the latter is used with a single argument.
+ * parameter still shadows the assert statement, even when the latter is used with no arguments.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 1731
  */
 
 #import("../../Utils/dynamic_check.dart");
@@ -24,18 +23,7 @@ main() {
       assert();
       Expect.isTrue(flag);
     }
-    
-    {
-      void assert() {}
-
-      bool flag = false;
-      try {
-        assert("it works!");
-      } catch (ClosureArgumentMismatchException ok) {
-        flag = true;
-      }
-      Expect.isTrue(flag);
-    }
+   
     print("ok!");
   }
 }

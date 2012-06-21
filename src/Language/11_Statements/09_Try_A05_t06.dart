@@ -32,7 +32,7 @@
  * exception handler afterwards.
  * @author rodionov
  * @reviewer iefremov
- * @note issue 1382
+ * @note issue 430
  */
 
 void main() {

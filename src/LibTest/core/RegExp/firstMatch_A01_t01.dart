@@ -34,7 +34,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List gro
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   Expect.equals(str, fm.str);
-  Expect.equals(re, fm.regexp);
+  Expect.equals(pattern, fm.pattern);
   if(null != groupData) {
     Expect.equals(groupData.length, fm.groupCount() + 3);
     Expect.equals(groupData[0], fm.start());

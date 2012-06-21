@@ -10,6 +10,7 @@
  * type annotation has the same name as a type alias).
  * @compile-error
  * @author iefremov
+ * @reviewer rodionov
  */
 
 typedef f([f x]);

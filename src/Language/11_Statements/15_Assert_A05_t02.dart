@@ -10,7 +10,6 @@
  * invoke itself recursively using the same syntax as assert statement.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 1731, issue 3268
  */
 
 #import("../../Utils/dynamic_check.dart");

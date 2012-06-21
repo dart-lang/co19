@@ -17,6 +17,7 @@
  * an instance of the same type as the constants of case clauses.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview issue 3269
  */
 

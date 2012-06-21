@@ -13,7 +13,6 @@
  * @reviewer rodionov
  * @reviewer iefremov
  * @reviewer msyabro
- * @needsreview issue 3269
  */
 
 

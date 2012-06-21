@@ -8,7 +8,7 @@
  * The expression e is evaluated yielding a value v. If v evaluates to null, then a
  * NullPointerException is thrown. Otherwise, control is transferred
  * to the nearest dynamically enclosing exception handler (11.9), with the current
- * exception set to v and the current stack trace set to the series of activations
+ * exception set to v and the current stack trace set to represent the series of activations
  * that led to execution of the current function.
  * @description Checks that attempting to throw null in any manner results in 
  * NullPointerException being thrown instead.

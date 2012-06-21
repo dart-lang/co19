@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the value of an actual argument 
- * to the prefix combinator is not a valid identifier or the empty string.
- * @description Checks that it is a compile-time error if prefix is the reserved word 'return'.
+ * @assertion It is compile time error if an actual argument to the prefix 
+ * combinator denotes a name that is declared by the importing library.
+ * @description Checks that it is a compile-time error if prefix value duplicates
+ * a function type alias name.
  * @compile-error
- * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
+ * @author rodionov
  */
 
-#import("2_Imports_lib.dart", prefix: "return");
+#import("2_Imports_lib.dart", prefix: "prefix");
+
+typedef prefix(int);
 
 main() {
   try {
-    Expect.equals(1, return.foo);
-  } catch(var e) {}
+    prefix x;
+  } catch (var ok) {}
 }

@@ -36,15 +36,15 @@ main() {
   Expect.isTrue(flag);
   
   flag = false;
-  switch(true) {
-    L: case false:
+  switch(1) {
+    L: case 0:
       Expect.fail("This code shouldn't be executed");
       break;
       
     default:
       L: do {
-        switch(true) {
-          L: case false:
+        switch(1) {
+          L: case 0:
             flag = true;
             break;
             

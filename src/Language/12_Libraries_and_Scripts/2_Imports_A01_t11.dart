@@ -6,8 +6,14 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- * `#' `import' `(' stringLiteral (`, ' `prefix:
- * ' stringLiteral)? `) `;'
+ *   `#import' `(' stringLiteral
+ *     (`, ' `export:' (true | false))? 
+ *     (`, ' combinator)* 
+ *     (`, ' `prefix:' stringLiteral)? `)' `;'
+ * ;
+ * combinator:
+ *   `show:' listLiteral |
+ *   `hide:' listLiteral
  * ;
  * @description Checks that it is a compile-time error if the prefix of an import
  * directive is not a string literal.

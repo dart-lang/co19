@@ -18,6 +18,7 @@
  * the current clause is an empty case clause or the default clause.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview issue 2862
  */
 
@@ -56,13 +57,13 @@ main() {
   Expect.equals(4, test(100));
   Expect.equals(4, test(null));
 
-  Expect.throws(() => test(2));
-  Expect.throws(() => test(3));
+  Expect.throws(() {test(2);});
+  Expect.throws(() {test(3);});
 
   Expect.equals(null, testEmptyCases(5));
   Expect.equals(null, testEmptyCases(6));
   Expect.equals(2, testEmptyCases(3));
 
-  Expect.throws(()=> testEmptyCases(1));
-  Expect.throws(()=> testEmptyCases(2));
+  Expect.throws(() {testEmptyCases(1);});
+  Expect.throws(() {testEmptyCases(2);});
 }

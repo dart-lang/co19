@@ -16,7 +16,6 @@
  * evaluates to either true or () => true.
  * @author rodionov
  * @reviewer iefremov
- * @note Issue 1584
  */
 
 #import("../../Utils/dynamic_check.dart");

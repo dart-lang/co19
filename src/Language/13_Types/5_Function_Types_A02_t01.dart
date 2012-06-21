@@ -4,24 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If an interface type I includes the special operator call, and the type of call
+ * @assertion If an interface type I includes a method named call, and the type of call
  * is the function type F, then I is considered to be a subtype of F.
- * @description Checks that interfaces with operator call of type F are subtypes of F.
+ * @description Checks that interfaces with method named call of type F are subtypes of F.
  * @author msyabro
- * @needsreview Issue 1604
+ * @needsreview Issue 1604, issue 1355
  */
 
 typedef void f(p1, p2);
 typedef int g(p1, p2, [p3]);
 
 interface I {
-  operator call(p1, p2);
+  void call(p1, p2);
 }
 
 class IImpl implements I {}
 
 class C {
-  int operator call(p1, p2, [p3]) {}
+  int call(p1, p2, [p3]) {}
 }
 
 main() {

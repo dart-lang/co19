@@ -10,7 +10,6 @@
  * parameter still shadows the assert statement, even when the latter is used with a single argument.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 1731, issue 3268
  */
 
 #import("../../Utils/dynamic_check.dart");

@@ -10,6 +10,7 @@
  * involves string interpolation.
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 #library('lib${'rary'}');

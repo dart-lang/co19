@@ -4,18 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the value of an actual argument 
- * to the prefix combinator is not a valid identifier or the empty string.
- * @description Checks that it is not an error if the value of prefix is an empty string.
- * @author rodionov
- * @reviewer msyabro
- * @note issue 1774
+ * @assertion It is compile time error if an actual argument to the prefix 
+ * combinator denotes a name that is declared by the importing library.
+ * @description Checks that it is a compile-time error if prefix value duplicates
+ * a type variable name.
+ * @compile-error
+ * @author iefremov
+ * @reviewer kaigorodov
+ * @needsreview issues 3340, 3481
  */
 
-#import("2_Imports_lib.dart", prefix: "");
+#import("2_Imports_lib.dart", prefix: "prefix");
+
+class C<prefix> {
+  prefix p;
+  C(prefix this.p) {
+    Expect.equals(1, p);
+  }
+}
 
 main() {
   try {
-    Expect.equals(1, foo);
-  } catch(var e) {}
+    new C<int>(1);
+  } catch (var ok) {}
 }

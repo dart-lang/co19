@@ -10,13 +10,16 @@
  * sequence of a case clause is not a break, continue, return or throw statement.
  * @static-warning
  * @author msyabro
+ * @reviewer rodionov
  * @needsreview issue 2862
  */
 
 main() {
-  switch(1) {
-    case 0: false;
-    case 1: true;
-            break;
-  }
+  try {
+    switch(1) {
+      case 0: false;
+      case 1: true;
+              break;
+    }
+  } catch (var ok) {}
 }

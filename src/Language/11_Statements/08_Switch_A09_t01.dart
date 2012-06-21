@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Execution of a case clause case ek: sk of a switch statement
- * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn} proceeds as follows:
+ * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn} 
+ * proceeds as follows:
  * The expression ek == id  is evaluated  to an object o which is then subjected to
  * boolean conversion yielding a value v.
  * If v is not true, the following case,  case ek+1: sk+1 is executed if it exists.
