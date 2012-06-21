@@ -34,12 +34,6 @@ main() {
     Expect.isTrue(null is MalformedType);
   });
   checkTypeError( () {
-    Expect.isTrue(null is C<int>);
-  });
-  checkTypeError( () {
-    Expect.isTrue(null is C<int, int, int, int>);
-  });
-  checkTypeError( () {
     Expect.isTrue(null is C <int, double, MalformedType>);
   });
   checkTypeError( () {
@@ -49,12 +43,12 @@ main() {
     Expect.isTrue(null is BoundedInt<num>);
   });
   checkTypeError( () {
-    Expect.isTrue(null is C<C<int, int>, C, C>);
+    Expect.isTrue(null is C<C<int, int, bool>, C, C>);
   });
   checkTypeError( () {
     Expect.isTrue(null is C<Bounded<String>, C, C>);
   });
   checkTypeError( () {
-    Expect.isTrue(null is C<C<MalformedType>, C, C>);
+    Expect.isTrue(null is C<C<MalformedType, int, int>, C, C>);
   });
 }
