@@ -19,8 +19,10 @@
  *   variableDeclaration ';'
  * ;
  * @description Checks that valid interface declarations don't produce a compile-time error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 interface A default ClassA {
@@ -31,7 +33,7 @@ interface A default ClassA {
   set something(something);
 }
 
-interface B extends A default ClassB{
+interface B extends A default ClassB {
   B(a, b, [c = 0]);
   B.C();
 
@@ -62,18 +64,21 @@ class ClassA implements A {
 }
 
 class ClassB implements B {
+  // for the record, these do not correspond to B's constructors - see Ch. 8.4
   factory B(a, b, [c = 0]) {}
   factory B.c() {}
-  ClassB(a, b, c) {}
+  
+  // these do correspond to B's constructors
+  ClassB(a, b, [c]) {}
   ClassB.C() {}
 }
 
-class Class implements C, E {
-  Class() {}
+class ClassC implements C, E {
+  ClassC() {}
 }
 
 main() {
   new A();
   new B(1, 2, 3);
-  new Class();
+  new ClassC();
 }
