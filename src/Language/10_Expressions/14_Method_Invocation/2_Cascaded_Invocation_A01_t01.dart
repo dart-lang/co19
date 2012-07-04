@@ -28,7 +28,6 @@ class C {
   operator negate() {}
   operator[](index) {}
   operator[]=(index, value) {}
-  operator call(p1, p2, p3) {}
 
   get x() {}
   get y() {}
@@ -62,21 +61,13 @@ main() {
   o..x = 1..y = 2;
   o..x = 1..x = 'string'..x = [1, 2, 3];
 
-  //operators
-//  o..+ 1..+ 2..+ 3;
-//  o..negate()..-; //Can one invoke negate as an unary minus here?
-//  o..(null, null, null)..call(1, 2, 3);
-  o..(null, null, null);
-
   o..[1]..[2];
   o..[1] = 1..[2] = 2;
-//  o.. + 1 .. [2] .. [3] = 3 .. negate() .. ([], {}, []);
 
   //static fields
   o..statMethod();
   o..statVar;
   o..statMethod()..statVar..statMethod();
 
-  o.. m1() .. + 2 .. [1] .. y = x .. statVar .. x .. m2(1, 2);
-
+  o.. m1() .. [1] .. y = o .. statVar .. x .. m2(1, 2);
 }
