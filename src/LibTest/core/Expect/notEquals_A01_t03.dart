@@ -43,9 +43,6 @@ main() {
   Expect.notEquals(b, a);
   check(b.checked === a);
 
-  Expect.notEquals(b, null);
-  check(b.checked === null);
-
   a = new C();
   Expect.notEquals(b, a);
   check(b.checked === a);

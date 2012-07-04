@@ -47,13 +47,6 @@ main() {
   Expect.equals(b, a);
   check(b.checked === a);
 
-  try {
-    Expect.equals(b, null);
-    check(false);
-  } catch (ExpectException ee) {
-    check(b.checked === null);
-  }
-
   Expect.equals(new A(), new C());
 
   try {
