@@ -10,6 +10,7 @@
  * @description Checks that the returned future has the correct value if
  * a list contains only one element.
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {

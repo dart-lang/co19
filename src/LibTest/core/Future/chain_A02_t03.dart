@@ -12,7 +12,6 @@
  * with an exception the returned future is completed with that exception.
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue #1917 
  */
 
 main() {

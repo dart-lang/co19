@@ -10,6 +10,7 @@
  * @description Checks that the returned future is completed if all futures from a list
  * are completed before calling [wait].
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {

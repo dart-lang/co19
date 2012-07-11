@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future wait(List futures)
- * Returns a future which will complete once all the futures in a list are complete.
- * (The value of the returned future will be a list of all the values that were produced.)
- * @description Checks that the returned future is completed when all futures in the list
- * are completed with exception.
- * @author msyabro
- * @needsreview behaviour is not specified, issue 1930
+ * @assertion If any of the futures in the list completes with an exception,
+ * the resulting future also completes with an exception
+ * @description Checks that the returned future is completed when a single future in the list
+ * is completed with exception.
+ * @author iefremov
  */
 
 main() {
@@ -29,20 +27,18 @@ main() {
   var f = Futures.wait([future1, future2, future3, future4, future5]);
 
   bool visited = false;
-  f.then((value) {
+  f.handleException((value) {
     Expect.isTrue(future1.isComplete);
-    Expect.isTrue(future2.isComplete);
-    Expect.isTrue(future3.isComplete);
-    Expect.isTrue(future4.isComplete);
-    Expect.isTrue(future5.isComplete);
     visited = true;
   });
 
   completer1.completeException(1);
-  completer2.completeException(2);
-  completer3.completeException(3);
-  completer4.completeException(4);
-  completer5.completeException(5);
+  completer2.complete(2);
+  completer3.complete(3);
+  completer4.complete(4);
+  completer5.complete(5);
 
-  Expect.isTrue(visited);
+  Expect.isTrue(visited, "Exception handler was not called!");
+  Expect.isTrue(f.isComplete, "The future should be completed!");
+  Expect.isTrue(f.exception != null, "The future should complete with an exception!");
 }

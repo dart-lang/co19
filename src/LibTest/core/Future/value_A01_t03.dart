@@ -19,11 +19,7 @@ checkException(ex) {
 
   completer.completeException(ex);
 
-  try {
-    f.value;
-    Expect.fail('Exception was not thrown');
-  } catch(var e) {
-  }
+  Expect.throws(() => f.value);
 }
 
 main() {

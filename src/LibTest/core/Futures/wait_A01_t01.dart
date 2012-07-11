@@ -10,6 +10,7 @@
  * @description Checks that the returned future is completed when all futures in the list
  * are completed.
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {
@@ -44,4 +45,5 @@ main() {
   completer5.complete(5);
 
   Expect.isTrue(visited);
+  Expect.listEquals([1,2,3,4,5], f.value);
 }

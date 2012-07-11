@@ -18,9 +18,5 @@ main() {
   Completer completer = new Completer();
   Future f = completer.future;
 
-  try {
-    f.value;
-    Expect.fail('Exception was not thrown');
-  } catch(var e) {
-  }
+  Expect.throws(() => f.value);
 }

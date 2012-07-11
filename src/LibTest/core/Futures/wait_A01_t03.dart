@@ -10,6 +10,7 @@
  * @description Checks that the value of the returned future is a list of all
  * the values that were produced.
  * @author msyabro
+ * @reviewer iefremov
  */
 
 main() {

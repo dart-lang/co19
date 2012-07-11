@@ -21,12 +21,7 @@ check(Function func) {
 
   f.chain(func);
 
-  try {
-    completer.complete(0);
-    Expect.fail('Exception was not thrown');
-  } catch(var e) {
-    print(e);	
-  }
+  Expect.throws(() => completer.complete(0));
 }
 
 main() {
