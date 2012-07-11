@@ -9,13 +9,18 @@
  * @description Checks that it is a dynamic type error if an unavailable type
  * is used in a type cast.
  * @static-warning
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
+ * @needsreview issue 9024
  */
 
-#import("../../utils/dynamic_check.dart");
+#import("../../Utils/dynamic_check.dart");
 
 main() {
+  if(!isCheckedMode()) {
+    return;
+  }
+
   checkTypeError(() {
     1 as NonExistent;
   });

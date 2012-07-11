@@ -10,13 +10,13 @@
  * a NullPointerException is thrown. In all other cases, a CastException is thrown.
  * @description Checks that the type cast operator works as specified when the
  * type of v is a subtype of T.
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 interface I {}
 class C implements I {
-  const C(this.x);
+  C(this.x);
   int x;
 }
 
@@ -25,5 +25,6 @@ main() {
   Expect.equals(0, 0 as num);
   Expect.equals("foo", "foo" as String);
   Expect.equals("bar", "bar" as Pattern);
-  Expect.equals(const C(1), const C(1) as I);
+  var c = new C(1);
+  Expect.identical(c, c as I);
 }

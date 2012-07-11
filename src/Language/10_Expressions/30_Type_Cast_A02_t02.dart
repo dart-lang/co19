@@ -10,8 +10,8 @@
  * a NullPointerException is thrown. In all other cases, a CastException is thrown.
  * @description Checks that the type cast operator throws a NullPointerException when
  * the first argument evaluates to null.
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 n() => null;
@@ -27,7 +27,7 @@ main() {
   } catch (NullPointerException ok) {}
 
   try {
-    n() as C;
+    null as C;
     Expect.fail("NullPointerException expected");
   } catch (NullPointerException ok) {}
 

@@ -5,12 +5,14 @@
  */
 /**
  * @assertion The static type of a cast expression e as T is the static type of e.
- * @description Checks that the static type of a cast expression e as T is 
+ * @description Checks that the static type of a cast expression e as T is
  * the static type of e.
- * @author rodionov 
- * @reviewer iefremov
+ * @author iefremov
+ * @static-warning
  */
 
 main() {
-  int x = 1 as num;
+  try {
+    double x = (true as Object);
+  } catch(var ok){}
 }

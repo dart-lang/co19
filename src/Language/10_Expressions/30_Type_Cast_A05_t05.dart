@@ -8,11 +8,12 @@
  * is used in a type cast as specified in 13.2.
  * @description Checks that it is a dynamic type error if a malformed type
  * is used in a type cast.
+ * @static-warning
  * @author rodionov 
- * @needsreview issue 3400
+ * @reviewer iefremov
  */
 
-#import("../../utils/dynamic_check.dart");
+#import("../../Utils/dynamic_check.dart");
 
 class G<S extends String, N extends num> {}
 

@@ -14,12 +14,12 @@
  * @description Checks that it is a compile-time error when the second argument of 
  * a type cast operator is a shift expression rather than a type.
  * @compile-error
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 main() {
   try {
     1 as 1 << 2;
-  } catch (var ok) {}
+  } catch (var x) {}
 }

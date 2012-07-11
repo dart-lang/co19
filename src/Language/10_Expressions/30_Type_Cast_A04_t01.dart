@@ -10,7 +10,7 @@
  * of the form G < T1, ..., Tn > and G is not a generic type with n type parameters.
  * @compile-error
  * @author rodionov 
- * @needsreview issue 3400
+ * @reviewer iefremov
  */
 
 main() {

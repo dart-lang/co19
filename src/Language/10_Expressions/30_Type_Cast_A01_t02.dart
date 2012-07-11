@@ -14,12 +14,12 @@
  * @description Checks that it is a compile-time error when the type cast operator
  * is missing the first argument.
  * @compile-error
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 main() {
   try {
     as int;
-  } catch (var ok) {}
+  } catch (var x) {}
 }

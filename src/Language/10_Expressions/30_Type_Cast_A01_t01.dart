@@ -14,8 +14,8 @@
  * @description Checks that there're no errors or warnings when the type cast
  * operator is used correctly (testing simple types as well as generics and function
  * types).
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 interface I {}
@@ -24,8 +24,8 @@ class C implements I {}
 class G<Q, R> {}
 class GG<S, T> extends G<S, T> {}
 
-typedef int func(num, Pattern);
-num f(double, Pattern) {return double.NAN;}
+typedef int func(num n, Pattern p);
+num f(double d, Pattern p) {return double.NAN;}
 
 main() {
   1 as int;
@@ -37,4 +37,6 @@ main() {
   new GG<int, bool>() as G<int, bool>;
   ((int x, String y) => "$x$y") as func; 
   f as func;
+  f as Function;
+  f as Object;
 }

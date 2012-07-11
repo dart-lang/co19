@@ -14,8 +14,8 @@
  * @description Checks that it is a compile-time error when the first argument of 
  * a type cast operator is a type.
  * @compile-error
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 main() {

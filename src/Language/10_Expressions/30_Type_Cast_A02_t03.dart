@@ -10,17 +10,17 @@
  * a NullPointerException is thrown. In all other cases, a CastException is thrown.
  * @description Checks that the type cast operator throws a CastException when v is not null
  * and the type of v is not a subtype of T.
- * @author rodionov 
- * @needsreview issue 3400
+ * @author rodionov
+ * @reviewer iefremov
  */
 
 interface I {}
 class C implements I {
-  const C(this.x);
+  C(this.x);
   int x;
 }
 interface G<S, T> {}
-typedef bool func(int);
+typedef bool func(int i);
 
 main() {
   try {
@@ -44,7 +44,7 @@ main() {
   } catch (CastException ok) {}
 
   try {
-    const C(1) as G<int, bool>;
+    new C(1) as G<int, bool>;
     Expect.fail("CastException expected");
   } catch (CastException ok) {}
 
