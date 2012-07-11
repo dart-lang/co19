@@ -19,6 +19,7 @@
  * in the wrong order.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart", show: ["foo"], export: false, hide: [], prefix: "prfx");

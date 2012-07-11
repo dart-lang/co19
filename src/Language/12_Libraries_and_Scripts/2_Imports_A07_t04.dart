@@ -10,6 +10,7 @@
  * a function type alias name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart", prefix: "prefix");

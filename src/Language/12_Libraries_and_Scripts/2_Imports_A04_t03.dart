@@ -10,6 +10,7 @@
  * by an import directive does not contain a library declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_A04_t03_lib.dart");

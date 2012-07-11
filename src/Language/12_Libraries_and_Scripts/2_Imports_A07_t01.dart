@@ -10,6 +10,7 @@
  * a local identifier.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart", prefix: "prefix");

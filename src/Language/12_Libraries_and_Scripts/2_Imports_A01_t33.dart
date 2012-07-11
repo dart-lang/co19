@@ -15,10 +15,11 @@
  *   `show:' listLiteral |
  *   `hide:' listLiteral
  * ;
- * @description Checks that it is a compile-time error if the parts of an import directive are specified
- * in the wrong order.
+ * @description Checks that it is a compile-time error if stringLiteral
+ * denoting library URL is missing.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import(show: ["foo"], hide: []);

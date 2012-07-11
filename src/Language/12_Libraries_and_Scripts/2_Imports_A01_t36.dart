@@ -19,6 +19,7 @@
  * by semicolons instead of commas.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart"; export: false; hide: []; show: ["foo"]; prefix: "prfx");

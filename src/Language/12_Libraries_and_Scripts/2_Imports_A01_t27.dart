@@ -19,6 +19,7 @@
  * of an import directive has a number literal as a value.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart", export: 1);

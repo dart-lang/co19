@@ -19,6 +19,7 @@
  * is a map literal instead of list.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart", show: {"foo": "bar"}, prefix: "prfx");

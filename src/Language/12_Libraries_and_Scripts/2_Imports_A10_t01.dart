@@ -9,6 +9,7 @@
  * two other libraries that have the same library name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import("2_Imports_A10_t01_lib1.dart");

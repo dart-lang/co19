@@ -19,6 +19,7 @@
  * the export keyword and its value in an import directive is missing.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 #import("2_Imports_lib.dart", export false);

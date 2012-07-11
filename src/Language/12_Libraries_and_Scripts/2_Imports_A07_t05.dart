@@ -9,6 +9,7 @@
  * @description Checks that it is not an error when the prefix value duplicates
  * an imported name rather than local declaration.
  * @author rodionov
+ * @needsreview issues 3340, 3481
  */
 
 #import("2_Imports_A07_t05_lib1.dart");
