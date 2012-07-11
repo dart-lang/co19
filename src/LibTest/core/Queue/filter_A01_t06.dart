@@ -22,14 +22,14 @@ main() {
     return true;
   });
   Expect.isTrue(list.isEmpty());
-  //Expect.isTrue(res.length == 2);//????
+  Expect.isTrue(res.length == 2);
   
   for(int i = 0; i < 100; i++) {
     list.addLast(i);
   }
   
   list.filter(bool func(var element) {
-    list.removeFirst();//NullPointerException. Does filter iterate over a copy of the list?
+    list.removeFirst();
     return true;
   });
   Expect.isTrue(list.isEmpty());

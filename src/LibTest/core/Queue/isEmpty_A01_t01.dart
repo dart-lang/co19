@@ -18,11 +18,14 @@ main() {
   
   list.addLast(1);
   Expect.isFalse(list.isEmpty());
+  Expect.isFalse(list.isEmpty());
+  Expect.isFalse(list.isEmpty());
   
   list.addFirst(1);
   Expect.isFalse(list.isEmpty());
   
   list.removeFirst();
   list.removeFirst();
+  Expect.isTrue(list.isEmpty());
   Expect.isTrue(list.isEmpty());
 }

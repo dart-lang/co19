@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if every elements of the collection satisify the
+ * @assertion Returns true if every elements of the collection satisfy the
  * predicate [f]. Returns false otherwise.
  * @description Tries to pass non-function object as argument [f]
  * @static-warning

@@ -21,4 +21,11 @@ main() {
   Expect.isFalse(list.isEmpty());
   list.clear();
   Expect.isTrue(list.isEmpty());
+  list.clear();
+  Expect.isTrue(list.isEmpty());
+  for(int i = 0; i < 1000; i++) {
+    list.add(i);
+  }
+  list.clear();
+  Expect.isTrue(list.isEmpty());
 }

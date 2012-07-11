@@ -16,9 +16,8 @@
 main() {
   Queue list = new Queue();
   
-  int x;
+  int x = 1;
   list.filter(null);
-  list.filter(x);
 
   list.addLast(1);
   
@@ -27,8 +26,5 @@ main() {
     Expect.fail("ObjectNotClosureException is expected");
   } catch(ObjectNotClosureException e) {}
   
-  try {
-    list.filter(x);
-    Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  Expect.throws(() => list.filter(x));
 }

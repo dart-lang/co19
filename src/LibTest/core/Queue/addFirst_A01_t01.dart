@@ -22,4 +22,11 @@ main() {
   
   queue.addFirst(queue);
   Expect.isTrue(queue.first() === queue);
+
+  queue = new Queue();
+  for (var i = 0; i <= 1000; i++) {
+    queue.addFirst(i);
+    Expect.equals(i, queue.first());
+    Expect.equals(i+1, queue.length);
+  }
 }

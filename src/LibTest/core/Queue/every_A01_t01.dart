@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if every elements of the collection satisify the
+ * @assertion Returns true if every elements of the collection satisfy the
  * predicate [f]. Returns false otherwise.
  * @description Checks that the method iterates over each element of the list
  * @author msyabro
