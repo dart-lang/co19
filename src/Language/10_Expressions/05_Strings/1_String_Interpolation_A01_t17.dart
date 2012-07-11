@@ -11,16 +11,37 @@
  *   '$' IDENTIFIER_NO_DOLLAR
  *   | '$' '{' Expression '}'
  * ;
- * @description Checks that it is a compile-time error when an interpolation construct is split
- * between two adjacent string literals.
- * @compile-error
- * @author msyabro
- * @reviewer iefremov
+ * @description Checks that it is not a compile-time error when an interpolation construct
+ * in a multi-line string is an expression that is broken up by newlines where whitespace characters
+ * are allowed and that such expression is evaluated correctly.
+ * @author rodionov
  */
 
 main() {
-  var x = "dollar";
-  try {
-    '$' 'x';
-  } catch(var e) {}
+  String s1 = """${2
+  		*
+  		
+  		2
+    }""";
+		
+  Expect.equals("4", s1);
+
+  String s2 = '''${3
+    *
+    
+    4
+  }''';
+  Expect.equals("12", s2);
+  
+  String s3 = """${
+    "foo"
+    'bar'
+  }""";
+  Expect.equals("foobar", s3);
+
+  String s4 = '''${
+    'bar'
+    "foo"
+  }''';
+  Expect.equals("barfoo", s4);
 }

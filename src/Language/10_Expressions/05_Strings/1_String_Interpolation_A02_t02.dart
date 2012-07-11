@@ -8,10 +8,10 @@
  * @description Checks that the result of using either form of string interpolation
  * construct is the same for both $id and ${id}, when id is a function name.
  * @author kaigorodov
- * @needsreview issue 3390
+ * @reviewer rodionov
  */
 
-void id(){}
+void id() {}
 
 main() {
   Expect.stringEquals('${id}', '$id');

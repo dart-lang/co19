@@ -18,7 +18,6 @@
  * @compile-error 
  * @author msyabro
  * @reviewer rodionov
- * @note http://code.google.com/p/dart/issues/detail?id=1225
  */
 
 class C<T> {

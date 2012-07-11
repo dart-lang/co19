@@ -16,6 +16,7 @@
  * visible identifiers.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {

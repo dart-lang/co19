@@ -11,12 +11,15 @@
  *   '$' IDENTIFIER_NO_DOLLAR
  *   | '$' '{' Expression '}'
  * ;
- * @description Checks that it is no compile-time error if the identifier in a string
- * interpolation construct is a method name.
+ * @description Checks that it is not a compile-time error if the string
+ * interpolation expression is a top-level method name (not invocation).
  * @author kaigorodov
+ * @reviewer rodionov
+ * @note issue 3994
  */
 
 foo() {}
+
 
 main() {
   "${foo}";

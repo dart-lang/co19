@@ -12,7 +12,7 @@
  *   | '$' '{' Expression '}'
  * ;
  * @description Checks that it is a compile-time error if the identifier in a string
- * interpolation construct is the name of a class rather than a variable.
+ * interpolation construct is the name of a class rather than a variable (see Ch. 10.28 Identifier Reference).
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
