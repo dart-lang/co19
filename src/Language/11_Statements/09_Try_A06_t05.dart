@@ -10,6 +10,7 @@
  * with the second argument of a catch clause and it's not Object or Dynamic.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {}
@@ -19,11 +20,7 @@ main() {
   try {
     try {
       throw new A();
-    } catch(B ex) {
-      Expect.fail("This clause shouldn't be executed");
-    } catch(String ex, int trace) {
-      Expect.fail("This clause shouldn't be executed");
-    } catch(int ex) {
+    } catch(A ex, int trace) {
       Expect.fail("This clause shouldn't be executed");
     }
   } catch(A ok) {}

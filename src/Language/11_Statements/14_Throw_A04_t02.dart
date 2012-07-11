@@ -8,6 +8,7 @@
  * within a catch clause.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {

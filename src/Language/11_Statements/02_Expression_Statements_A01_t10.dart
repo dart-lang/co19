@@ -13,7 +13,8 @@
  * @description Checks that it is a compile-time error when a map literal is used as a statement.
  * @compile-error
  * @author rodionov
- * @needsreview issue 3777
+ * @note see issue 3777: map literals with explicit type arguments will be allowed in the spec v0.11
+ * @reviewer kaigorodov
  */
 
 main() {

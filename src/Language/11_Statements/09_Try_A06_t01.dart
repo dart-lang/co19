@@ -10,6 +10,7 @@
  * with the second argument of a catch clause is either Object or Dynamic or there's no
  * type annotation at all.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {}

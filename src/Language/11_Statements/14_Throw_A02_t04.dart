@@ -13,6 +13,7 @@
  * @description Checks that attempting to throw null in any manner results in 
  * NullPointerException being thrown instead.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 n() {

@@ -15,6 +15,7 @@
  * @description Checks that a statement can be marked with multiple labels (see the grammar in ch.11).
  * @author iefremov
  * @needsreview issue 2238
+ * @reviewer kaigorodov
  */
 
 main() {

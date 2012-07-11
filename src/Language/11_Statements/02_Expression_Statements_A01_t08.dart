@@ -10,10 +10,11 @@
  * ; 
  * Execution of an expression statement e; proceeds by evaluating e.
  * It is a compile-time error if a map literal appears in a place where a statement is expected.
- * @description Checks that it is a compile-time error when a map literal is used as a statement.
- * @compile-error
+ * @description Checks that it is not a compile-time error when a map literal with explicit type arguments
+ * is used as a statement.
  * @author rodionov
- * @needsreview issue 3777
+ * @note see issue 3777: map literals with explicit type arguments will be allowed in the spec v0.11
+ * @reviewer kaigorodov
  */
 
 main() {

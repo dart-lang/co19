@@ -13,6 +13,7 @@
  * @description Checks that it is a compile-time error when a map literal is used as a statement.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {

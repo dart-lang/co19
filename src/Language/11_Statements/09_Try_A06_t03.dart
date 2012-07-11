@@ -10,6 +10,7 @@
  * with the second argument of a catch clause and it's not Object or Dynamic.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {}
