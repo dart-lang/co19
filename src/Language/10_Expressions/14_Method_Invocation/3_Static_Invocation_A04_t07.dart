@@ -20,6 +20,7 @@
  * a static method or getter with the required name.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S {

@@ -17,6 +17,7 @@
  * after the body of f is executed.
  * @description Checks that the function returned by a getter m is invoked.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

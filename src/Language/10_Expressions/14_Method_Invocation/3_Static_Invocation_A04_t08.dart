@@ -18,6 +18,7 @@
  * @description Checks that when m is a getter, then invocation of the form C.m() is equivalent
  * to the expression C.m.call(...).
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class Foo {

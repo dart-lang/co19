@@ -7,24 +7,30 @@
  * @assertion It is a compile-time error if a super method invocation occurs in a top-level
  * function or variable initializer, in class Object, in a factory constructor, in an instance 
  * variable initializer, a constructor initializer or in a static method or variable initializer.
- * @description Checks that it is a compile-time error if
- * a super method invocation occurs in a constructor initializer.
+ * @description Checks that it is a compile-time error if a super method invocation occurs 
+ * in a factory constructor.
  * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
+ * @reviewer rodionov
  */
 
-class S {
-  f() {}
+interface I default C {
+  I.foo();
 }
 
-class A extends S {
-  A(): super(), super.f();
-  var x;
+class A {
+   C make() {
+     return new C();
+   }
+}
+
+class C extends A {
+  C() {}
+  factory I.foo() {return super.make();}
 }
 
 main() {
   try {
-    new A();
-  } catch(var e) {}
+    new I.foo();
+  } catch(var x){}
 }

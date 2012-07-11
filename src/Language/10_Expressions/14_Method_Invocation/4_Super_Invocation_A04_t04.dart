@@ -13,6 +13,7 @@
  * in the invoking class's superclass.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  * @needsreview Issue 1244
  */
 

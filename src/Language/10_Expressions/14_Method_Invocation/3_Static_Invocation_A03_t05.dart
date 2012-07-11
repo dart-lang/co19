@@ -9,6 +9,7 @@
  * with the name m instead of declaring a static one.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S {

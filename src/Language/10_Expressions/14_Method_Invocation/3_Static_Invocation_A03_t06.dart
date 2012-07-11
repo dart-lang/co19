@@ -9,6 +9,7 @@
  * instead of a static method.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

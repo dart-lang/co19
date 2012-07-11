@@ -13,6 +13,7 @@
  * in the invoking class's superclass.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class TestException {}
@@ -29,7 +30,7 @@ class A extends S {
   test() {
     try {
       super.sm();
-      Expect.fail("Exception is expected");
+      Expect.fail("TestException is expected");
     } catch(TestException e) {}
   }
 }
