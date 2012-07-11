@@ -13,6 +13,7 @@
  * @description Trivially checks that the function scopes are indeed nested 
  * in the described manner.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 final foo = 1;

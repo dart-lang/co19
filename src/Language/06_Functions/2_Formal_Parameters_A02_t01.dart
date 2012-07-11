@@ -14,6 +14,7 @@
  * declared and not the one where it's invoked.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 f() {

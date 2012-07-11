@@ -7,14 +7,15 @@
  * @assertion If F implements I, and F is generic, then then the factory clause of I must
  * include a list of type parameters that is identical to the type parameters given
  * in the type declaration of F, or a compile-time error occurs.
- * @description Checks that a compile-time error occurs if the the factory clause of
- * an the type declaration of the factory class do not have the same number of type parameters.
+ * @description Checks that a compile-time error occurs if the the factory clause of the interface
+ * and the type declaration of its factory class do not have the same number of type parameters.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
-class F<Q> {
-  factory I(Q q, Q r) {}
+class F<S> {
+  factory I(S q, S r) {}
 }
 
 interface I<S, T> default F<S, T> {
@@ -26,4 +27,3 @@ main() {
     new I<int, String>(null, null);
   } catch(var e) {}
 }
-

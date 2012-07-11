@@ -13,6 +13,7 @@
  * @author rodionov
  * @note Only makes sense when dartc is used - uncomment the commented out lines
  * and see if it fails in VM mode.
+ * reviewer kaigorodov
  */
 
 interface I1 {

@@ -24,7 +24,7 @@
  * ;
  * @description Checks that it is a compile-time error when a constant constructor is declared abstract.
  * @compile-error
- * @needsreview issue 3284
+ * @needsreview issue 3987
  * @author rodionov
  * @reviewer kaigorodov
  */

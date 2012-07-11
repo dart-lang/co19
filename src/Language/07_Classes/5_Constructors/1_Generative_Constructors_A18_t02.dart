@@ -15,6 +15,7 @@
  * @compile-error
  * @author iefremov
  * @needsreview Not sure how to verify the type of the constructor function.
+ * @reviewer kaigorodov
  */
 
 class C {

@@ -13,6 +13,7 @@
  * uses a (named) constructor name that doesn't exist in the corresponding interface.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 interface S default C {}

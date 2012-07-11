@@ -6,9 +6,10 @@
 /**
  * @assertion It is a compile-time error if this appears in a top-level function or variable initializer,
  * in a factory constructor, or in a static method or variable initializer.
- * @description Checks that it is a compile-error if this appears in a top-level variable initializer.
+ * @description Checks that it is a compile-error if 'this' appears in a top-level variable initializer.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 var x = this.a;

@@ -15,6 +15,7 @@
  * in a multi-line string is an expression that is broken up by newlines where whitespace characters
  * are allowed and that such expression is evaluated correctly.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {

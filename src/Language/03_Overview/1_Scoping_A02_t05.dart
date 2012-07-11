@@ -9,11 +9,11 @@
  * scope of S. 
  * It is a static warning if a declaration hides a name in a lexically enclosing
  * scope, unless such hiding is explicitly permitted by this specification.
- * @description Checks that that a static warning is produced if a type variable hides a class name.
+ * @description Checks that that a static warning is produced if a type variable hides 
+ * a class name and there's no compile-time error if that class name is used in a static context.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
- * @needsreview review again once issue 2629 is resolved
  */
 
 class C {}

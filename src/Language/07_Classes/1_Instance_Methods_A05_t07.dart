@@ -10,6 +10,7 @@
  * method with the same name as a static field in its superclass.
  * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {
@@ -23,4 +24,3 @@ class C extends A {
 main() {
   (new C()).f(1, "");
 }
-

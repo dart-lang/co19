@@ -23,11 +23,13 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov
- * @needsreview see TODOs in the code.
  */
 
+#import("06_Functions_A01_t03_lib.dart", prefix: "prfx");
 class A {
   const A();
+  
+  static final a = 1;
 }
 
 class B {
@@ -73,8 +75,14 @@ main() {
   f_map() => {"1" : 1, "2": 2};
 
   //Function expressions
-  f_func() => num func(int z) {return z + 1;}; //TODO: recheck. No need for semicolon? (only for vm)
-  g_func() => func() => 1; //TODO: recheck. Isn't semicolon a part of the body according to this assertion? Then there must be two of them.
+  f_func() => num func(int z) {return z + 1;};
+  // spec does not require a semicolon at the end of the block 
+  // that is a function body in a function declaration statement
+  f_func2() => num func(int z) {return z + 1;}
+  
+  // only one semicolon is fine here because the nested function expression
+  // is not a statement and is parsed using a different grammar production (10.8) 
+  g_func() => func() => 1;
 
   //Instance creation
   f_instance() => new B();
@@ -82,6 +90,7 @@ main() {
 
   //Property extraction
   f_property() => b.p;
+  g_property() => b.method;
 
   //Function invocation
   f_fInvocation() => f_property();
@@ -139,7 +148,8 @@ main() {
 
   //Identifier reference
   f_identifier() => x;
-  g_identifier() => b; //TODO: add qualified identifier
+  g_identifier() => b;
+  h_identifier() => prfx.foo;
 
   //Type test
   f_type() => x is String;

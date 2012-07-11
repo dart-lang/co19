@@ -9,6 +9,7 @@
  * @description Checks that there is no static warning when the static type of ef
  * is Dynamic or bottom.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 var foo;
@@ -28,23 +29,8 @@ class A {
 
 main() {
   foo = 1;
-  try {
-    foo(null, 1, 2);
-    Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
-
-  try {
-    nullvar(null, 1, 2);
-    Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
-
-  try {
-    (new A()).getter(null, 1, 2);
-    Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
-
-  try {
-    (new A()).field("foo", "bar");
-    Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  Expect.throws(() => foo(null, 1, 2));
+  Expect.throws(() => nullvar(null, 1, 2));
+  Expect.throws(() => (new A()).getter(null, 1, 2));
+  Expect.throws(() => (new A()).field("foo", "bar"));
 }

@@ -6,9 +6,10 @@
 /**
  * @assertion If an interface type I includes a method named call, and the type of call
  * is the function type F, then I is considered to be a subtype of F.
- * @description Checks that interfaces with method named call of type F are subtypes of F.
+ * @description Checks that a method named call and having a function type F makes the
+ * interface that declares it a subtype of F.
  * @author msyabro
- * @needsreview Issue 1604, issue 1355
+ * @needsreview Issue 1604, 1355
  */
 
 typedef void f(p1, p2);
@@ -25,8 +26,8 @@ class C {
 }
 
 main() {
-  I i = new IImpl();
-  C c = new C();
-  Expect.isTrue(i is f);
-  Expect.isTrue(c is g);
+  Expect.isTrue(new IImpl() is f);
+  Expect.isFalse(new IImpl() is g);
+  Expect.isTrue(new C() is g);
+  Expect.isFalse(new C() is f);
 }

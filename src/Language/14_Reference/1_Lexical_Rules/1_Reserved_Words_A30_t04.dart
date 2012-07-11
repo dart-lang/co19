@@ -11,6 +11,7 @@
  *  check NO-BREAK SPACE (U+00A0)
  * @author hlodvig
  * @compile-error
+ * @reviewer kaigorodov
  */
 
 main() {

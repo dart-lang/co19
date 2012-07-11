@@ -12,6 +12,7 @@
  *              subtype of the type of m2 (incompatible optional parameter types).
  * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 interface I {

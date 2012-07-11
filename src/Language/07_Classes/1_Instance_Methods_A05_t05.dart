@@ -7,8 +7,7 @@
  * @assertion It is a static warning if a class C declares an instance method
  * named n and a static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an instance
- * method with the same name as a static variable in its superclass even if it's not a direct
- * superclass.
+ * method with the same name as a static method in its superclass even if it's not a direct one.
  * @static-warning
  * @author iefremov
  * @reviewer pagolubev
@@ -30,4 +29,3 @@ class C extends A3 {
 main() {
   (new C()).f();
 }
-
