@@ -19,6 +19,6 @@ main() {
 
 void check(int s) {
   Date date = new Date(2011, 1, 1, 0, 0, s, 0);
-  Expect.isTrue(date.seconds is int);
-  Expect.equals(s, date.seconds);
+  Expect.isTrue(date.second is int);
+  Expect.equals(s, date.second);
 }

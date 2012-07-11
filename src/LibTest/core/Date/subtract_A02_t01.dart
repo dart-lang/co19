@@ -14,10 +14,10 @@ void check(Date dt, y, m, d, h, min, s, ms){
   Expect.equals(y, dt.year);
   Expect.equals(m, dt.month);
   Expect.equals(d, dt.day);
-  Expect.equals(h, dt.hours);
-  Expect.equals(min, dt.minutes);
-  Expect.equals(s, dt.seconds);
-  Expect.equals(ms, dt.milliseconds);
+  Expect.equals(h, dt.hour);
+  Expect.equals(min, dt.minute);
+  Expect.equals(s, dt.second);
+  Expect.equals(ms, dt.millisecond);
 }
 
 main() {

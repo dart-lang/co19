@@ -6,11 +6,11 @@
 /**
  * @assertion Constructs a new Date instance with current date time value
  * in the local time zone.
- * @description Checks that the Date instance is created.
- * @author hlodvig
- * @reviewer msyabro
+ * @description Checks that the constructed date uses the local time zone.
+ * @author iefremov
  */
 
 main(){
-  Expect.isTrue(new Date.now() is Date);
+  Date d = new Date.now();
+  Expect.identical(d, d.toLocal());
 }

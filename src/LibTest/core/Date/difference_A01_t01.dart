@@ -12,9 +12,9 @@
 
 main() {
   Expect.isTrue(new Date.now().difference(new Date.now()) is Duration);
-  Expect.isTrue(new Date.fromEpoch(0, new TimeZone.local()).difference(new Date.fromEpoch(1000, new TimeZone.local())) is Duration);
-  Expect.isTrue(new Date.fromEpoch(0, new TimeZone.local()).difference(new Date.fromEpoch(-1000, new TimeZone.local())) is Duration);
-  Expect.isTrue(new Date.fromEpoch(1000, new TimeZone.local()).difference(new Date.fromEpoch(0, new TimeZone.local())) is Duration);
-  Expect.isTrue(new Date.fromEpoch(1000, new TimeZone.local()).difference(new Date.fromEpoch(0, new TimeZone.local())) is Duration);
-  Expect.isTrue(new Date.fromEpoch(0, new TimeZone.utc()).difference(new Date.fromEpoch(1000, new TimeZone.local())) is Duration);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0).difference(new Date.fromMillisecondsSinceEpoch(1000)) is Duration);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0).difference(new Date.fromMillisecondsSinceEpoch(-1000)) is Duration);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(1000).difference(new Date.fromMillisecondsSinceEpoch(0)) is Duration);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(1000).difference(new Date.fromMillisecondsSinceEpoch(0)) is Duration);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0).difference(new Date.fromMillisecondsSinceEpoch(1000)) is Duration);
 }

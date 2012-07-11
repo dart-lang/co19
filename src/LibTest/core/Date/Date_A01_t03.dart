@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Date(int year, int month, int day, int hours, int minutes, int
- *            seconds, int milliseconds) constructs a [Date] instance based
- *            on the individual parts
+ * @assertion Constructs a Date instance based on the individual parts.
+ * The date is in the local time zone if isUtc is false.
  * @description Checks that creating Date with incorrect parameters results in IllegalArgumentException
  * @author msyabro
  * @reviewer pagolubev

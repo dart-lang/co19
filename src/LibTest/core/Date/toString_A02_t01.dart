@@ -13,10 +13,7 @@
 
 main() {
   Expect.equals("0001-01-01 00:00:00.000", new Date(1, 1, 1, 0, 0, 0, 0).toString());
-  Expect.equals("0001-01-01 00:00:00.000Z", new Date.withTimeZone(1, 1, 1, 0, 0, 0, 0, new TimeZone.utc()).toString());
   Expect.equals("2001-01-01 00:00:00.000", new Date(2001, 1, 1, 0, 0, 0, 0).toString());
   Expect.equals("2001-12-31 23:59:59.999", new Date(2001, 12, 31, 23, 59, 59, 999).toString());
-  Expect.equals("2001-01-01 00:00:00.000Z", new Date.withTimeZone(2001, 1, 1, 0, 0, 0, 0, new TimeZone.utc()).toString());
-  Expect.equals("2001-12-31 23:59:59.999Z", new Date.withTimeZone(2001, 12, 31, 23, 59, 59, 999, new TimeZone.utc()).toString());
   Expect.equals("999999-01-01 00:00:00.000", new Date(999999, 1, 1, 0, 0, 0, 0).toString());
 }

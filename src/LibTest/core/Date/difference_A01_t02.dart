@@ -10,13 +10,13 @@
  * @reviewer msyabro
  */
 void check(val1, val2, expected){
-  Date dt1 = new Date.fromEpoch(val1, new TimeZone.local());
-  Date dt2 = new Date.fromEpoch(val2, new TimeZone.local());
+  Date dt1 = new Date.fromMillisecondsSinceEpoch(val1);
+  Date dt2 = new Date.fromMillisecondsSinceEpoch(val2);
   Expect.equals(new Duration(milliseconds: expected), dt1.difference(dt2));
   Expect.equals(new Duration(milliseconds: -expected), dt2.difference(dt1));
 
-  dt1 = new Date.fromEpoch(val1, new TimeZone.utc());
-  dt2 = new Date.fromEpoch(val2, new TimeZone.utc());
+  dt1 = new Date.fromMillisecondsSinceEpoch(val1);
+  dt2 = new Date.fromMillisecondsSinceEpoch(val2);
   Expect.equals(new Duration(milliseconds: expected), dt1.difference(dt2));
   Expect.equals(new Duration(milliseconds: -expected), dt2.difference(dt1));
 }

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Constructs a new [Date] instance with current date time value.
+ * @assertion Constructs a new Date instance with current date time value
+ * in the local time zone.
  * @description Checks that the dates constructed by [:Date.now():] increase all the time.
  * @author msyabro
  * @reviewer pagolubev

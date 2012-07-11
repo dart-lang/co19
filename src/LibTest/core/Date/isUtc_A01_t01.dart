@@ -11,6 +11,6 @@
  */
 
 main() {
-  Expect.isFalse(new Date.fromEpoch(1, new TimeZone.local()).isUtc());
-  Expect.isTrue(new Date.fromEpoch(1, new TimeZone.utc()).isUtc());
+  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(1, false).isUtc());
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(1, true).isUtc());
 }

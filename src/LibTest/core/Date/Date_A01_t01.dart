@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Date(int year, int month, int day, int hours, int minutes, int
- *            seconds, int milliseconds) constructs a [Date] instance based
- *            on the individual parts
+ * @assertion Constructs a Date instance based on the individual parts.
+ * The date is in the local time zone if isUtc is false.
  * @description Checks the Date constructor with various correct parameters
  * @author hlodvig
  * @reviewer iefremov
@@ -18,14 +17,14 @@
 
 check(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds) {
   Date date = new Date(year, month, day, hours, minutes, seconds, milliseconds);
-  String msg = 'actual date is ${date.year}-${date.month}-${date.day} ${date.hours}:${date.minutes}:${date.seconds}:${date.milliseconds}';
+  String msg = 'actual date is ${date.year}-${date.month}-${date.day} ${date.hour}:${date.minute}:${date.second}:${date.millisecond}';
   Expect.equals(year, date.year, msg);
   Expect.equals(month, date.month, msg);
   Expect.equals(day, date.day, msg);
-  Expect.equals(hours, date.hours, msg);
-  Expect.equals(minutes, date.minutes, msg);
-  Expect.equals(seconds, date.seconds, msg);
-  Expect.equals(milliseconds, date.milliseconds, msg);
+  Expect.equals(hours, date.hour, msg);
+  Expect.equals(minutes, date.minute, msg);
+  Expect.equals(seconds, date.second, msg);
+  Expect.equals(milliseconds, date.millisecond, msg);
   Expect.isTrue(date is Date);
 }
 

@@ -17,10 +17,10 @@ check(String str, int year, int month, int day, int hours, int minutes, int seco
   Expect.equals(year, d.year);
   Expect.equals(month, d.month);
   Expect.equals(day, d.day);
-  Expect.equals(hours, d.hours);
-  Expect.equals(minutes, d.minutes);
-  Expect.equals(seconds, d.seconds);
-  Expect.equals(milliseconds, d.milliseconds);
+  Expect.equals(hours, d.hour);
+  Expect.equals(minutes, d.minute);
+  Expect.equals(seconds, d.second);
+  Expect.equals(milliseconds, d.millisecond);
 }
 
 main() {
