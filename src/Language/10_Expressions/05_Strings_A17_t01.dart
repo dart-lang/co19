@@ -11,7 +11,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
-var i=print("cucu");
+
 class C implements String {}
 
 main() {

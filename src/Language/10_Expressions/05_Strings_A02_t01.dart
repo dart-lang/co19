@@ -28,7 +28,7 @@
  * don't produce a compile-time error.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1498, 2353
+ * @needsreview Issues 2353, 4009
  */
 
 main() {
@@ -48,18 +48,12 @@ main() {
   ''';
   ''' '' ''';
   """ "" """;
-  @'''\''';
-  @"""\""";
-  @"""$""";
-  @'''$''';
-
-  //issue 1498. TODO: write negative tests when the grammar is fixed.
-  //"""$""";
-  //"""\""";
-  //""""""";
-  //''''''';
-  //'''\''';
-  //'''$''';
+  
+//issue 4009, there're negative tests for these literals
+//  @'''\''';
+//  @"""\""";
+//  @"""$""";
+//  @'''$''';
 
   '''
   ''';

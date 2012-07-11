@@ -9,6 +9,7 @@
  * @description Checks that the value of a concatenated string literal is correct.
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview issue 1867 - assertion doesn't mention multi-line string literals
  */
 
 
