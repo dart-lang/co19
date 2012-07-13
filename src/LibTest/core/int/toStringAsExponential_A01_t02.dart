@@ -19,10 +19,14 @@ main() {
 }
 
 void check(int x, int digits) {
+  bool passed = false;
   try {
     x.toStringAsExponential(digits);
-    Expect.fail("Some exception is expected");
+    passed = true;
   } catch(var e) {
     // TODO: specify exact type
+  }
+  if(passed) {
+    Expect.fail("Some exception is expected");
   }
 }
