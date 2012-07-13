@@ -17,7 +17,7 @@ main() {
   map["1"] = 1;
   map["2"] = 2;
   
-  Collection a = map.getValues();
+  List a = map.getValues();
   
   //a.clear(); //Can't clear because returned list is unextendable
   //Expect.isTrue(map.length == 2);
