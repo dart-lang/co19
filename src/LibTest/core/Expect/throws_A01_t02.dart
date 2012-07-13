@@ -34,9 +34,9 @@ main() {
   check(goodboy, (e) => false, "not empty");
 }
 
-void check(void f(), [checkFn check = null, String reason = null]) {
+void check(void f(), [checkFn ch = null, String reason = null]) {
   try {
-    Expect.throws(f, check, reason);
+    Expect.throws(f, ch, reason);
     throw new Exception("ExpectException expected");
   } catch (ExpectException e) {
   }
