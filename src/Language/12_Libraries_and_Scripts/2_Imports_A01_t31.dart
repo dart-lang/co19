@@ -15,14 +15,13 @@
  *   `show:' listLiteral |
  *   `hide:' listLiteral
  * ;
- * @description Checks that it is a compile-time error if the import directive is missing
- * some of the required spaces after commas that separate the parts.
- * @compile-error
+ * @description Checks that it is not a compile-time error if the import directive
+ * contains no spaces.
  * @author rodionov
- * @needsreview issue 4021
+ * @reviewer kaigorodov
  */
 
-#import("2_Imports_lib.dart", export: false,hide: ["foo"], prefix: "prfx");
+#import("2_Imports_lib.dart",export:false,hide:["foo"],prefix:"prfx");
 
 main() {
   try {
