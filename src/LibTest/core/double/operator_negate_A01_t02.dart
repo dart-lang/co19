@@ -8,11 +8,12 @@
  * @description Checks [:negate():] on a NaN.
  * @author pagolubev
  * @reviewer msyabro
+ * @needsreview issue 3283
  */
 
 
 main() {
-  double nan = 0 / 0;
+  double nan = double.NAN;
   Expect.isTrue(nan.negate().isNaN());
   Expect.isTrue((-nan).negate().isNaN());
 }

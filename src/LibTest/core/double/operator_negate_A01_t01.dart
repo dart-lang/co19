@@ -9,6 +9,7 @@
  * @author pagolubev
  * @reviewer msyabro
  * @needsreview Should the check with '.0' be taken out to a separate test?
+ * issue 3283
  */
 
 

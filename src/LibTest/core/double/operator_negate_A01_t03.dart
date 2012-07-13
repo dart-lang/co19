@@ -8,12 +8,13 @@
  * @description Checks [:negate():] on a infinity.
  * @author pagolubev
  * @reviewer msyabro
+ * @needsreview issue 3283
  */
 
 
 main() {
-  double inf = 1 / 0;
-  double negativeInf = -inf;
+  double inf = double.INFINITY;
+  double negativeInf = inf.negate();
   Expect.isTrue(negativeInf.isNegative());
   Expect.isFalse((-negativeInf).isNegative());
   Expect.equals(inf, negativeInf.abs());
