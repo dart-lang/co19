@@ -11,8 +11,8 @@
  * MULTI_LINE_STRING:
  *   '"""' STRING CONTENT TDQ* '"""' |
  *   ''''' STRING CONTENT TSQ* ''''' |
- *   '"""'  (~ '"""')* '"""' |
- *   ''''' (~ ''''')* '''''
+ *   @'"""'  (~ '"""')* '"""' |
+ *   @''''' (~ ''''')* '''''
  * ;
  * STRING CONTENT TDQ:
  *   ~( '\' | '"""' | '$') |
@@ -24,13 +24,11 @@
  *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
- * @description Checks that multi-line strings that contain characters and sequences prohibited
- * by this grammar, cause compile-time errors.
- * @compile-error
+ * @description Checks that raw multi-line strings are allowed.
  * @author rodionov
- * @needsreview issue 4028
+ * @reviewer kaigorodov
  */
-
+ 
 main() {
   @'''$''';
 }

@@ -11,8 +11,8 @@
  * MULTI_LINE_STRING:
  *   '"""' STRING CONTENT TDQ* '"""' |
  *   ''''' STRING CONTENT TSQ* ''''' |
- *   '"""'  (~ '"""')* '"""' |
- *   ''''' (~ ''''')* '''''
+ *   @'"""'  (~ '"""')* '"""' |
+ *   @''''' (~ ''''')* '''''
  * ;
  * STRING CONTENT TDQ:
  *   ~( '\' | '"""' | '$') |
@@ -24,10 +24,10 @@
  *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
- * @description Checks that unbalanced string cause compile-time erros.
+ * @description Checks that unbalanced raw multiline string cause compile-time erros.
  * @compile-error
  * @author rodionov
- * @needsreview issue 4028
+ * @reviewer kaigorodov
  */
 
 main() {

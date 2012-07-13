@@ -11,8 +11,8 @@
  * MULTI_LINE_STRING:
  *   '"""' STRING CONTENT TDQ* '"""' |
  *   ''''' STRING CONTENT TSQ* ''''' |
- *   '"""'  (~ '"""')* '"""' |
- *   ''''' (~ ''''')* '''''
+ *   @'"""'  (~ '"""')* '"""' |
+ *   @''''' (~ ''''')* '''''
  * ;
  * STRING CONTENT TDQ:
  *   ~( '\' | '"""' | '$') |
@@ -24,10 +24,9 @@
  *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
- * @description Checks that raw multi-line strings are prohibited.
- * @compile-error
+ * @description Checks that raw multi-line strings are allowed.
  * @author rodionov
- * @needsreview issue 4028
+ * @reviewer kaigorodov
  */
 
 main() {
