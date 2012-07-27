@@ -23,4 +23,3 @@ main() {
     }
   } catch (var ok) {}
 }
-

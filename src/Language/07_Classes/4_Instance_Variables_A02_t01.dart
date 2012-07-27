@@ -29,5 +29,5 @@ main() {
   Expect.equals(false, c.v2);
   Expect.equals("bar", c.v3);
   Expect.equals(1, c.v4);
-  Expect.equals(1.2, c.x);
+  Expect.equals(1.1, c.x);
 }

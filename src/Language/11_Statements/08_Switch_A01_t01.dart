@@ -14,13 +14,32 @@
  * defaultCase:
  * label* default ':' statements
  * ;
- * @description Checks that a switch statement with all kinds of case expressions works as expected.
+ * @description Checks that a switch statement with all kinds of case expressions (as long as they're
+ * allowed by spec) works as expected.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 2238
+ * @note issue 2238
  */
 
-switchTest(value) {
+switchTestBool(value) {
+  var result;
+  
+  switch(value) {
+    case true:
+      {result = 1;}
+      break;
+      
+    label: case false && true:
+      result = 2;
+      break;
+
+    default:
+      result = -1;
+  }  
+  return result;
+}
+
+switchTestInt(value) {
   var result;
   
   switch(value) {
@@ -32,7 +51,7 @@ switchTest(value) {
       result = 2;
       break;
 
-    case 'val':
+    case 1 ^ 5:
       result = 3;
       break;
       
@@ -42,13 +61,39 @@ switchTest(value) {
   return result;
 }
 
+switchTestStr(value) {
+  var result;
+  
+  switch(value) {
+    case 'foo':
+      {result = 1;}
+      break;
+      
+    label: case @"""bar""":
+      result = 2;
+      break;
+
+    default:
+      result = -1;
+  }  
+  return result;
+}
+
 main() {
-  Expect.equals(1, switchTest(1));
-  Expect.equals(2, switchTest(28));
-  Expect.equals(3, switchTest("val"));
-  Expect.equals(-1, switchTest(null));
-  Expect.equals(-1, switchTest(0));
-  Expect.equals(-1, switchTest("abyrvalg"));
+  Expect.equals(1, switchTestBool(true));
+  Expect.equals(2, switchTestBool(false));
+  Expect.equals(-1, switchTestBool(null));
+
+  Expect.equals(1, switchTestInt(1));
+  Expect.equals(2, switchTestInt(28));
+  Expect.equals(3, switchTestInt(4));
+  Expect.equals(-1, switchTestInt(0));
+  Expect.equals(-1, switchTestInt(null));
+  
+  Expect.equals(1, switchTestStr("foo"));
+  Expect.equals(2, switchTestStr("bar"));
+  Expect.equals(-1, switchTestStr(null));
+  Expect.equals(-1, switchTestStr("abyrvalg"));
   
   switch(1) {
     case 0:
