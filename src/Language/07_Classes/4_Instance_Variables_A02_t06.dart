@@ -14,8 +14,11 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
+ * @reviewer rodionov
  * @needsreview issue 3323
  */
+
+#import("../../Utils/dynamic_check.dart");
 
 class A {
   const int v = 100;
@@ -23,5 +26,5 @@ class A {
 
 main() {
   A a = new A();
-  bool b = a.v;
+  checkTypeError(() {bool b = a.v;});
 }
