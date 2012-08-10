@@ -15,6 +15,6 @@ main() {
   double nan = 0 / 0;
   try {
     nan.toInt();
-    Expect.fail("Expected BadNumberFormatException");
-  } catch (BadNumberFormatException e) {}
+    Expect.fail("Expected FormatException");
+  } catch (FormatException e) {}
 }

@@ -16,11 +16,11 @@ main() {
 
   try {
     inf.toInt();
-    Expect.fail("Expected BadNumberFormatException");
-  } catch (BadNumberFormatException e) {}
+    Expect.fail("Expected FormatException");
+  } catch (FormatException e) {}
 
   try {
     (-inf).toInt();
-    Expect.fail("Expected BadNumberFormatException");
-  } catch (BadNumberFormatException e) {}
+    Expect.fail("Expected FormatException");
+  } catch (FormatException e) {}
 }

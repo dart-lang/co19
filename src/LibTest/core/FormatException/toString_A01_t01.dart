@@ -5,15 +5,14 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this constructor executes without error for various String arguments and null.
+ * @description Checks that this method causes no error and the result is not null and is indeed a String.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
  */
  
 main() {
-  new BadNumberFormatException(null);
-  new BadNumberFormatException("asdgfsdjkg");
-  new BadNumberFormatException("");
-  new BadNumberFormatException("You are not paid to think!");
+  FormatException e = new FormatException(null);
+  Expect.isTrue(e.toString() != null);
+  Expect.isTrue(e.toString() is String);
 }

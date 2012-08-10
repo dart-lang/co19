@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws BadNumberFormatException if
+ * @assertion Throws FormatException if
  * String can not be converted to int
  * @description Check that exception is thrown if
  * String can not be converted to int.
@@ -13,23 +13,23 @@
  * @needsreview undocumented
  */
 
-void checkBNFE(String string) {
+void checkFE(String string) {
   try {
     Math.parseInt(string);
-    Expect.fail("BadNumberFormatException is expected");
-  } catch(BadNumberFormatException e) {}
+    Expect.fail("FormatException is expected");
+  } catch(FormatException e) {}
 }
 main() {
-  checkBNFE("");
-  checkBNFE("1.0");
-  checkBNFE("1e2");
-  checkBNFE("just string");
-  checkBNFE("1A");
-  checkBNFE("NaN");
-  checkBNFE("Infinity");
-  checkBNFE("1/1");
-  checkBNFE("-");
-  checkBNFE("1 2 ");
-  checkBNFE("12-");
-  checkBNFE("+-1");
+  checkFE("");
+  checkFE("1.0");
+  checkFE("1e2");
+  checkFE("just string");
+  checkFE("1A");
+  checkFE("NaN");
+  checkFE("Infinity");
+  checkFE("1/1");
+  checkFE("-");
+  checkFE("1 2 ");
+  checkFE("12-");
+  checkFE("+-1");
 }

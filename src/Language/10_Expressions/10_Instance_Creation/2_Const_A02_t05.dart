@@ -20,6 +20,6 @@ final c = 1;
 
 main() {
   try {
-    const c;
+    const c();
   } catch(var e) {}
 }

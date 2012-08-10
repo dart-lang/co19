@@ -5,35 +5,35 @@
  */
 /**
  * @assertion double parseDouble(String str)
- * Throws a BadNumberFormatException if str cannot be parsed as a double.
- * @description Checks that exception is thrown if [str] 
+ * Throws a FormatException if str cannot be parsed as a double.
+ * @description Checks that exception is thrown if [str]
  * can not be converted to double.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview issue 1929
  */
 
-void checkBNFE(String str) {
+void checkFE(String str) {
   try {
     Math.parseDouble(str);
-    Expect.fail("BadNumberFormatException is expected");
-  } catch(BadNumberFormatException e) {}
+    Expect.fail("FormatException is expected");
+  } catch(FormatException e) {}
 }
 main() {
-  checkBNFE("");
-  checkBNFE("string");
-  checkBNFE("1.a");
-  checkBNFE("1 2");
-  checkBNFE("1e");
-  checkBNFE("2/2");
-  checkBNFE("-");
-  checkBNFE("+-1");
-  checkBNFE("0X10");
-  checkBNFE("0xa");
+  checkFE("");
+  checkFE("string");
+  checkFE("1.a");
+  checkFE("1 2");
+  checkFE("1e");
+  checkFE("2/2");
+  checkFE("-");
+  checkFE("+-1");
+  checkFE("0X10");
+  checkFE("0xa");
   
-  checkBNFE("1.");
-  checkBNFE("1.e0");
-  checkBNFE("2E2.0");
-  checkBNFE("InfiNIty");
-  checkBNFE("nan");
+  checkFE("1.");
+  checkFE("1.e0");
+  checkFE("2E2.0");
+  checkFE("InfiNIty");
+  checkFE("nan");
 }
