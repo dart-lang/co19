@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that only assignment operator is admitted when variable is initialized.
  * @author hlodvig
@@ -19,5 +19,5 @@
 main() {
   try {
     var --x;
-  } catch(var z) {}
+  } catch(ok) {}
 }

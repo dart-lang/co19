@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable that has not been initialized has the initial value null (10.2).
+ * @assertion A variable that has not been initialized has the initial value null (11.2).
  * @description Checks that various uninitialized variables are set to null by default.
  * @author vasya
  * @reviewer kaigorodov
@@ -14,8 +14,6 @@
 class C { 
   static var a;
 }
-
-interface I { }
 
 int global;
 
@@ -31,10 +29,7 @@ main() {
   C c;
   Expect.equals(null, c);
   Expect.equals(null, C.a);
-  I i;
-  Expect.equals(null, i);
   Object o;
   Expect.equals(null, o);
   Expect.equals(null, global);
 }
-

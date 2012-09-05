@@ -18,6 +18,5 @@ const double foo;
 main() {
   try {
     Expect.equals(null, foo);
-  } catch(var x){}
+  } catch(ok) {}
 }
-

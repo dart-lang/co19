@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that a variable declaration cannot contain the 'abstract' keyword.
  * @author kaigorodov
@@ -23,7 +23,5 @@ class C {
 main() {
   try {
     new C();
-  }
-  catch(var x) {}
+  } catch(ok) {}
 }
-

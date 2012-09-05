@@ -33,4 +33,3 @@ main() {
   Expect.identical(1, x);
   Expect.identical(2, y);
 }
-

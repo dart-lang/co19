@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that it is a compile-time error if the right-hand expression is missing
  * in an initialized variable declaration.
@@ -20,6 +20,5 @@
 main() {
   try {
     var x =;
-  }
-  catch(var x) {}
+  } catch(ok) {}
 }

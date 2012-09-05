@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks different variables in a single variable declaration must be delimited
  * by commas.
@@ -20,6 +20,5 @@
 main() {
   try {
     var x y;
-  }
-  catch(var x) {}
+  } catch(ok) {}
 }

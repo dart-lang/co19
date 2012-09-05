@@ -20,6 +20,5 @@ final x = 1;
 main() {
   try {
     x = 1;
-  } catch(var e) {}
+  } catch(ok) {}
 }
-

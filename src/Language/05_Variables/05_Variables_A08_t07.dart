@@ -18,6 +18,5 @@ static const int foo = 1; // error
 main() {
   try {
     print(foo);
-  } catch(var x){}
+  } catch(ok) {}
 }
-

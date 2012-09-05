@@ -19,6 +19,5 @@ final foo = "foo";
 main() {
   try {
     foo = "bar";  // error
-  } catch(var x){}
+  } catch(ok) {}
 }
-

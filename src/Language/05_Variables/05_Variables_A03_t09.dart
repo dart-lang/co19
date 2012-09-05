@@ -23,12 +23,11 @@ main() {
   final Map m = const {'a': 1, 'b': 2};
   final String e = "OneTwo";
 
-  Expect.isTrue(-100 === i);
-  Expect.isTrue(false === b);
-  Expect.isTrue("string" === s);
-  Expect.isTrue(Math.PI === pi);
-  Expect.isTrue(const [0,1,2,3] === l);
-  Expect.isTrue(const {'a': 1, 'b': 2} === m);
-  Expect.isTrue("OneTwo" === e);
+  Expect.identical(-100, i);
+  Expect.identical(false, b);
+  Expect.identical("string", s);
+  Expect.identical(Math.PI, pi);
+  Expect.identical(const [0,1,2,3], l);
+  Expect.identical(const {'a': 1, 'b': 2}, m);
+  Expect.identical("OneTwo", e);
 }
-

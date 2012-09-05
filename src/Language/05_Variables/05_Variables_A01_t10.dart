@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that a non-expression statement cannot be used instead of expression in an initialized 
  * variable declaration.
@@ -20,6 +20,5 @@
 main() {
   try {
     var x = return 0;
-  }
-  catch(var x) {}
+  } catch(ok) {}
 }

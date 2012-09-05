@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that finalConstVarOrType is a must in variable declaration.
  * @author iefremov
@@ -19,6 +19,5 @@
 main() {
   try {
     x;
-  }
-  catch(var wtvr) {}
+  } catch(wtvr) {}
 }

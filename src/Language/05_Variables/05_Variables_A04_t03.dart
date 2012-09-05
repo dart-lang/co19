@@ -17,6 +17,5 @@ const foo = true;
 main() {
   try {
     foo = false;
-  } catch(var x){}
+  } catch(ok) {}
 }
-

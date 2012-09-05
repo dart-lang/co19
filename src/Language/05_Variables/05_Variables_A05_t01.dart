@@ -16,6 +16,5 @@ const foo;
 main() {
   try {
     Expect.isNull(foo);
-  } catch(var x){}
+  } catch(ok) {}
 }
-

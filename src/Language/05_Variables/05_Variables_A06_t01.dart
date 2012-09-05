@@ -28,4 +28,3 @@ main() {
   c2.foo=2;
   Expect.equals(2, c1.foo);
 }
-

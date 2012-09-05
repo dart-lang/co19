@@ -8,7 +8,7 @@
  * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
  * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
  * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: finalConstVarOrType identifier ;
+ * declaredIdentifier: metadata finalConstVarOrType identifier ;
  * finalConstVarOrType: final type? | const type? | var | type ;
  * @description Checks that variable declaration cannot contain both 'const' and 'var'.
  * @author msyabro
@@ -19,7 +19,5 @@
 main() {
   try {
     const var x = 1;
-  }
-  catch(var x) {}
+  } catch(ok) {}
 }
-

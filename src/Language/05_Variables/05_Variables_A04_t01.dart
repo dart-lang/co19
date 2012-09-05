@@ -16,6 +16,5 @@ main() {
   try {
     const foo = "foo";
     foo = "bar";
-  } catch(var x){}
+  } catch(ok) {}
 }
-

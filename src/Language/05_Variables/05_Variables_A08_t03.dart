@@ -18,6 +18,5 @@ static int foo = 1; // error
 main() {
   try {
     foo = 1;
-  } catch(var x){}
+  } catch(ok) {}
 }
-

@@ -13,11 +13,10 @@
  * @compile-error
  */
 
-#import("library1.dart");
+import "library1.dart";
 
 main() {
   try {
     foo = 1;
-  } catch(var x){}
+  } catch(ok) {}
 }
-

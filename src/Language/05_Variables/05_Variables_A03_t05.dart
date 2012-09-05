@@ -18,6 +18,5 @@ main() {
   try {
     final String foo = "foo";
     foo = "bar";  // error
-  } catch(var x){}
+  } catch(ok) {}
 }
-

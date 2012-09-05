@@ -17,6 +17,5 @@ const int foo = 1 + 1;
 main() {
   try {
     foo = 2;
-  } catch(var x){}
+  } catch(ok) {}
 }
-

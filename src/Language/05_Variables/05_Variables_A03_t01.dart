@@ -18,6 +18,5 @@ main() {
   try {
     final foo = "foo";
     foo = "bar";  // error
-  } catch(var x){}
+  } catch(ok) {}
 }
-

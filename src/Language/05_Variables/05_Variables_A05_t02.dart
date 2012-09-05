@@ -18,6 +18,5 @@ const Foo foo = new Foo();
 main() {
   try {
     Expect.isTrue(foo is Foo);
-  } catch(var x){}
+  } catch(ok) {}
 }
-
