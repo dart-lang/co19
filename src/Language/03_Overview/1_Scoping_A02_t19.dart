@@ -7,8 +7,6 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * It is a static warning if a declaration hides a name in a lexically enclosing
- * scope, unless such hiding is explicitly permitted by this specification.
  * @description Checks that variables declared in different case clauses of a switch statement
  * do not shadow each other.
  * @author iefremov

@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
+ * A declaration is private iff its name begins with an underscore (the _ character)
+ * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that public declarations declared in a library are accessible when
  * the library is imported.
@@ -13,13 +14,13 @@
  * @reviewer iefremov
  */
 
-#import("lib.dart");
+import "lib.dart";
 
-class C extends AccessibleClass implements AccessibleInterface {}
+class C extends AccessibleClass {}
 
 main() {
   AccessibleClass c = new AccessibleClass();
-  AccessibleInterface i = new C();
+  AccessibleClass c2 = new C();
   accessibleFuncType f = () {};
   accessibleFunction();
   accessibleVariable = 1;

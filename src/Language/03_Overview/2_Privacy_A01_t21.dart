@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
+ * A declaration is private iff its name begins with an underscore (the _ character) 
+ * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that private fields/methods inherited from a class declared in another library
  * are not visible and do not overload members from a super class declared in the current library.
@@ -13,8 +14,8 @@
  * @reviewer rodionov
  */
 
-#library("2_Privacy_A01_t21");
-#import("2_Privacy_A01_t21_lib.dart");
+library Privacy_A01_t21;
+import "2_Privacy_A01_t21_lib.dart";
 
 class A {
   var _var = 54;
@@ -31,5 +32,5 @@ class C extends B {
 main() {
   try {
     new C().test();
-  } catch(var x) {}
+  } catch(x) {}
 }

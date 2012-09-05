@@ -7,11 +7,8 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * It is a static warning if a declaration hides a name in a lexically enclosing
- * scope, unless such hiding is explicitly permitted by this specification.
- * @description Checks that a name in the scope of a for statement can hide the name in the
- * lexically enclosing scope and that produces a static-type warning.
- * @static-warning
+ * @description Checks that a name in the scope of a for statement can hide a name from a
+ * lexically enclosing scope and that does not produce a static warning.
  * @author msyabro
  * @reviewer iefremov
  */

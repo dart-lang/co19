@@ -7,12 +7,9 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * It is a static warning if a declaration hides a name in a lexically enclosing
- * scope, unless such hiding is explicitly permitted by this specification.
- * @description Checks that that a static warning is produced if a type variable hides a class name.
- * Checks also that a type variable really hides a class name - using it in a new expression causes
- * a compile-time error.
- * @static-warning
+ * @description Checks that that no static warning is produced if a type variable hides a class name.
+ * Checks also that a type variable really hides a class name by making sure that using it in a new 
+ * expression results in a compile-time error.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -28,5 +25,5 @@ class G<C> {
 main() {
   try {
     new G();
-  } catch(var x){}
+  } catch(x){}
 }

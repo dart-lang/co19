@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
+ * A declaration is private iff its name begins with an underscore (the _ character) 
+ * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that trying to access private instance class members from a script
  * that imports the library where the class is declared result in a NoSuchMethodException.
@@ -14,13 +15,13 @@
  * @reviewer rodionov
  */
 
-#import("lib.dart");
+import "lib.dart";
 
 check(f) {
   try {
     f();
     Expect.fail("NoSuchMethodException expected when trying to access a private member!");
-  } catch(NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 }
 
 main() {

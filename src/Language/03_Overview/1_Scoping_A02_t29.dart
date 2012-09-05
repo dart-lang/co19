@@ -7,10 +7,7 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * It is a static warning if a declaration hides a name in a lexically enclosing
- * scope, unless such hiding is explicitly permitted by this specification.
  * @description Checks that a hidden function name can't be used as a function.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -20,5 +17,5 @@ main() {
   var f = 1;
   try {
     f(); //'f' can't be used as a function in this scope.
-  } catch(var e) {}
+  } catch(e) {}
 }

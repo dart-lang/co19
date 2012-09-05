@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private if it begins with an underscore (the _ character) otherwise it is public.
+ * A declaration is private iff its name begins with an underscore (the _ character) 
+ * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that various private class members are perfectly accessible inside the library
  * where the class is declared even when accessed via a subclass instance.
@@ -13,10 +14,6 @@
  * @author iefremov
  * @reviewer rodionov
  */
-
-interface _I default _A {
-  _I();
-}
 
 class _A {
   var _var = 54;
@@ -29,7 +26,7 @@ class _A {
 
   _A() {}
   _A.named() {}
-  factory _I() {throw 2;}
+  factory _A.fctry() {throw 2;}
 
   get _getter() {return 100500;}
   void set _setter(x) {throw 1;}
@@ -49,15 +46,15 @@ main() {
 
   try {
     a._abstractfun();
-  } catch(NoSuchMethodException ok){}
+  } on NoSuchMethodException catch(ok){}
 
   Expect.equals(100500, a._getter);
 
   try {
     a._setter = 1;
-  } catch(int ok) {}
+  } on int catch(ok) {}
 
   try {
-    new _I();
-  } catch(int ok){}
+    new _A.fctry();
+  } on int catch(ok) {}
 }

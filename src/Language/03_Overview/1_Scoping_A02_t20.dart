@@ -7,8 +7,6 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * It is a static warning if a declaration hides a name in a lexically enclosing
- * scope, unless such hiding is explicitly permitted by this specification.
  * @description Checks that no static warning is produced when a variable is initialized at declaration
  * with a function literal that has the same name because the name of that variable is not in the scope
  * of its own initialization expression.
@@ -17,6 +15,6 @@
  */
 
 main() {
-  var x = x(){ return x;};
+  var x = x() {return x;};
   Expect.isTrue(x() is Function);
 }

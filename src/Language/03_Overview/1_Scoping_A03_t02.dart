@@ -11,11 +11,10 @@
  * @reviewer iefremov
  */
 
-#import("lib.dart");
+import "lib.dart";
 
 main() {
   AccessibleClass c;
-  AccessibleInterface i;
   accessibleFuncType f = () {};
   accessibleFunction();
   accessibleVariable = 1;

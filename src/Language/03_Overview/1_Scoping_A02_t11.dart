@@ -7,17 +7,15 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * It is a static warning if a declaration hides a name in a lexically enclosing
- * scope, unless such hiding is explicitly permitted by this specification.
- * @description Checks that a static warning is produced if a local variable
+ * @description Checks that no static warning is produced if a local variable
  * declared inside a while loop shadows another local variable declared in an 
  * enclosing lexical scope.
  * @author iefremov
- * @static-warning
  * @reviewer rodionov
  */
 
 var flag = false;
+
 once() {
   if(flag) {
     return flag;
