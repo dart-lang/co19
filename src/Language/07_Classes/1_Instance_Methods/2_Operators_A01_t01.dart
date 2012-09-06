@@ -13,8 +13,6 @@
  *   binaryOperator | 
  *   '[]' | 
  *   '[]=' | 
- *   negate | 
- *   equals
  * ;
  * unaryOperator: 
  *   negateOperator 
@@ -51,11 +49,9 @@ class C<T> {
   List operator [](var v) {}
   operator -(var v) {}
   operator []=(var v, var v2) {}
-  void operator negate() {}
   Dynamic operator ~() {}
   foo operator *(var v) {}
   T operator >(var v) {}
-  bool operator equals(C other) {}
 }
 
 main() {
@@ -68,5 +64,5 @@ main() {
     -c;
     x = ~c;
     x = c == c;
-  } catch (var ok) {}
+  } catch (ok) {}
 }

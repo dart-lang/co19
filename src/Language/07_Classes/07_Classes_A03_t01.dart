@@ -5,20 +5,20 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
+ *   ‘{’ classMemberDefinition* ‘}’
  * ;
  * classMemberDefinition:
- *   declaration ';' |
- *   methodSignature functionBody
+ *   metadata declaration ‘;’ |
+ *   metadata methodSignature functionBody
  * ;
  * methodSignature:
- *   factoryConstructorSignature
- *   | static? functionSignature
- *   | getterSignature
- *   | setterSignature
- *   | operatorSignature
- *   | constructorSignature initializers?
+ *   factoryConstructorSignature |
+ *   static? functionSignature |
+ *   getterSignature |
+ *   setterSignature |
+ *   operatorSignature |
+ *   constructorSignature initializers?
  * ;
  * @description Checks that various class member method definitions that are valid according to
  * this syntax do not cause any errors and such class can be instantiated. 

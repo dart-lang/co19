@@ -24,5 +24,5 @@ class C extends S {
 main() {
   try {
     new C();
-  } catch(var x) {}
+  } catch (x) {}
 }

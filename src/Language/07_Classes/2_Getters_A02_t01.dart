@@ -14,7 +14,7 @@
  */
 
 class C {
-  get foo() {}
+  get foo {}
 }
 
 main() {
@@ -22,15 +22,15 @@ main() {
   try {
     c.foo.abyr = null;
     Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
+  } on NullPointerException catch (ok) {}
 
   try {
     c.foo.abyr(1, 2, 3);
     Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
+  } on NullPointerException catch (ok) {}
 
   try {
     c.foo.abyrvalg = null;
     Expect.fail("NullPointerException expected");
-  } catch(NullPointerException ok) {}
+  } on NullPointerException catch (ok) {}
 }

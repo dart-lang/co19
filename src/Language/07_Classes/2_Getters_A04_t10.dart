@@ -17,12 +17,12 @@
  */
 
 class C {
-  static get foo() {throw new C();}
+  static get foo {throw new C();}
   foo() {throw new C();}
 }
 
 main() {
   try {
     new C().foo();
-  } catch(var x) {}
+  } catch (e) {}
 }

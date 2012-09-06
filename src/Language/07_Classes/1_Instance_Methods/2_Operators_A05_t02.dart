@@ -4,24 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the arity of a user-declared 
- * operator with one of the names: ~, negate is not 0.
+ * @assertion  It is a compile-time error if the arity of the user-declared
+ * operator - is not 0 or 1.
+ * The - operator is unique in that two overloaded versions are permitted.
+ * If the operator has no arguments, it denotes unary minus.
+ * If it as an argument, it denotes binary subtraction.
  * @description Checks that a compile-time error is produced if a user-defined
- * operator negate specifies one required parameter.
+ * operator - specifies two parameters.
  * @compile-error
- * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
+ * @author kaigorodov
  */
 
 class C {
-  operator negate(var v) {
-    return -v;
-  }
+  operator -(var val, var val2) {}
 }
 
 main() {
   try {
-    var x = -(new C());
-  } catch(var e) {}
+    bool b = (new C() - new C());
+  } catch (ex) {}
 }

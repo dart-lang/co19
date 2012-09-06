@@ -26,5 +26,5 @@ class C implements I{
 main() {
   try {
     new C(null);
-  } catch(var v) {}
+  } catch (v) {}
 }

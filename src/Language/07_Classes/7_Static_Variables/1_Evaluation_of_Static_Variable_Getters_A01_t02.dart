@@ -34,7 +34,7 @@ main() {
   try {
     C.sVar;
     Expect.fail('An exception is expected');
-  } catch(int e) {
+  } on int catch (e) {
     Expect.equals(1, e);
     Expect.equals(null, C.sVar);
   }
@@ -42,7 +42,7 @@ main() {
   try {
     C.sTyped;
     Expect.fail('An exception is expected');
-  } catch(int e) {
+  } on int catch (e) {
     Expect.equals(1, e);
     Expect.equals(null, C.sTyped);
   }
@@ -50,7 +50,7 @@ main() {
   try {
     C.sFinal;
     Expect.fail('An exception is expected');
-  } catch(int e) {
+  } on int catch (e) {
     Expect.equals(1, e);
     Expect.equals(null, C.sFinal);
   }
@@ -58,7 +58,7 @@ main() {
   try {
     C.sFinalTyped;
     Expect.fail('An exception is expected');
-  } catch(int e) {
+  } on int catch (e) {
     Expect.equals(1, e);
     Expect.equals(null, C.sFinalTyped);
   }

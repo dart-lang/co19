@@ -25,6 +25,6 @@ class C {
 main() {
   try {
     new C(1);
-  } catch(var x){}
+  } catch (x){}
 }
 

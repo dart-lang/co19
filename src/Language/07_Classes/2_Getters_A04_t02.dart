@@ -24,5 +24,5 @@ class C {
 main() {
   try {
     new C().foo();
-  } catch(var x) {}
+  } catch (e) {}
 }

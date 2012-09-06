@@ -5,9 +5,7 @@
  */
 /**
  * @assertion The following names are allowed for user-defined operators: 
- * <, >, <=,>=, -, +, /, ~/, *, %, |, ^, &, <<, >>, >>>, []=, [], ~, equals, negate.
- * The built-in identifier equals is used to denote equality (==). 
- * The built-in identifier negate is used to denote unary minus.
+ * <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, []=, [], ˜.
  * @description Checks that operator || cannot be defined in a user class.
  * @compile-error
  * @author iefremov
@@ -22,5 +20,5 @@ main() {
   try {
     var b = (new C());
     (b || true);
-  } catch(var x) {}
+  } catch (x) {}
 }

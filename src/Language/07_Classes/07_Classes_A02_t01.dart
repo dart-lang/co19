@@ -5,22 +5,26 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
-* ;
+ * ;
  * classMemberDefinition:
- *   declaration ';' |
- *   methodSignature functionBody
+ *   metadata declaration ';' |
+ *   metadata methodSignature functionBody
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)?
- *   | constructorSignature (redirection | initializers)?
- *   | abstract getterSignature
- *   | abstract setterSignature
- *   | abstract operatorSignature
- *   | abstract functionSignature
- *   | static final type? staticFinalDeclarationList
- *   | static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)? |
+ *   constructorSignature (redirection | initializers)? |
+ *   external constantConstructorSignature |
+ *   external constructorSignature |
+ *   external? getterSignature |
+ *   external? setterSignature |
+ *   external? operatorSignature |
+ *   (external static?)? functionSignature |
+ *   static (final | const) type? staticFinalDeclarationList |
+ *   const type? staticFinalDeclarationList |
+ *   final type? initializedIdentifierList |
+ *   static? (var | type?) initializedIdentifierList
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -31,7 +35,7 @@
  * @description Checks that various class member declarations that are valid according to
  * this syntax do not cause any errors and such class can be instantiated. 
  * @author msyabro
- * @reviewer rodionov
+ * @author kaigorodov
  */
 
 class A {
@@ -39,18 +43,22 @@ class A {
   const A.anotherConstructor();
   static final x = 1, y = 2;
   static final int z = 3;
+  static const x1 = 1, y1 = 2;
+  static const int z1 = 3;
 }
 
 class B {
   const B();
   B.anotherConstructor(): this.oneMoreConstructor();
   B.oneMoreConstructor() {}
-  static final initialized = 1;
+  static var initialized = 1;
+  static int initialized2 = 2;
 }
 
 class C {
   const C(): x = 1;
   final x;
+  final int x1;
 }
 
 class D {
@@ -59,6 +67,7 @@ class D {
   var x, y = 2, z;
   int a = 1;
   static int typed;
+  static untyped;
 }
 
 class E {
@@ -70,15 +79,17 @@ class E {
 class F {
   F(): x = 1, y = 2;
   var x, y;
+  int x1, y1;
+  x2, y3;
 }
 
 class Abstract {
-  abstract func();
-  abstract funcWithParams(p1, p2);
-  abstract funcWithOptionalParams([p1 = 1, p2 = 2]);
-  abstract get val();
-  abstract set val(var v);
-  abstract operator==(Abstract other);
+  func();
+  funcWithParams(p1, p2);
+  funcWithOptionalParams([p1 = 1, p2 = 2]);
+  get val();
+  set val(var v);
+  operator==(Abstract other);
 
   var _val;
 }

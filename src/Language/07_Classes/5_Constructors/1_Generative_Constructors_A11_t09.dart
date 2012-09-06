@@ -38,5 +38,5 @@ class C {
 main() {
   try {
     var c = const C();
-  } catch(var e) {}
+  } catch (e) {}
 }

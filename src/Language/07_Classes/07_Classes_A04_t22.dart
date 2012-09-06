@@ -5,43 +5,46 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
+ *   ‘{’ classMemberDefinition* ‘}’
  * ;
  * classMemberDefinition:
- *   declaration ';' |
- *   methodSignature functionBody
+ *   metadata declaration ‘;’ |
+ *   metadata methodSignature functionBody
  * ;
  * methodSignature:
- *   factoryConstructorSignature
- *   | static? functionSignature
- *   | getterSignature
- *   | setterSignature
- *   | operatorSignature
- *   | constructorSignature initializers?
+ *   factoryConstructorSignature |
+ *   static? functionSignature |
+ *   getterSignature |
+ *   setterSignature |
+ *   operatorSignature |
+ *   constructorSignature initializers?
  * ;
  * declaration:
- *   constantConstructorSignature (redirection | initializers)?
- *   | constructorSignature (redirection | initializers)?
- *   | abstract getterSignature
- *   | abstract setterSignature
- *   | abstract operatorSignature
- *   | abstract functionSignature
- *   | static final type? staticFinalDeclarationList
- *   | static? initializedVariableDeclaration
+ *   constantConstructorSignature (redirection | initializers)? |
+ *   constructorSignature (redirection | initializers)? |
+ *   external constantConstructorSignature |
+ *   external constructorSignature |
+ *   external? getterSignature |
+ *   external? setterSignature |
+ *   external? operatorSignature |
+ *   (external static?)? functionSignature |
+ *   static (final | const) type? staticFinalDeclarationList |
+ *   const type? staticFinalDeclarationList |
+ *   final type? initializedIdentifierList |
+ *   static? (var | type?) initializedIdentifierList
  * ;
  * @compile-error
  * @description Checks that an abstract static operator can't be used in place of a class member definition.
  * @author msyabro
- * @reviewer iefremov
  */
 
 class A {
-  abstract static operator+(other) {}
+  static operator+(other);
 }
 
 main() {
   try {
     A a = new A();
-  } catch(var e) {}
+  } catch (e) {}
 }

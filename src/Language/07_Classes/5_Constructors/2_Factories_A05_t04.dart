@@ -5,11 +5,10 @@
  */
 /**
  * @assertion It is a static warning if M is not the name of the immediately
- * enclosing class or the name of an interface in the enclosing lexical scope.
- * @description Checks that it is fine if M is a name of an arbitrary class, since
- * all classes have an implied interface.
+ * enclosing class.
+ * @description Checks that  a static warning is produced if M is a name of an arbitrary class.
+ * @static-warning
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class Z {}

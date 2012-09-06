@@ -30,6 +30,6 @@ main() {
   try {
     new A().f(1,2);
     new C().f(2,1);
-  } catch(var x){}
+  } catch (e){}
 }
 

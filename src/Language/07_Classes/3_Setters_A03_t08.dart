@@ -21,5 +21,5 @@ class C {
 main() {
   try {
     C.setter = null;
-  }catch(var x) {}
+  }catch (e) {}
 }

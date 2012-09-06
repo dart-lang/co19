@@ -34,5 +34,5 @@ class C {
 main() {
   try {
     var x = new C.c0();
-  } catch(var x){}
+  } catch (x){}
 }

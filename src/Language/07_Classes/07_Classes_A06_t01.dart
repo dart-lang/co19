@@ -11,9 +11,9 @@
  * @reviewer rodionov
  */
 
-interface I1 {}
-interface I2 {}
-interface I3 {}
+abstract class I1 {}
+abstract class I2 {}
+abstract class I3 {}
 
 class A {}
 class B implements I1 {}

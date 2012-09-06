@@ -13,8 +13,6 @@
  *   binaryOperator | 
  *   '[]' | 
  *   '[]=' | 
- *   negate | 
- *   equals
  * ;
  * unaryOperator: 
  *   negateOperator 
@@ -44,12 +42,12 @@
  */
 
 class C {
-  int operator negate {}
+  int operator - {}
 }
 
 main() {
   try {
     C c = new C();
     var x = -c;
-  } catch(var x){}
+  } catch (x){}
 }

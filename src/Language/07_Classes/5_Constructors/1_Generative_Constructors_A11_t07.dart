@@ -38,5 +38,5 @@ class C {
 main() {
   try {
     var c = new C();
-  } catch(var x){}
+  } catch (x){}
 }

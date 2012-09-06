@@ -25,6 +25,6 @@ main() {
   try {
     new A().f("Nothing", "endures", "but");
     new C().f("Nothing", "endures", "but");
-  } catch(var x) {}
+  } catch (e) {}
 }
 

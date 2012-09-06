@@ -22,5 +22,5 @@ class B extends A {
 main() {
   try {
     (new B()).foo();
-  } catch(var e) {}
+  } catch (e) {}
 }

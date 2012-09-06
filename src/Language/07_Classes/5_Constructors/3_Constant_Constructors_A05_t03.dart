@@ -25,5 +25,5 @@ var a = const A(const [1]);
 main() {
   try {
     var b = a;
-  } catch(var x){}
+  } catch (x){}
 }

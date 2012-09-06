@@ -23,5 +23,5 @@ class A {
 main() {
   try {
     var a = const A(const [1]); // parameter does not evaluate to int/bool/String
-  } catch(var x){}
+  } catch (x){}
 }

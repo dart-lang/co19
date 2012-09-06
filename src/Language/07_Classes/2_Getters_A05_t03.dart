@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a getter m1 overrides (7.8.1) a getter 
- * or method m2 and the type of m1 is not a subtype of the type of m2. 
+ * @assertion    It is a static warning if a getter m1 overrides (7.9.1) a getter m2 and the
+ * type of m1 is not a subtype of the type of m2 .
  * @description Checks that a static warning is produced even if the overriding
  * getter is implicit as long as the return types of both getters are not mutually
  * assignable.
@@ -16,7 +16,7 @@
  */
 
 class A {
-  double get n() {}
+  double get n {}
 }
 
 class C extends A {

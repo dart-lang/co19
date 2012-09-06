@@ -22,5 +22,5 @@ class C {
 main() {
   try {
     new C.redirect(null);
-  } catch(var v) {}
+  } catch (v) {}
 }

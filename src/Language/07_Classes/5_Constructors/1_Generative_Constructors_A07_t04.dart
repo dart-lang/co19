@@ -11,7 +11,6 @@
  * variable is initialized more than once in an initializer list (referenced as both
  * this.name and just name).
  * @compile-error
- * @note Issue 921 filed
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -26,5 +25,5 @@ main() {
   try {
     C c = new C();
     print(c.x);
-  } catch(var x) {}
+  } catch (x) {}
 }

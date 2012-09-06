@@ -5,12 +5,12 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
+ *   ‘{’ classMemberDefinition* ‘}’
  * ;
  * classMemberDefinition:
- *   declaration ';' |
- *   methodSignature functionBody
+ *   metadata declaration ‘;’ |
+ *   metadata methodSignature functionBody
  * ;
  * methodSignature:
  *   factoryConstructorSignature
@@ -38,5 +38,5 @@ class A {
 main() {
   try {
     I i = new I();
-  } catch(var e) {}
+  } catch (e) {}
 }

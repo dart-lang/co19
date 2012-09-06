@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if an instance method m1 overrides (7.8.1) an
+ * @assertion It is a compile-time error if an instance method m1 overrides (7.9.1) an
  * instance member m2 and m1 has a different number of required parameters than m2.
  * @description Checks that a compile-error is produced even if the class declaring m1 is not a direct
  * subtype of the class declaring m2.
@@ -31,6 +31,6 @@ main() {
   try {
     new A().f(1,2,3,4,5);
     new C().f(0);
-  } catch(var x) {}
+  } catch (e) {}
 }
 

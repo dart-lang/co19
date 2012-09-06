@@ -6,21 +6,20 @@
 /**
  * @assertion
  * getterSignature:
- * static? returnType? get identifier formalParameterList
+ *   static? returnType? get identifier
  * ;
- * @description Checks that it is a compile-time error if the getter parameter list is missing.
- * @author iefremov
+ * @description Checks that a compile-time error is produced
+ * if empty formal parameter list is present.
  * @compile-error
- * @reviewer pagolubev
+ * @author kaigorodov
  */
 
 class C {
-  get getter => null;
+  get getter() { throw new C(); }
 }
 
 main() {
   try {
-    new C().getter;
-  } catch(var x){}
+    var x = new C().getter;
+  } catch (e) {}
 }
-

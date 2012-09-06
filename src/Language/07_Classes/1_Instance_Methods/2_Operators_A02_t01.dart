@@ -4,17 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The following names are allowed for user-defined operators:
- * <, >, <=,>=, -, +, /, ~/, *, %, |, ^, &, <<, >>, >>>, []=, [], ~, equals, negate.
- * The built-in identifier equals is used to denote equality (==). 
- * The built-in identifier negate is used to denote unary minus.
+ * @assertion     The following names are allowed for user-deﬁned operators:
+ * <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, []=, [], ˜.
  * @description Checks that the listed operators may indeed be defined in a user class.
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov
- * @needsreview Issue 1604
- * @needsreview issue 2301
- * @needsreview issue 3308
  */
 
 class C {
@@ -100,13 +95,6 @@ class C {
     return ~value;
   }
 
-  operator negate() {
-    return -value;
-  }
-
-  operator equals(C other) {
-    return this === other;
-  }
 }
 
 main() {

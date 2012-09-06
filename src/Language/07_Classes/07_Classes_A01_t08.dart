@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
  * @compile-error
@@ -22,5 +22,5 @@ class A extends S
 main() {
   try {
     A a = new A();
-  } catch(var e) {}
+  } catch (e) {}
 }

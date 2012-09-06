@@ -5,10 +5,7 @@
  */
 /**
  * @assertion
- * It is a static warning if the name of the method is not either:
- * - A constructor name
- * - The name of a constructor of an interface that is in scope at the point
- * where the factory is declared.
+ * It is a static warning if the name of the method is not a constructor name.
  * @description Checks that a static warning is produced when a factory constructor
  * uses a (named) constructor name that doesn't exist in the corresponding interface.
  * @static-warning
@@ -16,7 +13,7 @@
  * @reviewer kaigorodov
  */
 
-interface S default C {}
+abstract class S default C {}
 
 class C {
   C() {}
@@ -26,5 +23,5 @@ class C {
 main() {
   try {
     (new C()).redOctober();
-  } catch(var e) {}
+  } catch (e) {}
 }

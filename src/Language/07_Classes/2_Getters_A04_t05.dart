@@ -23,11 +23,11 @@ class A {
 }
 
 class C extends A {
-  get foo() { return "foo()"; }
+  get foo { return "foo()"; }
 }
 
 main() {
   try {
     new C().foo();
-  } catch(var x) {}
+  } catch (e) {}
 }

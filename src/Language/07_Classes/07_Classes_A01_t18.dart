@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
  * @description Checks that it is a compile-time error if type parameters are separated with semicolon.
@@ -19,5 +19,5 @@ class A<T1;T2>{}
 main() {
   try {
     A a = new A();
-  } catch(var e) {}
+  } catch (e) {}
 }

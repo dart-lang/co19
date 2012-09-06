@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- * abstract? class identifier typeParameters? superclass? interfaces?
+ * metadata abstract? class identifier typeParameters? superclass? interfaces?
  *   '{' classMemberDefinition* '}'
  * ;
  * @description Checks that it is a compile-time error if a class type definition
@@ -22,5 +22,5 @@ class A {
 main() {
   try {
     A a = new A();
-  } catch(var e) {}
+  } catch (e) {}
 }

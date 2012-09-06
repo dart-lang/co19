@@ -6,7 +6,7 @@
 /**
  * @assertion
  * getterSignature:
- * static? returnType? get identifier formalParameterList
+ *   static? returnType? get identifier
  * ;
  * @description Checks that it is a compile-time error if the getter identifier is missing.
  * @author iefremov
@@ -17,12 +17,12 @@
  */
 
 class C {
-  get () => null;
+  get => null;
 }
 
 main() {
   try {
     new C();
-  } catch(var x){}
+  } catch (e){}
 }
 

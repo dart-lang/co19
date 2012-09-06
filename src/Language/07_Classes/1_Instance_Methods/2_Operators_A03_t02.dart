@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the number of formal parameters 
- * of the user-declared operator []= is not 2.
+ * @assertion It is a compile-time error if arity of the user-declared operator
+ * []= is not 2.
  * @description Checks that a compile-time error is produced if a user-defined
  * operator []= specifies a single parameter.
  * @compile-error
@@ -21,5 +21,5 @@ class C {
 main() {
   try {
     new C()[0] = new C();
-  } catch(var ex) {}
+  } catch (ex) {}
 }

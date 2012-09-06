@@ -5,11 +5,11 @@
  */
 /**
  * @assertion It is a static warning if M is not the name of the immediately
- * enclosing class or the name of an interface in the enclosing lexical scope.
- * @description Checks that there is no errors or warnings when M is the name of
+ * enclosing class.
+ * @description Checks that a static warning is produced when M is the name of
  * the enclosing class's superclass.
+ * @static-warning
  * @author rodionov
- * @reviewer iefremov
  * @needsreview issue 980
  */
 

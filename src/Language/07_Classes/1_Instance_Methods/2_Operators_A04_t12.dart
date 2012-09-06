@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the number of formal parameters 
- * of the user-declared operator with one of the names: 
- * equals, <, >, <=, >=, -, +, ~/, /, *, %, |, ^, &, <<, >>, >>>, [] is not 1.
+ * @assertion It is a compile-time error if the arity of a user-declared operator
+ * with one of the names:
+ * <, >, <=, >=, ==, -, +,  ̃/, /, *, %, |, ˆ, &, <<, >>, [] is not 1. 
  * @description Checks that a compile-time error is produced if a user-defined
  * operator & specifies two parameters.
  * @compile-error
@@ -22,5 +22,5 @@ class C {
 main() {
   try {
     bool b = (new C() & new C());
-  } catch(var ex) {}
+  } catch (ex) {}
 }

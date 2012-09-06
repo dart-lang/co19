@@ -20,5 +20,5 @@ main() {
   try {
     C c = new C();
     c[0] = null;
-  } catch(var e) {}
+  } catch (e) {}
 }

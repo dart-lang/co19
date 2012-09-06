@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a static warning if M is not the name of the immediately
- * enclosing class or the name of an interface in the enclosing lexical scope.
+ * enclosing class.
  * @description Checks that it is a static warning when M is an unknown identifier.
  * @static-warning
  * @author iefremov
@@ -20,5 +20,5 @@ class C {
 main() {
   try{
     new C();
-  } catch(var x){}
+  } catch (x){}
 }

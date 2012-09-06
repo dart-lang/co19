@@ -13,8 +13,6 @@
  *   binaryOperator | 
  *   '[]' | 
  *   '[]=' | 
- *   negate | 
- *   equals
  * ;
  * unaryOperator: 
  *   negateOperator 
@@ -51,5 +49,5 @@ main() {
   try {
     C c = new C();
     var x = c ~/ 'a';
-  } catch(var x){}
+  } catch (x){}
 }

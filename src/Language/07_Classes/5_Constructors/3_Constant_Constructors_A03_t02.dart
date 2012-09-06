@@ -28,5 +28,5 @@ class A extends CC {
 main() {
   try {
     var a = const A();
-  } catch(var x) {}
+  } catch (x) {}
 }

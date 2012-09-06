@@ -18,7 +18,7 @@
  */
 
 class A {
-  get foo() {throw new A();}
+  get foo {throw new A();}
 }
 
 class C extends A {
@@ -28,5 +28,5 @@ class C extends A {
 main() {
   try {
     new C().foo();
-  } catch(var x) {}
+  } catch (e) {}
 }

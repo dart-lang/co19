@@ -26,6 +26,6 @@ main() {
   try {
     new A().f(1);
     new C().f();
-  } catch(var x) {}
+  } catch (e) {}
 }
 
