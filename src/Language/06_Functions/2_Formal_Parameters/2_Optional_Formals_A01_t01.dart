@@ -53,7 +53,7 @@ main() {
   f2();
   f2(false);
   f2(b: false);
-  f2(x: 2)
+  f2(x: 2);
   f2(x: 3, b: false);
   g2(1);
   g2(1, 2);

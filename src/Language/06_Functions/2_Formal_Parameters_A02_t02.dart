@@ -29,7 +29,7 @@ main () {
   }
   g();
 
-  h({var foo: foo + 10]) {
+  h({var foo: foo + 10}) {
     Expect.equals(11, foo);
   }
   h();
