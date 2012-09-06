@@ -4,30 +4,39 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Every function declaration includes a formal parameter list, which consists of
- * a list of required parameters, followed by any optional parameters. Optional
- * parameters consist of a list of named parameters.
+ * @assertion Every function declaration includes a formal parameter list, 
+ * which consists of a list of required parameters, followed by any optional parameters. 
+ * The optional parameters may be specified either as a set named parameters
+ * or as a list of positional parameters, but not both.
  * formalParameterList:
  *   '(' ')' |
- *   '(' normalFormalParameters ( ', ' namedFormalParameters)? ')' |
- *   (namedFormalParameters)
+ *   '(' normalFormalParameters ( ',' optionalFormalParameters)? ')' |
+ *   (optionalFormalParameters)
  * ;
  * normalFormalParameters:
  *   normalFormalParameter (', ' normalFormalParameter)*
  * ;
- * namedFormalParameters:
- *   '[' defaultFormalParameter (', ' defaultFormalParameter)* ']'
- * ;
- * @description Checks that a closing square bracket is a must in named parameters list.
+ * optionalFormalParameters:
+ *   optionalPositionalFormalParameters |
+ *    namedFormalParameters
+ *  ;
+ *  optionalPositionalFormalParameters:
+ *    `[' defaultFormalParameter (`, ' defaultFormalParameter)* `]'
+ *  ;
+ *  namedFormalParameters:
+ *    `{' defaultNamedParameter (`, ' defaultNamedParameter)* `}'
+ *  ;
+ * @description Checks that the list of named parameters must end with a closing curly brace.
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
-void f([) {}
+void f({) {}
 
 main () {
   try {
     f();
-  } catch(var x){}
+  } catch(x){}
 }

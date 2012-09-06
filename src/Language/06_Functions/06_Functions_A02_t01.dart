@@ -22,4 +22,3 @@ main() {
     Expect.equals(i, n);
   }
 }
-

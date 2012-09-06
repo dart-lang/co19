@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A positional formal parameter is a simple variable declaration.
+ * @assertion A required formal parameter is a simple variable declaration.
  * normalFormalParameter:
  *   functionSignature |
  *   fieldFormalParameter |
@@ -12,14 +12,16 @@
  * ;
  * simpleFormalParameter:
  *   declaredIdentifier |
- *   identifier
+ *   metadata identifier
  * ;
  * fieldFormalParameter:
- *   finalConstVarOrType? this '.' identifier
+ *   metadata finalConstVarOrType? this '.' identifier
  * ;
- * @description Checks various positional parameters.
+ * @description Checks that various correct declarations with only required formal parameters
+ * do not cause any errors.
  * @author msyabro
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
 func_func(void g(var x) ) {}

@@ -7,7 +7,7 @@
  * @assertion If the last statement of a function is not a return statement, the statement
  * return null; is implicitly appended to the function body.
  * @description Checks that the statement return null; is implicitly appended to the function body.
- * @static-warning
+ * @static-warning using the value of a void function (g())
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -18,6 +18,7 @@ f() {
   int x = 1;
   int y = x + 1;
 }
+
 void g() {}
 
 main() {

@@ -11,12 +11,13 @@
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
-void f([const x]) {}
+void f({const x}) {}
 
 main () {
   try {
-    f(x: 1);
-  } catch(var x){}
+    f(1);
+  } catch(x) {}
 }

@@ -11,7 +11,7 @@
  * scope. The body of a function f is enclosed in the scope introduced by formal
  * parameter scope of f.
  * @description Trivially checks that the function scopes are indeed nested 
- * in the described manner.
+ * in the described order.
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -28,4 +28,9 @@ main () {
     Expect.equals(11, foo);
   }
   g();
+
+  h({var foo: foo + 10]) {
+    Expect.equals(11, foo);
+  }
+  h();
 }

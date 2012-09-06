@@ -7,10 +7,11 @@
  * @assertion If a function does not declare a return type explicitly,
  * its return type is Dynamic.
  * @description Checks that return type is Dynamic
- * static checker should not raise warnings because type Dynamic
+ * static checker should not cause static warnings because type Dynamic
  * has every method and property
  * @author msyabro
  * @reviewer kaigorodov
+ * @reviewer rodionov
  */
 
 f() {}
@@ -20,20 +21,20 @@ main() {
   try {
     f().someMethod();
     Expect.fail("NullPointerException expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
   
   try {
     f().x;
     Expect.fail("NullPointerException expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 
   try {
     g().someMethod();
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
   
   try {
     g().x;
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 }

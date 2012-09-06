@@ -5,19 +5,22 @@
  */
 /**
  * @assertion Optional parameters may be specified and provided with default values.
- *  defaultFormalParameter:
+ * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
- *  ;
- * @description Checks that a statement cannot be used instead of expression.
+ * ;
+ * defaultNamedParameter:
+ *   normalFormalParameter (':' expression)?
+ * ;
+ * @description Checks that a statement cannot be used instead of expression in an
+ * optional named parameter declaration.
  * @compile-error
- * @author iefremov
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
-f([var x = var z]) {}
+f({var x: var z}) {}
 
 main() {
   try {
     f();
-  } catch(var x){}
+  } catch(x){}
 }

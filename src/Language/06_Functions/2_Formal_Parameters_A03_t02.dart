@@ -6,11 +6,12 @@
 /**
  * @assertion It is a compile-time error if a formal parameter is
  * declared as a constant variable.
- * @description Checks that it is a compile-time error if a positional
+ * @description Checks that it is a compile-time error if a required
  * parameter is declared as a constant typed variable.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
 void f(const int x) {}
@@ -18,5 +19,5 @@ void f(const int x) {}
 main () {
   try {
     f(1);
-  } catch(var x){}
+  } catch(x){}
 }

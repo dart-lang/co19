@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A positional formal parameter is a simple variable declaration
+ * @assertion A required formal parameter is a simple variable declaration.
  * normalFormalParameter:
  *   functionSignature |
  *   fieldFormalParameter |
@@ -12,21 +12,25 @@
  * ;
  * simpleFormalParameter:
  *   declaredIdentifier |
- *   identifier
+ *   metadata identifier
  * ;
  * fieldFormalParameter:
- *   finalConstVarOrType? this '.' identifier
+ *   metadata finalConstVarOrType? this '.' identifier
  * ;
- * @description Checks that static variable declaration can't be a positional parameter
+ * @description Checks that a required parameter can be constant. Reassigning it should
+ * produce a compile-time error.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
-f(static var x) {}
+func(const x) {
+  x = 1;
+}
 
 main() {
   try {
-    f(1);
-  } catch(var x){}
+    func(1);
+  } catch(e) {}
 }

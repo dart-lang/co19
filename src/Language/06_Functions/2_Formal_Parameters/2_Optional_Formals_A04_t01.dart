@@ -11,6 +11,7 @@
  * if default value is not specified explicitly.
  * @author msyabro
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
 f([var x, var y]) {
@@ -18,8 +19,17 @@ f([var x, var y]) {
   Expect.equals(null, y);
 }
 
+f2({var x, var y}) {
+  Expect.equals(null, x);
+  Expect.equals(null, y);
+}
+
 main() {
   f();
   f(null);
-  f(y: null);
+  
+  f2();
+  f2(null);
+  f2(y: null);
+  f2(x: null);
 }

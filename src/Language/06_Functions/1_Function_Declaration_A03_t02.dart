@@ -24,5 +24,5 @@ id1(int a1, [double x1 = 1.0]){
 main() {
   try {
     id1 = null;
-  } catch(var x){}
+  } catch(x){}
 }

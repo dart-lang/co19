@@ -25,5 +25,5 @@ main () {
   try {
     var foo = 1;
     f();
-  } catch(var x){}
+  } catch(x){}
 }

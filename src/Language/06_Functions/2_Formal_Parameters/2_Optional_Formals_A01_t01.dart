@@ -5,24 +5,38 @@
  */
 /**
  * @assertion Optional parameters may be specified and provided with default values.
- *  defaultFormalParameter:
+ * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
- *  ;
+ * ;
+ * defaultNamedParameter:
+ *   normalFormalParameter (':' expression)?
+ * ;
  * @description Checks that optional parameters can be provided with default values
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov
+ * @reviewer rodionov
  */
 
 void f([bool b = true, int x = 1]) {}
 void g(var x, [var y = 1]) {}
 void h([var x, var y = true, var z]) {}
-void i([a = const [const []]]){}
-void j([m = const {"foo":"bar", "boo" : const [], "zoo" : const{"x":"y"}}]){}
+void i([a = const [const []]]) {}
+void j([m = const {"foo":"bar", "boo" : const [], "zoo" : const{"x":"y"}}]) {}
 void k([func([p, v, a]) = null]) {}
+
+void f2({bool b: true, int x: 1}) {}
+void g2(var x, {var y: 1}) {}
+void h2({var x, var y: true, var z}) {}
+void i2({a: const [const []]}) {}
+void j2({m: const {"foo":"bar", "boo":const [], "zoo":const{"x":"y"}}}) {}
+void k2({func([p, v, a]): null}) {}
 
 void f_func([void func(var p) = null]) {}
 void f_undeclared([u = 1]) {}
+
+void f_func2({void func(var p): null}) {}
+void f_undeclared2({u: 1}) {}
 
 main() {
   f();
@@ -35,4 +49,23 @@ main() {
 
   f_func();
   f_undeclared();
+
+  f2();
+  f2(false);
+  f2(b: false);
+  f2(x: 2)
+  f2(x: 3, b: false);
+  g2(1);
+  g2(1, 2);
+  g2(1, y:2);
+  h2();
+  h2(x:3);
+  h2(y:3);
+  h2(z:3);
+  i2();
+  j2();
+  k2();
+
+  f_func2();
+  f_undeclared2();
 }

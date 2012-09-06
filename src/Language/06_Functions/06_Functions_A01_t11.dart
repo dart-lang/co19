@@ -8,7 +8,7 @@
  * setters, constructors and function literals.
  * All functions have a signature and a body.
  * functionSignature:
- *   returnType? identifier formalParameterList
+ *   metadata returnType? identifier formalParameterList
  * ;
  * returnType: void | type
  * ;

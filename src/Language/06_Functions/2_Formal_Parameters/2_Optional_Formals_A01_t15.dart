@@ -5,19 +5,24 @@
  */
 /**
  * @assertion Optional parameters may be specified and provided with default values.
- *  defaultFormalParameter:
+ * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
- *  ;
- * @description Checks that expression after '=' is a must.
+ * ;
+ * defaultNamedParameter:
+ *   normalFormalParameter (':' expression)?
+ * ;
+ * @description Checks that it is a compile-time error when the the ':' character
+ * is used in an optional positional parameter declaration.
  * @compile-error
- * @author iefremov
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
-f([var x = ]) {}
+foo([var a = 1, var b: 2]) {
+  p = 1;
+}
 
 main() {
   try {
-    f();
-  } catch(var x){}
+    foo();
+  } catch(x) {}
 }

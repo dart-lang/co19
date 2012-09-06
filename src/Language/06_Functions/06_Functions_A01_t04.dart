@@ -8,7 +8,7 @@
  * setters, constructors and function literals.
  * All functions have a signature and a body.
  * functionSignature:
- *   returnType? identifier formalParameterList
+ *   metadata returnType? identifier formalParameterList
  * ;
  * returnType: void | type
  * ;
@@ -58,8 +58,8 @@ main() {
   f_switch() {switch(1 + 1) {case 1: false; case 2: true; default: false;} }
 
   //Try
-  f_try() {try {} catch(var e) {}}
-  g_try() {try {throw "exception";} catch(String s) {} finally {}}
+  f_try() {try {} catch(e) {}}
+  g_try() {try {throw "exception";} on String catch(s) {} finally {}}
 
   //Return
   f_return() {return 1;}

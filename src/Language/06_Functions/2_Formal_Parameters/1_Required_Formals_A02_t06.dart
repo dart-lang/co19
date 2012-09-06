@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A positional formal parameter is a simple variable declaration.
+ * @assertion A required formal parameter is a simple variable declaration.
  * normalFormalParameter:
  *   functionSignature |
  *   fieldFormalParameter |
@@ -12,10 +12,10 @@
  * ;
  * simpleFormalParameter:
  *   declaredIdentifier |
- *   identifier
+ *   metadata identifier
  * ;
  * fieldFormalParameter:
- *   finalConstVarOrType? this '.' identifier
+ *   metadata finalConstVarOrType? this '.' identifier
  * ;
  * @description Checks that a functionSignature parameter cannot be final.
  * @compile-error
@@ -30,5 +30,5 @@ func(final x()) {
 main() {
   try {
     func((){});
-  } catch(var e) {}
+  } catch(e) {}
 }

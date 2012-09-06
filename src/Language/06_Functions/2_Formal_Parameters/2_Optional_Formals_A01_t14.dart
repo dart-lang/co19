@@ -5,22 +5,24 @@
  */
 /**
  * @assertion Optional parameters may be specified and provided with default values.
- *  defaultFormalParameter:
+ * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
- *  ;
- * @description Checks that an optional parameter can be constant. Reassigning it should
- * produce a compile-time error.
+ * ;
+ * defaultNamedParameter:
+ *   normalFormalParameter (':' expression)?
+ * ;
+ * @description Checks that it is a compile-time error when the the '=' character
+ * is used in an optional named parameter declaration.
  * @compile-error
- * @author iefremov
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
-foo([const p = 1]) {
+foo({var a: 1, var b = 2}) {
   p = 1;
 }
 
 main() {
   try {
     foo();
-  } catch(var x){}
+  } catch(x) {}
 }

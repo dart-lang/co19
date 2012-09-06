@@ -4,30 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Every function declaration includes a formal parameter list, which consists of
- * a list of required parameters, followed by any optional parameters. Optional
- * parameters consist of a list of named parameters.
+ * @assertion Every function declaration includes a formal parameter list, 
+ * which consists of a list of required parameters, followed by any optional parameters. 
+ * The optional parameters may be specified either as a set named parameters
+ * or as a list of positional parameters, but not both.
  * formalParameterList:
  *   '(' ')' |
- *   '(' normalFormalParameters ( ', ' namedFormalParameters)? ')' |
- *   (namedFormalParameters)
+ *   '(' normalFormalParameters ( ',' optionalFormalParameters)? ')' |
+ *   (optionalFormalParameters)
  * ;
  * normalFormalParameters:
  *   normalFormalParameter (', ' normalFormalParameter)*
  * ;
- * namedFormalParameters:
- *   '[' defaultFormalParameter (', ' defaultFormalParameter)* ']'
- * ;
- * @description Checks that parameters must be separated by comma.
+ * optionalFormalParameters:
+ *   optionalPositionalFormalParameters |
+ *    namedFormalParameters
+ *  ;
+ *  optionalPositionalFormalParameters:
+ *    `[' defaultFormalParameter (`, ' defaultFormalParameter)* `]'
+ *  ;
+ *  namedFormalParameters:
+ *    `{' defaultNamedParameter (`, ' defaultNamedParameter)* `}'
+ *  ;
+ * @description Checks that parameter declarations must be separated by comma.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
-void f(var p1 [var p2]) {}
+void f(var p1 {var p2}) {}
 
 main () {
   try {
     f(1);
-  } catch(var x){}
+  } catch(x){}
 }

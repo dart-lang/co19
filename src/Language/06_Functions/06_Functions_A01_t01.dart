@@ -8,7 +8,7 @@
  * setters, constructors and function literals.
  * All functions have a signature and a body.
  * functionSignature:
- *   returnType? identifier formalParameterList
+ *   metadata returnType? identifier formalParameterList
  * ;
  * returnType: void | type
  * ;
@@ -39,11 +39,11 @@ class A {
 
   int _val;
   set val(int v) => v;
-  get val() => _val;
+  get val => _val;
 
   String _s;
   set s(String str) {str = _s; _s = str;}
-  Object get s() {A a = new Object(); return 5;}
+  Object get s {A a = new Object(); return 5;}
 }
 
 main() {

@@ -4,7 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to preface a function declaration with the built-in identifier static.
+ * @assertion A function declaration is a function that is not a method, getter, setter or function literal. 
+ * Function declarations include library functions, which are function declarations at the top level of a library, 
+ * and local functions, which are function declarations declared inside other functions.
+ * It is a compile-time error to preface a function declaration with the built-in identifier static.
  * @description Checks that it is a compile-time error to preface local function with 'static'.
  * @compile-error
  * @author msyabro
@@ -15,5 +18,5 @@
 main() {
   try {
     static void f() {}
-  } catch(var x){}
+  } catch(x){}
 }

@@ -8,7 +8,7 @@
  * setters, constructors and function literals.
  * All functions have a signature and a body.
  * functionSignature:
- *   returnType? identifier formalParameterList
+ *   metadata returnType? identifier formalParameterList
  * ;
  * returnType: void | type
  * ;
@@ -25,7 +25,8 @@
  * @reviewer iefremov
  */
 
-#import("06_Functions_A01_t03_lib.dart", prefix: "prfx");
+import "06_Functions_A01_t03_lib.dart" as prfx;
+
 class A {
   const A();
   
@@ -116,7 +117,7 @@ main() {
 
   //Equality
   f_equality() => x == y;
-  g_equality() => x === y;
+  g_equality() => identical(x, y);
   h_equality() => x !== y;
   i_equality() => x != y;
 

@@ -5,21 +5,24 @@
  */
 /**
  * @assertion Optional parameters may be specified and provided with default values.
- *  defaultFormalParameter:
+ * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
- *  ;
- * @description Checks that arguments are assigned to default values.
- * @author msyabro
- * @reviewer kaigorodov
+ * ;
+ * defaultNamedParameter:
+ *   normalFormalParameter (':' expression)?
+ * ;
+ * @description Checks that it is a compile-time error when the two kinds of brackets
+ * are mixed in an optional parameters declaration.
+ * @compile-error
+ * @author rodionov
  */
 
-void func([var x = 1, var y = 2]) {
-  Expect.equals(1, x);
-  Expect.equals(2, y);
+foo({const p: 1]) {
+  p = 1;
 }
 
 main() {
-  func();
-  func(1);
-  func(y: 2);
+  try {
+    foo();
+  } catch(x) {}
 }
