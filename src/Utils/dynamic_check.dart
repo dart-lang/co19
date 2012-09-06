@@ -1,11 +1,11 @@
-#library("dynamic_check");
+library dynamic_check;
 
 isCheckedMode() {
   try {
     var i = 1;
     String s = i;
     return false;
-  } catch(var e) {
+  } catch(e) {
     return true;
   }
 }
@@ -16,7 +16,7 @@ checkTypeError(f()) {
     if(isCheckedMode()) {
       Expect.fail("Type error is expected");
     }
-  } catch(TypeError ok) {
+  } on TypeError catch(ok) {
     if(!isCheckedMode()) {
       Expect.fail("Unexpected type error in scripting mode!");
     }
