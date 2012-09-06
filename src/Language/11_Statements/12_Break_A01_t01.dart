@@ -23,5 +23,5 @@ main() {
     for ( ; ; ){
       break
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

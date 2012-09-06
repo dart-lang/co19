@@ -21,6 +21,6 @@ main() {
     do
       break
     while (true);
-  } catch(var x) {}
+  } catch(x) {}
 }
 

@@ -21,5 +21,5 @@ main() {
     switch(1) {
       case 0.5:
     }
-  } catch(var e) {}
+  } catch(e) {}
 }

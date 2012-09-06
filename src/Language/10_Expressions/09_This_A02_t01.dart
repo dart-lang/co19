@@ -21,5 +21,5 @@ class B {
 main() {
   try {
     A a=new B().func();
-  } catch (TypeError e) {}
+  } on TypeError catch(e) {}
 }

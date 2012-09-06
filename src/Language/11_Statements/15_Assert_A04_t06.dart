@@ -17,5 +17,5 @@ bool foo() {return true;}
 main() {
   try {
     assert(foo ? 1 : 1.0);
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

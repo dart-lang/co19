@@ -23,5 +23,5 @@ final m = const A(const []);
 main() {
   try {
     print(m);
-  } catch(var x) {}
+  } catch(x) {}
 }

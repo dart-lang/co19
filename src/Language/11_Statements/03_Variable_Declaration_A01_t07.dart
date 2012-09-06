@@ -20,7 +20,7 @@ main() {
       id = 2;
       try {
         id = 3;
-      } catch (var ok) {}
+      } catch(ok) {}
     }
   }
 }

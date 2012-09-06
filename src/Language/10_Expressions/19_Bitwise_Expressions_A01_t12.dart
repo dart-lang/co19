@@ -36,6 +36,6 @@ class A {}
 main() {
   try {
     A & 1;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

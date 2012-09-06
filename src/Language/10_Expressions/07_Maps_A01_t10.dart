@@ -23,5 +23,5 @@
 main() {
   try {
     var x= const <int>  "key": 1 };
-  } catch(var e) {}
+  } catch(e) {}
 }

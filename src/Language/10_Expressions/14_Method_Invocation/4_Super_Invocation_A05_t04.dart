@@ -27,5 +27,5 @@ class A extends S {
 main() {
   try {
     A.staticMethod();
-  } catch(var e) {}
+  } catch(e) {}
 }

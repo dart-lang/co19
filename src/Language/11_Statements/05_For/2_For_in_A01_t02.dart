@@ -21,28 +21,28 @@ void check(var e) {
   try {
     for (var id in e);
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}   
+  } on NoSuchMethodException catch(ok) {}   
 
   try {
     for (final id in e);
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}   
+  } on NoSuchMethodException catch(ok) {}   
 
   try {
     for (const id in e);
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}   
+  } on NoSuchMethodException catch(ok) {}   
 
   try {
     for (Dynamic id in e);
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}   
+  } on NoSuchMethodException catch(ok) {}   
 
   try {
     var id;
     for (id in e);
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}   
+  } on NoSuchMethodException catch(ok) {}   
 }
 
 main() {

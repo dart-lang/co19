@@ -21,5 +21,5 @@ class A {
 main() {
   try {
     var o = const A<int>();
-  } catch(var e) {}
+  } catch(e) {}
 }

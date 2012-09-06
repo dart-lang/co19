@@ -23,5 +23,5 @@
  */
 
 main() {
-  try return; catch (var ex) { }
+  try return; catch(ex) { }
 }

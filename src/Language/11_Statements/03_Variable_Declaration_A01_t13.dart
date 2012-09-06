@@ -17,6 +17,6 @@ class T<K,V> {}
 main() {
   try {
     T<int, String;> id;
-  } catch (var x) {}
+  } catch(x) {}
 }
 

@@ -30,7 +30,7 @@ class A extends S {
     try {
       super == 1;
       Expect.fail("operator == was not called");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

@@ -25,5 +25,5 @@ f(var func) {
 main() {
   try {
     f(void func() =>);
-  } catch(var x){}
+  } catch(x){}
 }

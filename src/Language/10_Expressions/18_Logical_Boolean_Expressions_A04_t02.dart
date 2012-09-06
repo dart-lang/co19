@@ -15,5 +15,5 @@
 main() {
   try {
     int b = (true || false);
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

@@ -21,5 +21,5 @@ final c = 1;
 main() {
   try {
     const c();
-  } catch(var e) {}
+  } catch(e) {}
 }

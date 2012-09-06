@@ -24,20 +24,20 @@ main() {
   try {
     n() as int;
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 
   try {
     null as C;
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 
   try {
     n() as G<int, bool>;
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 
   try {
     n() as func;
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 }

@@ -23,5 +23,5 @@
 main() {
   try {
     true && false &&;
-  } catch(var e) {}
+  } catch(e) {}
 }

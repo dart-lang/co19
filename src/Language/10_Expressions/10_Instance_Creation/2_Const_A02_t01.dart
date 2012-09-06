@@ -19,5 +19,5 @@
 main() {
   try {
     const UnavailableType();
-  } catch(var e) {}
+  } catch(e) {}
 }

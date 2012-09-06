@@ -21,5 +21,5 @@
 main() {
   try {
     "${var x = 1}";
-  } catch(var e) {}
+  } catch(e) {}
 }

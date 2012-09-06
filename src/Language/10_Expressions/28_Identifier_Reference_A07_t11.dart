@@ -17,5 +17,5 @@
 main() {
   try {
     set foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

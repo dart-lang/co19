@@ -35,7 +35,7 @@ main()  {
   try {
     o.nonExistingMethod();
     Expect.fail("Exception is expected");
-  } catch(TestException e) {
+  } on TestException catch(e) {
     Expect.equals(o.te, e);
   }
 }

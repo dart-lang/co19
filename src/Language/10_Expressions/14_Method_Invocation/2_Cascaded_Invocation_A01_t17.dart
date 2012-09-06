@@ -27,6 +27,6 @@ main() {
   var b = 0;
   try {
     new C().. a + b;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

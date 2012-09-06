@@ -20,5 +20,5 @@
 main() {
   try {
     throw "fail"
-  } catch (var e) { }
+  } catch(e) { }
 }

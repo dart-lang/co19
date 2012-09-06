@@ -19,5 +19,5 @@
 main() {
   try {
     assert false ;
-  } catch(var x) {}
+  } catch(x) {}
 }

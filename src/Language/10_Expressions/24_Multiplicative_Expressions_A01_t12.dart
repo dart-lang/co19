@@ -28,5 +28,5 @@
 interface I {}
 
 main() {
-  try {I % 1;} catch(var e) {}
+  try {I % 1;} catch(e) {}
 }

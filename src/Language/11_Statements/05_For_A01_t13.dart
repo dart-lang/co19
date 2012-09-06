@@ -32,5 +32,5 @@ main() {
   try {
     C c=new C();
     for (c.i in new List(100)) break;
-  } catch(var x){}
+  } catch(x){}
 }

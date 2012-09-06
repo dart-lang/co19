@@ -17,6 +17,6 @@ main() {
       print("foo");
       break;
     } 
-  } catch (TypeError ok) {}
+  } on TypeError catch(ok) {}
 }
 

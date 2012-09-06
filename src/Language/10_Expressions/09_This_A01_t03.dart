@@ -21,5 +21,5 @@ class A implements this{
 main() {
   try {
     new A();
-  } catch(var e) {}
+  } catch(e) {}
 }

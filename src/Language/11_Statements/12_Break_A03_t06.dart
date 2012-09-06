@@ -25,7 +25,7 @@ main() {
           try {
             break;
             Expect.fail("This code shouldn't be executed");
-          } catch (var ok) {
+          } catch(ok) {
             Expect.fail("This code shouldn't be executed");
           } finally {
             order.add(4);

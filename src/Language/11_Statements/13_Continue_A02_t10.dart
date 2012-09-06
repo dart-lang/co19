@@ -25,5 +25,5 @@ main() {
     } finally {
       continue L;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

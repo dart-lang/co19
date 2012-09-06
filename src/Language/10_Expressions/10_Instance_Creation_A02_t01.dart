@@ -21,5 +21,5 @@ class A<T> {
 main() {
   try {
     var o = new A<D>();
-  } catch(var e) {}
+  } catch(e) {}
 }

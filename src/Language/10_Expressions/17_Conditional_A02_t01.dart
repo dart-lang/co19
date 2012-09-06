@@ -26,7 +26,7 @@ main() {
   Expect.equals("yes", (0 === 0) ? "yes" : "no");
 
   //scripting mode only, raises static type warnings
-  try {Expect.equals(0, [] ? 1 : 0); } catch(TypeError e) {}
-  try {Expect.equals(0, new Object() ? 1 : 0); } catch(TypeError e) {}
-  try {Expect.equals(0, "" ? 1 : 0); } catch(TypeError e) {}
+  try {Expect.equals(0, [] ? 1 : 0); } on TypeError catch(e) {}
+  try {Expect.equals(0, new Object() ? 1 : 0); } on TypeError catch(e) {}
+  try {Expect.equals(0, "" ? 1 : 0); } on TypeError catch(e) {}
 }

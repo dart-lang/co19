@@ -43,5 +43,5 @@
 main() {
   try {
     if(true) {} = 1;
-  } catch(var e) {}
+  } catch(e) {}
 }

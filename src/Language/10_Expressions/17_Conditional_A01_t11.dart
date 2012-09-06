@@ -21,5 +21,5 @@ class A {}
 main() {
   try {
     true ? 1 : A;
-  } catch(var e) {}
+  } catch(e) {}
 }

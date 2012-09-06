@@ -22,35 +22,35 @@ main() {
   try {
     e();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 
   try {
     ("String1")(null, null);
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     []();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     null(p1: 1);
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     new Object()();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     f()();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     false();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 }

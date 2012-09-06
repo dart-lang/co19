@@ -42,13 +42,13 @@ void main() {
   try {
     try {
       throw ex;
-    } catch(int i) {
-    } catch(bool b) {
+    } on int catch(i) {
+    } on bool catch(b) {
     } finally {
       isFinallyExecuted = true;
     }
     Expect.fail("This code shouldn't be executed");
-  } catch (String s) {
+  } on String catch(s) {
     Expect.equals(ex, s);
   }
   Expect.equals(true, isFinallyExecuted);
@@ -56,9 +56,9 @@ void main() {
   isFinallyExecuted = false;
   try {
     throw ex;
-  } catch(int i) {
-  } catch(String s) {
-  } catch(bool b) {
+  } on int catch(i) {
+  } on String catch(s) {
+  } on bool catch(b) {
   } finally {
     isFinallyExecuted = true;
   }
@@ -72,7 +72,7 @@ void main() {
       isFinallyExecuted = true;
     }
     Expect.fail("This code shouldn't be executed");
-  } catch (String s) {
+  } on String catch(s) {
     Expect.equals(ex, s);
   }
   Expect.equals(true, isFinallyExecuted);

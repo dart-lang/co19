@@ -22,9 +22,9 @@ main() {
   try {
     L: try {
       throw 1;
-    } catch(var x) {
+    } catch(x) {
       continue L;
     } finally {
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -33,7 +33,7 @@ main()  {
   try {
     o.func(e0);
     Expect.fail("Exception expected");
-  } catch(TestException e) {
+  } on TestException catch(e) {
     Expect.equals(e0, e);
   }
 }

@@ -27,7 +27,7 @@
 
 class A<T> {
   test() {
-    try {1 ~/ T;} catch(var e) {}
+    try {1 ~/ T;} catch(e) {}
   }
 }
 

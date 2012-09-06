@@ -43,5 +43,5 @@
 main() {
   try {
     assert(false) = null;
-  } catch(var e) {}
+  } catch(e) {}
 }

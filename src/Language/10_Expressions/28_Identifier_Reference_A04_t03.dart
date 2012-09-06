@@ -25,6 +25,6 @@ class A<T> {
 main() {
   try {
   	Expect.isTrue(new A().func()==null);
- } catch (var e) {} 
+ } catch(e) {} 
 }
 

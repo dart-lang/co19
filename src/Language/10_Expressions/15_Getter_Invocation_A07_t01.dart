@@ -30,5 +30,5 @@ main()  {
   try {
     C.m;
     Expect.fail("TestException is expected");
-  }  catch(TestException e) {}
+  }  on TestException catch(e) {}
 }

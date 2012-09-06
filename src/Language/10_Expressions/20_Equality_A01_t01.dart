@@ -67,12 +67,12 @@ class A extends S {
     method() != id;
 
     //relational expressions
-    try {1 < 2 == true > false;} catch(var e) {}
-    try {true >= false === id > 7;} catch(var e) {}
+    try {1 < 2 == true > false;} catch(e) {}
+    try {true >= false === id > 7;} catch(e) {}
 
     //shift expressions
-    try {1 >> -1 != (){};} catch(var e) {}
-    try {1 << 2 != null >> null;} catch(var e) {}
+    try {1 >> -1 != (){};} catch(e) {}
+    try {1 << 2 != null >> null;} catch(e) {}
 
     //additive expressions
     try { 1 + 2 == 2;} catch(var e ) {}
@@ -81,16 +81,16 @@ class A extends S {
     try { "" - '' !== 0;} catch(var e ) {}
 
     //multiplicative expressions
-    try {true * false == id.id / []();} catch(var e) {}
-    try {this[1] % null(1) === topLevelFunction()[0]++ ~/ {}()[0];} catch(var e) {}
-    try {2 * 3 !== 0 / 0;} catch(var e) {}
-    try {0 ~/ 1 != 1 - -1;} catch(var e) {}
+    try {true * false == id.id / []();} catch(e) {}
+    try {this[1] % null(1) === topLevelFunction()[0]++ ~/ {}()[0];} catch(e) {}
+    try {2 * 3 !== 0 / 0;} catch(e) {}
+    try {0 ~/ 1 != 1 - -1;} catch(e) {}
 
     //unary expressions
-    try {-this == ~this;} catch(var e) {}
-    try {--id === id++;} catch(var e) {}
-    try {~-id != !!false;} catch(var e) {}
-    try {++1[1] !== ()=>2[0]--;} catch(var e) {}
+    try {-this == ~this;} catch(e) {}
+    try {--id === id++;} catch(e) {}
+    try {~-id != !!false;} catch(e) {}
+    try {++1[1] !== ()=>2[0]--;} catch(e) {}
   }
 }
 

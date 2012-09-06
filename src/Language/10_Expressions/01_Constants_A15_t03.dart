@@ -19,5 +19,5 @@ const a = {"a" : "b"};
 main() {
   try {
     print(a);
-  } catch(var x) {}
+  } catch(x) {}
 }

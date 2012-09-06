@@ -40,5 +40,5 @@ main() {
   try {
     @'str
     ing';
-  } catch(var e) {}
+  } catch(e) {}
 }

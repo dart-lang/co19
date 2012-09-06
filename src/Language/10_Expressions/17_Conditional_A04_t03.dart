@@ -20,5 +20,5 @@ main() {
     double d = (true ? 1 : 0.5);
     bool b = (false ? true : []);
     List l = (false ? true : []);
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

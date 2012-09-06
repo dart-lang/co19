@@ -19,6 +19,6 @@
 main() {
   try {
     while (true) break
-  } catch(var x) {}
+  } catch(x) {}
 }
 

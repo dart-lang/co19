@@ -18,7 +18,7 @@ bool foo(x) {}
 main() {
   try {
     assert(foo);
-  } catch(ClosureArgumentMismatchException e) {
+  } on ClosureArgumentMismatchException catch(e) {
     // if it attempts to invoke the function anyway
   }
 }

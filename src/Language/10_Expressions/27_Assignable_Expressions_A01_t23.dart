@@ -44,7 +44,7 @@ class A {
   test() {
     try {
       this = new A();
-    } catch(var e) {}
+    } catch(e) {}
   }
 }
 

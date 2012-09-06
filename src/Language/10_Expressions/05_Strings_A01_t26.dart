@@ -38,5 +38,5 @@
 main() {
   try {
     @ string';
-  } catch(var e) {}
+  } catch(e) {}
 }

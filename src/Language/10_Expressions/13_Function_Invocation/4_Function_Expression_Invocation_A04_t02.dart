@@ -20,5 +20,5 @@
 main() {
   try {
     (int p1, int p2) {}("", "");
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

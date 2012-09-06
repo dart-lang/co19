@@ -28,6 +28,6 @@
 main() {
   try {
     for ( var x, y in new List(10) ) break;
-  } catch(var x){}
+  } catch(x){}
 }
 

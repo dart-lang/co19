@@ -21,5 +21,5 @@
 main() {
   try {
     as int;
-  } catch (var x) {}
+  } catch(x) {}
 }

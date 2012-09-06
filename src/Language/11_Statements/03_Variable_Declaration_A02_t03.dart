@@ -16,5 +16,5 @@ main() {
   try {
     Expect.equals(null, i);
     var i;
-  } catch (var ok) {}
+  } catch(ok) {}
 }

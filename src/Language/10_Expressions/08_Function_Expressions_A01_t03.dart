@@ -21,5 +21,5 @@
 main() {
   try {
     void f(p1, p2);
-  } catch(var e) {}
+  } catch(e) {}
 }

@@ -21,5 +21,5 @@
 main() {
   try {
     int func {return 1;};
-  } catch(var e) {}
+  } catch(e) {}
 }

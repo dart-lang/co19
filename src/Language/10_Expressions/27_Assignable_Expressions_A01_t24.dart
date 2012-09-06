@@ -49,5 +49,5 @@ main() {
   A a = new A();
   try {
     a.test() = 1;
-  } catch(var e) {}
+  } catch(e) {}
 }

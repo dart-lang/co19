@@ -47,40 +47,40 @@ class A extends S {
   test() {
     //super
     super | this;
-    try {super ^ 1 | 3; } catch(var e) {}
-    try {super & new Object() ^ true | 1; } catch(var e) {}
+    try {super ^ 1 | 3; } catch(e) {}
+    try {super & new Object() ^ true | 1; } catch(e) {}
 
     //literals
-    try {1 & "1";} catch(var e) {}
-    try {false | null;} catch(var e) {}
-    try {[1, 2, 3, 4] ^ {"1": 2, "3": 4};} catch(var e) {}
+    try {1 & "1";} catch(e) {}
+    try {false | null;} catch(e) {}
+    try {[1, 2, 3, 4] ^ {"1": 2, "3": 4};} catch(e) {}
 
     //function expressions
-    try {(){} | ()=>{};} catch(var e) {}
-    try {void f() {return null;} & void g(int x) => 7;} catch(var e) {} // issue 1189
-    try {()=>({}) ^ void f() {};} catch(var e) {}
+    try {(){} | ()=>{};} catch(e) {}
+    try {void f() {return null;} & void g(int x) => 7;} catch(e) {} // issue 1189
+    try {()=>({}) ^ void f() {};} catch(e) {}
 
     //constants and instance creation
-    try {const [] | [];} catch(var e) {}
-    try {const {"a": 1} & {"a": 1};} catch(var e) {}
-    try {const S() ^ new A();} catch(var e) {}
+    try {const [] | [];} catch(e) {}
+    try {const {"a": 1} & {"a": 1};} catch(e) {}
+    try {const S() ^ new A();} catch(e) {}
 
     //invocation
-    try {id ^ topLevelFunction();} catch(var e) {}
-    try {method() & topLevelFunction();} catch(var e) {}
-    try {method() | id;} catch(var e) {}
+    try {id ^ topLevelFunction();} catch(e) {}
+    try {method() & topLevelFunction();} catch(e) {}
+    try {method() | id;} catch(e) {}
 
     //equality
-    try {id !== id | true == false;} catch(var e) {}
-    try {1 != 3 & 0;} catch(var e) {}
+    try {id !== id | true == false;} catch(e) {}
+    try {1 != 3 & 0;} catch(e) {}
 
     //relational expressions
-    try {1 < 2 ^ true > false;} catch(var e) {}
-    try {true >= false & id > 7;} catch(var e) {}
+    try {1 < 2 ^ true > false;} catch(e) {}
+    try {true >= false & id > 7;} catch(e) {}
 
     //shift expressions
-    try {id << method() & {}() >> []();} catch(var e) {}
-    try {1 << 2 ^ null >> null;} catch(var e) {}
+    try {id << method() & {}() >> []();} catch(e) {}
+    try {1 << 2 ^ null >> null;} catch(e) {}
     
     // bitwise expressions
     1 | -1 | 1 | -1 | 1;
@@ -94,17 +94,17 @@ class A extends S {
     try { [] + {} & 0;} catch(var e ) {}
 
     //multiplicative expressions
-    try {true * false ^ id.id / []();} catch(var e) {}
-    try {this[1] % null(1) & topLevelFunction()[0]++ ~/ {}()[0];} catch(var e) {}
-    try {0 ~/ 1 | 1 - -1;} catch(var e) {}
+    try {true * false ^ id.id / []();} catch(e) {}
+    try {this[1] % null(1) & topLevelFunction()[0]++ ~/ {}()[0];} catch(e) {}
+    try {0 ~/ 1 | 1 - -1;} catch(e) {}
 
     //unary expressions
-    try {-this & ~this;} catch(var e) {}
-    try {--id | id++;} catch(var e) {}
-    try {~-id ^ !!false;} catch(var e) {}
+    try {-this & ~this;} catch(e) {}
+    try {--id | id++;} catch(e) {}
+    try {~-id ^ !!false;} catch(e) {}
 
     //identifier
-    try { id ^ id | id & id;} catch(var e) {}
+    try { id ^ id | id & id;} catch(e) {}
   }
 }
 

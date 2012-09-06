@@ -26,5 +26,5 @@ main()  {
   try {
     UnavailableClass.getter;
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 }

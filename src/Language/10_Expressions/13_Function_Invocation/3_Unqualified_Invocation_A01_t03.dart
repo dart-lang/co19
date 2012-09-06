@@ -39,7 +39,7 @@ class A {
     try {
       n("a", 1);
       Expect.fail("NoSuchMethodException expected");
-    } catch (NoSuchMethodException ok) {}
+    } on NoSuchMethodException catch(ok) {}
   }
 }
 

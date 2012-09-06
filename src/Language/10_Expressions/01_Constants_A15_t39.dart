@@ -23,5 +23,5 @@ const i1 = x;
 main() {
   try {
     print(i1);
-  } catch(var x) {}
+  } catch(x) {}
 }

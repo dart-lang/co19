@@ -36,12 +36,12 @@ class C {
 main() {
   try {
     C.m();
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
   
   Expect.equals("call(1, foo)", C.m(1));
   Expect.equals("call(2, bar)", C.m(2, "bar"));
 
   try {
     C.m(1, 2, 3);
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 }

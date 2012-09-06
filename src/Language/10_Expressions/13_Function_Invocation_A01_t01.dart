@@ -25,7 +25,7 @@ void f() {
 main() {
   try {
     f();
-  }catch(var e) {
+  }catch(e) {
     Expect.isNull(x);
   }
 }

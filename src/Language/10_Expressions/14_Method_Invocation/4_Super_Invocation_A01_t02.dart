@@ -21,7 +21,7 @@ class A extends S {
   test() {
     try {
       super.f(name: null, 1);
-    } catch(var e) {}
+    } catch(e) {}
   }
 }
 

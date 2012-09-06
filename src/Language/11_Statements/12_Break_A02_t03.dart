@@ -24,5 +24,5 @@ main() {
       case 1:
         break L;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

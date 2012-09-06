@@ -20,5 +20,5 @@ class A<T> {
 main() {
   try {
     var o = new A<int, int>();
-  } catch(var e) {}
+  } catch(e) {}
 }

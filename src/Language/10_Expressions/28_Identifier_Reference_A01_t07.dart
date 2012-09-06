@@ -45,5 +45,5 @@
 main() {
   try {
   	var щ=1;
- } catch (var e) {} 
+ } catch(e) {} 
 }

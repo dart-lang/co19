@@ -18,5 +18,5 @@ final m = 1 % 0;
 main() {
   try {
     print(m);
-  } catch(var x) {}
+  } catch(x) {}
 }

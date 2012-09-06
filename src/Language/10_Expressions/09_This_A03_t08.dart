@@ -17,5 +17,5 @@ var x = this.a;
 main() {
   try {
     print(x);
-  } catch(var e) {}
+  } catch(e) {}
 }

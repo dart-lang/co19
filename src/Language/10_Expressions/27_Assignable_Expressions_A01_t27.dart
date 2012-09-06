@@ -42,6 +42,6 @@
 
 main() {
   //mapLiteral
-  try { {"1" : 1, "2" : 2}["1"] = 0; } catch(var e) {}
-  try { {"1" : 1, "2" : 2}.prop = null; } catch(var e) {}
+  try { {"1" : 1, "2" : 2}["1"] = 0; } catch(e) {}
+  try { {"1" : 1, "2" : 2}.prop = null; } catch(e) {}
 }

@@ -16,5 +16,5 @@
 main() {
   try {
     assert(true ? (() => true) : ((var x) => 1));
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

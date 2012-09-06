@@ -20,5 +20,5 @@ main() {
     try {
       throw new A();
     } catch(var ex, A trace) {}
-  } catch (var ok) {} // TypeError?
+  } catch(ok) {} // TypeError?
 }

@@ -21,5 +21,5 @@
 main() {
   try {
     "${nonExistingVariable}";
-  } catch(var e) {}
+  } catch(e) {}
 }

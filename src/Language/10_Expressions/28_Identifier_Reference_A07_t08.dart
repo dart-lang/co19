@@ -16,5 +16,5 @@
 main() {
   try {
     interface foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

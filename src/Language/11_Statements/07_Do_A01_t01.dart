@@ -20,6 +20,6 @@ main() {
   try {
     do
     while (true);
-  } catch(var x) {}
+  } catch(x) {}
 }
 

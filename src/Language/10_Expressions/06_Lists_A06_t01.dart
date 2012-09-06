@@ -18,41 +18,41 @@ main() {
     b = false;
     (const []).add(1);
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const [1, 2, 3])[0] = 5;
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const [true, false]).removeLast();
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const [""]).clear();
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const []).clear();
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const []).addLast(1);
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 }

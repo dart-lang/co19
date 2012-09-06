@@ -24,5 +24,5 @@ main() {
     L: if (true) {
       continue L;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

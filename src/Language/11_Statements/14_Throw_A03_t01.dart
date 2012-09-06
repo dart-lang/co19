@@ -21,7 +21,7 @@ main() {
   try {
     throw "ex";
     Expect.fail("This code shouldn't be executed");
-  } catch (int i) {
+  } on int catch(i) {
   } catch (String s, var st) {
     throw;
     Expect.fail("This code shouldn't be executed");

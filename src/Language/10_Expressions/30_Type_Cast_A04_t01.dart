@@ -16,5 +16,5 @@
 main() {
   try {
     [] as List<int, bool>;
-  } catch (var ok) {}
+  } catch(ok) {}
 }

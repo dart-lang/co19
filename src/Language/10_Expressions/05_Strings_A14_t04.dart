@@ -17,5 +17,5 @@
 main() {
   try {
     "empty \u{}";
-  } catch(var e) {}
+  } catch(e) {}
 }

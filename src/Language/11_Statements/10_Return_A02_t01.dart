@@ -38,5 +38,5 @@ main() {
   try {
     Expect.equals(100, bar(new A())); // can't be true, can it?
     Expect.fail("Exception expected when evaluating a return statement!");
-  } catch (int ok) {}
+  } on int catch(ok) {}
 }

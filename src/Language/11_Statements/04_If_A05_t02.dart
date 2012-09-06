@@ -16,5 +16,5 @@
 main() {
   try {
     if ("true") {print("foo");} 
-  } catch (TypeError ok) {}
+  } on TypeError catch(ok) {}
 }

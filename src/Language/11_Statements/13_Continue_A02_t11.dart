@@ -22,5 +22,5 @@ main() {
     L: {
       continue L;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

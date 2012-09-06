@@ -19,5 +19,5 @@ int foo() {  return "0"; }
 main() {
   try {
     foo();
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

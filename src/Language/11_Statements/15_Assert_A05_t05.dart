@@ -21,7 +21,7 @@ main() {
     void foo() {
       try {
         assert(false);
-      } catch (AssertionError ok) {
+      } on AssertionError catch(ok) {
         flag = true;
       }
     }

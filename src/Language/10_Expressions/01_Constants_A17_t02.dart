@@ -27,5 +27,5 @@ const a10 = a9;
 main() {
   try {
     print(a10);
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -21,20 +21,20 @@ main() {
   try {
     c[0] = 1;
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     c["o"] = 1;
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     c[false] = 1;
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     c[1.01] = 1;
     Expect.fail("NoSuchMethodException expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 }

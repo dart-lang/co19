@@ -18,5 +18,5 @@ class C<T, >{}
 main() {
   try {
     new C();
-  }catch(var x){}
+  } catch(x){}
 }

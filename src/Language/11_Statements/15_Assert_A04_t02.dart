@@ -16,5 +16,5 @@ foo() {}
 main() {
   try {
     assert(foo);
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

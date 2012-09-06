@@ -33,6 +33,6 @@
 main() {
   try {
     2 &;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

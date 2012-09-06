@@ -18,5 +18,5 @@
 main() {
   try {
     factory foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

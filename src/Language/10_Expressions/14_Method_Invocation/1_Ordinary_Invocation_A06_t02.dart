@@ -29,5 +29,5 @@ main() {
   C o;
   try {
     o._func();
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

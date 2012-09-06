@@ -25,5 +25,5 @@ class A extends S {
 main() {
   try {
     A.v;
-  } catch(var e) {}
+  } catch(e) {}
 }

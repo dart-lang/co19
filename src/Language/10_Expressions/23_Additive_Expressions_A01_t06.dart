@@ -33,7 +33,7 @@ class A {
   test() {
     try {
       super -;
-    } catch(var e) {}
+    } catch(e) {}
   }
 }
 

@@ -46,5 +46,5 @@ typedef f();
 main() {
   try {
     f = null;
-  } catch(var e) {}
+  } catch(e) {}
 }

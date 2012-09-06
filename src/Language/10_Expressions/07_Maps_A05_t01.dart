@@ -17,28 +17,28 @@ main() {
     b = false;
     (const {})["1"] = 2;
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {"k1": 1}).remove("k1");
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {"k1": 1})["k1"] = 0;
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {"k1" : 1, "k2": false}).clear();
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 
   try {
@@ -46,6 +46,6 @@ main() {
     (const {}).clear();
     Expect.fail("Exception is expected");
     b = true;
-  } catch(var e) {}
+  } catch(e) {}
   if(b) Expect.fail("Exception is expected");
 }

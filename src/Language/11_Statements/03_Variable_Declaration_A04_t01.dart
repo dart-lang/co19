@@ -16,5 +16,5 @@
 main() {
   try {
     const id = 1.toString();
-  } catch(var e) {}
+  } catch(e) {}
 }

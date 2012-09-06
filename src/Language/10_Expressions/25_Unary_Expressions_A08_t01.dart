@@ -25,7 +25,7 @@ class A extends S{
     try {
       ~super;
       Expect.fail("Operator ~ was not called");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

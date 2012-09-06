@@ -23,5 +23,5 @@ main() {
     } catch(A ex, int trace) {
       Expect.fail("This clause shouldn't be executed");
     }
-  } catch(A ok) {}
+  } on A catch(ok) {}
 }

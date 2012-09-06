@@ -34,5 +34,5 @@
 main() {
   try {
     's""";
-  } catch(var e) {}
+  } catch(e) {}
 }

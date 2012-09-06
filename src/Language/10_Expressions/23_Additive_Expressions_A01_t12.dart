@@ -30,5 +30,5 @@ typedef f();
 main() {
   try {
     0.25 - f;
-  } catch(var e) {}
+  } catch(e) {}
 }

@@ -33,7 +33,7 @@ class A extends S {
   test() {
     try {
       ++super;
-    } catch(var e) {}
+    } catch(e) {}
   }
 }
 

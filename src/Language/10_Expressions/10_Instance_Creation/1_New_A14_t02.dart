@@ -25,5 +25,5 @@ class C {
 main() {
   try {
     C c = new C("");
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

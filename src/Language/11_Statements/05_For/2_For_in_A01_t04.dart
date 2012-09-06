@@ -20,30 +20,30 @@ main() {
     for ( var id in l ) {
     }
     Expect.fail("NullPointerException expected when calling for statement");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 
   try {
     for ( final id in l ) {
     }
     Expect.fail("NullPointerException expected when calling for statement");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 
   try {
     for ( Dynamic id in l ) {
     }
     Expect.fail("NullPointerException expected when calling for statement");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 
   try {
     for ( const id in l ) {
     }
     Expect.fail("NullPointerException expected when calling for statement");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 
   try {
     var id;
     for ( id in l ) {
     }
     Expect.fail("NullPointerException expected when calling for statement");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 }

@@ -23,5 +23,5 @@ main() {
     do {
       continue
     } while(false);
-  } catch(var x) {}
+  } catch(x) {}
 }

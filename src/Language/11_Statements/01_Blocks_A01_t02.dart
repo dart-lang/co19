@@ -18,7 +18,7 @@ main() {
     throw 1;
     throw 2;
     throw 3;
-  } catch (var e) {
+  } catch(e) {
     Expect.equals(1, e);
   }
 }

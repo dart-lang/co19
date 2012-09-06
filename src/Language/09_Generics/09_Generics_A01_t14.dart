@@ -19,5 +19,5 @@ class C<T extend Function>{}
 main() {
   try {
     new C();
-  }catch(var x){}
+  } catch(x){}
 }

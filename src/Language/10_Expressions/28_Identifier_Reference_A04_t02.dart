@@ -27,5 +27,5 @@ class C {
 main() {
   try {
   	Expect.isTrue(new C().x());
- } catch (var e) {} 
+ } catch(e) {} 
 }

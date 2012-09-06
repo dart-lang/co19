@@ -17,5 +17,5 @@
 main() {
   try {
     const {"key": [1, 2]};
-  } catch(var e) {}
+  } catch(e) {}
 }

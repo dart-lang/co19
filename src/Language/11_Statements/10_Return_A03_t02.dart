@@ -25,5 +25,5 @@ main() {
   foo2();
   try {
     bar();
-  } catch (TypeError ok) {}
+  } on TypeError catch(ok) {}
 }

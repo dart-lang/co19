@@ -18,5 +18,5 @@
 main() {
   try {
     abstract foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -27,7 +27,7 @@ main() {
   for(int i in [1,2,3]) {
     try {
       throw 1;
-    } catch(int ok) {
+    } on int catch(ok) {
     } finally {
       order.add(i);
       continue L;

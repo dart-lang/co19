@@ -16,6 +16,6 @@ main() {
     do {
       break;
     } while ("true");
-  } catch (TypeError ok) {}
+  } on TypeError catch(ok) {}
 }
 

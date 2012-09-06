@@ -34,5 +34,5 @@
 main() {
   try {
     @'''incorrect string;
-  } catch(var e) {}
+  } catch(e) {}
 }

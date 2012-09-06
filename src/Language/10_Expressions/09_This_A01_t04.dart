@@ -18,5 +18,5 @@ void this(){
 main() {
   try {
     this();
-  } catch(var e) {}
+  } catch(e) {}
 }

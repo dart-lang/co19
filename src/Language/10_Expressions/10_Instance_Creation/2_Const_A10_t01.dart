@@ -27,5 +27,5 @@ final a = const A();
 main() {
   try {
     a;
-  } catch(var e) {}
+  } catch(e) {}
 }

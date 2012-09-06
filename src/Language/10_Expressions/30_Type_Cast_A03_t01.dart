@@ -19,7 +19,7 @@ main() {
   bool fail = false;
   try {
     1 as NonExistent;
-  } catch (var ok) {
+  } catch(ok) {
     fail = true;
   }
   Expect.isTrue(fail, "A runtime error is expected.");

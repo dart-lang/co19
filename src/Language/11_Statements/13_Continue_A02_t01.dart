@@ -25,5 +25,5 @@ main() {
       i++;
     } while(i < 5);
     continue L;
-  } catch(var x) {}
+  } catch(x) {}
 }

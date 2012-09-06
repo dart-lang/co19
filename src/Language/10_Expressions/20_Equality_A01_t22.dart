@@ -29,5 +29,5 @@ interface I{}
 main() {
   try {
     true !== I;
-  } catch(var e) {}
+  } catch(e) {}
 }

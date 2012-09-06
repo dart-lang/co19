@@ -21,5 +21,5 @@
 main() {
   try {
     '\u{121341}';
-  } catch(var e) {}
+  } catch(e) {}
 }

@@ -27,5 +27,5 @@ interface I {}
 main() {
   try {
     2 >> I;
-  } catch(var e) {}
+  } catch(e) {}
 }

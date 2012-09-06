@@ -35,7 +35,7 @@ class A {
     try {
       x;
       Expect.fail("NoSuchMethodException expected");
-    } catch(NoSuchMethodException e) {}
+    } on NoSuchMethodException catch(e) {}
 
     Expect.equals(10, y);
   }

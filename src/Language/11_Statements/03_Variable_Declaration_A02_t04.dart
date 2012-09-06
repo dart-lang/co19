@@ -17,5 +17,5 @@
 main() {
   try {
     var i = i;
-  } catch (var ok) {}
+  } catch(ok) {}
 }

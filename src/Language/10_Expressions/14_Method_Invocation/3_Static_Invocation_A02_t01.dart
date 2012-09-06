@@ -15,5 +15,5 @@
 main() {
   try {
     C.func();
-  } catch(var e) {}
+  } catch(e) {}
 }

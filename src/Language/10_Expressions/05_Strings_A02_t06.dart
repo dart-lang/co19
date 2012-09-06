@@ -36,5 +36,5 @@ main() {
     """
     incorrect string
     ''';
-  } catch(var e) {}
+  } catch(e) {}
 }

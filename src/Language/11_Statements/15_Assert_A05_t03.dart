@@ -22,7 +22,7 @@ main() {
   
       try {
         assert("it works!");
-      } catch (ClosureArgumentMismatchException ok) {
+      } on ClosureArgumentMismatchException catch(ok) {
         flag = true;
       }
       Expect.isTrue(flag);
@@ -34,7 +34,7 @@ main() {
       bool flag = false;
       try {
         assert("it works!");
-      } catch (ClosureArgumentMismatchException ok) {
+      } on ClosureArgumentMismatchException catch(ok) {
         flag = true;
       }
       Expect.isTrue(flag);

@@ -43,15 +43,15 @@ void main() {
           for(int i = 0; i < 10; i++) {
             try {
               throw new Exception("fail");
-            } catch (int e) {
+            } on int catch(e) {
             } finally {}
           }
-        } catch (String s) {}
+        } on String catch(s) {}
       } while(false);
     } finally {
       flag1 = true;
     }
-  } catch (var ok) {
+  } catch(ok) {
     flag2 = true;
   }
 

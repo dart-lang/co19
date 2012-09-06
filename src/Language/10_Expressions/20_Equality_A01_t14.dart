@@ -26,5 +26,5 @@
 main() {
   try {
     null === === null;
-  } catch(var e) {}
+  } catch(e) {}
 }

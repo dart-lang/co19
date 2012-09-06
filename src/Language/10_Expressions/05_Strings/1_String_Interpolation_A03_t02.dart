@@ -21,27 +21,27 @@ class C {
     try {
       '${x}';
       Expect.fail("NoSuchMethodException is expected");
-    } catch(NoSuchMethodException e) {}
+    } on NoSuchMethodException catch(e) {}
 
     try {
       '${[][10]}';
       Expect.fail("IndexOutOfRangeException is expected");
-    } catch(IndexOutOfRangeException e) {}
+    } on IndexOutOfRangeException catch(e) {}
 
     try {
       '${(const []).addLast(1)}';
       Expect.fail("UnsupportedOperationException is expected");
-    } catch(UnsupportedOperationException e) {}
+    } on UnsupportedOperationException catch(e) {}
 
     try {
       '${null.someMethod()}';
       Expect.fail("NullPointerException is expected");
-    } catch(NullPointerException e) {}
+    } on NullPointerException catch(e) {}
 
     try {
       '${id()}';
       Expect.fail("NoSuchMethodException is expected");
-    } catch(NoSuchMethodException e) {}
+    } on NoSuchMethodException catch(e) {}
   }
 }
 

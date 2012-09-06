@@ -15,5 +15,5 @@
 main() {
   try {
     "" ? true : false;
-  } catch(TypeError e) {print("TypeError: $e");}
+  } on TypeError catch(e) {print("TypeError: $e");}
 }

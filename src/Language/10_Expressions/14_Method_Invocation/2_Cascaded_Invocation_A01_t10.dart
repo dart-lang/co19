@@ -27,6 +27,6 @@ main() {
   var o = new C();
   try {
     o..null;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

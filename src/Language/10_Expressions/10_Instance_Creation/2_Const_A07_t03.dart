@@ -20,5 +20,5 @@ class S<T, U, V> {
 main() {
   try {
     const S<int, bool>();
-  } catch(var e) {}
+  } catch(e) {}
 }

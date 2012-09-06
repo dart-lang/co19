@@ -18,5 +18,5 @@ class C {}
 main() {
   try {
     new C.namedConstructor();
-  } catch(var e) {}
+  } catch(e) {}
 }

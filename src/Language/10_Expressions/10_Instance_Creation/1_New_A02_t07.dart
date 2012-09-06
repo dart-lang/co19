@@ -24,5 +24,5 @@ class C<T> {
 main() {
   try {
     new C<Object>().test();
-  } catch(var e) {}
+  } catch(e) {}
 }

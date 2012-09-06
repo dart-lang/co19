@@ -38,5 +38,5 @@
 main() {
   try {
     @"invalid " string";
-  } catch(var e) {}
+  } catch(e) {}
 }

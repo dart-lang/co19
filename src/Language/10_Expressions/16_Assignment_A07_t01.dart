@@ -23,5 +23,5 @@ main() {
   C c = new C();
   try {
      c.v = true;
-  } catch(TypeError e) {print(e);} 
+  } on TypeError catch(e) {print(e);} 
 }

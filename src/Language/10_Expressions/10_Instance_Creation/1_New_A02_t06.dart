@@ -20,5 +20,5 @@ typedef int f(int x, int y);
 main() {
   try {
     new f();
-  } catch(var e) {}
+  } catch(e) {}
 }

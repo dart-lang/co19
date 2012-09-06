@@ -28,6 +28,6 @@ main() {
   var o = new C();
   try {
     o..m1()..m1()..;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

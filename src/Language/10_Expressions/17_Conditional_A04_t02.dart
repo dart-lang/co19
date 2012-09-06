@@ -19,5 +19,5 @@ class A {}
 main() {
   try {
     A a = (true ? 1 : 0.5); //Type should be num, num can't be assigned to A.
-  } catch(TypeError e) {print(e);} 
+  } on TypeError catch(e) {print(e);} 
 }

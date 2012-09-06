@@ -24,6 +24,6 @@ main() {
     L: if(true) {
       var x = L;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }
 

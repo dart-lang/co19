@@ -21,5 +21,5 @@ class A<T> {
 main() {
   try {
     var o = const A<int, String, bool>();
-  } catch(var e) {}
+  } catch(e) {}
 }

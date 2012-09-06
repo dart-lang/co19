@@ -17,20 +17,20 @@ main() {
   try {
     [][0];
     Expect.fail("Exception is expected");
-  } catch(var e) {}
+  } catch(e) {}
 
   try {
     [][-7];
     Expect.fail("Exception is expected");
-  } catch(var e) {}
+  } catch(e) {}
 
   try {
     [1, 2, 3, 4][-10];
     Expect.fail("Exception is expected");
-  } catch(var e) {}
+  } catch(e) {}
 
   try {
     [true, false][2];
     Expect.fail("Exception is expected");
-  } catch(var e) {}
+  } catch(e) {}
 }

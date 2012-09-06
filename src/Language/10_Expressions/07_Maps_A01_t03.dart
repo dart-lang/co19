@@ -23,5 +23,5 @@
 main() {
   try {
     {"1": 1 "2" : 2};
-  } catch(var e) {}
+  } catch(e) {}
 }

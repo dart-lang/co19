@@ -42,7 +42,7 @@
 
 class A<T> {
   test() {
-    try {T = null;} catch(var e) {}
+    try {T = null;} catch(e) {}
   }
 }
 

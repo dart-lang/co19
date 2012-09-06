@@ -55,7 +55,7 @@ main() {
   O: try {
     P: 2 + 2;
     Q: throw "";
-  } catch (var ok) {}
+  } catch(ok) {}
   
   R: assert(true);
   

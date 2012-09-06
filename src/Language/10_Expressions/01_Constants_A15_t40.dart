@@ -27,5 +27,5 @@ final constList = const [
 main() {
   try {
     constList is List;
-  } catch(var x) {}
+  } catch(x) {}
 }

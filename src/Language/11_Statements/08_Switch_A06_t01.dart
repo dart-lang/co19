@@ -26,5 +26,5 @@ main() {
       case 2:
       case f():
     }
-  } catch(var e) {}
+  } catch(e) {}
 }

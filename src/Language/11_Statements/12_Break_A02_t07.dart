@@ -23,5 +23,5 @@ main() {
   try {
     foo = true;
     break;
-  } catch (var e) { }
+  } catch(e) { }
 }

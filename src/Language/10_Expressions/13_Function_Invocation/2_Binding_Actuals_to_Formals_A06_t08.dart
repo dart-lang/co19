@@ -20,5 +20,5 @@ class C {
 main() {
   try {
     C.func(1, 2 ,3, 4);
-  } catch(var e) {}
+  } catch(e) {}
 }

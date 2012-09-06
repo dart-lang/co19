@@ -25,7 +25,7 @@ class A extends S{
     try {
       var x = -super;
       Expect.fail("Operator negate was not called");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

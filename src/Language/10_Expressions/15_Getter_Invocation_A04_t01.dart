@@ -36,5 +36,5 @@ main()  {
   try {
     o.g3tt3r;
     Expect.fail("TestException is expected");
-  } catch(TestException e) {}
+  } on TestException catch(e) {}
 }

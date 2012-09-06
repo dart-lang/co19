@@ -30,5 +30,5 @@ main() {
       default:
         x = 2;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

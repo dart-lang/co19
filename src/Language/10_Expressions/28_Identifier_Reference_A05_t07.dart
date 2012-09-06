@@ -37,5 +37,5 @@ func() {
 main() {
   try {
     func();
-  } catch(var e) {}
+  } catch(e) {}
 }

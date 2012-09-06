@@ -31,5 +31,5 @@ main() {
   try {
     a == 1;
     Expect.fail("operator equals was not called");
-  } catch(TestException e) {}
+  } on TestException catch(e) {}
 }

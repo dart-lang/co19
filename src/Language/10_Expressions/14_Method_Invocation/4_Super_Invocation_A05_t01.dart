@@ -17,5 +17,5 @@
 main() {
   try {
     super.f();
-  } catch(var e) {}
+  } catch(e) {}
 }

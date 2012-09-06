@@ -31,15 +31,15 @@ main()  {
   try {
     func.someMethod();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     localFunc.someMethod();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     new C().method.someMethod();
     Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 }

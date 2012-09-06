@@ -25,7 +25,7 @@ class C<T> {
     try {
       null is T;
       flag = true;
-    } catch(var x) {
+    } catch(x) {
       if(isCheckedMode()) {
         Expect.isTrue(x is TypeError,
           "Using malformed type in a type test expression should result in a TypeError!");

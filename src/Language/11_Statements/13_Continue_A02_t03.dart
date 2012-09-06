@@ -30,5 +30,5 @@ main() {
         foo();
       }
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

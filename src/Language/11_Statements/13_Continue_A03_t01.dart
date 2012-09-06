@@ -33,7 +33,7 @@ main() {
             Expect.fail("This code shouldn't be executed");
           }
           break L;
-        } catch (var e) {
+        } catch(e) {
           Expect.fail("Unexpected exception: $e");
         } finally {
           order.add(3);

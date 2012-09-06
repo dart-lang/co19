@@ -26,7 +26,7 @@ class A extends S {
     try {
       super.func(new TestException());
       Expect.fail("Exception is expected");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

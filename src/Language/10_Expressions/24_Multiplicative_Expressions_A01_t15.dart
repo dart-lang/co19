@@ -29,5 +29,5 @@
 typedef int f();
 
 main() {
-  try {1 / f;} catch(var e) {}
+  try {1 / f;} catch(e) {}
 }

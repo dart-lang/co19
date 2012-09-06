@@ -19,5 +19,5 @@ const m = (true || 0);
 main() {
   try {
     print(m);
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -25,7 +25,7 @@
 
 main() {
   var foo = true;
-  catch (var ex) {
+  catch(ex) {
     foo = false;
   }
 }

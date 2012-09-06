@@ -32,13 +32,13 @@ class C extends S {}
 main()  {
   try {
     NonExistentClass.func();
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 
   try {
     C.func();
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 
   try {
     var x = C.getter;
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 }

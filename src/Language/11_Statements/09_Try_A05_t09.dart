@@ -44,9 +44,9 @@ main() {
   try {
     foo();
     Expect.fail("Expected exception thrown from a finally clause!");
-  } catch(int e) {
+  } on int catch(e) {
     Expect.fail("A finally clause was not executed properly!");
-  } catch(bool b) {
+  } on bool catch(b) {
     Expect.isTrue(b, "Wrong object was thrown!");
   }
 }

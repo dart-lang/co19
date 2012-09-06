@@ -21,5 +21,5 @@
 main () {
   try {
     1 is 1;
-  } catch(var e) {}
+  } catch(e) {}
 }

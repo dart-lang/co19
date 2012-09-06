@@ -31,5 +31,5 @@ main()  {
   try {
     C.func(new TestException());
     Expect.fail("Exception is expected");
-  } catch(TestException e) {}
+  } on TestException catch(e) {}
 }

@@ -26,6 +26,6 @@ main() {
   var a = 1;
   try {
     new C()..a++;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

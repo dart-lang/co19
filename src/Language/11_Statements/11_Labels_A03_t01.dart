@@ -17,6 +17,6 @@ main() {
   Label: var x;
   Label: x = foo();
   Label: for(int i in [1,2]) {}
-  Label: try {} catch (var ok) {}
+  Label: try {} catch(ok) {}
   Label: {}
 }

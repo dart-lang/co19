@@ -22,5 +22,5 @@ class  T {
 main() {
   try {
     const T(1, 2, p3: [0, 1]);
-  } catch(var e) {}
+  } catch(e) {}
 }

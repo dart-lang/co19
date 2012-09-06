@@ -17,5 +17,5 @@
 main() {
   try {
     final id;
-  } catch(var e) {}
+  } catch(e) {}
 }

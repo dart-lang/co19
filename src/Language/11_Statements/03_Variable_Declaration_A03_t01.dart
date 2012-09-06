@@ -19,6 +19,6 @@ main() {
   final id = 0;
   try {
     id = 1;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

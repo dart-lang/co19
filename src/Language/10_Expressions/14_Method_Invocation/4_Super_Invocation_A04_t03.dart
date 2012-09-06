@@ -31,7 +31,7 @@ class A extends S {
     try {
       super.sm();
       Expect.fail("TestException is expected");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

@@ -19,7 +19,7 @@ main() {
   var flag = false;
   L: try {
     throw 1;
-  } catch (int ok) {
+  } on int catch(ok) {
     break L;
     Expect.fail("This code shouldn't be executed");
   } finally {

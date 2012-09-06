@@ -20,5 +20,5 @@ main() {
   C o;
   try {
     o.m();
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

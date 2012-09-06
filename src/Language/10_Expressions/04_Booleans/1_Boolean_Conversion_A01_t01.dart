@@ -22,6 +22,6 @@ main() {
     try {
       if(null) {}
       Expect.fail("AssertError is expected");
-    } catch(AssertionError ok) {}
+    } on AssertionError catch(ok) {}
   }
 }

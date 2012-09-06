@@ -18,5 +18,5 @@
 main() {
   try {
     throw;
-  } catch(var e) {}
+  } catch(e) {}
 }

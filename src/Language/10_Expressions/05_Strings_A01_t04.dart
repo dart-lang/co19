@@ -38,5 +38,5 @@
 main() {
   try {
     "\";
-  } catch(var e) {}
+  } catch(e) {}
 }

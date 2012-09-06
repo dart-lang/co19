@@ -21,5 +21,5 @@ class A<T, U, V> {
 main() {
   try {
     var o = const A<Dynamic>();
-  } catch(var e) {}
+  } catch(e) {}
 }

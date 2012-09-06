@@ -31,5 +31,5 @@
 main() {
   try {
     -throw 0;
-  } catch(var e) {}
+  } catch(e) {}
 }

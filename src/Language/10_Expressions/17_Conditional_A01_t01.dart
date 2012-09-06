@@ -28,53 +28,53 @@ class A {
 
   test() {
     //literals
-    try { 1 ? "" : true;} catch(var e) {}
-    try { null ? [1, 2, 3] : {"1" : 2, "3" : 4};} catch(var e) {}
+    try { 1 ? "" : true;} catch(e) {}
+    try { null ? [1, 2, 3] : {"1" : 2, "3" : 4};} catch(e) {}
 
     //function expressions
-    try {() => 1 ? void f(int x) {return 1;} : int g() {};} catch(var e) {}
+    try {() => 1 ? void f(int x) {return 1;} : int g() {};} catch(e) {}
 
     //constants and instance creation
-    try { const [] ? const S() : new S();} catch(var e) {}
+    try { const [] ? const S() : new S();} catch(e) {}
 
     //invocations
-    try { id ? topLevelFunction() : this.method();} catch(var e) {}
+    try { id ? topLevelFunction() : this.method();} catch(e) {}
 
     //assignment
-    try {id = (2[0] = 2[1]) ? 3(3).x += 7 : id;} catch(var e) {}
+    try {id = (2[0] = 2[1]) ? 3(3).x += 7 : id;} catch(e) {}
 
     //conditional
-    try { (1 ? 2 : 3) ? 4 ? 5 : 6 : 7 ? 8 : 9;} catch(var e) {}
+    try { (1 ? 2 : 3) ? 4 ? 5 : 6 : 7 ? 8 : 9;} catch(e) {}
 
     //logical boolean expressions
-    try { (true || false) ? false && true : true || false;} catch(var e) {}
+    try { (true || false) ? false && true : true || false;} catch(e) {}
 
     //bitwise expressions
-    try { (1 | 2) ? "" ^ [] : (){} & this;} catch(var e) {}
+    try { (1 | 2) ? "" ^ [] : (){} & this;} catch(e) {}
 
     //equality
-    try { (1 === 1) ? 1 !== 2 : 1 == 2;} catch(var e) {}
+    try { (1 === 1) ? 1 !== 2 : 1 == 2;} catch(e) {}
 
     //relational expressions
-    try { (1 > 3) ? "2" < '7' : [1] >= [2];} catch(var e) {}
+    try { (1 > 3) ? "2" < '7' : [1] >= [2];} catch(e) {}
 
     //shift
-    try { (1 >> 1) ? true << false : false >> true;} catch(var e) {}
+    try { (1 >> 1) ? true << false : false >> true;} catch(e) {}
 
     //additive expressions
-    try {(1e10 + -0.5) ? [] - [] : {} + {};} catch(var e){}
+    try {(1e10 + -0.5) ? [] - [] : {} + {};} catch(e){}
 
     //multiplicative expressions
-    try {(true*false) ? 7 / 8 : new A() % const S(); } catch(var e) {}
+    try {(true*false) ? 7 / 8 : new A() % const S(); } catch(e) {}
 
     //unary expressions
-    try { id++?!!!false : -~-~-~true;} catch(var e) {}
+    try { id++?!!!false : -~-~-~true;} catch(e) {}
 
     //type test
-    try {(true is bool) ? 1 is int : null is! Object;} catch(var e) {}
+    try {(true is bool) ? 1 is int : null is! Object;} catch(e) {}
 
     //identifier
-    try {id ? id : id;} catch(var e) {}
+    try {id ? id : id;} catch(e) {}
   }
 }
 

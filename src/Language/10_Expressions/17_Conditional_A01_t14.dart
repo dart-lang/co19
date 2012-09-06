@@ -22,7 +22,7 @@ class A<T> {
   test() {
     try {
       T ? "" : '';
-    } catch(var e) {}
+    } catch(e) {}
   }
 }
 

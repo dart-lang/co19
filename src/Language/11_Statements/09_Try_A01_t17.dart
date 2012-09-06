@@ -24,7 +24,7 @@
 
 main() {
   try {
-  } catch(int foo) {
+  } on int catch(foo) {
   } finally {
-  } catch(var bar) {}
+  } catch(bar) {}
 }

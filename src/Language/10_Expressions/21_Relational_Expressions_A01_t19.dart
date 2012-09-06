@@ -29,5 +29,5 @@ class A {}
 main() {
   try {
     3 > A;
-  } catch(var e) {}
+  } catch(e) {}
 }

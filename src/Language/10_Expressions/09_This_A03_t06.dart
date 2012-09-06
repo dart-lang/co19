@@ -19,5 +19,5 @@ class C {
 main() {
   try {
     print(C.method());
-  } catch(var e) {}
+  } catch(e) {}
 }

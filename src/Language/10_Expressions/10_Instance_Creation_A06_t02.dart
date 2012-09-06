@@ -31,5 +31,5 @@ class F<T extends num, S extends String> implements I<T, S> {
 main() {
   try {
     var o = const I<double, double>();
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

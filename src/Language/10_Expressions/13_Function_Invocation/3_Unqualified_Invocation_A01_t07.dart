@@ -34,5 +34,5 @@ main() {
   try {
     print(new C().test());
     Expect.fail("NoSuchMethodException expected.");
-  } catch(NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 }

@@ -19,5 +19,5 @@ main() {
               break;
       case 2: x++; //isn't declared in this scope
     }
-  } catch(var e) {}
+  } catch(e) {}
 }

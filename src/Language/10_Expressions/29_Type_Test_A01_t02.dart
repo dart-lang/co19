@@ -21,5 +21,5 @@
 main() {
   try {
     Expect.isTrue(int is Object);
-  } catch (var e) {}
+  } catch(e) {}
 }

@@ -21,5 +21,5 @@
 main () {
   try {
     if(1 < 2) {} is bool;
-  } catch(var e) {}
+  } catch(e) {}
 }

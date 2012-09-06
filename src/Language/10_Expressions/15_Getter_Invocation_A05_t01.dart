@@ -19,5 +19,5 @@ main()  {
   C o = new C();
   try {
     o.v;
-  } catch(var e) {}
+  } catch(e) {}
 }

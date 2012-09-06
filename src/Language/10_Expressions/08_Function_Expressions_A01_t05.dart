@@ -37,5 +37,5 @@ main() {
   tf tf4(tf p1, tf p2, [tf p3]) => null();
   try {
     (tf tf5(tf p1, tf p2, [tf p3]) => null())(null, null); //null() is parsed as a closure invocation
-  } catch(var x){}
+  } catch(x){}
 }

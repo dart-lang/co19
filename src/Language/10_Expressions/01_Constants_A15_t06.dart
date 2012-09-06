@@ -20,5 +20,5 @@ const a = new A();
 main() {
   try {
     print(a);
-  } catch(var x) {}
+  } catch(x) {}
 }

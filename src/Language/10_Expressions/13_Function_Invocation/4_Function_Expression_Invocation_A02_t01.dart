@@ -41,7 +41,7 @@ class Foo {
     try {
       staticgetter2();
       Expect.fail("NoSuchMethodException expected");
-    } catch (NoSuchMethodException ok) {}
+    } on NoSuchMethodException catch(ok) {}
   }
 }
 
@@ -54,7 +54,7 @@ main() {
   try {
     varnotfunc();
     Expect.fail("NoSuchMethodException expected");
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 
   localfunc() {
     return "localfunc";
@@ -68,7 +68,7 @@ main() {
   try {
     libgetter2();
     Expect.fail("NoSuchMethodException expected");
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodException catch(ok) {}
 
   Expect.equals("libfunc", libfunc());
 }

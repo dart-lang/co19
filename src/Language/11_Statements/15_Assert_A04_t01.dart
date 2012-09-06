@@ -18,9 +18,9 @@ main() {
   try {
     var foo = 0;
     assert(foo);
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
   
   try {
     assert(null);
-  } catch (TypeError ok) {}
+  } on TypeError catch(ok) {}
 }

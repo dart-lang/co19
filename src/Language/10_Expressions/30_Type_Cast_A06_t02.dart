@@ -14,5 +14,5 @@
 main() {
   try {
     double x = (true as Object);
-  } catch(var ok){}
+  } catch(ok){}
 }

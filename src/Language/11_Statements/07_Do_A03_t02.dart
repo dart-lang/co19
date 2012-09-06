@@ -18,6 +18,6 @@ main() {
     do {
       break;
     } while (f());
-  } catch (TypeError ok) {}
+  } on TypeError catch(ok) {}
 }
 

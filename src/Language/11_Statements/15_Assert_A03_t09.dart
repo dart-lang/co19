@@ -26,7 +26,7 @@ main() {
     try {
       assert(false);
       throw "This code shouldn't be executed";
-    } catch (AssertionError ae) {
+    } on AssertionError catch(ae) {
       flag = true;
     }
     Expect.isTrue(flag, "assert(false) must throw an AssertionError!");

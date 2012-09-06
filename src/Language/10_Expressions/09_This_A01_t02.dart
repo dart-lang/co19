@@ -18,5 +18,5 @@ class this{
 main() {
   try {
     new this();
-  } catch(var e) {}
+  } catch(e) {}
 }

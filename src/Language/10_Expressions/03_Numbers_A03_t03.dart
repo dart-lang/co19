@@ -19,5 +19,5 @@ class B implements A {}
 main() {
   try {
     new B();
-  } catch(var x) {}
+  } catch(x) {}
 }

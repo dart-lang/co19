@@ -22,7 +22,7 @@ main() {
     try {
       L: try {
         throw 1;
-      } catch (int ok) {
+      } on int catch(ok) {
       } finally {
         break L;
         Expect.fail("This code shouldn't be executed");

@@ -21,5 +21,5 @@ main() {
               break;
       default: true;
     }
-  } catch (var ok) {}
+  } catch(ok) {}
 }

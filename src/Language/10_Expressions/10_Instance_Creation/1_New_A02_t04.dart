@@ -23,5 +23,5 @@ class A {
 main() {
   try {
     new A.method();
-  } catch(var e) {}
+  } catch(e) {}
 }

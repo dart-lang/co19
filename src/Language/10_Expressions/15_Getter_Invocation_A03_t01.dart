@@ -30,7 +30,7 @@ main()  {
   try {
     o.v;
     Expect.fail("TestException is expected");
-  } catch(TestException e) {
+  } on TestException catch(e) {
     Expect.identical(te, e);
   }
 }

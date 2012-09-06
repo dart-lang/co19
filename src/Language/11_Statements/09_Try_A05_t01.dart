@@ -41,11 +41,11 @@ main() {
   bool ok = false;
   try {
     throw new T1();
-  } catch (T1 p1) {
+  } on T1 catch(p1) {
     ok = true;
-  } catch (T2 p2) {
+  } on T2 catch(p2) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (T3 p3) {
+  } on T3 catch(p3) {
     Expect.fail("This clause shouldn't be executed");
   }
 
@@ -54,11 +54,11 @@ main() {
 
   try {
     throw new T2();
-  } catch (T1 p1) {
+  } on T1 catch(p1) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (T2 p2) {
+  } on T2 catch(p2) {
     ok = true;
-  } catch (T3 p3) {
+  } on T3 catch(p3) {
     Expect.fail("This clause shouldn't be executed");
   }
   Expect.isTrue(ok, "Correct catch clause was not executed!");
@@ -66,11 +66,11 @@ main() {
 
   try {
     throw new T3();
-  } catch (T1 p1) {
+  } on T1 catch(p1) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (T2 p2) {
+  } on T2 catch(p2) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (T3 p3) {
+  } on T3 catch(p3) {
     ok = true;
   }
   Expect.isTrue(ok, "Correct catch clause was not executed!");
@@ -78,13 +78,13 @@ main() {
 
   try {
     throw "";
-  } catch (T1 p1) {
+  } on T1 catch(p1) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (T2 p2) {
+  } on T2 catch(p2) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (T3 p3) {
+  } on T3 catch(p3) {
     Expect.fail("This clause shouldn't be executed");
-  } catch (var ex) {
+  } catch(ex) {
     ok = true;
   }
   Expect.isTrue(ok, "Correct catch clause was not executed!");

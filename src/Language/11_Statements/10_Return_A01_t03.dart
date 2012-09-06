@@ -23,5 +23,5 @@ foo() {
 main() {
   try {
     foo();
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -19,5 +19,5 @@ class C {
 main() {
   try {
     C.m();
-  } catch(var e) {}
+  } catch(e) {}
 }

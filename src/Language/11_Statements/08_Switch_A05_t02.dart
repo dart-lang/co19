@@ -27,5 +27,5 @@ main() {
       case "false":
       default:
     }
-  } catch(var e) {}
+  } catch(e) {}
 }

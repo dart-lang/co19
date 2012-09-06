@@ -41,7 +41,7 @@ class C {
     try {
       func = () => 1;
       Expect.fail("Method noSuchMethod() was not properly executed!");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

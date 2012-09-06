@@ -19,5 +19,5 @@ class T {}
 main() {
   try {
     T id = new T()
-  } catch (var ok) {}
+  } catch(ok) {}
 }

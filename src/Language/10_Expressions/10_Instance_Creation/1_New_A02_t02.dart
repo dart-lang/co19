@@ -19,5 +19,5 @@
 main() {
   try {
     new UnavailableType.namedConstructor();
-  } catch(var e) {}
+  } catch(e) {}
 }

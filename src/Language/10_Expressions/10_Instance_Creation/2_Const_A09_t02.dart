@@ -22,5 +22,5 @@ class A {
 main() {
   try {
     const A(0x1, "2");
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

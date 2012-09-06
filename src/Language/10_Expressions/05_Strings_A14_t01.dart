@@ -18,5 +18,5 @@
 main() {
   try {
     'some text\umore text';
-  } catch(var e) {}
+  } catch(e) {}
 }

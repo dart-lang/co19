@@ -29,5 +29,5 @@
 main() {
   try {
     label: for(var i in []) {};++;
-  } catch(var e) {}
+  } catch(e) {}
 }

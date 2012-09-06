@@ -23,5 +23,5 @@ class G<T extends num, S extends String> {
 main() {
   try {
     var o = const G<double, double>();
-  } catch(TypeError e) {}
+  } on TypeError catch(e) {}
 }

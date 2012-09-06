@@ -42,16 +42,16 @@ void main() {
   try {
     try {
       throw exStr;
-    } catch(String s) {
+    } on String catch(s) {
       throw exInt;
-    } catch(int i) {
+    } on int catch(i) {
       Expect.fail("This code shouldn't be executed");
-    } catch(var v) {
+    } catch(v) {
       Expect.fail("This code shouldn't be executed");
     } finally {
       flag = true;
     }
-  } catch (int ok) {
+  } on int catch(ok) {
     Expect.equals(exInt, ok);
   }
 

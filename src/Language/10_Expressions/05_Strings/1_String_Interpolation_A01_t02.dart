@@ -22,5 +22,5 @@
 main() {
   try {
     '${(){return 1}}';
-  } catch(var e) {}
+  } catch(e) {}
 }

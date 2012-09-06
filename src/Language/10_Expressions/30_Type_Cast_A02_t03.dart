@@ -26,35 +26,35 @@ main() {
   try {
     1 as double;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 
   try {
     1 as func;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 
   try {
     1 as G<int, int>;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 
   try {
     true as I;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 
   try {
     new C(1) as G<int, bool>;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 
   try {
     (() => true) as func;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 
   try {
     (() => true) as int;
     Expect.fail("CastException expected");
-  } catch (CastException ok) {}
+  } on CastException catch(ok) {}
 }

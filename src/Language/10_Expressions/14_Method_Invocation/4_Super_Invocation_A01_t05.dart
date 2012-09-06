@@ -20,7 +20,7 @@ class A extends S {
   test() {
     try {
       super.f(1, 2, 3, );
-    } catch(var e) {}
+    } catch(e) {}
   }
 }
 

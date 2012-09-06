@@ -25,5 +25,5 @@ main() {
       case 2:
       case "false":
     }
-  } catch(var e) {}
+  } catch(e) {}
 }

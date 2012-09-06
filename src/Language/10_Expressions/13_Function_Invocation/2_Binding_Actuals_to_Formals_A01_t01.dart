@@ -27,7 +27,7 @@ main() {
   try {
     func(1);
     ex = false;
-  } catch(var ok) {
+  } catch(ok) {
     ex = true;
   }
   Expect.isTrue(ex, "A runtime error is expected.");

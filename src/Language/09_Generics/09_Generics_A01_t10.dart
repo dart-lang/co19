@@ -19,5 +19,5 @@ class C<T, U<T>){}
 main() {
   try {
     new C<int, int>();
-  }catch(var x){}
+  } catch(x){}
 }

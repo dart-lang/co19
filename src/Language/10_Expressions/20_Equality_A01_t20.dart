@@ -29,5 +29,5 @@ class A {}
 main() {
   try {
     true != A;
-  } catch(var e) {}
+  } catch(e) {}
 }

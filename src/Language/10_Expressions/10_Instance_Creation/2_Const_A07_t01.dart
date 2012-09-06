@@ -19,5 +19,5 @@ class  S {
 main() {
   try {
     const S<int, bool>();
-  } catch(var e) {}
+  } catch(e) {}
 }

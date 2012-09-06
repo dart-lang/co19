@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A catch clause of one of the forms catch (var p1), catch (var p1, T p2) s,
+ * @assertion A catch clause of one of the forms catch(p1), catch (var p1, T p2) s,
  * catch (var p1, final p2) s, catch (var p1, final T p2) s, catch (var p1, var p2) s, catch (final
  * p1, T p2) s, catch (final p1, final p2) s, catch (final p1, final T p2) s or catch (
  * final p1, var p2) s always matches an object o.
@@ -23,7 +23,7 @@ main() {
   bool success = false;
   try {
     throw new T2();
-  } catch (var p1) {
+  } catch(p1) {
     success = true;
   }
   Expect.isTrue(success);
@@ -31,7 +31,7 @@ main() {
   success = false;
   try {
     throw new T1();
-  } catch (var p1) {
+  } catch(p1) {
     success = true;
   }
   Expect.isTrue(success);
@@ -65,7 +65,7 @@ main() {
   success = false;
   try {
     throw (){};
-  } catch(var x) {
+  } catch(x) {
     success = true;
   }
   Expect.isTrue(success);

@@ -33,5 +33,5 @@ class A {}
 main() {
   try {
     !A;
-  } catch(var e) {}
+  } catch(e) {}
 }

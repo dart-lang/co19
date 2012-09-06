@@ -34,5 +34,5 @@ typedef f();
 main() {
   try {
     ~f;
-  } catch(var e) {}
+  } catch(e) {}
 }

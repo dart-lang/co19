@@ -39,5 +39,5 @@ main() {
   try {
     'stri
 ng';
-  } catch(var e) {}
+  } catch(e) {}
 }

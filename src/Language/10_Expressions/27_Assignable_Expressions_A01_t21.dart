@@ -45,5 +45,5 @@ class A {}
 main() {
   try {
     new A() = null;
-  } catch(var e) {}
+  } catch(e) {}
 }

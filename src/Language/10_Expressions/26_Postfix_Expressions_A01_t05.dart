@@ -27,7 +27,7 @@
 
 class A<T> {
   test() {
-    try {T++; } catch(var e) {}
+    try {T++; } catch(e) {}
   }
 }
 

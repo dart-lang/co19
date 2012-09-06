@@ -24,7 +24,7 @@ class C<T> {
   test() {
     try {
       "$T";
-    } catch (var ok) {
+    } catch(ok) {
       print(ok);
     }
   }

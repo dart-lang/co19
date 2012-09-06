@@ -27,5 +27,5 @@
 main() {
   try {
     for (var i = 0 i < 1 ++i) { }
-  } catch(var x){}
+  } catch(x){}
 }

@@ -20,5 +20,5 @@ class C {
 main() {
   try {
     C.m();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 }

@@ -34,5 +34,5 @@
 main() {
   try {
     ''foo''';
-  } catch(var e) {}
+  } catch(e) {}
 }

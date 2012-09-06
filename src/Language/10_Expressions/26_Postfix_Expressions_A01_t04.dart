@@ -30,5 +30,5 @@ interface I {}
 main() {
   try {
     I--;
-  } catch(var e) {}
+  } catch(e) {}
 }

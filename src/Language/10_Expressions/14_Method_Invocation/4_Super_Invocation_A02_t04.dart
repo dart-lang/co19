@@ -36,7 +36,7 @@ class A extends S {
     buffer = new StringBuffer();
     try {
       super.f(new A() + 1, new A() - 1);
-    } catch(NoSuchMethodException e) {
+    } on NoSuchMethodException catch(e) {
       Expect.equals("12", buffer.toString());
     }
   }

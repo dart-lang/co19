@@ -28,5 +28,5 @@
 main() {
   try {
     for ( ; ; )
-  } catch(var x){}
+  } catch(x){}
 }

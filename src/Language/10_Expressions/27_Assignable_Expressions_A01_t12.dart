@@ -43,5 +43,5 @@
 main() {
   try {
     for(;;) {} = 1;
-  } catch(var e) {}
+  } catch(e) {}
 }

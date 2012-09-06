@@ -23,5 +23,5 @@
 main() {
   try {
     var x={"key1": true, "key2":false;
-  } catch(var e) {}
+  } catch(e) {}
 }

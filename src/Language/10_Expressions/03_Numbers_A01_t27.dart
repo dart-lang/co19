@@ -19,5 +19,5 @@
 main() {
   try {
     var i = 1e+;
-  } catch(var e) {}
+  } catch(e) {}
 }

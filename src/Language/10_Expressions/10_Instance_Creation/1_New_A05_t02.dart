@@ -18,5 +18,5 @@ class A<T> {}
 main() {
   try {
     new A<int, bool>();
-  } catch(var e) {}
+  } catch(e) {}
 }

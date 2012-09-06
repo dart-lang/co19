@@ -25,25 +25,25 @@ main() {
   
   try {
     String foo = c.f1();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     bool foo = c.f1();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     A foo = c.f1();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     Object foo = c.f1();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     List foo = c.f1();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 
   try {
     Map foo = c.f1();
-  } catch(NoSuchMethodException e) {}
+  } on NoSuchMethodException catch(e) {}
 }

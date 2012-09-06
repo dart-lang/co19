@@ -23,7 +23,7 @@
 
 class A<T> {
   test() {
-    try { true || T;} catch(var e) {}
+    try { true || T;} catch(e) {}
   }
 }
 

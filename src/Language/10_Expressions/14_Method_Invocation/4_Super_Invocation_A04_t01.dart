@@ -29,7 +29,7 @@ class A extends S {
     try {
       super.nonExistingMethod();
       Expect.fail("Exception is expected");
-    } catch(TestException e) {}
+    } on TestException catch(e) {}
   }
 }
 

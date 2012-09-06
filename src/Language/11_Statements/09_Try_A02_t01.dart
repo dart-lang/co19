@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A catch clause of one of the forms catch (T1 p1) s, catch (T1 p1, T2 p2) s, catch (T1 p1,
+ * @assertion A catch clause of one of the forms on T1 catch(p1) s, catch (T1 p1, T2 p2) s, catch (T1 p1,
  * final p2) s, catch (T1 p1, final T2 p2) s, catch (T1 p1, var p2) s, catch ( final T1
  * p1, T2 p2) s, catch ( final T1 p1, final p2) s, catch ( final T1 p1, final T2 p2) s
  * or catch ( final T1 p1, var p2) s matches an object o if the type of o is a subtype of T1.
@@ -22,12 +22,12 @@ main() {
   try {
     try {
       throw new A();
-    } catch(B ex) {
+    } on B catch(ex) {
       Expect.fail("This clause shouldn't be executed");
-    } catch(String ex) {
+    } on String catch(ex) {
       Expect.fail("This clause shouldn't be executed");
-    } catch(int ex) {
+    } on int catch(ex) {
       Expect.fail("This clause shouldn't be executed");
     }
-  } catch(A ok) {}
+  } on A catch(ok) {}
 }

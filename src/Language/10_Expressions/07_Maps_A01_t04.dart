@@ -23,5 +23,5 @@
 main() {
   try {
     var map={"1" 1};
-  } catch(var e) {}
+  } catch(e) {}
 }

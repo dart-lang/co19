@@ -39,5 +39,5 @@ main() {
   try {
     'new\
     line';
-  } catch(var e) {}
+  } catch(e) {}
 }

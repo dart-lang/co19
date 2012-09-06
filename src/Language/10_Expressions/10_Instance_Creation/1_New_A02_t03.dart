@@ -22,5 +22,5 @@ func() {}
 main() {
   try {
     new func();
-  } catch(var e) {}
+  } catch(e) {}
 }

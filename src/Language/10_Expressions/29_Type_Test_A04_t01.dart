@@ -19,7 +19,7 @@ main() {
   try {
   	null is Undeclared;
   	exception = false;
- } catch (var e) {
+ } catch(e) {
  }
 
  if(!exception) {

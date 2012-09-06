@@ -17,5 +17,5 @@
 main() {
   try {
     const [new Object()];
-  } catch(var e) {}
+  } catch(e) {}
 }

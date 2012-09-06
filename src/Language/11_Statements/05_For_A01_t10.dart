@@ -27,5 +27,5 @@
 main() {
   try {
     for ( var x in  ) break;
-  } catch(var x){}
+  } catch(x){}
 }

@@ -43,7 +43,7 @@ foo() {
 main() {
   try {
     Expect.isTrue(foo(), "finally clause was not executed properly!");
-  } catch(int e) {
+  } on int catch(e) {
     Expect.fail("return statement in finally clause failed to abort the unwinding of the call stack.");
   }
 }

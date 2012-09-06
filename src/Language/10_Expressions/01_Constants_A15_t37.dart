@@ -20,5 +20,5 @@ const i1 = "${1.toString()}";
 main() {
   try {
     print(i1);
-  } catch(var x) {}
+  } catch(x) {}
 }

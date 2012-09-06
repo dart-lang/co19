@@ -25,7 +25,7 @@ main() {
         try {
           throw ex;
           Expect.fail("This code shouldn't be executed");
-        } catch (int i) {
+        } on int catch(i) {
         } catch (var v, var st) {
           strace = st;
           throw;
@@ -35,14 +35,14 @@ main() {
       }
       foo();
       Expect.fail("This code shouldn't be executed");
-    } catch (int i) {}
+    } on int catch(i) {}
     Expect.fail("This code shouldn't be executed");
-  } catch (int i) {
+  } on int catch(i) {
   } catch (String s, var st) {
     flag = true;
     Expect.isTrue(ex === s);
     Expect.isTrue(strace === st);
-  } catch (var v) {
+  } catch(v) {
     Expect.fail("This code shouldn't be executed");
   }
   

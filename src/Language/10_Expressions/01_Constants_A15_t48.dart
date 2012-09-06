@@ -26,5 +26,5 @@ main() {
   try {
     Bad b=new Bad();
     b.test();
-  } catch(var x) {}
+  } catch(x) {}
 }

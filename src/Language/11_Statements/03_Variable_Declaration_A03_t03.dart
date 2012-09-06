@@ -17,5 +17,5 @@ main() {
   const id = 0;
   try {
     id = 1;
-  } catch(var e) {}
+  } catch(e) {}
 }

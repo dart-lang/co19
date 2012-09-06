@@ -18,5 +18,5 @@ func([p1, p2, p3]) {}
 main() {
   try {
     func(1, 2, p: 3);
-  } catch(var e) {}
+  } catch(e) {}
 }

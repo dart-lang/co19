@@ -44,5 +44,5 @@
 main() {
   try {
   	var abc\u0061=1; // var abca=1;
- } catch (var e) {} 
+ } catch(e) {} 
 }

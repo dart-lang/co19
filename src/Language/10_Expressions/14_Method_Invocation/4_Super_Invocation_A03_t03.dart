@@ -23,7 +23,7 @@ class A extends S {
     try {
       super.func();
       Expect.fail("NoSuchMethodException is expected");
-    } catch(NoSuchMethodException e) {}
+    } on NoSuchMethodException catch(e) {}
   }
 }
 

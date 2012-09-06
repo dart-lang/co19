@@ -21,20 +21,20 @@
 
 class A {
   test() {
-    try {abstract();} catch (NoSuchMethodException ok) {}
-    try {++assert;} catch (NoSuchMethodException ok) {}
-    try {1 + as;} catch (NoSuchMethodException ok) {}
+    try {abstract();} on NoSuchMethodException catch(ok) {}
+    try {++assert;} on NoSuchMethodException catch(ok) {}
+    try {1 + as;} on NoSuchMethodException catch(ok) {}
     // skipping Dynamic as it's also a type name and thus causes a compile-time error
-    try {1 << equals;} catch (NoSuchMethodException ok) {}
-    try {1 * factory;} catch (NoSuchMethodException ok) {}
-    try {1 >= get;} catch (NoSuchMethodException ok) {}
-    try {var x = implements;} catch (NoSuchMethodException ok) {}
-    try {1 == interface;} catch (NoSuchMethodException ok) {}
-    try {negate[0];} catch (NoSuchMethodException ok) {}
-    try {operator.x;} catch (NoSuchMethodException ok) {}
-    try {--set;} catch (NoSuchMethodException ok) {}
-    try {true & static;} catch (NoSuchMethodException ok) {}
-    try {++typedef;} catch (NoSuchMethodException ok) {}
+    try {1 << equals;} on NoSuchMethodException catch(ok) {}
+    try {1 * factory;} on NoSuchMethodException catch(ok) {}
+    try {1 >= get;} on NoSuchMethodException catch(ok) {}
+    try {var x = implements;} on NoSuchMethodException catch(ok) {}
+    try {1 == interface;} on NoSuchMethodException catch(ok) {}
+    try {negate[0];} on NoSuchMethodException catch(ok) {}
+    try {operator.x;} on NoSuchMethodException catch(ok) {}
+    try {--set;} on NoSuchMethodException catch(ok) {}
+    try {true & static;} on NoSuchMethodException catch(ok) {}
+    try {++typedef;} on NoSuchMethodException catch(ok) {}
   }
 }
 

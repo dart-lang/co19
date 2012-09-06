@@ -20,5 +20,5 @@ typedef foo();
 main() {
   try {
     const foo();
-  } catch(var e) {}
+  } catch(e) {}
 }

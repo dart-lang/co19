@@ -17,6 +17,6 @@ class G {}
 main() {
   try {
   	1 is G<int, bool>;
- } catch (var e) {
+ } catch(e) {
  }
 }

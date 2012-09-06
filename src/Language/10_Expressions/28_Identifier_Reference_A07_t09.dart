@@ -17,5 +17,5 @@
 main() {
   try {
     negate foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -26,20 +26,20 @@ main() {
   try {
     throw null;
     Expect.fail("NullPointerException expected.");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 
   try {
     throw n();
     Expect.fail("NullPointerException expected.");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 
   try {
     throw n2();
     Expect.fail("NullPointerException expected.");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 
   try {
     throw (true ? null : null);
     Expect.fail("NullPointerException expected.");
-  } catch (NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 }

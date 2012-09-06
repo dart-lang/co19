@@ -39,5 +39,5 @@ main() {
   try {
     @'stri
 g';
-  } catch(var e) {}
+  } catch(e) {}
 }

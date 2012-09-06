@@ -29,5 +29,5 @@ class C {
 main() {
   try {
     const C();
-  } catch (var ok) {} // NPEs and whatnot
+  } catch(ok) {} // NPEs and whatnot
 }

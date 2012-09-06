@@ -18,6 +18,6 @@ main() {
   C o;
   try {
     o.nonExistingMethod();
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
 

@@ -28,5 +28,5 @@
 main() {
   try {
     2 ~/ ~/ 2;
-  } catch(var e) {}
+  } catch(e) {}
 }

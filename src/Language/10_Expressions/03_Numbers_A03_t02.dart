@@ -17,5 +17,5 @@ class A implements double {}
 main() {
   try {
     new A();
-  } catch(var x) {}
+  } catch(x) {}
 }

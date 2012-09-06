@@ -16,5 +16,5 @@ main() {
   var o;
   try {
     o.f(1, 2, 3, );
-  } catch(var e) {}
+  } catch(e) {}
 }

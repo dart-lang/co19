@@ -36,6 +36,6 @@ interface I {}
 main() {
   try {
     I | 1;
-  } catch(var e) {}
+  } catch(e) {}
 }
 

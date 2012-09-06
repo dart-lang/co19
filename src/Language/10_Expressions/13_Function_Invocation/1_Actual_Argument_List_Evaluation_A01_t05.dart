@@ -28,5 +28,5 @@ func(p1, p2) {}
 main() {
   try {
     func(1, 2, );
-  } catch(var e) {}
+  } catch(e) {}
 }

@@ -20,5 +20,5 @@ const l = "${const {'k1': 1, 'k2': 2}}";
 main() {
   try {
     print(l);
-  } catch(var x) {}
+  } catch(x) {}
 }

@@ -28,5 +28,5 @@
 class A {}
 
 main() {
-  try {1 / A;} catch(var e) {}
+  try {1 / A;} catch(e) {}
 }

@@ -22,5 +22,5 @@ main() {
     A a = null;
     int x = a.aMethodWithAFancyName(); 
     Expect.fail("Invoking method on null should yield NullPointerException");
-  } catch(NullPointerException ok){}
+  } on NullPointerException catch(ok){}
 }

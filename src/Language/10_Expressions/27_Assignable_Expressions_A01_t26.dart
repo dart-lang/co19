@@ -42,6 +42,6 @@
 
 main() {
   //functionExpression
-  try { void f() {} [0] = null; } catch(var e) {}
-  try { (){}.x = null; } catch(var e) {}
+  try { void f() {} [0] = null; } catch(e) {}
+  try { (){}.x = null; } catch(e) {}
 }

@@ -20,5 +20,5 @@ const m = --a;
 main() {
   try {
     print(m);
-  } catch(var x) {}
+  } catch(x) {}
 }

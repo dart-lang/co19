@@ -19,7 +19,7 @@ main() {
   try {
     throw "foo";
     Expect.fail("This code shouldn't be executed");
-  } catch (Unavailable ex) {
+  } on Unavailable catch(ex) {
     Expect.fail("This code shouldn't be executed");
   }
 }

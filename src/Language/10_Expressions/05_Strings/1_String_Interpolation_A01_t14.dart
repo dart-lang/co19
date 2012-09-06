@@ -23,5 +23,5 @@ main() {
   var x = "dollar";
   try {
     '$$x';
-  } catch(var e) {}
+  } catch(e) {}
 }

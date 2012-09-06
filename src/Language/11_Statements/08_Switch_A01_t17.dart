@@ -35,5 +35,5 @@ foo (value){
 main() {
   try {
     foo(1);
-  } catch(var x) {}
+  } catch(x) {}
 }

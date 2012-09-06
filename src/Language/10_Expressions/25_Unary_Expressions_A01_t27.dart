@@ -39,61 +39,61 @@ class A extends S {
   test() {
     //prefixOperator postfixExpression
     -x--;
-    try {!x++;} catch(var e){}
+    try {!x++;} catch(e){}
     ~x--;
 
     //combination of prefix and increment operator
-    try {- --x;} catch(var e){}
-    try {!--x;} catch(var e){}
-    try {~--x;} catch(var e){}
-    try {-++x;} catch(var e){}
-    try {~++x;} catch(var e){}
+    try {- --x;} catch(e){}
+    try {!--x;} catch(e){}
+    try {~--x;} catch(e){}
+    try {-++x;} catch(e){}
+    try {~++x;} catch(e){}
 
     //prefixOperator postfixExpression>primary>identifier
     -x;
     ~x;
     ~~x;
-    try {!x;} catch(var e){}
-    try {!~x;} catch(var e){}
-    try {~!x;} catch(var e){}
+    try {!x;} catch(e){}
+    try {!~x;} catch(e){}
+    try {~!x;} catch(e){}
 
     //prefix operators with literals
-    try {-1;} catch(var e){}
-    try {~2;} catch(var e){}
-    try {!3;} catch(var e){}
+    try {-1;} catch(e){}
+    try {~2;} catch(e){}
+    try {!3;} catch(e){}
 
-    try {-null;} catch(var e) {}
-    try {~null;} catch(var e) {}
-    try {!null;} catch(var e) {}
+    try {-null;} catch(e) {}
+    try {~null;} catch(e) {}
+    try {!null;} catch(e) {}
 
-    try {-this;} catch(var e) {}
-    try {~this;} catch(var e) {}
-    try {!this;} catch(var e) {}
+    try {-this;} catch(e) {}
+    try {~this;} catch(e) {}
+    try {!this;} catch(e) {}
 
-    try {-true;} catch(var e) {}
+    try {-true;} catch(e) {}
     !!false;
     !!!true;
     !!!!false;
     !!!!!!true;
-    try {~true;} catch(var e) {}
+    try {~true;} catch(e) {}
 
-    try {-[];} catch(var e) {}
-    try {~{"1": 1};} catch(var e) {}
-    try {!const [1];} catch(var e) {}
+    try {-[];} catch(e) {}
+    try {~{"1": 1};} catch(e) {}
+    try {!const [1];} catch(e) {}
 
-    try {-"s";} catch(var e) {}
-    try {~"t";} catch(var e) {}
-    try {!"r";} catch(var e) {}
+    try {-"s";} catch(e) {}
+    try {~"t";} catch(e) {}
+    try {!"r";} catch(e) {}
 
     //prefix operators with various expressions
-    try {-(){}[0];} catch(var e) {}
-    try {! new S();} catch(var e) {}
-    try {~(1 + 2);} catch(var e) {}
+    try {-(){}[0];} catch(e) {}
+    try {! new S();} catch(e) {}
+    try {~(1 + 2);} catch(e) {}
     
     // super with selector
-    try {-super[0];} catch (var ok) {}
-    try {~super.x;} catch (var ok) {}
-    try {!super[0];} catch (var ok) {}
+    try {-super[0];} catch(ok) {}
+    try {~super.x;} catch(ok) {}
+    try {!super[0];} catch(ok) {}
   }
 }
 

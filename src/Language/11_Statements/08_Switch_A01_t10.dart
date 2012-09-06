@@ -34,5 +34,5 @@ switchTest(value){
 main() {
   try {
     switchTest(0);
-  } catch(var x) {}
+  } catch(x) {}
 }

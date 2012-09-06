@@ -25,14 +25,14 @@
 main() {
   try {
     throw "";
-  } catch (int ok) {
-  } catch (final ok) {
+  } on int catch(ok) {
+  } catch(ok) {
   } finally {}
 
   try {
     throw "";
   } catch (final int ok) {
-  } catch (var ok) {}
+  } catch(ok) {}
 
   try {
     throw "";
@@ -51,18 +51,18 @@ main() {
     try {
       throw "";
     } finally {}
-  } catch (var ok) {}
+  } catch(ok) {}
 
   try {
     throw 1;
   }
-  catch(int x) {}
-  catch(int x) {}
+  on int catch(x) {}
+  on int catch(x) {}
 
   try {
     throw 1;
   }
-  catch(num x) {}
-  catch(Object x) {}
-  catch(int x) {}
+  on num catch(x) {}
+  on Object catch(x) {}
+  on int catch(x) {}
 }

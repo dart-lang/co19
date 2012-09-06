@@ -19,5 +19,5 @@ main() {
       var id;
     }
     id = null;
-  } catch (var ok) {}
+  } catch(ok) {}
 }

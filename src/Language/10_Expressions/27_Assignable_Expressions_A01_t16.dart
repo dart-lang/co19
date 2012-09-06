@@ -42,6 +42,6 @@
 
 main() {
   try {
-    try {} catch(var e) {} = null;
-  } catch(var e) {}
+    try {} catch(e) {} = null;
+  } catch(e) {}
 }

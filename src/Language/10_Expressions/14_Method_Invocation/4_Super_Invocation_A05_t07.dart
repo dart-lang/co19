@@ -32,5 +32,5 @@ class C extends A {
 main() {
   try {
     new I.foo();
-  } catch(var x){}
+  } catch(x){}
 }

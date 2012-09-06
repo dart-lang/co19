@@ -24,17 +24,17 @@ main() {
       try {
         throw ex;
         Expect.fail("This code shouldn't be executed");
-      } catch (int i) {}
+      } on int catch(i) {}
       Expect.fail("This code shouldn't be executed");
     }
     foo();
     Expect.fail("This code shouldn't be executed");
-  } catch (int i) {
+  } on int catch(i) {
   } catch (String s, var st) {
     flag = true;
     Expect.isTrue(ex === s);
     Expect.isNotNull(st);
-  } catch (var v) {
+  } catch(v) {
     Expect.fail("This code shouldn't be executed");
   }
   

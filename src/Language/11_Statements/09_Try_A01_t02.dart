@@ -24,6 +24,6 @@
  */
 
 main() {
-  try catch(var ex) {}
+  try catch(ex) {}
 }
 

@@ -55,80 +55,80 @@ class A  extends S {
     super.x--; // issue 1300
 
     //thisExpression
-    try { this[0];} catch(var e) {}
-    try { this.x;} catch(var e) {}
-    try { this[0]--;} catch(var e) {}
-    try { this.x++;} catch(var e) {}
+    try { this[0];} catch(e) {}
+    try { this.x;} catch(e) {}
+    try { this[0]--;} catch(e) {}
+    try { this.x++;} catch(e) {}
 
     //functionExpression
-    try { void f() {} [0]; } catch(var e) {}
-    try { void f() {}.x; } catch(var e) {} // issue 2709
-    try { void f() {} [0]++; } catch(var e) {} // issue 2709
-    try { void f() {}.x--; } catch(var e) {} // issue 2709
-    try { (){}.x; } catch(var e) {}
-    try { (){}.x--; } catch(var e) {}
+    try { void f() {} [0]; } catch(e) {}
+    try { void f() {}.x; } catch(e) {} // issue 2709
+    try { void f() {} [0]++; } catch(e) {} // issue 2709
+    try { void f() {}.x--; } catch(e) {} // issue 2709
+    try { (){}.x; } catch(e) {}
+    try { (){}.x--; } catch(e) {}
 
     //nullLiteral
-    try { null["key"]; } catch(var e) {}
-    try { null.x; } catch(var e) {}
-    try { null["key"]--; } catch(var e) {}
-    try { null.x++; } catch(var e) {}
+    try { null["key"]; } catch(e) {}
+    try { null.x; } catch(e) {}
+    try { null["key"]--; } catch(e) {}
+    try { null.x++; } catch(e) {}
 
     //booleanLiteral
-    try {true[1];} catch(var e) {}
-    try {true.t;} catch(var e) {}
-    try {true[1]++;} catch(var e) {}
-    try {true.t--;} catch(var e) {}
+    try {true[1];} catch(e) {}
+    try {true.t;} catch(e) {}
+    try {true[1]++;} catch(e) {}
+    try {true.t--;} catch(e) {}
 
     //numericLiteral
-    try {1[1];} catch(var e) {}
-    try {1.num;} catch(var e) {}
-    try {1[1]--;} catch(var e) {}
-    try {1.num++;} catch(var e) {}
+    try {1[1];} catch(e) {}
+    try {1.num;} catch(e) {}
+    try {1[1]--;} catch(e) {}
+    try {1.num++;} catch(e) {}
 
     //stringLiteral
-    try { "s"["s"];} catch(var e) {}
-    try {"".c;} catch(var e) {}
-    try { "s"["s"]++;} catch(var e) {}
-    try {"".c--;} catch(var e) {}
+    try { "s"["s"];} catch(e) {}
+    try {"".c;} catch(e) {}
+    try { "s"["s"]++;} catch(e) {}
+    try {"".c--;} catch(e) {}
 
     //mapLiteral
-    try { true ? {"1" : 1, "2" : 2}["1"]++ : null; } catch(var e) {}
-    try { true ? {"1" : 1, "2" : 2}.prop-- : null; } catch(var e) {}
-    try { const {"1":1}.x;} catch(var e) {}
-    try { const {"1":1}.x++;} catch(var e) {}
+    try { true ? {"1" : 1, "2" : 2}["1"]++ : null; } catch(e) {}
+    try { true ? {"1" : 1, "2" : 2}.prop-- : null; } catch(e) {}
+    try { const {"1":1}.x;} catch(e) {}
+    try { const {"1":1}.x++;} catch(e) {}
 
     //listLiteral
-    try { [0, 1, 2, 3][1]; } catch(var e) {}
-    try { [].a; } catch(var e) {}
-    try { [0, 1, 2, 3][1]++; } catch(var e) {}
-    try { [].a--; } catch(var e) {}
-    try { const [1, 2, 3][0];} catch(var e) {}
-    try { const [1, 2, 3][0]--;} catch(var e) {}
+    try { [0, 1, 2, 3][1]; } catch(e) {}
+    try { [].a; } catch(e) {}
+    try { [0, 1, 2, 3][1]++; } catch(e) {}
+    try { [].a--; } catch(e) {}
+    try { const [1, 2, 3][0];} catch(e) {}
+    try { const [1, 2, 3][0]--;} catch(e) {}
 
     //identifier
-    try { id["id"];} catch(var e) {}
-    try { id.id;} catch(var e) {}
-    try { id["id"]++;} catch(var e) {}
-    try { id.id--;} catch(var e) {}
+    try { id["id"];} catch(e) {}
+    try { id.id;} catch(e) {}
+    try { id["id"]++;} catch(e) {}
+    try { id.id--;} catch(e) {}
 
     //newExpression
-    try { new A()[0];} catch(var e) {}
-    try { new A().x;} catch(var e) {}
-    try { new A()[0]--;} catch(var e) {}
-    try { new A().x++;} catch(var e) {}
+    try { new A()[0];} catch(e) {}
+    try { new A().x;} catch(e) {}
+    try { new A()[0]--;} catch(e) {}
+    try { new A().x++;} catch(e) {}
 
     //constObjectExpression
-    try { const C()[0]++;} catch(var e) {}
-    try { const C().v++;} catch(var e) {}
-    try { const C.c2()[0]++;} catch(var e) {}
-    try { const C.c2().v++;} catch(var e) {}
+    try { const C()[0]++;} catch(e) {}
+    try { const C().v++;} catch(e) {}
+    try { const C.c2()[0]++;} catch(e) {}
+    try { const C.c2().v++;} catch(e) {}
 
     //(...) is a primary
-    try { (topLevelFunction())[0];} catch(var e) {}
+    try { (topLevelFunction())[0];} catch(e) {}
     // (...)[...] or (...).v is an assignable expression
-    try { (topLevelFunction())[0]++;} catch(var e) {}
-    try { (topLevelFunction()).x--;} catch(var e) {}
+    try { (topLevelFunction())[0]++;} catch(e) {}
+    try { (topLevelFunction()).x--;} catch(e) {}
   }
 }
 

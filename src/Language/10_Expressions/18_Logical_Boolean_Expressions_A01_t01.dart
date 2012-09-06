@@ -79,7 +79,7 @@ class A {
     // selector operator invocations
     try {
       id[2.0] || topLevelFunction()[0] && [1, 2][0];
-    } catch(NoSuchMethodException ok) {}
+    } on NoSuchMethodException catch(ok) {}
 
      id && id || id; 
 

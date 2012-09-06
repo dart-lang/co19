@@ -21,5 +21,5 @@ main() {
       case 1: true;
               break;
     }
-  } catch (var ok) {}
+  } catch(ok) {}
 }

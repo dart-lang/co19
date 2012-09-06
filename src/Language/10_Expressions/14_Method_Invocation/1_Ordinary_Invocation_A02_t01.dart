@@ -29,7 +29,7 @@ main() {
   try {
     o.method();
     Expect.fail("Wrong method was called!");
-  } catch(String s) {
+  } on String catch(s) {
     Expect.equals("C", s, "Wrong method was called!");
   }
 }

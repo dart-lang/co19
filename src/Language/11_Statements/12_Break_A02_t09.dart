@@ -24,5 +24,5 @@ main() {
     while (true){
       break L;
     }
-  } catch(var x) {}
+  } catch(x) {}
 }

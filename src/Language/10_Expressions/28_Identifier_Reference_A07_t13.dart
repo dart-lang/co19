@@ -16,5 +16,5 @@
 main() {
   try {
     typedef foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

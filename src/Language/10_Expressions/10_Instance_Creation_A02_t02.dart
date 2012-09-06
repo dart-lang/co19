@@ -22,5 +22,5 @@ class A<T> {
 main() {
   try {
     var o = const A<D>();
-  } catch(var e) {}
+  } catch(e) {}
 }

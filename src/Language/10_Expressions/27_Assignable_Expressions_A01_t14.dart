@@ -47,5 +47,5 @@
 main() {
   try {
     do {} while(true) = null;
-  } catch(var e) {}
+  } catch(e) {}
 }

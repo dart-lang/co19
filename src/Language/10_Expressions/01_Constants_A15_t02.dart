@@ -19,5 +19,5 @@ const a = [];
 main() {
   try {
     print(a);
-  } catch(var x) {}
+  } catch(x) {}
 }

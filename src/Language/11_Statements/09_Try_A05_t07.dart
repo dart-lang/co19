@@ -39,13 +39,13 @@ void main() {
   try {
     try {
       throw exStr;
-    } catch(int i) {
+    } on int catch(i) {
       Expect.fail("This code shouldn't be executed");
     } finally {
       throw exInt;
       Expect.fail("This code shouldn't be executed");
     }
-  } catch (var ok) {
+  } catch(ok) {
     Expect.equals(exInt, ok);
   }
 }

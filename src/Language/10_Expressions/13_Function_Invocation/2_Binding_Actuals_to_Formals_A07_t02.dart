@@ -16,5 +16,5 @@
 main() {
   try {
     ([p1, p2, p3]) {} (1, 2, p: 3);
-  } catch(var e) {}
+  } catch(e) {}
 }

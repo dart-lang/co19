@@ -17,5 +17,5 @@
 main() {
   try {
     static foo;
-  } catch(var x) {}
+  } catch(x) {}
 }

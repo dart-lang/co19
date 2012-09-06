@@ -26,5 +26,5 @@
 main() {
   try {
     === new Object();
-  } catch(var e) {}
+  } catch(e) {}
 }

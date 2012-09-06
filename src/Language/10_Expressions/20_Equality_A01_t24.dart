@@ -26,7 +26,7 @@
 
 class A<T> {
   test() {
-    try {0 === T;} catch(var e) {}
+    try {0 === T;} catch(e) {}
   }
 }
 

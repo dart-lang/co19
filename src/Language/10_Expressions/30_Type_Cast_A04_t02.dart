@@ -18,5 +18,5 @@ class G<S, T> {}
 main() {
   try {
     [] as G<int>;
-  } catch (var ok) {}
+  } catch(ok) {}
 }

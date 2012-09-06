@@ -24,5 +24,5 @@ typedef f();
 main() {
   try {
     Expect.isTrue(f is Function);
-  } catch (var e) {}
+  } catch(e) {}
 }

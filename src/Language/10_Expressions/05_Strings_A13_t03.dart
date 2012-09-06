@@ -16,5 +16,5 @@
 main() {
   try {
     '\x';
-  } catch(var e) {}
+  } catch(e) {}
 }

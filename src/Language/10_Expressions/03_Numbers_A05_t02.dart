@@ -15,5 +15,5 @@
 main() {
   try {
     double d = 1;
-  } catch(TypeError ok) {}
+  } on TypeError catch(ok) {}
 }

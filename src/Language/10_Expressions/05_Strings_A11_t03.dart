@@ -21,5 +21,5 @@
 main() {
   try {
     '\u{ffg}';
-  } catch(var e) {}
+  } catch(e) {}
 }

@@ -39,28 +39,28 @@ main() {
   try {
     tlVar;
     Expect.fail('NoSuchMethodException is expected');
-  } catch(NoSuchMethodException e) {
+  } on NoSuchMethodException catch(e) {
     Expect.equals(null, tlVar);
   }
 
   try {
     tlTyped;
     Expect.fail('NoSuchMethodException is expected');
-  } catch(NoSuchMethodException e) {
+  } on NoSuchMethodException catch(e) {
     Expect.equals(null, tlTyped);
   }
 
   try {
     tlFinal;
     Expect.fail('NoSuchMethodException is expected');
-  } catch(NoSuchMethodException e) {
+  } on NoSuchMethodException catch(e) {
     Expect.equals(null, tlFinal);
   }
 
   try {
     tlFinalTyped;
     Expect.fail('NoSuchMethodException is expected');
-  } catch(NoSuchMethodException e) {
+  } on NoSuchMethodException catch(e) {
     Expect.equals(null, tlFinalTyped);
   }
 }

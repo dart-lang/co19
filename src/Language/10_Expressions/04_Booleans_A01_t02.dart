@@ -19,5 +19,5 @@
 main() {
   try {
     var false;
-  } catch(var e) {}
+  } catch(e) {}
 }

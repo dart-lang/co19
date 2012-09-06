@@ -51,92 +51,92 @@ class A {
   method() {}
   test() {
     //thisExpression
-    try { this[0] = null; } catch(var e) {}
-    try { this.x = null;  } catch(var e) {}
+    try { this[0] = null; } catch(e) {}
+    try { this.x = null;  } catch(e) {}
 
     //nullLiteral
-    try { null["key"] = null; } catch(var e) {}
-    try { null.x = null; } catch(var e) {}
+    try { null["key"] = null; } catch(e) {}
+    try { null.x = null; } catch(e) {}
 
     //booleanLiteral
-    try {true[1] = null;} catch(var e) {}
-    try {true.t = false;} catch(var e) {}
+    try {true[1] = null;} catch(e) {}
+    try {true.t = false;} catch(e) {}
 
     //numericLiteral
-    try {1[1] = 1;} catch(var e) {}
-    try {1.num = 0;} catch(var e) {}
+    try {1[1] = 1;} catch(e) {}
+    try {1.num = 0;} catch(e) {}
 
     //stringLiteral
-    try { "s"["s"] = null;} catch(var e) {}
-    try {"".c = "string";} catch(var e) {}
+    try { "s"["s"] = null;} catch(e) {}
+    try {"".c = "string";} catch(e) {}
 
     //listLiteral
-    try { [0, 1, 2, 3][1] = null; } catch(var e) {}
-    try { [].a = null; } catch(var e) {}
+    try { [0, 1, 2, 3][1] = null; } catch(e) {}
+    try { [].a = null; } catch(e) {}
 
     //identifier
-    try { id["id"] = 0;} catch(var e) {}
-    try { id.id = null;} catch(var e) {}
+    try { id["id"] = 0;} catch(e) {}
+    try { id.id = null;} catch(e) {}
 
     //newExpression
-    try { new A()[0] = null;} catch(var e) {}
-    try { new A().x = null;} catch(var e) {}
+    try { new A()[0] = null;} catch(e) {}
+    try { new A().x = null;} catch(e) {}
 
     //constantObjectExpression
-    try { const [1, 2, 3][0] = 1;} catch(var e) {}
-    try { const S().x = null;} catch(var e) {}
+    try { const [1, 2, 3][0] = 1;} catch(e) {}
+    try { const S().x = null;} catch(e) {}
 
     //(functionInvocation)
-    try { (topLevelFunction())[0] = null;} catch(var e) {}
-    try { (topLevelFunction()).x = null;} catch(var e) {}
+    try { (topLevelFunction())[0] = null;} catch(e) {}
+    try { (topLevelFunction()).x = null;} catch(e) {}
 
     //(methodInvocation)
-    try { (this.method())[1] = null; } catch(var e) {}
-    try { (this.method()).x = null; } catch(var e) {}
+    try { (this.method())[1] = null; } catch(e) {}
+    try { (this.method()).x = null; } catch(e) {}
 
     //(assignmentExpression)
-    try { (id = 2)[0] = null;} catch(var e) {}
-    try { (id += 1).x = null;} catch(var e) {}
+    try { (id = 2)[0] = null;} catch(e) {}
+    try { (id += 1).x = null;} catch(e) {}
 
     //(conditionalExpression)
-    try { (true ? 1 : 2)[1] = null;} catch(var e) {}
-    try { (false ? "a" : "b").x = null;} catch(var e) {}
+    try { (true ? 1 : 2)[1] = null;} catch(e) {}
+    try { (false ? "a" : "b").x = null;} catch(e) {}
 
     //(logicalBooleanExpression)
-    try { (true || false)[0] = false;} catch(var e) {}
-    try { (false && true).x = true; } catch(var e) {}
+    try { (true || false)[0] = false;} catch(e) {}
+    try { (false && true).x = true; } catch(e) {}
 
     //(bitwiseExpression)
-    try { (id & 1)[0] = 1;} catch(var e) {}
-    try { (id ^ 1).x = 1;} catch(var e) {}
+    try { (id & 1)[0] = 1;} catch(e) {}
+    try { (id ^ 1).x = 1;} catch(e) {}
 
     //(equalityExpression)
-    try { (1 == 1)[0] = null;} catch(var e) {}
-    try { (1 === 1).x = null;} catch(var e) {}
+    try { (1 == 1)[0] = null;} catch(e) {}
+    try { (1 === 1).x = null;} catch(e) {}
 
     //(relationalExpression)
-    try { (1 < 1)["a"] = 1;} catch(var e) {}
-    try { (2 <= 3).x = "x";} catch(var e) {}
+    try { (1 < 1)["a"] = 1;} catch(e) {}
+    try { (2 <= 3).x = "x";} catch(e) {}
 
     //(shiftExpression)
-    try { (1 << 1)[0] = 1;} catch(var e) {}
-    try { (1 >> 1).x = 1;} catch(var e) {}
+    try { (1 << 1)[0] = 1;} catch(e) {}
+    try { (1 >> 1).x = 1;} catch(e) {}
 
     //(additiveExpression)
-    try { (0 + 0)[0] = 1;} catch(var e) {}
-    try { (2 - 10).prop = null;} catch(var e) {}
+    try { (0 + 0)[0] = 1;} catch(e) {}
+    try { (2 - 10).prop = null;} catch(e) {}
 
     //(multiplicativeExpression)
-    try { (1 * 5)[4] = 1;} catch(var e) {}
-    try { (0 / 2).res = 1;} catch(var e) {}
+    try { (1 * 5)[4] = 1;} catch(e) {}
+    try { (0 / 2).res = 1;} catch(e) {}
 
     //(unaryExpression)
-    try { (id++)[0] = 1;} catch(var e) {}
-    try { (id--).x = 1;} catch(var e) {}
+    try { (id++)[0] = 1;} catch(e) {}
+    try { (id--).x = 1;} catch(e) {}
 
     //(isExpression)
-    try { (1 is int)[0] = null;} catch(var e) {}
-    try { (1 is ! bool).id = 1;} catch(var e) {}
+    try { (1 is int)[0] = null;} catch(e) {}
+    try { (1 is ! bool).id = 1;} catch(e) {}
 
   }
   var id;

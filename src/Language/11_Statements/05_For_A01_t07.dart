@@ -28,5 +28,5 @@
 main() {
   try {
     for (l in new List(5)) break;
-  } catch(var x){}
+  } catch(x){}
 }

@@ -19,5 +19,5 @@ var xx = super.f();
 main() {
   try {
     print(xx);
-  } catch(var x) {}
+  } catch(x) {}
 }

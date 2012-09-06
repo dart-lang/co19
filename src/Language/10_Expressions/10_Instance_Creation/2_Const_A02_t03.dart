@@ -22,5 +22,5 @@ func() {}
 main() {
   try {
     const func();
-  } catch(var e) {}
+  } catch(e) {}
 }

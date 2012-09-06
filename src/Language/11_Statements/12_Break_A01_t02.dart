@@ -18,5 +18,5 @@
 main() {
   try {
 	L: break L;
-  } catch(var x) {}
+  } catch(x) {}
 }

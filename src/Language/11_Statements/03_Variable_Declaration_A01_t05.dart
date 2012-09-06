@@ -19,5 +19,5 @@ main() {
       int id;
     }
     id = null;
-  } catch (var ok) {}
+  } catch(ok) {}
 }

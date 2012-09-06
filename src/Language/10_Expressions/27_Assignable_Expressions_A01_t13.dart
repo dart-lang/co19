@@ -43,5 +43,5 @@
 main() {
   try {
     while(true) {} = null;
-  } catch(var e) {}
+  } catch(e) {}
 }

@@ -20,5 +20,5 @@ main() {
     switch(null) {
       case null:
     }
-  } catch(var e) {}
+  } catch(e) {}
 }
