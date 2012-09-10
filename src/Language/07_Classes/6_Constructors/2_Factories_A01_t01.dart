@@ -6,7 +6,7 @@
 /**
  * @assertion A factory is a constructor prefaced by the built-in identifier factory.
  * factoryConstructorSignature:
- *   factory qualified ('.' identifier)? formalParameterList
+ *   factory identifier ('.' identifier)? formalParameterList
  * ;
  * @description Checks various valid factory declarations, including those referencing
  * an interface from another file.
