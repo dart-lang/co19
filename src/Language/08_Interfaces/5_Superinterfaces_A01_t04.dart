@@ -23,6 +23,6 @@ class C implements B {}
 main() {
   try {
     new B();
-  } catch(var e) {}
+  } catch(e) {}
 }
 

@@ -38,5 +38,5 @@ interface I extends SI1, SI2 {}
 main() {
   I i = null;
   
-  try {i.foo(null, null, null);} catch (NullPointerException npe) {}
+  try {i.foo(null, null, null);} on NullPointerException catch(npe) {}
 }

@@ -32,6 +32,6 @@ main() {
   try {
     new I();
     new I.foo(); // class F has no constructor F.foo()
-  } catch(var e) {}
+  } catch(e) {}
 }
 

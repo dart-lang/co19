@@ -25,6 +25,6 @@ interface I<S, T> default F<S, T> {
 main() {
   try {
     new I<int, String>(null, null);
-  } catch(var e) {}
+  } catch(e) {}
 }
 

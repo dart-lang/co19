@@ -21,6 +21,6 @@ main() {
  try {
    I i1=new C();
    assert(i1!=null);
- } catch(var x) {
+ } catch(x) {
  }
 }

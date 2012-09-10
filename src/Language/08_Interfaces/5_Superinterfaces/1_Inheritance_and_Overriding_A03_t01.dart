@@ -36,5 +36,5 @@ interface J extends I {
 main() {
   J j = null;
   
-  try {j.m(0.5, new RegExp("pttrn"));} catch (NullPointerException npe) {}
+  try {j.m(0.5, new RegExp("pttrn"));} on NullPointerException catch(npe) {}
 }

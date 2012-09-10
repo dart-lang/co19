@@ -25,5 +25,5 @@ interface J extends I {
 
 main() {
   J j = null;
-  try {j.m1();} catch (NullPointerException e) {}
+  try {j.m1();} on NullPointerException catch(e) {}
 }

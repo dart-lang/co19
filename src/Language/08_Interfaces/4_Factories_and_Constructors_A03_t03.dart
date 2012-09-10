@@ -29,5 +29,5 @@ interface I<T> default C<T, T> {
 main() {
   try {
     new I();
-  } catch(var e) {}
+  } catch(e) {}
 }

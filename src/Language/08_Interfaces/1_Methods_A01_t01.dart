@@ -24,6 +24,6 @@ main() {
   try {
     A a = new A();
     a.m1();
-  }catch(var x){}
+  }catch(x){}
 }
 

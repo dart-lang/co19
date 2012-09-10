@@ -27,5 +27,5 @@ interface I<U, T> default C<S, T> {
 main() {
   try {
     new I<int, bool>();
-  } catch(var e) {}
+  } catch(e) {}
 }

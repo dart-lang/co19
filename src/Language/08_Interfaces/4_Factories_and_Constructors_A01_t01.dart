@@ -29,6 +29,6 @@ class A implements I {}
 main() {
   try {
     new A();
-  } catch(var e) {}
+  } catch(e) {}
 }
 

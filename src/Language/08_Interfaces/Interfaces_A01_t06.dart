@@ -22,6 +22,6 @@ main() {
  try {
    I i1=new C();
    print(i1);
- } catch(var x) {
+ } catch(x) {
  }
 }

@@ -26,5 +26,5 @@ interface I<X extends String> default F<int> {
 main() {
   try {
     new I();
-  } catch(var e) {}
+  } catch(e) {}
 }

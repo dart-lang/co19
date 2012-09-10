@@ -24,6 +24,6 @@ interface J extends I {
 
 main() {
   J j = null;
-  try {j.m1();} catch (var e) {}
+  try {j.m1();} catch(e) {}
 }
 

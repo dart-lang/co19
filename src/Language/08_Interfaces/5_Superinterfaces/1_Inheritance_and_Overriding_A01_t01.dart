@@ -33,29 +33,29 @@ main() {
   I2 i2 = null;
   I3 i3 = null;
   
-//  try {i2.nonexistent;} catch (NullPointerException npe) {}
+//  try {i2.nonexistent;} on NullPointerException catch(npe) {}
 
-  try {i2.foo;} catch (NullPointerException npe) {}
+  try {i2.foo;} on NullPointerException catch(npe) {}
 
-  try {i2.bar;} catch (NullPointerException npe) {}
+  try {i2.bar;} on NullPointerException catch(npe) {}
 
-  try {i2.m();} catch (NullPointerException npe) {}
+  try {i2.m();} on NullPointerException catch(npe) {}
 
-  try {i2.gett0r;} catch (NullPointerException npe) {}
+  try {i2.gett0r;} on NullPointerException catch(npe) {}
 
-  try {i2.sett0r = 1;} catch (NullPointerException npe) {}
+  try {i2.sett0r = 1;} on NullPointerException catch(npe) {}
 
-  try {i2 + 1;} catch (NullPointerException npe) {}
+  try {i2 + 1;} on NullPointerException catch(npe) {}
 
-  try {i3.foo;} catch (NullPointerException npe) {}
+  try {i3.foo;} on NullPointerException catch(npe) {}
 
-  try {i3.bar;} catch (NullPointerException npe) {}
+  try {i3.bar;} on NullPointerException catch(npe) {}
 
-  try {i3.m();} catch (NullPointerException npe) {}
+  try {i3.m();} on NullPointerException catch(npe) {}
 
-  try {i3.gett0r;} catch (NullPointerException npe) {}
+  try {i3.gett0r;} on NullPointerException catch(npe) {}
 
-  try {i3.sett0r = 1;} catch (NullPointerException npe) {}
+  try {i3.sett0r = 1;} on NullPointerException catch(npe) {}
 
-  try {i3 + 1;} catch (NullPointerException npe) {}
+  try {i3 + 1;} on NullPointerException catch(npe) {}
 }

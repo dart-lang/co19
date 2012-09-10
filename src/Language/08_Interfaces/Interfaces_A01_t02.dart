@@ -33,5 +33,5 @@ class B implements A {}
 main() {
   try {
     new B();
-  } catch(var e) {}
+  } catch(e) {}
 }

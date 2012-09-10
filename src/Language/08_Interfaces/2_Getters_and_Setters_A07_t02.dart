@@ -34,5 +34,5 @@ class A implements I {}
 main() {
   try {
     new A().s = 1;
-  } catch(var e) {}
+  } catch(e) {}
 }

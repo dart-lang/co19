@@ -24,6 +24,6 @@ interface I default C {
 main() {
   try {
     new I();
-  } catch(var e) {}
+  } catch(e) {}
 }
 

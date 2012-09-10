@@ -29,6 +29,6 @@ main() {
    I i1=new II();
    I i2=new II();
    v= (i1!=i2);
- } catch(var x) {}
+ } catch(x) {}
 }
 

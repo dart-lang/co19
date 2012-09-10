@@ -8,7 +8,7 @@
  * are not overridden by members declared in I.
  * @description Checks that an interface does not inherit static members of its 
  * superinterfaces (which can only be final initialized fields, according to grammar).
- * Expects a NoSuchMethodException when trying to access a superinterface's static member
+ * Expects a NoSuchMethodError when trying to access a superinterface's static member
  * via a subinterface, as specified in ch. 10.15.
  * @static-warning
  * @author vasya
@@ -25,5 +25,5 @@ interface I extends S {
 main() {
   try {
     var x = S.foo;
-  } catch (NoSuchMethodException ok) {}
+  } on NoSuchMethodError catch(ok) {}
 }

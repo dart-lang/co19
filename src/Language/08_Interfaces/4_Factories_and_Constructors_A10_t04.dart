@@ -26,6 +26,6 @@ interface I<C, D> default F<C, D> {
 main() {
   try {
     new I();
-  } catch(var e) {}
+  } catch(e) {}
 }
 

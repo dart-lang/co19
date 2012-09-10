@@ -29,5 +29,5 @@ interface J extends S  {
 
 main() {
   J j = null;
-  try {j.m();} catch (var e) {}
+  try {j.m();} catch(e) {}
 }

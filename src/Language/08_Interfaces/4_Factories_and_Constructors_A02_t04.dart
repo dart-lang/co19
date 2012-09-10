@@ -29,7 +29,7 @@ main() {
     I i1=new I.foo(v=1);
     I i2=new I.foo();
     //assert(i1!=i2);
-   } catch(var x) {
+   } catch(x) {
    }
  }
 

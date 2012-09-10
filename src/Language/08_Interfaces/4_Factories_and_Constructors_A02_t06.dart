@@ -31,7 +31,7 @@ main() {
   try{
     I i1=new I.foo(v=1);
     assert(i1!=null);
-  } catch(var x) {
+  } catch(x) {
   }
 }
 

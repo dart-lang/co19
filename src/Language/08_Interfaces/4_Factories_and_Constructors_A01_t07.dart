@@ -31,5 +31,5 @@ interface SI {}
 main() {
   try {
     new I();
-  } catch(var e) {}
+  } catch(e) {}
 }

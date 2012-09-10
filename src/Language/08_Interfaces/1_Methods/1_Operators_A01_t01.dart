@@ -53,26 +53,26 @@ interface I {
 main() {
   I i = null;
 
-  try {i + i;} catch (NullPointerException e) {}
-  try {i - i;} catch (NullPointerException e) {}
-  try {i * i;} catch (NullPointerException e) {}
-  try {i % i;} catch (NullPointerException e) {}
-  try {i / i;} catch (NullPointerException e) {}
-  try {i ~/ i;} catch (NullPointerException e) {}
-  try {i == i;} catch (NullPointerException e) {}
-  try {i < i;} catch (NullPointerException e) {}
-  try {i <= i;} catch (NullPointerException e) {}
-  try {i > i;} catch (NullPointerException e) {}
-  try {i >= i;} catch (NullPointerException e) {}
-  try {i & i;} catch (NullPointerException e) {}
-  try {i | i;} catch (NullPointerException e) {}
-  try {i ^ i;} catch (NullPointerException e) {}
-  try {~i;} catch (NullPointerException e) {}
-  try {i << i;} catch (NullPointerException e) {}
-  try {i >> i;} catch (NullPointerException e) {}
-  try {-i;} catch (NullPointerException e) {}
-  try {i[0];} catch (NullPointerException e) {}
-  try {i[0] = i;} catch (NullPointerException e) {}
-  try {i(0, 0);} catch (NullPointerException e) {}
+  try {i + i;} on NullPointerException catch(e) {}
+  try {i - i;} on NullPointerException catch(e) {}
+  try {i * i;} on NullPointerException catch(e) {}
+  try {i % i;} on NullPointerException catch(e) {}
+  try {i / i;} on NullPointerException catch(e) {}
+  try {i ~/ i;} on NullPointerException catch(e) {}
+  try {i == i;} on NullPointerException catch(e) {}
+  try {i < i;} on NullPointerException catch(e) {}
+  try {i <= i;} on NullPointerException catch(e) {}
+  try {i > i;} on NullPointerException catch(e) {}
+  try {i >= i;} on NullPointerException catch(e) {}
+  try {i & i;} on NullPointerException catch(e) {}
+  try {i | i;} on NullPointerException catch(e) {}
+  try {i ^ i;} on NullPointerException catch(e) {}
+  try {~i;} on NullPointerException catch(e) {}
+  try {i << i;} on NullPointerException catch(e) {}
+  try {i >> i;} on NullPointerException catch(e) {}
+  try {-i;} on NullPointerException catch(e) {}
+  try {i[0];} on NullPointerException catch(e) {}
+  try {i[0] = i;} on NullPointerException catch(e) {}
+  try {i(0, 0);} on NullPointerException catch(e) {}
 }
 

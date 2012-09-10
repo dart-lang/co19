@@ -36,5 +36,5 @@ interface J extends I {
 main() {
   J j = null;
   
-  try {j.sett0r = 0.5;} catch (NullPointerException npe) {}
+  try {j.sett0r = 0.5;} on NullPointerException catch(npe) {}
 }

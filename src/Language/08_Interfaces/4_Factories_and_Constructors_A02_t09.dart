@@ -25,5 +25,5 @@ interface I default F {
 main() {
   try {
     new I();
-  } catch(var e) {}
+  } catch(e) {}
 }

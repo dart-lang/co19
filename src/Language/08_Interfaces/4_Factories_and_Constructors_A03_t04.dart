@@ -28,5 +28,5 @@ interface I2<S, T> default C2<T> {
 main() {
   try {
     new I2();
-  } catch(var e) {}
+  } catch(e) {}
 }
