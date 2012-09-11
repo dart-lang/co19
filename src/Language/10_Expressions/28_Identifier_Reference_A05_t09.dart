@@ -38,29 +38,29 @@ final int tlFinalTyped = ''.thatMethod();
 main() {
   try {
     tlVar;
-    Expect.fail('NoSuchMethodException is expected');
-  } on NoSuchMethodException catch(e) {
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {
     Expect.equals(null, tlVar);
   }
 
   try {
     tlTyped;
-    Expect.fail('NoSuchMethodException is expected');
-  } on NoSuchMethodException catch(e) {
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {
     Expect.equals(null, tlTyped);
   }
 
   try {
     tlFinal;
-    Expect.fail('NoSuchMethodException is expected');
-  } on NoSuchMethodException catch(e) {
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {
     Expect.equals(null, tlFinal);
   }
 
   try {
     tlFinalTyped;
-    Expect.fail('NoSuchMethodException is expected');
-  } on NoSuchMethodException catch(e) {
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {
     Expect.equals(null, tlFinalTyped);
   }
 }

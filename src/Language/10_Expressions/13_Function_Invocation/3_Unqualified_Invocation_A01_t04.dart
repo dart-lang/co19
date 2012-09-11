@@ -39,8 +39,8 @@ class A {
 
     try {
       n("a", 1);
-      Expect.fail("NoSuchMethodException expected");
-    } on NoSuchMethodException catch(ok) {}
+      Expect.fail("NoSuchMethodError expected");
+    } on NoSuchMethodError catch(ok) {}
   }
 }
 

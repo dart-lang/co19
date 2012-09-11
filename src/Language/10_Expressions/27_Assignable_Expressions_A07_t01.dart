@@ -22,8 +22,8 @@ main() {
   Expect.equals(10, a.id(5, 6, 1));
   Expect.equals(0, a.id(0, 0, 0));
 
-  Expect.throws( () => a.id(),           (e) => e is NoSuchMethodException);
-  Expect.throws( () => a.id(1, 2, 3, 4), (e) => e is NoSuchMethodException);
-  Expect.throws( () => a.m(),            (e) => e is NoSuchMethodException);
-  Expect.throws( () => a.m(1,2 ,3),      (e) => e is NoSuchMethodException);
+  Expect.throws( () => a.id(),           (e) => e is NoSuchMethodError);
+  Expect.throws( () => a.id(1, 2, 3, 4), (e) => e is NoSuchMethodError);
+  Expect.throws( () => a.m(),            (e) => e is NoSuchMethodError);
+  Expect.throws( () => a.m(1,2 ,3),      (e) => e is NoSuchMethodError);
 }

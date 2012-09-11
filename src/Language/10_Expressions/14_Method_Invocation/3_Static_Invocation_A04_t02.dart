@@ -15,7 +15,7 @@
  * The body of f is then executed with respect to the bindings that resulted
  * from the evaluation of the argument list. The value of i is the value returned
  * after the body of f is executed.
- * @description Checks that a NoSuchMethodException is thrown if m is not a function
+ * @description Checks that a NoSuchMethodError is thrown if m is not a function
  * and getter is declared implicitly.
  * @author msyabro
  * @reviewer kaigorodov
@@ -28,6 +28,6 @@ class C {
 main()  {
   try {
     C.func();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 }

@@ -6,7 +6,7 @@
 /**
  * @assertion It is a compile-time error if evaluation of a compile-time constant would raise
  * an exception.
- * @description Checks that a NoSuchMethodException raised during evaluation of a compile-time constant
+ * @description Checks that a NoSuchMethodError raised during evaluation of a compile-time constant
  * causes a compile-time error.
  * @author iefremov
  * @compile-error

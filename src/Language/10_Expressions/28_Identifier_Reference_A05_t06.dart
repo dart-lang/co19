@@ -34,8 +34,8 @@ class A {
   func() {
     try {
       x;
-      Expect.fail("NoSuchMethodException expected");
-    } on NoSuchMethodException catch(e) {}
+      Expect.fail("NoSuchMethodError expected");
+    } on NoSuchMethodError catch(e) {}
 
     Expect.equals(10, y);
   }

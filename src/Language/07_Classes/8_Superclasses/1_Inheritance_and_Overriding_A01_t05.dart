@@ -25,8 +25,8 @@ class C extends S {
 
 main() {
   var c = new C();
-  Expect.throws(() => c.v, (e) => e is NoSuchMethodException);
-  Expect.throws(() => c.i, (e) => e is NoSuchMethodException);
-  Expect.throws(() => c.method(), (e) => e is NoSuchMethodException);
-  Expect.throws(() => c.iMethod(), (e) => e is NoSuchMethodException);
+  Expect.throws(() => c.v, (e) => e is NoSuchMethodError);
+  Expect.throws(() => c.i, (e) => e is NoSuchMethodError);
+  Expect.throws(() => c.method(), (e) => e is NoSuchMethodError);
+  Expect.throws(() => c.iMethod(), (e) => e is NoSuchMethodError);
 }

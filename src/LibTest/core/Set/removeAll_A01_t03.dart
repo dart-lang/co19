@@ -7,7 +7,7 @@
  * @assertion void removeAll(Collection<T> collection)
  * Removes all the elements of the given collection from the set.
  * @description Passes an element of type that doesn't implement the hashCode() function
- * as argument to removeAll(), expects a NoSuchMethodException.
+ * as argument to removeAll(), expects a NoSuchMethodError.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -22,7 +22,7 @@ main() {
   s.addAll([1, 2, 3]);
   try {
     s.removeAll([1, 2, new A()]);
-    Expect.fail("Expected NoSuchMethodException.");
-  } catch (NoSuchMethodException e) {
+    Expect.fail("Expected NoSuchMethodError.");
+  } catch (NoSuchMethodError e) {
   }
 }

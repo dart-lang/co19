@@ -21,36 +21,36 @@ main() {
   int e = 1;
   try {
     e();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(ok) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     ("String1")(null, null);
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     []();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     null(p1: 1);
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     new Object()();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     f()();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     false();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 }

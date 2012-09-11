@@ -30,6 +30,6 @@ class C extends B {
 main() {
   try {
     new C().f(1);
-  } on NoSuchMethodException catch (ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }
 

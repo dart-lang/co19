@@ -6,7 +6,7 @@
 /**
  * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent to the
  * evaluation of the expression (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
- * @description Checks that method noSuchMethod is invoked (which results in NoSuchMethodException)
+ * @description Checks that method noSuchMethod is invoked (which results in NoSuchMethodError)
  * if the type of e1 doesn't define a []= operator.
  * @author rodionov
  * @reviewer iefremov
@@ -20,21 +20,21 @@ main() {
   C c = new C();
   try {
     c[0] = 1;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     c["o"] = 1;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     c[false] = 1;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     c[1.01] = 1;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

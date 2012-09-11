@@ -23,12 +23,12 @@ main() {
   C c = new C();
   try {
     c();
-  } on NoSuchMethodException catch(ok) {}
+  } on NoSuchMethodError catch(ok) {}
   
   Expect.equals("call(1, foo)", c(1));
   Expect.equals("call(2, bar)", c(2, "bar"));
 
   try {
     c(1, 2, 3);
-  } on NoSuchMethodException catch(ok) {}
+  } on NoSuchMethodError catch(ok) {}
 }

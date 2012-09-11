@@ -47,10 +47,10 @@ class B extends _A {
 
     try {
       _abstractfun();
-    } on NoSuchMethodException catch(ok){}
+    } on NoSuchMethodError catch(ok){}
     try {
       super._abstractfun();
-    } on NoSuchMethodException catch(ok){}
+    } on NoSuchMethodError catch(ok){}
 
     Expect.equals(100500, _getter);
     Expect.equals(100500, super._getter);

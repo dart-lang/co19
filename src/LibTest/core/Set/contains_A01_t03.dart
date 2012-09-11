@@ -20,6 +20,6 @@ main() {
   var s = new Set();
   try {
     s.contains(new A());
-    Expect.fail("Expected NoSuchMethodException.");
-  } catch (NoSuchMethodException e) {}
+    Expect.fail("Expected NoSuchMethodError.");
+  } catch (NoSuchMethodError e) {}
 }

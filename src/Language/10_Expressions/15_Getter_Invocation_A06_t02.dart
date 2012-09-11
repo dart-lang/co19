@@ -22,13 +22,13 @@ main()  {
 
   try {
     a.v.someMethod();
-  } on NoSuchMethodException catch(e) {}
+  } on NoSuchMethodError catch(e) {}
 
   try {
     a.v.someVariable;
-  } on NoSuchMethodException catch(e) {}
+  } on NoSuchMethodError catch(e) {}
 
   try {
     a.v.anotherMethod();
-  } on NoSuchMethodException catch(e) {}
+  } on NoSuchMethodError catch(e) {}
 }

@@ -15,8 +15,8 @@
 check(Set s, Collection col) {
   try {
    s.intersection(col);
-   Expect.fail("NoSuchMethodException is expected");
-  } catch(NoSuchMethodException e) {}
+   Expect.fail("NoSuchMethodError is expected");
+  } catch(NoSuchMethodError e) {}
 }
 
 main() {

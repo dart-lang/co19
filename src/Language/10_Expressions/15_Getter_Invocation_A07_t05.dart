@@ -15,7 +15,7 @@
  * static type of i is the declared return type of C.m.
  * @description Checks that it is a static warning if C does not declare, explicitly
  * or implicitly, a getter with the appropriate name and that such code results in a
- * NoSuchMethodException.
+ * NoSuchMethodError.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
@@ -29,6 +29,6 @@ class C {
 main()  {
   try {
     C.getter;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

@@ -20,11 +20,11 @@ main() {
   lib.C c = new lib.C();
   try {
     c._foo();
-    Expect.fail('NoSuchMethodException is expected');
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {}
 
   try {
     c._bar;
-    Expect.fail('NoSuchMethodException is expected');
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {}
 }

@@ -28,5 +28,5 @@ class B extends A {
 main() {
   try {
     print(new B().func());
-  } on NoSuchMethodException catch(ok) {}
+  } on NoSuchMethodError catch(ok) {}
 }

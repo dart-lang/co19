@@ -33,8 +33,8 @@ class A {
     m = 1;
     try {
       m(1, 2, 3);
-      Expect.fail("NoSuchMethodException expected");
-    } on NoSuchMethodException catch(ok) {}
+      Expect.fail("NoSuchMethodError expected");
+    } on NoSuchMethodError catch(ok) {}
   }
 }
 

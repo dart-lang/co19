@@ -12,12 +12,12 @@
  */
  
 main() {
-  new NoSuchMethodException(null, null, null);
-  new NoSuchMethodException(null, null, []);
-  new NoSuchMethodException(null, null, [null]);
-  new NoSuchMethodException(null, "foo", [1, 2]);
-  new NoSuchMethodException("foo", null, [1, 2]);
-  new NoSuchMethodException("foo", "foo", []);
+  new NoSuchMethodError(null, null, null);
+  new NoSuchMethodError(null, null, []);
+  new NoSuchMethodError(null, null, [null]);
+  new NoSuchMethodError(null, "foo", [1, 2]);
+  new NoSuchMethodError("foo", null, [1, 2]);
+  new NoSuchMethodError("foo", "foo", []);
   String foo = "foo";
-  new NoSuchMethodException(foo, foo, [foo]);
+  new NoSuchMethodError(foo, foo, [foo]);
 }

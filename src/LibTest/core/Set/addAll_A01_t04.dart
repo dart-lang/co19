@@ -7,7 +7,7 @@
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
  * @description Passes a list containing an element of type that doesn't implement hashCode() method,
- * expects NoSuchMethodException.
+ * expects NoSuchMethodError.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -21,7 +21,7 @@ main() {
   var s = new Set();
   try {
     s.addAll([1, 2, new A()]);
-    Expect.fail("Expected NoSuchMethodException.");
-  } catch (NoSuchMethodException e) {
+    Expect.fail("Expected NoSuchMethodError.");
+  } catch (NoSuchMethodError e) {
   }
 }

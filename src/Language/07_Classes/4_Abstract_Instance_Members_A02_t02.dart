@@ -6,7 +6,7 @@
 /**
  * @assertion Invoking an abstract method always results in a run-time error.
  * This may be NoSuchMethodError or a subclass, such as AbstractMethodError.
- * @description Checks that NoSuchMethodException is thrown when calling an abstract method
+ * @description Checks that NoSuchMethodError is thrown when calling an abstract method
  * that is inherited from non-direct superclass.
  * @static-warning
  * @author vasya
@@ -24,7 +24,7 @@ class C extends A2 {}
 main() {
   try {
     new C().m1();
-    Expect.fail("NoSuchMethodException expected when calling abstract method or superclass.");
-  } catch (NoSuchMethodException ex) {}
+    Expect.fail("NoSuchMethodError expected when calling abstract method or superclass.");
+  } on NoSuchMethodError catch (ex) {}
 }
 

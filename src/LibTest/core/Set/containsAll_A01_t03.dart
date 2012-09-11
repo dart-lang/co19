@@ -7,7 +7,7 @@
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
  * @description Passes a list containing elements of type that doesn't implement
- * hashCode() function, expects NoSuchMethodException.
+ * hashCode() function, expects NoSuchMethodError.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -22,7 +22,7 @@ main() {
   s.addAll([1, 2]);
   try {
     s.removeAll([1, 2, new A()]);
-    Expect.fail("Expected NoSuchMethodException.");
-  } catch (NoSuchMethodException e) {
+    Expect.fail("Expected NoSuchMethodError.");
+  } catch (NoSuchMethodError e) {
   }
 }

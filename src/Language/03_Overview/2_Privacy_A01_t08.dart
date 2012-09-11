@@ -9,7 +9,7 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that trying to access private instance class members from a script
- * that imports the library where the class is declared result in a NoSuchMethodException.
+ * that imports the library where the class is declared result in a NoSuchMethodError.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
@@ -20,8 +20,8 @@ import "lib.dart";
 check(f) {
   try {
     f();
-    Expect.fail("NoSuchMethodException expected when trying to access a private member!");
-  } on NoSuchMethodException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected when trying to access a private member!");
+  } on NoSuchMethodError catch(ok) {}
 }
 
 main() {

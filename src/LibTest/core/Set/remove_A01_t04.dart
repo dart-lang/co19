@@ -8,7 +8,7 @@
  * Removes [value] from the set. Returns true if [value] was in the set.
  * Returns false otherwise. The method has no effect if [value] value was not in the set.
  * @description Passes an element of type that doesn't implement the hashCode() function
- * as argument to remove(), expects a NoSuchMethodException.
+ * as argument to remove(), expects a NoSuchMethodError.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -23,7 +23,7 @@ main() {
   s.addAll([1, 2, 3]);
   try {
     s.remove(new A());
-    Expect.fail("Expected NoSuchMethodException.");
-  } catch (NoSuchMethodException e) {
+    Expect.fail("Expected NoSuchMethodError.");
+  } catch (NoSuchMethodError e) {
   }
 }

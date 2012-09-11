@@ -46,7 +46,7 @@ main() {
 
   try {
     a._abstractfun();
-  } on NoSuchMethodException catch(ok){}
+  } on NoSuchMethodError catch(ok){}
 
   Expect.equals(100500, a._getter);
 

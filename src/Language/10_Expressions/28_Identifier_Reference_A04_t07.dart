@@ -12,7 +12,7 @@
  * @description  Checks that it is not a compile-time error by itself when a built-in identifier
  * is used in an identifier reference, but since no declaration with that name can exist, lookup
  * fails eventually with the type of error depending on context. This test checks that in a class
- * instance scope, referencing a built-in identifier results in NoSuchMethodException as long
+ * instance scope, referencing a built-in identifier results in NoSuchMethodError as long
  * as the identifier is placed in such a way that it cannot be mistaken for another token.
  * @static-warning
  * @author rodionov
@@ -21,20 +21,20 @@
 
 class A {
   test() {
-    try {abstract();} on NoSuchMethodException catch(ok) {}
-    try {++assert;} on NoSuchMethodException catch(ok) {}
-    try {1 + as;} on NoSuchMethodException catch(ok) {}
+    try {abstract();} on NoSuchMethodError catch(ok) {}
+    try {++assert;} on NoSuchMethodError catch(ok) {}
+    try {1 + as;} on NoSuchMethodError catch(ok) {}
     // skipping Dynamic as it's also a type name and thus causes a compile-time error
-    try {1 << equals;} on NoSuchMethodException catch(ok) {}
-    try {1 * factory;} on NoSuchMethodException catch(ok) {}
-    try {1 >= get;} on NoSuchMethodException catch(ok) {}
-    try {var x = implements;} on NoSuchMethodException catch(ok) {}
-    try {1 == interface;} on NoSuchMethodException catch(ok) {}
-    try {negate[0];} on NoSuchMethodException catch(ok) {}
-    try {operator.x;} on NoSuchMethodException catch(ok) {}
-    try {--set;} on NoSuchMethodException catch(ok) {}
-    try {true & static;} on NoSuchMethodException catch(ok) {}
-    try {++typedef;} on NoSuchMethodException catch(ok) {}
+    try {1 << equals;} on NoSuchMethodError catch(ok) {}
+    try {1 * factory;} on NoSuchMethodError catch(ok) {}
+    try {1 >= get;} on NoSuchMethodError catch(ok) {}
+    try {var x = implements;} on NoSuchMethodError catch(ok) {}
+    try {1 == interface;} on NoSuchMethodError catch(ok) {}
+    try {negate[0];} on NoSuchMethodError catch(ok) {}
+    try {operator.x;} on NoSuchMethodError catch(ok) {}
+    try {--set;} on NoSuchMethodError catch(ok) {}
+    try {true & static;} on NoSuchMethodError catch(ok) {}
+    try {++typedef;} on NoSuchMethodError catch(ok) {}
   }
 }
 

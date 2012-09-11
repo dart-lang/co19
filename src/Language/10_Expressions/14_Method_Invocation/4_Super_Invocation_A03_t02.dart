@@ -8,7 +8,7 @@
  * m in S with respect to L. If the getter lookup succeeded, let vg be the value
  * of the getter invocation super.m. Then the value of i is the value of
  * the method invocation vg.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
- * @description Checks that NoSuchMethodException is thrown if getter is not a function
+ * @description Checks that NoSuchMethodError is thrown if getter is not a function
  * and getter is declared implicitly.
  * @author msyabro
  * @reviewer kaigorodov
@@ -22,8 +22,8 @@ class A extends S {
   test() {
     try {
       super.func();
-      Expect.fail("NoSuchMethodException is expected");
-    } on NoSuchMethodException catch(e) {}
+      Expect.fail("NoSuchMethodError is expected");
+    } on NoSuchMethodError catch(e) {}
   }
 }
 

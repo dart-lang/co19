@@ -24,16 +24,16 @@ external h({var x});
 main() {
   try {
     f();
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     g();
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     h();
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

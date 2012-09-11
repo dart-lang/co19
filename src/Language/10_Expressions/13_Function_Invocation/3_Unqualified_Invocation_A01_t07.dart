@@ -15,7 +15,7 @@
  * Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
  * an+1, ... , xn+k : an+k).
  * @description Checks that if fid is a static method of the superclass S,
- * then unqualified function invocation expression should produce a NoSuchMethodException.
+ * then unqualified function invocation expression should produce a NoSuchMethodError.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -33,6 +33,6 @@ class C extends S {
 main() {
   try {
     print(new C().test());
-    Expect.fail("NoSuchMethodException expected.");
-  } on NoSuchMethodException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected.");
+  } on NoSuchMethodError catch(ok) {}
 }

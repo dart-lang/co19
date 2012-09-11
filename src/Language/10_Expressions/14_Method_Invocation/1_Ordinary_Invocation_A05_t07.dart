@@ -30,16 +30,16 @@ main()  {
 
   try {
     func.someMethod();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     localFunc.someMethod();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     new C().method.someMethod();
-    Expect.fail("NoSuchMethodException is expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 }

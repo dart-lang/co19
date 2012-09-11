@@ -20,8 +20,8 @@ class C {
   test() {
     try {
       "${x}";
-      Expect.fail("NoSuchMethodException is expected");
-    } on NoSuchMethodException catch(e) {}
+      Expect.fail("NoSuchMethodError is expected");
+    } on NoSuchMethodError catch(e) {}
 
     try {
       "${[][10]}";
@@ -40,8 +40,8 @@ class C {
 
     try {
       "${id()}";
-      Expect.fail("NoSuchMethodException is expected");
-    } on NoSuchMethodException catch(e) {}
+      Expect.fail("NoSuchMethodError is expected");
+    } on NoSuchMethodError catch(e) {}
   }
 }
 

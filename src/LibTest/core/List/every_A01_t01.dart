@@ -37,5 +37,5 @@ main() {
       a.insertRange(0,3,[-1,-2,-3]);
       a.every(f);
     });
-  } catch(NoSuchMethodException ok){}
+  } catch(NoSuchMethodError ok){}
 }

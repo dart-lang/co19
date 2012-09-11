@@ -25,8 +25,8 @@ class C {
   test() {
     try {
       v = 1;
-      Expect.fail("NoSuchMethodException is expected");
-    } on NoSuchMethodException catch(e) {}
+      Expect.fail("NoSuchMethodError is expected");
+    } on NoSuchMethodError catch(e) {}
   }
 }
 

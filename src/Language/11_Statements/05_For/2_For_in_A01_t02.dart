@@ -8,7 +8,7 @@
  * the the following code:
  * var n0 = e.iterator(); while (n0.hasNext()) { finalConstVarOrType? id = n0.next();
  * s } where n0 is an identifier that does not occur anywhere in the program.
- * @description Checks that a [NoSuchMethodException] is thrown if the type of e
+ * @description Checks that a [NoSuchMethodError] is thrown if the type of e
  * does not implement [Iterable].
  * @author vasya
  * @reviewer rodionov
@@ -20,29 +20,29 @@ class A {}
 void check(var e) {
   try {
     for (var id in e);
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}   
 
   try {
     for (final id in e);
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}   
 
   try {
     for (const id in e);
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}   
 
   try {
     for (Dynamic id in e);
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}   
 
   try {
     var id;
     for (id in e);
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}   
 }
 
 main() {

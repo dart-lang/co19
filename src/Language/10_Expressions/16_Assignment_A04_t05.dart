@@ -17,7 +17,7 @@
  * It is a static type warning if the static type of e may not be assigned to the
  * static type of C.v.
  * @description Checks that it is a static warning is C declares only getter for v
- * and that such code results in a NoSuchMethodException.
+ * and that such code results in a NoSuchMethodError.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -32,6 +32,6 @@ class C {
 main() {
   try {
     C.v = 2;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

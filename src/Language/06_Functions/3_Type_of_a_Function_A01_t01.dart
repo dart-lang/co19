@@ -30,11 +30,11 @@ main() {
 
   try {
     g().someMethod();
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
   
   try {
     g().x;
-    Expect.fail("NoSuchMethodException expected");
-  } on NoSuchMethodException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }
