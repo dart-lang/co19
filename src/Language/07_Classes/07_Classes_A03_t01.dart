@@ -26,7 +26,7 @@
  * @reviewer rodionov
  */
 
-interface I default A {
+abstract class I default A {
   I();
 }
 

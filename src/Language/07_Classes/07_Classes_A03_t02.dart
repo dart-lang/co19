@@ -27,16 +27,12 @@
  * @author msyabro
  */
 
-interface I default A {
-  I();
-}
-
 class A {
-  factory I();
+  factory A();
 }
 
 main() {
   try {
-    I i = new I();
+    A i = new A();
   } catch (e) {}
 }

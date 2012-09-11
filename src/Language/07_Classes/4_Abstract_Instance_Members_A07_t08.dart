@@ -21,11 +21,9 @@ class A {
 }
 
 class C extends A {
-  foo([x = 1]);
+  foo([x = 1]){};
 }
 
 main() {
-  try {
     (new C()).foo(1);
-  } catch (e) {}
 }

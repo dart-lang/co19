@@ -20,10 +20,9 @@
  *   | operatorSignature
  *   | constructorSignature initializers?
  * ;
- * @description Checks that it is a compile-time error if a setter
- * method definition does not include a body.
- * @reviewer rodionov
- * @compile-error
+ * @description Checks that there is no compile-time error if a setter
+ * method definition does not include a body. This make the class abstract, and 
+ * AbstractClassInstantiationError is thrown when instantiation attempted.
  * @author msyabro
  */
 
@@ -35,5 +34,5 @@ class A {
 main() {
   try {
     A a = new A();
-  } catch (e) {}
+  } on AbstractClassInstantiationError catch (e) {}
 }

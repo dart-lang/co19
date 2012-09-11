@@ -14,8 +14,8 @@
  * @needsreview issue 969
  */
 
-interface I {}
-interface J {}
+abstract class I {}
+abstract class J {}
 
 class A implements I,Dynamic,J {}
 

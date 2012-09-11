@@ -14,9 +14,9 @@
  * @reviewer rodionov
  */
 
-interface I {}
-interface J {}
-interface IT <T> {}
+abstract class I {}
+abstract class J {}
+abstract class IT <T> {}
 
 class A {}
 class B extends A {}
@@ -30,9 +30,11 @@ class H<T> implements I {}
 class K extends G<int, int> implements I {}
 class L<T extends A, S extends B> implements IT<T> {}
 
-abstract class M {}
 abstract class N<T, U> extends A {}
 abstract class O extends N<int, int> implements I {}
+
+class P extends O {
+}
 
 main() {
   A a = new A();
@@ -45,4 +47,5 @@ main() {
   H h = new H();
   K k = new K();
   L l = new L();
+  P p=new P();
 }

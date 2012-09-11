@@ -22,11 +22,9 @@ class A {
 }
 
 class C extends A {
-  foo([x]);
+  foo([x]){};
 }
 
 main() {
-  try {
-    (new C()).foo(1);
-  } catch (e) {}
+  (new C()).foo(1);
 }

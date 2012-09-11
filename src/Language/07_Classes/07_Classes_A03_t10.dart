@@ -20,38 +20,34 @@
  *   operatorSignature |
  *   constructorSignature initializers?
  * ;
- * @description Checks that various class member method definitions withat are valid according to
+ * @description Checks that various class member method definitions wich are valid according to
  * this syntax do not cause any errors and such class can be instantiated. 
  * @author msyabro
  * @reviewer rodionov
  */
 
-interface I default A {
-  I();
-}
-
 class A {
-  @A(1) factory I() {}
+  @B(1) factory A.f() {}
   @A A() {}
-  @A(1) A(int a) {}
   @A A.B() {}
-  @A(1) A.C(): _x = 1 {}
+  @B(1) A.C(): _x = 1 {}
 
   @A static f() {}
-  @A(1) get x() {}
+  @B(1) get x() {}
   @A set x(var v) {}
-  @A(1) operator==(A other) {}
+  @B(1) operator==(A other) {}
 
   @A var _x;
 }
 
 class B {
-  @A(1) B(): y = 1 {}
+  @B(1) B(this.y) {}
   @A var y;
 }
 
 main() {
-  A a = new A.B();
-  B b = new B();
-  I i = new I();
+  A a = new A();
+  A ab = new A.B();
+  A i = new A.f();
+  B b = new B(2);
 }

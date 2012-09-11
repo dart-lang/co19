@@ -8,20 +8,18 @@
  * setterSignature:
  * static? returnType? set identifier formalParameterList
  * ;
- * @description Checks that it is a compile-time error if the setter identifier is missing.
- * @compile-error
- * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
- * @needsreview set is a pseudo-keyword. Issue 379
+ * functionSignature:
+ *   metadata returnType? identifier formalParameterList
+ * ;
+ * @description Checks that if the setter identifier is missing, declaration is 
+ * recognized as a function declaration, and no compile-time error is issued. 
+ * @author kaigorodov
  */
 
 class C {
-  set () => null;
+  void set (int i) {};
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C().set(1);
 }

@@ -39,65 +39,64 @@
  */
 
 class A {
-  @A(1)   const A(): this.anotherConstructor();
+  @B(1)   const A(): this.anotherConstructor();
   @A   const A.anotherConstructor();
-  @A(1)   A(int a){}
   @A static final x = 1, y = 2;
-  @A(1) static final int z = 3;
+  @B(1) static final int z = 3;
   @A static const x1 = 1, y1 = 2;
-  @A(1) static const int z1 = 3;
+  @B(1) static const int z1 = 3;
 }
 
 class B {
-  @A(1) const B();
+  @B(1) const B(int a){};
   @A B.anotherConstructor(): this.oneMoreConstructor();
-  @A(1) B.oneMoreConstructor() {}
+  @B(1) B.oneMoreConstructor() {}
   @A static var initialized = 1;
-  @A(1) static int initialized2 = 2;
+  @B(1) static int initialized2 = 2;
 }
 
 class C {
-  @A(1) const C(): x = 1;
+  @B(1) const C(): x = 1;
   @A final x;
-  @A(1) final int x1;
+  @B(1) final int x1;
 }
 
 class D {
-  @A(1) D();
+  @B(1) D();
   @A D.name() : a = 2;
-  @A(1) var x, y = 2, z;
+  @B(1) var x, y = 2, z;
   @A int a = 1;
-  @A(1) static int typed;
+  @B(1) static int typed;
   @A static untyped;
 }
 
 class E {
-  @A(1) E(): this.D();
+  @B(1) E(): this.D();
   @A E.D();
-  @A(1) static var nonInitialized;
+  @B(1) static var nonInitialized;
 }
 
 class F {
-  @A(1) F(): x = 1, y = 2;
+  @B(1) F(): x = 1, y = 2;
   @A var x, y;
-  @A(1) int x1, y1;
+  @B(1) int x1, y1;
   @A x2, y3;
 }
 
 class Abstract {
-  @A(1) func();
+  @B(1) func();
   @A funcWithParams(p1, p2);
-  @A(1) funcWithOptionalParams([p1 = 1, p2 = 2]);
+  @B(1) funcWithOptionalParams([p1 = 1, p2 = 2]);
   @A get val();
-  @A(1) set val(var v);
+  @B(1) set val(var v);
   @A operator==(Abstract other);
 
-  @A(1) var _val;
+  @B(1) var _val;
 }
 
 main() {
   A a = const A();
-  B b = new B();
+  B b = new B(2);
   C c = const C();
   D d = new D();
   E e = new E();

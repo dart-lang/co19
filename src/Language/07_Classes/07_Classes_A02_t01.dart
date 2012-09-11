@@ -80,7 +80,7 @@ class F {
   F(): x = 1, y = 2;
   var x, y;
   int x1, y1;
-  x2, y3;
+  var int x2=2, y3=2;
 }
 
 class Abstract {
