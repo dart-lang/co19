@@ -1,4 +1,4 @@
-#library("dynamic_check");
+library dynamic_check;
 
 isCheckedMode() {
   try {

@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class C inherits any instance members of its superclass that
+ * @assertion A class C inherits any accessible instance members of its superclass that
  * are not overridden by members declared in C. A class may override instance members
  * that would otherwise have been inherited from its superclass.
- * @description Checks that static members don't conflict with static methods of a class.
+ * @description Checks that static members don't conflict with instance methods of a class.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
@@ -21,15 +21,16 @@ class S {
 }
 
 class C extends S {
-  static v() {}
-  static i() {}
-  static method() {}
-  static iMethod() {}
+  v() {}
+  i() {}
+  method() {}
+  iMethod() {}
 }
 
 main() {
-  C.v();
-  C.i();
-  C.method();
-  C.iMethod();
+  var c = new C();
+  c.v();
+  c.i();
+  c.method();
+  c.iMethod();
 }

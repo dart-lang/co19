@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A runtime map literal <V>{k1:e1... kn :en}  is evaluated as follows:
+ * @assertion A runtime map literal <String, V>{k1:e1... kn :en}  is evaluated as follows:
  *   - First, the expressions e1...en are evaluated in left to right order, yielding objects o1... on.
  *   - A fresh instance m that implements the built-in interface Map<String, V> is allocated.
  *   - Let ui be the value of the string literal specified by ki.
@@ -19,8 +19,8 @@
 class C {}
 
 main() {
-  Expect.isTrue(<int> {"": 1} is Map<String, int>);
-  Expect.isTrue(<String> {"": "string"} is Map<String, String>);
-  Expect.isTrue(<bool> {"": true} is Map<String, bool>);
-  Expect.isTrue(<C>{"": new C()} is Map<String, C>);
+  Expect.isTrue(<String, int> {"": 1} is Map<String, int>);
+  Expect.isTrue(<String, String> {"": "string"} is Map<String, String>);
+  Expect.isTrue(<String, bool> {"": true} is Map<String, bool>);
+  Expect.isTrue(<String, C>{"": new C()} is Map<String, C>);
 }

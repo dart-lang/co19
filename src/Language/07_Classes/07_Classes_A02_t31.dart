@@ -28,13 +28,12 @@
  * ;
  * @description Checks that it is a compile-time error when a constant constructor is declared abstract.
  * @compile-error
- * @needsreview issue 3987
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 class C {
-  const C();
+  abstract const C();
 }
 
 

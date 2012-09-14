@@ -9,23 +9,19 @@
  * @description Checks that returning an object of type other than M
  * from factory constructor M produces a dynamic type error.
  * @dynamic-type-error
- * @author rodionov
+ * @author kaigorodov
  */
 
 #import("../../../Utils/dynamic_check.dart");
 
 class C {}
 
-abstract class I default A {
-  I();
-}
-
-class A {
-  factory I() { return new C(); }
+class A extends C {
+  factory A() { return new C(); }
 }
 
 main() {
   checkTypeError( () {
-    new I();
+    new A();
   });
 }

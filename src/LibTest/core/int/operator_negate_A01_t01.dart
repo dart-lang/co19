@@ -11,23 +11,27 @@
  * @reviewer rodionov
  */
 
+List<int> v;
+
 main() {
-  Expect.equals(0, 0.negate());
-  Expect.equals(0, 0.negate().negate());
-  Expect.equals(-1, 1.negate());
-  Expect.equals(1, (-1).negate());
-  Expect.equals(-10, 10.negate());
+  v=[0,1,10];
+  Expect.equals(0, -v[0]);
+  Expect.equals(0, -(-v[0]));
+  Expect.equals(-1, -v[1]);
+  Expect.equals(1, -(-v[1]));
+  Expect.equals(-10, -v[2]);
+  /*
   Expect.equals(-2147483647, 2147483647.negate());
   Expect.equals(-4294967295, 4294967295.negate());
   Expect.equals(-9223372036854775807, 9223372036854775807.negate());
   Expect.equals(9223372036854775807, (-9223372036854775807).negate());
   Expect.equals(-147808829414345923316083210206383297601, 147808829414345923316083210206383297601.negate());
-  
+  */
   // -(-x) = x
   for(int i = 0; i <= 1000; i++) {
     int num = 1 << i;
-    Expect.equals(num, num.negate().negate());
+    Expect.equals(num, -(-num));
     num = -1 << i;
-    Expect.equals(num, num.negate().negate());
+    Expect.equals(num, -(-num));
   }
 }

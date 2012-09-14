@@ -16,7 +16,7 @@
 
 class A {
   const A();
-  abstract f();
+  f();
 }
 
 main() {

@@ -73,26 +73,26 @@ class Test  {
     x = const {};
 
     x = const <int> {"key1": 1, "key2": 2 + 2};
-    x = const <String> {"1": "2", "3": "4"};
-    x = const <List> {"l1": const [], "l2": const [1, 2, 3]};
-    x = const <Map> {"" : const {}};
+    x = const <String, String> {"1": "2", "3": "4"};
+    x = const <String, List> {"l1": const [], "l2": const [1, 2, 3]};
+    x = const <String, Map> {"" : const {}};
     x = const {"int": 1, "bool" : true, "S": const S(), "list": const []};
   }
 
   typeVariables() {
     var x;
-    x = <int> {"key": 1};
-    x = <String> {"key": "value"};
-    x = <bool> {"key": true};
-    x = <Test> {"key": new Test()};
-    x = <Function> {"key": (){}};
+    x = <String, int> {"key": 1};
+    x = <String, String> {"key": "value"};
+    x = <String, bool> {"key": true};
+    x = <String, Test> {"key": new Test()};
+    x = <String, Function> {"key": (){}};
   }
 
   endsWithComma() {
     var x;
     x = {"1": 2,};
     x = const {"1": true, "2": false,};
-    x = <int> {"key": 1,};
+    x = <String, int> {"key": 1,};
   }
 
   interpolation() {
@@ -101,9 +101,9 @@ class Test  {
     var z = new Object();
     var map;
 
-    map = <int>{"variable $x" : 1, "${x + 1}": 2};
-    map = <bool>{"variable $y": true, "${y && false}": false};
-    map = <Object>{"variable $z": new Object()};
+    map = <String, int>{"variable $x" : 1, "${x + 1}": 2};
+    map = <String, bool>{"variable $y": true, "${y && false}": false};
+    map = <String, Object>{"variable $z": new Object()};
   }
 
 }

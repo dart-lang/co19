@@ -15,7 +15,6 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 978
  */
 
 class A {

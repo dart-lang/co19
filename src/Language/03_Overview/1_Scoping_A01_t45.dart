@@ -20,7 +20,7 @@
 
 class A {
   f(){}
-  abstract f();
+  f();
 }
 
 main() {

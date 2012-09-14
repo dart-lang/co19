@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class C inherits any instance members of its superclass that
+ * @assertion A class C inherits any accessible instance members of its superclass that
  * are not overridden by members declared in C. A class may override instance members
  * that would otherwise have been inherited from its superclass.
- * @description Checks that static members don't conflict with abstract instance methods of a class.
+ * @description Checks that static members are not inherited.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
@@ -21,12 +21,12 @@ class S {
 }
 
 class C extends S {
-  abstract v();
-  abstract i();
-  abstract method();
-  abstract iMethod();
 }
 
 main() {
   var c = new C();
+  Expect.throws(() => c.v, (e) => e is NoSuchMethodError);
+  Expect.throws(() => c.i, (e) => e is NoSuchMethodError);
+  Expect.throws(() => c.method(), (e) => e is NoSuchMethodError);
+  Expect.throws(() => c.iMethod(), (e) => e is NoSuchMethodError);
 }

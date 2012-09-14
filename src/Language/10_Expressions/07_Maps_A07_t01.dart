@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A runtime map literal <V>{k1:e1... kn :en}  is evaluated as follows:
+ * @assertion A runtime map literal <String, V>{k1:e1... kn :en}  is evaluated as follows:
  *   - First, the expressions e1...en are evaluated in left to right order, yielding objects o1... on.
  *   - A fresh instance m that implements the built-in interface Map<String, V> is allocated.
  *   - Let ui be the value of the string literal specified by ki.
@@ -12,7 +12,6 @@
  *   - The result of the evaluation is m.
  * @description Checks that values in a map literal are evaluated in order from left to right.
  * @author msyabro
- * @needsreview issue 1478
  * @reviewer kaigorodov
  */
 
@@ -24,6 +23,6 @@ f(number) {
 
 main() {
   evalOrder = "";
-  <Object>{"k1" : f(1), "k2" : f(2), "k3" : f(3)};
+  <String, Object>{"k1" : f(1), "k2" : f(2), "k3" : f(3)};
   Expect.equals("123", evalOrder);
 }

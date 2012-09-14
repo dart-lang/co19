@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile time error if the type argument of a
- * constant map literal includes a type variable.
+ * constant map literal includes a type parameter.
  * @description Checks that it is a compile-error if if the type argument of a
  * constant map literal includes a type variable.
  * @compile-error
@@ -15,7 +15,7 @@
 
 class C<T> {
   test() {
-    const <T> {"1": null};
+    const <String, T> {"1": null};
   }
 }
 

@@ -13,7 +13,7 @@
 
 
 class A {
-  abstract foo();
+  foo();
 }
 
 class B extends A {

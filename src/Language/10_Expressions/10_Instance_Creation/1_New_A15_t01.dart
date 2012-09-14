@@ -13,7 +13,7 @@
  * @reviewer rodionov
  */
 
-abstract class C {
+class C {
 }
 
 main() {

@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
  /**
- * @assertion undocumented
- * @description dummy test
+ * @assertion String toStringAsPrecision(int precision)
+ * @description Checks that for a NaN the method returns 'NaN' regardless
+ * of the [precision] value.
  * @author msyabro
- * @needsreview issue 463
  */
 
 main() {
-  Expect.fail("Not implemented");
+  for(int i = 1; i < 22; i++) {
+    Expect.equals('NaN', double.NAN.toStringAsPrecision(i));
+  }
 }

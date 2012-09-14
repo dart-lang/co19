@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
  /**
- * @assertion undocumented
- * @description dummy test
+ * @assertion String toStringAsExponential(int fractionDigits)
+ * @description Checks that for a NaN the method returns 'NaN' regardless
+ * of the [fractionDigits] value.
  * @author msyabro
- * @needsreview issue 463
  */
 
 main() {
-  Expect.fail("Not implemented");
+  for(int i = 0; i < 10; i++) {
+    Expect.equals('NaN', double.NAN.toStringAsExponential(i));
+  }
 }

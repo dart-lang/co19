@@ -10,7 +10,6 @@
  * in a constant map literal is not a compile-time constant.
  * @compile-error
  * @author msyabro
- * @needsreview 1473
  * @reviewer kaigorodov
  */
 

@@ -1047,3 +1047,4 @@ class C1023 extends C1022 {}
 class C1024 extends C1023 {}
 class C1025 extends C1024 {}
 class C1026 extends C1025 {}
+

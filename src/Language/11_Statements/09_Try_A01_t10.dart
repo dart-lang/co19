@@ -7,10 +7,14 @@
  * @assertion The try statement supports the definition of exception handling 
  * code in a structured way.
  * tryStatement:
- *   try block (catchPart+ finallyPart? | finallyPart)
+ *   try block (onPart+ ﬁnallyPart? | ﬁnallyPart)
+ * ;
+ * onPart:
+ *   catchPart block |
+ *   on type catchPart? block
  * ;
  * catchPart:
- *   catch '(' declaredIdentifier (', ' declaredIndentifier)? ')' block
+ *   catch ‘(’ identiﬁer (‘, ’ identiﬁer)? ‘)’
  * ;
  * finallyPart:
  *   finally block
@@ -25,7 +29,7 @@
 
 main() {
   var foo = true;
-  catch(ex) {
+  catch (ex) {
     foo = false;
   }
 }

@@ -14,7 +14,7 @@
  * @reviewer rodionov
  */
 
-abstract class A {
+class A {
   const A.id();
 }
 

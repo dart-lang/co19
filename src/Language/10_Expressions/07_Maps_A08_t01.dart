@@ -9,9 +9,8 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 1475
  */
 
 main() {
-  <int>{"key1": 1, "key1": 2};
+  <String, int>{"key1": 1, "key1": 2};
 }

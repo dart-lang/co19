@@ -14,7 +14,7 @@
  */
 
 class C {
-  abstract f();
+  f();
 }
 
 main() {

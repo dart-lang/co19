@@ -16,7 +16,7 @@
 
 class A {
   const A.id();
-  abstract f();
+  f();
 }
 
 main() {

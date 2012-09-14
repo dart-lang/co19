@@ -16,7 +16,7 @@
  */
 
 class C {
-  abstract f();
+  f();
   C.id();
 }
 

@@ -5,12 +5,10 @@
  */
 /**
  * @assertion Let C be a class declared in library L, with superclass S and let
- * C declare an instance member m, and assume S declares an instance member m'
- * with the same name as m. Then m overrides m' iff m' is accessible (3.2) to L
- * and one of the following holds:
- * - m is an instance method.
- * - m is a getter and m' is a getter or a method.
- * - m is a setter and m' is a setter or a method.
+ * C declare an instance member m, and assume S declares an instance member 'm'
+ * with the same name as m. Then m overrides m iﬀ m is accessible (3.2) to L,
+ * m has the same name as m and neither m nor m are ﬁelds.
+ * Fields never override each other. The getters and setters induced by ﬁelds do.
  * @description Checks that an instance method can override another instance method.
  * @author pagolubev
  * @reviewer msyabro

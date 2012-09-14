@@ -7,13 +7,17 @@
  * @assertion The try statement supports the definition of exception handling 
  * code in a structured way.
  * tryStatement:
- *   try block (catchPart+ finallyPart? | finallyPart)
+ *   try block (onPart+ ﬁnallyPart? | ﬁnallyPart)
+ * ;
+ * onPart:
+ *   catchPart block |
+ *   on type catchPart? block
  * ;
  * catchPart:
- *   catch '(' declaredIdentifier (', ' declaredIndentifier)? ')' block
+ *   catch ‘(’ identiﬁer (‘, ’ identiﬁer)? ‘)’
  * ;
- * finallyPart:
- *   finally block
+ * ﬁnallyPart:
+ *   ﬁnally block
  * ;
  * @description Checks that it is a compile-time error if the catch clause of a try block
  * is missing its block part.
@@ -26,5 +30,5 @@
 main() {
   try {
     throw 0;
-  } catch(ex)
+  } catch (ex)
 }

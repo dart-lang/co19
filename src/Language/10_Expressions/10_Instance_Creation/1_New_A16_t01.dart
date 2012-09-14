@@ -15,7 +15,7 @@
  * @reviewer rodionov
  */
 
-abstract class C {
+class C {
   C.id();
 }
 

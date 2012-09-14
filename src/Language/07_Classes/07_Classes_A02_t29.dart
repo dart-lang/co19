@@ -26,14 +26,15 @@
  *   final type? initializedIdentifierList |
  *   static? (var | type?) initializedIdentifierList
  * ;
- * @description Checks that it is not a compile-time error when constructor is declared abstract.
- * @author kaigorodov
+ * @description Checks that it is a compile-time error when constructor is declared abstract.
+ * @compile-error
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {
-  C();
+  abstract C();
 }
-
 
 main() {
   try {

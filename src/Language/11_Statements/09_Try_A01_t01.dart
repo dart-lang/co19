@@ -7,10 +7,14 @@
  * @assertion The try statement supports the definition of exception handling 
  * code in a structured way.
  * tryStatement:
- *   try block (catchPart+ finallyPart? | finallyPart)
+ *   try block (onPart+ ﬁnallyPart? | ﬁnallyPart)
+ * ;
+ * onPart:
+ *   catchPart block |
+ *   on type catchPart? block
  * ;
  * catchPart:
- *   catch '(' declaredIdentifier (', ' declaredIndentifier)? ')' block
+ *   catch ‘(’ identiﬁer (‘, ’ identiﬁer)? ‘)’
  * ;
  * finallyPart:
  *   finally block
@@ -31,38 +35,33 @@ main() {
 
   try {
     throw "";
-  } catch (final int ok) {
-  } catch(ok) {}
-
-  try {
-    throw "";
-  } catch (int ok, var st) {
-  } catch (var ok, final st) {
+  } on int catch (ok, st) {
   } finally {}
 
   checkTypeError(() {
     try {
       throw "";
-    } catch (final int ok, final int st) {
-    } catch (final ok, int st) {}
-  });
+    } on int catch (ok, st) {
+    } on String catch (ok, st) {
+    }
+  );
 
   try {
     try {
       throw "";
     } finally {}
-  } catch(ok) {}
+  } catch (ok) {}
 
   try {
     throw 1;
   }
   on int catch(x) {}
-  on int catch(x) {}
+  on float catch(x) {}
 
   try {
     throw 1;
   }
+  on int catch(x) {}
   on num catch(x) {}
   on Object catch(x) {}
-  on int catch(x) {}
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String toStringAsFixed(int fractionDigits)
- * @description Checks that the exception is thrown when 'fractionDigits' is 100.
+ * @description Checks that an exception is thrown when 'fractionDigits' is 100.
  * @author pagolubev
  * @reviewer msyabro
  * @needsreview Exception type? Max acceptable 'fractionDigits' value?

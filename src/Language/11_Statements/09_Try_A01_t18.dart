@@ -7,24 +7,24 @@
  * @assertion The try statement supports the definition of exception handling 
  * code in a structured way.
  * tryStatement:
- *   try block (catchPart+ finallyPart? | finallyPart)
+ *   try block (onPart+ ﬁnallyPart? | ﬁnallyPart)
+ * ;
+ * onPart:
+ *   catchPart block |
+ *   on type catchPart? block
  * ;
  * catchPart:
- *   catch '(' declaredIdentifier (', ' declaredIndentifier)? ')' block
+ *   catch ‘(’ identiﬁer (‘, ’ identiﬁer)? ‘)’
  * ;
  * finallyPart:
  *   finally block
  * ;
- * @description Checks that it is a compile-time error when a catch clause specifies
- * a second parameter with a previously declared id, without a type or 'final' attribute.
- * @compile-error
- * @author iefremov
- * @reviewer rodionov
+ * @description Checks that it is a compile-time error when onPart misses block.
+ * @author kaigorodov
  */
 
 main() {
-  var st;
   try {
     throw "foo";
-  } catch (var ex, st) { }
+  } on String catch (ex)
 }

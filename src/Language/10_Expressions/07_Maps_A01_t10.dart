@@ -22,6 +22,6 @@
 
 main() {
   try {
-    var x= const <int>  "key": 1 };
+    var x= const <String, int>  "key": 1 };
   } catch(e) {}
 }
