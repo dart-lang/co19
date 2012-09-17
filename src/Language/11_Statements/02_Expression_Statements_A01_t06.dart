@@ -16,7 +16,7 @@
  */
 
 var v;
-get g() {}
+get g {}
 
 class D {
   operator[](var x){}
@@ -25,7 +25,7 @@ class D {
 
 class C extends D{
   static s(){}
-  static get sg(){}
+  static get sg {}
   var l;
 
   operator[](x){

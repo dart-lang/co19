@@ -17,11 +17,11 @@
  */
 
 class A {
-  get foo() {return "foo";}
+  get foo {return "foo";}
 }
 
 class B extends A {
-  get foo() {return "bar";}
+  get foo {return "bar";}
 }
 
 main() {

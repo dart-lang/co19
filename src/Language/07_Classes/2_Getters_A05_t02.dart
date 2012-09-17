@@ -20,7 +20,7 @@ class A {
 }
 
 class C extends A {
-  int get n(){}
+  int get n{}
 }
 
 main() {

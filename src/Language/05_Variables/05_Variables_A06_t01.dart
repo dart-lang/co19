@@ -12,8 +12,8 @@
  */
  
 class Cl {
-  static var _foo=1;
-  int get foo() {
+  static var _foo;
+  int get foo {
     return _foo;
   }
   void set foo(int val) {
@@ -24,6 +24,7 @@ class Cl {
 main() {
   Cl c1=new Cl();
   Cl c2=new Cl();
+  c2.foo=1;
   Expect.equals(1, c1.foo);
   c2.foo=2;
   Expect.equals(2, c1.foo);

@@ -36,7 +36,7 @@ class S {
 
 class A extends S {
   method() {}
-  get id() {}
+  get id {}
   set id(var v) {}
 
   test() {

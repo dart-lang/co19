@@ -18,7 +18,7 @@
 
 class C {
   C() { }  
-  bool get foo() { return; }
+  bool get foo { return; }
 }
 
 main() {

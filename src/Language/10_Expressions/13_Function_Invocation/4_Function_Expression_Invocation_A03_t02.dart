@@ -22,7 +22,7 @@ class A {
     field = "field";
   }
   
-  get getter() {
+  get getter {
     return "foo";
   }
 }

@@ -16,7 +16,7 @@ class S {
   S(): _x = 1, y = 1;
   var _x;
   var y;
-  get x() {
+  get x {
     y = 20;
     return _x;
   }

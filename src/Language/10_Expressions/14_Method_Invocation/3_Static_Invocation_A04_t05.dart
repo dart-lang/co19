@@ -32,7 +32,7 @@ class A {
 }
 
 class C {
-  static get m() {
+  static get m {
     buffer.add(1);
     return func;
   }

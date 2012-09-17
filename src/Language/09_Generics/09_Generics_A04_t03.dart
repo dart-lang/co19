@@ -31,7 +31,7 @@ class A<N, S, U> {
 
   const A.c(U u, S s) : field = const [null];
 
-  List<U> get getter(){
+  List<U> get getter {
     return field;
   }
   

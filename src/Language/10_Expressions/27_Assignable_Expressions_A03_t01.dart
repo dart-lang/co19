@@ -18,7 +18,7 @@ class A {
 
   A(): _x = 1, y = 1;
 
-  get x(){
+  get x {
     y = 20;
     return _x;
   }

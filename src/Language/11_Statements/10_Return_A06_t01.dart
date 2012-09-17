@@ -25,7 +25,7 @@ interface I default Foo {
 
 class Foo {
   Foo() {}    
-  get foo() { return; }
+  get foo { return; }
   method() { return; }
 
   factory I() { return; }

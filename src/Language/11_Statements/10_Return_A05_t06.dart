@@ -22,7 +22,7 @@ class C {
   C() {return;}
   factory I() {return;}
   static sm() {return;}
-  get g() {return;}
+  get g {return;}
   foo() { return;}
 }
 

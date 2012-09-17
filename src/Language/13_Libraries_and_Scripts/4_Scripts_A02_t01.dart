@@ -51,7 +51,7 @@ var z;
 
 int a, b, c = 1;
 
-get _x() {}
+get _x {}
 set _y(p) {}
 
 main() {

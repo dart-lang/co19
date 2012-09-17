@@ -21,7 +21,7 @@
  */
 
 class C {
-  static get func() {return (a)=>a;}
+  static get func {return (a)=>a;}
 }
 
 main()  {

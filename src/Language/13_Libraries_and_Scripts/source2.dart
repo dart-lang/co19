@@ -9,7 +9,7 @@ _privateFunc() {return 0;}
 
 typedef String func<B extends bool, S extends String>(B t, [S sParam]);
 
-get value() { return _value; }
+get value { return _value; }
 set value(value) { _value = value; }
 var _value;
 
@@ -26,7 +26,7 @@ final _private = 'private';
 class F implements I {
   F() {}
   foo() { return "i.foo()"; }
-  get value() { return _value; }
+  get value { return _value; }
   set value(val) { _value = val; }
 
   var _value;
@@ -36,7 +36,7 @@ interface I default F {
   I();
   static final FOO = "I.FOO";
   String foo();
-  get value();
+  get value;
   set value(val);
   var _value;
 }
@@ -46,7 +46,7 @@ class A {
   foo() { return "a.foo()"; }
   var bar = "a.bar";
   static final FOO = "A.FOO";
-  get value() { return _value; }
+  get value { return _value; }
   set value(val) { _value = val; }
 
   var _value;
