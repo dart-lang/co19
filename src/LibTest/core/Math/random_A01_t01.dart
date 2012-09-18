@@ -11,6 +11,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   for(int i = 0; i < 1000; i++) {
     double x = Math.random();

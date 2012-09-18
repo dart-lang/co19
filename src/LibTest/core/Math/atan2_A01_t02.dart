@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.atan2(double.NAN, double.INFINITY).isNaN());
   Expect.isTrue(Math.atan2(double.NAN, double.NEGATIVE_INFINITY).isNaN());

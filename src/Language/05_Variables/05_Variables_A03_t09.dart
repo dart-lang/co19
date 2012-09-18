@@ -13,6 +13,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 final int i = -100;
 final bool b = false;
 final String s = "string";

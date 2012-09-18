@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 void checkNPE(var arg1, var arg2) {
   try {
     Math.max(arg1, arg2);

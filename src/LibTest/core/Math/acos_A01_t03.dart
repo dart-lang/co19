@@ -10,6 +10,8 @@
  * @author msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.acos(-10).isNaN());
   Expect.isTrue(Math.acos(10).isNaN());

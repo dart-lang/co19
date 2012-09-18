@@ -12,6 +12,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(1, Math.pow(double.NAN, .0));
   Expect.equals(1, Math.pow(double.NAN, -.0));

@@ -13,6 +13,8 @@
  * @needsreview Undocumented. That's not IEEE specified behavior.
  */
 
+#import("dart:math", prefix: "Math");
+
 
 main() {
   double x = 1.19, y = .2;

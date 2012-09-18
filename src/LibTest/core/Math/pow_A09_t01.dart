@@ -11,6 +11,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(double.INFINITY, Math.pow(.0, -4.9406564584124654e-324));
   Expect.equals(double.INFINITY, Math.pow(0, -4.9406564584124654e-324));

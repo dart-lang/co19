@@ -11,6 +11,8 @@
  * @needsreview issue 1267
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Math.pow(2, 2);
 }

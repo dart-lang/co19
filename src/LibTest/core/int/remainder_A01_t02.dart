@@ -15,6 +15,8 @@
  * seems to work the same way as JS's operator%: the sign of remainder is the same as dividend's
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   check(0.0, 1, 0.5);
   check(0.0, 1, -0.5);

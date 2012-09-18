@@ -11,6 +11,8 @@
  * @reviewer iefremov
  */
 
+#import("dart:math", prefix: "Math");
+
 class Foo {
   const Foo();
 }

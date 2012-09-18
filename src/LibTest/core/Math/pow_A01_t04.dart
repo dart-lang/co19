@@ -10,6 +10,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 check(num n) {
   Expect.equals(n, Math.pow(n, 1.0));
 }

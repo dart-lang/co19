@@ -11,6 +11,8 @@
  * @needsreview Why exact equality?
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(.0, Math.sin(0.0));
   Expect.equals(.0, Math.sin(-0.0));

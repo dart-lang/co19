@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.atan(double.NAN).isNaN());
   Expect.isTrue(Math.atan(double.INFINITY) == Math.PI/2);

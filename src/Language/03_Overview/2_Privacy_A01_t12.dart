@@ -14,7 +14,7 @@
  * @reviewer rodionov
  */
 
-#import "lib.dart";
+import lib.dart;
 
 class _InaccessibleClass {}
 typedef _inaccessibleFuncType(p1);

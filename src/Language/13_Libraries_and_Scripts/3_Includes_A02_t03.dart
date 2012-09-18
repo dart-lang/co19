@@ -14,6 +14,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 #source("source2.dart");
 
 main() {

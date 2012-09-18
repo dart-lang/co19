@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.sin(double.NAN).isNaN());
   Expect.isTrue(Math.sin(double.INFINITY).isNaN());

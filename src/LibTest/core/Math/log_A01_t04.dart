@@ -11,6 +11,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   try {
     Math.log(null);

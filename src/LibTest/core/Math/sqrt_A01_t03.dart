@@ -10,6 +10,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.sqrt(-1).isNaN());
   Expect.isTrue(Math.sqrt(-10).isNaN());

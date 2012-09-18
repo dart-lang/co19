@@ -33,7 +33,6 @@ main() {
   func(1);
 
   func2();
-  func2(1);
   func2(x: 1);
   func2(y: 2);
 }

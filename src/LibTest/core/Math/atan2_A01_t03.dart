@@ -10,6 +10,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {  
   Expect.equals(0.0, Math.atan2(0.0, 0.1));
   Expect.equals(0.0, Math.atan2(0.0, 10));

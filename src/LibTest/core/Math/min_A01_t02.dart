@@ -12,6 +12,8 @@
  * @needsreview Undocumented.
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   List<double> data = [double.NEGATIVE_INFINITY, -1e200, -10, -0.001, 0, 0.001, 10, 1e200, double.INFINITY];
 

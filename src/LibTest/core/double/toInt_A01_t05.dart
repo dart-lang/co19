@@ -11,6 +11,8 @@
  */
 
 
+#import("dart:math", prefix: "Math");
+
 check(double arg) {
   var v = arg.toInt();
   Expect.isTrue(v is int);

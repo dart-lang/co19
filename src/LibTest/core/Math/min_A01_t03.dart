@@ -11,6 +11,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 void checkNPE(var arg1, var arg2) {
   try {
     Math.min(arg1, arg2);

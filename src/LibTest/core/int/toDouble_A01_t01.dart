@@ -12,6 +12,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   final double MIN_DOUBLE = Math.pow(2.0, -1074);
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 

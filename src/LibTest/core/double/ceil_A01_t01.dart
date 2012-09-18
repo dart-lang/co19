@@ -11,6 +11,8 @@
  */
 
 
+#import("dart:math", prefix: "Math");
+
 check(double expected, double argument) {
   Expect.equals(expected, argument.ceil());
 }

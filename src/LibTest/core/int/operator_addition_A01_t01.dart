@@ -13,6 +13,8 @@
  * @reviewer rodionov
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(2, 1 + 1);
   Expect.equals(2147483648, 2147483647 + 1);

@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.sqrt(double.NAN).isNaN());
   Expect.equals(double.INFINITY, Math.sqrt(double.INFINITY));

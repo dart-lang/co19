@@ -13,6 +13,8 @@
  * @reviewer rodionov
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(0, 1 - 1);
   Expect.equals(2147483646, 2147483647 - 1);

@@ -10,6 +10,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 check(double arg) {
   Expect.isTrue(arg.floor().isNaN());
 }

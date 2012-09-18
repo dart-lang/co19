@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.cos(double.NAN).isNaN());
   Expect.isTrue(Math.cos(double.INFINITY).isNaN());

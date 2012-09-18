@@ -13,6 +13,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 void checkFE(String string) {
   try {
     Math.parseInt(string);

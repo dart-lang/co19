@@ -11,6 +11,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 
 check(double argument) {
   Expect.equals(argument, argument.ceil());

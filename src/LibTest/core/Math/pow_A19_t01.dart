@@ -11,6 +11,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 check(var a1, var a2) {
   try {
     Math.pow(a1, a2);

@@ -11,6 +11,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.pow(double.NAN, double.INFINITY).isNaN());
   Expect.isTrue(Math.pow(double.NAN, double.NEGATIVE_INFINITY).isNaN());

@@ -10,6 +10,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 
 main() {
   Expect.equals(.0, .1.floor());

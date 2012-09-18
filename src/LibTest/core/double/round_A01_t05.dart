@@ -12,6 +12,8 @@
  */
 
 
+#import("dart:math", prefix: "Math");
+
 check(double arg) {
   Expect.equals(arg, arg.round());
   Expect.equals(-arg, (-arg).round());

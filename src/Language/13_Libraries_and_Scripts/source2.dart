@@ -51,4 +51,3 @@ class A {
 
   var _value;
 }
-

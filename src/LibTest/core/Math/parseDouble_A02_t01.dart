@@ -13,6 +13,8 @@
  * @needsreview issue 1929
  */
 
+#import("dart:math", prefix: "Math");
+
 void checkFE(String str) {
   try {
     Math.parseDouble(str);

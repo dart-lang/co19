@@ -11,6 +11,8 @@
  * @reviewer msyabro
  */
 
+#import("dart:math", prefix: "Math");
+
 
 check(double arg) {
   Expect.equals(arg, arg.truncate());

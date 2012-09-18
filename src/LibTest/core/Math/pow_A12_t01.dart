@@ -12,6 +12,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.pow(-1, 0.5).isNaN());
   Expect.isTrue(Math.pow(-1, 1/3).isNaN());

@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.asin(0/0).isNaN());
   Expect.isTrue(Math.asin(1/0).isNaN());

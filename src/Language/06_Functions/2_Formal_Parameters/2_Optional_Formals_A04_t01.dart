@@ -29,7 +29,6 @@ main() {
   f(null);
   
   f2();
-  f2(null);
   f2(y: null);
   f2(x: null);
 }

@@ -20,6 +20,6 @@ import "2_Imports_A03_t01_p2_lib.dart" as P;
 
 main() {
   try {
-    P.foo x;
+    1 is P.foo;
   } catch(e) {}
 }

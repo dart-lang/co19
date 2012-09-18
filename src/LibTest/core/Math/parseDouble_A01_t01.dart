@@ -11,6 +11,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.parseDouble("1") == 1.0);
   Expect.isTrue(Math.parseDouble("1.0") == 1.0);

@@ -14,6 +14,8 @@
  * @needsreview modulo operation is not specified (issue 493).
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   check(0.0, 1, 0.5);
   check(0.0, 1, -0.5);

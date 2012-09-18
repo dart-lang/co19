@@ -11,6 +11,8 @@
  * @reviewer rodionov
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(1 < 2);
   Expect.isFalse(1 < 0);

@@ -10,6 +10,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(double.NEGATIVE_INFINITY, Math.log(0.0));
   Expect.equals(double.NEGATIVE_INFINITY, Math.log(-0.0));

@@ -13,6 +13,8 @@
  * @needsreview Need to check +/-.0 for double result?
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.equals(0, Math.pow(-.0, 111));
   Expect.equals(0, Math.pow(-.0, 111.0));

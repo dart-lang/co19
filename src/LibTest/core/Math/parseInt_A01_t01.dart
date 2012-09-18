@@ -10,6 +10,8 @@
  * @reviewer pagolubev
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.parseInt("1") == 1);
   Expect.isTrue(Math.parseInt("01") == 1);

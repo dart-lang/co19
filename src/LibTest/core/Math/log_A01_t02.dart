@@ -11,6 +11,8 @@
  * @needsreview undocumented
  */
 
+#import("dart:math", prefix: "Math");
+
 main() {
   Expect.isTrue(Math.log(double.NAN).isNaN());
   Expect.equals(double.INFINITY, Math.log(double.INFINITY));
