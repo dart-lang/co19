@@ -22,5 +22,5 @@ void check(Pattern from, String to) {
   try {
     "aaa".replaceAll(from, to);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

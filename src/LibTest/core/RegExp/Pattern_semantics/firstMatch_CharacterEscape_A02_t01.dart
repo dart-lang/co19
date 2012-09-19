@@ -14,8 +14,8 @@
  
 
 main() {
-  RegExp re = new RegExp("\\n", false, false);
+  RegExp re = new RegExp("\\n");
   Expect.isTrue(null != re.firstMatch("\u000A"));
-  re = new RegExp("\\n\\n", false, false);
+  re = new RegExp("\\n\\n");
   Expect.isTrue(null != re.firstMatch("\u000A\u000Aasf"));
 }

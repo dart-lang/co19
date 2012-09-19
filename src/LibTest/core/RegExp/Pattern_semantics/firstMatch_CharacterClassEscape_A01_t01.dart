@@ -16,7 +16,7 @@
  
 
 main() {
-  RegExp re = new RegExp("\\d", false, false);
+  RegExp re = new RegExp("\\d");
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     if(alpha >= 0x0030 && alpha <= 0x0039) {
       // a decimal digit

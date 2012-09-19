@@ -18,7 +18,7 @@
  
 
 main() {
-  RegExp re = new RegExp("\\w", false, false);
+  RegExp re = new RegExp("\\w");
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     String ch = new String.fromCharCodes([alpha]);
     if((alpha >= 0x0030 && alpha <= 0x0039) // the 10 digits

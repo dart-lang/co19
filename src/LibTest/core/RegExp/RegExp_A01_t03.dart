@@ -17,9 +17,9 @@
 
 void check(String pattern) {
   try {
-    RegExp re = new RegExp(pattern, false, false);
+    RegExp re = new RegExp(pattern);
     Expect.fail("IllegalJSRegExpException expected");
-  } catch(IllegalJSRegExpException ok) {
+  } on IllegalJSRegExpException catch(ok) {
   }
 }
 
@@ -39,5 +39,4 @@ main() {
     check("x{1}{1,}");
     check("??a");
     check("?a");
-
 }

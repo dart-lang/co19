@@ -31,18 +31,18 @@
 main() {
   bool fail = false;
   try {
-    RegExp re = new RegExp(@"\00", false, false);
+    RegExp re = new RegExp(@"\00");
     fail = true;
-  } catch (var ok) {}
+  } catch(ok) {}
   if(fail) {//FIXME
     Expect.fail("Some exception expected");
   }
 
   fail = false;
   try {
-    RegExp re = new RegExp(@"\011", false, false);
+    RegExp re = new RegExp(@"\011");
     fail = true;
-  } catch (var ok) {}
+  } catch(ok) {}
   if(fail) {//FIXME
     Expect.fail("Some exception expected");
   }

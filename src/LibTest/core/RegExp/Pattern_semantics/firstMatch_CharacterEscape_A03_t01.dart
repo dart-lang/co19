@@ -14,8 +14,8 @@
  
 
 main() {
-  RegExp re = new RegExp("\\v", false, false);
+  RegExp re = new RegExp("\\v");
   Expect.isTrue(null != re.firstMatch("\u000B"));
-  re = new RegExp("\\v\\v", false, false);
+  re = new RegExp("\\v\\v");
   Expect.isTrue(null != re.firstMatch("\u000B\u000Basf"));
 }

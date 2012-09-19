@@ -20,5 +20,5 @@ void check(String str1) {
   try {
     str1.concat(null);
     Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
+  } on IllegalArgumentException catch(e) {}
 }

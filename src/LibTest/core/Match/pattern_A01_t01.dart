@@ -19,7 +19,7 @@ main() {
 }
   
 void check(String pattern, String str, bool multiLine, bool ignoreCase) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Collection<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

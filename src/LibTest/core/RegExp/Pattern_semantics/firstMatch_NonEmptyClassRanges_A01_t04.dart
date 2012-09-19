@@ -82,10 +82,10 @@ main() {
 void checkNeg(String pattern, [String testStr = ""]) {
   bool fail = false;
   try {
-    RegExp re = new RegExp(pattern, false, false);
+    RegExp re = new RegExp(pattern);
     re.firstMatch(testStr);
     fail = true;
-  } catch (var ok) { } // FIXME
+  } catch(ok) { } // FIXME
   if(fail) {
     Expect.fail("Some exception expected");
   }

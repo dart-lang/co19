@@ -31,7 +31,7 @@ main() {
 }
 
 void check(String pattern, String str, [int matchPos = -1, List<String> expectedGroups = null]) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -53,7 +53,7 @@ void check(String pattern, String str, [int matchPos = -1, List<String> expected
 }
 
 void checkNeg(String pattern, String str) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

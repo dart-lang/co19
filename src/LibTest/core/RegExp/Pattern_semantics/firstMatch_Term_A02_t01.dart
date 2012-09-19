@@ -31,7 +31,7 @@ main() {
 }
 
 void check(String pattern, String str, List<String> expectedGroups) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   /*print("\nPattern: \"$pattern\"\n" +
       "String: \"$str\"\n" + 
@@ -54,4 +54,3 @@ void check(String pattern, String str, List<String> expectedGroups) {
     }
   }
 }
-

@@ -24,8 +24,8 @@ main() {
   check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", ["robot"]);
 }
 
-void check(String pattern, String str, List<String> groupData, [bool multiLine = false, bool ignoreCase = false]) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+void check(String pattern, String str, List<String> groupData, {bool multiLine: false, bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

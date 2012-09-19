@@ -14,8 +14,8 @@
  
 
 main() {
-  RegExp re = new RegExp("\\r", false, false);
+  RegExp re = new RegExp("\\r");
   Expect.isTrue(null != re.firstMatch("\u000D"));
-  re = new RegExp("\\r\\r", false, false);
+  re = new RegExp("\\r\\r");
   Expect.isTrue(null != re.firstMatch("\u000D\u000Dasf"));
 }

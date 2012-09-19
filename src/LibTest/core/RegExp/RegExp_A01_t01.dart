@@ -13,12 +13,12 @@
  
 
 main() {
-  RegExp re = new RegExp(@".", false, true);
-  re = new RegExp(@"[a-b]", false, false);
-  re = new RegExp(@"1?", true, true);
-  re = new RegExp(@"abc\u0042", false, true);
-  re = new RegExp(@"(ajkfjka,af)", false, false);
-  re = new RegExp(@"^\w\t\s$", false, false);
-  re = new RegExp(@"a|b", true, true);
-  re = new RegExp(@"\t", true, false);
+  RegExp re = new RegExp(@".", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"[a-b]", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"1?", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"abc\u0042", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"(ajkfjka,af)", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"^\w\t\s$", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"a|b", multiLine: false, ignoreCase: true);
+  re = new RegExp(@"\t", multiLine: false, ignoreCase: true);
 }

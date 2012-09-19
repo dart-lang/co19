@@ -16,5 +16,5 @@ main() {
   try {
     "string".charCodeAt(null);
     Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
+  } on IllegalArgumentException catch(e) {}
 }

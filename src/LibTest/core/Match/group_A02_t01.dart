@@ -12,12 +12,12 @@
  */
 
 void check(String str, String pattern, int index) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern, ignoreCase: false, multiLine: false);
   Match m = re.firstMatch(str);
   try {
     m.group(index);
     Expect.fail("IndexOutOfRangeException is expected");
-  } catch(IndexOutOfRangeException e) {} 
+  } on IndexOutOfRangeException catch(e) {} 
 }
  
 main() {

@@ -19,6 +19,6 @@ main() {
 }
 
 void check(String pattern, String str, bool multiLine, bool ignoreCase) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Expect.equals(multiLine, re.multiLine);
 }

@@ -13,7 +13,7 @@
 
 main() {
   String str = "<first pattern> and <second pattern>";
-  RegExp pattern = new RegExp("<.*?>", false, false);
+  RegExp pattern = new RegExp("<.*?>", multiLine: false, ignoreCase: false);
   Expect.isTrue(str.replaceAll(pattern, "") == " and ");
 
   Expect.isTrue("".replaceAll("", "EmptyString") == "EmptyString");

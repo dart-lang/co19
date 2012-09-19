@@ -67,14 +67,14 @@ main() {
 }
 
 void check(String pattern, String str) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   if(null == re.firstMatch(str)) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 }
 
 void checkNeg(String pattern, String str) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

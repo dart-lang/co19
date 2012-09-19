@@ -13,12 +13,12 @@
  */
 
 main() {
-  RegExp re = new RegExp(@".", null, null);
+  RegExp re = new RegExp(@".", multiLine: null, ignoreCase: null);
   Expect.isFalse(re.firstMatch("a") == null);
 
-  re = new RegExp(@".", true, null);
+  re = new RegExp(@".", multiLine: null, ignoreCase: null);
   Expect.isFalse(re.firstMatch("b\na") == null);
 
-  re = new RegExp(@".", null, true);
+  re = new RegExp(@".", multiLine: null, ignoreCase: null);
   Expect.isFalse(re.firstMatch("A") == null);
 }

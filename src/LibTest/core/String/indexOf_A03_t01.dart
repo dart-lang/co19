@@ -20,5 +20,5 @@ void checkNPE(String str1, String str2, int idx) {
   try {
     str1.indexOf(str2, idx);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

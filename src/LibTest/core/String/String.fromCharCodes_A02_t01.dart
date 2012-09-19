@@ -16,7 +16,7 @@ void check(List list) {
   try {
     String str = new String.fromCharCodes(list);
     Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
+  } on IllegalArgumentException catch(e) {}
 }
 
 main() {

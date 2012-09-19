@@ -24,7 +24,7 @@ main() {
   StringBuffer errStr = new StringBuffer();
   for(int i = 0; i < nonIdent.length; i++) {
     String ch = nonIdent[i];
-    RegExp re = new RegExp("\\$ch", false, false);
+    RegExp re = new RegExp("\\$ch");
     if(null == re.firstMatch(nonIdent)) {
       errStr.add("\"\\${ch}\" does not match itself\n");
     } 

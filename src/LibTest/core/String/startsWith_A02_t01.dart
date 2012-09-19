@@ -16,5 +16,5 @@ main() {
   try {
     "s".startsWith(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

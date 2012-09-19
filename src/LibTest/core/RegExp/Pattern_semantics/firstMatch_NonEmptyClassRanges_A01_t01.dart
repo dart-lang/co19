@@ -51,8 +51,8 @@ main() {
 
 void checkNeg(String pattern, String str) {
   try {
-    RegExp re = new RegExp(pattern, false, false);
+    RegExp re = new RegExp(pattern);
     re.firstMatch(str);
     Expect.fail("IllegalJSRegExpException is expected");
-  } catch(IllegalJSRegExpException ok) {}
+  } on IllegalJSRegExpException catch(ok) {}
 }

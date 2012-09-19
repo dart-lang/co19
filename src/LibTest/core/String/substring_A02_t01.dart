@@ -30,5 +30,5 @@ void check(String str, int start, int end) {
   try {
     str.substring(start, end);
     Expect.fail("IndexOutOfRangeException is expected");
-  } catch(IndexOutOfRangeException e) {}
+  } on IndexOutOfRangeException catch(e) {}
 }

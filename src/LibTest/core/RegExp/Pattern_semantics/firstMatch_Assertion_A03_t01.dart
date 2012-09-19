@@ -44,8 +44,8 @@ main() {
   checkNeg(@"\be", "pilot\nsoviet robot\topenoffic\u0065");
 }
 
-void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false, int matchPos = -1]) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false, int matchPos: -1}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -55,8 +55,8 @@ void check(String pattern, String str, [bool multiLine = false, bool ignoreCase 
   }
 }
 
-void checkNeg(String pattern, String str, [bool multiLine = false, bool ignoreCase = false]) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

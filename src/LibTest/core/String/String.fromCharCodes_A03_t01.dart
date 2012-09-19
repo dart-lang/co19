@@ -16,5 +16,5 @@ main() {
   try {
     String str = new String.fromCharCodes(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

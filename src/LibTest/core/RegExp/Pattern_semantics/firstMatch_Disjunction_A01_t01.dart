@@ -44,9 +44,9 @@ main() {
   check("((a)|(b))c",                   "aebc",         expectedGroups:["bc", "b", null, "b"]);
 }
 
-void check(String pattern, String str, [bool multiLine = false, bool ignoreCase = false,
-    List<String> expectedGroups = null]) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false,
+    List<String> expectedGroups: null}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -65,7 +65,7 @@ void check(String pattern, String str, [bool multiLine = false, bool ignoreCase 
 }
 
 void checkNeg(String pattern, String str) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

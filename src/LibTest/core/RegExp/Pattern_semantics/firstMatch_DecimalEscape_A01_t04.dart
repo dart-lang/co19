@@ -37,6 +37,6 @@ main() {
 }
 
 void check(String pattern, String testStr) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   Expect.isTrue(null != re.firstMatch(testStr));
 }

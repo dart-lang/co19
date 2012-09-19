@@ -27,6 +27,6 @@
  
 
 main() {
-  RegExp re = new RegExp(@"\0", false, false);
+  RegExp re = new RegExp(@"\0");
   Expect.isTrue(null != re.firstMatch("\u0000"));
 }

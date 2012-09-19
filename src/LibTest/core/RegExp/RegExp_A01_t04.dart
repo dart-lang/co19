@@ -15,7 +15,7 @@
 
 main() {
   try {
-    RegExp re = const RegExp(null, false, false);
+    RegExp re = const RegExp(null);
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException ok) { }
+  } on NullPointerException catch(ok) { }
 }

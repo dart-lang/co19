@@ -11,11 +11,11 @@
  */
 
 check(String pattern, [bool multiLine = false, bool ignoreCase = false]) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   try {
     re.hasMatch(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
 
 main() {

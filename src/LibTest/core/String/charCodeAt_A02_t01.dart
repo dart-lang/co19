@@ -16,7 +16,7 @@ void checkIOOR(String str, int index) {
   try {
     str.charCodeAt(index);
     Expect.fail("IndexOutOfRangeException is expected");
-  } catch(IndexOutOfRangeException e) {}
+  } on IndexOutOfRangeException catch(e) {}
 }
 
 main() {

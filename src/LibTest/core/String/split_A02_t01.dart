@@ -16,5 +16,5 @@ main() {
   try {
     "1111".split(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

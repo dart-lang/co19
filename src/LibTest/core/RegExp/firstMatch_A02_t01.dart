@@ -20,6 +20,6 @@ main() {
 }
 
 void check(String pattern, String str) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   Expect.equals(null, re.firstMatch(str));
 }

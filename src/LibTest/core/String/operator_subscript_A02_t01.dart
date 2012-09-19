@@ -28,5 +28,5 @@ void checkIndexOOR(String str, int index) {
   try {
     String foo = str[index];
     Expect.fail("IndexOutOfRangeException is expected");
-  } catch(IndexOutOfRangeException e) {}
+  } on IndexOutOfRangeException catch(e) {}
 }

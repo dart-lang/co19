@@ -35,7 +35,7 @@ main() {
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
-  RegExp re = new RegExp(pattern, false, false);
+  RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

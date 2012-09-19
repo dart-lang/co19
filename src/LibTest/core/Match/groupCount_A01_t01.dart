@@ -10,8 +10,8 @@
  * @reviewer msyabro
  */
 
-void check(String str, String pattern, int quantity, [bool multiLine = false, bool ignoreCase = false]) {
-  RegExp re = new RegExp(pattern, multiLine, ignoreCase);
+void check(String str, String pattern, int quantity, {bool multiLine: false, bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Match m = re.firstMatch(str);
   Expect.equals(quantity, m.groupCount());
 }

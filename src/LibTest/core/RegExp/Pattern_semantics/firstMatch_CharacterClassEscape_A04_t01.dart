@@ -18,7 +18,7 @@
  
 
 main() {
-  RegExp re = new RegExp("\\S", false, false);
+  RegExp re = new RegExp("\\S");
   List<String> errors = new List<String>();
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     switch(alpha) {
@@ -63,6 +63,6 @@ main() {
     }
   }
   if(errors.length > 0) {
-    Expect.fail("\n" + Strings.join(errors, "\n"));
+    Expect.fail("\n".concat(Strings.join(errors, "\n")));
   }
 }

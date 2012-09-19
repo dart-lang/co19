@@ -18,7 +18,7 @@ main() {
   
   Expect.equals(4, "10011".split("1").length);
 
-  Expect.equals(6, "1, 2, 3, 4, 5".split(new RegExp("\\d", false, false)).length); // empty tokens are included
+  Expect.equals(6, "1, 2, 3, 4, 5".split(new RegExp("\\d", multiLine: false, ignoreCase: false)).length); // empty tokens are included
   
   Expect.equals(1, "12345".split(",").length);
   

@@ -75,7 +75,7 @@ main() {
 
   //print("Input:\n$html");
   patterns.forEach(void f(String s) {
-    RegExp re = new RegExp(s, false, false);
+    RegExp re = new RegExp(s);
     //print("testing pattern: \"$s\"");
     re.hasMatch(html);
   });
