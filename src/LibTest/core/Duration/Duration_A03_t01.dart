@@ -24,8 +24,8 @@ main() {
 
 void check(int d, int h, int m, int s, int ms) {
   try {
-    new Duration(d, h, m, s, ms);
+    new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms);
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 }

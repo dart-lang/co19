@@ -11,8 +11,12 @@
  */
 
 main() {
-  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(0, 0, 0, 0, 0)) is Date);
-  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(0, 0, 0, 0, 0)) is Date);
-  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(-100000, -100000, -100000, -100000, -100000)) is Date);
-  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(new Duration(100000, 100000, 100000, 100000, 100000)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(days: -100000, hours: -100000, minutes: -100000, seconds: -100000, milliseconds: -100000)) is Date);
+  Expect.isTrue(new Date(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(days: 100000, hours: 100000, minutes: 100000, seconds: 100000, milliseconds: 100000)) is Date);
 }

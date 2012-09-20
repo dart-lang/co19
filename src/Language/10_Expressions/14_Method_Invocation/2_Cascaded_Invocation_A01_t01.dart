@@ -25,7 +25,7 @@ class C {
   m3(p1, [p2]) {}
 
   operator+(other) {}
-  operator negate() {}
+  operator-() {}
   operator[](index) {}
   operator[]=(index, value) {}
 

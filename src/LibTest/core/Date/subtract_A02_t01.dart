@@ -21,34 +21,34 @@ void check(Date dt, y, m, d, h, min, s, ms){
 }
 
 main() {
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 0, 0)), 2001, 2, 3, 4, 5, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2001, 2, 3, 4, 5, 6, 7);
 
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(-1, 0, 0, 0, 0)), 2001, 2, 4, 4, 5, 6, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, -1, 0, 0, 0)), 2001, 2, 3, 5, 5, 6, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, -1, 0, 0)), 2001, 2, 3, 4, 6, 6, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, -1, 0)), 2001, 2, 3, 4, 5, 7, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 0, -1)), 2001, 2, 3, 4, 5, 6, 8);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: -1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2001, 2, 4, 4, 5, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: -1, minutes: 0, seconds: 0, milliseconds: 0)), 2001, 2, 3, 5, 5, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: -1, seconds: 0, milliseconds: 0)), 2001, 2, 3, 4, 6, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: -1, milliseconds: 0)), 2001, 2, 3, 4, 5, 7, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: -1)), 2001, 2, 3, 4, 5, 6, 8);
 
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(1, 0, 0, 0, 0)), 2001, 2, 2, 4, 5, 6, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 1, 0, 0, 0)), 2001, 2, 3, 3, 5, 6, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 1, 0, 0)), 2001, 2, 3, 4, 4, 6, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 1, 0)), 2001, 2, 3, 4, 5, 5, 7);
-  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 0, 1)), 2001, 2, 3, 4, 5, 6, 6);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2001, 2, 2, 4, 5, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 1, minutes: 0, seconds: 0, milliseconds: 0)), 2001, 2, 3, 3, 5, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 1, seconds: 0, milliseconds: 0)), 2001, 2, 3, 4, 4, 6, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 1, milliseconds: 0)), 2001, 2, 3, 4, 5, 5, 7);
+  check(new Date(2001, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 1)), 2001, 2, 3, 4, 5, 6, 6);
 
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(-365, 0, 0, 0, 0)), 2003, 2, 3, 4, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(-28, 0, 0, 0, 0)), 2002, 3, 3, 4, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, -24, 0, 0, 0)), 2002, 2, 4, 4, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, -60, 0, 0)), 2002, 2, 3, 5, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, -60, 0)), 2002, 2, 3, 4, 6, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 0, -1000)), 2002, 2, 3, 4, 5, 7, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: -365, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2003, 2, 3, 4, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: -28, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2002, 3, 3, 4, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: -24, minutes: 0, seconds: 0, milliseconds: 0)), 2002, 2, 4, 4, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: -60, seconds: 0, milliseconds: 0)), 2002, 2, 3, 5, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: -60, milliseconds: 0)), 2002, 2, 3, 4, 6, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: -1000)), 2002, 2, 3, 4, 5, 7, 7);
 
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(365, 0, 0, 0, 0)), 2001, 2, 3, 4, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(31, 0, 0, 0, 0)), 2002, 1, 3, 4, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 24, 0, 0, 0)), 2002, 2, 2, 4, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 60, 0, 0)), 2002, 2, 3, 3, 5, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 60, 0)), 2002, 2, 3, 4, 4, 6, 7);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(0, 0, 0, 0, 1000)), 2002, 2, 3, 4, 5, 5, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 365, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2001, 2, 3, 4, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 31, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)), 2002, 1, 3, 4, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 24, minutes: 0, seconds: 0, milliseconds: 0)), 2002, 2, 2, 4, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 60, seconds: 0, milliseconds: 0)), 2002, 2, 3, 3, 5, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 60, milliseconds: 0)), 2002, 2, 3, 4, 4, 6, 7);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 1000)), 2002, 2, 3, 4, 5, 5, 7);
 
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(-330, -19, -54, -53, -993)), 2002, 12, 31, 0, 0, 0, 0);
-  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(33, 4, 5, 6, 7)), 2002, 1, 1, 0, 0, 0, 0);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: -330, hours: -19, minutes: -54, seconds: -53, milliseconds: -993)), 2002, 12, 31, 0, 0, 0, 0);
+  check(new Date(2002, 2, 3, 4, 5, 6, 7).subtract(new Duration(days: 33, hours: 4, minutes: 5, seconds: 6, milliseconds: 7)), 2002, 1, 1, 0, 0, 0, 0);
 }

@@ -16,5 +16,5 @@
    try {
      new Date(2000, 1, 1, 0, 0, 0, 0).subtract(null);
      Expect.fail("NullPointerException is expected");
-   } catch(NullPointerException e) {}
+   } on NullPointerException catch(e) {}
  }

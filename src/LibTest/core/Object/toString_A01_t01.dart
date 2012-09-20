@@ -14,6 +14,6 @@
 main() {
   new Object().toString();
   const Object().toString();
-  new Object().dynamic.toString();
-  const Object().dynamic.toString();
+  (new Object() as Dynamic).toString();
+  (const Object() as Dynamic).toString();
 }

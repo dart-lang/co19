@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Implemented via === operator.
+ * @assertion Implemented via identical(...).
  * @description Checks that the method returns true for references to the same
  *              canonicalized Object and false for non-constant Objects.
  * @author rodionov
@@ -15,7 +15,7 @@
 main()
 {
   Expect.isTrue(const Object() == const Object());
-  Expect.isTrue(const Object() == const Object().dynamic);
+  Expect.isTrue(const Object() == (const Object() as Dynamic));
 
   Expect.isFalse(new Object() == new Object());
   Expect.isFalse(const Object() == new Object());

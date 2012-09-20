@@ -6,68 +6,24 @@
 /**
  * @assertion Constructs a Date instance based on the individual parts.
  * The date is in the local time zone if isUtc is false.
- * @description Checks that creating Date with incorrect parameters results in IllegalArgumentException
- * @author msyabro
- * @reviewer pagolubev
- * @needsreview unspecified exception.
+ * @description Checks that Date constructor handles under- and overflow correctly.
+ * @author rodionov
  */
 
-check(int val) {
-  try {
-    new Date(1, val, 1, 1, 1, 1, 1);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-
-  try {
-    new Date(1, 1, val, 1, 1, 1, 1);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-
-  try {
-    new Date(1, 1, 1, val, 1, 1, 1);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-
-  try {
-    new Date(1, 1, 1, 1, val, 1, 1);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-
-  try {
-    new Date(1, 1, 1, 1, 1, val, 1);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-
-  try {
-    new Date(1, 1, 1, 1, 1, 1, val);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-}
-
-checkSpecialDate([int year = 1, int month = 1, int day = 1, int hours = 0,
-    int minutes = 0, int seconds = 0, int milliseconds = 0]) {
-  try {
-    new Date(year, month, day, hours, minutes, seconds, milliseconds);
-    Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
-}
-
 main() {
-  check(-1);
-  check(-1991);
-  check(0x7fffffff);
-  check(0x7fffffffffffffff);
-  check(0x8000000000000000);
-  check(-0x80000000);
-  check(-0x8000000000000000);
-  check(-0x8000000000000001);
-
-  checkSpecialDate(month: 0);
-  checkSpecialDate(day: 0);
-  checkSpecialDate(month: 13);
-  checkSpecialDate(day: 32);
-  checkSpecialDate(hours: 25);
-  checkSpecialDate(minutes: 60);
-  checkSpecialDate(seconds: 60);
-  checkSpecialDate(milliseconds: 1000);
+  Expect.equals(new Date(1, 0, 1, 0, 0, 0, 0), new Date(0, 12, 1, 0, 0, 0, 0));
+  Expect.equals(new Date(1, 13, 1, 0, 0, 0, 0), new Date(2, 1, 1, 0, 0, 0, 0));
+  Expect.equals(new Date(1, 1, 0, 0, 0, 0, 0), new Date(0, 12, 31, 0, 0, 0, 0));
+  Expect.equals(new Date(1, 1, -1, 0, 0, 0, 0), new Date(0, 12, 30, 0, 0, 0, 0));
+  Expect.equals(new Date(2012, 2, 30, 0, 0, 0, 0), new Date(2012, 3, 1, 0, 0, 0, 0));
+  Expect.equals(new Date(2011, 2, 30, 0, 0, 0, 0), new Date(2011, 3, 2, 0, 0, 0, 0));
+  Expect.equals(new Date(1, 1, 1, -1, 0, 0, 0), new Date(0, 12, 31, 23, 0, 0, 0));
+  Expect.equals(new Date(1, 1, 1, 24, 0, 0, 0), new Date(1, 1, 2, 0, 0, 0, 0));
+  Expect.equals(new Date(1, 1, 1, 0, -1, 0, 0), new Date(0, 12, 31, 23, 59, 0, 0));
+  Expect.equals(new Date(1, 1, 1, 0, 60, 0, 0), new Date(1, 1, 1, 1, 0, 0, 0));
+  Expect.equals(new Date(1, 1, 1, 0, 0, -1, 0), new Date(0, 12, 31, 23, 59, 59, 0));
+  Expect.equals(new Date(1, 1, 1, 0, 0, 60, 0), new Date(1, 1, 1, 0, 1, 0, 0));
+  Expect.equals(new Date(1, 1, 1, 0, 0, 0, -1), new Date(0, 12, 31, 23, 59, 59, 999));
+  Expect.equals(new Date(1, 1, 1, 0, 0, 0, 1000), new Date(1, 1, 1, 0, 0, 1, 0));
+  Expect.equals(new Date(2012, 2, 29, 23, 59, 59, 1000), new Date(2012, 3, 1, 0, 0, 0, 0));
 }

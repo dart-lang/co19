@@ -23,15 +23,15 @@ void check(Date dt, y, m, d, h, min, s, ms){
 main() {
   Date dt = new Date(2001, 2, 3, 4, 5, 6, 7);
   
-  dt.add(new Duration(1, 1, 1, 1, 1));
+  dt.add(new Duration(days: 1, hours: 1, minutes: 1, seconds: 1, milliseconds: 1));
   check(dt, 2001, 2, 3, 4, 5, 6, 7);
 
-  dt.add(new Duration(0, 0, 0, 0, 0));
+  dt.add(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0));
   check(dt, 2001, 2, 3, 4, 5, 6, 7);
   
-  dt.add(new Duration(-10000, -10000, -10000, -10000, -10000));
+  dt.add(new Duration(days: -10000, hours: -10000, minutes: -10000, seconds: -10000, milliseconds: -10000));
   check(dt, 2001, 2, 3, 4, 5, 6, 7);
 
-  dt.add(new Duration(10000, 10000, 10000, 10000, 10000));
+  dt.add(new Duration(days: 10000, hours: 10000, minutes: 10000, seconds: 10000, milliseconds: 10000));
   check(dt, 2001, 2, 3, 4, 5, 6, 7);
 }

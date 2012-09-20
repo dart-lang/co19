@@ -25,5 +25,5 @@ main() {
 
 void check(int d, int h, int m, int s, int ms) {
   Expect.equals(d * 24 * 3600000 + h * 3600000 + m * 60000 + s * 1000 + ms, 
-      new Duration(d, h, m, s, ms).inMilliseconds);
+      new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms).inMilliseconds);
 }

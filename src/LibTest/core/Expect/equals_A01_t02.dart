@@ -33,6 +33,6 @@ void check(var arg1, var arg2, [String reason = null]) {
   try {
     Expect.equals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

@@ -14,7 +14,7 @@
 class TestException {}
 
 class A {
-  operator negate() {
+  operator-() {
     throw new TestException();
   }
 }
@@ -23,6 +23,6 @@ main() {
   A a = new A();
   try {
     -a;
-    Expect.fail("Operator negate was not called");
+    Expect.fail("Operator unary- was not called");
   } on TestException catch(e) {}
 }

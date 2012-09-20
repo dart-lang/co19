@@ -15,5 +15,5 @@ main() {
   try {
     new Date.now().difference(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

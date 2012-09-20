@@ -32,25 +32,21 @@ class C {
 }
 
 
-check(bool cond) {
-  if (!cond) throw "failed";
-}
-
 main() {
   B b = new B();
-  check(b.checked === null);
+  Expect.identical(b.checked, null);
   var a = new B();
   Expect.equals(b, a);
-  check(b.checked === a);
+  Expect.identical(b.checked, a);
 
   a = new A();
   Expect.equals(b, a);
-  check(b.checked === a);
+  Expect.identical(b.checked, a);
 
   Expect.equals(new A(), new C());
 
   try {
     Expect.equals(new C(), new C());
-    check(false);
-  } catch (ExpectException ok) {}
+    throw "ExpectException expected";
+  } on ExpectException catch(ok) {}
 }

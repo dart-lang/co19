@@ -16,7 +16,7 @@ check(String str) {
   try {
     new Date.fromString(str);
     fail = true;
-  } catch(var ok) {
+  } catch(ok) {
   }
   if(fail) {
     Expect.fail("Some exception is expected");

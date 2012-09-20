@@ -12,16 +12,16 @@
  */
 
 main() {
-  Expect.equals(0, new Duration(1, -4, 0, 61, 0).compareTo(new Duration(0, 20, 1, 1, 0)));
+  Expect.equals(0, new Duration(days: 1, hours: -4, minutes: 0, seconds: 61, milliseconds: 0).compareTo(new Duration(days: 0, hours: 20, minutes: 1, seconds: 1, milliseconds: 0)));
   Expect.equals(0, new Duration(hours: 1).compareTo(new Duration(seconds: 3600)));
 
-  Expect.equals(1, new Duration(0, 0, 0, 0, 1000).compareTo(new Duration(0, 0, 0, 0, 999)));
-  Expect.equals(1, new Duration(0, 0, 0, 0, 1001).compareTo(new Duration(0, 0, 0, 1, 0)));
-  Expect.equals(1, new Duration(0, 0, 0, 0, 3600001).compareTo(new Duration(0, 1, 0, 0, 0)));
-  Expect.equals(1, new Duration(0, 0, 25*60, 0, 0).compareTo(new Duration(1, 0, 0, 0, 0)));
+  Expect.equals(1, new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 1000).compareTo(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 999)));
+  Expect.equals(1, new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 1001).compareTo(new Duration(days: 0, hours: 0, minutes: 0, seconds: 1, milliseconds: 0)));
+  Expect.equals(1, new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 3600001).compareTo(new Duration(days: 0, hours: 1, minutes: 0, seconds: 0, milliseconds: 0)));
+  Expect.equals(1, new Duration(days: 0, hours: 0, minutes: 25*60, seconds: 0, milliseconds: 0).compareTo(new Duration(days: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)));
 
-  Expect.equals(-1, new Duration(0, 0, 0, 0, 999).compareTo(new Duration(0, 0, 0, 1, 0)));
-  Expect.equals(-1, new Duration(0, 0, 0, 1, 0).compareTo(new Duration(0, 0, 0, 0, 1001)));
-  Expect.equals(-1, new Duration(0, 1, 0, 0, 0).compareTo(new Duration(0, 0, 0, 0, 3600001)));
-  Expect.equals(-1, new Duration(1, 0, 0, 0, 0).compareTo(new Duration(0, 0, 25*60, 0, 0)));
+  Expect.equals(-1, new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 999).compareTo(new Duration(days: 0, hours: 0, minutes: 0, seconds: 1, milliseconds: 0)));
+  Expect.equals(-1, new Duration(days: 0, hours: 0, minutes: 0, seconds: 1, milliseconds: 0).compareTo(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 1001)));
+  Expect.equals(-1, new Duration(days: 0, hours: 1, minutes: 0, seconds: 0, milliseconds: 0).compareTo(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 3600001)));
+  Expect.equals(-1, new Duration(days: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0).compareTo(new Duration(days: 0, hours: 0, minutes: 25*60, seconds: 0, milliseconds: 0)));
 }

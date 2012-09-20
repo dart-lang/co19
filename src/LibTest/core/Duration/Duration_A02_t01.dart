@@ -21,5 +21,5 @@ main() {
 }
 
 void check(int d, int h, int m, int s, int ms) {
-  Expect.isTrue(new Duration(d, h, m, s, ms) is Duration);
+  Expect.isTrue(new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms) is Duration);
 }

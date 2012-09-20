@@ -11,8 +11,8 @@
  * where F is the function type alias (14.3.1)
  * typedef T0 F (T1 a1, ..., Tn an, [Tn+1 xn+1, ..., Tn+k xn+k]).
  * @description Checks that a local function cannot be used before it is declared
- * (a compile-time error is produced).
- * @compile-error
+ * (a runtime error is produced).
+ * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
@@ -21,5 +21,6 @@ main() {
   try {
     void f() {g();}
     void g() {}
-  } catch(x) {}
+    Expect.fail("NoSuchMethodError expected when calling undefined method.");
+  } on NoSuchMethodError catch (ex) {}
 }

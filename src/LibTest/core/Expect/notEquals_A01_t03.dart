@@ -31,34 +31,29 @@ class C {
   }
 }
 
-
-check(bool cond) {
-  if (!cond) throw "failed";
-}
-
 main() {
   B b = new B();
-  check(b.checked === null);
+  Expect.identical(b.checked, null);
   var a = new A();
   Expect.notEquals(b, a);
-  check(b.checked === a);
+  Expect.identical(b.checked, a);
 
   a = new C();
   Expect.notEquals(b, a);
-  check(b.checked === a);
+  Expect.identical(b.checked, a);
 
   a = new B();
   try {
     Expect.notEquals(b, a);
-    check(false);
-  } catch (ExpectException ee) {
-    check(b.checked === a);
+    throw new Exception("ExpectException expected");
+  } on ExpectException catch(ok) {
   }
+  Expect.identical(b.checked, a);
 
   Expect.notEquals(new C(), new A());
 
   try {
     Expect.notEquals(new A(), new C());
-    check(false);
-  } catch (ExpectException ok) {}
+    throw new Exception("ExpectException expected");
+  } on ExpectException catch(ok) {}
 }

@@ -15,7 +15,7 @@
 class TestException {}
 
 class S {
-  operator negate() {
+  operator-() {
     throw new TestException();
   }
 }
@@ -24,7 +24,7 @@ class A extends S{
   test() {
     try {
       var x = -super;
-      Expect.fail("Operator negate was not called");
+      Expect.fail("Operator unary- was not called");
     } on TestException catch(e) {}
   }
 }

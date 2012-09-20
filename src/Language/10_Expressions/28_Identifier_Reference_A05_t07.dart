@@ -23,9 +23,9 @@
  *  - If d is the declaration of a top level getter, then e is equivalent to the
  * getter invocation id.
  *  - Otherwise, e is equivalent to the property extraction this.id.
- * @description Checks that it is a compile-time error when an undeclared identifier 
+ * @description Checks that it is a runtime error when an undeclared identifier 
  * is used in a static context. 
- * @compile-error
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -37,5 +37,6 @@ func() {
 main() {
   try {
     func();
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }

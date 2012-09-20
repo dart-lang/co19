@@ -9,7 +9,7 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that a private function is inaccessible outside the library.
- * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -19,5 +19,6 @@ import "lib.dart";
 main() {
   try {
     _inaccessibleFunction();
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected when undefined function invoked");
+  } on NoSuchMethodError catch(e) {}
 }

@@ -27,6 +27,6 @@ import("2_Imports_lib.dart");
 
 main() {
   try {
-    someVar = 0;
+    var someVar = 0;
   } catch(e) {}
 }

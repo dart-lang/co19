@@ -4,16 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator negate()
- * @description Checks [:negate():] on a NaN.
+ * @assertion double operator unary-()
+ * @description Checks [:unary-():] on a NaN.
  * @author pagolubev
  * @reviewer msyabro
- * @needsreview issue 3283
+ * @reviewer rodionov
  */
 
 
 main() {
   double nan = double.NAN;
-  Expect.isTrue(nan.negate().isNaN());
-  Expect.isTrue((-nan).negate().isNaN());
+  Expect.isTrue((-nan).isNaN());
+  Expect.isTrue((-(-nan)).isNaN());
 }

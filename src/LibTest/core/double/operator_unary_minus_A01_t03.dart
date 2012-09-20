@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator negate()
- * @description Checks [:negate():] on a infinity.
+ * @assertion double operator unary-()
+ * @description Checks [:unary-():] on a infinity.
  * @author pagolubev
  * @reviewer msyabro
- * @needsreview issue 3283
+ * @reviewer rodionov
  */
 
 
 main() {
   double inf = double.INFINITY;
-  double negativeInf = inf.negate();
+  double negativeInf = -inf;
   Expect.isTrue(negativeInf.isNegative());
   Expect.isFalse((-negativeInf).isNegative());
   Expect.equals(inf, negativeInf.abs());

@@ -4,21 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator negate()
- * @description Checks that [:negate():] does not change the object.
- * @author msyabro
- * @needsreview issue 3283
+ * @assertion double operator unary-()
+ * @description Checks [:unary-():] on a bunch of values.
+ * @author pagolubev
+ * @reviewer msyabro
+ * @needsreview Should the check with '.0' be taken out to a separate test?
  */
 
 
 check(double d) {
-  double oldVal = d;
-  d.negate();
-  Expect.equals(oldVal, d);
+  double neg = -d;
+  Expect.isTrue(neg.isNegative());
+  Expect.equals(d, neg.abs());
+  neg = -neg;
+  Expect.isFalse(neg.isNegative());
+  Expect.equals(d, neg);
 }
 
 main() {
-  check(.0);
+  Expect.equals(.0, -0);
   check(.1);
   check(1.0);
   check(33.333);

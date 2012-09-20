@@ -30,7 +30,7 @@
 
 class S {
   var x = 1;
-  operator negate() {}
+  operator-() {}
   operator[](var ind) {return x;}
   operator[]=(var ind, var val) {x = val;}
 }

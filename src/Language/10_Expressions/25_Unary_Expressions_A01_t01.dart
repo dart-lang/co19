@@ -31,7 +31,7 @@
 
 class S {
   var x=1;
-  operator negate() {}
+  operator-() {}
   operator~() {}
 }
 

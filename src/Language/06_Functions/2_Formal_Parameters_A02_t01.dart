@@ -12,18 +12,19 @@
  * parameter scope of f.
  * @description Checks that the function scopes are enclosed in the scope where it's
  * declared and not the one where it's invoked.
- * @compile-error
+ * @static-warning call to unresolved getter 'foo'
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 f() {
-  var x = foo;
+  try {
+    var x = foo;
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }
 
 main () {
-  try {
-    var foo = 1;
-    f();
-  } catch(x){}
+  var foo = 1;
+  f();
 }

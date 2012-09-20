@@ -16,21 +16,28 @@
  * @reviewer kaigorodov
  */
 
-final foo = 1;
 
-main () {
-  f(var foo) {
-    Expect.equals(2, foo);
-  }
-  f(foo + 1);
+class C {
+  static const foo = 1;
+
+  void test() {
+    f(var foo) {
+      Expect.equals(2, foo);
+    }
+    f(foo + 1);
+    
+    g([var foo = foo + 10]) {
+      Expect.equals(11, foo);
+    }
+    g();
   
-  g([var foo = foo + 10]) {
-    Expect.equals(11, foo);
+    h({var foo: foo + 10}) {
+      Expect.equals(11, foo);
+    }
+    h();
   }
-  g();
+}
 
-  h({var foo: foo + 10}) {
-    Expect.equals(11, foo);
-  }
-  h();
+void main() {
+  new C().test();
 }

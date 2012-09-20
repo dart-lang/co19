@@ -18,7 +18,7 @@
  */
 
 foo({var a: 1, var b = 2}) {
-  p = 1;
+  return a;
 }
 
 main() {
