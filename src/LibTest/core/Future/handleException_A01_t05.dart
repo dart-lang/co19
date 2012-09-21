@@ -30,21 +30,21 @@ main() {
   try {
     check(1);
     Expect.fail('Exception is expected');
-  } catch(int e) {
+  } on int catch(e) {
     Expect.equals(1, e);
   }
 
   try {
     check('');
     Expect.fail('Exception is expected');
-  } catch(String  e) {
+  } on String catch(e) {
     Expect.equals('', e);
   }
 
   try {
     check(const []);
     Expect.fail('Exception is expected');
-  } catch(List  e) {
+  } on List catch(e) {
     Expect.equals(const [], e);
   }
 }

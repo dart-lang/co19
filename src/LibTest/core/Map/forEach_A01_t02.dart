@@ -24,10 +24,10 @@ main() {
   try {
     map.forEach(null);
     Expect.fail("ObjectNotClosureException is expecpected");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
   
   try {
     map.forEach(x);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
 }

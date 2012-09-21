@@ -16,7 +16,7 @@ main() {
   try {
     .1.toStringAsExponential(21);
     fail = true;
-  } catch (var e) {}
+  } catch(e) {}
   if(fail) {
     Expect.fail("Expected exception");
   }

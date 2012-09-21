@@ -1,3 +1,6 @@
+#import("4_Library1.dart");
+#! scripts tag    // error
+
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -14,10 +17,6 @@
  * @author msyabro
  * @reviewer rodionov
  */
-
-#import("4_Library1.dart");
-
-#! scripts tag    // error
 
 main() {
   try {

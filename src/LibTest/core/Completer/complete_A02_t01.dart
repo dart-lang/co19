@@ -22,5 +22,5 @@ main() {
   try {
     completer.complete('another value');
     Expect.fail('an Exception is expected');
-  }  catch(Exception e) {}
+  }  on Exception catch(e) {}
 }

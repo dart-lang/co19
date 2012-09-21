@@ -16,5 +16,5 @@ main() {
   try {
     List a = new List(-1);
     Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
+  } on IllegalArgumentException catch(e) {}
 }

@@ -17,10 +17,10 @@ main() {
   try {
     a.removeRange(0, 1);
     Expect.fail("UnsupportedOperationException expected when calling List.removeRange()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     const[].removeRange(0, 1);
     Expect.fail("UnsupportedOperationException expected when calling List.removeRange()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 }

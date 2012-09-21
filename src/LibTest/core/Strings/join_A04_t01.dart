@@ -14,7 +14,7 @@ check(List l) {
   try {
     Strings.join(l, "");
     Expect.fail("IllegalArgumentException is expected");
-  } catch(IllegalArgumentException e) {}
+  } on IllegalArgumentException catch(e) {}
 }
 
 main() {

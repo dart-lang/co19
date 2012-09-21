@@ -25,7 +25,7 @@ check(double d) {
   try {
     d - null;
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
 
 main() {

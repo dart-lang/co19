@@ -15,5 +15,5 @@ main() {
   try {
     new LinkedHashMap.from(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

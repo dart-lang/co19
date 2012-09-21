@@ -27,7 +27,7 @@ check(var arg) {
   try {
     a.every(arg);
     Expect.fail("ObjectNotClosureException expected when calling a.every()");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
 }
  
 main() {

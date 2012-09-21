@@ -24,15 +24,15 @@ main() {
   try {
     map.putIfAbsent("1", null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}//Not documented
+  } on ObjectNotClosureException catch(e) {}//Not documented
   
   try {
     map.putIfAbsent(null, putIfAbsent);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
   
   try {
     map.putIfAbsent(null, null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

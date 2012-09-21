@@ -17,7 +17,7 @@ main() {
   try {
     queue.last();
     Expect.fail("Exception is expected");
-  } catch(EmptyQueueException e) {}
+  } on EmptyQueueException catch(e) {}
   
   queue.addFirst(1);
   queue.addFirst(2);
@@ -26,5 +26,5 @@ main() {
   try {
     queue.last();
     Expect.fail("Exception is expected");
-  } catch(EmptyQueueException e) {}
+  } on EmptyQueueException catch(e) {}
 }

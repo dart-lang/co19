@@ -25,7 +25,7 @@ final List values = const [
    try {
      d ~/ null;
      Expect.fail("NullPointerException is expected");
-   } catch(NullPointerException e) {}
+   } on NullPointerException catch(e) {}
  }
 
  main() {

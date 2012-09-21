@@ -25,5 +25,5 @@ void check(int x, num z) {
   try {
     x % z;
     Expect.fail("IntegerDivisionByZeroException is expected");
-  } catch(IntegerDivisionByZeroException e) {}
+  } on IntegerDivisionByZeroException catch(e) {}
 }

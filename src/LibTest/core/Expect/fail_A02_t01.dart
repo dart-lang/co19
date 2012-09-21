@@ -21,7 +21,7 @@ void check(String msg) {
   try {
     Expect.fail(msg);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
     if (!e.message.contains(msg.toString(), 0)) throw "ExpectException message: '${e.message}'"
       " doesn't contain the argument of fail() ( ${ msg.toString()} )";
   }

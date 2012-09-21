@@ -23,7 +23,7 @@ main() {
     list.some(bool func(var element) {
       throw ++count;
     });
-  } catch(Object e) {
+  } on Object catch(e) {
     Expect.equals(1, count);
   }
 }

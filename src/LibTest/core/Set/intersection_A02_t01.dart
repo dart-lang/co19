@@ -24,6 +24,6 @@ void check(Set s) {
   try {
     s.intersection(null);
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 }

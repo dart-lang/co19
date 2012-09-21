@@ -28,7 +28,7 @@ void check(Iterable arg1, Iterable arg2, Iterable arg3, [String reason = null]) 
   try {
     Expect.setEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
     for (var el in arg3) {
       if (!e.message.contains(el !== null ? el.toString() : "null", 0)) throw "no element $el";
     }

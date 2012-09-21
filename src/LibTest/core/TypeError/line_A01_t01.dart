@@ -18,7 +18,7 @@ main() {
     try {
       int x = true; // this is line 19
       Expect.fail("TypeError expected");
-    } catch (TypeError e) {
+    } on TypeError catch(e) {
       Expect.equals(19, e.line);
     }
   }

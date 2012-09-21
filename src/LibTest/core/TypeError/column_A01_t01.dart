@@ -18,7 +18,7 @@ main() {
     try {
       int x = true;
       Expect.fail("TypeError expected");
-    } catch (TypeError e) {
+    } on TypeError catch(e) {
       Expect.equals(15, e.column);
     }
   }

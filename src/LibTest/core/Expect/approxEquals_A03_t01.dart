@@ -42,6 +42,6 @@ void check(num arg1, num arg2, [num tolerance = null, String reason = null]) {
   try {
     Expect.approxEquals(arg1, arg2, tolerance, reason);
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 }

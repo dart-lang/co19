@@ -24,6 +24,6 @@ void check(String msg) {
   try {
     Expect.fail(msg);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

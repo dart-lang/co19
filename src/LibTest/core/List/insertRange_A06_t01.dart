@@ -17,7 +17,7 @@ void check(List src, int start, int length) {
   try {
     src.insertRange(start, length);
     Expect.fail("IndexOutOfRangeException expected when calling List.insertRange()");
-  } catch(IndexOutOfRangeException ok) {}   
+  } on IndexOutOfRangeException catch(ok) {}   
 }
 
 main() {

@@ -25,6 +25,6 @@ main() {
       if (count++ > 0) throw new NullPointerException();
     });
     Expect.fail("NullPointerException should be thrown");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
   Expect.isTrue(count == 2);
 }

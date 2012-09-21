@@ -17,15 +17,15 @@ main() {
   try {
     a.addLast(null);
     Expect.fail("UnsupportedOperationException expected when calling a.push()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     new List(100).addLast(null);
     Expect.fail("UnsupportedOperationException expected when calling a.add()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     const [].addLast(null);
     Expect.fail("UnsupportedOperationException expected when calling a.add()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 }

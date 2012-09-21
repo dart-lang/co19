@@ -46,7 +46,7 @@ void check(var arg1, var arg2, [String reason = null]) {
   try {
     Expect.identical(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
     if (!e.message.contains(arg1 !== null ? arg1.toString() : "null", 0)) throw "no expected value";
     if (!e.message.contains(arg2 !== null ? arg2.toString() : "null", 0)) throw "no actual value";
     if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason";

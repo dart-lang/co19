@@ -17,5 +17,5 @@ main() {
   try {
     Math.cos(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

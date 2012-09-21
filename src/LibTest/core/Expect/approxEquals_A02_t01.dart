@@ -63,6 +63,6 @@ void check(num arg1, num arg2, [String reason = null]) {
   try {
     Expect.approxEquals(arg1, arg2, reason: reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

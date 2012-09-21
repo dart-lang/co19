@@ -24,6 +24,6 @@ main() {
   try {
     s.remove(new A());
     Expect.fail("Expected NoSuchMethodError.");
-  } catch (NoSuchMethodError e) {
+  } on NoSuchMethodError catch(e) {
   }
 }

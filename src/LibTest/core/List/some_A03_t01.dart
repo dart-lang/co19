@@ -23,7 +23,7 @@ checkList(list, arg) {
   try {
     list.some(arg);
     Expect.fail("ObjectNotClosureException expected when calling a.every()");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
 }
 
 check(var arg) {

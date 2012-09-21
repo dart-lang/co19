@@ -23,5 +23,5 @@ void check(int x) {
   try {
     x ~/ 0;
     Expect.fail("IntegerDivisionByZeroException expected when calling ~/");
-  } catch ( IntegerDivisionByZeroException ok ) { }
+  } on IntegerDivisionByZeroException catch(ok) { }
 }

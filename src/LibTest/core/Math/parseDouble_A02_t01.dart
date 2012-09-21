@@ -19,7 +19,7 @@ void checkFE(String str) {
   try {
     Math.parseDouble(str);
     Expect.fail("FormatException is expected");
-  } catch(FormatException e) {}
+  } on FormatException catch(e) {}
 }
 main() {
   checkFE("");

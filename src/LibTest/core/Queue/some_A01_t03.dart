@@ -25,7 +25,7 @@ main() {
   try {
     list.some(null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
   
   Expect.throws(() => list.some(1));
   Expect.throws(() => list.some(1.1));

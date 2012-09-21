@@ -16,7 +16,7 @@ main() {
   try {
     list.removeFirst();
     Expect.fail("Exception is expected");
-  } catch(EmptyQueueException e) {}
+  } on EmptyQueueException catch(e) {}
   
   list.addLast(1);
   list.addLast(2);
@@ -25,5 +25,5 @@ main() {
   try {
     list.removeFirst();
     Expect.fail("Exception is expected");
-  } catch(EmptyQueueException e) {}
+  } on EmptyQueueException catch(e) {}
 }

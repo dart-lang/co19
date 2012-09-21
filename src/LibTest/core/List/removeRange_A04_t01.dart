@@ -15,7 +15,7 @@ check(list) {
   try {
     list.removeRange(0, -1);
     Expect.fail("IllegalArgumentException expected when calling List.removeRange()");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 }
 
 main() {

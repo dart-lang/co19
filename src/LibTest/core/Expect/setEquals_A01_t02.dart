@@ -35,6 +35,6 @@ void check(Iterable arg1, Iterable arg2, [String reason = null]) {
   try {
     Expect.setEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

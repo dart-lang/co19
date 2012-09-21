@@ -17,7 +17,7 @@ void checkNPE(var arg1, var arg2) {
   try {
     Math.min(arg1, arg2);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
 
 main() {

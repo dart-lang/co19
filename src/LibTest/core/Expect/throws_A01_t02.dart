@@ -38,6 +38,6 @@ void check(void f(), [checkFn ch = null, String reason = null]) {
   try {
     Expect.throws(f, ch, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

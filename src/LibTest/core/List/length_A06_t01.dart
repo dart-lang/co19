@@ -15,16 +15,16 @@ main() {
   try {
     a.length = null;
     Expect.fail("Exception expected when setting ga.length to negative");
-  } catch(NullPointerException ok){}
+  } on NullPointerException catch(ok){}
 
   List<int> b = new List.from(<int>[1,3,5]);
   try {
     b.length = null;
     Expect.fail("Exception expected when setting ga.length to negative");
-  } catch(NullPointerException ok){}
+  } on NullPointerException catch(ok){}
 
   try {
     [].length = null;
     Expect.fail("Exception expected when setting ga.length to negative");
-  } catch(NullPointerException ok){}
+  } on NullPointerException catch(ok){}
 }

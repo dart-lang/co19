@@ -15,7 +15,7 @@ main() {
   try {
     list.iterator().next();
     Expect.fail("NoMoreElementsException is expected");
-  } catch( NoMoreElementsException ok ) { }
+  } on NoMoreElementsException catch(ok) { }
 
 
   list.addLast(1);
@@ -24,5 +24,5 @@ main() {
   try {
     it.next();
     Expect.fail("NoMoreElementsException is expected");
-  } catch( NoMoreElementsException ok ) { }
+  } on NoMoreElementsException catch(ok) { }
 }

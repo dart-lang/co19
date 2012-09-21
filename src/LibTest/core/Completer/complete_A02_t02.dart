@@ -21,5 +21,5 @@ main() {
   try {
     completer.complete('another value');
     Expect.fail('FutureAlreadyCompleteException is expected');
-  }  catch(Exception e) {}
+  }  on Exception catch(e) {}
 }

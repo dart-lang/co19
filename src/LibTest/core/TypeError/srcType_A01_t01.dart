@@ -23,28 +23,28 @@ main() {
     try {
       int x = "string";
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
 
     try {
       bool val = 1;
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
 
     try {
       String str = new MyClass();
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
 
     try {
       MyClass str = [];
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
   }

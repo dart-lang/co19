@@ -24,7 +24,7 @@ main() {
       count++;
       throw "Exception";
     });
-  } catch(Object e) {
+  } on Object catch(e) {
     Expect.equals(1, count);
   }
 }

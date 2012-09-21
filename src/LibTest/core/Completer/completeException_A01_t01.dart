@@ -25,7 +25,7 @@ main() {
   try {
      future.value;
      Expect.fail('an Exception is expected');
-  } catch(Exception e) {
+  } on Exception catch(e) {
      Expect.equals(exc, e);
   }
   

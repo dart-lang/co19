@@ -18,7 +18,7 @@ main() {
     try {
       int x = true;
       Expect.fail("TypeError expected");
-    } catch (TypeError e) {
+    } on TypeError catch(e) {
       Expect.isTrue(e.url.endsWith("LibTest/core/TypeError/url_A01_t01.dart"));
     }
   }

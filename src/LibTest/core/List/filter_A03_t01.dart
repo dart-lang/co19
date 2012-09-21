@@ -24,7 +24,7 @@ ch(list, arg) {
   try {
     list.filter(arg);
     Expect.fail("ObjectNotClosureException expected when calling a.every()");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
 }
 
 check(var arg) {

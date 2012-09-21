@@ -16,7 +16,7 @@ void check(List src, int start, int length) {
   try {
     src.insertRange(start, length);
     Expect.fail("IllegalArgumentException expected when calling List.insertRange()");
-  } catch(IllegalArgumentException ok) {}   
+  } on IllegalArgumentException catch(ok) {}   
 }
 
 main() {

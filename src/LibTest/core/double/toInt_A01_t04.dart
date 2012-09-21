@@ -17,10 +17,10 @@ main() {
   try {
     inf.toInt();
     Expect.fail("Expected FormatException");
-  } catch (FormatException e) {}
+  } on FormatException catch(e) {}
 
   try {
     (-inf).toInt();
     Expect.fail("Expected FormatException");
-  } catch (FormatException e) {}
+  } on FormatException catch(e) {}
 }

@@ -17,7 +17,7 @@ main() {
   try {
     .1.toStringAsFixed(-1);
     fail = true;
-  } catch (var e) {}
+  } catch(e) {}
   if(fail) {
     Expect.fail("Expected exception");
   }

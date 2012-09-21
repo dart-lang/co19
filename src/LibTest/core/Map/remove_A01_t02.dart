@@ -18,5 +18,5 @@ main() {
   try {
     map.remove(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {} //Not documented
+  } on NullPointerException catch(e) {} //Not documented
 }

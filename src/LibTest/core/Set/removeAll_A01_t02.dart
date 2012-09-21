@@ -17,12 +17,12 @@ void check(Set<int> s) {
   try {
     s.removeAll([null]);
     Expect.fail("Expected NullPointerException.");
-  } catch (NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 
   try {
     s.removeAll([1, 2, null]);
     Expect.fail("Expected NullPointerException.");
-  } catch (NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
 
 main() {

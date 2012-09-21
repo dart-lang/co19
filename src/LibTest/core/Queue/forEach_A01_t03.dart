@@ -24,7 +24,7 @@ main() {
   try {
     list.forEach(null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
   
   Expect.throws(() => list.forEach(1));
   Expect.throws(() => list.forEach(1.1));

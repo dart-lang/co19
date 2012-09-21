@@ -16,5 +16,5 @@ main() {
   try {
     nan.toInt();
     Expect.fail("Expected FormatException");
-  } catch (FormatException e) {}
+  } on FormatException catch(e) {}
 }

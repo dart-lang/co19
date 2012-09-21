@@ -42,7 +42,7 @@ check(double val) {
   try {
     val.remainder(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e){}
+  } on NullPointerException catch(e){}
 }
 
 main()  {

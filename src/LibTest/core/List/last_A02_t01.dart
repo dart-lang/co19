@@ -15,7 +15,7 @@ check(List a) {
   try {
     a.last();
     Expect.fail("IndexOutOfRangeException expected when calling a.last()");
-  } catch( IndexOutOfRangeException ok ) {}
+  } on IndexOutOfRangeException catch(ok) {}
 }
 
 main() {

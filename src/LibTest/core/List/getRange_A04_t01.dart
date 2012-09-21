@@ -16,7 +16,7 @@ void check(List l, int start, int length) {
   try {
     l.getRange(start, length);
     Expect.fail("IndexOutOfRangeException expected when calling List.getRange()");
-  } catch(IndexOutOfRangeException ok) {}   
+  } on IndexOutOfRangeException catch(ok) {}   
 }
 
 main() {

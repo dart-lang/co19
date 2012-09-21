@@ -23,11 +23,11 @@ check(f()) {
     } else {
       Expect.fail("ObjectNotClosureException is expected");
     }
-  } catch(TypeError e) {
+  } on TypeError catch(e) {
     if(!isCheckedMode()) {
       Expect.fail("Type error in scripting mode");
     }
-  } catch(ObjectNotClosureException e) {
+  } on ObjectNotClosureException catch(e) {
     if(isCheckedMode()) {
       Expect.fail("ObjectNotClosureException in checked mode");
     }
@@ -50,7 +50,7 @@ main() {
   try {
     list.every(null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e){}
+  } on ObjectNotClosureException catch(e){}
 
   check( () {
     list.every(x);

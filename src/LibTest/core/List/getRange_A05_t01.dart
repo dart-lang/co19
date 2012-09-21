@@ -15,7 +15,7 @@ void check(List l, int start, int length) {
   try {
     l.getRange(start, length);
     Expect.fail("NullPointerException expected when calling List.getRange()");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 }
 
 main() {

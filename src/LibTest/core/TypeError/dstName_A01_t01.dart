@@ -19,21 +19,21 @@ main() {
     try {
       int x = true;
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.equals('x', e.dstName);
     }
 
     try {
       bool val = 1;
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.equals('val', e.dstName);
     }
 
     try {
       String str = true;
       Expect.fail("TypeError is expected");
-    } catch(TypeError e) {
+    } on TypeError catch(e) {
       Expect.equals('str', e.dstName);
     }
   }

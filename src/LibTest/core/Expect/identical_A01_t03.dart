@@ -22,6 +22,6 @@ main() {
   try {
     Expect.identical(new A(), new A());
     throw "ExpectException expected";
-  } catch (ExpectException ok) {
+  } on ExpectException catch(ok) {
   }
 }

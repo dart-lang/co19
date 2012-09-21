@@ -23,7 +23,7 @@ void check(int x, int digits) {
   try {
     x.toStringAsExponential(digits);
     passed = true;
-  } catch(var e) {
+  } catch(e) {
     // TODO: specify exact type
   }
   if(passed) {

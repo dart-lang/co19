@@ -18,7 +18,7 @@ check(list, arg) {
   try {
     list.forEach(arg);
     Expect.fail("ObjectNotClosureException expected.");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
 }
 
 main() {

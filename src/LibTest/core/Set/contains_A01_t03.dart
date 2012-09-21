@@ -21,5 +21,5 @@ main() {
   try {
     s.contains(new A());
     Expect.fail("Expected NoSuchMethodError.");
-  } catch (NoSuchMethodError e) {}
+  } on NoSuchMethodError catch(e) {}
 }

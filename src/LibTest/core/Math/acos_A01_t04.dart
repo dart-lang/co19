@@ -17,6 +17,6 @@ main() {
   try {
     Math.acos(null);
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 
 }

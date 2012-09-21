@@ -41,6 +41,6 @@ void check(List arg1, List arg2, [String reason = null]) {
   try {
     Expect.listEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

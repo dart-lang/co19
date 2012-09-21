@@ -16,5 +16,5 @@ main() {
   try {
     map[null] = 1;
     Expect.fail("NullPointerException is expected");
-  } catch(NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }

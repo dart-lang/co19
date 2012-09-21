@@ -21,5 +21,5 @@ void main() {
 
     rPort.receive(null);
     sPort.send(2, sPort);
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
 }

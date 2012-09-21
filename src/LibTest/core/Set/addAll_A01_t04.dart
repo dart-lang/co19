@@ -22,6 +22,6 @@ main() {
   try {
     s.addAll([1, 2, new A()]);
     Expect.fail("Expected NoSuchMethodError.");
-  } catch (NoSuchMethodError e) {
+  } on NoSuchMethodError catch(e) {
   }
 }

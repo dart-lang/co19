@@ -30,6 +30,6 @@ void check(Iterable arg1, Iterable arg2, [String reason = null]) {
   try {
     Expect.listEquals(arg1, arg2, reason);
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 }

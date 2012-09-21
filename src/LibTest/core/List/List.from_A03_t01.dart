@@ -15,5 +15,5 @@ main() {
   try {
     List a = new List.from(null);
     Expect.fail("NullPointerException expected when calling List.from()");
-  } catch(NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 }

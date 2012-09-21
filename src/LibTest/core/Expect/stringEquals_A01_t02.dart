@@ -32,6 +32,6 @@ void check(String arg1, String arg2, [String reason = null]) {
   try {
     Expect.stringEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

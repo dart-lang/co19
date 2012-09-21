@@ -14,7 +14,7 @@ check(list, arg) {
   try {
     list.getRange(0, arg);
     Expect.fail("IllegalArgumentException expected when calling List.getRange()");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 }
 
 main() {

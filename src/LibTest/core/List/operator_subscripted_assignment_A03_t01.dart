@@ -17,14 +17,14 @@ void check(List a) {
   try {
     a[null] = new Object();
     Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 
   checkTypeError( () {
     try {
       var idx = '0';
       a[idx] = new Object();
       Expect.fail("expected IllegalArgumentException");
-    } catch(IllegalArgumentException ok) {}
+    } on IllegalArgumentException catch(ok) {}
   });
 
   checkTypeError( () {
@@ -32,7 +32,7 @@ void check(List a) {
       var idx = 2.1;
       a[idx] = new Object();
       Expect.fail("expected IllegalArgumentException");
-    } catch(IllegalArgumentException ok) {}
+    } on IllegalArgumentException catch(ok) {}
   });
 
   checkTypeError( () {
@@ -40,7 +40,7 @@ void check(List a) {
       var idx = a;
       a[idx] = new Object();
       Expect.fail("expected IllegalArgumentException");
-    } catch(IllegalArgumentException ok) {}
+    } on IllegalArgumentException catch(ok) {}
   });
 }
 

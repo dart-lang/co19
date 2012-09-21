@@ -22,6 +22,6 @@ void check(List<String> arr) {
   try {
     Strings.concatAll(arr);
     Expect.fail("NullPointerException expected");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 }

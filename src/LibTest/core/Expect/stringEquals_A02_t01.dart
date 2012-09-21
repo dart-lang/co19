@@ -28,7 +28,7 @@ void check(var exp, var act, String arg1, [String arg2 = null, String reason = n
   try {
     Expect.stringEquals(exp, act, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
 //    print(e.message);
     if (!e.message.contains(exp.toString(), 0)) throw "no expected value";
     if (!e.message.contains(act.toString(), 0)) throw "no actual value";

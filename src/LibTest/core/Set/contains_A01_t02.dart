@@ -18,6 +18,6 @@ main() {
   try {
     s.contains(null);
     Expect.fail("Expected NullPointerException.");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 }

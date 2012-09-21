@@ -20,5 +20,5 @@ main() {
  try {
    f.exception;
    Expect.fail("FutureNotCompleteException is expected");
- } catch(FutureNotCompleteException e) {}
+ } on FutureNotCompleteException catch(e) {}
 }

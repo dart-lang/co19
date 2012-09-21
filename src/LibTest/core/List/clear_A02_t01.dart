@@ -17,14 +17,14 @@ main() {
   try {
     a.clear();
     Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   a = new List(1);
   a[0] = null;
   try {
     a.clear();
     Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   a = new List(3);
   a[0] = 1;
@@ -33,16 +33,16 @@ main() {
   try {
     a.clear();
     Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   a = new List(89356);
   try {
     a.clear();
     Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     const [].clear();
     Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 }

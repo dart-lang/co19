@@ -15,7 +15,7 @@ check(a) {
   try {
     a.removeLast();
     Expect.fail("IndexOutOfRangeException expected when calling a.removeLast()");
-  } catch( IndexOutOfRangeException ok ) {}
+  } on IndexOutOfRangeException catch(ok) {}
 }
 
 main() {

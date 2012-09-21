@@ -14,7 +14,7 @@ void check(List l, int start, int length) {
   try {
     l.removeRange(start, length);
     Expect.fail("NullPointerException expected when calling List.removeRange()");
-  } catch(NullPointerException ok) {}   
+  } on NullPointerException catch(ok) {}   
 }
 
 main() {

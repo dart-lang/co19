@@ -17,7 +17,7 @@ checkList(dst, dstOffset, count, src) {
   try {
     dst.setRange(dstOffset, count, src, 0);
     Expect.fail("expected IndexOutOfRangeException");
-  } catch(IndexOutOfRangeException ok) {}
+  } on IndexOutOfRangeException catch(ok) {}
 }
 
 void check(int dstSize, int srcSize, int dstOffset, int count) {

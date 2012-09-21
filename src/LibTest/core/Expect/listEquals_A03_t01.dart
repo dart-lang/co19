@@ -42,7 +42,7 @@ void check(List arg1, List arg2, [String reason = null, int index = 0]) {
   try {
     Expect.listEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
     if(arg1.length !== arg2.length) {
       if(!e.message.contains(arg1.length.toString(), 0) && !e.message.contains(arg2.length.toString(), 0)) {
         throw "exception message ( ${e.message} ) doesn't mention list lengths";

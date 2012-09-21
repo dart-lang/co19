@@ -18,7 +18,7 @@ void check(int dstSize, int srcSize, int length) {
   try {
     dst.setRange(0, length, src);
     Expect.fail("expected IndexOutOfRangeException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 
   dst = new List();
   dst.length = dstSize;
@@ -27,7 +27,7 @@ void check(int dstSize, int srcSize, int length) {
   try {
     dst.setRange(0, length, src);
     Expect.fail("expected IndexOutOfRangeException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 }
 
 main() {

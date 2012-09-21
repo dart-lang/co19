@@ -15,29 +15,29 @@ void main() {
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 
   a = new List(0);
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 
   a = new List();
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 
   a = new List.from([]);
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 
   a = [];
   try {
     a[null];
     Expect.fail("expected IllegalArgumentException");
-  } catch(IllegalArgumentException ok) {}
+  } on IllegalArgumentException catch(ok) {}
 }

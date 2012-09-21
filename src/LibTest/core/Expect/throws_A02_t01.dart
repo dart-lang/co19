@@ -29,7 +29,7 @@ void check(test tFun, [checkFn checkFun = null, String reason = null]) {
   try {
     Expect.throws(tFun, checkFun, reason);
     Expect.fail("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
     if (!e.message.contains(reason, 0)) throw "reason ($reason) not mentioned in ExpectException message (${e.message})";
   }
 }

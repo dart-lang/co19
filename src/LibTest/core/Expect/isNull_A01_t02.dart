@@ -35,6 +35,6 @@ void check(var arg, [String reason = null]) {
   try {
     Expect.isNull(arg, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
   }
 }

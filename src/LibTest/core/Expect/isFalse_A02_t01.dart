@@ -34,7 +34,7 @@ void check(var arg, [String reason = null]) {
   try {
     Expect.isFalse(arg, reason);
     throw new Exception("ExpectException expected");
-  } catch (ExpectException e) {
+  } on ExpectException catch(e) {
     if (!e.message.contains(arg !== null ? arg.toString() : "null", 0)) throw "no actual value";
     if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason";
   }

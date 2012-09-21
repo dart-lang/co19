@@ -14,7 +14,7 @@ check(list) {
   try {
     list.setRange(0, 1, null);
     Expect.fail("expected NPE");
-  } catch(NullPointerException ok) {}
+  } on NullPointerException catch(ok) {}
 }
 
 main() {

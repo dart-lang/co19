@@ -25,7 +25,7 @@ void check(int i, int r) {
   try {
     i.toRadixString(r);
     Expect.fail("Some exception expected");
-  } catch (var e) {
+  } catch(e) {
     // TODO: specify exact exception type
   }
 }

@@ -16,11 +16,11 @@
 void check(Set<int> s) {
   try {
     s.containsAll([null]);
-  } catch (NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 
   try {
     s.containsAll([1, 2, null]);
-  } catch (NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
 
 main() {

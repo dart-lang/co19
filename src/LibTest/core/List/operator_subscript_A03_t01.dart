@@ -19,7 +19,7 @@ check(List a) {
       var idx = 0.1;
       a[idx];
       Expect.fail("expected IllegalArgumentException");
-    } catch(IllegalArgumentException ok) {}
+    } on IllegalArgumentException catch(ok) {}
   });
 
   checkTypeError( () {
@@ -27,7 +27,7 @@ check(List a) {
       var idx = '23';
       a[idx];
       Expect.fail("expected IllegalArgumentException");
-    } catch(IllegalArgumentException ok) {}
+    } on IllegalArgumentException catch(ok) {}
   });
 
   checkTypeError( () {
@@ -35,7 +35,7 @@ check(List a) {
       var idx = false;
       a[idx];
       Expect.fail("expected IllegalArgumentException");
-    } catch(IllegalArgumentException ok) {}
+    } on IllegalArgumentException catch(ok) {}
   });
  
 }

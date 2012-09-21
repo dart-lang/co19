@@ -40,6 +40,6 @@ main() {
     var c = new C();
     Expect.listEquals([c], [c]);
     check(false);
-  } catch (ExpectException ee) {
+  } on ExpectException catch(ee) {
   }
 }

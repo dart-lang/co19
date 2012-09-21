@@ -16,7 +16,7 @@ checkList(l, start, length) {
   try {
     l.removeRange(start, length);
     Expect.fail("IndexOutOfRangeException expected when calling List.removeRange()");
-  } catch(IndexOutOfRangeException ok) {}
+  } on IndexOutOfRangeException catch(ok) {}
 }
 
 void check(int listSize, int start, int length) {

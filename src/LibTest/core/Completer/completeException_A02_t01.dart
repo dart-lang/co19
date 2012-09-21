@@ -20,5 +20,5 @@ main() {
   try {
     completer.completeException(null);
     Expect.fail('IllegalArgumentException is expected');
-  } catch(IllegalArgumentException e) {}
+  } on IllegalArgumentException catch(e) {}
 }

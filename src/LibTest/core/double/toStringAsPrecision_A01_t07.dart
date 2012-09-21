@@ -16,7 +16,7 @@ main() {
   try {
     .1.toStringAsPrecision(22);
     fail = true;
-  } catch (var e) {}
+  } catch(e) {}
   if(fail) {
     Expect.fail("Expected exception");
   }

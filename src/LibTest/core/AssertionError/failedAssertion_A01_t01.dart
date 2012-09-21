@@ -20,7 +20,7 @@ main() {
   try {
     assert(true == false);
     throw "AssertionError expected";
-  } catch (AssertionError e) {
+  } on AssertionError catch(e) {
     Expect.equals("true == false", e.failedAssertion);
   }
 }

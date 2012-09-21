@@ -1,3 +1,4 @@
+#! scripts tag
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -13,10 +14,8 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer msyabro
- * @note Issue 732
  */
 
-#! scripts tag
 
 #library("Library_with_all_directives");
 
@@ -25,8 +24,6 @@
 
 #source('source.dart');
 #source('source3.dart');
-
-#resource("favicon.ico"); //VM reports error - issue 732
 
 main() {
 }

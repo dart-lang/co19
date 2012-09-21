@@ -22,7 +22,7 @@ main() {
     list.forEach(void func(var element) {
       throw ++count;
     });
-  } catch(Object e) {
+  } on Object catch(e) {
     Expect.equals(1, count);
   }
 }

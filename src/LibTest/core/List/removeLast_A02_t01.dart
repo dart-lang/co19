@@ -19,10 +19,10 @@ main() {
   try {
     a.removeLast();
     Expect.fail("UnsupportedOperationException expected when calling a.removeLast()");
-  } catch( UnsupportedOperationException ok ) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     const[1].removeLast();
     Expect.fail("UnsupportedOperationException expected when calling a.removeLast()");
-  } catch( UnsupportedOperationException ok ) {}
+  } on UnsupportedOperationException catch(ok) {}
 }

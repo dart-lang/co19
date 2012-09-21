@@ -15,19 +15,19 @@ main() {
   try {
     [].iterator().next();
     Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } catch( NoMoreElementsException ok ) { }
+  } on NoMoreElementsException catch(ok) { }
 
   try {
     const [].iterator().next();
     Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } catch( NoMoreElementsException ok ) { }
+  } on NoMoreElementsException catch(ok) { }
 
   List a = new List(0);
   Iterator it = a.iterator();
   try {
     it.next();
     Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } catch( NoMoreElementsException ok ) { }
+  } on NoMoreElementsException catch(ok) { }
 
   a = new List(null);
   a.add(null);
@@ -36,5 +36,5 @@ main() {
   try {
     it.next();
     Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } catch( NoMoreElementsException ok ) { }
+  } on NoMoreElementsException catch(ok) { }
 }

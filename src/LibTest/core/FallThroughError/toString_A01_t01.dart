@@ -17,7 +17,7 @@
 main() {
   try {
     throw const FallThroughError();
-  } catch (FallThroughError e) {
+  } on FallThroughError catch(e) {
     Expect.isTrue(e.toString() != null);
     Expect.isTrue(e.toString() is String);
   }

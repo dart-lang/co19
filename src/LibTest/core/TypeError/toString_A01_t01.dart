@@ -19,7 +19,7 @@ main() {
     try {
       int x = true;
       Expect.fail("TypeError expected");
-    } catch (TypeError e) {
+    } on TypeError catch(e) {
       Expect.isTrue(e.toString() != null);
       Expect.isTrue(e.toString() is String);
     }

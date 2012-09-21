@@ -28,11 +28,11 @@ void check(List a, int size) {
   try {
     a[-1] = 0;
     Expect.fail("expected IndexOutOfRangeException");
-  } catch(IndexOutOfRangeException ok) {}
+  } on IndexOutOfRangeException catch(ok) {}
   try {
     a[size] = 0;
     Expect.fail("expected IndexOutOfRangeException");
-  } catch(IndexOutOfRangeException ok) {}
+  } on IndexOutOfRangeException catch(ok) {}
 }
 
 main() {
@@ -41,7 +41,7 @@ main() {
   try {
     a[0] = 1;
     Expect.fail("expected IndexOutOfRangeException");
-  } catch(IndexOutOfRangeException ok) {}
+  } on IndexOutOfRangeException catch(ok) {}
 
   check(new List(1), 1);
   check(new List(42), 42);

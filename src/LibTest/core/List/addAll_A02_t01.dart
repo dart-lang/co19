@@ -17,7 +17,7 @@ void check(list, collection) {
   try {
     list.addAll(collection);
     Expect.fail("UnsupportedOperationException expected when calling a.addAll()");
-  } catch(UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 }
 
 main() {

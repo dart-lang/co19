@@ -18,21 +18,21 @@ main() {
     try {
       List a = new List(0.1);
       Expect.fail("IllegalArgumentException is expected");
-    } catch(IllegalArgumentException e) {}
+    } on IllegalArgumentException catch(e) {}
   });
 
   checkTypeError( () {
     try {
       List a = new List("1");
       Expect.fail("IllegalArgumentException is expected");
-    } catch(IllegalArgumentException e) {}
+    } on IllegalArgumentException catch(e) {}
   });
 
   checkTypeError( () {
     try {
       List a = new List(true);
       Expect.fail("IllegalArgumentException is expected");
-    } catch(IllegalArgumentException e) {}
+    } on IllegalArgumentException catch(e) {}
   });
 
 }

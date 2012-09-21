@@ -18,7 +18,7 @@ main() {
   try {
     Expect.throws((){throw new Exception();}, (e){throw err;});
     Expect.fail("should not reach here");
-  } catch (int i) {
+  } on int catch(i) {
     Expect.identical(err, i);
   }
 }

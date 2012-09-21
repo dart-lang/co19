@@ -14,32 +14,32 @@ check(List l) {
   try {
     l.clear();
     Expect.fail("UnsupportedOperationException expected");
-  } catch (UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     l.length = 123;
     Expect.fail("UnsupportedOperationException expected");
-  } catch (UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     l.add(null);
     Expect.fail("UnsupportedOperationException expected");
-  } catch (UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     l.removeLast();
     Expect.fail("UnsupportedOperationException expected");
-  } catch (UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     l.insertRange(0,1);
     Expect.fail("UnsupportedOperationException expected");
-  } catch (UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
   try {
     l.removeRange(0,1);
     Expect.fail("UnsupportedOperationException expected");
-  } catch (UnsupportedOperationException ok) {}
+  } on UnsupportedOperationException catch(ok) {}
 
 }
 

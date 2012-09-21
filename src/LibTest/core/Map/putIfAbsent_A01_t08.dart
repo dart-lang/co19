@@ -23,6 +23,6 @@ main() {
   try {
     map.putIfAbsent("1", x);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
   
 }

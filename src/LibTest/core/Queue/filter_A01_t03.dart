@@ -24,7 +24,7 @@ main() {
   try {
     list.filter(null);
     Expect.fail("ObjectNotClosureException is expected");
-  } catch(ObjectNotClosureException e) {}
+  } on ObjectNotClosureException catch(e) {}
   
   Expect.throws(() => list.filter(x));
 }

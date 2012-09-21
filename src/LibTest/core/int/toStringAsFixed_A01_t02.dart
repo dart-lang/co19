@@ -22,7 +22,7 @@ void check(int x, int digits) {
   try {
     x.toStringAsFixed(digits);
     Expect.fail("Some exception is expected");
-  } catch(var e) {
+  } catch(e) {
     // TODO: specify exact type
   }
 }

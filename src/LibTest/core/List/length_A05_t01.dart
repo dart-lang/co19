@@ -16,15 +16,15 @@ main() {
   try {
     a.length = -1;
     Expect.fail("IndexOutOfRangeException expected when setting ga.length to negative");
-  } catch(IndexOutOfRangeException ok){}
+  } on IndexOutOfRangeException catch(ok){}
 
   try {
     [].length = -1;
     Expect.fail("IndexOutOfRangeException expected when setting ga.length to negative");
-  } catch(IndexOutOfRangeException ok){}
+  } on IndexOutOfRangeException catch(ok){}
 
   try {
     new List.from([]).length = -1;
     Expect.fail("IndexOutOfRangeException expected when setting ga.length to negative");
-  } catch(IndexOutOfRangeException ok){}
+  } on IndexOutOfRangeException catch(ok){}
 }

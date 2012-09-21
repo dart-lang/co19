@@ -19,11 +19,11 @@ main() {
   try {
     s.addAll([null]);
     Expect.fail("Expected NullPointerException");
-  } catch (NullPointerException e) {
+  } on NullPointerException catch(e) {
   }
 
   try {
     s.addAll([1, 2, null]);
     Expect.fail("Expected NullPointerException");
-  } catch (NullPointerException e) {}
+  } on NullPointerException catch(e) {}
 }
