@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A reference to a constant variable is a constant expression.
- * @description Checks that a reference to a constant variable can be an element
+ * @assertion A reference to a static constant variable is a constant expression.
+ * @description Checks that a reference to a static constant variable can be an element
  * of a constant list literal and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
@@ -13,11 +13,14 @@
  */
 
 const x = '';
-const bool y = false;
+
+class C {
+  const bool y = false;
+}
 
 final constList = const [
   x,
-  y
+  C.y
 ];
 
 main() {

@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   localVariableDeclaration ‘;’ |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error when the closing bracket enclosing the loop parts is missing.

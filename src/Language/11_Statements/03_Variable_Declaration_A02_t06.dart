@@ -8,7 +8,7 @@
  * a new variable named id with static type Dynamic into the innermost enclosing scope.
  * @description Checks that the variable created by such statement is not
  * available in a scope that is a "sibling" to the one it was declared in.
- * @compile-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -21,5 +21,6 @@ main() {
     {
       id = null;
     }
-  } catch(ok) {}
+    Expect.fail("NoSuchMethodError expected when calling undefined setter.");
+  } on NoSuchMethodError catch (ex) {}
 }

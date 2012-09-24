@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A literal number (10.3) is a constant expression.
+ * @assertion A literal number (11.3) is a constant expression.
  * @description Checks that various literal numbers can be elements of a constant list literal
  * and are, therefore, constant expressions. Minus sign is not a part of a number literal so those
  * are not included in this test.

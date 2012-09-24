@@ -12,7 +12,7 @@
  *   | '$' '{' Expression '}'
  * ;
  * @description Checks that it is a compile-time error if a string interpolation construct
- * does not have the opening brace (and the expression used is not an identifier reference, but a numeric literal).
+ * does not start with IDENTIFIER_NO_DOLLAR or opening brace.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
@@ -21,5 +21,5 @@
 main() {
   try {
     "$1}";
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -10,7 +10,6 @@
  * constant list literal is not a compile-time constant.
  * @compile-error
  * @author msyabro
- * @needsreview 1473
  * @reviewer kaigorodov
  */
 

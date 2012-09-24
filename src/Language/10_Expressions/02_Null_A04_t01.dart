@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class or interface attempt to extend or implement Null.
+ * @assertion It is a compile-time error for a class to attempt to extend or implement Null.
  * @description Checks that Null cannot be extended by a class.
  * @compile-error
  * @author hlodvig

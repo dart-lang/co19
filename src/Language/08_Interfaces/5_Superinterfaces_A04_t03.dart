@@ -12,9 +12,9 @@
  * @reviewer iefremov
  */
 
-interface J extends I {}
+abstract class J implements I {}
 
-interface I extends J {}
+abstract class I implements J {}
 
 class A implements I {}
 

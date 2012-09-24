@@ -4,7 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let c1 and c2 be a pair of constants. Then c1 === c2 iff  c1 == c2.
+ * @assertion Let c1 and c2 be a pair of constants. Then identical(c1, c2) iff:
+ * - c1 evaluates to either null, a constant map, an constant list, an instance
+ *   of bool, num, String or Type and c1 == c2 , OR
+ * - c1 and c2 are constant objects of the same class C and for each member
+ *   ﬁeld of c1 is identical to the corresponding ﬁeld of c2 .
+ * where identical() is the predeﬁned dart function that returns true iff its two
+ * arguments are the same object.
  * @description Checks that two constants are identical iff they are equal.
  * @author msyabro
  * @reviewer rodionov
@@ -14,5 +20,5 @@
 const x = null;
 
 main() {
-  Expect.isTrue(x === null);
+  Expect.isTrue(identical(x, null));
 }

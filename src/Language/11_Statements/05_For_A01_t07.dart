@@ -14,12 +14,12 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   localVariableDeclaration ‘;’ |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error when the iteration variable identifier
+ * @description Checks that it is a runtime error when the iteration variable identifier
  * in a 'identifier in expression' loop variety is not declared prior to the for statement.
- * @compile-error
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -28,5 +28,6 @@
 main() {
   try {
     for (l in new List(5)) break;
-  } catch(x){}
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }

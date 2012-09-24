@@ -11,13 +11,16 @@ isCheckedMode() {
 }
 
 checkTypeError(f()) {
-  try {
-    f();
-    if(isCheckedMode()) {
-      Expect.fail("Type error is expected");
+  if(isCheckedMode()) {
+    try {
+      f();
+      Expect.fail("Type error expected in checking mode");
+    } on TypeError catch(ok) {
     }
-  } on TypeError catch(ok) {
-    if(!isCheckedMode()) {
+  } else {
+    try {
+      f();
+    } on TypeError catch(bad) {
       Expect.fail("Unexpected type error in scripting mode!");
     }
   }

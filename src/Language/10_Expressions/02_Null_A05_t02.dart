@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Invoking a method on null yields a NullPointerException unless the 
- * method is explicitly implemented by class Null.
+ * @assertion  Invoking a method on null yields a NoSuchMethodError or its subclass
+ * NullPointerException unless the method is explicitly implemented by class Null.
  * @description Checks that invoking a method on null yields NullPointerException
  * if the class Null does not explicitly implement it.
  * @author hlodvig

@@ -58,7 +58,7 @@ class B {
 class C {
   const C(): x = 1;
   final x;
-  final int x1;
+  final int x1=-1;
 }
 
 class D {
@@ -67,7 +67,7 @@ class D {
   var x, y = 2, z;
   int a = 1;
   static int typed;
-  static untyped;
+  static var untyped;
 }
 
 class E {
@@ -80,7 +80,7 @@ class F {
   F(): x = 1, y = 2;
   var x, y;
   int x1, y1;
-  var int x2=2, y3=2;
+  var x2=2, y3=2;
 }
 
 class Abstract {

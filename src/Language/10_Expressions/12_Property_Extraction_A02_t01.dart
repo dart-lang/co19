@@ -14,7 +14,7 @@
 
 class C {
   C(): this.v2 = 0;
-  get v1() {return "v1";}
+  get v1 {return "v1";}
   var v2;
 }
 

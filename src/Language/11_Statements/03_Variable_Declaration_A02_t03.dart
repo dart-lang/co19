@@ -7,7 +7,7 @@
  * @assertion A variable declaration statement var id; or var id = e; introduces
  * a new variable named id with static type Dynamic into the innermost enclosing scope.
  * @description Checks that the variable must be declared before it is used.
- * @compile-error
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -16,5 +16,6 @@ main() {
   try {
     Expect.equals(null, i);
     var i;
-  } catch(ok) {}
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }

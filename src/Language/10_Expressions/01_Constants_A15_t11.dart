@@ -15,7 +15,7 @@
  */
 
 class A {
-  static get m() {}
+  static get m {}
 }
 
 const m = A.m;

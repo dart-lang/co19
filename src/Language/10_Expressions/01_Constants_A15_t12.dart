@@ -16,7 +16,7 @@
 
 class A {
   const A();
-  get m() {}
+  get m {}
 }
 
 final a = const A();

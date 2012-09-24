@@ -7,7 +7,7 @@
  * @assertion A case clause introduces a new scope, nested in the lexically surrounding scope.
  * The scope of a case clause ends immediately after the case clause’s statement.
  * @description Checks that the scope of a case clause ends immediately after the case clause’s statement.
- * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -19,5 +19,6 @@ main() {
               break;
       case 2: x++; //isn't declared in this scope
     }
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }
