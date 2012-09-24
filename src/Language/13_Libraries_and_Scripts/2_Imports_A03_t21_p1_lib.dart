@@ -3,4 +3,5 @@
 // BSD-style license that can be found in the LICENSE file.
 
 library Imports_A03_t21_p1_lib;
-import "2_Imports_A03_t21_p3_lib.dart" & export;
+import "2_Imports_A03_t21_p3_lib.dart";
+export "2_Imports_A03_t21_p3_lib.dart";

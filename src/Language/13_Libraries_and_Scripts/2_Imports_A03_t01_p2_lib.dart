@@ -5,4 +5,3 @@
 library Imports_A03_t01_p2_lib;
 
 class foo { }
-bar(int x, bool b) { return 0; }

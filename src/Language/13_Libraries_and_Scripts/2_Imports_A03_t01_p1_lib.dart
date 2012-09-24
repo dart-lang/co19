@@ -5,4 +5,3 @@
 library Imports_A03_t01_p1_lib;
 
 typedef foo();
-typedef num bar(int i, [double d]);

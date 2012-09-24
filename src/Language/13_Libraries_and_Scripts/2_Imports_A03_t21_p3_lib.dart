@@ -4,5 +4,4 @@
 
 library Imports_A03_t21_p3_lib;
 
-typedef foo();
-typedef num bar(int i, [double d]);
+class foo {}

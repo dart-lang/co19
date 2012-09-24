@@ -4,4 +4,5 @@
 
 library Imports_A03_t11_p1_lib;
 
-import "2_Imports_A03_t11_p1_lib2.dart" & export;
+import "2_Imports_A03_t11_p1_lib2.dart";
+export "2_Imports_A03_t11_p1_lib2.dart";
