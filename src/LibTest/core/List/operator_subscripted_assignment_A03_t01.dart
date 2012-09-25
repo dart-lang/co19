@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [IllegalArgumentException] if [index] is [:null:] or invalid.
+ * @assertion Throws [ArgumentError] if [index] is [:null:] or invalid.
  * @description Checks that the exception is thrown, for fixed size and growable arrays.
  * @author varlax
  * @reviewer msyabro
@@ -16,31 +16,31 @@
 void check(List a) {
   try {
     a[null] = new Object();
-    Expect.fail("expected IllegalArgumentException");
-  } on IllegalArgumentException catch(ok) {}
+    Expect.fail("expected ArgumentError");
+  } on ArgumentError catch(ok) {}
 
   checkTypeError( () {
     try {
       var idx = '0';
       a[idx] = new Object();
-      Expect.fail("expected IllegalArgumentException");
-    } on IllegalArgumentException catch(ok) {}
+      Expect.fail("expected ArgumentError");
+    } on ArgumentError catch(ok) {}
   });
 
   checkTypeError( () {
     try {
       var idx = 2.1;
       a[idx] = new Object();
-      Expect.fail("expected IllegalArgumentException");
-    } on IllegalArgumentException catch(ok) {}
+      Expect.fail("expected ArgumentError");
+    } on ArgumentError catch(ok) {}
   });
 
   checkTypeError( () {
     try {
       var idx = a;
       a[idx] = new Object();
-      Expect.fail("expected IllegalArgumentException");
-    } on IllegalArgumentException catch(ok) {}
+      Expect.fail("expected ArgumentError");
+    } on ArgumentError catch(ok) {}
   });
 }
 

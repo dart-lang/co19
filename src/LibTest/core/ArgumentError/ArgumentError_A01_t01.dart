@@ -12,8 +12,8 @@
  */
  
 main() {
-  new IllegalArgumentException(null);
-  new IllegalArgumentException("");
-  new IllegalArgumentException("foo");
-  new IllegalArgumentException("You are not paid to think!");
+  new ArgumentError(null);
+  new ArgumentError("");
+  new ArgumentError("foo");
+  new ArgumentError("You are not paid to think!");
 }

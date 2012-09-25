@@ -12,7 +12,7 @@
  */
  
 main() {
-  IllegalArgumentException e = new IllegalArgumentException(null);
+  ArgumentError e = new ArgumentError(null);
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }

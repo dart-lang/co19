@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Method fails gracefully if supplied with argument of invalid type.
- * @description Throws [IllegalArgumentException] if [start] or [length] is not an int.
+ * @description Throws [ArgumentError] if [start] or [length] is not an int.
  * @author varlax
  * @reviewer iefremov
  */

@@ -16,6 +16,6 @@
 main() {
   try {
     int val = 1 << (-1);
-    Expect.fail("IllegalArgumentException expected for negative argument!");
-  } on IllegalArgumentException catch(ok){}
+    Expect.fail("ArgumentError expected for negative argument!");
+  } on ArgumentError catch(ok){}
 }

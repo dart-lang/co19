@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Method fails gracefully if supplied with argument of invalid type.
- * @description Checks that IllegalArgumentException is thrown.
+ * @description Checks that ArgumentError is thrown.
  * @static-warning
  * @author varlax
  * @reviewer iefremov

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [IllegalArgumentException] if [index] is of invalid type.
+ * @assertion Throws [ArgumentError] if [index] is of invalid type.
  * @description Checks that the exception is thrown as expected.
  * @author varlax
  * @reviewer iefremov
@@ -18,24 +18,24 @@ check(List a) {
     try {
       var idx = 0.1;
       a[idx];
-      Expect.fail("expected IllegalArgumentException");
-    } on IllegalArgumentException catch(ok) {}
+      Expect.fail("expected ArgumentError");
+    } on ArgumentError catch(ok) {}
   });
 
   checkTypeError( () {
     try {
       var idx = '23';
       a[idx];
-      Expect.fail("expected IllegalArgumentException");
-    } on IllegalArgumentException catch(ok) {}
+      Expect.fail("expected ArgumentError");
+    } on ArgumentError catch(ok) {}
   });
 
   checkTypeError( () {
     try {
       var idx = false;
       a[idx];
-      Expect.fail("expected IllegalArgumentException");
-    } on IllegalArgumentException catch(ok) {}
+      Expect.fail("expected ArgumentError");
+    } on ArgumentError catch(ok) {}
   });
  
 }

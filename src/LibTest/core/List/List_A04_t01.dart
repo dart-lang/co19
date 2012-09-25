@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Method fails gracefully if supplied with argument of invalid type.
- * @description Checks that IllegalArgumentException is thrown.
+ * @description Checks that ArgumentError is thrown.
  * @static-warning
  * @author varlax
  * @reviewer iefremov
@@ -17,22 +17,22 @@ main() {
   checkTypeError( () {
     try {
       List a = new List(0.1);
-      Expect.fail("IllegalArgumentException is expected");
-    } on IllegalArgumentException catch(e) {}
+      Expect.fail("ArgumentError is expected");
+    } on ArgumentError catch(e) {}
   });
 
   checkTypeError( () {
     try {
       List a = new List("1");
-      Expect.fail("IllegalArgumentException is expected");
-    } on IllegalArgumentException catch(e) {}
+      Expect.fail("ArgumentError is expected");
+    } on ArgumentError catch(e) {}
   });
 
   checkTypeError( () {
     try {
       List a = new List(true);
-      Expect.fail("IllegalArgumentException is expected");
-    } on IllegalArgumentException catch(e) {}
+      Expect.fail("ArgumentError is expected");
+    } on ArgumentError catch(e) {}
   });
 
 }

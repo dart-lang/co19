@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [IllegalArgumentException] if [length] is negative.
- * @description Checks that IllegalArgumentException is thrown if length is negative.
+ * @assertion Throws an [ArgumentError] if [length] is negative.
+ * @description Checks that ArgumentError is thrown if length is negative.
  * @author iefremov
  * @reviewer msyabro
  * @reviewer varlax
@@ -18,7 +18,7 @@ void check(int dstSize, int srcSize, int length) {
   try {
     dst.setRange(0, length, src);
     Expect.fail("expected IndexOutOfRangeException");
-  } on IllegalArgumentException catch(ok) {}
+  } on ArgumentError catch(ok) {}
 
   dst = new List();
   dst.length = dstSize;
@@ -27,7 +27,7 @@ void check(int dstSize, int srcSize, int length) {
   try {
     dst.setRange(0, length, src);
     Expect.fail("expected IndexOutOfRangeException");
-  } on IllegalArgumentException catch(ok) {}
+  } on ArgumentError catch(ok) {}
 }
 
 main() {

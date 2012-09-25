@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [IllegalArgumentException] if the [length] is negative.
- * @description Checks that IllegalArgumentException is thrown as expected.
+ * @assertion Throws [ArgumentError] if the [length] is negative.
+ * @description Checks that ArgumentError is thrown as expected.
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro
@@ -15,6 +15,6 @@
 main() {
   try {
     List a = new List(-1);
-    Expect.fail("IllegalArgumentException is expected");
-  } on IllegalArgumentException catch(e) {}
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
 }

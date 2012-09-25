@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion null list elements result in an IllegalArgumentException
+ * @assertion null list elements result in an ArgumentError
  * @description Tries to pass a list with null values
  * @author msyabro
  * @reviewer rodionov
@@ -15,8 +15,8 @@
 void check(List list) {
   try {
     String str = new String.fromCharCodes(list);
-    Expect.fail("IllegalArgumentException is expected");
-  } on IllegalArgumentException catch(e) {}
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
 }
 
 main() {

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null as argument results in IllegalArgumentException
- * @description Tries to pass null as argument and expects an IllegalArgumentException
+ * @assertion Passing null as argument results in ArgumentError
+ * @description Tries to pass null as argument and expects an ArgumentError
  * @author rodionov
  * @reviewer pagolubev
  * @needsreview Undocumented
@@ -19,6 +19,6 @@ main() {
 void check(String str1) {
   try {
     str1.concat(null);
-    Expect.fail("IllegalArgumentException is expected");
-  } on IllegalArgumentException catch(e) {}
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
 }

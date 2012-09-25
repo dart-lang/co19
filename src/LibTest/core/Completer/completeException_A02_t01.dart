@@ -6,7 +6,7 @@
 /**
  * @assertion void completeException(Object exception)
  * The argument [exception] should not be [:null:].
- * @description Checks that IllegalArgumentException is thrown
+ * @description Checks that ArgumentError is thrown
  * if [exception] is [:null:].
  * @author msyabro
  * @reviewer kaigorodov
@@ -19,6 +19,6 @@ main() {
 
   try {
     completer.completeException(null);
-    Expect.fail('IllegalArgumentException is expected');
-  } on IllegalArgumentException catch(e) {}
+    Expect.fail('ArgumentError is expected');
+  } on ArgumentError catch(e) {}
 }

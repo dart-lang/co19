@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [IllegalArgumentException] if [length] is negative.
- * @description Checks that an [IllegalArgumentException] is thrown 
+ * @assertion Throws an [ArgumentError] if [length] is negative.
+ * @description Checks that an [ArgumentError] is thrown 
  * if [length] is negative.
  * @author vasya
  * @reviewer iefremov
@@ -14,8 +14,8 @@
 check(list) {
   try {
     list.removeRange(0, -1);
-    Expect.fail("IllegalArgumentException expected when calling List.removeRange()");
-  } on IllegalArgumentException catch(ok) {}
+    Expect.fail("ArgumentError expected when calling List.removeRange()");
+  } on ArgumentError catch(ok) {}
 }
 
 main() {

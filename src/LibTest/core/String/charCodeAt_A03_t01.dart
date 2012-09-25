@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws IllegalArgumentException if [index] is null
- * @description Tries to pass null as argument and expects an IllegalArgumentException
+ * @assertion Throws ArgumentError if [index] is null
+ * @description Tries to pass null as argument and expects an ArgumentError
  * @author msyabro
  * @reviewer rodionov
  * @needsreview undocumented
@@ -15,6 +15,6 @@
 main() {
   try {
     "string".charCodeAt(null);
-    Expect.fail("IllegalArgumentException is expected");
-  } on IllegalArgumentException catch(e) {}
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
 }
