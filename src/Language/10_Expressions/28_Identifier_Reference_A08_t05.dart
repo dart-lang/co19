@@ -8,7 +8,7 @@
  * a user-defined variable, function or label,
  * with the exception of user defined operator named negate.
  * @description Checks that it is a static warning if a variable
- * is named assert.
+ * is named as.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
@@ -16,6 +16,6 @@
  */
 
 main() {
-  var assert;
-  assert = 0;
+  var as;
+  as = 0;
 }

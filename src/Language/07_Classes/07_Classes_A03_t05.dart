@@ -6,19 +6,19 @@
 /**
  * @assertion classDefinition:
  * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   ‘{’ classMemberDefinition* ‘}’
- * ;
- * classMemberDefinition:
- *   metadata declaration ‘;’ |
- *   metadata methodSignature functionBody
- * ;
- * methodSignature:
- *   factoryConstructorSignature
- *   | static? functionSignature
- *   | getterSignature
- *   | setterSignature
- *   | operatorSignature
- *   | constructorSignature initializers?
+ * ‘{’ metadata classMemberDeﬁnition* ‘}’
+ *  ;
+ *  classMemberDeﬁnition:
+ *    declaration ‘;’ |
+ *    methodSignature functionBody
+ *    ;
+ *  methodSignature:
+ *    constructorSignature initializers? |
+ *    factoryConstructorSignature |
+ *    static? functionSignature |
+ *    static? getterSignature |
+ *    static? setterSignature |
+ *    operatorSignature
  * ;
  * @description Checks that there is no compile-time error if a setter
  * method definition does not include a body. This make the class abstract, and 

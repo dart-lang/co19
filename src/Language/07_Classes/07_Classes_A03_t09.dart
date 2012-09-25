@@ -6,19 +6,19 @@
 /**
  * @assertion classDefinition:
  * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   ‘{’ classMemberDefinition* ‘}’
- * ;
- * classMemberDefinition:
- *   metadata declaration ‘;’ |
- *   metadata methodSignature functionBody
- * ;
- * methodSignature:
- *   factoryConstructorSignature
- *   | static? functionSignature
- *   | getterSignature
- *   | setterSignature
- *   | operatorSignature
- *   | constructorSignature initializers?
+ * ‘{’ metadata classMemberDeﬁnition* ‘}’
+ *  ;
+ *  classMemberDeﬁnition:
+ *    declaration ‘;’ |
+ *    methodSignature functionBody
+ *    ;
+ *  methodSignature:
+ *    constructorSignature initializers? |
+ *    factoryConstructorSignature |
+ *    static? functionSignature |
+ *    static? getterSignature |
+ *    static? setterSignature |
+ *    operatorSignature
  * ;
  * @description Checks that it is a compile-time error if a static function
  * method definition does not include a body.

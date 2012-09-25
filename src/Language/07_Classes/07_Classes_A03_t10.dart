@@ -6,19 +6,19 @@
 /**
  * @assertion classDefinition:
  * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   ‘{’ classMemberDefinition* ‘}’
- * ;
- * classMemberDefinition:
- *   metadata declaration ‘;’ |
- *   metadata methodSignature functionBody
- * ;
- * methodSignature:
- *   factoryConstructorSignature |
- *   static? functionSignature |
- *   getterSignature |
- *   setterSignature |
- *   operatorSignature |
- *   constructorSignature initializers?
+ * ‘{’ metadata classMemberDeﬁnition* ‘}’
+ *  ;
+ *  classMemberDeﬁnition:
+ *    declaration ‘;’ |
+ *    methodSignature functionBody
+ *    ;
+ *  methodSignature:
+ *    constructorSignature initializers? |
+ *    factoryConstructorSignature |
+ *    static? functionSignature |
+ *    static? getterSignature |
+ *    static? setterSignature |
+ *    operatorSignature
  * ;
  * @description Checks that various class member method definitions wich are valid according to
  * this syntax do not cause any errors and such class can be instantiated. 

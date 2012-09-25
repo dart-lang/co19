@@ -8,15 +8,14 @@
  * a user-defined variable, function or label,
  * with the exception of user defined operator named negate.
  * @description Checks that it is a static warning if a label
- * is named assert.
+ * is named as.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @needsreview issue 3228
  */
 
 main() {
-  assert: while(true) {
-    break assert;
+  as: while(true) {
+    break as;
   }
 }

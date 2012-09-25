@@ -9,15 +9,16 @@
  * BUILT_IN_IDENTIFIER:
  *   abstract |
  *   as |
- *   assert |
- *   Dynamic |
- *   equals |
+ *   dynamic |
+ *   export |
+ *   external |
  *   factory |
  *   get |
  *   implements |
- *   interface |
- *   negate |
+ *   import |
+ *   library |
  *   operator |
+ *   part |
  *   set |
  *   static |
  *   typedef
@@ -34,26 +35,28 @@ class A {
 main() {
   var abstract;
   abstract;
-  bool assert;
-  assert;
   var as;
   as;
-  Dynamic Dynamic;
-  Dynamic;
-  String equals;
-  equals;
+  dynamic dynamic;
+  dynamic;
+  String export;
+  export;
+  var external;
+  external;
   var factory;
   factory;
   int get;
   get;
   String implements;
   implements;
-  int interface;
-  interface;
-  double negate;
-  negate;
+  int import;
+  import;
+  double library;
+  library;
   int operator;
   operator;
+  dpuble part;
+  part;
   var set;
   set;
   int static;

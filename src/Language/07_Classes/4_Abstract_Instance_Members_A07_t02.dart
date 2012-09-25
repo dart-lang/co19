@@ -22,7 +22,7 @@ class A {
 }
 
 class C extends A {
-  foo([x]){};
+  foo([x]){}
 }
 
 main() {

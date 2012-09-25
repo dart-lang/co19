@@ -6,33 +6,32 @@
 /**
  * @assertion classDefinition:
  * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   ‘{’ classMemberDefinition* ‘}’
+ * ‘{’ metadata classMemberDeﬁnition* ‘}’
+ *  ;
+ *  classMemberDeﬁnition:
+ *    declaration ‘;’ |
+ *    methodSignature functionBody
+ *    ;
+ *  methodSignature:
+ *    constructorSignature initializers? |
+ *    factoryConstructorSignature |
+ *    static? functionSignature |
+ *    static? getterSignature |
+ *    static? setterSignature |
+ *    operatorSignature
  * ;
- * classMemberDefinition:
- *   metadata declaration ‘;’ |
- *   metadata methodSignature functionBody
- * ;
- * methodSignature:
- *   factoryConstructorSignature
- *   | static? functionSignature
- *   | getterSignature
- *   | setterSignature
- *   | operatorSignature
- *   | constructorSignature initializers?
- * ;
- * @description Checks that there is no compile-time error if a static getter
- * method definition does not include a body. This make the class abstract, and 
- * AbstractClassInstantiationError is thrown when instantiation attempted.
+ * @description Checks that there is a compile-time error if a static getter
+ * method definition does not include a body.
+ * @compile-error
  * @author msyabro
  */
 
 class A {
-  static get val();
-  static var _val;
+  static get val;
 }
 
 main() {
   try {
     A a = new A();
-  } on AbstractClassInstantiationError catch (e) {}
+  } catch (e) {}
 }
