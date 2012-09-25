@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Adjacent single line strings are implicitly concatenated
- * to form a single string literal.
+ * to form a single string literal, and so are adjacent multiline strings,
+ * but the two forms may not be mixed.
  * @description Checks that various string literal separated by whitespace
  * are concatenated to form a single string literal.
  * @author msyabro

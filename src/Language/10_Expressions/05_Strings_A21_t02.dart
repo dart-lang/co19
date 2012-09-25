@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adjacent single line strings are implicitly concatenated
+ * to form a single string literal, and so are adjacent multiline strings,
+ * but the two forms may not be mixed.
  * to form a single string literal.
  * @description Checks that the value of a concatenated string literal is correct.
  * @author msyabro

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class or interface to attempt to extend or
+ * @assertion It is a compile-time error for a class to attempt to extend or
  * implement double.
  * @description Checks that a user-defined class cannot implement double.
  * @compile-error

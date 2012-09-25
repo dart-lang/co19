@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class or interface to attempt to extend or implement bool.
+ * @assertion It is a compile-time error for a class to attempt to extend or implement bool.
  * @description Checks that it is a compile-time error when a user-defined class attempts to extend bool.
  * @compile-error
  * @author msyabro

@@ -16,28 +16,20 @@
  *      i, and let vjf be the value of the ﬁeld f in j. If identical(vif , vjf ) for
  *      all ﬁelds f in i, then the value of e is j, otherwise the value of e is i.
  * - Otherwise the value of e is i.
- * In other words, constant objects are canonicalized.
- * @description Checks that a fresh instance of an object is created
- * if any of the fields in i are not identical to the fields in j.
- * @author msyabro
- * @reviewer rodionov
+ * @description Checks that equal strings constructed at compile-time are canonicalized.
+ * @author iefremov
+ * @reviewer msyabro
+ * @needsreview undocumented
+ * @needsreview issue 1918
  */
 
-class A {
-  const A(p1): x = p1, y = 3;
-  final x;
-  final y;
-}
 
 main() {
-  var o1 = const A(1);
-  var o2 = const A(2);
-  Expect.isFalse(o1 === o2);
+  var s1 = "Alea iacta est";
+  var s2 = "Alea iacta est";
+  Expect.isTrue(s1 === s2);
 
-  for(int i = 0; i < 10; i++) {
-    Expect.identical(o1, const A(1));
-    Expect.isFalse(const A(1) === o2);
-    Expect.identical(o2, const A(2));
-    Expect.isFalse(const A(2) === o1);
-  }
+  s1 = "Si finis bonus est," " totum bonum erit";
+  s2 = "Si finis " "bonus est, totum " "bonum erit";
+  Expect.isTrue(s1 === s2);
 }
