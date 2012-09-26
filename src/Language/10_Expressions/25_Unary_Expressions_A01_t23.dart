@@ -20,9 +20,8 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that it's a compile-time error when a '-'
- * precedes a statement that isn't an expression (throw statement).
- * @compile-error
+ * @description Checks that it's no compile-time error when a '-'
+ * precedes a statement that is an expression (throw statement).
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

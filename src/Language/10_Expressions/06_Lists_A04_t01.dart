@@ -5,7 +5,7 @@
  */
 /**
  * @assertion  It is a compile time error if the type argument of a constant
- * list literal includes a type variable.
+ * list literal includes a type parameter.
  * @description Checks that it is a compile-time error if the type argument
  * of a constant list literal includes a type variable.
  * @compile-error
