@@ -14,6 +14,7 @@
 
 main() {
   try {
-    const() {}
+    void const() {}
+    const();
   } catch(x) {}
 }

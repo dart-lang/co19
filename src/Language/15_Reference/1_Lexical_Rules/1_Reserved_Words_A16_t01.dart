@@ -14,4 +14,9 @@
 
 class in { } // error
 
-main() {}
+main() {
+  try {
+    null is in;
+  } catch (anything) {
+  }
+}

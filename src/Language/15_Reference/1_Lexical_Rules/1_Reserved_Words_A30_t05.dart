@@ -4,19 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion "while" is a reserved word.
- * @description Checks that it is a compile-time error when a reserved word "while"
- * is used as a function type alias name.
+ * @assertion "assert" is a reserved word.
+ * @description Checks that it is a compile-time error when a reserved word "assert"
+ * is used as a function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
-
-typedef void while();
 
 main() {
   try {
-    null is while;
+    void assert() {}
+    assert();
   } catch (anything) {
   }
 }

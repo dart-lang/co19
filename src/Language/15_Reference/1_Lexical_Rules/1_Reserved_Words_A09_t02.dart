@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<else> { }
+class A<else> {
+  bool check(x) => x is else;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

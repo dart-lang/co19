@@ -5,14 +5,20 @@
  */
 /**
  * @assertion It is a compile-time error if a built-in identifier is
- * used as the declared name of a class, interface, type variable or type alias.
+ * used as the declared name of a class, type parameter or type alias.
  * @description Checks that it is a compile-time error when a built-in identifier
- * Dynamic is used as the declared name of a type alias.
+ * dynamic is used as the declared name of a type alias.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
+ * @issue 2492
  */
 
-typedef int Dynamic();
+typedef int dynamic();
 
-main() {}
+main() {
+  try {
+    null is dynamic;
+  } catch (anything) {
+  }
+}

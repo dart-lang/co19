@@ -14,4 +14,9 @@
 
 class true { } // error
 
-main() {}
+main() {
+  try {
+    null is true;
+  } catch (anything) {
+  }
+}

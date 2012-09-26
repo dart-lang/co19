@@ -5,15 +5,19 @@
  */
 /**
  * @assertion It is a compile-time error if a built-in identifier is
- * used as the declared name of a class, interface, type variable or type alias.
+ * used as the declared name of a class, type parameter or type alias.
  * @description Checks that it is a compile-time error when a built-in identifier
- * Dynamic is used as the declared name of a type variable.
+ * dynamic is used as the declared name of a type variable.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
  * @note http://code.google.com/p/dart/issues/detail?id=2492 
  */
 
-class A<Dynamic> {}
+class A<dynamic> {
+  bool check(x) => x is dynamic;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

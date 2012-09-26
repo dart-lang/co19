@@ -16,4 +16,9 @@ class C {
   int else;
 }
 
-main() {}
+main() {
+  try {
+    new C().else is int;
+  } catch (anything) {
+  }
+}

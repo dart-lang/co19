@@ -14,4 +14,9 @@
 
 typedef void case();
 
-main() {}
+main() {
+  try {
+    null is case;
+  } catch (anything) {
+  }
+}

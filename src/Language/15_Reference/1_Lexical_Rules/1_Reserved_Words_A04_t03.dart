@@ -14,4 +14,9 @@
 
 typedef void class();
 
-main() {}
+main() {
+  try {
+    null is class;
+  } catch (anything) {
+  }
+}

@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<super> { }
+class A<super> {
+  bool check(x) => x is super;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

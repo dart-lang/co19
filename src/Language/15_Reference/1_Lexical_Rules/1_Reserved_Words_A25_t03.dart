@@ -14,4 +14,9 @@
 
 typedef void true();
 
-main() {}
+main() {
+  try {
+    null is true;
+  } catch (anything) {
+  }
+}

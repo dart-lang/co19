@@ -16,4 +16,9 @@ class C {
   int const;
 }
 
-main() {}
+main() {
+  try {
+    new C().const is int;
+  } catch (anything) {
+  }
+}

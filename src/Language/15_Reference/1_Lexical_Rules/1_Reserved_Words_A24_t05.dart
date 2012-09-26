@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-throw() {}
-
-main() {}
+main() {
+  try {
+    void throw() {}
+    throw();
+  } catch (anything) {
+  }
+}

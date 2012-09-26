@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<case> { }
+class A<case> {
+  bool check(x) => x is case;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

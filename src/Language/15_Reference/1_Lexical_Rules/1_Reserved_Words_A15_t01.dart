@@ -14,4 +14,9 @@
 
 class if { } // error
 
-main() {}
+main() {
+  try {
+    null is if;
+  } catch (anything) {
+  }
+}

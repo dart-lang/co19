@@ -4,19 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion "is" is a reserved word.
- * @description Checks that it is a compile-time error when a reserved word "is"
- * is used as a class name.
+ * @assertion WHITESPACE:
+ * ('\t' | ' ' | NEWLINE)+
+ * ;.
+ * @description Checks that other Unicode whitespaces are not allowed:
+ *  check FORM FEED (U+000C)
+ * @author hlodvig
  * @compile-error
- * @author vasya
- * @reviewer rodionov
+ * @reviewer kaigorodov
  */
 
-class is { } // error
-
 main() {
-  try {
-    null is is;
-  } catch (anything) {
-  }
+	varx=1;
 }

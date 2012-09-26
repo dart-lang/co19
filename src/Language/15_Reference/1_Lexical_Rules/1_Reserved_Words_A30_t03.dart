@@ -4,16 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WHITESPACE:
- * ('\t' | ' ' | NEWLINE)+
- * ;.
- * @description Checks that other Unicode whitespaces are not allowed:
- *  check FORM FEED (U+000C)
- * @author hlodvig
+ * @assertion "assert" is a reserved word.
+ * @description Checks that it is a compile-time error when a reserved word "assert"
+ * is used as a function type alias name.
  * @compile-error
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
+typedef void assert();
+
 main() {
-	varx=1;
+  try {
+    null is assert;
+  } catch (anything) {
+  }
 }

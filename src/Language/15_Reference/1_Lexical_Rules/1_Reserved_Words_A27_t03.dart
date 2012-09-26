@@ -14,4 +14,9 @@
 
 typedef void var();
 
-main() {}
+main() {
+  try {
+    null is var;
+  } catch (anything) {
+  }
+}

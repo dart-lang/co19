@@ -14,4 +14,9 @@
 
 typedef void in();
 
-main() {}
+main() {
+  try {
+    null is in;
+  } catch (anything) {
+  }
+}

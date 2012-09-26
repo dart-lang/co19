@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<const> { }
+class A<const> {
+  bool check(x) => x is const;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

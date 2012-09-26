@@ -14,4 +14,9 @@
 
 typedef void throw();
 
-main() {}
+main() {
+  try {
+    null is throw;
+  } catch (anything) {
+  }
+}

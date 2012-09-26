@@ -14,4 +14,9 @@
 
 class while { } // error
 
-main() {}
+main() {
+  try {
+    null is while;
+  } catch (anything) {
+  }
+}

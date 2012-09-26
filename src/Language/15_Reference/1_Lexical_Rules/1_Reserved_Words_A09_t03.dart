@@ -14,4 +14,9 @@
 
 typedef void else();
 
-main() {}
+main() {
+  try {
+    null is else;
+  } catch (anything) {
+  }
+}

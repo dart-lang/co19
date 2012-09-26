@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<null> { }
+class A<null> {
+  bool check(x) => x is null;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

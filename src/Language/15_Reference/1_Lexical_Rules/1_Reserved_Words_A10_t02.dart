@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<extends> { }
+class A<extends> {
+  bool check(x) => x is extends;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

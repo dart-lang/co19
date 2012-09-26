@@ -14,6 +14,7 @@
 
 main() {
   try {
-    class() {}
+    void class() {}
+    class();
   } catch(x) {}
 }

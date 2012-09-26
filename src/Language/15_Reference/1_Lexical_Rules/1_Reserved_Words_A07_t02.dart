@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<default> { }
+class A<default> {
+  bool check(x) => x is default;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

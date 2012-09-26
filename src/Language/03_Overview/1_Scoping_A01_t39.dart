@@ -16,13 +16,12 @@
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
- * @needsreview issue 2240
  */
 
 typedef f([x, x]);
 
 main() {
   try {
-    f foo = () {};
+    (([x, xx]) {}) is f;
   } catch(x){}
 }

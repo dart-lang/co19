@@ -14,4 +14,9 @@
 
 class final { } // error
 
-main() {}
+main() {
+  try {
+    null is final;
+  } catch (anything) {
+  }
+}

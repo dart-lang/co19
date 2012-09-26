@@ -14,4 +14,9 @@
 
 class for { } // error
 
-main() {}
+main() {
+  try {
+    null is for;
+  } catch (anything) {
+  }
+}

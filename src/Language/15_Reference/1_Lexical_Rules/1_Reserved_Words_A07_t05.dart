@@ -14,6 +14,7 @@
 
 main() {
   try {
-    default() {}
+    void default() {}
+    default();
   } catch(x) {}
 }

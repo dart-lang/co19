@@ -16,4 +16,9 @@ class C {
   int catch;
 }
 
-main() {}
+main() {
+  try {
+    new C().catch is int;
+  } catch (anything) {
+  }
+}

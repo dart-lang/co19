@@ -4,23 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WHITESPACE:
- * ('\t' | ' ' | NEWLINE)+
- * ;.
- * @description Checks that all of these characters are indeed considered
- * whitespace by verifying that all and any of their occurrences within
- * grammatical productions are ignored. 
+ * @assertion "assert" is a reserved word.
+ * @description Checks that it is a compile-time error when a reserved word "assert"
+ * is used as a class name.
+ * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
+class assert { } // error
+
 main() {
-  Expect. 	
-  	 		
-  equals( 	 
-  		3, 1  
-  		+
-  		
-  		
-   	 2);
+  try {
+    null is assert;
+  } catch (anything) {
+  }
 }

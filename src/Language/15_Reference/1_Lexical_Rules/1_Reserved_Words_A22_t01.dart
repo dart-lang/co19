@@ -14,4 +14,9 @@
 
 class switch { } // error
 
-main() {}
+main() {
+  try {
+    null is switch;
+  } catch (anything) {
+  }
+}

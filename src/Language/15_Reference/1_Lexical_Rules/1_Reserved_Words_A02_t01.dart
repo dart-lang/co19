@@ -14,4 +14,9 @@
 
 class case { } // error
 
-main() {}
+main() {
+  try {
+    null is case;
+  } catch (anything) {
+  }
+}

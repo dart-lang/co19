@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile-time error if a built-in identifier is
- * used as the declared name of a class, interface, type variable or type alias.
+ * used as the declared name of a class, type parameter or type alias.
  * @description Checks that it is a compile-time error when a built-in identifier
  * set is used as the declared name of a type alias.
  * @compile-error
@@ -15,4 +15,9 @@
 
 typedef int set();
 
-main() {}
+main() {
+  try {
+    null is set;
+  } catch (anything) {
+  }
+}

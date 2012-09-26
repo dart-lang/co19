@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<return> { }
+class A<return> {
+  bool check(x) => x is return;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

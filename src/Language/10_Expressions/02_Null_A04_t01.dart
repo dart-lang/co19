@@ -16,4 +16,8 @@
 class A extends Null {}
 
 main() {
+  try {
+    new A();
+  } catch (anything) {
+  }
 }

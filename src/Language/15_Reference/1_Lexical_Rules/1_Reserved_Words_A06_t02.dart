@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<continue> { }
+class A<continue> {
+  bool check(x) => x is continue;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

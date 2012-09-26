@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-switch() {}
-
-main() {}
+main() {
+  try {
+    void switch() {}
+    switch():
+  } catch (anything) {
+  }
+}

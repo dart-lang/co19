@@ -14,4 +14,9 @@
 
 class continue { } // error
 
-main() {}
+main() {
+  try {
+    null is continue;
+  } catch (anything) {
+  }
+}

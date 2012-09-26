@@ -14,4 +14,9 @@
 
 typedef void const();
 
-main() {}
+main() {
+  try {
+    null is const;
+  } catch (anything) {
+  }
+}

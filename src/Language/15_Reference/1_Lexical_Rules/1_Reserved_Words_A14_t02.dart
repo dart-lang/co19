@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<for> { }
+class A<for> {
+  bool check(x) => x is for;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

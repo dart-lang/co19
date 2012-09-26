@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-while() {}
-
-main() {}
+main() {
+  try {
+    void while() {}
+    while();
+  } catch (anything) {
+  }
+}

@@ -14,6 +14,7 @@
 
 main() {
   try {
-    final() {}
+    void final() {}
+    final();
   } catch(x) {}
 }

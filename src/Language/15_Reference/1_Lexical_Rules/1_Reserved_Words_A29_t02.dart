@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<while> { }
+class A<while> {
+  bool check(x) => x is while;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

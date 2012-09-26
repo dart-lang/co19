@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<var> { }
+class A<var> {
+  bool check(x) => x is var;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

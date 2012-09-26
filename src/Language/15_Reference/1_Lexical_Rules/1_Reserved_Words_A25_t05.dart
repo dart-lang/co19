@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-true() {}
-
-main() {}
+main() {
+  try {
+    void true() {}
+    true();
+  } catch (anything) {
+  }
+}

@@ -16,4 +16,9 @@ class C {
   int super;
 }
 
-main() {}
+main() {
+  try {
+    new C().super is int;
+  } catch (anything) {
+  }
+}

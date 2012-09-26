@@ -14,6 +14,7 @@
 
 main() {
   try {
-    this() {}
+    void this() {}
+    this();
   } catch(x) {}
 }

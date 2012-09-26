@@ -14,4 +14,9 @@
 
 class default { } // error
 
-main() {}
+main() {
+  try {
+    null is default;
+  } catch (anything) {
+  }
+}

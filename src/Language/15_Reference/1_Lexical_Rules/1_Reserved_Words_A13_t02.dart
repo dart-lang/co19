@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<finally> { }
+class A<finally> {
+  bool check(x) => x is finally;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

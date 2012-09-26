@@ -14,4 +14,9 @@
 
 class new { } // error
 
-main() {}
+main() {
+  try {
+    null is new;
+  } catch (anything) {
+  }
+}

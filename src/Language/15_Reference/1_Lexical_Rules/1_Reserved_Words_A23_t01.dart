@@ -14,4 +14,9 @@
 
 class this { } // error
 
-main() {}
+main() {
+  try {
+    null is this;
+  } catch (anything) {
+  }
+}

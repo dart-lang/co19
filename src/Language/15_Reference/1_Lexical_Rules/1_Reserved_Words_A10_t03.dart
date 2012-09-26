@@ -14,4 +14,9 @@
 
 typedef void extends();
 
-main() {}
+main() {
+  try {
+    null is extends;
+  } catch (anything) {
+  }
+}

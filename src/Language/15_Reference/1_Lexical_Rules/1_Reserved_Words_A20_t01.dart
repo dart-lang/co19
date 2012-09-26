@@ -14,4 +14,9 @@
 
 class return { } // error
 
-main() {}
+main() {
+  try {
+    null is return;
+  } catch (anything) {
+  }
+}

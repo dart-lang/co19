@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<throw> { }
+class A<throw> {
+  bool check(x) => x is throw;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

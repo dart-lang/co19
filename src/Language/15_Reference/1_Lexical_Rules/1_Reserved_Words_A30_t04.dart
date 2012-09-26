@@ -4,16 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WHITESPACE:
- * ('\t' | ' ' | NEWLINE)+
- * ;.
- * @description Checks that other Unicode whitespaces are not allowed:
- *  check NO-BREAK SPACE (U+00A0)
- * @author hlodvig
+ * @assertion "assert" is a reserved word.
+ * @description Checks that it is a compile-time error when a reserved word "assert"
+ * is used as a class member name.
  * @compile-error
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
+class C {
+  int assert;
+}
+
 main() {
-	 var x = 1 ;
+  try {
+    new C().assert is int;
+  } catch (anything) {
+  }
 }

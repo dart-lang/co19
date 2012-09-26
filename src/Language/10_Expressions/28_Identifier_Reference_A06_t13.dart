@@ -5,14 +5,21 @@
  */
 /**
  * @assertion It is a compile-time error if a built-in identifier is
- * used as the declared name of a class, interface, type variable or type alias.
+ * used as the declared name of a class, type parameter or type alias.
  * @description Checks that it is a compile-time error when a built-in identifier
- * Dynamic is used as the declared name of a class.
- * @compile-error
+ * dynamic is used as the declared name of a class.
+ * compile-error
  * @author rodionov
  * @reviewer iefremov
  */
 
-class Dynamic {}
+class dynamic {}
 
-main() {}
+class foo extends dynamic {}
+
+main() {
+  try {
+    null is foo;
+  } catch (anything) {
+  }
+}

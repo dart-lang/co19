@@ -14,4 +14,9 @@
 
 class extends {} // error
 
-main() {}
+main() {
+  try {
+    null is extends;
+  } catch (anything) {
+  }
+}

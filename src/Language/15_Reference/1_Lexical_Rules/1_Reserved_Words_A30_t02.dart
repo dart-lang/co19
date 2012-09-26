@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WHITESPACE:
- * ('\t' | ' ' | NEWLINE)+
- * ;.
- * @description Checks that other Unicode whitespaces are not allowed:
- *  check VERTICAL TAB (U+000B)
- * @author hlodvig
+ * @assertion "assert" is a reserved word.
+ * @description Checks that it is a compile-time error when a reserved word "assert"
+ * is used as a type parameter name.
  * @compile-error
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
+class A<assert> {
+  bool check(x) => x is assert;
+}
+
 main() {
-	varx=1;
+  new A().check(null);
 }

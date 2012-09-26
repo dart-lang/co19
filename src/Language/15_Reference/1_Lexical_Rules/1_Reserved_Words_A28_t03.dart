@@ -14,4 +14,9 @@
 
 typedef void void();
 
-main() {}
+main() {
+  try {
+    null is void;
+  } catch (anything) {
+  }
+}

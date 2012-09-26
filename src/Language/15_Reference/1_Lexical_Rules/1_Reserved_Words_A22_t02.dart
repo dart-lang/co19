@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<switch> { }
+class A<switch> {
+  bool check(x) => x is switch;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

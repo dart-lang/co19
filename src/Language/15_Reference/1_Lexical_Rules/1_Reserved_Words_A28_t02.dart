@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<void> { }
+class A<void> {
+  bool check(x) => x is void;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

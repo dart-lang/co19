@@ -14,4 +14,9 @@
 
 class break { } // error
 
-main() {}
+main() {
+  try {
+    null is break;
+  } catch (anything) {
+  }
+}

@@ -14,4 +14,9 @@
 
 class const { } // error
 
-main() {}
+main() {
+  try {
+    null is const;
+  } catch (anything) {
+  }
+}

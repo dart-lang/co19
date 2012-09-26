@@ -16,4 +16,9 @@ class C {
   int default;
 }
 
-main() {}
+main() {
+  try {
+    new C().default is int;
+  } catch (anything) {
+  }
+}

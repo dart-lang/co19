@@ -16,4 +16,9 @@ class C {
   int while;
 }
 
-main() {}
+main() {
+  try {
+    new C().while is int;
+  } catch (anything) {
+  }
+}

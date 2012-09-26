@@ -14,4 +14,9 @@
 
 typedef void is();
 
-main() {}
+main() {
+  try {
+    null is is;
+  } catch (anything) {
+  }
+}

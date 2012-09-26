@@ -14,6 +14,7 @@
 
 main() {
   try {
-    var() {}
+    void var() {}
+    var();
   } catch(x) {}
 }

@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<catch> { }
+class A<catch> {
+  bool check(x) => x is catch;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

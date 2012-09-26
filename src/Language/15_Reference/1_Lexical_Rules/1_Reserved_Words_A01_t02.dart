@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-class C<break> { }
+class A<break> {
+  bool check(x) => x is break;
+}
 
-main() {}
+main() {
+  new A().check(null);
+}

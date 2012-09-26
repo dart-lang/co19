@@ -12,6 +12,10 @@
  * @reviewer iefremov
  */
 
-if() {}
-
-main() {}
+main() {
+  try {
+    void if() {}
+    if();
+  } catch (anything) {
+  }
+}
