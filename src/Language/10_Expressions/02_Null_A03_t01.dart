@@ -6,13 +6,15 @@
 /**
  * @assertion Attempting to instantiate Null causes a run-time error.
  * @description Checks that Null cannot be instantiated.
- * @author hlodvig
- * @reviewer iefremov
- * @compile-error
+ * @author rodionov
+ * @static-warning new expression references an inaccessible class
  * @needsreview Class Null is inaccessible. This test stub simply holds the assertion text.
  * It may be possible to write one once the reflection framework becomes available.
  */
 
 main() {
-  new Null();
+  try {
+    new Null();
+  } catch(anything) { // 11.11.1 New: If T is not a class accessible in the current scope, a dynamic error occurs.
+  }
 }

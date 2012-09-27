@@ -7,15 +7,12 @@
  * @assertion The run-time type of every object is represented as an instance 
  * of class Type which can be obtained by calling the getter runtimeType declared 
  * in class Object, the root of the Dart class hierarchy.
- * @description Checks that this getter causes a NullPointerException when invoked
- * on a null value.
+ * @description Checks that this getter works with null value, because it is an instance
+ * of type Null which extends Object and should inherit runtimeType.
  * @author rodionov
  */
 
 main() {
-  try {
-    Type bottom = null.runtimeType;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException {//ok
-  }
+    Expect.isTrue(null.runtimeType is Type);
+    // can't test for Null as it's inaccessible at the moment
 }

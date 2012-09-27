@@ -14,12 +14,15 @@
  * @description Checks that the identifier is parsed in a greedy manner and the entire substring from the '$'
  * character to the first non-identifier or '$' character is used, even if there're shorter matches for lexically
  * visible identifiers.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 main() {
   var fo = "bar", foo = "foo";
-  "$fooo";
+  try {
+    "$fooo";
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {
+  }
 }
