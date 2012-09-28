@@ -10,8 +10,6 @@
  * declares a named constructor.
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
- * @needsreview issue 954
  */
 
 class C {
@@ -22,5 +20,6 @@ class C {
 main() {
   try {
     new C();
-  } catch (e) {}
+    Expect.fail("Should throw an NoSuchMethodError");
+  } on NoSuchMethodError catch (e) {}
 }

@@ -7,10 +7,9 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * @description Checks that that no static warning is produced if a type variable hides a class name.
- * Checks also that a type variable really hides a class name by making sure that using it in a new 
- * expression results in a compile-time error.
- * @compile-error
+ * @description Checks that it is a static warning and a dynamic error when a type
+ * parameter hides a class name declared in an enclosing scope.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -25,5 +24,6 @@ class G<C> {
 main() {
   try {
     new G();
+    Expect.fail("Should throw an exception");
   } catch(x){}
 }
