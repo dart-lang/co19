@@ -27,21 +27,21 @@
  
 
 main() {
-  check(@"\bp", "pilot\nsoviet robot\topenoffice",  matchPos: 0);
-  check(@"ot\b", "pilot\nsoviet robot\topenoffice", matchPos: 3);
-  checkNeg(@"\bot", "pilot\nsoviet robot\topenoffice");
-  check(@"\bso", "pilot\nsoviet robot\topenoffice", matchPos: 6);
-  checkNeg(@"so\b", "pilot\nsoviet robot\topenoffice");
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", matchPos: 3);
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ignoreCase: true, matchPos: 10);
-  check(@"\bro", "pilot\nsoviet robot\topenoffice", matchPos: 13);
-  checkNeg(@"r\b", "pilot\nsoviet robot\topenoffice");
-  check(@"\brobot\b", "pilot\nsoviet robot\topenoffice", matchPos: 13);
-  check(@"\b\w{5}\b", "pilot\nsoviet robot\topenoffice", matchPos: 0);
-  check(@"\bop", "pilot\nsoviet robot\topenoffice", matchPos: 19);
-  checkNeg(@"op\b", "pilot\nsoviet robot\topenoffice");
-  check(@"e\b", "pilot\nsoviet robot\topenoffic\u0065", matchPos: 28);
-  checkNeg(@"\be", "pilot\nsoviet robot\topenoffic\u0065");
+  check(r"\bp", "pilot\nsoviet robot\topenoffice",  matchPos: 0);
+  check(r"ot\b", "pilot\nsoviet robot\topenoffice", matchPos: 3);
+  checkNeg(r"\bot", "pilot\nsoviet robot\topenoffice");
+  check(r"\bso", "pilot\nsoviet robot\topenoffice", matchPos: 6);
+  checkNeg(r"so\b", "pilot\nsoviet robot\topenoffice");
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", matchPos: 3);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ignoreCase: true, matchPos: 10);
+  check(r"\bro", "pilot\nsoviet robot\topenoffice", matchPos: 13);
+  checkNeg(r"r\b", "pilot\nsoviet robot\topenoffice");
+  check(r"\brobot\b", "pilot\nsoviet robot\topenoffice", matchPos: 13);
+  check(r"\b\w{5}\b", "pilot\nsoviet robot\topenoffice", matchPos: 0);
+  check(r"\bop", "pilot\nsoviet robot\topenoffice", matchPos: 19);
+  checkNeg(r"op\b", "pilot\nsoviet robot\topenoffice");
+  check(r"e\b", "pilot\nsoviet robot\topenoffic\u0065", matchPos: 28);
+  checkNeg(r"\be", "pilot\nsoviet robot\topenoffic\u0065");
 }
 
 void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false, int matchPos: -1}) {

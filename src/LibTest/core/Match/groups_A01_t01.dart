@@ -29,10 +29,10 @@ main() {
       [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], 
       ["bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc", "bc"]);
 
-  check(@"^(a+)\1*,(\1+)$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", 1, [0, 1, 2], ["aa,aaaa", "aa", "aaaa"],
+  check(r"^(a+)\1*,(\1+)$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", 1, [0, 1, 2], ["aa,aaaa", "aa", "aaaa"],
        multiLine: true);
-  check(@"^(a+)\1*,(\1+)$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", 1, [1], ["aa"], multiLine: true);
-  check(@"^(a+)\1*,(\1+)$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", 1,
+  check(r"^(a+)\1*,(\1+)$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", 1, [1], ["aa"], multiLine: true);
+  check(r"^(a+)\1*,(\1+)$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", 1,
       [2, 1, 2, 0, 2, 2], ["aaaa", "aa", "aaaa", "aa,aaaa", "aaaa", "aaaa"], multiLine: true);
 }
 

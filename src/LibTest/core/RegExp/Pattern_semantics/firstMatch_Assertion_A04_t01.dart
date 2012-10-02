@@ -27,14 +27,14 @@
  
 
 main() {
-  check(@"\Bevil\B", "devils arise\tfor\nevil", matchPos: 1);
-  check(@"[f-z]e\B", "devils arise\tfor\nrevil",  matchPos: 17);
-  check(@"\Bo\B", "devils arise\tfOr\nrevil", ignoreCase: true, matchPos: 14);
-  check(@"\B\w\B", "devils arise\tfor\nrevil", matchPos: 1);
-  check(@"\w\B", "devils arise\tfor\nrevil", matchPos: 0);
-  check(@"\B\w", "devils arise\tfor\nrevil", matchPos: 1);
-  checkNeg(@"\B[a-yA-Y]{4}\B", "devil arise\tforzzx\nevils");
-  check(@"\B\w{4}\B", "devil arise\tforzzx\nevils", matchPos: 13);
+  check(r"\Bevil\B", "devils arise\tfor\nevil", matchPos: 1);
+  check(r"[f-z]e\B", "devils arise\tfor\nrevil",  matchPos: 17);
+  check(r"\Bo\B", "devils arise\tfOr\nrevil", ignoreCase: true, matchPos: 14);
+  check(r"\B\w\B", "devils arise\tfor\nrevil", matchPos: 1);
+  check(r"\w\B", "devils arise\tfor\nrevil", matchPos: 0);
+  check(r"\B\w", "devils arise\tfor\nrevil", matchPos: 1);
+  checkNeg(r"\B[a-yA-Y]{4}\B", "devil arise\tforzzx\nevils");
+  check(r"\B\w{4}\B", "devil arise\tforzzx\nevils", matchPos: 13);
 }
 
 void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false, int matchPos: -1}) {

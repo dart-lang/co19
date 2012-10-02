@@ -11,8 +11,8 @@
  * SINGLE_LINE_STRING:
  *   '"' STRING_CONTENT_DQ* '"'
  *   | ''' STRING_CONTENT_SQ* '''
- *   | '@' ''' (~( ''' | NEWLINE ))* '''
- *   | '@' '"' (~( '"' | NEWLINE ))* '"'
+ *   | 'r' ''' (~( ''' | NEWLINE ))* '''
+ *   | 'r' '"' (~( '"' | NEWLINE ))* '"'
  * ;
  * STRING_CONTENT_DQ:
  *   ~( '\' | '"' | '$' | NEWLINE )
@@ -47,15 +47,15 @@ main() {
   'line separator';
   'paragraph separator';
 
-  @"verticaltab";
-  @"formfeed";
-  @"nextline";
-  @"line separator";
-  @"paragraph separator";
+  r"verticaltab";
+  r"formfeed";
+  r"nextline";
+  r"line separator";
+  r"paragraph separator";
 
-  @'verticaltab';
-  @'formfeed';
-  @'nextline';
-  @'line separator';
-  @'paragraph separator';
+  r'verticaltab';
+  r'formfeed';
+  r'nextline';
+  r'line separator';
+  r'paragraph separator';
 }

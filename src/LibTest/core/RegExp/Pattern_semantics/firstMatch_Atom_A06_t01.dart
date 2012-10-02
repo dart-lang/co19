@@ -24,11 +24,11 @@
  
 
 main() {
-  check(@"[a-z]+", "ABC def ghi", ignoreCase: true, matchPos: 0, expectedGroups: ["ABC"]);
-  check(@"[a-z]+", "ABC def ghi", matchPos: 4, expectedGroups: ["def"]);
-  checkNeg(@"[A-Z]+", "ß", ignoreCase: true);
-  checkNeg(@"[A-Z]+", "\u0131", ignoreCase: true);
-  checkNeg(@"[A-Z]+", "\u017F", ignoreCase: true);
+  check(r"[a-z]+", "ABC def ghi", ignoreCase: true, matchPos: 0, expectedGroups: ["ABC"]);
+  check(r"[a-z]+", "ABC def ghi", matchPos: 4, expectedGroups: ["def"]);
+  checkNeg(r"[A-Z]+", "ß", ignoreCase: true);
+  checkNeg(r"[A-Z]+", "\u0131", ignoreCase: true);
+  checkNeg(r"[A-Z]+", "\u017F", ignoreCase: true);
 }
 
 void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false,

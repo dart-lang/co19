@@ -17,10 +17,10 @@ void check(String str, String pattern, int quantity, {bool multiLine: false, boo
 }
  
 void main() {
-  check("ABCDEF", @"(([A-Z])*)", 2);
-  check("a", @"((((((((a))))))))", 8);
-  check("AEKFCD", @"(ab|cd)+|ef", 1, ignoreCase: true);
-  check("abc", @"((a)|(ab))((c)|(bc))", 6);
-  check("aa", @"(a)(\1)", 2);
-  check("a", @"[a-z]", 0);
+  check("ABCDEF", r"(([A-Z])*)", 2);
+  check("a", r"((((((((a))))))))", 8);
+  check("AEKFCD", r"(ab|cd)+|ef", 1, ignoreCase: true);
+  check("abc", r"((a)|(ab))((c)|(bc))", 6);
+  check("aa", r"(a)(\1)", 2);
+  check("a", r"[a-z]", 0);
 }

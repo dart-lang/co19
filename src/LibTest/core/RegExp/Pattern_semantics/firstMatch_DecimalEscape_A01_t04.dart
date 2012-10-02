@@ -28,12 +28,12 @@
  
 
 main() {
-  check(@"(A)\1", "AA");
-  check(@"\1(A)", "AA");
-  check(@"(A)\1(B)\2", "AABB");
-  check(@"\1(A)(B)\2", "ABB");
-  check(@"((((((((((A))))))))))\1\2\3\4\5\6\7\8\9\10", "AAAAAAAAAAA");
-  check(@"((((((((((A))))))))))\10\9\8\7\6\5\4\3\2\1", "AAAAAAAAAAA");
+  check(r"(A)\1", "AA");
+  check(r"\1(A)", "AA");
+  check(r"(A)\1(B)\2", "AABB");
+  check(r"\1(A)(B)\2", "ABB");
+  check(r"((((((((((A))))))))))\1\2\3\4\5\6\7\8\9\10", "AAAAAAAAAAA");
+  check(r"((((((((((A))))))))))\10\9\8\7\6\5\4\3\2\1", "AAAAAAAAAAA");
 }
 
 void check(String pattern, String testStr) {

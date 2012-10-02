@@ -13,17 +13,17 @@
 main() {
   Expect.isTrue("" is String);
   Expect.isTrue('' is String);
-  Expect.isTrue(@"" is String);
-  Expect.isTrue(@'' is String);
+  Expect.isTrue(r"" is String);
+  Expect.isTrue(r'' is String);
   Expect.isTrue("""""" is String);
   Expect.isTrue('''''' is String);
-  Expect.isTrue(@"""""" is String);
-  Expect.isTrue(@'''''' is String);
+  Expect.isTrue(r"""""" is String);
+  Expect.isTrue(r'''''' is String);
 
   Expect.isTrue("String" is String);
   Expect.isTrue('\x00\x01\x02' is String);
-  Expect.isTrue(@"\\\\\\\\" is String);
-  Expect.isTrue(@'$$$$$' is String);
+  Expect.isTrue(r"\\\\\\\\" is String);
+  Expect.isTrue(r'$$$$$' is String);
   Expect.isTrue("""
                 new line """ is String);
 }

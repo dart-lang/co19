@@ -15,15 +15,15 @@
 main() {
   String str = "";
   str = '';
-  str = @'';
-  str = @"";
+  str = r'';
+  str = r"";
   str = """""";
   str = '''''';
-  str = @"""""";
-  str = @'''''';
+  str = r"""""";
+  str = r'''''';
   str = "abc";
   str = '1234567890';
-  str = @"!@#$%^&*";
+  str = r"!@#$%^&*";
   str = '''
   ''';
   str = """multiline string""";

@@ -19,15 +19,15 @@
  
 
 main() {
-  check(@"ab.de", "abcde", 0, ["abcde"]);
-  check(@".+", "line 1\nline 2", 0, ["line 1"]);
-  check(@".*a.*", "this is a test", 0, ["this is a test"]);
-  check(@".+", @"this is a *&^%$# test", 0, [@"this is a *&^%$# test"]);
-  check(@".+", "....", 0, ["...."]);
-  check(@".+", "abcdefghijklmnopqrstuvwxyz", 0, ["abcdefghijklmnopqrstuvwxyz"]);
-  check(@".+", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 0, ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]);
-  check(@".+", @"`1234567890-=~!@#$%^&*()_+", 0, [@"`1234567890-=~!@#$%^&*()_+"]);
-  check(@".+", @"""|\[{]};:"',<>.?/""", 0, [@"""|\[{]};:"',<>.?/"""]);
+  check(r"ab.de", "abcde", 0, ["abcde"]);
+  check(r".+", "line 1\nline 2", 0, ["line 1"]);
+  check(r".*a.*", "this is a test", 0, ["this is a test"]);
+  check(r".+", r"this is a *&^%$# test", 0, [r"this is a *&^%$# test"]);
+  check(r".+", "....", 0, ["...."]);
+  check(r".+", "abcdefghijklmnopqrstuvwxyz", 0, ["abcdefghijklmnopqrstuvwxyz"]);
+  check(r".+", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 0, ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]);
+  check(r".+", r"`1234567890-=~!@#$%^&*()_+", 0, [r"`1234567890-=~!@#$%^&*()_+"]);
+  check(r".+", r"""|\[{]};:"',<>.?/""", 0, [r"""|\[{]};:"',<>.?/"""]);
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {

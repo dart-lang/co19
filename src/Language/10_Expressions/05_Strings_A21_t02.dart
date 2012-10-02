@@ -20,9 +20,9 @@ main() {
   Expect.equals('a', '' 'a');
   Expect.equals('ab', 'a''b');
   Expect.equals("12", "1""2");
-  Expect.equals(@'\n\n', @'\n'@'\n');
-  Expect.equals("a", ""@"a");
-  Expect.equals('ab', @'a'"b");
+  Expect.equals(r'\n\n', r'\n'r'\n');
+  Expect.equals("a", ""r"a");
+  Expect.equals('ab', r'a'"b");
   Expect.equals('string', 's''t''r''i''n''g');
   Expect.equals("22", '${1 + 1}' "${3 - 1}");
   var s = 'a'

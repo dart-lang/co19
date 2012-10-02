@@ -21,5 +21,5 @@ check(String pattern, [bool multiLine = false, bool ignoreCase = false]) {
 main() {
   check("");
   check("a");
-  check(@"^[^\n\r]+$", true, true);
+  check(r"^[^\n\r]+$", true, true);
 }

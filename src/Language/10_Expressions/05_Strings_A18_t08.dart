@@ -16,5 +16,5 @@
 
 main() {
   int i;
-  checkTypeError( () => i = @"""abc""");
+  checkTypeError( () => i = r"""abc""");
 }

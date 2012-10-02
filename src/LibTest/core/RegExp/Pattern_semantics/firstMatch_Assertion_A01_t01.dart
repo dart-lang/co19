@@ -25,7 +25,7 @@
 main() {
   checkNeg("^m", "pairs\nmakes\tdouble");
   check("^m", "pairs\nmakes\tdouble", multiLine: true);
-  check(@"^\d+", "abc\n123xyz", multiLine: true);
+  check(r"^\d+", "abc\n123xyz", multiLine: true);
   check("^p[a-z]", "pairs\nmakes\tdouble\npesos");
   checkNeg("^p[b-z]", "pairs\nmakes\tdouble\npesos");
   check("^p[b-z]", "pairs\nmakes\tdouble\npesos", multiLine: true);
@@ -33,7 +33,7 @@ main() {
   check("^ab", "abcde");
   checkNeg("^..^e", "ab\ncde");
   checkNeg("^xxx", "yyyyy");
-  check(@"^\^+", "^^^x");
+  check(r"^\^+", "^^^x");
 }
 
 void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {

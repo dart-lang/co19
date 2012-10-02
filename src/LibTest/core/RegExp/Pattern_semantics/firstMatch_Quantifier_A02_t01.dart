@@ -15,14 +15,14 @@
  
 
 main() {
-  check(@"\s+java\s+", "language  java\n", 8, ["  java\n"]);
-  check(@"\s+java\s+", "\t java object", 0, ["\t java "]);
-  checkNeg(@"\s+java\s+", "\t javax package");
-  checkNeg(@"\s+java\s+", "java\n\nobject");
-  check(@"[a-z]+\d+", "x 2 ff 55 x2 as1 z12 abc12.0", 10, ["x2"]);
-  check(@"[a-z]+\d+", "__abc123.0", 2, ["abc123"]);
-  check(@"[a-z]+(\d+)", "x 2 ff 55 x2 as1 z12 abc12.0", 10, ["x2", "2"]);
-  check(@"[a-z]+(\d+)", "__abc123.0", 2, ["abc123", "123"]);
+  check(r"\s+java\s+", "language  java\n", 8, ["  java\n"]);
+  check(r"\s+java\s+", "\t java object", 0, ["\t java "]);
+  checkNeg(r"\s+java\s+", "\t javax package");
+  checkNeg(r"\s+java\s+", "java\n\nobject");
+  check(r"[a-z]+\d+", "x 2 ff 55 x2 as1 z12 abc12.0", 10, ["x2"]);
+  check(r"[a-z]+\d+", "__abc123.0", 2, ["abc123"]);
+  check(r"[a-z]+(\d+)", "x 2 ff 55 x2 as1 z12 abc12.0", 10, ["x2", "2"]);
+  check(r"[a-z]+(\d+)", "__abc123.0", 2, ["abc123", "123"]);
   check("d+", "abcdddddefg", 3, ["ddddd"]);
   checkNeg("o+", "abcdddddefg");
   check("d+", "abcdefg", 3, ["d"]);

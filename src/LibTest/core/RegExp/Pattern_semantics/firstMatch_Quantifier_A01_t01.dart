@@ -28,12 +28,12 @@ main() {
   check("cd*", "abcddddefg", 2, ["cdddd"]);
   check("cx*d", "abcddddefg", 2, ["cd"]);
   check("(x*)(x+)", "xxxxxxx", 0, ["xxxxxxx", "xxxxxx", "x"]);
-  check(@"(\d*)(\d+)", "0123456789", 0, ["0123456789", "012345678", "9"]);
-  check(@"(\d*)\d(\d+)", "0123456789", 0, ["0123456789", "01234567", "9"]);
+  check(r"(\d*)(\d+)", "0123456789", 0, ["0123456789", "012345678", "9"]);
+  check(r"(\d*)\d(\d+)", "0123456789", 0, ["0123456789", "01234567", "9"]);
   check("(x+)(x*)", "xxxxxxx", 0, ["xxxxxxx", "xxxxxxx", ""]);
-  check(@"x*y+$", "xxxxxxyyyyyy", 0, ["xxxxxxyyyyyy"]);
-  check(@"[\d]*[\s]*bc.", "abcdef", 1, ["bcd"]);
-  check(@"bc..[\d]*[\s]*", "abcdef", 1, ["bcde"]);
+  check(r"x*y+$", "xxxxxxyyyyyy", 0, ["xxxxxxyyyyyy"]);
+  check(r"[\d]*[\s]*bc.", "abcdef", 1, ["bcd"]);
+  check(r"bc..[\d]*[\s]*", "abcdef", 1, ["bcde"]);
   check(".*", "a1b2c3", 0, ["a1b2c3"]);
   checkNeg("[xyz]*1", "a0.b2.c3");
 }

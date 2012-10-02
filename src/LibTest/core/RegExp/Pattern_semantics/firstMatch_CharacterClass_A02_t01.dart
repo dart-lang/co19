@@ -30,12 +30,12 @@
 main() {
   check("[^]a", "a\naba");
   check("a[^]", "   a\t\n");
-  check(@"a[^b-z]\s+", "ab an az aY n");
+  check(r"a[^b-z]\s+", "ab an az aY n");
   check("a[^1-9]c", "abc");
   checkNeg("a[^b]c", "abc");
-  check("[^a-z]{4}", @"abc#$%def%&*@ghi");
-  check("[^]", @"abc#$%def%&*@ghi");
-  check(@"[^\b]+", "easy\bto\u0008ride");
+  check("[^a-z]{4}", r"abc#$%def%&*@ghi");
+  check("[^]", r"abc#$%def%&*@ghi");
+  check(r"[^\b]+", "easy\bto\u0008ride");
 }
 
 void check(String pattern, String str) {

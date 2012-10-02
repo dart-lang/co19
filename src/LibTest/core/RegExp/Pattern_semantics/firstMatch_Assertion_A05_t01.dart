@@ -15,7 +15,7 @@
  
 
 main() {
-  check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", 0);
+  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", 0);
 }
 
 void check(String pattern, String str, int matchPos) {

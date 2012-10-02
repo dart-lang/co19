@@ -17,8 +17,8 @@
  
 
 main() {
-  check(@"(a*)b\1+", "baaaac", ["b", ""]);
-  check(@"(a*)*", "b", ["", ""]);
+  check(r"(a*)b\1+", "baaaac", ["b", ""]);
+  check(r"(a*)*", "b", ["", ""]);
 }
 
 void check(String pattern, String str, List<String> expectedGroups) {

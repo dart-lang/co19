@@ -51,19 +51,19 @@ main() {
   check("ab[.]?c", "abc");
   check("a[b]c", "abc");
   check("[a-z][^1-9][a-z]", "a1b  b2c  c3d  def  f4g");
-  check(@"[\*&$]{3}", @"123*&$abc");
-  check(@"[\d][\n][^\d]", "line1\nline2");
-  check(@"[\+--]", ",");
+  check(r"[\*&$]{3}", r"123*&$abc");
+  check(r"[\d][\n][^\d]", "line1\nline2");
+  check(r"[\+--]", ",");
   check("[--0]", "/");
   check("[---]", "-");
   check("[a-cA-C]", "bB");
-  check(@"[\u0061-\u007A]", "f");
+  check(r"[\u0061-\u007A]", "f");
   checkNeg("[]", "a[b\n[]\tc]d");
   checkNeg("[]a", "\0a\0a");
   checkNeg("a[]", "\0a\0a");
   checkNeg("ab[erst]de", "abcde");
-//  check(@"[\d][\12-\14]{1,}[^\d]", "line1\n\n\n\n\nline2");
-//  check(@"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
+//  check(r"[\d][\12-\14]{1,}[^\d]", "line1\n\n\n\n\nline2");
+//  check(r"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
 void check(String pattern, String str) {

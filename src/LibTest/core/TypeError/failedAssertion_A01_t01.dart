@@ -20,21 +20,21 @@ main() {
       int x = true;
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
-      Expect.equals(@"$expr instanceof int", e.failedAssertion);
+      Expect.equals(r"$expr instanceof int", e.failedAssertion);
     }
 
     try {
       bool x = 1;
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
-      Expect.equals(@"$expr instanceof bool", e.failedAssertion);
+      Expect.equals(r"$expr instanceof bool", e.failedAssertion);
     }
 
     try {
       String x = 1;
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
-      Expect.equals(@"$expr instanceof String", e.failedAssertion);
+      Expect.equals(r"$expr instanceof String", e.failedAssertion);
     }
   }
 }

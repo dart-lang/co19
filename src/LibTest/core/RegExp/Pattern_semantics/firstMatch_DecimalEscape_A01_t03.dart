@@ -29,13 +29,13 @@
  */
  
 main() {
-  checkNeg(@"\1");
-  checkNeg(@"\2");
-  checkNeg(@"\3");
-  checkNeg(@"\4");
-  checkNeg(@"\10");
-  checkNeg(@"\100");
-  checkNeg(@"(A)\2", "AA");
+  checkNeg(r"\1");
+  checkNeg(r"\2");
+  checkNeg(r"\3");
+  checkNeg(r"\4");
+  checkNeg(r"\10");
+  checkNeg(r"\100");
+  checkNeg(r"(A)\2", "AA");
 }
 
 void checkNeg(String pattern, [String testStr = ""]) {

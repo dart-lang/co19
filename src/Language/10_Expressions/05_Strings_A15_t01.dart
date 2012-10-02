@@ -12,29 +12,29 @@
  */
 
 main() {
-  Expect.isFalse(@'\n' === '\x0A');
-  Expect.isTrue(@'\n' === '\x5c\x6e');
-  Expect.isFalse(@'\r' === '\x0D');
-  Expect.isFalse(@'\b' === '\x08');
-  Expect.isFalse(@'\t' === '\x09');
-  Expect.isFalse(@'\v' === '\x0B');
-  Expect.isFalse(@'\f' === '\x0C');
+  Expect.isFalse(r'\n' === '\x0A');
+  Expect.isTrue(r'\n' === '\x5c\x6e');
+  Expect.isFalse(r'\r' === '\x0D');
+  Expect.isFalse(r'\b' === '\x08');
+  Expect.isFalse(r'\t' === '\x09');
+  Expect.isFalse(r'\v' === '\x0B');
+  Expect.isFalse(r'\f' === '\x0C');
 
-  Expect.isFalse(@"\x61" === 'a');
-  Expect.isTrue(@"\x61" === '\x5c\x78\x36\x31');
-  Expect.isFalse(@"\x62" === 'b');
-  Expect.isFalse(@"\x63" === 'c');
-  Expect.isFalse(@"\x64" === 'd');
+  Expect.isFalse(r"\x61" === 'a');
+  Expect.isTrue(r"\x61" === '\x5c\x78\x36\x31');
+  Expect.isFalse(r"\x62" === 'b');
+  Expect.isFalse(r"\x63" === 'c');
+  Expect.isFalse(r"\x64" === 'd');
 
-  Expect.isFalse(@'\u2295' === '⊕');
-  Expect.isTrue(@'\u2295' === '\x5c\x752295');
-  Expect.isFalse(@'\u2296' === '⊖');
-  Expect.isFalse(@'\u2297' === '⊗');
-  Expect.isFalse(@'\u2298' === '⊘');
+  Expect.isFalse(r'\u2295' === '⊕');
+  Expect.isTrue(r'\u2295' === '\x5c\x752295');
+  Expect.isFalse(r'\u2296' === '⊖');
+  Expect.isFalse(r'\u2297' === '⊗');
+  Expect.isFalse(r'\u2298' === '⊘');
 
-  Expect.isFalse(@'\u{100}' === 'Ā');
-  Expect.isTrue(@'\u{100}' === '\x5c\x75{100}');
-  Expect.isFalse(@'\u{101}' === 'ā');
-  Expect.isFalse(@'\u{102}' === 'Ă');
-  Expect.isFalse(@'\u{103}' === 'ă');
+  Expect.isFalse(r'\u{100}' === 'Ā');
+  Expect.isTrue(r'\u{100}' === '\x5c\x75{100}');
+  Expect.isFalse(r'\u{101}' === 'ā');
+  Expect.isFalse(r'\u{102}' === 'Ă');
+  Expect.isFalse(r'\u{103}' === 'ă');
 }

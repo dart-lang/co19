@@ -16,5 +16,5 @@
 
 main() {
   int i;
-  checkTypeError( () => i = @"string");
+  checkTypeError( () => i = r"string");
 }

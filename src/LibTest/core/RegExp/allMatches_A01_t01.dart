@@ -13,22 +13,22 @@
  */
  
 main() {
-  check(@"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, false,
+  check(r"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, false,
       [[0, 5, "pilOt"], 
        [6, 18, "soviet\trobot"],
        [20, 30, "openoffice"]]);
 
-  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, false,
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, false,
       [[0, 16, "aaaaaaaaa,aaaaaa", "aaa"],
        [17, 24, "aa,aaaa", "aa"],
        [25, 32, "aaaaa,a", "a"]]);
 
-  check(@"(ab|cd)+|ef", "AEKFCD", false, true,
+  check(r"(ab|cd)+|ef", "AEKFCD", false, true,
        [[4, 6, "CD", "CD"]]);
 
-  checkNeg(@"\bot", "pilot\nsoviet robot\topenoffice");
-  checkNeg(@"\2", "");
-  checkNeg(@"[A-Z]+", "ß", ignoreCase: true);
+  checkNeg(r"\bot", "pilot\nsoviet robot\topenoffice");
+  checkNeg(r"\2", "");
+  checkNeg(r"[A-Z]+", "ß", ignoreCase: true);
 }
   
 // expMatchesData is a list of matchData

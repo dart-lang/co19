@@ -15,12 +15,12 @@ main() {
   check("(ab|cd)+|ef", "AEKFCD", false, true);
   check(".+: gr(a|e)y", "color: grey", false, false);
   check("((a)|(ab))((c)|(bc))", "abc", false, false);
-  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false);
-  check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false);
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false);
+  check(r"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false);
   check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", false, false);
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false);
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true);
-  check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true);
+  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false);
 }
 
 void check(String pattern, String str, bool multiLine, bool ignoreCase) {

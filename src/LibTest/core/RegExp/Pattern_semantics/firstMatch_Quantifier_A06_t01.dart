@@ -15,19 +15,19 @@
  
 
 main() {
-  check(@"\d{2,4}", "the answer is 42",14, ["42"]);
-  checkNeg(@"\d{2,4}", "the 7 movie");
-  check(@"\d{2,4}", "the 20000 Leagues Under the Sea book", 4, ["2000"]);
-  check(@"\d{2,4}", "the Fahrenheit 451 book", 15, ["451"]);
-  check(@"\d{2,4}", "the 1984 novel", 4, ["1984"]);
-  check(@"\d{2,4}", "0a0\u0031\u0031b", 2, ["011"]);
-  check(@"\d{2,4}", "0a0\u0031\u003122b", 2, ["0112"]);
-  check(@"b{2,3}c", "aaabbbbcccddeeeefffff", 4, ["bbbc"]);
-  checkNeg(@"b{42,93}c", "aaabbbbcccddeeeefffff");
-  check(@"b{0,93}c", "aaabbbbcccddeeeefffff", 3, ["bbbbc"]);
-  check(@"bx{0,93}c", "aaabbbbcccddeeeefffff", 6, ["bc"]);
-  check(@".{0,93}", "weirwerdf", 0, ["weirwerdf"]);
-  check(@"((12){2,3}).?.?(\1{0,3})", "12121212121212", 0, ["12121212121212", "121212", "12", "121212"]);
+  check(r"\d{2,4}", "the answer is 42",14, ["42"]);
+  checkNeg(r"\d{2,4}", "the 7 movie");
+  check(r"\d{2,4}", "the 20000 Leagues Under the Sea book", 4, ["2000"]);
+  check(r"\d{2,4}", "the Fahrenheit 451 book", 15, ["451"]);
+  check(r"\d{2,4}", "the 1984 novel", 4, ["1984"]);
+  check(r"\d{2,4}", "0a0\u0031\u0031b", 2, ["011"]);
+  check(r"\d{2,4}", "0a0\u0031\u003122b", 2, ["0112"]);
+  check(r"b{2,3}c", "aaabbbbcccddeeeefffff", 4, ["bbbc"]);
+  checkNeg(r"b{42,93}c", "aaabbbbcccddeeeefffff");
+  check(r"b{0,93}c", "aaabbbbcccddeeeefffff", 3, ["bbbbc"]);
+  check(r"bx{0,93}c", "aaabbbbcccddeeeefffff", 6, ["bc"]);
+  check(r".{0,93}", "weirwerdf", 0, ["weirwerdf"]);
+  check(r"((12){2,3}).?.?(\1{0,3})", "12121212121212", 0, ["12121212121212", "121212", "12", "121212"]);
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {

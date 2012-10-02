@@ -23,9 +23,9 @@ void check(String str, String pattern, List<String> expected, {bool multiLine: f
 
 main() {
   check("ABCDEF", "(([A-Z])*)", ["ABCDEF", "ABCDEF", "F"]);
-  check("a", @"((((((((a))))))))", ["a","a","a","a","a","a","a","a","a"]);
-  check("AEKFCD", @"(ab|cd)+|ef", ["CD", "CD"], ignoreCase: true);
-  check("abc", @"((a)|(ab))((c)|(bc))", ["abc", "a", "a", null, "bc", null, "bc"]);
-  check("aa", @"(a)(\1)", ["aa", "a", "a"]);
-  check("a", @"[a-z]", ["a"]);
+  check("a", r"((((((((a))))))))", ["a","a","a","a","a","a","a","a","a"]);
+  check("AEKFCD", r"(ab|cd)+|ef", ["CD", "CD"], ignoreCase: true);
+  check("abc", r"((a)|(ab))((c)|(bc))", ["abc", "a", "a", null, "bc", null, "bc"]);
+  check("aa", r"(a)(\1)", ["aa", "a", "a"]);
+  check("a", r"[a-z]", ["a"]);
 }

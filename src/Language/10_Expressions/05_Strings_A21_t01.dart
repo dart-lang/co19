@@ -19,13 +19,13 @@ main() {
   Expect.equals('', '' '');
   Expect.equals('', ''
   '');
-  Expect.equals('', ''@'');
+  Expect.equals('', ''r'');
 
   //Empty double-quoted strings
   Expect.equals('', "" "");
   Expect.equals('', ""
   "");
-  Expect.equals('', ""@"");
+  Expect.equals('', ""r"");
 
   //Empty multi-line strings
   Expect.equals('', """""" """""");
@@ -56,7 +56,7 @@ main() {
   Expect.equals('0123', "0" "1" "2" "3");
   Expect.equals('abcdb', 'a''b''c''d'
   "b""");
-  Expect.equals('12', '1'@'2');
+  Expect.equals('12', '1'r'2');
   Expect.equals('11111', """11"""'''111''');
   Expect.equals('1[2, 1, 1]', "${1}"'${[2, 1, 1]}');
   Expect.equals('  abc\n  defa\n  bc', '''

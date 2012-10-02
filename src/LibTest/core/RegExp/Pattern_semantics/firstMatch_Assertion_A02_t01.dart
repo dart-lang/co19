@@ -23,12 +23,12 @@
  
 
 main() {
-  checkNeg(@"s$", "pairs\nmakes\tdouble");
-  check(@"e$", "pairs\nmakes\tdouble");
-  check(@"s$", "pairs\nmakes\tdouble", multiLine: true);
-  check(@"[^e]$", "pairs\nmakes\tdouble", multiLine: true);
-  check(@"es$", "pairs\nmakes\tdoubl\u0065s", multiLine: true);
-  check(@"\$+$", "\$\$\$\$\$\$");
+  checkNeg(r"s$", "pairs\nmakes\tdouble");
+  check(r"e$", "pairs\nmakes\tdouble");
+  check(r"s$", "pairs\nmakes\tdouble", multiLine: true);
+  check(r"[^e]$", "pairs\nmakes\tdouble", multiLine: true);
+  check(r"es$", "pairs\nmakes\tdoubl\u0065s", multiLine: true);
+  check(r"\$+$", "\$\$\$\$\$\$");
 }
 
 void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {

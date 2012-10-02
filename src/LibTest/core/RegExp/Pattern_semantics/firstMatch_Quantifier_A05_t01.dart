@@ -15,15 +15,15 @@
  
 
 main() {
-  check(@"b{2,}c", "aaabbbbcccddeeeefffff",3, ["bbbbc"]);
-  checkNeg(@"b{8,}c", "aaabbbbcccddeeeefffff");
-  check(@"\d{1,}", "wqe456646dsff", 3, ["456646"]);
-  check(@"(123){1,}", "123123", 0, ["123123", "123"]);
-  check(@"(123){1,}?", "123123", 0, ["123", "123"]);
-  check(@"(123){1,}x\1", "123123x123", 0, ["123123x123", "123"]);
-  check(@"x{1,2}x{1,}", "xxxxxxx", 0, ["xxxxxxx"]);
-  check(@"(a{1,2})\1{1,}", "aaaaaaaa", 0, ["aaaaaaaa", "aa"]);
-  check(@"(a{1,2})\1{1,}", "aaaaaaaaa", 0, ["aaaaaaaa", "aa"]);
+  check(r"b{2,}c", "aaabbbbcccddeeeefffff",3, ["bbbbc"]);
+  checkNeg(r"b{8,}c", "aaabbbbcccddeeeefffff");
+  check(r"\d{1,}", "wqe456646dsff", 3, ["456646"]);
+  check(r"(123){1,}", "123123", 0, ["123123", "123"]);
+  check(r"(123){1,}?", "123123", 0, ["123", "123"]);
+  check(r"(123){1,}x\1", "123123x123", 0, ["123123x123", "123"]);
+  check(r"x{1,2}x{1,}", "xxxxxxx", 0, ["xxxxxxx"]);
+  check(r"(a{1,2})\1{1,}", "aaaaaaaa", 0, ["aaaaaaaa", "aa"]);
+  check(r"(a{1,2})\1{1,}", "aaaaaaaaa", 0, ["aaaaaaaa", "aa"]);
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {

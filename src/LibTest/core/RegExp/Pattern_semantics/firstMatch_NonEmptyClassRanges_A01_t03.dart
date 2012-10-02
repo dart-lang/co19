@@ -42,11 +42,11 @@
  */
  
 main() {
-  checkNeg(@"[z-a]", "a");
-  checkNeg(@"[9-0]", "a");
-  checkNeg(@"[b-ac-e]", "a");
-  checkNeg(@"[a-dc-b]", "a");
-  checkNeg(@"[c-eb-a]", "a");
+  checkNeg(r"[z-a]", "a");
+  checkNeg(r"[9-0]", "a");
+  checkNeg(r"[b-ac-e]", "a");
+  checkNeg(r"[a-dc-b]", "a");
+  checkNeg(r"[c-eb-a]", "a");
   
   
 }

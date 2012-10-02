@@ -43,8 +43,8 @@ main() {
   check("[--0]", "/");
   check("[---]", "-");
   check("[a-cA-C]", "bB");
-  check(@"[\u0061-\u007A]", "f");
-  checkNeg(@"[a-z]+", "ABCDEF");
+  check(r"[\u0061-\u007A]", "f");
+  checkNeg(r"[a-z]+", "ABCDEF");
 }
 
 void check(String pattern, String str) {

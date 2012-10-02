@@ -14,6 +14,6 @@
 main() {
   String a = 'b';
   Expect.isTrue('$a' == 'b');
-  Expect.isFalse(@'$a' == 'b');
-  Expect.isTrue (@'$a' == '\$a');
+  Expect.isFalse(r'$a' == 'b');
+  Expect.isTrue (r'$a' == '\$a');
 }

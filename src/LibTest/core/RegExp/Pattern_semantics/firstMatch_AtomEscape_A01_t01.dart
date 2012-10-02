@@ -21,11 +21,11 @@
  
 
 main() {
-  check(@"\b(\w+) \1\b", "do you listen the the band", 14, ["the the", "the"]);
-  check(@"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x01u00FFu00FFx04x04x23", 6, ["x01x01", "x01", null]);
-  check(@"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x05u00FFu00FFx04x04x23", 12, ["u00FFu00FF", "u00FF", "FF"]);
-  check(@"(a*)b\1+", "baaac", 0, ["b", ""]);
-  checkNeg(@"(a*)b\2", "aaaaaaaaab"); //??
+  check(r"\b(\w+) \1\b", "do you listen the the band", 14, ["the the", "the"]);
+  check(r"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x01u00FFu00FFx04x04x23", 6, ["x01x01", "x01", null]);
+  check(r"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x05u00FFu00FFx04x04x23", 12, ["u00FFu00FF", "u00FF", "FF"]);
+  check(r"(a*)b\1+", "baaac", 0, ["b", ""]);
+  checkNeg(r"(a*)b\2", "aaaaaaaaab"); //??
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {

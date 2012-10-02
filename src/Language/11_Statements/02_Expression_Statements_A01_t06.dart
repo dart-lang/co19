@@ -166,8 +166,8 @@ main() {
   "${i}";
 
   //strings
-  @'''''';
-  @"abryvalg";
+  r'''''';
+  r"abryvalg";
   "abyr";
   '''abyr''';
 

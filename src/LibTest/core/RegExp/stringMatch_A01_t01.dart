@@ -15,16 +15,16 @@ main() {
   check("(ab|cd)+|ef", "AEKFCD", false, true, "CD");
   check(".+: gr(a|e)y", "color: grey", false, false, "color: grey");
   check("((a)|(ab))((c)|(bc))", "abc", false, false, "abc");
-  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false, "aaaaaaaaa,aaaaaa");
-  check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false, "aaaaaa,aaaaaaaaa");
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false, "aaaaaaaaa,aaaaaa");
+  check(r"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false, "aaaaaa,aaaaaaaaa");
   check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", false, false, "zaacbbbcac");
-  check(@"s$", "pairs\nmakes\tdouble", true, false, "s");
-  check(@"[^e]$", "pairs\nmakes\tdouble", true, false, "s");
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, "Ot");
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, "et");
-  check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false, "robot");
-  check(@"(?=(a+))", "baaabac", false, false, "");
-  check(@"(?!a|b)|c", "bc", false, false, "");
+  check(r"s$", "pairs\nmakes\tdouble", true, false, "s");
+  check(r"[^e]$", "pairs\nmakes\tdouble", true, false, "s");
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, "Ot");
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, "et");
+  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false, "robot");
+  check(r"(?=(a+))", "baaabac", false, false, "");
+  check(r"(?!a|b)|c", "bc", false, false, "");
 }
 
 void check(String pattern, String str, bool multiLine, bool ignoreCase, String expectedMatch) {

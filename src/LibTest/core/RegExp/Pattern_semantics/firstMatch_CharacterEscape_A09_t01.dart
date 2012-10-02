@@ -19,7 +19,7 @@
  
 
 main() {
-  String nonIdent = @"""~`!@#$%^&*()-+={[}]|\:;'<,>./"?""";
+  String nonIdent = r"""~`!@#$%^&*()-+={[}]|\:;'<,>./"?""";
   
   StringBuffer errStr = new StringBuffer();
   for(int i = 0; i < nonIdent.length; i++) {

@@ -15,9 +15,9 @@
  
 
 main() {
-  check(@"[a-zA-Z]{3}\d{2}", "xa124dfdg08", 6, ["fdg08"]);
-  check(@"b{2}c", "aaabbbbcccddeeeefffff", 5, ["bbc"]);
-  checkNeg(@"b{8}", "aaabbbbcccddeeeefffff");
+  check(r"[a-zA-Z]{3}\d{2}", "xa124dfdg08", 6, ["fdg08"]);
+  check(r"b{2}c", "aaabbbbcccddeeeefffff", 5, ["bbc"]);
+  checkNeg(r"b{8}", "aaabbbbcccddeeeefffff");
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {

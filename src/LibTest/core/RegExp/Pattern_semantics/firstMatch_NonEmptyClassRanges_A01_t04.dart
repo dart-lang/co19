@@ -42,41 +42,41 @@
  */
  
 main() {
-  checkNeg(@"[\db-G]", "a");
-  checkNeg(@"[\Db-G]", "a");
-  checkNeg(@"[\sb-G]", "a");
-  checkNeg(@"[\Sb-G]", "a");
-  checkNeg(@"[\wb-G]", "a");
-  checkNeg(@"[\Wb-G]", "a");
-  checkNeg(@"[\0b-G]", "a");
-//  checkNeg(@"[\bd-G]", "a");
-//  checkNeg(@"[\Bd-G]", "a");
-  checkNeg(@"[\td-G]", "a");
-  checkNeg(@"[\nd-G]", "a");
-  checkNeg(@"[\vd-G]", "a");
-  checkNeg(@"[\fd-G]", "a");
-  checkNeg(@"[\rd-G]", "a");
-  checkNeg(@"[\c0001d-G]", "a");
-  checkNeg(@"[\u0061d-G]", "a");
-  checkNeg(@"[\x0061d-G]", "a");
+  checkNeg(r"[\db-G]", "a");
+  checkNeg(r"[\Db-G]", "a");
+  checkNeg(r"[\sb-G]", "a");
+  checkNeg(r"[\Sb-G]", "a");
+  checkNeg(r"[\wb-G]", "a");
+  checkNeg(r"[\Wb-G]", "a");
+  checkNeg(r"[\0b-G]", "a");
+//  checkNeg(r"[\bd-G]", "a");
+//  checkNeg(r"[\Bd-G]", "a");
+  checkNeg(r"[\td-G]", "a");
+  checkNeg(r"[\nd-G]", "a");
+  checkNeg(r"[\vd-G]", "a");
+  checkNeg(r"[\fd-G]", "a");
+  checkNeg(r"[\rd-G]", "a");
+  checkNeg(r"[\c0001d-G]", "a");
+  checkNeg(r"[\u0061d-G]", "a");
+  checkNeg(r"[\x0061d-G]", "a");
   
-  checkNeg(@"[b-G\d]", "a");
-  checkNeg(@"[b-G\D]", "a");
-  checkNeg(@"[b-G\s]", "a");
-  checkNeg(@"[b-G\S]", "a");
-  checkNeg(@"[b-G\w]", "a");
-  checkNeg(@"[b-G\W]", "a");
-  checkNeg(@"[b-G\0]", "a");
-//  checkNeg(@"[d-G\b]", "a");
-//  checkNeg(@"[d-G\B]", "a");
-  checkNeg(@"[d-G\t]", "a");
-  checkNeg(@"[d-G\n]", "a");
-  checkNeg(@"[d-G\r]", "a");
-  checkNeg(@"[d-G\f]", "a");
-  checkNeg(@"[d-G\v]", "a");
-  checkNeg(@"[d-G\c0001]", "a");
-  checkNeg(@"[d-G\u0061]", "a");
-  checkNeg(@"[d-G\x0061]", "a");
+  checkNeg(r"[b-G\d]", "a");
+  checkNeg(r"[b-G\D]", "a");
+  checkNeg(r"[b-G\s]", "a");
+  checkNeg(r"[b-G\S]", "a");
+  checkNeg(r"[b-G\w]", "a");
+  checkNeg(r"[b-G\W]", "a");
+  checkNeg(r"[b-G\0]", "a");
+//  checkNeg(r"[d-G\b]", "a");
+//  checkNeg(r"[d-G\B]", "a");
+  checkNeg(r"[d-G\t]", "a");
+  checkNeg(r"[d-G\n]", "a");
+  checkNeg(r"[d-G\r]", "a");
+  checkNeg(r"[d-G\f]", "a");
+  checkNeg(r"[d-G\v]", "a");
+  checkNeg(r"[d-G\c0001]", "a");
+  checkNeg(r"[d-G\u0061]", "a");
+  checkNeg(r"[d-G\x0061]", "a");
 }
 
 void checkNeg(String pattern, [String testStr = ""]) {

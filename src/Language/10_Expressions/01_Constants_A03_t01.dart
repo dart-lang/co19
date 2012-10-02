@@ -17,15 +17,15 @@ final constList = const [
   "",
   "test",
   'test',
-  @"test",
-  @'test',
+  r"test",
+  r'test',
   """test
     test""",
   '''test
     test''',
-  @"""test
+  r"""test
     test""",
-  @'''test
+  r'''test
     test'''
 ];
 
@@ -49,7 +49,7 @@ final constListInterpolation = const [
 final constListConcatenation = const [
   '' '',
   "a""b",
-  @"1" @'2',
+  r"1" r'2',
   '''a
   a''' """bb"""
 ];

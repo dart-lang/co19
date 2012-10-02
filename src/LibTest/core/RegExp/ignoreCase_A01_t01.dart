@@ -13,9 +13,9 @@
  
 main() {
   check("(ab|cd)+|ef", "AEKFCD", false, true);
-  check(@"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, false);
-  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, false);
-  check(@"(ab|cd)+|ef", "AEKFCD", false, true);
+  check(r"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, false);
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, false);
+  check(r"(ab|cd)+|ef", "AEKFCD", false, true);
 }
 
 void check(String pattern, String str, bool multiLine, bool ignoreCase) {

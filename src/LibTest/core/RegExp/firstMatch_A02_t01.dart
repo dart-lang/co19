@@ -11,12 +11,12 @@
  */
  
 main() {
-  check(@"\d+", "asfjkasfjkhasfj");
-  check(@"^m", "pairs\nmakes\tdouble");
-  check(@"s$", "pairs\nmakes\tdouble");
-  check(@"^p[b-z]", "pairs\nmakes\tdouble\npesos");
-  check(@"^..^e", "ab\ncde");
-  check(@"\bot", "pilot\nsoviet robot\topenoffice");
+  check(r"\d+", "asfjkasfjkhasfj");
+  check(r"^m", "pairs\nmakes\tdouble");
+  check(r"s$", "pairs\nmakes\tdouble");
+  check(r"^p[b-z]", "pairs\nmakes\tdouble\npesos");
+  check(r"^..^e", "ab\ncde");
+  check(r"\bot", "pilot\nsoviet robot\topenoffice");
 }
 
 void check(String pattern, String str) {
