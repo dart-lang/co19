@@ -7,14 +7,14 @@
  * @assertion Evaluation of the cast expression e as T proceeds as follows:
  * The expression e is evaluated to a value v. Then, if the interface of the class
  * of v is a subtype of T, the cast expression evaluates to v. Otherwise, if v is null,
- * a NullPointerException is thrown. In all other cases, a CastException is thrown.
+ * the cast expression evaluates to v. In all other cases, a CastError is thrown.
  * @description Checks that the type cast operator works as specified when the
  * type of v is a subtype of T.
  * @author rodionov
  * @reviewer iefremov
  */
 
-interface I {}
+abstract class I {}
 class C implements I {
   C(this.x);
   int x;
