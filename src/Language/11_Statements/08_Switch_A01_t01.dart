@@ -69,7 +69,7 @@ switchTestStr(value) {
       {result = 1;}
       break;
       
-    label: case @"""bar""":
+    label: case r"""bar""":
       result = 2;
       break;
 

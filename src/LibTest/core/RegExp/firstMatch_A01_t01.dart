@@ -16,15 +16,15 @@ main() {
   check("(ab|cd)+|ef", "AEKFCD", false, true, [4, 6, "CD", "CD"]);
   check(".+: gr(a|e)y", "color: grey", false, false, [0, 11, "color: grey", "e"]);
   check("((a)|(ab))((c)|(bc))", "abc", false, false, [0, 3, "abc", "a", "a", "", "bc", "", "bc"]);
-  check(@"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false, [0, 16, "aaaaaaaaa,aaaaaa", "aaa"]);
-  check(@"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false, [0, 16, "aaaaaa,aaaaaaaaa", "a"]);
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false, [0, 16, "aaaaaaaaa,aaaaaa", "aaa"]);
+  check(r"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false, [0, 16, "aaaaaa,aaaaaaaaa", "a"]);
   
   // Issue 1290
   check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", false, false, [0, 10, "zaacbbbcac", "z", "ac", "a", "", "c"]);
   
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, [3, 5, "Ot"]);
-  check(@"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, [10, 12, "et"]);
-  check(@"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false, [0, 5, "robot"]);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, [3, 5, "Ot"]);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, [10, 12, "et"]);
+  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false, [0, 5, "robot"]);
 }
 
 void check(String pattern, String str, bool multiLine, bool ignoreCase, List groupData) {

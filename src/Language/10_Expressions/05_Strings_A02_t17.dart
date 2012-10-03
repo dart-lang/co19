@@ -33,6 +33,6 @@
 
 main() {
   try {
-    @'''incorrect string;
+    r'''incorrect string;
   } catch(e) {}
 }

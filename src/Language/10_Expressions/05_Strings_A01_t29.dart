@@ -11,8 +11,8 @@
  * SINGLE_LINE_STRING:
  *   '"' STRING_CONTENT_DQ* '"'
  *   | ''' STRING_CONTENT_SQ* '''
- *   | '@' ''' (~( ''' | NEWLINE ))* '''
- *   | '@' '"' (~( '"' | NEWLINE ))* '"'
+ *   | 'r' ''' (~( ''' | NEWLINE ))* '''
+ *   | 'r' '"' (~( '"' | NEWLINE ))* '"'
  * ;
  * STRING_CONTENT_DQ:
  *   ~( '\' | '"' | '$' | NEWLINE )
@@ -37,6 +37,6 @@
 
 main() {
   try {
-    @`string`;
+    r`string`;
   } catch(e) {}
 }

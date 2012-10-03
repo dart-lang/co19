@@ -21,18 +21,18 @@
  
 
 main() {
-  check(@"Java(?!Script)([A-Z]\w*)", "using of JavaBeans technology", 9, ["JavaBeans", "Beans"]);
-  checkNeg(@"Java(?!Script)([A-Z]\w*)", "using of Java language");
-  checkNeg(@"Java(?!Script)([A-Z]\w*)", "I\"m a JavaScripter");
-  check(@"Java(?!Script)([A-Z]\w*)", "JavaScr oops ipt ", 0, ["JavaScr", "Scr"]);
-  check(@"(\.(?!com|org)|/)", "ah.info", 2, [".", "."]);
-  check(@"(\.(?!com|org)|/)", "ah/info", 2, ["/", "/"]);
-  checkNeg(@"(\.(?!com|org)|/)", "ah.com");
-  check(@"(?!a|b)|c", "", 0, [""]);
-  check(@"(?!a|b)|c", "bc", 1, [""]);
-  check(@"(?!a|b)|c", "d", 0, [""]);
+  check(r"Java(?!Script)([A-Z]\w*)", "using of JavaBeans technology", 9, ["JavaBeans", "Beans"]);
+  checkNeg(r"Java(?!Script)([A-Z]\w*)", "using of Java language");
+  checkNeg(r"Java(?!Script)([A-Z]\w*)", "I\"m a JavaScripter");
+  check(r"Java(?!Script)([A-Z]\w*)", "JavaScr oops ipt ", 0, ["JavaScr", "Scr"]);
+  check(r"(\.(?!com|org)|/)", "ah.info", 2, [".", "."]);
+  check(r"(\.(?!com|org)|/)", "ah/info", 2, ["/", "/"]);
+  checkNeg(r"(\.(?!com|org)|/)", "ah.com");
+  check(r"(?!a|b)|c", "", 0, [""]);
+  check(r"(?!a|b)|c", "bc", 1, [""]);
+  check(r"(?!a|b)|c", "d", 0, [""]);
   
-  check(@"(.*?)a(?!(a+)b\2c)\2(.*)", "baaabaac", 0, ["baaabaac", "ba", null, "abaac"]);
+  check(r"(.*?)a(?!(a+)b\2c)\2(.*)", "baaabaac", 0, ["baaabaac", "ba", null, "abaac"]);
 }
 
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {

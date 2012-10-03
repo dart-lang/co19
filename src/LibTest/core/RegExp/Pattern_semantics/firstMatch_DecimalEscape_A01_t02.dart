@@ -31,7 +31,7 @@
 main() {
   bool fail = false;
   try {
-    RegExp re = new RegExp(@"\00");
+    RegExp re = new RegExp(r"\00");
     fail = true;
   } catch(ok) {}
   if(fail) {//FIXME
@@ -40,7 +40,7 @@ main() {
 
   fail = false;
   try {
-    RegExp re = new RegExp(@"\011");
+    RegExp re = new RegExp(r"\011");
     fail = true;
   } catch(ok) {}
   if(fail) {//FIXME

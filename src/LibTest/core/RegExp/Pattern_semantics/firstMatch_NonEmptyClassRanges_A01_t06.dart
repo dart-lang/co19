@@ -40,12 +40,12 @@
  */
  
 main() {
-  checkNeg(@"(a)[\1]*", "aa");
-  checkNeg(@"(a)(b)[\1\2]*", "abab");
-  checkNeg(@"(a)(b)[\1-\2]*", "abab");
-  checkNeg(@"[\1]?", "a");
-  checkNeg(@"(a)[\1]?", "aa");
-  checkNeg(@"(a)(b)[\1-\2]", "aba");
+  checkNeg(r"(a)[\1]*", "aa");
+  checkNeg(r"(a)(b)[\1\2]*", "abab");
+  checkNeg(r"(a)(b)[\1-\2]*", "abab");
+  checkNeg(r"[\1]?", "a");
+  checkNeg(r"(a)[\1]?", "aa");
+  checkNeg(r"(a)(b)[\1-\2]", "aba");
 }
 
 void checkNeg(String pattern, [String testStr = ""]) {

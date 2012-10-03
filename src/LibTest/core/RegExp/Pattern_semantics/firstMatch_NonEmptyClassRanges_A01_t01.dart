@@ -44,9 +44,9 @@
  */
  
 main() {
-  checkNeg(@"[a-\w]", "a");
-  checkNeg(@"[\W-z]", "a");
-  checkNeg(@"[\W-\d]", "a");
+  checkNeg(r"[a-\w]", "a");
+  checkNeg(r"[\W-z]", "a");
+  checkNeg(r"[\W-\d]", "a");
 }
 
 void checkNeg(String pattern, String str) {

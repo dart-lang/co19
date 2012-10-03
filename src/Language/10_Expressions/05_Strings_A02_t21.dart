@@ -33,6 +33,6 @@
 
 main() {
   try {
-    @''foo''';
+    r''foo''';
   } catch(e) {}
 }

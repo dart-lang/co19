@@ -40,11 +40,11 @@
  */
  
 main() {
-  checkNeg(@"[\B]", "a");
-  checkNeg(@"[a\B]", "a");
-  checkNeg(@"[\B-\B]", "a");
-  checkNeg(@"[\B]?", "a");
-  checkNeg(@"(a)[\B]?", "aa");
+  checkNeg(r"[\B]", "a");
+  checkNeg(r"[a\B]", "a");
+  checkNeg(r"[\B-\B]", "a");
+  checkNeg(r"[\B]?", "a");
+  checkNeg(r"(a)[\B]?", "aa");
 }
 
 void checkNeg(String pattern, [String testStr = ""]) {
