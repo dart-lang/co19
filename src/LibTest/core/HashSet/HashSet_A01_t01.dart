@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion interface HashSet<E extends Hashable>
+ * @assertion interface HashSet<E>
  * HashSet()
  * Creates an empty hash set.
  * @description Checks that an empty hash set is created.

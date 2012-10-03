@@ -7,16 +7,13 @@
  * @assertion Set<E> intersection(Collection<E> other)
  * Returns a new set which is the intersection between this set and
  * the given collection.
- * @description Tries to pass the collection with not hashable elements
+ * @description Checks that Object also works as it implements hashCode()
  * @author msyabro
- * @needsreview This test is correct only if the hash set is default implementation of [Set].
+ * @needsreview This test is valid only if the hash set is default implementation of [Set].
  */
 
 check(Set s, Collection col) {
-  try {
    s.intersection(col);
-   Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
 }
 
 main() {

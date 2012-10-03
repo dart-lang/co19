@@ -19,7 +19,6 @@ class A { }
 
 
 main() {
-
 //  Map<String, String> stringStringMap = new Map<String, String>();
   
 //  Map<SomeFunction, String> funcStringMap = new Map<SomeFunction, String>();

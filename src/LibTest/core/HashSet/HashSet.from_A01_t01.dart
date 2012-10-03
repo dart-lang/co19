@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion interface HashSet<E extends Hashable> 
+ * @assertion interface HashSet<E> 
  * HashSet.from(Iterable<E> other)
  * Creates a [Set] that contains all elements of [other].
  * @description Checks that created hash set contains all elements of [other].
