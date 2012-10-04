@@ -9,9 +9,9 @@ library Library_with_all_directives;
 import '4_Library1.dart';
 import '4_Library2.dart';
 
-part '13_Libraries_and_Scripts_A04_t20_lib_p1';
-part '13_Libraries_and_Scripts_A04_t20_lib_p2';
-part '13_Libraries_and_Scripts_A04_t20_lib_p3';
+part '13_Libraries_and_Scripts_A04_t20_lib_p1.dart';
+part '13_Libraries_and_Scripts_A04_t20_lib_p2.dart';
+part '13_Libraries_and_Scripts_A04_t20_lib_p3.dart';
 
 class Foo {}
 

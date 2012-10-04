@@ -4,6 +4,6 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-part "13_Libraries_and_Scripts_A04_t05_lib_p1";
+part "13_Libraries_and_Scripts_A04_t05_lib_p1.dart";
 
 library Libraries_and_Scripts_A04_t05_lib;

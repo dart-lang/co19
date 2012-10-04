@@ -6,5 +6,5 @@
 
 library Libraries_and_Scripts_A04_t12_lib;
 
-part '13_Libraries_and_Scripts_A04_t12_lib_p1';
+part '13_Libraries_and_Scripts_A04_t12_lib_p1.dart';
 import '13_Libraries_and_Scripts_A04_t02.dart';
