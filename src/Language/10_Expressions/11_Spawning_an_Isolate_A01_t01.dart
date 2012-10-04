@@ -5,39 +5,36 @@
  */
 /**
  * @assertion Spawning an isolate is accomplished via what is syntactically an
- * ordinary library call, invoking the instance method spawn() defined in class Isolate.
+ * ordinary library call, invoking one of the functions spawnUri() or spawnFunction()
+ * defined in the dart:isolate library.
  * However, such calls  have the  semantic effect of creating a new isolate with
  * its own memory and thread of control.
- * @description Checks that a new isolate created with spawn method
- * has its own memory which is not shared with other isolates.
- * @author msyabro
- * @reviewer kaigorodov
+ * @description Checks that a new isolate created with spawnFunction()
+ * has its own memory which is not shared with other isolates, using a top-level
+ * variable to showcase it.
+ * @author rodionov
  */
 
-#import('dart:isolate');
+import 'dart:isolate';
 
 var topLevelVariable;
 
-class TestIsolate extends Isolate {
-  main() {
-    port.receive(void func(var message, SendPort replyTo) {
-      Expect.isNull(topLevelVariable);
-      topLevelVariable = 10;
-      replyTo.send("New value", null);
-      port.close();
-    });
-  }
+void iMain() {
+  port.receive(void func(var message, SendPort replyTo) {
+    Expect.isNull(topLevelVariable);
+    topLevelVariable = 10;
+    replyTo.send("pong", null);
+    port.close();
+  });
 }
 
 main() {
   receiveHandler(var message) {
-    Expect.equals("New value", message);
+    Expect.equals("pong", message);
     Expect.equals(1, topLevelVariable);
   }
 
-  new TestIsolate().spawn().then(void f(SendPort port) {
-    topLevelVariable = 1;
-    port.call('check').then(receiveHandler);
-  });
+  SendPort sp = spawnFunction(iMain);
+  topLevelVariable = 1;
+  sp.call('ping').then(receiveHandler);
 }
-
