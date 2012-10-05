@@ -19,7 +19,7 @@
  * @author iefremov
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 g() {
   port.receive((message, replyTo) {

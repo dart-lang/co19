@@ -5,9 +5,9 @@
  */
 /**
  * @assertion undocumented
- * @description Checks that method throws an exception when given null, an integer or a List.
- * @static-warning
- * @author iefremov
+ * @description Checks that method throws an exception when given an URI that points
+ * to a script that declares a top-level function but it's not named 'main'.
+ * @author rodionov
  * @needsreview documentation looks incomplete
  */
 
@@ -15,7 +15,5 @@ import "dart:isolate";
 
 
 main() {
-  Expect.throws(() => spawnUri(null));
-  Expect.throws(() => spawnUri(1));
-  Expect.throws(() => spawnUri([]));
+  Expect.throws(() => spawnUri("spawnUri_A02_t03_bad_isolate.dart"));
 }

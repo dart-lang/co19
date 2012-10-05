@@ -5,7 +5,7 @@
  */
 
 #library("send_A02_utils");
-#import('dart:isolate');
+import "dart:isolate";
 
 deepListEquals(var expected, var actual) {
   if((expected is! List) || (actual is! List)) {

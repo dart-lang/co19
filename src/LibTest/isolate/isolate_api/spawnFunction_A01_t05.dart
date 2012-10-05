@@ -19,7 +19,7 @@
  * @author iefremov
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 final MSG_NUM = 100;
 

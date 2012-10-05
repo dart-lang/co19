@@ -6,11 +6,11 @@
 /**
  * @assertion Each isolate has its own heap, which means that all values in memory,
  * including globals, are available only to that isolate.
- * @description Checks that global and static variables are independent in different isolates.
+ * @description Checks that each isolate gets their own copy of global and static variables.
  * @author iefremov
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 class A {
   static var statik = "statik";

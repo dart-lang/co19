@@ -51,15 +51,19 @@
  *   
  * We say that the namespace NS has been imported into L.
  * 
- * @description Checks that it is not an error if prefix value duplicates
- * a local identifier.
+ * @description Checks that it is not an error if prefix value duplicates a local (not top-level) identifier.
  * @author rodionov
- * @needsreview issue 3340, 3481
  */
 
 import "2_Imports_lib.dart" as prefix;
 
+class Foo {
+  int foo;
+  
+  Foo(int this.foo);
+}
+
 main() {
-  int prefix = 2;
+  var prefix = new Foo(1);
   Expect.equals(1, prefix.foo);
 }

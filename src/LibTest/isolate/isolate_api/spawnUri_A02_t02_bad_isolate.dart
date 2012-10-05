@@ -4,6 +4,4 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-#library("spawnUri_A02_t02_bad_isolate");
-
-
+library "spawnUri_A02_t02_bad_isolate";

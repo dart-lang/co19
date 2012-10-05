@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-#library("spawnUri_A01_t03_isolate2");
-#import("dart:isolate");
+library "spawnUri_A01_t03_isolate2";
+import "dart:isolate";
 
 main() {
   port.receive((message, replyTo) {

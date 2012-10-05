@@ -4,14 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library Exports_A01_t01_lib;
+library "spawnUri_A02_t03_bad_isolate";
 
-void foo() {};
-
-int bar;
-
-static final bool boo = true;
-
-class C {
-  C() {}
+void notMain() {
+  print("this is not main()!");
 }

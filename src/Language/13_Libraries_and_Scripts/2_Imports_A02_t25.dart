@@ -55,7 +55,6 @@
  * a type variable name.
  * @author iefremov
  * @reviewer kaigorodov
- * @needsreview issues 3340, 3481
  */
 
 import "2_Imports_lib.dart" as prefix;

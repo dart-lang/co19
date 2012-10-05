@@ -12,7 +12,7 @@
  * @reviewer kaigorodov
  */
 
-#import('dart:isolate');
+import "dart:isolate";
 
 void main() {
   ReceivePort r1 = new ReceivePort();

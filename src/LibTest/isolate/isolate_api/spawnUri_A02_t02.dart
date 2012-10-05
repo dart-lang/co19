@@ -6,12 +6,12 @@
 /**
  * @assertion undocumented
  * @description Checks that method throws an exception when given an URI that points
- * to a script that lacks main().
+ * to a script that doesn't declare any top-level functions.
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 
 main() {

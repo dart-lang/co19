@@ -14,7 +14,7 @@
  * @author iefremov
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 main() {
   SendPort send_port = spawnUri("spawnUri_A01_t01_isolate.dart");
@@ -25,4 +25,3 @@ main() {
     port.close();
   });
 }
-

@@ -6,18 +6,17 @@
 /**
  * @assertion The [topLevelFunction] argument must be a static top-level function
  * or a static method that takes no arguments. It is illegal to pass a function closure.
- * @description Checks that method throws an exception when given a static method or
- * a top-level function with more than one positional parameter, or when given
- * a closure or a method.
+ * @description Checks that method throws an exception when passed a static method with one
+ * or more positional parameters, a top-level function with one or more positional parameters, 
+ * a closure or an instance method.
  * @static-warning
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 f(z) {}
-var x = null;
 
 class A{
   m() {}
@@ -28,7 +27,6 @@ main() {
   x = (){};
   Expect.throws(() => spawnFunction((){}));
   Expect.throws(() => spawnFunction(f));
-  Expect.throws(() => spawnFunction(x));
   Expect.throws(() => spawnFunction(new A().m));
   Expect.throws(() => spawnFunction(A.s));
 }

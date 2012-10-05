@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 final MSG_NUM = 100;
 
@@ -18,4 +18,3 @@ main() {
     port.close();
   });
 }
-

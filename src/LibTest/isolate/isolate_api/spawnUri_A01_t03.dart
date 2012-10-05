@@ -11,7 +11,7 @@
  * @author iefremov
  */
 
-#import("dart:isolate");
+import "dart:isolate";
 
 main() {
   SendPort send_port = spawnUri("spawnUri_A01_t03_isolate1.dart");

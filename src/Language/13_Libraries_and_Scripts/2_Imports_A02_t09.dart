@@ -58,7 +58,6 @@
  * @author vasya
  * @reviewer msyabro
  * @reviewer rodionov
- * @note see issue 1774
  */
 
 import "2_Imports_A02_t09_lib.dart";
@@ -71,6 +70,6 @@ class Duh extends Fwah {}
 
 main() {
   Expect.equals(1, foo);
-  Expect.isTrue(bar is num);
+  Expect.isTrue(bar is Function);
   new Fwah();
 }

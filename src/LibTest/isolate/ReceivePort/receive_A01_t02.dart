@@ -12,7 +12,7 @@
  * @needsreview Undocumented Issue 1313
  */
 
-#import('dart:isolate');
+import "dart:isolate";
 
 void main() {
   try {

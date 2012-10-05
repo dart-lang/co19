@@ -11,7 +11,7 @@
  * @author iefremov
  */
 
-#import('dart:isolate');
+import "dart:isolate";
 #import('send_A02_util.dart');
 
 f() {
