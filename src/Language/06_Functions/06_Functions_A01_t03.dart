@@ -77,9 +77,6 @@ main() {
 
   //Function expressions
   f_func() => num func(int z) {return z + 1;};
-  // spec does not require a semicolon at the end of the block 
-  // that is a function body in a function declaration statement
-  f_func2() => num func(int z) {return z + 1;}
   
   // only one semicolon is fine here because the nested function expression
   // is not a statement and is parsed using a different grammar production (10.8) 
