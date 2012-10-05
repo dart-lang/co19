@@ -18,8 +18,7 @@
  * ;
  * A postfix expression is either a primary expression, a function, method or
  * getter invocation, or an invocation of a postfix operator on an expression e.
- * @description Checks that a type variable can't be used with postfixOperator.
- * @compile-error
+ * @description Checks that a type parameter can be used with postfixOperator.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

@@ -11,15 +11,13 @@
  * isOperator:
  *   is '!'?
  * ;
- * @description Checks that it is a compile-time error if
+ * @description Checks that there is no compile-time error if
  * using a type in the left part of the expression
- * @compile-error
- * @author msyabro
- * @reviewer kaigorodov 
+ * @author kaigorodov 
  */
 
 main() {
-  try {
-    Expect.isTrue(int is Object);
-  } catch(e) {}
+  Expect.isTrue(int is Type);
+  Expect.isTrue(int is Type<int>);
+  Expect.isFalse(int is Type<bool>);
 }

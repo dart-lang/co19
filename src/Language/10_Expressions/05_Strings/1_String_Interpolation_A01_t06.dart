@@ -11,11 +11,8 @@
  *   '$' IDENTIFIER_NO_DOLLAR
  *   | '$' '{' Expression '}'
  * ;
- * @description Checks that using a type variable as the expression in a string interpolation
- * construct results in a compile-time error as specified in Ch. 10.28:
- * Let d be the innermost declaration in the enclosing lexical scope whose name
- * is id. It is a compile-time error if d is a class, interface, type alias or type variable.
- * @compile-error 
+ * @description Checks that there is no compile-time error if the identifier in a string
+ * interpolation construct is the name of type parameter (see Identifier Reference).
  * @author msyabro
  * @reviewer rodionov
  */
@@ -31,5 +28,5 @@ class C<T> {
 }
 
 main() {
-  new C().test();
+  new C<int>().test();
 }

@@ -9,17 +9,16 @@
  * conditionalExpression:
  *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
- * @description Checks that a reference to an interface declaration
- * can't be used as one of expressions in a conditional expression.
- * @compile-error
+ * @description Checks that a reference to a type alias declaration
+ * can be used as one of expressions in a conditional expression.
  * @author msyabro
  * @reviewer kaigorodov
  */
 
-interface I {}
+typedef int fun();
 
 main() {
   try {
-    false ? I : [];
+    false ? fun : [];
   } catch(e) {}
 }

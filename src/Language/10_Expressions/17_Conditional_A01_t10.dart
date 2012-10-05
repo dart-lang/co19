@@ -10,8 +10,7 @@
  *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that a reference to a class declaration
- * can't be used as the condition in a conditional expression.
- * @compile-error
+ * can be used as the condition in a conditional expression.
  * @author msyabro
  * @reviewer kaigorodov
  */

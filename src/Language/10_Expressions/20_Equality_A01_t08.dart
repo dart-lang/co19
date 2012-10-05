@@ -11,9 +11,7 @@
  * ;
  * equalityOperator:
  *   '==' |
- *   '!=' |
- *   '===' |
- *   '!=='
+ *   '!=' 
  * ;
  * An equality expression is either a relational expression, or an invocation of
  * a equality operator on either super or an expression e1, with argument e2.

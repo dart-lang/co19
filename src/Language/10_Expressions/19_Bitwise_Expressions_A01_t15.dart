@@ -24,18 +24,16 @@
  * ;
  * A bitwise expression is either an equality expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to an interface declaration can't be used
+ * @description Checks that a reference to a type alias declaration can't be used
  * as the third operand of a bitwise expression.
- * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
 
-interface I {}
+typedef String fun();
 
 main() {
   try {
-    1 ^ 2 ^ I;
+    1 ^ 2 ^ fun;
   } catch(e) {}
 }
 

@@ -19,8 +19,6 @@
  * of a multiplicative operator on either super or an expression e1, with argument e2.
  * @description Checks that reference to a function type alias name can't be used
  * as the left operand of a multiplicative expression.
- * @compile-error
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

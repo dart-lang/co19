@@ -9,14 +9,11 @@
  * conditionalExpression:
  *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
- * @description Checks that a type variable
- * can't be used as one of expressions in a conditional expression.
- * @compile-error
+ * @description Checks that a type parameter
+ * can be used as one of expressions in a conditional expression.
  * @author msyabro
  * @reviewer kaigorodov
  */
-
-interface I {}
 
 class A<T> {
   test() {
@@ -27,6 +24,6 @@ class A<T> {
 }
 
 main() {
-  A a = new A();
+  A<int> a = new A<int>();
   a.test();
 }

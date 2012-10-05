@@ -34,8 +34,7 @@
  *   listLiteral
  * ;
  * @description Checks that a reference to a class declaration
- * can't be used in the left hand side of an assignment.
- * @compile-error
+ * can be used in the left hand side of an assignment.
  * @author msyabro
  * @reviewer kaigorodov
  */

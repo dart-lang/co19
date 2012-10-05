@@ -17,17 +17,15 @@
  * ;
  * A relational expression is either a shift expression, or an invocation
  * of a relational operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to an interface declaration can't be used
+ * @description Checks that a reference to an interface declaration can be used
  * as the second operand in a relational expression.
- * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
 
-interface I {}
+typedef void proc();
 
 main() {
   try {
-    1 >= I;
+    1 >= proc;
   } catch(e) {}
 }

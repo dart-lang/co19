@@ -11,17 +11,19 @@
  *   '$' IDENTIFIER_NO_DOLLAR
  *   | '$' '{' Expression '}'
  * ;
- * @description Checks that it is a compile-time error if the identifier in a string
- * interpolation construct is the name of a class rather than a variable (see Ch. 10.28 Identifier Reference).
- * @compile-error
+ * @description Checks that there is no compile-time error if the identifier in a string
+ * interpolation construct is the name of a class (see Identifier Reference).
  * @author msyabro
  * @reviewer rodionov
  */
+
+abstract class I {}
 
 class A {}
 
 main() {
   try {
+    '$I';
     '$A';
   } catch(e) {}
 }

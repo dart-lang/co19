@@ -11,17 +11,15 @@
  *   '$' IDENTIFIER_NO_DOLLAR
  *   | '$' '{' Expression '}'
  * ;
- * @description Checks that it is a compile-time error when the identifier in a string
- * interpolation construct is the name of an interface (see Ch. 10.28 Identifier Reference).
- * @compile-error
- * @author msyabro
- * @reviewer rodionov
+ * @description Checks that there is no compile-time error if the identifier in a string
+ * interpolation construct is the name of a type alias (see Identifier Reference).
+ * @author kaigorodov
  */
 
-interface I {}
+typedef int fun();
 
 main() {
   try {
-    '$I';
+    '$fun';
   } catch(e) {}
 }

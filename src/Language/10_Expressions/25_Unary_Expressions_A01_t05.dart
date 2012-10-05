@@ -20,9 +20,8 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that incrementOperator can't be used with
- * a reference to a type variable.
- * @compile-error
+ * @description Checks that incrementOperator can be used with
+ * a reference to a type parameter.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

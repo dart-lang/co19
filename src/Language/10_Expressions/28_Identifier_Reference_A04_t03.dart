@@ -9,22 +9,20 @@
  * is id. It is a compile-time error if d is a class, interface or type variable. If no such
  * declaration exists in the lexical scope, let d be the declaration of the inherited
  * member named id if it exists.
- * @description  Checks that it is a compile-time error if identifier
- * expression refers to a type variable
- * @compile-error
+ * @description  Checks that there is no compile-time error if identifier
+ * expression refers to a type parameter.
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
-  Object func() {
+  T func() {
     return T;
   }
 }
 
 main() {
-  try {
-  	Expect.isTrue(new A().func()==null);
- } catch(e) {} 
+  Expect.isNull(new A().func());
+  Expect.isNotNull(new A<int>().func());
 }
 

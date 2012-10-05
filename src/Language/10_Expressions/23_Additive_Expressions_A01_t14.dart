@@ -16,9 +16,8 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a type variable can't be used
+ * @description Checks that a type parameter can be used
  * as right operand in an additive expression.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

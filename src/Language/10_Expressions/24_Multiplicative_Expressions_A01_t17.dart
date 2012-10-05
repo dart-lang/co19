@@ -17,9 +17,8 @@
  * ;
  * A multiplicative expression is either a unary expression, or an invocation
  * of a multiplicative operator on either super or an expression e1, with argument e2.
- * @description Checks that a type variable can't be used
+ * @description Checks that a type parameter name can be used
  * as the right operand of a multiplicative expression.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -32,6 +31,6 @@ class A<T> {
 }
 
 main() {
-  A a = new A();
+  A<int> a = new A<int>();
   a.test();
 }

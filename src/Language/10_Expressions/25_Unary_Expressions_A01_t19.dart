@@ -20,10 +20,8 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that '~' can't be used with
+ * @description Checks that '~' can be used with
  * a reference to a function type alias name.
- * @compile-error
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

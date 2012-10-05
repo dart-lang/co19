@@ -15,17 +15,15 @@
  * ;
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to an interface declaration can't be used
+ * @description Checks that a reference to a type alias declaration can be used
  * as the first operand of a shift expression.
- * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
 
-interface I {}
+typedef void proc();
 
 main() {
   try {
-    I >> 1;
+    proc >> 1;
   } catch(e) {}
 }

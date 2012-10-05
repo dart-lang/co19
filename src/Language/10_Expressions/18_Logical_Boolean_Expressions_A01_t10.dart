@@ -14,9 +14,8 @@
  * ;
  * A logical boolean expression is either a bitwise expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
- * @description Checks that a reference to a class declaration can't be used as
+ * @description Checks that a reference to a class declaration can be used as
  * the first operand in a logical boolean expression.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */

@@ -11,18 +11,16 @@
  * isOperator:
  *   is '!'?
  * ;
- * @description Checks that it is a compile-time error when
+ * @description Checks that there is no compile-time error when
  * using a typedef in the left part of the expression
- * @compile-error
  * @static-warning
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
 
 typedef f();
 
 main() {
-  try {
-    Expect.isTrue(f is Function);
-  } catch(e) {}
+  Expect.isTrue(f is Type);
+  Expect.isTrue(f is Type<Function>);
+  Expect.isFalse(f is Type<int>);
 }

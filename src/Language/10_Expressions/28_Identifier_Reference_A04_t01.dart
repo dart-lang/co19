@@ -9,9 +9,8 @@
  * is id. It is a compile-time error if d is a class, interface or type variable. If no such
  * declaration exists in the lexical scope, let d be the declaration of the inherited
  * member named id if it exists.
- * @description  Checks that it is a compile-time error if identifier
+ * @description  Checks that there is no compile-time error if identifier
  * expression refers to a class declaration
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov 
  */

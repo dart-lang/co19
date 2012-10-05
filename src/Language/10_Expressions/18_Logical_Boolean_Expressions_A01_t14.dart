@@ -14,9 +14,8 @@
  * ;
  * A logical boolean expression is either a bitwise expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
- * @description Checks that a type variable can't be used as
+ * @description Checks that a type parameter can be used as
  * the first operand in a logical boolean expression.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -28,6 +27,6 @@ class A<T> {
 }
 
 main() {
-  A a = new A();
+  A<bool> a = new A<bool>();
   a.test();
 }

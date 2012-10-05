@@ -20,9 +20,8 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that '-' can't be used with
+ * @description Checks that '-' can be used with
  * a reference to a class declaration.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

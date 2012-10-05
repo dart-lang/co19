@@ -33,9 +33,8 @@
  *   mapLiteral |
  *   listLiteral
  * ;
- * @description Checks that a type variable
- * can't be used in the left hand side of an assignment.
- * @compile-error
+ * @description Checks that a type parameter
+ * can be used in the left hand side of an assignment.
  * @author msyabro
  * @reviewer kaigorodov
  */

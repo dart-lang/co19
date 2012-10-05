@@ -11,15 +11,12 @@
  * ;
  * equalityOperator:
  *   '==' |
- *   '!=' |
- *   '===' |
- *   '!=='
+ *   '!='
  * ;
  * An equality expression is either a relational expression, or an invocation of
  * a equality operator on either super or an expression e1, with argument e2.
- * @description Checks that a type variable can't be
+ * @description Checks that a type variable can be
  * used as the second operand in an equality expression.
- * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
@@ -31,6 +28,6 @@ class A<T> {
 }
 
 main() {
-  A a = new A();
+  A<double> a = new A<double>();
   a.test();
 }

@@ -20,9 +20,8 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that incrementOperator can't be used with
+ * @description Checks that incrementOperator can be used with
  * a reference to function type alias name.
- * @compile-error
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
