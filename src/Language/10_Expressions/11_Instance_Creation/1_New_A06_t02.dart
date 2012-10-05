@@ -14,12 +14,12 @@
  */
 
 abstract class C {
-  C() {}
+  C.namedConstructor() {}
 }
 
 main() {
   try {
-    new C();
+    new C.namedConstructor();
     Expect.fail("Should throw AbstractClassInstantiationError");
   } on AbstractClassInstantiationError catch(e) {}
 }

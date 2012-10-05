@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion q is a factory constructor. Then the
- * argument list (a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated. Then,
- * the body of q is executed with respect to the bindings that resulted from the
- * evaluation of the argument list and the type parameters (if any) of q bound to
- * the actual type arguments V1, ... , Vm resulting in an object i. The result of the
- * evaluation of e is i.
+ * @assertion Otherwise, the argument list (a1, ..., an, xn+1: an+1, ..., xn+k: an+k )
+ * is evaluated. Then, the body of q is executed with respect to the bindings that
+ * resulted from the evaluation of the argument list and the type parameters (if
+ * any) of q bound to the actual type arguments V1, ..., Vm resulting in an object i.
+ * The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly.
  * @author msyabro
  * @reviewer rodionov
@@ -21,36 +20,40 @@ var p1;
 var p2;
 var p3;
 
-interface I1<T, U, V> default A<T, U, V> {
-  I1();
+abstract class I1<T, U, V> {
+  factory I1(){
+    return new A<T, U, V>();
+  }
 }
 
 class A<T, U, V> {
-  factory I1() {
+  A() {
     T x = p1;
     U y = p2;
     V z = p3;
   }
-  
-  A() {}
 }
 
-interface I2 <T> default B<T extends A> {
-  I2();
-}
-
-class B <T extends A> {
+abstract class I2 <T extends A> {
   factory I2() {
+    return new B<T>();
+  }
+}
+
+class B <T extends A> implements I2 {
+  B() {
     T t = new A();
   }
 }
 
-interface I3<T, U> default C<T, U> {
-  I3.name();
+abstract class I3<T, U> {
+  factory I3.name() {
+    return new C.name<T, U>();
+  }
 }
 
 class C<T, U> implements I3<T, U> {
-  factory C.name() {
+  C.name() {
     T a = p1;
     U b = p3;
   }

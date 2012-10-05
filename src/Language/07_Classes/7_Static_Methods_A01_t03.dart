@@ -7,9 +7,9 @@
  * @assertion Static methods are functions whose declarations are immediately
  * contained within a class declaration and that are declared static.
  * The static methods of a class C are those static methods declared by C.
- * @description Checks that it is a compile-time error when a superclass's
- * static method is being accessed using a subclass's name.
- * @compile-error
+ * @description Checks that superclass's static methods are unaccessible
+ * via subclass's name.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of a new expression of either the form
- * new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
- * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is T.
- * It is a static warning if the static type of ai, i from 1 to n+k may not be
+ * @assertion The static type of an instance creation expression of either the form
+ * new T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) or the form
+ * new T (a1, ..., an, xn+1: an+1, ..., xn+k: an+k) is T.
+ * It is a static warning if the static type of ai , 1 ≤ i ≤ n + k may not be
  * assigned to the type of the corresponding formal parameter of the constructor
  * T.id (respectively T).
- * @description Checks that the static type of a new expression is T.
+ * @description Checks that the static type of an instance creation expression is T.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -26,14 +26,14 @@ class R {
   R.redirect() {}
 }
 
-interface I default F{
-  I();
-  I.name();
+abstract class I {
+  factory I()=F;
+  factory I.name()=F.name;
 }
 
-class F {
-  factory I() {}
-  factory I.name() {}
+class F implements I {
+  F() {}
+  F.name() {}
 }
 
 main() {

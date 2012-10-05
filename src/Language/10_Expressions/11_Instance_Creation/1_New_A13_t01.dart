@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion q is a factory constructor. Then the
- * argument list (a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated. Then,
- * the body of q is executed with respect to the bindings that resulted from the
- * evaluation of the argument list and the type parameters (if any) of q bound to
- * the actual type arguments V1, ... , Vm resulting in an object i. The result of the
- * evaluation of e is i.
+ * @assertion Otherwise, the argument list (a1, ..., an, xn+1: an+1, ..., xn+k: an+k )
+ * is evaluated. Then, the body of q is executed with respect to the bindings that
+ * resulted from the evaluation of the argument list and the type parameters (if
+ * any) of q bound to the actual type arguments V1, ..., Vm resulting in an object i.
+ * The result of the evaluation of e is i.
  * @description Checks that arguments of a constructor and instance variables are bound correctly.
  * @author msyabro
  * @reviewer rodionov
@@ -18,16 +17,18 @@
 int factoryA = 0;
 int factoryB = 0;
 
-interface I default A {
-  I(p1, p2);
+abstract class I {
+  factory I(p1, p2) {
+    return new A(p1, p2);
+  }
 }
 
 class C implements I {
   C(p1, p2) {}
 }
 
-class A{
-  factory I(p1, p2) {
+class A implements I {
+  factory A(p1, p2) {
     Expect.equals(3, p1);
     Expect.equals("ab", p2);
     ++factoryA;
@@ -35,12 +36,14 @@ class A{
   }
 }
 
-interface J default B {
-  J.name(p1, p2);
+abstract class J {
+  factory J.name(p1, p2){
+    return new B.name(p1, p2);
+  }
 }
 
-class B implements J{
-  factory B.name(p1, p2) {
+class B implements J {
+  B.name(p1, p2) {
     Expect.equals(10, p1);
     Expect.equals(false, p2);
     ++factoryB;

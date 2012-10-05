@@ -8,18 +8,13 @@
  * If q is a constructor of an abstract class then an AbstractClassInstantiationError is thrown.
  * If T is not a class accessible in the current scope, a dynamic error occurs.
  * Otherwise, if q is not deﬁned or not accessible, a NoSuchMethodError is thrown.
- * @description  Checks that AbstractClassInstantiationError is thrown if T is
- * an abstract class.
+ * @description  Checks that a  dynamic error occurs if T is not accessible.
  * @author kaigorodov
  */
-
-abstract class C {
-  C() {}
-}
 
 main() {
   try {
     new C();
-    Expect.fail("Should throw AbstractClassInstantiationError");
-  } on AbstractClassInstantiationError catch(e) {}
+    Expect.fail("Should throw an error");
+  } catch(e) {}
 }

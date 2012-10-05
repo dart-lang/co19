@@ -4,37 +4,39 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Regardless of whether R = C, let Ti be the type parameters of C (if any)
- * and let Bi be the bound of Ti, i from 1 to m. In checked mode, it is a dynamic
- * type error if Vi is not a subtype of [V1, ... , Vm/T1, ... , Tm]Bi, i from 1 to m.
- * @description Checks that it is a dynamic-type error if a type argument is not
- * a subtype of type parameter bound of class C.
- * @static-warning
- * @author msyabro
- * @reviewer rodionov
- * @note http://code.google.com/p/dart/issues/detail?id=1380
+ * @assertion If q is a redirecting factory constructor of the form
+ * T(p1, ..., pn+k ) = c; or of the form T.id(p1, ..., pn+k ) = c;
+ * then the result of the evaluation of e is equivalent to evaluating the expression
+ * [V1, ..., Vm /T1, ..., Tm ](new c(a1, ..., an, xn+1:an+1, ..., xn+k: an+k )).
+ * @description Checks that evaluation of redirecting constructor is equivalent of 
+ * evaluation of redirected constructor.
+ * @author kaigorodov
  */
 
-#import("../../../Utils/dynamic_check.dart");
-
-interface R<T> default C<T extends num> {
-  R();
+class R<T> {
+  factory fc(T arg)=C;
 }
 
-class C<T extends num> {
-  factory R() {}
-}
-
-class A<T extends num> {
-  factory A() {}
+class C<T> implements R<T> {
+   T value;
+   
+   C(this.value) {}
+   
+   bool operator ==(other)  {
+     if (identical(other, null) {
+       return false;
+     }
+     if (identical(value, null) {
+       return identical(other.value, null);
+     }
+     return value==other.value;
+   }
+   
+   int hashCode() { return value.hashCode(); }
 }
 
 main() {
-  checkTypeError( () {
-    new R<String>();
-  });
-
-  checkTypeError( () {
-    new A<bool>();
-  });
+  R<String> r1=new R<String>.fc();
+  R<String> r2=new C<String>.fc();
+  Expect.equals(r1, r2);
 }

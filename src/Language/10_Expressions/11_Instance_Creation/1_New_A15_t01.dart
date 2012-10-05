@@ -4,18 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Given an instance creation expression of the form
- * new T(a1, .., an), it is a static warning if T is an
- * abstract class or an interface that does not have a default implementation class.
- * @description Checks that instantiation of a class declared as abstract produces a static warning.
+ * @assertion It is a static warning if the static type of ai , 1 ≤ i ≤ n + k may not be
+ * assigned to the type of the corresponding formal parameter of the constructor
+ * T.id (respectively T).
+ * @description Checks that it is a static type warning if the static type of
+ * one of arguments can't be assigned to the type of the corresponding parameter
+ * of the constructor.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 class C {
+  C(int p1) {}
 }
 
 main() {
-  new C();
+  try {
+    C c = new C("");
+  } on TypeError catch(e) {}
 }

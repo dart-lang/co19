@@ -35,7 +35,7 @@
  *   ‘a’ .. ‘z’ |
  *   ‘A’ ..‘Z’
  * ;
- * @description Checks that identifier can't contain '@' symbol.
+ * @description Checks that identifier can't contain 'r' symbol.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov 

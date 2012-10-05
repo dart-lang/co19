@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion q is a factory constructor. Then the
- * argument list (a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated. Then,
- * the body of q is executed with respect to the bindings that resulted from the
- * evaluation of the argument list and the type parameters (if any) of q bound to
- * the actual type arguments V1, ... , Vm resulting in an object i. The result of the
- * evaluation of e is i.
+ * @assertion Otherwise, the argument list (a1, ..., an, xn+1: an+1, ..., xn+k: an+k )
+ * is evaluated. Then, the body of q is executed with respect to the bindings that
+ * resulted from the evaluation of the argument list and the type parameters (if
+ * any) of q bound to the actual type arguments V1, ..., Vm resulting in an object i.
+ * The result of the evaluation of e is i.
  * @description Checks that the result of a new expression is object i.
  * @author msyabro
  * @reviewer rodionov
@@ -20,8 +19,10 @@ class Stub implements I1, I2{
   Stub.name() {}
 }
 
-interface I1 default A {
-  I1();
+abstract class I1 {
+  I1() {
+    return new A();
+  }
 }
 
 class A {
@@ -30,12 +31,14 @@ class A {
   }
 }
 
-interface I2 default B{
-  I2.name();
+abstract class I2 {
+  I2.name() {
+    return new B.name();
+  }
 }
 
-class B {
-  factory I2.name() {
+class B implements I2 {
+  factory B.name() {
     return new Stub.name();
   }
 }

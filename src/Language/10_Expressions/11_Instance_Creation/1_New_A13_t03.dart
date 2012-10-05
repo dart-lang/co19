@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion q is a factory constructor. Then the
- * argument list (a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated. Then,
- * the body of q is executed with respect to the bindings that resulted from the
- * evaluation of the argument list and the type parameters (if any) of q bound to
- * the actual type arguments V1, ... , Vm resulting in an object i. The result of the
- * evaluation of e is i.
+ * @assertion Otherwise, the argument list (a1, ..., an, xn+1: an+1, ..., xn+k: an+k )
+ * is evaluated. Then, the body of q is executed with respect to the bindings that
+ * resulted from the evaluation of the argument list and the type parameters (if
+ * any) of q bound to the actual type arguments V1, ..., Vm resulting in an object i.
+ * The result of the evaluation of e is i.
  * @description Checks the order of a new expression evaluation.
  * @author msyabro
  * @reviewer rodionov
@@ -24,12 +23,14 @@ class A {
   }
 }
 
-interface I default F{
-  I(p1, p2);
+abstract class I default F{
+  I(p1, p2) {
+    return new F(p1, p2);
+  }
 }
 
-class F {
-  factory I(p1, p2) {
+class F implements I {
+  F(p1, p2) {
     evalOrder.add(3);
   }
 }

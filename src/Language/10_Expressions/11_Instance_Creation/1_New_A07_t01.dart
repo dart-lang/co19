@@ -14,25 +14,21 @@
  * not a parameterized type, then for i from 1 to m, let Vi = Dynamic, otherwise let
  * Vi = Ui.
  * Evaluation of e proceeds as follows:
- * First, if q is a generative constructor (regardless of whether q is redirecting or not), then:
- * Regardless of whether R != C, let Ti be the type parameters of C (if any)
- * and let Bi be the bound of Ti, i from 1 to m. In checked mode, it is a dynamic
- * type error if Vi is not a subtype of [V1, ... ,Vm/T1, ... , Tm]Bi. i from 1 to m.
+ *  ...
+ *  if q is a generative or redirecting constructor (7.6.1), then:
+ *   Let Ti be the type parameters of R (if any) and let Bi be the bound of
+ *   Ti, 1 ≤ i ≤ m. In checked mode, it is a dynamic type error if Vi is not a subtype
+ *   of [V1, ..., Vm /T1, ..., Tm]Bi, i ∈ 1..m.
  * @description  Checks that it is a dynamic type error if a type argument is not
  * a subtype of its bound in class C.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview http://code.google.com/p/dart/issues/detail?id=1380
  */
 
 #import("../../../Utils/dynamic_check.dart");
 
-interface R<T> default C<T extends num> {
-  R();
-}
-
-class C<T extends num> implements R<T>{
+class C<T extends num> {
   C() {}
 }
 

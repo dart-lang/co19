@@ -7,17 +7,18 @@
  * @assertion It is a static warning if C does not declare a static method or getter m.
  * @description Checks that it is a static warning if interface C does not declare
  * a static method or getter m.
- * @compile-error
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
 
-interface I {
+class C {
+  void m(){}
 }
 
 main() {
   try {
-    I.m();
+    C.m();
   } catch(e) {}
 }
