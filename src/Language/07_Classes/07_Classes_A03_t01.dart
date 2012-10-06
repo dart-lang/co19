@@ -26,12 +26,11 @@
  * @reviewer rodionov
  */
 
-abstract class I default A {
-  I();
+abstract class I  {
+  factory I()=A;
 }
 
 class A {
-  factory I() {}
   A() {}
   A.B() {}
   A.C(): _x = 1 {}

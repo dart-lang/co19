@@ -13,17 +13,13 @@
  * @reviewer iefremov
  */
 
-interface I default C {
-  I([int x]);
-}
-
 class C {
   int x;
-  factory I([this.x]) {}
+  factory C.i([this.x]) {}
 }
 
 main() {
   try {
-    new I(null);
+    new C.i(null);
   } catch (v) {}
 }

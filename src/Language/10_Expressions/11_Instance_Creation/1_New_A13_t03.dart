@@ -23,8 +23,8 @@ class A {
   }
 }
 
-abstract class I default F{
-  I(p1, p2) {
+abstract class I {
+  factory I(p1, p2) {
     return new F(p1, p2);
   }
 }

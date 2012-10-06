@@ -6,22 +6,18 @@
 /**
  * @assertion
  * It is a static warning if M.id is not a constructor name.
- * @description Checks that a static warning is produced when a factory constructor
- * uses a (named) constructor name that doesn't exist in the corresponding interface.
+ * @description Checks that a static warning is produced when an nonexistent factory
+ * constructor name is used.
  * @static-warning
- * @author rodionov
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
-
-abstract class S default C {}
 
 class C {
   C() {}
-  factory S.nonExistent() {}
 }
 
 main() {
   try {
-    (new C()).redOctober();
+    new C.nonExistent();
   } catch (e) {}
 }
