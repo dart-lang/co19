@@ -6,7 +6,7 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* (`&` export)? `;'
+ *   metadata import uri (as identifier)? combinator* `;'
  * ;
  * combinator:
  *   show identifierList |
@@ -17,11 +17,12 @@
  * ;
  * @description Checks that it is a compile-time error when the parts of an import 
  * directive are specified in the wrong order.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 
-import "2_Imports_lib.dart" show foo as prfx & export;
+import "2_Imports_lib.dart" show foo as prfx;
 
 main() {
   try {

@@ -6,7 +6,7 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* (`&` export)? `;'
+ *   metadata import uri (as identifier)? combinator* `;'
  * ;
  * combinator:
  *   show identifierList |
@@ -15,14 +15,14 @@
  * identifierList:
  *   identifier (, identifier)*
  * ;
- * @description Checks that it is not a compile-time error if there's more than one show 
+ * @description Checks that it is not an error if there's more than one show 
  * or hide combinator in an import directive.
  * @author rodionov
- * @needsreview issue 3350
  */
 
-import "2_Imports_lib.dart" as lib show foo hide someVar hide foo show someVar;
+import "2_Imports_lib.dart" as lib show foo show someVar;
 
 main() {
   Expect.equals(1, lib.foo);
+  Expect.equals(3, lib.someVar);
 }

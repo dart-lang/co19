@@ -4,8 +4,9 @@
 
 library Imports_A02_lib_reexport_filtered;
 
-import "2_Imports_A02_p1_lib.dart" as P hide F & export;
+import "2_Imports_A02_p1_lib.dart" as P hide F;
 import "2_Imports_A02_p2_lib.dart";
+export "2_Imports_A02_p1_lib.dart" hide F;
 
 final aFoo = "A_FOO";
 
@@ -23,7 +24,7 @@ class K extends P.F implements J {
 }
 
 abstract class J extends P.I {
-  const factory J() = K;
+  factory J() = K;
   static final FOO = "J.FOO";  
 }
 

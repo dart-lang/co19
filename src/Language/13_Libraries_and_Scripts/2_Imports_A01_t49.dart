@@ -6,7 +6,7 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* (`&` export)? `;'
+ *   metadata import uri (as identifier)? combinator* `;'
  * ;
  * combinator:
  *   show identifierList |
@@ -15,13 +15,13 @@
  * identifierList:
  *   identifier (, identifier)*
  * ;
- * @description Checks that it is not a compile-time error if there's no whitespace between the
- * ampersand character and the preceding part of the import directive.
+ * @description Checks that it is not an error if the arguments of show/hide
+ * combinators include identifiers not declared or re-exported by the library being imported.
  * @author rodionov
  */
 
-import "2_Imports_lib.dart"& export;
+import "2_Imports_lib.dart" as lib hide foo1 show foo2, foo;
 
 main() {
-  someVar = 0;
+  Expect.equals(1, lib.foo);
 }

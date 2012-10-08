@@ -18,7 +18,7 @@
  * @author rodionov
  * @issue 5399
  */
-import "../Utils/dynamic_check.dart"
+import "../../Utils/dynamic_check.dart";
 
 import "2_Imports_A03_t21_p1_lib.dart";
 import "2_Imports_A03_t21_p2_lib.dart";

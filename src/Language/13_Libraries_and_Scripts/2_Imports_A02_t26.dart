@@ -51,11 +51,11 @@
  *   
  * We say that the namespace NS has been imported into L.
  * 
- * @description Checks that it is not an error if prefix value duplicates
+ * @description Checks that it is a compile-time error when prefix value duplicates
  * a function type alias name.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @needsreview issue 3481
  */
 
 import "2_Imports_lib.dart" as prefix;
@@ -63,5 +63,7 @@ import "2_Imports_lib.dart" as prefix;
 typedef prefix(int);
 
 main() {
-  prefix x;
+  try {
+    (int) {} is prefix;
+  } catch(ok) {}
 }

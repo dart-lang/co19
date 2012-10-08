@@ -4,8 +4,9 @@
 
 library Imports_A02_lib_reexport;
 
-import "2_Imports_A02_p1_lib.dart" as P & export;
+import "2_Imports_A02_p1_lib.dart" as P;
 import "2_Imports_A02_p2_lib.dart";
+export "2_Imports_A02_p1_lib.dart";
 
 final aFoo = "A_FOO";
 

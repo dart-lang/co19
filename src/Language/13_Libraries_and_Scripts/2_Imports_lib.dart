@@ -5,5 +5,6 @@
 library Imports_lib;
 
 final foo = 1;
-var someVar;
+final foo0 = 2;
+var someVar = 3;
 var _privateVar;

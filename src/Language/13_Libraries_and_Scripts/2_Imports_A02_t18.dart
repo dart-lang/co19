@@ -54,7 +54,6 @@
  * @description Checks that all show/hide combinators used in a chain of re-export
  * are applied.
  * @author rodionov
- * @needsreview issue 2508 - show/hide combinators not implemented yet
  */
 
 import "2_Imports_A02_lib_reexport2_filtered.dart" show I, bFoo, aFoo;
@@ -62,6 +61,5 @@ import "2_Imports_A02_lib_reexport2_filtered.dart" show I, bFoo, aFoo;
 main() {
   Expect.equals("A_FOO", aFoo);
   Expect.equals("B_FOO", bFoo);
-  Expect.equals("2_Imports_A02_p1_lib.foo()", new B.spec().foo());
   Expect.equals("i.foo()", new I().foo());
 }

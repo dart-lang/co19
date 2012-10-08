@@ -53,9 +53,7 @@
  * 
  * @description Checks that names not provided as arguments to a 'show' combinator
  * are undefined even if they are defined in the imported library's export namespace.
- * @compile-error
  * @author rodionov
- * @needsreview issue 2508 - show/hide combinators not implemented yet
  */
 
 import "2_Imports_A02_lib.dart" show aFoo, A;
@@ -63,5 +61,6 @@ import "2_Imports_A02_lib.dart" show aFoo, A;
 main() {
   try {
     aFunc();
-  } catch (ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

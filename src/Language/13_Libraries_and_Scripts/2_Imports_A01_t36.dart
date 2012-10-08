@@ -6,7 +6,7 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* (`&` export)? `;'
+ *   metadata import uri (as identifier)? combinator* `;'
  * ;
  * combinator:
  *   show identifierList |
@@ -22,7 +22,7 @@
  * @reviewer kaigorodov
  */
 
-import "2_Imports_lib.dart", as prfx, & export;
+import "2_Imports_lib.dart", as prfx, show foo;
 
 main() {
   try {

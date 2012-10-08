@@ -4,6 +4,7 @@
 
 library Imports_A02_t22_lib;
 
-import "2_Imports_A02_t22_lib2.dart" & export;
+import "2_Imports_A02_t22_lib2.dart";
+export "2_Imports_A02_t22_lib2.dart";
 
 final endless_loop = "Endless loop";

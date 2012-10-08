@@ -17,6 +17,7 @@ import "2_Imports_A05_t01_lib2.dart";
 
 main() {
   try {
-    someVar = 0;
+    foo == 1;
+    bar == 2;
   } catch(e) {}
 }

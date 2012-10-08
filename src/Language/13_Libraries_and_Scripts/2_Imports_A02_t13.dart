@@ -53,9 +53,7 @@
  * 
  * @description Checks that names provided as arguments to a 'show' combinator but not
  * declared in the library being imported (or re-exported by it), are undefined.
- * @compile-error
  * @author rodionov
- * @needsreview issue 2508 - show/hide combinators not implemented yet
  */
 
 import "2_Imports_A02_lib.dart" show aFoo, A, anUndefinedName;
@@ -63,5 +61,6 @@ import "2_Imports_A02_lib.dart" show aFoo, A, anUndefinedName;
 main() {
   try {
     print(anUndefinedName);
-  } catch (ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

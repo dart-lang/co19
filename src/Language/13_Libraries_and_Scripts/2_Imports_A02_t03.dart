@@ -54,7 +54,6 @@
  * @description Checks that names imported into library B (which, in turn, is imported 
  * into library A) are not visible in A if B does not explicitly re-export A, 
  * with or without the prefix used to import A into B.
- * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
@@ -64,5 +63,6 @@ import "2_Imports_A02_lib.dart";
 main() {
   try {
     identical(cFoo, 'C_FOO');
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

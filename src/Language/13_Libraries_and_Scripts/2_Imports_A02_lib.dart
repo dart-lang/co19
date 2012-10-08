@@ -22,7 +22,7 @@ class K extends P.F implements J {
 }
 
 abstract class J extends P.I {
-  const factory J() = K;
+  factory J() = K;
   static final FOO = "J.FOO";  
 }
 

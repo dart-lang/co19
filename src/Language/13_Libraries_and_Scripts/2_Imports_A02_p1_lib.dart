@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library 2_Imports_A02_p1_lib;
+library Imports_A02_p1_lib;
 
 List bList(int i) { return new List(i); }
 typedef String bFunc<B extends bool, S extends String>(B t, [S s]);
@@ -25,12 +25,10 @@ class F extends I {
   foo() { return "i.foo()"; }
   get value() { return _value; }
   set value(val) { _value = val; }
-
-  var _value;
 }
 
 abstract class I {
-  const factory I() = F;
+  factory I() = F;
   //static final FOO = "I.FOO";
   String foo();
   get value();

@@ -51,13 +51,15 @@
  *   
  * We say that the namespace NS has been imported into L.
  * 
- * @description Checks that all specified show and hide combinators are applied
- * and if a name is not hidden by any of them, it's available in the resulting namespace. 
+ * @description Checks that it is not an error when the prefix value duplicates
+ * an imported name rather than local declaration (prefix being defined first).
  * @author rodionov
+ * @needsreview issue 5716
  */
 
-import "2_Imports_A02_lib.dart" show aFoo hide aFunc show A, aFoo;
+import "2_Imports_A02_t27_lib2.dart" as foo;
+import "2_Imports_A02_t27_lib1.dart";
 
 main() {
-  Expect.equals("A_FOO", aFoo);
+  (int, double) {} is foo.bar;
 }

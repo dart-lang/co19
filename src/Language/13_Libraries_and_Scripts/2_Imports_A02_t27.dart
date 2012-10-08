@@ -52,14 +52,14 @@
  * We say that the namespace NS has been imported into L.
  * 
  * @description Checks that it is not an error when the prefix value duplicates
- * an imported name rather than local declaration.
+ * an imported name rather than local declaration (prefix being defined last).
  * @author rodionov
- * @needsreview issues 3340, 3481
+ * @needsreview issue 5716
  */
 
 import "2_Imports_A02_t27_lib1.dart";
 import "2_Imports_A02_t27_lib2.dart" as foo;
 
 main() {
-  foo.bar x; // foo is also a declaration in lib1
+  (int, double) {} is foo.bar;
 }

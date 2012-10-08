@@ -53,15 +53,15 @@
  * 
  * @description Checks that all show/hide combinators used in a chain of re-export
  * are applied.
- * @compile-error
+ * @static-warning constructing an inaccessible class
  * @author rodionov
- * @needsreview issue 2508 - show/hide combinators not implemented yet
  */
 
 import "2_Imports_A02_lib_reexport2_filtered.dart" show I, bFoo, aFoo;
 
 main() {
   try {
-    new F(); // I is accessible, while its factory, F, is not. Both are declared in 2_Imports_A02_p1_lib.dart
-  } catch (ok) {}
+    new F();
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

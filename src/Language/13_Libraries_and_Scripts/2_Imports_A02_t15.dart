@@ -53,15 +53,14 @@
  * 
  * @description Checks that all specified show and hide combinators are applied
  * and if a name is hidden by any of them, it's undefined in the resulting namespace. 
- * @compile-error
  * @author rodionov
- * @needsreview issue 2508 - show/hide combinators not implemented yet
  */
 
 import "2_Imports_A02_lib.dart" show aFoo show A hide aFunc;
 
 main() {
   try {
-    "A_FOO" == aFoo;
-  } catch (ok) {}
+    aFunc();
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

@@ -51,11 +51,11 @@
  *   
  * We say that the namespace NS has been imported into L.
  * 
- * @description Checks that it is not an error when prefix value duplicates
+ * @description Checks that it is a compile-time error when prefix value duplicates
  * a top-level declaration in the importing library.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @needsreview issue 3481
  */
 
 import "2_Imports_lib.dart" as prefix;
@@ -63,6 +63,8 @@ import "2_Imports_lib.dart" as prefix;
 class prefix {}
 
 main() {
-  new prefix();
-  Expect.equals(1, prefix.foo);
+  try {
+    new prefix();
+    Expect.equals(1, prefix.foo);
+  } catch(ok) {}
 }

@@ -4,4 +4,5 @@
 
 library Imports_A02_lib_reexport2;
 
-import "2_Imports_A02_lib_reexport.dart" as P & export;
+import "2_Imports_A02_lib_reexport.dart" as P;
+export "2_Imports_A02_lib_reexport.dart";

@@ -54,7 +54,6 @@
  * @description Checks that 'show' combinator works as specified, given a list
  * of valid identifiers.
  * @author rodionov
- * @needsreview issue 2508 - show/hide combinators not implemented yet
  */
 
 import "2_Imports_A02_lib.dart" show aFoo, A;

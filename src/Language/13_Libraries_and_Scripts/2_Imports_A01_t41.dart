@@ -6,7 +6,7 @@
 /**
  * @assertion An import specifies a library to be used in the scope of another library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* (`&` export)? `;'
+ *   metadata import uri (as identifier)? combinator* `;'
  * ;
  * combinator:
  *   show identifierList |
@@ -15,13 +15,13 @@
  * identifierList:
  *   identifier (, identifier)*
  * ;
- * @description Checks that it is a compile-time error when the ampersand character in an
- * import directive is followed by any token other than 'export'.
+ * @description Checks that it is a compile-time error when there's an ampersand character 
+ * in an import directive.
  * @compile-error
  * @author rodionov
  */
 
-import "2_Imports_lib.dart" as lib & show;
+import "2_Imports_lib.dart" as lib & export;
 
 main() {
   try {

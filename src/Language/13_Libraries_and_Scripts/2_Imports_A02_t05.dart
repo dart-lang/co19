@@ -53,7 +53,6 @@
  * 
  * @description Checks that names imported from library B with prefix P are not
  * available without it.
- * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
@@ -63,5 +62,6 @@ import "2_Imports_A02_lib.dart" as P;
 main() {
   try {
     var x = aFoo;
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

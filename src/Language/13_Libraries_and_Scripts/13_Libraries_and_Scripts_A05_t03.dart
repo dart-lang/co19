@@ -14,7 +14,7 @@
  * @reviewer rodionov
  */
 
-import "13_Libraries_and_Scripts_A05_t03_lib.dart" as lib);
+import "13_Libraries_and_Scripts_A05_t03_lib.dart" as lib;
 
 main() {
   try {

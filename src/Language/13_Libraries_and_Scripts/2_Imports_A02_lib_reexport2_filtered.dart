@@ -4,4 +4,5 @@
 
 library Imports_A02_lib_reexport2_filtered;
 
-import "2_Imports_A02_lib_reexport_filtered.dart" as P hide B & export;
+import "2_Imports_A02_lib_reexport_filtered.dart" as P hide B;
+export "2_Imports_A02_lib_reexport_filtered.dart" hide B;

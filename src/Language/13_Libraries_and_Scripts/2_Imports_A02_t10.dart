@@ -66,7 +66,5 @@ var foo;
 class bar { }
 
 main() {
-  try {
-    foo = 1;
-  } catch(e) {}
+  foo = 1;
 }
