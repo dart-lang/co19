@@ -12,7 +12,7 @@
  * the call to the getter function.
  * It is a static warning if there is no class C in the enclosing lexical scope
  * of i, or if C does not declare, implicitly or explicitly, a getter named m. The
- * static type of i is the declared return type of C.m.
+ * static type of i is the declared return type of C.m if it exists or dynamic otherwise.
  * @description Checks that static setter m is invoked when evaluating a setter invocation C.m = e.
  * @author msyabro
  * @reviewer rodionov

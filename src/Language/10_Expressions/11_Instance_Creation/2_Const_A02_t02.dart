@@ -9,7 +9,7 @@
  * const T(a1, .., an, xn+1: an+1, …, xn+k: an+k). It is a compile-time error if T
  * is not a class accessible in the current scope, optionally followed by type arguments.
  * @description Checks that it is a compile-time error if T is not a
- * class or interface accessible in the current scope. Named constructor case.
+ * class accessible in the current scope. Named constructor case.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov

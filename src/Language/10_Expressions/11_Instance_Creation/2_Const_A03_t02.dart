@@ -11,16 +11,15 @@
  * @description Checks that it is a compile-time error if T
  * includes any type parameters as a type argument.
  * @compile-error
- * @author msyabro
- * @reviewer rodionov
+ * @author kaigorodov
  */
 
 class S<U> {
-  const S();
+  const S.named();
 }
 
 main() {
   try {
-    S s=const S<T>(); 
+    S s=const S<T>.named(); 
   } catch(e) {}
 }
