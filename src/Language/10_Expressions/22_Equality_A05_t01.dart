@@ -10,20 +10,15 @@
  * equivalent to the expression !(super == e).
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 1242
  */
 
 class S{
   operator==(var val) {
-    if(this === val) {
-      return true;
-    } else {
-       return false;
-    }
+    return identical(this, val);
   }
 }
 
-class A extends S{
+class A extends S {
   test() {
     A a = new A();
     Expect.equals(super != this, !(super == this));

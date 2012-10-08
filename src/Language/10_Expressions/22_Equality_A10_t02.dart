@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of an equality expression of the form e1 === e2 is bool.
- * @description Checks that static type of an equality expression of the form e1 === e2 is not int.
+ * @assertion The static type of an equality expression is bool.
+ * @description Checks that static type of an equality expression is not int.
  * @static-warning
  * @author kaigorodov
  * @reviewer iefremov
@@ -16,6 +16,6 @@
 main() {
   int b;
   checkTypeError(() {
-    b = (1 === 1);
+    b = (1 == 1);
   });
 }

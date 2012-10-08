@@ -14,11 +14,7 @@
 
 class A{
   operator==(var val) {
-    if(this === val) {
-      return true;
-    } else {
-       return false;
-    }
+    return identical(this, val);
   }
 }
 

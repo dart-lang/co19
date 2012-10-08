@@ -4,17 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an equality expression ee of the form super == e proceeds as
- * follows:
- * - The expression e is evaluated to an object o.
- * - If this === o evaluates to true, then ee evaluates to true. Otherwise,
- * - If either this or o is null, then ee evaluates to false. Otherwise,
- * - ee is equivalent to the method invocation super.equals(o).
- * @description Checks that if operands are not identical and not [:null:]
+ * @assertion Evaluation of an equality expression ee of the form super == e
+ * proceeds as follows:
+ * • The expression e is evaluated to an object o.
+ * • If either this or o is null, then ee evaluates to identical(this, o).
+ *   Otherwise, ee is equivalent to the method invocation super.==(o).
+ * @description Checks that if operands are not [:null:],
  * ee is equivalent to the method invocation super.equals(o2).
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1242, issue 3308
  */
 
 class TestException {}

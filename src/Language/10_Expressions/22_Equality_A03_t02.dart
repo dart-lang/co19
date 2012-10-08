@@ -4,26 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an equality expression ee of the form super == e proceeds as
- * follows:
- * - The expression e is evaluated to an object o.
- * - If this === o evaluates to true, then ee evaluates to true. Otherwise,
- * - If either this or o is null, then ee evaluates to false. Otherwise,
- * - ee is equivalent to the method invocation super.equals(o).
- * @description Checks that if o is null, the result of an
- * equality expression is false.
+ * @assertion Evaluation of an equality expression ee of the form super == e
+ * proceeds as follows:
+ * • The expression e is evaluated to an object o.
+ * • If either this or o is null, then ee evaluates to identical(this, o).
+ *   Otherwise, ee is equivalent to the method invocation super.==(o).
+ * @description Checks that if o is null, the operator super.==(o) is not called.
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1242
  */
 
 class S {
-  operator equals(other) {
+  operator == (other) {
     throw 'This operator should not be invoked.';
   }
 }
 
-class C {
+class C extends S {
   test() {
     Expect.isFalse(super == null);
   }
