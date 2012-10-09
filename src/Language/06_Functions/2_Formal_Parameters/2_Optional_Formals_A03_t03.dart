@@ -10,11 +10,12 @@
  * optional parameter begins with an '_' character.
  * @compile-error
  * @author rodionov
+ * @issue 5743
  */
 
 main() {
   try {
     void func({var _x}) {}
-    func(1);
+    func(_x: 1);
   } catch(x) {}
 }
