@@ -8,7 +8,7 @@
  * used as the declared name of a class, type parameter or type alias.
  * @description Checks that it is a compile-time error when a built-in identifier
  * dynamic is used as the declared name of a class.
- * compile-error
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
