@@ -9,7 +9,6 @@
  * @description Checks that various expressions of the specified forms can be used within
  * the initializer list of a constant constructor and are, therefore, constant expressions.
  * @author rodionov
- * @needsreview review when VM actually implements this
  */
 
 foo() {}

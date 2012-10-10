@@ -11,7 +11,7 @@
  * @description Checks that the value returned by this getter is not null and is
  * indeed an instance of ReceivePort.
  * @author rodionov
- * @issue http://code.google.com/p/dart/issues/detail?id=5673
+ * @note the necessity of closing the port is undocumented, see http://code.google.com/p/dart/issues/detail?id=5673
  */
 
 import "dart:isolate";
@@ -19,5 +19,5 @@ import "dart:isolate";
 main() {
   Expect.isTrue(port != null);
   Expect.isTrue(port is ReceivePort);
-//  port.close();
+  port.close();
 }

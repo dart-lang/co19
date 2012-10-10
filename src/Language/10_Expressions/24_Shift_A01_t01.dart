@@ -56,9 +56,9 @@ class A extends S {
     try {method() >> [1, 2];} catch(e) {}
 
     //additive expressions
-    try { 1 + 2 << 2;} catch(var e ) {}
-    try { 0 - 0 >> null + null;} catch(var e ) {}
-    try { [] + {} >> 0;} catch(var e ) {}
+    try { 1 + 2 << 2;} catch(e) {}
+    try { 0 - 0 >> null + null;} catch(e) {}
+    try { [] + {} >> 0;} catch(e) {}
 
     //multiplicative expressions
     try {true * false << id.id / []();} catch(e) {}

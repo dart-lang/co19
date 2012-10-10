@@ -12,7 +12,7 @@
  */
 
 import "dart:isolate";
-#import('send_A02_util.dart');
+import "send_A02_util.dart";
 
 final int MESSAGES_NUM = 4;
 

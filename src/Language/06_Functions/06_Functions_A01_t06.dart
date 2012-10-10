@@ -32,4 +32,4 @@ main() {
   } catch(x){}
 }
 
-function() {}
+function() {

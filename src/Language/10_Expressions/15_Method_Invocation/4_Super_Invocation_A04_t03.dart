@@ -14,6 +14,7 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 3326 - InvocationMirror not implemented
  */
 
 class TestException {}

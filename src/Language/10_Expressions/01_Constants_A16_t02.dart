@@ -11,9 +11,10 @@
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
+ * @issue 5775
  */
 
-final m = 1 << 999999999999999;
+final m = 1 << 99999999999999999999999999999999999999999999999999999999999;
 
 main() {
   try {

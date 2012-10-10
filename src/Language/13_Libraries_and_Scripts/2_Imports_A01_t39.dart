@@ -20,9 +20,8 @@
  * @author rodionov
  */
 
-import "2_Imports_lib.dart" as lib show foo show someVar;
+import "2_Imports_lib.dart" as lib show foo show someVar, foo;
 
 main() {
   Expect.equals(1, lib.foo);
-  Expect.equals(3, lib.someVar);
 }

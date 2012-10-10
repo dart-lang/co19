@@ -12,6 +12,7 @@
  * is overridden and no exception is thrown.
  * @author rodionov
  * @reviewer iefremov
+ * @issue 3326 - InvocationMirror not implemented
  */
 
 class C {

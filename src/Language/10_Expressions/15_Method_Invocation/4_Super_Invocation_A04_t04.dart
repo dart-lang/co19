@@ -14,7 +14,7 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @needsreview Issue 1244
+ * @needsreview Issue 1244, 3326
  */
 
 class TestException {}

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-#library("send_A02_utils");
+library send_A02_utils;
 import "dart:isolate";
 
 deepListEquals(var expected, var actual) {

@@ -5,12 +5,12 @@
  */
 /**
  * @assertion A type T is malformed iff:
- *   T has the form id, and id does not denote a type available in the enclosing lexical scope.
- *   T is a parameterized type of the form G<S1, .., Sn>, and any of the following conditions hold:
- *   Either G or Si, 1 <= i <= n are malformed.
- *   G is not a generic type with n type parameters.
- *   Let Ti be the type parameters of G (if any) and let Bi be the bound of Ti, 1 <= i <= n,
- * and Si is not a subtype of [S1,  ..., Sn/T1,  ..., Tn]Bi,  1 <= i <= n,
+ *  - T has the form id, and id does not denote a type available in the enclosing lexical scope.
+ *  - T is a parameterized type of the form G<S1, .., Sn>, and any of the following conditions hold:
+ *    - Either G or Si, 1 <= i <= n are malformed.
+ *    - G is not a generic type with n type parameters.
+ *    - Let Ti be the type parameters of G (if any) and let Bi be the bound of Ti, 1 <= i <= n,
+ *      and Si is not a subtype of [S1,  ..., Sn/T1,  ..., Tn]Bi,  1 <= i <= n,
  * In checked mode, it is a dynamic type error if a malformed type is used in a subtype test.
  * In production mode, an undeclared type is treated as an instance of type Dynamic.
  * @description Checks that it is a dynamic-type error if a malformed type is used in a
@@ -20,30 +20,33 @@
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
- * @needsreview Issue 3282
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 class C<T, U, V> {}
 class Bounded<T extends num> {}
 class BoundedInt<T extends int> {}
 
 main() {
+  // spec ch. 11.31 dictates that this produces a runtime exception in both modes
+  try {
+    null is MalformedType;
+    Expect.fail("Runtime exception expected");
+  } catch(e) {
+    if(isCheckedMode()) {
+      Expect.isTrue(e is TypeError);
+    }
+  }
+  
   checkTypeError( () {
-    Expect.isTrue(null is MalformedType);
-  });
-  checkTypeError( () {
-    Expect.isTrue(null is C <int, double, MalformedType>);
+    Expect.isTrue(null is C<int, double, MalformedType>);
   });
   checkTypeError( () {
     Expect.isTrue(null is Bounded<String>);
   });
   checkTypeError( () {
     Expect.isTrue(null is BoundedInt<num>);
-  });
-  checkTypeError( () {
-    Expect.isTrue(null is C<C<int, int, bool>, C, C>);
   });
   checkTypeError( () {
     Expect.isTrue(null is C<Bounded<String>, C, C>);

@@ -5,13 +5,13 @@
  */
 /**
  * @assertion double NEGATIVE_INFINITY
- * @description Checks NEGATIVE_INFINITY is not equal to NEGATIVE_INFINITY using equality operator
+ * @description Checks NEGATIVE_INFINITY is equal to NEGATIVE_INFINITY using equality operator
  * @author hlodvig
  * @needsreview
  */
 
 
 main() {
-  Expect.isFalse((double.NEGATIVE_INFINITY == double.NEGATIVE_INFINITY));
-  Expect.isTrue((double.NEGATIVE_INFINITY != double.NEGATIVE_INFINITY));
+  Expect.isTrue(double.NEGATIVE_INFINITY == double.NEGATIVE_INFINITY);
+  Expect.isFalse(double.NEGATIVE_INFINITY != double.NEGATIVE_INFINITY);
 }

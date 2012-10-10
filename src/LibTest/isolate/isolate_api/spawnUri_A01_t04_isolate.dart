@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library "spawnUri_A01_t04_isolate";
+library spawnUri_A01_t04_isolate;
 import "dart:isolate";
 
 main() {

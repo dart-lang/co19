@@ -13,6 +13,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
+ * @issue 3326 - InvocationMirror not implemented
  */
 
 class S1 {

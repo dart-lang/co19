@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Creates and spawns an isolate that shares the same code as the current
+ * @assertion SendPort spawnFunction(void topLevelFunction())
+ * Creates and spawns an isolate that shares the same code as the current
  * isolate, but that starts from [topLevelFunction]. The [topLevelFunction]
  * argument must be a static top-level function or a static method that takes no
  * arguments. It is illegal to pass a function closure.

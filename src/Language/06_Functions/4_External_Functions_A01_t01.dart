@@ -15,6 +15,7 @@
  * @description Checks that invoking an external function that is not connected to
  * its body indeed results in a NoSuchMethodError or its subclass being thrown.
  * @author rodionov
+ * @issue 5774
  */
 
 external f();

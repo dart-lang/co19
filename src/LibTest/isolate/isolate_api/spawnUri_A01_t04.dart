@@ -9,6 +9,7 @@
  * function returns a SendPort derived from it.
  * @description Checks that chained spawning of 10 isolates works properly.
  * @author iefremov
+ * @issue 5222
  */
 
 import "dart:isolate";

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null as either argument results in NullPointerException
- * @description Tries to pass null as either argument and expects a NullPointerException
+ * @assertion Passing null as either argument results in ArgumentError
+ * @description Tries to pass null as either argument and expects an ArgumentError
  * @author msyabro
  * @reviewer rodionov
  * @needsreview undocumented
@@ -21,6 +21,6 @@ main() {
 void check(Pattern from, String to) {
   try {
     "aaa".replaceFirst(from, to);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
 }

@@ -16,7 +16,7 @@
  * if getter lookup has failed.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 3223
+ * @needsreview issue 3223, 3326
  */
 
 class TestException {}

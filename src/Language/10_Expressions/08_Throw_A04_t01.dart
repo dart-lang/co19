@@ -11,25 +11,24 @@
  */
 
 main() {
-  var last=-1;
+  var last = -1;
   try {
     throw last;
   } catch(e) {
     Expect.equals(last, e);
-   }
   }
-  last={"1" : 1, "2" : 2, "3" : 3, "4" : 4};
+
+  last = {"1" : 1, "2" : 2, "3" : 3, "4" : 4};
   try {
     throw last;
   } catch(e) {
     Expect.equals(last, e);
-   }
   }
-  var last=void func()=>null;
+
+  last = void func() => null;
   try {
     throw last;
   } catch(e) {
     Expect.equals(last, e);
-   }
   }
 }

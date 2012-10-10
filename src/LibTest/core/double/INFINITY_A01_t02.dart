@@ -5,13 +5,13 @@
  */
 /**
  * @assertion double INFINITY
- * @description Checks INFINITY is not equal to INFINITY using equality operator
+ * @description Checks INFINITY is equal to INFINITY using equality operator
  * @author hlodvig
  * @needsreview
  */
 
 
 main() {
-  Expect.isFalse((double.INFINITY == double.INFINITY));
-  Expect.isTrue((double.INFINITY != double.INFINITY));
+  Expect.isTrue(double.INFINITY == double.INFINITY);
+  Expect.isFalse(double.INFINITY != double.INFINITY);
 }

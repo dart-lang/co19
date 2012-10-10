@@ -19,7 +19,7 @@ main() {
                   "\u005C", "\u005D", "\u005E", "\u005F", "\u007B", "\u007C", "\u007D", "\u007E"];
   List character = [r" ", r"!", r'"', r"#", r"$", r"%", r"&", r"'", 
                     r"(", r")", r"*", r"+", r",", r"-", r".", r"/", 
-                    r":", r";", r"<", r"=", r">", r"?", r"r", r"[", 
+                    r":", r";", r"<", r"=", r">", r"?", r"@", r"[", 
                     r"\", r"]", r"^", r"_", r"{", r"|", r"}", r"~"];
 
   Expect.listEquals(unicode, character);

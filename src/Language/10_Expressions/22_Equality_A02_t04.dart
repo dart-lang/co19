@@ -11,7 +11,7 @@
  * -  If either o1 or o2 is null, then ee evaluates to identical(o1 , o2 ).
  *    Otherwise, ee is equivalent to the method invocation o1 .==(o2 ).
  * @description Checks that if operands are not not [:null:]
- * ee is equivalent to the method invocation o1.equals(o2).
+ * ee is equivalent to the method invocation o1.==(o2).
  * @author msyabro
  * @reviewer iefremov
  * @needsreview issue 3308
@@ -29,6 +29,6 @@ main() {
   A a = new A();
   try {
     a == 1;
-    Expect.fail("operator equals was not called");
+    Expect.fail("operator== was not called");
   } on TestException catch(e) {}
 }

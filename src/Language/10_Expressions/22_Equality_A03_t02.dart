@@ -9,25 +9,26 @@
  * • The expression e is evaluated to an object o.
  * • If either this or o is null, then ee evaluates to identical(this, o).
  *   Otherwise, ee is equivalent to the method invocation super.==(o).
- * @description Checks that if o is null, the operator super.==(o) is not called.
+ * @description Checks that if o is null, the operator super.==(o) is not called and
+ * the result is the same as that of identical(this, o) (false, to be sure).
  * @author msyabro
  * @reviewer kaigorodov
+ * @issue 5776
  */
 
 class S {
-  operator == (other) {
-    throw 'This operator should not be invoked.';
+  operator ==(other) {
+    throw 'operator== invoked with $other argument';
   }
 }
 
 class C extends S {
   test() {
+    Expect.equals(super == null, identical(this, null));
     Expect.isFalse(super == null);
   }
 }
 
 main() {
   new C().test();
-
 }
-

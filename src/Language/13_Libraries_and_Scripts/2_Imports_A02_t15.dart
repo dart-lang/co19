@@ -56,7 +56,7 @@
  * @author rodionov
  */
 
-import "2_Imports_A02_lib.dart" show aFoo show A hide aFunc;
+import "2_Imports_A02_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {
   try {

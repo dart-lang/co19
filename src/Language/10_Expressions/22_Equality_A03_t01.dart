@@ -15,10 +15,8 @@
  * @note issue 1242
  */
 
+
 class S {
-  operator equals(other) {
-    throw 'This operator should not be invoked.';
-  }
 }
 
 class C extends S {
@@ -29,6 +27,4 @@ class C extends S {
 
 main() {
   new C().test();
-
 }
-

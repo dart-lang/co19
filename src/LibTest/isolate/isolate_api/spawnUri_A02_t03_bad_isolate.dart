@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library "spawnUri_A02_t03_bad_isolate";
+library spawnUri_A02_t03_bad_isolate;
 
 void notMain() {
   print("this is not main()!");

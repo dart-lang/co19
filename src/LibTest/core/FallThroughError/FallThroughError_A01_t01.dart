@@ -5,10 +5,9 @@
  */
 /**
  * @assertion const FallThroughError()
- * @description Checks that this method causes no error and
+ * @description Checks that this constructor causes no error
  * @author rodionov
  * @needsreview Undocumented
- * @needsreview issue 1269
  */
  
 main() {

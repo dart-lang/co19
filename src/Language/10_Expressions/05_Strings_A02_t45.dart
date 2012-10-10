@@ -24,12 +24,10 @@
  *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
- * @description Checks that multi-line strings that contain characters and sequences prohibited
- * by this grammar, cause compile-time errors.
+ * @description Checks that raw multi-line strings are allowed to have any content 
+ * except the same kind of triple quotes they're enclosed in.
  * @author rodionov
- * @compile-error
  * @reviewer iefremov
- * @note see issue 4009
  */
 
 main() {

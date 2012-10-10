@@ -17,6 +17,6 @@
 
 main() {
   try {
-    var someVar = 1;
+    var someVar = foo;
   } catch(e) {}
 }

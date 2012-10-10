@@ -10,7 +10,7 @@
  * • If either this or o is null, then ee evaluates to identical(this, o).
  *   Otherwise, ee is equivalent to the method invocation super.==(o).
  * @description Checks that if operands are not [:null:],
- * ee is equivalent to the method invocation super.equals(o2).
+ * user-defined operator== will be invoked on the instance referenced by 'super'
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -18,7 +18,7 @@
 class TestException {}
 
 class S {
-  operator equals(other) {
+  operator ==(other) {
     throw new TestException();
   }
 }

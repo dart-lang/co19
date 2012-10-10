@@ -11,31 +11,23 @@
  * -  If either o1 or o2 is null, then ee evaluates to identical(o1, o2 ).
  *    Otherwise, ee is equivalent to the method invocation o1 .==(o2 ).
  * @description Checks that iff one or both of operands is null, the result of an
- * equality expression is evaluated as identical(o1, o2 )..
- * @author msyabro
- * @reviewer iefremov
+ * equality expression is evaluated as identical(o1, o2 ) and the .== method
+ * of whichever operand is not null never gets invoked.
+ * @author kaigorodov
  */
 
-bool called = false;
-
 class C {
-  operator identical(var other) {
-    called=true;
-    return super.identical(other);
+  bool operator ==(other) {
+    throw new "operator== invoked with $other argument!";
   }
 }
 
-void check(var 01, var o2) {
-  called=false;
-  Expect.isFalse(o1, o2);
-  Expect.isTrue(called);
+void check(var o1, var o2) {
+  Expect.equals(o1 == o2, identical(o1, o2));
 }
 
 main() {
   var foo=1;
-
-  Expect.isFalse(1, 2);
-  Expect.isFalse(called);
 
   check(null, null);
   check(null, "null");

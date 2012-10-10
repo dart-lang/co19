@@ -26,7 +26,8 @@ import '2_Imports_A01_t18_lib3.dart';
 import '''2_Imports_A01_t18_lib4.dart''';
 
 main() {
-  try {
-    someVar = 0;
-  } catch(e) {}
+  Expect.equals(1, foo1);
+  Expect.equals(2, foo2);
+  Expect.equals(3, foo3);
+  Expect.equals(4, foo4);
 }

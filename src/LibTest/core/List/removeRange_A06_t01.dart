@@ -22,10 +22,6 @@ main() {
   check(new List(),0,null);
   check(new List(),0,null);
 
-  check(new List(1),null,1);
-  check(new List(1),0,null);
-  check(new List(1),0,null);
-
   check(new List.from([]),null,1);
   check(new List.from([]),0,null);
   check(new List.from([]),0,null);

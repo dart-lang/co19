@@ -24,10 +24,9 @@
  *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
- * @description Checks that unbalanced string cause compile-time erros.
- * @compile-error
+ * @description Checks that raw multi-line strings are allowed to have any content 
+ * except the same kind of triple quotes they're enclosed in.
  * @author rodionov
- * @note see issue 4009
  */
 
 main() {
