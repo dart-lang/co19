@@ -13,10 +13,10 @@
  * @author kaigorodov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 class R<T extends num> {
-  factory fc() {
+  factory R.fc() {
     return new C();
   }
 }

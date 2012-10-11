@@ -57,8 +57,8 @@ class A extends S {
 
     //function expressions
     try {(){} | ()=>{};} catch(e) {}
-    try {void f() {return null;} & void g(int x) => 7;} catch(e) {} // issue 1189
-    try {()=>({}) ^ void f() {};} catch(e) {}
+    try {() {return null;} & (int x) => 7;} catch(e) {} // issue 1189
+    try {() => ({}) ^ () {};} catch(e) {}
 
     //constants and instance creation
     try {const [] | [];} catch(e) {}
@@ -89,9 +89,9 @@ class A extends S {
     1 ^ -1 | 1 & -1 & 1 | -1 ^ 1 | -1 ^ 1;
 
     //additive expressions
-    try { 1 + 2 ^ 2;} catch(var e ) {}
-    try { 0 - 0 | null + null;} catch(var e ) {}
-    try { [] + {} & 0;} catch(var e ) {}
+    try { 1 + 2 ^ 2;} catch(e) {}
+    try { 0 - 0 | null + null;} catch(e) {}
+    try { [] + {} & 0;} catch(e) {}
 
     //multiplicative expressions
     try {true * false ^ id.id / []();} catch(e) {}

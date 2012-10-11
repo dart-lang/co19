@@ -13,12 +13,18 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 class G<S extends String, N extends num> {}
 
 main() {
-  checkTypeError(() {
+  try {
     1 as G<G<String, bool>, int>;
-  });
+  } catch(e) {
+    if(isCheckedMode()) {
+      Expect.isTrue(e is TypeError);
+    } else {
+      Expect.isTrue(e is CastError); // int is not a subtype of this generic, after all
+    }
+  }
 }

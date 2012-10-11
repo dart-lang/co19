@@ -19,6 +19,7 @@
  * a static variable is not succeeded, the variable is initialized with [:null:].
  * @author msyabro
  * @reviewer iefremov
+ * @issue 5802
  */
 
 f() {

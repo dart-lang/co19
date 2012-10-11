@@ -20,6 +20,6 @@ var a;
 
 main() {
   try {
-    new a;
+    new a();
   } catch(e) {}
 }

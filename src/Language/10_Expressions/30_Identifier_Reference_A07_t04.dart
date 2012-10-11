@@ -6,12 +6,10 @@
 /**
  * @assertion It is a compile-time error to use a built-in identifier other than Dynamic 
  * as a type annotation.
- * @description Checks that it is a compile-time error when a built-in identifier
- * "equals" is used as a type annotation of a local variable.
- * @compile-error
+ * @description Checks that it is not a compile-time error when "equals" is used as a type 
+ * annotation of a local variable as it is not a built-in identifier anymore.
  * @author rodionov
  * @reviewer iefremov
- * @note http://code.google.com/p/dart/issues/detail?id=2492, issue 3307
  */
 
 main() {

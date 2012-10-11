@@ -14,7 +14,6 @@
  * @description Checks that two constants are identical iff they are equal.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview constant variables not implemented yet
  */
 
 const x = null;

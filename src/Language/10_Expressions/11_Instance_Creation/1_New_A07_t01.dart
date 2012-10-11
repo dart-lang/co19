@@ -26,7 +26,7 @@
  * @reviewer rodionov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 class C<T extends num> {
   C() {}
@@ -34,7 +34,7 @@ class C<T extends num> {
 
 main() {
   checkTypeError( () {
-    new R<bool>();
+    new C<bool>();
   });
 
   checkTypeError( () {

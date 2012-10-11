@@ -20,21 +20,17 @@ class Stub implements I1, I2{
 }
 
 abstract class I1 {
-  I1() {
-    return new A();
-  }
+  factory I1() = A;
 }
 
 class A {
-  factory I1() {
+  factory A() {
     return new Stub();
   }
 }
 
 abstract class I2 {
-  I2.name() {
-    return new B.name();
-  }
+  factory I2.name() = B.name;
 }
 
 class B implements I2 {

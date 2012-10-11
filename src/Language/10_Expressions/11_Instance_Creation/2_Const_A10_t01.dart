@@ -11,15 +11,12 @@
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
+ * @issue 5775
  */
 
 class A {
   const A(): x = 1 ~/ 0; // IntegerDivisionByZeroException
   final x;
-}
-
-class B {
-  const B();
 }
 
 final a = const A();

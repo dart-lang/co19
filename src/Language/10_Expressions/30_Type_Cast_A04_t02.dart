@@ -11,12 +11,13 @@
  * @compile-error
  * @author rodionov 
  * @reviewer iefremov
+ * @issue 5805
  */
 
 class G<S, T> {}
 
 main() {
   try {
-    [] as G<int>;
+    var x = [] as G<int>;
   } catch(ok) {}
 }

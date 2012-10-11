@@ -73,8 +73,8 @@ class A extends S {
 
     //function expression is a primary is an additive expr.
     try { ()=>0 >> 1; } catch(e) {}
-    try { void f(var x) {} << 0.5; } catch(e) {}
-    try { int f()=> 1 >> double g() {return 0.5;} } catch(e) {}
+    try { (var x) {} << 0.5; } catch(e) {}
+    try { () {return 0.5;} >> () => 1; } catch(e) {}
   }
   var _id;
 }

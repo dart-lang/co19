@@ -7,7 +7,7 @@
  * @assertion Evaluation of e proceeds as follows:
  * If q is a constructor of an abstract class then an AbstractClassInstantiationError is thrown.
  * If T is not a class accessible in the current scope, a dynamic error occurs.
- * Otherwise, if q is not deﬁned or not accessible, a NoSuchMethodError is thrown.
+ * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
  * @description  Checks that AbstractClassInstantiationError is thrown if T is
  * an abstract class.
  * @author kaigorodov

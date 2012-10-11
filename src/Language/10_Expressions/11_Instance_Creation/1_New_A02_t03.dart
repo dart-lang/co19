@@ -14,7 +14,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @needsreview issue 3309
+ * @issue 3309, 5806
  */
 
 func() {}
@@ -22,5 +22,5 @@ func() {}
 main() {
   try {
     new func();
-  } catch(e) {}
+  } on TypeError catch(e) {}
 }

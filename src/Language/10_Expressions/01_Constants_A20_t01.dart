@@ -6,13 +6,13 @@
 /**
  * @assertion A simple or qualified identifier denoting a top-level function or a static
  * method is a constant expression.
- * @description Checks that a function literal can be assigned to
- * a constant variable.
+ * @description Checks that a function literal cannot be assigned to a constant variable.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
 
-const a = () => null;
+const a = () {};
 
 main() {
   try {

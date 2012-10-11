@@ -20,6 +20,6 @@
 
 main() {
   try {
-    as int;
+    var x = (as int);
   } catch(x) {}
 }

@@ -6,7 +6,7 @@
 /**
  * @assertion A simple or qualified identifier denoting a top-level function or a static
  * method is a constant expression.
- * @description Checks that an instance method is not a constant expression.
+ * @description Checks that an identifier denoting an instance method is not a constant expression.
  * @compile-error
  * @author kaigorodov
  * @reviewer msyabro

@@ -37,7 +37,6 @@
  * can be used in the left hand side of an assignment.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue #1189
  */
 
 main() {

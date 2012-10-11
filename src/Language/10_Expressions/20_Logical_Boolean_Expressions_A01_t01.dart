@@ -21,7 +21,7 @@
  * @reviewer rodionov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 topLevelFunction() {}
 
@@ -85,7 +85,7 @@ class A {
 
      //function expressions
      (){} || ()=>({});
-     void f() {return null;} && void g(int x) => 7; // issue 1189
+     () {return null;} && (int x) => 7; // issue 1189
   }
 }
 

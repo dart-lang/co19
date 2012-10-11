@@ -11,10 +11,11 @@
  * @compile-error
  * @author rodionov 
  * @reviewer iefremov
+ * @issue 5805
  */
 
 main() {
   try {
-    [] as List<int, bool>;
+    var x = [] as List<int, bool>;
   } catch(ok) {}
 }

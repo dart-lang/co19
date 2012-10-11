@@ -72,9 +72,9 @@ class A extends S {
 
     //additive expression is a shift expr.
     Expect.isFalse(1 + 2 < 2);
-    try { 0 - 0 > null + null;} catch(var e ) {}
-    try { [] + {} <= (){} - () => null;} catch(var e ) {}
-    try { "" - '' >= 0;} catch(var e ) {}
+    try { 0 - 0 > null + null;} catch(e) {}
+    try { [] + {} <= (){} - () => null;} catch(e) {}
+    try { "" - '' >= 0;} catch(e) {}
 
     //multiplicative expression is a shift expr.
     try {true * false < id.id / []();} catch(e) {}
@@ -97,9 +97,9 @@ class A extends S {
     //function expression is primary is postfix expr. is shift expr.
     // issue 1189
     try { ()=>0 < 1; } catch(e) {}
-    try { void f(var x) {} <= 0.5; } catch(e) {}
-    try { int f()=> 1 > double g() {return 0.5;} } catch(e) {}
-    try { (){} >= ()=>null;} catch(e) {}
+    try { (var x) {} <= 0.5; } catch(e) {}
+    try { () {return 0.5;} > () => 1; } catch(e) {}
+    try { (){} >= () => null;} catch(e) {}
   }
 
   var _id;

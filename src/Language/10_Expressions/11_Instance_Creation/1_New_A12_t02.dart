@@ -14,10 +14,10 @@
  * @author kaigorodov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 class R<T extends num> {
-  factory fc()=C;
+  factory R.fc() = C;
 }
 
 class C<T extends num> implements R<T> {

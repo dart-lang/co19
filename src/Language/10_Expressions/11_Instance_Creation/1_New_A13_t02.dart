@@ -48,7 +48,7 @@ class B <T extends A> implements I2 {
 
 abstract class I3<T, U> {
   factory I3.name() {
-    return new C.name<T, U>();
+    return new C<T, U>.name();
   }
 }
 
