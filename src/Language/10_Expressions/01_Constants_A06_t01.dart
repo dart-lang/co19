@@ -9,6 +9,7 @@
  * of a constant list literal and is, therefore, a constant expression.
  * @author msyabro
  * @reviewer rodionov
+ * @issue 5214
  */
 
 const x = '';
@@ -18,7 +19,7 @@ class C {
   const C();
 }
 
-final constList = const [
+const constList = const [
   (1),
   (true),
   (''),
@@ -28,7 +29,7 @@ final constList = const [
   (const C()),
   (const [1, 2, 3]),
   (const {}),
-  (identical(1, 1)),
+  (1 == 1),
   (identical('', null)),
   (true != false),
   (!true),

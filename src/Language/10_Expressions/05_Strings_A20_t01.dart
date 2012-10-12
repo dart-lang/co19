@@ -9,24 +9,25 @@
  * @description Checks that the first new-line in a multi-line string is ignored.
  * @author iefremov
  * @reviewer rodionov
+ * @issue 5833
  */
 
 
 main() {
   var s1 = """
 """;
-  Expect.identical("""""", s1, "The first new-line character in a multi-line string should be ignored!");
+  Expect.stringEquals("""""", s1, "The first new-line character in a multi-line string should be ignored!");
 
   s1 = '''
 ''';
-  Expect.identical('''''', s1, "The first new-line character in a multi-line string should be ignored!");
+  Expect.stringEquals('''''', s1, "The first new-line character in a multi-line string should be ignored!");
 
   // tabs and spaces at the beginning of a multiline string
   s1 = """  	  
 abyr, abyr
 abyrvalg
 """;
-  Expect.identical("""abyr, abyr
+  Expect.stringEquals("""abyr, abyr
 abyrvalg
 """, s1);
 }
