@@ -39,7 +39,7 @@ main() {
   success = false;
   try {
     throw "foo";
-  } catch (final p1, final st) {
+  } catch (p1, st) {
     success = true;
   }
   Expect.isTrue(success);
@@ -48,7 +48,7 @@ main() {
     success = false;
     try {
       throw 1;
-    } catch (var p1, final int st) {
+    } catch (p1, st) {
       success = true;
     }
     Expect.isTrue(success);
@@ -57,7 +57,7 @@ main() {
   success = false;
   try {
     throw success;
-  } catch (var p1, var st) {
+  } catch (p1, st) {
     success = true;
   }
   Expect.isTrue(success);

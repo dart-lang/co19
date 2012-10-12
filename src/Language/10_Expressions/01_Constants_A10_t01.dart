@@ -11,6 +11,7 @@
  * of a constant list literal and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
+ * @note http://code.google.com/p/dart/issues/detail?id=1671
  */
 
 final constList = const [

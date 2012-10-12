@@ -26,7 +26,7 @@ main() {
           throw ex;
           Expect.fail("This code shouldn't be executed");
         } on int catch(i) {
-        } catch (var v, var st) {
+        } catch (v, st) {
           strace = st;
           throw;
           Expect.fail("This code shouldn't be executed");

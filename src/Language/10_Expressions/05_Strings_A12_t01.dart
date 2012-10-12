@@ -43,7 +43,7 @@ main() {
   Expect.identical('\0', '0');
 
   Expect.identical('\!', '!');
-  Expect.identical('\@', '@');
+  Expect.identical('\r', 'r');
   Expect.identical('\#', '#');
   Expect.identical('\%', '%');
   Expect.identical('\^', '^');

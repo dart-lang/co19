@@ -15,5 +15,5 @@ main() {
   Expect.isTrue((() => 1) is Function);
   Expect.isTrue(((p1, p2) {}) is Function);
   Expect.isTrue(((p1, [int p2]) {}) is Function);
-  Expect.isTrue(((p1, {int p2: 1}) {}) is Function);
+  Expect.isTrue(((p1, {int p2=1}) {}) is Function);
 }

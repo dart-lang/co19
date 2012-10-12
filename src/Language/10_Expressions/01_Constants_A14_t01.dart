@@ -11,14 +11,13 @@
  * the initializer list of a constant constructor and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
- * @issue 5214
  */
 
 final constList = const [
   identical("a", "b"),
   !identical(true, false),
   identical("a", false),
-  identical(((1 == 2) != ("" == "b")), (false != true)),
+  identical(((1 == 2) != ("" == "b")), (false !== true)),
   identical(null, ''),
   identical(1, null),
   identical(null, null)

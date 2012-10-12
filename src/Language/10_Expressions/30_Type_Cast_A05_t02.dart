@@ -13,16 +13,10 @@
  * @reviewer iefremov
  */
 
-import "../../Utils/dynamic_check.dart";
+#import("../../Utils/dynamic_check.dart");
 
 main() {
-  try {
+  checkTypeError(() {
     1 as List<NonExistent>;
-  } catch(e) {
-    if(isCheckedMode()) {
-      Expect.isTrue(e is TypeError);
-    } else {
-      Expect.isTrue(e is CastError);
-    }
-  }
+  });
 }

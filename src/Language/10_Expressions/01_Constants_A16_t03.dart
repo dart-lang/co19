@@ -18,7 +18,7 @@ class A {
   final x;
 }
 
-const m = const A(const []);
+final m = const A(const []);
 
 main() {
   try {

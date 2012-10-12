@@ -22,7 +22,10 @@
 
 @B(1) class A {
   A(){}
-}@B(1) class B extends A {
+}
+
+@B(1) class B extends A {
+  B(){}
   B(int a){}
 }
 

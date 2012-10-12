@@ -22,12 +22,15 @@
  */
 
 class C {
-  static get func() {}
+  static get func {}
 }
 
 main()  {
   try {
     C.func();
     Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
+  } on NoSuchMethodError catch(e) {
+  } catch(e) {
+    Expect.fail("NoSuchMethodError expected, but ${e.runtimeType} ($e) thrown");
+  }
 }

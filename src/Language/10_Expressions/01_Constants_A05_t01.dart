@@ -10,7 +10,6 @@
  * @author iefremov
  * @reviewer rodionov
  * @reviewer msyabro
- * @issue 5832
  */
 
 const x = '';
@@ -19,7 +18,7 @@ class C {
   const bool y = false;
 }
 
-const constList = const [
+final constList = const [
   x,
   C.y
 ];

@@ -44,7 +44,7 @@ main() {
   success = false;
   try {
     throw new T2();
-  } catch (final T1 p1, final st) {
+  } on T1 catch(p1, st) {
     success = true;
   }
   Expect.isTrue(success);
@@ -53,7 +53,7 @@ main() {
   success = false;
   try {
     throw new T2();
-  } catch (T1 p1, final int st) {
+  } on T1 catch(p1, st) {
     success = true;
   }
   Expect.isTrue(success);
@@ -62,7 +62,7 @@ main() {
   success = false;
   try {
     throw new T2();
-  } catch (T1 p1, var st) {
+  } on T1 catch(p1, st) {
     success = true;
   }
   Expect.isTrue(success);
@@ -71,7 +71,7 @@ main() {
     success = false;
     try {
       throw new T2();
-    } catch (T1 p1, int st) {
+    } on T1 catch(p1, st) {
       success = true;
     }
     Expect.isTrue(success);
@@ -82,7 +82,7 @@ main() {
     success = false;
     try {
       throw new Foo();
-    } catch (Foo p1, int st) {
+    } on Foo catch(p1, st) {
       success = true;
     }
     Expect.isTrue(success);

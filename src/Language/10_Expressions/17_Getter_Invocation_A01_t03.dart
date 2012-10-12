@@ -16,25 +16,25 @@
  */
 
 class A {
-  get  {
+  get v {
     return "v";
   }
 }
 
 class B {
-  get  {
+  get v {
     return false;
   }
 }
 
 class C {
-  get  {
+  get v {
     return 1;
   }
 }
 
 class D {
-  get  {
+  get v {
     return null;
   }
 }

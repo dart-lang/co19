@@ -20,6 +20,7 @@
  *   finally block
  * ;
  * @description Checks that it is a compile-time error when onPart misses block.
+ * @compile-error
  * @author kaigorodov
  */
 
