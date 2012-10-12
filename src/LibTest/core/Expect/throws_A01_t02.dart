@@ -22,8 +22,8 @@ void goodboy() {
 
 main() {
   Expect.throws(goodboy);
-  Expect.throws(goodboy, reason: "");
-  Expect.throws(goodboy, reason: "not empty");
+  Expect.throws(goodboy, null, "");
+  Expect.throws(goodboy, null, "not empty");
 
   Expect.throws(goodboy, (e) => true);
   Expect.throws(goodboy, (e) => true, "");

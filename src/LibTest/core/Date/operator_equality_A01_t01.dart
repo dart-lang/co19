@@ -12,31 +12,31 @@
  */
 
 check(expected, actual) {
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, true) ==
-    new Date.fromMillisecondsSinceEpoch(actual, true));
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, isUtc: true) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: true));
 
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, false) ==
-    new Date.fromMillisecondsSinceEpoch(actual, true));
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, isUtc: false) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: true));
 
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, true) ==
-    new Date.fromMillisecondsSinceEpoch(actual, false));
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, isUtc: true) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: false));
 
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, false) ==
-    new Date.fromMillisecondsSinceEpoch(actual, false));
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(expected, isUtc: false) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: false));
 }
 
 checkFalse(expected, actual) {
-  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, true) ==
-    new Date.fromMillisecondsSinceEpoch(actual, true));
+  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, isUtc: true) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: true));
 
-  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, false) ==
-    new Date.fromMillisecondsSinceEpoch(actual, true));
+  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, isUtc: false) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: true));
 
-  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, true) ==
-    new Date.fromMillisecondsSinceEpoch(actual, false));
+  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, isUtc: true) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: false));
 
-  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, false) ==
-    new Date.fromMillisecondsSinceEpoch(actual, false));
+  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(expected, isUtc: false) ==
+    new Date.fromMillisecondsSinceEpoch(actual, isUtc: false));
 }
 
 main() {
@@ -54,4 +54,3 @@ main() {
   checkFalse(603176900009, 100);
   checkFalse(100, -100);
 }
-

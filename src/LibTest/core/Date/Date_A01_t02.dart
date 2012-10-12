@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Constructs a Date instance based on the individual parts.
- * The date is in the local time zone if isUtc is false.
+ * The date is in the local time zone.
  * @description Tries to pass null for each argument.
  * @author hlodvig
  * @reviewer iefremov

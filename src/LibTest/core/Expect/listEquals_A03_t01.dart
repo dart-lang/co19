@@ -35,7 +35,7 @@ main() {
   check([1,2,3], [1,2,3,4]);
   check([0,1,2,3], [1,2,3], "235dsf435g gret sd");
 
-  check([1, 5, 3], [1, 10, 3], index:1);
+  check([1, 5, 3], [1, 10, 3], null, 1);
 }
 
 void check(List arg1, List arg2, [String reason = null, int index = 0]) {
@@ -63,7 +63,7 @@ void check(List arg1, List arg2, [String reason = null, int index = 0]) {
         throw "exception message: ( ${e.message} ) doesn't mention the actual value ($a2str)";
       
       if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) 
-        "exception message: ( ${e.message} ) doesn't mention the specified reason ($reason)";;
+        "exception message: ( ${e.message} ) doesn't mention the specified reason ($reason)";
     }
   }
 }

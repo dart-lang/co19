@@ -22,12 +22,12 @@ main() {
 
   // min double > 0 / 10000
   check(0, MIN_DOUBLE);
-  check(0, MIN_DOUBLE, reason: "");
-  check(0, MIN_DOUBLE, reason: "not empty");
+  check(0, MIN_DOUBLE, null, "");
+  check(0, MIN_DOUBLE, null, "not empty");
 
   check(0, NEG_MIN_DOUBLE);
-  check(0, NEG_MIN_DOUBLE, reason: "");
-  check(0, NEG_MIN_DOUBLE, reason: "not empty");
+  check(0, NEG_MIN_DOUBLE, null, "");
+  check(0, NEG_MIN_DOUBLE, null, "not empty");
 
   check(MAX_DOUBLE, double.INFINITY);
   check(double.NAN, double.NEGATIVE_INFINITY);

@@ -11,6 +11,6 @@
  */
 
 main() {
-  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(null, true));
-  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(1, null));
+  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(null, isUtc: true));
+  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(1, isUtc: null));
 }

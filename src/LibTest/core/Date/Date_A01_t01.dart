@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Constructs a Date instance based on the individual parts.
- * The date is in the local time zone if isUtc is false.
+ * The date is in the local time zone.
  * @description Checks the Date constructor with various correct parameters that are within range and
  * do not result in overflow/underflow of any single field.
  * @author hlodvig

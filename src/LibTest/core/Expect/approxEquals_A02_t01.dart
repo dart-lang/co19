@@ -21,20 +21,20 @@ main() {
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   Expect.approxEquals(0, 0);
-  Expect.approxEquals(0, 0, reason: "");
-  Expect.approxEquals(0, 0, reason: "not empty");
+  Expect.approxEquals(0, 0, null, "");
+  Expect.approxEquals(0, 0, null, "not empty");
 
   Expect.approxEquals(-0.0, 0);
-  Expect.approxEquals(-0.0, 0, reason: "");
-  Expect.approxEquals(-0.0, 0, reason: "not empty");
+  Expect.approxEquals(-0.0, 0, null, "");
+  Expect.approxEquals(-0.0, 0, null, "not empty");
 
   Expect.approxEquals(10000, 10001);
-  Expect.approxEquals(10000, 10001, reason: "");
-  Expect.approxEquals(10000, 10001, reason: "not empty");
+  Expect.approxEquals(10000, 10001, null, "");
+  Expect.approxEquals(10000, 10001, null, "not empty");
 
   Expect.approxEquals(-10001, -10002);
-  Expect.approxEquals(-10001, -10002, reason: "");
-  Expect.approxEquals(-10001, -10002, reason: "not empty");
+  Expect.approxEquals(-10001, -10002, null, "");
+  Expect.approxEquals(-10001, -10002, null, "not empty");
 
   check(100, 101);
   check(100, 101, "");
@@ -51,17 +51,17 @@ main() {
 
   // inf / 10000 -> inf
   Expect.approxEquals(double.INFINITY, 0);
-  Expect.approxEquals(double.INFINITY, 0, reason: "");
-  Expect.approxEquals(double.INFINITY, 0, reason: "not empty");
+  Expect.approxEquals(double.INFINITY, 0, null, "");
+  Expect.approxEquals(double.INFINITY, 0, null, "not empty");
 
   Expect.approxEquals(double.NEGATIVE_INFINITY, 0);
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, reason: "");
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, reason: "not empty");
+  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, null, "");
+  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, null, "not empty");
 }
 
 void check(num arg1, num arg2, [String reason = null]) {
   try {
-    Expect.approxEquals(arg1, arg2, reason: reason);
+    Expect.approxEquals(arg1, arg2, null, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
   }

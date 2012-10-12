@@ -5,12 +5,12 @@
  */
 /**
  * @assertion Constructs a Date instance based on the individual parts.
- * The date is in the local time zone if isUtc is false.
- * @description Checks that the UTC timezone is used if isUtc is true.
+ * The date is in the UTC time zone.
+ * @description Checks that the constructed Date is indeed in the UTC timezone.
  * @author iefremov
  */
 
 main() {
-  Date dt = new Date(2001, 1, 2, 3, 4, 5, 6, true);
+  Date dt = new Date.utc(2001, 1, 2, 3, 4, 5, 6);
   Expect.identical(dt, dt.toUtc());
 }

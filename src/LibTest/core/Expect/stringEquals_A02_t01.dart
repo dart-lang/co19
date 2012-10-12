@@ -21,7 +21,7 @@ main() {
 
   check("", null, "null");
   check(null, "", "null");
-  check("", null, "null", reason: "not empty");
+  check("", null, "null", null, "not empty");
 }
 
 void check(var exp, var act, String arg1, [String arg2 = null, String reason = null]) {

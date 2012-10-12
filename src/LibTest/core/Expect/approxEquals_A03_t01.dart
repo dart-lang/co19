@@ -14,16 +14,16 @@
 
 main() {
   check(null, 0);
-  check(null, 0, reason:"");
-  check(null, 0, reason:"not empty");
+  check(null, 0, null, "");
+  check(null, 0, null, "not empty");
 
   check(0, null);
-  check(0, null, reason: "");
-  check(0, null, reason: "not empty");
+  check(0, null, null,  "");
+  check(0, null, null,  "not empty");
 
   check(null, null);
-  check(null, null, reason: "");
-  check(null, null, reason: "not empty");
+  check(null, null, null,  "");
+  check(null, null, null,  "not empty");
 
   check(null, 0, 0);
   check(null, 0, 0, "");

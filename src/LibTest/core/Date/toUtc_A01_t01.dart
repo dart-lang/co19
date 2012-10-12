@@ -6,18 +6,18 @@
 /**
  * @assertion Returns this in UTC. Returns itself if it is already in UTC.
  * Otherwise, this method is equivalent to
- * new Date.fromMillisecondsSinceEpoch(millisecondsSinceEpoch, true).
+ * new Date.fromMillisecondsSinceEpoch(millisecondsSinceEpoch, isUtc: true).
  * @description Checks that the method returns the correct value.
  * @author iefremov
  */
 
 check(millis) {
-  Date d = new Date.fromMillisecondsSinceEpoch(millis, false);
-  Expect.equals(d.toUtc(), new Date.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, true));
+  Date d = new Date.fromMillisecondsSinceEpoch(millis, isUtc: false);
+  Expect.equals(d.toUtc(), new Date.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, isUtc: true));
 }
 
 main() {
-  Date d = new Date.fromMillisecondsSinceEpoch(100500, true);
+  Date d = new Date.fromMillisecondsSinceEpoch(100500, isUtc: true);
   Expect.identical(d, d.toUtc());
 
   check(0);

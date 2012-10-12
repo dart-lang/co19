@@ -14,10 +14,10 @@
 
 
 main() {
-  Date d = new Date.fromMillisecondsSinceEpoch(1, true);
+  Date d = new Date.fromMillisecondsSinceEpoch(1, isUtc: true);
   Expect.identical(d, d.toUtc());
 
-  d = new Date.fromMillisecondsSinceEpoch(1, false);
+  d = new Date.fromMillisecondsSinceEpoch(1, isUtc: false);
   Expect.identical(d, d.toLocal());
 
   d = new Date.fromMillisecondsSinceEpoch(1);

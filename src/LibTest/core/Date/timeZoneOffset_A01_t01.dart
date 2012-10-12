@@ -12,10 +12,10 @@
  */
 
 main() {
-  Expect.equals(0, new Date.fromMillisecondsSinceEpoch(100500, true).timeZoneOffset.inMilliseconds);
-  Expect.equals(0, new Date.fromMillisecondsSinceEpoch(100500, true).timeZoneOffset.inMilliseconds);
+  Expect.equals(0, new Date.fromMillisecondsSinceEpoch(100500, isUtc: true).timeZoneOffset.inMilliseconds);
+  Expect.equals(0, new Date.fromMillisecondsSinceEpoch(100500, isUtc: true).timeZoneOffset.inMilliseconds);
 
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(100500, false).timeZoneOffset.inMilliseconds >=0 ||
-                new Date.fromMillisecondsSinceEpoch(100500, false).timeZoneOffset.inMilliseconds < 0);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(100500, isUtc: false).timeZoneOffset.inMilliseconds >=0 ||
+                new Date.fromMillisecondsSinceEpoch(100500, isUtc: false).timeZoneOffset.inMilliseconds < 0);
 }
 

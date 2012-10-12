@@ -32,7 +32,7 @@ void badboy3() {
 
 main() {
   Expect.throws(badboy);
-  Expect.throws(badboy, reason: "not empty");
+  Expect.throws(badboy, null,"not empty");
 
   Expect.throws(badboy, (e) => true);
   check(badboy, (e) => false, "not empty");

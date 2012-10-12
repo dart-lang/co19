@@ -11,6 +11,8 @@
  */
 
 main() {
-  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(1, false).isUtc);
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(1, true).isUtc);
+  Expect.isFalse(new Date(2012).isUtc);
+  Expect.isTrue(new Date.utc(2012).isUtc);
+  Expect.isFalse(new Date.fromMillisecondsSinceEpoch(1, isUtc: false).isUtc);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(1, isUtc: true).isUtc);
 }

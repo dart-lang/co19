@@ -5,15 +5,12 @@
  */
 /**
  * @assertion Constructs a Date instance based on the individual parts.
- * The date is in the local time zone if isUtc is false.
- * @description Checks that the local timezone is used if isUtc is false or not specified.
+ * The date is in the local time zone.
+ * @description Checks that the local timezone is used.
  * @author iefremov
  */
 
 main() {
-  Date dt = new Date(2001, 1, 2, 3, 4, 5, 6, false);
-  Expect.identical(dt, dt.toLocal());
-
-  dt = new Date(2001, 1, 2, 3, 4, 5, 6);
+  Date dt = new Date(2001, 1, 2, 3, 4, 5, 6);
   Expect.identical(dt, dt.toLocal());
 }

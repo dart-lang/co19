@@ -11,7 +11,7 @@
 
 main() {
   Expect.isTrue(new Date.now().timeZoneName is String);
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0, true).timeZoneName is String);
-  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0, false).timeZoneName is String);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0, isUtc: true).timeZoneName is String);
+  Expect.isTrue(new Date.fromMillisecondsSinceEpoch(0, isUtc: false).timeZoneName is String);
 }
 

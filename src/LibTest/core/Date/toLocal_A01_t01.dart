@@ -6,14 +6,14 @@
 /**
  * @assertion Returns this in the local time zone. Returns itself if it is already in
  * the local time zone. Otherwise, this method is equivalent to new
- * Date.fromMillisecondsSinceEpoch(millisecondsSinceEpoch, false).
+ * Date.fromMillisecondsSinceEpoch(millisecondsSinceEpoch, isUtc: false).
  * @description Checks that the method returns the correct value.
  * @author iefremov
  */
 
 check(millis) {
-  Date d = new Date.fromMillisecondsSinceEpoch(millis, true);
-  Expect.equals(d.toLocal(), new Date.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, false));
+  Date d = new Date.fromMillisecondsSinceEpoch(millis, isUtc: true);
+  Expect.equals(d.toLocal(), new Date.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, isUtc: false));
 }
 
 main() {

@@ -10,8 +10,8 @@
  */
 
 check(millis) {
-  Expect.equals(millis, new Date.fromMillisecondsSinceEpoch(millis, true).millisecondsSinceEpoch);
-  Expect.equals(millis, new Date.fromMillisecondsSinceEpoch(millis, false).millisecondsSinceEpoch);
+  Expect.equals(millis, new Date.fromMillisecondsSinceEpoch(millis, isUtc: true).millisecondsSinceEpoch);
+  Expect.equals(millis, new Date.fromMillisecondsSinceEpoch(millis, isUtc: false).millisecondsSinceEpoch);
 }
 
 main() {

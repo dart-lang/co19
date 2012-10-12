@@ -35,7 +35,7 @@ main() {
 
 void check(var arg1, var arg2, [String reason = null]) {
   try {
-    Expect.notEquals(arg1, arg2, reason: reason);
+    Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
     if (!e.message.contains(arg1 !== null ? arg1.toString() : "null", 0)) throw "no unexpected value";

@@ -22,8 +22,8 @@ void badboy() {
 
 main() {
   check(badboy);
-  check(badboy, reason: "");
-  check(badboy, reason: "not empty");
+  check(badboy, null, "");
+  check(badboy, null, "not empty");
 
   check(badboy, (e) => true);
   check(badboy, (e) => true, "");

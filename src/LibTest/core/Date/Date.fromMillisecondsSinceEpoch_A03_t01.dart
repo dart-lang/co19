@@ -11,8 +11,8 @@
  */
 
 main() {
-  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(3.14, true));
-  Expect.throws(() => new Date.fromMillisecondsSinceEpoch("", true));
-  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(1, 3.14));
-  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(1, ""));
+  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(3.14, isUtc: true));
+  Expect.throws(() => new Date.fromMillisecondsSinceEpoch("", isUtc: true));
+  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(1, isUtc: 3.14));
+  Expect.throws(() => new Date.fromMillisecondsSinceEpoch(1, isUtc: ""));
 }
