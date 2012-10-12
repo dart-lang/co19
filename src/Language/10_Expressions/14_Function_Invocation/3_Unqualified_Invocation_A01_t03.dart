@@ -18,6 +18,7 @@
  * then i is interpreted as a function expression invocation.
  * @author msyabro
  * @reviewer rodionov
+ * @issue 1604
  */
 
 get m() {

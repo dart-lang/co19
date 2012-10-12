@@ -4,5 +4,4 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-//'library' isn't a built-in identifier or a reserved word so this should work
-library library;
+library library1;

@@ -6,8 +6,8 @@
 /**
  * @assertion It is a compile-time error if a class declares two members of the same name.
  * @assertion The name of a setter is obtained by appending the string ‘=’ to the
- * identiﬁer given in its signature.
- * Hence, a setter name can never conﬂict with, override or be overridden by a getter or method.
+ * identifier given in its signature.
+ * Hence, a setter name can never conflict with, override or be overridden by a getter or method.
  * @description Checks that a class can declare a getter and a setter of the same name provided
  * both are instance members (abstract or not) or both are static members.
  * @static-warning

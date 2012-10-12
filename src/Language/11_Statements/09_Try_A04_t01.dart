@@ -14,8 +14,6 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
-
 class T1 {}
 class T2 extends T1 {}
 
@@ -40,32 +38,6 @@ main() {
   try {
     throw "foo";
   } catch (p1, st) {
-    success = true;
-  }
-  Expect.isTrue(success);
-
-  checkTypeError((){
-    success = false;
-    try {
-      throw 1;
-    } catch (p1, st) {
-      success = true;
-    }
-    Expect.isTrue(success);
-  });
-
-  success = false;
-  try {
-    throw success;
-  } catch (p1, st) {
-    success = true;
-  }
-  Expect.isTrue(success);
-
-  success = false;
-  try {
-    throw (){};
-  } catch(x) {
     success = true;
   }
   Expect.isTrue(success);

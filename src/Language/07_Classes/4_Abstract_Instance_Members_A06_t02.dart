@@ -10,24 +10,23 @@
  * named n and a static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an abstract
  * method with the same name as a static getter in its superclass.
- * @static-warning
+ * @static-warning for 2 reasons: 1 as per assertion and another for not implementing f() in a concrete class
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 981
  */
 
 class A {
-  static get f() {}
+  static get f {}
 }
 
 class B extends A {
   f();
 }
 
-class C extends B {
-  f(){}
-}
-
 main() {
-  new C().f();
+  try {
+    new B().f();
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }
-

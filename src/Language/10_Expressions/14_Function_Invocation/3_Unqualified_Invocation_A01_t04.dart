@@ -18,10 +18,11 @@
  * a function expression invocation.
  * @author msyabro
  * @reviewer rodionov
+ * @issue 1604
  */
 
 class A {
-  static get m() {
+  static get m {
     return (p1, p2) {
       Expect.equals(1, p1);
       Expect.equals(2, p2);

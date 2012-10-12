@@ -18,6 +18,7 @@
  * @description Checks that it is not an error when a library directly imports
  * the same URI more than once.
  * @author rodionov
+ * @issue 5399
  */
 
 import "2_Imports_A01_t50_lib.dart";

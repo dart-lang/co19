@@ -11,8 +11,8 @@
  *   ﬁeld of c1 is identical to the corresponding ﬁeld of c2 .
  * where identical() is the predeﬁned dart function that returns true iff its two
  * arguments are the same object.
- * @description Provides examples to the contrary
- * @needsreview issues 2506, 3294
+ * @description Checks that identical() works as described even if the classes
+ * being compared have operator == redefined to return counter-intuitive result.
  * @author rodionov
  * @reviewer kaigorodov
  */

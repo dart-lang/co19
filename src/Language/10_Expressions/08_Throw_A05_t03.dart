@@ -38,12 +38,10 @@ main() {
     } on int catch(i) {}
     Expect.fail("This code shouldn't be executed");
   } on int catch(i) {
-  } catch (String s, var st) {
+  } catch (s, st) {
     flag = true;
     Expect.isTrue(ex === s);
     Expect.isTrue(strace === st);
-  } catch(v) {
-    Expect.fail("This code shouldn't be executed");
   }
   
   Expect.isTrue(flag, "The correct exception handler wasn't triggered");

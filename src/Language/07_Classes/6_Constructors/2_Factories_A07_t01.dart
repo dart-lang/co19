@@ -7,8 +7,8 @@
  * @assertion A redirecting factory constructor specfies a call to a constructor
  * of another class that is to be used whenever the redirecting constructor is called.
  * redirectingFactoryConstructorSignature:
- *    const? factory identiﬁer (‘.’ identiﬁer)? formalParameterList
- *      ‘=’ typeName (‘.’ identiﬁer)?
+ *    const? factory identifier (‘.’ identifier)? formalParameterList
+ *      ‘=’ typeName (‘.’ identifier)?
  * ;
  * @description Checks that correct declarations of redirecting factory constructors
  * do not cause errors.

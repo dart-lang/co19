@@ -24,27 +24,30 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 main() {
   try {
     throw "";
-  } on int catch(ok) {
-  } catch(ok) {
-  } finally {}
+  }
+  on int catch(ok) {}
+  catch(ok) {}
+  finally {}
 
   try {
     throw "";
-  } on int catch (ok, st) {
-  } finally {}
+  }
+  on int catch (ok, st) {}
+  catch(wtvr) {}
+  finally {}
 
   checkTypeError(() {
     try {
       throw "";
-    } on int catch (ok, st) {
-    } on String catch (ok, st) {
     }
-  );
+    on int catch (ok, st) {}
+    on String catch (ok, st) {}
+  });
 
   try {
     try {
@@ -56,7 +59,7 @@ main() {
     throw 1;
   }
   on int catch(x) {}
-  on float catch(x) {}
+  on double catch(x) {}
 
   try {
     throw 1;

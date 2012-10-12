@@ -27,5 +27,5 @@
 main() {
   try {
     throw "foo";
-  } on String catch (ex)
+  } on String catch(ex)
 }

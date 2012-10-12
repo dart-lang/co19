@@ -15,9 +15,8 @@
  * The body of f is then executed with respect to the bindings that resulted
  * from the evaluation of the argument list. The value of i is the value returned
  * after the body of f is executed.
- * @description Checks that a NoSuchMethodError (it's actually called NoSuchMethodError)
- * is thrown if C does not denote a class in the current scope, or if C does not declare 
- * a static method or getter with the required name.
+ * @description Checks that a NoSuchMethodError is thrown if C does not denote a class 
+ * in the current scope, or if C does not declare a static method or getter with the required name.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov

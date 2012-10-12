@@ -57,6 +57,7 @@
  * @author vasya
  * @reviewer msyabro
  * @reviewer rodionov
+ * @issue 5838
  */
 
 import "2_Imports_A02_lib.dart";

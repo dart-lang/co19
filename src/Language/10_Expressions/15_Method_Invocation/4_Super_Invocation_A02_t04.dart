@@ -17,6 +17,7 @@
  * @description Checks that the argument list is evaluated before the method lookup.
  * @author msyabro
  * @reviewer kaigorodov
+ * @issue 1604
  */
 
 StringBuffer buffer;

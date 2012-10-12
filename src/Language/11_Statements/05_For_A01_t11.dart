@@ -22,7 +22,7 @@
  * @author rodionov
  * @reviewer iefremov
  * @reviewer msyabro
- * @needsreview 5675
+ * @issue 5675
  */
 
 bool f() {return true;}
@@ -55,8 +55,7 @@ main() {
   for(int i  in [1, 2]) break;
   for(final i in const []) break;
   for(final String s in ['a', 'b', 'c']) {break;}
-  for(const x in []) break;
-  for(const int x in const [1, 2, 3]) break;
+  for(const x in []) break; // 5675
+  for(const int x in const [1, 2, 3]) break; // 5675
   for(i in const [1, 2, 3, 4, 5]) break;  //i is declared earlier
 }
-

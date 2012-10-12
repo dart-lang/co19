@@ -24,6 +24,6 @@ main() {
   boolFuncParam bfp = (bool p1, {bool p2}) => false;
   bfp = (bool p1, {bool p2: false}) => false && true;
 
-  listFuncParam lfp = ({Map m = const {}}) => [m];
+  listFuncParam lfp = ({Map m: const {}}) => [m];
   lfp = ({Map m}) => [[m]];
 }

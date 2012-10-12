@@ -6,18 +6,18 @@
 /**
  * @assertion It is a compile-time error if a class has an instance member and a static
  * member with the same name.
- * @description Checks that it is a compile-time error if a class has an abstract instance
- * method and a static member method with the same name.
+ * @description Checks that it is a compile-time error if a class inherits an abstract instance
+ * method and declares a static member method with the same name.
  * @compile-error
  * @author kaigorodov
  */
 
 class B {
-  static int func() {}
+  int func();
 }
 
 class A extends B {
-  int func();
+  static int func() {}
 }
 
 main() {

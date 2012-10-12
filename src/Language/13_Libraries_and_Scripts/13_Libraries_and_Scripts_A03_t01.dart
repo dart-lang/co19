@@ -11,6 +11,7 @@
  * do not cause compile-time errors.
  * @author msyabro
  * @reviewer rodionov
+ * @issue 5470
  */
 
 import "13_Libraries_and_Scripts_A03_t01_p1.dart";

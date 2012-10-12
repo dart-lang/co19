@@ -11,7 +11,7 @@
  * a function literal expression or some other kind of expression. 
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1286, Issue 1287, Function.call is not implemented yet, it seems
+ * @issue 1604
  */
 
 f(p1, [p2]) {

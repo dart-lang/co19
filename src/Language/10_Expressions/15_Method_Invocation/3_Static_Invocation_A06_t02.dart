@@ -12,6 +12,7 @@
  * to variables with various declared types.
  * @author rodionov
  * @reviewer iefremov
+ * @issue 1604
  */
 
 class C {

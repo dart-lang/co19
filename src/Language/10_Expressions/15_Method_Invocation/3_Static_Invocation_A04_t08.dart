@@ -19,6 +19,7 @@
  * to the expression C.m.call(...).
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 1604
  */
 
 class Foo {

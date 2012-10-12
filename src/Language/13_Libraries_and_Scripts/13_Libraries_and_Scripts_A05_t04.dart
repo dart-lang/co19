@@ -6,12 +6,13 @@
 /**
  * @assertion Libraries are units of privacy. A private declaration declared within a library
  * L can only be accessed by code within L. Any attempt to access a private member declaration
- * from outside L will cause a run-time error.
- * @description Checks that an attempt to access a top level variable from outside L results
- * in a runtime error.
+ * from outside L will cause a method, getter or setter lookup failure.
+ * @description Checks that an attempt to access a top level variable from outside L in a top-level
+ * function context results in a NoSuchMethodError.
+ * @static-warning undeclared library getter
  * @author vasya
  * @reviewer msyabro
- * @needsreview which error exactly?
+ * @issue 5839
  */
 
 import "13_Libraries_and_Scripts_A05_t04_lib.dart" as lib;
@@ -19,5 +20,7 @@ import "13_Libraries_and_Scripts_A05_t04_lib.dart" as lib;
 main() {
   try {
     lib._topLevelDeclaration;
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {
+  }
 }

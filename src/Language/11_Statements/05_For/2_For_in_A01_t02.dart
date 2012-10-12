@@ -13,7 +13,7 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
- * @needsreview 5675
+ * @issue 5675
  */
 
 class A {}

@@ -5,11 +5,12 @@
  */
 /**
  * @assertion The name of a setter is obtained by appending the string ‘=’ 
- * to the identiﬁer given in its signature. Hence, a setter name can never
- * conﬂict with, override or be overridden by a getter or method.
+ * to the identifier given in its signature. Hence, a setter name can never
+ * conflict with, override or be overridden by a getter or method.
  * @description Checks that there is no compile-time error if a class has 
  * an explicitly defined setter inherited from a superclass and an instance method with the same name.
  * @author iefremov
+ * @issue 5840
  */
 
 class A {

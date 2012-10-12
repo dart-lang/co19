@@ -10,7 +10,7 @@
  * method invocation ef.call(...) and that the result in either case is the same as expected whether ef is
  * a function literal expression or some other kind of expression. 
  * @author rodionov
- * @needsreview Issue 1286, Issue 1287, Function.call is not implemented yet, it seems
+ * @issue 1604
  */
 
 class C {
@@ -21,12 +21,13 @@ class C {
 
 main() {
   C c = new C();
-  try {
-    c();
-  } on NoSuchMethodError catch(ok) {}
   
   Expect.equals("call(1, foo)", c(1));
   Expect.equals("call(2, bar)", c(2, "bar"));
+
+  try {
+    c();
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     c(1, 2, 3);

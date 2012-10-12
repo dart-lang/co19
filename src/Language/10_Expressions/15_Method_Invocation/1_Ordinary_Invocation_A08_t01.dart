@@ -12,6 +12,7 @@
  * there's no static warning when a result of such invocation is being assigned 
  * to variables with various declared types.
  * @author rodionov
+ * @issue 1604
  */
 
 class C {

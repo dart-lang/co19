@@ -7,9 +7,9 @@
  * @assertion A variable declaration statement var id; or var id = e; introduces
  * a new variable named id with static type Dynamic into the innermost enclosing scope.
  * @description Checks that a variable is introduced into the scope
- * after a variable declaration statement is evaluated and it is a compile-time
- * error when the variable is referenced in the right-hand part of its own declaration.
- * @compile-error
+ * after a variable declaration statement is evaluated and it is a NoSuchMethodError
+ * error when that variable is referenced in the right-hand part of its own declaration
+ * in a top-level function context.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -17,5 +17,6 @@
 main() {
   try {
     var i = i;
-  } catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

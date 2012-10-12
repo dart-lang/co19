@@ -63,11 +63,4 @@ main() {
 
   o..[1]..[2];
   o..[1] = 1..[2] = 2;
-
-  //static fields
-  o..statMethod();
-  o..statVar;
-  o..statMethod()..statVar..statMethod();
-
-  o.. m1() .. [1] .. y = o .. statVar .. x .. m2(1, 2);
 }

@@ -12,10 +12,11 @@
  * and getter is declared explicitly.
  * @author msyabro
  * @reviewer kaigorodov
+ * @issue 1604
  */
 
 class S {
-  get func() {}
+  get func {}
 }
 
 class A extends S {

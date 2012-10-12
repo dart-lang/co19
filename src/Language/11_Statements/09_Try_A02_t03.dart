@@ -14,8 +14,7 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
-#import("09_Try_lib.dart");
+import "09_Try_lib.dart";
 
 class T1 {
   T1() {}
@@ -35,56 +34,18 @@ main() {
 
   success = false;
   try {
-    throw new T1();
-  } on T1 catch(p1) {
+    throw new T2();
+  } on T1 catch (p1, st) {
     success = true;
   }
   Expect.isTrue(success);
 
+  // imported type
   success = false;
   try {
-    throw new T2();
-  } on T1 catch(p1, st) {
+    throw new Foo();
+  } catch(p1, st) {
     success = true;
   }
   Expect.isTrue(success);
-
-  checkTypeError(() {
-  success = false;
-  try {
-    throw new T2();
-  } on T1 catch(p1, st) {
-    success = true;
-  }
-  Expect.isTrue(success);
-  });
-
-  success = false;
-  try {
-    throw new T2();
-  } on T1 catch(p1, st) {
-    success = true;
-  }
-  Expect.isTrue(success);
-
-  checkTypeError(() {
-    success = false;
-    try {
-      throw new T2();
-    } on T1 catch(p1, st) {
-      success = true;
-    }
-    Expect.isTrue(success);
-  });
-
-  checkTypeError(() {
-    // imported type
-    success = false;
-    try {
-      throw new Foo();
-    } on Foo catch(p1, st) {
-      success = true;
-    }
-    Expect.isTrue(success);
-  });
 }
