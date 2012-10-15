@@ -4,23 +4,34 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable declaration statement var id; or var id = e; introduces 
- * a new variable named id with static type Dynamic into the innermost enclosing scope.
- * @description Checks that a variable declaration statement var id; introduces
- * a new variable id with static type Dynamic into the innermost enclosing scope.
+ * @assertion Executing a variable declaration statement of one of the forms var v = e;,
+ * T v = e;, const v = e;, const T v = e;, ﬁnal v = e; or ﬁnal T v = e; proceeds
+ * as follows:
+ *   The expression e is evaluated to an object o. Then, the variable v is set to o.
+ * @description Checks that a variable declaration statement T id = e; indeed results in
+ * variable id being assigned the value of e, whether or not it's final.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-class C {}
-
 main() {
-  var id;
-  Expect.isTrue(id is Dynamic);
-  id = false;
-  id = "";
-  id = 2;
-  id = new C();
-  id = (){};
+  var v;
+
+  bool id = false;
+  v = false;
+  Expect.isTrue(id == v);
+
+  final int id1 = 11;
+  v = 11;
+  Expect.isTrue(id1 == v);
+
+  final String id2 = "id2";
+  v =  "id2";
+  Expect.isTrue(id2 == v);
+
+  Object id3 = null;
+  v =  null;
+  Expect.isTrue(id3 == v);
 }
+

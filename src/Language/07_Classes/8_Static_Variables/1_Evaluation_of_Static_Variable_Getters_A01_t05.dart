@@ -31,8 +31,10 @@ class C {
 
 main() {
   try {
-    C.sVar;
+    C.sTyped;
     Expect.fail('CyclicInitializationError is expected');
   } on CyclicInitializationError catch (e) {
+  } catch (e) {
+    Expect.fail('"$e" of type ${e.runtimeType} thrown instead of CyclicInitializationError');
   }
 }

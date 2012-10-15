@@ -25,11 +25,12 @@
 }
 
 @B(1) class B extends A {
-  B(){}
   B(int a){}
 }
 
-@B(1) class C extends B implements I {}
+@B(1) class C extends B implements I {
+  C():super(0);
+}
 @A class D implements I, J {}
 @B(1) class E extends D implements I, J {}
 

@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable declaration statement T id; or T id = e; introduces 
- * a new variable id with static type T into the innermost enclosing scope.
+ * @assertion A variable declaration statement declares a new local variable.
+ *   localVariableDeclaration:
+ *     initializedVariableDeclaration ’;’ .
  * @description Checks that a newly introduced variable may shadow the one declared
  * in an enclosing scope but doesn't replace it.
  * @author rodionov

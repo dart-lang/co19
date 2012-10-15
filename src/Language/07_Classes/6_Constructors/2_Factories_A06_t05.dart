@@ -12,6 +12,7 @@
  */
 
 abstract class A {
+  A(){}
   factory A() { return new C(); }
 }
 

@@ -4,21 +4,51 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion In all cases, iff the variable declaration is prefixed with either the const
- * or the final modifier, the variable is marked as final.
- * @description Checks that if the variable declaration is prefixed with the
- * final modifier, then that variable cannot be assigned a new value outside of
- * this declaration.
+ * @assertion A variable declaration statement of the form var v; is equivalent to var
+ * v = null;. A variable declaration statement of the form T v; is equivalent to T v = null;.
+ * @description Checks that a variable declaration statements of the form var id; and T id; 
+ * are equivalent to a variable declaration of the form T id = null, regardless of the type T.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
- * @compile-error
  */
 
+class C {}
+abstract class I { }
+typedef f();
+
 main() {
-  final id = 0;
-  try {
-    id = 1;
-  } catch(e) {}
+  var id;
+  Expect.equals(null, id);
+  
+  bool id0;
+  Expect.equals(null, id0);
+  
+  int id1;
+  Expect.equals(null, id1);
+  
+  double d;
+  Expect.equals(null, d);
+  
+  String id2;
+  Expect.equals(null, id2);
+  
+  Object id3;
+  Expect.equals(null, id3);
+  
+  C id4;
+  Expect.equals(null, id4);
+  
+  I id5;
+  Expect.equals(null, id5);
+  
+  List<double> id6;
+  Expect.equals(null, id6);
+  
+  Map<int, String> id7;
+  Expect.equals(null, id7);
+
+  f id8;
+  Expect.equals(null, id8);
 }
 

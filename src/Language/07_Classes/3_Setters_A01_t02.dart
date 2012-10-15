@@ -17,7 +17,7 @@
  */
 
 class C {
-  void set (int i) {};
+  void set (int i) {}
 }
 
 main() {

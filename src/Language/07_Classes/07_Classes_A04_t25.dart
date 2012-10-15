@@ -35,7 +35,6 @@
  *   static? (var | type?) initializedIdentifierList
  * ;
  * @description Checks that a static abstract setter can't be used in place of a class member definition.
- * @needsreview issue #2261
  * @compile-error
  * @static-warning
  * @author msyabro
@@ -43,7 +42,7 @@
  */
 
 class A {
-  static set x(v);
+  static abstract set x(v);
 }
 
 main() {

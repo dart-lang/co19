@@ -7,30 +7,21 @@
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
  *     initializedVariableDeclaration ’;’ .
- * @description Checks several assignments of variables declared as "T id = e;"
- * that are correct in checked mode and do not produce static warnings.
+ * @description Checks that a variable declaration statement var id = e; introduces
+ * a new variable id with static type Dynamic into the innermost enclosing scope.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
-
-class S {}
-class T extends S {}
-class C extends T {}
+class C {}
 
 main() {
-  T id = new T();
-
-  checkTypeError(() {
-    id = new S();
-  });
+  var id = 0;
+  Expect.isTrue(id is Dynamic);
+  id = false;
+  id = "";
+  id = 2;
   id = new C();
-
-  bool id1 = false;
-  id1 = true;
-  
-  String id2 = null;
-  id2 = "";
+  id = (){};
 }

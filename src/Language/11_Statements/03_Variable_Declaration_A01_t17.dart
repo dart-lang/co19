@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable declaration statement var id; or var id = e; introduces
- * a new variable named id with static type Dynamic into the innermost enclosing scope.
+ * @assertion A variable declaration statement declares a new local variable.
+ *   localVariableDeclaration:
+ *     initializedVariableDeclaration ’;’ .
  * @description Checks that a variable is introduced into the scope
  * after a variable declaration statement is evaluated and it is a NoSuchMethodError
  * error when that variable is referenced in the right-hand part of its own declaration

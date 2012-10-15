@@ -12,6 +12,7 @@
  */
 
 abstract class A {
+  A(){}
   factory A.foo() { return new C.foo(); }
 }
 

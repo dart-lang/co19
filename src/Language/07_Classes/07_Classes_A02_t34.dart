@@ -48,7 +48,7 @@ class A {
 }
 
 class B {
-  @B(1) const B(int a){};
+  @B(1) const B(int a){}
   @A B.anotherConstructor(): this.oneMoreConstructor();
   @B(1) B.oneMoreConstructor() {}
   @A static var initialized = 1;

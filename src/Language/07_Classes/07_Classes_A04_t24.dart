@@ -37,13 +37,12 @@
  * @compile-error
  * @static-warning
  * @description Checks that a static abstract getter can't be used in place of a class member definition.
- * @needsreview issue #2261
  * @author msyabro
  * @reviewer iefremov
  */
 
 class A {
-  static get x;
+  static abstract get x;
 }
 
 main() {

@@ -5,12 +5,12 @@
  */
 /**
  * @assertion  It is a compile-time error if e refers to v.
- * @description Checks that a variable declaration statement var e = e; causes a compile-time error.
+ * @description Checks that a variable declaration statement final e = e; causes a compile-time error.
  * @compile-error
  * @author kaigorodov
  */
 
 main() {
-  var v=v;
+  final v=v;
 }
 

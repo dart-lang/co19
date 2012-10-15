@@ -10,7 +10,7 @@
  * @reviewer kaigorodov 
  */
 
-abstract calss I {
+abstract class I {
   factory I() {return new C();}
 }
 
