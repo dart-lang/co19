@@ -24,17 +24,16 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
- * @description Checks that it is a compile-time error when a constant constructor is declared abstract.
+ * @description Checks that it is a compile-time error when a constant named constructor is declared abstract.
  * @compile-error
- * @needsreview issue 3987
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 class C {
-  const C.id();
+  const abstract C.id();
 }
 
 

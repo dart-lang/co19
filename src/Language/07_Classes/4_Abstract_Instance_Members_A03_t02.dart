@@ -14,10 +14,11 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @issue 978
  */
 
 class A {
-  f(var x);
+  abstract f(var x);
 }
 
 class C extends A {
@@ -26,8 +27,9 @@ class C extends A {
 
 main() {
   try {
-    new A().f(2);
+    new C().f(2);
   } catch (e) {}
+  
   try {
     new C().f(2, 2);
   } catch (e) {}

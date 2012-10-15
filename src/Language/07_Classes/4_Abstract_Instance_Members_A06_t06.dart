@@ -7,7 +7,7 @@
  * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
  * apply to abstract methods.
  * 7.1: It is a static warning if a class C declares an instance method
- * named n and a static member named n is declared in a superclass of C.
+ * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an instance
  * method with the same name as a static method in its superclass even if their signatures
  * are deeply different.

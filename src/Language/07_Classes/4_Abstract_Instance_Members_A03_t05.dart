@@ -15,20 +15,23 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 978
  */
 
 class A {
-  f(var x, [var xx]);
+  abstract f(var x, [var xx]);
 }
 
 class C extends A {
-  f([var xx]);
+  abstract f([var xx]);
 }
 
 main() {
   try {
     new A().f(1);
+  } catch (e) {}
+
+  try {
     new C().f(1);
   } catch (e) {}
 }
-

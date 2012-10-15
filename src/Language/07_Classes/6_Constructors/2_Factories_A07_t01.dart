@@ -18,12 +18,12 @@
 class A {
   A() {}
   factory A.foo() = C.bar;
-  int m();
+  int m() {}
 }
 
 class C extends A {
-  A() {}
-  factory C.bar=D;
+  C() {}
+  factory C.bar() = D;
   int m() { return 1; }
 }
 
@@ -32,6 +32,6 @@ class D extends C {
 }
 
 main() {
-  A a=new A();
+  A a = new A.foo();
   Expect.equals(2, a.m());
 }

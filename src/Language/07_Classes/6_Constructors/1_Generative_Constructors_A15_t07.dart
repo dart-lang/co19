@@ -8,9 +8,10 @@
  * or an initializing formal. An initializing formal has the form this.id, 
  * where id is the name of an instance variable of the immediately enclosing class.
  * It is a compile-time error if id is not the name of an instance variable of the immediately enclosing class.
- * @description Checks that various correct constructor parameters does not produce compile-time errors.
+ * @description Checks that various correct constructor parameters do not produce compile-time errors.
  * @author msyabro
  * @reviewer iefremov
+ * @issue 5892
  */
 
 class C {

@@ -24,7 +24,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * @description Checks that it is a compile-time error when a constant constructor is declared abstract.
  * @compile-error

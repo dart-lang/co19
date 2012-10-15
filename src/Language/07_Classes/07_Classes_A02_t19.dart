@@ -24,7 +24,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*

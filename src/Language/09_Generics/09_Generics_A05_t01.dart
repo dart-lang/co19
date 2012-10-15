@@ -10,7 +10,7 @@
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
- * @issue 3282
+ * @issue 5230
  */
 
 class C<T> {

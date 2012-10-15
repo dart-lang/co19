@@ -32,7 +32,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * @compile-error
  * @description Checks that a class can't be defined inside another class as it is not among

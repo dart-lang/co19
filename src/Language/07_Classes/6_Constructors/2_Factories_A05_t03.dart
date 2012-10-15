@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if M is not the name of the immediately
+ * @assertion It is a compile-time error if M is not the name of the immediately 
  * enclosing class.
- * @description Checks that it is a static type warning when M is the name of
+ * @description Checks that it is a compile-time error when M is the name of
  * a function type alias.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 980
+ * @issue 980
  */
 
 typedef foo();
@@ -24,5 +24,5 @@ class C {
 main() {
   try{
     new C();
-  } catch (x){}
+  } catch(x) {}
 }

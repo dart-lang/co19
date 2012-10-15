@@ -6,9 +6,10 @@
 /**
  * @assertion When invoked from a constant object expression, a constant constructor
  * must throw an exception if any of its actual parameters would be a value that
- * would cause one of the potentially constant expressions within it to not be a valid compile-time constant.
+ * prevent one of the potentially constant expressions within it from being a valid
+ * compile-time constant.
  * @description Checks that compile-time error is produced if actual parameters passed to the constructor
- * make the constant initializer invalid. Note: this mechanism is described in 10.10.2
+ * make the constant initializer invalid. Note: this mechanism is described in 11.11.2
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

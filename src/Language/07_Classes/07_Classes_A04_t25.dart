@@ -32,7 +32,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * @description Checks that a static abstract setter can't be used in place of a class member definition.
  * @compile-error

@@ -7,12 +7,13 @@
  * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
  * apply to abstract methods.
  * 7.1: It is a static warning if a class C declares an instance method
- * named n and a static member named n is declared in a superclass of C.
+ * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an abstract
  * method with the same name as a static setter in its superclass.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 5840
  */
 
 class A {
@@ -20,7 +21,7 @@ class A {
 }
 
 class B extends A {
-  void f(var x);
+  abstract void f(var x);
 }
 
 class C extends B {
@@ -28,8 +29,5 @@ class C extends B {
 }
 
 main() {
-  try {
     new C().f(1);
-  } on NoSuchMethodError catch (ok) {}
 }
-

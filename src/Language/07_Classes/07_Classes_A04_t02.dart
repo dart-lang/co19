@@ -32,7 +32,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * @compile-error
  * @description Checks that a function type alias can't be declared inside another class as it is not among

@@ -7,7 +7,7 @@
  * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
  * apply to abstract methods.
  * 7.1: It is a compile-time error if an instance method m1 overrides an instance
- * member m2 and m1 does not declare all the named parameters declared by m2 in the same order.
+ * member m2 and m1 does not declare all the named parameters declared by m2.
  * @description Checks that a compile-time error is produced when the overriding abstract method
  * has fewer named parameters than the instance method being overridden (2 vs 3) and neither 
  * have any required parameters.
@@ -15,19 +15,23 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 978
  */
 
 class A {
-  f([var x, var y, var z]) {}
+  f({var x, var y, var z}) {}
 }
 
 class C extends A {
-  abstract f([var x, var y]);
+  abstract f({var x, var z});
 }
 
 main() {
   try {
-    new A().f(1, 2, 3);
-    new C().f(1, 2);
+    new A().f(x: 1, y: 2, z: 3);
+  } catch (e) {}
+  
+  try {
+    new C().f(x: 1, z: 2);
   } catch (e) {}
 }

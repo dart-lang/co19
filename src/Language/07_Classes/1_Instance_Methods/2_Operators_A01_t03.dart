@@ -33,13 +33,11 @@
  *   '!' |
  *   '~'
  * ;
- * @description Checks that it is a compile-time error if a class attempts to define
- * an operator without a name (basically, an instance method named 'operator').
+ * @description Checks that it is not a compile-time error if a class attempts to define
+ * an operator without a name because an instance method named 'operator' is allowed by the spec.
  * @author iefremov
- * @compile-error
  * @reviewer pagolubev
  * @reviewer rodionov
- * @needsreview operator is a pseudo-keyword. Issue 379
  */
 
 class C {

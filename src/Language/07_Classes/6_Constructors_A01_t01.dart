@@ -12,6 +12,7 @@
  * with the name of a field in the same class.
  * @author kaigorodov
  * @compile-error
+ * @issue 5893
  */
 
 class C {

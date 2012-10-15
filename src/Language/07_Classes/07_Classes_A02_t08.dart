@@ -24,7 +24,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -37,7 +37,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 977
  */
 
 class A {

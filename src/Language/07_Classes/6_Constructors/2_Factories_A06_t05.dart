@@ -12,13 +12,12 @@
  */
 
 abstract class A {
-  A(){}
-  factory A() { return new C(); }
+  A();
+  factory A.f() { return new C(); }
 }
 
-class C extends A {
-}
+class C extends A {}
 
 main() {
-  new A();
+  new A.f();
 }

@@ -17,36 +17,35 @@
  */
 
 @A abstract class I {}
-@B(1) abstract class J {}
+@B.fromInt(1) abstract class J {}
 @A abstract class IT <T> {}
 
-@B(1) class A {
+@B.fromInt(1) class A {
   A(){}
 }
 
 @B(1) class B extends A {
-  B(int a){}
+  B(){}
+  B.fromInt(int a){}
 }
 
-@B(1) class C extends B implements I {
-  C():super(0);
-}
+@B.fromInt(1) class C extends B implements I {}
 @A class D implements I, J {}
-@B(1) class E extends D implements I, J {}
+@B.fromInt(1) class E extends D implements I, J {}
 
-@B(1) class F<T> {}
+@B.fromInt(1) class F<T> {}
 @A class G<S, T> extends F<T> {}
-@B(1) class H<T> implements I {}
+@B.fromInt(1) class H<T> implements I {}
 @A class K extends G<int, int> implements I {}
-@B(1) class L<T extends A, S extends B> implements IT<T> {}
+@B.fromInt(1) class L<T extends A, S extends B> implements IT<T> {}
 
 @A abstract class M {}
-@B(1) abstract class N<T, U> extends A {}
+@B.fromInt(1) abstract class N<T, U> extends A {}
 @A abstract class O extends N<int, int> implements I {}
 
 main() {
   A a = new A();
-  B b = new B(2);
+  B b = new B.fromInt(2);
   C c = new C();
   D d = new D();
   E e = new E();

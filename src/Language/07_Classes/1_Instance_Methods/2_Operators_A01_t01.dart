@@ -38,8 +38,6 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
- * @needsreview The assertion probably would change, because of inconsistencies in the grammar (issue 954)
- * @needsreview Issue 1604, 2506
  */
 
 typedef int foo(double);

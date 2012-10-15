@@ -24,7 +24,7 @@
  *   static (final | const) type? staticFinalDeclarationList |
  *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
- *   static? (var | type?) initializedIdentifierList
+ *   static? (var | type) initializedIdentifierList
  * ;
  * staticFinalDeclarationList:
  *   staticFinalDeclaration (', ' staticFinalDeclaration)*
@@ -48,7 +48,7 @@ class A {
 }
 
 class B {
-  @B(1) const B(int a){}
+  @B(1) const B(int a);
   @A B.anotherConstructor(): this.oneMoreConstructor();
   @B(1) B.oneMoreConstructor() {}
   @A static var initialized = 1;
@@ -56,7 +56,7 @@ class B {
 }
 
 class C {
-  @B(1) const C(): x = 1;
+  @B(1) const C(): x = 1, x1 = 2;
   @A final x;
   @B(1) final int x1;
 }
@@ -67,7 +67,7 @@ class D {
   @B(1) var x, y = 2, z;
   @A int a = 1;
   @B(1) static int typed;
-  @A static untyped;
+  @A static var untyped;
 }
 
 class E {
@@ -80,7 +80,6 @@ class F {
   @B(1) F(): x = 1, y = 2;
   @A var x, y;
   @B(1) int x1, y1;
-  @A x2, y3;
 }
 
 class Abstract {

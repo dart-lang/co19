@@ -12,6 +12,7 @@
  * if empty formal parameter list is present.
  * @compile-error
  * @author kaigorodov
+ * @issue 5890
  */
 
 class C {
@@ -21,5 +22,5 @@ class C {
 main() {
   try {
     var x = new C().getter;
-  } catch (e) {}
+  } on C catch(ok) {}
 }

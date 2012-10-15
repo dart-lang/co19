@@ -11,7 +11,7 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @note http://code.google.com/p/dart/issues/detail?id=2492 
+ * @issue 2492 
  */
 
 class A<dynamic> {
