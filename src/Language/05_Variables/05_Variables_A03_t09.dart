@@ -4,32 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A final variable is a variable whose declaration includes the modifier final. 
- * A final variable can only be assigned once, when it is initialized, or a compile-time error occurs.
- * It is a compile-time error if a variable v is a final top-level variable or a
- * final local variable and v is not initialized at its point of declaration.
- * @description Checks that a final variable is assigned at declaration.
- * @author vasya
- * @reviewer msyabro
+ * @assertion A final variable is a variable whose declaration includes the modifier final.
+ * It is a compile-time error if a final instance variable that has been initialized
+ * at its point of declaration is also initialized in a constructor. It is a compile-time
+ * error if a final instance variable that has is initialized by means of an initializing
+ * formal of a constructor is also initialized elsewhere in the same constructor.
+ * It is a compile-time error if a library, static or local variable v is final and v
+ * is not initialized at its point of declaration.
+ * @description Checks that it is a compile-time error when a final local variable is not
+ * initialized in its declaration. 
+ * @compile-error
+ * @author rodionov
  */
 
-#import("dart:math", prefix: "Math");
-
-final int i = -100;
-final bool b = false;
-final String s = "string";
-
 main() {
-  final double pi = Math.PI;
-  final List l = const [0,1,2,3];
-  final Map m = const {'a': 1, 'b': 2};
-  final String e = "OneTwo";
-
-  Expect.identical(-100, i);
-  Expect.identical(false, b);
-  Expect.identical("string", s);
-  Expect.identical(Math.PI, pi);
-  Expect.identical(const [0,1,2,3], l);
-  Expect.identical(const {'a': 1, 'b': 2}, m);
-  Expect.identical("OneTwo", e);
+  final v;
 }

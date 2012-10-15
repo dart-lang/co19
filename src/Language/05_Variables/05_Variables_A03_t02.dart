@@ -4,19 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A final variable is a variable whose declaration includes the modifier final. 
- * A final variable can only be assigned once, when it is initialized, or a compile-time error occurs.
- * It is a compile-time error if a variable v is a final top-level variable or a
- * final local variable and v is not initialized at its point of declaration.
- * @description Checks that a compile-time error occurs if local final variable is not assigned.
- * @author vasya
- * @reviewer kaigorodov
+ * @assertion A final variable is a variable whose declaration includes the modifier final.
+ * It is a compile-time error if a final instance variable that has been initialized
+ * at its point of declaration is also initialized in a constructor. It is a compile-time
+ * error if a final instance variable that has is initialized by means of an initializing
+ * formal of a constructor is also initialized elsewhere in the same constructor.
+ * It is a compile-time error if a library, static or local variable v is final and v
+ * is not initialized at its point of declaration.
+ * @description Checks that a compile-time error occurs if a final instance variable that
+ * has been initialized in declaration is also initialized in a constructor.
  * @compile-error
+ * @author rodionov
  */
+
+class C {
+  final v = 1;
+  
+  C(this.v) {}
+}
 
 main() {
   try {
-    final foo;
-    Expect.equals(null, foo);
+    new C(1);
   } catch(ok) {}
 }

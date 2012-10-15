@@ -11,18 +11,37 @@
  * formal of a constructor is also initialized elsewhere in the same constructor.
  * It is a compile-time error if a library, static or local variable v is final and v
  * is not initialized at its point of declaration.
- * @description Checks that it is a compile-time error when a final static variable is not
- * initialized in its declaration. 
- * @compile-error
+ * @description Checks that it is not a compile-time error when a final static variable initialized
+ * in its declaration is assigned a new value later in the program. Non-normative text in the spec
+ * says it's a NoSuchMethodError and a static warning since there's no setter so that's what's being 
+ * expected in this test.
+ * @static-warning
  * @author rodionov
  */
 
 class C {
-  static final bool v;
+  final v = 1;
+  final bool v2 = true;
 }
 
 main() {
   try {
-    print(C.v);
-  } catch(ok) {}
+    C.v = 1;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
+
+  try {
+    C.v = 2;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
+
+  try {
+    C.v2 = true;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
+
+  try {
+    C.v2 = false;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }
