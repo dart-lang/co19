@@ -9,22 +9,18 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a class or type alias T, the value of e is the unique instance of class
- *   Type reifying T.
- * @description  Checks that there is no compile-time error if identifier
- * expression refers to a class declaration
+ *  • If d is a static method, top-level function or local function then e evaluates
+ *    to the function deﬁned by d.
+ * @description Checks that a reference to a function parameter is evaluated correctly in closures.
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer rodionov
  */
 
-class A {
-  bool x() {
-    return A;
-  }
-}
+func(var a, [var b = 1]) => () => a*b;
 
 main() {
-  try {
-  	Expect.isTrue(new A().x());
- } catch(e) {} 
+  Expect.equals(1, func(1)());
+  Expect.equals(2, func(2)());
+  Expect.equals(4, func(2, 2)());
+  Expect.equals(0, func(0, 1)());
 }

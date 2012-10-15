@@ -21,10 +21,15 @@ class C implements I {
 }
 
 main() {
+  var c=null;
   Expect.equals(1, 1 as int);
   Expect.equals(0, 0 as num);
+  Expect.equals(null, c as num);
   Expect.equals("foo", "foo" as String);
   Expect.equals("bar", "bar" as Pattern);
-  var c = new C(1);
+  c = new C(1);
   Expect.identical(c, c as I);
+  try {
+    c = 1 as I;
+  } on CastError catch (e) {}
 }

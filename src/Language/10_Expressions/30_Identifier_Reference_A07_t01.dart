@@ -4,19 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to use a built-in identifier other than Dynamic 
- * as a type annotation.
- * @description Checks that it is a compile-time error when a built-in identifier
- * "abstract" is used as a type annotation of a local variable.
- * @compile-error
- * @author rodionov
- * @reviewer iefremov
- * @needsreview issue 3307
+ * @assertion Evaluation of an identifier expression e of the form id proceeds as follows:
+ * Let d be the innermost declaration in the enclosing lexical scope whose name
+ * is id. If no such declaration exists in the lexical scope, let d be the declaration
+ * of the inherited member named id if it exists.
+ * ...
+ * • If d is a type parameter T , then the value of e is the value of the actual
+ *   type argument corresponding to T that was passed to the generative constructor that
+ *   created the current binding of this.
+ * @description  Checks that there is no compile-time error if identifier
+ * expression refers to a type parameter.
+ * @author msyabro
+ * @reviewer kaigorodov
  */
 
+class A<T> {
+  T func() {
+    return T;
+  }
+}
 
 main() {
-  try {
-    abstract foo;
-  } catch(x) {}
+  Expect.isNull(new A().func());
+  Expect.isNotNull(new A<int>().func());
 }
+

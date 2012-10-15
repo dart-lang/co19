@@ -12,7 +12,7 @@
  * @reviewer rodionov
  */
 
-interface A extends num {}
+abstract class A extends num {}
 
 class B implements A {}
 

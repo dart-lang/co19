@@ -14,8 +14,8 @@
  * @reviewer rodionov
  */
 
-interface I default C {
-  I.foo();
+abstract class I extends A {
+  factory I.foo() {return super.make();}
 }
 
 class A {
@@ -24,9 +24,8 @@ class A {
    }
 }
 
-class C extends A {
+class C implements I {
   C() {}
-  factory I.foo() {return super.make();}
 }
 
 main() {

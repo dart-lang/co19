@@ -12,7 +12,7 @@
  * @reviewer rodionov
  */
 
-interface A extends int {}
+abstract class A extends int {}
 
 class B implements A {}
 

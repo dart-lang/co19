@@ -13,12 +13,11 @@
  * @reviewer kaigorodov 
  */
 
-interface I default A{
-  I();
+abstract class I {
+  factory I() {return new C();}
 }
 
 class A {
-  factory I() {return new C();}
   A() {}
 }
 class B extends A {}

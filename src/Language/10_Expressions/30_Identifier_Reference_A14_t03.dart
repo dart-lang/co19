@@ -9,22 +9,25 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a class or type alias T, the value of e is the unique instance of class
- *   Type reifying T.
- * @description  Checks that there is no compile-time error if identifier
- * expression refers to a class declaration
- * @author msyabro
- * @reviewer kaigorodov 
+ * • Otherwise, e is equivalent to the property extraction this.id.
+ * @description  Checks that identifier expression can not refer to a static variable
+ * in a superclass of the current class
+ * @author iefremov
+ * @reviewer rodionov
  */
 
 class A {
-  bool x() {
-    return A;
+  static var x=3;
+}
+
+class B extends A {
+  func() {
+    return x;
   }
 }
 
 main() {
   try {
-  	Expect.isTrue(new A().x());
- } catch(e) {} 
+    print(new B().func());
+  } on NoSuchMethodError catch(ok) {}
 }

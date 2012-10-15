@@ -18,7 +18,7 @@
  * @reviewer iefremov
  */
 
-interface I {}
+abstract class I {}
 class C implements I {}
 
 class G<Q, R> {}

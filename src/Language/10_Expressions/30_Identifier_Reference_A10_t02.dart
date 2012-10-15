@@ -9,22 +9,30 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a class or type alias T, the value of e is the unique instance of class
- *   Type reifying T.
- * @description  Checks that there is no compile-time error if identifier
- * expression refers to a class declaration
+ *  • If d is a static method, top-level function or local function then e evaluates
+ *    to the function deﬁned by d.
+ * @description  Checks that references to a library function and local function
+ *  are evaluated correctly.
  * @author msyabro
  * @reviewer kaigorodov 
  */
 
-class A {
-  bool x() {
-    return A;
-  }
-}
+#import("lib.dart", prefix: "lib");
+
+//library code:
+//
+// var x = 1;
+//
+// f() {return 1;}
+//
+// class A {
+//   static var y;
+// }
 
 main() {
-  try {
-  	Expect.isTrue(new A().x());
- } catch(e) {} 
+  localFunc() {return 2;}
+  var e = localFunc;
+  Expect.equals(2, e());
+  e = lib.f;
+  Expect.equals(1, e());
 }

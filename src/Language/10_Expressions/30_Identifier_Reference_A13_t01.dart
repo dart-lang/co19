@@ -9,22 +9,23 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a class or type alias T, the value of e is the unique instance of class
- *   Type reifying T.
- * @description  Checks that there is no compile-time error if identifier
- * expression refers to a class declaration
- * @author msyabro
- * @reviewer kaigorodov 
+ * • Otherwise, if e occurs inside a top level or static function (be it function,
+ *   method, getter, or setter) or variable initializer, evaluation of e causes
+ *   a NoSuchMethod to be thrown.
+ * @description Checks that it is a runtime error when an undeclared identifier 
+ * is used in a static context. 
+ * @static-warning
+ * @author kaigorodov
+ * @reviewer rodionov
  */
 
-class A {
-  bool x() {
-    return A;
-  }
+func() {
+  return undeclared;
 }
 
 main() {
   try {
-  	Expect.isTrue(new A().x());
- } catch(e) {} 
+    func();
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }

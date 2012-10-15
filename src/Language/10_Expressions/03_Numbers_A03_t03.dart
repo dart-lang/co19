@@ -12,7 +12,7 @@
  * @reviewer rodionov
  */
 
-interface A extends double {}
+abstract class A extends double {}
 
 class B implements A {}
 

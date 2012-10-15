@@ -4,26 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an identifier expression e of the form id proceeds as follows:
- * Let d be the innermost declaration in the enclosing lexical scope whose name
- * is id. It is a compile-time error if d is a class, interface or type variable. If no such
- * declaration exists in the lexical scope, let d be the declaration of the inherited
- * member named id if it exists.
- * @description  Checks that there is no compile-time error if identifier
- * expression refers to a function type definition.
- * @author kaigorodov
- * @reviewer rodionov 
+ * @assertion It is a compile-time error if a built-in identifier is
+ * used as the declared name of a class, type parameter or type alias.
+ * @description Checks that it is a compile-time error when a built-in identifier
+ * assert is used as the declared name of a type variable.
+ * @compile-error
+ * @author rodionov
+ * @reviewer iefremov
  */
 
-typedef int add(int a, int b);
+class A<assert> {}
 
-class B {
-  func() {
-    return add;
-  }
-}
-
-main() {
-  B b = new B();
-  Expect.isTrue(b.func()==3);
-}
+main() {}

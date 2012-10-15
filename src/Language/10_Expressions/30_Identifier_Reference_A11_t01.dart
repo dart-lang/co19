@@ -9,22 +9,21 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a class or type alias T, the value of e is the unique instance of class
- *   Type reifying T.
- * @description  Checks that there is no compile-time error if identifier
- * expression refers to a class declaration
+ * • If d is the declaration of a static variable or static getter declared in class
+ *   C, then e is equivalent to the getter invocation C.id.
+ * @description Checks that reference to a static variable/getter is evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 
-class A {
-  bool x() {
-    return A;
+class C {
+  void f() {
+    Expect.equals(C.c, c);
   }
+  static var c = 1;
 }
 
 main() {
-  try {
-  	Expect.isTrue(new A().x());
- } catch(e) {} 
+  C c = new C();
+  c.f();
 }

@@ -11,7 +11,7 @@
  * @reviewer rodionov
  */
 
-interface I extends bool {}
+abstract class I extends bool {}
 class C implements I {}
 
 main() {

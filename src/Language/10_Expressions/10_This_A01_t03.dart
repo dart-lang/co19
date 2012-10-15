@@ -6,13 +6,13 @@
 /**
  * @assertion The reserved word this denotes the target of the current instance member
  * invocation.
- * @description Checks that word this cannot be used to declare an interface.
+ * @description Checks that word this cannot be used to declare an abstract class.
  * @author hlodvig
  * @compile-error
  * @reviewer kaigorodov
  */
 
-interface this{
+abstract class this{
 }
 
 class A implements this{
