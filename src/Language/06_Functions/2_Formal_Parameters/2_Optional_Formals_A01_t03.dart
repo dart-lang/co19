@@ -34,12 +34,9 @@ main() {
   func(7, 1);
   func(7, 1, 2);
 
-  func(7);
-  func(7, 1);
-  func(7, x:1);
-  func(7, y:2);
-  func(7, 1, y:2);
-  func(7, x:1, y:2);
-  func(7, y:2, x:1);
-  func(7, 1, 2);
+  func2(7);
+  func2(7, x:1);
+  func2(7, y:2);
+  func2(7, x:1, y:2);
+  func2(7, y:2, x:1);
 }
