@@ -49,7 +49,7 @@ class O {
     buffer.add(1);
     return new O();
   }
-  method(var a, var b, [var c = null, var d = null]) {}
+  method(var a, var b, {var c: null, var d: null}) {}
 }
 
 main() {

@@ -32,7 +32,7 @@ class B {
 }
 
 class C {
-  const C([p1, p2]);
+  const C({p1, p2});
 }
 
 class D {
@@ -43,5 +43,5 @@ main() {
   Expect.isTrue(const A() is A);
   Expect.isTrue(const B(0) is B);
   Expect.isTrue(const C(p2: true, p1: "") is C);
-  Expect.isTrue(const D(0, p2: 0) is D);
+  Expect.isTrue(const D(0, 0) is D);
 }

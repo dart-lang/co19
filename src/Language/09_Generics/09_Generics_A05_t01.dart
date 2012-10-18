@@ -5,10 +5,12 @@
  */
 /**
  * @assertion It is a compile-time error to refer to a type parameter from within a static member.
- * @description Checks that it is a type error in both modes to reference a type parameter in a type test 
- * expression from static context.
+ * @description Checks that it is a compile-time error to reference a type
+ * parameter from static context (in a type test expression) and there's no static warning.
+ * @compile-error
  * @author iefremov
- * @needsreview Assertion obsolete, update once spec v0.12 is out (see issue 5230)
+ * @reviewer kaigorodov
+ * @issue 5230
  */
 
 class C<T> {
@@ -20,7 +22,5 @@ class C<T> {
 main() {
   try {
     C.f();
-    Expect.fail("TypeError expected");
-  } on TypeError catch(ok) {
-  }
+  } catch(ex) {}
 }

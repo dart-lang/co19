@@ -36,12 +36,12 @@ class C {
 }
 
 class D {
-  const D.name(p1, [p2]);
+  const D.name(p1, {p2});
 }
 
 main() {
   Expect.isTrue(const A.name() is A);
   Expect.isTrue(const B.name(1, 2) is B);
-  Expect.isTrue(const C.name(p1: "") is C);
+  Expect.isTrue(const C.name("") is C);
   Expect.isTrue(const D.name(null, p2: 1) is D);
 }

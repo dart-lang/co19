@@ -14,9 +14,7 @@
  * @reviewer rodionov
  */
 
-class A {
-  static f() {}
-}
+import "1_Instance_Methods_A05_lib.dart";
 
 class C extends A {
   f() {}
@@ -25,4 +23,3 @@ class C extends A {
 main() {
   (new C()).f();
 }
-

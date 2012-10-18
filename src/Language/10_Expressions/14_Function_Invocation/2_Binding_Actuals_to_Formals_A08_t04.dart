@@ -19,7 +19,7 @@ class C {
   static func([int x]) {}
 
   test() {
-    checkTypeError(() => func (x: ''));
+    checkTypeError(() => func (''));
   }
 }
 

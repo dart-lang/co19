@@ -17,15 +17,12 @@
 
 class C {
   int id;
-  C([this.id = 1]) {}
+  C({this.id:1}) {}
 }
 
 main() {
   var o = new C();
   Expect.equals(1, o.id);
-
-  o = new C(2);
-  Expect.equals(2, o.id);
 
   o = new C(id: 3);
   Expect.equals(3, o.id);

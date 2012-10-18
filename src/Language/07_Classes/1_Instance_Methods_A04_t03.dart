@@ -13,7 +13,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 3183
  */
 
 class A {

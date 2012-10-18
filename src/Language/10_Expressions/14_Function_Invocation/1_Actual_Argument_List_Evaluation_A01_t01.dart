@@ -22,9 +22,9 @@
  */
 
 f() {}
-positionalParameters(p1, p2, p3) {}
-namedParameters([name1, $$$, u__]) {}
-bothParameters(p1, [name]) {}
+positionalParameters(p1, p2, [p3]) {}
+namedParameters({name1, $$$, u__}) {}
+bothParameters(p1, {name}) {}
 
 class A {
   const A(): v = 1;

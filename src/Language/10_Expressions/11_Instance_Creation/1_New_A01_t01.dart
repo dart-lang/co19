@@ -21,7 +21,7 @@ class A {
 
 class B {
   B(p1) {}
-  B.b([p1, p2]) {}
+  B.b({p1, p2}) {}
 }
 
 class C {

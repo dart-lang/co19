@@ -16,8 +16,8 @@ class C {
   static f2(p1, p2, p3) {}
   static f3([name1, name2]) {}
   static f4(p1, [name]) {}
-  static f5(p1, p2, [name1, name2]) {}
-  static f6(p1, p2, p3, p4, [name1, name2]) {}
+  static f5(p1, p2, {name1, name2}) {}
+  static f6(p1, p2, p3, p4, {name1, name2}) {}
 }
 
 main() {
@@ -26,8 +26,13 @@ main() {
   C.f2(1 * 1, 1 / 1, 1 < 1);
   C.f2(new Object(), true, false);
 
-  C.f3(name1: 1, name2: "");
-  C.f4(1, name: 1);
+  C.f3();
+  C.f3(1);
+  C.f3(1, "");
+  C.f4(1);
+  C.f4(1, 1);
+  C.f5(null, null);
+  C.f5(null, null, name2: null);
   C.f5(null, null, name1: null, name2: null);
   C.f6(() {}, () {return true;}, {}, [], name1: (x) => x + 1, name2: (y) => (z) => z - y);
 

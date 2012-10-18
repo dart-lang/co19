@@ -21,7 +21,7 @@ checkTypeError(f()) {
     try {
       f();
     } on TypeError catch(bad) {
-      Expect.fail("Unexpected type error in scripting mode!");
+      Expect.fail("Unexpected type error in scripting mode: $bad");
     }
   }
 }

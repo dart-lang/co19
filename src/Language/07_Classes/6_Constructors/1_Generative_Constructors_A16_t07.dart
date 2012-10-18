@@ -16,7 +16,7 @@
 class C {
   var x;
   C() {}
-  C.redirect(this.x): this.C();
+  C.redirect(this.x): this();
 }
 
 main() {

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile-time error if an instance method m1 overrides an instance
- * member m2 and m1 does not declare all the named parameters declared by m2 in the same order.
+ * member m2 and m1 does not declare all the named parameters declared by m2.
  * @description Checks that a compile-time error is produced if m1 has fewer named parameters
  * than m2 (1 vs. 0) and neither have any required parameters.
  * @compile-error
@@ -15,7 +15,7 @@
  */
 
 class A {
-  f([var x]) {}
+  f({var x}) {}
 }
 
 class C extends A {

@@ -5,24 +5,20 @@
  */
 /**
  * @assertion It is a compile-time error to refer to a type parameter from within a static member.
- * @description Checks that it is a dynamic type error in checked mode when a type
- * parameter is used as type annotation and assigned a non-null value in static context 
- * and no error at all in production mode.
- * Also checks that no error at all occurs when it's assigned a null value.
- * @static-warning unknown type used in type annotation
+ * @description Checks that it is a compile-time error to reference a type
+ * parameter from static context (as a type annotation) and there's no static warning.
+ * @compile-error
  * @author iefremov
- * @needsreview Assertion obsolete, update once spec v0.12 is out (see issue 5230)
+ * @reviewer kaigorodov
+ * @issue 5230
  */
-import "../../Utils/dynamic_check.dart";
 
 class C<T> {
   static T t;
 }
 
 main() {
-  checkTypeError(() {
+  try {
     C.t = new Object();
-  });
-
-  C.t = null;
+  } catch(ex) {}
 }

@@ -32,7 +32,7 @@ class S<T, U> {
     
     s1("ok");
   }
-  S.named(var x, var y, [var o]) : this.s1 = x("s1${1 is T}"), this.s2 = y("s2${1.0 is U}"),
+  S.named(var x, var y, {var o}) : this.s1 = x("s1${1 is T}"), this.s2 = y("s2${1.0 is U}"),
     this.s3 = x(1 is U), this.s4 = x(1.0 is T) {
       
     s1("named!");
@@ -44,7 +44,7 @@ class S<T, U> {
 }
 
 class C extends S<int, double> {
-  C() : super(f("a1"), f("a2"), o : f("o"));
+  C() : super(f("a1"), f("a2"), f("o"));
   C.named() : super.named(f("a1"), f("a2"), o : f("o"));
 }
 

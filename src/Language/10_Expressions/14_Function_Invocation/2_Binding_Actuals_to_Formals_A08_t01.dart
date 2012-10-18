@@ -18,5 +18,5 @@
 func([int x]) {}
 
 main() {
-  checkTypeError(() => func (x: ''));
+  checkTypeError(() => func (''));
 }

@@ -16,7 +16,7 @@
 
 #import("../../../Utils/dynamic_check.dart");
 
-func(int p1, int p2, [int np1, int np2, int np3]) {}
+func(int p1, int p2, {int np1, int np2, int np3}) {}
 
 main() {
   var thirdParam = true;

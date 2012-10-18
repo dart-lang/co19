@@ -21,7 +21,7 @@ class A {
 
 class B {
   const B(p1);
-  const B.b([p1, p2]);
+  const B.b({p1, p2});
 }
 
 class C {

@@ -11,7 +11,6 @@
  * @description Checks that no compile-time error is produced when the overriding abstract method
  * has the same set of named parameters as the non-abstract instance method being overriden,
  * but in a different order.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 978

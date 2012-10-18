@@ -5,27 +5,26 @@
  */
 /**
  * @assertion It is a compile-time error if an instance method m1 overrides an instance
- * member m2 and m1 does not declare all the named parameters declared by m2 in the same order.
- * @description Checks that a compile-time error is produced if m1 has the same set of named parameters as
- * m2 but in a different order.
- * @compile-error
+ * member m2 and m1 does not declare all the named parameters declared by m2.
+ * @description Checks that there is no  compile-time error is produced if m1
+ * has the same set of named parameters as m2 but in a different order.
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
  */
 
 class A {
-  f([var x1, var x2, var wrongOrder1, var wrongOrder2]) { return '$x1$wrongOrder2'; }
+  f({var x1, var x2, var y1, var y2}) { return '$x1$y2'; }
 }
 
 class C extends A {
-  f([var x1, var x2, var wrongOrder2, var wrongOrder1]) { return '$x1$wrongOrder1'; }
+  f({var x1, var x2, var y2, var y1}) { return '$x1$y2'; }
 }
 
 main() {
   try {
-    new A().f("Nothing", "endures", "but", "change");
-    new C().f("Nothing", "endures", "but", "change");
+    new A().f(x1:"Nothing", x2:"endures", y1:"but", y2:"change");
+    new C().f(x1:"Nothing", x2:"endures", y1:"but", y2:"change");
   } catch (e) {}
 }
 

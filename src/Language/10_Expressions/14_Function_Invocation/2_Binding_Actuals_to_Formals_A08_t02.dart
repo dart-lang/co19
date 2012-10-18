@@ -16,5 +16,5 @@
 #import('../../../Utils/dynamic_check.dart');
 
 main() {
-  checkTypeError( () => ([int x]){}(x: ''));
+  checkTypeError( () => ([int x]){}(''));
 }

@@ -36,7 +36,7 @@ void check(List a, int size) {
 }
 
 main() {
-  List a = new List(length: 0);
+  List a = new List(0);
   Expect.isTrue(a.length == 0);
   try {
     a[0] = 1;
