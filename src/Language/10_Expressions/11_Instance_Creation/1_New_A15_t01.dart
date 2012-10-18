@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the static type of ai , 1 ≤ i ≤ n + k may not be
+ * @assertion It is a static warning if the static type of ai , 1 <= i <= n + k may not be
  * assigned to the type of the corresponding formal parameter of the constructor
  * T.id (respectively T).
  * @description Checks that it is a static type warning if the static type of

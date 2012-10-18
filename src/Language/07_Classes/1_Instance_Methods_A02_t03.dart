@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @issue 978
  */
 
 class A {
@@ -27,4 +28,3 @@ main() {
     new C().f(x:2, y:1);
   } catch (e) {}
 }
-

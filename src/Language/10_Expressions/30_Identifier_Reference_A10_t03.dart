@@ -10,7 +10,7 @@
  * of the inherited member named id if it exists.
  * ...
  *  • If d is a static method, top-level function or local function then e evaluates
- *    to the function deﬁned by d.
+ *    to the function defined by d.
  * @description Checks that a reference to a function parameter is evaluated correctly in closures.
  * @author msyabro
  * @reviewer rodionov

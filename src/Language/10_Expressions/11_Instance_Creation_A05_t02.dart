@@ -13,15 +13,16 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview Issue 1380
+ * @issue 6030
  */
+import "../../Utils/dynamic_check.dart";
 
 class G<T extends num, S extends String> {
   const G();
 }
 
 main() {
-  try {
+  checkTypeError(() {
     var o = const G<double, double>();
-  } on TypeError catch(e) {}
+  });
 }

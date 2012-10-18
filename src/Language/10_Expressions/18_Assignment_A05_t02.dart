@@ -9,7 +9,7 @@
  * evaluated to an object o2. Then, the setter v is looked up in o1 with respect to
  * the current library, and its body is executed with its formal parameter bound
  * to o2 and this bound to o1.
- *   If the setter lookup has failed, then a new instance im of the predeﬁned class
+ *   If the setter lookup has failed, then a new instance im of the predefined class
  * InvocationMirror is created, such that :
  * - im.isSetter evaluates to true.
  * - im.memberName evaluates to ’v=’.

@@ -14,7 +14,7 @@
  * @compile-error
  */
 
-#import("09_Try_lib.dart", prefix: "p"); // class Foo declared here
+import "10_Try_lib.dart" as p; // class Foo declared here
 
 main() {
   try {

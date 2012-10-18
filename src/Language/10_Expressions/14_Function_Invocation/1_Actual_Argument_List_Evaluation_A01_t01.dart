@@ -88,5 +88,5 @@ main() {
   //unary expressions
   positionalParameters(-++o, -~2, o++);
   namedParameters(name1: -o--, $$$: ~~0, u__:--o);
-  bothParameters(!!false, -~-o);
+  bothParameters(!!false, name: -~-o);
 }

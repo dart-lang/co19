@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the getter lookup has failed, then a new instance im of the predeﬁned
+ * @assertion If the getter lookup has failed, then a new instance im of the predefined
  * class InvocationMirror is created, such that :
  * - im.isGetter evaluates to true.
  * - im.memberName evaluates to ’m’.

@@ -7,5 +7,7 @@ library Imports_A03_t41_p3_lib;
 class foo {}
 
 class Bar {
-  static int BAR1 = 1;
+  static int BAR = 1;
 }
+
+final id = "id";

@@ -18,7 +18,7 @@
  * @reviewer rodionov
  */
 
-f(p1, p2, {p3, p4 = 0}) {
+f(p1, p2, {p3, p4: 0}) {
   Expect.equals(1, p1);
   Expect.equals(2, p2);
   Expect.equals(3, p3);
@@ -43,5 +43,5 @@ h(name1, [name2 = null, name3]) {
 main() {
   f(1, 2, p4: 4, p3: 3);
   g("s", "t", "r", "i", "n", "g");
-  h(true, 0, false);
+  h(true, false, 0);
 }

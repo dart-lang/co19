@@ -7,7 +7,7 @@ library Imports_A03_t21_p2_lib;
 class foo { }
 
 class Bar {
-  static int BAR2 = 2;
+  static int BAR = 2;
 }
 
 var id = "id";

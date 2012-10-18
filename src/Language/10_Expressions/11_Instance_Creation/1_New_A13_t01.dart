@@ -19,16 +19,17 @@ int factoryB = 0;
 
 abstract class I {
   factory I(p1, p2) {
-    return new A(p1, p2);
+    return new A.fctry(p1, p2);
   }
 }
 
-class C implements I {
+class C extends A {
   C(p1, p2) {}
 }
 
 class A implements I {
-  factory A(p1, p2) {
+  A() {}
+  factory A.fctry(p1, p2) {
     Expect.equals(3, p1);
     Expect.equals("ab", p2);
     ++factoryA;

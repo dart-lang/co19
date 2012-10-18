@@ -17,7 +17,7 @@
  *  ...
  *  if q is a generative or redirecting constructor (7.6.1), then:
  *   Let Ti be the type parameters of R (if any) and let Bi be the bound of
- *   Ti, 1 ≤ i ≤ m. In checked mode, it is a dynamic type error if Vi is not a subtype
+ *   Ti, 1 <= i <= m. In checked mode, it is a dynamic type error if Vi is not a subtype
  *   of [V1, ..., Vm /T1, ..., Tm]Bi, i ∈ 1..m.
  * @description  Checks that it is a dynamic type error if a type argument is not
  * a subtype of its bound in class C.

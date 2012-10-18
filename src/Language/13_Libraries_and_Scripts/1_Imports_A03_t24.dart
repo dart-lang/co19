@@ -17,13 +17,13 @@
  * @author rodionov
  */
 
-import "1_Imports_A03_t21_p1_lib.dart" hide foo;
+import "1_Imports_A03_t21_p1_lib.dart" hide foo, Bar, id;
 import "1_Imports_A03_t21_p2_lib.dart";
 
 class Foo2 extends foo {
 }
 
-class Bar<T extends foo> {
+class Foo3<T extends foo> {
 }
 
 main() {
@@ -31,5 +31,7 @@ main() {
   null as foo;
   new foo();
   new Foo2();
-  new Bar<Foo2>();
+  new Foo3<Foo2>();
+  Bar.BAR;
+  id is foo;
 }

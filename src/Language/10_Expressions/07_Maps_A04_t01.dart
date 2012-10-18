@@ -8,7 +8,7 @@
  * is an object m that implements the built-in class M ap < String, V >. The
  * entries of m are ui : vi , i ∈ 1..n, where ui is the value of the compile-time
  * expression ki and vi is the value of the compile-time expression ei . The value
- * of a constant map literal const {k1 : e1 . . . kn : en } is deﬁned as the value of a
+ * of a constant map literal const {k1 : e1 . . . kn : en } is defined as the value of a
  * constant map literal const < String, dynamic > {k1 : e1 . . . kn : en }.
  * @description Checks that the value of a constant map literal const <V> {k1:e1... kn :en}
  * is an object that implements interface Map<String, V>.

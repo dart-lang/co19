@@ -16,7 +16,7 @@
  * @author rodionov
  */
 
-import "1_Imports_A03_t61_lib.dart" hide foo;
+import "1_Imports_A03_t61_lib.dart" hide foo, Bar, id;
 import "1_Imports_A03_t61_lib.dart";
 
 class Foo2 extends foo {

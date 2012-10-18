@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @issue 978
  */
 
 class A {

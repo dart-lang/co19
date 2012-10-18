@@ -30,7 +30,7 @@ abstract class I  {
   factory I()=A;
 }
 
-class A {
+class A implements I {
   A() {}
   A.B() {}
   A.C(): _x = 1 {}

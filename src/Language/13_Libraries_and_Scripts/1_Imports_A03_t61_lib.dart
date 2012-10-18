@@ -4,7 +4,7 @@
 
 library Imports_A03_t61_lib;
 
-typedef foo();
+class foo {}
 
 class Bar {
   static int BAR = 1;

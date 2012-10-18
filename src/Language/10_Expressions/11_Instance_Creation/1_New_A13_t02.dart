@@ -26,7 +26,7 @@ abstract class I1<T, U, V> {
   }
 }
 
-class A<T, U, V> {
+class A<T, U, V> implements I1 {
   A() {
     T x = p1;
     U y = p2;

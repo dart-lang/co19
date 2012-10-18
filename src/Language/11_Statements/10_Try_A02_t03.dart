@@ -14,7 +14,7 @@
  * @reviewer iefremov
  */
 
-import "09_Try_lib.dart";
+import "10_Try_lib.dart";
 
 class T1 {
   T1() {}

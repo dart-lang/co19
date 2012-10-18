@@ -14,7 +14,7 @@
  * @reviewer rodionov
  */
 
-class Stub implements I1, I2{
+class Stub implements A, B {
   Stub() {}
   Stub.name() {}
 }
@@ -23,7 +23,7 @@ abstract class I1 {
   factory I1() = A;
 }
 
-class A {
+class A implements I1 {
   factory A() {
     return new Stub();
   }

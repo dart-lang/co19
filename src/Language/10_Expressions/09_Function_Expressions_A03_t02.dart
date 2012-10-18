@@ -15,10 +15,10 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 3276
+ * @issue 3276, 6029
  */
 
-#import('../../Utils/dynamic_check.dart');
+import "../../Utils/dynamic_check.dart";
 
 typedef bool foo(int x, int y, [double a, double b]);
 

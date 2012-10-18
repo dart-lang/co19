@@ -7,7 +7,7 @@ library Imports_A03_t21_p1_lib2;
 typedef foo();
 
 class Bar {
-  static int BAR1 = 1;
+  static int BAR = 1;
 }
 
 final id = 1;

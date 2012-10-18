@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Boolean conversion is deﬁned by the function
+ * @assertion Boolean conversion is defined by the function
  *   (bool v){
  *      assert(v != null);
  *      return identical(v, true);

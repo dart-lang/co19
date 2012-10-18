@@ -10,6 +10,7 @@
  * @description Checks that a hidden function type alias name can't be used as a type.
  * @author msyabro
  * @reviewer iefremov
+ * @issue 6028
  */
 
 import "../../Utils/dynamic_check.dart";

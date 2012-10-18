@@ -6,9 +6,9 @@
 /**
  * @assertion The static type of a function literal of the form
  * (T1 a1, ..., Tn an, {Tn+1 xn+1: d1, ..., Tn+k xn+k: dk }){s} is
- * (T1 ..., Tn, {Tn+1 xn+1, ..., Tn+k xn+k }) → dynamic.
- * In any case where Ti , 1 ≤ i ≤ n + k, is not speciﬁed,
- * it is considered to have been speciﬁed as dynamic.
+ * (T1 ..., Tn, {Tn+1 xn+1, ..., Tn+k xn+k }) -> dynamic.
+ * In any case where Ti , 1 <= i <= n + k, is not specified,
+ * it is considered to have been specified as dynamic.
  * @description Checks that the static type of function literal of the form
  * (T1 a1, ..., Tn an, {Tn+1  xn+1 = d1,... Tn+k xn+k = dk}){s} is
  * (T1, ..., Tn, {Tn+1 xn+1, .., Tn+k xn+k}) -> dynamic and that wherever
@@ -25,7 +25,7 @@ typedef dynamic dynFuncListParam(List p1, {List p2});
 main() {
   dynFuncBoolParam dfbp = (bool p1, {bool p2}) {return 1;};
   dfbp = (bool p1, {bool p2: true}) {var x = p1;};
-  dfbp = (a, [p2]) {};
+  dfbp = (a, {p2}) {};
 
   dynFuncIntParam dfip = (int p1, {int p2}) {[1][0];};
   dfip = (int p1, {int p2}) {return p1 + p2;};

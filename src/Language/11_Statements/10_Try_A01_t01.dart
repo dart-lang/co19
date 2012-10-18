@@ -41,13 +41,11 @@ main() {
   catch(wtvr) {}
   finally {}
 
-  checkTypeError(() {
-    try {
-      throw "";
-    }
-    on int catch (ok, st) {}
-    on String catch (ok, st) {}
-  });
+  try {
+    throw "";
+  }
+  on int catch (ok, st) {}
+  on String catch (ok, st) {}
 
   try {
     try {
