@@ -44,9 +44,9 @@ class A extends S {
 
     //function expressions -- issue 1189
     (){} == ()=>{};
-    void f() {return null;} === void g(int x) => 7; 
+    () {return null;} == (int x) => 7; 
     () => [] != 1;
-    int func() {} !== new Object();
+    () {} != new Object();
 
     //constants and instance creation
     const [] == [];
@@ -58,15 +58,15 @@ class A extends S {
 
     //relational expressions
     try {1 < 2 == true > false;} catch(e) {}
-    try {true >= false === id > 7;} catch(e) {}
+    try {true >= false == id > 7;} catch(e) {}
 
     //shift expressions
     try {1 >> -1 != (){};} catch(e) {}
     try {1 << 2 != null >> null;} catch(e) {}
 
     //additive expressions
-    try { 1 + 2 == 2;} catch(var e ) {}
-    try { 0 - 0 != null + null;} catch(var e ) {}
+    try { 1 + 2 == 2;} catch(e) {}
+    try { 0 - 0 != null + null;} catch(e ) {}
 
     //multiplicative expressions
     try {true * false == id.id / []();} catch(e) {}
