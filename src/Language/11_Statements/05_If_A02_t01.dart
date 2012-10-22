@@ -4,22 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of an if statement of the form if(b) s1 else s2 proceeds as follows:
- * The expression b is evaluated to an object o.
- * In checked mode, it is a dynamic type error if o is not of type bool.
- * @description Checks that it is a dynamic type error if the expression
- * does not evaluate to a value of type bool in checked mode.
- * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
+ * @assertion First, the expression b is evaluated to an object o.
+ *  Then, o is subjected to boolean conversion, producing an object r.
+ * @description Checks that there is no dynamic type error if the expression
+ *  does not evaluate to a value of type bool in checked mode.
+ * @author kaigorodov
  */
 
-#import("../../Utils/dynamic_check.dart");
-
 main() {
+  var o = 1;
   var i;
-  checkTypeError(() {
-    var o = 1;
-    if (o) {i = "hello";}
-  });
+  if (o) {i = "hello";}
+  Expect.isNull(i);
 }

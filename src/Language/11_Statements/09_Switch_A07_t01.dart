@@ -4,23 +4,63 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A case clause introduces a new scope, nested in the lexically surrounding scope.
- * The scope of a case clause ends immediately after the case clause’s statement.
- * @description Checks that names from scopes of different case clauses don't conflict.
- * @author msyabro
- * @reviewer rodionov
+ * @assertion Execution of a case clause case ek: sk of a switch statement
+ * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
+ * proceeds as follows:
+ * The expression ek == id  is evaluated  to an object o which is then
+ * subjected to boolean conversion yielding a value v.
+ * If v is not true, the following case,  case ek+1: sk+1 is executed if it exists.
+ * If case ek+1: sk+1 does not exist, then the default clause is executed by executing sn+1.
+ * If v is true, let h be the smallest integer such that h >= k and sh is non-empty.
+ * If no such h exists, let h = n + 1. The sequence of statements sh is then executed.
+ * If execution reaches the point after sh  then a runtime error occurs, unless h = n + 1.
+ * @description Checks that the cases are tested in the specified order, top to bottom
+ * and if there're no statements in the matching case, then Dart continues looking for
+ * statements to execute down from there. Some case expressions are equal to each other.
+ * @author rodionov
+ * @reviewer iefremov
  */
 
-foo(p) {
-  switch(p) {
-    case 1: var x = 2;
-            return x;
-    case 2: var x = 4;
-            return x;
-  }
+test(value) {
+ var result;
+
+ switch(value) {
+   case 3:
+     return 1;
+     break;
+   case 1:
+     return 2;
+     break;
+   case 2:
+     return 3;
+     break;
+   case 1:
+     return 4;
+     break;
+   case 1:
+     return 5;
+     break;
+   case 2:
+     return 6;
+     break;
+   case 4:
+   case 5:
+   case 6:
+     return 7;
+     break;
+   default:
+     return -1;
+     break;
+ }
+ return result;
 }
 
 main() {
-  Expect.equals(2, foo(1));
-  Expect.equals(4, foo(2));
+ Expect.equals(2, test(1));
+ Expect.equals(3, test(2));
+ Expect.equals(1, test(3));
+ Expect.equals(7, test(4));
+ Expect.equals(7, test(5));
+ Expect.equals(7, test(6));
+ Expect.equals(-1, test(7));
 }

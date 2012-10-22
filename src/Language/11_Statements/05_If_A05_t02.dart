@@ -13,8 +13,12 @@
  * @static-warning
  */
 
+#import("../../Utils/dynamic_check.dart");
+
 main() {
-  try {
-    if ("true") {print("foo");} 
-  } on TypeError catch(ok) {}
+  var i;
+  checkTypeError(() {
+  if ("true") {i=1;} 
+  });
+  Expect.isNull(i);
 }

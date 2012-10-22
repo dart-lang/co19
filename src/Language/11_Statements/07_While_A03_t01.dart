@@ -10,13 +10,14 @@
  * @reviewer iefremov
  * @static-warning
  */
+#import("../../Utils/dynamic_check.dart");
 
 main() {
-  try {
+  checkTypeError(() {
     while ("true") {
       print("foo");
       break;
     } 
-  } on TypeError catch(ok) {}
+  });
 }
 

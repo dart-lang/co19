@@ -5,15 +5,14 @@
  */
 /**
  * @assertion Execution of a case clause case ek: sk of a switch statement
- * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
+ * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn} 
  * proceeds as follows:
- * The expression ek == id  is evaluated  to an object o which is then
- * subjected to boolean conversion yielding a value v.
+ * The expression ek == id  is evaluated  to an object o which is then subjected to
+ * boolean conversion yielding a value v.
  * If v is not true, the following case,  case ek+1: sk+1 is executed if it exists.
- * If case ek+1: sk+1 does not exist, then the default clause is executed by executing sn+1.
  * If v is true, let h be the smallest integer such that h >= k and sh is non-empty.
- * If no such h exists, let h = n + 1. The sequence of statements sh is then executed.
- * If execution reaches the point after sh  then a runtime error occurs, unless h = n + 1.
+ * The sequence of statements sh is executed if it exists.
+ * If execution reaches the point after sh  then a runtime error occurs, unless h = n.
  * @description Checks that the cases are tested in the specified order, top to bottom
  * and if there're no statements in the matching case, then Dart continues looking for
  * statements to execute down from there. Some case expressions are equal to each other.
@@ -48,9 +47,6 @@ test(value) {
    case 6:
      return 7;
      break;
-   default:
-     return -1;
-     break;
  }
  return result;
 }
@@ -62,5 +58,5 @@ main() {
  Expect.equals(7, test(4));
  Expect.equals(7, test(5));
  Expect.equals(7, test(6));
- Expect.equals(-1, test(7));
+ Expect.equals(null, test(7));
 }

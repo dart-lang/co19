@@ -4,14 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of an if statement of the form if (b)s1 else s2 proceeds as follows:
- * First, the expression b is evaluated to an object o. In checked mode, it is
- * a dynamic type error if o is not of type bool. Otherwise, o is then subjected
- * to boolean conversion (10.4.1), producing an object r. If r is true, then the
- * statement s1 is executed, otherwise statement s2 is executed.
- * @description Checks that if the expression b evaluates to an object o that converts to the boolean false,
- * then the statement s2 is executed. Boolean false constant is tested as well as various comparison
- * expressions.
+ * @assertion  If r is true, then the statement s1 is executed,
+ *  otherwise statement s2 is executed.
+ * @description Checks that if the expression b evaluates to an object o that
+ *  converts to the boolean false, then the statement s2 is executed.
+ *  Boolean false constant is tested as well as various comparison expressions.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

@@ -4,27 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Given a switch statement of the form
- * switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
- * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn},
- * it is a compile-time error if the expressions ek are not compile-time constants,
- * of type int or String, for all 1 <= k <= n.
- * @description Checks that it is a compile-time error if a case expression
- * is not a compile-time constant.
- * @compile-error
+ * @assertion A case clause introduces a new scope, nested in the lexically surrounding scope.
+ * The scope of a case clause ends immediately after the case clause’s statement.
+ * @description Checks that names from scopes of different case clauses don't conflict.
  * @author msyabro
  * @reviewer rodionov
  */
 
-
-f() => 1;
+foo(p) {
+  switch(p) {
+    case 1: var x = 2;
+            return x;
+    case 2: var x = 4;
+            return x;
+  }
+}
 
 main() {
-  try {
-    switch(1) {
-      case 0:
-      case 2:
-      case f():
-    }
-  } catch(e) {}
+  Expect.equals(2, foo(1));
+  Expect.equals(4, foo(2));
 }

@@ -4,26 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Given a switch statement of the form
- * switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
- * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn},
- * it is a compile-time error if the values
- * of the expressions ek do not all have the same type for all 1 <= k <= n.
- * @description Checks that it is a compile-time error if case expressions
- * of a switch statement without a default case have different types.
- * @compile-error
+ * @assertion Execution of a switch statement of the form
+ * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
+ * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn}
+ * proceeds as follows:
+ * The statement var id = e; is evaluated, where id is a variable whose name is
+ * distinct from any other variable in the program.  In checked mode, it is a run
+ * time error if the value of e is not an instance of the same type as the constants e1 … en.
+ * Next, the case clause case e1: s1 is executed if it exists.
+ * If case e1: s1 does not exist, then the default clause is executed by executing sn+1.
+ * @description Checks that if the value of expression e is not an instance of the same
+ * type as the constants of case clauses, it is a runtime error in checked mode only.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview issue 3269
  */
 
+#import("../../Utils/dynamic_check.dart");
 
 main() {
-  var x = 1;
-  try {
-    switch(x) {
-      case 0:
-      case 2:
-      case "false":
+  checkTypeError(() {
+      switch(1) {
+        case '1': break;
+        case '2': break;
+        default:
+      }
+  });
+  
+  checkTypeError(() {
+    switch('abc') {
+      case 1:
     }
-  } catch(e) {}
+  });
+  
 }

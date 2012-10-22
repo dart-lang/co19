@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of a while statement of the form while (e) s; proceeds as follows:
- * The expression e is evaluated to an object o. In checked mode, it is a dynamic
- * type error if o is not of type bool. Otherwise, o is then subjected to boolean
- * conversion (10.4.1), producing an object r. If r is true, then s is executed and
- * then the while statement is re-executed recursively. If r is false, execution of
- * the while statement is complete. 
+ * @assertion The expression e is evaluated to an object o. Then, o is subjected
+ *  to boolean conversion (11.4.1), producing an object r. If r is true, then s
+ *  is executed and then the while statement is re-executed recursively.
+ *  If r is false, execution of the while statement is complete.
  * @description Checks that the number of iterations is correct for various valid expressions.
  * @author vasya
  * @reviewer rodionov

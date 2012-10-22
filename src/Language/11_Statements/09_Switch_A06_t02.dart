@@ -4,22 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Given a switch statement of the form
- * switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
- * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn},
- * it is a compile-time error if the expressions ek are not compile-time constants,
- * of type int or String, for all 1 <= k <= n.
- * @description Checks that it is a compile-time error if a case expression
- * is a compile-time constant of type bool.
- * @compile-error
+ * @assertion A case clause introduces a new scope, nested in the lexically surrounding scope.
+ * The scope of a case clause ends immediately after the case clause’s statement.
+ * @description Checks that the scope of a case clause ends immediately after the case clause’s statement.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
+ * @issue 5837
  */
 
 main() {
   try {
-    switch(null) {
-      case true:
+    switch(1) {
+      case 1: var x = 2;
+              break;
+      case 2: x++; //isn't declared in this scope
     }
-  } catch(e) {}
+    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
+  } on NoSuchMethodError catch (ex) {}
 }

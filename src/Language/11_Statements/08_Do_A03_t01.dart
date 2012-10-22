@@ -18,4 +18,3 @@ main() {
     } while ("true");
   } on TypeError catch(ok) {}
 }
-

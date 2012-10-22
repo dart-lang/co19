@@ -4,29 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of a switch statement of the form
- * switch (e) {label11 ..label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
- * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn}
- * proceeds as follows:
- * The statement var id = e; is evaluated, where id is a variable whose name is
- * distinct from any other variable in the program. It is a run time error if
- * the value of e is not an instance of the same type as the constants e1 … en.
- * Next, the case clause case e1: s1 is executed if it exists.
- * If case e1: s1 does not exist, then the default clause is executed by executing sn+1.
- * @description Checks that if a switch statement does not have any case clauses, the default
- * clause is executed.
+ * @assertion Given a switch statement of the form
+ * switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn default: sn+1}
+ * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn},
+ * it is a compile-time error if the expressions ek are not compile-time constants for all
+ * k = 1..n.
+ * @description Checks that it is a compile-time error if case expressions
+ * are of mixed types.
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-foo(p) {
-  switch(p) {
-    default: return 1;
-  }
-}
-
 main() {
-  Expect.equals(1, foo(1));
-  Expect.equals(1, foo(null));
-  Expect.equals(1, foo(''));
+  var x=1;
+  try {
+    switch(x) {
+      case 1:
+        x=1;
+      case 2.0:
+        x=2;
+    }
+  } catch(e) {}
 }

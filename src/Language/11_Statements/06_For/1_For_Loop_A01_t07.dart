@@ -11,8 +11,8 @@
  * 
  * 1. If this is the first iteration of the for loop, let v' be v. Otherwise, let v' be
  *    the variable v'' created in the previous execution of step 4.
- * 2. The expression [v'/v]c is evaluated and subjected to boolean conversion
- *    (10.4). If the result is false, the for loop completes. Otherwise, execution
+ * 2. The expression [v'/v]c is evaluated and subjected to boolean conversion.
+ *    If the result is false, the for loop completes. Otherwise, execution
  *    continues at step 3.
  * 3. The statement [v'/v]s is executed.
  * 4. Let v'' be a fresh variable. v'' is bound to the value of v'.

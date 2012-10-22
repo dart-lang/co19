@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of a while statement of the form while (e) s; proceeds as follows:
- * The expression e is evaluated to an object o. In checked mode, it is a dynamic
- * type error if o is not of type bool. Otherwise, o is then subjected to boolean
- * conversion (10.4.1), producing an object r. If r is true, then s is executed and
- * then the while statement is re-executed recursively. If r is false, execution of
- * the while statement is complete. 
- * @description Checks that a dynamic type error is produced in checked mode if o is not of type bool.
+ * @assertion The expression e is evaluated to an object o. Then, o is subjected
+ *  to boolean conversion (11.4.1), producing an object r. If r is true, then s
+ *  is executed and then the while statement is re-executed recursively.
+ *  If r is false, execution of the while statement is complete.
+ * @description Checks that no dynamic type error is produced in checked mode if o is not of type bool.
  * @static-warning
  * @author vasya
  * @reviewer rodionov
@@ -20,23 +18,38 @@
 #import("../../Utils/dynamic_check.dart");
 
 main() {
-  checkTypeError( () {
+  while(true) {
+    break;
+  }
+
+  while(false) {
+    break;
+  }
+
+  checkTypeError(() {
     while("true") {
       break;
     }
   });
 
-  checkTypeError( () {
+  checkTypeError(() {
     while(1) {
       break;
     }
   });
 
-  checkTypeError( () {
+  if(isCheckedMode()) {
+    try {
+      while(null) {
+        break;
+      }
+      Expect.fail("Assertion error expected in checking mode");
+    } on AssertionError catch(ok) {
+    }
+  } else {
     while(null) {
       break;
     }
-  });
-
+  }
 }
 

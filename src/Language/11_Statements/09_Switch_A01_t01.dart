@@ -18,7 +18,6 @@
  * allowed by spec) works as expected.
  * @author rodionov
  * @reviewer iefremov
- * @note issue 2238
  */
 
 switchTestBool(value) {
@@ -112,7 +111,4 @@ main() {
     $: default:
   }
 
-  switch(1) {
-    l1: l2: l3: case(1):
-  }
 }
