@@ -2,12 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library Imports_lib;
+library Exports_A04_t05_lib;
+export "2_Exports_A04_t05_lib.dart";
 
-final foo = 1;
-final foo0 = 2;
-var someVar = 3;
-var _privateVar;
-
-var hide = "hide";
-var show = "show";
+typedef foo();
