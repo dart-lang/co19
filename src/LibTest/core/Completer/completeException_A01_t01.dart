@@ -4,13 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void completeException(Object exception)
- * Indicate in future that an exception occured while trying to produce its value.
- * The argument exception should not be null.
+ * @assertion void completeException(Object exception, [Object stackTrace])
+ * Indicate in future that an exception occurred while trying to produce its value.
+ * The argument exception should not be null. A stackTrace object can be provided 
+ * as well to give the user information about where the error occurred. 
+ * If omitted, it will be null.
  * @description Checks that after [completeException] is called, the corresponding
- * future is completed with that exception.
+ * future is completed with that exception wrapped in a FutureUnhandledException.
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview not documented thoroughly
  */
 
 main() {
@@ -24,9 +27,8 @@ main() {
   Expect.equals(exc, future.exception);
   try {
      future.value;
-     Expect.fail('an Exception is expected');
-  } on Exception catch(e) {
-     Expect.equals(exc, e);
+     Expect.fail('FutureUnhandledException expected');
+  } on FutureUnhandledException catch(e) {
+     Expect.equals(exc, e.source);
   }
-  
 }

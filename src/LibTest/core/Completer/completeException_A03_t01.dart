@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void completeException(Object exception)
+ * @assertion void completeException(Object exception, [Object stackTrace])
  * FutureAlreadyCompleteException is thrown if a future is already completed.
  * @description Checks that an Exception is thrown if
  * the completer is already completed with a value.
@@ -20,5 +20,5 @@ main() {
   try {
     completer.completeException('another value');
     Expect.fail('FutureAlreadyCompleteException is expected');
-  }  on Exception catch(e) {}
+  }  on FutureAlreadyCompleteException catch(e) {}
 }

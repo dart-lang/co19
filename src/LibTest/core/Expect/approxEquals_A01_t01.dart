@@ -12,8 +12,7 @@
  * @author rodionov
  * @reviewer varlax
  */
-#import("dart:math", prefix: "Math");
-
+import "dart:math" as Math;
 
 main() {
   final double MIN_DOUBLE = Math.pow(2.0, -1074);

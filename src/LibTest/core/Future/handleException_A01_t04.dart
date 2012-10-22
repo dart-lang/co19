@@ -32,22 +32,22 @@ check(value) {
 main() {
   try {
     check(1);
-    Expect.fail('Exception is expected');
-  } on int catch(e) {
-    Expect.equals(1, e);
+    Expect.fail('FutureUnhandledException is expected');
+  } on FutureUnhandledException catch(e) {
+    Expect.equals(1, e.source);
   }
 
   try {
     check('');
-    Expect.fail('Exception is expected');
-  } on String catch(e) {
-    Expect.equals('', e);
+    Expect.fail('FutureUnhandledException is expected');
+  } on FutureUnhandledException catch(e) {
+    Expect.equals('', e.source);
   }
 
   try {
     check(const []);
-    Expect.fail('Exception is expected');
-  } on List catch(e) {
-    Expect.equals(const [], e);
+    Expect.fail('FutureUnhandledException is expected');
+  } on FutureUnhandledException catch(e) {
+    Expect.equals(const [], e.source);
   }
 }

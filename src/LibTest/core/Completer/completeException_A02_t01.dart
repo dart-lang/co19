@@ -4,8 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void completeException(Object exception)
- * The argument [exception] should not be [:null:].
+ * @assertion void completeException(Object exception, [Object stackTrace])
+ * Indicate in future that an exception occurred while trying to produce its value.
+ * The argument exception should not be null. A stackTrace object can be provided 
+ * as well to give the user information about where the error occurred. 
+ * If omitted, it will be null.
  * @description Checks that ArgumentError is thrown
  * if [exception] is [:null:].
  * @author msyabro

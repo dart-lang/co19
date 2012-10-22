@@ -21,12 +21,12 @@
 @A abstract class IT <T> {}
 
 @B.fromInt(1) class A {
-  A(){}
+  const A();
 }
 
-@B(1) class B extends A {
+@B.fromInt(1) class B extends A {
   B(){}
-  B.fromInt(int a){}
+  const B.fromInt(int a);
 }
 
 @B.fromInt(1) class C extends B implements I {}
