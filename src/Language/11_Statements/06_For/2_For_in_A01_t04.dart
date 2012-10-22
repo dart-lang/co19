@@ -16,7 +16,6 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
- * @issue 5675
  */
 
 main() {

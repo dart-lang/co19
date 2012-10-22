@@ -21,7 +21,7 @@
  * @needsreview issue 3269
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {

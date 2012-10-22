@@ -7,26 +7,27 @@
  * @assertion An on-catch clause of the form on T catch (p1) s is equivalent to an on-
  * catch clause on T catch (p1, p2) s where p2 is an identiier that does not occur
  * anywhere else in the program.
- * @description Checks that a catch clause with an explicitly specified type T of the first
- * exception parameter does not match a thrown object if it's not null and its type is not a subtype of T. 
- * @author vasya
+ * @description Checks that it is not an error when the least specific catch clause is
+ * placed first, followed by more specific, and therefore redundant, catch clauses
+ * and that an exception can not be caught with clauses that don't match.
+ * @author iefremov
  * @reviewer rodionov
- * @reviewer iefremov
  */
 
 class A {}
 class B extends A {}
+class C extends B {}
 
 main() {
   try {
     try {
-      throw new A();
+      throw new Object();
+    } on A catch(ex) {
+      Expect.fail("This clause shouldn't be executed");
     } on B catch(ex) {
       Expect.fail("This clause shouldn't be executed");
-    } on String catch(ex) {
-      Expect.fail("This clause shouldn't be executed");
-    } on int catch(ex) {
+    } on C catch(ex) {
       Expect.fail("This clause shouldn't be executed");
     }
-  } on A catch(ok) {}
+  } on Object catch(o) {}
 }

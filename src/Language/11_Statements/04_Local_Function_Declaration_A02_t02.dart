@@ -12,6 +12,7 @@
  * declaration statement.
  * @compile-error
  * @author kaigorodov
+ * @issue 5773
  */
 
 main() {
