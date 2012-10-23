@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The break statement consists of the reserved word break and an optional label
- * (11.11).
+ * @assertion The break statement consists of the reserved word break and an optional label.
  * breakStatement:
  * break identifier? ';'
  * ;

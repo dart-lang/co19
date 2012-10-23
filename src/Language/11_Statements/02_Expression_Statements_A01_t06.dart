@@ -113,8 +113,8 @@ main() {
   i >= 0;
 
   //equality
-  i === 1;
-  i !== 2;
+  identical(i, 1);
+  !identical(i, 2);
   i == 0;
   i != 1;
 

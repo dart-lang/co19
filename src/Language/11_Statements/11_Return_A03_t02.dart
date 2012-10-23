@@ -12,7 +12,7 @@
  * @reviewer iefremov
  */
 
-interface I {}
+abstract class I {}
 class S implements I {}
 class C extends S {}
 

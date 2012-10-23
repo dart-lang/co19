@@ -4,22 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a return statement of the form return e; 
- * appears in a generative constructor (7.5.1).
- * @description Checks that a compile-time error occurs if a return statement 
- * of the form return e; appears in a generative constructor.
- * @compile-error
- * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
+ * @assertion In checked mode, it is a dynamic type error if o is not null and
+ * the runtime type of o is not a subtype of the actual return type
+ * of the immediately enclosing function.
+ * @description Checks that in checked mode, it is a dynamic type error if o is
+ * not null and the runtime type of o is not a subtype of the actual return type
+ * of the immediately enclosing function.
+ * @author kaigorodov
  */
 
-class C {
-  C() { return this; }
-}
+import "../../Utils/dynamic_check.dart";
+
+var r="0";
+
+int foo() {  return r; }
 
 main() {
-  try {
-    new C();
-    } catch(x) {}
+  checkTypeError(() {
+      var res=foo();
+  });
 }

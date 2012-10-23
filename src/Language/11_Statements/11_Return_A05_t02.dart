@@ -4,23 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let f be the function immediately enclosing a return statement of the form
- * return; It is a static warning if both of the following conditions hold:
- * - f is not a generative constructor.
- * - The return type of f may not be assigned to void.
- * @description Checks that a static warning occurs if a statement of the form "return;" is
- * used in a getter method whose declared return type is bool.
- * @static-warning
- * @author vasya
- * @reviewer rodionov
+ * @assertion It is a compile-time error if a return statement of the form return e; 
+ * appears in a generative constructor (7.5.1).
+ * @description Checks that a compile-time error occurs if a return statement 
+ * of the form return e; appears in a named generative constructor.
+ * @compile-error
+ * @author rodionov
  * @reviewer iefremov
  */
 
 class C {
-  C() { }  
-  bool get foo { return; }
+  C() {}
+  C.foo() { return this; }
 }
 
 main() {
-  bool x = new C().foo;
+  try {
+    new C.foo();
+  } catch(x) {}
 }

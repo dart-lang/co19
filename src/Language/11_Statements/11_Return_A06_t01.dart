@@ -4,37 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A return statement of the form return; is executed by executing the statement
- * return null; if it occurs inside a method, getter, setter or factory; otherwise,
- * the return statement necessarily occurs inside a generative constructor, in which
- * case it is executed by executing return this;.
- * @description Checks that a return statement of the form "return;" in a method, getter, 
- * setter or factory is executed by executing the statement "return null;".
+ * @assertion Let f be the function immediately enclosing a return statement of the form
+ * return; It is a static warning if both of the following conditions hold:
+ * - f is not a generative constructor.
+ * - The return type of f may not be assigned to void.
+ * @description Checks that a static warning occurs if a statement of the form "return;" is
+ * used in a top-level method whose declared return type is int.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-bar() {
-  return;
-}
-
-interface I default Foo {
-  I();
-}
-
-class Foo {
-  Foo() {}    
-  get foo { return; }
-  method() { return; }
-
-  factory I() { return; }
-}
+int bar() { return; }
 
 main() {
-  var foo = new Foo();
-  Expect.isNull(foo.foo);
-  Expect.isNull(foo.method());
-  Expect.isNull(new I());
+  bar();
 }
-

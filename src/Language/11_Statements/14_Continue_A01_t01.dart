@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The continue statement consists of the reserved word continue and an optional
- * label (11.11).
+ * label.
  * continueStatement:
  * continue identifier? ';'
  * ;

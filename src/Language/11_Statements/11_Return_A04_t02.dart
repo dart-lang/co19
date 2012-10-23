@@ -4,22 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a return statement of the form return e; 
- * appears in a generative constructor (7.5.1).
- * @description Checks that a compile-time error occurs if a return statement 
- * of the form return e; appears in a named generative constructor.
- * @compile-error
- * @author rodionov
- * @reviewer iefremov
+ * @assertion In checked mode, it is a dynamic type error if o is not null and
+ * the runtime type of o is not a subtype of the actual return type
+ * of the immediately enclosing function.
+ * @description Checks that in checked mode, it not a dynamic type error if o is null.
+ * @author kaigorodov
  */
 
-class C {
-  C() {}
-  C.foo() { return this; }
-}
+var r=null;
+
+int foo() {  return r; }
 
 main() {
-  try {
-    new C.foo();
-  } catch(x) {}
+  var res=foo();
 }

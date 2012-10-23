@@ -4,11 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let sc be a continue statement. If sc is of the form continue L;, 
- * then let sE be the the innermost labeled do, for or while statement or case clause 
- * with label L enclosing sc. If sc is of the form 'continue;' then let sE 
- * be the innermost do, for or while statement enclosing sc.
- * Furthermore, let s1,...,sn be those try statements that are both
+ * @assertion Let s1,...,sn be those try statements that are both
  * enclosed in sE and that enclose sc, and that have a finally clause. Lastly, let
  * fj be the finally clause of sj, 1 <= j <= n. Executing sc first executes f1,...,fn
  * in innermost-clause-first order. Then, if sE is a case clause, control is transferred
