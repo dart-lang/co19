@@ -22,13 +22,16 @@ main()  {
 
   try {
     a.v.someMethod();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     a.v.someVariable;
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     a.v.anotherMethod();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 }

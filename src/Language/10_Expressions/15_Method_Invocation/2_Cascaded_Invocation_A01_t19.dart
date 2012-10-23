@@ -29,13 +29,16 @@ main() {
   var c = new C();
   try {
     c..sm();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
     c..sv;
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
     c..m1()..sm()..m2();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

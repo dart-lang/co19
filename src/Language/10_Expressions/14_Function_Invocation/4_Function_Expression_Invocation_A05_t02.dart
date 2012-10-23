@@ -27,9 +27,11 @@ main() {
 
   try {
     c();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
     c(1, 2, 3);
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

@@ -29,5 +29,6 @@ class B extends A {
 main() {
   try {
     print(new B().func());
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

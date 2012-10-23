@@ -21,21 +21,77 @@
 
 class A {
   test() {
-    try {abstract();} on NoSuchMethodError catch(ok) {}
-    try {1 + as;} on NoSuchMethodError catch(ok) {}
+    try {
+      abstract();
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+
+    try {
+      1 + as;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+
     // skipping Dynamic as it's also a type name and thus causes a compile-time error
-    try {1 << export;} on NoSuchMethodError catch(ok) {}
-    try {external ^ 0;} on NoSuchMethodError catch(ok) {}
-    try {1 * factory;} on NoSuchMethodError catch(ok) {}
-    try {1 >= get;} on NoSuchMethodError catch(ok) {}
-    try {var x = implements;} on NoSuchMethodError catch(ok) {}
-    try {1 == import;} on NoSuchMethodError catch(ok) {}
-    try {1 == library;} on NoSuchMethodError catch(ok) {}
-    try {operator.x;} on NoSuchMethodError catch(ok) {}
-    try {1 == part;} on NoSuchMethodError catch(ok) {}
-    try {--set;} on NoSuchMethodError catch(ok) {}
-    try {true & static;} on NoSuchMethodError catch(ok) {}
-    try {++typedef;} on NoSuchMethodError catch(ok) {}
+
+    try {
+      1 << export;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      external ^ 0;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      1 * factory;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      1 >= get;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      var x = implements;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      1 == import;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      1 == library;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      operator.x;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      1 == part;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      --set;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      true & static;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
+    
+    try {
+      ++typedef;
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ok) {}
   }
 }
 

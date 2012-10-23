@@ -79,6 +79,7 @@ class A {
     // selector operator invocations
     try {
       id[2.0] || topLevelFunction()[0] && [1, 2][0];
+      Expect.fail("NoSuchMethodError expected.");
     } on NoSuchMethodError catch(ok) {}
 
      id && id || id; 

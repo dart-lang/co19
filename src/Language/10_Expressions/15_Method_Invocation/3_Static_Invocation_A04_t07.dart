@@ -31,13 +31,16 @@ class C extends S {}
 main()  {
   try {
     NonExistentClass.func();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
     C.func();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
     var x = C.getter;
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

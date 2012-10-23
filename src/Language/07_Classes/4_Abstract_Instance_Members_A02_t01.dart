@@ -21,15 +21,17 @@ class C {
 main() {
   C c=new C();
   try {
-	c.m();
-	Expect.fail("NoSuchMethodError expected");
+    c.m();
+    Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch (e) {}
+  
   try {
-	var v=c.m;
-	Expect.fail("NoSuchMethodError expected");
+  	var v=c.m;
+  	Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch (e) {}
+  
   try {
-	c.m=1;
-	Expect.fail("NoSuchMethodError expected");
+  	c.m=1;
+  	Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch (e) {}
 }

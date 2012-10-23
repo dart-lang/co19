@@ -21,5 +21,6 @@ class C {
 main() {
   try {
     C.m();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 }

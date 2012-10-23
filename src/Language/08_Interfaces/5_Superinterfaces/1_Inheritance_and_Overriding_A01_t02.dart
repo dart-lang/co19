@@ -24,6 +24,7 @@ interface I extends S {
 
 main() {
   try {
-    var x = S.foo;
+    var x = I.foo;
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

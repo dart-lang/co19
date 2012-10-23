@@ -26,25 +26,31 @@ main() {
   
   try {
     String foo = c.f1();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     bool foo = c.f1();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     A foo = c.f1();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     Object foo = c.f1();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     List foo = c.f1();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 
   try {
     Map foo = c.f1();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 }

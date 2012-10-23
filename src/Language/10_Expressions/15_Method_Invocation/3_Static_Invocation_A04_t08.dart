@@ -37,6 +37,7 @@ class C {
 main() {
   try {
     C.m();
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
   
   Expect.equals("call(1, foo)", C.m(1));
@@ -44,5 +45,6 @@ main() {
 
   try {
     C.m(1, 2, 3);
+    Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }
