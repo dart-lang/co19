@@ -112,7 +112,7 @@ class A {
 
     //(equalityExpression)
     try { (1 == 1)[0] = null;} catch(e) {}
-    try { (1 === 1).x = null;} catch(e) {}
+    try { (identical(1, 1)).x = null;} catch(e) {}
 
     //(relationalExpression)
     try { (1 < 1)["a"] = 1;} catch(e) {}

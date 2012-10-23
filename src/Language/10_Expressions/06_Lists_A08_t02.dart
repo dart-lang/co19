@@ -18,7 +18,7 @@ main() {
   var m = [1, 2, 3, 4, 5];
   for(int i = 0; i < 10; ++i) {
     var tmp = [1, 2, 3, 4, 5];
-    Expect.isFalse(m === tmp);
+    Expect.isFalse(identical(m, tmp)	);
     m = tmp;
   }
 }

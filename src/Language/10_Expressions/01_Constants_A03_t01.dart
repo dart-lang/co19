@@ -11,6 +11,7 @@
  * and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
+ * @note issue 5214
  */
 
 final constList = const [
@@ -32,8 +33,8 @@ final constList = const [
 final constListInterpolation = const [
   '${'test'}'
   '${'${'test'}'}',
-  '${'test'} ${10500 - 500}  ${((1 == 2) != ("" == "b")) == (false !== true)}',
-  '${'${'test'} ${10500 - 500}  ${((1 == 2) != ("" == "b")) == (false !== true)}'}',
+  '${'test'} ${10500 - 500}  ${((1 == 2) != ("" == "b")) == (!identical(false, true))}',
+  '${'${'test'} ${10500 - 500}  ${((1 == 2) != ("" == "b")) == (!identical(false, true))}'}',
   '${1.0/0.0}',
   '${0.0/0.0}',
   '${(3.14 * 15926) + (1 ~/ 100)}',

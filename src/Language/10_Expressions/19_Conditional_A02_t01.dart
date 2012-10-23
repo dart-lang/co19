@@ -23,7 +23,7 @@ main() {
 
   Expect.equals("yes", (2 > 1) ? "yes" : "no");
   Expect.equals("no", (2 <= -2) ? "yes" : "no");
-  Expect.equals("yes", (0 === 0) ? "yes" : "no");
+  Expect.equals("yes", (identical(0, 0)) ? "yes" : "no");
 
   //scripting mode only, raises static type warnings
   try {Expect.equals(0, [] ? 1 : 0); } on TypeError catch(e) {}

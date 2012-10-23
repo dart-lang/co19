@@ -22,7 +22,7 @@ main() {
   Expect.isTrue(a is A);
   A b = a;
   a = new A();
-  Expect.isTrue(a !== b);
+  Expect.isFalse(identical(a, b));
 
   //check with type parameters
   A<int, double, A> n = new A<int, double, A>();

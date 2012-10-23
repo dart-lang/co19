@@ -35,7 +35,7 @@ class Test  {
 
     [id = 1,id *= 1];
 
-    [id == 1, 1 === 2, true != false];
+    [id == 1, identical(1, 2), true != false];
 
     [1 > 2, 3 >= 3, 0 <= 4, id < 1];
 

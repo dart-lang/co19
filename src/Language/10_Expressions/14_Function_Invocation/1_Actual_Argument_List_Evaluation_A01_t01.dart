@@ -59,9 +59,9 @@ main() {
   bothParameters(o.v, name: f());
 
   //assignment and equality
-  positionalParameters(1 == 2, true != false, [] === null);
-  namedParameters($$$: o = 1, u__: o += 5, name1: o !== o);
-  bothParameters(f === f, name: o = 10);
+  positionalParameters(1 == 2, true != false, identical([], null));
+  namedParameters($$$: o = 1, u__: o += 5, name1: !identical(o, o));
+  bothParameters(identical(f, f), name: o = 10);
 
   //logical and relational expressions
   positionalParameters(1 < 2, 2 > 3, 3 <= 4);

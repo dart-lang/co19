@@ -33,8 +33,8 @@ main() {
   } on int catch(i) {
   } catch (s, st) {
     flag = true;
-    Expect.isTrue(ex === s);
-    Expect.isTrue(strace === st);
+    Expect.isTrue(identical(ex, s));
+    Expect.isTrue(identical(strace, st));
   }
   
   Expect.isTrue(flag, "The correct exception handler wasn't triggered");

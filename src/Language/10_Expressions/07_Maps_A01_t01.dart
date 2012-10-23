@@ -41,7 +41,7 @@ class Test  {
 
     x = {"assignment": id = 1, "compound": id *= 1};
 
-    x = {"==": id == 1, "===": 1 === 2, "!=": true != false};
+    x = {"==": id == 1, "===": identical(1, 2), "!=": true != false};
 
     x = {">": 1 > 2, ">=": 3 >= 3, "<=": 0 <= 4, "<": id < 1};
 

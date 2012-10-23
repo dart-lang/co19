@@ -71,7 +71,7 @@ class A extends S {
     try {method() | id;} catch(e) {}
 
     //equality
-    try {id !== id | true == false;} catch(e) {}
+    try {true == false;} catch(e) {}
     try {1 != 3 & 0;} catch(e) {}
 
     //relational expressions

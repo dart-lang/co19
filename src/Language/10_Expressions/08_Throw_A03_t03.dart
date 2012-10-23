@@ -30,7 +30,7 @@ main() {
   } on int catch(i) {
   } catch (s, st) {
     flag = true;
-    Expect.isTrue(ex === s);
+    Expect.isTrue(identical(ex, s));
     Expect.isNotNull(st);
   }
   

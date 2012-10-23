@@ -115,7 +115,7 @@ main() {
   //Equality
   f_equality() => x == y;
   g_equality() => identical(x, y);
-  h_equality() => x !== y;
+  h_equality() => !identical(x, y);
   i_equality() => x != y;
 
   //Relational expressions

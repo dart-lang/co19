@@ -48,14 +48,14 @@ main() {
   Expect.listEquals([1,2,3,4], value);
 
   // variables
-  Expect.isTrue(-100 === i);
-  Expect.isTrue(false === b);
-  Expect.isTrue("string" === s);
-  Expect.isTrue(Math.PI === pi);
-  Expect.isTrue(const [0,1,2,3] === l);
-  Expect.isTrue(const {'a': 1, 'b': 2} === m);
-  Expect.isTrue("One" "Two" === e);
-  Expect.isTrue('private' === _private);
+  Expect.isTrue(identical(-100, i));
+  Expect.isTrue(identical(false, b));
+  Expect.isTrue(identical("string", s));
+  Expect.isTrue(identical(Math.PI, pi));
+  Expect.isTrue(identical(const [0,1,2,3], l));
+  Expect.isTrue(identical(const {'a': 1, 'b': 2}, m));
+  Expect.isTrue(identical("One" "Two", e));
+  Expect.isTrue(identical('private', _private));
 
   // class
   A a = new A();

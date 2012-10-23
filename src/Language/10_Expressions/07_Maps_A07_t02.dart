@@ -20,7 +20,7 @@ main() {
   var m = {"k1": 1, "k2": 2, "k3": 3};
   for(int i = 0; i < 10; ++i) {
     var tmp = {"k1": 1, "k2": 2, "k3": 3};
-    Expect.isFalse(m === tmp);
+    Expect.isFalse(identical(m, tmp));
     m = tmp;
   }
 }

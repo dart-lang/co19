@@ -9,7 +9,7 @@
  * • The expression e is evaluated to an object o.
  * • If either this or o is null, then ee evaluates to identical(this, o).
  *   Otherwise, ee is equivalent to the method invocation super.==(o).
- * @description Checks that if this === e2, the result of an equality expression is true.
+ * @description Checks that if this is identical to e2, the result of an equality expression is true.
  * @author msyabro
  * @reviewer kaigorodov
  * @note issue 1242

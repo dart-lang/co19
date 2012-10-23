@@ -27,9 +27,9 @@
 main() {
   var s1 = "Alea iacta est";
   var s2 = "Alea iacta est";
-  Expect.isTrue(s1 === s2);
+  Expect.isTrue(identical(s1, s2));
 
   s1 = "Si finis bonus est," " totum bonum erit";
   s2 = "Si finis " "bonus est, totum " "bonum erit";
-  Expect.isTrue(s1 === s2);
+  Expect.isTrue(identical(s1, s2));
 }

@@ -53,7 +53,7 @@ class A {
     try { (1 | 2) ? "" ^ [] : (){} & this;} catch(e) {}
 
     //equality
-    try { (1 === 1) ? 1 !== 2 : 1 == 2;} catch(e) {}
+    try { (identical(1, 1)) ? !identical(1, 2) : 1 == 2;} catch(e) {}
 
     //relational expressions
     try { (1 > 3) ? "2" < '7' : [1] >= [2];} catch(e) {}

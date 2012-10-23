@@ -21,7 +21,7 @@ main() {
   Expect.isTrue(a is A);
   A b = a;
   a = new A();
-  Expect.isTrue(a !== b);
+  Expect.isFalse(identical(a, b));
 
   A<int> n = new A<int>();
   Expect.isTrue(a is A<int>);

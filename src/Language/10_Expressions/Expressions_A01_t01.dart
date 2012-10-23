@@ -73,7 +73,7 @@ class C {
     (3 > 2);
 
     //equality
-    (this === this);
+    (identical(this, this));
     ('' == "");
     (1 != 1);
 

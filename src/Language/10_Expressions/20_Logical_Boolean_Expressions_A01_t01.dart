@@ -52,7 +52,7 @@ class A {
     method() || id;
 
     //equality
-    id !== id || true == false;
+    id == id || true == false;
     1 != 1 && 0;
 
     //logical and relational expressions

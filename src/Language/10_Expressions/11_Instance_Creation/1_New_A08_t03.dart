@@ -24,7 +24,7 @@ main() {
   for(int i = 0; i < 10; i++) {
     a.addLast(new A.redirect());
     for(int j = 0; j < i; j++) {
-      Expect.isFalse(a[j] === a[i]);
+      Expect.isFalse(identical(a[j], a[i]));
     }
   }
 }

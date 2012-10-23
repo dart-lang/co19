@@ -38,7 +38,7 @@ A foo() {
 }
 
 bar(x, y) {
-  Expect.isTrue(x !== y);
+  Expect.isFalse(identical(x, y));
 }
 
 main() {

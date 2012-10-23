@@ -25,7 +25,7 @@ main() {
 
   for(var i = 0; i < total; ++i) {
     for(var j = i+1; j < total; ++j) {
-      Expect.isFalse(instances[i] === instances[j]);
+      Expect.isFalse(identical(instances[i], instances[j]));
     }
   }
 }

@@ -56,9 +56,9 @@ class Test {
 
     //equality
     "${id == 1}";
-    '${1 === 2}';
+    '${identical(1, 2)}';
     "${true != false}";
-    """${[] !== []}""";
+    """${!identical([], [])}""";
 
     //relational expressions
     '${5 < 10}';
