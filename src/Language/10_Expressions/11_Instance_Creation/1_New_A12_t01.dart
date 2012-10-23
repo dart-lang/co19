@@ -22,7 +22,7 @@ class C<T> implements R<T> {
    
    C(this.value) {}
    
-   int hashCode() { 
+   int get hashCode { 
      return value.hashCode();
    }
 

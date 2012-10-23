@@ -10,8 +10,8 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is not a subtype of function type t2 
- * if the names of its optional parameters do not match those of t2, even if the types do.
+ * @description Checks that function type t1 is still a subtype of function type t2 
+ * if the names of its optional positional parameters do not match those of t2, even if the types do.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -19,6 +19,6 @@
 typedef f2([int x, double y]);
 
 main() {
-  Expect.isFalse(f([int x, double xx]) {} is f2);
-  Expect.isFalse(f([int y, double x]) {} is f2);
+  Expect.isTrue(f([int x, double xx]) {} is f2);
+  Expect.isTrue(f([int y, double x]) {} is f2);
 }

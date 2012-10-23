@@ -19,8 +19,8 @@
  * don't cause compile-time errors.
  * @author msyabro
  * @reviewer rodionov
- * @note http://code.google.com/p/dart/issues/detail?id=1242
- * @note http://code.google.com/p/dart/issues/detail?id=1189
+ * @issue 1242 - fixed?
+ * @issue 1189
  */
 
 topLevelFunction() {}

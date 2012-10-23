@@ -14,7 +14,7 @@
 class A {
   String s;
   A(this.s) {}
-  int hashCode() {
+  int get hashCode {
     return s.length;
   }
 }

@@ -15,11 +15,11 @@
  * issue 3223
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 class A {
   A() {}
-  int hashCode() {
+  int get hashCode {
     return 1;
   }
 }

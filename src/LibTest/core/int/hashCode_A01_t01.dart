@@ -13,11 +13,11 @@
  */
 
 main() {
-  Expect.equals(0, 0.hashCode());
-  Expect.equals(2147483647, 2147483647.hashCode());
-  Expect.equals(-2147483648, (-2147483648).hashCode());
-  Expect.equals(4294967295, 4294967295.hashCode());
-  Expect.equals(-4294967296, (-4294967296).hashCode());
-  Expect.equals(9223372036854775807, 9223372036854775807.hashCode());
-  Expect.equals(-9223372036854775808, (-9223372036854775808).hashCode());
+  Expect.equals(0, 0.hashCode);
+  Expect.equals(2147483647, 2147483647.hashCode);
+  Expect.equals(-2147483648, (-2147483648).hashCode);
+  Expect.equals(4294967295, 4294967295.hashCode);
+  Expect.equals(-4294967296, (-4294967296).hashCode);
+  Expect.equals(9223372036854775807, 9223372036854775807.hashCode);
+  Expect.equals(-9223372036854775808, (-9223372036854775808).hashCode);
 }

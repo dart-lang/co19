@@ -9,7 +9,7 @@
  * 7.1: It is a compile-time error if an instance method m1 overrides an instance
  * member m2 and m1 does not declare all the named parameters declared by m2.
  * @description Checks that a compile-time error is produced when the overriding non-abstract 
- * instance method has fewer named parameters then the abstract method being overridden.
+ * instance method has fewer named parameters than the abstract method being overridden.
  * @compile-error
  * @static-warning
  * @author rodionov

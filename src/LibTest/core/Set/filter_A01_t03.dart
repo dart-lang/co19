@@ -18,7 +18,7 @@
 class A {
   A(this.x) {}
   bool operator==(A other) { return x == other.x; }
-  int hashCode() { return x; }
+  int get hashCode { return x; }
   int x;
 }
 

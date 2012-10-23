@@ -31,7 +31,7 @@ main() {
   o.f3(1);
   o.f3(1, "");
   o.f4(1);
-  o.f4(1, name: 1);
+  o.f4(1, 1);
   o.f5(null, null);
   o.f5(null, null, name2: null);
   o.f5(null, null, name1: null, name2: null);

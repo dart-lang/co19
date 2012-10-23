@@ -12,6 +12,7 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @issue 981
  */
 
 class A {
@@ -25,4 +26,3 @@ class C extends A {
 main() {
   (new C()).f();
 }
-

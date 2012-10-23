@@ -21,7 +21,7 @@ class A {
 }
 
 class B extends A {
-  f();
+  abstract f();
 }
 
 main() {

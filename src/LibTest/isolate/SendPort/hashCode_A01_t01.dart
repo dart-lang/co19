@@ -22,19 +22,19 @@ void main() {
   SendPort s3 = r2.toSendPort();
 
   Expect.isFalse(s1 == s2);
-  Expect.notEquals(s1.hashCode(), s2.hashCode());
+  Expect.notEquals(s1.hashCode, s2.hashCode);
   Expect.isTrue(s2 == s3);
-  Expect.equals(s2.hashCode(), s3.hashCode());
+  Expect.equals(s2.hashCode, s3.hashCode);
 
   r1.close();
   Expect.isFalse(s1 == s2);
-  Expect.notEquals(s1.hashCode(), s2.hashCode());
+  Expect.notEquals(s1.hashCode, s2.hashCode);
   Expect.isTrue(s2 == s3);
-  Expect.equals(s2.hashCode(), s3.hashCode());
+  Expect.equals(s2.hashCode, s3.hashCode);
 
   r2.close();
   Expect.isFalse(s1 == s2);
-  Expect.notEquals(s1.hashCode(), s2.hashCode());
+  Expect.notEquals(s1.hashCode, s2.hashCode);
   Expect.isTrue(s2 == s3);
-  Expect.equals(s2.hashCode(), s3.hashCode());
+  Expect.equals(s2.hashCode, s3.hashCode);
 }

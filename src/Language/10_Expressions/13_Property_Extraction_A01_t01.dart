@@ -56,7 +56,6 @@ main() {
   Expect.equals(f2("a", "b"), f1("a", "b"));
 
   f1 = o.m5;
-  f2 = (p1, p2, [p3 = 3, p4 = 4]) {return o.m5(p1, p2, p3:p3, p4:p4);};
+  f2 = (p1, p2, [p3 = 3, p4 = 4]) {return o.m5(p1, p2, p3, p4);};
   Expect.equals(f2(1, 2, 3, 5), f1(1, 2, 3, 5));
 }
-
