@@ -14,7 +14,7 @@
 void checkIterator(List a) {
   Iterator it = a.iterator();
   int i = 0;
-  while (it.hasNext()) {
+  while (it.hasNext) {
     Expect.isTrue(it.next() == a[i++]);
   }
   Expect.equals(a.length, i);

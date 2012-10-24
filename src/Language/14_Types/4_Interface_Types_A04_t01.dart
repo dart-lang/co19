@@ -13,7 +13,7 @@
 abstract class I {}
 
 abstract class I2 extends I {
-  factory I2(return new A(););
+  factory I2() {return new A();}
 }
 
 class A implements I2 {

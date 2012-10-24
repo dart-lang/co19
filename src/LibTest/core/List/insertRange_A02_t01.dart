@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [UnsupportedOperationException] if the list is
+ * @assertion Throws an [UnsupportedError] if the list is
  * not extendable.
  * @description Checks fixed size and immutable lists.
  * @author vasya
@@ -14,8 +14,8 @@
 void check(List src, int start, int length) {
   try {
     src.insertRange(start, length);
-    Expect.fail("UnsupportedOperationException expected when calling List.insertRange()");
-  } on UnsupportedOperationException catch(ok) {}   
+    Expect.fail("UnsupportedError expected when calling List.insertRange()");
+  } on UnsupportedError catch(ok) {}   
 }
 
 main() {

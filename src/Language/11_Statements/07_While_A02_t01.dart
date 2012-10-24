@@ -37,7 +37,7 @@ main() {
   
   count = 0;
   var it = [0,1].iterator();
-  while (it.hasNext()) {
+  while (it.hasNext) {
     it.next();
     ++count;
   }

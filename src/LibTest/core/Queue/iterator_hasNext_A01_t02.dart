@@ -15,5 +15,5 @@ main() {
   Queue list = new Queue.from([0,1,2,3,4,5]);
   Iterator it = list.iterator();
   list.clear();
-  Expect.isFalse(it.hasNext());
+  Expect.isFalse(it.hasNext);
 }

@@ -12,12 +12,12 @@
 
 main() {
   Queue list = new Queue();
-  Expect.isFalse(list.iterator().hasNext());
+  Expect.isFalse(list.iterator().hasNext);
   list.add(0);
   Iterator it = list.iterator();
-  Expect.isTrue(it.hasNext());
+  Expect.isTrue(it.hasNext);
   it.next();
-  Expect.isFalse(it.hasNext());
+  Expect.isFalse(it.hasNext);
 
   list = new Queue();
   for(int i = 0 ; i < 10000; i++) {
@@ -25,16 +25,16 @@ main() {
   }
   it = list.iterator();
   for (var i=0; i < list.length; i++) {
-    Expect.isTrue(it.hasNext());
+    Expect.isTrue(it.hasNext);
     it.next();
   }
-  Expect.isFalse(it.hasNext());
+  Expect.isFalse(it.hasNext);
 
   list.clear();
   it = list.iterator();
-  Expect.isFalse(it.hasNext());
+  Expect.isFalse(it.hasNext);
 
   list.add(1);
   it = list.iterator();
-  Expect.isTrue(it.hasNext());
+  Expect.isTrue(it.hasNext);
 }

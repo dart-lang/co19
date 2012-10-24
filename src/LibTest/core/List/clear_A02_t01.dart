@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws a [UnsupportedOperationException] if
+ * @assertion Throws a [UnsupportedError] if
  * the list is not extendable.
  * @description Checks that exception is thrown if the list is not extendable.
  * @author vasya
@@ -16,15 +16,15 @@ main() {
   List a = new List(0);
   try {
     a.clear();
-    Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.clear()");
+  } on UnsupportedError catch(ok) {}
 
   a = new List(1);
   a[0] = null;
   try {
     a.clear();
-    Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.clear()");
+  } on UnsupportedError catch(ok) {}
 
   a = new List(3);
   a[0] = 1;
@@ -32,17 +32,17 @@ main() {
   a[2] = 1;
   try {
     a.clear();
-    Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.clear()");
+  } on UnsupportedError catch(ok) {}
 
   a = new List(89356);
   try {
     a.clear();
-    Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.clear()");
+  } on UnsupportedError catch(ok) {}
 
   try {
     const [].clear();
-    Expect.fail("UnsupportedOperationException expected when calling a.clear()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.clear()");
+  } on UnsupportedError catch(ok) {}
 }

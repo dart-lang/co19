@@ -15,13 +15,14 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @issue 3276
+ * @issue 3276, 6029
  */
+
+import "../../Utils/dynamic_check.dart";
 
 typedef bool foo(int x, int y, [double a, double b]);
 
-foo f;
-
 main() {
-  f = (int x, int y, [double a, double b]) => 1;
+  foo f;
+  checkTypeError( () {f = (int x, int y, [double a, double b]) => 1;});
 }

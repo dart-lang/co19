@@ -7,7 +7,7 @@
  * @assertion A for statement of the form for (varOrType? id in e) s
  *  is equivalent to the following code:
  *    var n0 = e.iterator();
- *    while (n0.hasNext()) {
+ *    while (n0.hasNext) {
  *      varOrType? id = n0.next();
  *      s
  *    }
@@ -27,13 +27,13 @@ class TestIterator implements Iterator {
     addLog("next()");
   }
 
-  hasNext() {
+  hasNext {
     if(i < 2) {
-      addLog("hasNext()");
+      addLog("hasNext");
       i++;
       return true;
     }
-    addLog("hasNext()-exited");
+    addLog("hasNext-exited");
     return false;
   }
   static int i = 0;
@@ -50,6 +50,6 @@ main() {
   for ( var id in new TestIterable() ) {
     addLog("addLog()");
   }
-  Expect.equals("iterator()hasNext()next()addLog()hasNext()next()addLog()hasNext()-exited",
+  Expect.equals("iterator()hasNextnext()addLog()hasNextnext()addLog()hasNext-exited",
     log, "Wrong 'for statement' execution!");
 }

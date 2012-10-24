@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws UnsupportedOperationException if
+ * @assertion Throws UnsupportedError if
  * the list is not extendable.
- * @description Checks that UnsupportedOperationException is thrown
+ * @description Checks that UnsupportedError is thrown
  * if the list is not extendable.
  * @author vasya
  * @reviewer iefremov
@@ -16,8 +16,8 @@
 void check(list, collection) {
   try {
     list.addAll(collection);
-    Expect.fail("UnsupportedOperationException expected when calling a.addAll()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.addAll()");
+  } on UnsupportedError catch(ok) {}
 }
 
 main() {

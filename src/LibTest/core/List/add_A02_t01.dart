@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws UnsupportedOperationException if the list is not extendable.
- * @description Checks that UnsupportedOperationException exception is thrown
+ * @assertion Throws UnsupportedError if the list is not extendable.
+ * @description Checks that UnsupportedError exception is thrown
  * if the list is not extendable.
  * @author vasya
  * @reviewer iefremov
@@ -15,16 +15,16 @@
 main() {
   try {
     new List(0).add(null);
-    Expect.fail("UnsupportedOperationException expected when calling a.add()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.add()");
+  } on UnsupportedError catch(ok) {}
 
   try {
     new List(100).add(null);
-    Expect.fail("UnsupportedOperationException expected when calling a.add()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.add()");
+  } on UnsupportedError catch(ok) {}
 
   try {
     const [].add(null);
-    Expect.fail("UnsupportedOperationException expected when calling a.add()");
-  } on UnsupportedOperationException catch(ok) {}
+    Expect.fail("UnsupportedError expected when calling a.add()");
+  } on UnsupportedError catch(ok) {}
 }

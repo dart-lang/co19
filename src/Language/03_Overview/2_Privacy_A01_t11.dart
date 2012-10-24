@@ -13,7 +13,6 @@
  * @static-warning Subclass of an abstract class does not implement an abstract method.
  * @author iefremov
  * @reviewer kaigorodov
- * @needsreview Issue 2243
  */
 
 class _A {

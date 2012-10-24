@@ -41,7 +41,7 @@ main() {
   do {
     it.next();
     ++count;
-  } while (it.hasNext());
+  } while (it.hasNext);
   Expect.equals(6, count);
 }
 

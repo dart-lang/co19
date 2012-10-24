@@ -14,7 +14,7 @@
 void checkNext(List a) {
   Iterator it = a.iterator();
   var i = 0;
-  while (it.hasNext()) {
+  while (it.hasNext) {
     Expect.equals(it.next(), a[i]);
     ++i;
   }
