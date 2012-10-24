@@ -14,7 +14,7 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.sin(double.NAN).isNaN());
-  Expect.isTrue(Math.sin(double.INFINITY).isNaN());
-  Expect.isTrue(Math.sin(double.NEGATIVE_INFINITY).isNaN());
+  Expect.isTrue(Math.sin(double.NAN).isNaN);
+  Expect.isTrue(Math.sin(double.INFINITY).isNaN);
+  Expect.isTrue(Math.sin(double.NEGATIVE_INFINITY).isNaN);
 }

@@ -12,17 +12,17 @@
  */
 
 main() {
-  Expect.isFalse(0.isNegative());
+  Expect.isFalse(0.isNegative);
   
   for (var i = -100; i < 0; i++) {
-    Expect.isTrue(i.isNegative());
+    Expect.isTrue(i.isNegative);
   }
   
   for (var i = 0; i <= 100; i++){
-    Expect.isFalse(i.isNegative());
+    Expect.isFalse(i.isNegative);
   }
-  Expect.isFalse(9223372036854775808.isNegative());
-  Expect.isTrue((-9223372036854775808).isNegative());
-  Expect.isFalse(21332142137489273849723146271467234672164712364701264072347213640214702647263407264.isNegative());
-  Expect.isTrue((-21332142137489273849723146271467234672164712364701264072347213640214702647263407264).isNegative());
+  Expect.isFalse(9223372036854775808.isNegative);
+  Expect.isTrue((-9223372036854775808).isNegative);
+  Expect.isFalse(21332142137489273849723146271467234672164712364701264072347213640214702647263407264.isNegative);
+  Expect.isTrue((-21332142137489273849723146271467234672164712364701264072347213640214702647263407264).isNegative);
 }

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isInfinite()
+ * @assertion bool isInfinite
  * @description Checks that 1/0 and -1/0 are infinite.
  * @author pagolubev
  * @reviewer msyabro
@@ -13,6 +13,6 @@
 
 main() {
   double inf = 1/0;
-  Expect.isTrue(inf.isInfinite());
-  Expect.isTrue((-inf).isInfinite());
+  Expect.isTrue(inf.isInfinite);
+  Expect.isTrue((-inf).isInfinite);
 }

@@ -14,9 +14,9 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.sqrt(double.NAN).isNaN());
+  Expect.isTrue(Math.sqrt(double.NAN).isNaN);
   Expect.equals(double.INFINITY, Math.sqrt(double.INFINITY));
-  Expect.isTrue(Math.sqrt(double.NEGATIVE_INFINITY).isNaN());
+  Expect.isTrue(Math.sqrt(double.NEGATIVE_INFINITY).isNaN);
   Expect.equals(.0, Math.sqrt(0.0));
   Expect.equals(.0, Math.sqrt(-0.0));
 }

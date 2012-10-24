@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isNaN()
+ * @assertion bool isNaN
  * @description Checks that some operations with NaN results to NaN.
  * @author pagolubev
  * @reviewer msyabro
@@ -12,7 +12,7 @@
 
 
 check_nan(double d) {
-  Expect.isTrue(d.isNaN());
+  Expect.isTrue(d.isNaN);
 }
 
 main() {

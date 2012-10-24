@@ -5,12 +5,12 @@
  */
 /**
  * @assertion double NAN
- * @description Checks that [:isNaN():] returns true for double.NAN.
+ * @description Checks that [:isNaN:] returns true for double.NAN.
  * @author pagolubev
  * @reviewer msyabro
  */
 
 
 main() {
-  Expect.isTrue(double.NAN.isNaN());
+  Expect.isTrue(double.NAN.isNaN);
 }

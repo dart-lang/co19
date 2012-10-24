@@ -29,5 +29,5 @@ main() {
   check(2.2250738585072014e-308); // min normal
   check(1.7976931348623157e308); // max normal
   check(1 / 0);
-  Expect.isTrue((0 / 0).toDouble().isNaN());
+  Expect.isTrue((0 / 0).toDouble().isNaN);
 }

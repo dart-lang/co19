@@ -13,8 +13,8 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.sqrt(-1).isNaN());
-  Expect.isTrue(Math.sqrt(-10).isNaN());
-  Expect.isTrue(Math.sqrt(-1e-52).isNaN());
-  Expect.isTrue(Math.sqrt(-4.9406564584124654e-324).isNaN());
+  Expect.isTrue(Math.sqrt(-1).isNaN);
+  Expect.isTrue(Math.sqrt(-10).isNaN);
+  Expect.isTrue(Math.sqrt(-1e-52).isNaN);
+  Expect.isTrue(Math.sqrt(-4.9406564584124654e-324).isNaN);
 }

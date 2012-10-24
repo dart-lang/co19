@@ -14,7 +14,7 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.log(double.NAN).isNaN());
+  Expect.isTrue(Math.log(double.NAN).isNaN);
   Expect.equals(double.INFINITY, Math.log(double.INFINITY));
-  Expect.isTrue(Math.log(double.NEGATIVE_INFINITY).isNaN());
+  Expect.isTrue(Math.log(double.NEGATIVE_INFINITY).isNaN);
 }

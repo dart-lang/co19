@@ -45,9 +45,9 @@ main() {
   check(0x1000000000000000000000, 0x1000000000000000000000, double.NEGATIVE_INFINITY);
   check(double.INFINITY, -0x1000000000000000000000, double.NEGATIVE_INFINITY);
   
-  Expect.isTrue((1 % double.NAN).isNaN());
-  Expect.isTrue((0x1000000000000000000000 % double.NAN).isNaN());
-  Expect.isTrue(((-0x1000000000000000000000) % double.NAN).isNaN());
+  Expect.isTrue((1 % double.NAN).isNaN);
+  Expect.isTrue((0x1000000000000000000000 % double.NAN).isNaN);
+  Expect.isTrue(((-0x1000000000000000000000) % double.NAN).isNaN);
 }
 
 void check(num ex, int a, double b) {

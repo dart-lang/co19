@@ -12,13 +12,13 @@
  */
 
 main() {
-  Expect.isFalse(0.isOdd());
-  Expect.isTrue(1.isOdd());
-  Expect.isFalse(2.isOdd());
-  Expect.isFalse(2147483646.isOdd());
-  Expect.isTrue(2147483647.isOdd());
-  Expect.isFalse((-4294967296).isOdd());
-  Expect.isTrue((-4294967297).isOdd());
-  Expect.isFalse((-9223372036854775808).isOdd());
-  Expect.isTrue((-9223372036854775809).isOdd());
+  Expect.isFalse(0.isOdd);
+  Expect.isTrue(1.isOdd);
+  Expect.isFalse(2.isOdd);
+  Expect.isFalse(2147483646.isOdd);
+  Expect.isTrue(2147483647.isOdd);
+  Expect.isFalse((-4294967296).isOdd);
+  Expect.isTrue((-4294967297).isOdd);
+  Expect.isFalse((-9223372036854775808).isOdd);
+  Expect.isTrue((-9223372036854775809).isOdd);
 }

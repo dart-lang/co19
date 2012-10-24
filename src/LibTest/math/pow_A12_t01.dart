@@ -15,12 +15,12 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.pow(-1, 0.5).isNaN());
-  Expect.isTrue(Math.pow(-1, 1/3).isNaN());
+  Expect.isTrue(Math.pow(-1, 0.5).isNaN);
+  Expect.isTrue(Math.pow(-1, 1/3).isNaN);
 
-  Expect.isTrue(Math.pow(-1.111, -0.5).isNaN());
-  Expect.isTrue(Math.pow(-1.111, -2/3).isNaN());
+  Expect.isTrue(Math.pow(-1.111, -0.5).isNaN);
+  Expect.isTrue(Math.pow(-1.111, -2/3).isNaN);
 
-  Expect.isTrue(Math.pow(-4.9406564584124654e-324, -1.1).isNaN());
-  Expect.isTrue(Math.pow(-4.9406564584124654e-324, 0.5).isNaN());
+  Expect.isTrue(Math.pow(-4.9406564584124654e-324, -1.1).isNaN);
+  Expect.isTrue(Math.pow(-4.9406564584124654e-324, 0.5).isNaN);
 }

@@ -13,8 +13,8 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.acos(-10).isNaN());
-  Expect.isTrue(Math.acos(10).isNaN());
-  Expect.isTrue(Math.acos(1.0000000000001).isNaN());
-  Expect.isTrue(Math.acos(-1.0000000000001).isNaN());
+  Expect.isTrue(Math.acos(-10).isNaN);
+  Expect.isTrue(Math.acos(10).isNaN);
+  Expect.isTrue(Math.acos(1.0000000000001).isNaN);
+  Expect.isTrue(Math.acos(-1.0000000000001).isNaN);
 }

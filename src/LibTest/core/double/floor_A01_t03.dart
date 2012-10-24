@@ -13,7 +13,7 @@
 #import("dart:math", prefix: "Math");
 
 check(double arg) {
-  Expect.isTrue(arg.floor().isNaN());
+  Expect.isTrue(arg.floor().isNaN);
 }
 
 main() {

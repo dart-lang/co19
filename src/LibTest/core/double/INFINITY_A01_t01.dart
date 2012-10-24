@@ -13,6 +13,6 @@
 
 main() {
   Expect.equals(1/0, double.INFINITY);
-  Expect.isTrue(double.INFINITY.isInfinite());
-  Expect.isFalse(double.INFINITY.isNegative());
+  Expect.isTrue(double.INFINITY.isInfinite);
+  Expect.isFalse(double.INFINITY.isNegative);
 }

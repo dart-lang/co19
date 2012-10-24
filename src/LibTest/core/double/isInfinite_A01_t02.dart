@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isInfinite()
+ * @assertion bool isInfinite
  * @description Checks non infinite double values.
  * @author pagolubev
  * @reviewer msyabro
@@ -12,8 +12,8 @@
 
 
 check(double d) {
-  Expect.isFalse(d.isInfinite());
-  Expect.isFalse((-d).isInfinite());
+  Expect.isFalse(d.isInfinite);
+  Expect.isFalse((-d).isInfinite);
 }
 
 main() {

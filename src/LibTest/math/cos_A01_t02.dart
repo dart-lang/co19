@@ -14,7 +14,7 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.cos(double.NAN).isNaN());
-  Expect.isTrue(Math.cos(double.INFINITY).isNaN());
-  Expect.isTrue(Math.cos(double.NEGATIVE_INFINITY).isNaN());
+  Expect.isTrue(Math.cos(double.NAN).isNaN);
+  Expect.isTrue(Math.cos(double.INFINITY).isNaN);
+  Expect.isTrue(Math.cos(double.NEGATIVE_INFINITY).isNaN);
 }

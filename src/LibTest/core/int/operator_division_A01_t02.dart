@@ -14,6 +14,6 @@ main() {
   Expect.equals(double.INFINITY, 1 / 0);
   Expect.equals(double.NEGATIVE_INFINITY, -2 / 0);
   
-  Expect.isTrue((0 / 0).isNaN());
+  Expect.isTrue((0 / 0).isNaN);
 }
 

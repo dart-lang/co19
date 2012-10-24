@@ -14,10 +14,10 @@
 
 check(double d) {
   double neg = -d;
-  Expect.isTrue(neg.isNegative());
+  Expect.isTrue(neg.isNegative);
   Expect.equals(d, neg.abs());
   neg = -neg;
-  Expect.isFalse(neg.isNegative());
+  Expect.isFalse(neg.isNegative);
   Expect.equals(d, neg);
 }
 

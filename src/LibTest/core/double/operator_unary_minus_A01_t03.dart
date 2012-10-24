@@ -15,7 +15,7 @@
 main() {
   double inf = double.INFINITY;
   double negativeInf = -inf;
-  Expect.isTrue(negativeInf.isNegative());
-  Expect.isFalse((-negativeInf).isNegative());
+  Expect.isTrue(negativeInf.isNegative);
+  Expect.isFalse((-negativeInf).isNegative);
   Expect.equals(inf, negativeInf.abs());
 }

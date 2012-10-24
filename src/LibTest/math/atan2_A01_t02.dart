@@ -14,11 +14,11 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.atan2(double.NAN, double.INFINITY).isNaN());
-  Expect.isTrue(Math.atan2(double.NAN, double.NEGATIVE_INFINITY).isNaN());
-  Expect.isTrue(Math.atan2(double.NAN, 1).isNaN());
-  Expect.isTrue(Math.atan2(double.INFINITY, double.NAN).isNaN());
-  Expect.isTrue(Math.atan2(double.NEGATIVE_INFINITY, double.NAN).isNaN());
-  Expect.isTrue(Math.atan2(1, double.NAN).isNaN());
-  Expect.isTrue(Math.atan2(double.NAN, double.NAN).isNaN());
+  Expect.isTrue(Math.atan2(double.NAN, double.INFINITY).isNaN);
+  Expect.isTrue(Math.atan2(double.NAN, double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.atan2(double.NAN, 1).isNaN);
+  Expect.isTrue(Math.atan2(double.INFINITY, double.NAN).isNaN);
+  Expect.isTrue(Math.atan2(double.NEGATIVE_INFINITY, double.NAN).isNaN);
+  Expect.isTrue(Math.atan2(1, double.NAN).isNaN);
+  Expect.isTrue(Math.atan2(double.NAN, double.NAN).isNaN);
 }

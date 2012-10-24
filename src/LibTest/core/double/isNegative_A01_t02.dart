@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isNegative()
+ * @assertion bool isNegative
  * @description Checks bunch of values.
  * @author pagolubev
  * @reviewer msyabro
@@ -16,7 +16,7 @@ main() {
   double step = 117.73;
   double end = start + 20 * step;
   for (double d = start; d < end; d += step) {
-    Expect.isFalse(d.isNegative());
-    Expect.isTrue((-d).isNegative());
+    Expect.isFalse(d.isNegative);
+    Expect.isTrue((-d).isNegative);
   }
 }

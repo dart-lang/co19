@@ -14,15 +14,15 @@
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.pow(double.NAN, double.INFINITY).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, double.NEGATIVE_INFINITY).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, double.NAN).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, 1).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, 1.0).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, -1).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, -1.0).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, 3.33).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, -3.33).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, 3).isNaN());
-  Expect.isTrue(Math.pow(double.NAN, -3).isNaN());
+  Expect.isTrue(Math.pow(double.NAN, double.INFINITY).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 1).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 1.0).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -1).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -1.0).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 3.33).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -3.33).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 3).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -3).isNaN);
 }

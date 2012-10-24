@@ -42,6 +42,6 @@ main() {
   Expect.equals(MAX_DOUBLE, 0 + MAX_DOUBLE);
   Expect.equals(NEG_MAX_DOUBLE, 0 + NEG_MAX_DOUBLE);
   
-  Expect.isTrue((0 + double.NAN).isNaN());
+  Expect.isTrue((0 + double.NAN).isNaN);
 }
 

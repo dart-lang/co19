@@ -13,7 +13,7 @@
 
 checkNaN(d) {
   var msg = 'expected: NaN, actual: $d';
-  Expect.isTrue(d.isNaN(), msg);
+  Expect.isTrue(d.isNaN, msg);
 }
 
 main() {

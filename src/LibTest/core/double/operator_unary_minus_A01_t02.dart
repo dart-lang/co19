@@ -14,6 +14,6 @@
 
 main() {
   double nan = double.NAN;
-  Expect.isTrue((-nan).isNaN());
-  Expect.isTrue((-(-nan)).isNaN());
+  Expect.isTrue((-nan).isNaN);
+  Expect.isTrue((-(-nan)).isNaN);
 }

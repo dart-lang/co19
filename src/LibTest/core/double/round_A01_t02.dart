@@ -13,6 +13,6 @@
 
 main() {
   double nan = 0 / 0;
-  Expect.isTrue(nan.round().isNaN());
-  Expect.isTrue((-nan).round().isNaN());
+  Expect.isTrue(nan.round().isNaN);
+  Expect.isTrue((-nan).round().isNaN);
 }
