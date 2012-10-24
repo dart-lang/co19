@@ -16,12 +16,12 @@
  * @reviewer rodionov
  */
 
-interface A {}
-interface A1 {}
-interface A2 {}
-interface B extends A, A1, A2 {}
-interface C extends B {}
-interface D extends C {}
+abstract class A {}
+abstract class A1 {}
+abstract class A2 {}
+abstract class B implements A, A1, A2 {}
+abstract class C implements B {}
+abstract class D implements C {}
 
 class G<T, S, U, W> {}
 

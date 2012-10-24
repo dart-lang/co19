@@ -4,20 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An interface has a set of direct superinterfaces. This set consists of the interfaces
- * specified in the extends clause of the interface.
- * superinterfaces:
- *   extends typeList
- * ;
+ * @assertion An interface has a set of direct superinterfaces.
+ * An interface J is a superinterface of an interface I ff either J is a direct
+ * superinterface of I or J is a superinterface of a direct superinterface of I.
  * @description Checks that the extends clause of an interface allows repetitions.
  * @author vasya
  * @reviewer rodionov
  * @reviewer kaigorodov
  */
 
-interface J {}
-interface K {}
+abstract class J {}
+abstract class K {}
 
-interface I extends J, K, J, K {}
+abstract class I implements J, K, J, K {}
 
 main() {}

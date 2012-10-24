@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Type aliases are restricted to function types.
- * @description Checks that it is impossible to introduce alias for an interface type.
+ * @description Checks that it is impossible to introduce alias for an abstract class type.
  * @author iefremov
  * @reviewer rodionov
  * @compile-error

@@ -15,11 +15,11 @@
  * @reviewer rodionov
  */
 
-interface S {
+abstract class S {
   static final int foo = 1;
 }
 
-interface I extends S {
+abstract class I implements S {
 }
 
 main() {

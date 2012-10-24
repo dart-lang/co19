@@ -4,33 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An interface has a set of direct superinterfaces. This set consists of the interfaces
- * specified in the extends clause of the interface.
- * superinterfaces:
- *   extends typeList
- * ;
+ * @assertion An interface has a set of direct superinterfaces.
+ * An interface J is a superinterface of an interface I ff either J is a direct
+ * superinterface of I or J is a superinterface of a direct superinterface of I.
  * @description Checks that an interface can declare generic and non-generic direct superinterfaces
  * or not declare any.
  * @author vasya
  * @reviewer rodionov
  */
 
-interface J {}
-interface I extends J {}
+abstract class J {}
+abstract class I implements J {}
 
-interface J1 {}
-interface J2 extends J1 {} 
-interface J3 extends J2 {}
-interface I1 extends J1, J2, J3 {}
-interface I2 extends J3, J2, J1 {}
+abstract class J1 {}
+abstract class J2 implements J1 {} 
+abstract class J3 implements J2 {}
+abstract class I1 implements J1, J2, J3 {}
+abstract class I2 implements J3, J2, J1 {}
 
-interface K<S> {}
-interface L<S> extends K<S> {}
+abstract class K<S> {}
+abstract class L<S> implements K<S> {}
 
-interface A<S, T> {}
-interface B<S, T> extends A<T, S> {} 
-interface C<Q, R, S> extends A<Q, S> {}
-interface D<Q> extends A<int, Q>, J, I {}
+abstract class A<S, T> {}
+abstract class B<S, T> implements A<T, S> {} 
+abstract class C<Q, R, S> implements A<Q, S> {}
+abstract class D<Q> implements A<int, Q>, J, I {}
 
 main() {
 }

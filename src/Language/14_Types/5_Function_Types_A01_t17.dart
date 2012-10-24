@@ -16,8 +16,8 @@
  * @reviewer rodionov
  */
 
-interface A {}
-interface B {}
+abstract class A {}
+abstract class B {}
 
 typedef f1([int p]);
 typedef f3([A p]);

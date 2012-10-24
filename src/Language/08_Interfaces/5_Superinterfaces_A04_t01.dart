@@ -12,7 +12,7 @@
  * @reviewer rodionov
  */
 
-interface I extends I {}
+abstract class I implements I {}
 
 class A implements I {}
 

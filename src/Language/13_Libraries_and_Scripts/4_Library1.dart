@@ -4,6 +4,6 @@
 
 #library("4_Library1");
 
-interface Interface {}
+abstract class Interface {}
 class Class {}
 

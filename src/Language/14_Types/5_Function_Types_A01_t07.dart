@@ -11,15 +11,15 @@
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
  * @description Checks that this statement is true for function types with a single formal parameter
- * (interface, generic, function, Dynamic).
+ * (abstract class, generic, function, Dynamic).
  * @author iefremov
  * @reviewer rodionov
  */
 
-interface A {}
-interface B extends A {}
-interface C extends B {}
-interface D extends C {}
+abstract class A {}
+abstract class B extends A {}
+abstract class C extends B {}
+abstract class D extends C {}
 
 typedef f1(B b);
 typedef f2(C c);

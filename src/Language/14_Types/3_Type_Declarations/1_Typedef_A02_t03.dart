@@ -14,7 +14,7 @@
  */
 
 class C {}
-interface I {}
+abstract class I {}
 
 typedef void f_t(int i, String s, C c, I i2, var v, List a, List<int> a2,
     [int opti, String opts, C optc, I opti2, var optv, List opta, List<int> opta2]);

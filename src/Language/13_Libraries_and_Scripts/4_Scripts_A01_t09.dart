@@ -16,7 +16,7 @@
  * @reviewer rodionov
  */
 
-interface I {}
+abstract class I {}
 #library("Script_A01_t09");
 
 class C implements I {}

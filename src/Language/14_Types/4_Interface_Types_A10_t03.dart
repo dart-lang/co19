@@ -15,9 +15,9 @@
  * @reviewer rodionov
  */
 
-interface I<A, B, T> {}
-interface J<A, B, T> extends I<A, B, T> {}
-interface K extends J {}
+abstract class I<A, B, T> {}
+abstract class J<A, B, T> extends I<A, B, T> {}
+abstract class K extends J {}
 class C implements K {}
 
 // supposedly, f_1 <=> f and f_2 <=> f (see 13.5)

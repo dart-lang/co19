@@ -14,9 +14,9 @@
  * @reviewer rodionov
  */
 
-interface I {}
-interface J extends I {}
-interface K extends J {}
+abstract class I {}
+abstract class J extends I {}
+abstract class K extends J {}
 class C implements K {}
 
 class Checker_I<T extends I> implements I {

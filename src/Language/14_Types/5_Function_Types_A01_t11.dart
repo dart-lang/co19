@@ -16,10 +16,10 @@
  * @reviewer rodionov
  */
 
-interface A {}
-interface B extends A {}
-interface C extends B {}
-interface D extends C {}
+abstract class A {}
+abstract class B implements A {}
+abstract class C implements B {}
+abstract class D implements C {}
 
 typedef f1([B a]);
 typedef f2([C c]);

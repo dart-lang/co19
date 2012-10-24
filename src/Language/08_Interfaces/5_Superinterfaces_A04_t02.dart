@@ -12,7 +12,7 @@
  * @reviewer kaigorodov
  */
 
-interface I<T> extends I<T> {}
+abstract class I<T> implements I<T> {}
 
 class A implements I {}
 

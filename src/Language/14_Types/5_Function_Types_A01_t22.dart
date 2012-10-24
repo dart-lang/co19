@@ -17,7 +17,7 @@
  * @reviewer rodionov
  */
 
-interface B {}
+abstract class B {}
 
 typedef B func(Object o);
 typedef B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]);

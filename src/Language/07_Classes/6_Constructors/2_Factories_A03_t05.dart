@@ -9,8 +9,6 @@
  * otherwise the return type is M <T1, …, Tn>, where T1, …, Tn are the type parameters of the enclosing class.
  * @description Checks that assigning the result of invoking a factory constructor
  * to a variable whose type is assignable to M<T1,...,Tn> does not result in a static warning.
- * Factory constructor name is that of an interface that specifies the constructor's enclosing
- * class as its default implementation.
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -19,12 +17,11 @@ class S1 {}
 class S2 extends S1 {}
 class S3 extends S2 {}
 
-interface I<T, U, V> default M<T, U, V> {
-  I();
+abstract class I<T, U, V> {
+  factory I() {return new M<T, U, V>();}
 }
 
-class M<T, U, V> {
-  factory I() {}
+class M<T, U, V> implements I<T, U, V> {
 }
 
 typedef f();

@@ -14,10 +14,10 @@
  * @needsreview J is a subtype of I and therefore, they should be mutually assignable, yet f_1 is not a subtype of f  
  */
 
-interface I {}
-interface J extends I {}
-interface K extends J {}
-interface L extends K {}
+abstract class I {}
+abstract class J extends I {}
+abstract class K extends J {}
+abstract class L extends K {}
 
 // subtypes of each other, according to 13.5
 typedef J f(List<num> l, [J i]);

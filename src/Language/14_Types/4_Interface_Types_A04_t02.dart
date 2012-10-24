@@ -10,15 +10,16 @@
  * @reviewer rodionov
  */
 
-interface I0 {}
+abstract class I0 {}
 
-interface I1 extends I0 {}
+abstract class I1 implements I0 {}
 
-interface I2 extends I1 default A {
-  I2();
+abstract class I2 implements I1 {
+  factory I2(){return new A();}
 }
 
-class A implements I2 {}
+class A implements I2 {
+}
 
 main() {
   Expect.isTrue(new I2() is I0);

@@ -16,7 +16,7 @@
  * reviewer kaigorodov
  */
 
-interface I1 {
+abstract class I1 {
   int foo;
   String bar;
   void m();
@@ -25,9 +25,9 @@ interface I1 {
   I1 operator+(int i);
 }
 
-interface I2 extends I1 {}
+abstract class I2 extends I1 {}
 
-interface I3 extends I2 {}
+abstract class I3 extends I2 {}
 
 main() {
   I2 i2 = null;

@@ -14,9 +14,9 @@
  * @reviewer rodionov
  */
 
-interface I {}
-interface J extends I {}
-interface K extends J {}
+abstract class I {}
+abstract class J implements I {}
+abstract class K implements J {}
 
 class Z<T> {
   Z() {}

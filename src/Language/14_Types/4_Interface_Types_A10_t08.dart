@@ -14,13 +14,13 @@
  * @needsreview I2 is a subtype of I0 and therefore, they should be mutually assignable, yet t2_1 is not a subtype of t2  
  */
 
-interface I0 {}
-interface I1 extends I0 {}
-interface I2 extends I1 {}
-interface I3 extends I2 {}
-interface I4 extends I2 {}
+abstract class I0 {}
+abstract class I1 extends I0 {}
+abstract class I2 extends I1 {}
+abstract class I3 extends I2 {}
+abstract class I4 extends I2 {}
 
-interface G<T> {}
+abstract class G<T> {}
 
 typedef t1();
 typedef void t1_1(); // void <: Dynamic

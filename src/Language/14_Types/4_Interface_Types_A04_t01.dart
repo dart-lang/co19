@@ -10,10 +10,10 @@
  * @reviewer rodionov
  */
 
-interface I {}
+abstract class I {}
 
-interface I2 extends I default A {
-  I2();
+abstract class I2 extends I {
+  factory I2(return new A(););
 }
 
 class A implements I2 {

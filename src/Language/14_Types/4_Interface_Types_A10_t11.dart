@@ -14,10 +14,10 @@
  * @reviewer rodionov
  */
 
-interface I {}
-interface J extends I {}
-interface K extends J {}
-interface L extends K {}
+abstract class I {}
+abstract class J extends I {}
+abstract class K extends J {}
+abstract class L extends K {}
 
 typedef J f(List<num> l, [J i]);
 typedef I f_1(List<Object> l, [I i]);

@@ -12,7 +12,7 @@
  * @reviewer kaigorodov
  */
 
-interface I{}
+abstract class I{}
 
 typedef f1<T>();
 typedef f2<$, $$, $$$>();

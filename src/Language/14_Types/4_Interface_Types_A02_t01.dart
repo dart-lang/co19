@@ -13,13 +13,12 @@
  * without some sort of reflection framework.
  */
 
-interface I {}
-interface J extends I default C {
-  J();
+abstract class I {}
+abstract class J extends I {
+  factory J(){return new C();}
 }
 
 class C implements J {
-  J(){return new C();}
 }
 
 main() {

@@ -21,9 +21,9 @@
  * @reviewer rodionov
  */
 
-interface I {}
-interface J extends I {}
-interface K extends J {}
+abstract class I {}
+abstract class J extends I {}
+abstract class K extends J {}
 class C implements K {}
 
 typedef Map<List, List<Map<num,List>>> complexFunction_t1();

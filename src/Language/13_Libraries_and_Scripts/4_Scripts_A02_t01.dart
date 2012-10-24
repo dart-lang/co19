@@ -27,8 +27,8 @@
  * @reviewer rodionov
  */
 
-interface I {}
-interface J<T> {}
+abstract class I {}
+abstract class J<T> {}
 
 class A {}
 class B extends A {}

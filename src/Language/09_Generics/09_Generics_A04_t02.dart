@@ -19,9 +19,9 @@ class C<T, U>{}
 class A<N, S, U> extends C<S, U> implements I<S, U, N>
 { }
 
-interface J<U, V>{}
+abstract class J<U, V>{}
 
-interface I<X, Y, Z> extends J<Y, Z>
+abstract class I<X, Y, Z> extends J<Y, Z>
 { }
 
 

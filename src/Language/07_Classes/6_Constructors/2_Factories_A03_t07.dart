@@ -9,25 +9,28 @@
  * otherwise the return type is M <T1, …, Tn>, where T1, …, Tn are the type parameters of the enclosing class.
  * @description Checks that assigning the result of invoking a factory constructor
  * to a variable whose type is not assignable to M<T1,...,Tn> produces a static warning.
- * Factory constructor name is that of an interface that specifies the constructor's enclosing
- * class as its default implementation.
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
 
+import "../../../Utils/dynamic_check.dart";
+
 class S1 {}
 class S2 extends S1 {}
 class S3 extends S2 {}
 
-interface I<T, U, V> default M<T, U, V> {
-  I();
+abstract class I<T, U, V> {
+  factory I() {return new M<T, U, V>();}
 }
 
-class M<T, U, V> {
-  factory I() {}
+class M<T, U, V> implements I<T, U, V> {
 }
+
+I<S3, int, int> m1;
 
 main() {
-  I<S3, int, int> m1 = new I<S2, num, Function>();
+  checkTypeError(() {
+    m1 = new I<S2, num, Function>();
+  });
 }

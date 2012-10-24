@@ -15,7 +15,7 @@
 
 class A {}
 
-interface I {}
+abstract class I {}
 
 typedef t1();
 typedef void t2();

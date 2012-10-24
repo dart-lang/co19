@@ -15,11 +15,11 @@
  */
 
 
-interface S<Type> {}
+abstract class S<Type> {}
 
-interface S1 extends S<int> {}
+abstract class S1 extends S<int> {}
 
-interface S2 extends S<double> {}
+abstract class S2 extends S<double> {}
 
 class T implements S1, S2 {}
 

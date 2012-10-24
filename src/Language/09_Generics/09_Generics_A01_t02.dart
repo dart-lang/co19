@@ -12,7 +12,7 @@
  * @reviewer kaigorodov
  */
 
-interface I{}
+abstract class I{}
 
 class C1<T>{}
 class C2<$, $$, $$$>{}

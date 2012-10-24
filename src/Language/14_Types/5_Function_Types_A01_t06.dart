@@ -33,10 +33,10 @@ typedef List<B> t14();
 typedef Map t15();
 typedef Map<num, Object> t16();
 
-interface A {}
-interface B extends A {}
-interface C extends B {}
-interface D extends C {}
+abstract class A {}
+abstract class B extends A {}
+abstract class C extends B {}
+abstract class D extends C {}
 
 main() {
   //() -> T is () -> List

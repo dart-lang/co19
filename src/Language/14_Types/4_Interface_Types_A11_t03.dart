@@ -14,7 +14,7 @@
  */
 
 
-interface I<T> {}
+abstract class I<T> {}
 
 class C implements I<int> {}
 

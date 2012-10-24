@@ -4,21 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An interface has a set of direct superinterfaces. This set consists of the interfaces
- * specified in the extends clause of the interface.
- * superinterfaces:
- *   extends typeList
- * ;
- * typeList:
- *   type (’, ’ type)*
- * ;
- * @description Checks that it is a compile-time error if the extends clause of an interface is empty.
+ * @assertion An interface has a set of direct superinterfaces.
+ * An interface J is a superinterface of an interface I ff either J is a direct
+ * superinterface of I or J is a superinterface of a direct superinterface of I.
+ * @description Checks that it is a compile-time error if the implements clause of an interface is empty.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 
-interface I extends {
+abstract class I implements {
 }
 
 class C implements I {

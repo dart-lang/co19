@@ -14,9 +14,9 @@
  * @needsreview K is a subtype of I and therefore, they should be mutually assignable, yet param3 is not a subtype of bound  
  */
 
-interface I {}
-interface J extends I {}
-interface K extends J {}
+abstract class I {}
+abstract class J extends I {}
+abstract class K extends J {}
 class C implements K {}
 
 typedef Map<List, List<Map<num,List>>> complexFunction_t1();

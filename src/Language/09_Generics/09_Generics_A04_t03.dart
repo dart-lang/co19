@@ -38,9 +38,9 @@ class A<N, S, U> {
   void set setter(S s){}
 }
 
-interface J<Aa, B>{}
+abstract class J<Aa, B>{}
 
-interface I<H, C, K> extends J<C, K>
+abstract class I<H, C, K> extends J<C, K>
 { }
 
 

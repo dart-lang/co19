@@ -32,7 +32,7 @@ class F implements I {
   var _value;
 }
 
-interface I default F {
+abstract class I default F {
   I();
   static final FOO = "I.FOO";
   String foo();

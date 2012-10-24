@@ -13,7 +13,7 @@
  */
 
 
-interface I {}
+abstract class I {}
 I makeI() {}
 
 class A implements I {

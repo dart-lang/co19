@@ -15,7 +15,7 @@
  * @reviewer iefremov
  */
 
-interface I {
+abstract class I {
   var x;
 }
 

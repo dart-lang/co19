@@ -11,17 +11,17 @@
  * 3. k >= m and xi = yi , for each i in 1..m.
  * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
  * @description Checks that this statement is true for function types with several formal parameters
- * (interface, generic, function, Dynamic).
+ * (abstract class, generic, function, Dynamic).
  * @author iefremov
  * @reviewer rodionov
  */
 
-interface A {}
-interface A1 {}
-interface A2 {}
-interface B extends A, A1, A2 {}
-interface C extends B {}
-interface D extends C {}
+abstract class A {}
+abstract class A1 {}
+abstract class A2 {}
+abstract class B implements A, A1, A2 {}
+abstract class C implements B {}
+abstract class D implements C {}
 
 class G<T, S, U, W> {}
 

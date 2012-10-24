@@ -4,6 +4,6 @@
 
 #import('4_Library1.dart');
 
-interface I {}
+abstract class I {}
 class C implements I {}
 
