@@ -15,13 +15,13 @@
 
 main() {
   var a = [].filter(bool f(var v){return true;});
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
   a = [].filter(bool f(var v){Expect.fail("Should not be executed");});
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
   a = const [].filter(bool f(var v){Expect.fail("Should not be executed");});
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
   a = new List().filter(bool f(var v){Expect.fail("Should not be executed");});
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
   a = new List.from([]).filter(bool f(var v){Expect.fail("Should not be executed");});
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
 }

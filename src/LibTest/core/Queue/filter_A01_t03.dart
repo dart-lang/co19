@@ -23,8 +23,8 @@ main() {
   
   try {
     list.filter(null);
-    Expect.fail("ObjectNotClosureException is expected");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
   
   Expect.throws(() => list.filter(x));
 }

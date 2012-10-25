@@ -22,6 +22,6 @@ main() {
     return true;
   }
 
-  Expect.isTrue(s.filter(foo).isEmpty());
+  Expect.isTrue(s.filter(foo).isEmpty);
   Expect.isTrue(i == 0);
 }

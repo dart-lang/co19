@@ -16,7 +16,7 @@ class CustomIterator<T> implements Iterator<T> {
   CustomIterator(List list)
   :_array = list, _length = list.length, _pos = 0 { }
   
-  bool hasNext {
+  bool get hasNext {
     return _length > _pos;
   }
 

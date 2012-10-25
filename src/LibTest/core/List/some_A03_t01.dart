@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ObjectNotClosureException] if argument is not a valid comparator function.
- * @description Checks that ObjectNotClosureException exception is thrown.
+ * @assertion Throws [NoSuchMethodError] if argument is not a valid comparator function.
+ * @description Checks that NoSuchMethodError exception is thrown.
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro
@@ -22,8 +22,8 @@ class A {
 checkList(list, arg) {
   try {
     list.some(arg);
-    Expect.fail("ObjectNotClosureException expected when calling a.every()");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError expected when calling a.every()");
+  } on NoSuchMethodError catch(e) {}
 }
 
 check(var arg) {

@@ -33,7 +33,7 @@ main() {
   map.forEach(void func(String key, Object value) {
     map.remove(key);
   });
-  Expect.isTrue(map.isEmpty());
+  Expect.isTrue(map.isEmpty);
   
   map["1"] = 1;
   map["2"] = 2;
@@ -42,5 +42,5 @@ main() {
     map.clear();
     i++;
   });
-  Expect.isTrue(i == 1 && map.isEmpty());
+  Expect.isTrue(i == 1 && map.isEmpty);
 }

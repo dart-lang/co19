@@ -26,5 +26,5 @@ main() {
 
   m = new Map();
   map = new HashMap.from(m);
-  Expect.isTrue(map.isEmpty());
+  Expect.isTrue(map.isEmpty);
 }

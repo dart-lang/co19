@@ -28,5 +28,5 @@ main() {
   Expect.isTrue(!map.containsKey("2"));
   
   //a.clear();    //Can't clear because returned list is unextendable
-  //Expect.isTrue(!map.isEmpty());
+  //Expect.isTrue(!map.isEmpty);
 }

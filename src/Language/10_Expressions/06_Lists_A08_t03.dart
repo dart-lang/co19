@@ -25,7 +25,7 @@ main() {
   Expect.equals(true, l[1]);
 
   l = [];
-  Expect.isTrue(l.isEmpty());
+  Expect.isTrue(l.isEmpty);
 
   l = ["a", "b", "c"];
   Expect.equals("a", l[0]);

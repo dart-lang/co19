@@ -44,7 +44,7 @@ void check(num arg1, num arg2, [num tol = null, String reason = null]) {
   } on ExpectException catch(e) {
     if (!e.message.contains(arg1 !== null ? arg1.toString() : "null", 0)) throw "no expected value";
     if (!e.message.contains(arg2 !== null ? arg2.toString() : "null", 0)) throw "no actual value";
-    if (reason !== null && !reason.isEmpty() && !e.message.contains(reason, 0)) throw "no reason";
+    if (reason !== null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason";
     if (arg1 !== null && tol == null) {
       tol = (arg1 / Math.pow(10.0, 4.0)).abs();
     }

@@ -21,15 +21,15 @@ check(f()) {
     if(isCheckedMode()) {
       Expect.fail("TypeError is expected");
     } else {
-      Expect.fail("ObjectNotClosureException is expected");
+      Expect.fail("NoSuchMethodError is expected");
     }
   } on TypeError catch(e) {
     if(!isCheckedMode()) {
       Expect.fail("Type error in scripting mode");
     }
-  } on ObjectNotClosureException catch(e) {
+  } on NoSuchMethodError catch(e) {
     if(isCheckedMode()) {
-      Expect.fail("ObjectNotClosureException in checked mode");
+      Expect.fail("NoSuchMethodError in checked mode");
     }
   }
 }
@@ -49,8 +49,8 @@ main() {
   
   try {
     list.every(null);
-    Expect.fail("ObjectNotClosureException is expected");
-  } on ObjectNotClosureException catch(e){}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e){}
 
   check( () {
     list.every(x);

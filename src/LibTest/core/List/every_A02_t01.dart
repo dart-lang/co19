@@ -21,7 +21,7 @@ main() {
   Expect.isTrue([].every(bool f(var v) {Expect.fail("Should not be executed");}));
   
   List a = new List<String>(0);
-  Expect.isTrue(a.every( bool f(String e) { return (e.isEmpty()); } ));
+  Expect.isTrue(a.every( bool f(String e) { return (e.isEmpty); } ));
 
   a = new List<int>(96547);
   Expect.isTrue(a.every( bool f(int e) { return (e == null); } ));

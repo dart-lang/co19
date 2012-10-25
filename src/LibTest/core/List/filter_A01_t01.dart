@@ -55,8 +55,8 @@ main() {
   }
   Expect.listEquals(["list"], a);
 
-  bool f3(String e) { return (e.isEmpty()); } 
+  bool f3(String e) { return (e.isEmpty); } 
   a = ["1","2","3"].filter(f3);
   Expect.isTrue(a.length == 0);
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
 }

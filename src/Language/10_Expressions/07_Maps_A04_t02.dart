@@ -27,7 +27,7 @@ main() {
   Expect.equals("4", m["k4"]);
 
   m = const {};
-  Expect.isTrue(m.isEmpty());
+  Expect.isTrue(m.isEmpty);
 
   m = const <String, bool> {"true": 1 > 2, "false": true || false};
   Expect.isTrue(m.containsKey("true"));

@@ -23,8 +23,8 @@ main() {
   
   try {
     list.forEach(null);
-    Expect.fail("ObjectNotClosureException is expected");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
   
   Expect.throws(() => list.forEach(1));
   Expect.throws(() => list.forEach(1.1));

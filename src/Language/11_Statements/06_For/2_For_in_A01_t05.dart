@@ -27,7 +27,7 @@ class TestIterator implements Iterator {
     addLog("next()");
   }
 
-  hasNext {
+  bool get hasNext {
     if(i < 2) {
       addLog("hasNext");
       i++;

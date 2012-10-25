@@ -19,7 +19,7 @@ main() {
   list.forEach(void func(var element){ 
     list.clear();
   });
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
   
   for(int i = 0; i < 100; i++) {
     list.addLast(i);
@@ -28,5 +28,5 @@ main() {
   list.forEach(void func(var element) {
     list.removeFirst();
   });
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
 }

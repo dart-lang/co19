@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ObjectNotClosureException] if argument is not a function.
- * @description Checks that ObjectNotClosureException exception is thrown if the argument
+ * @assertion Throws [NoSuchMethodError] if argument is not a function.
+ * @description Checks that NoSuchMethodError exception is thrown if the argument
  * is not a closure.
  * @needsreview not documented
  * @author vasya
@@ -26,8 +26,8 @@ check(var arg) {
   List<String> a = ["1","2","3"];
   try {
     a.every(arg);
-    Expect.fail("ObjectNotClosureException expected when calling a.every()");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError expected when calling a.every()");
+  } on NoSuchMethodError catch(e) {}
 }
  
 main() {

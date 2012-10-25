@@ -14,16 +14,16 @@
 
 
 main() {
-  Expect.isTrue([].isEmpty());
-  Expect.isFalse([null].isEmpty());
-  Expect.isFalse(const[0,1,2,3,4].isEmpty());
-  Expect.isFalse([[]].isEmpty());
+  Expect.isTrue([].isEmpty);
+  Expect.isFalse([null].isEmpty);
+  Expect.isFalse(const[0,1,2,3,4].isEmpty);
+  Expect.isFalse([[]].isEmpty);
 
-  Expect.isTrue(new List.from([]).isEmpty());
-  Expect.isFalse(new List.from([[]]).isEmpty());
+  Expect.isTrue(new List.from([]).isEmpty);
+  Expect.isFalse(new List.from([[]]).isEmpty);
 
   List a = new List(0);
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
   a = new List(469);
-  Expect.isFalse(a.isEmpty());
+  Expect.isFalse(a.isEmpty);
 }

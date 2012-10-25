@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Tries to pass non-function object as [f] and check that ObjectNotClosureException is thrown.
+ * @description Tries to pass non-function object as [f] and check that NoSuchMethodError is thrown.
  * @static-warning
  * @author msyabro
  * @reviewer varlax
@@ -23,11 +23,11 @@ main() {
   
   try {
     map.forEach(null);
-    Expect.fail("ObjectNotClosureException is expecpected");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError is expecpected");
+  } on NoSuchMethodError catch(e) {}
   
   try {
     map.forEach(x);
-    Expect.fail("ObjectNotClosureException is expected");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 }

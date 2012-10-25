@@ -12,10 +12,10 @@
 
 
 main() {
-  Expect.isTrue("".isEmpty() == true);
-  Expect.isTrue(" ".isEmpty() == false);
+  Expect.isTrue("".isEmpty == true);
+  Expect.isTrue(" ".isEmpty == false);
   Expect.isTrue("""
-  """.isEmpty() == false); 
-  Expect.isTrue("\u0000".isEmpty() == false);
-  Expect.isTrue("u0000".isEmpty() == false);
+  """.isEmpty == false); 
+  Expect.isTrue("\u0000".isEmpty == false);
+  Expect.isTrue("u0000".isEmpty == false);
 }

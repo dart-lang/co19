@@ -4,21 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ObjectNotClosureException] if argument is not a function.
- * @description Checks that ObjectNotClosureException exception is thrown as expected, 
+ * @assertion Throws [NoSuchMethodError] if argument is not a function.
+ * @description Checks that NoSuchMethodError exception is thrown as expected 
  * if the list is not empty.
  * @author pagolubev
  * @reviewer varlax
  * @needsreview issue 3223
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 check(list, arg) {
   try {
     list.forEach(arg);
-    Expect.fail("ObjectNotClosureException expected.");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError expected.");
+  } on NoSuchMethodError catch(e) {}
 }
 
 main() {
@@ -39,5 +39,4 @@ main() {
   check(new List.from([1]), null);
   check(new List.from([1]), "");
   check(new List.from([1]), 3.14);
-
 }

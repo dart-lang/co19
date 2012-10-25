@@ -13,9 +13,9 @@
 
 main() {
   StringBuffer sb = new StringBuffer();
-  Expect.isTrue(sb.isEmpty());
-  Expect.isTrue(sb.add("").isEmpty());
-  Expect.isFalse(sb.add(null).isEmpty());
-  Expect.isTrue(sb.clear().isEmpty());
-  Expect.isFalse(sb.add("abc").isEmpty());
+  Expect.isTrue(sb.isEmpty);
+  Expect.isTrue(sb.add("").isEmpty);
+  Expect.isFalse(sb.add(null).isEmpty);
+  Expect.isTrue(sb.clear().isEmpty);
+  Expect.isFalse(sb.add("abc").isEmpty);
 }

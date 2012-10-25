@@ -13,5 +13,5 @@
 
 main() {
   Queue list = new Queue();
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
 }

@@ -27,5 +27,5 @@ main() {
   for(int j = 0; j < a.length; j++) {
     Expect.isTrue(s.remove(a[j]));
   }
-  Expect.isTrue(s.isEmpty());
+  Expect.isTrue(s.isEmpty);
 }

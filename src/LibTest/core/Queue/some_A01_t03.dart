@@ -24,8 +24,8 @@ main() {
   
   try {
     list.some(null);
-    Expect.fail("ObjectNotClosureException is expected");
-  } on ObjectNotClosureException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
   
   Expect.throws(() => list.some(1));
   Expect.throws(() => list.some(1.1));

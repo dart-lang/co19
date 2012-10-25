@@ -35,5 +35,5 @@ main() {
 
   Collection<int> filtered3 = initial.filter(bool all(int e) { return false; });
   checkInitial(initial);
-  Expect.isTrue(filtered3.isEmpty());
+  Expect.isTrue(filtered3.isEmpty);
 }

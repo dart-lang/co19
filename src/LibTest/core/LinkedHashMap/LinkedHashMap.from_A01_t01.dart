@@ -26,5 +26,5 @@ main() {
 
   m = new Map();
   map = new LinkedHashMap.from(m);
-  Expect.isTrue(map.isEmpty());
+  Expect.isTrue(map.isEmpty);
 }

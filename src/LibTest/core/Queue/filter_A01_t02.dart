@@ -22,5 +22,5 @@ main() {
   });
   
   Expect.isTrue(count == 0);
-  Expect.isTrue(res.isEmpty());
+  Expect.isTrue(res.isEmpty);
 }

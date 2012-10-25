@@ -13,5 +13,5 @@
 main() {
   LinkedHashMap m = new LinkedHashMap();
   Expect.isTrue(m is LinkedHashMap);
-  Expect.isTrue(m.isEmpty());
+  Expect.isTrue(m.isEmpty);
 }

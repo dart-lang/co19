@@ -44,5 +44,5 @@ main() {
   a = list.filter(bool f(int element) {
     return false;
   });
-  Expect.isTrue(a.isEmpty());
+  Expect.isTrue(a.isEmpty);
 }

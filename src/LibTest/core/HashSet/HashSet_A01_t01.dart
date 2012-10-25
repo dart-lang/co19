@@ -17,5 +17,5 @@
 main() {
   HashSet s = new HashSet();
   Expect.isTrue(s is HashSet);
-  Expect.isTrue(s.isEmpty());
+  Expect.isTrue(s.isEmpty);
 }

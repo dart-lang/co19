@@ -14,18 +14,18 @@
 main() {
   Queue list = new Queue();
   list.clear();
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
   
   list.addFirst(1);
   list.addFirst(1);
-  Expect.isFalse(list.isEmpty());
+  Expect.isFalse(list.isEmpty);
   list.clear();
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
   list.clear();
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
   for(int i = 0; i < 1000; i++) {
     list.add(i);
   }
   list.clear();
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
 }

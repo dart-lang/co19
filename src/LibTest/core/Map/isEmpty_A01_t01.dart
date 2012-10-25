@@ -14,11 +14,11 @@
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
-  Expect.isTrue(map.isEmpty());
+  Expect.isTrue(map.isEmpty);
   
   map["1"] = 1;
-  Expect.isTrue(!map.isEmpty());
+  Expect.isTrue(!map.isEmpty);
   
   map.remove("1");
-  Expect.isTrue(map.isEmpty());
+  Expect.isTrue(map.isEmpty);
 }

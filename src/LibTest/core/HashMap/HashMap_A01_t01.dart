@@ -13,5 +13,5 @@
 main() {
   HashMap map = new HashMap();
   Expect.isTrue(map is HashMap);
-  Expect.isTrue(map.isEmpty());
+  Expect.isTrue(map.isEmpty);
 }

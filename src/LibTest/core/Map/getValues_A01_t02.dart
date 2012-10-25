@@ -29,5 +29,5 @@ main() {
   Expect.isTrue(a.length == 2);
   
   map.clear();
-  Expect.isTrue(!a.isEmpty());
+  Expect.isTrue(!a.isEmpty);
 }

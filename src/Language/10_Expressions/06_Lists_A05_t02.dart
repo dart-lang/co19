@@ -23,7 +23,7 @@ main() {
   Expect.equals(true, l[1]);
 
   l = const[];
-  Expect.isTrue(l.isEmpty());
+  Expect.isTrue(l.isEmpty);
 
   l = const ["a", "b", "c"];
   Expect.equals("a", l[0]);

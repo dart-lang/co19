@@ -15,5 +15,5 @@
 main() {
   Set s = new Set();
   Expect.isTrue(s is Set);
-  Expect.isTrue(s.isEmpty());
+  Expect.isTrue(s.isEmpty);
 }

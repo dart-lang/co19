@@ -21,7 +21,7 @@ main() {
     list.clear();
     return true;
   });
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
   Expect.isTrue(res.length == 2);
   
   for(int i = 0; i < 100; i++) {
@@ -32,7 +32,7 @@ main() {
     list.removeFirst();
     return true;
   });
-  Expect.isTrue(list.isEmpty());
+  Expect.isTrue(list.isEmpty);
   
   
 }
