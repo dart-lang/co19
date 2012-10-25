@@ -4,48 +4,35 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NoSuchMethodError] if argument is not a valid comparator function.
- * @description Checks that NoSuchMethodError exception is thrown.
+ * @assertion Passing an argument that is null or incompatible with the required
+ * function type results in an exception or error.
+ * @description Checks that something is thrown if the list is not empty
+ * and the argument is null or if the argument is not null, but its type is
+ * incompatible with the required function type.
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro
  */
 
-#import("../../../Utils/dynamic_check.dart");
-
-typedef bool f(var e);
-
 class A {
   A() {}
 }
 
-checkList(list, arg) {
-  try {
-    list.some(arg);
-    Expect.fail("NoSuchMethodError expected when calling a.every()");
-  } on NoSuchMethodError catch(e) {}
-}
-
 check(var arg) {
-  checkList(["1","2","3"], arg);
-  checkList(const ["1","2","3"], arg);
-  checkList(new List.from(["1","2","3"]), arg);
+  Expect.throws(() => ["1","2","3"].some(arg));
+  Expect.throws(() => const ["1","2","3"].some(arg));
+  Expect.throws(() => new List.from(["1","2","3"]).some(arg));
 
   var a = new List(3);
   a.setRange(0, 3, ["1","2","3"]);
-  checkList(a, arg);
+  Expect.throws(() => a.some(arg));
 
   var b = new List();
   b.addAll(["1","2","3"]);
-  checkList(b, arg);
+  Expect.throws(() => b.some(arg));
 }
  
 main() {
-  if(isCheckedMode()) {
-    return;
-  }
-  bool x;
-  check(x);
   check(false);
   check(1);
   check("every");

@@ -7,15 +7,15 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Tries to pass null as [ifAbsent] or as [key] and check exception is thrown.
+ * @description Tries to pass null as [ifAbsent] or as [key] and checks that
+ * an exception or error is thrown.
  * @author msyabro
  * @reviewer varlax
- * @needsreview what is correct exception? why closures only?
  */
 
 
 main() {
-  Object  putIfAbsent() {
+  Object putIfAbsent() {
     return new Object();
   }
   
@@ -23,16 +23,16 @@ main() {
   
   try {
     map.putIfAbsent("1", null);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}//Not documented
+    Expect.fail("NullPointerException is expected");
+  } on NullPointerException catch(e) {}
   
   try {
     map.putIfAbsent(null, putIfAbsent);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Exception or error is expected");
+  } catch(e) {}
   
   try {
     map.putIfAbsent(null, null);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Exception or error is expected");
+  } catch(e) {}
 }

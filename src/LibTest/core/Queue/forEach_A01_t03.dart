@@ -5,28 +5,24 @@
  */
 /**
  * @assertion Applies the function [f] to each element of the collection.
- * @description Tries to pass non-function object as [f].
+ * @description Checks that something is thrown when the argument is null or
+ * has a type that is incompatible with the required function type.
  * @static-warning
  * @author msyabro
  * @reviewer varlax
  */
-
+import "../../../Utils/dynamic_check.dart";
 
 main() {
-  Queue list = new Queue();
+  Queue q = new Queue(); // no type argument => no type errors in checked mode
   
-  int x;
-  list.forEach(null);
-  list.forEach(x);
+  //empty queue just ignores invalid arg 
+  q.forEach(null);
+  checkTypeError(() => q.forEach(0));
 
-  list.addLast(1);
-  
-  try {
-    list.forEach(null);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
-  
-  Expect.throws(() => list.forEach(1));
-  Expect.throws(() => list.forEach(1.1));
-  Expect.throws(() => list.forEach(""));
+  q.addLast(1);
+  Expect.throws(() => q.forEach(null));
+  Expect.throws(() => q.forEach(1));
+  Expect.throws(() => q.forEach(1.1));
+  Expect.throws(() => q.forEach("1"));
 }

@@ -4,27 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NoSuchMethodError] if argument is not a function.
- * @description Checks that NoSuchMethodError exception is thrown as expected 
- * if the list is not empty.
+ * @assertion Throws an exception or error if the argument 
+ * is null or is not a function and doesn't have a call() method with an appropriate 
+ * signature.
+ * @description Checks that something is thrown if the list isn't empty and the argument
+ * is null or the argument is not-null, but incompatible with the required function type. 
  * @author pagolubev
  * @reviewer varlax
  * @needsreview issue 3223
  */
 
-import "../../../Utils/dynamic_check.dart";
-
 check(list, arg) {
-  try {
-    list.forEach(arg);
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+  Expect.throws(() => list.forEach(arg));
 }
 
 main() {
-  if(isCheckedMode()) {
-    return;
-  }
   check([1], 1);
   check([1], null);
   check([1], "");

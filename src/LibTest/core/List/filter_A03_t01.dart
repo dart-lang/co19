@@ -4,43 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NoSuchMethodError] if argument is not a function.
- * @description Checks that NoSuchMethodError exception is thrown in scripting mode.
+ * @assertion Passing a null (if the list is not empty) or incompatible argument
+ * results in an exception or error.
+ * @description Checks that something is thrown if the list is not empty and the
+ * argument is null, or if the argument's type is incompatible with the required
+ * function type.
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro
  * @reviewer varlax
  */
 
-#import("../../../Utils/dynamic_check.dart");
-
-typedef bool f(var e);
-
 class A {
   A() {}
 }
 
-ch(list, arg) {
-  try {
-    list.filter(arg);
-    Expect.fail("NoSuchMethodError expected when calling a.every()");
-  } on NoSuchMethodError catch(e) {}
-}
-
 check(var arg) {
-  if(!isCheckedMode()) {
-    ch(["1","2","3"], arg);
-    ch(const ["1","2","3"], arg);
-    ch(new List.from(["1","2","3"]), arg);
-  }
+    Expect.throws(() => ["1","2","3"].filter(arg));
+    Expect.throws(() => const ["1","2","3"].filter(arg));
+    Expect.throws(() => new List.from(["1","2","3"]).filter(arg));
 }
  
 main() {
-  if(isCheckedMode()) {
-    return;
-  }
-  bool x;
-  check(x);
   check(false);
   check(1);
   check("every");

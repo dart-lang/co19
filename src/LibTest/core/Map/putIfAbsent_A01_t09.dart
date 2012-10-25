@@ -7,7 +7,8 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Tries to pass static function as [ifAbsent].
+ * @description Checks that it's possible to pass a static function as
+ * the second argument.
  * @author msyabro
  * @needsreview undocumented
  */
@@ -23,5 +24,4 @@ main() {
   
   Map<String, Object> map = new Map<String, Object>();
   map.putIfAbsent("1", A.f);
-  
 }

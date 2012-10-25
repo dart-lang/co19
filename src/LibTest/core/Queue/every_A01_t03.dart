@@ -6,53 +6,23 @@
 /**
  * @assertion Returns true if every elements of the collection satisfy the
  * predicate [f]. Returns false otherwise.
- * @description Tries to pass non-function object as argument [f]
+ * @description Checks that something is thrown when the argument is null or
+ * has a type that is incompatible with the required function type.
  * @static-warning
  * @author msyabro
  * @reviewer varlax
+ * @reviewer rodionov
  */
 
-
-#import("../../../Utils/dynamic_check.dart");
-
-check(f()) {
-  try {
-    f();
-    if(isCheckedMode()) {
-      Expect.fail("TypeError is expected");
-    } else {
-      Expect.fail("NoSuchMethodError is expected");
-    }
-  } on TypeError catch(e) {
-    if(!isCheckedMode()) {
-      Expect.fail("Type error in scripting mode");
-    }
-  } on NoSuchMethodError catch(e) {
-    if(isCheckedMode()) {
-      Expect.fail("NoSuchMethodError in checked mode");
-    }
-  }
-}
+import "../../../Utils/dynamic_check.dart";
 
 main() {
-  Queue list = new Queue();
+  Queue q = new Queue();
   
-  //empty queue just ignores invalid arg
-  int x = 0;
-  list.every(null);
+  q.every(null);
+  checkTypeError(() => q.every(0));
 
-  checkTypeError( () {
-    list.every(x);
-  });
-
-  list.addLast(1);
-  
-  try {
-    list.every(null);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e){}
-
-  check( () {
-    list.every(x);
-  });
+  q.addLast(1);
+  Expect.throws(() => q.every(null));
+  Expect.throws(() => q.every(1));
 }

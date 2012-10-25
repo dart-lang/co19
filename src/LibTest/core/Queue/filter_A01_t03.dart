@@ -6,25 +6,22 @@
 /**
  * @assertion Returns a new collection with the elements of this collection
  * that satisfy the predicate [f].
- * @description Tries to pass non-function object as [f]
+ * @description Checks that something is thrown when the argument is null or
+ * has a type that is incompatible with the required function type.
  * @static-warning
  * @author msyabro
  * @reviewer varlax
  */
 
+import "../../../Utils/dynamic_check.dart";
 
 main() {
   Queue list = new Queue();
   
-  int x = 1;
-  list.filter(null);
-
+  checkTypeError(() => list.filter(1));
+  
   list.addLast(1);
-  
-  try {
-    list.filter(null);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
-  
-  Expect.throws(() => list.filter(x));
+
+  Expect.throws(() => list.filter(null));
+  Expect.throws(() => list.filter(1));
 }

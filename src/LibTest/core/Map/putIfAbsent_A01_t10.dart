@@ -7,7 +7,7 @@
  * @assertion If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
- * @description Checks that an exception thrown by the argument function
+ * @description Checks that anything thrown by the argument function
  * breaks operation and is passed through to the caller.
  * @author varlax
  * @reviewer msyabro
@@ -17,13 +17,13 @@
 
 main() {
   Object f() {
-    throw new NullPointerException();
+    throw "Exception!";
   }
   
   Map<String, Object> map = new Map<String, Object>();
   try {
     map.putIfAbsent("1", f);
-    Expect.fail("NullPointerException should be thrown");
-  } on NullPointerException catch(e) {}
+    Expect.fail("This line should not be reached");
+  } on String catch(e) {}
   Expect.isTrue(map.isEmpty);
 }
