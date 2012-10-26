@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion Static variable declarations are initialized lazily. When a static
+ * variable v is read, iff it has not yet been assigned, it is set to the result
+ * of evaluating its initializer. The precise rules are given in sections 5.1 and 11.30.
+ * @description Checks that static variable declarations are initialized lazily.
+ * @author kaigorodov
+ */
+ 
+var foo=throw new IntegerDivisionByZeroException();
+
+main() {
+  Expect.throws(()=>foo, (e) => e is IntegerDivisionByZeroException);
+}
