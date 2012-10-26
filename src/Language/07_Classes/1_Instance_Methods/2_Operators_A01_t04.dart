@@ -11,11 +11,12 @@
  * operator: 
  *   unaryOperator | 
  *   binaryOperator | 
- *   '[]' | 
- *   '[]=' | 
+ *   ‘[’ ‘]’ |
+ *   ‘[’ ‘]’ ‘=’
  * ;
  * unaryOperator: 
- *   negateOperator 
+ *   '!' |
+ *   '~'
  * ;
  * binaryOperator: 
  *   multiplicativeOperator | 
@@ -27,11 +28,7 @@
  * ;
  * prefixOperator: 
  *   '-' | 
- *   negateOperator 
- * ;
- * negateOperator: 
- *   '!' |
- *   '~'
+ *   unaryOperator 
  * ;
  * @description Checks that it is a compile-time error if a class defines an
  * operator without a formal parameter list.

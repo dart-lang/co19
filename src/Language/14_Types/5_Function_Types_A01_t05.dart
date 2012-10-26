@@ -21,7 +21,7 @@ typedef Object returnsObject();
 typedef num returnsNum();
 
 main() {
-  //() -> T is () -> Dynamic
+  //() -> T is () -> dynamic
   Expect.isTrue(void f() {} is returnsDynamic);
   Expect.isTrue(int f() {} is returnsDynamic);
   Expect.isTrue(String f() {} is returnsDynamic);

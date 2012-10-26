@@ -27,7 +27,7 @@ main() {
   } on NullPointerException catch(ok) {}   
 
   try {
-    for ( Dynamic id in l ) {
+    for ( dynamic id in l ) {
     }
     Expect.fail("NullPointerException expected when calling for statement");
   } on NullPointerException catch(ok) {}   

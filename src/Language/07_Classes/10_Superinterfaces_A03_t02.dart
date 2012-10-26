@@ -5,8 +5,8 @@
  */
 /**
  * @assertion It is a compile-time error if the implements clause of a class
- * includes type Dynamic.
- * @description Checks that it is a compile-time error if Dynamic is included in the
+ * includes type dynamic.
+ * @description Checks that it is a compile-time error if dynamic is included in the
  * type list of a class's implements clause.
  * @compile-error
  * @author rodionov
@@ -17,7 +17,7 @@
 abstract class I {}
 abstract class J {}
 
-class A implements I,Dynamic,J {}
+class A implements I,dynamic,J {}
 
 main() {
   try {

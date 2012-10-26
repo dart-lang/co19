@@ -5,8 +5,8 @@
  */
 /**
  * @assertion If a function does not declare a return type explicitly,
- * its return type is Dynamic.
- * @description Checks that return type is Dynamic
+ * its return type is dynamic.
+ * @description Checks that return type is dynamic
  * static checker should not cause static warnings because type Dynamic
  * has every method and property
  * @author msyabro

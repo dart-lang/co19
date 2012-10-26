@@ -11,11 +11,12 @@
  * operator: 
  *   unaryOperator | 
  *   binaryOperator | 
- *   '[]' | 
- *   '[]=' | 
+ *   ‘[’ ‘]’ |
+ *   ‘[’ ‘]’ ‘=’
  * ;
  * unaryOperator: 
- *   negateOperator 
+ *   '!' |
+ *   '~'
  * ;
  * binaryOperator: 
  *   multiplicativeOperator | 
@@ -27,11 +28,7 @@
  * ;
  * prefixOperator: 
  *   '-' | 
- *   negateOperator 
- * ;
- * negateOperator: 
- *   '!' |
- *   '~'
+ *   unaryOperator 
  * ;
  * @description Checks that it is not a compile-time error if a class attempts to define
  * an operator without a name because an instance method named 'operator' is allowed by the spec.

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion If no static type annotation has been provided the type system assumes
- * the declaration has the unknown type (Dynamic).
+ * the declaration has the unknown type (dynamic).
  * @description Checks that a local variable without any type annotation has the unknown type. 
  * Note: all possible declarations are tested in the corresponding chapters.
  * @author iefremov
@@ -14,6 +14,6 @@
 
 main() {
   var x;
-  Expect.isTrue(x is Dynamic);
+  Expect.isTrue(x is dynamic);
 }
 

@@ -9,7 +9,7 @@
  * with signature static set v(x) whose execution sets the value of v to the
  * incoming argument x.
  * @description Checks that the signature of this implicit setter is correct
- * and the type of its formal parameter is indeed Dynamic by passing values of
+ * and the type of its formal parameter is indeed dynamic by passing values of
  * various types to it.
  * @author pagolubev
  * @reviewer msyabro

@@ -28,7 +28,7 @@ void check(var e) {
   } on NoSuchMethodError catch(ok) {}   
 
   try {
-    for (Dynamic id in e);
+    for (dynamic id in e);
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}   
 

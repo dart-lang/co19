@@ -24,5 +24,5 @@ main() {
   <Map>{};
   const {};
   const <int> {};
-  <Dynamic>{"m":{"m":{"m":{}}}};
+  <dynamic>{"m":{"m":{"m":{}}}};
 }

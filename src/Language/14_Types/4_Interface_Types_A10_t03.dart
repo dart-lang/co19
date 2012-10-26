@@ -6,7 +6,7 @@
 /**
  * @assertion A type T is more specific than a type S, written T << S, if T is of the form I<T1, ..., Tn> and
  * S is of the form I<S1, ..., Sn> and: Ti << Si , 1 <= i <= n
- * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
+ * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where T is a type parameter and
  * S is a type parameter bound (T and S are complex generics). Checks their mutual assignability 
@@ -37,7 +37,7 @@ class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
 
 main() {
   new Checker_I().check();
-  new Checker_I<I<Dynamic, Dynamic, Dynamic>>().check();
+  new Checker_I<I<dynamic, dynamic, dynamic>>().check();
   new Checker_I<I<f_1, int, List<Map<int, Map<int, int>>>>>().check();
   new Checker_I<I<f_2, int, List<Map<int, Map<int, int>>>>>().check();
   new Checker_I<J<f_1, int, List<Map<int, Map<int, int>>>>>().check();

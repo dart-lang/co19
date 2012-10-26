@@ -15,7 +15,7 @@
 main()
 {
   Expect.isTrue(const Object() == const Object());
-  Expect.isTrue(const Object() == (const Object() as Dynamic));
+  Expect.isTrue(const Object() == (const Object() as dynamic));
 
   Expect.isFalse(new Object() == new Object());
   Expect.isFalse(const Object() == new Object());

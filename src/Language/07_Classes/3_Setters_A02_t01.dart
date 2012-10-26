@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If no return type is specified, the return type of the setter is Dynamic.
+ * @assertion If no return type is specified, the return type of the setter is dynamic.
  * @description Dart does not currently allow to invoke a setter like a regular method,
  * so that its return value can be obtained.
  * @author iefremov

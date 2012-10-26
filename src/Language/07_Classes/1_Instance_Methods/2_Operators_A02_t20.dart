@@ -19,6 +19,6 @@ class C {
 main() {
   try {
     var b = (new C());
-    (b is Dynamic);
+    (b is dynamic);
   } catch (x) {}
 }

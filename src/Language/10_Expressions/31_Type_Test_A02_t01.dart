@@ -31,7 +31,7 @@ main() {
   Expect.isTrue(null is Object);
   Expect.isTrue(const [1, 2, 3] is List);
   Expect.isTrue(void f() {} is Function);
-  Expect.isTrue(new Object() is Dynamic);
+  Expect.isTrue(new Object() is dynamic);
 
   Expect.isTrue(new I() is I);
   Expect.isTrue(new I() is A);

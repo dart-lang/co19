@@ -11,11 +11,12 @@
  * operator: 
  *   unaryOperator | 
  *   binaryOperator | 
- *   '[]' | 
- *   '[]=' | 
+ *   ‘[’ ‘]’ |
+ *   ‘[’ ‘]’ ‘=’
  * ;
  * unaryOperator: 
- *   negateOperator 
+ *   '!' |
+ *   '~'
  * ;
  * binaryOperator: 
  *   multiplicativeOperator | 
@@ -27,11 +28,7 @@
  * ;
  * prefixOperator: 
  *   '-' | 
- *   negateOperator 
- * ;
- * negateOperator: 
- *   '!' |
- *   '~'
+ *   unaryOperator 
  * ;
  * @description Checks that any return type (including function type, type parameter,
  * void or no return type at all) can be specified for any operator.
@@ -47,7 +44,7 @@ class C<T> {
   List operator [](var v) {}
   operator -(var v) {}
   operator []=(var v, var v2) {}
-  Dynamic operator ~() {}
+  dynamic operator ~() {}
   foo operator *(var v) {}
   T operator >(var v) {}
 }

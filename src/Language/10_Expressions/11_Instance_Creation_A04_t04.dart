@@ -20,6 +20,6 @@ class A<T, U, V> {
 
 main() {
   try {
-    var o = const A<Dynamic>();
+    var o = const A<dynamic>();
   } catch(e) {}
 }

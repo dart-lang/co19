@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A type T is more specific than a type S, written T << S, if S is Dynamic.
- * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
+ * @assertion A type T is more specific than a type S, written T << S, if S is dynamic.
+ * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
- * @description Checks that null is Dynamic.
+ * @description Checks that null is dynamic.
  * @author iefremov
  * @reviewer rodionov
  */
 
 main() {
-  Expect.isTrue(null is Dynamic);
+  Expect.isTrue(null is dynamic);
 }
 

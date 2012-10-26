@@ -18,11 +18,12 @@
  * @issue 6029
  */
 
-import "../../Utils/dynamic_check.dart";
-
 typedef bool foo(int x, int y, {double a, double b});
 
+foo f;
+
 main() {
-  foo f;
-  checkTypeError( () {f = (int x, int y, {double a, double b}) => 1;});
+  try {
+  	f = (int x, int y, {double a, double b}) => 1;
+  } on TypeError catch(ok) {
 }

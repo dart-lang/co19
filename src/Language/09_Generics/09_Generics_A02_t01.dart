@@ -20,7 +20,7 @@ main() {
   new G<num>();
   new G<Function>();
   new G<Object>();
-  new G<Dynamic>();
+  new G<dynamic>();
   new G<f>();
   new G<G>();
 }
