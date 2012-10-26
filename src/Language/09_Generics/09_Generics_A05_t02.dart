@@ -4,21 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to refer to a type parameter from within a static member.
- * @description Checks that it is a compile-time error to reference a type
- * parameter from static context (as a type annotation) and there's no static warning.
- * @compile-error
+ * @assertion A type parameter is considered to be a malformed type when referenced by a static member.
+ * @description Checks that it is dynamic type error in checked mode to reference a type parameter 
+ * from static context (as a type annotation) and there's no static warning.
  * @author iefremov
  * @reviewer kaigorodov
  * @issue 5230
  */
+import "../../Utils/dynamic_check.dart";
 
 class C<T> {
   static T t;
 }
 
 main() {
-  try {
-    C.t = new Object();
-  } catch(ex) {}
+  checkTypeError(() {C.t = new Object();});
 }

@@ -7,13 +7,14 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * @description Checks that it is a compile-time error when a type variable hides 
- * a class name declared in an enclosing scope and it's referenced in a static context
- * (see Ch. 9 "Generics").
- * @compile-error
+ * @description Checks that it is a dynamic error (type error specifically in checked mode)
+ * when a type variable hides a class name declared in an enclosing scope and it's referenced 
+ * in a static context (see Ch. 9 "Generics").
  * @author iefremov
  * @reviewer rodionov
+ * @issue 5230
  */
+import "../../Utils/dynamic_check.dart";
 
 class C {}
 class G<C> {
@@ -23,5 +24,8 @@ class G<C> {
 main() {
   try {
     G.f();
-  } catch(x){}
+    Expect.fail("Error expected");
+  } on Error catch(err) {
+    Expect.isTrue(!isCheckedMode() || err is TypeError, "TypeError expected in checked mode.");
+  }
 }
