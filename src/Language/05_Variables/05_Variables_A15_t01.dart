@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A non-final instance variable declaration of the form var v;
- * or the form var v = e; always induces an implicit setter function (7.3) 
- * with signature void set v(x) whose execution sets the value of v 
- * to the incoming argument x.
+ * @assertion A non-final variable declaration of the form var v;
+ * or the form var v = e; always induces an implicit setter function 
+ * with signature
+ *   set v = (x)
+ * whose execution sets the value of v to the incoming argument x.
  * @description Trivially checks that some arbitrary values may be assigned
  * to the variables declared as in assertion.
  * @author vasya

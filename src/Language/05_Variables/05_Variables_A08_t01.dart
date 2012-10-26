@@ -4,19 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
- * a top level variable declaration with the built-in identifier static.
- * @description Checks that a compile-time error occurs if a top level variable declaration
- * is prefaced with the built-in identifier static.
- * @author vasya
- * @reviewer kaigorodov
+ * @assertion A constant variable must be initialized to a compile-time constant or a compile-time error occurs.
+ * @description Checks that a compile-time error occurs if a constant variable is not initialized.
+ * @author msyabro
+ * @reviewer iefremov
  * @compile-error
  */
 
-import "library1.dart";
+const foo;
 
 main() {
   try {
-    foo = 1;
+    Expect.isNull(foo);
   } catch(ok) {}
 }

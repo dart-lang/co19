@@ -4,12 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion variableDeclaration: declaredIdentifier (',' identifier)* ;
- * initializedVariableDeclaration: declaredIdentifier ('=' expression)? (',' initializedIdentifier)* ;
- * initializedIdentifierList: initializedIdentifier (',' initializedIdentifier)* ;
- * initializedIdentifier: identifier ('=' expression)? ;
- * declaredIdentifier: metadata finalConstVarOrType identifier ;
- * finalConstVarOrType: final type? | const type? | var | type ;
+ * @assertion variableDeclaration:
+ *     declaredIdentiﬁer (‘, ’ identiﬁer)*
+ *   ;
+ *   declaredIdentiﬁer:
+ *     metadata ﬁnalConstVarOrType identiﬁer
+ *   ;
+ *   ﬁnalConstVarOrType:
+ *     ﬁnal type? |
+ *     const type? |
+ *     varOrType
+ *   ;
+ *   varOrType:
+ *     var |
+ *     type
+ *   ;
+ *   initializedVariableDeclaration:
+ *     declaredIdentiﬁer (‘=’ expression)? (‘, ’ initializedIdentiﬁer)*
+ *   ;
+ *   initializedIdentiﬁer:
+ *     identiﬁer (‘=’ expression)?
+ *   ;
+ *   initializedIdentiﬁerList:
+ *     initializedIdentiﬁer (‘, ’ initializedIdentiﬁer)*
+ *   ;
  * @description Checks that a variable declaration cannot end with a comma.
  * @author iefremov
  * @compile-error

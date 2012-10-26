@@ -4,27 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A final variable is a variable whose declaration includes the modifier final.
- * It is a compile-time error if a final instance variable that has been initialized
- * at its point of declaration is also initialized in a constructor. It is a compile-time
- * error if a final instance variable that has is initialized by means of an initializing
- * formal of a constructor is also initialized elsewhere in the same constructor.
- * It is a compile-time error if a library, static or local variable v is final and v
- * is not initialized at its point of declaration.
- * @description Checks that a compile-time error occurs if a final instance variable that
- * has been initialized in declaration is also initialized in a constructor.
- * @compile-error
- * @author rodionov
+ * @assertion A static variable is a variable that is not associated with a 
+ * particular instance, but rather with an entire library or class. 
+ * @description Checks that a static variable is not associated with a particular instance.
+ * @author kaigorodov
+ * @reviewer iefremov
  */
-
-class C {
-  final v = 1;
-  
-  C() : v = 2 {}
+ 
+class Cl {
+  static var _foo;
+  int get foo {
+    return _foo;
+  }
+  void set foo(int val) {
+    _foo=val;
+  }
 }
 
 main() {
-  try {
-    new C();
-  } catch(ok) {}
+  Cl c1=new Cl();
+  Cl c2=new Cl();
+  c2.foo=1;
+  Expect.equals(1, c1.foo);
+  c2.foo=2;
+  Expect.equals(2, c1.foo);
 }

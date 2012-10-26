@@ -4,19 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
+ * @assertion A library variable is implicitly static. It is a compile-time error to preface
  * a top level variable declaration with the built-in identifier static.
- * @description Checks that it is a compile-time error if a top level final typed variable declaration
+ * @description Checks that a compile-time error occurs if a top level variable declaration
  * is prefaced with the built-in identifier static.
+ * @author vasya
+ * @reviewer kaigorodov
  * @compile-error
- * @author msyabro
- * @reviewer iefremov
  */
 
-static final int foo = 1; // error
+import "library1.dart";
 
 main() {
   try {
-    print(foo);
+    foo = 1;
   } catch(ok) {}
 }

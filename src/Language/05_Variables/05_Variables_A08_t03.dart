@@ -4,19 +4,37 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
- * a top level variable declaration with the built-in identifier static.
- * @description Checks that it is a compile-time error if a top level typed variable declaration
- * is prefaced with the built-in identifier static.
- * @compile-error
+ * @assertion A constant variable must be initialized to a compile-time constant or a compile-time error occurs.
+ * @description Checks that constant variables can be initialized to
+ * a compile-time constant (11.1).
  * @author msyabro
  * @reviewer iefremov
  */
 
-static int foo = 1; // error
+#import("dart:math", prefix: "Math");
+
+class Foo {
+  const Foo();
+}
+
+const int i = -100;
+const bool b = false;
+const String s = "string";
+const double pi = Math.PI;
+const Foo foo = const Foo();
+const List l = const [0,1,2,3];
+const Map m = const {'a': 1, 'b': 2};
+const bool bOr = true || false;
+const int iPlus = 5 + i;
 
 main() {
-  try {
-    foo = 1;
-  } catch(ok) {}
+  Expect.identical(-100,  i);
+  Expect.identical(false,  b);
+  Expect.identical("string",  s);
+  Expect.identical(Math.PI,  pi);
+  Expect.identical(const Foo(),  foo);
+  Expect.identical(const [0,1,2,3],  l);
+  Expect.identical(const {'a': 1, 'b': 2},  m);
+  Expect.identical(true || false,  bOr);
+  Expect.identical(-95,  iPlus);
 }

@@ -4,16 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
+ * @assertion A library variable is implicitly static. It is a compile-time error to preface
  * a top level variable declaration with the built-in identifier static.
- * @description Checks that it is a compile-time error if a top level constant typed variable
- * declaration is prefaced with the built-in identifier static.
+ * @description Checks that it is a compile-time error if a top level final typed variable declaration
+ * is prefaced with the built-in identifier static.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
-static const int foo = 1; // error
+static final int foo = 1; // error
 
 main() {
   try {

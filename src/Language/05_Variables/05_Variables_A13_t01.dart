@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An instance variable declaration of one of the forms
- * var v;, final v;, var v = e;, const  v = e; or final v = e;
- * always induces an implicit getter function with signature get v
- * whose  invocation evaluates to the value stored in v.
+ * @assertion A variable declaration of one of the forms
+ * var v;, var v = e; , const v = e;, ﬁnal v; or ﬁnal v = e;
+ * always induces an implicit getter function with signature
+ *   get v
+ * whose invocation evaluates as described below.
  * @description Trivially checks that instance variables declared as in
  * assertion are accessible.
  * @author vasya

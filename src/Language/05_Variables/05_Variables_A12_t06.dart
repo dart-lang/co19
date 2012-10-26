@@ -4,25 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An instance variable declaration of one of the forms
- * T v;, final T v; , T v = e;, const T v = e;  or final T v = e;
- * always induces an implicit getter function with signature T get v
- * whose  invocation evaluates to the value stored in v.
+ * @assertion A variable declaration of one of the forms
+ * T v;, T v = e; , const T v = e;, ﬁnal T v; or ﬁnal T v = e;
+ * always induces an implicit getter function with signature
+ *   T get v
  * @description Checks that a static warning is produced when assigning result of
  * T get v() invocation to a variable whose type may not be assigned to T. 
- * The variable declaration is of the form final T v;.
+ * The variable declaration is of the form const T v = e;.
  * @static-warning
- * @author pagolubev
+ * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
+ * @needsreview issue 3323
  */
 
+#import("../../Utils/dynamic_check.dart");
+
 class A {
-  A(this.v);
-  final int v;
+  const int v = 100;
 }
 
 main() {
-  A a = new A(null);
-  bool b = a.v;
+  A a = new A();
+  checkTypeError(() {bool b = a.v;});
 }

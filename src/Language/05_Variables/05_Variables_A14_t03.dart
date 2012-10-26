@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A non-final instance variable declaration of the form T v;
- * or the form T v = e; always induces an implicit setter function (7.3) 
- * with signature void set v(T x) whose execution sets the value of v 
- * to the incoming argument x.
+ * @assertion A non-final variable declaration of the form T v;
+ * or the form T v = e; always induces an implicit setter function 
+ * with signature
+ *   void set v = (T x)
+ * whose execution sets the value of v to the incoming argument x.
  * @description Checks that a static warning is produced when assigning a value
  * of type that may not be assigned to T, to the variable declared as T v = e;.
  * @author pagolubev

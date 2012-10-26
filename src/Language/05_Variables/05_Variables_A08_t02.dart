@@ -4,19 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A top-level variable is implicitly static. It is a compile-time error to preface
- * a top level variable declaration with the built-in identifier static.
- * @description Checks that it is a compile-time error if a top level variable declaration
- * is prefaced with the built-in identifier static.
- * @author kaigorodov
+ * @assertion A constant variable must be initialized to a compile-time constant or a compile-time error occurs.
+ * @description Checks that a compile-time error occurs if a constant variable is
+ * initialized to a non compile-time constant.
+ * @author msyabro
  * @reviewer iefremov
  * @compile-error
  */
 
-static var foo; // error
+class Foo {}
+const Foo foo = new Foo();
 
 main() {
   try {
-    foo = 1;
+    Expect.isTrue(foo is Foo);
   } catch(ok) {}
 }
