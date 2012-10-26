@@ -25,5 +25,5 @@ foo f;
 main() {
   try {
   	f = (int x, int y, {double a, double b}) => 1;
-  } on TypeError catch(ok) {
+  } on TypeError catch(ok) {}
 }

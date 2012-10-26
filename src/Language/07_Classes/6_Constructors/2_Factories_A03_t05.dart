@@ -27,5 +27,5 @@ class M<T, U, V> implements I<T, U, V> {
 typedef f();
 
 main() {
-  I<S3, int, f> m1 = new I<S2, num, Function>();
+  I<S2, num, Function> m1 = new I<S3, int, f>();
 }
