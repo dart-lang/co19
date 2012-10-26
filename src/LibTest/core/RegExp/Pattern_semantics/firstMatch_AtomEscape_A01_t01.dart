@@ -35,12 +35,12 @@ void check(String pattern, String str, int matchPos, List<String> expectedGroups
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start());
+    Expect.equals(matchPos, fm.start);
   }
   if(null != expectedGroups) {
-    Expect.equals(expectedGroups.length, fm.groupCount() + 1);
+    Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
-    for(int i = 0; i <= fm.groupCount(); i++) {
+    for(int i = 0; i <= fm.groupCount; i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
       if(expGr != actGr) {

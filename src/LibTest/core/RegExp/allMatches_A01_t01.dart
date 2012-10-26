@@ -48,14 +48,14 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
     matchCnt++;
     Match actMatch = it.next();
     
-    Expect.equals(expMatch.length, actMatch.groupCount() + 3);
+    Expect.equals(expMatch.length, actMatch.groupCount + 3);
     Expect.equals(str, actMatch.str);
     Expect.equals(pattern, actMatch.pattern);
     
-    Expect.equals(expMatch[0], actMatch.start());
-    Expect.equals(expMatch[1], actMatch.end());
+    Expect.equals(expMatch[0], actMatch.start);
+    Expect.equals(expMatch[1], actMatch.end);
     
-    for(int i = 0; i <= actMatch.groupCount(); i++) {
+    for(int i = 0; i <= actMatch.groupCount; i++) {
       String actMatchStr = actMatch.group(i);
       
       String expMatchStr = expMatch[i + 2];

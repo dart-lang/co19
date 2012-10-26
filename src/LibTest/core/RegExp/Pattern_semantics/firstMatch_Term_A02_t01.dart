@@ -37,14 +37,14 @@ void check(String pattern, String str, List<String> expectedGroups) {
       "String: \"$str\"\n" + 
       "Flags: \"$flags\"\n" + 
       "Exp. groups: \"$expectedGroups\"");
-  print("group count: " + fm.groupCount());*/
+  print("group count: " + fm.groupCount);*/
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(null != expectedGroups) {
-    Expect.equals(expectedGroups.length, fm.groupCount() + 1);
+    Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
-    for(int i = 0; i <= fm.groupCount(); i++) {
+    for(int i = 0; i <= fm.groupCount; i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
       //print("\t$expGr == $actGr ??");

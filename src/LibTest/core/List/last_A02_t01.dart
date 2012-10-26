@@ -13,8 +13,8 @@
 
 check(List a) {
   try {
-    a.last();
-    Expect.fail("IndexOutOfRangeException expected when calling a.last()");
+    a.last;
+    Expect.fail("IndexOutOfRangeException expected when calling a.last");
   } on IndexOutOfRangeException catch(ok) {}
 }
 

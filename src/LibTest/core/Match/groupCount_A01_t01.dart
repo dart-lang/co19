@@ -13,7 +13,7 @@
 void check(String str, String pattern, int quantity, {bool multiLine: false, bool ignoreCase: false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Match m = re.firstMatch(str);
-  Expect.equals(quantity, m.groupCount());
+  Expect.equals(quantity, m.groupCount);
 }
  
 void main() {

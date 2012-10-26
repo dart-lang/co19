@@ -21,11 +21,11 @@ main() {
 
   Expect.isTrue(list.removeFirst() == 1);
   Expect.isTrue(list.length == 2);
-  Expect.isTrue(list.first() == "2");
+  Expect.isTrue(list.first == "2");
 
   Expect.isTrue(list.removeFirst() == "2");
   Expect.isTrue(list.length == 1);
-  Expect.isTrue(list.first() == true);
+  Expect.isTrue(list.first == true);
 
   Expect.isTrue(list.removeFirst() == true);
   Expect.isTrue(list.length == 0);
@@ -39,11 +39,11 @@ main() {
 
   Expect.isTrue(list.removeFirst() == 1);
   Expect.isTrue(list.length == 2);
-  Expect.isTrue(list.first() == 1);
+  Expect.isTrue(list.first == 1);
 
   Expect.isTrue(list.removeFirst() == 1);
   Expect.isTrue(list.length == 1);
-  Expect.isTrue(list.first() == 1);
+  Expect.isTrue(list.first == 1);
 
   Expect.isTrue(list.removeFirst() == 1);
   Expect.isTrue(list.length == 0);

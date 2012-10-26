@@ -15,7 +15,7 @@
 void check(String str, String pattern, List<String> expected, {bool multiLine: false, bool ignoreCase: false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
   Match m = re.firstMatch(str);
-  Expect.equals(expected.length, m.groupCount() + 1);
+  Expect.equals(expected.length, m.groupCount + 1);
   for(int i = 0; i < expected.length; i++) {
     Expect.equals(expected[i],m.group(i));
   }

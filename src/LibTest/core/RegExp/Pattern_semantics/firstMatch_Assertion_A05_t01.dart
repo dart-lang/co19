@@ -25,6 +25,6 @@ void check(String pattern, String str, int matchPos) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start());
+    Expect.equals(matchPos, fm.start);
   }
 }

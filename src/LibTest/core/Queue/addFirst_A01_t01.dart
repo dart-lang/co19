@@ -15,18 +15,18 @@ main() {
   Queue queue = new Queue();
   
   queue.addFirst(1);
-  Expect.isTrue(queue.first() == 1);
+  Expect.isTrue(queue.first == 1);
   
   queue.addFirst(null);
-  Expect.isTrue(queue.first() == null);
+  Expect.isTrue(queue.first == null);
   
   queue.addFirst(queue);
-  Expect.isTrue(queue.first() === queue);
+  Expect.isTrue(queue.first === queue);
 
   queue = new Queue();
   for (var i = 0; i <= 1000; i++) {
     queue.addFirst(i);
-    Expect.equals(i, queue.first());
+    Expect.equals(i, queue.first);
     Expect.equals(i+1, queue.length);
   }
 }

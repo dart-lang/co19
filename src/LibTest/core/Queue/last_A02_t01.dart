@@ -15,7 +15,7 @@ main() {
   Queue queue = new Queue();
   
   try {
-    queue.last();
+    queue.last;
     Expect.fail("Exception is expected");
   } on EmptyQueueException catch(e) {}
   
@@ -24,7 +24,7 @@ main() {
   queue.clear();
   
   try {
-    queue.last();
+    queue.last;
     Expect.fail("Exception is expected");
   } on EmptyQueueException catch(e) {}
 }

@@ -16,11 +16,11 @@ main() {
   Queue queue = new Queue();
   
   queue.addFirst(1);
-  Expect.isTrue(queue.last() == 1);
+  Expect.isTrue(queue.last == 1);
   
   queue.addFirst(2);
-  Expect.isTrue(queue.last() == 1);
+  Expect.isTrue(queue.last == 1);
   
   queue.addLast(null);
-  Expect.isTrue(queue.last() == null);
+  Expect.isTrue(queue.last == null);
 }

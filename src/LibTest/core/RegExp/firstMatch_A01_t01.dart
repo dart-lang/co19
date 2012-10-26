@@ -36,11 +36,11 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List gro
   Expect.equals(str, fm.str);
   Expect.equals(pattern, fm.pattern);
   if(null != groupData) {
-    Expect.equals(groupData.length, fm.groupCount() + 3);
-    Expect.equals(groupData[0], fm.start());
-    Expect.equals(groupData[1], fm.end());
+    Expect.equals(groupData.length, fm.groupCount + 3);
+    Expect.equals(groupData[0], fm.start);
+    Expect.equals(groupData[1], fm.end);
     
-    for(int i = 0; i <= fm.groupCount(); i++) {
+    for(int i = 0; i <= fm.groupCount; i++) {
       String actGr = fm.group(i);
       String expGr = groupData[i + 2];
       if(expGr != actGr) {

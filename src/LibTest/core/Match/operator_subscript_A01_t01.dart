@@ -31,9 +31,9 @@ void check(String pattern, String str, List<String> groupData, {bool multiLine: 
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 
-  Expect.equals(groupData.length, fm.groupCount() + 1);
+  Expect.equals(groupData.length, fm.groupCount + 1);
   
-  for(int i = 0; i <= fm.groupCount(); i++) {
+  for(int i = 0; i <= fm.groupCount; i++) {
     String actGr = fm[i];
     String expGr = groupData[i];
     if(expGr != actGr) {

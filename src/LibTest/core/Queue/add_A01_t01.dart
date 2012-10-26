@@ -15,7 +15,7 @@ main() {
   Queue queue = new Queue();
   for (var i = 0; i <= 10000; i++) {
     queue.add(i);
-    Expect.equals(i, queue.last());
+    Expect.equals(i, queue.last);
     Expect.equals(i+1, queue.length);
   }
 }

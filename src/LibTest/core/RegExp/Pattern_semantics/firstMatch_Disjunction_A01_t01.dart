@@ -52,9 +52,9 @@ void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: 
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   if(null != expectedGroups) {
-    Expect.equals(expectedGroups.length, fm.groupCount() + 1);
+    Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
-    for(int i = 0; i <= fm.groupCount(); i++) {
+    for(int i = 0; i <= fm.groupCount; i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
       if(expGr != actGr) {

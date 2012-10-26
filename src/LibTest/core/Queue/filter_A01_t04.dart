@@ -31,7 +31,7 @@ main() {
     return element == 0;
   });
   Expect.isTrue(a.length == 1);
-  Expect.isTrue(a.first() == 0);
+  Expect.isTrue(a.first == 0);
   
   a = list.filter(bool f(int element) {
     return true;

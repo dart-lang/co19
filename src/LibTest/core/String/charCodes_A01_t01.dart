@@ -11,11 +11,11 @@
  */
 
 main() {
-  checkArrayEquals([0x61, 0x62, 0x63, 0x64], "abcd".charCodes());
-  checkArrayEquals([], "".charCodes());
-  checkArrayEquals([0x61, 0x62, 0x63, 0], "abc\u0000".charCodes());
-  checkArrayEquals([0], "\u0000".charCodes());
-  checkArrayEquals([0x0061, 0x1d02, 0x10000], "\u0061\u1d02\u{10000}".charCodes());
+  checkArrayEquals([0x61, 0x62, 0x63, 0x64], "abcd".charCodes);
+  checkArrayEquals([], "".charCodes);
+  checkArrayEquals([0x61, 0x62, 0x63, 0], "abc\u0000".charCodes);
+  checkArrayEquals([0], "\u0000".charCodes);
+  checkArrayEquals([0x0061, 0x1d02, 0x10000], "\u0061\u1d02\u{10000}".charCodes);
 }
 
 void checkArrayEquals(List expected, List actual) {

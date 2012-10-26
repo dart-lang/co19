@@ -13,7 +13,7 @@
 void check(String str, String pattern, int start) {
   RegExp re = new RegExp(pattern, multiLine: false, ignoreCase: false);
   Match m = re.firstMatch(str);
-  Expect.equals(start, m.start());
+  Expect.equals(start, m.start);
 }
 
 main(){
