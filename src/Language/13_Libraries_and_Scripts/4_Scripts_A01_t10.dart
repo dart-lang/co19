@@ -1,3 +1,4 @@
+#! scripts tag
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -6,20 +7,17 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
- * @description Checks that it is a compile-time error when an include directive
+ * @description Checks that it is a compile-time error when a part directive
  * comes before an import directive.
  * @compile-error
  * @author vasya
  * @reviewer msyabro
  */
 
-#source("source.dart"); //error
-#import("4_Library1.dart");
+part "3_Part_0.dart";
+import "4_Library1.dart";
 
 main() {
-  try {
-    var forSomeCode = 0;
-  } catch(e) {}
 }

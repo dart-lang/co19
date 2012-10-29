@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryDefinition:
- *   libraryName import* partDirective* topLevelDefinition*
+ *   libraryName importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-error if a part directive
  * comes before an import directive.

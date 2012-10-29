@@ -1,4 +1,4 @@
-#library("Script_A01_t01");
+library Script_A01_t01;
 #! scripts tag    // error
 
 /*
@@ -9,7 +9,7 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when the library name comes
  * before the script tag.
@@ -18,9 +18,5 @@
  * @reviewer msyabro
  */
 
-
 main() {
-  try {
-    var forSomeCode = 0;
-  } catch(e) {}
 }

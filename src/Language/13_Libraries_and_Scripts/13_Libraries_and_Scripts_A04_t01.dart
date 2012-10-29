@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryDefinition:
- *   libraryName import* partDirective* topLevelDefinition*
+ *   libraryName importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error if a library includes two library definitions
  * with the same identifier.

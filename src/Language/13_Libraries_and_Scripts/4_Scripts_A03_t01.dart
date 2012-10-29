@@ -12,11 +12,10 @@
  * @reviewer msyabro
  */
 
-#library('Script_without_main');
+library Script_without_main;
 
 class C {}
 
 void f() {}
 
 final constX = 1;
-

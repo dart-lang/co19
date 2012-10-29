@@ -7,20 +7,20 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that is is a compile-time error when a variable declaration
- * comes before an include directive.
+ * comes before a part directive.
  * @compile-error
  * @author vasya
  * @reviewer msyabro
  */
 
-#library("Script_A01_t14");
-#import("4_Library1.dart");
+library Script_A01_t14;
+import "4_Library1.dart";
 
 final int script = 1; // error
-#source("source.dart");
+part "3_Part_0.dart";
 
 main() {
   try {

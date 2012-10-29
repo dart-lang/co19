@@ -6,19 +6,21 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * topLevelDefinition:
  *     classDefinition
- *   | interfaceDefinition
  *   | functionTypeAlias
+ *   | external functionSignature
+ *   | external getterSignature
+ *   | external setterSignature
  *   | functionSignature functionBody
  *   | returnType? getOrSet identifier formalParameterList functionBody
- *   | final type? staticFinalDeclarationList ';'
+ *   | (final | const) type? staticFinalDeclarationList ';'
  *   | variableDeclaration ';'
  * ;
  * getOrSet:
- *   get
+ *     get
  *   | set
  * ;
  * @description Checks that it is a compile-time error when a return statement
@@ -31,7 +33,4 @@
 return null;
 
 main() {
-  try {
-    var someVar = '';
-  } catch(e) {}
 }

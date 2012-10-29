@@ -6,7 +6,7 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that script is a library and it is possible to import it with a prefix.
  * @author vasya
@@ -14,7 +14,7 @@
  * @reviewer msyabro
  */
 
-#import("4_Library3.dart", prefix: "P");
+import "4_Library3.dart" as P;
 
 main() {
   Expect.equals(1, P.func());

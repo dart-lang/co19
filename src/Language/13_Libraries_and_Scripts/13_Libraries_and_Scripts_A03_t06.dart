@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryName:
- *   metadata library qualified `;'
+ *   metadata library identifier `;'
  * ;
  * @description Checks that it is a compile-time error if the library directive is missing
  * the library name.

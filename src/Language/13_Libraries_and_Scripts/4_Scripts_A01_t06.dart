@@ -7,7 +7,7 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when an import directive
  * comes before the library name.
@@ -16,12 +16,9 @@
  * @reviewer msyabro
  */
 
-#import("4_Library1.dart"); // error
-#library("Script_A01_t06");
-#source("source.dart");
+import "4_Library1.dart";
+library Parts_test_lib;
+part "3_Part_0.dart";
 
 main() {
-  try {
-    var forSomeCode = 0;
-  } catch(e) {}
 }

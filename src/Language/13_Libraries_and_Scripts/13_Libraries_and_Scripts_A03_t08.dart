@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryName:
- *   metadata library qualified `;'
+ *   metadata library identifier `;'
  * ;
  * @description Checks that it is a compile-time error when the library name is
  * enclosed in single quotes.

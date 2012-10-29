@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryName:
- *   metadata library qualified `;'
+ *   metadata library identifier `;'
  * ;
  * @description Checks valid library definitions with metadata.
  * @author rodionov

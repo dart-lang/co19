@@ -17,5 +17,3 @@
 main(x) {
   print(x);
 }
-
-

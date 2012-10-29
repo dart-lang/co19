@@ -6,19 +6,21 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * topLevelDefinition:
  *     classDefinition
- *   | interfaceDefinition
  *   | functionTypeAlias
+ *   | external functionSignature
+ *   | external getterSignature
+ *   | external setterSignature
  *   | functionSignature functionBody
  *   | returnType? getOrSet identifier formalParameterList functionBody
- *   | final type? staticFinalDeclarationList ';'
+ *   | (final | const) type? staticFinalDeclarationList ';'
  *   | variableDeclaration ';'
  * ;
  * getOrSet:
- *   get
+ *     get
  *   | set
  * ;
  * @description Checks that a script with valid top level definitions is parsed
@@ -44,6 +46,10 @@ A h([p1, p2]) {
 typedef typeF();
 typedef int typeG();
 typedef void typeH(p1, p2);
+
+external int extFunc(bool);
+external int get extGetter;
+external void set extSetter(int x);
 
 final x = 'x';
 String y = 'y';

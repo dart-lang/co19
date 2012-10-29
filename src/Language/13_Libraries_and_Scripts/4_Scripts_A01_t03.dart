@@ -1,4 +1,4 @@
-#import("4_Library1.dart");
+import "4_Library1.dart";
 #! scripts tag    // error
 
 /*
@@ -9,7 +9,7 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when an import directive
  * comes before the script tag.
@@ -19,7 +19,4 @@
  */
 
 main() {
-  try {
-    var forSomeCode = 0;
-  } catch(e) {}
 }

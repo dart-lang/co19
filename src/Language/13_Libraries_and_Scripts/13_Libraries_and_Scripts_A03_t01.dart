@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryName:
- *   metadata library qualified `;'
+ *   metadata library identifier `;'
  * ;
  * @description Checks that valid library directives (according to the spec)
  * do not cause compile-time errors.
@@ -17,9 +17,9 @@
 import "13_Libraries_and_Scripts_A03_t01_p1.dart";
 import "13_Libraries_and_Scripts_A03_t01_p2.dart";
 import "13_Libraries_and_Scripts_A03_t01_p3.dart";
-import "13_Libraries_and_Scripts_A03_t01_p4.dart";
-import "13_Libraries_and_Scripts_A03_t01_p5.dart";
-import "13_Libraries_and_Scripts_A03_t01_p6.dart";
+//import "13_Libraries_and_Scripts_A03_t01_p4.dart";
+//import "13_Libraries_and_Scripts_A03_t01_p5.dart";
+//import "13_Libraries_and_Scripts_A03_t01_p6.dart";
 
 main() {
 }

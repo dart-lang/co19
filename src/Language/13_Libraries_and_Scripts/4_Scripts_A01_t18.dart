@@ -9,7 +9,7 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- * scriptTag? libraryName? import* include* resource* topLevelDefinition*
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when a script has two script tags.
  * @compile-error
@@ -18,7 +18,4 @@
  */
 
 main() {
-  try {
-    var someVar = 0;
-  } catch(e) {}
 }

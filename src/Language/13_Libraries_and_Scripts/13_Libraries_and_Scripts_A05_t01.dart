@@ -6,9 +6,9 @@
 /**
  * @assertion Libraries are units of privacy. A private declaration declared within a library
  * L can only be accessed by code within L. Any attempt to access a private member declaration
- * from outside L will cause a method, getter or setter lookup failure.
- * @description Checks that an attempt to access a private instance member from outside L is
- * equivalent to a method lookup failure.
+ * from outside L will cause a run-time error.
+ * @description Checks that an attempt to access a private instance member from outside L
+ * results in an appropriate runtime error.
  * @author vasya
  * @reviewer msyabro
  * @reviewer rodionov
