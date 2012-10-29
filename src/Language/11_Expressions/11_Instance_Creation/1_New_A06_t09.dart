@@ -11,18 +11,19 @@
  * If q has less than n positional parameters or more than n required parameters, or
  * if q lacks any of the keyword parameters {xn+1 , . . . , xn+k } a NoSuchMethodError
  * is thrown.
- * @description  Checks that AbstractClassInstantiationError is thrown if T is
- * an abstract class.
+ * @description  Checks that a NoSuchMethodError is thrown if constructor lacks a keyword
+ * parameter.
  * @author kaigorodov
  */
+ 
+class C {
+   C({var y:1}) {}
+}
 
-abstract class C {
-  C.namedConstructor() {}
+test() {
+  return new C(x:1); 
 }
 
 main() {
-  try {
-    new C.namedConstructor();
-    Expect.fail("Should throw AbstractClassInstantiationError");
-  } on AbstractClassInstantiationError catch(e) {}
+  Expect.throws(test, (e) => e is NoSuchMethodError);
 }

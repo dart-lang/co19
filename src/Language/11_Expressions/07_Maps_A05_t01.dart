@@ -7,6 +7,7 @@
  * @assertion  It is a run-time error to attempt to modify a constant map literal.
  * @description Checks that it is a run-time error to attempt to modify a constant map literal.
  * @author msyabro
+ * @note the assertion is removed from the spec.
  * @needsreview Issue 1553
  * @reviewer kaigorodov
  */

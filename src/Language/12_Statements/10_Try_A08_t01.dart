@@ -8,18 +8,21 @@
  * t proceeds as follows: The statement s is executed in the dynamic scope of the
  * exception handler deﬁned by the ﬁnally clause of t. Then, the current exception
  * and active stack trace both become undeﬁned.
- * @description Checks that the statement s is executed.
+ * @description Checks that the statement s is executed in the dynamic scope of the
+ * exception handler deﬁned by the ﬁnally clause.
  * @author kaigorodov
  * @note the assertion is obscure, needs clarification
  */
 
 void main() {
-  bool executed=false;
+  int executed=0;
   var ex = new Exception("fail");
   try {
     throw ex;
   } on Exception catch(e, st) {
-    executed=true;
+    executed+=1;
+  } finally {
+    executed+=2;
   }
-  Expect.isTrue(executed);
+  Expect.equals(3, executed);
 }
