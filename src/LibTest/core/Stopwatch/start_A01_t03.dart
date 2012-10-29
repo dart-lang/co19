@@ -23,15 +23,15 @@ main() {
   sw.start();
   sw.start();
   sw.start();
-  int e0 = sw.elapsed();
+  int e0 = sw.elapsedTicks;
   int et = e0;
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {
       sw.start();
-      Expect.isTrue(sw.elapsed() >= et);
-      et = sw.elapsed();
+      Expect.isTrue(sw.elapsedTicks >= et);
+      et = sw.elapsedTicks;
     }
   }
   // assuming that a million iterations takes long enough
-  Expect.isTrue(sw.elapsed() > e0);
+  Expect.isTrue(sw.elapsedTicks > e0);
 }

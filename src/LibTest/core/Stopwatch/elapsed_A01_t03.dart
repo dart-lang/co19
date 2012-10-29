@@ -18,7 +18,7 @@ main() {
   Stopwatch sw = new Stopwatch();
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {
-      Expect.equals(0, sw.elapsed());
+      Expect.equals(0, sw.elapsedTicks);
     }
   }
 }

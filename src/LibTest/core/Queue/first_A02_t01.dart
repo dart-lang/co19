@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an EmptyQueueException if the queue is empty.
+ * @assertion Throws an StateError if the queue is empty.
  * @description Checks that the exception is thrown.
  * @author msyabro
  * @reviewer varlax
@@ -17,7 +17,7 @@ main() {
   try {
     queue.first;
     Expect.fail("Exception is expected");
-  } on EmptyQueueException catch(e) {}
+  } on StateError catch(e) {}
   
   queue.addFirst(1);
   queue.addFirst(2);
@@ -26,5 +26,5 @@ main() {
   try {
     queue.first;
     Expect.fail("Exception is expected");
-  } on EmptyQueueException catch(e) {}
+  } on StateError catch(e) {}
 }

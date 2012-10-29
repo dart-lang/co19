@@ -18,18 +18,18 @@ main() {
   int countdown = 10;
   
   Stopwatch sw = new Stopwatch();
-  Expect.equals(0, sw.elapsedInUs());
+  Expect.equals(0, sw.elapsedMicroseconds);
   sw.start();
   int i, us, lastUs = 0;
   for(i = 0; i < LOTS_OF_REPS && countdown > 0; i++) {
     if(i % 100 == 0) {
-      us = sw.elapsedInUs();
+      us = sw.elapsedMicroseconds;
       Expect.isFalse(us < 0, "The result of elapsedInUs()  was negative: $us");
 
       if(us > lastUs) {
         sw.stop();
-        print("elapsed ticks: ${sw.elapsed()}, in us: ${sw.elapsedInUs()}");
-        Expect.equals(sw.elapsedInUs(), (sw.elapsed() * 1000000) ~/ sw.frequency());
+        print("elapsed ticks: ${sw.elapsedTicks}, in us: ${sw.elapsedMicroseconds}");
+        Expect.equals(sw.elapsedMicroseconds, (sw.elapsedTicks * 1000000) ~/ sw.frequency);
         countdown--;
         lastUs = us;
         sw.start();

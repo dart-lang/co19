@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws a [NoMoreElementsException] if no element is left.
+ * @assertion Throws a [StateError] if no element is left.
  * @description Checks that exception is thrown if no element is left.
  * @author msyabro
  * @reviewer varlax
@@ -14,8 +14,8 @@ main() {
   Queue list = new Queue();
   try {
     list.iterator().next();
-    Expect.fail("NoMoreElementsException is expected");
-  } on NoMoreElementsException catch(ok) { }
+    Expect.fail("StateError is expected");
+  } on StateError catch(ok) { }
 
 
   list.addLast(1);
@@ -23,6 +23,6 @@ main() {
   it.next();
   try {
     it.next();
-    Expect.fail("NoMoreElementsException is expected");
-  } on NoMoreElementsException catch(ok) { }
+    Expect.fail("StateError is expected");
+  } on StateError catch(ok) { }
 }

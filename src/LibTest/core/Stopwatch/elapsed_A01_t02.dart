@@ -23,16 +23,16 @@ main() {
   
   sw.start();
   for(i = 0; i < LOTS_OF_REPS; i++) {
-    elapsed = sw.elapsed();
-    if(sw.elapsed() > 0) break;
+    elapsed = sw.elapsedTicks;
+    if(sw.elapsedTicks > 0) break;
   }
   Expect.isTrue(i < LOTS_OF_REPS, "Elapsed count of a started StopWatch didn't increase soon enough, last value: $elapsed");
   sw.stop();
   
-  e0 = sw.elapsed();
+  e0 = sw.elapsedTicks;
   for(i = 0; i < FEWER_REPS; i++) {
     if(i % 100 == 0) {
-      Expect.equals(e0, sw.elapsed());
+      Expect.equals(e0, sw.elapsedTicks);
     }
   }
 }

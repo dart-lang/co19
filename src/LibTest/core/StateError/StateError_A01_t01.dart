@@ -5,14 +5,12 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this method causes no error and the result is not null and is indeed a String.
+ * @description Checks that this constructor executes without error.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
  */
  
 main() {
-  EmptyQueueException e = new EmptyQueueException();
-  Expect.isTrue(e.toString() != null);
-  Expect.isTrue(e.toString() is String);
+  new StateError("State error");
 }

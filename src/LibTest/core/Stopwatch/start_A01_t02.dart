@@ -17,34 +17,34 @@
 
 main() {
   Stopwatch sw = new Stopwatch();
-  print("Freq: ${sw.frequency()}Hz");
+  print("Freq: ${sw.frequency}Hz");
   sw.start();
   // run the counter up
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {
       // gotta verify the assumption
-      Expect.isTrue(sw.elapsed() >= 0);
+      Expect.isTrue(sw.elapsedTicks >= 0);
     }
   }
-  int e1 = sw.elapsed();
-  print("Elapsed: ${sw.elapsed()}");
+  int e1 = sw.elapsedTicks;
+  print("Elapsed: ${sw.elapsedTicks}");
   sw.stop();
-  print("Elapsed: ${sw.elapsed()}");
-  e1 = sw.elapsed();
+  print("Elapsed: ${sw.elapsedTicks}");
+  e1 = sw.elapsedTicks;
   sw.start();
-  print("Elapsed: ${sw.elapsed()}");
+  print("Elapsed: ${sw.elapsedTicks}");
   // gotta verify the assumption
-  Expect.isTrue(sw.elapsed() >= e1);
+  Expect.isTrue(sw.elapsedTicks >= e1);
 
-  int e0 = sw.elapsed();
+  int e0 = sw.elapsedTicks;
   int et = e0;
   for(int i = 0; i < 1000000; i++) {
     if(i % 100 == 0) {
-      Expect.isTrue(sw.elapsed() >= et);
-      et = sw.elapsed();
+      Expect.isTrue(sw.elapsedTicks >= et);
+      et = sw.elapsedTicks;
     }
   }
   // assuming that a million iterations takes long enough
-  print("Elapsed: ${sw.elapsed()}");
-  Expect.isTrue(sw.elapsed() > e0);
+  print("Elapsed: ${sw.elapsedTicks}");
+  Expect.isTrue(sw.elapsedTicks > e0);
 }

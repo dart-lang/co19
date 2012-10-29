@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [EmptyQueueException] exception if this queue is empty.
+ * @assertion Throws an [StateError] exception if this queue is empty.
  * @description Checks that exception is thrown if the list is empty.
  * @author msyabro
  * @reviewer varlax
@@ -16,7 +16,7 @@ main() {
   try {
     list.removeFirst();
     Expect.fail("Exception is expected");
-  } on EmptyQueueException catch(e) {}
+  } on StateError catch(e) {}
   
   list.addLast(1);
   list.addLast(2);
@@ -25,5 +25,5 @@ main() {
   try {
     list.removeFirst();
     Expect.fail("Exception is expected");
-  } on EmptyQueueException catch(e) {}
+  } on StateError catch(e) {}
 }

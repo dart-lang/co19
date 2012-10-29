@@ -14,20 +14,20 @@
 main() {
   try {
     [].iterator().next();
-    Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } on NoMoreElementsException catch(ok) { }
+    Expect.fail("StateError expected when calling it.next()");
+  } on StateError catch(ok) { }
 
   try {
     const [].iterator().next();
-    Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } on NoMoreElementsException catch(ok) { }
+    Expect.fail("StateError expected when calling it.next()");
+  } on StateError catch(ok) { }
 
   List a = new List(0);
   Iterator it = a.iterator();
   try {
     it.next();
-    Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } on NoMoreElementsException catch(ok) { }
+    Expect.fail("StateError expected when calling it.next()");
+  } on StateError catch(ok) { }
 
   a = new List(null);
   a.add(null);
@@ -35,6 +35,6 @@ main() {
   it.next();
   try {
     it.next();
-    Expect.fail("NoMoreElementsException expected when calling it.next()");
-  } on NoMoreElementsException catch(ok) { }
+    Expect.fail("StateError expected when calling it.next()");
+  } on StateError catch(ok) { }
 }

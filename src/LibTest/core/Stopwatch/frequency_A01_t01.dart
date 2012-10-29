@@ -14,23 +14,23 @@
  
 main() {
   Stopwatch sw = new Stopwatch();
-  int f = sw.frequency();
+  int f = sw.frequency;
   Expect.isTrue(f > 0, "stopwatch frequency is not positive: $f");
   sw.start();
   for(int i = 0; i < 1000000; i++) {
     if(i % 1000 == 0) {
-      Expect.equals(f, sw.frequency());
+      Expect.equals(f, sw.frequency);
     }
   }
   sw.stop();
-  Expect.equals(f, sw.frequency());
+  Expect.equals(f, sw.frequency);
 
   sw.start();
   for(int i = 0; i < 1000000; i++) {
     if(i % 1000 == 0) {
-      Expect.equals(f, sw.frequency());
+      Expect.equals(f, sw.frequency);
     }
   }
   sw.stop();
-  Expect.equals(f, sw.frequency());
+  Expect.equals(f, sw.frequency);
 }

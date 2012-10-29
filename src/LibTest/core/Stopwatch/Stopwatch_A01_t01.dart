@@ -13,8 +13,8 @@
  
 main() {
   Stopwatch sw = new Stopwatch();
-  Expect.equals(0, sw.elapsed());
+  Expect.equals(0, sw.elapsedTicks);
   for(int i = 0; i < 1000000; i++) {
-    Expect.equals(0, sw.elapsed());
+    Expect.equals(0, sw.elapsedTicks);
   }
 }

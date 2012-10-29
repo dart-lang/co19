@@ -22,7 +22,7 @@ class CustomIterator<T> implements Iterator<T> {
 
   T next() {
     if (!hasNext) {
-      throw const NoMoreElementsException();
+      throw new StateError("No next element");
     }
     return _array[_pos++];
   }
