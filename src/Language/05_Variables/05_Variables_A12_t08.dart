@@ -4,23 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  A static variable declaration of one of the forms static T v;, static T v = e;,
- * static  const T v = e;  or static final T v = e; always induces an implicit static
- * getter function with signature static T get v().
+ * @assertion A variable declaration of one of the forms
+ * T v;, T v = e; , const T v = e;, ﬁnal T v; or ﬁnal T v = e;
+ * always induces an implicit getter function with signature
+ *   T get v
  * @description Checks that the returned type of this implicit getter is the same as the
  * static field's type, by attempting to assign the result of its invocation to a variable
  * of incompatible type. Static warning expected.
- * @author msyabro
- * @reviewer iefremov
+ * @author pagolubev
  * @static-warning
+ * @reviewer msyabro
+ * @reviewer rodionov
  */
 
 class A {
-  static const int a = 2;
+  static int a;
 }
 
 main() {
-  try {
-    bool a = A.a;
-  } on TypeError catch (e) {}
+  bool a = A.a;
 }

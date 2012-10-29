@@ -5,7 +5,7 @@
  */
 /**
  * @assertion When invoked from a constant object expression, a constant constructor
- * must throw an exception if any of its actual parameters would be a value that
+ * must throw an exception if any of its actual parameters is a value that
  * prevent one of the potentially constant expressions within it from being a valid
  * compile-time constant.
  * @description Checks that compile-time error is produced if actual parameters passed to the constructor

@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A static variable declaration of one of the forms static var  v;,
- * static var  v = e; static  const v = e;  or static final v = e; always induces
- * an implicit static getter function with signature static get v().
+ * @assertion A variable declaration of one of the forms
+ * var v;, var v = e; , const v = e;, ﬁnal v; or ﬁnal v = e;
+ * always induces an implicit getter function with signature
+ *   get v
  * @description Checks that the returned type of this implicit getter is the same as the
  * static field's type (dynamic), by making sure there're no static warnings when invoking
  * non-existing methods on the value returned by these getters.

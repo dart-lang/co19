@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A non-final static variable declaration of the form static var v; or the
- * form static var v = e; always induces an implicit static setter function
- * with signature static set v(x) whose execution sets the value of v to the
- * incoming argument x.
+ * @assertion A non-final variable declaration of the form var v;
+ * or the form var v = e; always induces an implicit setter function 
+ * with signature
+ *   set v = (x)
  * @description Checks that the signature of this implicit setter is correct
  * and the type of its formal parameter is indeed dynamic by passing values of
  * various types to it.
