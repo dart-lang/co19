@@ -87,7 +87,7 @@ class Abstract {
   func();
   funcWithParams(p1, p2);
   funcWithOptionalParams([p1 = 1, p2 = 2]);
-  get val();
+  get val;
   set val(var v);
   operator==(Abstract other);
 

@@ -43,11 +43,15 @@ class A extends S {
     - -super; // should be interpreted as -(-super);
 //    !!super;
     ~~super;
-    !-super;
+    try {
+      !-super;
+    } catch (ok) {}
 //    -!super;
     ~-super;
     -~super;
-    !~super;
+    try {
+      !~super;
+    } catch (ok) {}
 //    ~!super;
   }
 }

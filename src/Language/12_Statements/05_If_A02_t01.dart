@@ -6,14 +6,14 @@
 /**
  * @assertion First, the expression b is evaluated to an object o.
  *  Then, o is subjected to boolean conversion, producing an object r.
- * @description Checks that there is no dynamic type error if the expression
+ * @description Checks that there dynamic type error if the expression
  *  does not evaluate to a value of type bool in checked mode.
  * @author kaigorodov
  */
 
 main() {
   var o = 1;
-  var i;
-  if (o) {i = "hello";}
+  var i=null;
+  Expect.throws((){if (o) {i = "hello";}});  
   Expect.isNull(i);
 }
