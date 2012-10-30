@@ -6,7 +6,7 @@ part of Parts_test_lib;
 
 class A { }
 
-get value() { return _value; }
+get value { return _value; }
 set value(value) { _value = value; }
 var _value;
 

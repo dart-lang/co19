@@ -4,7 +4,7 @@
 
 part of Parts_test_lib
 
-get value() { return _value; }
+get value { return _value; }
 set value(value) { _value = value; }
 
 var _value;

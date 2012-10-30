@@ -33,7 +33,7 @@ abstract class SI1 {
   int variable;
   int method(int v, Pattern p, [num o1, String o2]);
   int method2(int v, [int o]);
-  int get gett0r();
+  int get gett0r;
   void set sett0r(int v);
   SI1 operator+(int v);
 }
@@ -42,7 +42,7 @@ abstract class SI2 {
   num variable;
   void method(num v, String p, [int o1, Pattern o2]);
   String method2(String v, [String o]);
-  num get gett0r();
+  num get gett0r;
   void set sett0r(num v);
   SI2 operator+(String v);
 }

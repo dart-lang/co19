@@ -17,20 +17,20 @@
 
 class A {
   static var _sVal;
-  static get sVal() {}
+  static get sVal {}
   static set sVal(var value) {}
 
   var _val;
-  get val() {}
+  get val {}
   set val(var value) {}
   
-  abstract get aVal();
+  abstract get aVal;
   abstract set aVal(var val);
 
-  get bVal() {}
+  get bVal {}
   abstract set bVal(var val);
 
-  abstract get cVal();
+  abstract get cVal;
   void set cVal(var val) {}
 }
 

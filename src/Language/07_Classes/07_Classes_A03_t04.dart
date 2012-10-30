@@ -27,7 +27,7 @@
  */
 
 class A {
-  get val();
+  get val;
   var _val;
 }
 

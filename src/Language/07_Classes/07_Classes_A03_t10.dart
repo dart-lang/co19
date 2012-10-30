@@ -33,7 +33,7 @@ class A {
   @B(1) A.C(): _x = 1 {}
 
   @A static fun() {}
-  @B(1) get x() {}
+  @B(1) get x {}
   @A set x(var v) {}
   @B(1) operator==(A other) {}
 

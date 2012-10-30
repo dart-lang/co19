@@ -26,29 +26,29 @@
  * @reviewer kaigorodov
  * @reviewer rodionov
  * @note see also A01/t27
- * @note issue #1288
+ * @note co19 issue #301
  */
 
 class S {
   var x=1;
-  operator-() {}
-  operator~() {}
+  operator-() { return this; }
+  operator~() { return this; }
 }
 
 class A extends S {
   test() {
     -super;
-    !super;
+//    !super;
     ~super;
-    --super; // should be interpreted as -(-super);
-    !!super;
+    - -super; // should be interpreted as -(-super);
+//    !!super;
     ~~super;
     !-super;
-    -!super;
+//    -!super;
     ~-super;
     -~super;
     !~super;
-    ~!super;
+//    ~!super;
   }
 }
 

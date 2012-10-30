@@ -20,7 +20,7 @@ abstract class I1 {
   int foo;
   String bar;
   void m();
-  int get gett0r();
+  int get gett0r;
   void set sett0r(int v);
   I1 operator+(int i);
 }

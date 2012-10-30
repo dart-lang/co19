@@ -16,7 +16,7 @@
  */
 
 class A {
-  static get f() {}
+  static get f {}
 }
 
 class C extends A {

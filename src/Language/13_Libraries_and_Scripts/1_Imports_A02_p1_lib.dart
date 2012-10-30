@@ -14,7 +14,7 @@ class B {
   foo() { return "1_Imports_A02_p1_lib.foo()"; }
   var bar = "1_Imports_A02_p1_lib.bar";
   //static final FOO = "B.FOO";
-  get value() { return _value; }
+  get value { return _value; }
   set value(val) { _value = val; }
 
   var _value;
@@ -23,7 +23,7 @@ class B {
 class F extends I {
   F() {}
   foo() { return "i.foo()"; }
-  get value() { return _value; }
+  get value { return _value; }
   set value(val) { _value = val; }
 }
 
@@ -31,7 +31,7 @@ abstract class I {
   factory I() = F;
   //static final FOO = "I.FOO";
   String foo();
-  get value();
+  get value;
   set value(val);
   var _value;
 }

@@ -29,8 +29,8 @@ class C {
   operator[](index) {}
   operator[]=(index, value) {}
 
-  get x() {}
-  get y() {}
+  get x {}
+  get y {}
 
   set x(v) {}
   set y(v) {}

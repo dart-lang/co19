@@ -13,7 +13,7 @@
  */
 
 class S {
-  int get m() {}
+  int get m {}
 }
 
 class C extends S {

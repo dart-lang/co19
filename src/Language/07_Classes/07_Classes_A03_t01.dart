@@ -36,7 +36,7 @@ class A implements I {
   A.C(): _x = 1 {}
 
   static f() {}
-  get x() {}
+  get x {}
   set x(var v) {}
   operator==(A other) {}
 

@@ -17,7 +17,7 @@
  */
 
 var _x;
-get x() {return _x;}
+get x {return _x;}
 
 main() {
   _x = 1;

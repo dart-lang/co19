@@ -25,7 +25,7 @@ class C extends S{
 }
 
 class Sub extends C {
-  get v() { Expect.fail("Wrong getter was called");}
+  get v { Expect.fail("Wrong getter was called");}
 }
 
 main()  {

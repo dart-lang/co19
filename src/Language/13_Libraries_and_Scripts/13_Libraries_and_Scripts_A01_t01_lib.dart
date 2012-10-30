@@ -28,9 +28,9 @@ var z;
 
 int a, b, c = 1;
 
-get getX() {}
+get getX {}
 set setY(p) {}
 
 external double extF(int);
-external get extGet();
+external get extGet;
 external set extSet(int);

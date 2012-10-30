@@ -8,5 +8,5 @@
 class A {
   _foo(var arg) { return 'A'; }
   _bar([x]) {return "barx";}
-  get _g() {return "super-g";}
+  get _g {return "super-g";}
 }

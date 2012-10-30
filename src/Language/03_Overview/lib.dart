@@ -29,6 +29,6 @@ class ClassWithPrivateMembers {
   _fun(){return 42;}
   static _staticfun() {return 54;}
 
-  get _getter() {return 100500;}
+  get _getter {return 100500;}
   void set _setter(x) {throw 1;}
 }

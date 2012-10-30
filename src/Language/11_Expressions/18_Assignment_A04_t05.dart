@@ -27,7 +27,7 @@
  */
 
 class C {
-  static get v()  {}
+  static get v  {}
 }
 
 main() {
