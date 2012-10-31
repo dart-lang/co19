@@ -15,6 +15,7 @@
  * is used in an optional named parameter declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 foo({var a: 1, var b = 2}) {

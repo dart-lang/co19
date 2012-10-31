@@ -15,6 +15,7 @@
  * initialized in its declaration. 
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 final int v;

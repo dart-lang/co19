@@ -11,10 +11,11 @@
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that a statement cannot be used instead of expression in an
+ * @description Checks that a declaration cannot be used instead of expression in an
  * optional named parameter declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 f({var x: var z}) {}

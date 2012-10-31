@@ -10,17 +10,14 @@
  * @description Checks that this getter indeed returns an instance of class Type
  * that is not null for non-null values of various types and doesn't cause any errors.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {
   Expect.isTrue(1.runtimeType is Type);
-  Expect.isNotNull(1.runtimeType);
   Expect.isTrue((1.1).runtimeType is Type);
-  Expect.isNotNull((1.1).runtimeType);
   Expect.isTrue("foo".runtimeType is Type);
-  Expect.isNotNull("foo".runtimeType);
   Expect.isTrue(true.runtimeType is Type);
-  Expect.isNotNull(true.runtimeType);
   Expect.isTrue(main.runtimeType is Type);
-  Expect.isNotNull(main.runtimeType);
+  Expect.isTrue((const [1,2,3]).runtimeType is Type);
 }

@@ -15,6 +15,7 @@
  * are mixed in an optional parameters declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 foo({const p: 1]) {

@@ -17,6 +17,7 @@
  * expected in this test.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

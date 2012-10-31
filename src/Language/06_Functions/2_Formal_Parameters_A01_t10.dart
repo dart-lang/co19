@@ -29,6 +29,7 @@
  * @description Checks that parameter declarations must be separated by comma.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void f(var p1 [var p2]) {}

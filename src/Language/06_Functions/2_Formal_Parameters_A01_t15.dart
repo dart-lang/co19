@@ -29,6 +29,7 @@
  * @description Checks that the optional positional parameter list must begin with an opening square bracket.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void f(]) {}

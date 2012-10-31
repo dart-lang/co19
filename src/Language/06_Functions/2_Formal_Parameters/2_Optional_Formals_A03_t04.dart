@@ -10,6 +10,7 @@
  * optional parameter begins with an '_' character.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {

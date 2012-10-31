@@ -30,6 +30,7 @@
  * parameters is present in one function declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void f(var a, {var b}, {var c}) {}

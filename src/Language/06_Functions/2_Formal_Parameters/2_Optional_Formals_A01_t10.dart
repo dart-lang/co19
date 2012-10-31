@@ -12,9 +12,11 @@
  *   normalFormalParameter (':' expression)?
  * ;
  * @description Checks that an optional named parameter can be final. 
- * Reassigning it should produce a compile-time error.
- * @compile-error
+ * Reassigning it should produce a static warning and a runtime error.
+ * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
+ * @issue 5886
  */
 
 foo({final p: 1}) {

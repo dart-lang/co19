@@ -15,6 +15,7 @@
  * @description Checks that invoking an external function that is not connected to
  * its body indeed results in a NoSuchMethodError or its subclass being thrown.
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 5774
  */
 
@@ -23,10 +24,12 @@ external g([var x]);
 external h({var x});
 
 main() {
+var s="";
   try {
     f();
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+  } on NoSuchMethodError catch(e) {
+  } catch(e) {print("unexpected exception of type ${e.runtimeType}: $e");}
 
   try {
     g();

@@ -15,6 +15,7 @@
  * has been initialized in declaration is also initialized in a constructor.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

@@ -10,7 +10,7 @@
  * of an optional parameter is not a compile-time constant.
  * @compile-error
  * @author rodionov
- * @note issue 963
+ * @reviewer kaigorodov
  */
 
 main() {

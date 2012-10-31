@@ -29,6 +29,7 @@
  * @description Checks that optional positional parameters can't precede required parameters.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 f([var a], var b) {}

@@ -16,6 +16,7 @@
  * elsewhere in the same constructor.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 5881
  */
 

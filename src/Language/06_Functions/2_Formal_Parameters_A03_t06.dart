@@ -10,6 +10,7 @@
  * positional parameter is declared as a constant typed variable.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void f({const int x}) {}

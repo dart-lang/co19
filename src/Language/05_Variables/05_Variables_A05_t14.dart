@@ -17,6 +17,7 @@
  * expected in this test.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 5886
  */
 

@@ -29,6 +29,7 @@
  * @description Checks that the optional positional parameter list cannot end with a comma.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void f([var p1, ]) {}

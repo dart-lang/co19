@@ -29,6 +29,7 @@
  * @description Checks that the list of optional positional parameters cannot be empty.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void f([]) {}
