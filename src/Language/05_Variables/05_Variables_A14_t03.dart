@@ -16,6 +16,7 @@
  * @reviewer rodionov
  * @static-warning
  */
+import "../../Utils/dynamic_check.dart";
 
 class A {
   int v = 42;
@@ -23,7 +24,7 @@ class A {
 
 main() {
   A a = new A();
-  try {
+  checkTypeError(() {
     a.v = false;
-  } on TypeError catch (ok) {}
+  });
 }

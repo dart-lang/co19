@@ -10,11 +10,19 @@
  *  evaluates to null in checked mode.
  * @author kaigorodov
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
-  var i=null;
+  var i = null;
+  bool err = false;
   try {
     if (i) {i = "hello";}
   } on AssertionError catch (e) {
+    err = true;
+  }
+  if(isCheckedMode()) {
+    Expect.isTrue(err, "AssertionError expected in checked mode");
+  } else {
+    Expect.isFalse(err, "AssertionError NOT expected in production mode");
   }
 }

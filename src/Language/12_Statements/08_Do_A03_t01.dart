@@ -12,9 +12,7 @@
  */
 
 main() {
-  try {
-    do {
-      break;
-    } while ("true");
-  } on TypeError catch(ok) {}
+  do {
+    break;
+  } while("true");
 }

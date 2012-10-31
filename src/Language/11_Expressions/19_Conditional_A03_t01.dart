@@ -11,9 +11,10 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
-  try {
+  checkTypeError(() {
     "" ? true : false;
-  } on TypeError catch(e) {print("TypeError: $e");}
+  });
 }

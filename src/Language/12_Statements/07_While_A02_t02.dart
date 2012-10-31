@@ -15,7 +15,7 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 main() {
   while(true) {
@@ -39,17 +39,18 @@ main() {
   });
 
   if(isCheckedMode()) {
+    bool fail = false;
     try {
       while(null) {
         break;
       }
-      Expect.fail("Assertion error expected in checking mode");
+      fail = true;
     } on AssertionError catch(ok) {
     }
+    Expect.isFalse(fail, "AssertionError expected in checking mode");
   } else {
     while(null) {
       break;
     }
   }
 }
-

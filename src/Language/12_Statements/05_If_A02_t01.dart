@@ -10,10 +10,13 @@
  *  does not evaluate to a value of type bool in checked mode.
  * @author kaigorodov
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
   var o = 1;
-  var i=null;
-  Expect.throws((){if (o) {i = "hello";}});  
+  var i = null;
+  checkTypeError(() {
+    if (o) {i = "hello";}
+  });  
   Expect.isNull(i);
 }

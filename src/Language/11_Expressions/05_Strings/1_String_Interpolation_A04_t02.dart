@@ -30,8 +30,8 @@ class C {
 
     try {
       "${(const []).addLast(1)}";
-      Expect.fail("UnsupportedOperationException is expected");
-    } on UnsupportedOperationException catch(e) {}
+      Expect.fail("UnsupportedError is expected");
+    } on UnsupportedError catch(e) {}
 
     try {
       "${null.someMethod()}";

@@ -52,17 +52,37 @@ abstract class I implements SI1, SI2 {}
 main() {
   I i = null;
   
-  try {i.variable;} on NullPointerException catch(npe) {}
+  try {
+    i.variable;
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
   
-  try {i.method(null, null, o1:null, o2:null);} on NullPointerException catch(npe) {}
+  try {
+    i.method(null, null, o1:null, o2:null);
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
   
-  try {var v = i.method2(null, o:null);} on NullPointerException catch(npe) {}
+  try {
+    var v = i.method2(null, o:null);
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
   
-  try {num n = i.gett0r;} on NullPointerException catch(npe) {}
+  try {
+    num n = i.gett0r;
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
   
-  try {i.sett0r = null;} on NullPointerException catch(npe) {}
+  try {
+    i.sett0r = null;
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
   
-  try {var v = i + null;} on NullPointerException catch(npe) {}
+  try {
+    var v = i + null;
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
 
-//  try {i.nonexistent;} on NullPointerException catch(npe) {}
+//  try {
+//    i.nonexistent;
+//  } on NullPointerException catch(npe) {}
 }

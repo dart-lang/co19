@@ -16,6 +16,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
   Expect.equals(1, true ? 1 : 2);
@@ -26,7 +27,15 @@ main() {
   Expect.equals("yes", (identical(0, 0)) ? "yes" : "no");
 
   //scripting mode only, raises static type warnings
-  try {Expect.equals(0, [] ? 1 : 0); } on TypeError catch(e) {}
-  try {Expect.equals(0, new Object() ? 1 : 0); } on TypeError catch(e) {}
-  try {Expect.equals(0, "" ? 1 : 0); } on TypeError catch(e) {}
+  checkTypeError(() {
+    Expect.equals(0, [] ? 1 : 0);
+  });
+  
+  checkTypeError(() {
+    Expect.equals(0, new Object() ? 1 : 0);
+  });
+  
+  checkTypeError(() {
+    Expect.equals(0, "" ? 1 : 0);
+  });
 }

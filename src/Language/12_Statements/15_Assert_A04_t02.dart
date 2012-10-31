@@ -10,11 +10,12 @@
  * @author rodionov
  * @reviewer iefremov
  */
+import "../../Utils/dynamic_check.dart";
 
 foo() {}
 
 main() {
-  try {
+  checkTypeError(() {
     assert(foo);
-  } on TypeError catch(e) {}
+  });
 }

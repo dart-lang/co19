@@ -14,10 +14,8 @@
 void f() {}
 
 main() {
-  try {
-    do {
-      break;
-    } while (f());
-  } on TypeError catch(ok) {}
+  do {
+    break;
+  } while (f());
 }
 

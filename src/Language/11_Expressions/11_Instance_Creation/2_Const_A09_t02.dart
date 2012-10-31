@@ -14,13 +14,14 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/dynamic_check.dart";
 
 class A {
   const A(int p1, int p2);
 }
 
 main() {
-  try {
+  checkTypeError(() {
     const A(0x1, "2");
-  } on TypeError catch(e) {}
+  });
 }

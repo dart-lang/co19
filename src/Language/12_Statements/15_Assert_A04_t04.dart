@@ -13,12 +13,19 @@
  * @needsreview issue 1714
  */
 
+import "../../Utils/dynamic_check.dart";
+
 bool foo(x) {}
 
 main() {
   try {
     assert(foo);
+    if(isCheckedMode()) {
+      Expect.fail("NoSuchMethodError expected");
+    }
   } on NoSuchMethodError catch(e) {
-    // if it attempts to invoke the function anyway
+    if(!isCheckedMode()) {
+      Expect.fail("Unexpected error: $e");
+    }
   }
 }

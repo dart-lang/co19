@@ -28,18 +28,13 @@ class C {
   }
 }
 
-
-check(bool cond) {
-  if (!cond) throw "failed";
-}
-
 main() {
   Expect.listEquals([new A(),new B()], [new B(), new A()]);
 
   try {
     var c = new C();
     Expect.listEquals([c], [c]);
-    check(false);
+    throw "ExpectException expected";
   } on ExpectException catch(ee) {
   }
 }

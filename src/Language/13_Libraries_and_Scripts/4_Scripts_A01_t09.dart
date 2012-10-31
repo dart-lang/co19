@@ -19,10 +19,8 @@
 abstract class I {}
 library Script_A01_t09;
 
-class C implements I {}
-
 main() {
   try {
-    new C();
+    new I();
   } catch(e) {}
 }

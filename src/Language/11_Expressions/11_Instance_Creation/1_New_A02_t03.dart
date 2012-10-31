@@ -22,5 +22,6 @@ func() {}
 main() {
   try {
     new func();
-  } on TypeError catch(e) {}
+    Expect.fail("Runtime error expected");
+  } on Error catch(e) {}
 }

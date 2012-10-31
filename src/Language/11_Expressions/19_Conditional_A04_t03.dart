@@ -13,12 +13,18 @@
  * @reviewer kaigorodov
  * @needsreview issue 3221
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
-  try {
-    int i    = (true ? 1 : 0.5);
+  int i = (true ? 1 : 0.5);
+
+  checkTypeError(() {
     double d = (true ? 1 : 0.5);
+  });
+
+  checkTypeError(() {
     bool b = (false ? true : []);
-    List l = (false ? true : []);
-  } on TypeError catch(e) {}
+  });
+
+  List l = (false ? true : []);
 }

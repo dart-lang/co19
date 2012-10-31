@@ -40,5 +40,8 @@ abstract class I implements SI1, SI2 {}
 main() {
   I i = null;
   
-  try {i.foo;} on NullPointerException catch(npe) {}
+  try {
+    i.foo;
+    Expect.fail("NPE expected");
+  } on NullPointerException catch(npe) {}
 }

@@ -22,9 +22,8 @@ foo (int x, int y) { // this function returns modulo of x and y.
 main() {
   try { // start try statement
     foo(1, 0); // call foo() with 1 and 0 params
-    Expect.equals(false, true);
+    Expect.fail("");
   } on Exception catch(e) { // try to catch exception
     // Expect.fail(e.toString());
-    Expect.equals(true, true);
   } // end try statement
 }

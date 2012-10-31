@@ -20,7 +20,7 @@ main() {
   }
   try {
     assert(1 == 2);
-    Expect.fail("AssertionError expected");
+    throw "AssertionError expected";
   } on AssertionError catch(e) {
     Expect.isTrue(e.toString() != null);
     Expect.isTrue(e.toString() is String);

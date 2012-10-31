@@ -11,9 +11,10 @@
  * @static-warning
  * @reviewer rodionov
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
-  try {
+  checkTypeError(() {
     int d = 1.1;
-  } on TypeError catch(ok) {}
+  });
 }

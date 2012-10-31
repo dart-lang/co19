@@ -21,7 +21,7 @@ main() {
   try {
     assert(true == false);
     // ....^ this is col 12
-    Expect.fail("AssertionError expected");
+    throw "AssertionError expected";
   } on AssertionError catch(e) {
     Expect.equals(12, e.column);
   }

@@ -16,9 +16,10 @@
  * @reviewer rodionov
  * @needsreview Issue 1287
  */
+import "../../../Utils/dynamic_check.dart";
 
 main() {
-  try {
+  checkTypeError(() {
     (int p1, int p2) {}("", "");
-  } on TypeError catch(e) {}
+  });
 }

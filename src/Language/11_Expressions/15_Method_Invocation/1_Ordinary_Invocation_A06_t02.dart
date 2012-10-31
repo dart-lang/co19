@@ -29,5 +29,6 @@ main() {
   C o;
   try {
     o._func();
+    Expect.fail("NPE expected");
   } on NullPointerException catch(e) {}
 }

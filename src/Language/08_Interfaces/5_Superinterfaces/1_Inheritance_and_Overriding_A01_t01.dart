@@ -13,7 +13,7 @@
  * @author rodionov
  * @note Only makes sense when dartc is used - uncomment the commented out lines
  * and see if it fails in VM mode.
- * reviewer kaigorodov
+ * @reviewer kaigorodov
  */
 
 abstract class I1 {
@@ -35,27 +35,27 @@ main() {
   
 //  try {i2.nonexistent;} on NullPointerException catch(npe) {}
 
-  try {i2.foo;} on NullPointerException catch(npe) {}
+  try {i2.foo; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i2.bar;} on NullPointerException catch(npe) {}
+  try {i2.bar; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i2.m();} on NullPointerException catch(npe) {}
+  try {i2.m(); Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i2.gett0r;} on NullPointerException catch(npe) {}
+  try {i2.gett0r; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i2.sett0r = 1;} on NullPointerException catch(npe) {}
+  try {i2.sett0r = 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i2 + 1;} on NullPointerException catch(npe) {}
+  try {i2 + 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i3.foo;} on NullPointerException catch(npe) {}
+  try {i3.foo; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i3.bar;} on NullPointerException catch(npe) {}
+  try {i3.bar; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i3.m();} on NullPointerException catch(npe) {}
+  try {i3.m(); Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i3.gett0r;} on NullPointerException catch(npe) {}
+  try {i3.gett0r; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i3.sett0r = 1;} on NullPointerException catch(npe) {}
+  try {i3.sett0r = 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 
-  try {i3 + 1;} on NullPointerException catch(npe) {}
+  try {i3 + 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
 }

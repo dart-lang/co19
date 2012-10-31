@@ -15,11 +15,16 @@
 import "dart:isolate";
 
 void main() {
-  try {
     ReceivePort rPort = new ReceivePort();
     SendPort sPort = rPort.toSendPort();
-
-    rPort.receive(null);
-    sPort.send(2, sPort);
-  } on NoSuchMethodError catch(e) {}
+    bool err = false;
+    try {
+      rPort.receive(null);
+      sPort.send(2, sPort);
+    } catch(e) {
+      err = true;
+    } finally {
+      rPort.close();
+    }
+    Expect.isTrue(err, "Some error expected");
 }

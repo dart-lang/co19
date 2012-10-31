@@ -11,9 +11,10 @@
  * @author kaigorodov
  * @reviewer msyabro
  */
+import "../../Utils/dynamic_check.dart";
 
 main() {
-  try {
+  checkTypeError(() {
     int b = (true || false);
-  } on TypeError catch(e) {}
+  });
 }

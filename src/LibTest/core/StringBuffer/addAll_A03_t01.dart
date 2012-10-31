@@ -17,5 +17,4 @@ main() {
     new StringBuffer().addAll(null);
     Expect.fail("NullPointerException is expected");
   } on NullPointerException catch(e) {}
-  
 }

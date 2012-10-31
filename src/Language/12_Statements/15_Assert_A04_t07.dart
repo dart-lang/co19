@@ -10,11 +10,10 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 3221
  */
 
 main() {
-  try {
+//  try {
     assert(true ? (() => true) : ((var x) => 1));
-  } on TypeError catch(e) {}
+//  } on TypeError catch(e) {}
 }

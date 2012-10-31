@@ -17,13 +17,10 @@
  * @author kaigorodov
  * @issue 6029
  */
-
 typedef bool foo(int x, int y, {double a, double b});
 
 foo f;
 
 main() {
-  try {
-  	f = (int x, int y, {double a, double b}) => 1;
-  } on TypeError catch(ok) {}
+	f = (int x, int y, {double a, double b}) => 1;
 }

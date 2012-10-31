@@ -15,13 +15,13 @@
  * @reviewer iefremov
  * @static-warning
  */
-
+import "../../Utils/dynamic_check.dart";
 class A {
   static const int a = 2;
 }
 
 main() {
-  try {
+  checkTypeError(() {
     bool a = A.a;
-  } on TypeError catch (e) {}
+  });
 }

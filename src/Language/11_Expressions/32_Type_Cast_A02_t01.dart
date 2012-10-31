@@ -31,5 +31,6 @@ main() {
   Expect.identical(c, c as I);
   try {
     c = 1 as I;
+    Expect.fail("CastError expected");
   } on CastError catch (e) {}
 }

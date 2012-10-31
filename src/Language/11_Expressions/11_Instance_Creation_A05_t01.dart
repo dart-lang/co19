@@ -15,12 +15,13 @@
  * @reviewer kaigorodov
  * @needsreview Issue 1380
  */
+import "../../Utils/dynamic_check.dart";
 
 class G<T extends num, S extends String> {
 }
 
 main() {
-  try {
+  checkTypeError(() {
     var o = new G<double, double>();
-  } on TypeError catch(e) {}
+  });
 }

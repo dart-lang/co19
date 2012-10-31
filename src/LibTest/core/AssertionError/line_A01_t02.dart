@@ -20,7 +20,7 @@ main() {
   }
   try {
     assert(true == false); // this is line 22
-    Expect.fail("AssertionError expected");
+    throw "AssertionError expected";
   } on AssertionError catch(e) {
     Expect.equals(22, e.line);
   }

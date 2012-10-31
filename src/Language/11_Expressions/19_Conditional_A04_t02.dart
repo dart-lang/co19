@@ -13,11 +13,12 @@
  * @reviewer kaigorodov
  * @needsreview 3221
  */
+import "../../Utils/dynamic_check.dart";
 
 class A {}
 
 main() {
-  try {
+  checkTypeError(() {
     A a = (true ? 1 : 0.5); //Type should be num, num can't be assigned to A.
-  } on TypeError catch(e) {print(e);} 
+  });
 }

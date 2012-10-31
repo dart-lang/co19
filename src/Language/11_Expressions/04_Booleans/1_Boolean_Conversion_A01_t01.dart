@@ -15,13 +15,15 @@
  * @reviewer rodionov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 main() {
   if(isCheckedMode()) {
+    bool fail = false;
     try {
       if(null) {}
-      Expect.fail("AssertError is expected");
+      fail = true;
     } on AssertionError catch(ok) {}
+    Expect.isFalse(fail, "AssertError is expected");
   }
 }

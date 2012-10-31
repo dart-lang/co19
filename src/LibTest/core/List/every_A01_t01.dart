@@ -31,11 +31,14 @@ main() {
   c.addAll([1,2,3]);
   Expect.isTrue(a.length == b.length && b.every(f));
 
-
+  a.insertRange(0,3,[-1,-2,-3]);
   try {
-    checkTypeError(() {
-      a.insertRange(0,3,[-1,-2,-3]);
-      a.every(f);
-    });
-  } on NoSuchMethodError catch(ok){}
+    a.every(f);
+  } catch(e){
+    if(isCheckedMode()) {
+      Expect.isTrue(e is TypeError, "Type error expected in checked mode");
+    } else {
+      Expect.isTrue(e is NoSuchMethodError, "NoSuchMethodError expected in production mode");
+    }
+  }
 }

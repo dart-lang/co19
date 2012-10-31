@@ -10,6 +10,7 @@
  * @static-warning
  * @reviewer rodionov
  */
+import "../../Utils/dynamic_check.dart";
 
 class A {
 }
@@ -19,7 +20,7 @@ class B {
 }
 
 main() {
-  try {
+  checkTypeError(() {
     A a=new B().func();
-  } on TypeError catch(e) {}
+  });
 }

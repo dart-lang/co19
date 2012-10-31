@@ -14,13 +14,14 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/dynamic_check.dart";
 
 class C {
   C.name(int p1) {}
 }
 
 main() {
-  try {
+  checkTypeError(() {
     C c = new C.name("");
-  } on TypeError catch(e) {}
+  });
 }
