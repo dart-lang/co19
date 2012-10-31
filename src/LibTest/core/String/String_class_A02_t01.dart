@@ -24,5 +24,5 @@ main() {
   str = "$str\u{10000}"; //UTF-32;
   
   Expect.equals(str, "\u0061\u1d02\u{10000}");
-  Expect.equals(3, str.length);
+  Expect.equals(4, str.length);
 }

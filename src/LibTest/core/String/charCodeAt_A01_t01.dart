@@ -15,5 +15,5 @@ main() {
   Expect.isTrue(" ".charCodeAt(0) == 0x20);
 
   Expect.isTrue("abcdefghij".charCodeAt(9) == 0x6A);
-  Expect.isTrue("\u{10000}".charCodeAt(0) == 0x10000);
+  Expect.isTrue("\u{10000}".charCodeAt(0) == 0xd800);
 }
