@@ -19,9 +19,9 @@
  *    static? setterSignature |
  *    operatorSignature
  * ;
- * @description Checks that there is no compile-time error if a operatoe
- * method definition does not include a body. This make the class abstract, and 
- * AbstractClassInstantiationError is thrown when instantiation attempted.
+ * @description Checks that there is no compile-time error if an operator
+ * method definition in a concrete class does not include a body, and no
+ * runtime error is thrown when that class is instantiated.
  * @author msyabro
  */
 
@@ -30,7 +30,5 @@ class A {
 }
 
 main() {
-  try {
-    A a = new A();
-  } on AbstractClassInstantiationError catch (e) {}
+  A a = new A();
 }
