@@ -17,7 +17,7 @@
  * (doesn't have the method call) and getter is declared implicitly.
  * @author msyabro
  * @reviewer iefremov
- * @needsreview issue 1604, issue 3326
+ * @needsreview issue 3326
  */
 
 class TestException {}

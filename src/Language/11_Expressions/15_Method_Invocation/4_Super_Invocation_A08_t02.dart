@@ -13,7 +13,6 @@
  * to variables with various declared types.
  * @author rodionov
  * @reviewer iefremov
- * @issue 1604
  */
 
 class C {
@@ -25,33 +24,33 @@ class S extends C {
   void test() {
     try {
       String foo = super.obj();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ex) {}
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(ex) {}
 
     try {
       bool foo = super.dyn();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ex) {}
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(ex) {}
 
     try {
       C foo = super.obj();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ex) {}
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(ex) {}
 
     try {
       Object foo = super.dyn();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ex) {}
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(ex) {}
 
     try {
       List foo = super.obj();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ex) {}
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(ex) {}
 
     try {
       Map foo = super.dyn();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ex) {}
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(ex) {}
   }
 }
 

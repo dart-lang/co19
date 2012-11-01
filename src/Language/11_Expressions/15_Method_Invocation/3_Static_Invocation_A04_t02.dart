@@ -15,15 +15,14 @@
  * The body of f is then executed with respect to the bindings that resulted
  * from the evaluation of the argument list. The value of i is the value returned
  * after the body of f is executed.
- * @description Checks that a NoSuchMethodError is thrown if m is not a function
+ * @description Checks that a NoSuchMethodError is thrown if m is not null and not function
  * and getter is declared implicitly.
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 1604
  */
 
 class C {
-  static var func;
+  static var func = 1;
 }
 
 main()  {

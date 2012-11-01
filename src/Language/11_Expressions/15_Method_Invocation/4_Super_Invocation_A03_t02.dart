@@ -8,15 +8,14 @@
  * m in S with respect to L. If the getter lookup succeeded, let vg be the value
  * of the getter invocation super.m. Then the value of i is the value of
  * the method invocation vg.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
- * @description Checks that NoSuchMethodError is thrown if getter is not a function
- * and getter is declared implicitly.
+ * @description Checks that NoSuchMethodError is thrown if an implicit getter is invoked
+ * and its value is neither null, nor function.
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 1604
  */
 
 class S {
-  var func;
+  var func = 1;
 }
 
 class A extends S {

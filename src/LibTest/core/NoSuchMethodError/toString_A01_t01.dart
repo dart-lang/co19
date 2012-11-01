@@ -12,7 +12,7 @@
  */
  
 main() {
-  NoSuchMethodError e = new NoSuchMethodError(null, null, []);
+  NoSuchMethodError e = new NoSuchMethodError(null, null, [], {});
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }

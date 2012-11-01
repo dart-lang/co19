@@ -25,4 +25,5 @@ class Foo2<T extends foo> {
 
 main() {
   new Foo2();
+  new Foo2<int>();
 }

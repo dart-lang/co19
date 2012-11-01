@@ -25,6 +25,8 @@ main() {
     map.putIfAbsent("1", null);
     Expect.fail("NullPointerException is expected");
   } on NullPointerException catch(e) {}
+
+  Expect.isFalse(map.contains("1"));
   
   try {
     map.putIfAbsent(null, putIfAbsent);

@@ -22,12 +22,12 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 3326 - InvocationMirror not implemented
+ * @issue 6448, 6449
  */
 
 class C {
   noSuchMethod(InvocationMirror im) {
-    if(im.memberName != 'nonExistingSetter') {
+    if(im.memberName != 'set:nonExistingSetter') {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }
   }

@@ -24,31 +24,31 @@ class A {}
 main() {
   try {
     String foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("NullPointerException expected.");
+  } on NullPointerException catch(e) {}
 
   try {
     bool foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("NullPointerException expected.");
+  } on NullPointerException catch(e) {}
 
   try {
     A foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("NullPointerException expected.");
+  } on NullPointerException catch(e) {}
 
   try {
     Object foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("NullPointerException expected.");
+  } on NullPointerException catch(e) {}
 
   try {
     List foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("NullPointerException expected.");
+  } on NullPointerException catch(e) {}
 
   try {
     Map foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("NullPointerException expected.");
+  } on NullPointerException catch(e) {}
 }

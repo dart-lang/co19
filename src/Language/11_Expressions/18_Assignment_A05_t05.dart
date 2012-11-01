@@ -22,7 +22,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @issue 3326 - InvocationMirror not implemented
+ * @issue 6449
  */
 
 class TestException {}

@@ -17,7 +17,6 @@
  * @description Checks that the argument list is evaluated before the method lookup.
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 1604
  */
 
 StringBuffer buffer;
@@ -37,8 +36,8 @@ class A extends S {
     buffer = new StringBuffer();
     try {
       super.f(new A() + 1, new A() - 1);
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(e) {
+      Expect.fail("NullPointerException expected.");
+    } on NullPointerException catch(e) {
       Expect.equals("12", buffer.toString());
     }
   }
