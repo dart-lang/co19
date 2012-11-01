@@ -13,6 +13,7 @@
  * has its own memory which is not shared with other isolates, using a top-level
  * variable to showcase it.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import 'dart:isolate';

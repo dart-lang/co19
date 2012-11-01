@@ -11,6 +11,7 @@
  * a function literal expression or some other kind of expression. 
  * @author rodionov
  * @issue 1604
+ * @reviewer kaigorodov
  */
 
 class C {

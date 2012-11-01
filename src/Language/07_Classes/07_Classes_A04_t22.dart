@@ -37,6 +37,7 @@
  * @compile-error
  * @description Checks that an abstract static operator can't be used in place of a class member definition.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 class A {

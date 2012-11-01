@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of a cast expression e as T is the static type of e.
- * @description Checks that the static type of a cast expression e as T is 
- * the static type of e.
+ * @assertion The static type of a cast expression e as T is T.
+ * @description Checks that the static type of a cast expression e as T is T.
  * @author rodionov 
- * @reviewer iefremov
+ * @reviewer kaigorodov
  */
 
 main() {
-  int x = 1 as num;
+  var n=1;
+  int x = n as int;
 }

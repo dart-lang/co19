@@ -9,6 +9,7 @@
  * @description Checks that a compile-time error is produced if M is a name of an arbitrary accessible class.
  * @compile-error
  * @author iefremov
+ * @reviewer kaigorodov
  * @issue 980
  */
 

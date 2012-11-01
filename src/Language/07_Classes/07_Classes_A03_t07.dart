@@ -24,6 +24,7 @@
  * method definition does not include a body.
  * @compile-error
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 class A {

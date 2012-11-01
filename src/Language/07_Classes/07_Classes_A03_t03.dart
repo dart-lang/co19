@@ -24,6 +24,7 @@
  * method definition in a concrete class does not include a body, and no
  * runtime error is thrown when that class is instantiated.
  * @author msyabro
+ * @reviewer kaigorodov
  */
 
 class A {

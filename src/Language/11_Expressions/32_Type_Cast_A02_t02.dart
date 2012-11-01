@@ -11,6 +11,7 @@
  * @description Checks that the type cast operator evaluates to null when
  * the first argument evaluates to null.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 n() => null;
