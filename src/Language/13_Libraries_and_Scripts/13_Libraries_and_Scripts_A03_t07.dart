@@ -11,6 +11,7 @@
  * enclosed in double quotes.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "13_Libraries_and_Scripts_A03_t07_lib.dart";

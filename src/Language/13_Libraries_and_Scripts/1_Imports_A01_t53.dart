@@ -19,6 +19,7 @@
  * a show combinator in an import declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 6127
  */
 

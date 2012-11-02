@@ -19,6 +19,7 @@
  * combinator include a string literal.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_lib.dart" show foo, "someVar";

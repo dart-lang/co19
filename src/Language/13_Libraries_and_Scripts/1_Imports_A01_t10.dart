@@ -19,6 +19,7 @@
  * after the 'as' keyword.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_lib.dart" as 28digits;

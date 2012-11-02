@@ -19,6 +19,7 @@
  * combinator include an invalid identifier.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_lib.dart" show fo.o;

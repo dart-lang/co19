@@ -6,8 +6,9 @@
 /**
  * @assertion It is a compile-time error to use a built-in identifier other than dynamic 
  * as a type annotation.
- * @description Checks that it is not a compile-time error when "export" is used as a type 
- * annotation of a local variable as it is not a built-in identifier anymore.
+ * @description Checks that it is a compile-time error when a built-in identifier
+ * "export" is used as a type annotation of a local variable.
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */

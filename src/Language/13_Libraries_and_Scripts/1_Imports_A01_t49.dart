@@ -18,6 +18,7 @@
  * @description Checks that it is not an error if the arguments of show/hide
  * combinators include identifiers not declared or re-exported by the library being imported.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_lib.dart" as lib hide foo1 show foo2, foo;

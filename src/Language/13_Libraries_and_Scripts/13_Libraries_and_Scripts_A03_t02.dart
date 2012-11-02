@@ -9,6 +9,7 @@
  * ;
  * @description Checks valid library definitions with metadata.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "13_Libraries_and_Scripts_A03_t02_lib.dart";

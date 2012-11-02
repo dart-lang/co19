@@ -18,6 +18,7 @@
  * non-parameterized map literal, but also it's only a part of the whole expression.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {

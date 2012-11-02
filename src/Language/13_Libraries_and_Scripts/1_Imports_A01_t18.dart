@@ -18,6 +18,7 @@
  * @description Checks that all types of quotes allowed for string literals are also allowed
  * for the URI in an import directive.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_A01_t18_lib1.dart";
