@@ -13,7 +13,7 @@
  * @reviewer rodionov
  */
  
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 // the gap between this double and the next
 // @3rdparty sputnik-v1/lib/math_precision.js

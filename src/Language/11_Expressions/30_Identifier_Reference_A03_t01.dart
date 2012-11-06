@@ -12,7 +12,7 @@
  * @reviewer kaigorodov 
  */
 
-#import("lib.dart", prefix: "lib");
+import "lib.dart" as lib;
 
 main() {
   Expect.isTrue(lib.x==1);

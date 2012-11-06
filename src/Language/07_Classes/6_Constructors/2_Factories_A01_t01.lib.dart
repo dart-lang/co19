@@ -1,5 +1,5 @@
-#library("lib");
-#import("2_Factories_A01_t01.dart", prefix:"test");
+library lib;
+import "2_Factories_A01_t01.dart" as test;
 
 // References a factory class in another library
 abstract class A {

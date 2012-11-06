@@ -16,7 +16,7 @@
  * @author kaigorodov
  */
 
-#import('../../Utils/dynamic_check.dart');
+import "../../Utils/dynamic_check.dart";
 
 main() {
   bool b;

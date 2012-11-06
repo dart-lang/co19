@@ -5,9 +5,9 @@
  */
 /**
  * @assertion 
- * Throws an [IndexOutOfRangeException] if [start] or
+ * Throws an [RangeError] if [start] or
  * [:start + length:] are out of range for [:this:].
- * @description Checks that IndexOutOfRangeException is thrown if 
+ * @description Checks that RangeError is thrown if 
  * [:startFrom + length:] are out of range for [from].
  * @author iefremov
  * @reviewer msyabro
@@ -17,8 +17,8 @@
 void checkList(list, src, count) {
   try {
     list.setRange(0, count, src, 0);
-    Expect.fail("expected IndexOutOfRangeException");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("expected RangeError");
+  } on RangeError catch(ok) {}
 }
 
 void check(int dstSize, int srcSize, int count) {

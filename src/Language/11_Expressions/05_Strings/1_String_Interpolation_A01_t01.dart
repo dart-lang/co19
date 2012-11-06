@@ -17,7 +17,7 @@
  * @reviewer rodionov
  */
 
-#import("String_Interpolation_lib.dart");
+import "String_Interpolation_lib.dart";
 
 topFunc(p1, p2) {}
 var topVar;

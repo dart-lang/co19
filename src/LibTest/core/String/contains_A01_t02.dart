@@ -18,23 +18,23 @@ main() {
 
   try {
     str.contains(pattern, -1);
-    Expect.fail("IndexOutOfRangeException expected!");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected!");
+  } on RangeError catch(ok){}
 
   try {
     str.contains(pattern, 0x7fffffff);
-    Expect.fail("IndexOutOfRangeException expected!");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected!");
+  } on RangeError catch(ok){}
 
   try {
     str.contains(pattern, 0x80000000);
-    Expect.fail("IndexOutOfRangeException expected!");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected!");
+  } on RangeError catch(ok){}
 
   try {
     str.contains(pattern, str.length);
-    Expect.fail("IndexOutOfRangeException expected!");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected!");
+  } on RangeError catch(ok){}
 
 }
 

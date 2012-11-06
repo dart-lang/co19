@@ -20,7 +20,6 @@
  * a library definition instead of a part declaration.
  * @compile-error
  * @author rodionov
- * @issue 6222
  */
 
 library Parts_test_lib;

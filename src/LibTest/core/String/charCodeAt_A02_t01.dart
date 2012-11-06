@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws IndexOutOfRangeException if [index] is out of bounds
- * @description Checks that an IndexOutOfRangeException is thrown when the index is out of range
+ * @assertion Throws RangeError if [index] is out of bounds
+ * @description Checks that an RangeError is thrown when the index is out of range
  * @author msyabro
  * @reviewer rodionov
  * @needsreview undocumented
@@ -15,8 +15,8 @@
 void checkIOOR(String str, int index) {
   try {
     str.charCodeAt(index);
-    Expect.fail("IndexOutOfRangeException is expected");
-  } on IndexOutOfRangeException catch(e) {}
+    Expect.fail("RangeError is expected");
+  } on RangeError catch(e) {}
 }
 
 main() {

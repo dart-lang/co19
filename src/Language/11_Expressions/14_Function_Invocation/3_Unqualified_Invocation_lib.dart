@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-#library("3_Unqualified_Invocation_lib");
+library Unqualified_Invocation_lib;
 
 m(p1) {
   Expect.equals("ab", p1);

@@ -17,7 +17,7 @@
  * @reviewer rodionov
  */
 
-#import("1_Inheritance_and_Overriding_A02_t04_lib.dart");
+import "1_Inheritance_and_Overriding_A02_t04_lib.dart";
 
 class B extends A {
   _foo() { return 'B'; }

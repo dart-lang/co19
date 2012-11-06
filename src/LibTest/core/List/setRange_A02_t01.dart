@@ -5,9 +5,9 @@
  */
 /**
  * @assertion 
- * Throws an [IndexOutOfRangeException] if [start] or
+ * Throws an [RangeError] if [start] or
  * [:start + length:] are out of range for [:this:].
- * @description Checks that IndexOutOfRangeException is thrown if there is lack of space in dst.
+ * @description Checks that RangeError is thrown if there is lack of space in dst.
  * @author iefremov
  * @reviewer msyabro
  * @reviewer varlax
@@ -16,8 +16,8 @@
 checkList(dst, dstOffset, count, src) {
   try {
     dst.setRange(dstOffset, count, src, 0);
-    Expect.fail("expected IndexOutOfRangeException");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("expected RangeError");
+  } on RangeError catch(ok) {}
 }
 
 void check(int dstSize, int srcSize, int dstOffset, int count) {

@@ -19,7 +19,7 @@
  * @reviewer rodionov
  */
 
-#import("somelib.dart", prefix:"somelibprefix");
+import "somelib.dart" as somelibprefix;
 
 main() {
   somelibprefix.ClassFromSomeLib v1;

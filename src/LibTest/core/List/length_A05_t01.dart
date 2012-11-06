@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [IndexOutOfRangeException] if the [length] is negative.
+ * @assertion Throws [RangeError] if the [length] is negative.
  * @description Checks that the exception is thrown as expected.
  * @author vasya
  * @reviewer msyabro
@@ -15,16 +15,16 @@ main() {
   List a = new List();
   try {
     a.length = -1;
-    Expect.fail("IndexOutOfRangeException expected when setting ga.length to negative");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected when setting ga.length to negative");
+  } on RangeError catch(ok){}
 
   try {
     [].length = -1;
-    Expect.fail("IndexOutOfRangeException expected when setting ga.length to negative");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected when setting ga.length to negative");
+  } on RangeError catch(ok){}
 
   try {
     new List.from([]).length = -1;
-    Expect.fail("IndexOutOfRangeException expected when setting ga.length to negative");
-  } on IndexOutOfRangeException catch(ok){}
+    Expect.fail("RangeError expected when setting ga.length to negative");
+  } on RangeError catch(ok){}
 }

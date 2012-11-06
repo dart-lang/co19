@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Throws an out of bounds exception if the list is empty.
- * @description Checks that IndexOutOfRangeException is thrown if the list is empty.
+ * @description Checks that RangeError is thrown if the list is empty.
  * @author vasya
  * @reviewer msyabro
  * @reviewer varlax
@@ -14,8 +14,8 @@
 check(List a) {
   try {
     a.last;
-    Expect.fail("IndexOutOfRangeException expected when calling a.last");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("RangeError expected when calling a.last");
+  } on RangeError catch(ok) {}
 }
 
 main() {

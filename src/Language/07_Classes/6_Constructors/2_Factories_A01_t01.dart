@@ -15,8 +15,8 @@
  * @needsreview issue 2478
  */
 
-#library("test");
-#import("2_Factories_A01_t01.lib.dart", prefix:"lib");
+library test;
+import "2_Factories_A01_t01.lib.dart" as lib;
 
 class Iface {
   var x;

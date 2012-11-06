@@ -17,7 +17,7 @@
  * @reviewer rodionov
  */
 
-#import('../../Utils/dynamic_check.dart');
+import "../../Utils/dynamic_check.dart";
 
 typedef int foo(int x, String y, [double a, double b]);
 

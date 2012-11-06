@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an IndexOutOfRangeException if [index] is out of bounds.
+ * @assertion Throws an RangeError if [index] is out of bounds.
  * @description Checks that passing an argument that is out of this string's
- * valid index range results in an IndexOutOfRangeException
+ * valid index range results in an RangeError
  * @author msyabro
  * @reviewer rodionov
  * @needsreview Undocumented
@@ -27,6 +27,6 @@ main() {
 void checkIndexOOR(String str, int index) {
   try {
     String foo = str[index];
-    Expect.fail("IndexOutOfRangeException is expected");
-  } on IndexOutOfRangeException catch(e) {}
+    Expect.fail("RangeError is expected");
+  } on RangeError catch(e) {}
 }

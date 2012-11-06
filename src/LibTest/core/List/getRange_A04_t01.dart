@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [IndexOutOfRangeException] if [start] or
+ * @assertion Throws an [RangeError] if [start] or
  * [:start + length:] are out of range.
- * @description Checks that an [IndexOutOfRangeException] throws 
+ * @description Checks that an [RangeError] throws 
  * if [start] or [:start + length:] are out of range.
  * @author vasya
  * @reviewer varlax
@@ -15,8 +15,8 @@
 void check(List l, int start, int length) {
   try {
     l.getRange(start, length);
-    Expect.fail("IndexOutOfRangeException expected when calling List.getRange()");
-  } on IndexOutOfRangeException catch(ok) {}   
+    Expect.fail("RangeError expected when calling List.getRange()");
+  } on RangeError catch(ok) {}   
 }
 
 main() {

@@ -15,8 +15,8 @@
 void check(List a, int idx) {
   try {
     a[idx] = null;
-    Expect.fail("expected IndexOutOfRangeException");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("expected RangeError");
+  } on RangeError catch(ok) {}
 }
 
 main() {

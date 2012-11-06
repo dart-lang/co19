@@ -19,7 +19,7 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(f() {

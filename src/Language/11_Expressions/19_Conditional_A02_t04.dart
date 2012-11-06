@@ -16,7 +16,7 @@
  * @reviewer iefremov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 bool checkTrue(var e1) {
   return e1 ? true : false;

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion 
- * Throws an [IndexOutOfRangeException] if [start] is out of range.
- * @description Checks that an [IndexOutOfRangeException] is thrown
+ * Throws an [RangeError] if [start] is out of range.
+ * @description Checks that an [RangeError] is thrown
  *  if [start] is out of range.
  * @author vasya
  * @reviewer varlax
@@ -16,8 +16,8 @@ void check(List src, int start, int length) {
   
   try {
     src.insertRange(start, length);
-    Expect.fail("IndexOutOfRangeException expected when calling List.insertRange()");
-  } on IndexOutOfRangeException catch(ok) {}   
+    Expect.fail("RangeError expected when calling List.insertRange()");
+  } on RangeError catch(ok) {}   
 }
 
 main() {

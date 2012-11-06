@@ -12,9 +12,9 @@
  */
  
 main() {
-  new IndexOutOfRangeException(0);
-  new IndexOutOfRangeException(1);
-  new IndexOutOfRangeException(-1);
-  new IndexOutOfRangeException(0x80000000);
-  new IndexOutOfRangeException(0x7fffffff);
+  new RangeError(0);
+  new RangeError(1);
+  new RangeError(-1);
+  new RangeError(0x80000000);
+  new RangeError(0x7fffffff);
 }

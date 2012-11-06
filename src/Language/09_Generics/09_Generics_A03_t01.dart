@@ -13,7 +13,7 @@
  * @needsreview issue 3273
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 class A {}
 class B extends A {}

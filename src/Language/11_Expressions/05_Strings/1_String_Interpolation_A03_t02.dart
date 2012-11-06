@@ -12,7 +12,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1553, 1604
  */
 
 class C {
@@ -25,8 +24,8 @@ class C {
 
     try {
       '${[][10]}';
-      Expect.fail("IndexOutOfRangeException is expected");
-    } on IndexOutOfRangeException catch(e) {}
+      Expect.fail("RangeError is expected");
+    } on RangeError catch(e) {}
 
     try {
       '${(const []).addLast(1)}';
@@ -40,8 +39,8 @@ class C {
 
     try {
       '${id()}';
-      Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch(e) {}
+      Expect.fail("NPE expected");
+    } on NullPointerException catch(e) {}
   }
 }
 

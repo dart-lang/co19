@@ -10,7 +10,7 @@
  * @reviewer iefremov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 check(List a) {
   Expect.throws( () {

@@ -9,7 +9,7 @@
  * @description Checks that a method named call and having a function type F makes the
  * type that declares it a subtype of F.
  * @author msyabro
- * @needsreview Issue 1604, 1355
+ * @issue 1604
  */
 
 typedef void f(p1, p2);

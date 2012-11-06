@@ -20,7 +20,7 @@
  * @reviewer rodionov
  */
 
-#import("3_Unqualified_Invocation_lib.dart");
+import "3_Unqualified_Invocation_lib.dart";
 
 m2(p1) {
   Expect.equals("ab", p1);

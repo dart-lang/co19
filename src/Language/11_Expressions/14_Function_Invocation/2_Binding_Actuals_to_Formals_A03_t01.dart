@@ -14,7 +14,7 @@
  * @needsreview issue 3223
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 func(int p1, int p2, {int np1, int np2, int np3}) {}
 

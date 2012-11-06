@@ -11,7 +11,7 @@
  * @reviewer iefremov
  */
 
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 const int i = -100;
 const bool b = false;

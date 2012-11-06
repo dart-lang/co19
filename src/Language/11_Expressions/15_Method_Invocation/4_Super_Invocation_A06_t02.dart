@@ -13,11 +13,11 @@
  * @needsreview issue 3266, issue 3267
  */
 
-#import("lib.dart");
+import "lib.dart";
 
 //library code
 
-// #library("lib");
+// library lib;
 //
 // class C {
 //   _func() {}

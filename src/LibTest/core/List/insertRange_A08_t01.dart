@@ -11,7 +11,7 @@
  * @reviewer iefremov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 void check(List l, start, length) {
   Expect.throws(() => l.insertRange(start, length));

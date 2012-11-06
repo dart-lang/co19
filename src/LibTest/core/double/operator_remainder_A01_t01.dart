@@ -13,7 +13,7 @@
  * @needsreview Undocumented. That's not IEEE specified behavior.
  */
 
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 
 main() {

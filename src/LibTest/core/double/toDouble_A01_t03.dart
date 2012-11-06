@@ -12,7 +12,7 @@
  */
 
 
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 inner_check(d) {
   var v = d.toDouble();

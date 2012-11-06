@@ -10,7 +10,7 @@
  * @reviewer msyabro
  */
 
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 
 main() {

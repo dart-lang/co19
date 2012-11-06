@@ -19,7 +19,7 @@
  * @reviewer iefremov
  */
 
-Label: #import("../../Utils/dynamic_check.dart");
+Label: import "../../Utils/dynamic_check.dart";
 
 main() {
 }

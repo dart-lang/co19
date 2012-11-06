@@ -12,7 +12,7 @@
  */
  
 main() {
-  IndexOutOfRangeException e = new IndexOutOfRangeException(-1);
+  RangeError e = new RangeError(-1);
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }

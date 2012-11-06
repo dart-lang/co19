@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [IndexOutOfRangeException] if the list is empty.
+ * @assertion Throws an [RangeError] if the list is empty.
  * @description Checks that exception is thrown as expected.
  * @author vasya
  * @reviewer msyabro
@@ -14,8 +14,8 @@
 check(a) {
   try {
     a.removeLast();
-    Expect.fail("IndexOutOfRangeException expected when calling a.removeLast()");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("RangeError expected when calling a.removeLast()");
+  } on RangeError catch(ok) {}
 }
 
 main() {

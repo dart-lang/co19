@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws IndexOutOfRangeException if one of indices is out of bounds
+ * @assertion Throws RangeError if one of indices is out of bounds
  * @description Checks that exception is thrown.
  * @author rodionov
  * @reviewer msyabro
@@ -15,8 +15,8 @@ void check(String str, String pattern, List<int> groupIndices) {
   Match m = re.firstMatch(str);
   try {
     m.groups(groupIndices);
-    Expect.fail("IndexOutOfRangeException is expected");
-  } on IndexOutOfRangeException catch(e) {} 
+    Expect.fail("RangeError is expected");
+  } on RangeError catch(e) {} 
 }
  
 main() {

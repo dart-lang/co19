@@ -18,7 +18,7 @@
  * @needsreview issue 3323
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 class A {
   const int v = 100;

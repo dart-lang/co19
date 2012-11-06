@@ -3,7 +3,8 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-#library("1_Inheritance_and_Overriding_A02_t04_lib");
+
+library Inheritance_and_Overriding_A02_t04_lib;
 
 class A {
   _foo(var arg) { return 'A'; }

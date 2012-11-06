@@ -11,7 +11,7 @@
  * @reviewer rodionov
  */
 
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 main() {
   Expect.isTrue(1 < 2);

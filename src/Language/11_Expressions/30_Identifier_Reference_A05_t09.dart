@@ -11,7 +11,7 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @issue 3307, 2492
+ * @issue 3307
  */
 
 main() {

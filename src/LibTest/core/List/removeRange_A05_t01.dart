@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [IndexOutOfRangeException] if [start] or
+ * @assertion Throws an [RangeError] if [start] or
  * [:start + length:] are out of range.
- * @description Checks that an [IndexOutOfRangeException] is thrown
+ * @description Checks that an [RangeError] is thrown
  * if [start] or [:start + length:] are out of range.
  * @author vasya
  * @reviewer varlax
@@ -15,8 +15,8 @@
 checkList(l, start, length) {
   try {
     l.removeRange(start, length);
-    Expect.fail("IndexOutOfRangeException expected when calling List.removeRange()");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("RangeError expected when calling List.removeRange()");
+  } on RangeError catch(ok) {}
 }
 
 void check(int listSize, int start, int length) {

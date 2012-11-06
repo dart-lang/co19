@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws IndexOutOfRangeException if [startIndex] or [endIndex] is
+ * @assertion Throws RangeError if [startIndex] or [endIndex] is
  *            out of bounds.
  * @description Checks that the correct exception is thrown when the arguments
  *              are out of bounds or in incorrect order.
@@ -29,6 +29,6 @@ main() {
 void check(String str, int start, int end) {
   try {
     str.substring(start, end);
-    Expect.fail("IndexOutOfRangeException is expected");
-  } on IndexOutOfRangeException catch(e) {}
+    Expect.fail("RangeError is expected");
+  } on RangeError catch(e) {}
 }

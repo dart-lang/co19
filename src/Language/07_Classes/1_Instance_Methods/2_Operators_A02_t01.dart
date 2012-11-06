@@ -95,6 +95,9 @@ class C {
     return ~value;
   }
 
+  operator -() {
+    return -value;
+  }
 }
 
 main() {

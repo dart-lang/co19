@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [IndexOutOfRangeException] if
+ * @assertion Throws an [RangeError] if
  * [startFrom] or [:startFrom + length:] are out of range for [from]
- * @description Checks that IndexOutOfRangeException is thrown if startFrom in src is out of range.
+ * @description Checks that RangeError is thrown if startFrom in src is out of range.
  * @author iefremov
  * @reviewer msyabro
  * @reviewer varlax
@@ -15,8 +15,8 @@
 checkList(src, dst, startFrom) {
   try {
     dst.setRange(0, 1, src, startFrom);
-    Expect.fail("expected IndexOutOfRangeException");
-  } on IndexOutOfRangeException catch(ok) {}
+    Expect.fail("expected RangeError");
+  } on RangeError catch(ok) {}
 }
 
 void check(int dstSize, int srcSize, int startFrom) {

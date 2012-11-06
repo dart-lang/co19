@@ -17,7 +17,7 @@
  * @reviewer kaigorodov 
  */
 
-#import("lib.dart", prefix: "lib");
+import "lib.dart" as lib;
 
 //library code:
 //

@@ -1,4 +1,4 @@
-#library("lib");
+library lib;
 
 class Foreign {
   var _var;

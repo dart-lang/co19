@@ -14,7 +14,7 @@
  * @reviewer kaigorodov
  */
 
-#import("../../Utils/dynamic_check.dart");
+import "../../Utils/dynamic_check.dart";
 
 class Enum<E extends Enum<E>> {}
 

@@ -10,7 +10,7 @@
  * @author iefremov
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 main() {
   Expect.throws(() => new List.from(1));

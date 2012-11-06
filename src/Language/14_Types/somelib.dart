@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-#library("somelib.dart");
+library somelib;
 
 class ClassFromSomeLib<A, B, C> {}
 

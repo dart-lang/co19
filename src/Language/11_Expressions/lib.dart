@@ -1,4 +1,4 @@
-#library("lib");
+library lib;
 
 var x = 1;
 

@@ -1,4 +1,4 @@
-#library("lib");
+library lib;
 
 class C {
   _func() {}

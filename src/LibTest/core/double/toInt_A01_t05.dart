@@ -11,7 +11,7 @@
  */
 
 
-#import("dart:math", prefix: "Math");
+import "dart:math" as Math;
 
 check(double arg) {
   var v = arg.toInt();

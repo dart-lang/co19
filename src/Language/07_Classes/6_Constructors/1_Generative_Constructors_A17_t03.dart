@@ -13,7 +13,7 @@
  * @reviewer kaigorodov
  */
 
-#import('../../../Utils/dynamic_check.dart');
+import "../../../Utils/dynamic_check.dart";
 
 class C {
   C(double this.x) {}

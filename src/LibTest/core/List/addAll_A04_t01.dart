@@ -10,7 +10,7 @@
  * @static-warning
  */
 
-#import("../../../Utils/dynamic_check.dart");
+import "../../../Utils/dynamic_check.dart";
 
 main() {
   Expect.throws(() => new List().addAll(1));
