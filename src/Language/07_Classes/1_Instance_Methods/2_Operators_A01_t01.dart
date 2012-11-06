@@ -9,26 +9,18 @@
  *   returnType? operator operator formalParameterList 
  * ;
  * operator: 
- *   unaryOperator | 
+ *   ‘˜’ |
  *   binaryOperator | 
  *   ‘[’ ‘]’ |
  *   ‘[’ ‘]’ ‘=’
- * ;
- * unaryOperator: 
- *   '!' |
- *   '~'
  * ;
  * binaryOperator: 
  *   multiplicativeOperator | 
  *   additiveOperator | 
  *   shiftOperator |
  *   relationalOperator | 
- *   equalityOperator | 
+ *   ‘==’ |
  *   bitwiseOperator 
- * ;
- * prefixOperator: 
- *   '-' | 
- *   unaryOperator 
  * ;
  * @description Checks that any return type (including function type, type parameter,
  * void or no return type at all) can be specified for any operator.

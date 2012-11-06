@@ -9,8 +9,8 @@
  * from static context (as a type annotation) and there's no static warning.
  * @author iefremov
  * @reviewer kaigorodov
- * @issue 5230
  */
+
 import "../../Utils/dynamic_check.dart";
 
 class C<T> {

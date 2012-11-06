@@ -5,30 +5,19 @@
  */
 /**
  * @assertion
- * operatorSignature: 
- *   returnType? operator operator formalParameterList 
- * ;
  * operator: 
- *   unaryOperator | 
+ *   ‘˜’ |
  *   binaryOperator | 
  *   ‘[’ ‘]’ |
  *   ‘[’ ‘]’ ‘=’
- * ;
- * unaryOperator: 
- *   '!' |
- *   '~'
  * ;
  * binaryOperator: 
  *   multiplicativeOperator | 
  *   additiveOperator | 
  *   shiftOperator |
  *   relationalOperator | 
- *   equalityOperator | 
+ *   ‘==’ |
  *   bitwiseOperator 
- * ;
- * prefixOperator: 
- *   '-' | 
- *   unaryOperator 
  * ;
  * @description Checks that it is a compile-time error if a class defines an
  * operator without a formal parameter list.

@@ -12,13 +12,13 @@
  *   '-' super |
  *   incrementOperator assignableExpression
  * ;
- * prefixOperator:
- *   '-' |
- *   negateOperator
+ * preﬁxOperator:
+ *   ‘-’ |
+ *   unaryOperator
  * ;
- * negateOperator:
- *   '!' |
- *   '~'
+ * unaryOperator:
+ *  ‘!’ |
+ *  ‘˜’
  * ;
  * @description Checks that incrementOperator can be used with
  * a reference to a class declaration.

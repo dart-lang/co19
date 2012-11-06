@@ -6,13 +6,14 @@
 /**
  * @assertion An identiﬁer expression that denotes a constant variable or a class
  * is a constant expression.
- * @description Checks that an identiﬁer expression that denotes a constant variable
+ * @description Checks that an identiﬁer expression that denotes a class
  * can be assigned to a constant variable.
  * @author kaigorodov
  */
 
-const a = 1;
-const b = a;
+class C{}
+
+const a = C;
 
 main() {
   print(a);

@@ -9,7 +9,6 @@
  * to reference a type parameter from static context (in a type test expression) and there's no static warning.
  * @author iefremov
  * @reviewer kaigorodov
- * @issue 5230
  */
 import "../../Utils/dynamic_check.dart";
 

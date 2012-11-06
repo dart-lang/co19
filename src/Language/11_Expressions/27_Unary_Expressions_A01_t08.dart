@@ -12,13 +12,13 @@
  *   '-' super |
  *   incrementOperator assignableExpression
  * ;
- * prefixOperator:
- *   '-' |
- *   negateOperator
+ * preﬁxOperator:
+ *   ‘-’ |
+ *   unaryOperator
  * ;
- * negateOperator:
- *   '!' |
- *   '~'
+ * unaryOperator:
+ *  ‘!’ |
+ *  ‘˜’
  * ;
  * @description Checks that incrementOperator can't be used with an unary expression
  * of the form -e.

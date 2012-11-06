@@ -4,18 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A simple or qualified identifier denoting a top-level function or a static
- * method is a constant expression.
- * @description Checks that a function literal cannot be assigned to a constant variable.
- * @compile-error
- * @author iefremov
- * @reviewer rodionov
+ * @assertion An identiﬁer expression that denotes a constant variable or a class
+ * is a constant expression.
+ * @description Checks that an identiﬁer expression that denotes a class
+ * can be assigned to a constant variable.
+ * @author kaigorodov
+ * @issue 6556
  */
 
-const a = () => null;
+class C{}
+
+const a = String;
+const b = int;
+const c = List;
+const c2 = Map;
+const d = C;
 
 main() {
-  try {
-    print(a);
-  } catch(x) {}
+  print(a);
+  print(b);
+  print(c);
+  print(c2);
+  print(d);
 }

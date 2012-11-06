@@ -14,9 +14,9 @@
  * ;
  * prefixOperator:
  *   '-' |
- *   negateOperator
+ *   unaryOperator
  * ;
- * negateOperator:
+ * unaryOperator:
  *   '!' |
  *   '~'
  * ;

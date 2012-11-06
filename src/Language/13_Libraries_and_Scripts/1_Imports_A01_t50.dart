@@ -19,6 +19,7 @@
  * the same URI more than once and doesn't reference any of the names exported
  * by that library.
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 5399, 4887
  */
 

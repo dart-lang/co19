@@ -7,6 +7,7 @@
  * @assertion The formal parameter list of a function introduces a new scope 
  * known as the function's formal parameter scope. The formal parameter scope 
  * of a function f is enclosed in the scope where f is declared.
+ * Every formal parameter introduces a local variable into the formal parameter scope.
  * The body of a function introduces a new scope known as the function's body
  * scope. The body of a function f is enclosed in the scope introduced by formal
  * parameter scope of f.
