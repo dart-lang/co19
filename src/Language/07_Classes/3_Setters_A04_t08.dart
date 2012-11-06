@@ -21,6 +21,6 @@ class C {
 
 main() {
   C c=new C();
-  c.foo(1);
+  C.foo(1);
   c.foo=1;
 }
