@@ -8,17 +8,17 @@
  * If e of the form new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) it is a
  * static warning if T.id is not the name of a constructor declared by the type T.
  * @description Checks that it is a static warning if the type being instantiated 
- * does not declare a named constructor T.id.
+ * is a parameterized type and does not declare a named constructor T.id.
  * @static-warning
- * @author msyabro
- * @reviewer rodionov
+ * @author kaigorodov
  */
 
-class C {}
+class C<T> {}
 
 main() {
   Expect.throws(
-    () {new C.namedConstructor();},
+    () {new C<int>.namedConstructor();},
     (e)=> e is NoSuchMethodError
   );
 }
+

@@ -5,14 +5,15 @@
  */
 /**
  * @assertion Evaluation of e proceeds as follows:
- * If q is a constructor of an abstract class then an AbstractClassInstantiationError is thrown.
+ * If q is a non-factory constructor of an abstract class then an
+ * AbstractClassInstantiationError is thrown.
  * If T is not a class accessible in the current scope, a dynamic error occurs.
  * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
  * If q has less than n positional parameters or more than n required parameters, or
  * if q lacks any of the keyword parameters {xn+1 , . . . , xn+k } a NoSuchMethodError
  * is thrown.
- * @description  Checks that AbstractClassInstantiationError is thrown if T is
- * an abstract class.
+ * @description  Checks that AbstractClassInstantiationError is thrown if q is
+ * a non-factory constructor of an abstract class.
  * @author kaigorodov
  */
 

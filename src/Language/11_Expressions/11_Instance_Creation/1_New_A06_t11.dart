@@ -8,20 +8,23 @@
  * If q is a non-factory constructor of an abstract class then an
  * AbstractClassInstantiationError is thrown.
  * If T is not a class accessible in the current scope, a dynamic error occurs.
+ * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
  * If q has less than n positional parameters or more than n required parameters, or
  * if q lacks any of the keyword parameters {xn+1 , . . . , xn+k } a NoSuchMethodError
  * is thrown.
- * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
- * @description  Checks that a NoSuchMethodError is thrown if q is not defined.
+ * @description  Checks that AbstractClassInstantiationError is not thrown if q is
+ * a named factory constructor of an abstract class.
  * @author kaigorodov
  */
 
-class C {
+abstract class C {
+  C();
+  factory C.c() { return new D();}
+}
+
+class D extends C {
 }
 
 main() {
-  try {
-    new C.undefinedConstructor();
-    Expect.fail("Should throw NoSuchMethodError");
-  } on NoSuchMethodError catch(e) {}
+  new C.c();
 }
