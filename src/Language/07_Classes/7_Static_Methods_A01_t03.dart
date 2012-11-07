@@ -22,7 +22,5 @@ class C extends S {
 }
 
 main() {
-  try {
-    C.foo();
-  } catch (e) {}
+  Expect.throws((){C.foo();}, (e)=>e is NoSuchMethodError);
 }

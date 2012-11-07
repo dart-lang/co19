@@ -6,7 +6,7 @@
 /**
  * @assertion It is a compile-time error if a class declares two members of the same name.
  * @description Checks that it is a compile-time error if a class declares 
- * a function and a setter of the same name.
+ * a function and a static getter of the same name.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -14,7 +14,7 @@
 
 class C {
   void f() {}
-  void set f(int f) {}
+  static void get f;
 }
 
 main() {

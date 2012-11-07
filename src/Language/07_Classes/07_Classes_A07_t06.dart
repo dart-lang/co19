@@ -6,15 +6,14 @@
 /**
  * @assertion It is a compile-time error if a class declares two members of the same name.
  * @description Checks that it is a compile-time error if a class declares 
- * a function and an abstract setter of the same name.
+ * a static function and an abstract getter of the same name.
  * @compile-error
- * @author rodionov
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
 
 class C {
   String f(int f){}
-  int set f(bool b);
+  int get f;
 }
 
 main() {

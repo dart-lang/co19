@@ -8,7 +8,8 @@
  * to the identifier given in its signature. Hence, a setter name can never
  * conflict with, override or be overridden by a getter or method.
  * @description Checks that there is no compile-time error if a class has 
- * an explicitly defined setter and an instance method inherited from a superclass with the same name.
+ * an explicitly defined abstract setter and an instance method inherited from
+ * a superclass with the same name.
  * @author iefremov
  * @reviewer kaigorodov
  * @issue 5840
@@ -19,7 +20,7 @@ class A {
 }
 
 class C extends A {
-  void set foo(var x){}
+  void set foo(var x);
 }
 
 main() {
