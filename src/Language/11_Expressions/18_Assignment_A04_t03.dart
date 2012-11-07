@@ -23,7 +23,6 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
- * @needsreview issue 3088
  */
 
 main() {

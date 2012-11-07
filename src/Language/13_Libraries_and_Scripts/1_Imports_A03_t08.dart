@@ -10,11 +10,10 @@
  * - In checked mode, it is a dynamic error if N is used as a type annotation
  *   and referenced during a subtype test.
  * - Otherwise, it is a compile-time error.
- * @description Checks that it is a static warning and a compile-time error if two different 
- * libraries introduce the same name to the top level scope of A and A uses it as a type name
- * reference in an instance creation expression.
+ * @description Checks that it is a static warning and a runtime error (as per Instance creation|New)
+ * if two different libraries introduce the same name to the top level scope of A and A uses it as 
+ * a type name reference in an instance creation expression.
  * @static-warning
- * @compile-error
  * @author rodionov
  * @needsreview issue 5399
  */
@@ -25,5 +24,5 @@ import "1_Imports_A03_t01_p2_lib.dart";
 main() {
   try {
     new foo();
-  } catch(anything) {}
+  } on Error catch(ok) {}
 }

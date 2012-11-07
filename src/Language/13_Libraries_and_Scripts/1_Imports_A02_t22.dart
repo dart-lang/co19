@@ -55,6 +55,7 @@
  * one another and there're no errors when either of them is being imported by a third
  * library.
  * @author rodionov
+ * @issue 6595
  */
 
 import "1_Imports_A02_t22_lib.dart";

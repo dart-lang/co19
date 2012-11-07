@@ -62,6 +62,6 @@ import "1_Imports_A02_lib_reexport2_filtered.dart" show I, bFoo, aFoo;
 main() {
   try {
     new F();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+    Expect.fail("runtime error expected");
+  } on Error catch(ok) {}
 }

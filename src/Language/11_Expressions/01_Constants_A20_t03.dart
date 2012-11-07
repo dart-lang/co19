@@ -9,6 +9,7 @@
  * @description Checks that an identiﬁer expression that denotes a class
  * can be assigned to a constant variable.
  * @author kaigorodov
+ * @issue 6556
  */
 
 class C{}

@@ -6,23 +6,26 @@
 /**
  * @assertion It is possible to return the result of a void method from
  * within a void method. One can also return null; or a value of type Dynamic.
- * Returning any other result will cause a type warning (or a dynamic type error
- * in checked mode).
- * @description Checks that returning a value that is not null or has type Dynamic
- * from within a void method causes a static type warning (the value is Function).
+ * Returning any other result will cause a type warning. In checked mode, 
+ * a dynamic type error would arise if a non-null object was returned from 
+ * a void method (since no object has runtime type dynamic).
+ * @description Checks that returning a non-null value with non-dynamic static
+ * type from within a void method results in both static type warning and a dynamic
+ * type error in checked mode.
  * @author rodionov
  * @reviewer iefremov
  * @static-warning
- * @needsreview TODO update following spec updates mentioned in http://code.google.com/p/co19/issues/detail?id=158
  */
+import "../../Utils/dynamic_check.dart";
 
-void f(){}
+void f() {}
 
 void foo() {
   return f;
 }
 
 main() {
-  foo();
+  checkTypeError(() {
+    foo();
+  });
 }
-

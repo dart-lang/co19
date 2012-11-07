@@ -10,20 +10,20 @@
  * - In checked mode, it is a dynamic error if N is used as a type annotation
  *   and referenced during a subtype test.
  * - Otherwise, it is a compile-time error.
- * @description Checks that it is a dynamic error in checked mode and a static warning 
+ * @description Checks that it is a compile-time error and a static warning 
  * if two different libraries imported with empty prefixes introduce the same type name 
  * to the top-level scope of A and A uses it as a type annotation in a type test.
  * @static-warning
+ * @compile-error
  * @author rodionov
  * @issue 5399
  */
-import "../../Utils/dynamic_check.dart";
-
 import "1_Imports_A03_t01_p1_lib.dart";
 import "1_Imports_A03_t01_p2_lib.dart";
 
 main() {
-  checkTypeError(f() {
+  try {
     1 is foo;
-  });
+  } catch (anything) {
+  }
 }

@@ -19,9 +19,9 @@ class A extends P.B {
   static final FOO = "A.FOO";
 }
 
-class K extends P.F implements J {
-  K() : super();
-}
+//class K P.F implements J {
+//  K() : super();
+//}
 
 abstract class J extends P.I {
   factory J() = K;

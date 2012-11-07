@@ -20,7 +20,7 @@ class B {
   var _value;
 }
 
-class F extends I {
+class F implements I {
   F() {}
   foo() { return "i.foo()"; }
   get value { return _value; }

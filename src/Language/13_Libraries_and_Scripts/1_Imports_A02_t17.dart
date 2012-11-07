@@ -63,14 +63,18 @@ main() {
   aTypeAlias ff = (bool b, String s) {};
 
   A a = new A();
-  J j = new J();
-
+  try {
+    J j = new J();
+    Expect.fail("AbstractClassInstantiationError expected");
+  } on AbstractClassInstantiationError catch(e) {
+  }
+  
   Expect.equals('A.FOO', A.FOO);
   Expect.equals("1_Imports_A02_lib.bar", a.bar);
   Expect.equals('J.FOO', J.FOO);
   
   // from 1_Imports_A02_p1_lib.dart
-  Expect.listEquals([1], bList(1));
+  Expect.listEquals([null], bList(1));
   bFunc bf = null;
   Expect.equals("B_FOO", bFoo);
   Expect.equals("1_Imports_A02_p1_lib.foo()", new B.spec().foo());

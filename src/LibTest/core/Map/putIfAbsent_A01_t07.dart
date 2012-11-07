@@ -14,12 +14,14 @@
  * @needsreview undocumented
  * @reviewer varlax
  */
-
+import "../../../Utils/dynamic_check.dart";
 
 main() {
   Map<String, Object> map = new Map<String, Object>();
   map["1"] = 1;
   
   map.putIfAbsent("1", null);
-  map.putIfAbsent("1", 1);
+  checkTypeError(() {
+    map.putIfAbsent("1", 1);
+  });
 }

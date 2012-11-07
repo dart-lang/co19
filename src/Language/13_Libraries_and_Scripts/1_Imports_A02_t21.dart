@@ -54,6 +54,7 @@
  * @description Checks that it is possible to import a library that imports and re-exports
  * itself and there're no errors.
  * @author rodionov
+ * @issue 6595
  */
 
 import "1_Imports_A02_t21_lib.dart";

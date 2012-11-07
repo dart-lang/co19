@@ -6,14 +6,13 @@
 /**
  * @assertion It is possible to return the result of a void method from
  * within a void method. One can also return null; or a value of type Dynamic.
- * Returning any other result will cause a type warning (or a dynamic type error
- * in checked mode).
+ * Returning any other result will cause a type warning. In checked mode, 
+ * a dynamic type error would arise if a non-null object was returned from 
+ * a void method (since no object has runtime type dynamic).
  * @description Checks that returning the result of a void method invocation from
  * within a void method does not cause any errors.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview Assertion of this test cites non-normative text.
- * Possibly, this text in the spec should be normative?
  */
 
 void foo() {}
