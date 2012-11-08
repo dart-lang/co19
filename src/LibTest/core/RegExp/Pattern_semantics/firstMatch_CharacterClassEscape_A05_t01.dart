@@ -20,6 +20,10 @@
 main() {
   RegExp re = new RegExp("\\w");
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
+    // Skip the surrogates which are not valid char codes and will throw an
+    // exception in String.fromCharCodes.
+    if (alpha == 0xd800) alpha = 0xe000;
+    
     String ch = new String.fromCharCodes([alpha]);
     if((alpha >= 0x0030 && alpha <= 0x0039) // the 10 digits
       || (alpha >= 0x0041 && alpha <= 0x005A) // the uppercase english letters

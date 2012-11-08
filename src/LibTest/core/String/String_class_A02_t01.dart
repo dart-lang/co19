@@ -4,14 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings do not contain surrogates:
+ * @assertion Strings can contain surrogates:
  *    - if all characters of the String are 8 bits code points, the
- *      String is a list of bytes. Otherwise
- *    - if all code points can be represented in UTF-16 without
- *      surrogates, the String is a list of 16 bits code points.
- *      Otherwise
- *    - the String is stored in UTF-32, ie 32 bits code points.
- * @description Checks that String can be stored in UTF-32
+ *      String is a list of bytes.
+ * @description Checks that String can be stored in UTF-16
  * @reviewer pagolubev
  * @author msyabro
  */
@@ -21,7 +17,7 @@
 main() {
   String str = "a"; //UTF-8;
   str = "$str\u1d02"; //UTF-16;
-  str = "$str\u{10000}"; //UTF-32;
+  str = "$str\u{10000}"; //UTF-16 with surrogate pair
   
   Expect.equals(str, "\u0061\u1d02\u{10000}");
   Expect.equals(4, str.length);
