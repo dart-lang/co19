@@ -10,7 +10,7 @@
  * a dynamic type error would arise if a non-null object was returned from 
  * a void method (since no object has runtime type dynamic).
  * @description Checks that returning the result of a void method invocation from
- * within a void method does not cause any errors.
+ * within a void method does not cause any errors or warnings.
  * @author rodionov
  * @reviewer iefremov
  */
@@ -22,4 +22,3 @@ void bar() {return foo();}
 main() {
   bar();
 }
-

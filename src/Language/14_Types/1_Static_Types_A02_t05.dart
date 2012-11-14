@@ -6,15 +6,19 @@
 /**
  * @assertion Static type annotation grammar:
  * type:
- * qualified typeArguments?
+ *   typeName typeArguments?
+ * ;
+ * typeName:
+ *   qualified
  * ;
  * typeArguments:
- * '<' typeList '>'
+ *   '<' typeList '>'
  * ;
  * typeList:
- * type (',' type)*
+ *   type (',' type)*
  * ;
- * @description Checks that the list of type arguments must be comma-separated.
+ * @description Checks that it is a compile-time error when the type arguments
+ * are only space delimited.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

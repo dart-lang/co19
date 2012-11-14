@@ -6,7 +6,7 @@
 /**
  * @assertion Typedef grammar:
  * functionTypeAlias:
- *   typedef functionPrefix typeParameters? formalParameterList ’;’
+ *   metadata typedef functionPrefix typeParameters? formalParameterList ’;’
  * ;
  * functionPrefix:
  *   returnType? identifier

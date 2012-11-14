@@ -12,11 +12,10 @@
  *    - Let Ti be the type parameters of G (if any) and let Bi be the bound of Ti, 1 <= i <= n,
  *      and Si is not a subtype of [S1,  ..., Sn/T1,  ..., Tn]Bi,  1 <= i <= n,
  * In checked mode, it is a dynamic type error if a malformed type is used in a subtype test.
- * In production mode, an undeclared type is treated as an instance of type Dynamic.
- * @description Checks that it is a dynamic-type error if a malformed type is used in a
+ * In production mode, an undeclared type is treated as an instance of type dynamic.
+ * @description Checks that it is a dynamic type error if a malformed type is used in a
  * subtype test.
- * @dynamic-type-error
- * @static-warning
+ * static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
@@ -30,29 +29,42 @@ class Bounded<T extends num> {}
 class BoundedInt<T extends int> {}
 
 main() {
-  // spec ch. 11.31 dictates that this produces a runtime exception in both modes
+  // Expressions|Type test dictates that this should produce a runtime error in both modes
   try {
     null is MalformedType;
-    Expect.fail("Runtime exception expected");
-  } catch(e) {
+    Expect.fail("Runtime error expected");
+  } on Error catch(e) {
     if(isCheckedMode()) {
       Expect.isTrue(e is TypeError);
     }
   }
   
   checkTypeError( () {
-    Expect.isTrue(null is C<int, double, MalformedType>);
+    C<int, double, MalformedType> x = new C();
   });
   checkTypeError( () {
-    Expect.isTrue(null is Bounded<String>);
+    // non-normative, but spec contains this statement:
+    // "we have opted to treat a malformed type as an error type that has no subtypes or supertypes"
+    Expect.isFalse(null is C<int, double, MalformedType>);
   });
+  
   checkTypeError( () {
-    Expect.isTrue(null is BoundedInt<num>);
+    C<int, double, MalformedType> x = new C();
   });
+  
   checkTypeError( () {
-    Expect.isTrue(null is C<Bounded<String>, C, C>);
+    Bounded<String> x = new Bounded();
   });
+  
   checkTypeError( () {
-    Expect.isTrue(null is C<C<MalformedType, int, int>, C, C>);
+    BoundedInt<num> x = new BoundedInt();
+  });
+  
+  checkTypeError( () {
+    C<Bounded<String>, C, C> x = new C();
+  });
+  
+  checkTypeError( () {
+    C<C<MalformedType, int, int>, C, C> x = new C();
   });
 }

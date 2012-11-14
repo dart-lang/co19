@@ -11,16 +11,15 @@
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where T and S are simple functions.
  * @author iefremov
  * @reviewer rodionov
- * @needsreview I2 is a subtype of I0 and therefore, they should be mutually assignable, yet t2_1 is not a subtype of t2  
  */
 
-abstract class I0 {}
-abstract class I1 extends I0 {}
-abstract class I2 extends I1 {}
-abstract class I3 extends I2 {}
-abstract class I4 extends I2 {}
+class I0 {}
+class I1 extends I0 {}
+class I2 extends I1 {}
+class I3 extends I2 {}
+class I4 extends I2 {}
 
-abstract class G<T> {}
+class G<T> {}
 
 typedef t1();
 typedef void t1_1(); // void <: Dynamic
@@ -37,20 +36,15 @@ typedef t1_1 t3_1(t1_1 f1, [t1_1 f2]);
 typedef t1_2 t3_2(t1_2 f1, [t1_2 f2]);
 
 main() {
-//  print(I0 foo(I0 i, [I0 j]) {} is t2);
-//  print(I4 foo(I4 i, [I4 j]) {} is t2);
-//  print(I4 foo(I0 i, [I0 j]) {} is t2);
-//  print(I0 foo(I4 i, [I4 j]) {} is t2);
-  
   Expect.isTrue(new List<t1>() is List<t1>);
   Expect.isTrue(new List<t1_1>() is List<t1>);
   Expect.isTrue(new List<t1_2>() is List<t1>);
 
   Expect.isTrue(new List<t2>() is List<t2>);
-  Expect.isTrue(new List<t2_1>() is List<t2>); // fails
+  Expect.isTrue(new List<t2_1>() is List<t2>);
   Expect.isTrue(new List<t2_2>() is List<t2>);
   Expect.isTrue(new List<t2_3>() is List<t2>);
-  Expect.isTrue(new List<t2_4>() is List<t2>); // fails
+  Expect.isTrue(new List<t2_4>() is List<t2>);
 
   Expect.isTrue(new List<t3>() is List<t3>);
   Expect.isTrue(new List<t3_1>() is List<t3>);

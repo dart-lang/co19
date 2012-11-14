@@ -14,17 +14,17 @@
  * @reviewer rodionov
  */
 
-abstract class I {}
-abstract class J extends I {}
-abstract class K extends J {}
-abstract class L extends K {}
+class I {}
+class J extends I {}
+class K extends J {}
+class L extends K {}
 
 typedef J f(List<num> l, [J i]);
 typedef I f_1(List<Object> l, [I i]);
 typedef K f_2(List<int> l, [L i]);
 
 main() {
-  List<List> l1 = List _(){} ();
+  List<List> l1 = (){} ();
   List l1_ = new List<List>();
   
   List<List> l2 = new List<List<List>>();

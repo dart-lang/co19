@@ -27,8 +27,8 @@ void bar(var v) {
 
 main() {
   foo();
+  
   checkTypeError(() {
     bar(1);
   });
 }
-

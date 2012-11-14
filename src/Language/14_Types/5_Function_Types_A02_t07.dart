@@ -7,18 +7,23 @@
  * @assertion The function type (T1, ... Tn, [Tx1 x1, ..., Txk xk]) -> T is a subtype of the function
  * type (S1, ..., Sn, [Sy1 y1, ..., Sym ym ]) -> S, if all of the following conditions are met:
  * 1. Either S is void, or T <=> S.
- * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and xi = yi , for each i in 1..m.
- * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that function type t1 is still a subtype of function type t2 
- * if the names of its optional positional parameters do not match those of t2, even if the types do.
+ * 2. k >= m and for all i, 1 <= i <= n+m, Ti <=> Si.
+ * @description Checks that function type t1 is not a subtype of function type t2 if it has fewer
+ * positional optional parameters.
  * @author iefremov
  * @reviewer rodionov
  */
 
-typedef f2([int x, double y]);
+typedef t1([int x]);
+typedef t2([int x, int y]);
+typedef t3([int x, int y, int z]);
 
 main() {
-  Expect.isTrue(f([int x, double xx]) {} is f2);
-  Expect.isTrue(f([int y, double x]) {} is f2);
+  Expect.isFalse(() {} is t1);
+
+  Expect.isFalse(([int x]) {} is t2);
+  Expect.isFalse(([var x]) {} is t2);
+
+  Expect.isFalse(([int x, int y]) {} is t3);
+  Expect.isFalse(([var x, var y]) {} is t3);
 }

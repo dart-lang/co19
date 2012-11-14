@@ -4,40 +4,66 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, [Tx1 x1, ..., Txk xk]) -> T is a subtype of the function
- * type (S1, ..., Sn, [Sy1 y1, ..., Sym ym ]) -> S, if all of the following conditions are met:
+ * @assertion The function type (T1, ... Tn) -> T is a subtype of the function
+ * type (S1, ..., Sn) -> S, if all of the following conditions are met:
  * 1. Either S is void, or T <=> S.
  * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and xi = yi , for each i in 1..m.
- * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that this statement is true for function types with no arguments:
- * S is some type, T is Object (assignable to S).
+ * @description Checks that this statement is true for function types with no arguments: 
+ * S is some type, T is some other type assignable to S.
  * @author iefremov
  * @reviewer rodionov
  */
 
-typedef t1();
-typedef void t2();
-typedef int t3();
-typedef String t4();
-typedef double t5();
-typedef Object t6();
-typedef List t8();
-typedef List<int> t9();
-typedef Map<int, List<List<List>>> t10();
+typedef returnsDynamic();
+typedef Object returnsObject();
+typedef num returnsNum();
 
-void checkAll(Function f) {
-  Expect.isTrue(f is t1);
-  Expect.isTrue(f is t2);
-  Expect.isTrue(f is t3);
-  Expect.isTrue(f is t4);
-  Expect.isTrue(f is t5);
-  Expect.isTrue(f is t6);
-  Expect.isTrue(f is t8);
-  Expect.isTrue(f is t9);
-  Expect.isTrue(f is t10);
-}
+  //() -> T is () -> dynamic
+void f1() {}
+int f2() {}
+String f3() {}
+double f4() {}
+Object f5() {}
+returnsDynamic f6() {}
+List f7() {}
+List<int> f8() {}
+Map<int, List<List<List>>> f9() {}
+  //() -> T is () -> Object
+int f10() {}
+String f11() {}
+double f12() {}
+Object f13() {}
+List f14() {}
+List<int> f15() {}
+Map<int, List<List<List>>> f16() {}
+  //() -> T is () -> num
+int f17() {}
+double f18() {}
+num f19() {}
 
 main() {
-  checkAll(Object f() {});
+  //() -> T is () -> dynamic
+  Expect.isTrue(f1 is returnsDynamic);
+  Expect.isTrue(f2 is returnsDynamic);
+  Expect.isTrue(f3 is returnsDynamic);
+  Expect.isTrue(f4 is returnsDynamic);
+  Expect.isTrue(f5 is returnsDynamic);
+  Expect.isTrue(f6 is returnsDynamic);
+  Expect.isTrue(f7 is returnsDynamic);
+  Expect.isTrue(f8 is returnsDynamic);
+  Expect.isTrue(f9 is returnsDynamic);
+
+  //() -> T is () -> Object
+  Expect.isTrue(f10 is returnsObject);
+  Expect.isTrue(f11 is returnsObject);
+  Expect.isTrue(f12 is returnsObject);
+  Expect.isTrue(f13 is returnsObject);
+  Expect.isTrue(f14 is returnsObject);
+  Expect.isTrue(f15 is returnsObject);
+  Expect.isTrue(f16 is returnsObject);
+
+  //() -> T is () -> num
+  Expect.isTrue(f17 is returnsNum);
+  Expect.isTrue(f18 is returnsNum);
+  Expect.isTrue(f19 is returnsNum);
 }

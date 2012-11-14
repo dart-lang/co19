@@ -11,8 +11,6 @@
  * @description Trivially checks that a function type alias (with no arguments) introduces a new name for a type.
  * @author iefremov
  * @reviewer rodionov
- * @needsreview new tests needed checking typedef scopes (functionTypeAlias can only be
- * a top-level definition, according to chapter 12)
  */
 
 typedef f_t();
@@ -24,4 +22,3 @@ main() {
   Expect.isTrue(f is f_t);
   Expect.isTrue(f is g_t);
 }
-

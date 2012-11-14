@@ -14,9 +14,9 @@
  * @reviewer rodionov
  */
 
-abstract class I {}
-abstract class J implements I {}
-abstract class K implements J {}
+class I {}
+class J implements I {}
+class K implements J {}
 
 class Z<T> {
   Z() {}
@@ -54,6 +54,4 @@ main() {
   Expect.isTrue(new Z<J>() is Z<I>);
   Expect.isTrue(new Z<K>() is Z<I>);
   Expect.isTrue(new Z<K>() is Z<J>);
-
 }
-

@@ -10,17 +10,15 @@
  * @reviewer rodionov
  */
 
-abstract class I0 {}
+class I0 {}
 
-abstract class I1 implements I0 {}
+class I1 implements I0 {}
 
-abstract class I2 implements I1 {
-  factory I2(){return new A();}
-}
+class I2 implements I1 {}
 
-class A implements I2 {
-}
+class A implements I2 {}
 
 main() {
-  Expect.isTrue(new I2() is I0);
+  Expect.isTrue(new A() is I1);
+  Expect.isTrue(new A() is I0);
 }

@@ -13,14 +13,13 @@
  * Checks assignability (no static warnings) as well.
  * @author iefremov
  * @reviewer rodionov
- * @needsreview Verify that this rule extends to function types.
- * issue 3280
+ * @issue 3280
  */
 
 
-abstract class I {}
-abstract class J extends I {}
-abstract class K extends J {}
+class I {}
+class J extends I {}
+class K extends J {}
 class C implements K {}
 
 typedef Map<List, List<Map<num,List>>> complexFunction_t1();
@@ -43,10 +42,12 @@ typedef J param5(I j, t1_1 f1, [Object i, t2_1 f2]);
 class Checker<T extends bound> {
   Checker() {}
   
+  Checker<bound> f() {}
+  
   check() {
     Expect.isTrue(new Checker<T>() is Checker<bound>);
     Checker<bound> c1 = new Checker<T>();
-    Checker<T> c2 = Checker<bound> f() {} ();
+    Checker<T> c2 = f();
   }
 }
 

@@ -20,4 +20,3 @@ void foo() {return;}
 main() {
   bool b = (foo() == 1);
 }
-

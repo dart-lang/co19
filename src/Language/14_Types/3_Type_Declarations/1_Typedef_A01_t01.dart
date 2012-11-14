@@ -6,7 +6,7 @@
 /**
  * @assertion Typedef grammar:
  * functionTypeAlias:
- *   typedef functionPrefix typeParameters? formalParameterList ’;’
+ *   metadata typedef functionPrefix typeParameters? formalParameterList ’;’
  * ;
  * functionPrefix:
  *   returnType? identifier
@@ -17,9 +17,11 @@
  * @reviewer iefremov
  */
 
-typedef _foo();
+const int meta = 1;
+
+@meta typedef _foo();
 typedef int _bar<A, B>(A a, [B b]);
-typedef List<List> _baz<A extends Function, B extends num>(A a, [B i]);
+@meta typedef List<List> _baz<A extends Function, B extends num>(A a, [B i]);
 
 main() {
   _foo foo = () {return;};

@@ -7,17 +7,15 @@
  * @assertion The special type void may only be used as the return type of a function:
  * it is a compile-time error to use void in any other context (for example,
  * as a type argument, or as the type of a variable or parameter).
- * @description Checks that putting void in an interface's extends clause causes a compile-time error.
+ * @description Checks that using void as a declaration name is also a compile-time error.
  * @author rodionov
- * @reviewer iefremov
  * @compile-error
  */
 
-interface A extends void {}
+void void() {}
 
 main() {
   try {
-    Expect.isFalse(null is A);
-  } catch(x){}
+    void();
+  } catch (anything) {}
 }
-

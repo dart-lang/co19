@@ -23,4 +23,3 @@ main() {
   Expect.isTrue(f is f_t);
   Expect.isTrue(f is g_t);
 }
-

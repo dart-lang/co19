@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, [Tx1 x1, ..., Txk xk]) -> T is a subtype of the function
- * type (S1, ..., Sn, [Sy1 y1, ..., Sym ym ]) -> S, if all of the following conditions are met:
+ * @assertion The function type (T1, ... Tn) -> T is a subtype of the function
+ * type (S1, ..., Sn) -> S, if all of the following conditions are met:
  * 1. Either S is void, or T <=> S.
  * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and xi = yi , for each i in 1..m.
- * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
  * @description Checks that this statement is true for function types with no arguments: S is void, T is any type.
  * Also checks their mutual assignability.
  * @static-warning
@@ -43,16 +41,28 @@ class Checker<T> {
   }
 }
 
+f1() {}
+void f2() {}
+int f3() {}
+String f4() {}
+double f5() {}
+Object f6() {}
+t1 f7() {}
+List f8() {}
+List<int> f9() {}
+Map<int, List<List<List>>> f10() {}
+t10 f11() {}
+
 main() {
-  new Checker<t1>  (f() {});
-  new Checker<t2>  (void f() {});
-  new Checker<t3>  (int f() {});
-  new Checker<t4>  (String f() {});
-  new Checker<t5>  (double f() {});
-  new Checker<t6>  (Object f() {});
-  new Checker<t7>  (t1 f() {});
-  new Checker<t8>  (List f() {});
-  new Checker<t9>  (List<int> f() {});
-  new Checker<t10> (Map<int, List<List<List>>> f() {});
-  new Checker<t11> (t10 f() {});
+  new Checker<t1>  (f1);
+  new Checker<t2>  (f2);
+  new Checker<t3>  (f3);
+  new Checker<t4>  (f4);
+  new Checker<t5>  (f5);
+  new Checker<t6>  (f6);
+  new Checker<t7>  (f7);
+  new Checker<t8>  (f8);
+  new Checker<t9>  (f9);
+  new Checker<t10> (f10);
+  new Checker<t11> (f11);
 }

@@ -13,19 +13,13 @@
  */
 
 
-abstract class I {}
+class I {}
 
-class A implements I {
-  A() {}
-}
+class A implements I {}
 
-class B extends A {
-  B() {}
-}
+class B extends A {}
 
-class C {
-  C() {}
-}
+class C {}
 
 class Checker<S> {
   Checker() {}

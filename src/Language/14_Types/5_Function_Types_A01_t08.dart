@@ -4,60 +4,56 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, [Tx1 x1, ..., Txk xk]) -> T is a subtype of the function
- * type (S1, ..., Sn, [Sy1 y1, ..., Sym ym ]) -> S, if all of the following conditions are met:
+ * @assertion The function type (T1, ... Tn) -> T is a subtype of the function
+ * type (S1, ..., Sn) -> S, if all of the following conditions are met:
  * 1. Either S is void, or T <=> S.
  * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and xi = yi , for each i in 1..m.
- * 4. For all y, {y1 , . . . , ym} Sy <=> Ty
- * @description Checks that this statement is true for function types with several formal parameters
- * (abstract class, generic, function, Dynamic).
+ * @description Checks that function type t1 is not a subtype of function type t2 if return types of t1 and t2
+ * are not mutually assignable.
  * @author iefremov
  * @reviewer rodionov
  */
 
-abstract class A {}
-abstract class A1 {}
-abstract class A2 {}
-abstract class B implements A, A1, A2 {}
-abstract class C implements B {}
-abstract class D implements C {}
+class A {}
+class B {}
 
-class G<T, S, U, W> {}
+typedef int t1();
+typedef A t2();
+typedef List<A> t3();
+typedef t1 t4();
 
-typedef interfacesFunc(A a, B b, C c, D d);
-typedef genericsFunc(Map<num, int> m, List<List<B>> l, G<A, B, C, D> g);
-typedef dynamicFunc(var x, var y, var z, var v);
-typedef funcFunc(interfacesFunc f1, genericsFunc f2, dynamicFunc f3);
-typedef mixFunc(var x, B b, G<A, B, C, D> g, funcFunc);
-
-typedef okWithInterfacesFunc_1(A a, A1 b, A1 c, A1 d);
-typedef okWithInterfacesFunc_2(D a, D b, D c, D d);
-
-typedef okWithGenericsFunc_1(Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g);
-typedef okWithGenericsFunc_2(Map<int, int> m, List<List<D>> l, G<D, D, D, D> g);
-
-typedef okWithDynamicFunc_1(A x, G g, mixFunc f, var z);
-typedef okWithDynamicFunc_2(int x, bool g, List<Map> f, interfacesFunc z);
-
+double f1() {}
+bool f2() {}
+A f3() {}
+List<int> f4() {}
+t2 f5() {}
+t3 f6() {}
 
 main() {
-  Expect.isTrue(f(D d, B b, C c, A a) {} is interfacesFunc);
-  Expect.isTrue(f(A d, A b, A c, A a) {} is interfacesFunc);
-  Expect.isTrue(f(D d, A1 b, A1 c, A1 a) {} is interfacesFunc);
-  Expect.isTrue(f(D d, A2 b, A2 c, A2 a) {} is interfacesFunc);
-  Expect.isTrue(f(D d, D b, D c, D a) {} is interfacesFunc);
-  Expect.isTrue(f(var d, var b, var c, var a) {} is interfacesFunc);
-  Expect.isTrue(f(Object d, Object b, Object c, Object a) {} is interfacesFunc);
+  Expect.isFalse(f1 is t1);
+  Expect.isFalse(f2 is t1);
+  Expect.isFalse(f3 is t1);
+  Expect.isFalse(f4 is t1);
+  Expect.isFalse(f5 is t1);
+  Expect.isFalse(f5 is t1);
 
-  Expect.isTrue(f(Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g) {} is genericsFunc);
-  Expect.isTrue(f(Map<int, int> m, List<List<D>> l, G<D, D, D, D> g) {} is genericsFunc);
-  Expect.isTrue(f(var m, var l, var g) {} is genericsFunc);
-  Expect.isTrue(f(Object m, Object l, Object g) {} is genericsFunc);
+  Expect.isFalse(f1 is t2);
+  Expect.isFalse(f2 is t2);
+  Expect.isFalse(f4 is t2);
+  Expect.isFalse(f5 is t2);
+  Expect.isFalse(f6 is t2);
 
-  Expect.isTrue(f(A x, G g, mixFunc d, var z) {} is dynamicFunc);
-  Expect.isTrue(f(int x, bool g, List<Map> d, interfacesFunc z) {} is dynamicFunc);
+  Expect.isFalse(f1 is t3);
+  Expect.isFalse(f2 is t3);
+  Expect.isFalse(f3 is t3);
+  Expect.isFalse(f4 is t3);
+  Expect.isFalse(f5 is t3);
+  Expect.isFalse(f6 is t3);
 
-  Expect.isTrue(f(okWithInterfacesFunc_1 a, okWithGenericsFunc_1 b, okWithDynamicFunc_1 c) {} is funcFunc);
-  Expect.isTrue(f(okWithInterfacesFunc_2 a, okWithGenericsFunc_2 b, okWithDynamicFunc_2 c) {} is funcFunc);
+  Expect.isFalse(f1 is t4);
+  Expect.isFalse(f2 is t4);
+  Expect.isFalse(f3 is t4);
+  Expect.isFalse(f4 is t4);
+  Expect.isFalse(f5 is t4);
+  Expect.isFalse(f6 is t4);
 }

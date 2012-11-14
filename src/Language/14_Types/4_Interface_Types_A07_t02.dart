@@ -15,4 +15,3 @@
 main() {
   Expect.isTrue(null is dynamic);
 }
-

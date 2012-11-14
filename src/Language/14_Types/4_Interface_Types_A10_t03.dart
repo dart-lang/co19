@@ -15,9 +15,9 @@
  * @reviewer rodionov
  */
 
-abstract class I<A, B, T> {}
-abstract class J<A, B, T> extends I<A, B, T> {}
-abstract class K extends J {}
+class I<A, B, T> {}
+class J<A, B, T> extends I<A, B, T> {}
+class K extends J {}
 class C implements K {}
 
 // supposedly, f_1 <=> f and f_2 <=> f (see 13.5)
@@ -28,10 +28,12 @@ typedef I f_2(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
 class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   Checker_I() {}
   
+  Checker_I<I<f, num, List<Map<num, Map>>>> _() {}
+  
   check() {
     Expect.isTrue(new Checker_I<T>() is Checker_I<I>);
     Checker_I<I<f, num, List<Map<num, Map>>>> i1 = new Checker_I<T>();
-    Checker_I<T> i2 = Checker_I<I<f, num, List<Map<num, Map>>>> _() {} ();
+    Checker_I<T> i2 = _();
   }
 }
 

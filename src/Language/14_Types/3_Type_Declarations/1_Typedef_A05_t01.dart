@@ -17,6 +17,5 @@ typedef A B;
 main() {
   try {
     new A();
-  }catch(x){}
+  } catch(x) {}
 }
-

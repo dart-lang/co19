@@ -13,8 +13,7 @@
  * @reviewer rodionov
  */
 
-
-abstract class I<T> {}
+class I<T> {}
 
 class C implements I<int> {}
 

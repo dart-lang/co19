@@ -14,9 +14,9 @@
  * @reviewer rodionov
  */
 
-abstract class I {}
-abstract class J extends I {}
-abstract class K extends J {}
+class I {}
+class J extends I {}
+class K extends J {}
 class C implements K {}
 
 class Checker_I<T extends I> implements I {
@@ -25,17 +25,19 @@ class Checker_I<T extends I> implements I {
   check() {
     Expect.isTrue(new Checker_I<T>() is Checker_I<I>);
     Checker_I<I> c1 = new Checker_I<T>();
-    Checker_I<T> c2 = Checker_I<I> f (){} ();
+    Checker_I<T> c2 = (){} ();
   }
 }
 
 class Checker_Object<T> {
   Checker_Object() {}
   
+  Checker_Object<Object> f2() {}
+  
   check() {
     Expect.isTrue(new Checker_Object<T>() is Checker_Object<Object>);
     Checker_Object<Object> c1 = new Checker_Object<T>();
-    Checker_Object<T> c2 = Checker_Object<Object> f() {} ();
+    Checker_Object<T> c2 = f2();
   }
 }
 
@@ -55,4 +57,3 @@ main() {
   new Checker_Object<K>().check();
   new Checker_Object<C>().check();
 }
-

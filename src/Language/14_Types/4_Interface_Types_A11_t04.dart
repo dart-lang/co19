@@ -14,13 +14,9 @@
  * @needsreview issue 3277
  */
 
-
-abstract class S<Type> {}
-
-abstract class S1 extends S<int> {}
-
-abstract class S2 extends S<double> {}
-
+class S<Type> {}
+class S1 extends S<int> {}
+class S2 extends S<double> {}
 class T implements S1, S2 {}
 
 main() {

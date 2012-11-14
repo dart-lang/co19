@@ -14,9 +14,9 @@
  * @reviewer rodionov
  */
 
-abstract class I {}
-abstract class J extends I {}
-abstract class K extends J {}
+class I {}
+class J extends I {}
+class K extends J {}
 
 class Z<T> {
   Z() {}

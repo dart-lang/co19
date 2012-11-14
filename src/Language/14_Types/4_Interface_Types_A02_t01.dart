@@ -4,24 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An interface I is a direct supertype of an interface J if I is listed in the extends
+ * @assertion The implicit interface of class I is a direct supertype 
+ * of the implicit interface of class J if I is listed in the extends
  * clause of J.
- * @description Checks that an interface listed in the extends clause of another is its supertype.
+ * @description Checks that a type listed in the extends clause of another is its supertype.
  * @author iefremov
  * @reviewer rodionov
  * @needsreview It's currently impossible to check whether a type is a direct supertype of another
  * without some sort of reflection framework.
  */
 
-abstract class I {}
-abstract class J extends I {
-  factory J(){return new C();}
-}
+class I {}
 
-class C implements J {
-}
+class J extends I {}
 
 main() {
   Expect.isTrue(new J() is I);
 }
-

@@ -6,15 +6,19 @@
 /**
  * @assertion Static type annotation grammar:
  * type:
- * qualified typeArguments?
+ *   typeName typeArguments?
+ * ;
+ * typeName:
+ *   qualified
  * ;
  * typeArguments:
- * '<' typeList '>'
+ *   '<' typeList '>'
  * ;
  * typeList:
- * type (',' type)*
+ *   type (',' type)*
  * ;
- * @description Checks that closing angle bracket is a must.
+ * @description Checks that it is a compile-time error when the closing angle bracket
+ * in a static type annotation's type argument list is missing.
  * @author iefremov
  * @reviewer rodionov
  * @compile-error

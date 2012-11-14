@@ -6,13 +6,16 @@
 /**
  * @assertion Static type annotation grammar:
  * type:
- * qualified typeArguments?
+ *   typeName typeArguments?
+ * ;
+ * typeName:
+ *   qualified
  * ;
  * typeArguments:
- * '<' typeList '>'
+ *   '<' typeList '>'
  * ;
  * typeList:
- * type (',' type)*
+ *   type (',' type)*
  * ;
  * @description Checks that the type argument can be parameterized as well.
  * @author iefremov

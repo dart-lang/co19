@@ -13,10 +13,8 @@
  * @compile-error
  */
 
-
 main() {
   try {
     f(void a) {};
   } catch(x){}
 }
-

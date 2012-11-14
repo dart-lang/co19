@@ -11,13 +11,12 @@
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where T and S are trivial generics.
  * @author iefremov
  * @reviewer rodionov
- * @needsreview J is a subtype of I and therefore, they should be mutually assignable, yet f_1 is not a subtype of f  
  */
 
-abstract class I {}
-abstract class J extends I {}
-abstract class K extends J {}
-abstract class L extends K {}
+class I {}
+class J extends I {}
+class K extends J {}
+class L extends K {}
 
 // subtypes of each other, according to 13.5
 typedef J f(List<num> l, [J i]);

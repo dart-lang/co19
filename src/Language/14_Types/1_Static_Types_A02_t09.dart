@@ -6,13 +6,16 @@
 /**
  * @assertion Static type annotation grammar:
  * type:
- * qualified typeArguments?
+ *   typeName typeArguments?
+ * ;
+ * typeName:
+ *   qualified
  * ;
  * typeArguments:
- * '<' typeList '>'
+ *   '<' typeList '>'
  * ;
  * typeList:
- * type (',' type)*
+ *   type (',' type)*
  * ;
  * @description Checks that using fully qualified type name allows to import it from some library.
  * @author iefremov
@@ -26,8 +29,8 @@ main() {
   somelibprefix.ClassFromSomeLib<int, String, double> v2;
   somelibprefix.ClassFromSomeLib
     <
-    somelibprefix.ClassFromSomeLib,
-    somelibprefix.ClassFromSomeLib,
+    somelibprefix.ClassFromSomeLib<int>,
+    somelibprefix.ClassFromSomeLib<bool>,
     somelibprefix.ClassFromSomeLib
     >
     v3;

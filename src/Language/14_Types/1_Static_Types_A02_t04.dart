@@ -6,15 +6,19 @@
 /**
  * @assertion Static type annotation grammar:
  * type:
- * qualified typeArguments?
+ *   typeName typeArguments?
+ * ;
+ * typeName:
+ *   qualified
  * ;
  * typeArguments:
- * '<' typeList '>'
+ *   '<' typeList '>'
  * ;
  * typeList:
- * type (',' type)*
+ *   type (',' type)*
  * ;
- * @description Checks that type list can not be empty.
+ * @description Checks that it is a compile-time error when the list of type
+ * arguments in a static type annotation is empty.
  * @author iefremov
  * @reviewer rodionov
  * @compile-error

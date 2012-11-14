@@ -20,4 +20,3 @@ main() {
     A<void> a = null;
   } catch(x){}
 }
-

@@ -6,15 +6,19 @@
 /**
  * @assertion Static type annotation grammar:
  * type:
- * qualified typeArguments?
+ *   typeName typeArguments?
+ * ;
+ * typeName:
+ *   qualified
  * ;
  * typeArguments:
- * '<' typeList '>'
+ *   '<' typeList '>'
  * ;
  * typeList:
- * type (',' type)*
+ *   type (',' type)*
  * ;
- * @description Checks that curly brackets are not allowed around typeList.
+ * @description Checks that it is a compile-time error when the type arguments
+ * in a static type annotation are enclosed in curly brackets instead of angle ones.
  * @author iefremov
  * @reviewer rodionov
  * @compile-error

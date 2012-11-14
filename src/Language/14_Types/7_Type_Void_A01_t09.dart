@@ -20,4 +20,3 @@ main() {
     new A();
   } catch(x){}
 }
-

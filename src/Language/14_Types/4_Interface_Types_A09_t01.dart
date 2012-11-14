@@ -4,26 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A type T is more specific than a type S, written T << S, if T is a type variable and S is the upper bound of T.
+ * @assertion A type T is more specific than a type S, written T << S, if T is a type parameter and S is the upper bound of T.
  * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
- * @description Checks assignability (no static warnings) of S and T where T is type parameter and S is type parameter bound.
+ * @description Checks assignability (no static warnings) of S and T where T is type parameter and S is it's upper bound.
  * Note: detailed checks are contained in tests for the next assertion.
  * @author iefremov
  * @reviewer rodionov
  */
 
-class Super {
-  Super() {}
-}
+class Super {}
 
-class Mid extends Super {
-  Mid() {}
-}
+class Mid extends Super {}
 
-class Sub extends Mid {
-  Sub() {}
-}
+class Sub extends Mid {}
 
 class Checker<T extends Super> {
   Checker(T t) {

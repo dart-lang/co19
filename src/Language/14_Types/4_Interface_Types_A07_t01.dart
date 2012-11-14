@@ -12,6 +12,8 @@
  * @reviewer rodionov
  */
 
+List<Map<List, Map>> f1(num n, Object o, [var x, List y]) {}
+
 main() {
   Expect.isTrue(new Object() is dynamic);
   Expect.isTrue(1 is dynamic);
@@ -21,8 +23,7 @@ main() {
   Expect.isTrue(false is dynamic);
   Expect.isTrue(new List() is dynamic);
   Expect.isTrue(new List<Map<List, List<int>>>() is dynamic);
-  Expect.isTrue(f() {} is dynamic);
-  Expect.isTrue(void f() {} is dynamic);
-  Expect.isTrue(List<Map<List, Map>> f(num n, Object o, [var x, List y]) {} is dynamic);
+  Expect.isTrue(() {} is dynamic);
+  Expect.isTrue((num n, Object o, [var x, List y]) {} is dynamic);
+  Expect.isTrue(f1 is dynamic);
 }
-

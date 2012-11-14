@@ -11,12 +11,11 @@
  * @compile-error
  */
 
-interface A {}
+abstract class A {}
 typedef A B;
 
 main() {
   try {
     Expect.isFalse(null is B);
-  }catch(x){}
+  } catch(x) {}
 }
-

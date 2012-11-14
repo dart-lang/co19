@@ -7,8 +7,8 @@
  * @assertion A type T is more specific than a type S, written T << S, if S is a direct supertype of T.
  * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
- * @description Checks that this statement is true for a parameterized interface type extending other parameterized
- * interface type with the same type parameter.
+ * @description Checks that this statement is true for a parameterized type extending other parameterized
+ * type with the same type parameter.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -17,7 +17,7 @@ class G<T> {}
 class Generic<T> extends G<T> {}
 
 // these produce the required static type for static checker 
-// but won't fail at compile time because they return null after all
+// but won't fail at run time because they return null after all
 G makeG() {}
 G<int> makeGint() {}
 G<Object> makeGObject() {}

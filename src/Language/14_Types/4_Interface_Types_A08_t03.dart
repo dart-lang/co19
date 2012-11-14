@@ -17,12 +17,12 @@
 
 import "../../Utils/dynamic_check.dart";
 
-abstract class A {}
-abstract class A1 {}
-abstract class A2 {}
-abstract class B implements A, A1, A2 {}
-abstract class C implements B {}
-abstract class D implements C {}
+class A {}
+class A1 {}
+class A2 {}
+class B implements A, A1, A2 {}
+class C implements B {}
+class D implements C {}
 
 typedef B func(Object o);
 typedef B f1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]);
@@ -33,32 +33,49 @@ typedef B f1_2(int i, B b, Map<int, num> m, var x, [var ox, B ob]);
 typedef B f1_3(int i, B b, Map<int, num> m, var x, [var ox]);
 typedef B f1_4(int i, B b, Map<int, num> m, var x);
 
+B f01(int i, B b, Map<int, num> m, var x, [var ox, D ob, List<num> ol, bool obool]) {}
+D f02(int i, D b, Map<int, int> m, func x, [func ox, D ob, List<int> ol, bool obool]) {}
+C f03(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]) {}
+A f04(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]) {}
+A f05(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool, var more1]) {}
+A f06(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool, var more1, int more2]) {}
+
+C f11(num i, A b, Map<Object, Object> m, var x) {}
+C f12(num i, A b, Map<Object, Object> m, var x, [var ox]) {}
+C f13(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob]) {}
+C f14(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol]) {}
+
+B f21(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+B f22(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+B f23(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+B f24(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+
 main() {
   //functions on the right are subtypes of f1
-  f1 fvar = B f(int i, B b, Map<int, num> m, var x, [var ox, D ob, List<num> ol, bool obool]){};
-  fvar = D f(int i, D b, Map<int, int> m, func x, [func ox, D ob, List<int> ol, bool obool]){};
-  fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]){};
-  fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]){};
-  fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool, var more1]){};
-  fvar = A f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool, var more1, int more2]){};
+  f1 fvar = f01;
+  fvar = f02;
+  fvar = f03;
+  fvar = f04;
+  fvar = f05;
+  fvar = f06;
 
   //functions on the right are supertypes of f1
   checkTypeError(() {
-    fvar = C f(num i, A b, Map<Object, Object> m, var x){};
+    fvar = f11;
   });
   checkTypeError(() {
-    fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox]){};
+    fvar = f12;
   });
   checkTypeError(() {
-    fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob]){};
+    fvar = f13;
   });
   checkTypeError(() {
-    fvar = C f(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol]){};
+    fvar = f14;
   });
 
   //function on the right is a subtype of f1_*
-  f1_1 fvar_1 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-  f1_2 fvar_2 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-  f1_3 fvar_3 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
-  f1_4 fvar_4 = B _(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {};
+  f1_1 fvar_1 = f21;
+  f1_2 fvar_2 = f22;
+  f1_3 fvar_3 = f23;
+  f1_4 fvar_4 = f24;
 }

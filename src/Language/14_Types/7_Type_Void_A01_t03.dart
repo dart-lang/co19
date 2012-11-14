@@ -19,4 +19,3 @@ main() {
     f(void) {};
   } catch(x){}
 }
-

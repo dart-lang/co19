@@ -8,26 +8,22 @@
  * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks the assignability (both ways) of variables and values that meet the described requirements.
+ * This is a test of static checker, as it's a type error in checked mode when variable is assigned a value whose
+ * runtime type is a supertype of the variable's actual type.
  * @author iefremov
  * @reviewer rodionov
  */
 
 
-abstract class I {}
-I makeI() {}
+class I {}
+I makeI() {} // returns null to avoid type error in checked mode
 
-class A implements I {
-  A() {}
-}
+class A implements I {}
 A makeA() {}
 
-class B extends A {
-  B() {}
-}
+class B extends A {}
 
-class C {
-  C() {}
-}
+class C {}
 Object makeObject() {}
 
 main() {

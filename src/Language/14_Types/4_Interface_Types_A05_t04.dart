@@ -28,6 +28,21 @@ typedef List t12(int x, [int y, List z, Map<String, Object> m]);
 typedef List<Map<int, List<List<int>>>> t13(int x, var v, [int y, List z, Map<String, List<int>> m]);
 typedef t13 t14(t13 a, [t13 b]);
 
+void f1() {}
+num f2() {}
+f3() {}
+f4(var x) {}
+int f5(var x) {}
+String f6(var x, int y) {}
+t1 f7(t2 x, t3 y) {}
+t7 f8(t7 x, [t7 y]) {}
+void f9([var x]) {}
+int f10([int x]) {}
+List f11(int x, int y, List z, Map<String, Object> m) {}
+List f12(int x, [int y, List z, Map<String, Object> m]) {}
+List<Map<int, List<List<int>>>> f13(int x, var v, [int y, List z, Map<String, List<int>> m]) {}
+t13 f14(t13 a, [t13 b]) {}
+
 class Checker<T> {
   Checker() {}
   
@@ -43,18 +58,18 @@ class Checker<T> {
 }
 
 main() {
-  new Checker<t1>().check(void f() {});
-  new Checker<t2>().check(num f() {});
-  new Checker<t3>().check(f() {});
-  new Checker<t4>().check(f(var x) {});
-  new Checker<t5>().check(int f(var x) {});
-  new Checker<t6>().check(String f(var x, int y) {});
-  new Checker<t7>().check(t1 f(t2 x, t3 y) {});
-  new Checker<t8>().check(t7 f(t7 x, [t7 y]) {});
-  new Checker<t9>().check(void f([var x]) {});
-  new Checker<t10>().check(int f([int x]) {});
-  new Checker<t11>().check(List f(int x, int y, List z, Map<String, Object> m) {});
-  new Checker<t12>().check(List f(int x, [int y, List z, Map<String, Object> m]) {});
-  new Checker<t13>().check(List<Map<int, List<List<int>>>> f(int x, var v, [int y, List z, Map<String, List<int>> m]) {});
-  new Checker<t14>().check(t13 f(t13 a, [t13 b]) {});
+  new Checker<t1>().check(f1);
+  new Checker<t2>().check(f2);
+  new Checker<t3>().check(f3);
+  new Checker<t4>().check(f4);
+  new Checker<t5>().check(f5);
+  new Checker<t6>().check(f6);
+  new Checker<t7>().check(f7);
+  new Checker<t8>().check(f8);
+  new Checker<t9>().check(f9);
+  new Checker<t10>().check(f10);
+  new Checker<t11>().check(f11);
+  new Checker<t12>().check(f12);
+  new Checker<t13>().check(f13);
+  new Checker<t14>().check(f14);
 }

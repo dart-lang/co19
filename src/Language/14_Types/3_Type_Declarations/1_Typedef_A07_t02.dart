@@ -5,9 +5,9 @@
  */
 /**
  * @assertion It is a compile-time error if a typedef refers to itself via a chain of references
- * that does not include a class or interface type.
+ * that does not include a class type.
  * @description Checks that self-referencing typedef is not allowed (positional formal parameter
- * type annotation has the same name as a type alias).
+ * type annotation has the same name as the type alias).
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -17,6 +17,6 @@ typedef f(f x);
 
 main() {
   try {
-    var func = _(f x){};
+    null is f;
   } catch(x) {}
 }

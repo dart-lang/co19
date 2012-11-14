@@ -16,6 +16,5 @@ typedef int integer;
 main() {
   try {
     Expect.isFalse(null is integer);
-  }catch(x){}
+  } catch(x) {}
 }
-

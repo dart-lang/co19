@@ -6,12 +6,13 @@
 /**
  * @assertion Typedef grammar:
  * functionTypeAlias:
- *   typedef functionPrefix typeParameters? formalParameterList ’;’
+ *   metadata typedef functionPrefix typeParameters? formalParameterList ’;’
  * ;
  * functionPrefix:
  *   returnType? identifier
  * ;
- * @description Checks that the semicolon is a must.
+ * @description Checks that it is a compile-time error if the terminating semicolon is missing
+ * from a type alias declaration.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
