@@ -12,8 +12,8 @@
  */
 
 main() {
-  Expect.isTrue("s".contains(const RegExp("")));
-  Expect.isTrue("".contains(const RegExp("")));
-  Expect.isTrue("Abyrvalg".contains(const RegExp("")));
+  Expect.isTrue("s".contains(new RegExp("")));
+  Expect.isTrue("".contains(new RegExp("")));
+  Expect.isTrue("Abyrvalg".contains(new RegExp("")));
 }
 

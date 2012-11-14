@@ -12,7 +12,7 @@
  */
  
 main() {
-  NotImplementedException e = new NotImplementedException();
+  UnimplementedError e = new UnimplementedError();
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }

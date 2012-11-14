@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented: const NotImplementedException()
+ * @assertion Undocumented: const UnimplementedError()
  * @description Checks that this constructor executes without error.
  * @author rodionov
  * @reviewer pagolubev
@@ -12,5 +12,5 @@
  */
  
 main() {
-  new NotImplementedException();
+  new UnimplementedError();
 }
