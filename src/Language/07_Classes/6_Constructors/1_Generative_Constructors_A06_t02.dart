@@ -24,6 +24,6 @@ class C extends A {
 }
 
 main() {
-  var c = new C(_() {global = "${global}C";});
+  var c = new C(() {global = "${global}C";});
   Expect.equals("CA", global, "implicit superinitializer was called before initializers!");
 }

@@ -19,8 +19,8 @@
 class C {}
 
 main() {
-  int resultInt = int f1() {}();
-  bool resultBool = bool f2() {}();
-  String resultString = String f3() {}();
-  C resultC = C f4() {}();
+  int resultInt = () {}();
+  bool resultBool = () {}();
+  String resultString = () {}();
+  C resultC = () {}();
 }

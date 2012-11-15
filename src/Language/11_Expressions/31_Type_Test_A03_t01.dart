@@ -25,7 +25,7 @@ main() {
   Expect.isFalse(1.0 is ! double);
   Expect.isFalse("string" is ! String);
   Expect.isFalse(null is ! Object);
-  Expect.isFalse(void f() {} is !Function);
+  Expect.isFalse(() {} is !Function);
   Expect.isFalse(new Object() is ! dynamic);
 
   Expect.isFalse(new I() is ! I);

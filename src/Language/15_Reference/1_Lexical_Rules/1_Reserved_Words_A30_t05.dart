@@ -9,6 +9,7 @@
  * is used as a function name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {

@@ -29,7 +29,7 @@ class Test  {
     [1, true, null, ""];
     [{"1": 1, "2": 2}, []];
 
-    [(){}, f() => 1, void g(p1) {return p1;}];
+    [(){}, () => 1, (p1) {return p1;}];
 
     [topFunc(), this.method()];
 

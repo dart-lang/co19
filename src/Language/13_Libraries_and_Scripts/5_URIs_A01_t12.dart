@@ -14,8 +14,7 @@
  * as a URI in an export directive.
  * @author rodionov
  */
-library URIs_A01;
-export r"5_Library1.dart";
+import "5_URIs_A01_t12_lib.dart";
 
 main() {
 }

@@ -32,7 +32,7 @@ class A {
     try { null ? [1, 2, 3] : {"1" : 2, "3" : 4};} catch(e) {}
 
     //function expressions
-    try {() => 1 ? void f(int x) {return 1;} : int g() {};} catch(e) {}
+    try {() => 1 ? (int x) {return 1;} : () {};} catch(e) {}
 
     //constants and instance creation
     try { const [] ? const S() : new S();} catch(e) {}

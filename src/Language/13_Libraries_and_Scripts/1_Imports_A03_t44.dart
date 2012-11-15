@@ -12,7 +12,7 @@
  * - Otherwise, it is a compile-time error.
  * @description Checks that it is neither error nor warning if a library imports two
  * other libraries exporting the same name (both via re-export of a third library), 
- * references that name as a type annotation in a type test and other expressions, 
+ * references that name in an explicit type test and other expressions, 
  * but it's hidden in one of the import declarations of A (so there's actually no name clash).
  * @author rodionov
  */

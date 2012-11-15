@@ -27,8 +27,8 @@ main() {
   (k) {return k;}(1);
   (() => 1)();
   ((C x, y) => new C())(null, null);
-  (C cf2(C p1, tf p2, [tf p3]) => null)(null, null);
-  (C cf2(C p1, tf p2, {tf p3}) => null)(null, null);
+  ((C p1, tf p2, [tf p3]) => null)(null, null);
+  ((C p1, tf p2, {tf p3}) => null)(null, null);
 
   (tf p1, tf p2, [tf p3]) => null();
   try {

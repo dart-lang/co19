@@ -16,9 +16,7 @@
  * @author rodionov
  * @issue 6352
  */
-library URIs_A01;
-export """   	  
-5_Library1.dart""";
+import "5_URIs_A01_t11_lib.dart";
 
 main() {
 }

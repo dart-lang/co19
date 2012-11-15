@@ -10,9 +10,9 @@
  * - In checked mode, it is a dynamic error if N is used as a type annotation
  *   and referenced during a subtype test.
  * - Otherwise, it is a compile-time error.
- * @description Checks that it is a static warning if two different libraries imported with empty
+ * @description Checks that it is only a static warning if two different libraries imported with empty
  * prefixes introduce the same name to the top level scope of A and A uses it as a type annotation
- * in a variable declaration.
+ * in a variable declaration but does not participate in an implicit subtype test.
  * @static-warning
  * @author rodionov
  */

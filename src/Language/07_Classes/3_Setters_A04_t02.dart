@@ -11,7 +11,6 @@
  * an explicitly defined setter and an instance method with the same name.
  * @author iefremov
  * @reviewer kaigorodov
- * @issue 5840
  */
 
 class C {

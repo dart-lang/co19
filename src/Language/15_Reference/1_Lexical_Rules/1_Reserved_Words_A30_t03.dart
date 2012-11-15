@@ -9,6 +9,7 @@
  * is used as a function type alias name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 typedef void assert();

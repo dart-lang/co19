@@ -56,7 +56,7 @@ class A  extends S{
     try { ++this.x;  } catch(e) {}
 
     //functionExpression
-    try { ++void f() {} [0]; } catch(e) {}
+    try { ++() {} [0]; } catch(e) {}
     try { --(){}.x; } catch(e) {}
 
     //nullLiteral

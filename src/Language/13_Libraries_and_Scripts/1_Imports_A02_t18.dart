@@ -30,23 +30,18 @@
  *     that maps each name in l to the same element that n does, and is undefined otherwise.
  *   - If Ci is of the form hide id1, ..., idk then let NSi = hide([id1, ..., idk], NSi-1) where
  *     hide(l, n) takes a list of identfiers l and a namespace n, and produces a namespace 
- *     that is identical to n except that it is undefined for each name in l.
+ *     that is identical to n except that for each name k in l, k and k= are undefined.
  * 
- * Let ImportNamespace = NSn. If I includes an export clause, then for each
- * entry mapping key k to declaration d in ImportNamespace an entry mapping
- * k to d is added to the exported namespace of L unless a top-level declaration
- * with the name k exists in L. We say that L re-exports library B, and also that
- * L re-exports namespace ImportNamespace. When no confusion can arise, we
- * may simply state that L re-exports B, or that L re-exports ImportNamespace.
- * 
- * Next, if I includes a prefix clause of the form as p, let NS = prefix(p, ImportNamespace)
+ * Next, if I includes a prefix clause of the form as p, let NS = prefix(p, NSn)
  * where prefix(id, n), takes an identifier id and produces a namespace that has, for each 
  * entry mapping key k to declaration d in n, an entry mapping id.k to d. 
- * Otherwise, let NS = ImportNamespace.
+ * Otherwise, let NS = NSn. It is a compile-time error if the current library
+ * declares a top-level member named p,or if any other import directive in the
+ * current library includes a prefix clause with of the form as p .
  * 
  * Then, for each entry mapping key k to declaration d in NS, d is made available in the top level 
  * scope of L under the name k unless either:
- *   - a declaration with the name k exists in L, OR
+ *   - a top-level declaration with the name k exists in L, OR
  *   - a prefix clause of the form as k is used in L.
  *   
  * We say that the namespace NS has been imported into L.
@@ -54,6 +49,7 @@
  * @description Checks that all show/hide combinators used in a chain of re-export
  * are applied.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_A02_lib_reexport2_filtered.dart" show I, bFoo, aFoo;

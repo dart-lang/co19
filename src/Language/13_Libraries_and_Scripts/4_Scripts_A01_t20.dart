@@ -15,7 +15,6 @@
  * @author rodionov
  * @issue 6293
  */
-
 export "4_Library1.dart";
 
 main() {

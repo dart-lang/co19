@@ -25,7 +25,7 @@ main() {
     Expect.equals(last, e);
   }
 
-  last = void func() => null;
+  last = () => null;
   try {
     throw last;
   } catch(e) {

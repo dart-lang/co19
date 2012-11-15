@@ -35,7 +35,7 @@ class Test  {
     x = {"1": 1, "2": true, "3": null, "4": ""};
     x = {"map": {"1": 1, "2": 2}, "list": []};
 
-    x = {"": (){}, "f": f() => 1, "g": void g(p1) {return p1;}};
+    x = {"": (){}, "f": () => 1, "g": (p1) {return p1;}};
 
     x = {"top-level": topFunc(), "method": this.method()};
 

@@ -76,11 +76,11 @@ main() {
   f_map() => {"1" : 1, "2": 2};
 
   //Function expressions
-  f_func() => num func(int z) {return z + 1;};
+  f_func() => (int z) {return z + 1;};
   
   // only one semicolon is fine here because the nested function expression
   // is not a statement and is parsed using a different grammar production (10.8) 
-  g_func() => func() => 1;
+  g_func() => () => 1;
 
   //Instance creation
   f_instance() => new B();

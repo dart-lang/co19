@@ -33,7 +33,6 @@ class A <B, C, D, E> {
     var e = 5;
     var f = 6;
     foo(a < b, c, d, e > f);
-    bar(A < B, C, D, E > f() => null);
   }
 }
 

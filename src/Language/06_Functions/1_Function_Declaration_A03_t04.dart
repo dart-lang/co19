@@ -31,10 +31,5 @@ main() {
     f(counter-1);
   }
   f(10);
-  Expect.listEquals([10,9,8,7,6,5,4,3,2,1,0], log, "Local function recursion didn't worked!");
-
-  var foo = zoo() => zoo;
-  var bar = foo();
-  Expect.isNotNull(bar);
-  Expect.isTrue(bar is Function);
+  Expect.listEquals([10,9,8,7,6,5,4,3,2,1,0], log, "Local function recursion didn't work!");
 }

@@ -23,5 +23,5 @@ typedef int foo(int x, String y, [double a, double b]);
 
 main() {
   foo f;
-  checkTypeError( () {f = id(int x, int y, [double a, double b]) {};});
+  checkTypeError( () {f = (int x, int y, [double a, double b]) {};});
 }

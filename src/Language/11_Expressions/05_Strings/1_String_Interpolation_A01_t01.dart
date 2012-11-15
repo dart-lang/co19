@@ -42,7 +42,7 @@ class Test {
     '''${[1, 2, 3]}''';
     "${{"key1": 1, "key2": 2}}";
     '${() => 1}';
-    "${void f(p1, [p2]) {return p1 + p2;}}";
+    "${(p1, [p2]) {return p1 + p2;}}";
 
     //invocations
     """${topFunc(1, 2)}""";

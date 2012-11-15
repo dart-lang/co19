@@ -28,7 +28,7 @@ boolfunc foo() {
 }
 
 main() {
-  checkTypeError(f() {
+  checkTypeError(() {
     assert(foo);
   });
 }

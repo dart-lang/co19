@@ -40,7 +40,7 @@ class C {
 
     //function expressions
     (()=> 1);
-    (f() {});
+    (() {});
 
     //instance creation
     (new C());

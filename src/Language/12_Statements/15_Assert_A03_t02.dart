@@ -27,11 +27,11 @@ String foo() { return "foo"; }
 bar() {}
 
 main() {
-  checkTypeError(f() {
+  checkTypeError(() {
     assert(foo);
   });
 
-  checkTypeError(f() {
+  checkTypeError(() {
     assert(bar);
   });
 }

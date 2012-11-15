@@ -41,9 +41,9 @@ main() {
   g(1, 2);
   h('', "");
 
-  typeF funcF = () {};
-  typeG funcG = int int_function() {};
-  typeH funcH = void void_function (p1, p2) {};
+  typeF funcF = ()=>1;
+  typeG funcG = () {};
+  typeH funcH = (p1, p2) {};
 
   x;
   y;

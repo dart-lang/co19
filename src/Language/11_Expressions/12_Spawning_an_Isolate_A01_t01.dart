@@ -21,7 +21,7 @@ import 'dart:isolate';
 var topLevelVariable;
 
 void iMain() {
-  port.receive(void func(var message, SendPort replyTo) {
+  port.receive((var message, SendPort replyTo) {
     Expect.isNull(topLevelVariable);
     topLevelVariable = 10;
     replyTo.send("pong", null);

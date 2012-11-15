@@ -11,7 +11,6 @@
  * an implicitly defined setter and an instance method inherited from a superclass with the same name.
  * @author iefremov
  * @reviewer kaigorodov
- * @issue 5840
  */
 
 class A {

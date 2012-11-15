@@ -41,5 +41,5 @@ main() {
   Expect.equals(54, a.__);
   Expect.equals(6, A.staticfun(1, 2, 3));
 
-  Expect.equals(1, (_(_)=>_)(1));
+  Expect.equals(1, ((_)=>_)(1));
 }

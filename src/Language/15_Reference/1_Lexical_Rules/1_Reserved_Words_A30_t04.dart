@@ -9,6 +9,7 @@
  * is used as a class member name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

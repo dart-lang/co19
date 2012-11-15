@@ -37,6 +37,5 @@ main() {
   assert(() => true);
   assert(t);
   assert("string".contains("tri") ? t : f);
-  assert("string".contains("tri") ? (bool tl() => true) : (bool fl() => false));
   assert("string".contains("tri") ? (() => true) : (() => false));
 }
