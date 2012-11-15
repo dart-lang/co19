@@ -13,7 +13,7 @@
 void checkNext(Queue list) {
   Iterator it = list.iterator();
   var i = 0;
-  list.forEach(void func(var element) {
+  list.forEach((var element) {
     Expect.equals(element, it.next());
   });
 }

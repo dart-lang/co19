@@ -19,22 +19,22 @@ main() {
     list.addLast(i - 50);
   }
   
-  bool res = list.every(bool f(int element) {
+  bool res = list.every((int element) {
     return element > 0;
   });
   Expect.isFalse(res);
   
-  res = list.every(bool f(int element) {
+  res = list.every((int element) {
     return element < 1000;
   });
   Expect.isTrue(res);
   
-  res = list.every(bool f(int element) {
+  res = list.every((int element) {
     return true;
   });
   Expect.isTrue(res);
   
-  res = list.every(bool f(int element) {
+  res = list.every((int element) {
     return false;
   });
   Expect.isFalse(res);

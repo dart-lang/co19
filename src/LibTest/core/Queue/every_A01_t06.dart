@@ -17,7 +17,7 @@ main() {
   
   list.addLast(1);
   list.addLast(1);
-  list.every(bool func(var element){ 
+  list.every((var element){ 
     list.clear();
     return true;
   });
@@ -27,7 +27,7 @@ main() {
     list.addLast(i);
   }
   
-  list.every(bool func(var element) {
+  list.every((var element) {
     list.removeFirst();
     return true;
   });

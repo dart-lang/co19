@@ -19,27 +19,27 @@ main() {
     list.addLast(i - 50);
   }
   
-  bool res = list.some(bool f(int element) {
+  bool res = list.some((int element) {
     return element > 0;
   });
   Expect.isTrue(res);
   
-  res = list.some(bool f(int element) {
+  res = list.some((int element) {
     return element < 1000;
   });
   Expect.isTrue(res);
   
-  res = list.some(bool f(int element) {
+  res = list.some((int element) {
     return element < -1000;
   });
   Expect.isFalse(res);
   
-  res = list.some(bool f(int element) {
+  res = list.some((int element) {
     return true;
   });
   Expect.isTrue(res);
   
-  res = list.some(bool f(int element) {
+  res = list.some((int element) {
     return false;
   });
   Expect.isFalse(res);

@@ -20,7 +20,7 @@ void main() {
   
   sPort.send(2, sPort);
 
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     x *= message;
     if(x < 120) {
       replyTo.send(message + 1, replyTo);

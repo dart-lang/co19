@@ -19,11 +19,11 @@ void main() {
   
   Future callReceive = sPort.call("message1");
   
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     replyTo.send("$message received", null);
   });
   
-  callReceive.then(void func(var message) {
+  callReceive.then((var message) {
     print(message);
     rPort.close();
   });

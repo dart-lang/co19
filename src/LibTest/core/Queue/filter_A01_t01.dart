@@ -19,7 +19,7 @@ main() {
     list.addLast(i);
   }
   
-  Queue res = list.filter(bool f(var element) {
+  Queue res = list.filter((var element) {
     return true;
   });
   

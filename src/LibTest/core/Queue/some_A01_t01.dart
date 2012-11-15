@@ -20,14 +20,14 @@ main() {
   }
   
   int count = 0;
-  list.some(bool f(var element) {
+  list.some((var element) {
     count++;
     return true;
   });
   Expect.isTrue(count == 1);
   
   count = 0;
-  list.some(bool f(var element){
+  list.some((var element){
     count++;
     return element > 50;
   });

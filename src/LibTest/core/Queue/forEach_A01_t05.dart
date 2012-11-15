@@ -19,7 +19,7 @@ main() {
   
   int count = 0;
   try {
-    list.forEach(void func(var element) {
+    list.forEach((var element) {
       throw ++count;
     });
   } on Object catch(e) {

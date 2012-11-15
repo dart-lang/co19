@@ -19,7 +19,7 @@ main() {
   List<int> a = new List(s.length);
   int i = 0;
 
-  s.forEach(void f(int x) {
+  s.forEach((int x) {
     a[i] = x;
     i++;
   });

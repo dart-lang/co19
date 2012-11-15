@@ -11,16 +11,16 @@
  */
 
 main() {
-  Expect.isTrue([0,1,2,3].some( bool f(int e) { return (e > 1 && e < 3); } ));
-  Expect.isFalse([1,2,3].some( bool f(int e) { return (e < 0); } ));
-  Expect.isTrue([null].some( bool f(Object e) { return true; } ));
-  Expect.isFalse([null].some( bool f(Object e) { return false; } ));
+  Expect.isTrue([0,1,2,3].some((int e) { return (e > 1 && e < 3); } ));
+  Expect.isFalse([1,2,3].some((int e) { return (e < 0); } ));
+  Expect.isTrue([null].some((Object e) { return true; } ));
+  Expect.isFalse([null].some((Object e) { return false; } ));
 
-  Expect.isTrue([null,1,"string",[], [null]].some( bool f(Object e) { return (e is String); } ));
+  Expect.isTrue([null,1,"string",[], [null]].some((Object e) { return (e is String); } ));
 
   List<int> a = new List(4567);
   a[4566] = 0;
-  Expect.isTrue(a.some( bool f(int e) { return (e == 0); } ));
+  Expect.isTrue(a.some((int e) { return (e == 0); } ));
 
   a = ["", "1", [], [null]];
   bool f(Object e) { return e is List; }

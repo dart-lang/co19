@@ -24,7 +24,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 
-  matches.forEach(void f(Match match) {
+  matches.forEach((Match match) {
     Expect.stringEquals(str, match.str);
   });
 }

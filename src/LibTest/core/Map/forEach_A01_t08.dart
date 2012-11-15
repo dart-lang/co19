@@ -18,9 +18,9 @@ main() {
   map["2"] = 5;
   
   int count = 0;
-  map.forEach(void func1stLvl(String key1, Object value1) {
-    map.forEach(void func2ndLvl(String key2, Object value2) {
-      map.forEach(void func3rdLvl(String key3, Object value3) {count++;});
+  map.forEach((String key1, Object value1) {
+    map.forEach((String key2, Object value2) {
+      map.forEach((String key3, Object value3) {count++;});
     });
   });
   Expect.isTrue(count == 8);

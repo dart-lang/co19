@@ -26,7 +26,7 @@ main() {
   Set<A> s = new Set<A>();
   s.addAll([new A(1), new A(-1)]);
 
-  s.forEach(void foo(A a) {
+  s.forEach((A a) {
     a.x *= 2;
   });
 

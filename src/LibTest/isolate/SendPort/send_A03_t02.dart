@@ -17,7 +17,7 @@ void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     message ++;
     replyTo.send(message, replyTo);
     if(message == 100) {

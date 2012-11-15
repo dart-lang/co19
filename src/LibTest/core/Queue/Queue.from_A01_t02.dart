@@ -46,7 +46,7 @@ class IterableClass implements Iterable {
 
 void check(Queue l, Collection c) {
   Expect.isTrue(l.length == c.length);
-  c.forEach(void compare(var element) {
+  c.forEach((var element) {
     Expect.isTrue(l.removeFirst() == element);
   });
 }

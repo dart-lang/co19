@@ -21,7 +21,7 @@ main() {
   
   int count = 0;
   try {
-    map.forEach(void func(String key, Object value) {
+    map.forEach((String key, Object value) {
       if (count++ > 0) throw new NullPointerException();
     });
     Expect.fail("NullPointerException should be thrown");

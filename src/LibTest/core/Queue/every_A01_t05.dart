@@ -20,7 +20,7 @@ main() {
   
   int count = 0;
   try {
-    list.every(bool func(var element) {
+    list.every((var element) {
       count++;
       throw "Exception";
     });

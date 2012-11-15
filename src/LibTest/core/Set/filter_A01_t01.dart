@@ -23,17 +23,17 @@ main() {
   Set<int> initial = new Set<int>();
   initial.addAll([1, 2, 3, 4, 5]);
 
-  Set<int> filtered = initial.filter(bool even(int e) { return e % 2 == 0; });
+  Set<int> filtered = initial.filter((int e) { return e % 2 == 0; });
   checkInitial(initial);
   Expect.isTrue(filtered.length == 2);
   Expect.isTrue(filtered.containsAll([2, 4]));
 
-  Set<int> filtered2 = initial.filter(bool all(int e) { return true; });
+  Set<int> filtered2 = initial.filter((int e) { return true; });
   checkInitial(initial);
   Expect.isTrue(filtered2.length == 5);
   Expect.isTrue(filtered2.containsAll([1, 2, 3, 4, 5]));
 
-  Collection<int> filtered3 = initial.filter(bool all(int e) { return false; });
+  Collection<int> filtered3 = initial.filter((int e) { return false; });
   checkInitial(initial);
   Expect.isTrue(filtered3.isEmpty);
 }

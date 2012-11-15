@@ -14,7 +14,7 @@
  //Checks that [every] calls [predicate] a [count] number of times
 check(List a, bool predicate(var e), int count) {
   int actualCount = 0;
-  a.every(f(var e) {
+  a.every((var e) {
     actualCount++;
     return predicate(e);
   });

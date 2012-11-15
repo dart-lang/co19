@@ -17,15 +17,15 @@ void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     Expect.fail("wrong callback");
   });
   
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     replyTo.send(message);
   });
   
-  sPort.call(111).then(void func(var message) {
+  sPort.call(111).then((var message) {
     rPort.close();
     Expect.equals(111, message);
   });

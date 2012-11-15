@@ -16,7 +16,7 @@ main() {
   Queue list = new Queue();
   
   int count = 0;
-  Queue res = list.filter(bool f(var element) {
+  Queue res = list.filter((var element) {
     count++;
     return true;
   });

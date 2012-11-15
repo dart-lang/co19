@@ -17,7 +17,7 @@ main() {
   
   list.addLast(1);
   list.addLast(1);
-  Queue res = list.filter(bool func(var element){
+  Queue res = list.filter((var element){
     list.clear();
     return true;
   });
@@ -28,7 +28,7 @@ main() {
     list.addLast(i);
   }
   
-  list.filter(bool func(var element) {
+  list.filter((var element) {
     list.removeFirst();
     return true;
   });

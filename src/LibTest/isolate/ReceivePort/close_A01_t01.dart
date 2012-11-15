@@ -18,7 +18,7 @@ void main() {
   SendPort sPort = rPort.toSendPort();
   
   int x = 1;
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     x = message;
     throw "Closed port cannot receive messages!";
   });
@@ -28,7 +28,7 @@ void main() {
 
   // make check in a callback, to be executed after the rPort.receive()
   ReceivePort rPort2 = new ReceivePort();
-  rPort2.receive(void func(var message, SendPort replyTo) {
+  rPort2.receive((var message, SendPort replyTo) {
     rPort2.close();
     Expect.equals(1, x);
   });

@@ -20,7 +20,7 @@ main() {
   
   int count = 0;
   try {
-    list.filter(bool func(var element) {
+    list.filter((var element) {
       throw ++count;
     });
   } on Object catch(e) {

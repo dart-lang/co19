@@ -15,7 +15,7 @@ main() {
   Queue list = new Queue();
   
   int count = 0;
-  list.forEach(void f(var element) {
+  list.forEach((var element) {
     count++;
   });
   

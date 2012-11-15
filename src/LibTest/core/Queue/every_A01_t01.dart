@@ -20,7 +20,7 @@ main() {
   }
   
   List a = new List(100);
-  list.every(bool f(var element) {
+  list.every((var element) {
     a[element] = element;
     return true;
   });

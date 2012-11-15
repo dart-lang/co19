@@ -17,7 +17,7 @@ main() {
   
   list.addLast(1);
   list.addLast(1);
-  list.some(bool func(var element){ 
+  list.some((var element){ 
     list.clear();
     return false;
   });
@@ -27,7 +27,7 @@ main() {
     list.addLast(i);
   }
   
-  list.some(bool func(var element) {
+  list.some((var element) {
     list.removeFirst();
     return false;
   });

@@ -13,7 +13,7 @@
 check(List expected, Queue actual) {
   Expect.equals(expected.length, actual.length);
   int i = 0;
-  actual.forEach(void func(var element) {
+  actual.forEach((var element) {
     Expect.equals(expected[i++], element);
   });
 }

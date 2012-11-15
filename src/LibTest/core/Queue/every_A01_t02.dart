@@ -16,7 +16,7 @@ main() {
   Queue list = new Queue();
   
   int count = 0;
-  bool res = list.every(bool f(var element) {
+  bool res = list.every((var element) {
     count++;
     return false;
   });

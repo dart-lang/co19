@@ -16,7 +16,7 @@ main() {
   s.addAll([1, 2, 3, 4, 5]);
 
   int i = 0;
-  s.forEach(void f(int x) {
+  s.forEach((int x) {
     i++;
   });
 

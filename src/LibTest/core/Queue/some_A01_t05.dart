@@ -20,7 +20,7 @@ main() {
   
   int count = 0;
   try {
-    list.some(bool func(var element) {
+    list.some((var element) {
       throw ++count;
     });
   } on Object catch(e) {

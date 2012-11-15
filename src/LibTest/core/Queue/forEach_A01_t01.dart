@@ -20,7 +20,7 @@ main() {
   
   List a = new List(100);
   
-  queue.forEach(void f(var element) {
+  queue.forEach((var element) {
     a[element] = element;
   });
   

@@ -18,7 +18,7 @@ void main() {
   SendPort sPort = rPort.toSendPort();
   int x = 1;
   
-  rPort.receive(void func(var message, SendPort replyTo) {
+  rPort.receive((var message, SendPort replyTo) {
     rPort.close();
     throw 1;
   });

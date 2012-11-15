@@ -18,10 +18,10 @@ main() {
   s.addAll([1, -3, 10, 17]);
 
   Set<int> outer = new Set<int>();
-  s.every(bool outerLoop(int x) {
+  s.every((int x) {
     outer.add(x);
     Set<int> inner = new Set<int>();
-    s.every(bool innerLoop(int y) {
+    s.every((int y) {
       inner.add(y);
       return true;
     });

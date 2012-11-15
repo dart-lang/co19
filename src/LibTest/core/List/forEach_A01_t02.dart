@@ -15,7 +15,7 @@ import "../../../Utils/dynamic_check.dart";
 
 main() {
   [].forEach(null);
-  [].forEach(void f(var v){});
+  [].forEach((var v){});
 
   if(isCheckedMode()) {
     return;

@@ -12,7 +12,7 @@
 
 void checkIterator(Queue list) {
   Iterator it = list.iterator();
-  list.forEach(void f(var element) {
+  list.forEach((var element) {
     Expect.equals(element, it.next());
   });
   Expect.isFalse(it.hasNext);

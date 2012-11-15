@@ -19,7 +19,7 @@ main() {
     list.addLast(i - 50);
   }
   
-  Queue<int> a = list.filter(bool f(int element) {
+  Queue<int> a = list.filter((int element) {
     return element > 0;
   });
   Expect.isTrue(a.length == 50);
@@ -27,13 +27,13 @@ main() {
     Expect.isTrue(a.removeFirst() == i+1);
   }
   
-  a = list.filter(bool f(int element) {
+  a = list.filter((int element) {
     return element == 0;
   });
   Expect.isTrue(a.length == 1);
   Expect.isTrue(a.first == 0);
   
-  a = list.filter(bool f(int element) {
+  a = list.filter((int element) {
     return true;
   });
   Expect.isTrue(a.length == 101);
@@ -41,7 +41,7 @@ main() {
     Expect.isTrue(a.removeFirst() == i - 50);
   }
   
-  a = list.filter(bool f(int element) {
+  a = list.filter((int element) {
     return false;
   });
   Expect.isTrue(a.isEmpty);

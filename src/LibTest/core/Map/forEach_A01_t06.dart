@@ -17,7 +17,7 @@ main() {
   map["1"] = 3;
   map["2"] = 5;
   
-  map.forEach(void func(String key, int value) {
+  map.forEach((String key, int value) {
     map[key] = value + 1;
   });
   

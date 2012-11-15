@@ -14,7 +14,7 @@ check(List a, predicate(var e), exc) {
   int actualCount = 0;
   Expect.throws(
     () {
-      a.forEach(f(var e) {
+      a.forEach((var e) {
         actualCount++;
         return predicate(e);
       });

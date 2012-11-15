@@ -15,12 +15,12 @@ import "../../../Utils/dynamic_check.dart";
 
 main() {
   List a = [0,1,2,3,4,5,6,7,8,9];
-  Expect.isTrue(a.every( bool f(int e) { return (e >= 0 && e < 10); } ));
-  Expect.isFalse(a.every( bool f(int e) { return (e < 0); } ));
+  Expect.isTrue(a.every((int e) { return (e >= 0 && e < 10); } ));
+  Expect.isFalse(a.every((int e) { return (e < 0); } ));
 
   a = [[],[null], [1,2,3,4], ["string"]];
-  Expect.isTrue(a.every( bool f(Collection e) { return (e is List); } ));
-  Expect.isFalse(a.every( bool f(Collection e) { return (e is Set); } ));
+  Expect.isTrue(a.every((Collection e) { return (e is List); } ));
+  Expect.isFalse(a.every((Collection e) { return (e is Set); } ));
 
   a = [1,2,3];
   bool f (int e) { return (e > 0); }
