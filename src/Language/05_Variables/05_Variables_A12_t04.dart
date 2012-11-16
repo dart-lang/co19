@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A variable declaration of one of the forms
- * T v;, T v = e; , const T v = e;, ﬁnal T v; or ﬁnal T v = e;
+ * T v;, T v = e; , const T v = e;, final T v; or final T v = e;
  * always induces an implicit getter function with signature
  *   T get v
  * @description Checks that a static warning is produced when assigning result of

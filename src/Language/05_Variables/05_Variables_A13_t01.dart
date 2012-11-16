@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A variable declaration of one of the forms
- * var v;, var v = e; , const v = e;, ﬁnal v; or ﬁnal v = e;
+ * var v;, var v = e; , const v = e;, final v; or final v = e;
  * always induces an implicit getter function with signature
  *   get v
  * whose invocation evaluates as described below.

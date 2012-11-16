@@ -5,13 +5,13 @@
  */
 /**
  * @assertion variableDeclaration:
- *     declaredIdentiﬁer (‘, ’ identiﬁer)*
+ *     declaredIdentifier (‘, ’ identifier)*
  *   ;
- *   declaredIdentiﬁer:
- *     metadata ﬁnalConstVarOrType identiﬁer
+ *   declaredIdentifier:
+ *     metadata finalConstVarOrType identifier
  *   ;
- *   ﬁnalConstVarOrType:
- *     ﬁnal type? |
+ *   finalConstVarOrType:
+ *     final type? |
  *     const type? |
  *     varOrType
  *   ;
@@ -20,13 +20,13 @@
  *     type
  *   ;
  *   initializedVariableDeclaration:
- *     declaredIdentiﬁer (‘=’ expression)? (‘, ’ initializedIdentiﬁer)*
+ *     declaredIdentifier (‘=’ expression)? (‘, ’ initializedIdentifier)*
  *   ;
- *   initializedIdentiﬁer:
- *     identiﬁer (‘=’ expression)?
+ *   initializedIdentifier:
+ *     identifier (‘=’ expression)?
  *   ;
- *   initializedIdentiﬁerList:
- *     initializedIdentiﬁer (‘, ’ initializedIdentiﬁer)*
+ *   initializedIdentifierList:
+ *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that variable declaration cannot contain both 'const' and 'final'.
  * @author msyabro
