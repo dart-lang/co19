@@ -4,4 +4,4 @@
 
 library duplicate_name;
 
-foo = 1;
+var foo = 1;

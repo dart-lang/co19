@@ -10,11 +10,14 @@
  * - In checked mode, it is a dynamic error if N is used as a type annotation
  *   and referenced during a subtype test.
  * - Otherwise, it is a compile-time error.
+ * It is neither an error nor a warning if N is introduced by two or more imports
+ * but never referred to.
  * @description Checks that it is a static warning if the same library is imported twice with empty
  * prefixes and introduces a name to the top level scope of A, which A uses as a type annotation
  * in a variable declaration.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_A03_t61_lib.dart";

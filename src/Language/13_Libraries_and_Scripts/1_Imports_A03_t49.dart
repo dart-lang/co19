@@ -10,12 +10,14 @@
  * - In checked mode, it is a dynamic error if N is used as a type annotation
  *   and referenced during a subtype test.
  * - Otherwise, it is a compile-time error.
- * @description Checks that it is a compile-time error, but not a static type warning if two different 
- * libraries introduce the same type name (both via re-export of a third library) to the top 
- * level scope of A and A uses it in a static getter invocation expression.
+ * It is neither an error nor a warning if N is introduced by two or more imports
+ * but never referred to.
+ * @description Checks that it is a compile-time error if two different libraries introduce
+ * the same type name (both via re-export of a third library) to the top level scope of A
+ * and A uses it in a static getter invocation expression.
  * @compile-error
  * @author rodionov
- * @needsreview issue 5399
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_A03_t01_p1_lib.dart";

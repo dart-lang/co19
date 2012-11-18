@@ -9,6 +9,7 @@
  * two other libraries (A and B) that have different names and A imports and re-exports
  * a third one (C) that has the same name as B.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "1_Imports_A05_t02_libA.dart";

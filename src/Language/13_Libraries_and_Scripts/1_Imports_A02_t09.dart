@@ -44,8 +44,6 @@
  *   - a top-level declaration with the name k exists in L, OR
  *   - a prefix clause of the form as k is used in L.
  *   
- * We say that the namespace NS has been imported into L.
- * 
  * @description Checks that it is not an error if a name N is introduced into the 
  * import scope of A and is also declared by A as local declarations override
  * any imports.

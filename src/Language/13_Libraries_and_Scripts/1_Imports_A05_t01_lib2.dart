@@ -4,4 +4,4 @@
 
 library duplicate_name;
 
-bar = 2;
+var bar = 2;

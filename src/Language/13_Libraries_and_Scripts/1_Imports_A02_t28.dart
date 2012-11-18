@@ -49,6 +49,7 @@
  * @description Checks that it is not an error when the prefix value duplicates
  * an imported name rather than local declaration (prefix being defined first).
  * @author rodionov
+ * @reviewer kaigorodov
  * @needsreview issue 5716
  */
 

@@ -4,4 +4,6 @@
 
 library Imports_A02_t29_lib1;
 
-class foo {}
+void foo() {
+  print ("foo1");
+}
