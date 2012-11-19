@@ -8,10 +8,11 @@
  * getterSignature:
  *   static? returnType? get identifier
  * ;
- * @description Checks that a compile-time error is produced if an static getter has
- * empty formal parameter list.
+ * @description Checks that a compile-time error is produced when a static getter 
+ * declaration includes an empty formal parameter list.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

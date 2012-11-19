@@ -7,8 +7,9 @@
  * @assertion In checked mode, it is a dynamic type error if a factory returns
  * an object whose type is not a subtype of its actual (13.8.1) return type.
  * @description Checks that returning an object of subtype of M
- * from factory constructor M does not produces an error.
+ * from factory constructor M does not produce an error.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 abstract class A {

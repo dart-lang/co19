@@ -5,10 +5,12 @@
  */
 /**
  * @assertion An abstract method (respectively, abstract getter or abstract setter)
- * declares an instance method, getter or setter without providing an implementation.
+ * is an instance method, getter or setter that is not declared external and does not 
+ * provide an implementation.
  * @description Checks that instance method, getter or setter can be declared without
  * providing an implementation.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

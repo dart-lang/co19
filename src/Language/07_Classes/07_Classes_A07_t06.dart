@@ -6,14 +6,15 @@
 /**
  * @assertion It is a compile-time error if a class declares two members of the same name.
  * @description Checks that it is a compile-time error if a class declares 
- * a static function and an abstract getter of the same name.
+ * an instance method and an abstract getter of the same name.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {
-  String f(int f){}
-  int get f;
+  String f(int f) {}
+  int get f; //abstract
 }
 
 main() {
@@ -21,4 +22,3 @@ main() {
     C c = new C();
   } catch (e) {}
 }
-

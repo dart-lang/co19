@@ -9,6 +9,7 @@
  * @description Checks that no compile-time error is produced if a user-defined
  * operator ~ specifies zero parameters.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

@@ -10,6 +10,7 @@
  * declared in a concrete class.
  * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {

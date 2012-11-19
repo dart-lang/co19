@@ -7,19 +7,18 @@
  * @assertion It is a compile-time error if an instance method m1 overrides an
  * instance member m2 and m1 has fewer optional positional parameters than m2.
  * @description Checks that it is a compile-time error if an instance method m1
- * overrides an instance member m2 and m1 has fewer optional positional parameters
- * than m2.
+ * overrides an instance member m2 and m1 does not declare all the named 
+ * parameters declared by m2.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
+ * @author rodionov
  */
 
 class A {
-  foo(var a, [x, y]) {}
+  foo(var a, {x, y}) {}
 }
 
 class C extends A {
-  foo(var a, [x]) {}
+  foo(var a, {x}) {}
 }
 
 main() {

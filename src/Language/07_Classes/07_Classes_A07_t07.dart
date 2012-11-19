@@ -6,7 +6,7 @@
 /**
  * @assertion It is a compile-time error if a class declares two members of the same name.
  * @description Checks that it is a compile-time error if a class declares 
- * a variable and a function of the same name.
+ * a variable and an instance method of the same name.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -14,7 +14,7 @@
 
 class C {
   var f;
-  String f(int f);
+  String f(int f) {}
 }
 
 main() {
@@ -22,4 +22,3 @@ main() {
     C c = new C();
   } catch (e) {}
 }
-

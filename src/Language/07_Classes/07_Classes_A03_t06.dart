@@ -5,9 +5,9 @@
  */
 /**
  * @assertion classDefinition:
- * ‘{’ metadata classMemberDeﬁnition* ‘}’
+ * ‘{’ metadata classMemberDefinition* ‘}’
  *  ;
- *  classMemberDeﬁnition:
+ *  classMemberDefinition:
  *    declaration ‘;’ |
  *    methodSignature functionBody
  *    ;

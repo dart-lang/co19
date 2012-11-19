@@ -13,7 +13,7 @@
 
 class C {
   C();
-  factory WrongClass() {}
+  factory WrongClass.id() {}
 }
 
 main() {

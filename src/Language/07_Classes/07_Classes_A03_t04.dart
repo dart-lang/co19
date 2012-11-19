@@ -6,9 +6,9 @@
 /**
  * @assertion classDefinition:
  * metadata abstract? class identifier typeParameters? superclass? interfaces?
- * ‘{’ metadata classMemberDeﬁnition* ‘}’
+ * ‘{’ metadata classMemberDefinition* ‘}’
  *  ;
- *  classMemberDeﬁnition:
+ *  classMemberDefinition:
  *    declaration ‘;’ |
  *    methodSignature functionBody
  *    ;

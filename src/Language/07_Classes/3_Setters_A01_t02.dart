@@ -12,8 +12,9 @@
  *   metadata returnType? identifier formalParameterList
  * ;
  * @description Checks that if the setter identifier is missing, declaration is 
- * recognized as a function declaration, and no compile-time error is issued. 
+ * recognized as a function declaration named 'set', and no compile-time error is issued. 
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

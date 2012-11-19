@@ -7,8 +7,9 @@
  * @assertion It is a static warning if a class C declares an instance method
  * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that no static warning is produced when a class declares an instance
- * method with the same name as unacessible static field in its superclass.
+ * method with the same name as an inaccessible static field in its superclass.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 import "1_Instance_Methods_A05_lib.dart";
 

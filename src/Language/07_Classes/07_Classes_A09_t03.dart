@@ -10,10 +10,11 @@
  * method and declares a static field with the same name.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {
-  int f();
+  int f() {}
 }
 
 class B extends A {

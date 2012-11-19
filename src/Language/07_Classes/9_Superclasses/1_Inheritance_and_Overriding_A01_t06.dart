@@ -7,14 +7,14 @@
  * @assertion A class C inherits any accessible instance members of its superclass that
  * are not overridden by members declared in C. A class may override instance members
  * that would otherwise have been inherited from its superclass.
- * @description Checks that accessible instance members are not inherited.
+ * @description Checks that inaccessible instance members are not inherited.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 import "1_Inheritance_and_Overriding_A01_t06.lib.dart" as lib;
 
-class C extends lib.Foreign {
-}
+class C extends lib.Foreign {}
 
 main() {
   var c = new C();

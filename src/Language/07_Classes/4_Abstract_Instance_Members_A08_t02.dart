@@ -10,6 +10,7 @@
  * inherited in a concrete class.
  * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 abstract class A {

@@ -10,8 +10,9 @@
  * enclosing class.
  * @description Checks that a compile-error is produced when a constructor's id coincides
  * with the name of a field in the same class.
- * @author kaigorodov
  * @compile-error
+ * @author kaigorodov
+ * @reviewer rodionov
  * @issue 5893
  */
 

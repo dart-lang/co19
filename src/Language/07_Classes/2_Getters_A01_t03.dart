@@ -9,9 +9,10 @@
  *   static? returnType? get identifier
  * ;
  * @description Checks that a compile-time error is produced
- * if empty formal parameter list is present.
+ * when a getter declaration includes an empty formal parameter list.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  * @issue 5890
  */
 

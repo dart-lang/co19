@@ -7,8 +7,7 @@
  * @assertion In checked mode, it is a dynamic type error if a factory returns
  * an object whose type is not a subtype of its actual (14.8.1) return type.
  * @description Checks that returning an object of type other than M
- * from factory constructor M produces a dynamic type error.
- * @dynamic-type-error
+ * from factory constructor M produces a dynamic type error in checked mode.
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov

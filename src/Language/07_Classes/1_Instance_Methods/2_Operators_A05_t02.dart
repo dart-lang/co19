@@ -13,6 +13,7 @@
  * operator - specifies two parameters.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

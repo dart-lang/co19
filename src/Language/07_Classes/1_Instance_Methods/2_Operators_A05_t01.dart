@@ -11,6 +11,7 @@
  * If it as an argument, it denotes binary subtraction.
  * @description Checks that operator - can be defined both with 0 and 1 arguments.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

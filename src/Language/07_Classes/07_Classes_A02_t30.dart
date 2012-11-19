@@ -29,6 +29,7 @@
  * @description Checks that it is a compile-time error when a named constructor is declared abstract.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

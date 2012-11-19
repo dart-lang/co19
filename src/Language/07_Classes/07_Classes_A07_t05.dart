@@ -13,7 +13,7 @@
  */
 
 class C {
-  String f(int f);
+  String f(int f); // abstract
   int get f {return 0;}
 }
 
@@ -22,4 +22,3 @@ main() {
     C c = new C();
   } catch (e) {}
 }
-

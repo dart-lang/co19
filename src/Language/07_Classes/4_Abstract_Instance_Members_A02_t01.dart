@@ -10,6 +10,7 @@
  * @description Checks that invoking an abstract method, getter or setter
  * results in a NoSuchMethodError.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

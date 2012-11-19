@@ -14,7 +14,7 @@
 
 class C {
   void f() {}
-  String f(int f);
+  String f(int f); // abstract
 }
 
 main() {
@@ -22,4 +22,3 @@ main() {
     C c = new C();
   } catch (e) {}
 }
-

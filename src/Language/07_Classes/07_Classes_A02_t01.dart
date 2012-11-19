@@ -34,8 +34,8 @@
  * ;
  * @description Checks that various class member declarations that are valid according to
  * this syntax do not cause any errors and such class can be instantiated. 
- * @author msyabro
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {
@@ -87,6 +87,7 @@ class Abstract {
   func();
   funcWithParams(p1, p2);
   funcWithOptionalParams([p1 = 1, p2 = 2]);
+  funcWithOptionalParams2({p1: 1, p2: 2});
   get val;
   set val(var v);
   operator==(Abstract other);

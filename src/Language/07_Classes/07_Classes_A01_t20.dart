@@ -14,6 +14,7 @@
  * @description Checks that various class definitions that are valid according to
  * this syntax and have metadata do not cause any errors and can be instantiated.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 @A abstract class I {}

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion     The following names are allowed for user-deﬁned operators:
+ * @assertion     The following names are allowed for user-defined operators:
  * <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, []=, [], ˜.
  * @description Checks that the listed operators may indeed be defined in a user class.
  * @author vasya

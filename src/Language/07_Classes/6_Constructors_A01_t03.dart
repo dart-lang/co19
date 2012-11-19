@@ -10,12 +10,13 @@
  * enclosing class.
  * @description Checks that a compile-error is produced when a constructor's id coincides
  * with the name of a method in the same class.
- * @author kaigorodov
  * @compile-error
+ * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {
-  var foo() {};
+  var foo() {}
   C.foo();
 }
 

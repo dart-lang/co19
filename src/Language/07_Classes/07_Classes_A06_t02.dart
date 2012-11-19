@@ -8,6 +8,7 @@
  * implements clause
  * @description Checks that class can implement one or more interfaces.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class I1 {}
@@ -31,4 +32,3 @@ main() {
   Expect.isTrue(d is I2);
   Expect.isTrue(d is I3);
 }
-

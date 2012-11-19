@@ -9,15 +9,15 @@
  * It is a compile-time error if id is the name of a member declared in the immediately
  * enclosing class.
  * @description Checks that a compile-error is produced when a constructor's id coincides
- * with the name of a getter in the same class.
+ * with the name of a static field declared in the same class.
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 class C {
-  var get foo {}
-  C.foo();
+  C.foo() {}
+  static var foo;
 }
 
 main() {

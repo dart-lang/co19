@@ -14,7 +14,7 @@
 
 class C {
   void f() {}
-  static void get f;
+  static void get f {}
 }
 
 main() {
@@ -22,4 +22,3 @@ main() {
     C c = new C();
   } catch (e) {}
 }
-
