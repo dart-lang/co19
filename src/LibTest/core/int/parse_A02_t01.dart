@@ -4,23 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws FormatException if
- * String can not be converted to int
- * @description Check that exception is thrown if
- * String can not be converted to int.
+ * @assertion Throws a FormatException if source is not a valid integer literal.
+ * @description Check that exception is thrown if String can not be converted to int.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview undocumented
  */
-
-import "dart:math" as Math;
 
 void checkFE(String string) {
   try {
-    Math.parseInt(string);
+    int.parse(string);
     Expect.fail("FormatException is expected");
   } on FormatException catch(e) {}
 }
+
 main() {
   checkFE("");
   checkFE("1.0");

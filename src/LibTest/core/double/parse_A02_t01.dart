@@ -4,23 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double parseDouble(String str)
- * Throws a FormatException if str cannot be parsed as a double.
- * @description Checks that exception is thrown if [str]
- * can not be converted to double.
+ * @assertion double parse(String source)
+ * Throws a FormatException if source is not a valid double literal. 
+ * @description Checks that exception is thrown if [source] can not be converted to double.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview issue 1929
  */
 
-import "dart:math" as Math;
-
 void checkFE(String str) {
   try {
-    Math.parseDouble(str);
+    double.parse(str);
     Expect.fail("FormatException is expected");
   } on FormatException catch(e) {}
 }
+
 main() {
   checkFE("");
   checkFE("string");
