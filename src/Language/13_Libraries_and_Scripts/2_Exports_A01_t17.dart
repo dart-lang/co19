@@ -10,6 +10,7 @@
  * ; 
  * @description Checks that it is possible to use metadata with an export declaration.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A01_t17_lib.dart";

@@ -12,6 +12,7 @@
  * includes an 'as prefix' clause.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A01_t06_lib.dart";

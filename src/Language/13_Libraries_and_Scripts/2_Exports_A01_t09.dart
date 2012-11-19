@@ -11,6 +11,7 @@
  * @description Checks that the URI denoting the library being exported can be
  * enclosed in multi-line single quotes as well.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A01_t09_lib.dart";

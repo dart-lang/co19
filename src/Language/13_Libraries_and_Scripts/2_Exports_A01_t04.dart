@@ -12,6 +12,7 @@
  * following a show combinator in an export declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 6127
  */
 

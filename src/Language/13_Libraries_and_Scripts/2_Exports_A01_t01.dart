@@ -11,6 +11,7 @@
  * @description Checks that it is a compile-time error if export token is prefixed with a '#' character.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A01_t01_lib.dart";

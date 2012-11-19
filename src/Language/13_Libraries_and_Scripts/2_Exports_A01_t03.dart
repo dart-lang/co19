@@ -11,6 +11,7 @@
  * @description Checks that it is not an error when the identifiers used with show/hide combinators 
  * are also named 'hide' and 'show', and that filtering the export namespace is done correctly.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A01_t03_lib.dart";

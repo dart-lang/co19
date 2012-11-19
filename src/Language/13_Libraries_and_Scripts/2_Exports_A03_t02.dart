@@ -24,8 +24,9 @@
  * that L re-exports B, or that L re-exports NSn. 
  * @description Checks that the combined effect of show and hide combinators in an export
  * declaration is calculated as specified.
- * @author rodionov
  * @note Most of this is already covered by 1_Imports_A02* tests.
+ * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A03_t02_lib.dart";

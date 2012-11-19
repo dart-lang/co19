@@ -11,6 +11,7 @@
  * @description Checks that the URI denoting the library being exported can be
  * a raw string literal.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 import "2_Exports_A01_t13_lib.dart";
