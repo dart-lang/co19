@@ -20,6 +20,7 @@
  * an import declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 part "3_Part_9.dart";

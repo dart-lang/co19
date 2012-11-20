@@ -13,6 +13,7 @@
  * includes an export directive.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 6293
  */
 library Scripts_A01_t21;

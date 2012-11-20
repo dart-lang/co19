@@ -11,6 +11,7 @@
  * @description Checks that the top level declarations at URI are compiled in
  * the scope of the current library(including private declarations).
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

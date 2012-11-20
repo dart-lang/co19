@@ -14,6 +14,7 @@
  * as a URI in an export directive and it still works even with leading whitespace
  * since it's getting trimmed.
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 6352
  */
 import "5_URIs_A01_t11_lib.dart";

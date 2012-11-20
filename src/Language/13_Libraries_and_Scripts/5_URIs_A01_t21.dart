@@ -15,6 +15,7 @@
  * since it's getting trimmed.
  * @static-warning part references a different library name
  * @author rodionov
+ * @reviewer kaigorodov
  * @issue 6352
  */
 library URIs_A01;

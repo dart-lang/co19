@@ -23,6 +23,7 @@
  * @description Checks that part directive must end with a semicolon.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

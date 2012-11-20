@@ -12,6 +12,8 @@
  * includes an export directive.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
+ * @issue 6293
  */
 library Scripts_A01_t23;
 export "4_Library1.dart";

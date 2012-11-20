@@ -14,6 +14,7 @@
  * as a URI in a part directive.
  * @static-warning part references a different library name
  * @author rodionov
+ * @reviewer kaigorodov
  */
 library URIs_A01;
 part r"5_Part.dart";

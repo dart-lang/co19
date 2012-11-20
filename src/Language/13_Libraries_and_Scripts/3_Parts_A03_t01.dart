@@ -19,6 +19,7 @@
  * @description Checks that including a compilation unit with valid topLevelDefinitions
  * does not cause any compile-time errors.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 part "3_Part_2.dart";

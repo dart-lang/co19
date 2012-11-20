@@ -15,6 +15,7 @@
  * an additive expression instead of URI.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 part 0+0;

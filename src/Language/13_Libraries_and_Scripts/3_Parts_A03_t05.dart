@@ -20,7 +20,9 @@
  * references itself in a part directive (and doesn't contain a part declaration).
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
+ 
 library Parts_test_lib;
 part "3_Parts_A01_t05.dart";
 

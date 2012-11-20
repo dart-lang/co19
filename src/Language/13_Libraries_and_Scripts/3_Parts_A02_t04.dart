@@ -12,6 +12,7 @@
  * @description Checks that more than one part can be included in a library without
  * errors as long as there're no name conflicts.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

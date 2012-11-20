@@ -14,6 +14,7 @@
  * export directive consists of two adjacent string literals instead of one.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 import "5_URIs_A01_t14_lib.dart";
 

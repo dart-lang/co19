@@ -16,6 +16,7 @@
  * @static-warning part references a different library name
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 library URIs_A01;
 part '''5_Part''' '''.dart''';

@@ -20,6 +20,7 @@
  * another part directive.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

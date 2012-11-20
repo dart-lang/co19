@@ -10,7 +10,7 @@
  * exported does not have a library definition.
  * @compile-error
  * @author rodionov
- * @author rodionov
+ * @reviewer kaigorodov
  */
 import "2_Exports_A05_t01_lib.dart";
 

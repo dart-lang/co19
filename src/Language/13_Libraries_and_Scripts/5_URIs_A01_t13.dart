@@ -13,6 +13,7 @@
  * @description Checks that it is not an error to use a raw string literal
  * as a URI in an export directive.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 import "5_URIs_A01_t13_lib.dart";
 

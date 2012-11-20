@@ -15,6 +15,7 @@
  * instead of one.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 import "5_URIs_A01_t15_lib.dart";
 

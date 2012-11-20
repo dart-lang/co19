@@ -20,9 +20,10 @@
  * contains a statement where a top-level definition is expected.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
-part "3_Part_6.dart"
+part "3_Part_6.dart";
 
 main() {
 }
