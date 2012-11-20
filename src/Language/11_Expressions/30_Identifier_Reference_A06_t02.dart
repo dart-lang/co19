@@ -12,7 +12,7 @@
  * • If d is a class or type alias T, the value of e is the unique instance of class
  *   Type reifying T.
  * @description  Checks that there is no compile-time error if identifier
- * expression refers to a function type definition.
+ * expression in a return statement refers to a function type definition.
  * @author kaigorodov
  * @reviewer rodionov 
  */
@@ -27,5 +27,5 @@ class B {
 
 main() {
   B b = new B();
-  Expect.isTrue(b.func()==3);
+  b.func() == 3;
 }

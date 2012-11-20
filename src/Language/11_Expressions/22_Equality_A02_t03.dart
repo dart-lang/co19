@@ -14,6 +14,7 @@
  * equality expression is evaluated as identical(o1, o2 ) and the .== method
  * of whichever operand is not null never gets invoked.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {
@@ -37,6 +38,7 @@ main() {
   check(1, null);
   check(false, null);
   check(new C(), null);
+  check(null, new C());
   check(foo, null);
   check(null, foo);
 }

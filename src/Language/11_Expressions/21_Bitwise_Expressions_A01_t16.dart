@@ -25,14 +25,17 @@
  * A bitwise expression is either an equality expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a type variable can be used
- * as the first operand of a bitwise expression.
+ * as the first operand of a bitwise expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try { T & 1; } catch(e) {}
+    try {
+      T & 1;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

@@ -18,14 +18,17 @@
  * A relational expression is either a shift expression, or an invocation
  * of a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that a type parameter can be used
- * as the second operand in a relational expression.
+ * as the second operand in a relational expression without a compile error.
  * @author msyabro
  * @reviewer rodionov
  */
 
 class A<T> {
   test() {
-    try{ 1 > T;} catch(e) {}
+    try{
+      1 > T;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

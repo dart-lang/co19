@@ -11,10 +11,11 @@
  * In any case where Ti , 1 <= i <= n+k, is not specified,
  * it is considered to have been specified as dynamic.
  * @description Checks that the static type of function literal of the form
- * (T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ... ,Tn+k xn+k = dk]) => e
- * or id(T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ..., Tn+k xn+k = dk]) => e
- * is (T1, ..., Tn, [Tn+1 xn+1, .., Tn+k xn+k]) -> T0
+ * (T1 a1, ..., Tn an, {Tn+1  xn+1: d1, ... ,Tn+k xn+k: dk}) => e
+ * or id(T1 a1, ..., Tn an, {Tn+1  xn+1: d1, ..., Tn+k xn+k: dk}) => e
+ * is (T1, ..., Tn, {Tn+1 xn+1, .., Tn+k xn+k}) -> T0
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 typedef bool boolFuncParam(bool p1, {bool p2});

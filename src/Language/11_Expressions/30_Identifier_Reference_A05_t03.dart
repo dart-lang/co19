@@ -9,11 +9,10 @@
  * @description Checks that there is no compile-time error when a built-in identifier
  * "dynamic" is used as a type annotation of a local variable.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 
 main() {
-  try {
-    dynamic foo;
-  } catch(x) {}
+  dynamic foo;
 }

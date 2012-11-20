@@ -13,7 +13,7 @@
  *   type argument corresponding to T that was passed to the generative constructor that
  *   created the current binding of this.
  * @description  Checks that there is no compile-time error if identifier
- * expression refers to a type parameter.
+ * expression in a return statement refers to a type parameter.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +25,6 @@ class A<T> {
 }
 
 main() {
-  Expect.isNull(new A().func());
-  Expect.isNotNull(new A<int>().func());
+  new A().func();
+  new A<int>().func();
 }
-

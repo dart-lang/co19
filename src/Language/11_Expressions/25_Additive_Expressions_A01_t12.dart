@@ -17,7 +17,7 @@
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
  * @description Checks that a function type alias name can be used
- * as right operand in an additive expression.
+ * as right operand in an additive expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -28,5 +28,6 @@ typedef f();
 main() {
   try {
     0.25 - f;
+    throw "Exception expected.";
   } catch(e) {}
 }

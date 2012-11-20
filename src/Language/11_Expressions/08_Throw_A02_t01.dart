@@ -7,6 +7,7 @@
  * @assertion The current exception is the last unhandled exception thrown.
  * @description Checks the current exception is the last unhandled exception thrown.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

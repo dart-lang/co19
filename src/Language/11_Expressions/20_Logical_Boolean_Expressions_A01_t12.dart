@@ -15,7 +15,7 @@
  * A logical boolean expression is either a bitwise expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that a reference to a type alias declaration can be used as
- * the first operand in a logical boolean expression.
+ * the first operand in a logical boolean expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,5 +25,6 @@ typedef int fun();
 main() {
   try {
     fun || true;
+    throw "Exception expected.";
   } catch(e) {}
 }

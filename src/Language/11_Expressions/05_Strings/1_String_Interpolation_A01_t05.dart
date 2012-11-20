@@ -14,6 +14,7 @@
  * @description Checks that there is no compile-time error if the identifier in a string
  * interpolation construct is the name of a type alias (see Identifier Reference).
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 typedef int fun();
@@ -21,5 +22,6 @@ typedef int fun();
 main() {
   try {
     '$fun';
+    throw "Exception expected";
   } catch(e) {}
 }

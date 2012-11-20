@@ -17,7 +17,7 @@
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
  * @description Checks that a type parameter can be used
- * as right operand in an additive expression.
+ * as right operand in an additive expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -25,7 +25,10 @@
 
 class A <T> {
   test() {
-    try {2 + T;} catch(e) {}
+    try {
+      2 + T;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

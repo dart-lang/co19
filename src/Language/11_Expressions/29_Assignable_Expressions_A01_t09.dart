@@ -34,8 +34,7 @@
  *   listLiteral
  * ;
  * @description Checks that a reference to a type defined with typedef
- * can be used in the left hand side of an assignment.
- * @static-warning
+ * can be used in the left hand side of an assignment without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -45,5 +44,6 @@ typedef f();
 main() {
   try {
     f = null;
+    throw "Exception expected.";
   } catch(e) {}
 }

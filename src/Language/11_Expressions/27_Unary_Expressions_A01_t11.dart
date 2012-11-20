@@ -21,7 +21,7 @@
  *   '~'
  * ;
  * @description Checks that '-' can be used with
- * a reference to a class declaration.
+ * a reference to a class declaration without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -32,5 +32,6 @@ class A {}
 main() {
   try {
     -A;
+    throw "Exception expected.";
   } catch(e) {}
 }

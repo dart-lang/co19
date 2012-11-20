@@ -10,7 +10,7 @@
  *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that a type parameter
- * can be used as the condition in a conditional expression.
+ * can be used as the condition in a conditional expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -19,6 +19,7 @@ class A<T> {
   test() {
     try {
       T ? "" : '';
+      throw "Exception expected.";
     } catch(e) {}
   }
 }

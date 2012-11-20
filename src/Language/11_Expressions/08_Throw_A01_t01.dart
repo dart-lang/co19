@@ -11,13 +11,15 @@
  * throwExpressionWithoutCascade:
  *   throw expressionWithoutCascade?
  * ;
- * @description Checks the throw expression can be used in a conditional expression.
+ * @description Checks the throw expression can be used on the right-hand side 
+ * of a conditional expression.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
   var p;
   try {
-    var x=p==null?throw "fail":p;
+    var x = p == null ? throw "fail" : p;
   } catch(e) { }
 }

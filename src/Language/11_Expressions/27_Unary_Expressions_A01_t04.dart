@@ -21,8 +21,7 @@
  *  ‘˜’
  * ;
  * @description Checks that incrementOperator can be used with
- * a reference to function type alias name.
- * @static-warning
+ * a reference to function type alias name without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -33,5 +32,6 @@ typedef f();
 main() {
   try {
     --f;
+    throw "Exception expected.";
   } catch(e) {}
 }

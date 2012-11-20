@@ -25,7 +25,7 @@
  * A bitwise expression is either an equality expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a class declaration can be used
- * as the second operand of a bitwise expression.
+ * as the second operand of a bitwise expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -35,6 +35,7 @@ class A {}
 main() {
   try {
     2 ^ A;
+    throw "Exception expected.";
   } catch(e) {}
 }
 

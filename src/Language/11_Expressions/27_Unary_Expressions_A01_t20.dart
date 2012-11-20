@@ -21,7 +21,7 @@
  *   '~'
  * ;
  * @description Checks that '-' can be used with
- * a reference to a type parameter.
+ * a reference to a type parameter without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -29,7 +29,10 @@
 
 class A <T> {
   test() {
-    try {-T;} catch(e) {}
+    try {
+      -T;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

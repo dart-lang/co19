@@ -16,7 +16,7 @@
  * An equality expression is either a relational expression, or an invocation of
  * a equality operator on either super or an expression e1, with argument e2.
  * @description Checks that a type parameter can be
- * used as the first operand in an equality expression.
+ * used as the first operand in an equality expression without a compile error.
  * @author msyabro
  * @reviewer rodionov
  */

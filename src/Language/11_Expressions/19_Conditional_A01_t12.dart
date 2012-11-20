@@ -10,7 +10,7 @@
  *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that a reference to a type alias declaration
- * can be used as the condition in a conditional expression.
+ * can be used as the condition in a conditional expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,5 +20,6 @@ typedef int fun();
 main() {
   try {
     fun ? 1 : 2;
+    throw "Exception expected.";
   } catch(e) {}
 }

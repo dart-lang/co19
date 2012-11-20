@@ -34,14 +34,17 @@
  *   listLiteral
  * ;
  * @description Checks that a type parameter
- * can be used in the left hand side of an assignment.
+ * can be used in the left hand side of an assignment without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {T = null;} catch(e) {}
+    try {
+      T = null;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

@@ -11,16 +11,16 @@
  * isOperator:
  *   is '!'?
  * ;
- * @description Checks that there is no compile-time error when
- * using a typedef in the left part of the expression
- * @static-warning
+ * @description Checks that there is no compile-time error when the first operand
+ * of a type test expression is a type alias name.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 typedef f();
 
 main() {
-  Expect.isTrue(f is Type);
-  Expect.isTrue(f is Type<Function>);
-  Expect.isFalse(f is Type<int>);
+  f is Type;
+  f is Type<Function>;
+  f is Type<int>;
 }

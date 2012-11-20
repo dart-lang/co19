@@ -16,14 +16,17 @@
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that a type parameter can be used
- * as the first operand of a shift expression.
+ * as the first operand of a shift expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {T << 1;} catch(e) {}
+    try {
+      T << 1;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

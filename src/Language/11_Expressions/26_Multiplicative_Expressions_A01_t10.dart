@@ -18,7 +18,7 @@
  * A multiplicative expression is either a unary expression, or an invocation
  * of a multiplicative operator on either super or an expression e1, with argument e2.
  * @description Checks that reference to a class declaration can be used
- * as the left operand of a multiplicative expression.
+ * as the left operand of a multiplicative expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -27,5 +27,8 @@
 class A {}
 
 main() {
-  try {A * 1;} catch(e) {}
+  try {
+    A * 1;
+    throw "Exception expected.";
+  } catch(e) {}
 }

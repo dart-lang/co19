@@ -15,7 +15,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @issue 6029
  */
 
 typedef bool foo(int x, int y, [double a, double b]);

@@ -8,6 +8,7 @@
  * kind of exception or error object.
  * @description Checks that values of various types can be thrown.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

@@ -15,15 +15,17 @@
  * A logical boolean expression is either a bitwise expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that a type parameter can be used as
- * the second operand in a logical boolean expression.
+ * the second operand in a logical boolean expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 6556
  */
 
 class A<T> {
   test() {
-    try { true || T;} catch(e) {}
+    try {
+      true || T;
+      throw "Exception expected";
+    } catch(e) {}
   }
 }
 

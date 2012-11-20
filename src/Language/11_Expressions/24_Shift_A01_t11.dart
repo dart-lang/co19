@@ -16,8 +16,9 @@
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a type alias declaration can be used
- * as the first operand of a shift expression.
+ * as the first operand of a shift expression without a compile error without a compile error.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 typedef void proc();
@@ -25,5 +26,6 @@ typedef void proc();
 main() {
   try {
     proc >> 1;
+    throw "Exception expected.";
   } catch(e) {}
 }

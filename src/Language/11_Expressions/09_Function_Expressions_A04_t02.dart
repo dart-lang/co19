@@ -11,11 +11,11 @@
  * In any case where Ti , 1 <= i <= n+k, is not specified,
  * it is considered to have been specified as dynamic.
  * @description Checks that a static warning occurs when assigning a function literal
- * of the form (T1 a1, ..., Tn an, [Tn+1  xn+1 = d1, ... ,Tn+k xn+k = dk]) => e where
+ * of the form (T1 a1, ..., Tn an, {Tn+1 xn+1: d1, ...,Tn+k xn+k: dk]) => e where
  * the type of e is int to a variable of a function type with a boolean return type.
  * @static-warning
  * @author kaigorodov
- * @issue 6029
+ * @reviewer rodionov
  */
 typedef bool foo(int x, int y, {double a, double b});
 

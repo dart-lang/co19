@@ -17,7 +17,7 @@
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
  * @description Checks that a reference to a class declaration can be used
- * as right operand in an additive expression.
+ * as right operand in an additive expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -28,5 +28,6 @@ class A {}
 main() {
   try {
     1 - A;
+    throw "Exception expected.";
   } catch(e) {}
 }

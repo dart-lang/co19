@@ -24,9 +24,10 @@
  * ;
  * A bitwise expression is either an equality expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a type alias declaration can't be used
- * as the third operand of a bitwise expression.
+ * @description Checks that a reference to a type alias declaration can be used
+ * as the second operand of a bitwise expression without a compile error.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 typedef String fun();
@@ -34,6 +35,6 @@ typedef String fun();
 main() {
   try {
     1 ^ 2 ^ fun;
-  } catch(e) {}
+    throw "Exception expected.";
+  } catch(e) {} // type error or NSME depending on mode
 }
-

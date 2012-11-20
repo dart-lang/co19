@@ -12,19 +12,17 @@
  * • If d is a class or type alias T, the value of e is the unique instance of class
  *   Type reifying T.
  * @description  Checks that there is no compile-time error if identifier
- * expression refers to a class declaration
+ * expression in a return statement refers to a class declaration.
  * @author msyabro
  * @reviewer kaigorodov 
  */
 
 class A {
-  bool x() {
+  x() {
     return A;
   }
 }
 
 main() {
-  try {
-  	Expect.isTrue(new A().x());
- } catch(e) {} 
+	new A().x();
 }

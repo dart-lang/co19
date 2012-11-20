@@ -34,7 +34,7 @@
  *   listLiteral
  * ;
  * @description Checks that a reference to a class declaration
- * can be used in the left hand side of an assignment.
+ * can be used in the left hand side of an assignment without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -44,5 +44,6 @@ class A {}
 main() {
   try {
     A = 1;
+    throw "Exception expected.";
   } catch(e) {}
 }

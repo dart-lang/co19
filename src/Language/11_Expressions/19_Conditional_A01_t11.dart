@@ -10,7 +10,7 @@
  *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
  * ;
  * @description Checks that a reference to a class declaration
- * can be used as one of expressions in a conditional expression.
+ * can be used as one of expressions in a conditional expression without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,5 +20,6 @@ class A {}
 main() {
   try {
     true ? 1 : A;
+    throw "Exception expected.";
   } catch(e) {}
 }

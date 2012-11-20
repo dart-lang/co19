@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of the form identical(e1 , e2 ) where e1 and e2 are
- * constant expressions and identical() is the predefined dart function that returns
- * true iff its two arguments are the same object.
+ * @assertion An expression of the form identical(e1 , e2) where e1 and e2 are
+ * constant expressions and identical is statically bound to the predefined dart 
+ * function that returns true iff its two arguments are the same object.
  * @description Checks that if identical() is redefined, its invocation is not a constant expressions.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 bool identical(var a, var b) {

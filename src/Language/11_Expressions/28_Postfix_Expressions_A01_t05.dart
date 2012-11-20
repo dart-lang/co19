@@ -18,7 +18,8 @@
  * ;
  * A postfix expression is either a primary expression, a function, method or
  * getter invocation, or an invocation of a postfix operator on an expression e.
- * @description Checks that a type parameter can be used with postfixOperator.
+ * @description Checks that a type parameter can be used with postfixOperator
+ * without a compile error.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -26,7 +27,10 @@
 
 class A<T> {
   test() {
-    try {T++; } catch(e) {}
+    try {
+      T++;
+      throw "Exception expected.";
+    } catch(e) {}
   }
 }
 

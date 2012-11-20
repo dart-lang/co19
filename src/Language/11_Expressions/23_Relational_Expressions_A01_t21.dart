@@ -17,9 +17,10 @@
  * ;
  * A relational expression is either a shift expression, or an invocation
  * of a relational operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to an interface declaration can be used
- * as the second operand in a relational expression.
+ * @description Checks that a type alias name can be used as the second operand 
+ * in a relational expression without a compile error.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 typedef void proc();
@@ -27,5 +28,5 @@ typedef void proc();
 main() {
   try {
     1 >= proc;
-  } catch(e) {}
+  } catch(e) {} // NSME or type error depending on mode
 }
