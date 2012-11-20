@@ -17,6 +17,6 @@ import "1_Imports_A05_t02_libB.dart";
 
 main() {
   try {
-    someVar = 0;
+    var someVar = 0;
   } catch(e) {}
 }
