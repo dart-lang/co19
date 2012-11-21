@@ -14,6 +14,8 @@
  * named optional parameters have identical names and mutually assignale types, regardless of the order
  * they're declared in.
  * @author rodionov
+ * @reviewer kaigorodov
+ * @issue 978
  */
 
 typedef t1({int x, double d, String s});

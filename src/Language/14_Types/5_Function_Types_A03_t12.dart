@@ -12,9 +12,8 @@
  * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
  * @description Checks that this statement is true even if the subtype function type has more named optional
  * parameters than the supertype as long it's a superset of the supertype's named optional parameters.
- * @author rodionov
- * @reviewer kaigorodov
- * @issue 978
+ * This test is like A03/t03, but the order of named parameters is not mutated.
+ * @author kaigorodov
  */
 
 class A {}
@@ -38,14 +37,14 @@ typedef okWithDynamicFunc({int x, bool y, List<Map> z, classesFunc v});
 
 
 main() {
-  Expect.isTrue((var vv, {A a, C c, B b, D d, Map xxx, Object xxxx}) {} is classesFunc);
+  Expect.isTrue((var vv, {A a, B b, C c, D d, Map xxx, Object xxxx}) {} is classesFunc);
 
-  Expect.isTrue(({List<List<B>> l, Map<num, int> m, G<A, B, C, D> g}) {} is genericsFunc);
+  Expect.isTrue(({Map<num, int> m, List<List<B>> l, G<A, B, C, D> g}) {} is genericsFunc);
 
-  Expect.isTrue(({A x, G y, mixFunc z, List<Map<int, mixFunc>> xxx, Object xx,
-                  var v, mixFunc xxxx}) {} is dynamicFunc);
+  Expect.isTrue(({A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx,
+                  mixFunc xxxx}) {} is dynamicFunc);
 
-  Expect.isTrue(({okWithClassesFunc f1, mixFunc xx, 
-                  okWithDynamicFunc f3, okWithGenericsFunc f2}) {} is funcFunc);
+  Expect.isTrue(({okWithClassesFunc f1, okWithGenericsFunc_2 f2, 
+                  okWithDynamicFunc f3, mixFunc xx}) {} is funcFunc);
 
 }

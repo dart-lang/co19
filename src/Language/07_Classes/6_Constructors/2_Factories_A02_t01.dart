@@ -9,6 +9,7 @@
  * is followed by a name that is not a constructor name.
  * @static-warning
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

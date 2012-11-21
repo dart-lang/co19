@@ -9,6 +9,8 @@
  * @description Checks that an identifier expression that denotes a type parameter 
  * can be assigned to a constant variable.
  * @author rodionov
+ * @reviewer kaigorodov
+ * @issue 6556
  */
 
 class C<T> {

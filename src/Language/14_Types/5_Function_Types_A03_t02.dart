@@ -13,6 +13,7 @@
  * @description Checks that this statement is true for functions with several named optional parameters 
  * (class, generic, function, Dynamic).
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {}

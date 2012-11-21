@@ -11,8 +11,9 @@
  * 3. k >= m and yi belongs to {x1, ..., xk} for each i in 1..m.
  * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
  * @description Checks that this statement is true for functions with a single named optional parameter 
- * (class, generic, function, Dynamic).
+ * (class, generic, function, dynamic).
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {}

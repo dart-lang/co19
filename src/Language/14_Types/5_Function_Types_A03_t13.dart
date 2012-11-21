@@ -12,8 +12,8 @@
  * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
  * @description Checks that this statement is true for quite complex function types:
  * non-dynamic return type and a bunch of required and named optional parameters.
- * @author rodionov
- * @reviewer kaigorodov
+ * This test is like A03/t04, but the order of named parameters is not mutated.
+ * @author kaigorodov
  */
 
 class A {}
@@ -26,16 +26,12 @@ class D implements C {}
 typedef B func(Object o);
 typedef B t1(int i, B b, Map<int, num> m, var x, {var ox, B ob, List<num> ol, bool obool});
 
-B f1(int i, B b, Map<int, num> m, var x, {extraParam, bool obool, var ox, D ob, List<num> ol}) {}
+B f1(int i, B b, Map<int, num> m, var x, {var ox, D ob, List<num> ol, bool obool, extraParam}) {}
 D f2(int i, D b, Map<int, int> m, func x, {func ox, D ob, List<int> ol, bool obool}) {}
-C f3(num i, A b, Map<Object, Object> m, var x, {var ox, extraParam, A2 ob, List ol, Object obool}) {}
 C f4(num i, A b, Map<Object, Object> m, var x, {var ox, A2 ob, List ol, bool obool, A xx, B yy}) {}
-A f5(num i, A b, Map<Object, Object> m, var x, {ox, A2 ob, extraParam, List ol, obool}) {}
 
 main() {
   Expect.isTrue(f1 is t1);
   Expect.isTrue(f2 is t1);
-  Expect.isTrue(f3 is t1);
   Expect.isTrue(f4 is t1);
-  Expect.isTrue(f5 is t1);
 }
