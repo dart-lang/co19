@@ -23,7 +23,7 @@ checkException(ex) {
 }
 
 main() {
-  checkException(new NullPointerException());
+  checkException(new Exception());
   checkException(1);
   checkException('aaaaaa');
   checkException(new Object());

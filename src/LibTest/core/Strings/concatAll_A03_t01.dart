@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if any of the list elements are null
- * @description Checks that passing a list containing null elements results in NullPointerException
+ * @assertion Throws Error if any of the list elements are null
+ * @description Checks that passing a list containing null elements results in Error
  * @author rodionov
  * @reviewer pagolubev
  * @needsreview Undocumented
@@ -21,7 +21,7 @@ main() {
 void check(List<String> arr) {
   try {
     Strings.concatAll(arr);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(e) {
+    Expect.fail("Error expected");
+  } on Error catch(e) {
   }
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns the natural logarithm (base e) of a double value.
- * @description Checks that NullPointerException is thrown when passed argument is a null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @needsreview undocumented
  * @reviewer pagolubev
@@ -16,6 +16,6 @@ import "dart:math" as Math;
 main() {
   try {
     Math.log(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

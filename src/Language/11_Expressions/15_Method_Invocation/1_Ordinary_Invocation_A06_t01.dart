@@ -18,7 +18,7 @@ main() {
   C o;
   try {
     o.nonExistingMethod();
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }
 

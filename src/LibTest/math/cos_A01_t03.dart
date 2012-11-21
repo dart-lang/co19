@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Evaluates the trigonometric cosine of an angle.
- * @description Checks that NullPointerException is thrown when passed argument is a null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -16,6 +16,6 @@ import "dart:math" as Math;
 main() {
   try {
     Math.cos(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

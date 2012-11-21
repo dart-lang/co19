@@ -19,41 +19,41 @@ main() {
   var x = null;
   try {
     String y = x.thebullshour;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     int i = x.thaisofathens;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     func f = x.razorsedge;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     func2 f2 = x.andromeda;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     x.thebullshour = "asfasf";
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     x.thaisofathens = 1;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     x.razorsedge = () {};
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     x.andromeda = (int a) => (a * a);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

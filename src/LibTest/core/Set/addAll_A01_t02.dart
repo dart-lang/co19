@@ -6,9 +6,9 @@
 /**
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
- * @description Passes a list containing null to addAll(), expects a NullPointerException.
+ * @description Passes a list containing null to addAll(), expects an Error.
  * @author pagolubev
- * @needsreview Behavior not specified. Test assumes NullPointerException.
+ * @needsreview Behavior not specified. Test assumes Error.
  * @reviewer msyabro
  */
 
@@ -18,12 +18,12 @@ main() {
 
   try {
     s.addAll([null]);
-    Expect.fail("Expected NullPointerException");
-  } on NullPointerException catch(e) {
+    Expect.fail("Expected Error");
+  } on Error catch(e) {
   }
 
   try {
     s.addAll([1, 2, null]);
-    Expect.fail("Expected NullPointerException");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Expected Error");
+  } on Error catch(e) {}
 }

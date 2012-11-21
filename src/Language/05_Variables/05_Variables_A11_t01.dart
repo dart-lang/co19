@@ -7,8 +7,9 @@
  * @assertion Local variables cause a getter (and if necessary a setter) to be added to
  * the innermost enclosing scope at the point following the local variable declaration.
  * @description Checks that local variable getters and setters are not accessible
- * before the local variable declaration.
+ * before that variable's declaration.
  * @author kaigorodov
+ * @reviewer rodionov
  */
  
 void test1() {

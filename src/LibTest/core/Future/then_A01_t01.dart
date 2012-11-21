@@ -30,5 +30,5 @@ main() {
   check(false);
   check([]);
   check(new Object());
-  check(new NullPointerException());
+  check(new Exception());
 }

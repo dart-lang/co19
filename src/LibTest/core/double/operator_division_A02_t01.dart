@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool operator /(num other)
- * Throws [NullPointerException] if [other] is [:null:].
+ * Throws [Error] if [other] is [:null:].
  * @description Checks that the correct exception is thrown.
  * @author msyabro
  */
@@ -24,8 +24,8 @@ final List sample_doubles = const [
 check(double d) {
   try {
     d / null;
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }
 
 main() {

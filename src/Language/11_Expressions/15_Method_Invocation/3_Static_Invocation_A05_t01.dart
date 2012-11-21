@@ -21,6 +21,6 @@ class C {
 main() {
   try {
     C.m();
-    Expect.fail("NullPointerException expected.");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError expected.");
+  } on NoSuchMethodError catch(e) {}
 }

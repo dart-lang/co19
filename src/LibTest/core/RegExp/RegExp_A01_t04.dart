@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that using a null pattern argument results in NullPointerException.
+ * @description Checks that using a null pattern argument results in Error.
  * @author rodionov
  * @reviewer iefremov
  * @reviewer msyabro
@@ -16,6 +16,6 @@
 main() {
   try {
     RegExp re = new RegExp(null);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) { }
+    Expect.fail("Error expected");
+  } on Error catch(ok) { }
 }

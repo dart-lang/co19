@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null argument results in NullPointerException
- * @description Tries to pass null as argument and expects a NullPointerException
+ * @assertion Passing null argument results in Error
+ * @description Tries to pass null as argument and expects an Error
  * @author msyabro
  * @reviewer rodionov
  * @needsreview undocumented
@@ -15,6 +15,6 @@
 main() {
   try {
     "".endsWith(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

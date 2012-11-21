@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NullPointerException] if [collection] is [:null:].
+ * @assertion Throws [Error] if [collection] is [:null:].
  * @description Checks that the exception is thrown as expected.
  * @author vasya
  * @reviewer iefremov
@@ -14,11 +14,11 @@
 main() {
   try {
     new List().addAll(null);
-    Expect.fail("NullPointerException expected when calling a.addAll()");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error expected when calling a.addAll()");
+  } on Error catch(e) {}
 
   try {
     [].addAll(null);
-    Expect.fail("NullPointerException expected when calling a.addAll()");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error expected when calling a.addAll()");
+  } on Error catch(e) {}
 }

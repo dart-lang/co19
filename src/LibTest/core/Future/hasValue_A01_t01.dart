@@ -42,6 +42,6 @@ main() {
   checkConstructor({});
 
   checkException(new Object());
-  checkException(new NullPointerException());
+  checkException(new Exception());
   checkException(false);
 }

@@ -5,7 +5,7 @@
  */
  /**
  * @assertion String toStringAsPrecision(int precision)
- * Throws [NullPointerException] if [fractionDigits] is null.
+ * Throws [Error] if [fractionDigits] is null.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
  * @needsreview undocumented
@@ -15,6 +15,6 @@ main() {
   bool fail = false;
   try {
     .1.toStringAsPrecision(null);
-    Expect.fail('NullPointerException is expected');
-  } on NullPointerException catch(e) {}
+    Expect.fail('Error is expected');
+  } on Error catch(e) {}
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion static num pow(num x, num exponent)
- * @description Checks that this method throws an NullPointerException when passed a null argument.
+ * @description Checks that this method throws an Error when passed a null argument.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -16,8 +16,8 @@ import "dart:math" as Math;
 check(var a1, var a2) {
   try {
     Math.pow(a1, a2);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }
 
 main() {

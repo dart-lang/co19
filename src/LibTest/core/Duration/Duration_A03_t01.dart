@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Undocumented: passing null in place of either argument results in
- *            a NullPointerException
- * @description Tries to pass null as an argument, expects a NullPointerException.
+ *            an Error
+ * @description Tries to pass null as an argument, expects an Error.
  * @author akuznecov
  * @reviewer rodionov
  * @reviewer msyabro
@@ -25,7 +25,7 @@ main() {
 void check(int d, int h, int m, int s, int ms) {
   try {
     new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(e) {
+    Expect.fail("Error expected");
+  } on Error catch(e) {
   }
 }

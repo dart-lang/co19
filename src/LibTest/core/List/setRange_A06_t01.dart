@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NullPointerException] if [from] is [:null:].
- * @description Checks that NPE is thrown as expected.
+ * @assertion Throws [Error] if [from] is [:null:].
+ * @description Checks that Error is thrown as expected.
  * @author varlax
  * @reviewer iefremov
  */
@@ -13,8 +13,8 @@
 check(list) {
   try {
     list.setRange(0, 1, null);
-    Expect.fail("expected NPE");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("expected Error");
+  } on Error catch(ok) {}
 }
 
 main() {

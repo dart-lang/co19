@@ -21,8 +21,8 @@ class A extends S {
   test() {
     try {
       super.m();
-      Expect.fail("NullPointerException is expected");
-    } on NullPointerException catch(e) {}
+      Expect.fail("NoSuchMethodError is expected");
+    } on NoSuchMethodError catch(e) {}
   }
 }
 

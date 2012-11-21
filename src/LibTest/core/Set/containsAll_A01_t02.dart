@@ -7,7 +7,7 @@
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
  * @description Passes a list containing null elements as argument, expects
- * NullPointerException as long as the null value in the list is not preceded by others
+ * Error as long as the null value in the list is not preceded by others
  * this set doesn't contain.
  * @author pagolubev
  * @needsreview Undocumented
@@ -18,15 +18,15 @@
 void check1(Set<int> s) {
   try {
     s.containsAll([null]);
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error expected");
+  } on Error catch(e) {}
 }
 
 void check2(Set<int> s) {
   try {
     s.containsAll([1, 2, null]);
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error expected");
+  } on Error catch(e) {}
 }
 
 main() {

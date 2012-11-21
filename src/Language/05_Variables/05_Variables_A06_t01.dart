@@ -7,10 +7,11 @@
  * @assertion  Attempting to assign to a final variable elsewhere will cause a
  * NoSuchMethodError to be thrown, because no setter is defined for it.
  * The assignment will also give rise to a static warning for the same reason.
- * @description Checks that a static warning occur when a final variable is assigned
- * elsewhere except for initializing expression and constructor.
+ * @description Checks that a static warning is given as well as NoSuchMethodError thrown
+ * when a final variable is assigned outside of initializing expression or constructor.
  * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
  
 class C {

@@ -20,6 +20,6 @@ main() {
   C o;
   try {
     o.m();
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 }

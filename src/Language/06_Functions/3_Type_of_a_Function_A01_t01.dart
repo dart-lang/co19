@@ -20,13 +20,13 @@ g() {return 1;}
 main() {
   try {
     f().someMethod();
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
   
   try {
     f().x;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     g().someMethod();

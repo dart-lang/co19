@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if argument is null.
+ * @assertion Throws Error if argument is null.
  * @description Tries to call the method with null parameter.
  * @author msyabro
  * @reviewer varlax
@@ -13,6 +13,6 @@
 main() {
   try {
     new Queue().addAll(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

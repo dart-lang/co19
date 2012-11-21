@@ -6,7 +6,7 @@
 /**
  * @assertion Removes the association for the given [key]. Returns null if
  * [key] is not in the map.
- * @description Try to remove null key and check that NPE is thrown.
+ * @description Try to remove null key and check that Error is thrown.
  * @author msyabro
  * @reviewer varlax
  */
@@ -17,6 +17,6 @@ main() {
   
   try {
     map.remove(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {} //Not documented
+    Expect.fail("Error is expected");
+  } on Error catch(e) {} //Not documented
 }

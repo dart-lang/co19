@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Date subtract(Duration other)
- * Throws [NullPointerException] if [other] is [:null:].
+ * Throws [Error] if [other] is [:null:].
  * @description Checks that correct exception is thrown.
  * @author msyabro
  * @reviewer pagolubev
@@ -15,6 +15,6 @@
  main() {
    try {
      new Date(2000, 1, 1, 0, 0, 0, 0).subtract(null);
-     Expect.fail("NullPointerException is expected");
-   } on NullPointerException catch(e) {}
+     Expect.fail("Error is expected");
+   } on Error catch(e) {}
  }

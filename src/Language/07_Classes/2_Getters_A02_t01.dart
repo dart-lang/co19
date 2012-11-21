@@ -21,16 +21,16 @@ main() {
   C c = new C();
   try {
     c.foo.abyr = null;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch (ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (ok) {}
 
   try {
     c.foo.abyr(1, 2, 3);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch (ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (ok) {}
 
   try {
     c.foo.abyrvalg = null;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch (ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (ok) {}
 }

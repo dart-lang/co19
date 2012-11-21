@@ -41,6 +41,6 @@ main() {
   
   try {
     i.foo(null, null);
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
 }

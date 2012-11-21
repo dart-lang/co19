@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NullPointerException] if [start] or [length] is [:null:].
- * @description Checks that an [NullPointerException] throws 
+ * @assertion Throws [Error] if [start] or [length] is [:null:].
+ * @description Checks that an [Error] throws 
  * if [start] or [length] is null.
  * @author vasya
  * @reviewer varlax
@@ -14,8 +14,8 @@
 void check(List l, int start, int length) {
   try {
     l.getRange(start, length);
-    Expect.fail("NullPointerException expected when calling List.getRange()");
-  } on NullPointerException catch(ok) {}   
+    Expect.fail("Error expected when calling List.getRange()");
+  } on Error catch(ok) {}   
 }
 
 main() {

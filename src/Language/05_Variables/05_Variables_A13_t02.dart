@@ -26,21 +26,21 @@ class A {
 main() {
   try {
     A.a.nonexistent();
-    Expect.fail("NPE expected");
-  } on NullPointerException catch (e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (e) {}
   
   try {
     A.b.nonexistent();
-    Expect.fail("NPE expected");
-  } on NullPointerException catch (e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (e) {}
   
   try {
     A.c.nonexistent();
-    Expect.fail("NPE expected");
-  } on NullPointerException catch (e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (e) {}
 
   try {
     A.d.nonexistent();
-    Expect.fail("NPE expected");
-  } on NullPointerException catch (e) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch (e) {}
 }

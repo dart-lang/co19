@@ -36,8 +36,8 @@ class A extends S {
     buffer = new StringBuffer();
     try {
       super.f(new A() + 1, new A() - 1);
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(e) {
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(e) {
       Expect.equals("12", buffer.toString());
     }
   }

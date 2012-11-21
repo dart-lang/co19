@@ -22,9 +22,10 @@ main() {
   int count = 0;
   try {
     map.forEach((String key, Object value) {
-      if (count++ > 0) throw new NullPointerException();
+      if (count++ > 0) throw "stop";
     });
-    Expect.fail("NullPointerException should be thrown");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Exception expected");
+  } on String catch(e) {}
+
   Expect.isTrue(count == 2);
 }

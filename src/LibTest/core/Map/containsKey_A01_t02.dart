@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns whether this map contains the given [key].
- * @description Tries to pass null as [key] and checks that NPE is thrown.
+ * @description Tries to pass null as [key] and checks that Error is thrown.
  * @author msyabro
  * @reviewer varlax
  */
@@ -15,6 +15,6 @@ main() {
   Map<String, Object> map = new Map<String, Object>();
   try {
     map.containsKey(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

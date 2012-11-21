@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if one of arguments is null.
- * @description Checks that passing a null argument results in NullPointerException
+ * @assertion Throws Error if one of arguments is null.
+ * @description Checks that passing a null argument results in Error
  * @author msyabro
  * @reviewer rodionov
  * @needsreview undocumented
@@ -22,6 +22,6 @@ main() {
 void check(List<String> arr, String sep) {
   try {
     Strings.join(arr, sep);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

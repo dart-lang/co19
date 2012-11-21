@@ -5,16 +5,16 @@
  */
 /**
  * @assertion Set<E> intersection(Collection<E> other)
- * Throws NullPointerException if one of elements of [other] is null
- * @description Checks that NullPointerException is thrown.
+ * Throws Error if one of elements of [other] is null
+ * @description Checks that Error is thrown.
  * @author msyabro
  */
 
 checkNPE(var s, var collection) {
   try {
     s.intersection(collection);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }
 
 main() {

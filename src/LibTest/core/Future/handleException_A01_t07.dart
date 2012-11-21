@@ -26,6 +26,6 @@ main() {
 
   try {
     completer.completeException('');
-    Expect.fail('NullPointerException is expected');
-  } on NullPointerException catch(e) {}
+    Expect.fail('Error is expected');
+  } on Error catch(e) {}
 }

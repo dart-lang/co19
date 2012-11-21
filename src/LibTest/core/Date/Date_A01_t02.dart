@@ -16,8 +16,8 @@
 void check(y, m, d, h, min, sec, ms, field) {
   try {
     new Date(y, m, d, h, min, sec, ms);
-    Expect.fail("NullPointerException expected with the passed null value of the $field");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("Error expected with the passed null value of the $field");
+  } on Error catch(ok) {}
 }
 
 main(){

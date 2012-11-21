@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Set<E> intersection(Collection<E> other)
- * Passing null as argument results in NullPointerException
+ * Passing null as argument results in Error
  * the given collection. 
- * @description Checks that a NullPointerException is thrown if the argument is null.
+ * @description Checks that an Error is thrown if the argument is null.
  * Both empty and non-empty Sets are tested.
  * @author rodionov
  * @needsreview Undocumented
@@ -23,7 +23,7 @@ main() {
 void check(Set s) {
   try {
     s.intersection(null);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(e) {
+    Expect.fail("Error expected");
+  } on Error catch(e) {
   }
 }

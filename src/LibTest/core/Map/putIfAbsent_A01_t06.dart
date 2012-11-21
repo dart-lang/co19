@@ -23,8 +23,8 @@ main() {
   
   try {
     map.putIfAbsent("1", null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   Expect.isFalse(map.containsKey("1"));
   

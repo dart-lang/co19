@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if [formattedString] is null.
+ * @assertion Throws Error if [formattedString] is null.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
  * @reviewer pagolubev
@@ -13,6 +13,6 @@
 main() {
   try {
     new Date.fromString(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

@@ -11,8 +11,6 @@
  * extending another interface that declares those members. This should indirectly prove
  * that they're indeed inherited by the subinterface.
  * @author rodionov
- * @note Only makes sense when dartc is used - uncomment the commented out lines
- * and see if it fails in VM mode.
  * @reviewer kaigorodov
  */
 
@@ -29,33 +27,28 @@ abstract class I2 extends I1 {}
 
 abstract class I3 extends I2 {}
 
+check(func) {
+  try {
+    func();
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
+}
+
 main() {
   I2 i2 = null;
   I3 i3 = null;
   
-//  try {i2.nonexistent;} on NullPointerException catch(npe) {}
-
-  try {i2.foo; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i2.bar; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i2.m(); Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i2.gett0r; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i2.sett0r = 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i2 + 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i3.foo; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i3.bar; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i3.m(); Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i3.gett0r; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i3.sett0r = 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
-
-  try {i3 + 1; Expect.fail("NPE expected");} on NullPointerException catch(npe) {}
+  check(() {i2.nonexistent;});
+  check(() {i2.foo;});
+  check(() {i2.bar;});
+  check(() {i2.m();});
+  check(() {i2.gett0r;});
+  check(() {i2.sett0r = 1;});
+  check(() {i2 + 1;});
+  check(() {i3.foo;});
+  check(() {i3.bar;});
+  check(() {i3.m();});
+  check(() {i3.gett0r;});
+  check(() {i3.sett0r = 1;});
+  check(() {i3 + 1;});
 }

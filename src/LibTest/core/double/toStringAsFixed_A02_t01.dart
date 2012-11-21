@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String toStringAsFixed(int fractionDigits)
- * Throws [NullPointerException] if [fractionDigits] is null.
+ * Throws [Error] if [fractionDigits] is null.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
  * @needsreview undocumented
@@ -41,8 +41,8 @@ final List values = const [
 check(double val) {
   try {
     val.toStringAsFixed(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }
 
 main() {

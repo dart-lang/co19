@@ -12,7 +12,7 @@
  *      s
  *    }
  *  where n0 is an identiﬁer that does not occur anywhere in the program.
- * @description Checks that [NullPointerException] is thrown when e is null. 
+ * @description Checks that [NoSuchMethodError] is thrown when e is null. 
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -23,19 +23,19 @@ main() {
   try {
     for ( var id in l ) {
     }
-    Expect.fail("NullPointerException expected when calling for statement");
-  } on NullPointerException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected when calling for statement");
+  } on NoSuchMethodError catch(ok) {}   
 
   try {
     for ( dynamic id in l ) {
     }
-    Expect.fail("NullPointerException expected when calling for statement");
-  } on NullPointerException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected when calling for statement");
+  } on NoSuchMethodError catch(ok) {}   
 
   try {
     var id;
     for ( id in l ) {
     }
-    Expect.fail("NullPointerException expected when calling for statement");
-  } on NullPointerException catch(ok) {}   
+    Expect.fail("NoSuchMethodError expected when calling for statement");
+  } on NoSuchMethodError catch(ok) {}   
 }

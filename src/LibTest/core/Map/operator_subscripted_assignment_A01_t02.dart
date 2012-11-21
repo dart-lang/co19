@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Tries to pass null as [key] and check that NPE is thrown.
+ * @description Tries to pass null as [key] and check that Error is thrown.
  * @author msyabro
  * @reviewer varlax
  */
@@ -15,6 +15,6 @@ main() {
   Map<String, Object> map = new Map<String, Object>();
   try {
     map[null] = 1;
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

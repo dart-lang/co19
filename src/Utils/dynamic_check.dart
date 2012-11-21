@@ -5,7 +5,7 @@ isCheckedMode() {
     var i = 1;
     String s = i;
     return false;
-  } catch(e) {
+  } on TypeError catch(e) {
     return true;
   }
 }

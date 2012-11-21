@@ -6,9 +6,9 @@
 /**
  * @assertion bool isSubsetOf(Collection<T> collection)
  * Returns true if [collection] contains all the elements of this collection.
- * @description Passes a list containing null elements to isSubsetOf(), expects NullPointerException.
+ * @description Passes a list containing null elements to isSubsetOf(), expects Error.
  * @author pagolubev
- * @needsreview Behavior is not specified. Assuming a NullPointerException should be thrown.
+ * @needsreview Behavior is not specified. Assuming an Error should be thrown.
  * @reviewer msyabro
  */
 
@@ -16,13 +16,13 @@
 void check(Set<int> s) {
   try {
     s.isSubsetOf([null]);
-    Expect.fail("Expected NullPointerException.");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Expected Error.");
+  } on Error catch(e) {}
 
   try {
     s.isSubsetOf([1, 2, null]);
-    Expect.fail("Expected NullPointerException.");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Expected Error.");
+  } on Error catch(e) {}
 }
 
 main() {

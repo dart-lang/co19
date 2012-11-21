@@ -36,8 +36,8 @@ main() {
 
   try {
     null(p1: 1);
-    Expect.fail(" NullPointerException is expected");
-  } on  NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 
   try {
     new Object()();

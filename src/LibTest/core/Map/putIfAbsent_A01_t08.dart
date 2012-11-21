@@ -9,7 +9,7 @@
  * [ifAbsent]. Returns the value in the map.
  * @description Checks that isAbsent is indeed called before putting the new key 
  * in the map if it's not already associated to a value, resulting in a NoSuchMethodError 
- * (Type error in checked mode) or NullPointerException if the argument is null or can't 
+ * (Type error in checked mode) or NoSuchMethodError if the argument is null or can't 
  * be called like a function (according to general language rules).
  * @static-warning
  * @author msyabro
@@ -34,8 +34,8 @@ main() {
 
   try {
     map.putIfAbsent("1", null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
   
   Expect.isFalse(map.containsKey("1"));
 }

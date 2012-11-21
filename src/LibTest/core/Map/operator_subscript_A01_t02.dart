@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
- * @description Tries to pass null [key] and check that NPE is thrown.
+ * @description Tries to pass null [key] and check that Error is thrown.
  * @author msyabro
  * @reviewer varlax
  */
@@ -16,6 +16,6 @@ main() {
   
   try {
     map[null];
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

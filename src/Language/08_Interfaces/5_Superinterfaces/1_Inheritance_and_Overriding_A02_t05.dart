@@ -25,8 +25,6 @@
  * required and optional arguments), but we can check that it's inherited at all.
  * @author rodionov
  * @reviewer kaigorodov
- * @note Only makes sense when dartc is used - uncomment the commented out lines
- * and see if it fails in VM mode.
  */
 
 abstract class SI1 {
@@ -54,35 +52,35 @@ main() {
   
   try {
     i.variable;
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
   
   try {
     i.method(null, null, o1:null, o2:null);
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
   
   try {
     var v = i.method2(null, o:null);
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
   
   try {
     num n = i.gett0r;
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
   
   try {
     i.sett0r = null;
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
   
   try {
     var v = i + null;
-    Expect.fail("NPE expected");
-  } on NullPointerException catch(npe) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(npe) {}
 
-//  try {
-//    i.nonexistent;
-//  } on NullPointerException catch(npe) {}
+  try {
+    i.nonexistent;
+  } on NoSuchMethodError catch(npe) {}
 }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [NullPointerException] if [other] is [:null:].
- * @description Check that NPE is really thrown.
+ * @assertion Throws [Error] if [other] is [:null:].
+ * @description Check that Error is really thrown.
  * @author vasya
  * @reviewer iefremov
  * @reviewer varlax
@@ -14,6 +14,6 @@
 main() {
   try {
     List a = new List.from(null);
-    Expect.fail("NullPointerException expected when calling List.from()");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("Error expected when calling List.from()");
+  } on Error catch(ok) {}
 }

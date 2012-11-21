@@ -5,8 +5,8 @@
  */
 /**
  * @assertion static void listEquals(List expected, List actual, [String reason = null])
- * Passing null as either expected or actual results in NullPointerException. 
- * @description Checks that NullPointerException is thrown if any of the required arguments are null.
+ * Passing null as either expected or actual results in Error. 
+ * @description Checks that Error is thrown if any of the required arguments are null.
  * @author rodionov
  * @reviewer varlax
  */
@@ -28,7 +28,7 @@ main() {
 void check(List arg1, List arg2, [String reason = null]) {
   try {
     Expect.listEquals(arg1, arg2, reason);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(e) {
+    Expect.fail("Error expected");
+  } on Error catch(e) {
   }
 }

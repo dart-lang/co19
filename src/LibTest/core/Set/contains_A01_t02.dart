@@ -6,7 +6,7 @@
 /**
  * @assertion bool contains(T value)
  * Returns true if [value] is in the set.
- * @description Passes null as argument, expects NullPointerException.
+ * @description Passes null as argument, expects Error.
  * @author pagolubev
  * @needsreview Undocumented
  * @reviewer msyabro
@@ -17,7 +17,7 @@ main() {
   Set<int> s = new Set<int>();
   try {
     s.contains(null);
-    Expect.fail("Expected NullPointerException.");
-  } on NullPointerException catch(e) {
+    Expect.fail("Expected Error.");
+  } on Error catch(e) {
   }
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Future wait(List futures)
- * throws a NullPointerException if [futures] is null.
+ * throws an Error if [futures] is null.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
  * @reviewer iefremov
@@ -15,6 +15,6 @@
 main() {
   try {
     var f = Futures.wait(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

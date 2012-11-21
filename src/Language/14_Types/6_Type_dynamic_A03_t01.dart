@@ -19,21 +19,21 @@ main() {
   var x = null;
   try {
     String y = x.wakeUp(new Date(1, 1, 1, 1, 1, 1, 1));
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     int i = x.writeConformanceTest(13.6, "Type_Dynamic_A03_t01");
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     func f = x.eatPatty();
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
   
   try {
     func2 f2 = x.goSleep(new Duration(), true);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

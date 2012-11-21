@@ -34,13 +34,13 @@ class C {
 
     try {
       "${null.someMethod()}";
-      Expect.fail("NullPointerException is expected");
-    } on NullPointerException catch(e) {}
+      Expect.fail("NoSuchMethodError is expected");
+    } on NoSuchMethodError catch(e) {}
 
     try {
       "${id()}";
-      Expect.fail("NPE expected");
-    } on NullPointerException catch(e) {}
+      Expect.fail("NoSuchMethodError expected");
+    } on NoSuchMethodError catch(e) {}
   }
 }
 

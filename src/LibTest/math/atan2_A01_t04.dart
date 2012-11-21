@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns the arc tangent of [a]/[b] with sign according to quadrant.
- * @description Checks that NullPointerException is thrown when passed argument is a null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -16,8 +16,8 @@ import "dart:math" as Math;
 void checkNPE(var arg1, var arg2) {
   try {
     Math.atan2(arg1, arg2);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }
 main() {
   checkNPE(null, 1);

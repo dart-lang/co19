@@ -24,33 +24,33 @@ class S extends C {
   void test() {
     try {
       String foo = super.obj();
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(ex) {}
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ex) {}
 
     try {
       bool foo = super.dyn();
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(ex) {}
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ex) {}
 
     try {
       C foo = super.obj();
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(ex) {}
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ex) {}
 
     try {
       Object foo = super.dyn();
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(ex) {}
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ex) {}
 
     try {
       List foo = super.obj();
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(ex) {}
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ex) {}
 
     try {
       Map foo = super.dyn();
-      Expect.fail("NullPointerException expected.");
-    } on NullPointerException catch(ex) {}
+      Expect.fail("NoSuchMethodError expected.");
+    } on NoSuchMethodError catch(ex) {}
   }
 }
 

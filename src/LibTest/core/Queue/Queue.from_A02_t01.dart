@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if [other] is null
+ * @assertion Throws Error if [other] is null
  * @description Checks that exception is thrown
  * @author msyabro
  * @reviewer varlax
@@ -15,6 +15,6 @@
 main() {
   try {
     Queue<int> list = new Queue.from(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

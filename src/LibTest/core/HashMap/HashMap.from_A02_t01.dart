@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws NullPointerException if [other] is null
- * @description Checks that NullPointerException is thrown if the argument is null.
+ * @assertion Throws Error if [other] is null
+ * @description Checks that Error is thrown if the argument is null.
  * @author msyabro
  * @reviewer pagolubev
  */
@@ -13,6 +13,6 @@
 main() {
   try {
     new HashMap.from(null);
-    Expect.fail("NullPointerException is expected");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

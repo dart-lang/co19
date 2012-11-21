@@ -20,6 +20,6 @@ main() {
   f.then(null);
   try {
     completer.complete(0);
-    Expect.fail('NullPointerException is expected');
-  } on NullPointerException catch(e) {}
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {}
 }

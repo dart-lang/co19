@@ -18,34 +18,34 @@ main() {
 
   try {
     foo.abyr = null;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     foo.abyr(1, 2, 3);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     foo.abyrvalg = null;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 
 
   final boo = null;
 
   try {
     boo.abyr = null;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     boo.abyr(1, 2, 3);
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 
   try {
     boo.abyrvalg = null;
-    Expect.fail("NullPointerException expected");
-  } on NullPointerException catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

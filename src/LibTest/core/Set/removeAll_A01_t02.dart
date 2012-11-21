@@ -6,9 +6,9 @@
 /**
  * @assertion void removeAll(Collection<T> collection)
  * Removes all the elements of the given collection from the set.
- * @description Passes a list containing null as argument to removeAll(), expects a NullPointerException.
+ * @description Passes a list containing null as argument to removeAll(), expects an Error.
  * @author pagolubev
- * @needsreview Behavior not specified. Assumes a NullPointerException should be thrown.
+ * @needsreview Behavior not specified. Assumes an Error should be thrown.
  * @reviewer msyabro
  */
 
@@ -16,13 +16,13 @@
 void check(Set<int> s) {
   try {
     s.removeAll([null]);
-    Expect.fail("Expected NullPointerException.");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Expected Error.");
+  } on Error catch(e) {}
 
   try {
     s.removeAll([1, 2, null]);
-    Expect.fail("Expected NullPointerException.");
-  } on NullPointerException catch(e) {}
+    Expect.fail("Expected Error.");
+  } on Error catch(e) {}
 }
 
 main() {
