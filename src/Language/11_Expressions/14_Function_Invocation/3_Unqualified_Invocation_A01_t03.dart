@@ -21,7 +21,7 @@
  * @issue 1604
  */
 
-get m() {
+get m {
   return (p1, p2) {
     Expect.equals("a", p1);
     Expect.equals(1, p2);
@@ -29,7 +29,7 @@ get m() {
   };
 }
 
-get n() {
+get n {
   return "a1";
 }
 

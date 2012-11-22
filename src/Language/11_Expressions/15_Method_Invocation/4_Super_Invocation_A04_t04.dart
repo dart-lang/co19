@@ -20,7 +20,7 @@
 class TestException {}
 
 class S {
-  static int get sm() {}
+  static int get sm {}
   
   noSuchMethod(InvocationMirror im) {
     throw new TestException();

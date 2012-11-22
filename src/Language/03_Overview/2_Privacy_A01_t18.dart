@@ -28,7 +28,7 @@ class _A {
   _A.named() {}
   factory _A.fctry() {throw 2;}
 
-  get _getter() {return 100500;}
+  get _getter {return 100500;}
   void set _setter(x) {throw 1;}
 }
 

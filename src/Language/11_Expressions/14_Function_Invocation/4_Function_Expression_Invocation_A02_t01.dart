@@ -19,19 +19,19 @@ libfunc() {
   return "libfunc";
 }
 
-get libgetter() {
+get libgetter {
   return () => "libgetter";
 }
-get libgetter2() {
+get libgetter2 {
   return "libgetter2";
 }
 
 class Foo {
-  static get staticgetter() {
+  static get staticgetter {
     return () => "staticgetter";
   }
 
-  static get staticgetter2() {
+  static get staticgetter2 {
     return "staticgetter2";
   }
 

@@ -14,7 +14,7 @@
 
 class C {
   var f = 0;
-  String get f(); //abstract
+  String get f; //abstract
   String f(int f);
 }
 

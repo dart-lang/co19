@@ -14,7 +14,6 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
- * @needsreview issue 973
  */
 
 class A {

@@ -8,8 +8,7 @@
  * T v;, T v = e; , const T v = e;, final T v; or final T v = e;
  * always induces an implicit getter function with signature
  *   T get v
- * T get v() invocation to a variable whose type may not be assigned to T. 
- * The variable declaration is of the form T v;.
+ * whose invocation evaluates as described below.
  * @static-warning
  * @author pagolubev
  * @reviewer iefremov

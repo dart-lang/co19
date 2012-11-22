@@ -30,7 +30,7 @@ class A {
 }
 
 class C {
-  get func() => new A();
+  get func => new A();
 }
 
 main()  {

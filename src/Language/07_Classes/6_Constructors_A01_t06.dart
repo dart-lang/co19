@@ -17,7 +17,7 @@
 
 class C {
   C.foo() {}
-  static int get foo() {}
+  static int get foo {}
 }
 
 main() {

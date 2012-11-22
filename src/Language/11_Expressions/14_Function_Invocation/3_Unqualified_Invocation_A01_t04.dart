@@ -30,7 +30,7 @@ class A {
     };
   }
   
-  static get n() {
+  static get n {
     return "";
   }
 
