@@ -15,6 +15,7 @@
  * @description  Checks that AbstractClassInstantiationError is not thrown if q is
  * a named factory constructor of an abstract class.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 abstract class C {

@@ -8,9 +8,9 @@
  * @description Checks that a variable declaration statement final e = e; causes a compile-time error.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
-  final v=v;
+  final v = v;
 }
-

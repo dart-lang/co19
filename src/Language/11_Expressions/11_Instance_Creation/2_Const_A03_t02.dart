@@ -12,14 +12,21 @@
  * includes any type parameters as a type argument.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class S<U> {
   const S.named();
 }
 
+class A<T> {
+  test() {
+    const S.named<T>(); //type variable as a type argument
+  }
+}
+
 main() {
   try {
-    S s=const S<T>.named(); 
+    new A<int>().test();
   } catch(e) {}
 }

@@ -18,7 +18,6 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6659
  */
 
 import "1_Imports_A03_t01_p1_lib.dart";

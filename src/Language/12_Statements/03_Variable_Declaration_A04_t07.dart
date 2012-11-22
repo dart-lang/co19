@@ -9,11 +9,11 @@
  * A top-level variable with the same name is declared.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
-var v=0;
+var v = 0;
 
 main() {
-  var v=v;
+  var v = v;
 }
-

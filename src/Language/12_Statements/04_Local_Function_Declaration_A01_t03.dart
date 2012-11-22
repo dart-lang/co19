@@ -20,9 +20,10 @@
  *   '{' statements '}'
  * ;
  * @description Checks that it is a compile error if a function with an expression
- * does not have formalParameterList
+ * for a body is missing the formal parameter list.
  * @compile-error
- * @author  kaigorodov
+ * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

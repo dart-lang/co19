@@ -14,6 +14,7 @@
  * is thrown.
  * @description  Checks that a NoSuchMethodError is thrown if q is not accessible.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 import "1_New_A06_t06_lib.dart";

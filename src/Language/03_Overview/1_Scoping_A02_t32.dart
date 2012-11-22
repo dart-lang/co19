@@ -10,6 +10,8 @@
  * @description Checks that no warning is produced if a local variable introduces a name
  * that is identical to a class name available in the current scope.
  * @author kaigorodov
+ * @reviewer rodionov
+ * @issue 6556
  */
 
 class C {}

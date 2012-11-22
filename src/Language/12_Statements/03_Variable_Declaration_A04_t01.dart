@@ -8,9 +8,9 @@
  * @description Checks that a variable declaration statement var e = e; causes a compile-time error.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
-  var v=v;
+  var v = v;
 }
-

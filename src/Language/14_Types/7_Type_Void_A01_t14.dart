@@ -10,6 +10,7 @@
  * @description Checks that using void as a declaration name is also a compile-time error.
  * @author rodionov
  * @compile-error
+ * @reviewer kaigorodov
  */
 
 typedef void void();

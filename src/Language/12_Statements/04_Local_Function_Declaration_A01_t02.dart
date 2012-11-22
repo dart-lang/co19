@@ -19,10 +19,11 @@
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that it is a compile error if a function with a block
- * does not have formalParameterList
+ * @description Checks that it is a compile error if a local function declaration with a block
+ * for a body is missing the formal parameter list.
  * @compile-error
- * @author  kaigorodov
+ * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

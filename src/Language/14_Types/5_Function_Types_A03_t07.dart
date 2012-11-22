@@ -13,6 +13,7 @@
  * @description Checks that function type t1 is not a subtype of function type t2 if they have different number
  * of required parameters.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 typedef t1(int x);

@@ -19,8 +19,14 @@ class S<U> {
   const S();
 }
 
+class A<T> {
+  test() {
+    const S<T>(); //type variable as a type argument
+  }
+}
+
 main() {
   try {
-    S s=const S<T>(); 
+    new A<int>().test();
   } catch(e) {}
 }

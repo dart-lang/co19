@@ -11,6 +11,7 @@
  * @description Checks that evaluation of redirecting constructor is equivalent to 
  * evaluation of the constructor it's redirecting to.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class R<T> {
@@ -36,7 +37,7 @@ class C<T> implements R<T> {
 
 main() {
   String foo = "foo";
-  R<String> r1=new R<String>.fc(foo);
-  R<String> r2=new C<String>(foo);
+  R<String> r1 = new R<String>.fc(foo);
+  R<String> r2 = new C<String>(foo);
   Expect.equals(r1, r2);
 }

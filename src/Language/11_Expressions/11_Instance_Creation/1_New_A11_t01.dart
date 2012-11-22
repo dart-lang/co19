@@ -11,6 +11,7 @@
  * @description Checks that it is a dynamic-type error if a type argument is not
  * a subtype of type parameter bound of class R.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 import "../../../Utils/dynamic_check.dart";

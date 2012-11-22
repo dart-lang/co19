@@ -11,6 +11,7 @@
  * is a parameterized type and does not declare a named constructor T.id.
  * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C<T> {}
@@ -21,4 +22,3 @@ main() {
     (e)=> e is NoSuchMethodError
   );
 }
-

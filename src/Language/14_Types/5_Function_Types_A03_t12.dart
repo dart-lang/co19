@@ -12,8 +12,9 @@
  * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
  * @description Checks that this statement is true even if the subtype function type has more named optional
  * parameters than the supertype as long it's a superset of the supertype's named optional parameters.
- * This test is like A03/t03, but the order of named parameters is not mutated.
+ * This test is like A03/t03, but the order of named parameters is not altered.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {}
@@ -44,7 +45,6 @@ main() {
   Expect.isTrue(({A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx,
                   mixFunc xxxx}) {} is dynamicFunc);
 
-  Expect.isTrue(({okWithClassesFunc f1, okWithGenericsFunc_2 f2, 
-                  okWithDynamicFunc f3, mixFunc xx}) {} is funcFunc);
+  Expect.isTrue(({okWithClassesFunc f1, okWithGenericsFunc f2, okWithDynamicFunc f3, mixFunc xx}) {} is funcFunc);
 
 }

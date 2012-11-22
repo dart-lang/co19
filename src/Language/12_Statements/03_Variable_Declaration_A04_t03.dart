@@ -8,9 +8,9 @@
  * @description Checks that a variable declaration statement const e = e; causes a compile-time error.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
-  const v=v;
+  const v = v;
 }
-

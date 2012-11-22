@@ -12,9 +12,10 @@
  * If q has less than n positional parameters or more than n required parameters, or
  * if q lacks any of the keyword parameters {xn+1 , . . . , xn+k } a NoSuchMethodError
  * is thrown.
- * @description  Checks that a NoSuchMethodError is thrown if constructor lacks a keyword
- * parameter.
+ * @description Checks that a NoSuchMethodError is thrown if the actual constructor lacks 
+ * a named parameter used in the new expression.
  * @author kaigorodov
+ * @reviewer rodionov
  */
  
 class C {

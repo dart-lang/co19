@@ -8,9 +8,9 @@
  * @description Checks that a variable declaration statement T e = e; causes a compile-time error.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
-  String v=v;
+  String v = v;
 }
-

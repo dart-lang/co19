@@ -14,6 +14,7 @@
  * even if just one of t1's named optional parameters has a type that is not mutually assignable with
  * the type of t2's corresponding named optional parameter.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class B {}

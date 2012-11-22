@@ -10,6 +10,7 @@
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 3206
  */
 
 import "1_Imports_A05_t01_lib1.dart";

@@ -13,6 +13,7 @@
  * @description Checks that function type t1 is not a subtype of function type t2 if the type of a single
  * named optional parameter of t1 is not assignable to the type of t2's single named optional parameter.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class A {}

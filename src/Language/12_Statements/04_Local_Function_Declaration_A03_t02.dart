@@ -13,6 +13,8 @@
  */
 
 main() {
-  f(x) => x > 0? x*f(x-1): 1;
+  f(x) {
+    return x > 0 ? x * f(x - 1) : 1;
+  }
   Expect.equals(720, f(6));
 }

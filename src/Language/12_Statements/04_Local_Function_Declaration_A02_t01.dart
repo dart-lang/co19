@@ -8,19 +8,20 @@
  * or T id signature {statements} causes a new function named id to be added to
  * the innermost enclosing scope at the point immediately following the function
  * declaration statement.
- * @description Checks that local function is accessible at the point following the function
- * declaration statement.
+ * @description Checks that a local function declaration is accessible at the point 
+ * following the function declaration statement.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
-  var t1=new Object();
+  var t1 = new Object();
   void func(var t) {throw t;}
   
   try {
     func(t1);
     Expect.fail("should not get here");
-  } catch (e) {
+  } on Object catch(e) {
     Expect.identical(t1, e);
   }
 }

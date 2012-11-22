@@ -21,12 +21,15 @@
  * ;
  * @description Checks that various correct function definitions are accepted.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
   void func() {}
   void f(void f()) {}
   x() => f(f);
+  
+  int funktion(args) {statements;}
 
   int f2(int x) {throw '';}
   func1(var x) {}

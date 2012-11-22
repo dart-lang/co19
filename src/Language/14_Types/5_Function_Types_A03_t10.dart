@@ -14,6 +14,7 @@
  * even if just one of its required parameters has a type that is not mutually assignable
  * with the type of the corresponding required parameter of t2.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class B {}

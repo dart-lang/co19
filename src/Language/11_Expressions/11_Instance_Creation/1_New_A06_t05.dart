@@ -14,6 +14,7 @@
  * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
  * @description  Checks that a NoSuchMethodError is thrown if q is not defined.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class C {

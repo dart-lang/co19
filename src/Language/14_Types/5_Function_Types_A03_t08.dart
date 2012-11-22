@@ -13,6 +13,7 @@
  * @description Checks that function type t1 is not a subtype of function type t2 if its
  * named optional parameters are a smaller subset of t2's.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 typedef t1({int x});
