@@ -5,16 +5,18 @@
  */
 /**
  * @assertion Future chain(Future transformation(value))
- * You must not add exception handlers to [this] future prior to calling
- * chain, and any you add afterwards will not be invoked.
+ * Exception handlers added to futures after chain() are called 
+ * will be executed as though chain() wasn't called.
  * @description  Checks that an exception handler, added to a future
- * after calling [chain], will not be invoked if exception is thrown in
- * a transformation function.
+ * after calling [chain], will be invoked as normal.
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview TODO draft method doc: update when the apidoc is updated
  */
 
 main() {
+  final EX = "Exception!";
+  
   Completer completer = new Completer();
   Future f = completer.future;
 
@@ -22,9 +24,14 @@ main() {
     return new Future.immediate(value);
   });
 
+  f.then((val) {
+    Expect.fail("Then handler shouldn't be called!");
+  });
+  
   f.handleException((exception) {
-    Expect.fail('exception handler should not be called');
+    Expect.equals(EX, exception);
+    return true;
   });
 
-  completer.completeException(0);
+  completer.completeException(EX);
 }

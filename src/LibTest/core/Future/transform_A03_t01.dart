@@ -5,16 +5,18 @@
  */
 /**
  * @assertion Future transform(Function transformation)
- * You must not add exception handlers to [this] future prior to calling
- * transform, and any you add afterwards will not be invoked.
- * @description Checks that an exception handler, added to a future
- * after calling [transform], will not be invoked if the future
- * is completed with an exception.
+ * Exception handlers added to futures after transform() are called 
+ * will be executed as though transform() wasn't called.
+ * @description  Checks that an exception handler, added to a future
+ * after calling [transform], will be invoked as normal.
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview TODO draft method doc: update when the apidoc is updated
  */
 
 main() {
+  final EX = "Exception!";
+  
   Completer completer = new Completer();
   Future f = completer.future;
 
@@ -22,9 +24,14 @@ main() {
     return '';
   });
 
+  f.then((val) {
+    Expect.fail("Then handler shouldn't be called!");
+  });
+  
   f.handleException((exception) {
-    Expect.fail('exception handler should not be called');
+    Expect.equals(EX, exception);
+    return true;
   });
 
-  completer.completeException(0);
+  completer.completeException(EX);
 }
