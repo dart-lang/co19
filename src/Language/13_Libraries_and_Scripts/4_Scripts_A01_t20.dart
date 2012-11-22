@@ -11,6 +11,7 @@
  * ;
  * @description Checks that it is a compile-time error when a script (with a script tag)
  * includes an export directive.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */

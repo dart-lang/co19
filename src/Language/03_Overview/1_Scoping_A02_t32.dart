@@ -9,12 +9,13 @@
  * scope of S. 
  * @description Checks that no warning is produced if a local variable introduces a name
  * that is identical to a class name available in the current scope.
- * @author iefremov
- * @reviewer rodionov
+ * @author kaigorodov
  */
 
 class C {}
 
 main() {
-  var C = new C();
+  var c0 = C;
+  var C = c0;
+  c0=C;
 }
