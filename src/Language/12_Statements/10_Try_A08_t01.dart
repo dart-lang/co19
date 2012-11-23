@@ -6,12 +6,14 @@
 /**
  * @assertion Execution of an on-catch clause on T catch (p1, p2) s of a try statement
  * t proceeds as follows: The statement s is executed in the dynamic scope of the
- * exception handler deﬁned by the ﬁnally clause of t. Then, the current exception
- * and active stack trace both become undeﬁned.
+ * exception handler defined by the finally clause of t. Then, the current exception
+ * and active stack trace both become undefined.
  * @description Checks that the statement s is executed in the dynamic scope of the
- * exception handler deﬁned by the ﬁnally clause.
+ * exception handler defined by the finally clause by checking that the two arguments
+ * of a catch clause are indeed available within it along with all those declared in the
+ * enclosing scopes.
  * @author kaigorodov
- * @note the assertion is obscure, needs clarification
+ * @reviewer rodionov
  */
 
 void main() {
@@ -21,6 +23,8 @@ void main() {
     throw ex;
   } on Exception catch(e, st) {
     executed+=1;
+    Expect.identical(ex, e);
+    Expect.isTrue(st != null);
   } finally {
     executed+=2;
   }

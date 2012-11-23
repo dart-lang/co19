@@ -7,9 +7,11 @@
  * @assertion A try statement of the form
  *   try s1 on−catch1 ... on−catchn;
  * is equivalent to the statement
- *   try s1 on−catch1 ... on−catchn ﬁnally {};
- * @description checks that the both forms are equivalent
+ *   try s1 on−catch1 ... on−catchn finally {};
+ * @description checks that both forms are equivalent as far as execution of
+ * the on-catch clauses is concerned.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class E0 implements Exception {}
@@ -18,8 +20,8 @@ class E2 extends E1 {}
 class E3 extends E1 {}
 
 int test1(void f()) {
-  int log=0;
-  void append(int digit) {log=log*10+digit;}
+  int log = 0;
+  void append(int digit) {log = log * 10 + digit;}
 
   try {
     append(1);
@@ -37,8 +39,8 @@ int test1(void f()) {
 }
 
 int test2(void f()) {
-  int log=0;
-  void append(int digit) {log=log*10+digit;}
+  int log = 0;
+  void append(int digit) {log = log * 10 + digit;}
 
   try {
     append(1);

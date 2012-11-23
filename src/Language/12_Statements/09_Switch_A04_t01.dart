@@ -9,6 +9,8 @@
  * the operator ==.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
+ * @issue 6897
  */
 
 class C {
@@ -18,17 +20,18 @@ class C {
     return this.x == other.x;
   }
 }
-}
 
 main() {
-  const C c1=const C(1), c2=const C(2);
+  const C c1 = const C(1), c2 = const C(2);
   var x = c2;
   var y;
   
-    switch(x) {
-      case c1:
-        y=1;
-      case c2:
-        y=2;
-    }
+  switch(x) {
+    case c1:
+      y = 1;
+      break;
+    case c2:
+      y = 2;
+      break;
+  }
 }

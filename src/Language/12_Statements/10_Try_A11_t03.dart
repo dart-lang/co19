@@ -5,10 +5,10 @@
  */
 /**
  * @assertion If an exception is raised during execution of an on-catch clause, this will transfer
- * control to the handler for the ﬁnally clause, causing the ﬁnally clause to execute
+ * control to the handler for the finally clause, causing the finally clause to execute
  * in this case as well.
- *   If no exception was raised, the ﬁnally clause is also executed. Execution of the
- * ﬁnally clause could also raise an exception, which will cause transfer of control to
+ *   If no exception was raised, the finally clause is also executed. Execution of the
+ * finally clause could also raise an exception, which will cause transfer of control to
  * the next enclosing handler.
  * @description Checks that a return statement inside a finally clause aborts the stack unwinding.
  * @author iefremov

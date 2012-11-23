@@ -6,9 +6,10 @@
 /**
  * @assertion First, the expression b is evaluated to an object o.
  *  Then, o is subjected to boolean conversion, producing an object r.
- * @description Checks that there dynamic type error if the expression
- *  does not evaluate to a value of type bool in checked mode.
+ * @description Checks that a dynamic type error occurs in checked mode
+ * if the expression does not evaluate to a value of type bool.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 import "../../Utils/dynamic_check.dart";
 

@@ -12,8 +12,9 @@
  * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
  * @description Checks that this statement is true for quite complex function types:
  * non-dynamic return type and a bunch of required and named optional parameters.
- * This test is like A03/t04, but the order of named parameters is not mutated.
+ * This test is like A03/t04, but the order of named parameters is not altered.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {}

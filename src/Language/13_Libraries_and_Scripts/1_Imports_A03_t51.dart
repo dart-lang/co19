@@ -16,7 +16,6 @@
  * the same name (one of them via re-export) to the top level scope of A and A uses it
  * as a type annotation.
  * Checks that it is a runtime error if that name is referenced during a subtype test.
- * scope of A and A uses it as a type annotation.
  * @static-warning
  * @author kaigorodov
  * @issue 6660

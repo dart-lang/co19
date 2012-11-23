@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Execution of a ﬁnally clause ﬁnally s of a try statement proceeds as follows:
- *  The statement s is executed. Then, if the current exception is deﬁned,
+ * @assertion Execution of a finally clause finally s of a try statement proceeds as follows:
+ *  The statement s is executed. Then, if the current exception is defined,
  *  control is transferred to the nearest dynamically enclosing exception handler.
  * @description Explicitly checks that if no matching catch clause was found for the current
  * exception, control is transferred to the nearest dynamically enclosing exception handler.

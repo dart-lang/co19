@@ -9,19 +9,20 @@
  *       s1
  *   on−catch1 ...
  *   on−catchn
- *   ﬁnally sf;
+ *   finally sf;
   proceeds as follows:
  *   The statement s1 is executed in the dynamic scope of the exception handler
- * deﬁned by the try statement. Then, the ﬁnally clause is executed.
+ * defined by the try statement. Then, the finally clause is executed.
  *   Whether any of the on-catch clauses is executed depends on whether a matching
- * exception has been raised by s1 (see the speciﬁcation of the throw statement).
+ * exception has been raised by s1 (see the specification of the throw statement).
  *   If s1 has raised an exception, it will transfer control to the try statements handler,
- * which will examine the catch clauses in order for a match as speciﬁed above. If no
- * matches are found, the handler will execute the ﬁnally clause.
- *   If a matching on-catch was found, it will execute ﬁrst, and then the ﬁnally
+ * which will examine the catch clauses in order for a match as specified above. If no
+ * matches are found, the handler will execute the finally clause.
+ *   If a matching on-catch was found, it will execute first, and then the finally
  * clause will be executed.
- * @description checks the execution order of the substatements of the try statement.
+ * @description checks the execution order of the various parts of a try statement.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class E0 implements Exception {}
@@ -30,8 +31,8 @@ class E2 extends E1 {}
 class E3 extends E1 {}
 
 void test(void f(), int expected) {
-  int log=0;
-  void append(int digit) {log=log*10+digit;}
+  int log = 0;
+  void append(int digit) {log = log * 10 + digit;}
 
   try {
     append(1);

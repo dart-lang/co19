@@ -9,18 +9,19 @@
  * (T1, ..., Tn)     -> T <: (T1, ..., Tn, {}) -> T.
  * (T1, ..., Tn, {}) -> T <: (T1, ..., Tn) -> T.
  * (T1, ..., Tn)     -> T <: (T1, ..., Tn, []) -> T.
- * @description Checks that these relations between function types are true.
+ * @description Impossible to test as users aren't allowed to
+ * declare functions or function types with empty lists of optional
+ * parameters.
  * @author rodionov
- * @TODO pending answer from Gilad regarding the meaning of this assertion
  */
 
-typedef int reqParamFuncType(x, int y);
-typedef int posParamFuncType(xx, int yy, [List l]);
-typedef int nmdParamFuncType(xXx, int yYy, {Map m});
-
-int reqParamFunc(x, int y) {}
-int posParamFunc(xx, int yy, [List l]) {}
-int nmdParamFunc(xXx, int yYy, {Map m}) {}
+//typedef int reqParamFuncType(x, int y);
+//typedef int posParamFuncType(xx, int yy, [List l]);
+//typedef int nmdParamFuncType(xXx, int yYy, {Map m});
+//
+//int reqParamFunc(x, int y) {}
+//int posParamFunc(xx, int yy, [List l]) {}
+//int nmdParamFunc(xXx, int yYy, {Map m}) {}
 
 main() {
 //  Expect.isTrue(reqParamFunc is posParamFuncType);

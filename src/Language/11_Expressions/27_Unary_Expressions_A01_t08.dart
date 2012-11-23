@@ -12,7 +12,7 @@
  *   '-' super |
  *   incrementOperator assignableExpression
  * ;
- * preﬁxOperator:
+ * prefixOperator:
  *   ‘-’ |
  *   unaryOperator
  * ;

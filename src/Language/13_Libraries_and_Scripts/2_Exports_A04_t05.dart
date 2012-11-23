@@ -6,11 +6,11 @@
 /**
  * @assertion It is a compile-time error if a name N is re-exported by a library L and N
  * is introduced into the export namespace of L by more than one export.
- * @description Checks that it is a compile-time error if this library imports another which
- * re-exports itself, but none of the names exported by it are referenced in this library.
- * @compile-error
+ * @description Checks that it is not a compile-time error if this library imports another which
+ * re-exports itself and none of the names exported by it are referenced in this library, because
+ * the imported library's top-level declarations prevent second copies of them from being added
+ * to the export namespace via an explicit export declaration so there's no ambiguity.
  * @author rodionov
- * @issue 6134
  */
 
 import "2_Exports_A04_t05_lib.dart";

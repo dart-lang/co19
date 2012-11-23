@@ -11,7 +11,7 @@
  *      varOrType? id = n0.next();
  *      s
  *    }
- *  where n0 is an identiﬁer that does not occur anywhere in the program.
+ *  where n0 is an identifier that does not occur anywhere in the program.
  * @description Checks that all of the mentioned methods are executed in the specified order.
  * @author iefremov
  * @reviewer rodionov

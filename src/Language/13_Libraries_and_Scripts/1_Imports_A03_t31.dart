@@ -12,15 +12,14 @@
  * - Otherwise, it is a compile-time error.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
- * @description Checks that it is a static warning if two different libraries introduce
- * the same name (one of them via re-export) to the top level scope of A and A uses it
- * as a type annotation.
- * Checks that it is a runtime error if that name is referenced during a subtype test.
- * scope of A and A uses it as a type annotation.
- * @static-warning
+ * @description Checks that it is a dynamic type error in checked mode if that name 
+ * is referenced during an implicit subtype test (assignment of a statically typed variable).
+ * @static-warning doubly imported type used as a type annotation
  * @author kaigorodov
+ * @reviewer rodionov
  * @issue 6659
  */
+import "../../Utils/dynamic_check.dart";
 
 import "1_Imports_A03_t21_p1_lib.dart";
 import "1_Imports_A03_t21_p2_lib.dart";
@@ -29,8 +28,7 @@ import "1_Imports_A03_t21_p2_lib.dart" as P2;
 foo bar;
 
 main() {
-  try {
-    bar=new P2.foo();
-    Expect.fail("runtime error expected");
-  } on Error catch(ok) {}
+  checkTypeError(() {
+    bar = new P2.foo();
+  });
 }

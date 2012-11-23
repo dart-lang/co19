@@ -11,6 +11,7 @@
  * not null and the runtime type of o is not a subtype of the actual return type
  * of the immediately enclosing function.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -21,6 +22,6 @@ int foo() {  return r; }
 
 main() {
   checkTypeError(() {
-      var res=foo();
+      foo();
   });
 }

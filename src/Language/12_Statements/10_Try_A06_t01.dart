@@ -19,8 +19,9 @@
  * this, and the position at which the function was executing.
  *   The term position should not be interpreted as a line number, but rather as a
  * precise position - the exact character index of the expression that raised the exception.
- * @description Checks that stack trace contains names of the active functions. 
+ * @description Checks that stack trace contains the names of relevant functions. 
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 void func1() {

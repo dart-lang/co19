@@ -7,14 +7,14 @@
  * @assertion The try statement supports the definition of exception handling 
  * code in a structured way.
  * tryStatement:
- *   try block (onPart+ ﬁnallyPart? | ﬁnallyPart)
+ *   try block (onPart+ finallyPart? | finallyPart)
  * ;
  * onPart:
  *   catchPart block |
  *   on type catchPart? block
  * ;
  * catchPart:
- *   catch ‘(’ identiﬁer (‘, ’ identiﬁer)? ‘)’
+ *   catch ‘(’ identifier (‘, ’ identifier)? ‘)’
  * ;
  * finallyPart:
  *   finally block
@@ -22,6 +22,7 @@
  * @description Checks that it is not a compile-time error if a catch clause specifies
  * parameters with a previously declared id.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {

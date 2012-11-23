@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Executing a variable declaration statement of one of the forms var v = e;,
- * T v = e;, const v = e;, const T v = e;, ﬁnal v = e; or ﬁnal T v = e; proceeds
+ * T v = e;, const v = e;, const T v = e;, final v = e; or final T v = e; proceeds
  * as follows:
  *   The expression e is evaluated to an object o. Then, the variable v is set to o.
  * @description Checks that an expression e is evaluated correctly in a multiple variable

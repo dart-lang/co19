@@ -7,8 +7,9 @@
  * @assertion In checked mode, it is a dynamic type error if o is not null and
  * the runtime type of o is not a subtype of the actual return type
  * of the immediately enclosing function.
- * @description Checks that in checked mode, it not a dynamic type error if o is null.
+ * @description Checks that it's not an error in any mode if o is null.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 var r=null;
@@ -16,5 +17,5 @@ var r=null;
 int foo() {  return r; }
 
 main() {
-  var res=foo();
+  foo();
 }
