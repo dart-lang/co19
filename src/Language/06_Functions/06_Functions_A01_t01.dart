@@ -22,12 +22,11 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 962
  */
 
 void func() {}
 void f(void f()) {}
-x() => f(f);
+x() => f(func);
 
 class A {
   A() {}
@@ -48,6 +47,6 @@ class A {
 
 main() {
   f(g(h())){}
-  int func([int x = null, int y = null, int z = null]) {f(f(x()));}
+  int func([int x = null, int y = null, int z = null]) {f(f(x()));} // SW: int not a function type
   int foo(Object x, var y) => func(1, 2, 3);
 }

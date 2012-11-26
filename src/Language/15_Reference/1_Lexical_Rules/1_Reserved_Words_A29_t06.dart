@@ -4,16 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WHITESPACE:
- * ('\t' | ' ' | NEWLINE)+
- * ;.
- * @description Checks that other Unicode whitespaces are not allowed:
- *  check NO-BREAK SPACE (U+00A0)
- * @author hlodvig
+ * @assertion "break" is a reserved word.
+ * @description Checks that it is a compile-time error when a reserved word "while"
+ * is used as a label name.
  * @compile-error
- * @reviewer kaigorodov
+ * @author rodionov
  */
 
 main() {
-   var x = 1 ;
+  try {
+    while:
+    do {
+      break while;
+    } while(false);
+  } catch(x) {}
 }

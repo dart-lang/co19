@@ -14,17 +14,23 @@
  * scope of a local function is described in section 12.4. In both cases, the name
  * of the function is in scope in the formal parameters scope of the function.
  * It is a compile-time error to preface a function declaration with the built-in identifier static.
- * @description Checks that it is a compile-time error to preface library function with 'static'.
- * @compile-error
- * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
+ * @description Checks that two top-level functions are in the scope of each other and can be mutually
+ * recursive.
+ * @author rodionov
+ * @issue 6926
  */
 
-static void f() {}
+int foo(int x) {
+  return x >= 0 ? x : bar(-x);
+}
+
+int bar(int x) {
+  return x >= 0 ? x : foo(-x);
+}
 
 main() {
-  try {
-    f();
-  } catch(x){}
+  Expect.equals(1, foo(1));
+  Expect.equals(1, bar(1));
+  Expect.equals(1, foo(-1));
+  Expect.equals(1, bar(-1));
 }
