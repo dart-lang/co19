@@ -24,13 +24,13 @@ class A {
   get val {}
   set val(var value) {}
   
-  abstract get aVal;
-  abstract set aVal(var val);
+  get aVal;
+  set aVal(var val);
 
   get bVal {}
-  abstract set bVal(var val);
+  set bVal(var val);
 
-  abstract get cVal;
+  get cVal;
   void set cVal(var val) {}
 }
 

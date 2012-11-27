@@ -22,14 +22,14 @@ class C<U, V> {
   static set s3(var x){}
   set s4(var x){}
 
-  abstract int set s5(var x);
-  abstract set s6(var x);
+  int set s5(var x);
+  set s6(var x);
 
   V set s7(U x){}
   set s8(V x){}
 
-  abstract U set s9(V x);
-  abstract set s10(U x);
+  U set s9(V x);
+  set s10(U x);
 
 }
 

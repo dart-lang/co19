@@ -22,7 +22,7 @@ class _A {
 
   _fun() {return 42;}
   static _staticfun() {return 54;}
-  abstract _abstractfun();
+  _abstractfun();
 
   _A() {}
   _A.named() {}

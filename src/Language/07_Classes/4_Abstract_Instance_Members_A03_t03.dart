@@ -18,11 +18,11 @@
  */
 
 class A {
-  abstract f(var x);
+  f(var x);
 }
 
 class C extends A {
-  abstract f(var x, var y);
+  f(var x, var y);
 }
 
 main() {

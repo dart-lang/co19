@@ -18,7 +18,7 @@
  */
 
 class A {
-  abstract f(var x);
+  f(var x);
 }
 
 class C extends A {

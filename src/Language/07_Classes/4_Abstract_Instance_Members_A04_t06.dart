@@ -19,7 +19,7 @@
  */
 
 class A {
-  abstract f({var x, var y, var z});
+  f({var x, var y, var z});
 }
 
 class C extends A {

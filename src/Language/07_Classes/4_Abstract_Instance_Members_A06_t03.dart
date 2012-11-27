@@ -21,7 +21,7 @@ class A {
 }
 
 class B extends A {
-  abstract void f(var x);
+  void f(var x);
 }
 
 class C extends B {

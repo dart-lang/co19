@@ -21,10 +21,10 @@ class S {
 }
 
 class C extends S {
-  abstract v();
-  abstract i();
-  abstract method();
-  abstract iMethod();
+  v();
+  i();
+  method();
+  iMethod();
 }
 
 main() {
