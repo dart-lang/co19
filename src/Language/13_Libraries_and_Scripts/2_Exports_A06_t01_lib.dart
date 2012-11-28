@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library Exports_A04_t05_lib;
-export "2_Exports_A04_t05_lib.dart";
+library Exports_A06_t01_lib;
+export "2_Exports_A06_t01_lib.dart";
 
 typedef foo();

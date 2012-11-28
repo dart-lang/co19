@@ -15,7 +15,7 @@
  * @reviewer kaigorodov
  */
 
-import "2_Exports_A04_t06_lib.dart";
+import "2_Exports_A06_t02_lib.dart";
 
 main() {
   () {} is foo;

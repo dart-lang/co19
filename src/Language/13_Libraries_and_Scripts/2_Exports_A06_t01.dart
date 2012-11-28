@@ -15,7 +15,7 @@
  * @reviewer kaigorodov
  */
 
-import "2_Exports_A04_t05_lib.dart";
+import "2_Exports_A06_t01_lib.dart";
 
 main() {
 }
