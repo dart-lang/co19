@@ -11,7 +11,6 @@
  * from such part are available without errors.
  * @static-warning
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 library Parts_test_lib_not;
