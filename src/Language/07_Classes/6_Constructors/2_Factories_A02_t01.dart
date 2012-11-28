@@ -5,9 +5,11 @@
  */
 /**
  * @assertion It is a static warning if M.id is not a constructor name.
- * @description Checks that a static warning is produced when factory keyword
- * is followed by a name that is not a constructor name.
+ * It is a compile-time error if M is not the name of the immediately enclosing class.
+ * @description Checks that it's both a compile-time error and a static warning 
+ * when factory keyword is followed by a name that is not a constructor name.
  * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -18,5 +20,8 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (anything) {
+  }
 }

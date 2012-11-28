@@ -5,9 +5,15 @@
  */
 /**
  * @assertion 
- * initializers: ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)* ;
- * superCallOrFieldInitializer: super arguments  | super '.' identifier arguments | fieldInitializer ;
- * fieldInitializer: (this '.')? identifier '=' conditionalExpression ;
+ * initializers:
+ *   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
+ * ;
+ * superCallOrFieldInitializer: 
+ *   super arguments  | super '.' identifier arguments | fieldInitializer
+ * ;
+ * fieldInitializer:
+ *   (this '.')? identifier '=' conditionalExpression cascadeSection*
+ * ;
  * @description Checks various valid variations of an initializer list.
  * @author iefremov
  * @reviewer rodionov

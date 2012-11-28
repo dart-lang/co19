@@ -10,16 +10,20 @@
  * SINGLE LINE COMMENT:
  * '//' ~(NEWLINE)* (NEWLINE)?
  * ;
- * @description Checks that single-line comment start tokens inside a documentation
- * comment are ignored.
- * @author hlodvig
- * @reviewer rodionov
+ * @description Checks that a single line documentation comment (three or more slashes) 
+ * is still a comment
+ * @author rodionov
  */
 
+foo (int x, int y) { /// this function returns modulo of x and y.
+  return x%y;
+} //// end of function
+
 main() {
-  /**
-   * doc comment
-   // single line comment */
-  var x = 1;
-  Expect.equals(1, x);
+  try { ////////// start try statement
+    foo(1, 0); ///////// call foo() with 1 and 0 params
+    Expect.fail("");
+  } on Exception catch(e) { ////// try to catch exception
+    //////// Expect.fail(e.toString());
+  } ///// end try statement
 }

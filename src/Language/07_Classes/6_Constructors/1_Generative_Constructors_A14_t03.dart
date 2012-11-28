@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Let C be the class in which the superinitializer super() (respectively, super.id())
- * appears and let S be the superclass of C. It is a compile-time error if class S does not declare
- * a constructor named S (respectively S:id)
+ * appears and let S be the superclass of C. It is a compile-time error if class S does not 
+ * declare a generative constructor named S (respectively S.id)
  * @description Checks that it is a compile-time error when the superclass S does not declare 
- * a named constructor referenced by a superinitializer in its subclass's initializer list.
+ * any named constructors referenced by a superinitializer in its subclass's initializer list.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

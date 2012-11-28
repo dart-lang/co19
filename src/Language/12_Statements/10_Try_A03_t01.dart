@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if T1 does not denote a type available 
+ * @assertion It is a static warning if T1 does not denote a type available 
  * in the lexical scope of the catch clause.
- * @description Checks that it is a compile-time error when type of an exception
+ * @description Checks that it is a static warning when type of the exception
  * parameter in a catch clause does not denote a type available in the lexical 
  * scope of the catch clause.
- * @compile-error
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -21,5 +21,6 @@ main() {
     Expect.fail("This code shouldn't be executed");
   } on Unavailable catch(ex) {
     Expect.fail("This code shouldn't be executed");
+  } on String catch(oks) {
   }
 }

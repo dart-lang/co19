@@ -4,7 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion constantConstructorSignature: const qualified formalParameterList ;
+ * @assertion 
+ * constantConstructorSignature:
+ *   const qualified formalParameterList
+ * ;
  * @description Checks that it is a compile-time error when a constant named constructor
  * is declared as abstract.
  * @compile-error

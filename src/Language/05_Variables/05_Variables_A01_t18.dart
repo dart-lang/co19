@@ -35,7 +35,7 @@
  */
 
 class C {
-  void x = 1;
+  abstract void x = 1;
 }
 
 main() {

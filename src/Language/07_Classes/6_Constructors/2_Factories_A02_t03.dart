@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if M is not the name of the immediately 
- * enclosing class.
- * @description Checks that a compile-time error is produced when M is the name of
- * the enclosing class's superclass.
+ * @assertion It is a static warning if M.id is not a constructor name.
+ * It is a compile-time error if M is not the name of the immediately enclosing class.
+ * @description Checks that it's both a compile-time error and a static warning 
+ * when M is the name of the enclosing class's superclass.
  * @compile-error
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -14,20 +14,19 @@
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks that it is a compile-time error when there's just the right-side expression
- * in place of a field initializer.
+ * @description Checks that an invalid cascaded invocation in a field initializer
+ * results in a compile-time error.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
-class C extends S {
-  C() : 2+2 {}
-  var x;
+class C {
+  C() : this.foo = null..("arguments without a selector not allowed") {}
+  var foo;
 }
 
 main() {
   try {
     new C();
-  } catch (x) {}
+  } catch(ok) {}
 }

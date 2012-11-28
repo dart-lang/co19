@@ -26,6 +26,6 @@ int nmdParamFunc(xXx, int yYy, {}) {}
 main() {
   Expect.isTrue(reqParamFunc is posParamFuncType);
   Expect.isTrue(reqParamFunc is nmdParamFuncType);
-  Expect.isTrue(posParamFuncType is reqParamFunc);
-  Expect.isTrue(nmdParamFuncType is reqParamFunc);
+  Expect.isTrue(posParamFunc is reqParamFuncType);
+  Expect.isTrue(nmdParamFunc is reqParamFuncType);
 }

@@ -4,24 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A multi-line comment begins with the token '/''*' and ends with the token '*''/'.
- * Everything between '/''*' and '*''/' must be ignored by the Dart compiler unless the
- * comment is a documentation comment. Comments may nest.
- * MULTI LINE COMMENT:
- * '/''*' (MULTI LINE COMMENT | ~ '*''/')* '*''/'
- * ;
- * @description Checks that it is a compile-time error when there is an unpaired documentation comment
- * start token inside another documentation comment.
+ * @assertion Documentation comments are comments that begin with the tokens /// or '/''*''*'.
+ * @description Checks that a slash character followed by whitespace and two more slashes does not
+ * make a documentation comment token.
+ * @author vasya
  * @compile-error
- * @author rodionov
- * @reviewer iefremov
+ * @reviewer rodionov
  */
 
-/**  
-/* Comment */
-/*/* Nested comment **/ */
-/*/* */ /** Unpaired token **/
-*/
+/ // Documentation comment
 
 main() {
 }

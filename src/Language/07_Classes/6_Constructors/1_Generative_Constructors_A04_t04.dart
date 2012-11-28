@@ -5,9 +5,15 @@
  */
 /**
  * @assertion 
- * initializers: ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)* ;
- * superCallOrFieldInitializer: super arguments  | super '.' identifier arguments | fieldInitializer ;
- * fieldInitializer: (this '.')? identifier '=' conditionalExpression ;
+ * initializers:
+ *   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
+ * ;
+ * superCallOrFieldInitializer: 
+ *   super arguments  | super '.' identifier arguments | fieldInitializer
+ * ;
+ * fieldInitializer:
+ *   (this '.')? identifier '=' conditionalExpression cascadeSection*
+ * ;
  * @description Checks that it is a compile-time error when the initializer list is not prefixed with a colon.
  * @compile-error
  * @author iefremov

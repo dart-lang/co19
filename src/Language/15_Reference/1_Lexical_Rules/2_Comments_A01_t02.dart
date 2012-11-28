@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * Everything between // and the end of line must be ignored by the Dart compiler.
+ * Everything between // and the end of line must be ignored by the Dart compiler,
+ * unless the comment is a documentation comment.
  * SINGLE LINE COMMENT:
  * '//' ~(NEWLINE)* (NEWLINE)?
  * ;

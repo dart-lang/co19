@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Documentation comments are multi-line comments that begin with the tokens '/''*''*'.
- * Inside a documentation comment, the Dart compiler ignores all text unless it is 
- * enclosed in brackets.
- * @description Checks that everything inside brackets is ignored.
+ * @assertion Documentation comments are comments that begin with the tokens /// or '/''*''*'.
+ * @description Checks that contents of a documentation comment have no effect on the actual
+ * code's execution.
  * @author hlodvig
  * @reviewer iefremov
  * @needsreview issue 2459

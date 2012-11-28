@@ -14,20 +14,19 @@
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks that it is a compile-time error when there's just the right-side expression
- * in place of a field initializer.
- * @compile-error
+ * @description Checks that cascaded invocations are allowed in field initializers.
  * @author rodionov
- * @reviewer kaigorodov
+ * @issue 6954
  */
 
-class C extends S {
-  C() : 2+2 {}
-  var x;
+class C {
+  C() : this.foo = null..[1](1).[2](2).foo(3, bar: 4)=5..bar(6).["one ugly cascade"] {}
+  var foo;
 }
 
 main() {
   try {
     new C();
-  } catch (x) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

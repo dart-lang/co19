@@ -7,19 +7,19 @@
  * @assertion Let C be the class in which the superinitializer super() (respectively, super.id())
  * appears and let S be the superclass of C. It is a compile-time error if class S does not 
  * declare a generative constructor named S (respectively S.id)
- * @description Checks that it is a compile-time error when the superclass S does not declare 
- * any constructors named S and its subclass's constructor contains an explicit super() superinitializer.
+ * @description Checks that it is a compile-time error when the superclass S declares 
+ * a named factory constructor referenced by a superinitializer in its subclass's initializer list.
  * @compile-error
- * @author iefremov
- * @reviewer rodionov
+ * @author rodionov
  */
 
 class S {
-  S.smth() {}
+  S() {}
+  factory S.ctor() {return new S();}
 }
 
 class C extends S {
-  C() : super() {}
+  C() : super.ctor() {}
 }
 
 main() {

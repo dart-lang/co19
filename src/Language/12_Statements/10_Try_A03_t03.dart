@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if T1 does not denote a type available 
+ * @assertion It is a static warning if T1 does not denote a type available 
  * in the lexical scope of the catch clause.
- * @description Checks that it is a compile-time error when type of an exception
+ * @description Checks that it is a static warning when type of the exception
  * parameter in a catch clause does not denote a type available in the lexical 
  * scope of the catch clause.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @compile-error
  */
 
 import "10_Try_lib.dart" as p; // class Foo declared here
@@ -20,7 +20,7 @@ main() {
   try {
     throw new p.Foo();
     Expect.fail("This code shouldn't be executed");
-  } catch (Foo p1, var p2) {
+  } on Foo catch (p1, var p2) {
     Expect.fail("This code shouldn't be executed");
-  }
+  } on p.Foo catch(ok) {}
 }

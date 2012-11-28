@@ -4,7 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion constantConstructorSignature: const qualified formalParameterList ;
+ * @assertion 
+ * constantConstructorSignature:
+ *   const qualified formalParameterList
+ * ;
  * @description Checks various correct constant constructor signatures.
  * @author iefremov
  * @reviewer rodionov
