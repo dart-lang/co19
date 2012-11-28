@@ -18,11 +18,14 @@
 class S {}
 
 class A extends S {
+  A.g() {}
   factory A() {}
   factory A.bcd() {}
 }
 
-class D extends A {}
+class D extends A {
+  D():super.g();
+}
 
 main() {
   A a = new A();

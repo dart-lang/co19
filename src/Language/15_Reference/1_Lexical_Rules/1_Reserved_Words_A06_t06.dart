@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion "break" is a reserved word.
+ * @assertion "continue" is a reserved word.
  * @description Checks that it is a compile-time error when a reserved word "continue"
  * is used as a label name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 main() {
