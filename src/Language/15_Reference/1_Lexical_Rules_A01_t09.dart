@@ -6,10 +6,12 @@
 /**
  * @assertion Dart source text is represented as a sequence of Unicode code points normalized
  * to Unicode Normalization Form C.
- * @description Checks that composed characters in comments and strings are compiled correctly.
+ * @description Checks that decomposed characters in strings cause compile error.
+ * @compile-error
  * @author kaigorodov
+ * @issue 2687
  */
 
 main() {
- String aWithRingAbove="Å"; // Å
+ String aWithRingAbove="Å"; // Å
 }
