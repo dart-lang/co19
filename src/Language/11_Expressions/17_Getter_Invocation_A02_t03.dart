@@ -12,46 +12,32 @@
  * - im.namedArguments evaluates to the value of {}.
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
- * @description Checks that the result of invocation in case of failed getter lookup is the result
- * of invoking the appropriate noSuchMethod method.
- * @author msyabro
- * @reviewer rodionov
+ * @description Checks that the method noSuchMethod is invoked with the specified arguments
+ * (positionalArguments and namedArguments) if getter lookup has failed.
+ * @author kaigorodov
+ * @needsreview issue 3326, 6448, 6449
  */
 
-class A {
-  noSuchMethod(InvocationMirror im) {
-    return "v";
-  }
-}
-
-class B {
-  noSuchMethod(InvocationMirror im) {
-    return true;
-  }
-}
+class TestException {}
 
 class C {
   noSuchMethod(InvocationMirror im) {
-    return 1;
-  }
-}
-
-class D {
-  noSuchMethod(InvocationMirror im) {
-    return null;
+    var positionalArguments=im.positionalArguments;
+    /*
+    print("""im.positionalArguments=${positionalArguments}"""
+          """ ${positionalArguments is List} runtimeType=${positionalArguments	.runtimeType}""");
+    print("im.namedArguments=${im.namedArguments}");
+    */
+    Expect.listEquals([], im.positionalArguments);
+    Expect.mapEquals({}, im.namedArguments);
+    throw new TestException();
   }
 }
 
 main()  {
-  var classWithGetter = new A();
-  Expect.equals("v", classWithGetter.v);
-
-  classWithGetter = new B();
-  Expect.equals(true, classWithGetter.v);
-
-  classWithGetter = new C();
-  Expect.equals(1, classWithGetter.v);
-
-  classWithGetter = new D();
-  Expect.equals(null, classWithGetter.v);
+  var o = new C();
+  try {
+    o.g3tt3r;
+    Expect.fail("TestException is expected");
+  } on TestException catch(e) {}
 }

@@ -6,7 +6,7 @@
 /**
  * @assertion An expression of the form identical(e1 , e2) where e1 and e2 are
  * constant expressions and identical is statically bound to the predefined dart 
- * function that returns true iff its two arguments are the same object.
+ * function identical() discussed below..
  * @description Checks that if identical() is redefined, its invocation is not a constant expressions.
  * @compile-error
  * @author kaigorodov

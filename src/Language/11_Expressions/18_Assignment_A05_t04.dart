@@ -13,8 +13,8 @@
  * InvocationMirror is created, such that :
  * - im.isSetter evaluates to true.
  * - im.memberName evaluates to ’v=’.
- * - im.arguments.positionalArguments evaluates to [o2 ].
- * - im.arguments.namedArguments evaluates to the value of {}.
+ * - im.positionalArguments evaluates to [o2 ].
+ * - im.namedArguments evaluates to the value of {}.
  * Then the method noSuchMethod() is looked up in o1 with argument im. The value of the assignment expression is
  * o2 irrespective of whether setter lookup has failed or succeeded.
  * @description Checks that the value of an assignment expression is o2

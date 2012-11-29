@@ -14,27 +14,20 @@
  *  • The same object.
  *  • Of type int and have the same numeric value.
  *  • Of type double, are not NaNs and have the same numeric value.
- * @description Checks that identical() works as described even if the classes
- * being compared have operator == redefined to return counter-intuitive result.
- * @author rodionov
- * @reviewer kaigorodov
+ * @description Checks that two NaNs are not identical.
+ * @author kaigorodov
+ * @needsreview issue 7024
  */
 
-class C {
-  final x;
-  const C(this.x);
-  bool operator == (C other) {
-    return this.x != other.x;
-  }
+div(var a, var b) {
+  return a/b;
 }
 
-main() {
-  Expect.isFalse(const C(1) == const C(1));
-  Expect.isTrue(identical(const C(1), const C(1)));
+var nol=0.0;
 
-  Expect.isTrue(const C(1) == const C(2));
-  Expect.isFalse(identical(const C(1), const C(2)));
-  
-  Expect.isFalse(double.NAN == double.NAN);
-  Expect.isTrue(identical(double.NAN, double.NAN));
+main() {
+  double nan1=div(nol, nol);
+  double nan2=div(nol, nol);
+  Expect.isFalse(identical(nan1, nan2));
+  Expect.isFalse(identical(double.NAN, double.NAN));
 }

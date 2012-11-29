@@ -8,15 +8,15 @@
  * class InvocationMirror is created, such that :
  * - im.isGetter evaluates to true.
  * - im.memberName evaluates to ’m’.
- * - im.arguments.positionalArguments evaluates to the value of [].
- * - im.arguments.namedArguments evaluates to the value of {}.
+ * - im.positionalArguments evaluates to the value of [].
+ * - im.namedArguments evaluates to the value of {}.
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
  * @description Checks that the method noSuchMethod is invoked with the specified arguments
  * ("get:getterName") if getter lookup has failed.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 3223, 3326, 6448, 6449
+ * @needsreview issue 3326, 6448, 6449
  */
 
 class TestException {}
@@ -25,8 +25,8 @@ class C {
   noSuchMethod(InvocationMirror im) {
     Expect.equals('get:g3tt3r', im.memberName);
     Expect.isTrue(im.isGetter);
-    Expect.listEquals([], im.arguments.positionalArguments);
-    Expect.mapEquals({}, im.arguments.namedArguments);
+    Expect.listEquals([], im.positionalArguments);
+    Expect.mapEquals({}, im.namedArguments);
     throw new TestException();
   }
 }
