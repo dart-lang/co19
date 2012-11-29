@@ -16,9 +16,15 @@
 
 import "lib.dart";
 
+class C {
+  void test() {
+    try {
+      _inaccessibleFunction();
+      Expect.fail("NoSuchMethodError expected when undefined function invoked");
+    } on NoSuchMethodError catch(e) {}
+  }
+}
+
 main() {
-  try {
-    _inaccessibleFunction();
-    Expect.fail("NoSuchMethodError expected when undefined function invoked");
-  } on NoSuchMethodError catch(e) {}
+  new C().test();
 }
