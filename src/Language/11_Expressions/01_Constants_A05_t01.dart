@@ -10,13 +10,12 @@
  * @author iefremov
  * @reviewer rodionov
  * @reviewer msyabro
- * @issue 5832
  */
 
 const x = '';
 
 class C {
-  const bool y = false;
+  static const bool y = false;
 }
 
 const constList = const [

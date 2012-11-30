@@ -5,8 +5,11 @@
  */
 /**
  * @assertion libraryName:
- *   metadata library identifier `;'
+ *    metadata library identiﬁer (‘.’ identiﬁer)* ‘;’
  * ;
+ * An explicitly named library begins with the word library (possibly prefaced
+ * with any applicable metadata annotations), followed by a qualiﬁed identiﬁer
+ * that gives the name of the library.
  * @description Checks that it is a compile-time error if the library name
  * is not a valid identifier (starts with a digit).
  * @compile-error

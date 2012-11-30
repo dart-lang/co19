@@ -10,17 +10,15 @@
  * An explicitly named library begins with the word library (possibly prefaced
  * with any applicable metadata annotations), followed by a qualiﬁed identiﬁer
  * that gives the name of the library.
- * @description Checks that it is a compile-time error if the library name is
- * enclosed in curly braces.
- * @compile-error
- * @author msyabro
- * @reviewer rodionov
+ * @description Checks that the library name can be a qualified identiﬁer
+ * @author kaigorodov
+ * @issue 7053
  */
 
-import "13_Libraries_and_Scripts_A03_t12_lib.dart";
+library Libraries.and.Scripts.A03.t18.lib;
 
 main() {
   try {
-    var someVar = 0;
+    var someVar = 1;
   } catch(e) {}
 }

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a compile-time error if e refers to v.
+ * @assertion It is a compile-time error if e refers to the name v or the name v=.
  * @description Checks that a variable declaration statement var e = e; causes a compile-time error.
  * @compile-error
  * @author kaigorodov

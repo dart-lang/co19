@@ -22,6 +22,7 @@
  * or in the initializer of an instance variable.
  * @compile-error
  * @author kaigorodov
+ * @issue 7025
  */
 
 main() {

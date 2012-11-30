@@ -20,15 +20,13 @@
  * A part header begins with part of followed by the name of the library the
  * part belongs to. A part declaration consists of a part header followed by a
  * sequence of top-level declarations.
- * @description Checks that it is a compile-time error when the resource specified
- * by the URI does not exist.
- * @compile-error
- * @author rodionov
- * @reviewer kaigorodov
+ * @description Checks that part directive must end with a semicolon.
+ * @author kaigorodov
+ * @issue 7053
  */
 
-library Parts_test_lib;
-part "NoSuchPart.dart";
+library Parts_test_lib.id;
+part "3_Part_10.dart"
 
 main() {
 }

@@ -32,20 +32,17 @@
  * where prefix(id, n), takes an identifier id and produces a namespace that has, for each 
  * entry mapping key k to declaration d in n, an entry mapping id.k to d. 
  * Otherwise, let NS = NSn. It is a compile-time error if the current library
- * declares a top-level member named p,or if any other import directive in the
- * current library includes a prefix clause with of the form as p .
+ * declares a top-level member named p.
  * 
  * Then, for each entry mapping key k to declaration d in NS, d is made available in the top level 
  * scope of L under the name k unless either:
  *   - a top-level declaration with the name k exists in L, OR
  *   - a prefix clause of the form as k is used in L.
  *   
- * @description Checks that it is a compile-time error when two import declarations
+ * @description Checks that it is not a compile-time error when two import declarations
  * use identical prefix.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6783
  */
 
 import "1_Imports_A02_t29_lib1.dart" as prefix;

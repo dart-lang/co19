@@ -28,10 +28,11 @@
  *     hide(l, n) takes a list of identfiers l and a namespace n, and produces a namespace 
  *     that is identical to n except that for each name k in l, k and k= are undefined.
  * 
- * Next, if I includes a prefix clause of the form as p, let NS = prefix(p, ImportNamespace)
+ * Next, if I includes a prefix clause of the form as p, let NS = prefix(p, NSn)
  * where prefix(id, n), takes an identifier id and produces a namespace that has, for each 
  * entry mapping key k to declaration d in n, an entry mapping id.k to d. 
- * Otherwise, let NS = ImportNamespace.
+ * Otherwise, let NS = NSn. It is a compile-time error if the current library
+ * declares a top-level member named p.
  * 
  * Then, for each entry mapping key k to declaration d in NS, d is made available in the top level 
  * scope of L under the name k unless either:

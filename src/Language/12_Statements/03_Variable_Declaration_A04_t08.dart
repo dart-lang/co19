@@ -5,12 +5,15 @@
  */
 /**
  * @assertion It is a compile-time error if e refers to the name v or the name v=.
- * @description Checks that a variable declaration statement const T e = e; causes a compile-time error.
+ * @description Checks that a compile-time error if e refers to the name v=.
+ * A top-level variable with the same name is declared.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
+ * @issue 7052
  */
 
+var v = 0;
+
 main() {
-  const int v = v;
+  var v = (v=1);
 }
