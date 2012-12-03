@@ -11,9 +11,8 @@
  * asOperator:
  *   as
  * ;
- * @description Checks that it is a compile-time error when the first argument of 
+ * @description Checks that it is not a compile-time error when the first argument of 
  * a type cast operator is a type.
- * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */

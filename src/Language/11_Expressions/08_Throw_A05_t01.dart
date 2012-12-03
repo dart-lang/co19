@@ -22,7 +22,7 @@ main() {
     throw "ex";
     Expect.fail("This code shouldn't be executed");
   } on int catch(i) {
-  } catch (String s, var st) {
+  } on String catch (s, st) {
     throw;
     Expect.fail("This code shouldn't be executed");
   }

@@ -5,10 +5,12 @@
  */
 /**
  * @assertion The expression e is evaluated to an object o. Then, o is subjected
- *  to boolean conversion (11.4.1), producing an object r. If r is true, then s
+ *  to boolean conversion, producing an object r. If r is true, then s
  *  is executed and then the while statement is re-executed recursively.
  *  If r is false, execution of the while statement is complete.
- * @description Checks that no dynamic type error is produced in checked mode if o is not of type bool.
+ * @description Checks that no dynamic type error is produced in checked mode
+ * if o is not null and not of type bool.
+ * Checks that dynamic type error is produced in checked mode if o is null.
  * @static-warning
  * @author vasya
  * @reviewer rodionov

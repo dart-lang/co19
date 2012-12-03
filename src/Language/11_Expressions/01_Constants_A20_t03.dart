@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An identifier expression that denotes a constant variable, a class
- * or a type parameter is a constant expression.
+ * @assertion An identifier expression that denotes a constant variable or a class
+ * is a constant expression.
  * @description Checks that an identifier expression that denotes a type parameter 
- * can be assigned to a constant variable.
+ * can not be assigned to a constant variable.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6556
  */
 
 class C<T> {

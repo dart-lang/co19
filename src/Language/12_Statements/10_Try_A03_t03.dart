@@ -20,7 +20,7 @@ main() {
   try {
     throw new p.Foo();
     Expect.fail("This code shouldn't be executed");
-  } on Foo catch (p1, var p2) {
+  } on Foo catch (p1, p2) {
     Expect.fail("This code shouldn't be executed");
   } on p.Foo catch(ok) {}
 }

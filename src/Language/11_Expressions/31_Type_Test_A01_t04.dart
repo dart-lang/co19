@@ -21,6 +21,4 @@ typedef f();
 
 main() {
   f is Type;
-  f is Type<Function>;
-  f is Type<int>;
 }

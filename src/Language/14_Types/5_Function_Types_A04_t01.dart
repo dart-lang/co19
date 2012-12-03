@@ -9,23 +9,22 @@
  * (T1, ..., Tn)     -> T <: (T1, ..., Tn, {}) -> T.
  * (T1, ..., Tn, {}) -> T <: (T1, ..., Tn) -> T.
  * (T1, ..., Tn)     -> T <: (T1, ..., Tn, []) -> T.
- * @description Tests that function types with empty optional formal parameter lists
- * are assignment compatible with types without optional formal parameter lists.
+ * @description Impossible to test as users aren't allowed to
+ * declare functions or function types with empty lists of optional
+ * parameters.
  * @author rodionov
- * @needsreview issue 6921
+ * @needsreview 6921
  */
 
-typedef int reqParamFuncType(x, int y);
-typedef int posParamFuncType(xx, int yy, []);
-typedef int nmdParamFuncType(xXx, int yYy, {});
-
-int reqParamFunc(x, int y) {}
-int posParamFunc(xx, int yy, []) {}
-int nmdParamFunc(xXx, int yYy, {}) {}
+//typedef int reqParamFuncType(x, int y);
+//typedef int posParamFuncType(xx, int yy, [List l]);
+//typedef int nmdParamFuncType(xXx, int yYy, {Map m});
+//
+//int reqParamFunc(x, int y) {}
+//int posParamFunc(xx, int yy, [List l]) {}
+//int nmdParamFunc(xXx, int yYy, {Map m}) {}
 
 main() {
-  Expect.isTrue(reqParamFunc is posParamFuncType);
-  Expect.isTrue(reqParamFunc is nmdParamFuncType);
-  Expect.isTrue(posParamFunc is reqParamFuncType);
-  Expect.isTrue(nmdParamFunc is reqParamFuncType);
+//  Expect.isTrue(reqParamFunc is posParamFuncType);
+//  Expect.isTrue(reqParamFunc is nmdParamFuncType);
 }

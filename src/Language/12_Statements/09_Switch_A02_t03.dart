@@ -9,8 +9,7 @@
  * or the form switch (e) { label11 … label1j1 case e1: s1 … labeln1 ..labelnjn case en: sn},
  * it is a compile-time error if the expressions ek are not compile-time constants for all
  * k = 1..n.
- * @description Checks that it is a compile-time error if a case expression is null
- * @compile-error
+ * @description Checks that it is not a compile-time error if a case expression is null.
  * @author msyabro
  * @reviewer rodionov
  */

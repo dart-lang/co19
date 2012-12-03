@@ -19,6 +19,4 @@
 
 main() {
   int is Type;
-  int is Type<int>;
-  int is Type<bool>;
 }
