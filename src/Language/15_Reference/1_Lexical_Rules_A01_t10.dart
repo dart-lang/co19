@@ -6,43 +6,63 @@
 /**
  * @assertion Dart source text is represented as a sequence of Unicode code points normalized
  * to Unicode Normalization Form C.
- * @description Checks that various whitespaces are represented
- * as a sequence of Unicode code points.
+ * @description Checks that various whitespaces represented in UTF-8 format are 
+ * recognized as Unicode code points.
  * @author iefremov
- * @reviewer rodionov
- * @needsreview TODO enter 0a and 0d properly
+ * @reviewer kaigorodov
  */
+import "dart:io";
 
-main() {
-  /*
-  List unicode = ["\u2029", "\u2028", "\u0085", "\u000b", "\u000c", "\u00a0",
-                  "\u1680", "\u180E", "\u2000", "\u2001", "\u2002", "\u2003",
-                  "\u2004", "\u2005", "\u2006", "\u2007", "\u2008", "\u2009",
-                  "\u200a", "\u200b", "\u200c", "\u200d", "\u202f", "\u205f",
-                  "\u2060", "\u3000", "\ufeff"];
+// used to create 
+tofile(String dest, List<String> strlist) {
+  var output = new File("${dest}.txt").openOutputStream();
+    for (int k=0; k<strlist.length; k++) {
+      if (k%5==0) {
+        output.writeString("\n    ");
+      }
+      String str = strlist[k];
+      output.writeString("r''':"); // print':' at the beginning to shade possible newline
+      output.writeString(str);
+      output.writeString("''', ");
+    }
+    output.writeString('\n');
+} 
 
-  List character = [r" ",  r" ", r'',  r"", r"", r" ",
-                    r" ", r"᠎",  r" ", r" ", r" ", r" ",
-                    r" ", r" ", r" ", r" ", r" ", r" ",
-                    r" ", r"​",  r"‌",  r"‍",  r" ", r" ",
-                    r"⁠",  r"　", r"﻿" ];
-  */
-  
-  List unicode = [//"\u000a", "\u000d", 
-                  "\u0009", "\u000b", "\u000c", "\u0020", "\u0085", "\u00a0", 
-                  "\u1680", "\u180e", "\u2000", "\u2001", "\u2002", "\u2003", 
-                  "\u2004", "\u2005", "\u2006", "\u2007", "\u2008", "\u2009", 
-                  "\u200a", "\u2028", "\u2029", "\u202f", "\u205f", "\u3000"];
+  List<String> unicode = [
+     "\u0009", "\u000a", "\u000b", "\u000c",
+     //"\u000d", -- problematic character, converted to 0x0A by dart 
+     "\u0020", "\u0085", "\u00a0", "\u1680", "\u180e",
+     "\u2000", "\u2001", "\u2002", "\u2003", "\u2004",
+     "\u2005", "\u2006", "\u2007", "\u2008", "\u2009", 
+     "\u200a",  "\u202f", "\u205f", "\u3000", "\ufeff"
+    ];
   
   List character = [
-//r"""
-//""",
-//r"""
-//""",
-                    r"	", r"", r"", r" ", r"", r" ", 
-                    r" ", r"᠎", r" ", r" ", r" ", r" ", 
-                    r" ", r" ", r" ", r" ", r" ", r" ", 
-                    r" ", r" ", r" ", r" ", r" ", r"　"];
+    r''':	''', r''':
+''', r''':''', r''':''', //r'''://''', 
+    r''': ''', r''':''', r''': ''', r''': ''', r''':᠎''', 
+    r''': ''', r''': ''', r''': ''', r''': ''', r''': ''', 
+    r''': ''', r''': ''', r''': ''', r''': ''', r''': ''', 
+    r''': ''', r''': ''', r''': ''', r''':　''', r''':﻿'''
+  ];
 
-  Expect.listEquals(unicode, character);
+test() {
+//  Expect.listEquals(unicode, character);
+  Expect.equals(unicode.length, character.length);
+  for (int k=0; k<unicode.length; k++) {
+    String str1=unicode[k];
+    String str2=character[k];
+    List<int> codes1=str1.charCodes;
+    List<int> codes2=str2.charCodes;
+    Expect.equals(1, codes1.length, "codes1.length at $k");
+    Expect.equals(2, codes2.length, "codes2.length at $k");
+    int code1=codes1[0];
+    int code2=codes2[1];
+    Expect.equals(code1, code2, "code at $k");
+  }
+  
+}
+main() {
+//  tofile("unicodewhitespaces", unicode);
+  test();
 }
