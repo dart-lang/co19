@@ -11,6 +11,7 @@
  * a factory constructor named S and its subclass's constructor contains an explicit super() superinitializer.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S {

@@ -12,6 +12,7 @@
  * superinitializer.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S {

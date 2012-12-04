@@ -17,7 +17,7 @@
  * @description Checks that two top-level functions are in the scope of each other and can be mutually
  * recursive.
  * @author rodionov
- * @issue 6926
+ * @reviewer kaigorodov
  */
 
 int foo(int x) {

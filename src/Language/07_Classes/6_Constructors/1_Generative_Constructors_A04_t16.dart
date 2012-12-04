@@ -18,6 +18,7 @@
  * results in a compile-time error.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

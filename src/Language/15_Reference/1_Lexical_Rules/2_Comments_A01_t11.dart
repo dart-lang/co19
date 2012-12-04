@@ -13,6 +13,7 @@
  * @description Checks that a single line documentation comment (three or more slashes) 
  * is still a comment
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 foo (int x, int y) { /// this function returns modulo of x and y.

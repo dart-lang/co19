@@ -11,6 +11,7 @@
  * a named factory constructor referenced by a superinitializer in its subclass's initializer list.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class S {
