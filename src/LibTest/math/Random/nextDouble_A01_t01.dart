@@ -11,7 +11,7 @@
  * @reviewer pagolubev
  */
 
-import "dart:math" as Math;
+import "dart:math";
 
 main() {
   Random rand = new Random();

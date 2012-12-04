@@ -11,16 +11,15 @@
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that reassigning a final optional parameter inside the function
+ * @description Checks that reassigning a const optional parameter inside the function
  * produces a static warning and a NoSuchMethodError.
  * @static-warning
- * @author iefremov
+ * @author rodionov
  * @reviewer kaigorodov
- * @reviewer rodionov
  * @issue 5885
  */
 
-foo([final p = 1]) {
+foo({const p: 1}) {
   try {
     p = 1;
     Expect.fail("NoSuchMethodError expected");

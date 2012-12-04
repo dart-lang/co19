@@ -7,7 +7,7 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryDefinition
  * ;
  * @description Checks that it is a compile-time error when a top level
  * definition (an interface declaration) comes before the library name.

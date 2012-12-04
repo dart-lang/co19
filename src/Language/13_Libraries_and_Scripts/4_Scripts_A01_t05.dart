@@ -9,7 +9,7 @@ class C {}
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryDefinition
  * ;
  * @description Checks that it is a compile-time error when a top-level
  * definition (a class declaration) comes before the script tag.

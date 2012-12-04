@@ -26,5 +26,7 @@
  */
 
 main() {
-  undeclared();
+  try {
+    undeclared();
+  } catch (anything) {}
 }

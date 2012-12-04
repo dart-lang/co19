@@ -11,20 +11,21 @@
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that an optional named parameter can be final. 
- * Reassigning it should produce a static warning and a runtime error.
+ * @description Checks that reassigning a final optional parameter inside the function
+ * produces a static warning and a NoSuchMethodError.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 5886
+ * @issue 5885
  */
 
 foo({final p: 1}) {
-  p = 1;
+  try {
+    p = 1;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }
 
 main() {
-  try {
-    foo();
-  } catch(x) {}
+  foo();
 }

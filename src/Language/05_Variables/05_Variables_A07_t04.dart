@@ -6,10 +6,12 @@
 /**
  * @assertion A constant variable is a variable whose declaration includes the modifier
  * const. A constant variable is always implicitly final.
- * @description Checks that a compile-time error occurs if a global typed constant variable is redefined.
- * @compile-error
+ * @description Checks that a NoSuchMethodError occurs and a static warning is given
+ * when a constant library variable is assigned a new value after being initialized at declaration.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
+ * @issue 5885
  */
 
 const int foo = 1 + 1;
@@ -17,5 +19,6 @@ const int foo = 1 + 1;
 main() {
   try {
     foo = 2;
-  } catch(ok) {}
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

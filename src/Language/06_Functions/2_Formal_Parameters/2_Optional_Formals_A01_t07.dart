@@ -11,20 +11,22 @@
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that an optional positional parameter can be constant. 
- * Reassigning it should produce a compile-time error.
- * @compile-error
+ * @description Checks that reassigning a final constant parameter inside the function
+ * produces a static warning and a NoSuchMethodError.
+ * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  * @reviewer rodionov
+ * @issue 5885
  */
 
 foo([const p = 1]) {
-  p = 1;
+  try {
+    p = 1;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }
 
 main() {
-  try {
-    foo();
-  } catch(x) {}
+  foo();
 }

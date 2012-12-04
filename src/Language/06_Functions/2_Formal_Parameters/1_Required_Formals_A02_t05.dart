@@ -17,19 +17,22 @@
  * fieldFormalParameter:
  *   metadata finalConstVarOrType? this '.' identifier
  * ;
- * @description Checks that reassigning a final required parameter produces a compile-time error.
- * @compile-error
+ * @description Checks that reassigning a final required parameter inside the function
+ * produces a static warning and a NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
+ * @issue 5885
  */
 
 func(final x) {
-  x = 1;
+  try {
+    x = 1;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }
 
 main() {
-  try {
-    func(1);
-  } catch(e) {}
+  func(1);
 }

@@ -7,11 +7,10 @@
 /**
  * @assertion A script is a library with a top level function main().
  * scriptDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryDefinition
  * ;
- * @description Checks that it is a compile-time error when a script (with a script tag)
+ * @description Checks that it is not an error when a script (with a script tag)
  * includes an export directive.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
