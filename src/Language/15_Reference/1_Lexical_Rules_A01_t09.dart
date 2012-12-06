@@ -9,7 +9,8 @@
  * @description Checks that decomposed characters in strings cause compile error.
  * @compile-error
  * @author kaigorodov
- * @issue 2687
+ * @reviewer rodionov
+ * @issue 2687, 7151
  */
 
 main() {

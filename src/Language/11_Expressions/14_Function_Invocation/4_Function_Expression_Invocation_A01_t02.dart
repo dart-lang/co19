@@ -6,18 +6,19 @@
 /**
  * @assertion If ef is a property extraction expression, then i is is not a function
  * expression invocation and is instead recognized as an ordinary method invocation.
- * @description Checks that a.b(x) is parsed as a method invocation of method m() on object a,
+ * @description Checks that a.b(x) is parsed as a method invocation of method b() on object a,
  * not as an invocation of getter b on a followed by a function call.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class TestException {}
 
 class A {
   noSuchMethod(InvocationMirror im) {
-    List args=im.positionalArguments; 
-    // if getter `b` were not found, args.length==0
-    Expect.equals(1, args.length);
+    // member name and number of args are different for an unresolved getter
+    Expect.equals("b", im.memberName);
+    Expect.equals(1, im.positionalArguments.length);
     throw new TestException();
   }
 }

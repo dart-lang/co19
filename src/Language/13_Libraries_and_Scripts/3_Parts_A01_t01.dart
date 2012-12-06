@@ -12,7 +12,7 @@
  *   metadata part uri ';'
  * ;
  * partHeader:
- *   metadata part of identiﬁer (‘.’ identiﬁer)* ‘;’
+ *   metadata part of identifier (‘.’ identifier)* ‘;’
  * ;
  * partDeclaration:
  *   partHeader topLevelDefinition* EOF
@@ -23,6 +23,7 @@
  * @description Checks that part directive must end with a semicolon.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  * @issue 7053
  */
 

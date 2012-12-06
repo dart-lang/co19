@@ -9,13 +9,15 @@
  *   of bool, num, String or Type and c1 == c2 , OR
  * - c1 and c2 are constant objects of the same class C and for each member
  *   field of c1 is identical to the corresponding field of c2 .
- * where identical() is the predeﬁned dart function that returns true iﬀ its two
+ * where identical() is the predefined dart function that returns true iff its two
  * arguments are either:
  *  • The same object.
  *  • Of type int and have the same numeric value.
  *  • Of type double, are not NaNs and have the same numeric value.
- * @description Checks that an int and a double with the same value are not identical.
+ * @description Checks that an int and a double representing the same numerical
+ * value are not identical.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 var i1=2;

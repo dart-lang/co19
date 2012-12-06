@@ -5,10 +5,12 @@
  */
 /**
  * @assertion It is a compile-time error if e refers to the name v or the name v=.
- * @description Checks that a compile-time error if e refers to the name v=.
- * A top-level variable with the same name is declared.
+ * @description Checks that it is a compile-time error if the initializing expression
+ * of a local variable v refers to the name v= even when a top-level variable 
+ * with the same name is declared.
  * @compile-error
  * @author kaigorodov
+ * @reviewer rodionov
  * @issue 7052
  */
 

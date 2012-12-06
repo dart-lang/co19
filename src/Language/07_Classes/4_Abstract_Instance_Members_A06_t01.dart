@@ -20,11 +20,11 @@ class A {
 }
 
 class B extends A {
-  f();
+  f(); // static warning too (but not type)
 }
 
 class C extends B {
-  f(){}
+  f() {}  /// static type warning: warning being tested
 }
 
 main() {

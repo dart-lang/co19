@@ -25,6 +25,8 @@ class C {
   noSuchMethod(InvocationMirror im) {
     Expect.equals('get:g3tt3r', im.memberName);
     Expect.isTrue(im.isGetter);
+    Expect.isNotNull(im.positionalArguments);
+    Expect.isNotNull(im.namedArguments);
     Expect.listEquals([], im.positionalArguments);
     Expect.mapEquals({}, im.namedArguments);
     throw new TestException();

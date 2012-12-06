@@ -5,13 +5,14 @@
  */
 /**
  * @assertion libraryName:
- *    metadata library identiﬁer (‘.’ identiﬁer)* ‘;’
+ *    metadata library identifier (‘.’ identifier)* ‘;’
  * ;
  * An explicitly named library begins with the word library (possibly prefaced
- * with any applicable metadata annotations), followed by a qualiﬁed identiﬁer
+ * with any applicable metadata annotations), followed by a qualified identifier
  * that gives the name of the library.
- * @description Checks that the library name can be a qualified identiﬁer
+ * @description Checks that the library name can be a qualified identifier
  * @author kaigorodov
+ * @reviewer rodionov
  * @issue 7053
  */
 

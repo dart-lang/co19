@@ -19,7 +19,7 @@
 
 class C {
   bool operator ==(other) {
-    throw new "operator== invoked with $other argument!";
+    throw "operator== invoked with $other argument!";
   }
 }
 

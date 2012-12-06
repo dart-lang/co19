@@ -12,7 +12,7 @@
  *   metadata part uri ';'
  * ;
  * partHeader:
- *   metadata part of identiﬁer (‘.’ identiﬁer)* ‘;’
+ *   metadata part of identifier (‘.’ identifier)* ‘;’
  * ;
  * partDeclaration:
  *   partHeader topLevelDefinition* EOF

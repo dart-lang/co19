@@ -9,7 +9,7 @@
  * A part directive specifies a URI where a Dart compilation unit that should
  * be incorporated into the current library may be found.
  * partDirective:
- *   metadata part of identiﬁer (‘.’ identiﬁer)* ‘;’
+ *   metadata part of identifier (‘.’ identifier)* ‘;’
  * ;
  * @description Checks that in a compile-time error if the part directive includes 
  * an additive expression instead of URI.

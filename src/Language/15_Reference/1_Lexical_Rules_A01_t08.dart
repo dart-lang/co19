@@ -8,8 +8,9 @@
  * to Unicode Normalization Form C.
  * @description Checks that composed characters in comments and strings are compiled correctly.
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 main() {
- String aWithRingAbove="Å"; // Å
+  String aWithRingAbove="Å"; // Å
 }

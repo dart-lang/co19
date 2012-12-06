@@ -5,7 +5,7 @@
  */
 /**
  * @assertion  It is a static warning if an abstract member is declared or
- * declared in a concrete class.
+ * inherited in a concrete class.
  * @description Checks that it is a static warning if an abstract setter is
  * inherited in a concrete class.
  * @static-warning

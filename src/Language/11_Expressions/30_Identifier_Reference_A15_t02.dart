@@ -4,22 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is as static warning if an identiﬁer expression id occurs inside
+ * @assertion It is as static warning if an identifier expression id occurs inside
  * a top level or static function (be it function, method, getter, or setter)
  * or variable initializer and there is no declaration d with name id in the lexical
  * scope enclosing the expression.
- * @description  Checks that identifier expression can not occur inside
- * a static method.
- * @compile-error
+ * @description  Checks that it is a static warning when an identifier expression
+ * references an undeclared identifier within a static method.
+ * @static-warning
  * @author kaigorodov
+ * @reviewer rodionov
  */
 
 class A {
   static func() {
-    return indeclared;
+    try {
+      return indeclared;
+      Expect.fail("NoSuchMethodError expected");
+    } on NoSuchMethodError catch(ok) {}
   }
 }
 
 main() {
-  var x=A.func();
+  Expect.isNull(A.func());
 }
