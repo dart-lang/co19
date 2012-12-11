@@ -22,7 +22,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @issue 6449
+ * @issue 3326
  */
 
 class TestException {}
@@ -30,7 +30,7 @@ class TestException {}
 class C {
   noSuchMethod(InvocationMirror im) {
     Expect.isTrue(im.isSetter);
-    Expect.equals('setter', im.memberName);
+    Expect.equals('setter=', im.memberName);
     Expect.listEquals([1], im.positionalArguments);
     Expect.mapEquals({}, im.namedArguments);
     throw new TestException();

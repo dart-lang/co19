@@ -13,17 +13,17 @@
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
  * @description Checks that the method noSuchMethod is invoked with the specified arguments
- * ("get:getterName") if getter lookup has failed.
+ * if getter lookup has failed.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 3326, 6448, 6449
+ * @needsreview issue 3326
  */
 
 class TestException {}
 
 class C {
   noSuchMethod(InvocationMirror im) {
-    Expect.equals('get:g3tt3r', im.memberName);
+    Expect.equals('g3tt3r', im.memberName);
     Expect.isTrue(im.isGetter);
     Expect.isNotNull(im.positionalArguments);
     Expect.isNotNull(im.namedArguments);

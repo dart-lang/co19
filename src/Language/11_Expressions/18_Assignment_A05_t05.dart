@@ -22,7 +22,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @issue 6449
+ * @issue 3326
  */
 
 class TestException {}
@@ -30,8 +30,9 @@ class TestException {}
 class C {
   noSuchMethod(InvocationMirror im) {
     Expect.isTrue(im.isSetter);
-    Expect.equals('func', im.memberName);
+    Expect.equals('func=', im.memberName);
     //Expect.listEquals([Closure], im.positionalArguments);  //Function.toString is not specified
+    Expect.equals(1, im.positionalArguments.length);
     Expect.mapEquals({}, im.namedArguments);
     throw new TestException();
   }

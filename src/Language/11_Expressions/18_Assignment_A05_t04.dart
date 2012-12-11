@@ -27,7 +27,7 @@
 
 class C {
   noSuchMethod(InvocationMirror im) {
-    if(im.memberName != 'set:nonExistingSetter') {
+    if(im.memberName != 'nonExistingSetter=') {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }
   }

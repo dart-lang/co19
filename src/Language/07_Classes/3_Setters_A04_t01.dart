@@ -22,5 +22,8 @@ class C {
 main() {
   C c=new C();
   c.foo(1);
-  c.foo=1;
+  try {
+    c.foo=1;
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }
