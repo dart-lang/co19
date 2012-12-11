@@ -11,7 +11,6 @@
  * in an enclosing scope but doesn't replace it.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 
 main() {

@@ -11,7 +11,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 2862
+ * @issue 2862
  */
 
 main() {

@@ -8,8 +8,8 @@
  * an exception.
  * @description Checks that an OutOfMemoryException raised during evaluation of a compile-time constant
  * causes a compile-time error.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  * @issue 5775
  */
@@ -17,7 +17,5 @@
 final m = 1 << 99999999999999999999999999999999999999999999999999999999999;
 
 main() {
-  try {
-    print(m);
-  } catch(x) {}
+  print(m);
 }

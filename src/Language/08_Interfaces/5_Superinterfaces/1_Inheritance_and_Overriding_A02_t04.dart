@@ -24,15 +24,15 @@
  * @author rodionov
  * @reviewer kaigorodov
  * @static-warning
- * @needsreview issue 3306
+ * @needsreview issue 3306, 7283
  */
 
 abstract class SI1 {
-  void foo(var v, [int foo, int bar]);
+  void foo(var v, {int foo, int bar});
 }
 
 abstract class SI2 {
-  void foo(var v, [int foo, int b4r]);
+  void foo(var v, {int foo, int b4r});
 }
 
 abstract class I implements SI1, SI2 {}
@@ -41,7 +41,7 @@ main() {
   I i = null;
   
   try {
-    i.foo(null, null, null);
+    i.foo(null, foo: 1);
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(npe) {}
 }

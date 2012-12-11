@@ -24,7 +24,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  * @static-warning
- * @needsreview issue 3306
+ * @needsreview issue 3306, 7283
  */
 
 abstract class SI1 {

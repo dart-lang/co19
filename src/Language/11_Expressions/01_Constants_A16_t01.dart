@@ -8,15 +8,14 @@
  * an exception.
  * @description Checks that an IntegerDivisionByZeroException raised during evaluation 
  * of a compile-time constant causes a compile-time error.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
+ * @issue 5775
  */
 
 final m = 1 % 0;
 
 main() {
-  try {
-    print(m);
-  } catch(x) {}
+  print(m);
 }

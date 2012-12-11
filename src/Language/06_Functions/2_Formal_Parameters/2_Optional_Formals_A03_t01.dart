@@ -6,9 +6,8 @@
 /**
  * @assertion It is a compile-time error if the name of a named
  * optional parameter begins with an _ character.
- * @description Checks that it is a compile-time error if the name of a positional
+ * @description Checks that it is not a compile-time error if the name of a positional
  * optional parameter begins with an '_' character.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov
@@ -16,8 +15,6 @@
  */
 
 main() {
-  try {
-    void func([var _x]) {}
-    func(1);
-  } catch(x) {}
+  void func([var _x]) {}
+  func(1);
 }

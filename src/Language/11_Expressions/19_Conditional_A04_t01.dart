@@ -13,5 +13,5 @@
  */
 
 main() {
-    num n    = (true ? 1 : 0.5);
+    num n = (true ? 1 : 0.5);
 }

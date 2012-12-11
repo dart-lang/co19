@@ -7,12 +7,12 @@
  * @assertion Libraries are units of privacy. A private declaration declared within a library
  * L can only be accessed by code within L. Any attempt to access a private member declaration
  * from outside L will cause a run-time error.
- * @description Checks that an attempt to access a top level variable from outside L in a top-level
- * function context results in a NoSuchMethodError.
- * @static-warning undeclared library getter
+ * @description Checks that an attempt to access a private top level variable from outside L 
+ * in a top-level function context results in a NoSuchMethodError.
+ * @static-warning unresolved identifier expression in a top-level context (12.30)
  * @author vasya
  * @reviewer msyabro
- * @issue 5839
+ * @issue 5839, 6836
  */
 
 import "13_Libraries_and_Scripts_A05_t04_lib.dart" as lib;

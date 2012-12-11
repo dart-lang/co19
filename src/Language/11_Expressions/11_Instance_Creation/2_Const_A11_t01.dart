@@ -14,10 +14,13 @@
  * @reviewer rodionov
  */
 
-class A {
+abstract class A {
   const A();
 }
 
 main() {
-  const A();
+  try {
+    const A();
+    Expect.fail("AbstractClassInstantiationError expected");
+  } on AbstractClassInstantiationError catch(e) {}
 }

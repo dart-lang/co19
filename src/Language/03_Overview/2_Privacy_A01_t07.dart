@@ -10,7 +10,6 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that various private class members are perfectly accessible inside the library
  * where the class is declared.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

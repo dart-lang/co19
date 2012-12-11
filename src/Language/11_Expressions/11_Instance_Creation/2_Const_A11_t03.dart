@@ -14,10 +14,13 @@
  * @reviewer rodionov
  */
 
-class A {
+abstract class A {
   const A.id();
 }
 
 main() {
-  const A.id();
+  try {
+    const A.id();
+    Expect.fail("AbstractClassInstantiationError expected");
+  } on AbstractClassInstantiationError catch(e) {}
 }

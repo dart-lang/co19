@@ -15,9 +15,8 @@
  * ;
  * An equality expression is either a relational expression, or an invocation of
  * a equality operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a class declaration can't be
+ * @description Checks that a class name can be
  * used as the first operand in an equality expression.
- * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +24,5 @@
 class A {}
 
 main() {
-  try {
-    A == 1;
-  } catch(e) {}
+  A == 1;
 }

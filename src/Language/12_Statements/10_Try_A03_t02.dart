@@ -13,13 +13,14 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
+ * @issue 7291
  */
 
 main() {
   try {
     throw "fail";
     Expect.fail("This code shouldn't be executed");
-  } catch on Unavailable (p1, p2) {
+  } on Unavailable catch(p1, p2) {
     Expect.fail("This code shouldn't be executed");
   } on String catch(ok) {}
 }

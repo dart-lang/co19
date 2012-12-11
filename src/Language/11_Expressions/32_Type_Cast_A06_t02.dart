@@ -12,7 +12,5 @@
  */
 
 main() {
-  try {
-    double x = (true as Object);
-  } catch(ok){}
+  double x = (null as bool);
 }

@@ -8,23 +8,21 @@
  * of the static type of e2 and the static type of e3.
  * @description Checks that the static type of a conditional expression is
  * an upper bound of the static type of e2 and the static type of e3.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 3221
  */
 import "../../Utils/dynamic_check.dart";
 
 main() {
-  int i = (true ? 1 : 0.5);
+  int i = (true ? 1 : 0.5); // int <=> num
 
   checkTypeError(() {
-    double d = (true ? 1 : 0.5);
+    double d = (true ? 1 : 0.5); // double <=> num
   });
 
   checkTypeError(() {
-    bool b = (false ? true : []);
+    bool b = (false ? true : []); // bool <=> Object
   });
 
-  List l = (false ? true : []);
+  List l = (false ? true : []); // List <=> Object
 }

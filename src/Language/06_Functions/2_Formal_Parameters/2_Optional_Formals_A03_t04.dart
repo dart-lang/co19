@@ -15,7 +15,7 @@
 
 class A {
   var _p;
-  A([this._p: ""]){
+  A({this._p: ""}){
     print(_p);
   }
 }

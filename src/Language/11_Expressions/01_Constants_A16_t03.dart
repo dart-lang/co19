@@ -8,8 +8,8 @@
  * an exception.
  * @description Checks that a NoSuchMethodError raised during evaluation of a compile-time constant
  * causes a compile-time error.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 
@@ -21,7 +21,5 @@ class A {
 const m = const A(const []);
 
 main() {
-  try {
-    print(m);
-  } catch(x) {}
+  print(m);
 }

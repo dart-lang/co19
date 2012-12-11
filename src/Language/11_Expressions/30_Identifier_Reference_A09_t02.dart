@@ -12,7 +12,6 @@
  * • If d is a local variable or formal parameter then e evaluates to the current
  *   binding of id.
  * @description Checks that a reference to a local variable is evaluated correctly in closures.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -23,11 +22,14 @@ main() {
   var f = () => x;
   x++;
   Expect.equals(1, x);
+  Expect.equals(1, f());
 
   {
     var x = 4;
-    var f = () => x;
+    var ff = () => x;
     x++;
     Expect.equals(5, x);
+    Expect.equals(1, f());
+    Expect.equals(5, ff());
   }
 }

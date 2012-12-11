@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer iefremov
  * @static-warning
+ * @issue 3273
  */
 
 class F1 {}

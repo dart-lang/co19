@@ -13,6 +13,7 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
+ * @issue 7291
  */
 
 main() {
@@ -21,6 +22,5 @@ main() {
     Expect.fail("This code shouldn't be executed");
   } on Unavailable catch(ex) {
     Expect.fail("This code shouldn't be executed");
-  } on String catch(oks) {
-  }
+  } on String catch(ok) {}
 }

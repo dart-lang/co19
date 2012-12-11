@@ -16,7 +16,6 @@
  * an+1, ... , xn+k : an+k).
  * @description Checks that an unqualified invocation is resolved correctly and the innermost
  * matching declaration is used.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

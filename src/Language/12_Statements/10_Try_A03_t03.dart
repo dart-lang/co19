@@ -12,6 +12,7 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @issue 7291
  */
 
 import "10_Try_lib.dart" as p; // class Foo declared here
