@@ -30,8 +30,8 @@ void check(Iterable arg1, Iterable arg2, Iterable arg3, [String reason = null]) 
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
     for (var el in arg3) {
-      if (!e.message.contains(el !== null ? el.toString() : "null", 0)) throw "no element $el";
+      if (!e.message.contains(el != null ? el.toString() : "null", 0)) throw "no element $el";
     }
-    if (reason !== null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason";
+    if (reason != null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason";
   }
 }

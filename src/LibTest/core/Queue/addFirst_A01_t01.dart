@@ -21,7 +21,7 @@ main() {
   Expect.isTrue(queue.first == null);
   
   queue.addFirst(queue);
-  Expect.isTrue(queue.first === queue);
+  Expect.identical(queue.first, queue);
 
   queue = new Queue();
   for (var i = 0; i <= 1000; i++) {

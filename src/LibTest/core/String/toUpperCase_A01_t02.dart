@@ -17,5 +17,5 @@ main() {
   String str = "ALL CHARACTERS IN UPPER CASE";
   String str2 = str.toUpperCase();
 
-  Expect.isTrue(str === str2);
+  Expect.identical(str, str2);
 }

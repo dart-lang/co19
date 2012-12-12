@@ -17,5 +17,5 @@ main() {
   String str = "all characters in lower case";
   String str2 = str.toLowerCase();
 
-  Expect.isTrue(str === str2);
+  Expect.identical(str, str2);
 }

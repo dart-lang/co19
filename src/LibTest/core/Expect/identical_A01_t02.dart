@@ -5,7 +5,7 @@
  */
 /**
  * @assertion static void identical(var expected, var actual, [String reason = null]) 
- * Checks whether the expected and actual values are identical (using [:===:]).
+ * Checks whether the expected and actual values are identical.
  * @description Checks that using non-identical arguments results in ExpectException
  *              being thrown. Arguments being tested include null, boolean, String, numeric and
  *              Object, along with null, empty and non-empty reason arguments.

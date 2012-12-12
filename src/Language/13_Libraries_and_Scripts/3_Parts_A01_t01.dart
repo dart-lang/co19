@@ -24,11 +24,10 @@
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 7053
  */
 
 library Parts_test_lib.id;
-part "3_Part_10.dart"
+part "3_Part_10.dart";
 
 main() {
 }

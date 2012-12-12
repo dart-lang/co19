@@ -13,11 +13,11 @@
 
 main() {
   StringBuffer sb = new StringBuffer();
-  Expect.isTrue(sb === sb.clear());
+  Expect.identical(sb, sb.clear());
 
   sb = new StringBuffer("");
-  Expect.isTrue(sb === sb.clear());
+  Expect.identical(sb, sb.clear());
 
   sb = new StringBuffer("aaa");
-  Expect.isTrue(sb === sb.clear());
+  Expect.identical(sb, sb.clear());
 }

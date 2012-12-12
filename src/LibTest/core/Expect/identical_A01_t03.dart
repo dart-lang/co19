@@ -5,7 +5,7 @@
  */
 /**
  * @assertion static void identical(var expected, var actual, [String reason = null]) 
- * Checks whether the expected and actual values are identical (using [:===:]).
+ * Checks whether the expected and actual values are identical.
  * @description Checks that equality operator is not used.
  * @author varlax
  * @reviewer msyabro

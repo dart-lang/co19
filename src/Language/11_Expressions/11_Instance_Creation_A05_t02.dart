@@ -7,21 +7,22 @@
  * @assertion It is a static type warning if any of the type arguments to a constructor of a
  * generic type G invoked by a new expression or a constant object expression are
  * not subtypes of the bounds of the corresponding formal type parameters of G.
- * @description Checks that it is compile error in cjecked mode if type arguments to a constructor of a
- * generic type G invoked by a constant object expression are
- * not subtypes of the bounds of the corresponding formal type parameters of G.
+ * @description Checks that it is a compile-time error in checked mode (because of a runtime exception
+ * that would be raised during evaluation of a constant expression) as well as a static type warning 
+ * when type arguments to a constructor of a generic type G invoked by a constant object expression 
+ * are not subtypes of the bounds of the corresponding formal type parameters of G.
+ * @static-warning
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
+ * @note there is no compile error in scripting mode so this test is expected to fail there
  */
-import "../../Utils/dynamic_check.dart";
-
 class G<T extends num, S extends String> {
   const G();
 }
 
 main() {
-  checkTypeError(() {
+  try {
     var o = const G<double, double>();
-  });
+  } catch (anything) {}
 }

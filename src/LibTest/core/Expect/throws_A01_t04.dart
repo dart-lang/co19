@@ -21,11 +21,11 @@ main() {
   var err = 0;
   test t = (){throw err;};
 
-  Expect.throws(t, (e){return e === err;});
+  Expect.throws(t, (e){return identical(e, err);});
   
   err = "hello";
-  Expect.throws(t, (e){return e === err;});
+  Expect.throws(t, (e){return identical(e, err);});
 
   err = new Object();
-  Expect.throws(t, (e){return e === err;});
+  Expect.throws(t, (e){return identical(e, err);});
 }

@@ -18,7 +18,7 @@ void checkEquals(Collection expected, List actual) {
   var i = 0;
   while (it.hasNext) {
     Object o = it.next();
-    Expect.isTrue(actual[i] === o);
+    Expect.identical(actual[i], o);
     Expect.isTrue(actual[i] == o);
     i++;
   }

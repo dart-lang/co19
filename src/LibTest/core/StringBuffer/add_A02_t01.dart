@@ -13,7 +13,7 @@
 
 main() {
   StringBuffer sb = new StringBuffer();
-  Expect.isTrue(sb === sb.add("string"));
-  Expect.isTrue(sb === sb.add(""));
-  Expect.isTrue(sb === sb.add(null));
+  Expect.identical(sb, sb.add("string"));
+  Expect.identical(sb, sb.add(""));
+  Expect.identical(sb, sb.add(null));
 }

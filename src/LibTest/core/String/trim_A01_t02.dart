@@ -15,5 +15,5 @@
 
 main() {
   String str = "string";
-  Expect.isTrue(str === str.trim());
+  Expect.identical(str, str.trim());
 }

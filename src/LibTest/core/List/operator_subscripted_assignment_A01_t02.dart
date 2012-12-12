@@ -14,11 +14,11 @@ main() {
   List a = new List();
   a.length = 2;
   a[0] = 1;
-  Expect.isTrue(1 === a[0]);
+  Expect.identical(1, a[0]);
   a[0] = null;
   Expect.isTrue(null == a[0]);
   a[0] = a;
-  Expect.isTrue(a === a[0]);
+  Expect.identical(a, a[0]);
 
   a = new List.from([1,2,3]);
   a[1] = null;

@@ -22,5 +22,5 @@ main() {
   completer.complete(0);
 
   Expect.isTrue(t.isComplete);
-  Expect.isTrue(t.exception !== null);
+  Expect.isNotNull(t.exception);
 }

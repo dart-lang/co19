@@ -10,7 +10,6 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that GenericType1<T> is a subtype of GenericType2<S> where T and S are complex generics. Checks
  * mutual assignability as well.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

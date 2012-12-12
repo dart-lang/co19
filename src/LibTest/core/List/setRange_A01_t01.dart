@@ -24,7 +24,7 @@ main() {
   src[0] = a;
   dst.setRange(0, 1,src, 0);
   Expect.isTrue(dst[0] == a);
-  Expect.isTrue(dst[0] === a);
+  Expect.identical(dst[0], a);
   Expect.isTrue(dst.length == 1);
 
   //zero case

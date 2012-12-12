@@ -13,5 +13,5 @@
 
 main() {
   StringBuffer sb = new StringBuffer();
-  Expect.isTrue(sb === sb.addAll([1, 2, 3]));
+  Expect.identical(sb, sb.addAll([1, 2, 3]));
 }

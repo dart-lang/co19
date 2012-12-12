@@ -19,7 +19,7 @@ check(List a, predicate(var e), exc) {
         return predicate(e);
       });
     },
-    (e) {return exc === e;}
+    (e) {return identical(exc, e);}
   );
   Expect.equals(1, actualCount);
 }

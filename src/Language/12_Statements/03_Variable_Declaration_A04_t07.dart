@@ -10,6 +10,7 @@
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
+ * @issue 7052
  */
 
 var v = 0;

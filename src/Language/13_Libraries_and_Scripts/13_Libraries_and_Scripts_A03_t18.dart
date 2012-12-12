@@ -13,7 +13,6 @@
  * @description Checks that the library name can be a qualified identifier
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 7053
  */
 
 library Libraries.and.Scripts.A03.t18.lib;

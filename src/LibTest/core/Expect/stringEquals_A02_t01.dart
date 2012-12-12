@@ -32,8 +32,8 @@ void check(var exp, var act, String arg1, [String arg2 = null, String reason = n
 //    print(e.message);
     if (!e.message.contains(exp.toString(), 0)) throw "no expected value";
     if (!e.message.contains(act.toString(), 0)) throw "no actual value";
-    if (arg1 !== null && !e.message.contains(arg1, 0)) throw "no correct diff";
-    if (arg2 !== null && !e.message.contains(arg2, 0)) throw "no correct diff";
-    if (reason !== null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason"; 
+    if (arg1 != null && !e.message.contains(arg1, 0)) throw "no correct diff";
+    if (arg2 != null && !e.message.contains(arg2, 0)) throw "no correct diff";
+    if (reason != null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason"; 
   }
 }

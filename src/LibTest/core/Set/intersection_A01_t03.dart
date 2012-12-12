@@ -16,20 +16,20 @@ main() {
   Set s = new Set();
   Set newSet = s.intersection([1, 2, 3]);
   Expect.setEquals(s, []);
-  if(newSet === s) {
+  if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 
   s = new Set.from([1, 2 , 3]);
   newSet = s.intersection([1, 2, 3]);
   Expect.setEquals(s, [1, 2, 3]);
-  if(newSet === s) {
+  if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 
   newSet = s.intersection([1]);
   Expect.setEquals(s, [1, 2, 3]);
-  if(newSet === s) {
+  if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 }
