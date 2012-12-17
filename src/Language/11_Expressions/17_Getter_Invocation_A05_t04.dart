@@ -13,17 +13,16 @@
  * It is a static warning if there is no class C in the enclosing lexical scope
  * of i, or if C does not declare, implicitly or explicitly, a getter named m. The
  * static type of i is the declared return type of C.m if it exists or dynamic otherwise.
- * @description Checks that it is a static warning if there is
+ * @description Checks that it is a static type warning if there is
  * no class with the required name in the enclosing lexical scope 
  * of a getter invocation expression and that such code results in a NoSuchMethodError.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 main()  {
   try {
-    UnavailableClass.getter;
+    UnavailableClass.getter; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

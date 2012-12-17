@@ -10,14 +10,13 @@
  * scope enclosing the expression.
  * @description  Checks that it is a static warning when an identifier expression
  * references an undeclared identifier within a library function.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 func() {
   try {
-    return undeclared;
+    return undeclared; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

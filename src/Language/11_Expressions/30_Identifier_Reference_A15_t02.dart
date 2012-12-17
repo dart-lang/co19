@@ -10,7 +10,6 @@
  * scope enclosing the expression.
  * @description  Checks that it is a static warning when an identifier expression
  * references an undeclared identifier within a static method.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -18,7 +17,7 @@
 class A {
   static func() {
     try {
-      return indeclared;
+      return indeclared; /// static type warning
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch(ok) {}
   }

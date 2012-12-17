@@ -12,7 +12,6 @@
  * e2 is the static type of e2.
  * @description Checks that it is a static type warning if the static type of e2 may not
  * be assigned to the static type of e1.v.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,6 +24,6 @@ class C {
 main() {
   C c = new C();
   checkTypeError(() {
-     c.v = true;
+     c.v = true; /// static type warning
   });
 }

@@ -25,6 +25,7 @@ class K extends P.F implements J {
 
 abstract class J extends P.I {
   static final FOO = "J.FOO";  
+  J():super.c();
 }
 
 class SubList<T> {

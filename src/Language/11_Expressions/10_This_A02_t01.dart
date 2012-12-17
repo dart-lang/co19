@@ -7,7 +7,6 @@
  * @assertion The static type of this is the interface of the immediately enclosing class.
  * @description Checks that the static type of this is not assignment compatible with another class.
  * @author kaigorodov
- * @static-warning
  * @reviewer rodionov
  */
 import "../../Utils/dynamic_check.dart";
@@ -21,6 +20,6 @@ class B {
 
 main() {
   checkTypeError(() {
-    A a=new B().func();
+    A a=new B().func(); /// static type warning
   });
 }

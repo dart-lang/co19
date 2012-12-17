@@ -14,6 +14,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
+ * @issue 5806
  */
 
 var a;

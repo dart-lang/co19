@@ -8,13 +8,12 @@
  * @description Checks that a static warning is produced when assigning an integer literal to
  * a typed double variable.
  * @author iefremov
- * @static-warning
  * @reviewer rodionov
  */
 import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    double d = 1;
+    double d = 1; /// static type warning 
   });
 }

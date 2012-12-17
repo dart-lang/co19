@@ -21,6 +21,7 @@ class B {
 }
 
 class F implements I {
+  var _value;
   F() {}
   foo() { return "i.foo()"; }
   get value { return _value; }
@@ -29,6 +30,7 @@ class F implements I {
 
 abstract class I {
   factory I() = F;
+  I.c(){}
   //static final FOO = "I.FOO";
   String foo();
   get value;

@@ -20,7 +20,6 @@
  * Otherwise, the assignment is equivalent to the assignment this.v = e.
  * @description Checks that an assignment of the form v = e, where v is not declared
  * in the lexical scope is equivalent to the assignment this.v = e.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -28,7 +27,7 @@
 class C {
   test() {
     try {
-      v = 1;
+      v = 1; /// static type warning
       Expect.fail("NoSuchMethodError is expected");
     } on NoSuchMethodError catch(e) {}
   }

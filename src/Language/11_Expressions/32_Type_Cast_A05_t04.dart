@@ -8,7 +8,6 @@
  * is used in a type cast as specified in 14.2.
  * @description Checks that it is a dynamic type error if a malformed type
  * is used in a type cast.
- * @static-warning
  * @author rodionov 
  * @reviewer iefremov
  */
@@ -17,7 +16,7 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   try {
-    1 as List<List<NonExistent>>;
+    1 as List<List<NonExistent>>; /// static type warning
   } catch(e) {
     if(isCheckedMode()) {
       Expect.isTrue(e is TypeError);

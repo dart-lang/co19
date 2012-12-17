@@ -19,7 +19,6 @@
  * of e.
  * @description Checks that it is a static type warning if the static type of e may not be
  * assigned to the static type of C.v.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -32,6 +31,6 @@ class C {
 
 main() {
   checkTypeError(() {
-    C.v = true;
+    C.v = true; /// static type warning
   });
 }

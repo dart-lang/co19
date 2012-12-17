@@ -8,7 +8,7 @@
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
  * @description Checks that a type parameter correctly hides a function type alias and
- * a static warning is produced.
+ * no static warning is produced.
  * @author iefremov
  * @reviewer rodionov
  */

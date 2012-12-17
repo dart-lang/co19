@@ -8,7 +8,6 @@
  * is used in a type cast as specified in 14.2.
  * @description Checks that it is a dynamic type error if an unavailable type
  * is used in a type cast.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -21,6 +20,6 @@ main() {
   }
 
   checkTypeError(() {
-    1 as NonExistent;
+    1 as NonExistent; /// static type warning
   });
 }

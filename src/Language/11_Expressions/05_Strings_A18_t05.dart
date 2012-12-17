@@ -7,7 +7,6 @@
  * @assertion The static type of a string literal is String.
  * @description Checks that a static type warning occurs when assigning
  * a raw single-quoted string literal to an int variable.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -16,5 +15,7 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   int i;
-  checkTypeError( () => i = r'string');
+  checkTypeError(
+    () => i = r'string' /// static type warning 
+  );
 }

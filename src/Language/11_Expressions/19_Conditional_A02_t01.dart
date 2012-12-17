@@ -12,10 +12,10 @@
  * result of evaluating the expression e2. Otherwise the value of c is the result of
  * evaluating the expression e3.
  * @description Checks that a conditional expression is evaluated correctly.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
+ 
 import "../../Utils/dynamic_check.dart";
 
 main() {
@@ -28,14 +28,14 @@ main() {
 
   //scripting mode only, raises static type warnings
   checkTypeError(() {
-    Expect.equals(0, [] ? 1 : 0);
+    Expect.equals(0, [] ? 1 : 0); /// static type warning
   });
   
   checkTypeError(() {
-    Expect.equals(0, new Object() ? 1 : 0);
+    Expect.equals(0, new Object() ? 1 : 0); /// static type warning
   });
   
   checkTypeError(() {
-    Expect.equals(0, "" ? 1 : 0);
+    Expect.equals(0, "" ? 1 : 0); /// static type warning
   });
 }

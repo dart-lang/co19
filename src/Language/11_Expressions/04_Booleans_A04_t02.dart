@@ -9,12 +9,11 @@
  * literal to a typed int variable.
  * @author msyabro
  * @reviewer rodionov
- * @static-warning
  */
 import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    int i = true;
+    int i = true; /// static type warning 
   });
 }

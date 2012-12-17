@@ -19,7 +19,6 @@
  * of e.
  * @description Checks that it is a static warning is C declares only getter for v
  * and that such code results in a NoSuchMethodError.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -31,7 +30,7 @@ class C {
 
 main() {
   try {
-    C.v = 2;
+    C.v = 2; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

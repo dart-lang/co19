@@ -17,9 +17,8 @@
  *   It is a static type warning if the static type of e may not be assigned to the
  * static type of C.v. The static type of the expression C.v = e is the static type
  * of e.
- * @description Checks that it is a static warning if there is no class C in the
+ * @description Checks that it is a static type warning if there is no class C in the
  * enclosing lexical scope of assignment and that such code results in a NoSuchMethodError.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -27,7 +26,7 @@
 
 main() {
   try {
-    C.v = 2;
+    C.v = 2; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

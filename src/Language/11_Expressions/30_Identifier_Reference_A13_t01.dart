@@ -14,7 +14,6 @@
  *   a NoSuchMethod to be thrown.
  * @description Checks that it is a runtime error when an undeclared identifier 
  * is used in a static context. 
- * @static-warning undeclared identifier in a top-level/static context
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -25,7 +24,7 @@ func() {
 
 main() {
   try {
-    func();
+    func(); /// static type warning undeclared identifier in a top-level/static context
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch (ex) {}
 }

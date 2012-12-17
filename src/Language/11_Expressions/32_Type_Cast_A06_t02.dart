@@ -7,10 +7,9 @@
  * @assertion The static type of a cast expression e as T is T.
  * @description Checks that the static type of a cast expression e as T is T.
  * @author iefremov
- * @static-warning
  * @reviewer kaigorodov
  */
 
 main() {
-  double x = (null as bool);
+  double x = (null as bool); /// static type warning
 }

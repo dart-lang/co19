@@ -8,7 +8,6 @@
  * is used in a type cast as specified in 14.2.
  * @description Checks that it is a dynamic type error if a malformed type
  * is used in a type cast.
- * @static-warning
  * @author rodionov 
  * @reviewer iefremov
  */
@@ -19,7 +18,7 @@ class G<S extends String, N extends num> {}
 
 main() {
   try {
-    1 as G<G<String, bool>, int>;
+    1 as G<G<String, bool>, int>; /// static type warning
   } catch(e) {
     if(isCheckedMode()) {
       Expect.isTrue(e is TypeError);

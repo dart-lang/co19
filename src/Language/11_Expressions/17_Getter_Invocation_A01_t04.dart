@@ -10,14 +10,13 @@
  * executed with this bound to o. The value of the getter invocation expression is
  * the result returned by the call to the getter function.
  * @description Checks that a getter can be looked up dynamically.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 class S {
   test() {
-    Expect.equals(1, a);
+    Expect.equals(1, a); /// static type warning
   }
 }
 

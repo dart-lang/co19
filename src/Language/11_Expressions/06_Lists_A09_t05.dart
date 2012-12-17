@@ -8,7 +8,6 @@
  * const <E>[e1... en]  or the form <E>[e1... en] is List<E>.
  * @description Checks that a static warning occurs when assigning a const list literal
  * with int type parameter to a variable with declared type List<String>.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -17,5 +16,9 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   List<String> s;
-  checkTypeError( () {s = const <int>[1, 2, 3];});
+  checkTypeError(
+    () {
+      s = const <int>[1, 2, 3]; /// static type warning 
+    }
+  );
 }

@@ -53,7 +53,7 @@ main() {
 
   A a = new A();
   try {
-    J j = new J();
+    J j = new J(); /// static type warning
     Expect.fail("AbstractClassInstantiationError expected");
   } on AbstractClassInstantiationError catch(e) {
   }

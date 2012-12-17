@@ -8,7 +8,6 @@
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
  * @description Checks that a hidden class name can't be used as a type.
- * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
@@ -18,6 +17,6 @@ class C {}
 main() {
   var C = 1;
   try {
-    new C(); //'C' can't be used as a type in this scope.
+    new C(); /// static type warning: [12.11.1 New]: T is not a class accessible in the current scope
   } catch(e) {}
 }

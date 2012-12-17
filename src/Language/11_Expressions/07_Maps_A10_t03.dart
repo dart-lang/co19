@@ -8,7 +8,6 @@
  * or the form <String, V>{k1:e1... kn :en} is Map<String, V>.
  * @description Checks that a static warning occurs when assigning a map literal
  * to a String variable.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -17,5 +16,8 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   String s;
-  checkTypeError( () => s = <String, String> {} );
+  checkTypeError(
+    () =>
+      s = <String, String> {} /// static type warning 
+  );
 }

@@ -19,7 +19,6 @@
  * o2 irrespective of whether setter lookup has failed or succeeded.
  * @description Checks that the value of an assignment expression is o2
  * even if setter lookup failed.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @issue 6448, 6449
@@ -34,7 +33,7 @@ class C {
 }
 
 main() {
-  C c = new C();
+  C c = new C();  /// static type warning
   Expect.equals(1, c.nonExistingSetter = 1);
   Expect.equals(2, c.nonExistingSetter = 2);
   Expect.equals("12", c.nonExistingSetter = "1" "2");

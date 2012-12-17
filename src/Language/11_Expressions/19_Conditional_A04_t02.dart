@@ -8,7 +8,6 @@
  * of the static type of e2 and the static type of e3.
  * @description Checks that the static type of a conditional expression is
  * neither Object nor Dynamic.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -18,6 +17,6 @@ class A {}
 
 main() {
   checkTypeError(() {
-    A a = (true ? 1 : 0.5); // A <=/=> num
+    A a = (true ? 1 : 0.5);  /// static type warning
   });
 }

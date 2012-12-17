@@ -23,12 +23,11 @@
  * is used without the operator keyword.
  * @author iefremov
  * @reviewer pagolubev
- * @compile-error
  * @reviewer rodionov
  */
 
 class C {
-  int ~/(var v){}
+  int ~/(var v){} /// compile-time error
 }
 
 main() {

@@ -9,7 +9,6 @@
  * available in the current lexical scope.
  * @description Checks that it is a run-time error and a static warning if T 
  * does not denote a type available in the current lexical scope.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview issue 9024
@@ -18,7 +17,7 @@
 main() {
   bool fail = false;
   try {
-    1 as NonExistent<int>;
+    1 as NonExistent<int>; /// static type warning
   } catch(ok) {
     fail = true;
   }
