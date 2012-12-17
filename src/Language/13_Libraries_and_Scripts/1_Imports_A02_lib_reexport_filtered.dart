@@ -24,7 +24,8 @@ class A extends P.B {
 //}
 
 abstract class J extends P.I {
-  factory J() = K;
+//  factory J() = K;
+  J():super.c();
   static final FOO = "J.FOO";  
 }
 
