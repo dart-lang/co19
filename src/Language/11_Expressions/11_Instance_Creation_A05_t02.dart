@@ -12,6 +12,8 @@
  * of the corresponding formal type parameters of G.
  * @author msyabro
  * @reviewer kaigorodov
+ * @compile-error
+ * @note there is no compile error in scripting mode so this test is expected to fail there
  */
 
 class G<T extends num, S extends String> {

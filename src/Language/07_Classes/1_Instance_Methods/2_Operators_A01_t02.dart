@@ -21,6 +21,7 @@
  * ;
  * @description Checks that it is a compile-time error if an operator-specific method name
  * is used without the operator keyword.
+ * @compile-error
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
