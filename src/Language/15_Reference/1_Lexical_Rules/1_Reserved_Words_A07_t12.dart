@@ -12,7 +12,7 @@
  * @compile-error
  * @author rodionov
  */
-part "1_Reserved_Words_A01_lib.dart";
+part "1_Reserved_Words_A07_lib.dart";
 
 void main() {
   try {

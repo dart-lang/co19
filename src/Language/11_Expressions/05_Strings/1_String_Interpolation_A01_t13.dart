@@ -21,7 +21,7 @@
 main() {
   var fo = "bar", foo = "foo";
   try {
-    "$fooo";
+    "$fooo"; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {
   }

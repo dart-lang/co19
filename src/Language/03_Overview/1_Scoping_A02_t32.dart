@@ -11,13 +11,12 @@
  * that is identical to a class name available in the current scope.
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 6556
  */
 
 class C {}
 
 main() {
-  var c0 = C;
+  var c0;
   var C = c0;
-  c0=C;
+  c0 = C;
 }

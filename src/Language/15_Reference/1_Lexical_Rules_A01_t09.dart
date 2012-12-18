@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart source text is represented as a sequence of Unicode code points normalized
- * to Unicode Normalization Form C.
- * @description Checks that decomposed characters in strings cause compile error.
- * @compile-error
+ * @assertion Dart source text is represented as a sequence of Unicode code points 
+ * that no longer have to be normalized to Unicode Normalization Form C.
+ * @description Checks that decomposed characters in strings do not cause a compile error.
  * @author kaigorodov
  * @reviewer rodionov
  * @issue 2687, 7151

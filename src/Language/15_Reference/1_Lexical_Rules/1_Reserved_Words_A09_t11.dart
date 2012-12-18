@@ -11,6 +11,7 @@
  * is used as an identifier following a 'show' combinator in an import directive.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 import "1_Reserved_Words_lib.dart" show else;
 

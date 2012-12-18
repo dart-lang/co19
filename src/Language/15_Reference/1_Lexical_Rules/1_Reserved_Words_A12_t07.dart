@@ -11,6 +11,7 @@
  * is used as a static class member (function) name.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {

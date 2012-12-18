@@ -16,6 +16,7 @@ f() {}
 main() {
   var f = 1;
   try {
-    f(); //'f' can't be used as a function in this scope.
+    f(); /// static type warning - static type of f (dynamic) cannot be assigned to a function type
+    // see "function expression invocation"
   } catch(e) {}
 }

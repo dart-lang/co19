@@ -11,8 +11,9 @@
  * is used as an identifier in a part declaration.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
-part "1_Reserved_Words_A01_lib.dart";
+part "1_Reserved_Words_A11_lib.dart";
 
 void main() {
   try {

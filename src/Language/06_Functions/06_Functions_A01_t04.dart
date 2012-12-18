@@ -55,7 +55,7 @@ main() {
   f_do() {do f_blocks(); while(true);}
 
   //Switch
-  f_switch() {switch(1 + 1) {case 1: false; case 2: true; default: false;} }
+  f_switch() {switch(1 + 1) {case 1: false; break; case 2: true; break; default: false; break;} }
 
   //Try
   f_try() {try {} catch(e) {}}

@@ -10,15 +10,16 @@
  * before that variable's declaration.
  * @author kaigorodov
  * @reviewer rodionov
+ * @issue 7481
  */
  
 void test1() {
-  var v=w; // getter unavailable
+  var v = w; /// static type warning - unresolved identifier w (12.30)
   var w;
 }
 
 void test2() {
-  v=1; // setter unavailable
+  v = 1; /// static type warning - unresolved identifier v (12.30)
   var v;
 }
 

@@ -38,7 +38,7 @@ main() {
   I2 i2 = null;
   I3 i3 = null;
   
-  check(() {i2.nonexistent;});
+  check(() {i2.nonexistent;}); /// static type warning - not inherited
   check(() {i2.foo;});
   check(() {i2.bar;});
   check(() {i2.m();});

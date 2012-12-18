@@ -17,7 +17,6 @@
  * and getter is declared explicitly.
  * @author msyabro
  * @reviewer iefremov
- * @needsreview issue 1604, issue 3326
  */
 
 class TestException {}

@@ -20,6 +20,6 @@ typedef func();
 main() {
   var func = 1;
   checkTypeError( () {
-    func f = () => null; //'func' can't be used as a type in this scope.
+    func f = () => null; /// static type warning - see "Assignment"
   });
 }

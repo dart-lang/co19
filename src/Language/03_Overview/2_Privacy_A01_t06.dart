@@ -9,10 +9,10 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that a private type declared with typedef is inaccessible outside the library.
- * Inaccessible type in type test should produce a dynamic-type error in checked mode.
- * @dynamic-type-error
+ * Inaccessible type in type test should produce a dynamic type error in checked mode.
  * @author msyabro
  * @reviewer iefremov
+ * @issue 7480
  */
 
 import "lib.dart";
@@ -24,12 +24,12 @@ main() {
       (p) {} is _inaccessibleFuncType;
     });
   } else {
-    var flag = false;
+    var fail = false;
     try {
       (p) {} is _inaccessibleFuncType;
-      flag = true;
+      fail = true;
     } catch(ok) {//a run-time error in a production mode, as per spec ch. 11.29
     }
-    Expect.isFalse(flag, "A run-time error expected when using inaccessible type in a type test!");
+    Expect.isFalse(fail, "A run-time error expected when using inaccessible type in a type test!");
   }
 }

@@ -18,6 +18,6 @@ class C {}
 main() {
   var C = 1;
   try {
-    new C(); /// static type warning: [12.11.1 New]: T is not a class accessible in the current scope
+    new C(); /// static type warning - [12.11.1 New]: T is not a class accessible in the current scope
   } catch(e) {}
 }

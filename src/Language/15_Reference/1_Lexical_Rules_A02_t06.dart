@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart source text is represented as a sequence of Unicode code points normalized
- * to Unicode Normalization Form C.
+ * @assertion Dart source text is represented as a sequence of Unicode code points 
+ * that no longer have to be normalized to Unicode Normalization Form C.
  * LETTER: 'a' .. 'z' | 'A' .. 'Z' ;
  * DIGIT: '0' .. '9' ;
  * WHITESPACE: ('\t' | ' ' | NEWLINE)+ ;
