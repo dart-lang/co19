@@ -18,7 +18,7 @@
 
 main() {
   switch(false) {
-    case 0:
-    case 1:
+    case 0: /// static type warning
+    case 1: /// static type warning
   }  
 }

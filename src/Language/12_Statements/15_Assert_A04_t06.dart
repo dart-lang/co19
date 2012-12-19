@@ -7,7 +7,6 @@
  * @assertion It is a static type warning if the type of e may not be assigned 
  * to either bool or () -> bool.
  * @description Checks that it is a static type warning if the type of e is num.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -17,6 +16,6 @@ bool foo() {return true;}
 
 main() {
   checkTypeError(() {
-    assert(foo ? 1 : 1.0);
+    assert(foo ? 1 : 1.0); /// static type warning
   });
 }

@@ -16,10 +16,9 @@
  * If execution reaches the point after sh  then a runtime error occurs, unless h = n + 1.
  * @description Checks that falling through produces a runtime error, unless
  * the current clause is an empty case clause or the default clause.
- * @static-warning
+ * @static-warning WARNING|RESOLVER|SWITCH_CASE_FALL_THROUGH
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 2862
  */
 
 test(value) {

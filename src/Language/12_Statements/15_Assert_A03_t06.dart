@@ -14,7 +14,6 @@
  * an AssertionError is thrown.
  * @description Checks that a dynamic type error occurs if the conditional expression e 
  * evaluates to a function that returns a function that returns a value of type bool.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -29,6 +28,6 @@ boolfunc foo() {
 
 main() {
   checkTypeError(() {
-    assert(foo);
+    assert(foo); /// static type warning
   });
 }

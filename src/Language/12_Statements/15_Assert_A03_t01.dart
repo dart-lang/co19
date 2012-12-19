@@ -14,7 +14,6 @@
 	 * an AssertionError is thrown.
  * @description Checks that a dynamic type error occurs if the conditional expression e 
  * evaluates to a string.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -24,6 +23,6 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    assert("false");
+    assert("false"); /// static type warning
   });
 }

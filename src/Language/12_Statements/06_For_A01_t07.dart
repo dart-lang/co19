@@ -19,7 +19,6 @@
  * ;
  * @description Checks that it is a runtime error when the iteration variable identifier
  * in a 'identifier in expression' loop variety is not declared prior to the for statement.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -27,7 +26,8 @@
 
 main() {
   try {
-    for (l in new List(5)) break;
+    for (l in new List(5)) /// static type warning
+      break;
     Expect.fail("NoSuchMethodError expected when calling undefined getter.");
   } on NoSuchMethodError catch (ex) {}
 }

@@ -9,7 +9,6 @@
  *     initializedVariableDeclaration ’;’ .
  * @description Checks that the variable created by such statement is not
  * available in a scope that is a "sibling" to the one it was declared in.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -20,7 +19,7 @@ main() {
       var id;
     }
     {
-      id = null;
+      id = null; /// static type warning
     }
     Expect.fail("NoSuchMethodError expected when calling undefined setter.");
   } on NoSuchMethodError catch (ex) {}

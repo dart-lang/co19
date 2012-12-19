@@ -20,7 +20,7 @@ main() {
   try {
     throw "foo";
     Expect.fail("This code shouldn't be executed");
-  } on Unavailable catch(ex) {
+  } on Unavailable catch(ex) { /// static type warning
     Expect.fail("This code shouldn't be executed");
   } on String catch(ok) {}
 }

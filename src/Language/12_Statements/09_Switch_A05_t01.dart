@@ -15,10 +15,9 @@
  * If case e1: s1 does not exist, then the default clause is executed by executing sn+1.
  * @description Checks that if the value of expression e is not an instance of the same
  * type as the constants of case clauses, it is a runtime error in checked mode only.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 6305
+ * @needsreview issue 6395
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -26,15 +25,15 @@ import "../../Utils/dynamic_check.dart";
 main() {
   checkTypeError(() {
       switch(1) {
-        case '1': break;
-        case '2': break;
+        case '1': break; /// static type warning
+        case '2': break; /// static type warning
         default:
       }
   });
   
   checkTypeError(() {
     switch('abc') {
-      case 1:
+      case 1: break; /// static type warning
     }
   });
   

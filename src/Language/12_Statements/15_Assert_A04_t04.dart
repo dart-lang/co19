@@ -7,10 +7,8 @@
  * @assertion It is a static type warning if the type of e may not be assigned 
  * to either bool or () -> bool.
  * @description Checks that it is a static type warning if the type of e is (Dynamic) -> bool.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 1714
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -19,7 +17,7 @@ bool foo(x) {}
 
 main() {
   try {
-    assert(foo);
+    assert(foo); /// static type warning
     if(isCheckedMode()) {
       Expect.fail("NoSuchMethodError expected");
     }

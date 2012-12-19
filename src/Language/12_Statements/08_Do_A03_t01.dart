@@ -8,11 +8,10 @@
  * @description Checks that it is a static type warning if the type of e may not be assigned to bool.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 
 main() {
   do {
     break;
-  } while("true");
+  } while("true"); /// static type warning
 }

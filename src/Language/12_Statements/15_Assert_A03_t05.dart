@@ -14,7 +14,6 @@
  * an AssertionError is thrown.
  * @description Checks that a dynamic type error occurs if the conditional expression e 
  * is a map literal.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -23,6 +22,6 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    assert({"true": true, "false": false});
+    assert({"true": true, "false": false}); /// static type warning
   });
 }

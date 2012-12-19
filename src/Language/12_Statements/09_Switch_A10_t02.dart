@@ -8,10 +8,9 @@
  * is not a break, continue, return or throw statement.
  * @description Checks that it is a static warning if the last statement of the statement
  * sequence of the last case clause is not a break, continue, return or throw statement.
- * @static-warning
+ * @static-warning WARNING|RESOLVER|SWITCH_CASE_FALL_THROUGH
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 2862
  */
 
 main() {

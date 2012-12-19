@@ -9,7 +9,6 @@
  *     initializedVariableDeclaration ’;’ .
  * @description Checks that the variable created by such statement is not
  * available in a scope that encloses the one it was declared in.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -19,7 +18,7 @@ main() {
     {
       int id;
     }
-    id = null;
+    id = null; /// static type warning
     Expect.fail("NoSuchMethodError expected when calling undefined setter.");
   } on NoSuchMethodError catch (ex) {}
 }

@@ -21,7 +21,7 @@ main() {
   try {
     throw new p.Foo();
     Expect.fail("This code shouldn't be executed");
-  } on Foo catch (p1, p2) {
+  } on Foo catch (p1, p2) { /// static type warning
     Expect.fail("This code shouldn't be executed");
   } on p.Foo catch(ok) {}
 }

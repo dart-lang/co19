@@ -10,7 +10,6 @@
  * cannot be assigned to bool.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -18,7 +17,9 @@ import "../../Utils/dynamic_check.dart";
 main() {
   var i;
   checkTypeError(() {
-  if ("true") {i=1;} 
+    if ("true") { /// static type warning
+      i=1;
+    } 
   });
   Expect.isNull(i);
 }

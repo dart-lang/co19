@@ -8,14 +8,13 @@
  *   localVariableDeclaration:
  *     initializedVariableDeclaration ’;’ .
  * @description Checks that the variable must be declared before it is used.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
 
 main() {
   try {
-    Expect.equals(null, i);
+    Expect.equals(null, i); /// static type warning
     var i;
     Expect.fail("NoSuchMethodError expected when calling undefined getter.");
   } on NoSuchMethodError catch (ex) {}

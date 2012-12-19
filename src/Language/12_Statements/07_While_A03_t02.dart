@@ -8,13 +8,12 @@
  * @description Checks that it is a static type warning if the type of e may not be assigned to bool.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    while (1+2) {
+    while (1+2) { /// static type warning
       print("foo");
       break;
     } 

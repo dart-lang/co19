@@ -10,7 +10,6 @@
  * If r is false, execution of the do statement is complete.
  * If r is true, then the do statement is re-executed recursively.
  * @description Checks that boolean conversion is done in checked mode.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -21,11 +20,11 @@ import "../../Utils/dynamic_check.dart";
 main() {
   checkTypeError( () {
     do {
-    } while (1);
+    } while (1); /// static type warning
   });
 
   checkTypeError( () {
     do {
-    } while ("true");
+    } while ("true"); /// static type warning
   });
 }

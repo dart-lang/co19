@@ -8,7 +8,6 @@
  * @description Checks that it is a static type warning if the type of e may not be assigned to bool.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 
 void f() {}
@@ -16,6 +15,6 @@ void f() {}
 main() {
   do {
     break;
-  } while (f());
+  } while (f()); /// static type warning
 }
 
