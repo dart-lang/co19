@@ -24,7 +24,7 @@ class A {}
 
 main() {
   try {
-    false && A;
+    false && A; /// static type warning - undefined operator or incompatible argument type
     throw "Exception expected.";
   } catch(e) {}
 }

@@ -34,7 +34,7 @@ typedef String fun();
 
 main() {
   try {
-    fun | 1;
+    fun | 1; /// static type warning - invoking an undefined operator, see "Ordinary invocation"
     throw "NoSuchMethodError expected.";
   } on NoSuchMethodError catch(e) {}
 }

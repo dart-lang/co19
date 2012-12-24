@@ -14,7 +14,7 @@
  * @issue 5840
  */
 
-class C {
+class C { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
   void set foo(value);
   foo(value) { }
 }

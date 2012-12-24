@@ -23,7 +23,7 @@
 class A<T> {
   test() {
     try {
-      T && false;
+      T && false; /// static type warning - undefined operator or incompatible argument type
       throw "Exception expected.";
     } catch(e) {}
   }

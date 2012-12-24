@@ -7,7 +7,6 @@
  * @assertion It is a static type warning if a type variable is supertype of
  * its upper bound.
  * @description Checks that a warning is produced.
- * @static-warning
  * @author pagolubev
  * @reviewer kaigorodov
  * @issue 3273
@@ -22,6 +21,6 @@ class G<T extends B> {}
 
 main() {
   checkTypeError(() {
-    new G<A>();
+    new G<A>(); /// static type warning
   });
 }

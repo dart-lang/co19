@@ -14,6 +14,7 @@
  * label* default ':' statements
  * ;
  * @description Checks that a case clause that contains labeled statement doesn't produce any errors.
+ * @static-warning unreachable code in labelled statement
  * @author iefremov
  * @reviewer rodionov
  */

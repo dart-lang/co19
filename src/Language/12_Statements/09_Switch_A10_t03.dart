@@ -11,6 +11,7 @@
  * @static-warning WARNING|RESOLVER|SWITCH_CASE_FALL_THROUGH
  * @author msyabro
  * @reviewer rodionov
+ * @needsreview 7537
  */
 
 main() {
@@ -18,7 +19,7 @@ main() {
     switch(1) {
       case 0: false;
               break;
-      default: true;
+      default: true; /// static-warning here
     }
   } catch(ok) {}
 }

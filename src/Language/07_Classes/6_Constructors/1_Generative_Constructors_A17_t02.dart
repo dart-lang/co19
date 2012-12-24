@@ -21,7 +21,9 @@ class C {
 
 main() {
   new C('');
-  checkTypeError(() => new C(1));
+  checkTypeError(
+    () => new C(1) /// static type warning
+  );
 }
 
 

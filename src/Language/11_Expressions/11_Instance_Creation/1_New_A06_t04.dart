@@ -23,7 +23,7 @@ class C {
 
 main() {
   try {
-    new C();
+    new C(); /// static type warning - invoking an undeclared constructor of an existing class, see "Instance creation|New"
     Expect.fail("Should throw NoSuchMethodError");
   } on NoSuchMethodError catch(e) {}
 }

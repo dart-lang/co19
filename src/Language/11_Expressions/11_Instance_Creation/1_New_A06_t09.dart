@@ -23,7 +23,7 @@ class C {
 }
 
 test() {
-  return new C(x:1); 
+  return new C(x:1); // unspecified static warning - wrong named arguments
 }
 
 main() {

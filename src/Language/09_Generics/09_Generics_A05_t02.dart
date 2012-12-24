@@ -14,7 +14,7 @@
 import "../../Utils/dynamic_check.dart";
 
 class C<T> {
-  static T t;
+  static T t; // static (not type) warning here: type variable in static context
 }
 
 main() {

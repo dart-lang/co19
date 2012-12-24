@@ -28,6 +28,6 @@ class C<T extends num> implements R<T> {
 
 main() {
   checkTypeError( () {
-    new R<String>.fc();
+    new R<String>.fc(); /// static type warning - Incompatible type arguments, see "Instance creation"
   });
 }

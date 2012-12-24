@@ -15,19 +15,25 @@
  * @issue 5840
  */
 
-class A {
+abstract class A {
   void set foo(var x);
 }
 
-class C extends A {
+abstract class C extends A {
+  factory C() {
+    return new D();
+  }
+  C.c() {}
   foo(value) {}
+}
+
+class D extends C {
+  D():super.c();
+  void set foo(var x){}
 }
 
 main() {
   C c=new C();
   c.foo(1);
-  try {
-    c.foo=1;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  c.foo=1;
 }

@@ -28,7 +28,6 @@
  * don't cause compile-time errors.
  * @author msyabro
  * @reviewer rodionov
- * @note http://code.google.com/p/dart/issues/detail?id=1189
  */
 
 topLevelFunction() {}
@@ -51,7 +50,7 @@ class A extends S {
     try {super & new Object() ^ true | 1; } catch(e) {}
 
     //literals
-    try {1 & "1";} catch(e) {}
+    try {1 & "1";} catch(e) {} /// static type warnings galore
     try {false | null;} catch(e) {}
     try {[1, 2, 3, 4] ^ {"1": 2, "3": 4};} catch(e) {}
 

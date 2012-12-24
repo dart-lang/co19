@@ -19,8 +19,6 @@
  * don't cause compile-time errors.
  * @author msyabro
  * @reviewer rodionov
- * @note http://code.google.com/p/dart/issues/detail?id=1242
- * @note http://code.google.com/p/dart/issues/detail?id=1189
  */
 
 topLevelFunction() {}
@@ -57,7 +55,7 @@ class A extends S {
     method() != id;
 
     //relational expressions
-    try {1 < 2 == true > false;} catch(e) {}
+    try {1 < 2 == true > false;} catch(e) {} /// static type warnings galore
     try {true >= false == id > 7;} catch(e) {}
 
     //shift expressions

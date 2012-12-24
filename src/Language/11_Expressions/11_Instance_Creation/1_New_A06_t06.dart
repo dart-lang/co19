@@ -21,7 +21,7 @@ import "1_New_A06_t06_lib.dart";
 
 main() {
   try {
-    new C._inaccessibleConstructor();
+    new C._inaccessibleConstructor(); /// static type warning - invoking an inaccessible constructor of an existing class, see "Instance creation|New"
     Expect.fail("Should throw NoSuchMethodError");
   } on NoSuchMethodError catch(e) {}
 }

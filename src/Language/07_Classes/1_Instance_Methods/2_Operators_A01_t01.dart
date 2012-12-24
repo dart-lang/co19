@@ -34,6 +34,7 @@ typedef int foo(double);
 class C<T> {
   int operator +(var v) {}
   List operator [](var v) {}
+  operator -() {}
   operator -(var v) {}
   operator []=(var v, var v2) {}
   dynamic operator ~() {}

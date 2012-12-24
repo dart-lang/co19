@@ -18,7 +18,7 @@
  */
 
 @A abstract class I {}
-@B.fromInt(1) abstract class J {}
+@B abstract class J {}
 @A abstract class IT <T> {}
 
 @B.fromInt(1) class A {
@@ -26,7 +26,7 @@
 }
 
 @B.fromInt(1) class B extends A {
-  B(){}
+  const B();
   const B.fromInt(int a);
 }
 

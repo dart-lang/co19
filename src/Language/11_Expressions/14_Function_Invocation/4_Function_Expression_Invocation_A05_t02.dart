@@ -27,12 +27,12 @@ main() {
   Expect.equals("call(2, bar)", c(2, "bar"));
 
   try {
-    c();
+    c(); /// static type warning - incorrect number of arguments, see "Binding actuals to formals"
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
-    c(1, 2, 3);
+    c(1, 2, 3); /// static type warning - incorrect number of arguments, see "Binding actuals to formals"
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

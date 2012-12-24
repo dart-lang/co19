@@ -24,7 +24,7 @@ typedef int fun();
 
 main() {
   try {
-    fun || true;
+    fun || true; /// static type warning - undefined operator or incompatible argument type
     throw "Exception expected.";
   } catch(e) {}
 }

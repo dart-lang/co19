@@ -19,7 +19,7 @@ class A {}
 
 main() {
   try {
-    A ? 1 : 2;
+    A ? 1 : 2; /// static type warning - first argument not assignable to boolean, see "Conditional"
     throw "Exception expected.";
   } catch(e) {}
 }

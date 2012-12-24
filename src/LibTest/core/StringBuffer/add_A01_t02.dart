@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [obj] to the buffer. Returns [this].
+ * @assertion Adds [obj] to the buffer.
  * @description Tries to pass null or an object that isn't a String as argument,
  *              correct string conversion expected ("null" in case of null)
  * @author msyabro

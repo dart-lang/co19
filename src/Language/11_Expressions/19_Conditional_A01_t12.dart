@@ -19,7 +19,7 @@ typedef int fun();
 
 main() {
   try {
-    fun ? 1 : 2;
+    fun ? 1 : 2; /// static type warning - first argument not assignable to boolean, see "Conditional"
     throw "Exception expected.";
   } catch(e) {}
 }

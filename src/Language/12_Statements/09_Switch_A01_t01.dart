@@ -18,6 +18,7 @@
  * allowed by spec) works as expected.
  * @author rodionov
  * @reviewer iefremov
+ * @issue 7537
  */
 
 switchTestBool(value) {

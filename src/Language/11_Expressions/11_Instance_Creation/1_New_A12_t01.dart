@@ -24,7 +24,7 @@ class C<T> implements R<T> {
    C(this.value) {}
    
    int get hashCode { 
-     return value.hashCode();
+     return value.hashCode;
    }
 
    bool operator ==(other) {

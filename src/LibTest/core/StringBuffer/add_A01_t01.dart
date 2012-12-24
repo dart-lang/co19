@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [obj] to the buffer. Returns [this].
+ * @assertion Adds [obj] to the buffer.
  * @description Checks that the String argument is appended to the buffer
  * @author msyabro
  * @reviewer rodionov

@@ -34,7 +34,7 @@ typedef String fun();
 
 main() {
   try {
-    1 ^ 2 ^ fun;
+    1 ^ 2 ^ fun; /// static type warning - incompatible argument type, see "Binding actuals to formals"
     throw "Exception expected.";
   } catch(e) {} // type error or NSME depending on mode
 }

@@ -13,7 +13,7 @@
  * if q lacks any of the keyword parameters {xn+1 , . . . , xn+k } a NoSuchMethodError
  * is thrown.
  * @description  Checks that a NoSuchMethodError is thrown if the actual constructor 
- * has required positional parameters than the new expression.
+ * has fewer required positional parameters than the new expression.
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -23,7 +23,7 @@ class C {
 }
 
 test() {
-  return new C(1); 
+  return new C(1); // unspecified static warning - wrong number of arguments
 }
 main() {
   Expect.throws(test, (e) => e is NoSuchMethodError);

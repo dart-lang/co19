@@ -19,7 +19,7 @@ class C {
 
 main() {
   try {
-    new C();
+    new C(); /// static type warning
     Expect.fail("Should throw an NoSuchMethodError");
   } on NoSuchMethodError catch (e) {}
 }

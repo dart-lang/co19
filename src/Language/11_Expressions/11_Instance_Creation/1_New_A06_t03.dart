@@ -19,7 +19,7 @@
 
 main() {
   try {
-    new C();
+    new C(); /// static type warning - invoking a constructor of an undeclared class, see "Instance creation|New"
     Expect.fail("Should throw an error");
   } catch(e) {}
 }

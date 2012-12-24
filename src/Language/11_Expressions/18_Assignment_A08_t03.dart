@@ -20,22 +20,22 @@ class C {
 main() {
   C c = new C();
   try {
-    c[0] = 1;
+    c[0] = 1; /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    c["o"] = 1;
+    c["o"] = 1; /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    c[false] = 1;
+    c[false] = 1; /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    c[1.01] = 1;
+    c[1.01] = 1; /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

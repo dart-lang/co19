@@ -18,7 +18,6 @@
  * then i is interpreted as a function expression invocation.
  * @author msyabro
  * @reviewer rodionov
- * @issue 1604
  */
 
 f (p1) {
@@ -33,7 +32,7 @@ class A {
 
     m = 1;
     try {
-      m(1, 2, 3);
+      m(1, 2, 3); /// static type warning - invoking an unknown instance member, see "Unqualified invocation" and "Ordinary invocation"
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch(ok) {}
   }

@@ -28,14 +28,14 @@ main() {
 
   //scripting mode only, raises static type warnings
   checkTypeError(() {
-    Expect.equals(0, [] ? 1 : 0); /// static type warning
+    Expect.equals(0, [] ? 1 : 0); /// static type warning - first argument not assignable to boolean, see "Conditional"
   });
   
   checkTypeError(() {
-    Expect.equals(0, new Object() ? 1 : 0); /// static type warning
+    Expect.equals(0, new Object() ? 1 : 0);
   });
   
   checkTypeError(() {
-    Expect.equals(0, "" ? 1 : 0); /// static type warning
+    Expect.equals(0, "" ? 1 : 0); /// static type warning - first argument not assignable to boolean, see "Conditional"
   });
 }

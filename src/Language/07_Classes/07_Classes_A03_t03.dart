@@ -19,7 +19,7 @@
  *    static? getterSignature |
  *    static? setterSignature |
  *    operatorSignature
- * ;
+ * ; 
  * @description Checks that there is no compile-time error if a function
  * method definition in a concrete class does not include a body, and no
  * runtime error is thrown when that class is instantiated.
@@ -27,7 +27,7 @@
  * @reviewer kaigorodov
  */
 
-class A {
+class A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
   f();
 }
 

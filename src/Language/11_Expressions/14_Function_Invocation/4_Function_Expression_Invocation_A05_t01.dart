@@ -11,7 +11,7 @@
  * a function literal expression or some other kind of expression. 
  * @author msyabro
  * @reviewer rodionov
- * @issue 1604
+ * @issue 1604, 7507
  */
 
 f(p1, [p2]) {

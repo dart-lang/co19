@@ -16,7 +16,7 @@
  * @reviewer rodionov
  */
 
-class A {
+abstract class A {
   foo([x]);
 }
 

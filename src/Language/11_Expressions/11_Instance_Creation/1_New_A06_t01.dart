@@ -24,7 +24,7 @@ abstract class C {
 
 main() {
   try {
-    new C();
+    new C(); /// static type warning - invoking a non-factory constructor of an abstract class, see "Instance creation|New"
     Expect.fail("Should throw AbstractClassInstantiationError");
   } on AbstractClassInstantiationError catch(e) {}
 }

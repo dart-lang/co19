@@ -32,6 +32,7 @@ main() {
           } finally {
             order.add(i);
           }
+          break;
       }
     } finally {
       order.add(i);

@@ -37,7 +37,7 @@ class A {
     var arr = [1, 2];
     
     //literals
-    1 && "1";
+    1 && "1"; /// static type warning galore
     false || null;
     [1, 2, 3, 4] && {"1": 2, "3": 4};
 

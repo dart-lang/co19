@@ -24,6 +24,6 @@ class C<T> {
 
 main() {
   checkTypeError(() {
-    var o = new C(id: "3");
+    var o = new C(id: "3"); /// static type warning
   });
 }

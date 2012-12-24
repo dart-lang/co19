@@ -20,7 +20,7 @@ class A {
   f({var x, var y}) { return x+y; }
 }
 
-class C extends A {
+class C extends A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
   f({var y, var x});
 }
 

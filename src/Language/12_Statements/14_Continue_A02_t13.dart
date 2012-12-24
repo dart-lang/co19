@@ -14,6 +14,7 @@
  * refers to another case clause of the same switch statement.
  * @author rodionov
  * @reviewer iefremov
+ * @needsreview issue 7537
  */
 
 

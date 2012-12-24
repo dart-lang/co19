@@ -12,7 +12,6 @@
  * is overridden and no exception is thrown.
  * @author rodionov
  * @reviewer iefremov
- * @issue 3326 - InvocationMirror not implemented
  */
 
 class C {
@@ -27,8 +26,8 @@ class C {
 
 main() {
   C c = new C();
-  Expect.equals(1, c[1] = 1);
-  Expect.equals(2, c[false] = 2);
-  Expect.equals("12", c["foo"] = "1" "2");
-  Expect.equals(true, c[-1.11] = 1 < 2);
+  Expect.equals(1, c[1] = 1); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
+  Expect.equals(2, c[false] = 2); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
+  Expect.equals("12", c["foo"] = "1" "2"); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
+  Expect.equals(true, c[-1.11] = 1 < 2); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
 }

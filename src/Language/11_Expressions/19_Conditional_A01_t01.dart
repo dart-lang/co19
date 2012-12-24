@@ -13,7 +13,6 @@
  * don't cause compile-time errors.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview: TODO: add negative tests on expression with cascades once cascades are implemented
  */
 
 topLevelFunction() {}
@@ -28,7 +27,7 @@ class A {
 
   test() {
     //literals
-    try { 1 ? "" : true;} catch(e) {}
+    try { 1 ? "" : true;} catch(e) {} /// static type warnings galore
     try { null ? [1, 2, 3] : {"1" : 2, "3" : 4};} catch(e) {}
 
     //function expressions

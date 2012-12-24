@@ -23,7 +23,7 @@
  *   static |
  *   typedef
  * ;
- * @description Checks that BUILT_IN_IDENTIFIERs can be used as identifiers for variables
+ * @description Checks that built-in identifiers can be used to name variables.
  * @author msyabro
  * @reviewer kaigorodov 
  */

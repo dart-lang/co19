@@ -83,7 +83,7 @@ class F {
   var x2=2, y3=2;
 }
 
-class Abstract {
+abstract class Abstract {
   func();
   funcWithParams(p1, p2);
   funcWithOptionalParams([p1 = 1, p2 = 2]);
@@ -95,6 +95,16 @@ class Abstract {
   var _val;
 }
 
+class Concrete extends Abstract {
+  func(){}
+  funcWithParams(p1, p2){}
+  funcWithOptionalParams([p1 = 1, p2 = 2]){}
+  funcWithOptionalParams2({p1: 1, p2: 2}){}
+  get val=>_val;
+  set val(var v){_val=v;}
+  operator==(Abstract other){return identical(this, other);}
+}
+
 main() {
   A a = const A();
   B b = new B();
@@ -102,4 +112,5 @@ main() {
   D d = new D();
   E e = new E();
   F f = new F();
+  Abstract abst=new Concrete();
 }

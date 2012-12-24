@@ -26,19 +26,21 @@
 
 main() {
   void func() {}
-  void f(void f()) {}
-  x() => f(f);
+  void f(void f()) {f();}
+  ff(var fp) => f(fp);
   
-  int funktion(args) {statements;}
+  int funktion(args) {f(func); func();}
 
   int f2(int x) {throw '';}
   func1(var x) {}
-  func2(var x, [var y=0]) {return x+y;}
-  func3(var x, {var y:1}) {return x*y;}
+  int func2(var x, [var y=0]) {return x+y;}
+  int func3(var x, {var y:1}) {return x*y;}
   Object obj() => null;
 
   fgh(g(h())){}
-  int func4([int x = null, int y = null, int z = null]) {f(f(x()));}
-  int foo(Object x, var y) => func(1, 2, 3);
+  int func4([int x = null, int y = null, int z = null]) {
+    return func2(x, y)+func3(y, y:z);
+  }
+  int foo(Object x, var y) => func4(1, 2, 3);
 }
 

@@ -32,10 +32,13 @@ main() {
       } finally {
         order.add(2);
       }
+      break;
     case 3:
       Expect.fail("This code shouldn't be executed");
+      break;
     default:
       Expect.fail("This code shouldn't be executed");
+      break;
     }
     order.add(1);
   }

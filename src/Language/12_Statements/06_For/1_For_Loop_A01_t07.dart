@@ -22,14 +22,15 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
- * @needsreview issue 3223
  */
 
 import "../../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError( () {
-    for ( var i = 0; ++i ; ) {
+    for ( var i = 0;
+      ++i ; /// static type warning 'num' is not assignable to 'bool'
+    ) {
       break;
     }
   });

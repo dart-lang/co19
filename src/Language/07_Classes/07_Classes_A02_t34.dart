@@ -82,7 +82,7 @@ class F {
   @B(1) int x1, y1;
 }
 
-class Abstract {
+abstract class Abstract {
   @B(1) func();
   @A funcWithParams(p1, p2);
   @B(1) funcWithOptionalParams([p1 = 1, p2 = 2]);

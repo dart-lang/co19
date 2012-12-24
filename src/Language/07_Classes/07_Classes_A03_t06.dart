@@ -26,7 +26,7 @@
  * @reviewer kaigorodov
  */
 
-class A {
+class A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
   operator==(A other);
 }
 
