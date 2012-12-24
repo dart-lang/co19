@@ -14,6 +14,6 @@
  */
 
 //error - main must not have arguments.
-main(x) {
+main(x) { // static (not type) warning
   print(x);
 }

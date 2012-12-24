@@ -49,7 +49,7 @@ import "1_Imports_A02_lib.dart" as P;
 
 main() {
   try {
-    var x = aFoo;
+    var x = aFoo; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

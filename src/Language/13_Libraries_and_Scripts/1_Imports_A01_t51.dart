@@ -28,12 +28,12 @@ main() {
   Expect.equals(hide, "hide");
 
   try {
-    Expect.equals(show, "show");
+    Expect.equals(show, "show"); /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 
   try {
-    var x = foo;
+    var x = foo; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

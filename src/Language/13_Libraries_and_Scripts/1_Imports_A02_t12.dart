@@ -41,16 +41,16 @@
  *   
  * @description Checks that names not provided as arguments to a 'show' combinator
  * are undefined even if they are defined in the imported library's export namespace.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 7596
  */
 
 import "1_Imports_A02_lib.dart" show aFoo, A;
 
 main() {
   try {
-    aFunc();
+    aFunc(); /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

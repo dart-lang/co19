@@ -29,8 +29,8 @@ main() {
   somelibprefix.ClassFromSomeLib<int, String, double> v2;
   somelibprefix.ClassFromSomeLib
     <
-    somelibprefix.ClassFromSomeLib<int>,
-    somelibprefix.ClassFromSomeLib<bool>,
+    somelibprefix.ClassFromSomeLib<int, bool, double>,
+    somelibprefix.ClassFromSomeLib<bool, int, double>,
     somelibprefix.ClassFromSomeLib
     >
     v3;

@@ -12,7 +12,7 @@
  * an instance method with the same name.
  * @author iefremov
  * @reviewer kaigorodov
- * @issue 5840
+ * @issue 5840,7597
  */
 
 abstract class A {

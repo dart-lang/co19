@@ -18,6 +18,7 @@ import "13_Libraries_and_Scripts_A05_t03_lib.dart" as lib;
 
 main() {
   try {
-    lib.C._x;
-  } catch(e) {}
+    lib.C._x; /// static type warning '_foo' is private and not defined in this library
+    Expect.fail('NoSuchMethodError is expected');
+  } on NoSuchMethodError catch(e) {}
 }

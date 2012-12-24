@@ -40,7 +40,7 @@ main() {
   Expect.equals("static2", C.SF); // from lib3
   
   try {
-    var x = badaboo; // 'shown' by both exports, but isn't declared in either, so it's undefined
+    var x = badaboo; /// static type warning 'shown' by both exports, but isn't declared in either, so it's undefined
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

@@ -31,7 +31,7 @@ class BoundedInt<T extends int> {}
 main() {
   // Expressions|Type test dictates that this should produce a runtime error in both modes
   try {
-    null is MalformedType;
+    null is MalformedType; /// static type warning no such type    
     Expect.fail("Runtime error expected");
   } on Error catch(e) {
     if(isCheckedMode()) {
@@ -40,20 +40,20 @@ main() {
   }
   
   checkTypeError( () {
-    C<int, double, MalformedType> x = new C();
+    C<int, double, MalformedType> x = new C(); /// static type warning no such type
   });
   checkTypeError( () {
-    // non-normative, but spec contains this statement:
+    // non-normative, but spec contains this statement: /// static type warning no such type
     // "we have opted to treat a malformed type as an error type that has no subtypes or supertypes"
-    Expect.isFalse(null is C<int, double, MalformedType>);
+    Expect.isFalse(null is C<int, double, MalformedType>); /// static type warning no such type
   });
   
   checkTypeError( () {
-    C<int, double, MalformedType> x = new C();
+    C<int, double, MalformedType> x = new C(); /// static type warning no such type
   });
   
   checkTypeError( () {
-    Bounded<String> x = new Bounded();
+    Bounded<String> x = new Bounded(); /// static type warning not assignable 
   });
   
   checkTypeError( () {
@@ -65,6 +65,6 @@ main() {
   });
   
   checkTypeError( () {
-    C<C<MalformedType, int, int>, C, C> x = new C();
+    C<C<MalformedType, int, int>, C, C> x = new C(); /// static type warning no such type
   });
 }

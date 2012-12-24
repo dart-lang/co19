@@ -41,7 +41,6 @@
  *   
  * @description Checks that all specified show and hide combinators are applied
  * and if a name is hidden by any of them, it's undefined in the resulting namespace. 
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -50,7 +49,7 @@ import "1_Imports_A02_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {
   try {
-    aFunc();
+    aFunc(); /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

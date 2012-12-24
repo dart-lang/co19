@@ -21,7 +21,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
-
+library Parts_test_lib;
 part "3_Part_2.dart";
 
 main() {

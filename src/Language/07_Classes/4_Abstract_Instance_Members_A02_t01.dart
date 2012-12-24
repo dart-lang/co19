@@ -11,6 +11,7 @@
  * results in a NoSuchMethodError.
  * @author kaigorodov
  * @reviewer rodionov
+ * @issue 7597
  */
 
 class C { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.

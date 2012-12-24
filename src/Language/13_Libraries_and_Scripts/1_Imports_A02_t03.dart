@@ -54,7 +54,7 @@ import "1_Imports_A02_lib.dart";
 
 main() {
   try {
-    identical(cFoo, 'C_FOO');
+    identical(cFoo, 'C_FOO'); /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

@@ -49,7 +49,7 @@ import "1_Imports_A02_lib.dart" show aFoo, A, anUndefinedName;
 
 main() {
   try {
-    print(anUndefinedName);
+    print(anUndefinedName); /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

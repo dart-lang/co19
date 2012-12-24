@@ -29,7 +29,7 @@ main() {
   Expect.equals(show, "show");
 
   try {
-    var x = foo;
+    var x = foo; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

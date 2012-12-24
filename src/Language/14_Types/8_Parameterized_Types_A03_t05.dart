@@ -11,8 +11,6 @@
  * @description Several type arguments, the first one violates the bound.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
- * @issue 3273
  */
 
 class F1 {}

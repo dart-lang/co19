@@ -20,11 +20,11 @@ main() {
   Expect.equals(hide, "hide");
 
   try {
-    var x = show;
+    var x = show; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
   try {
-    var x = foo;
+    var x = foo; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

@@ -18,7 +18,7 @@ typedef int g(p1, p2, [p3]);
 typedef bool h(p1, p2, {p3});
 
 class I {
-  void call(a1, a2);
+  void call(a1, a2){}
 }
 
 class J {
