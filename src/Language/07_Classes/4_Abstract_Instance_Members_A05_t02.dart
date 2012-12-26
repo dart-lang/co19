@@ -16,12 +16,13 @@
  * @reviewer kaigorodov
  */
 
-class A {
+abstract class A {
   foo(int x);
 }
 
 class C extends A {
-  foo(String x) {}
+  foo(String x) { /// static type warning
+  }
 }
 
 main() {

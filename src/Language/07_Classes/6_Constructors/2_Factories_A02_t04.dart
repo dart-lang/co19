@@ -9,10 +9,9 @@
  * @description Checks that it's both a compile-time error and a static warning 
  * when M is the name of a function type alias available in the same scope.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @issue 980
+ * @needsreview issue 980, 7602
  */
 
 typedef foo();

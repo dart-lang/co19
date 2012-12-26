@@ -12,7 +12,6 @@
  * Factory constructor name is that of its enclosing class.
  * @author iefremov
  * @reviewer rodionov
- * @static-warning
  */
 
 class S1 {}
@@ -26,5 +25,5 @@ class M<T, U, V> {
 typedef f();
 
 main() {
-  M<S3, int, int> m1 = new M<S2, num, Function>();
+  M<S3, int, int> m1 = new M<S2, num, Function>(); /// static type warning not assignable 
 }

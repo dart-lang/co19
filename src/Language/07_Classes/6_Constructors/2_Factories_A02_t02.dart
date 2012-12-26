@@ -9,9 +9,9 @@
  * @description Checks that it's both a compile-time error and a static warning 
  * when factory keyword is followed by a name that is not a constructor name.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
+ * @needsreview issue 7602
  */
 
 class C {

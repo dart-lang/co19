@@ -9,8 +9,7 @@
  * 7.1: It is a static warning if a class C declares an instance method
  * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an abstract
- * method with the same name as a static getter in its superclass.
- * @static-warning for 2 reasons: 1 as per assertion and another for not implementing f() in a concrete class
+ * or concrete method with the same name as a static getter in its superclass.
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 981
@@ -20,13 +19,14 @@ class A {
   static get f {}
 }
 
-class B extends A {
-  f();
+abstract class B extends A {
+  f(); /// static type warning
+}
+
+class C extends B {
+  f() {} /// static type warning
 }
 
 main() {
-  try {
-    new B().f();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+  new C().f();
 }

@@ -10,18 +10,18 @@
  * @description Checks that it is a static warning if a class defines a setter named 'foo='
  * and a getter named 'foo' with argument/return types that are not mutually
  * assignable. Types in getter/setter signatures provided explicitly (String and double).
- * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
  */
 
 class C {
-  set foo(double d) { }
+  set foo(double d) { /// static type warning Setter type must be assignable to getter type
+  }
   String get foo { }
 }
 
 main() {
-  (new C()).foo = (new C()).foo;
+  (new C()).foo = (new C()).foo; /// static type warning 'String' is not assignable to 'double'
 }
 

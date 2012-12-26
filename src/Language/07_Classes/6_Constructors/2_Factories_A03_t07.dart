@@ -9,7 +9,6 @@
  * otherwise the return type is M <T1, …, Tn>, where T1, …, Tn are the type parameters of the enclosing class.
  * @description Checks that assigning the result of invoking a factory constructor
  * to a variable whose type is not assignable to M<T1,...,Tn> produces a static warning.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -31,6 +30,6 @@ I<S3, int, int> m1;
 
 main() {
   checkTypeError(() {
-    m1 = new I<S2, num, Function>();
+    m1 = new I<S2, num, Function>(); /// static type warning not assignable 
   });
 }

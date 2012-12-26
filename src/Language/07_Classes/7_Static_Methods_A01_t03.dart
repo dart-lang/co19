@@ -9,7 +9,6 @@
  * The static methods of a class C are those static methods declared by C.
  * @description Checks that superclass's static methods are unaccessible
  * via subclass's name.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -22,5 +21,8 @@ class C extends S {
 }
 
 main() {
-  Expect.throws((){C.foo();}, (e)=>e is NoSuchMethodError);
+  Expect.throws((){
+                    C.foo(); /// static type warning
+                  },
+       (e)=>e is NoSuchMethodError);
 }

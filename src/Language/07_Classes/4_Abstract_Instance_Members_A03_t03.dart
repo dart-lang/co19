@@ -11,27 +11,31 @@
  * @description Checks that a compile-error is produced when an abstract method overrides
  * another abstract method with the same name and a different number of required parameters.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  * @issue 978
  */
 
-class A {
+abstract class A {
   f(var x);
 }
 
-class C extends A {
+abstract class C extends A {
   f(var x, var y);
+}
+
+class D extends C {
+  f(var x, var y){}
 }
 
 main() {
   try {
-    new A().f(2);
+    new D().f(2);
   } catch (e) {}
   
   try {
-    new C().f(2, 2);
+    new D().f(2, 2);
   } catch (e) {}
 }
 

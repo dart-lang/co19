@@ -8,7 +8,6 @@
  * inherited in a concrete class.
  * @description Checks that it is a static warning if an abstract getter is
  * inherited in a concrete class.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -17,7 +16,7 @@ abstract class A {
   int get foo;
 }
 
-class C extends A {
+class C extends A { /// static type warning
 }
 
 main() {

@@ -11,13 +11,13 @@
  * @description Checks that a compile-time error is produced when the overriding non-abstract 
  * instance method has fewer named parameters than the abstract method being overridden.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  * @issue 978
  */
 
-class A {
+abstract class A {
   f({var x, var y, var z});
 }
 
@@ -26,11 +26,11 @@ class C extends A {
 }
 
 main() {
+  A c=new C();
+  c.f(x: 1, z: 2);
   try {
-    new A().f(x: 1, y: 2, z: 3);
-  } catch (e) {}
-  
-  try {
-    new C().f(x: 1, z: 2);
-  } catch (e) {}
+    c.f(x: 1, y: 2, z: 3);
+  } catch (e) {
+    print("Exception: $e");
+  }
 }

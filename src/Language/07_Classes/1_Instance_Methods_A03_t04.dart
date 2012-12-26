@@ -9,7 +9,6 @@
  * @description Checks that a static warning is produced when the type of the overriding
  * method is not a subtype of the method being overridden even if the class declaring m1
  * is not a direct subtype of the class declaring m2.
- * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
@@ -24,7 +23,8 @@ class A2 extends A1{}
 class A3 extends A2{}
 
 class C extends A3 {
-  foo(int name) {}
+  foo(int name) { /// static type warning
+  }
 }
 
 main() {

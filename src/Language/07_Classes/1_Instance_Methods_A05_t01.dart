@@ -8,7 +8,6 @@
  * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an instance
  * method with the same name as a static variable in its superclass.
- * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov
@@ -19,7 +18,8 @@ class A {
 }
 
 class C extends A {
-  f() {}
+  f() { /// static type warning
+  }
 }
 
 main() {

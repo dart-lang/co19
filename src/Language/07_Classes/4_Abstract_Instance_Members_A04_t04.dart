@@ -13,20 +13,23 @@
  * but in a different order.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 978
  */
 
 class A {
   f({var x, var y}) { return x+y; }
 }
 
-class C extends A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
+abstract class C extends A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
   f({var y, var x});
 }
 
+class D extends C {
+  f({var x, var y}) { return x-y; }
+}
+
 main() {
-  try {
-    new A().f(x:1, y:2);
-    new C().f(x:2, y:1);
-  } catch (e) {}
+  A a=new A();
+  Expect.equals(3, a.f(x:2, y:1));
+  a=new D();
+  Expect.equals(1, a.f(x:2, y:1));
 }

@@ -21,27 +21,20 @@
  * the type parameters of the immediately enclosing class bound to a set of actual type arguments V1, ... , Vm
  * and the formal parameter bindings determined by the argument list of the superinitializer of k.
  * @description Checks that type parameters are bound before execution of the constructor body.
- * @static-warning
- * @author msyabro
- * @reviewer rodionov
+ * @author kaigorodov
  */
 
 class C<T, U, V> {
-  C() {
-    T a = 1;
-    U b = true;
-    V c = '';
-  }
-
-  C.redirecting(): this.actual();
-  C.actual() {
-    T a = 0.5;
-    U b = [];
-    V c = {};
-  }
+  T a;
+  U b;
+  V c;
+    
+  C(T a, U b, V c): this.actual(a, b, c);
+  C.redirecting(T a, U b, V c): this.actual(a, b, c);
+  C.actual(this.a, this.b, this.c){}
 }
 
 main() {
-  new C<int, bool, String>();
-  new C<double, List, Map>.redirecting();
+  new C<int, bool, String>(1, true, '');
+  new C<double, List, Map>.redirecting(0.5, [], {});
 }

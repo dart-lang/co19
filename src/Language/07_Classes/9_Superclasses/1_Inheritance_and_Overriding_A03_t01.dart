@@ -6,17 +6,16 @@
 /**
  * @assertion It is a static warning if a non-abstract class inherits an abstract method.
  * @description Checks that it is a static warning if a non-abstract class inherits an abstract method.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 
-class A {
+abstract class A {
   foo();
 }
 
-class B extends A {
+class B extends A { /// static type warning
 }
 
 main() {

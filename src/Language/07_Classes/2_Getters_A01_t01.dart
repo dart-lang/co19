@@ -13,10 +13,10 @@
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @reviewer kaigorodov
  */
 
-class C<U, V> {
-  static int get g1 => null;
+abstract class A<U, V> {
   int get g2 => null;
   get g3 => null;
   static get g4 => null;
@@ -28,6 +28,16 @@ class C<U, V> {
   get g8 => null;
   V get g9;
   get g10;
+}
+
+class C<U, V> extends A<U,V> {
+  static int get g1 => null;
+  static get g4 => null;
+
+  int get g5 => 1;
+  get g6 => null;
+  V get g9 => null;
+  get g10 => null;
 }
 
 main() {

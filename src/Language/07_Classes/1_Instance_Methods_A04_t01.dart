@@ -9,7 +9,6 @@
  * and the signature of m1 specifies a different default value for p.
  * @description Checks that it is a static warning if overridden and overriding methods
  * have different default values for their optional parameter.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @needsreview issue 3183
@@ -20,7 +19,8 @@ class A {
 }
 
 class C extends A {
-  foo([x = 1]) {}
+  foo([x = 1]) { /// static type warning
+  }
 }
 
 main() {

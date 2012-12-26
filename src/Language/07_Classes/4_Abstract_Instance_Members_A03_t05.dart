@@ -12,26 +12,29 @@
  * has one optional parameter and the abstract method being overridden has 1 required parameter 
  * and 1 optional parameter of the same name.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 978
  */
 
-class A {
+abstract class A {
   f(var x, [var xx]);
 }
 
-class C extends A {
+abstract class C extends A {
   f([var xx]);
+}
+
+class D extends C {
+  f([var xx]){}
 }
 
 main() {
   try {
-    new A().f(1);
+    new D().f(1);
   } catch (e) {}
 
   try {
-    new C().f(1);
+    new D().f(1);
   } catch (e) {}
 }

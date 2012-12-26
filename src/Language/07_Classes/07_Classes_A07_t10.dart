@@ -10,12 +10,12 @@
  * Hence, a setter name can never conflict with, override or be overridden by a getter or method.
  * @description Checks that a class can declare a getter and a setter of the same name provided
  * both are instance members (abstract or not) or both are static members.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
+ * @issue 7605
  */
 
-class A {
+abstract class A {
   static var _sVal;
   static get sVal {}
   static set sVal(var value) {}
@@ -34,6 +34,14 @@ class A {
   void set cVal(var val) {}
 }
 
+class B extends A {
+  get aVal{}
+  set bVal(var val){}
+  get cVal{}
+}
+
 main() {
-  A a = new A();
+  A a = new B();
+  var x=a.bVal;
+  a.bVal=x;
 }

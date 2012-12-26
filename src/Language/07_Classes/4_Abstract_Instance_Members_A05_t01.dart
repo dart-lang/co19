@@ -20,12 +20,13 @@ class A {
   int foo(var x) {}
 }
 
-class B extends A {
-  String foo(var x);
+abstract class B extends A {
+  String foo(var x); /// static type warning
 }
 
 class C extends B {
-  String foo(var x) {}
+  String foo(var x) { /// static type warning
+  }
 }
 
 main() {

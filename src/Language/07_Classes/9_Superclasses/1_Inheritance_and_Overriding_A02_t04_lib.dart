@@ -6,7 +6,7 @@
 
 library Inheritance_and_Overriding_A02_t04_lib;
 
-class A {
+class S {
   _foo(var arg) { return 'A'; }
   _bar([x]) {return "barx";}
   get _g {return "super-g";}

@@ -15,7 +15,7 @@
  */
 
 class C {
-  int operator[]=(index, value) {}
+  int operator[]=(index, value) {} /// static type warning
   operator[](index) {}
 }
 

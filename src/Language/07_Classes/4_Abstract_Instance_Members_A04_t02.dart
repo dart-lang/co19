@@ -14,9 +14,10 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  */
 
-class A {
+abstract class A {
   f({var x, var z});
 }
 
@@ -25,11 +26,7 @@ class C extends A {
 }
 
 main() {
-  try {
-    new A().f(x: 1, z: 3);
-  } catch (e) {}
-  
-  try {
-    new C().f(x: 1, y: 2, z: 2);
-  } catch (e) {}
+  A a=new C();
+  a.f(x: 1, z: 3);
+  new C().f(x: 1, y: 2, z: 2);
 }

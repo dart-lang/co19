@@ -8,7 +8,6 @@
  * member m2 and the type of m1 is not a subtype of the type of m2.
  * @description Checks that a static warning is produced if m1 is not a subtype of m2
  * because their respective required parameter types are not mutually assignable.
- * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
@@ -19,7 +18,9 @@ class A {
 }
 
 class C extends A {
-  foo(String x) { return x.toString(); }
+  foo(String x) { /// static type warning
+    return x.toString();
+  }
 }
 
 main() {

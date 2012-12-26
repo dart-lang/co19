@@ -11,13 +11,14 @@
  * and a getter named 'foo' with argument/return types that are not mutually
  * assignable. Types in getter/setter signatures provided as type parameters with type
  * bounds that are not mutually assignable (int and String).
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  */
 
 class C<T extends int, S extends String> {
-  set foo(T t) { _foo = t; }
+  set foo(T t) { /// static type warning
+    _foo = t;
+  }
 
   S get foo { return _foo; }
   

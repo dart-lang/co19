@@ -8,15 +8,18 @@
  * inherited in a concrete class.
  * @description Checks that it is a static warning if an abstract method is
  * declared in a concrete class.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
 
-class A {
+class A { /// static type warning
   foo([x]);
 }
 
+class B extends A {
+  foo([x]){}
+}
+
 main() {
-  var a=new A();
+  var a=new B();
 }

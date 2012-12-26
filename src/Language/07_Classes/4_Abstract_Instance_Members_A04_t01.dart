@@ -12,10 +12,8 @@
  * has fewer named parameters than the instance method being overridden (2 vs 3) and neither 
  * have any required parameters.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 978
  */
 
 class A {

@@ -8,11 +8,10 @@
  * @description Checks that it is a static warning if the static type of id is not assignable to Tid.
  * @author msyabro
  * @reviewer rodionov
- * @static-warning
  */
 
 class C {
-  C(int this.id) {}
+  C(int this.id) {} /// static type warning
   String id;
 }
 

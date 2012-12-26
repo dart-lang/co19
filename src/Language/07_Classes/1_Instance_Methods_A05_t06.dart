@@ -9,7 +9,6 @@
  * @description Checks that a static warning is produced when a class declares an instance
  * method with the same name as a static method in its superclass even if their signatures
  * are wildly different.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -19,7 +18,8 @@ class A {
 }
 
 class C extends A {
-  bool f(int x, [String xx]) {}
+  bool f(int x, [String xx]) { /// static type warning
+  }
 }
 
 main() {

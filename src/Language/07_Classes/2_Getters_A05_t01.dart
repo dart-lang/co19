@@ -8,7 +8,6 @@
  * type of m1 is not a subtype of the type of m2 .
  * @description Checks that a static warning is produced when the return type of m1
  * is void and the return type of m2 is String.
- * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov
@@ -19,7 +18,8 @@ class A {
 }
 
 class C extends A {
-  void get foo { }
+  void get foo { /// static type warning
+  }
 }
 
 main() {

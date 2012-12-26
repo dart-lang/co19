@@ -12,13 +12,13 @@
  * instance method has almost the same set of named parameters as the abstract method being overriden, 
  * except for one that has a different name.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  * @issue 978
  */
 
-class A {
+abstract class A {
   f({var x, var y, var z});
 }
 
@@ -27,10 +27,12 @@ class C extends A {
 }
 
 main() {
+  C c=new C();
+  A a=c;
   try {
-    new A().f(x: 1, y: 2, z: 3);
+    a.f(x: 1, y: 2, z: 3);
   } catch (e) {}
   try {
-    new C().f(x: 1, yy: 2, z: 3);
+    c.f(x: 1, yy: 2, z: 3);
   } catch (e) {}
 }

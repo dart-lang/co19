@@ -11,12 +11,12 @@
  * @description Checks that a compile-time error is not produced when the overriding non-abstract
  * instance method has more named parameters than the abstract method being overridden
  * and both have the same non-zero number of required parameters of the same type.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  */
 
-class A {
+abstract class A {
   f(var r, {var x});
 }
 
@@ -25,11 +25,7 @@ class C extends A {
 }
 
 main() {
-  try {
-    new C().f(1, x:1, y:2);
-  } catch (e) {}
-
-  try {
-    new A().f(1, x:1);
-  } catch (e) {}
+  new C().f(1, x:1, y:2);
+  A a=new C();
+  a.f(1, x:1);
 }

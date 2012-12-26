@@ -11,13 +11,13 @@
  * @description Checks that a compile-error is produced when a non-abstract instance method overrides
  * an abstract method with the same name and a different number of required parameters.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  * @issue 978
  */
 
-class A {
+abstract class A {
   f(var x);
 }
 
@@ -27,7 +27,7 @@ class C extends A {
 
 main() {
   try {
-    new C().f(2);
+    new C().f(2);  /// static type warning missing argument
   } catch (e) {}
   
   try {

@@ -10,7 +10,6 @@
  * instance member m2 and m1 has a different number of required parameters than m2.
  * @description Checks that a compile-error is produced when an abstract method overrides
  * a non-abstract instance method with the same name and a different number of required parameters.
- * @static-warning
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -20,14 +19,18 @@ class A {
   f(var x) {}
 }
 
-class C extends A {
+abstract class C extends A {
   f(var x, var y);
+}
+
+class D extends C {
+  f(var x, var y){}
 }
 
 main() {
   try {
     new A().f(2);
-    new C().f(2, 2);
+    new D().f(2, 2);
   } catch (e) {}
 }
 

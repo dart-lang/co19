@@ -35,7 +35,6 @@
  *   static? (var | type) initializedIdentifierList
  * ;
  * @compile-error
- * @static-warning
  * @description Checks that a static abstract getter can't be used in place of a class member definition.
  * @author msyabro
  * @reviewer iefremov

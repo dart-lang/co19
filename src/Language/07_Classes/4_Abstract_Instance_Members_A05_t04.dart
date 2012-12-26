@@ -12,12 +12,11 @@
  * is not a subtype of the abstract m2's type because their respective required parameter 
  * types are not mutually assignable even if the class declaring the first method is not
  * a direct subclass of the other.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
 
-class A {
+abstract class A {
   foo(int x);
 }
 
@@ -25,7 +24,8 @@ abstract class B extends A {
 }
 
 class C extends B {
-  foo(String x) {}
+  foo(String x) { /// static type warning
+  }
 }
 
 main() {

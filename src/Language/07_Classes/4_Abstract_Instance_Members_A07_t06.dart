@@ -12,17 +12,18 @@
  * @description Checks that it is a static warning if an abstract method overrides
  * an abstract method and does not explicitly specify a default value for its optional parameter
  * while the overridden method does.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
+ * @reviewer kaigorodov
  */
 
-class A {
+abstract class A {
   foo([x = 1]);
 }
 
 class C extends A {
-  foo([x]){}
+  foo([x]){ /// static type warning
+  }
 }
 
 main() {

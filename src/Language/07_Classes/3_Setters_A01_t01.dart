@@ -9,28 +9,29 @@
  * static? returnType? set identifier formalParameterList
  * ;
  * @description Checks that various valid setter declarations do not cause any errors.
- * Note: using non-void return type will cause a static warning.
- * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
+ * @reviewer kaigorodov
  */
 
-class C<U, V> {
-  static int set s1(var x){}
-  int set s2(var x){}
-  static set s3(var x){}
+abstract class A<U, V> {
+  void set s2(var x){}
   set s4(var x){}
 
-  int set s5(var x);
+  void set s5(var x);
   set s6(var x);
 
-  V set s7(U x){}
+  void set s7(U x){}
   set s8(V x){}
+}
 
-  U set s9(V x);
-  set s10(U x);
+class C<U, V> extends A<U, V> {
+  static void set s1(var x){}
+  static set s3(var x){}
 
+  void set s5(var x){}
+  set s6(var x){}
 }
 
 main() {

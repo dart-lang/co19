@@ -12,28 +12,32 @@
  * another abstract method with the same name and a different number of required parameters
  * even if the class declaring the second method is not a direct superclass of the other.
  * @compile-error
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @reviewer kaigorodov
  * @issue 978
  */
 
-class A {
+abstract class A {
   f(var x);
 }
 
-class Foo extends A {}
+abstract class Foo extends A {}
 
-class C extends Foo {
+abstract class C extends Foo {
   f(var x, var y);
+}
+
+class D extends C {
+  f(var x, var y){}
 }
 
 main() {
   try {
-    new C().f(2, 2);
+    new D().f(2, 2);
   } catch (e) {}
 
   try {
-    new A().f(2);
+    new D().f(2);
   } catch (e) {}
 }

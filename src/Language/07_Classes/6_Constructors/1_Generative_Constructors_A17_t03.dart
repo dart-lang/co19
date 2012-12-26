@@ -8,7 +8,6 @@
  * type. Otherwise, the type of an initializing formal named id is Tid, where Tid is
  * the type of the field named id in the immediately enclosing class.
  * @description Checks that the type of an initializing formal is the type of the corresponding field.
- * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
@@ -22,7 +21,9 @@ class C {
 
 main() {
   new C(3.14);
-  checkTypeError(() => new C(1));
+  checkTypeError(
+    () => new C(1) /// static type warning
+  );
 }
 
 
