@@ -10,7 +10,6 @@
  * @description Checks that it is a static type warning if the static type of
  * one of arguments can't be assigned to the type of the corresponding parameter
  * of the constructor.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -22,6 +21,6 @@ class C {
 
 main() {
   checkTypeError(() {
-    C c = new C("");
+    C c = new C(""); /// static type warning - incompatible formal parameters, see "Instance creation|New"
   });
 }

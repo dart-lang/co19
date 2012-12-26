@@ -6,7 +6,6 @@
 /**
  * @assertion An assignable expression of the form e.id(a1, ..., an) is evaluated as a method invocation.
  * @description Checks that expression of the form e.id(a1, ..., an) is evaluated as a method invocation.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -22,8 +21,8 @@ main() {
   Expect.equals(10, a.id(5, 6, 1));
   Expect.equals(0, a.id(0, 0, 0));
 
-  Expect.throws( () => a.id(),           (e) => e is NoSuchMethodError);
-  Expect.throws( () => a.id(1, 2, 3, 4), (e) => e is NoSuchMethodError);
-  Expect.throws( () => a.m(),            (e) => e is NoSuchMethodError);
-  Expect.throws( () => a.m(1,2 ,3),      (e) => e is NoSuchMethodError);
+  Expect.throws( () => a.id(),           (e) => e is NoSuchMethodError); /// static type warning - incompatible arguments, see "Binding actuals to formals"
+  Expect.throws( () => a.id(1, 2, 3, 4), (e) => e is NoSuchMethodError); /// static type warning - incompatible arguments, see "Binding actuals to formals"
+  Expect.throws( () => a.m(),            (e) => e is NoSuchMethodError); /// static type warning - no such method, see "Ordinary invocation"
+  Expect.throws( () => a.m(1,2 ,3),      (e) => e is NoSuchMethodError); /// static type warning - no such method, see "Ordinary invocation"
 }

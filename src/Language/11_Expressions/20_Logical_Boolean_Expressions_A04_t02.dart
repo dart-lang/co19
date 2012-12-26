@@ -7,7 +7,6 @@
  * @assertion The static type of a logical boolean expression is bool.
  * @description Checks that the static type of a logical boolean
  * expression is bool.
- * @static-warning
  * @author kaigorodov
  * @reviewer msyabro
  */
@@ -15,6 +14,6 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    int b = (true || false);
+    int b = (true || false); /// static type warning - incompatible types, see "Assignment"
   });
 }

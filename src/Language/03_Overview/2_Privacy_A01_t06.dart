@@ -12,7 +12,7 @@
  * Inaccessible type in type test should produce a dynamic type error in checked mode.
  * @author msyabro
  * @reviewer iefremov
- * @issue 7480
+ * @reviewer kaigorodov
  */
 
 import "lib.dart";
@@ -21,12 +21,14 @@ import "../../Utils/dynamic_check.dart";
 main() {
   if(isCheckedMode()) {
     checkTypeError( () {
-      (p) {} is _inaccessibleFuncType;
+      (p) {} is _inaccessibleFuncType; /// static type warning [12.31 Type Test] It is a static warning
+                                       // if T does not denote a type available in the current lexical scope.
     });
   } else {
     var fail = false;
     try {
-      (p) {} is _inaccessibleFuncType;
+      (p) {} is _inaccessibleFuncType; /// static type warning [12.31 Type Test] It is a static warning
+                                       // if T does not denote a type available in the current lexical scope.
       fail = true;
     } catch(ok) {//a run-time error in a production mode, as per spec ch. 11.29
     }

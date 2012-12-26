@@ -10,7 +10,6 @@
  *      return identical(v, true);
  *    }(o)
  * @description Checks that objects that are not bool and not null are converted to false.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @needsreview issue 1552
@@ -23,7 +22,7 @@ class A {}
 main() {
   if(!isCheckedMode()) {
     Expect.isTrue(true && true);
-    
+    // static type warnings galore - not specified in "Logical boolean expressions" or "Boolean conversion"
     Expect.isFalse(new Object() && true);
     Expect.isFalse(0 && true);
     Expect.isFalse(1 && true);

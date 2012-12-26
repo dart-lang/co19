@@ -9,7 +9,6 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that a private function is inaccessible outside the library.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -19,7 +18,8 @@ import "lib.dart";
 class C {
   void test() {
     try {
-      _inaccessibleFunction();
+      _inaccessibleFunction(); /// static type warning [12.15.1 Ordinary Invocation] It is a static type warning
+                               // if T does not have an accessible (3.2) instance member named m
       Expect.fail("NoSuchMethodError expected when undefined function invoked");
     } on NoSuchMethodError catch(e) {}
   }

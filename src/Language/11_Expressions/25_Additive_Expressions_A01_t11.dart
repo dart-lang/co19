@@ -27,7 +27,7 @@ typedef f();
 
 main() {
   try {
-    f + 2;
+    f + 2; /// static type warning - no such method/operator, see "Ordinary invocation"
     throw "Exception expected.";
   } catch(e) {}
 }

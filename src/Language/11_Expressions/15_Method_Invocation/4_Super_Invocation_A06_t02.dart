@@ -7,7 +7,6 @@
  * @assertion It is a static type warning if S does not have an accessible
  * instance member named m.
  * @description Checks that it is a static type warning if member m in S is inaccessible.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @needsreview issue 3266, issue 3267
@@ -26,7 +25,7 @@ import "lib.dart";
 class A extends C {
   test() {
     try {
-      super._func();
+      super._func(); /// static type warning - see "Super invocation"
       Expect.fail("NoSuchMethodError is expected");
     } on NoSuchMethodError catch(e) {}
   }

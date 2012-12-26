@@ -12,13 +12,12 @@
  * @description Checks that it is a static warning and a dynamic error
  * if T is not a class accessible in the current scope.
  * Named constructor case.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 main() {
   try {
-    new UnavailableType.namedConstructor();
+    new UnavailableType.namedConstructor(); /// static type warning - unavailable class, see "Instance creation|New"
   } catch(e) {}
 }

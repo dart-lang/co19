@@ -42,7 +42,7 @@
 class A<T> {
   test() {
     try {
-      T = null;
+      T = null; // unspecified static warning - cannot assign to a type literal
       throw "Exception expected.";
     } catch(e) {}
   }

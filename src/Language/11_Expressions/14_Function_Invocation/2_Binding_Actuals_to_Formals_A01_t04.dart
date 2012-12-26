@@ -15,7 +15,6 @@
  * All remaining formal parameters of f are bound to their default values.
  * @description Checks that it is a runtime error if the actual argument list contains
  * a named argument whose name is not among those specified in the function declaration.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -25,7 +24,7 @@ func(p1, p2, [p3]) {}
 main() {
   bool ex = false;
   try {
-    func(1, 2, p: 3);
+    func(1, 2, p: 3); /// static type warning - incompatible arguments, see "Binding actuals to formals"
     ex = false;
   } catch(ok) {
     ex = true;

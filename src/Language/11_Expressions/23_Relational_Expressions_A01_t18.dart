@@ -27,7 +27,7 @@ class A {}
 
 main() {
   try {
-    A < 1;
+    A < 1; /// static type warning - no such method/operator, see "Ordinary invocation"
     throw "Exception expected.";
   } catch(e) {}
 }

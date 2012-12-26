@@ -40,8 +40,8 @@ class A extends S {
     super << 1;
     super << (super >> []);
 
-    //literal with selector is a postfix expr. is an addtive expr.
-    try {1()[0] << "string".string;} catch(e) {}
+    //literal with selector is a postfix expr. is an additive expr.
+    try {1()[0] << "string".string;} catch(e) {} /// static type warnings galore
     try {true >> {"key1": 0, "key2": 1};} catch(e) {}
     try {null >> false;} catch(e) {}
 

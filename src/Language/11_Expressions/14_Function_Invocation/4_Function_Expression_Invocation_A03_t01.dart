@@ -8,49 +8,28 @@
  * be assigned to a function type.
  * @description Checks that it is a static warning if the static type F of ef may not
  * be assigned to a function type.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
-
-f() {
-  return {"key": "value"};
-}
-
 main() {
   int e = 1;
   try {
-    e();
+    e(); /// static type warning
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(ok) {}
 
   try {
-    ("String1")(null, null);
+    ("String1")(null, null); /// static type warning
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    []();
+    [](); /// static type warning
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    null(p1: 1);
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
-
-  try {
-    new Object()();
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
-
-  try {
-    f()();
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch(e) {}
-
-  try {
-    false();
+    false(); /// static type warning
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(e) {}
 }

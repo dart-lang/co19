@@ -19,7 +19,6 @@
  * of a multiplicative operator on either super or an expression e1, with argument e2.
  * @description  Checks that various expressions that fit into this grammar
  * don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -52,7 +51,7 @@ class A extends S {
     
     //literals with selectors
     try {null * "string"; } catch(e) {}
-    try {this.id * (true(1, 2).val / 1[1]); } catch(e) {}
+    try {this.id * (true(1, 2).val / 1[1]); } catch(e) {} /// static type warnings galore
     try {1(1, 2)[3] * (null(1, []).val / (1.x % {}["s"])); } catch(e) {}
     try {"s" * (true / (2 % ([]() ~/ {}))); } catch(e) {}
 

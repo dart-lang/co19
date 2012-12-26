@@ -10,13 +10,12 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that type parameter names can begin with an underscore and
  * are still accessible in the appropriate scope.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
 
 class G<_, _$, __> {
-  _ x = 1;
+  _ x = null;
   _$ y = null;
   __ z;
 }

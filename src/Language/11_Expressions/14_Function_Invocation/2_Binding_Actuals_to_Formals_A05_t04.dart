@@ -9,7 +9,6 @@
  * not be assigned to Sj, j from 1 to m.
  * @description Checks that it is a static warning if the type of an actual argument may
  * not be assigned to the type of a positional parameter of a static method.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -21,5 +20,5 @@ class C {
 }
 
 main() {
-  checkTypeError(() => C.foo (''));
+  checkTypeError(() => C.foo ('')); /// static type warning
 }

@@ -11,14 +11,13 @@
  * optionally followed by type arguments.
  * @description Checks that it is a static warning and a dynamic error
  * if T is not a class accessible in the current scope.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 main() {
   try {
-    new UnavailableType();
+    new UnavailableType(); /// static type warning - unavailable class, see "Instance creation|New"
     Expect.fail("Should throw a NoSuchMethodError");
   } catch(e) {}
 }

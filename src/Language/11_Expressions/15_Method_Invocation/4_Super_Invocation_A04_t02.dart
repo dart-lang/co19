@@ -10,7 +10,6 @@
  * method noSuchMethod() is looked up in S and invoked with argument im, and
  * the result of this invocation is the result of evaluating i.
  * @description Checks the result of invocation if the method noSuchMethod() invoked.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -23,7 +22,7 @@ class S1 {
 
 class A extends S1 {
   test() {
-    Expect.equals("v", super.m());
+    Expect.equals("v", super.m()); /// static type warning - see "Super invocation"
   }
 }
 
@@ -35,7 +34,7 @@ class S2 {
 
 class B extends S2 {
   test() {
-    Expect.equals(true, super.m());
+    Expect.equals(true, super.m()); /// static type warning
   }
 }
 
@@ -47,7 +46,7 @@ class S3 {
 
 class C extends S3 {
   test() {
-    Expect.equals(1, super.m());
+    Expect.equals(1, super.m()); /// static type warning
   }
 }
 
@@ -59,7 +58,7 @@ class S4 {
 
 class D extends S4 {
   test() {
-    Expect.equals(null, super.m());
+    Expect.equals(null, super.m()); /// static type warning
   }
 }
 

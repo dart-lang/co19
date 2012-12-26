@@ -8,7 +8,6 @@
  * may not be assigned to a function type.
  * @description Checks that it is a static type warning if the type of
  * C.m can not be assigned to a function type.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @issue 1604
@@ -20,7 +19,7 @@ class C {
 
 main() {
   try {
-    C.m();
+    C.m(); /// static type warning
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(e) {}
 }

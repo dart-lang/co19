@@ -61,7 +61,7 @@ class A  extends S {
     try { this.x++;} catch(e) {}
 
     //functionExpression
-    try { () {} [0]; } catch(e) {}
+    try { () {} [0]; } catch(e) {} /// static type warnings galore
     try { () {}.x; } catch(e) {}
     try { () {} [0]++; } catch(e) {}
     try { () {}.x--; } catch(e) {}

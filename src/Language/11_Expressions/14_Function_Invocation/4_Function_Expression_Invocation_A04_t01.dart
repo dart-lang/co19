@@ -12,6 +12,7 @@
  * @description Checks that the static type of i is the declared return type of F when F is a function type
  * by verifying that the result of such function invocation expression can be assigned to a variable
  * of the same type without static warnings.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */

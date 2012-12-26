@@ -55,7 +55,7 @@ main() {
   library;
   int operator;
   operator;
-  dpuble part;
+  double part;
   part;
   var set;
   set;

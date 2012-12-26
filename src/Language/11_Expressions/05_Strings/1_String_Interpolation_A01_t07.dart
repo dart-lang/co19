@@ -13,14 +13,13 @@
  * ;
  * @description Checks that it is a runtime error if the identifier used in a string
  * interpolation construct is not declared in the current scope.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 main() {
   try {
-    "${nonExistingVariable}";
+    "${nonExistingVariable}"; /// static type warning - see "Identifier reference"
     Expect.fail("NoSuchMethodError expected when calling undefined getter.");
   } on NoSuchMethodError catch (ex) {}
 }

@@ -20,7 +20,7 @@
 
 class A<T> {
   T func() {
-    return T;
+    return T; /// static type warning - incompatible type, see "Return"
   }
 }
 

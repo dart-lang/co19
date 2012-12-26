@@ -11,7 +11,6 @@
  * not a supertype of (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
  * @description Checks that it is a static type warning if F is not a supertype of
  * (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @needsreview Issue 1287
@@ -20,6 +19,6 @@ import "../../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    (int p1, int p2) {}("", "");
+    (int p1, int p2) {}("", ""); /// static type warning
   });
 }

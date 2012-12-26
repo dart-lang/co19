@@ -12,7 +12,6 @@
  * (meaning it produces TypeError when e1 does not evaluate to a boolean and performs
  * boolean conversion for e2 otherwise, provided e1 is true).
  * @author msyabro
- * @static-warning
  * @reviewer rodionov
  */
 
@@ -24,7 +23,7 @@ main() {
   Expect.isFalse(false && true);
   Expect.isFalse(false && false);
 
-  checkTypeError(() => Expect.isFalse(true && 1));
+  checkTypeError(() => Expect.isFalse(true && 1)); /// static type warnings galore - incompatible type, see "Binding actuals to formals"
   checkTypeError(() => Expect.isFalse(true && ""));
   checkTypeError(() => Expect.isFalse(true && []));
   checkTypeError(() => Expect.isFalse(true && {}));

@@ -18,7 +18,6 @@
  * argument e2.
  * @description Checks that various expressions fitted into this grammar don't
  * cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -47,7 +46,7 @@ class A extends S {
 
     // chaining
     try {super + 0 - 1 + {} - null;} catch(e) {}
-    try {0 - 1 + {} - null;} catch(e) {}
+    try {0 - 1 + {} - null;} catch(e) {} /// static type warnings galore
 
     // (...)
     try {(this) + (1 ^ 0 & 4) - (1 <= 0);} catch(e) {}

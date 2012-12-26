@@ -14,7 +14,6 @@
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod() is invoked on functions if the method and getter lookup has failed.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -29,17 +28,17 @@ main()  {
   localFunc() {}
 
   try {
-    func.someMethod();
+    func.someMethod(); /// static type warning - see "Ordinary invocation"
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    localFunc.someMethod();
+    localFunc.someMethod(); /// static type warning - see "Ordinary invocation"
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    new C().method.someMethod();
+    new C().method.someMethod(); /// static type warning - see "Ordinary invocation"
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch(e) {}
 }

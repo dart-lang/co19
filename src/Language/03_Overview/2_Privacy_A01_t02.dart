@@ -9,7 +9,6 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that a private class declaration is inaccessible outside the library.
- * @static-warning unresolved constructor
  * @author msyabro
  * @reviewer iefremov
  */
@@ -18,6 +17,6 @@ import "lib.dart";
 
 main() {
   try {
-    var c = new _InaccessibleClass();
+    var c = new _InaccessibleClass(); /// static type warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
   } catch(e) {}
 }

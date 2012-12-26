@@ -22,7 +22,6 @@
  * ;
  * @description Checks that unary expressions of the form [incrementOperator assignableExpression]
  * don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -56,7 +55,7 @@ class A  extends S{
     try { ++this.x;  } catch(e) {}
 
     //functionExpression
-    try { ++() {} [0]; } catch(e) {}
+    try { ++() {} [0]; } catch(e) {} /// static type warnings galore
     try { --(){}.x; } catch(e) {}
 
     //nullLiteral

@@ -15,7 +15,6 @@
  * All remaining formal parameters of f are bound to their default values.
  * @description Checks that it is a runtime error if the number of actual parameters is less than
  * the number of formal positional parameters.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -25,7 +24,7 @@ func(p1, p2, [p3]) {}
 main() {
   bool ex = false;
   try {
-    func(1);
+    func(1); /// static type warning - too few arguments, see "Binding actuals to formals"
     ex = false;
   } catch(ok) {
     ex = true;

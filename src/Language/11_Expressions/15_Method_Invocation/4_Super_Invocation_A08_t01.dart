@@ -8,6 +8,7 @@
  * the static type of i is Dynamic;
  * otherwise the static type of i is the declared return type of F.
  * @description Checks that the static type of a method invocation is the declared return type of F.
+ * @static-clean
  * @author msyabro
  * @reviewer kaigorodov
  */

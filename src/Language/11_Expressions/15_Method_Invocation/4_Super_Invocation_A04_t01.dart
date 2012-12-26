@@ -11,7 +11,6 @@
  * the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod is invoked if there're no members, instance or static,
  * with the required name in the invoking class's superclass.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -27,7 +26,7 @@ class S {
 class A extends S {
   test() {
     try {
-      super.nonExistingMethod();
+      super.nonExistingMethod(); /// static type warning - see "Super invocation"
       Expect.fail("Exception is expected");
     } on TestException catch(e) {}
   }

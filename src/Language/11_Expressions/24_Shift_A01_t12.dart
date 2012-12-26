@@ -25,7 +25,7 @@ typedef void proc();
 
 main() {
   try {
-    2 >> proc;
+    2 >> proc; /// static type warning - incompatible argument type, see "Binding actuals to formals"
     throw "Exception expected.";
   } catch(e) {}
 }

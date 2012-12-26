@@ -43,7 +43,7 @@ class A {}
 
 main() {
   try {
-    A = 1;
+    A = 1; /// static type warning - incompatible types, see "Assignment" plus another unspecified warning
     throw "Exception expected.";
   } catch(e) {}
 }

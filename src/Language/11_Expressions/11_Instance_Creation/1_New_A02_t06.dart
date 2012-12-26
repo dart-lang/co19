@@ -10,7 +10,6 @@
  * It is a static warning if T is not a class accessible in the current scope,
  * optionally followed by type arguments.
  * @description Checks that it is a static warning if T is a type alias.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -19,6 +18,6 @@ typedef int f(int x, int y);
 
 main() {
   try {
-    new f();
+    new f(); /// static type warning - unavailable class, see "Instance creation|New"
   } catch(e) {}
 }

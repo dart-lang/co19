@@ -9,7 +9,6 @@
  * It is a runtime error if e.toString() does not return an object of type String.
  * @description Checks that if evaluation of expression e results in exception,
  * string interpolation "s1${e}s2" raises the same exception.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -18,7 +17,7 @@ class C {
   var id;
   test() {
     try {
-      "${x}";
+      "${x}"; /// static type warning - undeclared identifier in non-static context ("Getter invocation"?)
       Expect.fail("NoSuchMethodError is expected");
     } on NoSuchMethodError catch(e) {}
 

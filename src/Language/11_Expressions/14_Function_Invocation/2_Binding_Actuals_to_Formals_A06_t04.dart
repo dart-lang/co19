@@ -8,7 +8,6 @@
  * Sq be the type of the named parameter q of f. It is a static warning if m < n or if m > n + k.
  * @description Checks that it is a static warning if the number of argument is less than number
  * of positional parameters of a static method.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -18,6 +17,6 @@ class C {
 }
 main() {
   try {
-    C.func(1);
+    C.func(1); /// static type warning
   } catch(e) {}
 }

@@ -7,7 +7,6 @@
  * @assertion If S.m exists, it is a static type warning if the type F of
  * S.m may not be assigned to a function type.
  * @description Checks that it is a static type warning if S.m can not be assigned to a function type.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @issue 1604
@@ -20,7 +19,7 @@ class S {
 class A extends S {
   test() {
     try {
-      super.m();
+      super.m(); /// static type warning - see "Super invocation"
       Expect.fail("NoSuchMethodError is expected");
     } on NoSuchMethodError catch(e) {}
   }

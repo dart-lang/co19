@@ -20,7 +20,6 @@
  * getter invocation, or an invocation of a postfix operator on an expression e.
  * @description Checks that a reference to a function type alias name
  * can be used with postfixOperator without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -30,7 +29,7 @@ typedef f();
 
 main() {
   try {
-    f++;
+    f++; /// static type warning - no such method/operator, see "Ordinary invocation"
     throw "Exception expected.";
   } catch(e) {}
 }

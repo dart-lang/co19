@@ -27,6 +27,6 @@ typedef void proc();
 
 main() {
   try {
-    1 >= proc;
+    1 >= proc; /// static type warning - incompatible argument type, see "Binding actuals to formals"
   } catch(e) {} // NSME or type error depending on mode
 }

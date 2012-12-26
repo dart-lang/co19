@@ -9,12 +9,11 @@
  * factory constructor.
  * @description Checks that an instance creation expression of the form const T.id(a1, .., an),
  * where T is a class containing an abstract method, produces a static warning.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
-class A {
+class A { /// static type warning - abstract member in a concrete class, see "Abstract instance members"
   const A.id();
   f();
 }

@@ -54,7 +54,7 @@ class A extends S {
     ~~x;
     try {!x;} catch(e){}
     try {!~x;} catch(e){}
-    try {~!x;} catch(e){}
+    try {~!x;} catch(e){} /// static type warnings galore
 
     //prefix operators with literals
     try {-1;} catch(e){}

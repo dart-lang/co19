@@ -35,7 +35,6 @@
  * ;
  * @description Checks that expressions that fits into this grammar
  * can be used in the left hand side of an assignment.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @note the test split into t01, t026, and t027
@@ -51,7 +50,7 @@ class A {
   method() {}
   test() {
     //thisExpression
-    try { this[0] = null; } catch(e) {}
+    try { this[0] = null; } catch(e) {} /// static type warnings galore
     try { this.x = null;  } catch(e) {}
 
     //nullLiteral

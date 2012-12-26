@@ -10,7 +10,6 @@
  * to the type of the corresponding formal parameter of the constructor T.id (respectively T).
  * @description Checks that it is a static warning if the static type of arguments may not
  * be assigned to the type of the corresponding formal parameter of the invoked constant constructor of T.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -22,6 +21,6 @@ class A {
 
 main() {
   checkTypeError(() {
-    const A(0x1, "2");
+    const A(0x1, "2"); /// static type warning - incompatible formal parameters, see "Instance creation|Const"
   });
 }

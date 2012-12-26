@@ -53,7 +53,7 @@ class A extends S {
     try {super >= 1 + 1 >> 2 * 2;} catch(e) {}   
 
     //literal is primary is postfix expr. is shift expr.
-    try {1 >= false;} catch(e) {}
+    try {1 >= false;} catch(e) {} /// static type warnings galore
     try {"abc" < null;} catch(e) {}
     try {[1, 2, 3] > {"key" : "value"};} catch(e) {}
     try {this <= 0.25;} catch(e) {}

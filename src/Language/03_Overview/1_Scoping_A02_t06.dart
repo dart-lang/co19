@@ -9,7 +9,6 @@
  * scope of S. 
  * @description Checks that it is a static warning and a dynamic error when a type
  * parameter hides a class name declared in an enclosing scope.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -17,7 +16,7 @@
 class C {}
 class G<C> {
   G() {
-    new C(); // non-static scope - type variable shadows the class name
+    new C(); /// static type warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
   }
 }
 

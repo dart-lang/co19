@@ -8,6 +8,7 @@
  * or the form <String, V>{k1:e1... kn :en} is Map<String, V>.
  * @description Checks that the static type of a map literal is Map<String, V> by ensuring
  * there're no static warnings when assigning such map to a variable of appropriate type.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */

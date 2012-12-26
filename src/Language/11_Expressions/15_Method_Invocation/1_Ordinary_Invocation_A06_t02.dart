@@ -8,7 +8,6 @@
  * an accessible instance member named m.
  * @description Checks that it is a static type warning if member m exists in T 
  * but is inaccessible.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @needsreview issue 3266, issue 3267
@@ -28,7 +27,7 @@ import "lib.dart";
 main() {
   C o;
   try {
-    o._func();
+    o._func(); /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

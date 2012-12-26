@@ -43,7 +43,7 @@ typedef f();
 
 main() {
   try {
-    f = null;
+    f = null; // unspecified static warning - cannot assign to a type literal
     throw "Exception expected.";
   } catch(e) {}
 }

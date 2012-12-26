@@ -11,7 +11,6 @@
  * ...
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description Checks that latter case is evaluated correctly.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,7 +19,7 @@ class A {
   A() : y = 10;
   func() {
     try {
-      x;
+      x; /// static type warning - unresolved member ("Getter invocation"?)
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch(e) {}
 

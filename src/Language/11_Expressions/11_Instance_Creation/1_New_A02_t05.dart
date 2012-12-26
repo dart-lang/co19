@@ -11,7 +11,6 @@
  * optionally followed by type arguments.
  * @description Checks that it is a static warning if T is a reference to
  * a top-level variable.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 5806
@@ -21,6 +20,6 @@ var a;
 
 main() {
   try {
-    new a();
+    new a(); /// static type warning - unavailable class, see "Instance creation|New"
   } catch(e) {}
 }

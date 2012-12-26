@@ -27,7 +27,7 @@ class A {}
 
 main() {
   try {
-    1 - A;
+    1 - A; /// static type warning - incompatible argument type, see "Binding actuals to formals"
     throw "Exception expected.";
   } catch(e) {}
 }

@@ -8,13 +8,12 @@
  * or a static warning occurs.
  * @description Checks that it is a static warning if names of an argument does not
  * match with any name of optional named parameters of a local function.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
 
 main() {
   try {
-    ([p1, p2, p3]) {} (1, 2, p: 3);
+    ([p1, p2, p3]) {} (1, 2, p: 3); /// static type warning
   } catch(e) {}
 }

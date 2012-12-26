@@ -25,7 +25,7 @@ typedef void proc();
 
 main() {
   try {
-    proc >> 1;
+    proc >> 1; /// static type warning - no such method/operator, see "Ordinary invocation"
     throw "Exception expected.";
   } catch(e) {}
 }

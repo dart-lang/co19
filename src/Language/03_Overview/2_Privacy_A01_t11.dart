@@ -10,12 +10,11 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that various private class members are perfectly accessible to a subclass
  * that is declared in the same script.
- * @static-warning Subclass of an abstract class does not implement an abstract method.
  * @author iefremov
  * @reviewer kaigorodov
  */
 
-class _A {
+abstract class _A {
   var _var = 54;
   static var _staticvar = "abyrvalg";
   final _finalvar = "final!";
@@ -32,7 +31,7 @@ class _A {
   void set _setter(x) {throw 1;}
 }
 
-class B extends _A {
+class B extends _A { /// static type warning Concrete class has unimplemented member
   test() {
     Expect.equals(54, super._var);
     Expect.equals(54, _var);
@@ -57,10 +56,14 @@ class B extends _A {
     Expect.equals(100500, super._getter);
     try {
       _setter = 1;
-    } on int catch(ok) {}
+    } on int catch(ok) {
+      Expect.equals(1, ok);
+    }
     try {
       super._setter = 1;
-    } on int catch(ok) {}
+    } on int catch(ok) {
+      Expect.equals(1, ok);
+    }
   }
 }
 

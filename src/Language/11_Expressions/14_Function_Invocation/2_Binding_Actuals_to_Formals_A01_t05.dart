@@ -15,7 +15,6 @@
  * All remaining formal parameters of f are bound to their default values.
  * @description Checks that it is a runtime error if the number of actual parameters is more than
  * the total number of arguments specified in the function declaration.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -25,7 +24,7 @@ func(p1, p2, [p3]) {}
 main() {
   bool ex = false;
   try {
-    func(1, 2, 3, 4, 5);
+    func(1, 2, 3, 4, 5); /// static type warning - too many arguments, see "Binding actuals to formals"
     ex = false;
   } catch(ok) {
     ex = true;

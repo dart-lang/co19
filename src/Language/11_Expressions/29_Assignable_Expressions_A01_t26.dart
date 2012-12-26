@@ -41,6 +41,6 @@
 
 main() {
   //functionExpression
-  try { () {}[0] = null; } catch(e) {}
-  try { () {}.x = null; } catch(e) {}
+  try { () {}[0] = null; } catch(e) {} /// static type warning - no such method/operator, see "Ordinary invocation"
+  try { () {}.x = null; } catch(e) {} /// static type warning - no such member (supposedly setter, see "Assignment")
 }

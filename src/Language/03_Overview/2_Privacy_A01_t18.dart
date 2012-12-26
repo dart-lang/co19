@@ -10,12 +10,11 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that various private class members are perfectly accessible inside the library
  * where the class is declared even when accessed via a subclass instance.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
 
-class _A {
+abstract class _A {
   var _var = 54;
   static var _staticvar = "abyrvalg";
   final _finalvar = "final!";
@@ -32,8 +31,9 @@ class _A {
   void set _setter(x) {throw 1;}
 }
 
-class B extends _A {}
-class C extends B {}
+abstract class B extends _A {}
+class C extends B { /// static type warning Concrete class has unimplemented member
+}
 
 main() {
   C a = new C();

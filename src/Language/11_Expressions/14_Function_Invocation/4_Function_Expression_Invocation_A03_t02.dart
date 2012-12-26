@@ -7,7 +7,8 @@
  * @assertion It is a static warning if the static type F of ef may not
  * be assigned to a function type.
  * @description Checks that there is no static warning when the static type of ef
- * is Dynamic or bottom.
+ * is Object, dynamic or bottom.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -27,10 +28,29 @@ class A {
   }
 }
 
+f() {
+  return {"key": "value"};
+}
+
 main() {
   foo = 1;
   Expect.throws(() => foo(null, 1, 2));
   Expect.throws(() => nullvar(null, 1, 2));
   Expect.throws(() => (new A()).getter(null, 1, 2));
   Expect.throws(() => (new A()).field("foo", "bar"));
+
+  try {
+    null(p1: 1);
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
+
+  try {
+    new Object()();
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
+
+  try {
+    f()(); // declared return type is dynamic
+    Expect.fail("NoSuchMethodError is expected");
+  } on NoSuchMethodError catch(e) {}
 }

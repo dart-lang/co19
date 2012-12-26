@@ -10,7 +10,6 @@
  * [V1, ..., Vm /T1, ..., Tm ](new c(a1, ..., an, xn+1:an+1, ..., xn+k: an+k )).
  * @description Checks that it is a dynamic type error if a type argument of a redirecting factory
  * constructor invocation is not a subtype of the corresponding type parameter bound of class C.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -27,6 +26,6 @@ class C<T extends num> implements R<T> {
 
 main() {
   checkTypeError( () {
-    new R<String>.fc();
+    new R<String>.fc(); /// static type warning - incompatible type arguments, see "Instance creation"
   });
 }

@@ -8,7 +8,6 @@
  * Sq(j - m), j from m + 1 to m + l.
  * @description Checks that it is a static warning if the type of an actual argument may
  * not be assigned to the type of an optional parameter of a local function.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -16,5 +15,5 @@
 import "../../../Utils/dynamic_check.dart";
 
 main() {
-  checkTypeError( () => ([int x]){}(''));
+  checkTypeError( () => ([int x]){}('')); /// static type warning
 }

@@ -20,16 +20,16 @@
  *     value id is the value of the compile-time constant e. Otherwise
  *   – e evaluates to the current binding of id.
  * @description  Checks that if evaluation of the initializer expression of
- * a library variable is not succeeded, the variable is initialized with [:null:].
+ * a library variable is not successful, the variable is initialized with [:null:].
  * @author msyabro
  * @reviewer iefremov
  * @issue 5802
  */
 
-var tlVar = ''.thatMethod();
-int tlTyped = ''.thatMethod();
-final tlFinal = ''.thatMethod();
-final int tlFinalTyped = ''.thatMethod();
+var tlVar = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
+int tlTyped = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
+final tlFinal = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
+final int tlFinalTyped = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
 
 
 main() {

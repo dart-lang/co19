@@ -17,7 +17,6 @@
  * after the body of f is executed.
  * @description Checks that a NoSuchMethodError is thrown if C does not denote a class 
  * in the current scope, or if C does not declare a static method or getter with the required name.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -30,17 +29,17 @@ class C extends S {}
 
 main()  {
   try {
-    NonExistentClass.func();
+    NonExistentClass.func(); // static warning - see "Static invocation"
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
-    C.func();
+    C.func(); // static warning - see "Static invocation"
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 
   try {
-    var x = C.getter;
+    var x = C.getter; // static warning - see "Static invocation"
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

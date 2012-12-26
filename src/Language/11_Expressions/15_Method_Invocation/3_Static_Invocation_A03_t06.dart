@@ -7,7 +7,6 @@
  * @assertion It is a static warning if C does not declare a static method or getter m.
  * @description Checks that it is a static warning if C has an instance getter named m 
  * instead of a static method.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -18,6 +17,6 @@ class C {
 
 main() {
   try {
-    C.m();
+    C.m(); // static warning
   } catch(e) {}
 }

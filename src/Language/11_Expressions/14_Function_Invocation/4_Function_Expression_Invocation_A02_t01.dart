@@ -9,6 +9,7 @@
  * or i is not considered a function expression invocation.
  * @description Checks that the function invocation produces expected results when the expression
  * is an identifier denoting a local function, a library function, a library or static getter or a variable.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  * @note no static warnings are expected: static type of non-Function getters/variables is Dynamic
