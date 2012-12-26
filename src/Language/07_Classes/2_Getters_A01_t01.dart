@@ -9,7 +9,6 @@
  *   static? returnType? get identifier
  * ;
  * @description Checks that various valid getter declarations are parsed correctly.
- * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

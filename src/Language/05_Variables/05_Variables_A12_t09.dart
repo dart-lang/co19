@@ -13,7 +13,6 @@
  * static field's type, by attempting to assign the result of its invocation to a variable
  * of incompatible type. Static warning expected.
  * @author pagolubev
- * @static-warning
  * @reviewer msyabro
  * @reviewer rodionov
  */
@@ -25,6 +24,6 @@ class A {
 
 main() {
   checkTypeError(() {
-    bool a = A.a;
+    bool a = A.a; /// static type warning 'int' is not assignable to 'bool'
   });
 }

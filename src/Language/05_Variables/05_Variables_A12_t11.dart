@@ -14,7 +14,6 @@
  * of incompatible type. Static warning expected.
  * @author msyabro
  * @reviewer iefremov
- * @static-warning
  */
 import "../../Utils/dynamic_check.dart";
 class A {
@@ -23,6 +22,6 @@ class A {
 
 main() {
   checkTypeError(() {
-    bool a = A.a;
+    bool a = A.a; /// static type warning 'int' is not assignable to 'bool'
   });
 }

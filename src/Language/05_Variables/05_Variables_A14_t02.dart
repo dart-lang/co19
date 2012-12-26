@@ -14,7 +14,6 @@
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov
- * @static-warning
  */
 import "../../Utils/dynamic_check.dart";
 
@@ -25,6 +24,6 @@ class A {
 main() {
   A a = new A();
   checkTypeError(() {
-    a.v = false;
+    a.v = false; /// static type warning 'bool' is not assignable to 'imt'
   });
 }

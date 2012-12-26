@@ -12,7 +12,6 @@
  * @description Checks that a static warning is produced when assigning result of
  * T get v() invocation to a variable whose type may not be assigned to T. 
  * The variable declaration is of the form final T v = e;.
- * @static-warning
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov
@@ -24,5 +23,5 @@ class A {
 
 main() {
   A a = new A();
-  bool b = a.v;
+  bool b = a.v; /// static type warning 'int' is not assignable to 'bool'
 }

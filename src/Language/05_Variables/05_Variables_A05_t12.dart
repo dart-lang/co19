@@ -15,7 +15,6 @@
  * in its declaration is assigned a new value later in the program. Non-normative text in the spec
  * says it's a NoSuchMethodError and a static warning since there's no setter so that's what's being 
  * expected in this test.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -27,22 +26,22 @@ class C {
 
 main() {
   try {
-    C.v = 1;
+    C.v = 1; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    C.v = 2;
+    C.v = 2; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    C.v2 = true;
+    C.v2 = true; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 
   try {
-    C.v2 = false;
+    C.v2 = false; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
 }

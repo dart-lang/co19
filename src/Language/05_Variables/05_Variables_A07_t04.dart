@@ -8,7 +8,6 @@
  * const. A constant variable is always implicitly final.
  * @description Checks that a NoSuchMethodError occurs and a static warning is given
  * when a constant library variable is assigned a new value after being initialized at declaration.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 5885
@@ -18,7 +17,7 @@ const int foo = 1 + 1;
 
 main() {
   try {
-    foo = 2;
+    foo = 2; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

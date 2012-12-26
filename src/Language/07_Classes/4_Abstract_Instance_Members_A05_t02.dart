@@ -11,7 +11,6 @@
  * @description Checks that a static warning is produced when the type of a non-abstract m1 
  * is not a subtype of the abstract m2's type because their respective required parameter 
  * types are not mutually assignable.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

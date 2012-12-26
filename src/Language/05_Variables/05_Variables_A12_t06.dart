@@ -12,11 +12,9 @@
  * @description Checks that a static warning is produced when assigning result of
  * T get v() invocation to a variable whose type may not be assigned to T. 
  * The variable declaration is of the form const T v = e;.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
- * @needsreview issue 3323
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -27,5 +25,7 @@ class A {
 
 main() {
   A a = new A();
-  checkTypeError(() {bool b = a.v;});
+  checkTypeError(() {
+    bool b = a.v; /// static type warning 'int' is not assignable to 'bool'
+  });
 }

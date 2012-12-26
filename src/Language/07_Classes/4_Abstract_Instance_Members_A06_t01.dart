@@ -10,7 +10,6 @@
  * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an abstract
  * or concrete method with the same name as a static variable in its superclass.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

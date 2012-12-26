@@ -9,7 +9,6 @@
  * @description Checks that a NoSuchMethodError occurs and a static warning is given
  * when a constant library variable is assigned a new value after being initialized at declaration
  * even if this value is the same as the initializing one.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 5885
@@ -19,7 +18,7 @@ const x = 1;
 
 main() {
   try {
-    x = 1;
+    x = 1; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

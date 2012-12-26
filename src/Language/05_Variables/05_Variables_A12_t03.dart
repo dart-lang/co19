@@ -9,7 +9,6 @@
  * always induces an implicit getter function with signature
  *   T get v
  * whose invocation evaluates as described below.
- * @static-warning
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov
@@ -21,5 +20,5 @@ class A {
 
 main() {
   A a = new A();
-  bool b = a.v;
+  bool b = a.v; /// static type warning 'int' is not assignable to 'bool'
 }
