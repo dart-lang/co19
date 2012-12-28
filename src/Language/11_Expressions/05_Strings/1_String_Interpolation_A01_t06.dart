@@ -21,7 +21,7 @@ class C<T> {
   test() {
     try {
       "$T";
-    } catch(NoSuchMethodError ok) {
+    } on NoSuchMethodError catch(ok) {
       // may or may not implement toString()
       print(ok);
     }

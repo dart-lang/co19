@@ -12,8 +12,8 @@
  */
 
 checkOrder(Map map, List keyOrder, List valuesOrder) {
-  Expect.listEquals(keyOrder, map.getKeys());
-  Expect.listEquals(valuesOrder, map.getValues());
+  Expect.listEquals(keyOrder, map.keys);
+  Expect.listEquals(valuesOrder, map.values);
 }
 
 main() {

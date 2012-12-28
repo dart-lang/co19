@@ -35,11 +35,11 @@ main() {
   check(2, 2, true, false);
 
 
-  Expect.throws(() => new List.from([]).setRange(2, true, false));
-  Expect.throws(() => new List.from([]).setRange(2, true, null));
-  Expect.throws(() => new List.from([]).setRange(2, null, null));
+  Expect.throws(() => new List.from([]).setRange(2, true, false)); /// static type warning  /// static type warning
+  Expect.throws(() => new List.from([]).setRange(2, true, null)); /// static type warning  /// static type warning
+  Expect.throws(() => new List.from([]).setRange(2, null, null)); /// static type warning  /// static type warning
 
-  Expect.throws(() => [].setRange(2, true, false));
-  Expect.throws(() => [].setRange(2, true, null));
-  Expect.throws(() => [].setRange(2, null, null));
+  Expect.throws(() => [].setRange(2, true, false)); /// static type warning  /// static type warning
+  Expect.throws(() => [].setRange(2, true, null)); /// static type warning  /// static type warning
+  Expect.throws(() => [].setRange(2, null, null)); /// static type warning  /// static type warning
 }

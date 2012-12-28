@@ -23,7 +23,7 @@ class C {
 }
 
 test() {
-  return new C(1); // unspecified static warning - wrong number of arguments
+  return new C(1); /// static type warning - wrong number of arguments
 }
 main() {
   Expect.throws(test, (e) => e is NoSuchMethodError);

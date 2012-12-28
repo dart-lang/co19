@@ -18,6 +18,6 @@ typedef int f(int x, int y);
 
 main() {
   try {
-    new f(); /// static type warning - unavailable class, see "Instance creation|New"
+    new f(); /// static warning - unavailable class, see "Instance creation|New"
   } catch(e) {}
 }

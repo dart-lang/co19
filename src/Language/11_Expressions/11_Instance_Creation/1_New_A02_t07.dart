@@ -16,7 +16,7 @@
 
 class C<T> {
   test() {
-    new T(); /// static type warning - unavailable class, see "Instance creation|New"
+    new T(); /// static warning - unavailable class, see "Instance creation|New"
   }
 }
 

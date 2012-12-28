@@ -43,7 +43,7 @@ main() {
     C<int, double, MalformedType> x = new C(); /// static type warning no such type
   });
   checkTypeError( () {
-    // non-normative, but spec contains this statement: /// static type warning no such type
+    // non-normative, but spec contains this statement:
     // "we have opted to treat a malformed type as an error type that has no subtypes or supertypes"
     Expect.isFalse(null is C<int, double, MalformedType>); /// static type warning no such type
   });

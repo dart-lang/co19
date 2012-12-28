@@ -30,7 +30,7 @@ class C {
 
 main() {
   try {
-    C.v = 2; /// static type warning
+    C.v = 2; /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

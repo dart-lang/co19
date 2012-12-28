@@ -11,7 +11,7 @@
  */
 
  main() {
-  Expect.throws(() => new Date.now().subtract(1));
-  Expect.throws(() => new Date.now().subtract(""));
-  Expect.throws(() => new Date.now().subtract(3.14));
+  Expect.throws(() => new Date.now().subtract(1)); /// static type warning not assignable
+  Expect.throws(() => new Date.now().subtract("")); /// static type warning not assignable
+  Expect.throws(() => new Date.now().subtract(3.14)); /// static type warning not assignable
  }

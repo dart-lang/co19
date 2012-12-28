@@ -20,7 +20,7 @@ main() {
         print("great!");
         break;
       case 2:
-        print("not so great!");
+        print("not so great!"); /// static warning fall through
       default:
         print("just awesome!");
         break;

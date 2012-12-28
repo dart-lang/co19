@@ -17,7 +17,7 @@ class C {}
 
 main() {
   Expect.throws(
-    () {new C.namedConstructor();}, /// static type warning - unavailable named constructor, see "Instance creation|New"
+    () {new C.namedConstructor();}, /// static warning - unavailable named constructor, see "Instance creation|New"
     (e)=> e is NoSuchMethodError
   );
 }

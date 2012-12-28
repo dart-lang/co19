@@ -13,17 +13,17 @@
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
-  Collection a = map.getKeys();
+  Collection a = map.keys;
   Expect.isTrue(a.length == 0);
   
   map["1"] = 1;
   map["2"] = 2;
   
-  List arr = map.getKeys();
+  List arr = map.keys;
   Expect.isTrue(arr.length == 2);
   Expect.isTrue(arr.indexOf("1",0) != -1 && arr.indexOf("2",0) != -1);
   
   map.clear();
-  a = map.getKeys();
+  a = map.keys;
   Expect.isTrue(a.length == 0);
 }

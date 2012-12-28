@@ -17,7 +17,7 @@ main() {
   map["1"] = 1;
   map["2"] = 2;
   
-  List a = map.getKeys();
+  List a = map.keys;
   
   a[1] = "3";
   Expect.isTrue(map["3"] == null);

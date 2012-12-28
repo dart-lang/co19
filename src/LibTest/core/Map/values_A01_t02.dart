@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns a collection containing all the values in the map.
- * @description Checks that collection of all values is returned.
+ * @description Check that returned collection is not backed by the map.
  * @author msyabro
  * @reviewer varlax
  */
@@ -14,21 +14,20 @@
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
-  Collection a = map.getValues();
-  Expect.isTrue(a.length == 0);
-  
   map["1"] = 1;
   map["2"] = 2;
   
-  List arr = map.getValues();
-  Expect.isTrue(arr.length == 2);
-  Expect.isTrue(arr.indexOf(1,0) != -1 && arr.indexOf(2,0) != -1);
+  List a = map.values;
   
-  map["3"] = 1;
-  a = map.getValues();
-  Expect.isTrue(a.length == 3);
+  //a.clear(); //Can't clear because returned list is unextendable
+  //Expect.isTrue(map.length == 2);
+  a[0] = 3;
+  Expect.isTrue(!map.containsValue(3));
+  
+  a = map.values;
+  map["3"] = 3;
+  Expect.isTrue(a.length == 2);
   
   map.clear();
-  a = map.getValues();
-  Expect.isTrue(a.length == 0);
+  Expect.isTrue(!a.isEmpty);
 }

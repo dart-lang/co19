@@ -20,7 +20,7 @@ class C {
 
 main() {
   Expect.throws(
-    () {new C();}, /// static type warning - unavailable constructor, see "Instance creation|New"
+    () {new C();}, /// static warning - unavailable constructor, see "Instance creation|New"
     (e)=> e is NoSuchMethodError
   );
 }

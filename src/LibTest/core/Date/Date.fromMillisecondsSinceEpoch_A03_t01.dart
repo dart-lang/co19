@@ -12,18 +12,18 @@
  */
 main() {
   try {
-    new Date.fromMillisecondsSinceEpoch(3.14, isUtc: true);
+    new Date.fromMillisecondsSinceEpoch(3.14, isUtc: true); /// static type warning not assignable
   } catch (anything) {}
   
   try {
-    new Date.fromMillisecondsSinceEpoch("", isUtc: true);
+    new Date.fromMillisecondsSinceEpoch("", isUtc: true); /// static type warning not assignable
   } catch (anything) {}
   
   try {
-    new Date.fromMillisecondsSinceEpoch(1, isUtc: 3.14);
+    new Date.fromMillisecondsSinceEpoch(1, isUtc: 3.14); /// static type warning not assignable
   } catch (anything) {}
 
   try {
-    new Date.fromMillisecondsSinceEpoch(1, isUtc: "");
+    new Date.fromMillisecondsSinceEpoch(1, isUtc: ""); /// static type warning not assignable
   } catch (anything) {}
 }

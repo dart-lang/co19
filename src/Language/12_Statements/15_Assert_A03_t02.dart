@@ -31,6 +31,6 @@ main() {
   });
 
   checkTypeError(() {
-    assert(bar); /// static type warning
+    assert(bar);
   });
 }

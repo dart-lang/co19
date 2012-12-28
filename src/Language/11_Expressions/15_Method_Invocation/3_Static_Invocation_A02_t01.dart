@@ -13,6 +13,6 @@
 
 main() {
   try {
-    C.func(); // static warning
+    C.func(); /// static type warning
   } catch(e) {}
 }

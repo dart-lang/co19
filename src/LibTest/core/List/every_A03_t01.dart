@@ -21,10 +21,10 @@ class A {
 
 main() {
   List<String> list = ["1","2","3"];
-  Expect.throws(() => list.every(false));
-  Expect.throws(() => list.every(1));
-  Expect.throws(() => list.every("every"));
-  Expect.throws(() => list.every([1, 2, 3]));
-  Expect.throws(() => list.every(new A()));
+  Expect.throws(() => list.every(false)); /// static type warning not assignable
+  Expect.throws(() => list.every(1)); /// static type warning not assignable
+  Expect.throws(() => list.every("every")); /// static type warning not assignable
+  Expect.throws(() => list.every([1, 2, 3])); /// static type warning not assignable
+  Expect.throws(() => list.every(new A())); /// static type warning not assignable
   Expect.throws(() => list.every(null));
 }
