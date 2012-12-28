@@ -14,13 +14,12 @@
  * type error in checked mode.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 import "../../Utils/dynamic_check.dart";
 
 void foo() {
   Object o = new Object();
-  return o;
+  return o; /// static type warning 
 }
 
 main() {

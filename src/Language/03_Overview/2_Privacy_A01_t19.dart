@@ -18,7 +18,7 @@ import "lib.dart";
 
 main() {
   try {
-    new ClassWithPrivateMembers._named(); /// static type warning
+    new ClassWithPrivateMembers._named(); /// static warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(x) {}
 }

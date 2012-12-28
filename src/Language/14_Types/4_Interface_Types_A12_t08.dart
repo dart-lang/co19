@@ -15,7 +15,6 @@
  * T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that unrelated generic types are not assignable even if all their type arguments are.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -31,5 +30,5 @@ class D<T, S, U, X, Y, Z> {}
 D<A, B, int, num, Object, Map<List, Map<List, List>>> checker(){}
 
 main() {
-  C<A, B, int, num, Object, Map<List, Map<List, List>>> c = checker();
+  C<A, B, int, num, Object, Map<List, Map<List, List>>> c = checker(); /// static-warning 
 }

@@ -8,7 +8,6 @@
  * the type of ek.
  * @description Checks that a static warning is produced if the type of the switch expression's
  * value cannot be assigned to any of the case expression types.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -18,7 +17,7 @@
 
 main() {
   switch(false) {
-    case 0: /// static type warning
-    case 1: /// static type warning
+    case 0: /// static warning
+    case 1: /// static warning
   }  
 }

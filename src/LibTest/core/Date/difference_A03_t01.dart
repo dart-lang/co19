@@ -8,11 +8,10 @@
  * @description Checks that the method doesn't crash.
  * @author iefremov
  * @needsreview undocumented
- * @static-warning
  */
 
 main() {
-  Expect.throws(() => new Date.now().difference(1));
-  Expect.throws(() => new Date.now().difference(3.14));
-  Expect.throws(() => new Date.now().difference(""));
+  Expect.throws(() => new Date.now().difference(1)); /// static type warning
+  Expect.throws(() => new Date.now().difference(3.14)); /// static type warning
+  Expect.throws(() => new Date.now().difference("")); /// static type warning
 }

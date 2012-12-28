@@ -9,9 +9,9 @@
  * @description Checks that a static type warning is produced if G is not an accessible type.
  * @author iefremov
  * @reviewer rodionov
- * @static-warning
  */
 
 main() {
-  UnknownType<int> a = null;
+  UnknownType<int> a /// static type warning 
+    = null;
 }

@@ -16,7 +16,7 @@
 class C {}
 class G<C> {
   G() {
-    new C(); /// static type warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
+    new C(); /// static warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
   }
 }
 

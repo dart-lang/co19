@@ -7,7 +7,6 @@
  * @assertion If the last statement of a function is not a return statement, the statement
  * return null; is implicitly appended to the function body.
  * @description Checks that the statement return null; is implicitly appended to the function body.
- * @static-warning using the value of a void function (g())
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -24,5 +23,5 @@ void g() {}
 main() {
   Expect.equals(null, func());
   Expect.equals(null, f());
-  Expect.equals(null, g());
+  Expect.equals(null, g()); /// static type warning using the value of a void function (g())
 }

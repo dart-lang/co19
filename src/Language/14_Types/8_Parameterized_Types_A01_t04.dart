@@ -9,11 +9,10 @@
  * @description Checks that a static type warning is produced if G is not a generic type.
  * @author iefremov
  * @reviewer rodionov
- * @static-warning
  */
 
 class A {}
 
 main() {
-  A<int> a = null;
+  A<int> a = null; /// static type warning 
 }

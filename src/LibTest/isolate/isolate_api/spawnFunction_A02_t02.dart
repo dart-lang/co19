@@ -7,7 +7,6 @@
  * @assertion The [topLevelFunction] argument must be a static top-level function
  * or a static method that takes no arguments. It is illegal to pass a function closure.
  * @description Checks that method throws an exception when passed null, an integer, or a string.
- * @static-warning
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
@@ -19,6 +18,6 @@ var x = null;
 main() {
   Expect.throws(() => spawnFunction(null));
   Expect.throws(() => spawnFunction(x));
-  Expect.throws(() => spawnFunction(1));
-  Expect.throws(() => spawnFunction(""));
+  Expect.throws(() => spawnFunction(1)); /// static type warning
+  Expect.throws(() => spawnFunction("")); /// static type warning
 }

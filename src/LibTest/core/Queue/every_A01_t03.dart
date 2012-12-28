@@ -8,7 +8,6 @@
  * predicate [f]. Returns false otherwise.
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
- * @static-warning
  * @author msyabro
  * @reviewer varlax
  * @reviewer rodionov
@@ -20,9 +19,9 @@ main() {
   Queue q = new Queue();
   
   q.every(null);
-  checkTypeError(() => q.every(0));
+  checkTypeError(() => q.every(0)); /// static type warning
 
   q.addLast(1);
   Expect.throws(() => q.every(null));
-  Expect.throws(() => q.every(1));
+  Expect.throws(() => q.every(1)); /// static type warning
 }

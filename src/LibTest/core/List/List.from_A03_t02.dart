@@ -6,14 +6,13 @@
 /**
  * @assertion Fails gracefully if supplied with an argument of invalid type.
  * @description Checks that the constructor doesn't crash.
- * @static-warning
  * @author iefremov
  */
 
 import "../../../Utils/dynamic_check.dart";
 
 main() {
-  Expect.throws(() => new List.from(1));
-  Expect.throws(() => new List.from(""));
-  Expect.throws(() => new List.from(3.14));
+  Expect.throws(() => new List.from(1)); /// static type warning
+  Expect.throws(() => new List.from("")); /// static type warning
+  Expect.throws(() => new List.from(3.14)); /// static type warning
 }

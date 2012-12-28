@@ -6,7 +6,6 @@
 /**
  * @assertion Undocumented
  * @description Checks that [dstName] is recorded correctly.
- * @static-warning
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview Undocumented.
@@ -17,21 +16,21 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   if(isCheckedMode()) {
     try {
-      int x = true;
+      int x = true; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('x', e.dstName);
     }
 
     try {
-      bool val = 1;
+      bool val = 1; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('val', e.dstName);
     }
 
     try {
-      String str = true;
+      String str = true; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('str', e.dstName);

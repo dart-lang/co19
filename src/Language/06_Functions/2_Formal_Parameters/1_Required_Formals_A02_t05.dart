@@ -19,7 +19,6 @@
  * ;
  * @description Checks that reassigning a final required parameter inside the function
  * produces a static warning and a NoSuchMethodError.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
@@ -28,7 +27,7 @@
 
 func(final x) {
   try {
-    x = 1;
+    x = 1; /// static type warning cannot assign value to final variable
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

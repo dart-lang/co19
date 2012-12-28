@@ -10,7 +10,6 @@
  * superinterfaces (which can only be final initialized fields, according to grammar).
  * Expects a NoSuchMethodError when trying to access a superinterface's static member
  * via a subinterface, as specified in ch. 10.15.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  */
@@ -24,7 +23,7 @@ abstract class I implements S {
 
 main() {
   try {
-    var x = I.foo;
+    var x = I.foo; /// static type warning cannot resolve 'foo'
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
 }

@@ -6,12 +6,11 @@
 /**
  * @assertion Fails gracefully if supplied with an argument of a wrong type.
  * @description Tries to pass various wrong parameters to the method.
- * @static-warning
  * @author iefremov
  */
 
 main() {
-  Expect.throws(() => new Queue().addAll(1));
-  Expect.throws(() => new Queue().addAll(1.1));
-  Expect.throws(() => new Queue().addAll(""));
+  Expect.throws(() => new Queue().addAll(1)); /// static type warning
+  Expect.throws(() => new Queue().addAll(1.1)); /// static type warning
+  Expect.throws(() => new Queue().addAll("")); /// static type warning
 }

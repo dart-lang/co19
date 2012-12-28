@@ -15,7 +15,6 @@
  * @description Checks that it is a static warning if two different libraries imported with empty
  * prefixes introduce the same name (both via re-export of a third library) to the top level scope 
  * of A and A uses it as a type annotation.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -24,5 +23,5 @@ import "1_Imports_A03_t41_p1_lib.dart";
 import "1_Imports_A03_t41_p2_lib.dart";
 
 main() {
-  foo x;
+  foo x; /// static-warning
 }

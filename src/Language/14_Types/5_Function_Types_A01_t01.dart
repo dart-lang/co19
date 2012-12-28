@@ -10,7 +10,7 @@
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * @description Checks that this statement is true for function types with no arguments: S is void, T is any type.
  * Also checks their mutual assignability.
- * @static-warning
+ * @static-clean to make sure assignments are legal and cause no warnings
  * @author iefremov
  * @reviewer rodionov
  */
@@ -30,7 +30,7 @@ typedef Map<int, List<List<List>>> t10();
 typedef t10 t11();
 
 
-class Checker<T> {
+class Checker<T extends check_t> {
   Checker(f) {
     Expect.isTrue(f is check_t);
     //check assignability () -> S = () -> T

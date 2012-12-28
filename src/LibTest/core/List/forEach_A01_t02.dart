@@ -8,7 +8,6 @@
  * @description Checks that no exception is thrown if the list is empty.
  * @author iefremov
  * @reviewer pagolubev
- * @static-warning
  */
 
 import "../../../Utils/dynamic_check.dart";
@@ -20,15 +19,15 @@ main() {
   if(isCheckedMode()) {
     return;
   }
-  [].forEach(1);
-  [].forEach("");
-  [].forEach(3.14);
+  [].forEach(1); /// static type warning
+  [].forEach(""); /// static type warning
+  [].forEach(3.14); /// static type warning
 
-  const [].forEach(1);
-  const [].forEach("");
-  const [].forEach(3.14);
+  const [].forEach(1); /// static type warning
+  const [].forEach(""); /// static type warning
+  const [].forEach(3.14); /// static type warning
 
-  new List().forEach(1);
-  new List().forEach("");
-  new List().forEach(3.14);
+  new List().forEach(1); /// static type warning
+  new List().forEach(""); /// static type warning
+  new List().forEach(3.14); /// static type warning
 }

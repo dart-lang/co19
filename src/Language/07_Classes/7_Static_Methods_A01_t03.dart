@@ -22,7 +22,7 @@ class C extends S {
 
 main() {
   Expect.throws((){
-                    C.foo(); /// static type warning
+                    C.foo(); /// static warning
                   },
        (e)=>e is NoSuchMethodError);
 }

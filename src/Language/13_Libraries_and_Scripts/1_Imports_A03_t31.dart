@@ -14,7 +14,6 @@
  * but never referred to.
  * @description Checks that it is a dynamic type error in checked mode if that name 
  * is referenced during an implicit subtype test (assignment of a statically typed variable).
- * @static-warning doubly imported type used as a type annotation
  * @author kaigorodov
  * @reviewer rodionov
  * @issue 6659
@@ -25,7 +24,7 @@ import "1_Imports_A03_t21_p1_lib.dart";
 import "1_Imports_A03_t21_p2_lib.dart";
 import "1_Imports_A03_t21_p2_lib.dart" as P2;
 
-foo bar;
+foo bar; /// static-warning doubly imported type used as a type annotation
 
 main() {
   checkTypeError(() {

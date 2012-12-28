@@ -9,7 +9,6 @@
  * [ifAbsent]. Returns the value in the map.
  * @description Tries to pass incorrect value as ifAbsent argument if [key] 
  * is already in the map and checks that no attempt to call that value is made.
- * @static-warning
  * @author msyabro
  * @needsreview undocumented
  * @reviewer varlax
@@ -22,6 +21,6 @@ main() {
   
   map.putIfAbsent("1", null);
   checkTypeError(() {
-    map.putIfAbsent("1", 1);
+    map.putIfAbsent("1", 1); /// static type warning
   });
 }

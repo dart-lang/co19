@@ -16,7 +16,6 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that some class called A is not assignable to another, completely unrelated, class B (static warning)
  * as such assignment doesn't meet any of these conditions.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -28,5 +27,5 @@ class B {}
 A f(){}
 
 main() {
-  B b = f();
+  B b = f(); /// static type warning
 }

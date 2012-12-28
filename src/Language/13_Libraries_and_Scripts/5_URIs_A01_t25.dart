@@ -13,7 +13,6 @@
  * @description Checks that it is a compile-time error when the URI in a
  * part directive consists of two adjacent multi-line string literals 
  * instead of one.
- * @static-warning part references a different library name
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov

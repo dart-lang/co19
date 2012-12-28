@@ -7,7 +7,6 @@
  * @assertion Undocumented
  * @description Checks that [srcType] is recorded correctly.
  * @author msyabro
- * @static-warning
  * @reviewer pagolubev
  * @needsreview Undocumented.
  */
@@ -21,28 +20,28 @@ class MyClass {
 main() {
   if(isCheckedMode()) {
     try {
-      int x = "string";
+      int x = "string";  /// static type warning 
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
 
     try {
-      bool val = 1;
+      bool val = 1;  /// static type warning 
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
 
     try {
-      String str = new MyClass();
+      String str = new MyClass();  /// static type warning 
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);
     }
 
     try {
-      MyClass str = [];
+      MyClass str = [];  /// static type warning 
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.isTrue(e.srcType is String);

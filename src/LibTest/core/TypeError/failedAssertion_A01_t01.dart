@@ -6,7 +6,6 @@
 /**
  * @assertion Undocumented
  * @description Checks that [failedAssertion] is recorded correctly.
- * @static-warning
  * @author rodionov
  * @reviewer msyabro
  * @needsreview Undocumented
@@ -17,21 +16,21 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   if(isCheckedMode()) {
     try {
-      int x = true;
+      int x = true; /// static type warning
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
       Expect.equals(r"$expr instanceof int", e.failedAssertion);
     }
 
     try {
-      bool x = 1;
+      bool x = 1; /// static type warning
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
       Expect.equals(r"$expr instanceof bool", e.failedAssertion);
     }
 
     try {
-      String x = 1;
+      String x = 1; /// static type warning
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
       Expect.equals(r"$expr instanceof String", e.failedAssertion);

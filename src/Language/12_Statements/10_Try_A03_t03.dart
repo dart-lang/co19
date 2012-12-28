@@ -9,7 +9,6 @@
  * @description Checks that it is a static warning when type of the exception
  * parameter in a catch clause does not denote a type available in the lexical 
  * scope of the catch clause.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @issue 7291
@@ -21,7 +20,7 @@ main() {
   try {
     throw new p.Foo();
     Expect.fail("This code shouldn't be executed");
-  } on Foo catch (p1, p2) { /// static type warning
+  } on Foo catch (p1, p2) { /// static type warning no such type
     Expect.fail("This code shouldn't be executed");
   } on p.Foo catch(ok) {}
 }

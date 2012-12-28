@@ -6,7 +6,6 @@
 /**
  * @assertion Undocumented
  * @description Checks that [dstType] is recorded correctly.
- * @static-warning
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview Undocumented.
@@ -21,28 +20,28 @@ class MyClass {
 main() {
   if(isCheckedMode()) {
     try {
-      int x = true;
+      int x = true; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('int', e.dstType);
     }
 
     try {
-      bool val = 1;
+      bool val = 1; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('bool', e.dstType);
     }
 
     try {
-      String str = true;
+      String str = true; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('String', e.dstType);
     }
 
     try {
-      MyClass str = true;
+      MyClass str = true; /// static type warning
       Expect.fail("TypeError is expected");
     } on TypeError catch(e) {
       Expect.equals('MyClass', e.dstType);

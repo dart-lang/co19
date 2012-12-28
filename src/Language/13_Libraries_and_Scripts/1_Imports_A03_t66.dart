@@ -16,7 +16,6 @@
  * if the same library is imported twice with empty prefixes
  * and introduces a name to the top level scope of A,
  * which A uses as a type parameter bound (which is a a type annotation).
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -25,7 +24,7 @@ import "1_Imports_A03_t61_lib.dart";
 
 import "../../Utils/dynamic_check.dart";
 
-class Foo2<T extends foo> {
+class Foo2<T extends foo> { /// static-warning doubly imported type used as a type annotation
 }
 
 main() {

@@ -6,7 +6,6 @@
 /**
  * @assertion Method fails gracefully if supplied with argument of invalid type.
  * @description Checks that ArgumentError is thrown.
- * @static-warning
  * @author varlax
  * @reviewer iefremov
  * @needsreview undocumented
@@ -19,9 +18,9 @@ main() {
     return;
   }
   List a = new List();
-  Expect.throws(() => a.length = "12");
+  Expect.throws(() => a.length = "12"); /// static type warning
 
   List<int> b = new List.from(<int>[1,3,5]);
-  Expect.throws(() => b.length = 12.43);
-  Expect.throws(() => b.length = a);
+  Expect.throws(() => b.length = 12.43); /// static type warning
+  Expect.throws(() => b.length = a); /// static type warning
 }

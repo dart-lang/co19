@@ -18,7 +18,7 @@ import "../../Utils/dynamic_check.dart";
 
 class C {}
 class G<C> {
-  static f() => new C(); /// static type warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
+  static f() => new C(); /// static warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
 }
 
 main() {

@@ -10,7 +10,6 @@
  * whose declared type is not dynamic results in a static warning.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  * @needsreview Assertion of this test cites non-normative text.
  * Possibly, this text in the spec should be normative?
  */
@@ -18,5 +17,5 @@
 void foo() {return;}
 
 main() {
-  int i = foo();
+  int i = foo(); /// static type warning 
 }

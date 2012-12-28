@@ -16,7 +16,6 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that two generic types are not assignable even if just one type argument is not assignable.
  * Using complex generic types.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -34,5 +33,5 @@ I<f, num, List<Map<num, Map<int, double>>>> checker(){}
 main() {
 //  I<f_1, int, List<Map<int, Map<int, int>>>> i = new I<f, num, List<Map<num, Map<int, double>>>>();
 //                                     ^^^     <=/=>                                    ^^^
-  I<f_1, int, List<Map<int, Map<int, int>>>> i = checker();
+  I<f_1, int, List<Map<int, Map<int, int>>>> i = checker(); /// static type warning 
 }

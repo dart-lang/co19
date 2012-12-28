@@ -13,7 +13,6 @@
  * ;
  * @description Checks that reassigning a final optional parameter inside the function
  * produces a static warning and a NoSuchMethodError.
- * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -22,7 +21,7 @@
 
 foo([final p = 1]) {
   try {
-    p = 1;
+    p = 1; /// static type warning cannot assign value to final variable
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

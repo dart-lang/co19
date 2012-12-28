@@ -7,7 +7,6 @@
  * @assertion Applies the function [f] to each element of the collection.
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
- * @static-warning
  * @author msyabro
  * @reviewer varlax
  */
@@ -18,11 +17,11 @@ main() {
   
   //empty queue just ignores invalid arg 
   q.forEach(null);
-  checkTypeError(() => q.forEach(0));
+  checkTypeError(() => q.forEach(0)); /// static type warning
 
   q.addLast(1);
   Expect.throws(() => q.forEach(null));
-  Expect.throws(() => q.forEach(1));
-  Expect.throws(() => q.forEach(1.1));
-  Expect.throws(() => q.forEach("1"));
+  Expect.throws(() => q.forEach(1)); /// static type warning
+  Expect.throws(() => q.forEach(1.1)); /// static type warning
+  Expect.throws(() => q.forEach("1")); /// static type warning
 }

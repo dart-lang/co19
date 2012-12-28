@@ -9,11 +9,10 @@
  * @description Checks that a static warning is produced if G has fewer type parameters than needed.
  * @author iefremov
  * @reviewer rodionov
- * @static-warning
  */
 
 class A<T, U> {}
 
 main() {
-  A<int> a = null;
+  A<int> a = null; /// static type warning 
 }

@@ -6,7 +6,6 @@
 /**
  * @assertion Undocumented
  * @description Checks that this method causes no error and the result is not null and is indeed a String.
- * @static-warning
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
@@ -17,7 +16,7 @@ import "../../../Utils/dynamic_check.dart";
 main() {
  if(isCheckedMode()) {
     try {
-      int x = true;
+      int x = true; /// static type warning 
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
       Expect.isTrue(e.toString() != null);

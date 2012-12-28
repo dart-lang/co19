@@ -19,7 +19,6 @@
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
  * @description Checks that it is a dynamic type error if c is not of type bool
  * in checked mode. 
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -28,7 +27,7 @@ import "../../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError( () {
-    for ( var i = 0; "true"; i++) {
+    for ( var i = 0; "true"; i++) { /// static type warning 'String' is not assignable to 'bool'
       break;
     }
   });

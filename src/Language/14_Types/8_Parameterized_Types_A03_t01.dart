@@ -11,11 +11,10 @@
  * @description Trivial check: a single type argument violates the bound.
  * @author iefremov
  * @reviewer rodionov
- * @static-warning
  */
 
 class A<T extends String> {}
 
 main() {
-  A<int> a;
+  A<int> a; /// static type warning 
 }

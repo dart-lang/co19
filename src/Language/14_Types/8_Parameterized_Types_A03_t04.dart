@@ -11,11 +11,10 @@
  * @description Several type arguments, the first one violates the bound.
  * @author iefremov
  * @reviewer rodionov
- * @static-warning
  */
 
 class A<T extends String, S extends Object, U extends int> {}
 
 main() {
-  A<int, List, int> a;
+  A<int, List, int> a; /// static type warning 
 }

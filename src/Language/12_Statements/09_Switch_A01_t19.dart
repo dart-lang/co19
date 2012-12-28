@@ -14,7 +14,6 @@
  * label* default ':' statements
  * ;
  * @description Checks that a case clause that contains labeled statement doesn't produce any errors.
- * @static-warning unreachable code in labelled statement
  * @author iefremov
  * @reviewer rodionov
  */
@@ -22,6 +21,6 @@
 main() {
   switch(1) {
     case 0: break;
-    label: print("hello");
+    label: print("hello"); /// static warning Unreachable code
   }
 }

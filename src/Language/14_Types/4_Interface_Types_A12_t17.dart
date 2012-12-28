@@ -16,7 +16,6 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that a generic interface type B that is a subtype of a generic type A parameterized with type
  * parameters of B is not assignable to A parameterized with another, incompatible set of type parameters.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -27,5 +26,5 @@ class B<S, U> extends A<S, S, U, U>{}
 B<int, double> checker(){}
 
 main() {
-  A<int, int, double, int> a = checker();
+  A<int, int, double, int> a = checker(); /// static type warning
 }

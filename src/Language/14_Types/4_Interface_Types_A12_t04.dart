@@ -16,7 +16,6 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that generic class C<A> is not assignable to C<B> where C - generic, A and B are unrelated classes
  * as such assignment doesn't meet any of these conditions.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -30,5 +29,5 @@ class C<T> {}
 C<B> f(){}
 
 main() {
-  C<A> c = f();
+  C<A> c = f(); /// static type warning
 }

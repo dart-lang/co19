@@ -6,7 +6,6 @@
 /**
  * @assertion Undocumented
  * @description Checks that the line is recorded correctly when the TypeError is raised.
- * @static-warning
  * @author rodionov
  * @reviewer msyabro
  */
@@ -16,7 +15,8 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   if(isCheckedMode()) {
     try {
-      int x = true; // this is line 19
+      // the fillowing line must be no. 19:
+      int x = true;  /// static type warning 
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
       Expect.equals(19, e.line);

@@ -24,5 +24,5 @@ import "1_Imports_A03_t61_lib.dart";
 import "1_Imports_A03_t61_lib.dart";
 
 main() {
-  foo x;
+  foo x; /// static-warning doubly imported type used as a type annotation
 }

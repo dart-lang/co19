@@ -15,7 +15,6 @@
  * @description Checks that it is a static warning and a dynamic type error in checked mode if two different 
  * libraries introduce the same name to the top level scope of A and A uses it as a type parameter
  * bound (which is a type annotation too).
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -24,7 +23,7 @@ import "../../Utils/dynamic_check.dart";
 import "1_Imports_A03_t01_p1_lib.dart";
 import "1_Imports_A03_t01_p2_lib.dart";
 
-class Foo2<T extends foo> {
+class Foo2<T extends foo> { /// static-warning
 }
 
 main() {

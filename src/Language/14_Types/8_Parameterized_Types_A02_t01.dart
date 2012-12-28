@@ -10,13 +10,12 @@
  * not denote an accessible type.
  * @author rodionov
  * @reviewer iefremov
- * @static-warning
  */
 
 import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    List<UnknownType> a = new List();
+    List<UnknownType> a = new List(); /// static type warning 
   });
 }

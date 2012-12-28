@@ -13,14 +13,13 @@
  * parameter scope of f.
  * @description Checks that the function scopes are enclosed in the scope where it's
  * declared and not the one where it's invoked.
- * @static-warning call to unresolved getter 'foo'
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 f() {
   try {
-    var x = foo;
+    var x = foo; /// static type warning call to unresolved getter 'foo'
     Expect.fail("NoSuchMethodError expected when calling undefined getter.");
   } on NoSuchMethodError catch (ex) {}
 }

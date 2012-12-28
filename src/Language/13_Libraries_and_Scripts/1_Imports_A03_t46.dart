@@ -16,7 +16,6 @@
  * two different libraries introduce the same name (both via re-export of a third library)
  * to the top level scope of A
  * and A uses it as a type parameter bound.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -25,7 +24,7 @@ import "1_Imports_A03_t41_p2_lib.dart";
 
 import "../../Utils/dynamic_check.dart";
 
-class Foo2<T extends foo> {
+class Foo2<T extends foo> { /// static-warning doubly imported type used as a type annotation
 }
 
 main() {

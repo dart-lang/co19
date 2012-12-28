@@ -23,7 +23,6 @@
  * assertion. Members in question are variables of incompatible types.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-warning
  * @needsreview issue 3306, 7283
  */
 
@@ -41,7 +40,7 @@ main() {
   I i = null;
   
   try {
-    i.foo;
+    i.foo; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(npe) {}
 }

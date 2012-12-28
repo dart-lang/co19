@@ -8,7 +8,6 @@
  * that satisfy the predicate [f].
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
- * @static-warning
  * @author msyabro
  * @reviewer varlax
  */
@@ -18,10 +17,10 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   Queue list = new Queue();
   
-  checkTypeError(() => list.filter(1));
+  checkTypeError(() => list.filter(1)); /// static type warning
   
   list.addLast(1);
 
   Expect.throws(() => list.filter(null));
-  Expect.throws(() => list.filter(1));
+  Expect.throws(() => list.filter(1)); /// static type warning
 }

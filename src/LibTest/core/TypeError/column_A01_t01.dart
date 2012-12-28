@@ -6,7 +6,6 @@
 /**
  * @assertion Undocumented
  * @description Checks that the column is recorded correctly when the TypeError is raised.
- * @static-warning
  * @author rodionov
  * @reviewer msyabro
  */
@@ -16,7 +15,7 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   if(isCheckedMode()) {
     try {
-      int x = true;
+      int x = true; /// static type warning
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {
       Expect.equals(15, e.column);

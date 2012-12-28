@@ -8,7 +8,6 @@
  * is not a break, continue, return or throw statement.
  * @description Checks that it is a static warning if the last statement of the statement
  * sequence of the default clause is not a break, continue, return or throw statement.
- * @static-warning WARNING|RESOLVER|SWITCH_CASE_FALL_THROUGH
  * @author msyabro
  * @reviewer rodionov
  * @needsreview 7537
@@ -19,7 +18,7 @@ main() {
     switch(1) {
       case 0: false;
               break;
-      default: true; /// static-warning here
+      default: true; /// static-warning WARNING|RESOLVER|SWITCH_CASE_FALL_THROUGH
     }
   } catch(ok) {}
 }

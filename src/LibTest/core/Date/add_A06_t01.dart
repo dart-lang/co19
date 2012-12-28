@@ -7,11 +7,10 @@
  * @assertion Fails gracefully when given an argument of a wrong type.
  * @description Checks that method doesn't crash.
  * @author iefremov
- * @static-warning
  */
 
 main() {
-  Expect.throws(() => new Date.now().add(1));
-  Expect.throws(() => new Date.now().add(""));
-  Expect.throws(() => new Date.now().add(3.14));
+  Expect.throws(() => new Date.now().add(1)); /// static type warning 
+  Expect.throws(() => new Date.now().add("")); /// static type warning 
+  Expect.throws(() => new Date.now().add(3.14)); /// static type warning 
 }

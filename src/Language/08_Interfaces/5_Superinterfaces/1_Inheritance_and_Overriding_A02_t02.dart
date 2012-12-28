@@ -23,7 +23,6 @@
  * assertion. Members in question are methods with different number of required parameters.
  * @author rodionov
  * @reviewer kaigorodov
- * @static-warning
  * @needsreview issue 3306, 7283
  */
 
@@ -41,7 +40,7 @@ main() {
   I i = null;
   
   try {
-    i.foo(null);
+    i.foo(null); /// static type warning cannot
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(npe) {}
 }
