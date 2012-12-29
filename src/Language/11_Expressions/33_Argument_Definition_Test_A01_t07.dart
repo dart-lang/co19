@@ -14,6 +14,7 @@
  * argument definition test denotes the name of a different, but accessible, function.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void foo() {}

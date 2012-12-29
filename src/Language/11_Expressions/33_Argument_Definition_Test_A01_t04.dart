@@ -14,6 +14,7 @@
  * argument definition test denotes a formal parameter that was shadowed by a local definition.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 void foo([x]) {

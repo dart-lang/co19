@@ -34,13 +34,13 @@ abstract class SI2 {
   String foo;
 }
 
-abstract class I implements SI1, SI2 {}
+abstract class I implements SI2, SI1 {}
 
 main() {
   I i = null;
   
   try {
-    i.foo; /// static type warning
+    String z=i.foo; /// static type warning
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(npe) {}
 }

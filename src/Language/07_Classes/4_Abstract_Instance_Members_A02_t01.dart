@@ -28,12 +28,12 @@ main() {
   } on NoSuchMethodError catch (e) {}
   
   try {
-  	var v=c.m;
+  	var v=c.m; /// static type warning not assignable
   	Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch (e) {}
   
   try {
-  	c.m=1;
+  	c.m=1; /// static type warning cannot assign to 'METHOD'
   	Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch (e) {}
 }

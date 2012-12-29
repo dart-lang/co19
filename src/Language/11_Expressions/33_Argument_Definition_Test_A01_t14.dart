@@ -14,6 +14,7 @@
  * argument definition test denotes an unknown identifier.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 main() {
   try {

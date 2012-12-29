@@ -14,6 +14,7 @@
  * argument definition test denotes the name of the function itself.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 main() {
   try {

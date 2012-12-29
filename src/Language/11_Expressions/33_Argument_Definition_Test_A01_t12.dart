@@ -14,6 +14,7 @@
  * argument definition test is 'null'.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 main() {
   try {

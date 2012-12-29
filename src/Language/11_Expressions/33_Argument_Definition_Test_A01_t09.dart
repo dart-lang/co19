@@ -14,6 +14,7 @@
  * argument definition test denotes the name of a function type alias.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 typedef void foo();

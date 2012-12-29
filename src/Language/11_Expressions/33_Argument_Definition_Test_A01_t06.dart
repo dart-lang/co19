@@ -14,6 +14,7 @@
  * argument definition test denotes the name of a catch clause's parameter.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 main() {
   try {

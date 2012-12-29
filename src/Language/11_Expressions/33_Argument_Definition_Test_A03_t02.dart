@@ -12,6 +12,7 @@
  * or being passed as a function parameter that is declared to have a type
  * bool is not assignable to.
  * @author rodionov
+ * @reviewer kaigorodov
  */
 int boolfunc(Map b) {
   String foo = ?b; /// static type warning

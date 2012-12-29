@@ -14,6 +14,7 @@
  * argument definition test denotes the name of a type parameter.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class G<T> {

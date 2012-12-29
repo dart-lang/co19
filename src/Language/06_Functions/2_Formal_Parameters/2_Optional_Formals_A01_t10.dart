@@ -20,7 +20,7 @@
 
 foo({final p: 1}) {
   try {
-    p = 1; /// static type warning cannot assign value to final variable
+    p = 1; /// static warning cannot assign value to final variable
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

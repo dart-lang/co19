@@ -15,6 +15,7 @@
  * that enclosing function instance is assigned to.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 typedef void test_f(x);
 

@@ -14,6 +14,7 @@
  * argument definition test denotes the name of a class.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 class C {}

@@ -14,6 +14,7 @@
  * argument definition is replaced with a string literal.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 main() {
   try {

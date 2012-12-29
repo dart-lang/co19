@@ -12,6 +12,7 @@
  * specified as bool in that function's declaration.
  * @static-clean
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 bool boolfunc(bool b) {

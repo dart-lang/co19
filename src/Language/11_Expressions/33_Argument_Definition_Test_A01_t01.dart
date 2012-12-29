@@ -14,6 +14,7 @@
  * context, outside of a function.
  * @compile-error
  * @author rodionov
+ * @reviewer kaigorodov
  */
 
 var x = 1;

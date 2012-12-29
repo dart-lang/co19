@@ -27,7 +27,7 @@
 
 func(final x) {
   try {
-    x = 1; /// static type warning cannot assign value to final variable
+    x = 1; /// static warning cannot assign value to final variable
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }
