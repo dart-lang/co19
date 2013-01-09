@@ -37,7 +37,7 @@ main() {
 }
 
 void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -45,7 +45,7 @@ void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: 
 }
 
 void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

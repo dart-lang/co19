@@ -13,18 +13,29 @@
 
 class CustomIterator<T> implements Iterator<T> {
   CustomIterator(List list)
-  :_array = list, _length = list.length, _pos = 0 { }
+  :_array = list, _length = list.length, _pos = -1 { }
   
-  bool get hasNext {
-    return _length > _pos;
+  bool moveNext() {
+    if(_pos + 1 < _length) {
+      _pos++;
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  T next() {
-    if (!hasNext) {
-      throw new StateError("No next element");
+  T get current {
+    if (_pos < 0) {
+      throw new StateError("No element selected yet, use moveNext()");
     }
-    return _array[_pos++];
+    
+    if(_pos >= _length) {
+      throw new StateError("Impossible: current position >= length.");
+    }
+    
+    return _array[_pos];
   }
+  
   final List<T> _array;
   final int _length;
   int _pos;
@@ -33,7 +44,7 @@ class CustomIterator<T> implements Iterator<T> {
 class IterableClass implements Iterable {
   List internalArray;
   
-  Iterator iterator() {
+  Iterator get iterator {
     return new CustomIterator(internalArray);
   }
   

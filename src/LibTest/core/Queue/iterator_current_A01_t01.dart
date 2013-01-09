@@ -4,17 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Gets the next element in the iteration.
- * @description Checks that next element in the iteration is taken.
+ * @assertion Gets the current element in the iteration.
+ * @description Checks that the current element in the iteration is returned.
  * @author msyabro
  * @reviewer varlax
  */
 
 void checkNext(Queue list) {
-  Iterator it = list.iterator();
+  Iterator it = list.iterator;
   var i = 0;
   list.forEach((var element) {
-    Expect.equals(element, it.next());
+    Expect.isTrue(it.moveNext());
+    Expect.equals(element, it.current);
+    Expect.identical(it.current, it.current);
   });
 }
 

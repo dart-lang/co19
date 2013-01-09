@@ -12,7 +12,7 @@
  */
 
 void check(String str, String pattern, int end) {
-  RegExp re = new RegExp(pattern, multiLine: false, ignoreCase: false);
+  RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);
   Match m = re.firstMatch(str);
   Expect.equals(end, m.end);
 }

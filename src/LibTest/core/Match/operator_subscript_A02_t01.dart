@@ -11,7 +11,7 @@
  */
  
 void check(String str, String pattern, int index) {
-  RegExp re = new RegExp(pattern, multiLine: false, ignoreCase: false);
+  RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);
   Match m = re.firstMatch(str);
   try {
     m[index];

@@ -11,7 +11,7 @@
  */
 
 check(String pattern, [bool multiLine = false, bool ignoreCase = false]) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   try {
     re.firstMatch(null);
     Expect.fail("Error is expected");

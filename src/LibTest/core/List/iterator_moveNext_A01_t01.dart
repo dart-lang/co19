@@ -12,38 +12,36 @@
  */
 
 main() {
-  Expect.isFalse([].iterator().hasNext);
+  Expect.isFalse([].iterator.moveNext());
 
-  List a = new List(null);
-  Expect.isFalse(a.iterator().hasNext);
+  List a = new List();
+  Expect.isFalse(a.iterator.moveNext());
   a.add(0);
-  Iterator it = a.iterator();
-  Expect.isTrue(it.hasNext);
-  it.next();
-  Expect.isFalse(it.hasNext);
+  Iterator it = a.iterator;
+  Expect.isTrue(it.moveNext());
+  Expect.isFalse(it.moveNext());
 
   a = new List();
   a.length = 25476;
-  it = a.iterator();
+  it = a.iterator;
   for (var i=0; i < a.length; i++) {
-    Expect.isTrue(it.hasNext);
-    it.next();
+    Expect.isTrue(it.moveNext());
   }
-  Expect.isFalse(it.hasNext);
+  Expect.isFalse(it.moveNext());
 
   a.clear();
-  it = a.iterator();
-  Expect.isFalse(it.hasNext);
+  it = a.iterator;
+  Expect.isFalse(it.moveNext());
 
   a.length = 1;
-  it = a.iterator();
-  Expect.isTrue(it.hasNext);
+  it = a.iterator;
+  Expect.isTrue(it.moveNext());
 
   a = const[];
-  it = a.iterator();
-  Expect.isFalse(it.hasNext);
+  it = a.iterator;
+  Expect.isFalse(it.moveNext());
 
   a = const[1];
-  it = a.iterator();
-  Expect.isTrue(it.hasNext);
+  it = a.iterator;
+  Expect.isTrue(it.moveNext());
 }

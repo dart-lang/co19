@@ -13,19 +13,19 @@
  */
  
 main() {
-  check("(ab|cd)+|ef", "AEKFCD", ["CD", "CD"], ignoreCase: true);
+  check("(ab|cd)+|ef", "AEKFCD", ["CD", "CD"], caseSensitive: false);
   check(".+: gr(a|e)y", "color: grey", ["color: grey", "e"]);
   check("((a)|(ab))((c)|(bc))", "abc", ["abc", "a", "a", null, "bc", null, "bc"]);
   check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", ["aaaaaaaaa,aaaaaa", "aaa"]);
   check(r"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", ["aaaaaa,aaaaaaaaa", "a"]);
   check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", ["zaacbbbcac", "z", "ac", "a", null, "c"]); // issue 1290
   check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ["Ot"]);
-  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ["et"], ignoreCase: true);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ["et"], caseSensitive: false);
   check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", ["robot"]);
 }
 
-void check(String pattern, String str, List<String> groupData, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+void check(String pattern, String str, List<String> groupData, {bool multiLine: false, bool caseSensitive: true}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

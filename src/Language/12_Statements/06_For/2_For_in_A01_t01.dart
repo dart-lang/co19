@@ -27,10 +27,10 @@ main() {
     sum1 = sum1 * 31 + id;
   }
 
-  var n = e.iterator();
+  var n = e.iterator;
   int sum2 = 0;
-  while (n.hasNext) {
-    var id = n.next();
+  while (n.moveNext()) {
+    var id = n.current;
     sum2 = sum2 * 31 + id;
   }
   

@@ -33,7 +33,7 @@ deepMapEquals(var expected, var actual) {
   if(expected.length != actual.length) {
     Expect.fail("Maps are not equal: expected length ${expected.length}, actual length ${actual.length}");
   }
-  for(var key in expected.getKeys()) {
+  for(var key in expected.keys) {
     if(expected[key] is Map) {
       deepMapEquals(expected[key], actual[key]);
     } else {

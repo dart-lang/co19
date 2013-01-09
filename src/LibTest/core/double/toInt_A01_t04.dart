@@ -5,7 +5,7 @@
  */
 /**
  * @assertion int toInt()
- * @description Checks that [:toInt():] throws an exception when called on infinity.
+ * @description Checks that [:toInt():] throws an error or exception when called on infinity.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -13,14 +13,18 @@
 
 main() {
   double inf = 1 / 0;
+  bool fail = false;
 
   try {
     inf.toInt();
-    Expect.fail("Expected FormatException");
-  } on FormatException catch(e) {}
+    fail = true;
+  } catch(e) {}
+  Expect.isFalse(fail, "Error or exception expected");
 
+  fail = false;
   try {
     (-inf).toInt();
-    Expect.fail("Expected FormatException");
-  } on FormatException catch(e) {}
+    fail = true;
+  } catch(e) {}
+  Expect.isFalse(fail, "Error or exception expected");
 }

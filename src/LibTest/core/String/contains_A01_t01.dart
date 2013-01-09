@@ -13,7 +13,7 @@
 
 main() {
   String str = "String with <pattern>";
-  RegExp pattern = new RegExp("<.*>", multiLine: false, ignoreCase: false);
+  RegExp pattern = new RegExp("<.*>", multiLine: false, caseSensitive: true);
 
   Expect.isTrue(str.contains("", 0));
   Expect.isTrue(str.contains(pattern, 0));

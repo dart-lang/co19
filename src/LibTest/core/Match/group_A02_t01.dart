@@ -12,7 +12,7 @@
  */
 
 void check(String str, String pattern, int index) {
-  RegExp re = new RegExp(pattern, ignoreCase: false, multiLine: false);
+  RegExp re = new RegExp(pattern, caseSensitive: true, multiLine: false);
   Match m = re.firstMatch(str);
   try {
     m.group(index);

@@ -22,7 +22,8 @@ main() {
   
   List arr = map.values;
   Expect.isTrue(arr.length == 2);
-  Expect.isTrue(arr.indexOf(1,0) != -1 && arr.indexOf(2,0) != -1);
+  Expect.isTrue(arr.contains(1));
+  Expect.isTrue(arr.contains(2));
   
   map["3"] = 1;
   a = map.values;

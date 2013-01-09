@@ -5,7 +5,7 @@
  */
 /**
  * @assertion int toInt()
- * @description Checks that [:toInt():] throws an exception when called on a NaN.
+ * @description Checks that [:toInt():] throws some error or exception when called on a NaN.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -13,8 +13,10 @@
 
 main() {
   double nan = 0 / 0;
+  bool fail = false;
   try {
     nan.toInt();
-    Expect.fail("Expected FormatException");
-  } on FormatException catch(e) {}
+    fail = true;
+  } catch(e) {}
+  Expect.isFalse(fail, "Error or exception expected");
 }

@@ -12,8 +12,15 @@
  */
 
 checkOrder(Map map, List keyOrder, List valuesOrder) {
-  Expect.listEquals(keyOrder, map.keys);
-  Expect.listEquals(valuesOrder, map.values);
+  int idx = 0;
+  for(var k in map.keys) {
+    Expect.equals(keyOrder[idx++], k);
+  }
+  
+  idx = 0;
+  for(var v in map.values) {
+    Expect.equals(valuesOrder[idx++], v);
+  }
 }
 
 main() {

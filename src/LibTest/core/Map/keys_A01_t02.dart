@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns a collection containing all the keys in the map.
+ * @assertion Returns an Iterable containing all the keys in the map.
  * @description Check that returned collection is not backed by the map.
  * @author msyabro
  * @reviewer varlax

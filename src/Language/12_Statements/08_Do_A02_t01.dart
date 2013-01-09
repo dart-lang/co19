@@ -35,13 +35,5 @@ main() {
     ++count;
   } while (count < 5);
   Expect.equals(5, count);
-  
-  count = 0;
-  var it = [0,1,2,3,4,5].iterator();
-  do {
-    it.next();
-    ++count;
-  } while (it.hasNext);
-  Expect.equals(6, count);
 }
 

@@ -11,11 +11,12 @@
  */
 
 void checkIterator(Queue list) {
-  Iterator it = list.iterator();
+  Iterator it = list.iterator;
   list.forEach((var element) {
-    Expect.equals(element, it.next());
+    it.moveNext();
+    Expect.equals(element, it.current);
   });
-  Expect.isFalse(it.hasNext);
+  Expect.isFalse(it.moveNext());
 }
 
 main() {

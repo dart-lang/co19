@@ -4,17 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws ArgumentError if elements contained in the list aren't Strings.
+ * @assertion Throws ArgumentError in unchecked mode if elements contained in the list aren't Strings,
+ * TypeError in checked mode.
  * @description Checks that appropriate exception is thrown.
  * @author msyabro
  * @needsreview undocumented
  */
+import "../../../Utils/dynamic_check.dart";
 
 check(List l) {
-  try {
-    Strings.concatAll(l);
-    Expect.fail("ArgumentError is expected");
-  } on ArgumentError catch(e) {}
+  if(isCheckedMode()) {
+    try {
+      Strings.concatAll(l);
+      Expect.fail("TypeError expected");
+    } on TypeError catch(e) {}
+  } else {
+    try {
+      Strings.concatAll(l);
+      Expect.fail("ArgumentError expected");
+    } on ArgumentError catch(e) {}
+    
+  }
 }
 
 main() {

@@ -12,8 +12,8 @@
  * @reviewer iefremov
  */
 
-void check(String str, String pattern, List<String> expected, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+void check(String str, String pattern, List<String> expected, {bool multiLine: false, bool caseSensitive: true}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Match m = re.firstMatch(str);
   Expect.equals(expected.length, m.groupCount + 1);
   for(int i = 0; i < expected.length; i++) {
@@ -24,7 +24,7 @@ void check(String str, String pattern, List<String> expected, {bool multiLine: f
 main() {
   check("ABCDEF", "(([A-Z])*)", ["ABCDEF", "ABCDEF", "F"]);
   check("a", r"((((((((a))))))))", ["a","a","a","a","a","a","a","a","a"]);
-  check("AEKFCD", r"(ab|cd)+|ef", ["CD", "CD"], ignoreCase: true);
+  check("AEKFCD", r"(ab|cd)+|ef", ["CD", "CD"], caseSensitive: false);
   check("abc", r"((a)|(ab))((c)|(bc))", ["abc", "a", "a", null, "bc", null, "bc"]);
   check("aa", r"(a)(\1)", ["aa", "a", "a"]);
   check("a", r"[a-z]", ["a"]);

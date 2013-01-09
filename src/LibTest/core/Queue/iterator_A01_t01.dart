@@ -16,22 +16,22 @@ class A {
 
 main() {
   Queue list = new Queue();
-  Expect.isTrue(list.iterator() is Iterator);
+  Expect.isTrue(list.iterator is Iterator);
 
   list = new Queue.from([null]);
-  Expect.isTrue(list.iterator() is Iterator);
+  Expect.isTrue(list.iterator is Iterator);
 
   list = new Queue.from([[]]);
-  Expect.isTrue(list.iterator() is Iterator);
+  Expect.isTrue(list.iterator is Iterator);
 
   list = new Queue<int>();
-  Expect.isTrue(list.iterator() is Iterator<int>);
-  Expect.isFalse(list.iterator() is Iterator<bool>);
-  Expect.isFalse(list.iterator() is Iterator<String>);
+  Expect.isTrue(list.iterator is Iterator<int>);
+  Expect.isFalse(list.iterator is Iterator<bool>);
+  Expect.isFalse(list.iterator is Iterator<String>);
 
   list = new Queue<bool>();
-  Expect.isTrue(list.iterator() is Iterator<bool>);
+  Expect.isTrue(list.iterator is Iterator<bool>);
 
   list = new Queue<A>();
-  Expect.isTrue(list.iterator() is Iterator<A>);
+  Expect.isTrue(list.iterator is Iterator<A>);
 }

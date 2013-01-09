@@ -36,9 +36,9 @@ main() {
   Expect.equals(2, count);
   
   count = 0;
-  var it = [0,1].iterator();
-  while (it.hasNext) {
-    it.next();
+  var it = [0,1].iterator;
+  while (it.moveNext()) {
+//    it.current;
     ++count;
   }
   Expect.equals(2, count);

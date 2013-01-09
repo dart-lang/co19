@@ -10,8 +10,8 @@
  * @needsreview undocumented
  */
 
-check(String pattern, [bool multiLine = false, bool ignoreCase = false]) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+check(String pattern, [bool multiLine = false, bool caseSensitive = true]) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   try {
     re.stringMatch(null);
     Expect.fail("Error is expected");
@@ -21,5 +21,5 @@ check(String pattern, [bool multiLine = false, bool ignoreCase = false]) {
 main() {
   check("");
   check("a");
-  check(r"^[^\n\r]+$", true, true);
+  check(r"^[^\n\r]+$", true, false);
 }

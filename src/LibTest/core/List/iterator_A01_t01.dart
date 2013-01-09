@@ -12,10 +12,10 @@
  */
 
 void checkIterator(List a) {
-  Iterator it = a.iterator();
+  Iterator it = a.iterator;
   int i = 0;
-  while (it.hasNext) {
-    Expect.isTrue(it.next() == a[i++]);
+  while (it.moveNext()) {
+    Expect.isTrue(it.current == a[i++]);
   }
   Expect.equals(a.length, i);
 }

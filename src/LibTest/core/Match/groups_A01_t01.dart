@@ -37,8 +37,8 @@ main() {
 }
 
 void check(String pattern, String str, int matchNum, List<int> groupIndices, List<String> expGroups,
-    {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+    {bool multiLine: false, bool caseSensitive: true}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Match match = new List.from(re.allMatches(str))[matchNum];
   if(null == match) {
     Expect.fail("No match #$matchNum in '$pattern'/ ~ '$str'!");

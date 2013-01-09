@@ -14,7 +14,7 @@
 
 main() {
   String str = "<first pattern> and <second pattern>";
-  RegExp pattern = new RegExp("<.*?>", multiLine: false, ignoreCase: false);
+  RegExp pattern = new RegExp("<.*?>", multiLine: false, caseSensitive: true);
   Expect.isTrue(str.replaceFirst(pattern, "") == " and <second pattern>");
 
   Expect.isTrue("".replaceFirst("", "EmptyString") == "EmptyString");

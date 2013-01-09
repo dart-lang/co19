@@ -16,7 +16,7 @@ main() {
   checkArrayEquals("1,2".split(","), ["1", "2"]);
   checkArrayEquals("12345".split(","), ["12345"]);
   checkArrayEquals("12345,".split(","), ["12345", ""]);
-  checkArrayEquals("1, 2, 3, 4, 5".split(new RegExp("\\d", multiLine: false, ignoreCase: false)), ["", ", ", ", ", ", ", ", ", ""]);
+  checkArrayEquals("1, 2, 3, 4, 5".split(new RegExp("\\d", multiLine: false, caseSensitive: true)), ["", ", ", ", ", ", ", ", ", ""]);
   checkArrayEquals("12".split(""), ["1", "2"]);
 }
 

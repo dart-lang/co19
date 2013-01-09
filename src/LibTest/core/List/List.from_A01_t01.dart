@@ -14,10 +14,10 @@
 
 void checkEquals(Collection expected, List actual) {
   Expect.equals(expected.length, actual.length);
-  Iterator it = expected.iterator();
+  Iterator it = expected.iterator;
   var i = 0;
-  while (it.hasNext) {
-    Object o = it.next();
+  while (it.moveNext()) {
+    Object o = it.current;
     Expect.identical(actual[i], o);
     Expect.isTrue(actual[i] == o);
     i++;

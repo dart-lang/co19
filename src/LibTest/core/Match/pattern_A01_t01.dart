@@ -13,13 +13,13 @@
  */
 
 main() {
-  check(r"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, false);
-  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, false);
+  check(r"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, true);
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, true);
   check(r"(ab|cd)+|ef", "AEKFCD", false, true);
 }
   
-void check(String pattern, String str, bool multiLine, bool ignoreCase) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+void check(String pattern, String str, bool multiLine, bool caseSensitive) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Collection<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

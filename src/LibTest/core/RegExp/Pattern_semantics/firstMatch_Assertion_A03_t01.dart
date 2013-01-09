@@ -33,7 +33,7 @@ main() {
   check(r"\bso", "pilot\nsoviet robot\topenoffice", matchPos: 6);
   checkNeg(r"so\b", "pilot\nsoviet robot\topenoffice");
   check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", matchPos: 3);
-  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", ignoreCase: true, matchPos: 10);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", caseSensitive: false, matchPos: 10);
   check(r"\bro", "pilot\nsoviet robot\topenoffice", matchPos: 13);
   checkNeg(r"r\b", "pilot\nsoviet robot\topenoffice");
   check(r"\brobot\b", "pilot\nsoviet robot\topenoffice", matchPos: 13);
@@ -44,8 +44,8 @@ main() {
   checkNeg(r"\be", "pilot\nsoviet robot\topenoffic\u0065");
 }
 
-void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false, int matchPos: -1}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+void check(String pattern, String str, {bool multiLine: false, bool caseSensitive: true, int matchPos: -1}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -55,8 +55,8 @@ void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: 
   }
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+void checkNeg(String pattern, String str, {bool multiLine: false, bool caseSensitive: true}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

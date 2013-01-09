@@ -35,18 +35,19 @@ main() {
 // matchData is a list of the form [int, int, String, String*], where the ints
 // correspond to start/end indices of the match, and the strings - to group values
 void check(String pattern, String str, bool multiLine, bool ignoreCase, List expMatchesData) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Collection<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
   Expect.equals(expMatchesData.length, matches.length);
 
-  Iterator<Match> it = matches.iterator();
+  Iterator<Match> it = matches.iterator;
   int matchCnt = 0;
   expMatchesData.forEach((List expMatch) {
     matchCnt++;
-    Match actMatch = it.next();
+    it.moveNext();
+    Match actMatch = it.current;
     
     Expect.equals(expMatch.length, actMatch.groupCount + 3);
     Expect.equals(str, actMatch.str);
@@ -68,7 +69,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
 }
 
 void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Collection<Match> matches = re.allMatches(str);
   Expect.equals(0, matches.length);
 }

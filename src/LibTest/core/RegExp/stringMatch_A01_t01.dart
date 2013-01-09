@@ -12,22 +12,22 @@
  */
  
 main() {
-  check("(ab|cd)+|ef", "AEKFCD", false, true, "CD");
-  check(".+: gr(a|e)y", "color: grey", false, false, "color: grey");
-  check("((a)|(ab))((c)|(bc))", "abc", false, false, "abc");
-  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, false, "aaaaaaaaa,aaaaaa");
-  check(r"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, false, "aaaaaa,aaaaaaaaa");
-  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", false, false, "zaacbbbcac");
-  check(r"s$", "pairs\nmakes\tdouble", true, false, "s");
-  check(r"[^e]$", "pairs\nmakes\tdouble", true, false, "s");
-  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, "Ot");
-  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, "et");
-  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, false, "robot");
-  check(r"(?=(a+))", "baaabac", false, false, "");
-  check(r"(?!a|b)|c", "bc", false, false, "");
+  check("(ab|cd)+|ef", "AEKFCD", false, false, "CD");
+  check(".+: gr(a|e)y", "color: grey", false, true, "color: grey");
+  check("((a)|(ab))((c)|(bc))", "abc", false, true, "abc");
+  check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa", false, true, "aaaaaaaaa,aaaaaa");
+  check(r"^(a+?)\1*,\1+$", "aaaaaa,aaaaaaaaa", false, true, "aaaaaa,aaaaaaaaa");
+  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", false, true, "zaacbbbcac");
+  check(r"s$", "pairs\nmakes\tdouble", true, true, "s");
+  check(r"[^e]$", "pairs\nmakes\tdouble", true, true, "s");
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, "Ot");
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, "et");
+  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, true, "robot");
+  check(r"(?=(a+))", "baaabac", false, true, "");
+  check(r"(?!a|b)|c", "bc", false, true, "");
 }
 
-void check(String pattern, String str, bool multiLine, bool ignoreCase, String expectedMatch) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, ignoreCase: ignoreCase);
+void check(String pattern, String str, bool multiLine, bool caseSensitive, String expectedMatch) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Expect.equals(expectedMatch, re.stringMatch(str));
 }

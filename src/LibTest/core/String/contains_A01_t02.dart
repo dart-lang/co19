@@ -14,7 +14,7 @@
 
 main() {
   String str = "String with <pattern>";
-  RegExp pattern = new RegExp("<.*?>", multiLine: false, ignoreCase: false);
+  RegExp pattern = new RegExp("<.*?>", multiLine: false, caseSensitive: true);
 
   try {
     str.contains(pattern, -1);
