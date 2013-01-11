@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
+ * @assertion int operator ~/(num other)
  * @description Checks that if passed argument is a zero and 'this' is nonzero
- * double the result is an infinity. The result sign is positive if
- * operands have the same sign, negative otherwise.
+ * double the result is an error.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -24,12 +23,22 @@ final List values = const [
 check(d) {
   Expect.isTrue(d > 0, 'Incorrect input: $d');
 
-  Expect.equals(1/0, d ~/ .0);
-  Expect.equals(-1/0, d ~/ (-.0));
+  Expect.throws(() {
+    d ~/ .0;
+  });
+  
+  Expect.throws(() {
+    d ~/ (-.0);
+  });
 
   d = -d;
-  Expect.equals(-1/0, d ~/ .0);
-  Expect.equals(1/0, d ~/ (-.0));
+  Expect.throws(() {
+    d ~/ .0;
+  });
+  
+  Expect.throws(() {
+    d ~/ (-.0);
+  });
 }
 
 main() {

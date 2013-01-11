@@ -15,7 +15,7 @@
 main() {
   try {
     switch(1) {
-      case 0: false; /// static warning SWITCH_CASE_FALL_THROUGH
+      case 0: false; /// static warning
       case 1: true;
               break;
     }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an out of bounds exception if the list is empty.
- * @description Checks that RangeError is thrown if the list is empty.
+ * @assertion If this is empty throws a StateError.
+ * @description Checks that StateError is thrown if the list is empty.
  * @author vasya
  * @reviewer msyabro
  * @reviewer varlax
@@ -14,8 +14,8 @@
 check(List a) {
   try {
     a.last;
-    Expect.fail("RangeError expected when calling a.last");
-  } on RangeError catch(ok) {}
+    Expect.fail("StateError expected when calling a.last");
+  } on StateError catch(ok) {}
 }
 
 main() {

@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
+ * @assertion int operator ~/(num other)
  * Throws [Error] if [other] is [:null:].
- * @description Checks that the correct exception is thrown.
+ * @description Checks that dividing by null results in an error or exception.
  * @author msyabro
+ * @reviewer rodionov
  */
 
 final List values = const [
@@ -22,10 +23,9 @@ final List values = const [
  ];
 
  check(double d) {
-   try {
+   Expect.throws(() {
      d ~/ null;
-     Expect.fail("Error is expected");
-   } on Error catch(e) {}
+   });
  }
 
  main() {

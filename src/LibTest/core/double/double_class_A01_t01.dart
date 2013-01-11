@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Double is contagious.
- * @description Checks that arithmetic operations on a double and an int yield double.
+ * @description Checks that arithmetic operations (except those that specify int as return type)
+ * on a double and an int yield double.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -23,8 +24,6 @@ main() {
   check(2 * 2.0);
   check(2.0 / 2);
   check(2 / 2.0);
-  check(4.0 ~/ 2);
-  check(4 ~/ 2.0);
   check(4.0 % 2);
   check(4 % 2.0);
   check(4.0.remainder(2));

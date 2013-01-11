@@ -7,16 +7,14 @@
  * @assertion If a declaration d named n is in the namespace induced by a scope S, 
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
- * @description Checks that a hidden function name can't be used as a function.
+ * @description Checks that a hidden function cannot be called.
  * @author msyabro
  * @reviewer iefremov
  */
 
-f() {}
+int f() {return 1;}
+
 main() {
-  var f = 1;
-  try {
-    f(); /// static type warning - static type of f (dynamic) cannot be assigned to a function type
-    // see "function expression invocation"
-  } catch(e) {}
+  var f = () {return 2;};
+  Expect.equals(2, f());
 }

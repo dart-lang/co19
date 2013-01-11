@@ -4,21 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
- * @description Checks that if both operands are zero the result is NaN.
+ * @assertion int operator ~/(num other)
+ * @description Checks that if both operands are zero the result is an error.
  * @author pagolubev
  * @reviewer msyabro
  */
 
 
-checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
-  Expect.isTrue(d.isNaN, msg);
-}
-
 main() {
-  checkNaN(.0 ~/ .0);
-  checkNaN(.0 ~/ (-.0));
-  checkNaN((-.0) ~/ .0);
-  checkNaN((-.0) ~/ (-.0));
+  Expect.throws(() {
+    .0 ~/ .0;
+  });
+  
+  Expect.throws(() {
+    .0 ~/ (-.0);
+  });
+  
+  Expect.throws(() {
+    (-.0) ~/ .0;
+  });
+  
+  Expect.throws(() {
+    (-.0) ~/ (-.0);
+  });
 }

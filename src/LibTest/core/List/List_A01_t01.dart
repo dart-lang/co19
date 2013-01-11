@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a fixed size list of the given length.
+ * @assertion Creates a list of the given length. The length of the returned list is not fixed.
  * @description Checks that created list contains exactly length elements.
  * @author iefremov
  * @reviewer msyabro

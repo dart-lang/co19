@@ -14,7 +14,7 @@
  */
 
 main() {
-  List a = new List(1);
+  List a = new List.fixedLength(1);
   a[0] = 0;
   try {
     a.removeLast();

@@ -18,7 +18,7 @@ const x = 1;
 
 main() {
   try {
-    x = 1; /// static warning
+    x = 1; /// static warning 5_Variables_A06
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

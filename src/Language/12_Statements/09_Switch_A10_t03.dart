@@ -18,7 +18,7 @@ main() {
     switch(1) {
       case 0: false;
               break;
-      default: true; /// static-warning WARNING|RESOLVER|SWITCH_CASE_FALL_THROUGH
+      default: true; /// static warning, see issue
     }
   } catch(ok) {}
 }

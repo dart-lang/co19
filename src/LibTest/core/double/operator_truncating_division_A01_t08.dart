@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
+ * @assertion int operator ~/(num other)
  * @description Checks that if 'this' is a zero and [other] is nonzero
  * double the result is a zero.
  * @author msyabro
@@ -20,9 +20,9 @@ final List values = const [
 
 main() {
   values.forEach((double d) {
-    Expect.equals(0.0, 0.0 ~/ d);
-    Expect.equals(0.0, (-0.0) ~/ d);
-    Expect.equals(0.0, 0.0 ~/ (-d));
-    Expect.equals(0.0, (-0.0) ~/ (-d));
+    Expect.identical(0, 0.0 ~/ d);
+    Expect.identical(0, (-0.0) ~/ d);
+    Expect.identical(0, 0.0 ~/ (-d));
+    Expect.identical(0, (-0.0) ~/ (-d));
   });
 }

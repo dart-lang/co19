@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
- * @description Checks that if one of the operands is a NaN the result is a NaN.
+ * @assertion int operator ~/(num other)
+ * @description Checks that if one of the operands is a NaN the result is an error.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -21,14 +21,13 @@ final List values = const [
    1.7976931348623157e308, 1/0, double.NAN
  ];
 
-checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
-  Expect.isTrue(d.isNaN, msg);
-}
-
 main() {
   values.forEach((d) {
-    checkNaN(d ~/ double.NAN);
-    checkNaN(double.NAN ~/ d);
+    Expect.throws(() {
+      d ~/ double.NAN;
+    });
+    Expect.throws(() {
+      double.NAN ~/ d;
+    });
   });
 }

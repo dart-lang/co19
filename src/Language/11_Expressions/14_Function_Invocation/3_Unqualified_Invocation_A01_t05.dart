@@ -32,7 +32,7 @@ class A {
 
     m = 1;
     try {
-      m(1, 2, 3); /// static type warning - invoking an unknown instance member, see "Unqualified invocation" and "Ordinary invocation"
+      m(1, 2, 3); // no warning, static type of m is dynamic (<=> Function)
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch(ok) {}
   }

@@ -4,43 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a fixed size list of the given length.
- * @description Checks that created list does not allow operations affecting list size.
+ * @assertion Creates a list of the given length. The length of the returned list is not fixed.
+ * @description Checks that created list is resizable.
  * @author varlax
  * @reviewer msyabro
  */
 
 check(List l) {
-  try {
-    l.clear();
-    Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch(ok) {}
-
-  try {
-    l.length = 123;
-    Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch(ok) {}
-
-  try {
-    l.add(null);
-    Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch(ok) {}
-
-  try {
-    l.removeLast();
-    Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch(ok) {}
-
-  try {
-    l.insertRange(0,1);
-    Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch(ok) {}
-
-  try {
-    l.removeRange(0,1);
-    Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch(ok) {}
-
+  l.clear();
+  l.length = 123;
+  l.add(null);
+  l.removeLast();
+  l.insertRange(0,1);
+  l.removeRange(0,1);
 }
 
 main() {

@@ -22,9 +22,8 @@ class A {}
 main() {
   if(!isCheckedMode()) {
     Expect.isTrue(true && true);
-    // static type warnings galore - not specified in "Logical boolean expressions" or "Boolean conversion"
     Expect.isFalse(new Object() && true);
-    Expect.isFalse(0 && true);
+    Expect.isFalse(0 && true); // static warnings galore - see "Boolean conversion" and "Binding actuals to formals"
     Expect.isFalse(1 && true);
     Expect.isFalse("" && true);
     Expect.isFalse([1, 2, 3] && true);

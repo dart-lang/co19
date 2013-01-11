@@ -12,7 +12,7 @@
  */
 
 main() {
-  List a = new List(100);
+  List a = new List.fixedLength(100);
   try {
     a.length = 1;
     Expect.fail("UnsupportedError expected when calling a.length");

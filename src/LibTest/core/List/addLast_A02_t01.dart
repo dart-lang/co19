@@ -13,14 +13,14 @@
  */
 
 main() {
-  List a = new List(0);
+  List a = new List.fixedLength(0);
   try {
     a.addLast(null);
     Expect.fail("UnsupportedError expected when calling a.push()");
   } on UnsupportedError catch(ok) {}
 
   try {
-    new List(100).addLast(null);
+    new List.fixedLength(100).addLast(null);
     Expect.fail("UnsupportedError expected when calling a.add()");
   } on UnsupportedError catch(ok) {}
 

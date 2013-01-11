@@ -22,6 +22,5 @@ main() {
   check_nan(nan - nan);
   check_nan(nan / nan);
   check_nan(nan % nan);
-  check_nan(nan ~/ nan);
   check_nan(nan  * 42.0);
 }

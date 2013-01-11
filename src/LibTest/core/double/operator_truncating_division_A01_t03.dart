@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
+ * @assertion int operator ~/(num other)
  * @description Checks that if 'this' is an infinite double and 'other' is
- * a finite nonzero double the result is infinity. The result sign is positive if
- * operands have the same sign, negative otherwise.
+ * a finite nonzero double the result is an error.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -25,9 +24,20 @@ final double negativeInf = -1 / 0;
 
 main() {
   values.forEach((d) {
-    Expect.equals(positiveInf, positiveInf ~/ d);
-    Expect.equals(negativeInf, negativeInf ~/ d);
-    Expect.equals(negativeInf, positiveInf ~/ (-d));
-    Expect.equals(positiveInf, negativeInf ~/ (-d));
+    Expect.throws(() {
+      positiveInf ~/ d;
+    });
+  
+    Expect.throws(() {
+      negativeInf ~/ d;
+    });
+    
+    Expect.throws(() {
+      positiveInf ~/ (-d);
+    });
+  
+    Expect.throws(() {
+      negativeInf ~/ (-d);
+    });
   });
 }

@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws a [UnsupportedError] if
- * the list is not extendable.
+ * @assertion Throws a [UnsupportedError] if the list is not extendable.
  * @description Checks that exception is thrown if the list is not extendable.
  * @author vasya
  * @reviewer msyabro
@@ -13,20 +12,20 @@
  */
 
 main() {
-  List a = new List(0);
+  List a = new List.fixedLength(0);
   try {
     a.clear();
     Expect.fail("UnsupportedError expected when calling a.clear()");
   } on UnsupportedError catch(ok) {}
 
-  a = new List(1);
+  a = new List.fixedLength(1);
   a[0] = null;
   try {
     a.clear();
     Expect.fail("UnsupportedError expected when calling a.clear()");
   } on UnsupportedError catch(ok) {}
 
-  a = new List(3);
+  a = new List.fixedLength(3);
   a[0] = 1;
   a[1] = 1;
   a[2] = 1;
@@ -35,7 +34,7 @@ main() {
     Expect.fail("UnsupportedError expected when calling a.clear()");
   } on UnsupportedError catch(ok) {}
 
-  a = new List(89356);
+  a = new List.fixedLength(89356);
   try {
     a.clear();
     Expect.fail("UnsupportedError expected when calling a.clear()");

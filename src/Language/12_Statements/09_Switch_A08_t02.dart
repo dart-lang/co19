@@ -26,8 +26,8 @@ test(value) {
   switch(value) {
     case 1:  result = 1;
              break;
-    case 2:  result = 2; /// static warning SWITCH_CASE_FALL_THROUGH
-    case 3:  result = 3;
+    case 2:  result = 2; /// static warning - case fall-through, see "Switch"
+    case 3:  result = 3; // shouldn't be a warning - issue 7537
   }
   return result;
 }
@@ -37,7 +37,7 @@ testEmptyCases(value) {
 
   switch(value) {
     case 1:
-    case 2: result = 1; /// static warning SWITCH_CASE_FALL_THROUGH
+    case 2: result = 1; /// static warning - case fall-through, see "Switch"
     case 3:
     case 4: result = 2;
             break;

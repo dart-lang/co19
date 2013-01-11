@@ -21,6 +21,6 @@
 main() {
   switch(1) {
     case 0: break;
-    label: print("hello"); /// static warning Unreachable code
+    label: print("hello"); /// unspecified static warning - unreachable code
   }
 }

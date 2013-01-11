@@ -14,12 +14,12 @@
 
 main() {
   try {
-    new List(0).add(null);
+    new List.fixedLength(1).add(null);
     Expect.fail("UnsupportedError expected when calling a.add()");
   } on UnsupportedError catch(ok) {}
 
   try {
-    new List(100).add(null);
+    new List.fixedLength(100).add(null);
     Expect.fail("UnsupportedError expected when calling a.add()");
   } on UnsupportedError catch(ok) {}
 

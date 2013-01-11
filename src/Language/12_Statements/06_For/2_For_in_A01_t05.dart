@@ -39,7 +39,7 @@ class TestIterator implements Iterator {
   static int i = 0;
 }
 
-class TestIterable implements Iterable {
+class TestIterable implements Iterable { // static warning: concrete class inherits abstract methods, see "Inheritance and overriding"/"Abstract instance members"
   Iterator get iterator {
     addLog("iterator");
     return new TestIterator();

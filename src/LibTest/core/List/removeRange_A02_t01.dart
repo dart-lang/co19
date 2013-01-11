@@ -5,15 +5,14 @@
  */
 /**
  * @assertion 
- * Throws an [UnsupportedError] if the list is
- * not extendable.
+ * Throws an [UnsupportedError] if the list is not extendable.
  * @description Checks that an [UnsupportedError] is thrown as expected.
  * @author vasya
  * @reviewer varlax
  */
 
 main() {
-  var a = new List(1);
+  var a = new List.fixedLength(1);
   try {
     a.removeRange(0, 1);
     Expect.fail("UnsupportedError expected when calling List.removeRange()");

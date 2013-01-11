@@ -4,17 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ArgumentError] if the [length] is negative.
+ * @assertion Throws [ArgumentError] if the [length] is not a non-negative integer.
  * @description Checks that ArgumentError is thrown as expected.
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro
  * @reviewer varlax
+ * @needsreview undocumented
  */
 
 main() {
   try {
     List a = new List(-1);
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
+
+  try {
+    List a = new List(null);
     Expect.fail("ArgumentError is expected");
   } on ArgumentError catch(e) {}
 }

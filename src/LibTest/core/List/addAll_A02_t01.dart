@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws UnsupportedError if
- * the list is not extendable.
+ * @assertion Throws UnsupportedError if the list is not extendable.
  * @description Checks that UnsupportedError is thrown
  * if the list is not extendable.
  * @author vasya
@@ -21,8 +20,8 @@ void check(list, collection) {
 }
 
 main() {
-  check(new List(100), ["1", "2", "3"]);
-  check(new List(0), [null]);
-  check(new List(1), new List(34567));
+  check(new List.fixedLength(100), ["1", "2", "3"]);
+  check(new List.fixedLength(0), [null]);
+  check(new List.fixedLength(1), new List(34567));
   check(const [], new List(34567));
 }

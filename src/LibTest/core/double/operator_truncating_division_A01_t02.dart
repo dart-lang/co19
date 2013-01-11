@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double operator ~/(num other)
+ * @assertion int operator ~/(num other)
  * @description Checks that if 'this' is a finite double and 'other' is an
  * infinity the result is always a zero.
  * @author pagolubev
@@ -28,7 +28,7 @@ final double negativeInf = -1 / 0;
 
 main() {
   values.forEach((d) {
-    Expect.equals(.0, d ~/ positiveInf);
-    Expect.equals(.0, d ~/ negativeInf);
+    Expect.identical(0, d ~/ positiveInf);
+    Expect.identical(0, d ~/ negativeInf);
   });
 }
