@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns a new collection with the elements of this collection
- * that satisfy the predicate [f].
- * @description Checks that exception thrown in [f] breaks the iteration
+ * @assertion bool any(bool f(E element))
+ * Returns true if one element of the collection satisfies the predicate [f].
+ * Returns false otherwise.
+ * @description Checks that exception thrown in [f] breaks the iteration.
  * @author msyabro
  * @reviewer varlax
  */
@@ -20,10 +21,19 @@ main() {
   
   int count = 0;
   try {
-    list.filter((var element) {
+    list.any((var element) {
       throw ++count;
     });
-  } on Object catch(e) {
+  } on int catch(e) {
+    Expect.equals(1, count);
+  }
+  
+  count = 0;
+  try {
+    [1, 2, 3, 4, 5].any((var element) {
+      throw ++count;
+    });
+  } on int catch(e) {
     Expect.equals(1, count);
   }
 }

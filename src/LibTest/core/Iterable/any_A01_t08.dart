@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if one element of the collection satisfies the
- * predicate [f]. Returns false otherwise.
+ * @assertion bool any(bool f(E element))
+ * Returns true if one element of the collection satisfies the predicate [f].
+ * Returns false otherwise.
  * @description Checks that the method some() returns correct value for various predicates.
  * @author msyabro
  * @reviewer varlax
@@ -19,27 +20,27 @@ main() {
     list.addLast(i - 50);
   }
   
-  bool res = list.some((int element) {
+  bool res = list.any((int element) {
     return element > 0;
   });
   Expect.isTrue(res);
   
-  res = list.some((int element) {
+  res = list.any((int element) {
     return element < 1000;
   });
   Expect.isTrue(res);
   
-  res = list.some((int element) {
+  res = list.any((int element) {
     return element < -1000;
   });
   Expect.isFalse(res);
   
-  res = list.some((int element) {
+  res = list.any((int element) {
     return true;
   });
   Expect.isTrue(res);
   
-  res = list.some((int element) {
+  res = list.any((int element) {
     return false;
   });
   Expect.isFalse(res);

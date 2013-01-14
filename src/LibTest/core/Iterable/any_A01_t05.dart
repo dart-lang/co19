@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if some elements of the list satisfy the predicate [f].
+ * @assertion bool any(bool f(E element))
+ * Returns true if one element of the collection satisfies the predicate [f].
+ * Returns false otherwise.
  * @description Checks that method is called for each element until the first true result
  * @author vasya
  * @author msyabro
@@ -14,7 +16,7 @@
  //Checks that [some] calls [predicate] a [count] number of times
 check(List a, bool predicate(var e), int count) {
   int actualCount = 0;
-  a.some((var e) {
+  a.any((var e) {
     actualCount++;
     return predicate(e);
   });

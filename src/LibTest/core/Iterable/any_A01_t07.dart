@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing an argument that is null or incompatible with the required
- * function type results in an exception or error.
+ * @assertion bool any(bool f(E element))
+ * Returns true if one element of the collection satisfies the predicate [f].
+ * Returns false otherwise.
  * @description Checks that something is thrown if the list is not empty
  * and the argument is null or if the argument is not null, but its type is
  * incompatible with the required function type.
@@ -19,17 +20,17 @@ class A {
 }
 
 check(var arg) {
-  Expect.throws(() => ["1","2","3"].some(arg));
-  Expect.throws(() => const ["1","2","3"].some(arg));
-  Expect.throws(() => new List.from(["1","2","3"]).some(arg));
+  Expect.throws(() => ["1","2","3"].any(arg));
+  Expect.throws(() => const ["1","2","3"].any(arg));
+  Expect.throws(() => new List.from(["1","2","3"]).any(arg));
 
   var a = new List(3);
   a.setRange(0, 3, ["1","2","3"]);
-  Expect.throws(() => a.some(arg));
+  Expect.throws(() => a.any(arg));
 
   var b = new List();
   b.addAll(["1","2","3"]);
-  Expect.throws(() => b.some(arg));
+  Expect.throws(() => b.any(arg));
 }
  
 main() {

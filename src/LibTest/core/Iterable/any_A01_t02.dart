@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool some(bool f(T element))
+ * @assertion bool any(bool f(E element))
  * Returns true if one element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Checks that nested invocations of some() on the same set do not cause any errors.
+ * @description Checks that nested invocations of any() on the same set do not cause any errors.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -18,10 +18,10 @@ main() {
   s.addAll([1, -3, 10, 17]);
 
   Set<int> outer = new Set<int>();
-  s.some((int x) {
+  s.any((int x) {
     outer.add(x);
     Set<int> inner = new Set<int>();
-    s.some((int y) {
+    s.any((int y) {
       inner.add(y);
       return false;
     });
