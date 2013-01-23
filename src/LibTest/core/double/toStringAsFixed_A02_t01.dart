@@ -39,7 +39,7 @@ final List values = const [
 ];
 
 check(double val) {
-  boolean fail = false;
+  bool fail = false;
   try {
     val.toStringAsFixed(null);
     fail = true;

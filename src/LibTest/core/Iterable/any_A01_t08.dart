@@ -11,7 +11,7 @@
  * @author msyabro
  * @reviewer varlax
  */
-
+import "dart:collection";
 
 main() {
   Queue<int> list = new Queue<int>();

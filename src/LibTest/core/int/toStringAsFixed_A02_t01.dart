@@ -19,7 +19,7 @@ main() {
 }
 
 void check(int x, int digits) {
-  boolean fail = false;
+  bool fail = false;
   try {
     x.toStringAsFixed(digits);
     fail = true;

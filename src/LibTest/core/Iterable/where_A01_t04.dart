@@ -18,6 +18,7 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+import "dart:collection";
 
 class A {
   A() {}
