@@ -20,8 +20,8 @@
  */
 
 main() {
-  <Map>{};
+  <String, Map>{};
   const {};
-  const <int> {};
-  <dynamic>{"m":{"m":{"m":{}}}};
+  const <String, double> {};
+  <String, dynamic>{"m":{"m":{"m":{}}}};
 }

@@ -72,7 +72,7 @@ class Test  {
     var x;
     x = const {};
 
-    x = const <int> {"key1": 1, "key2": 2 + 2};
+    x = const <String, int> {"key1": 1, "key2": 2 + 2};
     x = const <String, String> {"1": "2", "3": "4"};
     x = const <String, List> {"l1": const [], "l2": const [1, 2, 3]};
     x = const <String, Map> {"" : const {}};
