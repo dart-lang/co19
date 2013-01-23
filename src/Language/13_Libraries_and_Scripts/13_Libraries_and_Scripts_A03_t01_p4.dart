@@ -5,3 +5,5 @@
  */
 
 library lib.rary;
+
+int foo;

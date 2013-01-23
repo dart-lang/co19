@@ -5,3 +5,5 @@
  */
 
 library id12.id34;
+
+int foo;

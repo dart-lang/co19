@@ -10,6 +10,7 @@
  * @reviewer msyabro
  * @needsreview undocumented
  */
+import "dart:collection";
 
 void check(List l) {
   int len = l.length;

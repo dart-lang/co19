@@ -11,6 +11,7 @@
  * @reviewer iefremov
  * @reviewer msyabro
  */
+import "dart:collection";
 
 main() {
   List a = new List();

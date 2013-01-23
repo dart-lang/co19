@@ -13,7 +13,6 @@
  * @description Checks that it is not an error to use a multi-line string literal
  * as a URI in a part directive and it still works even with leading whitespace
  * since it's getting trimmed.
- * @static-warning part references a different library name
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 6352

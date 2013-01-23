@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "dart:collection";
 
 class G {}
 

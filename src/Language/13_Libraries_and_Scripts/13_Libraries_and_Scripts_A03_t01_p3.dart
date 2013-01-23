@@ -5,3 +5,5 @@
  */
 
 library ___;
+
+int foo;

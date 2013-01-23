@@ -11,6 +11,7 @@
  * @author rodionov
  * @reviewer varlax
  */
+import "dart:collection";
 
 main() {
   Expect.setEquals([1,2,3], [2,3,1]);

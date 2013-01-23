@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String toStringAsExponential(int fractionDigits) 
- * Converts a number into string using exponential notation.
- * @description Checks that this method returns correct value.
+ * @assertion String toStringAsExponential([int fractionDigits]) 
+ * Converts this to a string in decimal exponential notation with fractionDigits digits after the decimal point.
+ * @description Checks that this method returns correct value when fractionDigits is specified.
  * @author vasya
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Specifics of the method as well as range for [fractionDigits] undocumented
  */
 
 main() {

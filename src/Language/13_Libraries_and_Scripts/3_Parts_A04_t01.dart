@@ -9,7 +9,6 @@
  * @description Checks that it is a static warning if the referenced part
  * names another library, but not a compile-time error and all definitions
  * from such part are available without errors.
- * @static-warning do not know at which line place exact annotation
  * @author rodionov
  * @reviewer kaigorodov
  */

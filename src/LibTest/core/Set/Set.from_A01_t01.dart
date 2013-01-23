@@ -11,6 +11,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "dart:collection";
 
 main() {
   Set<int> set = new Set.from([1, 2, 3, 4, 5]);

@@ -5,3 +5,5 @@
  */
 
 library id1234567;
+
+int foo;

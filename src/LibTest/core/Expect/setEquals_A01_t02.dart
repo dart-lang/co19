@@ -11,6 +11,7 @@
  * @author rodionov
  * @reviewer varlax
  */
+import "dart:collection";
 
 main() {
   check([],[0]);

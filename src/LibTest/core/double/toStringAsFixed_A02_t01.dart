@@ -5,10 +5,10 @@
  */
 /**
  * @assertion String toStringAsFixed(int fractionDigits)
- * Throws [Error] if [fractionDigits] is null.
+ * The parameter fractionDigits must be an integer satisfying: 0 <= fractionDigits <= 20.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
- * @needsreview undocumented
+ * @needsreview Exact error/exception unspecified
  */
 
 final List values = const [
@@ -39,10 +39,12 @@ final List values = const [
 ];
 
 check(double val) {
+  boolean fail = false;
   try {
     val.toStringAsFixed(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+    fail = true;
+  } catch(e) {}
+  Expect.isFalse(fail, "Error or exception expected.");
 }
 
 main() {

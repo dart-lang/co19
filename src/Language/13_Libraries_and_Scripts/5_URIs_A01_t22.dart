@@ -12,7 +12,6 @@
  * is not a compile-time constant, or if x involves string interpolation.
  * @description Checks that it is not an error to use a raw string literal
  * as a URI in a part directive.
- * @static-warning part references a different library name
  * @author rodionov
  * @reviewer kaigorodov
  */
