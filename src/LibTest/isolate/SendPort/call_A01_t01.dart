@@ -11,6 +11,7 @@
  * @reviewer kaigorodov
  */
 
+import "dart:async";
 import "dart:isolate";
 
 void main() {
