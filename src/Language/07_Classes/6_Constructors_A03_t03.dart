@@ -8,6 +8,7 @@
  * a default constructor C() : super() {}, unless C is class Object.
  * @description Checks that 'default' constructor is not generated if the class 
  * declares a named constructor.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
