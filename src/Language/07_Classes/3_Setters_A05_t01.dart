@@ -7,6 +7,7 @@
  * @assertion It is a static warning if a setter declares a return type other than void. 
  * @description Checks that a static warning is produced if a setter declares
  * int as its return type.
+ * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov

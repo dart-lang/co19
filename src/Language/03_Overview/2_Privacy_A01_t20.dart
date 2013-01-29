@@ -10,6 +10,7 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that an appropriate error (and warning) is produced when trying to access a private factory
  * constructor that is not accessible to the current script.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

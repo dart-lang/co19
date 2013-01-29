@@ -6,6 +6,7 @@
 /**
  * @assertion It is a static type warning if the type of e can not be assigned to bool.
  * @description Checks that it is a static type warning if the type of e may not be assigned to bool.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

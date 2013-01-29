@@ -7,6 +7,7 @@
  * @assertion A case clause introduces a new scope, nested in the lexically surrounding scope.
  * The scope of a case clause ends immediately after the case clause’s statement.
  * @description Checks that the scope of a case clause ends immediately after the case clause’s statement.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @issue 5837

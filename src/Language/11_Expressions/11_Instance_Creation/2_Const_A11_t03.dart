@@ -9,6 +9,7 @@
  * factory constructor.
  * @description Checks that an instance creation expression of the form const T.id(a1, .., an),
  * where T is an abstract class, produces a static warning.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

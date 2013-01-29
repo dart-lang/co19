@@ -9,6 +9,7 @@
  * from outside L will cause a run-time error.
  * @description Checks that an attempt to access a private instance member from outside L
  * results in an appropriate runtime error.
+ * @static-warning
  * @author vasya
  * @reviewer msyabro
  * @reviewer rodionov

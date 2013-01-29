@@ -6,6 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that the URL is recorded correctly.
+ * @static-warning
  * @author rodionov
  * @reviewer msyabro
  */

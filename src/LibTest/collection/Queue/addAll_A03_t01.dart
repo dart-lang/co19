@@ -6,6 +6,7 @@
 /**
  * @assertion Fails gracefully if supplied with an argument of a wrong type.
  * @description Tries to pass various wrong parameters to the method.
+ * @static-warning
  * @author iefremov
  */
 import "dart:collection";

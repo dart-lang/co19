@@ -12,6 +12,7 @@
  * @description Checks that it is a static warning if an instance method overrides
  * an abstract method and does not explicitly specify a default value for its optional parameter
  * while the abstract method does.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @reviewer kaigorodov

@@ -9,6 +9,7 @@
  * @description Checks that it is a static warning when type of the exception
  * parameter in a catch clause does not denote a type available in the lexical 
  * scope of the catch clause.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

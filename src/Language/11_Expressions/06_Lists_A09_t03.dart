@@ -8,6 +8,7 @@
  * const <E>[e1... en]  or the form <E>[e1... en] is List<E>.
  * @description Checks that a static warning occurs when assigning a list literal
  * to a String variable.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

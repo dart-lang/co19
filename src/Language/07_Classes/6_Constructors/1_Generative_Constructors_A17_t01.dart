@@ -9,6 +9,7 @@
  * the type of the field named id in the immediately enclosing class.
  * @description Checks that it's a static-type warning if an explicit type
  * of an initializing formal is not assignable to the type of the corresponding field.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

@@ -13,6 +13,7 @@
  * ;
  * @description Checks that reassigning a final optional parameter inside the function
  * produces a static warning and a NoSuchMethodError.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 5885

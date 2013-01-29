@@ -21,6 +21,7 @@
  * an interface member that is not inherited from either of the two superinterfaces
  * that declare a member with the same name because of the conflict described in this
  * assertion. Members in question are variables of incompatible types.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @needsreview issue 3306, 7283

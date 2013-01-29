@@ -8,6 +8,7 @@
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
  * @description Checks that a hidden class name can't be used as a type.
+ * @static-warning
  * @compile-error
  * @author msyabro
  * @reviewer iefremov

@@ -8,6 +8,7 @@
  * member m2 and the type of m1 is not a subtype of the type of m2.
  * @description Checks that a static warning is produced if m1 is not a subtype of m2
  * because their respective named parameter types are not mutually assignable.
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

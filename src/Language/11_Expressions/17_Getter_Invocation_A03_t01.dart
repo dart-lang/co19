@@ -7,6 +7,7 @@
  * @assertion Let T be the static type of e. It is a static type warning if T does not have
  * a getter named m.
  * @description Checks that it is a static type warning if T does not have a getter named m.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

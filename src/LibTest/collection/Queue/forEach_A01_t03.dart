@@ -7,6 +7,7 @@
  * @assertion Applies the function [f] to each element of the collection.
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  */

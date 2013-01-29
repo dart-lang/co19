@@ -18,6 +18,7 @@
  * argument e2.
  * @description Checks that a function type alias name can be used
  * as right operand in an additive expression without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

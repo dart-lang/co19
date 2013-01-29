@@ -19,6 +19,7 @@
  * o2 irrespective of whether setter lookup has failed or succeeded.
  * @description Checks that the value of an assignment expression is o2
  * even if setter lookup failed.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @issue 6448, 6449

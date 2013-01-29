@@ -9,6 +9,7 @@
  * @description Checks that a function expression invocation ef(...) is indeed equivalent to the ordinary
  * method invocation ef.call(...) and that the result in either case is the same as expected whether ef is
  * a function literal expression or some other kind of expression. 
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 1604

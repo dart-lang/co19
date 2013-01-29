@@ -11,6 +11,7 @@
  * ;
  * @description Checks that a type parameter
  * can be used as the condition in a conditional expression without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

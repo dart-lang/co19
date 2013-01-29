@@ -9,6 +9,7 @@
  * provide an implementation.
  * @description Checks that instance method, getter or setter can be declared without
  * providing an implementation.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

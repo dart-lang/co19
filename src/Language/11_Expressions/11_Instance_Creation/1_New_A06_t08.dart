@@ -14,6 +14,7 @@
  * is thrown.
  * @description  Checks that a NoSuchMethodError is thrown if the actual constructor has more
  * required parameters than the new expression.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

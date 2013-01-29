@@ -12,6 +12,7 @@
  * @description Checks that returning a non-null value with non-dynamic static
  * type from within a void method results in both static type warning and a dynamic
  * type error in checked mode.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

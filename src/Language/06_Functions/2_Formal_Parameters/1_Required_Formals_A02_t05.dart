@@ -19,6 +19,7 @@
  * ;
  * @description Checks that reassigning a final required parameter inside the function
  * produces a static warning and a NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov

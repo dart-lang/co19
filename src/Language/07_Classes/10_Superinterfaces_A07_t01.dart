@@ -8,6 +8,7 @@
  * includes an instance member m and C does not declare or inherit a corresponding instance member m.
  * @description Checks that it is a static warning if a class does not declare an instance method
  * declared in class' interface.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

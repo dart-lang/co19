@@ -6,6 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that [failedAssertion] is recorded correctly.
+ * @static-warning
  * @author rodionov
  * @reviewer msyabro
  * @needsreview Undocumented

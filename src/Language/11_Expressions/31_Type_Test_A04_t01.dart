@@ -8,6 +8,7 @@
  * type available in the current lexical scope.
  * @description Checks that it is a run-time error if T does not denote a
  * type available in the current lexical scope.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @needsreview issue 3282

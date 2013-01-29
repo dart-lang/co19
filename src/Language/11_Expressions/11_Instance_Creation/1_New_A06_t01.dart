@@ -14,6 +14,7 @@
  * is thrown.
  * @description  Checks that AbstractClassInstantiationError is thrown if q is
  * a non-factory constructor of an abstract class.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

@@ -22,6 +22,7 @@
  * ;
  * @description Checks that expressions with a prefix operator which fit into this production
  * don't cause compile-time errors.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

@@ -10,6 +10,7 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that a private type declared with typedef is inaccessible outside the library.
  * Inaccessible type in type test should produce a dynamic type error in checked mode.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer kaigorodov

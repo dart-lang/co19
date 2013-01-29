@@ -7,6 +7,7 @@
  * @assertion Applies [f] to each {key, value} pair of the map.
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  */

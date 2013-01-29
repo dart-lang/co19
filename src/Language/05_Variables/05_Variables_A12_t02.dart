@@ -12,6 +12,7 @@
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov
+ * @static-warning
  */
 
 class A {

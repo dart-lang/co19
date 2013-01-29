@@ -7,6 +7,7 @@
  * @assertion The static type of an integer literal is int.
  * @description Checks that a static warning is produced when assigning an integer literal to
  * a typed double variable.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

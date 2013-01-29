@@ -19,6 +19,7 @@
  *   of [V1, ..., Vm /T1, ..., Tm]Bi, i ∈ 1..m.
  * @description  Checks that it is a dynamic type error in checked mode if a type argument 
  * of a class in a new expression is not a subtype of its bound.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

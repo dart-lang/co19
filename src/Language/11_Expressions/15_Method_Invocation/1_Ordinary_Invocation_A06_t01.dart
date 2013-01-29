@@ -7,6 +7,7 @@
  * @assertion Let T be the static type of o. It is a static type warning if T does not have
  * an accessible instance member named m.
  * @description Checks that it is a static type warning if T does not have an instance member named m.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

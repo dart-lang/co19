@@ -20,6 +20,7 @@
  * getter invocation, or an invocation of a postfix operator on an expression e.
  * @description Checks that a reference to a class declaration can be used with postfixOperator
  * without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

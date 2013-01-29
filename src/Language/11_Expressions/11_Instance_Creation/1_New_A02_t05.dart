@@ -11,6 +11,7 @@
  * optionally followed by type arguments.
  * @description Checks that it is a static warning if T is a reference to
  * a top-level variable.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 5806

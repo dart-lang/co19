@@ -26,6 +26,7 @@
  * of a bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a type variable can be used
  * as the first operand of a bitwise expression without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

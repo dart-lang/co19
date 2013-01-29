@@ -9,6 +9,7 @@
  * NoSuchMethodError, such as AbstractMethodError.
  * @description Checks that invoking an abstract method, getter or setter
  * results in a NoSuchMethodError.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  * @issue 7597

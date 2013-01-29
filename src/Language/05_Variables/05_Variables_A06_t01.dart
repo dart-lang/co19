@@ -9,6 +9,7 @@
  * The assignment will also give rise to a static warning for the same reason.
  * @description Checks that a static warning is given as well as NoSuchMethodError thrown
  * when a final variable is assigned outside of initializing expression or constructor.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

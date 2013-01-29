@@ -11,6 +11,7 @@
  * ...
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description Checks that latter case is evaluated correctly.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

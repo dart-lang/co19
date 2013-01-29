@@ -8,6 +8,7 @@
  *   localVariableDeclaration:
  *     initializedVariableDeclaration ’;’ .
  * @description Checks that the variable must be declared before it is used.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

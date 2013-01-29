@@ -10,7 +10,6 @@
  * of the class of o2 is not a subtype of the actual type of e1.v.
  * @description Checks that it is a dynamic type error if o2 is not null and the interface
  * of the class of o2 is not a subtype of the actual type of e1.v.
- * @dynamic-type-error
  * @author msyabro
  * @reviewer kaigorodov
  */

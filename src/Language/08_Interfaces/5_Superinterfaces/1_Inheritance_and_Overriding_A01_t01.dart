@@ -10,6 +10,7 @@
  * the inherited non-static members of a null variable whose static type is an interface
  * extending another interface that declares those members. This should indirectly prove
  * that they're indeed inherited by the subinterface.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

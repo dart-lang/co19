@@ -9,6 +9,7 @@
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the non-static members of G.
  * @description Checks bounds of type parameters are checked at runtime.
+ * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */

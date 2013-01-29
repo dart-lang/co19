@@ -13,6 +13,7 @@
  * if q lacks any of the keyword parameters {xn+1 , . . . , xn+k } a NoSuchMethodError
  * is thrown.
  * @description  Checks that a NoSuchMethodError is thrown if q is not accessible.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

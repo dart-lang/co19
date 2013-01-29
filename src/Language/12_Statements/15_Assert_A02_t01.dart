@@ -6,6 +6,7 @@
 /**
  * @assertion The assert statement has no effect in production mode.
  * @description Checks that the assert statement has no effect in production mode.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

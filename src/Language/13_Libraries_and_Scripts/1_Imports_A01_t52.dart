@@ -18,6 +18,7 @@
  * @description Checks that it is not an error if the arguments of show/hide
  * combinators include identifiers named 'hide' and 'show' and that filtering
  * of the imported names is done correctly
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

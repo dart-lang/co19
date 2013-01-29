@@ -11,6 +11,7 @@
  * @description Checks that an expression of the form e1 && e2 is evaluated correctly
  * (meaning it produces TypeError when e1 does not evaluate to a boolean and performs
  * boolean conversion for e2 otherwise, provided e1 is true).
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

@@ -14,6 +14,7 @@
  * an AssertionError is thrown.
  * @description Checks that a dynamic type error occurs if the conditional expression e 
  * is a map literal.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

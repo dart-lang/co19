@@ -10,6 +10,7 @@
  * @description Checks that it is a dynamic error (type error specifically in checked mode)
  * when a type variable hides a class name declared in an enclosing scope and it's referenced 
  * in a static context (see Ch. 9 "Generics").
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  * @issue 5230

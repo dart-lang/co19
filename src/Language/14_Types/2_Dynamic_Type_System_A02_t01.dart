@@ -16,6 +16,7 @@
  * @description Checks that it is a dynamic type error if a malformed type is used in a
  * subtype test.
  * static-warning
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov

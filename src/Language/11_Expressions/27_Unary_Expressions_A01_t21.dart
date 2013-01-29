@@ -22,6 +22,7 @@
  * ;
  * @description Checks that '!' can be used with
  * a reference to a type parameter without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

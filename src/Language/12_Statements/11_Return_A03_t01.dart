@@ -8,6 +8,7 @@
  * to the declared return type of the immediately enclosing function.
  * @description Checks that a static type warning occurs if the type of e may 
  * not be assigned to the declared return type of the immediately enclosing function.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

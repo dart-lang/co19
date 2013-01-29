@@ -10,6 +10,7 @@
  * @see also 12.15.1 Ordinary Invocation: It is a static type warning if T does not have
  * an accessible (3.2) instance member named m.
  * @description Checks that static members are not inherited.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

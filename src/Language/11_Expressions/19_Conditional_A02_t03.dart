@@ -12,7 +12,6 @@
  * result of evaluating the expression e2. Otherwise the value of c is the result of
  * evaluating the expression e3.
  * @description Checks that it is dynamic type error if e1 is not evaluated to a bool object.
- * @dynamic-type-error
  * @author msyabro
  * @reviewer kaigorodov
  * @needsreview issue 3223

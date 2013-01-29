@@ -11,6 +11,7 @@
  * and the signature of m1 specifies a different default value for p.
  * @description Checks that it is a static warning if an abstract method overrides
  * an abstract method and has a different default value for its optional parameter.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @reviewer kaigorodov

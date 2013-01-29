@@ -9,6 +9,7 @@
  * @description Checks that a NoSuchMethodError occurs and a static warning is given
  * when a constant library variable is assigned a new value after being initialized at declaration
  * even if this value is the same as the initializing one.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 5885

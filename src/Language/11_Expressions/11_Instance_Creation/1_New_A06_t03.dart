@@ -13,6 +13,7 @@
  * is thrown.
  * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
  * @description Checks that a dynamic error occurs if T is not accessible.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

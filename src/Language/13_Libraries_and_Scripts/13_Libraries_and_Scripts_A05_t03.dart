@@ -9,6 +9,7 @@
  * from outside L will cause a run-time error.
  * @description Checks that an attempt to access a private static member from outside L results
  * in a run-time error.
+ * @static-warning
  * @author vasya
  * @reviewer msyabro
  * @reviewer rodionov

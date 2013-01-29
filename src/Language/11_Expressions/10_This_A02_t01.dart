@@ -6,6 +6,7 @@
 /**
  * @assertion The static type of this is the interface of the immediately enclosing class.
  * @description Checks that the static type of this is not assignment compatible with another class.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

@@ -7,6 +7,7 @@
  * @assertion A map literal is ordered: iterating over the keys and/or values of the maps
  * always happens in the order the keys appeared in the source code.
  * @description Checks that a map literal is ordered.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

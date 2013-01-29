@@ -24,6 +24,7 @@
  * that L re-exports B, or that L re-exports NSn. 
  * @description Checks that the combined effect of show and hide combinators in an export
  * declaration is calculated as specified.
+ * @static-warning
  * @note Most of this is already covered by 1_Imports_A02* tests.
  * @author rodionov
  * @reviewer kaigorodov

@@ -6,6 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that [srcType] is recorded correctly.
+ * @static-warning
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview Undocumented.

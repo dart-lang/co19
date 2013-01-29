@@ -16,6 +16,7 @@
  * @description Checks that it is a static type warning if C does not declare, explicitly
  * or implicitly, a getter with the appropriate name and that such code results in a
  * NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

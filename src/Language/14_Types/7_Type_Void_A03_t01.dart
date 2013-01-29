@@ -8,6 +8,7 @@
  * variable will cause a warning unless the variable/formal parameter has type dynamic.
  * @description Checks that assigning the result of a void method invocation to a variable
  * whose declared type is not dynamic results in a static warning.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview Assertion of this test cites non-normative text.

@@ -11,6 +11,7 @@
  * in the map if it's not already associated to a value, resulting in a NoSuchMethodError 
  * (Type error in checked mode) or NoSuchMethodError if the argument is null or can't 
  * be called like a function (according to general language rules).
+ * @static-warning
  * @author msyabro
  * @reviewer varlax
  * @needsreview undocumented

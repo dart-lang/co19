@@ -14,6 +14,7 @@
  *   created the current binding of this.
  * @description  Checks that there is no compile-time error if identifier
  * expression in a return statement refers to a type parameter.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

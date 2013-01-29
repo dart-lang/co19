@@ -23,6 +23,7 @@
  * @description Checks that there is no compile-time error if a getter
  * method definition in a concrete class does not include a body, and no
  * runtime error is thrown when that class is instantiated.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

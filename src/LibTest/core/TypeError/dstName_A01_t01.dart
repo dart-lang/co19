@@ -6,6 +6,7 @@
 /**
  * @assertion Undocumented
  * @description Checks that [dstName] is recorded correctly.
+ * @static-warning
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview Undocumented.

@@ -12,6 +12,7 @@
  * @description Checks that a static warning is produced when assigning result of
  * T get v() invocation to a variable whose type may not be assigned to T. 
  * The variable declaration is of the form const T v = e;.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov

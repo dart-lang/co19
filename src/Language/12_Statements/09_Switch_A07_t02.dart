@@ -16,6 +16,7 @@
  * If execution reaches the point after sh  then a runtime error occurs, unless h = n + 1.
  * @description Checks that falling through produces a runtime error, unless
  * the current clause is an empty case clause or the default clause.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @issue 7537

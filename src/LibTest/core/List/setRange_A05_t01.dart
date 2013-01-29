@@ -6,6 +6,7 @@
 /**
  * @assertion Method fails gracefully if supplied with argument of invalid type.
  * @description Throws an Exception if any required argument is invalid or [:null:].
+ * @static-warning
  * @author varlax
  * @reviewer iefremov
  */

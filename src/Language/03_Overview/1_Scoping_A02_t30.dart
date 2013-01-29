@@ -8,6 +8,7 @@
  * then d hides any declaration named n that is available in the lexically enclosing 
  * scope of S. 
  * @description Checks that a hidden function type alias name can't be used as a type.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 6028

@@ -8,6 +8,7 @@
  * @description Checks that this method causes no error and the result is not
  *              null and is indeed a String. FallThroughError raised using the
  *              proper method (incorrect switch statement).
+ * @static-warning
  * @author rodionov
  * @reviewer msyabro
  * @needsreview Undocumented

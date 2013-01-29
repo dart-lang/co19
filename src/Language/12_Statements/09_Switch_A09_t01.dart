@@ -8,6 +8,7 @@
  * the type of ek.
  * @description Checks that a static warning is produced if the type of the switch expression's
  * value cannot be assigned to any of the case expression types.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

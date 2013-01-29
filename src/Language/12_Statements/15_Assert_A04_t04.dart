@@ -7,6 +7,7 @@
  * @assertion It is a static type warning if the type of e may not be assigned 
  * to either bool or () -> bool.
  * @description Checks that it is a static type warning if the type of e is (Dynamic) -> bool.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

@@ -26,6 +26,7 @@
  * of a bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a class declaration can be used
  * as the second operand of a bitwise expression without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

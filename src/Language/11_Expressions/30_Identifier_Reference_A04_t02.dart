@@ -14,6 +14,7 @@
  * fails eventually with the type of error depending on context. This test checks that in a class
  * instance scope, referencing a built-in identifier results in NoSuchMethodError as long
  * as the identifier is placed in such a way that it cannot be mistaken for another token.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

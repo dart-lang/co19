@@ -14,6 +14,7 @@
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod() is invoked on functions if the method and getter lookup has failed.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

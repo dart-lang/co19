@@ -10,6 +10,7 @@
  * name as the declaration of T.
  * @description Checks that it is a static warning if a class does not declare
  * a constructor with the same name.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

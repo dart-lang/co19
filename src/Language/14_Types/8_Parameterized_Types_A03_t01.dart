@@ -9,6 +9,7 @@
  * Let Bi be the bounds of Ti, 1 <= i <= n. It is a static type warning if Ai is not a subtype of
  * [A1, ... , An / T1, ... , Tn]Bi , 1 <= j <= kn.
  * @description Trivial check: a single type argument violates the bound.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

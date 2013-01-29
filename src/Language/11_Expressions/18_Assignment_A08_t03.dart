@@ -9,6 +9,7 @@
  * The static type of the expression e1 [e2 ] = e3 is the static type of e3.
  * @description Checks that method noSuchMethod is invoked (which results in NoSuchMethodError)
  * if the type of e1 doesn't define a []= operator.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

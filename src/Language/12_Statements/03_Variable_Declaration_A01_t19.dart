@@ -9,6 +9,7 @@
  *     initializedVariableDeclaration ’;’ .
  * @description Checks that the variable created by such statement is not
  * available in a scope that is a "sibling" to the one it was declared in.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

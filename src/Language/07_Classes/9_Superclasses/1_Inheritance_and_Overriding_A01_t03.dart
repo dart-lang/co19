@@ -12,6 +12,7 @@
  * superclass (even though it is not inherited) and an instance member of the same name. 
  * @description Checks that it is a warning and not a compile error if you have a static
  * member named m in superclass and an abstract instance method of the same name. 
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

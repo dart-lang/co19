@@ -11,6 +11,7 @@
  * @description Checks that a static warning is produced when the return type of an abstract 
  * method m1 is not a subtype of the return type of non-abstract m2 (parameters of both methods
  * being completely identical).
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

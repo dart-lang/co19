@@ -35,6 +35,7 @@
  * ;
  * @description Checks that expressions that fits into this grammar
  * can be used in the left hand side of an assignment.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

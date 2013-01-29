@@ -8,6 +8,7 @@
  * be assigned to a function type.
  * @description Checks that it is a static warning if the static type F of ef may not
  * be assigned to a function type.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

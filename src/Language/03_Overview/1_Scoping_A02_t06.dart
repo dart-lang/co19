@@ -9,6 +9,7 @@
  * scope of S. 
  * @description Checks that it is a static warning and a dynamic error when a type
  * parameter hides a class name declared in an enclosing scope.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

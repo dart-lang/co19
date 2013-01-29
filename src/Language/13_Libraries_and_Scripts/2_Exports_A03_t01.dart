@@ -26,6 +26,7 @@
  * declaration is calculated as specified. Test imports 2 libraries that declare the same
  * names assigned to different values, but their exported namespaces are filtered using
  * show and hide combinators to avoide name conflict.
+ * @static-warning
  * @note Most of this is already covered by 1_Imports_A02* tests.
  * @author rodionov
  * @reviewer kaigorodov

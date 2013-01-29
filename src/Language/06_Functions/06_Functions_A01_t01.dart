@@ -19,6 +19,7 @@
  *   '{' statements '}'
  * ;
  * @description Checks different variants of functions
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

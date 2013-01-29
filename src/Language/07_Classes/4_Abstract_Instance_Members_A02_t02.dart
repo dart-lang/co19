@@ -8,6 +8,7 @@
  * This may be NoSuchMethodError or a subclass, such as AbstractMethodError.
  * @description Checks that NoSuchMethodError is thrown when calling an abstract method
  * that is inherited from non-direct superclass.
+ * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer rodionov

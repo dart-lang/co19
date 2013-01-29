@@ -19,6 +19,7 @@
  * of e.
  * @description Checks that it is a static type warning if there is no class C in the
  * enclosing lexical scope of assignment and that such code results in a NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

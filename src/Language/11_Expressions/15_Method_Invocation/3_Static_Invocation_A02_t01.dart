@@ -6,6 +6,7 @@
 /**
  * @assertion It is a static warning if C does not denote a class in the current scope. 
  * @description Checks that it is a static warning if C does not denote a class in the current scope.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

@@ -6,6 +6,7 @@
 /**
  * @assertion undocumented
  * @description Checks that method throws an exception when given null, an integer or a List.
+ * @static-warning
  * @author iefremov
  * @needsreview documentation looks incomplete
  */

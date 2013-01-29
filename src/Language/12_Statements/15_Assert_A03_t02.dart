@@ -14,6 +14,7 @@
  * an AssertionError is thrown.
  * @description Checks that a dynamic type error occurs if the conditional expression e 
  * evaluates to a function that returns a string or a Dynamic type value.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

@@ -8,6 +8,7 @@
  * Sq be the type of the named parameter q of f. It is a static warning if m < n or if m > n + k.
  * @description Checks that it is a static warning if the number of argument is less than number
  * of positional parameters of a local function.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

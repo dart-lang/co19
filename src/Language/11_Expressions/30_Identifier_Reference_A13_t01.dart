@@ -14,6 +14,7 @@
  *   a NoSuchMethod to be thrown.
  * @description Checks that it is a runtime error when an undeclared identifier 
  * is used in a static context. 
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

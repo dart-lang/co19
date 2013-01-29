@@ -9,6 +9,7 @@
  * static warning if T.id is not the name of a constructor declared by the type T.
  * @description Checks that it is a static warning if the type being instantiated 
  * is a parameterized type and does not declare a named constructor T.id.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

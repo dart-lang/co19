@@ -12,6 +12,7 @@
  * result of evaluating the expression e2. Otherwise the value of c is the result of
  * evaluating the expression e3.
  * @description Checks that a conditional expression is evaluated correctly.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

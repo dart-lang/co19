@@ -9,6 +9,7 @@
  * conflict with, override or be overridden by a getter or method.
  * @description Checks that there is no compile-time error if a class has 
  * an explicitly defined abstract setter and an instance method with the same name.
+ * @static-warning
  * @author vasya
  * @reviewer kaigorodov
  * @issue 5840

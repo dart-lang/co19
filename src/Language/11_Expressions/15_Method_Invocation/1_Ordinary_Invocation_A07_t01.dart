@@ -7,6 +7,7 @@
  * @assertion Let T be the static type of o. If T.m exists, it is a static type
  * warning if the type F of T.m may not be assigned to a function type.
  * @description Checks that it is a static type warning if T.m cannot be assigned to a function type.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

@@ -6,6 +6,7 @@
 /**
  * @assertion An assignable expression of the form e.id(a1, ..., an) is evaluated as a method invocation.
  * @description Checks that expression of the form e.id(a1, ..., an) is evaluated as a method invocation.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

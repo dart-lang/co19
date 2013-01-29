@@ -10,6 +10,7 @@
  * of [V1, ..., Vm /T1, ..., Tm ]Bi, i ∈ 1..m.
  * @description Checks that it is a dynamic-type error if a type argument is not
  * a subtype of type parameter bound of class R.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

@@ -23,6 +23,7 @@
  * signature is actually as described above (all Dynamic arguments and return type in case 
  * the superinterface methods' static types are not compatible but have the same numbers of
  * required and optional arguments), but we can check that it's inherited at all.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -8,6 +8,7 @@
  * named n and an accessible static member named n is declared in a superclass of C.
  * @description Checks that a static warning is produced when a class declares an instance
  * method with the same name as a static method in its superclass.
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

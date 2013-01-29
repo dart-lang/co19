@@ -11,6 +11,7 @@
  * @description Checks that no dynamic type error is produced in checked mode
  * if o is not null and not of type bool.
  * Checks that dynamic type error is produced in checked mode if o is null.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

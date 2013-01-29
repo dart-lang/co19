@@ -8,6 +8,7 @@
  * be assigned to bool.
  * @description Checks that it is a static type warning if the expression
  * cannot be assigned to bool.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

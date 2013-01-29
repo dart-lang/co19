@@ -19,6 +19,7 @@
  * of e.
  * @description Checks that it is a static warning is C declares only getter for v
  * and that such code results in a NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

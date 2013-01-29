@@ -43,6 +43,7 @@
  * to the import namespace of the current library and that the prefix specified in
  * the import directive affects only the import namespace of the library it's used in,
  * but not the export namespace of that library (no show/hide combinators are used).
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

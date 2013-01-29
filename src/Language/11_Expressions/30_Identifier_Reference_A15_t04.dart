@@ -10,6 +10,7 @@
  * scope enclosing the expression.
  * @description  Checks that it is a static warning when an identifier expression
  * references an undeclared identifier within a static setter.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

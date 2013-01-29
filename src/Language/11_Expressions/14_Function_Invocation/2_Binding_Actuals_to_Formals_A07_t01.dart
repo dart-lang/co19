@@ -8,6 +8,7 @@
  * or a static warning occurs.
  * @description Checks that it is a static warning if names of an argument does not
  * match with any name of optional named parameters of a top-level function.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

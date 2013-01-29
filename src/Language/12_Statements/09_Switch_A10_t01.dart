@@ -8,6 +8,7 @@
  * is not a break, continue, return or throw statement.
  * @description Checks that it is a static warning if the last statement of the statement
  * sequence of a case clause is not a break, continue, return or throw statement.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

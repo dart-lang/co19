@@ -6,6 +6,7 @@
 /**
  * @assertion Fails gracefully if supplied with an argument of invalid type.
  * @description Checks that the constructor doesn't crash.
+ * @static-warning
  * @author iefremov
  */
 

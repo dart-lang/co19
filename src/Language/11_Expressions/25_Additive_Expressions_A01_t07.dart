@@ -18,6 +18,7 @@
  * argument e2.
  * @description Checks that a reference to a class declaration can be used
  * as left operand in an additive expression without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

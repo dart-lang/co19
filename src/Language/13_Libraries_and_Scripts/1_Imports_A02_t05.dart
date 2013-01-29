@@ -41,6 +41,7 @@
  *   
  * @description Checks that names imported from library B with prefix P are not
  * available without it.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

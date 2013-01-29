@@ -16,6 +16,7 @@
  * if the same library is imported twice with empty prefixes
  * and introduces a name to the top level scope of A,
  * which A uses as a type parameter bound (which is a a type annotation).
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

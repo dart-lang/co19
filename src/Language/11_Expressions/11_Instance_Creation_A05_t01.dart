@@ -10,6 +10,7 @@
  * @description Checks that it is a static type warning if type arguments to a constructor of a
  * generic type G invoked by a new expression are not subtypes of the bounds
  * of the corresponding formal type parameters of G.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

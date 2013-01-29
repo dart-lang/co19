@@ -14,6 +14,7 @@
  * but never referred to.
  * @description Checks that it is a dynamic type error in checked mode if that name 
  * is referenced during an implicit subtype test (assignment of a statically typed variable).
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  * @issue 6659

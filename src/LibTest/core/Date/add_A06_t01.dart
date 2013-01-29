@@ -6,6 +6,7 @@
 /**
  * @assertion Fails gracefully when given an argument of a wrong type.
  * @description Checks that method doesn't crash.
+ * @static-warning
  * @author iefremov
  */
 

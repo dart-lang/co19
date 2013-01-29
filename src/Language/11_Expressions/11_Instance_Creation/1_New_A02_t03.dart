@@ -11,6 +11,7 @@
  * optionally followed by type arguments.
  * @description Checks that it is a static warning if a reference to
  * a top-level function is used as a Type.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 3309, 5806

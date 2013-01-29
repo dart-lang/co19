@@ -11,6 +11,7 @@
  * position.
  * @description Checks that an initializing formal 'this.id' is accessible by the name 'id'
  * and has type int.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

@@ -41,6 +41,7 @@
  *   
  * @description Checks that all show/hide combinators used in a chain of re-export
  * are applied.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

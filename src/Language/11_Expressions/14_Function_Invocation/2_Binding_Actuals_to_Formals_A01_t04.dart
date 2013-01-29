@@ -15,6 +15,7 @@
  * All remaining formal parameters of f are bound to their default values.
  * @description Checks that it is a runtime error if the actual argument list contains
  * a named argument whose name is not among those specified in the function declaration.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

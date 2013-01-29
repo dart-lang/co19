@@ -7,6 +7,7 @@
  * @assertion Fails gracefully when given an argument of a wrong type and it's not compatible enough
  * (a double for millisecondsSinceEpoch might work in production mode depending on the implementation).
  * @description Checks that the method doesn't crash.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

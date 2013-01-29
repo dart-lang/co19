@@ -8,6 +8,7 @@
  * is explicitly declared and not void.
  * @description Checks that it is a static warning if the return type of
  * the user-declared operator []= is not void.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @needsreview Issue 1601

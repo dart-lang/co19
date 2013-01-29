@@ -10,6 +10,7 @@
  * - The return type of f may not be assigned to void.
  * @description Checks that a static warning occurs if a statement of the form "return;" is
  * used in a static method whose declared return type may not be assigned to void.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

@@ -11,6 +11,7 @@
  * not a supertype of (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
  * @description Checks that it is a static type warning if F is not a supertype of
  * (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @needsreview Issue 1287

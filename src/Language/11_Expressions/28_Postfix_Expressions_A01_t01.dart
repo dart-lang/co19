@@ -20,6 +20,7 @@
  * getter invocation, or an invocation of a postfix operator on an expression e.
  * @description Checks that any assignableExpression can be used with postfixOperator.
  * See tests 10_27_Assignable_Expressions_A01_t0[1-3].dart
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

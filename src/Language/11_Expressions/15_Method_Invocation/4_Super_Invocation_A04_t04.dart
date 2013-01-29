@@ -11,6 +11,7 @@
  * the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod is invoked if there's a static getter named m
  * in the invoking class's superclass.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @needsreview Issue 1244

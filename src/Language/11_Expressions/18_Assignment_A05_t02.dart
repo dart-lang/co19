@@ -19,6 +19,7 @@
  * o2 irrespective of whether setter lookup has failed or succeeded.
  * @description Checks that method noSuchMethod is invoked with the specified argument
  * if there is no setter for v in o1.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @issue 3326

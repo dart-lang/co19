@@ -8,6 +8,7 @@
  * or the form <String, V>{k1:e1... kn :en} is Map<String, V>.
  * @description Checks that a static warning occurs when assigning a constant map literal
  * to an int variable.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

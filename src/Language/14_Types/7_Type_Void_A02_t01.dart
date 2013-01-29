@@ -8,6 +8,7 @@
  * of the result of a void method invocation (even for members of null, such as ==).
  * @description Checks that using the result of a void method invocation in an expression
  * results in a static warning.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  * @needsreview Assertion of this test cites non-normative text.

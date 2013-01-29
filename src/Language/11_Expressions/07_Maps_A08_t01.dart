@@ -6,6 +6,7 @@
 /**
  * @assertion It is a static warning if the values of any two keys in a map literal are equal.
  * @description Checks that it is a static warning if the values of any two keys in a map literal are equal.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

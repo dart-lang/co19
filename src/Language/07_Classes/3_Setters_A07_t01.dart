@@ -11,6 +11,7 @@
  * and a getter named 'foo' with argument/return types that are not mutually
  * assignable. Types in getter/setter signatures provided as type parameters with type
  * bounds that are not mutually assignable (int and String).
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  */

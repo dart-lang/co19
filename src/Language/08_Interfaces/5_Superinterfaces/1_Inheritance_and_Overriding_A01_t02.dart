@@ -10,6 +10,7 @@
  * superinterfaces (which can only be final initialized fields, according to grammar).
  * Expects a NoSuchMethodError when trying to access a superinterface's static member
  * via a subinterface, as specified in ch. 10.15.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  */

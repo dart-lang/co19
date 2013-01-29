@@ -15,6 +15,7 @@
  * in its declaration is assigned a new value later in the program. Non-normative text in the spec
  * says it's a NoSuchMethodError and a static warning since there's no setter so that's what's being 
  * expected in this test.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 5886

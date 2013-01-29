@@ -19,6 +19,7 @@
  * of a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that a type alias name can be used as the second operand 
  * in a relational expression without a compile error.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

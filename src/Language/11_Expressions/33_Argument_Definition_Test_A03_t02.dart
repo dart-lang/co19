@@ -11,6 +11,7 @@
  * returned from a function that declares an incompatible return type
  * or being passed as a function parameter that is declared to have a type
  * bool is not assignable to.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -16,6 +16,7 @@
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that various expression which fit into this grammar
  * don't cause compile-time errors.
+ * @static-warning
  * @author msyabro
  * @author kaigorodov
  * @reviewer rodionov

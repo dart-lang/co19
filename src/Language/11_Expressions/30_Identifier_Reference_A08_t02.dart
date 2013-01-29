@@ -21,6 +21,7 @@
  *   – e evaluates to the current binding of id.
  * @description  Checks that if evaluation of the initializer expression of
  * a library variable is not successful, the variable is initialized with [:null:].
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  * @issue 5802

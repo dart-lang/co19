@@ -46,6 +46,7 @@
  * @description Checks that names imported into library B (which, in turn, is imported 
  * into library A) are not visible in A if B does not explicitly re-export A, 
  * with or without the prefix used to import A into B.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

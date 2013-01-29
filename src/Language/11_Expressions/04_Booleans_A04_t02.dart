@@ -7,6 +7,7 @@
  * @assertion The static type of a boolean literal is bool.
  * @description Checks that a static warning is produced when assigning a boolean
  * literal to a typed int variable.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

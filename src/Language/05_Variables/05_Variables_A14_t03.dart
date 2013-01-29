@@ -11,6 +11,7 @@
  * whose execution sets the value of v to the incoming argument x.
  * @description Checks that a static warning is produced when assigning a value
  * of type that may not be assigned to T, to the variable declared as T v = e;.
+ * @static-warning
  * @author pagolubev
  * @reviewer iefremov
  * @reviewer rodionov

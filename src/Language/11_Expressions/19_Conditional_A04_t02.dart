@@ -8,6 +8,7 @@
  * of the static type of e2 and the static type of e3.
  * @description Checks that the static type of a conditional expression is
  * neither Object nor Dynamic.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

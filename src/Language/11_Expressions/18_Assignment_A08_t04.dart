@@ -10,6 +10,7 @@
  * @description Checks that the correct value of an assignment expression of the form e1[e2] = e3
  * is still returned even if no []= operator was found in the type of e1, as long as noSuchMethod()
  * is overridden and no exception is thrown.
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */

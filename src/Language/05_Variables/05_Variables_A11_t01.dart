@@ -8,6 +8,7 @@
  * the innermost enclosing scope at the point following the local variable declaration.
  * @description Checks that local variable getters and setters are not accessible
  * before that variable's declaration.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  * @issue 7481

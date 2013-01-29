@@ -41,6 +41,7 @@
  *   
  * @description Checks that names provided as arguments to a 'show' combinator but not
  * declared in the library being imported (or re-exported by it), are undefined.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

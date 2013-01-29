@@ -10,6 +10,7 @@
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that trying to access a private static field that is not accessible to the
  * current script results in a static warning and a NoSuchMethodError.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

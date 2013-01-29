@@ -35,6 +35,7 @@
  * ;
  * @description Checks that a reference to a class declaration
  * can be used in the left hand side of an assignment without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

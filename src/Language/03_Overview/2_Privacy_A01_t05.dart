@@ -9,6 +9,7 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is public.
  * @description Checks that a private function is inaccessible outside the library.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

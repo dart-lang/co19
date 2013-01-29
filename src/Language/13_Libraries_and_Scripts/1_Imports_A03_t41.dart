@@ -15,6 +15,7 @@
  * @description Checks that it is a static warning if two different libraries imported with empty
  * prefixes introduce the same name (both via re-export of a third library) to the top level scope 
  * of A and A uses it as a type annotation.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

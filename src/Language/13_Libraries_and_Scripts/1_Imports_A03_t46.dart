@@ -16,6 +16,7 @@
  * two different libraries introduce the same name (both via re-export of a third library)
  * to the top level scope of A
  * and A uses it as a type parameter bound.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

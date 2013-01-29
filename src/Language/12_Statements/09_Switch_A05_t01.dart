@@ -15,6 +15,7 @@
  * If case e1: s1 does not exist, then the default clause is executed by executing sn+1.
  * @description Checks that if the value of expression e is not an instance of the same
  * type as the constants of case clauses, it is a runtime error in checked mode only.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  * @needsreview issue 6395

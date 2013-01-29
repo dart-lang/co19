@@ -8,7 +8,6 @@
  * updates the map by mapping [key] the value returned by
  * [ifAbsent]. Returns the value in the map.
  * @description Tries to pass incorrect [key].
- * @dynamic-type-error
  * @author msyabro
  * @reviewer varlax
  * @needsreview this is rather compiler check

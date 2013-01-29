@@ -9,6 +9,7 @@
  * The static type of the expression v = e is the static type of e.
  * @description Checks that it is a static type warning if the static type of e may not be
  * assigned to the static type of v.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

@@ -22,6 +22,7 @@
  * ;
  * @description Checks that '~' can be used with
  * a reference to a function type alias name without a compile error.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

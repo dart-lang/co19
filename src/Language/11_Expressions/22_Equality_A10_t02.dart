@@ -6,6 +6,7 @@
 /**
  * @assertion The static type of an equality expression is bool.
  * @description Checks that static type of an equality expression is not int.
+ * @static-warning
  * @author kaigorodov
  * @reviewer iefremov
  */

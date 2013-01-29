@@ -15,6 +15,7 @@
  * All remaining formal parameters of f are bound to their default values.
  * @description Checks that it is a runtime error if the number of actual parameters is more than
  * the total number of arguments specified in the function declaration.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

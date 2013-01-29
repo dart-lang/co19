@@ -10,6 +10,7 @@
  * executed with this bound to o. The value of the getter invocation expression is
  * the result returned by the call to the getter function.
  * @description Checks that a getter can be looked up dynamically.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

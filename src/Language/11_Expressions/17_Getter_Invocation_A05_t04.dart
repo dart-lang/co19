@@ -16,6 +16,7 @@
  * @description Checks that it is a static type warning if there is
  * no class with the required name in the enclosing lexical scope 
  * of a getter invocation expression and that such code results in a NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

@@ -6,6 +6,7 @@
 /**
  * @assertion Fails gracefully if the argument is not a collection.
  * @description Checks that nothing crashes when the argument is an integer, a string or a double.
+ * @static-warning
  * @author iefremov
  */
 

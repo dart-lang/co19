@@ -8,6 +8,7 @@
  * q is not a factory constructor.
  * @description Checks that invoking a non-factory constructor in an abstract class
  * produces a static warning.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

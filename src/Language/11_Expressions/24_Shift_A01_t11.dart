@@ -17,6 +17,7 @@
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a type alias declaration can be used
  * as the first operand of a shift expression without a compile error without a compile error.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

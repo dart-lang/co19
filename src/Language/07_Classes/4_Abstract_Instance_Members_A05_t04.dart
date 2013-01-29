@@ -12,6 +12,7 @@
  * is not a subtype of the abstract m2's type because their respective required parameter 
  * types are not mutually assignable even if the class declaring the first method is not
  * a direct subclass of the other.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -40,6 +40,7 @@
  *   - a prefix clause of the form as k is used in L.
  *   
  * @description Checks that double reexport also works (no show/hide combinators are used).
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
