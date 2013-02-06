@@ -20,11 +20,11 @@ main() {
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     if(alpha >= 0x0030 && alpha <= 0x0039) {
       // a decimal digit
-      if(null == re.firstMatch(new String.fromCodeUnits([alpha]))) {
+      if(null == re.firstMatch(new String.fromCharCodes([alpha]))) {
         Expect.fail("\\d !~ char($alpha)");
       }
     } else {
-      if(null != re.firstMatch(new String.fromCodeUnits([alpha]))) {
+      if(null != re.firstMatch(new String.fromCharCodes([alpha]))) {
         Expect.fail("\\d ~ char($alpha)");
       }
     }

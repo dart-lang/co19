@@ -9,10 +9,10 @@
  * from outside L will cause a run-time error.
  * @description Checks that an attempt to access a private top level variable from outside L 
  * in a top-level function context results in a NoSuchMethodError.
- * @static-warning
+ * @static-warning unresolved identifier in a static context, see "Identifier reference"
  * @author vasya
  * @reviewer msyabro
- * @issue 5839, 6836
+ * @issue 5839
  */
 
 import "13_Libraries_and_Scripts_A05_t04_lib.dart" as lib;

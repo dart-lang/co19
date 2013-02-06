@@ -18,7 +18,7 @@
 main() {
   RegExp re = new RegExp("\\W");
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
-    String ch = new String.fromCodeUnits([alpha]);
+    String ch = new String.fromCharCodes([alpha]);
     if((alpha >= 0x0030 && alpha <= 0x0039) // the 10 digits
       || (alpha >= 0x0041 && alpha <= 0x005A) // the uppercase english letters
       || (alpha >= 0x0061 && alpha <= 0x007A) // the lowercase english letters

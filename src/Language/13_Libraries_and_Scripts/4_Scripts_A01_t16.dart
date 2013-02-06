@@ -14,6 +14,7 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer msyabro
+ * @static-warning library name doesn't match that referenced by an included part
  */
 
 

@@ -16,6 +16,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 6352
+ * @static-warning library name doesn't match that referenced by an included part
  */
 library URIs_A01;
 part """   	  

@@ -19,6 +19,7 @@
  * in the current scope, or if C does not declare a static method or getter with the required name.
  * @author rodionov
  * @reviewer kaigorodov
+ * @static-warning
  */
 
 class S {

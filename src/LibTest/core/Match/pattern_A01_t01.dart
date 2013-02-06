@@ -15,7 +15,7 @@
 main() {
   check(r"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, true);
   check(r"^(a+)\1*,\1+$", "aaaaaaaaa,aaaaaa\naa,aaaa\naaaaa,a", true, true);
-  check(r"(ab|cd)+|ef", "AEKFCD", false, true);
+  check(r"(ab|cd)+|ef", "AEKFCD", false, false);
 }
   
 void check(String pattern, String str, bool multiLine, bool caseSensitive) {

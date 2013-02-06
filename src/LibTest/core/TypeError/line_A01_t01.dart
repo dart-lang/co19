@@ -10,13 +10,12 @@
  * @author rodionov
  * @reviewer msyabro
  */
-
 import "../../../Utils/dynamic_check.dart";
 
 main() {
   if(isCheckedMode()) {
     try {
-      // the fillowing line must be no. 19:
+      // the following line must be no. 19:
       int x = true;  /// static type warning 
       Expect.fail("TypeError expected");
     } on TypeError catch(e) {

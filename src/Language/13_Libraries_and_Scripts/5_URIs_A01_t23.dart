@@ -14,6 +14,7 @@
  * as a URI in a part directive.
  * @author rodionov
  * @reviewer kaigorodov
+ * @static-warning library name doesn't match that referenced by an included part
  */
 library URIs_A01;
 part r'''5_Part.dart''';

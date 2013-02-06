@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns a collection containing all the values in the map.
- * @description Checks that collection of all values is returned.
+ * @assertion final Iterable<V> values
+ * The values of this.
+ * @description Checks that an Iterable with all values is returned.
  * @author msyabro
  * @reviewer varlax
  */
@@ -14,16 +15,16 @@
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
-  Collection a = map.values;
+  Iterable a = map.values;
   Expect.isTrue(a.length == 0);
   
   map["1"] = 1;
   map["2"] = 2;
   
-  List arr = map.values;
-  Expect.isTrue(arr.length == 2);
-  Expect.isTrue(arr.contains(1));
-  Expect.isTrue(arr.contains(2));
+  a = map.values;
+  Expect.isTrue(a.length == 2);
+  Expect.isTrue(a.contains(1));
+  Expect.isTrue(a.contains(2));
   
   map["3"] = 1;
   a = map.values;

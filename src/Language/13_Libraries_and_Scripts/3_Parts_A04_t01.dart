@@ -11,6 +11,7 @@
  * from such part are available without errors.
  * @author rodionov
  * @reviewer kaigorodov
+ * @static-warning library name doesn't match that referenced by an included part
  */
 
 library Parts_test_lib_not;

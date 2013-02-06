@@ -10,17 +10,17 @@
  * then let sE be the innermost do, for or while statement enclosing sc.
  * It is a compile-time error if no such statement or case clause sE exists within the
  * innermost function in which sc occurs.
- * @description Checks that it is not an error when a continue statement in a case clause
+ * @description Checks that it is not a compile-time error when a continue statement in a case clause
  * refers to another case clause of the same switch statement.
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 7537
+ * @issue 7537
  */
 
 
 main() {
   var flag = false;
-  switch(1) {
+  switch(2) {
     case 2:
       continue L;
     L: case 1:

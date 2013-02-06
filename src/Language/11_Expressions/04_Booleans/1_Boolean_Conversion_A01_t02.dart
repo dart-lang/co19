@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer rodionov
  * @needsreview issue 1552
+ * @static-warning
  */
 
 import "../../../Utils/dynamic_check.dart";

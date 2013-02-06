@@ -15,6 +15,7 @@
  * @reviewer kaigorodov
  * @compile-error
  * @note there is no compile error in scripting mode so this test is expected to fail there
+ * @issue 8360: analyzer should report an error as well
  */
 
 class G<T extends num, S extends String> {
