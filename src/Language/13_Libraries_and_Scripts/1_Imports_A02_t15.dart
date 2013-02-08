@@ -41,16 +41,17 @@
  *   
  * @description Checks that all specified show and hide combinators are applied
  * and if a name is hidden by any of them, it's undefined in the resulting namespace. 
- * @static-warning
+ * @compile-error see "Unqualified invocation" and "This"
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 7025
  */
 
 import "1_Imports_A02_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {
   try {
-    aFunc(); /// static warning cannot resolve
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+    aFunc();
+    Expect.fail("error/exception expected");
+  } catch(e) {}
 }

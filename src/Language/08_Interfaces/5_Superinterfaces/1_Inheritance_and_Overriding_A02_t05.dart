@@ -12,7 +12,7 @@
  * warning occurs. The member that is inherited is mx , if it exists; otherwise:
  * - If all of m1 , . . . , mk have the same number r of required parameters and
  *   the same set of named parameters s, then let
- *   h = max(numberOf OptionalP ositionals(mi )), i ∈ 1..k.
+ *   h = max(numberOfOptionalPositionals(mi )), i ∈ 1..k.
  *   I has a method named n, with r required parameters of type dynamic,
  *   h optional positional parameters of type dynamic, named parameters s
  *   of type dynamic and return type dynamic.

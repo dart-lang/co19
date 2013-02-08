@@ -41,16 +41,17 @@
  *   
  * @description Checks that names not provided as arguments to a 'show' combinator
  * are undefined even if they are defined in the imported library's export namespace.
+ * @compile-error see "Unqualified invocation" and "This"
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 7596
+ * @issue 7596, 7025
  */
 
 import "1_Imports_A02_lib.dart" show aFoo, A;
 
 main() {
   try {
-    aFunc(); /// analyzer error, not specified anywhere, turns into warning when moved out of static context
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+    aFunc();
+    Expect.fail("error/exception expected");
+  } catch(e) {}
 }

@@ -11,7 +11,7 @@
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
- * @issue 1681
+ * @issue 1681 - VM crashes on this test, also 8423
  */
 
 class A {

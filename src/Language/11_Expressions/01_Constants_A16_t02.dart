@@ -11,7 +11,7 @@
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @issue 5775
+ * @issue 5775, 8360
  */
 
 final m = 1 << 99999999999999999999999999999999999999999999999999999999999;
