@@ -13,6 +13,7 @@
  * @reviewer varlax
  * @needsreview issue 3223
  */
+import "../../../Utils/expect.dart";
 
 check(list, arg) {
   Expect.throws(() => list.forEach(arg));

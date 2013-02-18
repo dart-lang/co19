@@ -10,6 +10,7 @@
  * @description Checks that [catchError] returns a new Future f.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

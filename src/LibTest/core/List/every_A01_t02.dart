@@ -10,6 +10,7 @@
  * @author msyabro
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 
  //Checks that [every] calls [predicate] a [count] number of times
 check(List a, bool predicate(var e), int count) {

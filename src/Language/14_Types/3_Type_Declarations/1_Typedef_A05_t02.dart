@@ -10,6 +10,7 @@
  * @reviewer rodionov
  * @compile-error
  */
+import "../../../Utils/expect.dart";
 
 abstract class A {}
 typedef A B;

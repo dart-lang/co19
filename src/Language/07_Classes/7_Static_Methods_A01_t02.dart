@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class C {
   static final int stVar1 = 0, stVar2 = 1;

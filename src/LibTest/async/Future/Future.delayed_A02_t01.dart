@@ -10,6 +10,7 @@
  * the created future will complete with the error.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

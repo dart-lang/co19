@@ -14,8 +14,8 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
-
 library Parts_test_lib;
+import "../../Utils/expect.dart";
 part "3_Part_0.dart";
 part "3_Part_3.dart";
 

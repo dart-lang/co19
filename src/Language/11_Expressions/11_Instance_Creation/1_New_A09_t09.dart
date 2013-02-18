@@ -15,6 +15,7 @@
  * @reviewer rodionov
  * @note http://code.google.com/p/dart/issues/detail?id=1372
  */
+import "../../../Utils/expect.dart";
 
 var evalOrder = '';
 

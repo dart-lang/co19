@@ -9,6 +9,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(double.INFINITY, 1 / 0);

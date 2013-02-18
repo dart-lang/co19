@@ -14,6 +14,7 @@
  * @author iefremov
  * @reviewer pagolubev
  */
+import "../../../Utils/expect.dart";
 
 main() {
   int c(var a, var b) {

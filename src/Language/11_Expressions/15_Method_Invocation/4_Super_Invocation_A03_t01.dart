@@ -13,6 +13,7 @@
  * @reviewer kaigorodov
  * @needsreview issue 1604
  */
+import "../../../Utils/expect.dart";
 
 class TestException {}
 

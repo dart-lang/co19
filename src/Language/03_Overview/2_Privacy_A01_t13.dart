@@ -13,6 +13,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 f() {
   var _private_var = 1;

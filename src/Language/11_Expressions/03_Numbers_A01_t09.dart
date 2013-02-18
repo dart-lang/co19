@@ -14,6 +14,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var v = 1234567890.0987654321e1234567890;

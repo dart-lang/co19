@@ -17,6 +17,7 @@
  * @reviewer msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 abstract class IA {}
 class A implements IA {}

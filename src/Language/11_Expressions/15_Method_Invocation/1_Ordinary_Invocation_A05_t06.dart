@@ -17,6 +17,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 class A {
   noSuchMethod(InvocationMirror im) {

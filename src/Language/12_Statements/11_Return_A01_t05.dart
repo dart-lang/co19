@@ -14,6 +14,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 foo(val) {
   if (val > 0) {

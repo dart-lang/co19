@@ -11,6 +11,7 @@
  * @reviewer kaigorodov
  * @needsreview Undocumented Issue 1313
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

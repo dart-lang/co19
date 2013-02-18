@@ -10,6 +10,7 @@
  * @reviewer pagolubev
  * @needsreview undocumented
  */
+import "../../../Utils/expect.dart";
  
 main() {
   UnimplementedError e = new UnimplementedError();

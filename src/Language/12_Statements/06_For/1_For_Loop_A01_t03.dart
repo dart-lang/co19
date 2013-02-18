@@ -22,6 +22,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   for (var i = 0; i < 1; i++) {

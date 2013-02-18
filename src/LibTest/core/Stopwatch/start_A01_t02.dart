@@ -14,6 +14,7 @@
  * @reviewer pagolubev
  * @needsreview issue 477
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Stopwatch sw = new Stopwatch();

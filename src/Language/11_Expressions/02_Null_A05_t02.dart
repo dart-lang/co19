@@ -12,6 +12,7 @@
  * @reviewer iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class A {
   int aMethodWithAFancyName() {}

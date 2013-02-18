@@ -17,6 +17,7 @@
  * @reviewer rodionov
  * @needsreview  issie 1357
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.identical('\u{61}', 'a');

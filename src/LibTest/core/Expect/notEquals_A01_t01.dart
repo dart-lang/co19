@@ -12,6 +12,7 @@
  * @reviewer varlax
  * @needsreview Undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.notEquals(0, null);

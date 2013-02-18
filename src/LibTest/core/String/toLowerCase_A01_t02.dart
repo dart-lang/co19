@@ -12,6 +12,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   String str = "all characters in lower case";

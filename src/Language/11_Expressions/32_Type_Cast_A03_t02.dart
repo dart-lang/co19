@@ -14,6 +14,7 @@
  * @reviewer iefremov
  * @needsreview issue 9024
  */
+import "../../Utils/expect.dart";
 
 main() {
   bool fail = false;

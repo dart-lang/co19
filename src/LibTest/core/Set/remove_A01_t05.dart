@@ -10,6 +10,7 @@
  * @description Checks correctness of the set after rehashing (triggered by remove()).
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

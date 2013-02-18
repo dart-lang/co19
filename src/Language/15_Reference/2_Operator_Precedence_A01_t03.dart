@@ -10,6 +10,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 check(bool A, bool B, bool C, [bool D=true]) {
   Expect.equals(A || B && C, A || (B && C));

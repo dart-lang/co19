@@ -15,6 +15,7 @@
  * @reviewer iefremov
  * @issue 1604
  */
+import "../../../Utils/expect.dart";
 
 class C {
   static Object f1;

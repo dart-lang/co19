@@ -37,6 +37,7 @@
  * @reviewer pagolubev
  * @author msyabro
  */
+import "../../../../Utils/expect.dart";
  
 main() {
   check("[a-c\\d]+", "\n\nabc324234\n");

@@ -17,6 +17,7 @@
  * @reviewer kaigorodov
  * @issue 978
  */
+import "../../Utils/expect.dart";
 
 typedef t1({int x, double d, String s});
 

@@ -10,6 +10,7 @@
  * @reviewer rodionov
  * @needsreview issue 3400
  */
+import "../../Utils/expect.dart";
 
 class C {
   method() {}

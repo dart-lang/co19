@@ -11,6 +11,7 @@
  * @reviewer msyabro
  * @note issue 1301
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(r"^[^\n\r]+$", "pilOt\nsoviet\trobot\r\nopenoffice", true, true);

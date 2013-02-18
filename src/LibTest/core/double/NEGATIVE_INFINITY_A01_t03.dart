@@ -8,6 +8,7 @@
  * @description Comparing NEGATIVE_INFINITY with 0
  * @author hlodvig
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

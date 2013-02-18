@@ -11,6 +11,7 @@
  * future is completed with that exception wrapped in a AsyncError.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

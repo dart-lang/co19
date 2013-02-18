@@ -9,6 +9,7 @@
  * @author msyabro
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 
  //Checks that [every] does not call [predicate]
 check(List a, bool predicate(var e)) {

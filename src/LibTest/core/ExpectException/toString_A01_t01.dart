@@ -11,6 +11,7 @@
  * @reviewer varlax
  * @needsreview undocumented
  */
+import "../../../Utils/expect.dart";
  
 main() {
   ExpectException e = new ExpectException(null);

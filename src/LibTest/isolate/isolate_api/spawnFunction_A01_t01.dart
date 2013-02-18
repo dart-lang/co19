@@ -20,6 +20,7 @@
  * is actually bound to the child default ReceivePort.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

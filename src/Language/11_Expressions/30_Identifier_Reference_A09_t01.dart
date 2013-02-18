@@ -16,6 +16,7 @@
  * @author msyabro
  * @reviewer kaigorodov 
  */
+import "../../Utils/expect.dart";
 
 func(int x) {
   int y = 2;

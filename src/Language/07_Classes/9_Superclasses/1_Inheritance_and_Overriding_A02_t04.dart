@@ -13,6 +13,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 import "1_Inheritance_and_Overriding_A02_t04_lib.dart";
 

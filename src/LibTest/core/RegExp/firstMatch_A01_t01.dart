@@ -11,6 +11,7 @@
  * @reviewer msyabro
  * @note Issue 1290
  */
+import "../../../Utils/expect.dart";
  
 main() {
   check("(ab|cd)+|ef", "AEKFCD", false, true, [4, 6, "CD", "CD"]);

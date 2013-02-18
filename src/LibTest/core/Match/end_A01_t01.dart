@@ -10,6 +10,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 void check(String str, String pattern, int end) {
   RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);

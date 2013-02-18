@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(24 * 3600, Duration.SECONDS_PER_DAY);

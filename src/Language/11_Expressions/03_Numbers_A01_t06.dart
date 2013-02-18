@@ -14,6 +14,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(2147483647, 0x7FFFFFFF);

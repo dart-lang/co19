@@ -13,6 +13,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
  
 var foo=throw new IntegerDivisionByZeroException();
 

@@ -18,6 +18,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 class A {}
 

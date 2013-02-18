@@ -12,6 +12,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class A <B, C, D, E> {
   foo(p1, p2, p3, p4) {

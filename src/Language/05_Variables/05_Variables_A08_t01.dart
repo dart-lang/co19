@@ -10,6 +10,7 @@
  * @reviewer iefremov
  * @compile-error
  */
+import "../../Utils/expect.dart";
 
 const foo;
 

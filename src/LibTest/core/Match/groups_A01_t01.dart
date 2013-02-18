@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
  
 main() {
   check(".+: gr(a|e)y", "color: grey", 0, [0, 1], ["color: grey", "e"]);

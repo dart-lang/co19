@@ -15,6 +15,7 @@
  * @author hlodvig
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   var c = "\u000A"; //Note: \u000A is Unicode representation of linefeed (LF)

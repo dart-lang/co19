@@ -19,6 +19,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 f (p1) {
   Expect.equals(null, p1);

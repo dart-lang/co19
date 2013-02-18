@@ -18,6 +18,7 @@
  * @reviewer kaigorodov
  * @issue 5774
  */
+import "../../Utils/expect.dart";
 
 external f();
 external g([var x]);

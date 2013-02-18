@@ -10,6 +10,7 @@
  * @reviewer msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 void check(var expected, var actual) {
   Expect.equals(expected, actual);

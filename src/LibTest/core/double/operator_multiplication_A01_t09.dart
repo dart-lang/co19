@@ -8,6 +8,7 @@
  * @description Checks on a various values witch neither an infinity, nor a NaN, nor a zero.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(1.2100000000000002,         1.1 * 1.1);

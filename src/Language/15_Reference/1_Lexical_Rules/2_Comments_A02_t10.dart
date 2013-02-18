@@ -14,6 +14,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 foo(/* param pababam */ param ) {
   if ( param == null ){

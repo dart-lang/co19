@@ -11,6 +11,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 void test(var n) {
   var v = n;

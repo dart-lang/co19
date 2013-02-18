@@ -11,6 +11,7 @@
  * @reviewer iefremov
  * @needsreview issue 2459
  */
+import "../../../Utils/expect.dart";
 
 main() {
   var x = 1;

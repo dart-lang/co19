@@ -15,6 +15,7 @@
  * @reviewer msyabro
  * @note This test only makes sense in the presence of static checker.
  */
+import "../../Utils/expect.dart";
 
 class A {
   static var a;

@@ -15,6 +15,7 @@
  * @reviewer kaigorodov
  * @issue 5776
  */
+import "../../Utils/expect.dart";
 
 class S {
   operator ==(other) {

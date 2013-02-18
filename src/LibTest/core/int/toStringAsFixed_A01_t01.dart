@@ -12,6 +12,7 @@
  * @reviewer pagolubev
  * @needsreview Unimplemented and undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals("10",10.toStringAsFixed(0));

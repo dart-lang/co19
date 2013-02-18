@@ -10,6 +10,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals( 8 - 3 - 2, (8 - 3) - 2);

@@ -11,6 +11,7 @@
  * @reviewer msyabro
  * @needsreview undocumented. Do we need this test?
  */
+import "../../../Utils/expect.dart";
 
 main() {
   RegExp re = new RegExp(r".", multiLine: null, caseSensitive: null);

@@ -13,6 +13,7 @@
  * @needsreview The exact mechanism of signaling failure is not documented. We
  *              know it's ExpectException, though.
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(null);

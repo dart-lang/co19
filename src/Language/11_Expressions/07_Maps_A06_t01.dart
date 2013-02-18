@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(identical(const {}, const {}));

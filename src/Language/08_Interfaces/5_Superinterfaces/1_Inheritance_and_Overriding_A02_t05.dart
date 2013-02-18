@@ -27,6 +27,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 abstract class SI1 {
   int variable;

@@ -9,6 +9,7 @@
  * That is, f is completed with the completion value of f2.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

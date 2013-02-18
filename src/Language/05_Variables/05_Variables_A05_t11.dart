@@ -20,6 +20,7 @@
  * @reviewer kaigorodov
  * @issue 5885
  */
+import "../../Utils/expect.dart";
 
 final v = 1;
 final int v2 = 1;

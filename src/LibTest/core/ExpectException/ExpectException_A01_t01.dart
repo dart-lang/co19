@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
  
 main() {
   Expect.isNull(new ExpectException(null).message);

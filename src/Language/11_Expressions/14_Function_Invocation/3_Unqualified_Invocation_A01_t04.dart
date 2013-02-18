@@ -20,6 +20,7 @@
  * @reviewer rodionov
  * @issue 1604
  */
+import "../../../Utils/expect.dart";
 
 class A {
   static get m {

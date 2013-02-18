@@ -10,6 +10,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals("123", Strings.join([ "1", "2", "3" ], ""));

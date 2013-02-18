@@ -44,6 +44,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A02_t20_lib.dart";
 

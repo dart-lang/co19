@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(0, 0, 0, 0, 0);

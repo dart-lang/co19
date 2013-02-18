@@ -12,6 +12,7 @@
  * @author varlax
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   var err = 234;

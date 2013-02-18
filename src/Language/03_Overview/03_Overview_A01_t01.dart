@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(1.runtimeType is Type);

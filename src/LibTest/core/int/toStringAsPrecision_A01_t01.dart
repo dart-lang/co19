@@ -12,6 +12,7 @@
  * @reviewer pagolubev
  * @needsreview Unimplemented and undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals("1e+8",123456789.toStringAsPrecision(1));

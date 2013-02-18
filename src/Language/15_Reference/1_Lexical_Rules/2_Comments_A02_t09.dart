@@ -14,6 +14,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   var bar = true;

@@ -9,6 +9,7 @@
  * less than -MAX_DOUBLE the operator returns POSITIVE_INFINITY or NEGATIVE_INFINITY
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(double.INFINITY, 1.7976931348623157e308 / 1e-10);

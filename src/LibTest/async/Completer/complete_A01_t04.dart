@@ -10,6 +10,7 @@
  * @description Checks that all listeners on the future are informed immediately.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

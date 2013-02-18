@@ -24,6 +24,7 @@
  * @reviewer iefremov
  * @issue 3326
  */
+import "../../Utils/expect.dart";
 
 class TestException {}
 

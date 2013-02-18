@@ -11,6 +11,7 @@
  * @reviewer iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   bool v = true;

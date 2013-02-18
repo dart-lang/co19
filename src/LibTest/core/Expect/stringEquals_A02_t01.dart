@@ -12,6 +12,7 @@
  * @author varlax
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check("foo bar", "fOo Bar", "oo b", "Oo B" );

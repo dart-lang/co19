@@ -9,6 +9,7 @@
  * @description Checks that invoking forEach() doesn't change the set by itself.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

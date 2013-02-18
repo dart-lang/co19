@@ -27,6 +27,7 @@
  * @reviewer msyabro
  * @needsreview undocumented
  */
+import "../../../../Utils/expect.dart";
  
 main() {
   checkNeg(r"\1");

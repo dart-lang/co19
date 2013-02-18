@@ -9,6 +9,7 @@
  * @author vasya
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 check(a) {
   Expect.isTrue(a.length == 0);

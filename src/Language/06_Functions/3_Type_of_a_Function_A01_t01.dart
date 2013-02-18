@@ -13,6 +13,7 @@
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 f() {}
 g() {return 1;}

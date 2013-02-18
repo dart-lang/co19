@@ -22,6 +22,7 @@
  * @reviewer kaigorodov
  * @issue 5399, 4887
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A01_t50_lib.dart";
 import "1_Imports_A01_t50_lib.dart";

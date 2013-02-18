@@ -19,6 +19,7 @@
  * @description Checks that chained spawning of 10 isolates works properly.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

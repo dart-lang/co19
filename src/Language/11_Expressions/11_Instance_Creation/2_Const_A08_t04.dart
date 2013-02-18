@@ -22,6 +22,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class A {
   const A(p1): x = p1, y = 3;

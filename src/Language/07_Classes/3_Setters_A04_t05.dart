@@ -15,6 +15,7 @@
  * @reviewer kaigorodov
  * @issue 5840
  */
+import "../../Utils/expect.dart";
 
 class A {
   foo(value) {}

@@ -20,6 +20,7 @@
  * @needsreview Undocumented behavior of the regular expression with an error
  * @reviewer msyabro
  */
+import "../../../../Utils/expect.dart";
  
 
 main() {

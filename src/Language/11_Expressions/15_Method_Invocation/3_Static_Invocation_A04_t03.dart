@@ -20,6 +20,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   static get func {return 1;}

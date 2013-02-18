@@ -10,6 +10,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue("string".indexOf("tr", 0) == 1);

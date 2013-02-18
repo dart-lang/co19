@@ -18,6 +18,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 func(p1, p2, [p3 = 1, p4 = 2, p5 = 3, p6 = 4]) {
   Expect.equals(2, p4);

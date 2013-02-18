@@ -10,6 +10,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(1024 >> 1 + 3, 1024 >> (1 + 3));

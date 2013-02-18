@@ -38,6 +38,7 @@
  * @reviewer msyabro
  * @note issue 1299
  */
+import "../../../../Utils/expect.dart";
  
 main() {
   checkNeg(r"[\B]", "a");

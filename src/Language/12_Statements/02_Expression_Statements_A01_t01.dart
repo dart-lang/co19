@@ -19,6 +19,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 foo(x, y, z) { return x + y - z; }
 

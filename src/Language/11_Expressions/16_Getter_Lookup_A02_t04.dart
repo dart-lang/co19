@@ -15,6 +15,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class S {
   set v(val) { Expect.fail("Wrong setter was called");}

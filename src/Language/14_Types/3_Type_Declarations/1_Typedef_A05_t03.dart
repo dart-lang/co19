@@ -10,6 +10,7 @@
  * @reviewer rodionov
  * @compile-error
  */
+import "../../../Utils/expect.dart";
 
 typedef int integer;
 

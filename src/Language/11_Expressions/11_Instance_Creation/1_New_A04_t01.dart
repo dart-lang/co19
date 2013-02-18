@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   C.constructor() {}

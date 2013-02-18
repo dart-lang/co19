@@ -14,6 +14,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 abstract class _A {
   var _var = 54;

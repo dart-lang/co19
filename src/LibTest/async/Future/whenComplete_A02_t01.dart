@@ -12,6 +12,7 @@
  * will complete the same way as this future, if no error occurs.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

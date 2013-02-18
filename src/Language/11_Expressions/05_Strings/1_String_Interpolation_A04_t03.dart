@@ -13,6 +13,7 @@
  * @author kaigorodov
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 func() {return "str";}
 

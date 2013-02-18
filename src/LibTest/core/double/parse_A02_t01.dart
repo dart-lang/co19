@@ -11,6 +11,7 @@
  * @reviewer pagolubev
  * @needsreview issue 1929
  */
+import "../../../Utils/expect.dart";
 
 void checkFE(String str) {
   try {

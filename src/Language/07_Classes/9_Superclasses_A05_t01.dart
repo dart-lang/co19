@@ -11,6 +11,7 @@
  * @author rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class A {}
 class B extends A {}

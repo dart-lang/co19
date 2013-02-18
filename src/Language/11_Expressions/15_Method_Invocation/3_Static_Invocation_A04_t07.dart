@@ -21,6 +21,7 @@
  * @reviewer kaigorodov
  * @static-warning
  */
+import "../../../Utils/expect.dart";
 
 class S {
   static func() {}

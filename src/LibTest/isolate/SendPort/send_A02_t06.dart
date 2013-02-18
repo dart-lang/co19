@@ -10,6 +10,7 @@
  * @description Checks that cyclic maps are sent properly.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

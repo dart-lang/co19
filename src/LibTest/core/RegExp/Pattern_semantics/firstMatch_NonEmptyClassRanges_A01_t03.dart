@@ -40,6 +40,7 @@
  * @needsreview undocumented behavior on error
  * @reviewer msyabro
  */
+import "../../../../Utils/expect.dart";
  
 main() {
   checkNeg(r"[z-a]", "a");

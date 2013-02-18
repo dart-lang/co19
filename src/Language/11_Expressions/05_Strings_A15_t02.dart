@@ -10,6 +10,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   String a = 'b';

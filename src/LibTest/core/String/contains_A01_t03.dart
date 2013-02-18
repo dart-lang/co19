@@ -10,6 +10,7 @@
  * @author iefremov
  * @needsreview Issue 1289
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue("s".contains(new RegExp("")));

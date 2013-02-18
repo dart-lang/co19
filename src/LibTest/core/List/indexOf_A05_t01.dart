@@ -10,6 +10,7 @@
  * @reviewer iefremov
  * @needsreview not documented
  */
+import "../../../Utils/expect.dart";
 
 checkList(List list, var elem, int expected) {
   Expect.equals(expected, list.indexOf(elem));

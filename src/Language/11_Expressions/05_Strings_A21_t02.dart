@@ -12,6 +12,7 @@
  * @reviewer rodionov
  * @needsreview issue 1867 - assertion doesn't mention multi-line string literals
  */
+import "../../Utils/expect.dart";
 
 
 main() {

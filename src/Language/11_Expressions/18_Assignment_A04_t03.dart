@@ -24,6 +24,7 @@
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   try {

@@ -10,6 +10,7 @@
  * @author kaigorodov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
  
 class Cl {
   static var _foo;

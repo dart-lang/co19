@@ -11,6 +11,7 @@
  * @reviewer pagolubev
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class A {
   A() : i = 13;

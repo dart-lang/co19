@@ -13,8 +13,8 @@
  * @reviewer kaigorodov
  * @static-warning library name doesn't match that referenced by an included part
  */
-
 library Parts_test_lib_not;
+import "../../Utils/expect.dart";
 part "3_Part_0.dart";
 
 main() {

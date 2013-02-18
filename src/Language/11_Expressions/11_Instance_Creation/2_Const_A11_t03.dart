@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 abstract class A {
   const A.id();

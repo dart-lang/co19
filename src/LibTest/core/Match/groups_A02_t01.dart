@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
  
 void check(String str, String pattern, List<int> groupIndices) {
   RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);

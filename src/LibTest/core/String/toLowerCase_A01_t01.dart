@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals("uppercase", "UPPERCASE".toLowerCase());

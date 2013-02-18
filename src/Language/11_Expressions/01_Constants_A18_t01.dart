@@ -18,6 +18,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(identical(1, 1));

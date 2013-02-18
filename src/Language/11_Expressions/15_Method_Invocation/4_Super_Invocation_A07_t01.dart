@@ -12,6 +12,7 @@
  * @reviewer kaigorodov
  * @issue 1604
  */
+import "../../../Utils/expect.dart";
 
 class S {
   int m;

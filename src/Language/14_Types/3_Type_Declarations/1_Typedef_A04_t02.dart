@@ -12,6 +12,7 @@
  * @reviewer rodionov
  * @needsreview Currently the test will pass if omitted annotation is taken to be Object.
  */
+import "../../../Utils/expect.dart";
 
 typedef f1([x]);
 typedef f2({x});

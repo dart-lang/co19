@@ -10,6 +10,7 @@
  * @author pagolubev
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 check(d) {
   Expect.isTrue(d is double, '$d expected to be double');

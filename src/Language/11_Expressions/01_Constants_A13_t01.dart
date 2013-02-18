@@ -12,6 +12,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 final constList = const [
   1 + 2,

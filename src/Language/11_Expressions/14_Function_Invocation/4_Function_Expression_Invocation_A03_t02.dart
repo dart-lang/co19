@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 var foo;
 var nullvar = null;

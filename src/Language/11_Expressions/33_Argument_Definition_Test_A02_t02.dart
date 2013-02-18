@@ -14,6 +14,7 @@
  * @reviewer kaigorodov
  * @issue 7603
  */
+import "../../Utils/expect.dart";
 main() {
   ([x]) {
     ({y}) {

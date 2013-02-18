@@ -20,6 +20,7 @@
  * @reviewer iefremov
  * @issue 7537
  */
+import "../../Utils/expect.dart";
 
 switchTestBool(value) {
   var result;

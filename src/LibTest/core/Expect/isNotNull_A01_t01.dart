@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isNotNull(true);

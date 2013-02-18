@@ -9,6 +9,7 @@
  * @author varlax
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 main() {
   Expect.isTrue(new List.from([1, 0])[0] == 1);
   var a = [];

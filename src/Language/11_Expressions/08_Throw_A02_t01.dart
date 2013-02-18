@@ -9,6 +9,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var last="fail2";

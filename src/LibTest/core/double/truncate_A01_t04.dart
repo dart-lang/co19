@@ -9,6 +9,7 @@
  * @author pagolubev
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   double inf = 1 / 0;

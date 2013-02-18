@@ -26,6 +26,7 @@
  * @reviewer kaigorodov
  * @needsreview issue 3306, 7283
  */
+import "../../../Utils/expect.dart";
 
 abstract class SI1 {
   void foo(var v);

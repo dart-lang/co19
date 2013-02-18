@@ -11,6 +11,7 @@
  * @author iefremov
  * @issue 5222
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

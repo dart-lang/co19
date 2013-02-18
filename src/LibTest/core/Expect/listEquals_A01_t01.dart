@@ -11,6 +11,7 @@
  * @author rodionov
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 
 main() {
   var foo = new Object();

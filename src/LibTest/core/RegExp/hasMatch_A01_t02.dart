@@ -11,6 +11,7 @@
  * @reviewer msyabro
  * @note issue 1297
  */
+import "../../../Utils/expect.dart";
 
 main() {
   // Disjunction

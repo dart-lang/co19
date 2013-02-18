@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer pagolubev
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(int.parse("1") == 1);

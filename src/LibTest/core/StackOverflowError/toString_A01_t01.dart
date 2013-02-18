@@ -10,6 +10,7 @@
  * @reviewer pagolubev
  * @needsreview undocumented
  */
+import "../../../Utils/expect.dart";
  
 main() {
   StackOverflowError e = new StackOverflowError();

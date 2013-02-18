@@ -15,6 +15,7 @@
  * @reviewer rodionov
  * @issue 3280
  */
+import "../../Utils/expect.dart";
 
 
 class I {}

@@ -9,6 +9,7 @@
  * @description Checks that returned future completes when all elements have been processed.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

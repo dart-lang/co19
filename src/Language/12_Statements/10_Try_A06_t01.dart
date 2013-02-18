@@ -23,6 +23,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 void func1() {
   throw "foo";

@@ -8,6 +8,7 @@
  * @description Checks that type of INFINITY is double
  * @author hlodvig
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

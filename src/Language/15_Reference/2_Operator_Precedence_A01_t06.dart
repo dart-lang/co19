@@ -11,6 +11,7 @@
  * @reviewer rodionov
  * @needsreview add more cases?
  */
+import "../../Utils/expect.dart";
 
 main() {
   i() => 5;

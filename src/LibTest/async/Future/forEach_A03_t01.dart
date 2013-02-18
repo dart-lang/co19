@@ -10,6 +10,7 @@
  * is piped through the returned Future.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

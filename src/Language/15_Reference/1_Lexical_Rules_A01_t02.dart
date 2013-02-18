@@ -11,6 +11,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   List unicode = ["\u0061", "\u0062", "\u0063", "\u0064", "\u0065", "\u0066", "\u0067", 

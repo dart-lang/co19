@@ -12,6 +12,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class C {}
 abstract class I { }

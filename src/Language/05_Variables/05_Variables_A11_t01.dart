@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @issue 7481
  */
+import "../../Utils/expect.dart";
  
 void test1() {
   var v = w; /// static type warning - unresolved identifier w (12.30)

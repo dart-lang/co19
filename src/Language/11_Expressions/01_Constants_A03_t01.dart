@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @note issue 5214
  */
+import "../../Utils/expect.dart";
 
 final constList = const [
   "",

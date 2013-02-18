@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 class S {
   static var v;

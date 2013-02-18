@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   false && (Expect.fail("This operand should not be evaluated")); /// static type warning - passing the result of a void function as argument ("Type Void"?)

@@ -11,6 +11,7 @@
  * @reviewer rodionov
  * @needsreview If index is less then 0, indexOf always returns -1. Is it right?
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

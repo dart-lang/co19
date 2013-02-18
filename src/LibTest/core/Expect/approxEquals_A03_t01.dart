@@ -11,6 +11,7 @@
  * @reviewer varlax
  * @needsreview Undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(null, 0);

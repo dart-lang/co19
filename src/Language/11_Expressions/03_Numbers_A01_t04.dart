@@ -15,6 +15,7 @@
  * @reviewer iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 void check(i, [expected = null]) {
   Expect.isTrue(i is num);

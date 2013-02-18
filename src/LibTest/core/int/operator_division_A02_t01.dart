@@ -10,6 +10,7 @@
  * @reviewer rodionov
  * @needsreview undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(1/2 is double);

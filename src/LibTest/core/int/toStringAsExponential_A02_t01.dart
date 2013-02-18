@@ -11,6 +11,7 @@
  * @reviewer rodionov
  * @needsreview Exact exception/error not specified, no error on null
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(0, -1);

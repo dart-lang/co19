@@ -9,6 +9,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue("a".charCodeAt(0) == 0x61);

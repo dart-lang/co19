@@ -10,6 +10,7 @@
  * @description Checks that SendPorts, lists and maps containing SendPorts could be sent properly.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 import "send_A02_util.dart";

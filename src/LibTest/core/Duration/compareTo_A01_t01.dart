@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(new Duration(days: 1, hours: 1, minutes: 1, seconds: 1, milliseconds: 1) is Comparable);

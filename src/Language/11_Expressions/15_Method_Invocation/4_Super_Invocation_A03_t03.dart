@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 class S {
   get func {return 1;}

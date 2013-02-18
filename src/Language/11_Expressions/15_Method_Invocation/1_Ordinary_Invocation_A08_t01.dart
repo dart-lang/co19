@@ -16,6 +16,7 @@
  * @issue 1604
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   Object f1;

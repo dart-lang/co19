@@ -24,6 +24,7 @@
  * @reviewer kaigorodov
  * @issue 6448, 6449
  */
+import "../../Utils/expect.dart";
 
 class C {
   noSuchMethod(InvocationMirror im) {

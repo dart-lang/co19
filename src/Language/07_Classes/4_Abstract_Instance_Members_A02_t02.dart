@@ -14,6 +14,7 @@
  * @reviewer rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 abstract class A {
   m1();
 }

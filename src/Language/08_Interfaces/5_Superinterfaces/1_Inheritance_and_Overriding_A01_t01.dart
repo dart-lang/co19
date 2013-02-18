@@ -14,6 +14,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 abstract class I1 {
   int foo;

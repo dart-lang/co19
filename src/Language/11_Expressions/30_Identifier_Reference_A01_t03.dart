@@ -41,6 +41,7 @@
  * @reviewer kaigorodov
  * @needsreview issue 1557.
  */
+import "../../Utils/expect.dart";
 
 class C {
   bool x() {

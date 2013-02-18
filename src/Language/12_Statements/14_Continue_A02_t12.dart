@@ -15,6 +15,7 @@
  * @author rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var flag = false;

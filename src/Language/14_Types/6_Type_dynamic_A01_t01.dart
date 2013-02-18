@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 test(x) {
   Expect.isTrue(x is dynamic);

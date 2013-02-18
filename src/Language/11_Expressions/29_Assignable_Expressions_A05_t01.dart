@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class S {
   S(): _x = 1, y = 1;

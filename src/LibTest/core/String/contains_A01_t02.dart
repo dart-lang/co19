@@ -11,6 +11,7 @@
  * @reviewer rodionov
  * @needsreview Issue 1289
  */
+import "../../../Utils/expect.dart";
 
 main() {
   String str = "String with <pattern>";

@@ -15,6 +15,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class S1 {
   get v { Expect.fail("Wrong getter was called");}

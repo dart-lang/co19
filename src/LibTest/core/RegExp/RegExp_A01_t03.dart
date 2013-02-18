@@ -13,6 +13,7 @@
  * @reviewer msyabro
  * @needsreview undocumented behavior. Exception is unspecified.
  */
+import "../../../Utils/expect.dart";
 
 
 void check(String pattern) {

@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @needsreview Undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(1, 0);

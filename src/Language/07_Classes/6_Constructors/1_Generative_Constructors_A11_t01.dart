@@ -29,6 +29,7 @@
  * observe the exact sequence. Same about the initializing formals.
 
  */
+import "../../../Utils/expect.dart";
 
 class C {
   C(this.f) : c = "c", d = "d", e = "e" {

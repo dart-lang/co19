@@ -10,6 +10,7 @@
  * @description Checks that sending multiple messages works fine.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

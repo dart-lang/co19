@@ -12,6 +12,7 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 
 main() {
   List a = new List.fixedLength(1);

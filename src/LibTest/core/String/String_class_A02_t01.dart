@@ -11,6 +11,7 @@
  * @reviewer pagolubev
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 //TODO this belongs to LangGuideTest suite, if we're keeping it
 

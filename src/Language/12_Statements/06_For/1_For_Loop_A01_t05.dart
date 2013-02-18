@@ -23,6 +23,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   String log = "";

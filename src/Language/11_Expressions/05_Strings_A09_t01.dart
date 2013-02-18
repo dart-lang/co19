@@ -10,6 +10,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.identical('\x00', '\u{00}');

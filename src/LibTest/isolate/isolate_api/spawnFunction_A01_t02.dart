@@ -19,6 +19,7 @@
  * @description Checks spawning 3 isolates for one function.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

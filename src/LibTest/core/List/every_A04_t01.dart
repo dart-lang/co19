@@ -10,6 +10,7 @@
  * @author varlax
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 check(List a, bool predicate(var e), exc) {
   int actualCount = 0;

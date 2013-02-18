@@ -15,6 +15,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   1 > 2 ? Expect.fail("Wrong expressions were evaluated") : true;

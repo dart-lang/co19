@@ -12,6 +12,7 @@
  * @needsreview looks like it is impossible to check constructors, operators and getters/setters because they
  * can't be referenced like methods.
  */
+import "../../Utils/expect.dart";
 
 class C {
   f1() {}

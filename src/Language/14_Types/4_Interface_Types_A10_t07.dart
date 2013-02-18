@@ -13,6 +13,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class I<A, B, C> {}
 class J<A, B, C> extends I<A, B, C> {}

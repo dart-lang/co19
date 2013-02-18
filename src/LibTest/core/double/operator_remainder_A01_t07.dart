@@ -8,6 +8,7 @@
  * @description Checks on values that is neither an infinity, nor a zero, nor a NaN
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   //[other] is lesser than [:this:]

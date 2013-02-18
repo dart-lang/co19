@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 f(p1) {
   Expect.equals(1, p1);

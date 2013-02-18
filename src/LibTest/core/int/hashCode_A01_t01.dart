@@ -11,6 +11,7 @@
  * @reviewer msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(null != 0.hashCode);

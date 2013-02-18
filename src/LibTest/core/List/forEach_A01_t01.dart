@@ -9,6 +9,7 @@
  * @author vasya
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 class A {
   A(bool checked) { this.checked = checked; }

@@ -10,6 +10,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 abstract class I1 {}
 abstract class I2 {}

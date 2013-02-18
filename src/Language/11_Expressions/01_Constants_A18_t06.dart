@@ -19,6 +19,7 @@
  * @reviewer rodionov
  * @needsreview issue 7024
  */
+import "../../Utils/expect.dart";
 
 div(var a, var b) {
   return a/b;

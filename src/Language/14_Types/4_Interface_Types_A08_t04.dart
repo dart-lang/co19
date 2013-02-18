@@ -12,6 +12,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class G<T> {}
 class Generic<T> extends G<T> {}

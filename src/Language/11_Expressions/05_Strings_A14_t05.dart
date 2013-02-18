@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.stringEquals("\u004F1F", "O1F");

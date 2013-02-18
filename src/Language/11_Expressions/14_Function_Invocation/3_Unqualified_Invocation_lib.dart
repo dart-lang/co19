@@ -5,6 +5,7 @@
  */
 
 library Unqualified_Invocation_lib;
+import "../../../Utils/expect.dart";
 
 m(p1) {
   Expect.equals("ab", p1);

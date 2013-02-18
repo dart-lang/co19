@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isFalse(identical(const <String, int>{}, const <String, num>{}));

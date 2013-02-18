@@ -13,6 +13,7 @@
  * @note this test would also pass if such type arguments defaulted to Object type. Object
  * seems to be indistinguishable from dynamic as far as subtype testing is concerned.
  */
+import "../../Utils/expect.dart";
 
 class DynamicChecker<S, T> {
   DynamicChecker() {

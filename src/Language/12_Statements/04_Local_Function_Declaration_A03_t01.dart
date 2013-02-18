@@ -11,6 +11,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   f(x) => x > 0? x*f(x-1): 1;

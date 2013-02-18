@@ -12,6 +12,7 @@
  * is completed with an AsyncError wrapping that error.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

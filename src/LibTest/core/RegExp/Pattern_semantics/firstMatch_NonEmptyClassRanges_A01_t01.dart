@@ -42,6 +42,7 @@
  *           contain exactly one character then throw a SyntaxError exception."
  * @note issue 1298
  */
+import "../../../../Utils/expect.dart";
  
 main() {
   checkNeg(r"[a-\w]", "a");

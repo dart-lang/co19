@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer pagolubev
  */
+import "../../../Utils/expect.dart";
  
 main() {
   final int LOTS_OF_REPS  = 100000000; // long enough for the ms count to become positive

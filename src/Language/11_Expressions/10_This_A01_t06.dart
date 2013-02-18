@@ -10,6 +10,7 @@
  * @author hlodvig
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class A{
   int x = 5;

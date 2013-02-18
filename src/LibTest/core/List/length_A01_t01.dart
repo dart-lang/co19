@@ -10,6 +10,7 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 check(List a) {
   a.length = 100;
   a[99] = 1;

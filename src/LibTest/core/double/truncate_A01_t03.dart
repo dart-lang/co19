@@ -9,6 +9,7 @@
  * @author pagolubev
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   double nan = 0 / 0;

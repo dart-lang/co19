@@ -15,6 +15,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 func(var a, [var b = 1]) => () => a*b;
 

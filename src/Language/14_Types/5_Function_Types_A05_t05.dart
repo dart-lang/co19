@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 class C {
   if1() {}
   Object if2(var x, int z, [Object o, var v = 1]) {}

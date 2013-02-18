@@ -8,6 +8,7 @@
  * @description Checks the method on a set of values.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 check(String expected, double val, int digits) {
   Expect.equals(expected, val.toStringAsFixed(digits));

@@ -14,6 +14,7 @@
  * @author rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class C {
   operator[](idx) {}

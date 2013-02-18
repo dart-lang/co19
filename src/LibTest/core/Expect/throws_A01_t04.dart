@@ -12,6 +12,7 @@
  * @author varlax
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 //typedef bool checkFn(exception);
 typedef void test();

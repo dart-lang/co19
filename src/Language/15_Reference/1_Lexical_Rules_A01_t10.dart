@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 import "dart:io";
 
 // used to create 
@@ -39,7 +40,8 @@ tofile(String dest, List<String> strlist) {
   
   List character = [
     r''':	''', r''':
-''', r''':''', r''':''', //r'''://''', 
+''', r''':''', r''':''', //r''':
+//''', 
     r''': ''', r''':''', r''': ''', r''': ''', r''':᠎''', 
     r''': ''', r''': ''', r''': ''', r''': ''', r''': ''', 
     r''': ''', r''': ''', r''': ''', r''': ''', r''': ''', 

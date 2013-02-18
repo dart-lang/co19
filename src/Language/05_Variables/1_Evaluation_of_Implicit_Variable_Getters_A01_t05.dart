@@ -24,6 +24,7 @@
  * @reviewer rodionov
  * @issue 5894
  */
+import "../../Utils/expect.dart";
 
 int f() {
   return C.sTyped;

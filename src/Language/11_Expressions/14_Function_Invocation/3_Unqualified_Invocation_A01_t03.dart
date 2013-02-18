@@ -20,6 +20,7 @@
  * @reviewer rodionov
  * @issue 1604
  */
+import "../../../Utils/expect.dart";
 
 get m {
   return (p1, p2) {

@@ -10,6 +10,7 @@
  * then f is completed with the thrown error.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

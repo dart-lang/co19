@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var l = const[1, 2, 3, 4, 5, 5 + 1, 5 + 2, 9 - 1, 9, 2 * 5];

@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   method1() {return 1;}

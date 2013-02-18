@@ -10,6 +10,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(0, new Duration(days: 1, hours: -4, minutes: 0, seconds: 61, milliseconds: 0).compareTo(new Duration(days: 0, hours: 20, minutes: 1, seconds: 1, milliseconds: 0)));

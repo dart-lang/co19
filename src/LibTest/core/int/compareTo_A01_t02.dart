@@ -10,6 +10,7 @@
  * @reviewer msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(1,  1.compareTo(double.NEGATIVE_INFINITY));

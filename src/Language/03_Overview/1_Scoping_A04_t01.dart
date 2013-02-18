@@ -10,6 +10,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var v = 54;

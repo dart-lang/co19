@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 foo(p1) {
   return p1 + 1;

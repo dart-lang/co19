@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @needsreview issue 3223
  */
+import "../../Utils/expect.dart";
 
 class A {
 }

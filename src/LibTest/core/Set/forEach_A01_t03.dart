@@ -13,6 +13,7 @@
  * not change its position in the hash table.
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 class A {
   A(this.x) {}

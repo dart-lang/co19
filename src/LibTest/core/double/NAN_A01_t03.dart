@@ -8,6 +8,7 @@
  * @description Checks that NAN can't be equal, lt or gt 0
  * @author hlodvig
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

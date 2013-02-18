@@ -11,6 +11,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class G<T> {}
 class NonGeneric extends G<int> {}

@@ -8,6 +8,7 @@
  * @description Checks NAN is not equal to NAN using equality operator
  * @author hlodvig
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

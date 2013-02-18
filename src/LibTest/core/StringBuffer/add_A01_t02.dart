@@ -11,6 +11,7 @@
  * @reviewer rodionov
  * @needsreview undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
   StringBuffer sb = new StringBuffer();

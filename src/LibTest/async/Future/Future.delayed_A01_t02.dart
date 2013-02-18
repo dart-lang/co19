@@ -11,6 +11,7 @@
  * @description Checks that execution of the supplied value() function happens after delay.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

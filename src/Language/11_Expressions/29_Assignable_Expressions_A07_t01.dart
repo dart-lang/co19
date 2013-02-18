@@ -10,6 +10,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class A {
   id(p1, p2, p3) => p1 + p2 - p3;

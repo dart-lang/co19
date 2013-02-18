@@ -10,6 +10,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(true ? 1 : false ? 0 : 1, (true ? 1 : ( false ? 1 : 0 )));

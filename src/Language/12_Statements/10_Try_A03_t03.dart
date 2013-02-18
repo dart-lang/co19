@@ -14,6 +14,7 @@
  * @reviewer iefremov
  * @issue 7291
  */
+import "../../Utils/expect.dart";
 
 import "10_Try_lib.dart" as p; // class Foo declared here
 

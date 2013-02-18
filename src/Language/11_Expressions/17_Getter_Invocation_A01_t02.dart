@@ -15,6 +15,7 @@
  * @note setters not mentioned in this particular assertion, but it is in others around it
  * so this omission might be accidental.
  */
+import "../../Utils/expect.dart";
 
 class TestException {}
 

@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @issue 1604, 7507
  */
+import "../../../Utils/expect.dart";
 
 f(p1, [p2]) {
   return "$p1$p2";

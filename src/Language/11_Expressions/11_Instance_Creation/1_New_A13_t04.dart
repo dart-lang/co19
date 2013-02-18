@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class Stub implements A, B {
   Stub() {}

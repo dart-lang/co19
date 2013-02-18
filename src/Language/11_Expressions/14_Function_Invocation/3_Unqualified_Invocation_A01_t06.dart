@@ -19,6 +19,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   static m(p1, p2) {

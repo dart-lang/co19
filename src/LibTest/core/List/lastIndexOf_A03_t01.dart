@@ -15,6 +15,7 @@
  * @reviewer varlax
  * @needsreview issue 1266
  */
+import "../../../Utils/expect.dart";
 
 checkList(List list, var elem, int idx, int expected) {
   Expect.equals(expected, list.lastIndexOf(elem, idx));

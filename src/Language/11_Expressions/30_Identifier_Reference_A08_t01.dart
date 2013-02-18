@@ -24,6 +24,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 var tlVar = new C().foo();
 int tlTyped = new C().foo();

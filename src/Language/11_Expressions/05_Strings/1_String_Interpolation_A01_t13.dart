@@ -18,6 +18,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   var fo = "bar", foo = "foo";

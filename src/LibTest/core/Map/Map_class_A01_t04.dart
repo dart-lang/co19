@@ -9,6 +9,7 @@
  * @description Checks that map can operate with big amount of pairs.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

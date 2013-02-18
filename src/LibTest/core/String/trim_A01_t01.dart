@@ -14,6 +14,7 @@
  * @needsreview There seems to be a mistake in the whitespace definition, update
  *              this when it is resolved
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(" ".trim() == "");

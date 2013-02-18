@@ -15,6 +15,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class A {
   static var x=3;

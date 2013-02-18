@@ -19,6 +19,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isFalse(new List<int>() is List<String>);

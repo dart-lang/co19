@@ -12,6 +12,7 @@
  * @author hlodvig
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var \u0041 = 1;

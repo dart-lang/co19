@@ -15,6 +15,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 typedef t1(int x);
 typedef t2(int x, int y);

@@ -15,6 +15,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class A {
   A() : y = 10;

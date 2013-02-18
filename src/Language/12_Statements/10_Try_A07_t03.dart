@@ -22,6 +22,7 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 void main() {
   var ex = new Exception("fail");

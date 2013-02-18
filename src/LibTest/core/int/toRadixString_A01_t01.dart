@@ -12,6 +12,7 @@
  * @reviewer rodionov
  * @needsreview Range of accepted radices undocumented.
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.stringEquals("1100100", 100.toRadixString(2));

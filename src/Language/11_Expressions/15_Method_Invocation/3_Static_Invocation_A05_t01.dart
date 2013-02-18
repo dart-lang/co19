@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @issue 1604
  */
+import "../../../Utils/expect.dart";
 
 class C {
   static int m;

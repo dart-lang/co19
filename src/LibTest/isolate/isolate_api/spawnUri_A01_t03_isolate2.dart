@@ -5,6 +5,7 @@
  */
 
 library spawnUri_A01_t03_isolate2;
+import "../../../Utils/expect.dart";
 import "dart:isolate";
 
 main() {

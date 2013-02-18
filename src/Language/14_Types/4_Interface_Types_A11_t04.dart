@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @needsreview issue 3277
  */
+import "../../Utils/expect.dart";
 
 class S<Type> {}
 class S1 extends S<int> {}

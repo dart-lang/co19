@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   C(): this.x = 1, this.y = 2, this.z = 3 {}

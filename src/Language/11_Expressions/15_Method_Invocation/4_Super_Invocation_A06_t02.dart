@@ -12,6 +12,7 @@
  * @reviewer kaigorodov
  * @needsreview issue 3266, issue 3267
  */
+import "../../../Utils/expect.dart";
 
 import "lib.dart";
 

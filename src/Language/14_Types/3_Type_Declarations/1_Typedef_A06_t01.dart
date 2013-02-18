@@ -11,6 +11,7 @@
  * @reviewer rodionov
  * @compile-error
  */
+import "../../../Utils/expect.dart";
 
 typedef f(var a = null);
 

@@ -19,6 +19,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 m() {
   return "library function";

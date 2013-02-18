@@ -5,6 +5,7 @@
  */
 
 library Libraries_and_Scripts_A06_t01_lib;
+import "../../Utils/expect.dart";
 
 part "13_Libraries_and_Scripts_A06_t01_p1_lib.dart";
 part "13_Libraries_and_Scripts_A06_t01_p2_lib.dart";

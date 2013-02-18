@@ -51,6 +51,7 @@
  * @reviewer msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A02_t09_lib.dart";
 

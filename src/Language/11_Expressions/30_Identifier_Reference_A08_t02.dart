@@ -26,6 +26,7 @@
  * @reviewer iefremov
  * @issue 5802
  */
+import "../../Utils/expect.dart";
 
 var tlVar = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
 int tlTyped = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"

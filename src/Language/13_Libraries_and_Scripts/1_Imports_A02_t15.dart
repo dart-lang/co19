@@ -46,6 +46,7 @@
  * @reviewer kaigorodov
  * @issue 7025
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A02_lib.dart" show aFoo, aFunc hide aFunc;
 

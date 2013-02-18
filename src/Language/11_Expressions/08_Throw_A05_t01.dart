@@ -16,6 +16,7 @@
  * @note with the runtime-error tag, there's hardly any way to make this test fail, since
  * any AssertionErrors are also considered a desired outcome by the harness.
  */
+import "../../Utils/expect.dart";
 
 main() {
   try {

@@ -45,6 +45,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A02_lib.dart" show aFoo, A, anUndefinedName;
 

@@ -19,6 +19,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 int foo(int x) {
   return x >= 0 ? x : bar(-x);

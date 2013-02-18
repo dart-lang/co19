@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class A {
   get v {Expect.fail("Wrong getter was invoked");}

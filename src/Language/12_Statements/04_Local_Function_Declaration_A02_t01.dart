@@ -13,6 +13,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var t1 = new Object();

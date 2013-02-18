@@ -10,6 +10,7 @@
  * @description Checks that invoking every() doesn't change the set by itself.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

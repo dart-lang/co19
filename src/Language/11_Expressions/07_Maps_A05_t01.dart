@@ -11,6 +11,7 @@
  * @needsreview Issue 1553
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   bool b;

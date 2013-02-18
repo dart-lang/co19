@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
  
 main() {
   check(null);

@@ -14,6 +14,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 abstract class S {
   static final int foo = 1;

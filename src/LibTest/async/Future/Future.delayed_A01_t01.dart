@@ -12,6 +12,7 @@
  * has the result returned by the supplied value() function.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

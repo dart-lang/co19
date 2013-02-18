@@ -18,6 +18,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 foo(p) {
   switch(p) {

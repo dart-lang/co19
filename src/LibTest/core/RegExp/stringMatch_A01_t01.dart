@@ -10,6 +10,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
  
 main() {
   check("(ab|cd)+|ef", "AEKFCD", false, false, "CD");

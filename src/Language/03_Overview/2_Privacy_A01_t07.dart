@@ -13,6 +13,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class _A {
   var _var = 54;

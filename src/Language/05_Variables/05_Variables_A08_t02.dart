@@ -11,6 +11,7 @@
  * @reviewer iefremov
  * @compile-error
  */
+import "../../Utils/expect.dart";
 
 class Foo {}
 const Foo foo = new Foo();

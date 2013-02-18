@@ -14,6 +14,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class A {
   f({var x, var y}) { return x+y; }

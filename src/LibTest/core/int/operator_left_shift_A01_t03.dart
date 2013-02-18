@@ -12,6 +12,7 @@
  * @needsreview undocumented
  * @needsreview issue 1137
  */
+import "../../../Utils/expect.dart";
 
 main() {
   try {

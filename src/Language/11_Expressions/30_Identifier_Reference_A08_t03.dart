@@ -24,6 +24,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class C {
   static var counter = 0;

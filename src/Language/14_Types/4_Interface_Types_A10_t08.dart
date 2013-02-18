@@ -12,6 +12,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class I0 {}
 class I1 extends I0 {}

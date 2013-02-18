@@ -11,6 +11,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 typedef void f(p1, p2);
 typedef int g(p1, p2, [p3]);

@@ -12,6 +12,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 main() {
   int e = 1;
   try {

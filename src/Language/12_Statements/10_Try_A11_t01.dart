@@ -18,6 +18,7 @@
  * @reviewer iefremov
  * @note issue 430
  */
+import "../../Utils/expect.dart";
 
 void main() {
   bool flag = false;

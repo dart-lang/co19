@@ -8,6 +8,7 @@
  * @description Checks that type of NAN is double
  * @author hlodvig
  */
+import "../../../Utils/expect.dart";
 
 
 main() {

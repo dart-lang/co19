@@ -11,6 +11,7 @@
  * @author msyabro
  * @needsreview Separate into two different tests?
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Set s = new Set();

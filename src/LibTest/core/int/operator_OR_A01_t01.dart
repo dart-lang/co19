@@ -10,6 +10,7 @@
  * @reviewer msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 void main() {
   Expect.equals(0, 0 | 0);

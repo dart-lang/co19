@@ -14,6 +14,7 @@
  * @reviewer pagolubev
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class C {
   C(this.v2);

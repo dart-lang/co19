@@ -25,6 +25,7 @@
  * @reviewer rodionov
  * @issue 5885
  */
+import "../../../Utils/expect.dart";
 
 func(final x) {
   try {

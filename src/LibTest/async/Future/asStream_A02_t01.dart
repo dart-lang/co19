@@ -9,6 +9,7 @@
  * @description Checks that the stream closes after the completion value is send.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

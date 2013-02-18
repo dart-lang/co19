@@ -14,6 +14,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   int id;

@@ -14,6 +14,7 @@
  * @reviewer rodionov
  * @needsreview modulo operatio is not specified (issue 493).
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(0, 1 % 1);

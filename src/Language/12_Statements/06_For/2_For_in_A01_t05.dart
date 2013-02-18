@@ -17,6 +17,7 @@
  * @reviewer rodionov
  * @static-warning unimplemented abstract methods
  */
+import "../../../Utils/expect.dart";
 
 var log = "";
 addLog(String s) {

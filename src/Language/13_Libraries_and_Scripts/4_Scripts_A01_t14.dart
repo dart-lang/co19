@@ -15,8 +15,8 @@
  * @author vasya
  * @reviewer msyabro
  */
-
 library Script_A01_t14;
+import "../../Utils/expect.dart";
 import "4_Library1.dart";
 
 final int script = 1; // error

@@ -15,6 +15,7 @@
  * @needsreview issue 1478
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var m = {"k1": 1, "k2": 2, "k3": 3, "k4": "4"};

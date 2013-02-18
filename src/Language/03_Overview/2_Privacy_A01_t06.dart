@@ -15,6 +15,7 @@
  * @reviewer iefremov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 import "lib.dart";
 import "../../Utils/dynamic_check.dart";

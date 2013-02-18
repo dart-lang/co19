@@ -13,6 +13,7 @@
  * @author rodionov
  * @note the necessity of closing the port is undocumented, see http://code.google.com/p/dart/issues/detail?id=5673
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

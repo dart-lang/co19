@@ -15,6 +15,7 @@
  * still raises that exceptions.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

@@ -10,6 +10,7 @@
  * Future.immediate has the error passed as a parameter.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

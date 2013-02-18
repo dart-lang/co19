@@ -11,6 +11,7 @@
  * @author vasya
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(5 * 8 % 9, (5 * 8) % 9);

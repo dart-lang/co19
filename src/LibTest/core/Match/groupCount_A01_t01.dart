@@ -9,6 +9,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "../../../Utils/expect.dart";
 
 void check(String str, String pattern, int quantity, {bool multiLine: false, bool caseSensitive: true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);

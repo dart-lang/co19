@@ -8,6 +8,7 @@
  * @description Checks that [:truncate():] does not change the object.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 
 check(double d) {

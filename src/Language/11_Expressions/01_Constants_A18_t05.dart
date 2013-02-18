@@ -19,6 +19,7 @@
  * @reviewer rodionov
  * @needsreview issue 7024
  */
+import "../../Utils/expect.dart";
 
 mul(var d1, var d2) {
   return d1*d2;

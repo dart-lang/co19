@@ -15,6 +15,7 @@
  * @author varlax
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 import "dart:collection";
 
 check(Iterable a, bool predicate(var e), exc) {

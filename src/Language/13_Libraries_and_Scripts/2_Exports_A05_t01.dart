@@ -12,6 +12,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 import "2_Exports_A05_t01_lib.dart";
 
 main() {

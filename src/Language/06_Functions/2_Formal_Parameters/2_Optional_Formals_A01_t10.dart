@@ -18,6 +18,7 @@
  * @reviewer kaigorodov
  * @issue 5885
  */
+import "../../../Utils/expect.dart";
 
 foo({final p: 1}) {
   try {

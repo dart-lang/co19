@@ -9,6 +9,7 @@
  * @description Checks that each isolate gets their own copy of global and static variables.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:isolate";
 

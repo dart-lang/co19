@@ -14,6 +14,7 @@
  * @reviewer msyabro
  * @issue 5839
  */
+import "../../Utils/expect.dart";
 
 import "13_Libraries_and_Scripts_A05_t04_lib.dart" as lib;
 

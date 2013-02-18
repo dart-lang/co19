@@ -8,6 +8,7 @@
  * @description Checks that if the magnitude is too small to represent, the result is then a zero.
  * @author msyabro
  */
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(0.0, -2.2250738585072014e-308 / 1e100);

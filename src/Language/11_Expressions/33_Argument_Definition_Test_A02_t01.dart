@@ -13,6 +13,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 main() {
   (x, [y]) {
     Expect.isTrue(?x && ?y);

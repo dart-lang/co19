@@ -37,6 +37,7 @@
  * @reviewer iefremov
  * @needsreview TODO: extend to cover all expressions.
  */
+import "../../Utils/expect.dart";
 
 class S {
   var x = 25;

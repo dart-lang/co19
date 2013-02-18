@@ -13,6 +13,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var m = [1, 2, 3, 4, 5];

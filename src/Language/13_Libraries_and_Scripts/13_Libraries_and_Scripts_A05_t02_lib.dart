@@ -5,6 +5,7 @@
  */
 
 library Libraries_and_Scripts_A05_t02_lib;
+import "../../Utils/expect.dart";
 
 var _foo = "foo";
 

@@ -14,8 +14,8 @@
  * @reviewer rodionov
  * @needsreview issue 2478
  */
-
 library test;
+import "../../../Utils/expect.dart";
 import "2_Factories_A01_t01.lib.dart" as lib;
 
 class Iface {

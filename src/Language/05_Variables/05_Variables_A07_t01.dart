@@ -13,6 +13,7 @@
  * @reviewer iefremov
  * @issue 5885
  */
+import "../../Utils/expect.dart";
 
 main() {
   const foo = "foo";

@@ -24,6 +24,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 class E0 implements Exception {}
 class E1 implements Exception {}

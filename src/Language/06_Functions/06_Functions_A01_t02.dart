@@ -23,6 +23,7 @@
  * @reviewer kaigorodov
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 func(int x) => x + x + 1;
 proc() {}

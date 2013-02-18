@@ -24,6 +24,7 @@
  * @reviewer iefremov
  * @issue 5802
  */
+import "../../Utils/expect.dart";
 
 f() {
   throw 1;

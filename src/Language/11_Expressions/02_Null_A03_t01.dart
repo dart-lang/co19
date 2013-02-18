@@ -12,6 +12,7 @@
  * It may be possible to write one once the reflection framework becomes available.
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 main() {
   try {

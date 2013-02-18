@@ -14,6 +14,7 @@
  * Is it a bug or the expected behavior?
  * @needsreview issue 449
  */
+import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 

@@ -15,6 +15,7 @@
  * @author varlax
  * @reviewer varlax
  */
+import "../../../Utils/expect.dart";
 
 typedef bool checkFn(exception);
 

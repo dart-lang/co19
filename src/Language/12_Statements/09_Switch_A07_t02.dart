@@ -21,6 +21,7 @@
  * @reviewer rodionov
  * @issue 7537
  */
+import "../../Utils/expect.dart";
 
 test(value) {
   var result;

@@ -21,6 +21,7 @@
  * @reviewer kaigorodov
  * @issue 3326
  */
+import "../../../Utils/expect.dart";
 
 class Foo {
   const Foo();

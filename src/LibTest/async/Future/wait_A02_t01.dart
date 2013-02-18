@@ -12,6 +12,7 @@
  * is completed with exception.
  * @author iefremov
  */
+import "../../../Utils/expect.dart";
 
 import "dart:async";
 

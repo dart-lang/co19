@@ -13,6 +13,7 @@
  * @reviewer kaigorodov
  * @needsreview issue 3282
  */
+import "../../Utils/expect.dart";
 
 main() {
   bool exception = true;
