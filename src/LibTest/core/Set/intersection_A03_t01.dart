@@ -5,19 +5,12 @@
  */
 /**
  * @assertion Set<E> intersection(Collection<E> other)
- * Throws Error if one of elements of [other] is null
- * @description Checks that Error is thrown.
+ * @description Checks that null elements don't cause any errors.
  * @author msyabro
+ * @reviewer rodionov
  */
 
-checkNPE(var s, var collection) {
-  try {
-    s.intersection(collection);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
-}
-
 main() {
-  checkNPE(new Set.from([1, 2, 3, 4]), [null]);
-  checkNPE(new Set.from([1, 2, 3, 4]), [null, 1]);
+  new Set.from([1, 2, 3, 4]).intersection([null]);
+  new Set.from([1, 2, 3, 4]).intersection([null, 1]);
 }

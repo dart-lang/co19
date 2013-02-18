@@ -5,16 +5,15 @@
  */
 /**
  * @assertion Returns whether this map contains the given [key].
- * @description Tries to pass null as [key] and checks that Error is thrown.
+ * @description Checks that null key is allowed
  * @author msyabro
  * @reviewer varlax
+ * @reviewer rodionov
  */
 
 
 main() {
   Map<String, Object> map = new Map<String, Object>();
-  try {
-    map.containsKey(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  map[null] = "not null";
+  Expect.isTrue(map.containsKey(null));
 }

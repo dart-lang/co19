@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Tries to pass null as [key] and check that Error is thrown.
+ * @description Checks that null key is allowed.
  * @author msyabro
  * @reviewer varlax
  */
@@ -13,8 +13,5 @@
 
 main() {
   Map<String, Object> map = new Map<String, Object>();
-  try {
-    map[null] = 1;
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  map[null] = 1;
 }

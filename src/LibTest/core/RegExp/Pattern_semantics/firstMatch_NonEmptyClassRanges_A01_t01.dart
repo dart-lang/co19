@@ -53,6 +53,6 @@ void checkNeg(String pattern, String str) {
   try {
     RegExp re = new RegExp(pattern);
     re.firstMatch(str);
-    Expect.fail("IllegalJSRegExpException is expected");
-  } on IllegalJSRegExpException catch(ok) {}
+    Expect.fail("FormatException is expected");
+  } on FormatException catch(ok) {}
 }

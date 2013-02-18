@@ -55,6 +55,6 @@ void checkNeg(String pattern, [String testStr = ""]) {
   try {
     RegExp re = new RegExp(pattern);
     re.firstMatch(testStr);
-    Expect.fail("IllegalJSRegExpException is expected");
-  } on IllegalJSRegExpException catch(ok) { } 
+    Expect.fail("FormatException is expected");
+  } on FormatException catch(ok) { } 
 }

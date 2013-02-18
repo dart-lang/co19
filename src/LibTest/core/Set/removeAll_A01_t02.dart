@@ -6,28 +6,21 @@
 /**
  * @assertion void removeAll(Collection<T> collection)
  * Removes all the elements of the given collection from the set.
- * @description Passes a list containing null as argument to removeAll(), expects an Error.
+ * @description Passes a list containing null as argument to removeAll(), expects no errors.
  * @author pagolubev
- * @needsreview Behavior not specified. Assumes an Error should be thrown.
  * @reviewer msyabro
  */
 
-
-void check(Set<int> s) {
-  try {
-    s.removeAll([null]);
-    Expect.fail("Expected Error.");
-  } on Error catch(e) {}
-
-  try {
-    s.removeAll([1, 2, null]);
-    Expect.fail("Expected Error.");
-  } on Error catch(e) {}
-}
-
 main() {
   Set<int> s = new Set<int>();
-  check(s);
+  s.removeAll([null]);
+  Expect.equals(0, s.length);
+  s.removeAll([1, 2, null]);
+  Expect.equals(0, s.length);
+
   s.addAll([1, 2]);
-  check(s);
+  s.removeAll([null]);
+  Expect.equals(2, s.length);
+  s.removeAll([1, 2, null]);
+  Expect.equals(0, s.length);
 }

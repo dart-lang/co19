@@ -6,7 +6,7 @@
 /**
  * @assertion Constructs a regular expression.
  * @description Checks that using an invalid pattern results in
- *              IllegalJSRegExpException.
+ *              FormatException.
  * @3rdparty sputnik-v1:S15.10.1_A1_T1.js-S15.10.1_A1_T16.js
  * @author rodionov
  * @reviewer iefremov
@@ -18,8 +18,8 @@
 void check(String pattern) {
   try {
     RegExp re = new RegExp(pattern);
-    Expect.fail("IllegalJSRegExpException expected");
-  } on IllegalJSRegExpException catch(ok) {
+    Expect.fail("FormatException expected");
+  } on FormatException catch(ok) {
   }
 }
 

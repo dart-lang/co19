@@ -7,33 +7,17 @@
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
  * @description Passes a list containing null elements as argument, expects
- * Error as long as the null value in the list is not preceded by others
- * this set doesn't contain.
+ * no errors.
  * @author pagolubev
- * @needsreview Undocumented
  * @reviewer msyabro
  */
 
-
-void check1(Set<int> s) {
-  try {
-    s.containsAll([null]);
-    Expect.fail("Error expected");
-  } on Error catch(e) {}
-}
-
-void check2(Set<int> s) {
-  try {
-    s.containsAll([1, 2, null]);
-    Expect.fail("Error expected");
-  } on Error catch(e) {}
-}
-
 main() {
   Set<int> s = new Set<int>();
-  check1(s);
+  Expect.isFalse(s.containsAll([null]));
+  Expect.isFalse(s.containsAll([1, 2, null]));
 
   s.addAll([1, 2]);
-  check1(s);
-  check2(s);
+  Expect.isFalse(s.containsAll([null]));
+  Expect.isFalse(s.containsAll([1, 2, null]));
 }

@@ -6,18 +6,13 @@
 /**
  * @assertion void add(T value)
  * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Checks that passing a null argument results in Error.
+ * @description Checks that a null value can be added without error.
  * @author pagolubev
- * @needsreview Behavior of add() when passed null is not specified. Assumption: Error.
  * @reviewer msyabro
  */
 
 
 main() {
   Set<int> s = new Set<int>();
-  try {
-    s.add(null);
-    Expect.fail("Expected Error.");
-  } on Error catch(e) {
-  }
+  s.add(null);
 }

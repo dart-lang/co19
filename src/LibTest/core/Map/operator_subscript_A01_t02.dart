@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
- * @description Tries to pass null [key] and check that Error is thrown.
+ * @description Checks that null key is allowed
  * @author msyabro
  * @reviewer varlax
  */
@@ -13,9 +13,5 @@
 
 main() {
   Map<int, Object> map = new Map<int, Object>();
-  
-  try {
-    map[null];
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  map[null];
 }

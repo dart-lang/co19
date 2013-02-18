@@ -6,9 +6,8 @@
 /**
  * @assertion void addAll(Collection<T> collection)
  * Adds all the elements of the given collection to the set.
- * @description Passes a list containing null to addAll(), expects an Error.
+ * @description Passes a list containing null to addAll(), expects no errors.
  * @author pagolubev
- * @needsreview Behavior not specified. Test assumes Error.
  * @reviewer msyabro
  */
 
@@ -16,14 +15,6 @@
 main() {
   Set<int> s = new Set<int>();
 
-  try {
-    s.addAll([null]);
-    Expect.fail("Expected Error");
-  } on Error catch(e) {
-  }
-
-  try {
-    s.addAll([1, 2, null]);
-    Expect.fail("Expected Error");
-  } on Error catch(e) {}
+  s.addAll([null]);
+  s.addAll([1, 2, null]);
 }

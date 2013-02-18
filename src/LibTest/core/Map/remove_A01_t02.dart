@@ -6,7 +6,7 @@
 /**
  * @assertion Removes the association for the given [key]. Returns null if
  * [key] is not in the map.
- * @description Try to remove null key and check that Error is thrown.
+ * @description Checks that null key can be removed without error.
  * @author msyabro
  * @reviewer varlax
  */
@@ -15,8 +15,8 @@
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
-  try {
-    map.remove(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {} //Not documented
+  map[null] = 1;
+  Expect.isTrue(map.containsKey(null));
+  map.remove(null);
+  Expect.isFalse(map.containsKey(null));
 }

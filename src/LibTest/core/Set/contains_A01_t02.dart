@@ -6,18 +6,15 @@
 /**
  * @assertion bool contains(T value)
  * Returns true if [value] is in the set.
- * @description Passes null as argument, expects Error.
+ * @description Passes null as argument, expects no errors.
  * @author pagolubev
- * @needsreview Undocumented
  * @reviewer msyabro
  */
 
 
 main() {
   Set<int> s = new Set<int>();
-  try {
-    s.contains(null);
-    Expect.fail("Expected Error.");
-  } on Error catch(e) {
-  }
+  Expect.isFalse(s.contains(null));
+  s.add(null);
+  Expect.isTrue(s.contains(null));
 }
