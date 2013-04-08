@@ -12,22 +12,6 @@
  * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
-import "dart:io";
-
-// used to create 
-tofile(String dest, List<String> strlist) {
-  var output = new File("${dest}.txt").openOutputStream();
-    for (int k=0; k<strlist.length; k++) {
-      if (k%5==0) {
-        output.writeString("\n    ");
-      }
-      String str = strlist[k];
-      output.writeString("r''':"); // print':' at the beginning to shade possible newline
-      output.writeString(str);
-      output.writeString("''', ");
-    }
-    output.writeString('\n');
-} 
 
   List<String> unicode = [
      "\u0009", "\u000a", "\u000b", "\u000c",
@@ -38,7 +22,7 @@ tofile(String dest, List<String> strlist) {
      "\u200a",  "\u202f", "\u205f", "\u3000", "\ufeff"
     ];
   
-  List character = [
+  List characters = [
     r''':	''', r''':
 ''', r''':''', r''':''', //r''':
 //''', 
@@ -48,23 +32,13 @@ tofile(String dest, List<String> strlist) {
     r''': ''', r''': ''', r''': ''', r''':　''', r''':﻿'''
   ];
 
-test() {
-//  Expect.listEquals(unicode, character);
-  Expect.equals(unicode.length, character.length);
+main() {
+  Expect.equals(unicode.length, characters.length);
   for (int k=0; k<unicode.length; k++) {
     String str1=unicode[k];
-    String str2=character[k];
-    List<int> codes1=str1.charCodes;
-    List<int> codes2=str2.charCodes;
-    Expect.equals(1, codes1.length, "codes1.length at $k");
-    Expect.equals(2, codes2.length, "codes2.length at $k");
-    int code1=codes1[0];
-    int code2=codes2[1];
+    String str2=characters[k];
+    int code1=str1.codeUnitAt(0);
+    int code2=str2.codeUnitAt(1);
     Expect.equals(code1, code2, "code at $k");
   }
-  
-}
-main() {
-//  tofile("unicodewhitespaces", unicode);
-  test();
 }
