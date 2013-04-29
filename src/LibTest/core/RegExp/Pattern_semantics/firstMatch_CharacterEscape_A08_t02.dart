@@ -51,7 +51,7 @@ main() {
   codes.forEach((String key, String value) {
     RegExp re = new RegExp("\\u$key");
     if(null == re.firstMatch(value)) {
-      errStr.add("\"\\u${key}\" does not match \"${value}\"\n");
+      errStr.write("\"\\u${key}\" does not match \"${value}\"\n");
     } 
   });
   

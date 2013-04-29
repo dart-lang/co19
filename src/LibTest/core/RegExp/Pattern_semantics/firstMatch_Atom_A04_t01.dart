@@ -18,11 +18,11 @@ main() {
   int parens = 200;
   StringBuffer ptrn = new StringBuffer();
   for(int i = 0; i < parens; i++) {
-    ptrn.add("(?:");
+    ptrn.write("(?:");
   }
-  ptrn.add("hello");
+  ptrn.write("hello");
   for(int i = 0; i < parens; i++) {
-    ptrn.add(")");
+    ptrn.write(")");
   }
   check(ptrn.toString(), "hello", 0, ["hello"]);
 }

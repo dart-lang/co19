@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the length of the buffer.
+ * @assertion final int length 
+ * Returns the length of the content that has been accumulated so far.
+ * This is a constant-time operation.
  * @description Checks that a correct value is returned
  * @author msyabro
  * @reviewer rodionov

@@ -64,6 +64,8 @@ main() {
     }
   }
   if(errors.length > 0) {
-    Expect.fail("\n".concat(Strings.join(errors, "\n")));
+    StringBuffer sb=new StringBuffer();
+    sb.writeAll(errors, "\n");
+    Expect.fail("\n".concat(sb.toString()));
   }
 }

@@ -4,25 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws Error if the list contains null elements
- * @description Checks that passing a list containing null elements results in Error
- * @author rodionov
- * @reviewer pagolubev
+ * @assertion void writeAll(Iterable objects, [String separator = ""])
+ * Passing null as argument results in an Error
+ * @description Tries to pass null as argument
+ * @author msyabro
+ * @reviewer rodionov
  * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
 
 main() {
-  check(["1", null], "");
-  check([null, "1"], "");
-  check([null], "");
-  check([null, null], "");
-}
-
-void check(List<String> arr, String sep) {
   try {
-    Strings.join(arr, sep);
+    new StringBuffer().addAll(null);
     Expect.fail("Error is expected");
   } on Error catch(e) {}
 }

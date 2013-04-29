@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Clears the string buffer.
+ * @assertion void clear()
+ * Clears the string buffer.
  * @description Checks that this method really clears the buffer
  * @author msyabro
  * @reviewer rodionov

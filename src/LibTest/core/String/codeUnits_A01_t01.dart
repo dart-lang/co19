@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns a list of the scalar character codes of this string.
- * @description Checks that the correct charcodes are returned.
+ * @assertion final List<int> codeUnits
+ * Returns an unmodifiable list of the UTF-16 code units of this string.
+ * @description Checks that the correct codeUnits are returned.
  * @reviewer pagolubev
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  checkArrayEquals([0x61, 0x62, 0x63, 0x64], "abcd".charCodes);
-  checkArrayEquals([], "".charCodes);
-  checkArrayEquals([0x61, 0x62, 0x63, 0], "abc\u0000".charCodes);
-  checkArrayEquals([0], "\u0000".charCodes);
-  checkArrayEquals([0x0061, 0x1d02, 0xd800, 0xdc00], "\u0061\u1d02\u{10000}".charCodes);
+  checkArrayEquals([0x61, 0x62, 0x63, 0x64], "abcd".codeUnits);
+  checkArrayEquals([], "".codeUnits);
+  checkArrayEquals([0x61, 0x62, 0x63, 0], "abc\u0000".codeUnits);
+  checkArrayEquals([0], "\u0000".codeUnits);
+  checkArrayEquals([0x0061, 0x1d02, 0xd800, 0xdc00], "\u0061\u1d02\u{10000}".codeUnits);
 }
 
 void checkArrayEquals(List expected, List actual) {

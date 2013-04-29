@@ -21,16 +21,16 @@ func(p1, p2, {p3, p4}) {}
 
 class A {
   operator+(otherOperand) {
-    buffer.add("A");
+    buffer.write("A");
   }
   operator-(otherOperand) {
-    buffer.add("B");
+    buffer.write("B");
   }
   operator*(otherOperand) {
-    buffer.add("C");
+    buffer.write("C");
   }
   operator/(otherOperand) {
-    buffer.add("D");
+    buffer.write("D");
   }
 }
 

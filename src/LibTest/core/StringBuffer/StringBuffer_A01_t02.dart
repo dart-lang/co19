@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates the string buffer with an initial content.
+ * @assertion new StringBuffer([Object content = ""])
+ * Creates the string buffer with an initial content. 
  * @description Tries to pass an argument that is null or isn't a String,
  * correct string conversion expected ("null" in case of null)
  * @author msyabro

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the contents of buffer as a concatenated string.
+ * @assertion String toString()
+ * Returns the contents of buffer as a concatenated string.
  * @description Checks that this method returns a correct String
  * @author msyabro
  * @reviewer rodionov
@@ -22,9 +23,9 @@ main() {
   sb.clear();
   Expect.equals("", sb.toString());
   
-  sb.add("");
+  sb.write("");
   Expect.equals("", sb.toString());
   
-  sb.add("string");
+  sb.write("string");
   Expect.equals("string", sb.toString());
 }

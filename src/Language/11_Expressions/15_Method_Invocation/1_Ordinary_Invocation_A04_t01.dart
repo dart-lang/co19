@@ -24,30 +24,30 @@ StringBuffer buffer;
 
 class A {
   operator+(otherOperand) {
-    buffer.add(2);
+    buffer.write(2);
     return null;
   }
   operator-(otherOperand) {
-    buffer.add(3);
+    buffer.write(3);
     return null;
   }
 }
 
 class B {
   B() {
-    buffer.add(5);
+    buffer.write(5);
   }
 }
 
 class C {
   C() {
-    buffer.add(4);
+    buffer.write(4);
   }
 }
 
 class O {
   operator+(otherOperand) {
-    buffer.add(1);
+    buffer.write(1);
     return new O();
   }
   method(var a, var b, {var c: null, var d: null}) {}

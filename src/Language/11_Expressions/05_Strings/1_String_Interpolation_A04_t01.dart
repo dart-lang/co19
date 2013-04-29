@@ -19,44 +19,44 @@ func() {return "str";}
 main() {
   StringBuffer buffer = new StringBuffer();
 
-  buffer.add("List ");
-  buffer.add([]);
+  buffer.write("List ");
+  buffer.write([]);
   Expect.equals(buffer.toString(), "List ${[]}");
 
   buffer.clear();
-  buffer.add("Number ");
-  buffer.add(1 + 1);
+  buffer.write("Number ");
+  buffer.write(1 + 1);
   Expect.equals(buffer.toString(), "Number ${1 + 1}");
 
   buffer.clear();
-  buffer.add("Result is ");
-  buffer.add(func());
-  buffer.add(" string");
+  buffer.write("Result is ");
+  buffer.write(func());
+  buffer.write(" string");
   Expect.equals(buffer.toString(), "Result is ${func()} string");
 
   buffer.clear();
-  buffer.add("!false is ");
-  buffer.add(!false);
+  buffer.write("!false is ");
+  buffer.write(!false);
   Expect.equals(buffer.toString(), "!false is ${!false}");
 
   buffer.clear();
-  buffer.add(2);
-  buffer.add(" is greater than ");
-  buffer.add(1);
+  buffer.write(2);
+  buffer.write(" is greater than ");
+  buffer.write(1);
   Expect.equals(buffer.toString(), "${2} is greater than ${1}");
 
   buffer.clear();
-  buffer.add(3 - 2);
-  buffer.add(1 * 2);
+  buffer.write(3 - 2);
+  buffer.write(1 * 2);
   Expect.equals(buffer.toString(), "${3 - 2}${1 * 2}");
 
   buffer.clear();
-  buffer.add("a");
-  buffer.add(" b c");
+  buffer.write("a");
+  buffer.write(" b c");
   Expect.equals(buffer.toString(), "${"a"} b c");
 
   buffer.clear();
-  buffer.add(1);
-  buffer.add(2);
+  buffer.write(1);
+  buffer.write(2);
   Expect.equals(buffer.toString(), "${"${1}" "${2}"}");
 }

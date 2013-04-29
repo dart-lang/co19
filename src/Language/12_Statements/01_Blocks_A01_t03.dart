@@ -15,27 +15,27 @@ import "../../Utils/expect.dart";
 
 main() {
   var i = new StringBuffer();
-  i.add(1);
+  i.write(1);
   {
-    i.add(2);
+    i.write(2);
     {
-      i.add(3);
+      i.write(3);
     }
-    i.add(4);
+    i.write(4);
     {
-      i.add(5);
+      i.write(5);
       {
-        i.add(6);
+        i.write(6);
       }
-      i.add(7);
+      i.write(7);
     }
-    i.add(8);
+    i.write(8);
     {
-      i.add(9);
+      i.write(9);
     }
-    i.add(10);
+    i.write(10);
   }
-  i.add(11);
+  i.write(11);
   Expect.equals("1234567891011", i.toString());
 }
 

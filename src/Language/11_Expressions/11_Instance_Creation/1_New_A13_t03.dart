@@ -19,7 +19,7 @@ var evalOrder;
 
 class A {
   logAndAdd2(arg) {
-    evalOrder.add(arg);
+    evalOrder.write(arg);
     return arg + 2;
   }
 }
@@ -32,7 +32,7 @@ abstract class I {
 
 class F implements I {
   F(p1, p2) {
-    evalOrder.add(3);
+    evalOrder.write(3);
   }
 }
 

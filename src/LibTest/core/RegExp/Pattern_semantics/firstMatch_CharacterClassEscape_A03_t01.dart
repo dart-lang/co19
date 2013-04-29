@@ -17,7 +17,6 @@
  * @note issue 1296
  */
 import "../../../../Utils/expect.dart";
- 
 
 main() {
   RegExp re = new RegExp("\\s");
@@ -65,6 +64,8 @@ main() {
     }
   }
   if(errors.length > 0) {
-    Expect.fail("\n".concat(Strings.join(errors, "\n")));
+    StringBuffer sb=new StringBuffer();
+    sb.writeAll(errors, "\n");
+    Expect.fail("\n".concat(sb.toString()));
   }
 }

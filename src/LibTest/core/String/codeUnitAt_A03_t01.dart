@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws Error if argument is null.
- * @description Checks that passing a null argument results in Error
+ * @assertion  abstract int codeUnitAt(int index)
+ * Throws ArgumentError if [index] is null
+ * @description Tries to pass null as argument and expects an ArgumentError
  * @author msyabro
  * @reviewer rodionov
  * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   try {
-    Strings.concatAll(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+    "string".codeUnitAt(null);
+    Expect.fail("ArgumentError is expected");
+  } on ArgumentError catch(e) {}
 }

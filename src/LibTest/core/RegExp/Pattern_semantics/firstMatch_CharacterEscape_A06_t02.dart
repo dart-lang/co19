@@ -35,7 +35,7 @@ main() {
     RegExp re = new RegExp("\\c${new String.fromCharCodes([alpha])}");
     String str = new String.fromCharCodes([alpha % 32]);
     if(null != re.firstMatch(str)) {
-      errors.addLast(alpha);
+      errors.add(alpha);
     }
   }
 
@@ -43,7 +43,7 @@ main() {
     RegExp re = new RegExp("\\c${new String.fromCharCodes([alpha])}");
     String str = new String.fromCharCodes([alpha % 32]);
     if(null != re.firstMatch(str)) {
-      errors.addLast(alpha);
+      errors.add(alpha);
     }
   }
 
@@ -54,14 +54,14 @@ main() {
     RegExp re = new RegExp("\\c${new String.fromCharCodes([alpha])}");
     String str = new String.fromCharCodes([alpha % 32]);
     if(null != re.firstMatch(str)) {
-      errors.addLast(alpha);
+      errors.add(alpha);
     }
   }
     
   if(errors.length > 0) {
     StringBuffer errStr = new StringBuffer();
     void f(int alpha) {
-      errStr.add("\"\\c${new String.fromCharCodes([alpha])} \" matches \""
+      errStr.write("\"\\c${new String.fromCharCodes([alpha])} \" matches \""
            "${new String.fromCharCodes([alpha % 32])}\", although it should not\n");
     }
     errors.forEach(f);

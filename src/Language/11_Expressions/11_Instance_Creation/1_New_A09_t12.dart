@@ -18,12 +18,12 @@ import "../../../Utils/expect.dart";
 var evalOrder;
 
 f(p1) {
-  evalOrder.add(p1);
+  evalOrder.write(p1);
 }
 
 class A {
   logAndAdd2(arg) {
-    evalOrder.add(arg);
+    evalOrder.write(arg);
     return arg + 2;
   }
 }
@@ -31,7 +31,7 @@ class A {
 class C {
   C(p1): this.redirected(p1, new A().logAndAdd2(2));
   C.redirected(p1, p2): x = f(p1), y = f(p2) {
-    evalOrder.add(5);
+    evalOrder.write(5);
   }
   var x;
   var y;

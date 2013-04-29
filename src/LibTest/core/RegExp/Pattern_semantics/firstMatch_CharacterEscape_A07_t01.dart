@@ -36,7 +36,7 @@ main() {
   alphabet.forEach((String key, String value) {
     RegExp re = new RegExp("\\x$key");
     if(null == re.firstMatch(value)) {
-      errStr.add("\"\\x${key}\" does not match \"${value}\"\n");
+      errStr.write("\"\\x${key}\" does not match \"${value}\"\n");
     } 
   });
   

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds all items in [objects] to the buffer.
+ * @assertion void writeAll(Iterable objects, [String separator = ""])
+ * Iterates over the given objects and writes them in sequence.
  * @description Checks that all items are appended to the buffer if the
  *              collection isn't empty and none are if it is.
  * @author msyabro
@@ -15,9 +16,9 @@ import "../../../Utils/expect.dart";
 main() {
   StringBuffer sb = new StringBuffer();
 
-  sb.addAll([ "string1", ", ", "string2", ", ", "string3" ]);
+  sb.writeAll([ "string1", ", ", "string2", ", ", "string3" ]);
   Expect.equals("string1, string2, string3", sb.toString());
 
-  sb.addAll([]);
+  sb.writeAll([]);
   Expect.equals("string1, string2, string3", sb.toString());
 }

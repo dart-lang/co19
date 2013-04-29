@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [obj] to the buffer.
+ * @assertion void write(Object obj)
+ * Adds the contents of obj, converted to a string, to the buffer.
  * @description Checks that the String argument is appended to the buffer
  * @author msyabro
  * @reviewer rodionov
@@ -14,15 +15,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   StringBuffer sb = new StringBuffer();
-  sb.add("buffer");
+  sb.write("buffer");
   Expect.equals("buffer", sb.toString());
 
-  sb.add("");
+  sb.write("");
   Expect.equals("buffer", sb.toString());
 
-  sb.add(sb.toString());
+  sb.write(sb.toString());
   Expect.equals("bufferbuffer", sb.toString());
 
-  sb.add("\u0000");
+  sb.write("\u0000");
   Expect.equals("bufferbuffer\u0000", sb.toString());
 }

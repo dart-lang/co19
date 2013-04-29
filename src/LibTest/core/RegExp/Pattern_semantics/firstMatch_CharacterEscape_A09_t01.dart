@@ -27,7 +27,7 @@ main() {
     String ch = nonIdent[i];
     RegExp re = new RegExp("\\$ch");
     if(null == re.firstMatch(nonIdent)) {
-      errStr.add("\"\\${ch}\" does not match itself\n");
+      errStr.write("\"\\${ch}\" does not match itself\n");
     } 
   }
   

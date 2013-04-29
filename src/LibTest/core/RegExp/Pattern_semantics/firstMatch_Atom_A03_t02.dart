@@ -22,11 +22,11 @@ main() {
   int parens = 200;
   StringBuffer ptrn = new StringBuffer();
   for(int i = 0; i < parens; i++) {
-    ptrn.add("(");
+    ptrn.write("(");
   }
-  ptrn.add("hello");
+  ptrn.write("hello");
   for(int i = 0; i < parens; i++) {
-    ptrn.add(")");
+    ptrn.write(")");
   }
   List<String> exp = new List<String>(parens + 1);
   for(int i = 0; i < exp.length; i++) {
