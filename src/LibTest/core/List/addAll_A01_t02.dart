@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Appends all elements of the collection to the end of list.
- * Extends the length of the list by the length of collection.
+ * @assertion abstract void addAll(Iterable<E> iterable)
+ * Appends all elements of the iterable to the end of this list.
+ * Extends the length of the list by the number of elements in iterable.
  * @description Checks that method does not affect the previous content of the list
  * @author vasya
  * @reviewer iefremov

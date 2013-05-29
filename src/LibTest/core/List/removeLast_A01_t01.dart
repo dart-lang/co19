@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Pops and returns the last element of the list.
+ * @assertion abstract E removeLast()
+ * Pops and returns the last element of the list.
  * @description Checks that the last element of the list is returned.
  * @author vasya
  * @reviewer msyabro

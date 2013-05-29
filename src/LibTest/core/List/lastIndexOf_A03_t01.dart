@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion There is no restriction on the value of [start]. 
+ * @assertion abstract int lastIndexOf(E element, [int start])
+ * There is no restriction on the value of [start]. 
  * If it is negative, it has the same effect as if it were zero: -1 is returned.
  * If it is greater than the [:length:] of this list, it has the same effect 
  * as if it were equal to the [:length:]: this entire list may be searched.
+ * @note undocumented
  * @description Checks that [startIndex] can be out of bounds
  * @author iefremov
  * @author varlax
  * @reviewer msyabro
  * @reviewer varlax
- * @needsreview issue 1266
  */
 import "../../../Utils/expect.dart";
 

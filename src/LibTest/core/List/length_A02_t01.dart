@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [newLength] is greater than
- * the current [length], entries are initialized to [null].
+ * @assertion  abstract void set length(int newLength)
+ * If [newLength] is greater than the current [length], entries are initialized to [null].
  * @description Checks that entries are initialized to [null] 
  * if [newLength] is greater than the current [length].
  * @author vasya

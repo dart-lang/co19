@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an exception or error if the argument 
+ * @assertion abstract void forEach(void f(E element))
+ * Throws an exception or error if the argument 
  * is null or is not a function and doesn't have a call() method with an appropriate 
  * signature.
+ * @needsreview undocumented
  * @description Checks that something is thrown if the list isn't empty and the argument
  * is null or the argument is not-null, but incompatible with the required function type. 
  * @author pagolubev
  * @reviewer varlax
- * @needsreview issue 3223
  */
 import "../../../Utils/expect.dart";
 

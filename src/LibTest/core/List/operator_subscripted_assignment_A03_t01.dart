@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ArgumentError] if [index] is [:null:] or invalid.
+ * @assertion  abstract void operator []=(int index, E value)
+ * Throws [ArgumentError] if [index] is [:null:] or invalid.
  * @description Checks that the exception is thrown, for fixed size and growable arrays.
  * @author varlax
  * @reviewer msyabro
- * @needsreview issue 3223
  */
 import "../../../Utils/expect.dart";
 

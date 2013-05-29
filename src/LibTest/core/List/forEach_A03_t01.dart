@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Any error in the function [f] breaks the cycle.
+ * @assertion abstract void forEach(void f(E element))
+ * Any error in the function [f] breaks the cycle.
+ * @needsreview undocumented
  * @description Checks that predicate exception goes through to the caller
  * @author varlax
  * @reviewer iefremov

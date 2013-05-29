@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ArgumentError] if [index] is of invalid type.
+ * @assertion abstract E operator [](int index)
+ * Throws [ArgumentError] if [index] is of invalid type.
  * @description Checks that the exception is thrown as expected.
  * @author varlax
  * @reviewer iefremov
- * @needsreview issue 3223
  */
 import "../../../Utils/expect.dart";
 

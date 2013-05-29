@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if every element of the list satisfy the predicate [f]. Returns false otherwise.
+ * @assertion abstract bool every(bool f(E element))
+ * Returns true if every elements of this collection satisify the predicate f.
+ * Returns false otherwise.
  * @description Check that true is returned only if every element of the list satisfies the predicate [f].
  * @author vasya
  * @reviewer iefremov
@@ -32,7 +34,7 @@ main() {
   c.addAll([1,2,3]);
   Expect.isTrue(a.length == b.length && b.every(f));
 
-  a.insertRange(0,3,[-1,-2,-3]);
+  a.insertAll(0, [-1, -2, -3]);
   try {
     a.every(f);
   } catch(e){

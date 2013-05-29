@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether the [Iterator] has elements left.
+ * @assertion abstract bool moveNext()
+ * Returns whether the [Iterator] has elements left.
  * @description Checks that true is returned only if the [Iterator] has elements left.
  * @author vasya
  * @reviewer msyabro

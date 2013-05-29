@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the last index in this list of the given [element], starting
- * the search at index [start] to 0.
+ * @assertion abstract int lastIndexOf(E element, [int start])
+ * Returns the last index of element in the list.
+ * Searches the list backwards from index start to 0.
+ * The first time an element e is encountered so that e == element,
+ * the index of e is returned.
  * @description Checks that the correct index is returned, if the element is present in the list.
  * @author iefremov
  * @reviewer msyabro
  * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   List a = [42, 0, -1, 42, -1, 6031769, 0];

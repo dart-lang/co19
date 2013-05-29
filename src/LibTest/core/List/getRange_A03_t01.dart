@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [ArgumentError] if [length] is negative.
- * @description Checks that an [ArgumentError] throws if [length] is negative.
+ * @assertion abstract Iterable<E> getRange(int start, int end)
+ * It is an error if end is before start.
+ * @description Checks that an error is thrown if end is before start.
  * @author vasya
  * @reviewer varlax
  */

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [RangeError] if the list is empty.
+ * @assertion abstract E removeLast()
+ * Pops and returns the last element of the list.
  * @description Checks that exception is thrown as expected.
  * @author vasya
  * @reviewer msyabro

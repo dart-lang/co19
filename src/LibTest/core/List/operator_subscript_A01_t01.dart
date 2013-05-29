@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the index'th element in the list.
+ * @assertion abstract E operator [](int index)
+ * Returns the element at the given index in the list.
  * @description Checks fixed size arrays.
  * @author iefremov
  * @reviewer msyabro

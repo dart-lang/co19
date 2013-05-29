@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the end of the list, extending the length by one.
+ * @assertion abstract void add(E value)
+ * Adds [value] at the end of the list, extending the length by one.
  * @description Checks that method does not affect the existing content of the list
  * @author vasya
  * @reviewer iefremov

@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Sorts the list according to the order specified by the comparator.
- * The comparator function [compare] must take two arguments [a] and [b]
- * and return
- *   an integer strictly less than 0 if a < b,
- *   0 if a = b, and
- *   an integer strictly greater than 0 if a > b.
+ * @assertion abstract void sort([int compare(E a, E b)])
+ * Sorts the list according to the order specified by the compare function.
+ * The compare function must act as a Comparator.
+ * The default List implementations use Comparable.compare if compare is omitted.
  * @description Checks sorting of some permutations of integer arrays with unique elements.
  * @author iefremov
  * @reviewer pagolubev

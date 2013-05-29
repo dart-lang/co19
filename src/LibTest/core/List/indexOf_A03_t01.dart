@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns -1 if given element is not found. 
+ * @assertion abstract int indexOf(E element, [int start = 0])
+ * Returns -1 if given element is not found. 
+ * @note undocumented
  * @description Checks that -1 is returned, if the element is not present.
  * @author iefremov
  * @reviewer msyabro

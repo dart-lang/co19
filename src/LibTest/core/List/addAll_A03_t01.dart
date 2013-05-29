@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [Error] if [collection] is [:null:].
+ * @assertion abstract void addAll(Iterable<E> iterable)
+ * Throws [Error] if [collection] is [:null:].
+ * @note undocumented
  * @description Checks that the exception is thrown as expected.
  * @author vasya
  * @reviewer iefremov

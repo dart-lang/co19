@@ -9,7 +9,6 @@
  * signature (as long as the list isn't empty).
  * @description Checks that something is thrown if the argument
  * is not a closure, doesn't implement a call() method with appropriate signature or is null.
- * @static-warning
  * @author vasya
  * @reviewer iefremov
  * @reviewer msyabro

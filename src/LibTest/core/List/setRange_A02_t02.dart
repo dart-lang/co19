@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * Throws an [RangeError] if [start] or
- * [:start + length:] are out of range for [:this:].
+ * @assertion abstract void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
+ * It is an error if start.. end is not a valid range pointing into the this.
  * @description Checks that RangeError is thrown if [start] 
  * is out of range in [:this:].
  * @author varlax
@@ -16,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 checkList(dst, dstOffset, count, src) {
   try {
-    dst.setRange(dstOffset, count, src, 0);
+    dst.setRange(dstOffset, dstOffset+count, src, 0);
     Expect.fail("expected RangeError");
   } on RangeError catch(ok) {}
 }

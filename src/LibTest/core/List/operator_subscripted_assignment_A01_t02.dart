@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Assigns the index'th element of the list to the given value.
+ * @assertion  abstract void operator []=(int index, E value)
+ * Sets the entry at the given index in the list to value.
  * @description Checks that needed element is correctly assigned in extendable lists. 
  * @author varlax
  * @reviewer msyabro

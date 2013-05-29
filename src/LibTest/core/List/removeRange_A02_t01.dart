@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var a = new List.fixedLength(1);
+  var a = new List(1);
   try {
     a.removeRange(0, 1);
     Expect.fail("UnsupportedError expected when calling List.removeRange()");

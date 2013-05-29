@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if there is no element in the list.
+ * @assertion  final bool isEmpty
+ * Returns true if there is no element in this collection.
  * @description Checks various lists, that the method returns true if there is no elements,
  * in the list, false otherwise.
  * @author vasya

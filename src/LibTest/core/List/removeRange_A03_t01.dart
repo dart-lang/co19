@@ -4,49 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [length] is 0, this method does not do anything.
- * @description Checks that list is not changed if [length] is 0.
+ * @assertion abstract void removeRange(int start, int end)
+ * It is an error if start.. end is not a valid range pointing into the this.
+ * @description Checks that an [ArgumentError] is thrown if [length] is negative.
  * @author vasya
- * @reviewer varlax
+ * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
+check(list) {
+  try {
+    list.removeRange(0, -1);
+    Expect.fail("ArgumentError expected when calling List.removeRange()");
+  } on ArgumentError catch(ok) {}
+}
+
 main() {
   var a = new List();
-  a.removeRange(0, 0);
-  Expect.equals(0, a.length);
-
-  a.length = 11;
-  a.removeRange(10, 0);
-  Expect.equals(11, a.length);
-  a.removeRange(1, 0);
-  Expect.equals(11, a.length);
-
-  a.length = 1025;
-  a.removeRange(1026, 0);
-  Expect.equals(1025, a.length);
-
-  //[]
-  a = [];
-  a.length = 11;
-  a.removeRange(10, 0);
-  Expect.equals(11, a.length);
-  a.removeRange(1, 0);
-  Expect.equals(11, a.length);
-
-  a.length = 1025;
-  a.removeRange(1026, 0);
-  Expect.equals(1025, a.length);
-
-  //List.from([])
-  a = new List.from([]);
-  a.length = 11;
-  a.removeRange(10, 0);
-  Expect.equals(11, a.length);
-  a.removeRange(1, 0);
-  Expect.equals(11, a.length);
-
-  a.length = 1025;
-  a.removeRange(1026, 0);
-  Expect.equals(1025, a.length);
+  a.length = 1;
+  check(a);
+  check([1]);
+  check(new List.from([1]));
 }

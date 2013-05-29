@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [start] is not specified, searches the entire list.
+ * @assertion abstract int indexOf(E element, [int start = 0])
+ * If [start] is not specified, searches the entire list.
+ * @note undocumented
  * @description Checks searching w/o start.
  * @author varlax
  * @reviewer iefremov

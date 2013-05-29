@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [start] is not specified, searches the entire list.
+ * @assertion abstract int lastIndexOf(E element, [int start])
+ * If start is not provided, it defaults to this.length - 1.
  * @description Checks searching w/o start.
  * @author varlax
  * @reviewer iefremov

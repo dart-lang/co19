@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [Error] if the [length] is null.
+ * @assertion  abstract void set length(int newLength)
+ * Throws [Error] if the [length] is null.
  * @description Checks that the exception is thrown as expected.
  * @author varlax
  * @reviewer msyabro

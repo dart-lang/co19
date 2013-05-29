@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes all elements in the list. The length of the list
- * becomes zero. 
+ * @assertion abstract void clear()
+ * Removes all elements in the list.
+ * The length of the list becomes zero.
  * @description Checks that the length of the list becomes zero.
  * @author vasya
  * @reviewer msyabro 

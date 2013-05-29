@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [newLength] is less than the current [length], drops extra entries 
+ * @assertion  abstract void set length(int newLength)
+ * If [newLength] is less than the current [length], drops extra entries 
  * at the end of this list.
  * @description Checks that entries are deleted from the list end.
  * @author varlax

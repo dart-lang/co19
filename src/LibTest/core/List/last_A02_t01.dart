@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If this is empty throws a StateError.
+ * @assertion final E last
+ * If this is empty throws a StateError.
  * @description Checks that StateError is thrown if the list is empty.
  * @author vasya
  * @reviewer msyabro

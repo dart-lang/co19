@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes the range in the list starting from [start] to
- * [:start + length:].
+ * @assertion abstract void removeRange(int start, int end)
+ * Removes the elements in the range start to end exclusive.
  * @description Checks valid removals.
  * @author vasya
  * @reviewer varlax
@@ -16,7 +16,7 @@ check(a) {
   var b = [0,1,2,3,4,5,6,7,8,9];
   a.addAll(b);
   Expect.equals(b.length, a.length);
-  a.removeRange(5, 5);
+  a.removeRange(5, 10);
   Expect.equals(5, a.length);
   for (var i = 0; i < a.length; i++){
     Expect.equals(i, a[i]);

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ArgumentError] if [index] is [:null:].
+ * @assertion abstract E operator [](int index)
+ * Throws [ArgumentError] if [index] is [:null:].
  * @description Checks that the exception is thrown as expected.
  * @author msyabro
  * @reviewer varlax

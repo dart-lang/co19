@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Copies [length] elements of the [from] array, starting
- * from [startFrom], into [:this:], starting at [start].
- * The length of this array does not change, previous entries 
- * in the range are replaced by the new contents.
+ * @assertion abstract void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
+ * Copies the elements of iterable, skipping the skipCount first elements into
+ * the range start to end exclusive of this.
+ * If start equals end and represent a legal range, this method has no effect.
+ * It is an error if start.. end is not a valid range pointing into the this.
+ * It is an error if the iterable does not have enough elements after skipping skipCount elements.
  * @description Checks that all needed elements are copied.
  * @author iefremov
  * @reviewer msyabro
@@ -22,10 +24,10 @@ check(dst) {
   dst.setRange(0, 2, src);
   Expect.listEquals([dst, src, null, null, null], dst);
 
-  dst.setRange(4, 1, src);
+  dst.setRange(4, 5, src);
   Expect.listEquals([dst, src, null, null, dst], dst);
 
-  dst.setRange(2, 2, src);
+  dst.setRange(2, 4, src);
   Expect.listEquals([dst, src, dst, src, dst], dst);
 }
 

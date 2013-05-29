@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [Error] if [start] or [length] is [:null:].
- * @description Checks that an [Error] throws 
- * if [start] or [length] is null.
+ * @assertion abstract Iterable<E> getRange(int start, int end)
+ * It is an error if the start and end are not valid ranges at the time of the call to this method. The returned Iterable behaves similar to skip(start).take(end - start). That is, it will not throw exceptions if this changes size.
+ * @description Checks that an [Error] is thrown if [start] or [length] is null.
  * @author vasya
  * @reviewer varlax
  */

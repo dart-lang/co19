@@ -5,6 +5,7 @@
  */
 /**
  * @assertion If this collection is empty, returns true.
+ * @needsreview not documented
  * @description Checks that method always returns true on an empty list.
  * @author iefremov
  * @reviewer pagolubev

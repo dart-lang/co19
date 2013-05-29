@@ -5,6 +5,7 @@
  */
 /**
  * @assertion If this collection is empty, returns true.
+ * @needsreview not documented
  * @description Checks that [f] is not called if list is empty
  * @author msyabro
  * @reviewer varlax

@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The element is searched by equality (operator ==).
+ * @assertion abstract int indexOf(E element, [int start = 0])
+ * The element is searched by equality (operator ==).
+ * @note undocumented
  * @description Checks searching custom objects.
  * @author varlax
  * @reviewer iefremov

@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the number of elements in this collection.
+ * @assertion abstract int get length
+ * Returns the number of elements in the list.
  * @description Checks that the getter returns correct value.
  * @author iefremov
  * @reviewer msyabro
  * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.isTrue([].length == 0);

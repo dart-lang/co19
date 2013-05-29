@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws exception if [index] is of invalid type or null.
+ * @assertion abstract int indexOf(E element, [int start = 0])
+ * Throws exception if [index] is of invalid type or null.
+ * @note undocumented
  * @description Checks that the exception is thrown as expected.
  * @author varlax
  * @reviewer iefremov

@@ -4,7 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Changes the length of the list. 
+ * @assertion  abstract void set length(int newLength)
+ * Changes the length of the list.
+ * If newLength is greater than the current length, entries are initialized to null.
+ * Throws an UnsupportedError if the list is not extendable.
  * @description Checks that the length can be changed if list is growable.
  * @author vasya
  * @reviewer msyabro

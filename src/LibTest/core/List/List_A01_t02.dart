@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a list of the given length. The length of the returned list is not fixed.
- * @description Checks that created list is resizable.
+ * @assertion factory List([int length])
+ * Creates a list of the given length.
+ * The list is a fixed-length list if length is provided, and an empty growable list if length is omitted.
+ * @description Checks that created list is resizable if length is not provided.
  * @author varlax
  * @reviewer msyabro
  */
@@ -15,11 +17,10 @@ check(List l) {
   l.length = 123;
   l.add(null);
   l.removeLast();
-  l.insertRange(0,1);
   l.removeRange(0,1);
 }
 
 main() {
-  check(new List<String>(0));
-  check(new List(10));
+  check(new List<String>());
+  check(new List());
 }

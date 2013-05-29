@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if every element of the list satisfy the predicate [f]. Returns false otherwise.
+ * @assertion abstract bool every(bool f(E element))
+ * Returns true if every elements of this collection satisify the predicate f.
+ * Returns false otherwise.
  * @description Checks that the predicate method is called for each element until the first false result.
  * @author vasya
  * @author msyabro

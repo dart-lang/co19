@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns a sub list copy of this list, from [start] to
- * [:start + length:].
+ * @assertion abstract Iterable<E> getRange(int start, int end)
+ * Returns an Iterable that iterators over the elements in the range start to end exclusive.
+ * The result of this function is backed by this.
  * @description Checks lists with valid ranges.
  * @author vasya
  * @reviewer varlax
@@ -13,10 +14,10 @@
 import "../../../Utils/expect.dart";
 
 void check(List src, int start, int length) {
-  var dst = src.getRange(start, length);
-  for(int i = 0; i < dst.length; i++) {
-    Expect.equals(src[i+start], dst[i]);
-    Expect.identical(src[i+start], dst[i]);
+  Iterator dst = src.getRange(start, start+length).iterator;
+  for(int i = 0; dst.moveNext; i++) {
+    Expect.equals(src[i+start], dst.current);
+    Expect.identical(src[i+start], dst.current);
   }
 }
 

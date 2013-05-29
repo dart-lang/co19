@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an [RangeError] if [start] or
- * [:start + length:] are out of range.
- * @description Checks that an [RangeError] throws 
- * if [start] or [:start + length:] are out of range.
+ * @assertion abstract Iterable<E> getRange(int start, int end)
+ * The result of this function is backed by this.
+ * It is an error if the start and end are not valid ranges at the time of the call to this method.
+ * @description Checks that an error is thrown if the start and end are not valid ranges.
  * @author vasya
  * @reviewer varlax
  */
@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List l, int start, int length) {
   try {
-    l.getRange(start, length);
+    l.getRange(start, start+length);
     Expect.fail("RangeError expected when calling List.getRange()");
   } on RangeError catch(ok) {}   
 }

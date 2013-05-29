@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns an [Iterator] that iterates over this [Iterable] object.
+ * @assertion final Iterator<E> iterator
+ * Returns an [Iterator] that iterates over this [Iterable] object.
  * @description Checks that the returned [Iterator] iterates all elements of the list.
  * @author vasya
  * @reviewer msyabro

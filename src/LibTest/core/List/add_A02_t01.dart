@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws UnsupportedError if the list is not extendable.
+ * @assertion abstract void add(E value)
+ * Throws UnsupportedError if the list is not extendable.
  * @description Checks that UnsupportedError exception is thrown
  * if the list is not extendable.
  * @author vasya
@@ -15,12 +16,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   try {
-    new List.fixedLength(1).add(null);
+    new List(1).add(null);
     Expect.fail("UnsupportedError expected when calling a.add()");
   } on UnsupportedError catch(ok) {}
 
   try {
-    new List.fixedLength(100).add(null);
+    new List(100).add(null);
     Expect.fail("UnsupportedError expected when calling a.add()");
   } on UnsupportedError catch(ok) {}
 

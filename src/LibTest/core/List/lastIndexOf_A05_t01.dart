@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The element is searched by equality (operator ==).
+ * @assertion abstract int lastIndexOf(E element, [int start])
+ * The first time an element e is encountered so that e == element,
+ * the index of e is returned.
  * @description Checks searching custom objects.
  * @author varlax
  * @reviewer iefremov

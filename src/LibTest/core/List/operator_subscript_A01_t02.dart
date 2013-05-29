@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the index'th element in the list.
+ * @assertion abstract E operator [](int index)
  * @description Checks extendable arrays.
  * @author varlax
  * @reviewer msyabro
@@ -14,7 +14,6 @@ main() {
   Expect.isTrue(new List.from([1, 0])[0] == 1);
   var a = [];
   Expect.identical(new List.from([a, 0])[0], a);
-  Expect.identical(new List.from([null, 0]).getRange(0,2)[0], null);
   Expect.isTrue(new List.from([1, 2, 3])[0] == 1);
   Expect.isTrue(new List.from([null, null, null])[0] == null);
 
