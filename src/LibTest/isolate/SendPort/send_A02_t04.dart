@@ -10,6 +10,7 @@
  * @description Checks that SendPorts, lists and maps containing SendPorts could be sent properly.
  * @author iefremov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:isolate";
@@ -46,8 +47,10 @@ void main() {
     if(i == MESSAGES_NUM) {
       port.close();
     }
+    asyncEnd();
   });
 
+  asyncStart();
   for(var v in messages) {
     sport.send(v, replyTo);
   }
