@@ -50,8 +50,8 @@ void main() {
     asyncEnd();
   });
 
-  asyncStart();
   for(var v in messages) {
+    asyncStart();
     sport.send(v, replyTo);
   }
 }
