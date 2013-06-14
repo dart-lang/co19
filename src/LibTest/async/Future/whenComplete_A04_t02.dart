@@ -12,9 +12,11 @@
  * that will be the result of f too.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
+//  asyncStart();
+  //  asyncEnd();
 
 main() {
   int value = 20;
@@ -26,18 +28,22 @@ main() {
   Future f2 = completer2.future;
   Future f=f0.whenComplete((){return f2;});
 
+  asyncStart();
   f.then((var v) {print("v=$v");},
-    onError: (AsyncError e){print("e=$e"); value2=e.error;});
+    onError: (Object e){
+//      print("e=$e"); 
+      value2=e;
+      asyncEnd();
+    }
+  );
  
   completer.complete(1);
 
-  new Future.delayed(0, (){
-    Expect.isNull(value2);
-  });
+  Expect.isNull(value2);
  
   completer2.completeError(value);
 
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(value, value2);
   });
 }

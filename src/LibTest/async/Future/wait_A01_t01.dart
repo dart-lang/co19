@@ -11,9 +11,9 @@
  * are completed.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 const N=5;
 const N2=3;
@@ -31,9 +31,11 @@ main() {
   Future f = Future.wait(futures);
 
   bool visited = false;
+  asyncStart();
   f.then((value) {
     visited = true;
     Expect.listEquals([0,1,2,3,4], value);
+    asyncEnd();
   });
 
   // complete first half of the futures
@@ -42,7 +44,7 @@ main() {
   }
 
   // future f is not completed
-  new Future.delayed(0, (){
+  runLater((){
     Expect.isFalse(visited);
     
     // complete second half of the futures
@@ -51,9 +53,9 @@ main() {
     }
 
     // future f is now completed
-    new Future.delayed(0, (){
+    runLater((){
       Expect.isTrue(visited);
-  });
+    });
   });
 
 }

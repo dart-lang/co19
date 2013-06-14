@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future catchError(onError(AsyncError asyncError), {bool test(Object error)})
+ * @assertion abstract Future catchError(onError(Object error), {bool test(Object error)})
  * When this completes with a value, the value is forwarded to f unmodified.
  * That is, f completes with the same value.
  * @description Checks that [onError] is not called if a future gets a normal value.
@@ -16,7 +16,7 @@ import "dart:async";
 check(value) {
   Completer completer = new Completer();
   Future f0 = completer.future;
-  Future f = f0.catchError((AsyncError asyncError) {
+  Future f = f0.catchError((Object asyncError) {
     throw asyncError; // should not be called
   });
 
@@ -30,5 +30,4 @@ main() {
   check([]);
   check(new Object());
   check(new Exception());
-  check(new AsyncError(new Exception()));
 }

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Sends an asynchronous message to this send port. 
+ * @assertion  abstract void send(message, [SendPort replyTo])
+ * Sends an asynchronous message to this send port.
  * The message is copied to the receiving isolate.
  * @description Checks that message is sent to the ReceivePort.
  * @runtime-error
@@ -13,6 +14,7 @@
  */
 
 import "dart:isolate";
+import "../../../Utils/async_utils.dart";
 
 void main() {
   ReceivePort rPort = new ReceivePort();
@@ -20,8 +22,9 @@ void main() {
   
   rPort.receive((var message, SendPort replyTo) {
     rPort.close();
-    throw "message received correctly!";
+    asyncEnd();
   });
   
+  asyncStart();
   sPort.send("message1", null);
 }

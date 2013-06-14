@@ -9,6 +9,7 @@
  * @description Checks that the stream closes after the completion value is send.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -17,14 +18,20 @@ String output1;
 
 main() {
   var value=99;
-  Future future = new Future.immediate(value);
+  Future future = new Future.sync(()=>value);
   Stream stream=future.asStream();
   int count=1;
   
+  asyncStart();
   stream.listen(
     (var event){count=count+1;}, // should be invoked first
-    onDone: (){count=count*2;}   // should be invoked second
+    onDone: (){
+      count=count*2;
+      asyncEnd();
+    }   // should be invoked second
   );
 
-  new Future.delayed(0, (){Expect.equals(4, count);});
+  runLater((){
+    Expect.equals(4, count);
+  });
 }

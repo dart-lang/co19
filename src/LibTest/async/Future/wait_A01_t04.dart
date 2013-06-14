@@ -12,9 +12,9 @@
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 const N=5;
 
@@ -36,13 +36,15 @@ main() {
   Future f = Future.wait(futures);
 
   bool visited = false;
+  asyncStart();
   f.then((value) {
     visited = true;
     Expect.listEquals([0,1,2,3,4], value);
+    asyncEnd();
   });
 
   // future f is now completed
-  new Future.delayed(0, (){
+  runLater((){
     Expect.isTrue(visited);
   });
 

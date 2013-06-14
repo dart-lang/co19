@@ -12,9 +12,9 @@
  * is completed with an AsyncError wrapping that error.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Completer completer = new Completer();
@@ -32,8 +32,8 @@ main() {
   f.then((fValue) {res1 = fValue;}, 
      onError: (AsyncError e){res2=e;});
      
-  new Future.delayed(00, (){
+  runLater((){
     Expect.equals(null, res1);
-    Expect.equals(err, res2.error);
+    Expect.equals(err, res2);
   });
 }

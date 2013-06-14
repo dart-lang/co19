@@ -4,26 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.delayed(int milliseconds, T value())
- * If calling value throws, the created future will complete with the error.
- * @description Checks that if calling value throws,
- * the created future will complete with the error.
+ * @assertion factory Future.delayed(Duration duration, [T computation()])
+ * If computation is not given or null then it will behave as if computation was set to () => null.
+ * That is, it will complete with null.
+ * @description Checks that if computation is not given or null,
+ * then it will behave as if computation was set to () => null.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 
-check(delay, value) {
-  Future future = new Future.delayed(delay, (){ throw value;});
-  future.then((fValue) {Expect.fail("should not get here");},
-    onError: (AsyncError err) {
-      Expect.equals(err.error, value);
-  });
-}
-
 main() {
-  check(100, 3);
-  check(50, '');
-  check(0, []);
+  Future future = new Future.delayed(Duration.ZERO);
+  asyncStart();
+  future.then((fValue) {
+    Expect.equals(null, fValue);
+    asyncEnd();
+  });
+
+  asyncStart();
+  future = new Future.delayed(Duration.ZERO, null);
+  future.then((fValue) {
+    Expect.equals(null, fValue);
+    asyncEnd();
+  });
 }

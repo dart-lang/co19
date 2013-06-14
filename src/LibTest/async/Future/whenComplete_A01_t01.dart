@@ -13,26 +13,28 @@
  * completes with a value or with an error.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   int visited = 0;
   void action() {
     visited += 1;
+    asyncEnd();
   }
 
   Completer completer = new Completer();
   completer.future.whenComplete(action);
+  asyncStart();
   completer.complete(20);
   
   Completer completer2 = new Completer();
   Future f2 = completer2.future;
   f2.whenComplete(action).catchError((e){});
+  asyncStart();
   completer2.completeError(22);
-  
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(2, visited);
   });
 }

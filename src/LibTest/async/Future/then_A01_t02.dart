@@ -14,9 +14,9 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   const C();
@@ -27,8 +27,10 @@ check(value) {
   Future f = completer.future;
   f.then((fValue) {
     Expect.equals(value, fValue);
+    asyncEnd();
   });
 
+  asyncStart();
   completer.complete(value);
 }
 

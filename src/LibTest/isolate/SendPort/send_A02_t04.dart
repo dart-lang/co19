@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The content of message can be: primitive values (null, num, bool,
+ * @assertion  abstract void send(message, [SendPort replyTo])
+ * The content of message can be: primitive values (null, num, bool,
  * double, String), instances of SendPort, and lists and maps whose elements are
  * any of these. Lists and maps are also allowed to be cyclic.
  * @description Checks that SendPorts, lists and maps containing SendPorts could be sent properly.

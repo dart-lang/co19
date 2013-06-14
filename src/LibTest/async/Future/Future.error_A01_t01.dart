@@ -4,21 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.immediateError(error, [Object stackTrace])
+ * @assertion factory Future.error(error, [Object stackTrace])
  * A future that completes with an error in the next event-loop iteration.
  * @description Checks that a future created with constructor
  * Future.immediate has the error passed as a parameter.
  * @author kaigorodov
  */
+import "dart:async";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
 check(value) {
-  Future future = new Future.immediateError(value);
+  Future future = new Future.error(value);
   
+  asyncStart();
   future.catchError((error) {
-    Expect.equals(value, error.error);
+    Expect.equals(value, error);
+    asyncEnd();
   });
 }
 

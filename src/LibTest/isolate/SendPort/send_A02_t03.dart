@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The content of message can be: primitive values (null, num, bool,
+ * @assertion  abstract void send(message, [SendPort replyTo])
+ * The content of message can be: primitive values (null, num, bool,
  * double, String), instances of SendPort, and maps and maps whose elements are
  * any of these. Lists and maps are also allowed to be cyclic.
  * @description Checks that various maps could be sent properly.
@@ -12,6 +13,7 @@
  */
 
 import "dart:isolate";
+import "../../../Utils/async_utils.dart";
 import "send_A02_util.dart";
 
 f() {
@@ -50,9 +52,11 @@ void main() {
     if(i == maps.length) {
      port.close();
     }
+    asyncEnd();
   });
 
   for(var v in maps) {
+    asyncStart();
     sport.send(v, replyTo);
   }
 }

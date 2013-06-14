@@ -14,32 +14,32 @@
  * onValue is delayed until the next event-loop iteration.
  * @author kaigorodov
  */
+import "dart:async";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
+void check(Future f) {
+  bool visited = false;
+  f.then((fValue) {
+    visited = true;
+    Expect.equals(1, fValue);
+    asyncEnd();
+  });
+  Expect.isFalse(visited);
+  
+  runLater((){
+    Expect.isTrue(visited);
+  });
+}
 
 main() {
   Completer completer = new Completer();
   Future f = completer.future;
+  asyncStart();
   completer.complete(1);
+  check(f);
 
-  bool visited1 = false;
-  f.then((fValue) {
-    visited1 = true;
-  });
-  Expect.isFalse(visited1);
-
-  bool visited2 = false;
-  f = new Future.immediate(1);
-  f.then((fValue) {
-    visited2 = true;
-    Expect.equals(1, fValue);
-  });
-  Expect.isFalse(visited2);
-  
-  new Future.delayed(0, (){
-    Expect.isTrue(visited1);
-    Expect.isTrue(visited2);
-  });
-  
+  f = new Future.value(1);
+  asyncStart();
+  check(f);
 }

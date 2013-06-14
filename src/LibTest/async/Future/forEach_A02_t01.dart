@@ -9,6 +9,7 @@
  * @description Checks that returned future completes when all elements have been processed.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -26,9 +27,6 @@ main() {
   }
   
   Future ff(int element) {
-    if (element+1==N) {
-       // last element, start check
-    }
     return completers[element].future;
   }
   
@@ -36,14 +34,16 @@ main() {
   
   f.then((fValue) {
     visited = true;
+    asyncEnd();
   });
   
   // complete the futures in reverse order
+  asyncStart();
   for (int k=N-1; k>=0; k--) {
     completers[k].complete(k);
   }
 
-  new Future.delayed(10, (){
+  runLater((){
     // make sure future f is completed
     Expect.isTrue(visited);
   });

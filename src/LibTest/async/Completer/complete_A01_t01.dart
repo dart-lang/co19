@@ -12,6 +12,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -22,8 +23,10 @@ check(value) {
 
   completer.complete(value);
   
+  asyncStart();
   future.then((fValue) {
     Expect.equals(fValue, value);
+    asyncEnd();
   });
 }
 

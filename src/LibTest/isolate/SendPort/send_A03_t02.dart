@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If specified, the replyTo port will be provided to the receiver
+ * @assertion  abstract void send(message, [SendPort replyTo])
+ * If specified, the replyTo port will be provided to the receiver
  * to facilitate exchanging sequences of messages.
  * @description The replyTo port is the same as this SendPort.
  * @author msyabro
@@ -12,19 +13,23 @@
  */
 
 import "dart:isolate";
+import "../../../Utils/async_utils.dart";
 
 void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
   rPort.receive((var message, SendPort replyTo) {
-    message ++;
-    replyTo.send(message, replyTo);
-    if(message == 100) {
-      print("Done");
+    if (message == 100) {
       rPort.close();
+    } else {
+      message ++;
+      asyncStart();
+      replyTo.send(message, replyTo);
     }
+    asyncEnd();
   });
   
+  asyncStart();
   sPort.send(1, sPort);
 }

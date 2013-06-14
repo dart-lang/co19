@@ -8,9 +8,10 @@
  * Complete future with an error. Completing a future with an error indicates that
  * an exception was thrown while trying to produce a value.
  * @description Checks that after [completeError] is called, the corresponding
- * future is completed with that exception wrapped in a AsyncError.
+ * future is completed with that exception.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -23,12 +24,15 @@ check(value) {
 
   completer.completeError(value);
   
-  future.then((fValue) { Expect.fail('should not get here');},
-    onError: (AsyncError asyncError) {
-      Expect.isTrue(asyncError is AsyncError);
-      Expect.equals(asyncError.error, value);
+  asyncStart();
+  future.then(
+   (fValue) {Expect.fail('should not get here');},
+    onError: (Object asyncError) {
+      Expect.equals(value, asyncError);
       count++;
-  });
+      asyncEnd();
+    }
+  );
 }
 
 main() {

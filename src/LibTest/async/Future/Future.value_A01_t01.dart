@@ -4,21 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.immediate(T value)
+ * @assertion factory Future.value(T value)
  * A future whose value is available in the next event-loop iteration.
+ * If value is not a Future, using this constructor is equivalent to new Future.sync(() => value).
  * @description Checks that a future created with constructor
- * Future.immediate has the value passed as a parameter.
+ * Future.value has the value passed as a parameter.
  * @author kaigorodov
  */
+import "dart:async";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
 check(value) {
-  Future future = new Future.immediate(value);
+  Future future = new Future.value(value);
   
+  asyncStart();
   future.then((fValue) {
     Expect.equals(fValue, value);
+    asyncEnd();
   });
 }
 

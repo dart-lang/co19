@@ -10,9 +10,9 @@
  * then f is completed with the thrown error.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   int value = 20;
@@ -20,13 +20,15 @@ main() {
   
   Completer completer = new Completer();
   Future f0 = completer.future;
-  f0.whenComplete((){throw value;}).catchError((AsyncError err) {
-    value2=err.error;
+  f0.whenComplete((){throw value;}).catchError((Object err) {
+    value2=err;
+    asyncEnd();
   });
   
+  asyncStart();
   completer.complete(0);
   
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(value, value2);
   });
 }

@@ -19,7 +19,7 @@ import "dart:async";
 main() {
   var completer = new Completer();
   var future = completer.future;
-  future.catchError((AsyncError e)=>1);
+  future.catchError((Object e)=>1);
   completer.completeError(0);
 
   try {

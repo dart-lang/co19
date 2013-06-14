@@ -10,9 +10,10 @@
  * @description Checks that all listeners on the future are informed immediately.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 int N=10;
 const v=99;
@@ -23,14 +24,18 @@ main() {
   var future = completer.future;
 
   for (int k=0; k<N; k++) {
+    asyncStart();
     future.then((fValue) {
       listened[k]=fValue;
+      asyncEnd();
     });
   }
 
   completer.complete(v);
-  for (int k=0; k<N; k++) {
-    Expect.equals(v, listened[k]);
-  }
-  
+
+  runLater((){
+    for (int k=0; k<N; k++) {
+      Expect.equals(v, listened[k]);
+    }
+  });  
 }

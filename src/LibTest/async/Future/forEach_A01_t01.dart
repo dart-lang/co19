@@ -4,6 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
+Future forEach(Iterable input, Future f(element))
+
+Perform an async operation for each element of the iterable, in turn.
+
+Runs f for each element in input in order, moving to the next element
+ only when the Future returned by f completes.
+  Returns a Future that completes when all elements have been processed.
+
+The return values of all Futures are discarded. Any errors will cause the iteration to stop and will be piped through the returned Future.
  * @assertion Future forEach(Iterable input, Future f(element))
  * Perform an async operation for each element of the iterable, in turn.
  * Runs f for each element in input in order, moving to the next element
@@ -12,6 +21,7 @@
  * executed in turn.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -45,12 +55,14 @@ main() {
   
   Future f = Future.forEach(input, ff);
   
+  asyncStart();
   bool visited = false;
   f.then((fValue) {
     visited = true;
+    asyncEnd();
   });
   
-  new Future.delayed(0, (){
+  runLater((){
     // make sure future f is not completed
     Expect.isFalse(visited);
     

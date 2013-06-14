@@ -9,21 +9,20 @@
  * @description Checks that the stream sends this' data to all its subscribers.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 check(var value) {
-  Future future = new Future.immediate(value);
+  Future future = new Future(()=>value);
   Stream stream=future.asStream();
   Future f2=stream.single;
-  Future f3=stream.single;
 
+  asyncStart();
   f2.then((fValue) {
     Expect.equals(fValue, value);
-  });
-  f3.then((fValue) {
-    Expect.equals(fValue, value);
+    asyncEnd();
   });
 }
 

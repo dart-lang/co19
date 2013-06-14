@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future catchError(onError(AsyncError asyncError), {bool test(Object error)})
+ * @assertion Future catchError(onError(Object asyncError), {bool test(Object error)})
  * When this completes with an error, test is called with the error's value.
- * If the invocation returns true, onError is called with the error wrapped in an AsyncError.
+ * If the invocation returns true, onError is called with the error.
  * The result of onError is handled exactly the same as for then's onError.
  * If test returns false, the exception is not handled by onError, but is thrown unmodified,
  * thus forwarding it to f.
@@ -15,6 +15,7 @@
  * the exception that the future f gets.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -26,16 +27,24 @@ main() {
   Object err2=2;
 
   Future f=f0.catchError(
-    (AsyncError asyncError) {},
-    test: (Object error){err1=error; return false;}
+    (Object asyncError) {
+      Expect.fail("unexpected catchError");
+    },
+    test: (Object error){
+      err1=error;
+    asyncEnd();
+      return false;
+    }
   );
-  f.catchError((AsyncError asyncError) {
-    err2=asyncError.error;
+  f.catchError((Object asyncError) {
+    err2=asyncError;
+    asyncEnd();
   });
 
+  asyncMultiStart(2);
   completer.completeError(3);
 
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(err1, err2);
   });
 }

@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future catchError(onError(AsyncError asyncError), {bool test(Object error)})
+ * @assertion abstract Future catchError(onError(Object error), {bool test(Object error)})
  * When this completes with an error, test is called with the error's value.
- * If the invocation returns true, onError is called with the error wrapped in an AsyncError.
+ * If the invocation returns true, onError is called with the error.
  * The result of onError is handled exactly the same as for then's onError.
  * If test returns false, the exception is not handled by onError, but is thrown unmodified,
  * thus forwarding it to f.
@@ -15,6 +15,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -23,11 +24,15 @@ main() {
   Completer completer = new Completer();
   Future f = completer.future;
   bool visited = false;
-  f.catchError((AsyncError asyncError) {
+  f.catchError((Object asyncError) {
     visited = true;
+    asyncEnd();
   });
 
+  asyncStart();
   completer.completeError("!");
   
-  new Future.delayed(0, (){Expect.isTrue(visited);});
+  runLater((){
+    Expect.isTrue(visited);
+  });
 }

@@ -4,17 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future catchError(onError(AsyncError asyncError), {bool test(Object error)})
+ * @assertion abstract Future catchError(onError(Object error), {bool test(Object error)})
  * Handles errors emitted by this Future.
  * Returns a new Future f.
  * @description Checks that several error handlers can be attached to the Future.
  * @author kaigorodov
  */
 
+import "../../../Utils/async_utils.dart";
 import "dart:async";
 
-void onError1(AsyncError asyncError) {print("onError1: asyncError=$asyncError");}
-void onError2(AsyncError asyncError) {print("onError2: asyncError=$asyncError");}
+void onError1(Object asyncError) {
+  asyncEnd();
+}
+
+void onError2(Object asyncError) {
+  asyncEnd();
+}
 
 main() {
   Completer completer = new Completer();
@@ -23,5 +29,6 @@ main() {
   f.catchError(onError1);
   f.catchError(onError2);
 
+  asyncMultiStart(2);
   completer.completeError('!!!');
 }

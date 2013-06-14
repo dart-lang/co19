@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion Future<bool> any(bool test(T element))
+ * If this stream reports an error, the Future will report that error.
+ * @description Checks that the future reports the error if this stream issued one.
+ * @author kaigorodov
+ */
+ 
+import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
+
+check(var expectedError) {
+  Completer completer = new Completer();
+  Stream s=new Stream.fromFuture(completer.future);
+  Future<bool> f2=s.any((v)=>true);
+  asyncStart();
+  f2.then(
+    (data) {
+      Expect.fail("data passed: $data");
+    },
+    onError: (error) {
+      Expect.equals(expectedError, error);
+      asyncEnd();
+    }
+  );
+  completer.completeError(expectedError);
+}
+
+main() {
+  check(new Error());
+  check(new Exception());
+}

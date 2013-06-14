@@ -6,26 +6,27 @@
 /**
  * @assertion abstract Stream<T> asStream()
  * Creates a Stream that sends this' completion value, data or error, to its subscribers.
- * @description Checks that the stream sends this' error to all its subscribers.
+ * @description Checks that the stream sends this' error to its subscribers.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 
 main() {
-  var value=99;
-  Future future = new Future.immediate(value);
+  Error error=new Error();
+  Future future = new Future.sync((){throw error;});
   Stream stream=future.asStream();
   Future f2=stream.single;
-  bool visited = false;
 
-  StreamSubscription streamsub = stream.listen((var event){},
-    onDone: (){visited=true;}
-  );
+  asyncStart();
   f2.then((fValue) {
-    Expect.equals(fValue, value);
-  });
-
-  new Future.delayed(0, (){Expect.isTrue(visited);});
+    Expect.fail("unexpected value=$fValue");
+  },
+  onError: (Error e){
+    Expect.equals(error, e);
+    asyncEnd();
+  }
+  );
 }

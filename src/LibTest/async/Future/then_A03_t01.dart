@@ -9,9 +9,9 @@
  * That is, f is completed with the completion value of f2.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Completer completer = new Completer();
@@ -31,7 +31,7 @@ main() {
   f2.then(     (int fValue) {res = fValue;}, 
      onError: (AsyncError e){err = e;});
      
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(2, res);
     Expect.equals(null, err);
   });

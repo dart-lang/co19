@@ -11,9 +11,9 @@
  * of f is delayed until f2 completes.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   int value = 20;
@@ -27,16 +27,18 @@ main() {
   
   Future f=f0.whenComplete(()=>f2);
  
+  asyncStart();
   completer.complete(value);
-  f.then((v){value2=v;});
-
-  new Future.delayed(0, (){
-    Expect.isNull(value2);
+  f.then((v){
+    value2=v;
+    asyncEnd();
   });
+
+  Expect.isNull(value2);
  
   completer2.complete(1);
 
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(value, value2);
   });
 }

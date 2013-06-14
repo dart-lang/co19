@@ -10,6 +10,7 @@
  * @description Checks that single listener on the future is informed immediately.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -21,10 +22,14 @@ main() {
   var future = completer.future;
 
   future.then((fValue) {
-     listened=fValue;
+    listened=fValue;
+    asyncEnd();
   });
 
+  asyncStart();
   completer.complete(1);
-  Expect.equals(1, listened);
   
+  runLater((){
+    Expect.equals(1, listened);
+  });  
 }

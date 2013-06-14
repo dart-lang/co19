@@ -1,11 +1,22 @@
 library async_utils;
 
+import "dart:async";
+import "expect.dart";
+
 const ONE_MS = const Duration(milliseconds: 1);
 
 Duration durationMs(delay) {
   return delay == null? Duration.ZERO : ONE_MS * delay;
 }
 
+Future runLater(void action()) {
+  asyncStart();
+  return new Future.delayed(Duration.ZERO, (){
+    action();
+    asyncEnd();
+  });
+}
+  
 /*----------------------------*/
 
 /**
@@ -24,13 +35,17 @@ int _asyncCounter=_asyncTestStart();
 
 void  asyncStart() {
   _asyncCounter++;
+//  print("asyncStart");
 }
 
 void  asyncMultiStart(int delta) {
+//  print("asyncMultiStart $delta");
   _asyncCounter+=delta;
 }
 
 void  asyncEnd() {
+//  print("asyncEnd");
+  Expect.isFalse(_asyncCounter==0, "asyncEnd: _asyncCounter==0");
   _asyncCounter--;
   if (_asyncCounter==0) {
     print("unittest-suite-success");

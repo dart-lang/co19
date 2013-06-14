@@ -12,9 +12,9 @@
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var completer = new Completer();
@@ -23,14 +23,16 @@ main() {
   var f = Future.wait([future]);
 
   bool visited = false;
+  asyncStart();
   f.then((value) {
     visited = true;
     Expect.listEquals([1], value);
+    asyncEnd();
   });
 
   completer.complete(1);
 
-  new Future.delayed(0, (){
+  runLater((){
     Expect.isTrue(visited);
   });
 }

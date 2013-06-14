@@ -12,20 +12,22 @@
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var f = Future.wait([]);
 
   bool visited = false;
+  asyncStart();
   f.then((value) {
     Expect.listEquals([], value);
     visited = true;
+    asyncEnd();
   });
 
-  new Future.delayed(0, (){
+  runLater((){
     Expect.isTrue(visited);
   });
 }

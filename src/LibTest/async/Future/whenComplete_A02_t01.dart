@@ -12,9 +12,9 @@
  * will complete the same way as this future, if no error occurs.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   int value = 20;
@@ -24,13 +24,15 @@ main() {
   Future f0 = completer.future;
   Future f = f0.whenComplete((){});
   
+  asyncStart();
   completer.complete(value);
   
   f.then((v) {
     value2=v;
+    asyncEnd();
   });
        
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(value, value2);
   });
 }

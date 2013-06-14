@@ -12,9 +12,9 @@
  * is completed with exception.
  * @author iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var completer1 = new Completer();
@@ -29,26 +29,28 @@ main() {
   var future4 = completer4.future;
   var future5 = completer5.future;
 
-  future1.handleException((e) => true);
-  future2.handleException((e) => true);
-  future3.handleException((e) => true);
-  future4.handleException((e) => true);
+  future1.catchError((e) => true);
+  future2.catchError((e) => true);
+  future3.catchError((e) => true);
+  future4.catchError((e) => true);
 
   var f = Future.wait([future1, future2, future3, future4, future5]);
 
   bool visited = false;
-  f.handleException((value) {
-    Expect.isTrue(future5.isComplete);
+  asyncStart();
+  f.catchError((value) {
+    Expect.isTrue(completer5.isCompleted);
     visited = true;
+    asyncEnd();
   });
 
-  completer1.completeException(1);
-  completer2.completeException(2);
-  completer3.completeException(3);
-  completer4.completeException(4);
-  completer5.completeException(5);
+  completer1.completeError(1);
+  completer2.completeError(2);
+  completer3.completeError(3);
+  completer4.completeError(4);
+  completer5.completeError(5);
 
-  Expect.isTrue(visited, "Exception handler was not called!");
-  Expect.isTrue(f.isComplete, "The future should be completed!");
-  Expect.isTrue(f.exception != null, "The future should complete with an exception!");
+  runLater((){
+    Expect.isTrue(visited, "Exception handler was not called!");
+  });
 }

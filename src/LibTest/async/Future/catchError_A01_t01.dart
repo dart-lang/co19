@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future catchError(onError(AsyncError asyncError), {bool test(Object error)})
+ * @assertion abstract Future catchError(onError(Object error), {bool test(Object error)})
  * Handles errors emitted by this Future.
  * Returns a new Future f.
  * @description Checks that [catchError] returns a new Future f.
@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 import "dart:async";
 
-void onError(AsyncError asyncError) {}
+void onError(Object asyncError) {}
 
 void check (Future f1) {
   Future f2=f1.catchError(onError);
@@ -24,6 +24,6 @@ void check (Future f1) {
 
 main() {
   check(new Completer().future);
-  check(new Future.immediate(1));
-  check(new Future.immediateError(1));
+  check(new Future.sync(()=>1));
+  check(new Future.sync((){ throw 1;}));
 }

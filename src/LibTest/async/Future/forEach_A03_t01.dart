@@ -10,6 +10,7 @@
  * is piped through the returned Future.
  * @author kaigorodov
  */
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -27,26 +28,26 @@ main() {
   }
   
   Future ff(int element) {
-    print("ff $element");
     if (element==e2stop) {
        throw element;
     }
     operationTrace[element]=true;
-    return new Future.immediate(element);
+    return new Future.sync(()=>element);
   }
   
+  asyncStart();
   Future f = Future.forEach(input, ff);
   
-  f.catchError((AsyncError asyncError) {
-    print("catchError $asyncError ${asyncError.error}");
-    Expect.equals(e2stop, asyncError.error);
+  f.catchError((Object asyncError) {
+    Expect.equals(e2stop, asyncError);
     visited = true;
+    asyncEnd();
   });
 
-  new Future.delayed(10, (){
+  runLater((){
     // make sure future f is completed
     Expect.isTrue(visited);
-    Expect.equals([true, true, false, false, false], operationTrace);
+    Expect.listEquals([true, true, false, false, false], operationTrace);
   });
 }
 

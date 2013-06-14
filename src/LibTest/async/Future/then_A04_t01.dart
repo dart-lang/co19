@@ -9,9 +9,9 @@
  * That is, it forwards the error to f.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Completer completer = new Completer();
@@ -28,8 +28,8 @@ main() {
   f1.then(     (int fValue) {res = fValue;}, 
      onError: (AsyncError e){err = e;});
      
-  new Future.delayed(0, (){
+  runLater((){
     Expect.equals(null, res);
-    Expect.equals(2, err.error);
+    Expect.equals(2, err);
   });
 }
