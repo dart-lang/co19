@@ -4,13 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> firstWhere(bool test(T element), {T defaultValue()})
- * Finds the first element of this stream matching test.
- * Returns a future that is filled with the first element of this stream that test returns true for.
- * If no such element is found before this stream is done, and a defaultValue function is provided,
- * the result of calling defaultValue becomes the value of the future.
- * If an error occurs, or if this stream ends without finding a match and with no defaultValue function
- * provided, the future will receive an error.
+ * @assertion Future<T> lastWhere(bool test(T element), {T defaultValue()})
+ * Finds the last element in this stream matching test.
+ * As firstWhere, except that the last matching element is found.
+ * That means that the result cannot be provided before this stream is done.
  * @description Checks that if an error occurs, the future will receive that error.
  * @author kaigorodov
  */
@@ -22,7 +19,7 @@ import "../../../Utils/expect.dart";
 check(var expectedError) {
   Completer completer = new Completer();
   Stream s=new Stream.fromFuture(completer.future);
-  Future f=s.firstWhere((v){throw expectedError;});
+  Future f=s.lastWhere((v){throw expectedError;});
   asyncStart();
   f.then(
     (data) {

@@ -12,7 +12,6 @@
  * so will the returned stream.
  * @description Checks that all error events are returned. Checks that 
  * the resulting stream ends with a done event.
- * @note the test illustrates bug #11350
  * @author kaigorodov
  */
 
@@ -22,10 +21,8 @@ int eventCount=2; // the length of the source stream
 int takeCount=2; // how many events to take
 
 void main() {
-  Iterable it=new Iterable.generate(eventCount,
-    (int index)=>throw new ArgumentError(index));
-  // stream generates errors only  
-  Stream s=new Stream.fromIterable(it);
+  Iterable it=new Iterable.generate(eventCount, (int index)=>index);
+  Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
   Stream t=s.take(takeCount);
   t.listen((value){
       throw new Exception("onData call not expected");

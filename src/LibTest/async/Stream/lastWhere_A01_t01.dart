@@ -4,13 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> firstWhere(bool test(T element), {T defaultValue()})
- * Finds the first element of this stream matching test.
- * Returns a future that is filled with the first element of this stream that test returns true for.
- * If no such element is found before this stream is done, and a defaultValue function is provided,
- * the result of calling defaultValue becomes the value of the future.
- * If an error occurs, or if this stream ends without finding a match and with no defaultValue function
- * provided, the future will receive an error.
+ * @assertion Future<T> lastWhere(bool test(T element), {T defaultValue()})
+ * Finds the last element in this stream matching test.
+ * As firstWhere, except that the last matching element is found.
+ * That means that the result cannot be provided before this stream is done.
  * @description Checks that if element is found, it is passed to the resulting future.
  * @author kaigorodov
  */
@@ -22,7 +19,7 @@ import "../../../Utils/expect.dart";
 void check1(Iterable data, bool test(int element), var expected) {
   Stream s=new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.firstWhere(test);
+  Future f=s.lastWhere(test);
   f.then((bool actual){
     Expect.equals(expected, actual);
     asyncEnd();
@@ -32,7 +29,7 @@ void check1(Iterable data, bool test(int element), var expected) {
 void check2(Iterable data, bool test(int element), var expected) {
   Stream s=new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.firstWhere(
+  Future f=s.lastWhere(
     test,
     defaultValue:(){
       Expect.fail("should not be called");
@@ -50,10 +47,10 @@ void check(Iterable data, bool test(int element), var expected) {
 }
 
 main() {
-  check([1,2,3], (int element)=>true, 1);
-  check([1,2,3], (int element)=>element!=null, 1);
+  check([1,2,3], (int element)=>true, 3);
+  check([1,2,3], (int element)=>element!=null, 3);
   check([1,2,3,null], (int element)=>element==null, null);
-  check([1,2,3], (int element)=>element>2, 3);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element!=30, 0);
+  check([1,2,3], (int element)=>element>0, 3);
+  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element!=30, 45);
   check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, 30);
 }

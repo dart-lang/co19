@@ -12,7 +12,6 @@
  * so will the returned stream.
  * @description Checks that all error events are returned. Checks that 
  * the resulting stream ends with a done event.
- * @needsreview #11350
  * @author kaigorodov
  */
 
@@ -21,9 +20,8 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(int eventCount, int takeCount) {
-  Iterable it=new Iterable.generate(eventCount,
-    (int index)=>throw new ArgumentError(index));
-  Stream s=new Stream.fromIterable(it);
+  Iterable it=new Iterable.generate(eventCount, (int index)=>index);
+  Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
   Stream t=s.take(takeCount);
   int seenCount=0;
   asyncStart();

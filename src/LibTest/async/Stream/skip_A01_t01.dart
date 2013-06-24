@@ -4,13 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> take(int count)
- * Provides at most the first n values of this stream.
- * Forwards the first n data events of this stream, and all error events,
- * to the returned stream, and ends with a done event.
- * If this stream produces fewer than count values before it's done,
- * so will the returned stream.
- * @description Checks that at most n elements are returned.
+ * @assertion Stream<T> skip(int count)
+ * Skips the first count data events from this stream.
+ * @description Checks that the first n elements are skipped.
  * @author kaigorodov
  */
 
@@ -20,12 +16,12 @@ import "../../../Utils/expect.dart";
 
 void check(List data, int count) {
   Stream s=new Stream.fromIterable(data);
-  Stream t=s.take(count);
+  Stream t=s.skip(count);
   int seen=0;
   asyncStart();
   t.listen((value){
-      Expect.isTrue(seen<count, "seen=$seen, count=$count");
-      Expect.equals(data[seen], value);
+      Expect.isTrue(seen+count<data.length, "seen=$seen, count=$count");
+      Expect.equals(data[count+seen], value);
       seen++;
     },
     onDone: (){
