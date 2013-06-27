@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> distinct([bool equals(T previous, T next)])
+ * @assertionStream<T> distinct([bool equals(T previous, T next)])
  * Skips data events if they are equal to the previous data event.
  * The returned stream provides the same events as this stream,
  * except that it never provides two consequtive data events that are equal.
@@ -20,9 +20,13 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
+class MyTransformer extends StreamEventTransformer<int, int> {
+}
+
 check(Iterable<int> data, bool equals(var previous, var next)) {
   Stream s=new Stream.fromIterable(data);
-  Stream d=s.distinct(equals);
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
+  Stream d=ets.distinct(equals);
   bool first=true;
   var previous;
   asyncStart();

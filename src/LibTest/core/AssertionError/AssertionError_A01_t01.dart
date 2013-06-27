@@ -4,26 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
- * @description Checks that the column is recorded correctly when the
- *              AssertionError is raised using assert statement.
+ * @assertion AssertionError class
+ * Error thrown by the runtime system when an assert statement fails.
+ * Implements Error
+ * @description Checks that when an assert statement fails, an AssertionError is thrown.
+ * Checks that AssertionError implements Error.
  * @author rodionov
  * @reviewer msyabro
  * @needsreview undocumented
  */
-import "../../../Utils/expect.dart";
-
 import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   if(!isCheckedMode()) {
     return;
   }
   try {
-    assert(true == false);
-    // ....^ this is col 12
-    throw "AssertionError expected";
+    assert(false);
+    Expect.fail("AssertionError expected");
   } on AssertionError catch(e) {
-    Expect.equals(12, e.column);
+    Expect.isTrue(e is Error);
   }
 }

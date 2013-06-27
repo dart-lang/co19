@@ -22,32 +22,26 @@ void check(Iterable data, bool test(event)) {
     .asBroadcastStream();
   List err1=new List();
   List err2=new List();
-  bool err1Done=false;
-  bool err2Done=false;
-  void checkAllDone() {
-    if (err1Done && err2Done) {
-      Expect.setEquals(err1, err2);
-    }      
-  }
+
+  Sync2 sync=new Sync2((err1, err2) {
+    Expect.setEquals(err1, err2);
+  });
+
   asyncStart();
   s.listen((bool value){},
     onError: (error) {
-      err1.add(error);
+      sync.put1(error);
     },
     onDone:() {
-      err1Done=true;
-      checkAllDone();
       asyncEnd();
     }
   );
   asyncStart();
   s.where(test).listen((bool value){},
     onError: (error) {
-      err2.add(error);
+      sync.put1(error);
     },
     onDone:() {
-      err2Done=true;
-      checkAllDone();
       asyncEnd();
     }
   );

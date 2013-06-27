@@ -10,8 +10,7 @@
  * except that it never provides two consequtive data events that are equal.
  * Equality is determined by the provided equals method.
  * If that is omitted, the '==' operator on the last provided data element is used.
- * @description Checks that if parameter is present, returned stream filters events
- * according to the supplied function.
+ * @description Checks that if parameter is omitted, returned stream does not contain
  * consecutive identical elements.
  * @author kaigorodov
  */
@@ -20,9 +19,13 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(Iterable<int> data, bool equals(var previous, var next)) {
+class MyTransformer extends StreamEventTransformer<int, int> {
+}
+
+check(Iterable<int> data) {
   Stream s=new Stream.fromIterable(data);
-  Stream d=s.distinct(equals);
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
+  Stream d=ets.distinct();
   bool first=true;
   var previous;
   asyncStart();
@@ -31,8 +34,7 @@ check(Iterable<int> data, bool equals(var previous, var next)) {
         first=false;
         previous=event;
       } else {
-        Expect.isFalse(equals(previous, event), "p=$previous, e=$event");
-        previous=event;
+        Expect.isFalse(identical(previous, event));
       }
     },
     onDone:(){
@@ -41,21 +43,10 @@ check(Iterable<int> data, bool equals(var previous, var next)) {
   );
 }
 
-int abs(x)=>x<0?-x:x;
-
-int sign(x)=>(x<0)?-1:(x==0?0:1);
-
 main() {
-  check([1,2,2,3],
-    (var previous, var next)=>previous==next
-  );
-  check([2,4,3,1],
-    (var previous, var next)=>previous%2==next%2
-  );
-  check(new Iterable.generate(10, (int index)=>index),
-    (var previous, var next)=>abs(previous-next)<=1
-  );
-  check(new Iterable.generate(10, (int index)=>-5+index),
-    (var previous, var next)=>sign(previous)==sign(next)
-  );
+  check([]);
+  check([1,2,2,3]);
+  check([1,2,null,null]);
+  check(new Iterable.generate(0, (int index)=>1));
+  check(new Iterable.generate(10, (int index)=>[0]));
 }

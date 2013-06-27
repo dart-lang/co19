@@ -14,9 +14,15 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(Iterable<int> data, bool expected) {
+class MyTransformer extends StreamEventTransformer<int, int> {
+}
+
+check(Iterable<int> it, bool expected) {
+  Stream stream=new Stream.fromIterable(it);
+  MyTransformer t=new MyTransformer();
+  EventTransformStream ets=new EventTransformStream(stream, t);
   asyncStart();
-  new Stream.fromIterable(data).isEmpty.then((bool actual) {
+  ets.isEmpty.then((bool actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -28,3 +34,5 @@ main() {
   check(new Iterable.generate(0, (int index)=>1), true);
   check(new Iterable.generate(10, (int index)=>1), false);
 }
+
+

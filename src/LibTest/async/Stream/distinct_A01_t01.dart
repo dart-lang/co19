@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionStream<T> distinct([bool equals(T previous, T next)])
+ * @assertion Stream<T> distinct([bool equals(T previous, T next)])
  * Skips data events if they are equal to the previous data event.
  * The returned stream provides the same events as this stream,
  * except that it never provides two consequtive data events that are equal.
