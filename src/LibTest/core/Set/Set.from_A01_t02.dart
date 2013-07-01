@@ -10,6 +10,7 @@
  * @author rodionov
  * @reviewer msyabro
  */
+import "dart:collection";
 import "../../../Utils/expect.dart";
 
 class CustomIterator<T> implements Iterator<T> {
@@ -42,7 +43,7 @@ class CustomIterator<T> implements Iterator<T> {
   int _pos;
 }
 
-class IterableClass implements Iterable {
+class IterableClass implements IterableBase {
   List internalArray;
   
   Iterator get iterator {

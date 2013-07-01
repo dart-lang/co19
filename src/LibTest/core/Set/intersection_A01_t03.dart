@@ -15,21 +15,21 @@ import "../../../Utils/expect.dart";
 
 main() {
   Set s = new Set();
-  Set newSet = s.intersection([1, 2, 3]);
-  Expect.setEquals(s, []);
+  Set newSet = s.intersection([1, 2, 3].toSet());
+  Expect.setEquals(s, [].toSet());
   if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 
   s = new Set.from([1, 2 , 3]);
-  newSet = s.intersection([1, 2, 3]);
-  Expect.setEquals(s, [1, 2, 3]);
+  newSet = s.intersection([1, 2, 3].toSet());
+  Expect.setEquals(s, [1, 2, 3].toSet());
   if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 
-  newSet = s.intersection([1]);
-  Expect.setEquals(s, [1, 2, 3]);
+  newSet = s.intersection([1].toSet());
+  Expect.setEquals(s, [1, 2, 3].toSet());
   if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }

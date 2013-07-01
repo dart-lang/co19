@@ -11,6 +11,6 @@
  */
 
 main() {
-  new Set.from([1, 2, 3, 4]).intersection([null]);
-  new Set.from([1, 2, 3, 4]).intersection([null, 1]);
+  new Set.from([1, 2, 3, 4]).intersection([null].toSet());
+  new Set.from([1, 2, 3, 4]).intersection([null, 1].toSet());
 }
