@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future then(onValue(T value), {onError(AsyncError asyncError)})
- * If the invoked callback throws an exception, the returned future f is completed with
- * the error. If the value thrown is an AsyncError, it is used directly, as the error result.
- * Otherwise it is wrapped in an AsyncError first.
- * @description Checks that if the invoked callback throws not an AsyncError, the returned future f
- * is completed with an AsyncError wrapping that error.
+ * @assertion abstract Future then(onValue(T value), {onError(Object asyncError)})
+ * If the invoked callback throws an exception, the returned future f is completed with the error.
+ * @description Checks that if the invoked callback throws an exception,
+ * the returned future f is completed with the error.
  * @author kaigorodov
  */
 import "dart:async";
@@ -23,16 +21,27 @@ main() {
   
   completer.complete(1);
   
+  asyncStart();
   Future f=f0.then((fValue) {
+    asyncEnd();
     throw err;
   });
 
   int res1=null;
-  AsyncError res2=null;
-  f.then((fValue) {res1 = fValue;}, 
-     onError: (AsyncError e){res2=e;});
+  Object res2=null;
+  asyncStart();
+  Future f1=f.then(
+     (fValue) {
+       asyncEnd();
+       res1 = fValue;
+     }, 
+     onError: (e){
+       asyncEnd();
+       res2=e;
+     }
+  );
      
-  runLater((){
+  runAfter(f1, (){
     Expect.equals(null, res1);
     Expect.equals(err, res2);
   });

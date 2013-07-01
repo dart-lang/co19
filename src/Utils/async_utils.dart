@@ -17,6 +17,14 @@ Future runLater(void action()) {
   });
 }
   
+Future runAfter(Future f, void action()) {
+  asyncStart();
+  f.whenComplete((){
+    action();
+    asyncEnd();
+  });
+}
+  
 /*----------------------------*/
 
 /**
