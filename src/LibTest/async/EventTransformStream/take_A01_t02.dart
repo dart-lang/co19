@@ -19,22 +19,40 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-int eventCount=2; // the length of the source stream
-int takeCount=2; // how many events to take
+class MyTransformer extends StreamEventTransformer<int, int> {
+  void handleData(int event, EventSink<int> sink) {
+    sink.add(event);
+  }
+}
 
-void main() {
+void check(int eventCount, int takeCount) {
   Iterable it=new Iterable.generate(eventCount, (int index)=>index);
   Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
-  Stream t=s.take(takeCount);
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
+  Stream t=ets.take(takeCount);
+  int seenCount=0;
   asyncStart();
   t.listen((value){
-      Expect.fail("onData call not expected");
+      Expect.fail("datum not expected");
     },
     onError: (error) {
-      Expect.isTrue(error is ArgumentError);
+      Expect.isTrue(error is ArgumentError, error);
+      var message=(error as ArgumentError).message;
+      Expect.equals(seenCount, message);
+      seenCount++;
     },
     onDone: () {
+      Expect.equals(eventCount, seenCount);
       asyncEnd();
     }
   );
 }
+
+main() {
+  check(0,0);
+  check(0,1);
+  check(1,0);
+  check(1,1);
+  check(2,3);
+}
+

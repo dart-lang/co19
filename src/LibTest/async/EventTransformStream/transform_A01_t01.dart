@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> where(bool test(T event))
- * Creates a new stream from this stream that discards some data events.
- * The new stream sends the same error and done events as this stream, but it only
- * sends the data events that satisfy the test. 
+ * @assertion Stream transform(StreamTransformer<T, dynamic> streamTransformer)
+ * Chains this stream as the input of the provided StreamTransformer.
+ * Returns the result of streamTransformer.bind itself.
  * @description Checks that the new stream sends the same error and done events as this stream.
  * @author kaigorodov
  */
@@ -16,10 +15,26 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
+class MyTransformer extends StreamEventTransformer<int, int> {
+  void handleData(int event, EventSink<int> sink) {
+    sink.add(event);
+  }
+}
+
+class MyTransformer2 implements StreamTransformer<int, int> {
+  factory MyTransformer2()=>new StreamTransformer (
+    handleData: (int event, EventSink<int> sink) {
+      sink.add(event);
+    }
+  );
+}
+
 void check(Iterable data, bool test(event)) {
   Stream s = new Stream.fromIterable(data)
-    .map( (x) => x%2==0?x:throw new ArgumentError(x) )
-    .asBroadcastStream();
+    .map( (x) => x%2==0?x:throw new ArgumentError(x) );
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
+  Stream s2=ets.transform(new MyTransformer2()).asBroadcastStream();
+
   List err1=new List();
   List err2=new List();
 
@@ -28,7 +43,7 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  s.listen((bool value){},
+  s2.listen((bool value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -37,7 +52,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  s.where(test).listen((bool value){},
+  s2.where(test).listen((bool value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -52,3 +67,4 @@ main() {
     (event)=>true
   );
 }
+

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> firstWhere(bool test(T element), {T defaultValue()})
+ * @assertion Future<dynamic> firstWhere(bool test(T element), {Object defaultValue()})
  * Finds the first element of this stream matching test.
  * Returns a future that is filled with the first element of this stream that test returns true for.
  * @description Checks that if element is found, it is passed to the resulting future.
@@ -15,10 +15,14 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
+class MyTransformer extends StreamEventTransformer<int, int> {
+}
+
 void check1(Iterable data, bool test(int element), var expected) {
   Stream s=new Stream.fromIterable(data);
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
   asyncStart();
-  Future f=s.firstWhere(test);
+  Future f=ets.firstWhere(test);
   f.then((bool actual){
     Expect.equals(expected, actual);
     asyncEnd();

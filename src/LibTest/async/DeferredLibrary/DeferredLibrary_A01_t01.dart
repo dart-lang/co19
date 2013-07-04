@@ -5,8 +5,9 @@
  */
 /**
  * @assertion const DeferredLibrary(String libraryName, {String uri})
+ * (from #11507: Lazy library loading is a hint to deployment tools.
+ *  The VM is free to ignore this metadata.)
  * @description Checks that DeferredLibrary loads in lazy way.
- * @needsreview #11507
  * @author kaigorodov
  */
 
@@ -22,9 +23,8 @@ const lazy = const DeferredLibrary('DeferredLibrary_A01_t01.lib');
 void main() {
   try {
     foo.method(); // foo is not loaded yet.
-    Expect.fail("NoSuchMethodError expected");
+//    Expect.fail("NoSuchMethodError expected"); -- #11507: do not insist on lazy loading
   } on NoSuchMethodError  catch(ok) {
-//    print("NoSuchMethodError catched: $ok");
   }
   asyncStart();
   lazy.load().then(onFooLoaded);
@@ -33,7 +33,6 @@ void main() {
 void onFooLoaded(_) {
   String name=foo.method();
   Expect.equals('DeferredLibrary_A01_t01.lib', name);
-//  print("onFooLoaded ok");
   asyncEnd();
 }
 

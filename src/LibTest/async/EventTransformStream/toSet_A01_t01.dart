@@ -14,11 +14,18 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
+class MyTransformer extends StreamEventTransformer<int, int> {
+  void handleData(int event, EventSink<int> sink) {
+    sink.add(event);
+  }
+}
+
 /** index - first position in the stream where test() returns false
  */
 void check(List data) {
   Stream s=new Stream.fromIterable(data);
-  Future f=s.toSet();
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
+  Future f=ets.toSet();
   asyncStart();
   f.then((Set value){
       Expect.setEquals(data, value);

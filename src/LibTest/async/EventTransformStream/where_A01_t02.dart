@@ -16,9 +16,16 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
+class MyTransformer extends StreamEventTransformer<int, int> {
+  void handleData(int event, EventSink<int> sink) {
+    sink.add(event);
+  }
+}
+
 void check(Iterable data, bool test(event)) {
   Stream s = new Stream.fromIterable(data)
-    .map( (x) => x%2==0?x:throw new ArgumentError(x) )
+    .map( (x) => x%2==0?x:throw new ArgumentError(x) );
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer())
     .asBroadcastStream();
   List err1=new List();
   List err2=new List();
@@ -28,7 +35,7 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  s.listen((bool value){},
+  ets.listen((bool value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -37,7 +44,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  s.where(test).listen((bool value){},
+  ets.where(test).listen((bool value){},
     onError: (error) {
       sync.put1(error);
     },

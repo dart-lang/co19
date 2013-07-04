@@ -19,7 +19,7 @@ check(delay, value) {
   var res;
 
   asyncStart();
-  new Timer(durationMs(delay+5), () {
+  new Timer(durationMs(delay+100), () {
     Expect.equals(res, value);
     asyncEnd();
   });

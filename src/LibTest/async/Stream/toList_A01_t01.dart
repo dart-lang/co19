@@ -13,6 +13,7 @@
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+
 /** index - first position in the stream where test() returns false
  */
 void check(List data) {

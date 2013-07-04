@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> firstWhere(bool test(T element), {T defaultValue()})
+ * @assertion Future<dynamic> firstWhere(bool test(T element), {Object defaultValue()})
  * If an error occurs, or if this stream ends without finding a match and with no defaultValue function
  * provided, the future will receive an error.
  * @description Checks that if an error occurs, the future will receive that error.
@@ -15,10 +15,14 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(var expectedError) {
+class MyTransformer extends StreamEventTransformer<int, int> {
+}
+
+void check(var expectedError) {
   Completer completer = new Completer();
   Stream s=new Stream.fromFuture(completer.future);
-  Future f=s.firstWhere((v){throw expectedError;});
+  EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
+  Future f=ets.firstWhere((v){throw expectedError;});
   asyncStart();
   f.then(
     (data) {

@@ -6,7 +6,8 @@
 /**
  * @assertion factory Timer(Duration duration, void callback())
  * A negative duration is treated similar to a duration of 0.
- * @description Checks that negative duration is treated similar to a duration of 0.
+ * @description Checks that negative duration is treated similar to a duration of 0,
+ * so that timer runs the callback almost immediately.
  * @author kaigorodov
  */
 
@@ -18,16 +19,16 @@ import "../../../Utils/expect.dart";
 check(delay, value) {
   DateTime start=new DateTime.now();
 
-  void datesSimilar() {
+  void checkTime() {
     DateTime now=new DateTime.now();
-    Expect.isTrue(now.difference(start).inMilliseconds>=5, "now=$now, start=$start");
+    Expect.isTrue(now.difference(start).inMilliseconds<100, "now=$now, start=$start");
     asyncEnd();
   }
 
   asyncStart();
-  new Timer(durationMs(-delay), datesSimilar);
+  new Timer(durationMs(-delay), checkTime);
   asyncStart();
-  new Timer(durationMs(0), datesSimilar);
+  new Timer(durationMs(0), checkTime);
 }
 
 main() {

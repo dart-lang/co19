@@ -18,13 +18,22 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(List events0) {
-  Stream s1=new Stream.fromIterable(events0);
-  Stream s2=s1.asBroadcastStream();
+  Stream s0=new Stream.fromIterable(events0);
+  Stream s1=s0.asBroadcastStream();
+  
   List events1=new List();
-  StreamSubscription ss=s2.listen((event){events1.add(event);});
+  StreamSubscription ss1=s1.listen((event){events1.add(event);});
   asyncStart();
-  ss.onDone((){
+  ss1.onDone((){
     Expect.listEquals(events0, events1);
+    asyncEnd();
+  });
+  
+  List events2=new List();
+  StreamSubscription ss2=s1.listen((event){events2.add(event);});
+  asyncStart();
+  ss2.onDone((){
+    Expect.listEquals(events0, events2);
     asyncEnd();
   });
 }
