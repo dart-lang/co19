@@ -286,6 +286,42 @@ class Expect {
   static void _fail(String message) {
     throw new ExpectException(message);
   }
+
+static void deepListEquals(var expected, var actual) {
+  if((expected is! List) || (actual is! List)) {
+    Expect.equals(expected, actual);
+    return;
+  }
+
+  if(expected.length != actual.length) {
+    Expect.fail("Lists are not equal: expected length ${expected.length}, actual length ${actual.length}");
+  }
+  for(int i = 0; i != expected.length; i++) {
+    if(expected[i] is Map) {
+      deepMapEquals(expected[i], actual[i]);
+    } else {
+      deepListEquals(expected[i], actual[i]);
+    }
+  }
+}
+
+static void deepMapEquals(var expected, var actual) {
+  if((expected is! Map) || (actual is! Map)) {
+    Expect.equals(expected, actual);
+    return;
+  }
+  if(expected.length != actual.length) {
+    Expect.fail("Maps are not equal: expected length ${expected.length}, actual length ${actual.length}");
+  }
+  for(var key in expected.keys) {
+    if(expected[key] is Map) {
+      deepMapEquals(expected[key], actual[key]);
+    } else {
+      deepListEquals(expected[key], actual[key]);
+    }
+  }
+}
+
 }
 
 bool _identical(a, b) => identical(a, b);

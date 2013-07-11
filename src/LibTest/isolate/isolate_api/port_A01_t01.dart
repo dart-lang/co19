@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ReceivePort get port()
+ * @assertion final ReceivePort port
  * The initial ReceivePort available by default for this isolate. 
  * This ReceivePort is created automatically and it is commonly used to establish 
  * the first communication between isolates (see spawnFunction and spawnUri).

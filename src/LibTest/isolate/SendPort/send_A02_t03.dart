@@ -14,13 +14,14 @@
 
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 import "send_A02_util.dart";
 
 f() {
   int i = 0;
   var maps = makeMaps();
   port.receive((message, replyTo) {
-    deepMapEquals(maps[i], message);
+    Expect.deepMapEquals(maps[i], message);
     i++;
     replyTo.send(message);
     if(i == maps.length) {
@@ -47,7 +48,7 @@ void main() {
 
   int i = 0;
   port.receive((message, reply) {
-    deepMapEquals(maps[i], message);
+    Expect.deepMapEquals(maps[i], message);
     i++;
     if(i == maps.length) {
      port.close();

@@ -10,10 +10,9 @@
  * @description Checks that sending multiple messages works fine.
  * @author iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "dart:isolate";
-
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   SendPort send_port = spawnUri("spawnUri_A01_t05_isolate.dart");
@@ -21,12 +20,14 @@ main() {
 
   int i = 0;
 
+  asyncStart();
   port.receive((message, replyTo){
     if(message != "end") {
       Expect.equals(++i, message);
       replyTo.send(i, port.toSendPort());
     } else {
       port.close();
+      asyncEnd();
     }
   });
 }

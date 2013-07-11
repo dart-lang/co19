@@ -11,13 +11,14 @@
  * @author iefremov
  * @issue 5222
  */
-import "../../../Utils/expect.dart";
-
 import "dart:isolate";
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   SendPort send_port = spawnUri("spawnUri_A01_t03_isolate1.dart");
   send_port.send("isolate1", port.toSendPort());
+  asyncStart();
   port.receive((message, replyTo){
     if("isolate1_done" == message) {
       replyTo.send("isolate2", port.toSendPort());
@@ -25,5 +26,6 @@ main() {
     }
     Expect.equals("ok", message);
     port.close();
+    asyncEnd();
   });
 }

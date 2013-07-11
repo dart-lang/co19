@@ -10,11 +10,12 @@
  * @author rodionov
  * @needsreview documentation looks incomplete
  */
+import "dart:isolate";
 import "../../../Utils/expect.dart";
 
-import "dart:isolate";
-
-
 main() {
-  Expect.throws(() => spawnUri("spawnUri_A02_t03_bad_isolate.dart"));
+//  Expect.throws(() => spawnUri("spawnUri_A02_t03_bad_isolate.dart"));
+  SendPort send_port = spawnUri("spawnUri_A02_t03_bad_isolate.dart");
+  send_port.send("isolate1", port.toSendPort());
+  Expect.fail("spawnUri(bad library) does not gives an error");
 }

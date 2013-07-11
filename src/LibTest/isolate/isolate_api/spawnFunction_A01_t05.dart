@@ -4,24 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion SendPort spawnFunction(void topLevelFunction())
+ * @assertion SendPort spawnFunction(void topLevelFunction(), [bool unhandledExceptionCallback(IsolateUnhandledException e)])
  * Creates and spawns an isolate that shares the same code as the current
- * isolate, but that starts from [topLevelFunction]. The [topLevelFunction]
- * argument must be a static top-level function or a static method that takes no
- * arguments. It is illegal to pass a function closure.
- *
- * When any isolate starts (even the main script of the application), a default
- * [ReceivePort] is created for it. This port is available from the top-level
- * getter [port] defined in this library.
- *
- * [spawnFunction] returns a [SendPort] derived from the child isolate's default
- * port.
+ * isolate, but that starts from [topLevelFunction].
  * @description Checks that sending multiple messages works fine.
  * @author iefremov
  */
-import "../../../Utils/expect.dart";
 
 import "dart:isolate";
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 final MSG_NUM = 100;
 
@@ -42,12 +34,15 @@ main() {
 
   int i = 0;
 
+  asyncStart();
   port.receive((message, replyTo){
     if(message != "end") {
+      asyncStart();
       Expect.equals(++i, message);
       replyTo.send(i, port.toSendPort());
     } else {
       port.close();
     }
+    asyncEnd();
   });
 }

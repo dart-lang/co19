@@ -14,13 +14,14 @@
 
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 import "send_A02_util.dart";
 
 f() {
   int i = 0;
   var lists = makeLists();
   port.receive((message, replyTo) {
-    deepListEquals(lists[i], message);
+    Expect.deepListEquals(lists[i], message);
     i++;
 
     replyTo.send(message);
@@ -47,7 +48,7 @@ void main() {
 
   int i = 0;
   port.receive((message, reply) {
-    deepListEquals(lists[i], message);
+    Expect.deepListEquals(lists[i], message);
     i++;
     if(i == lists.length) {
      port.close();

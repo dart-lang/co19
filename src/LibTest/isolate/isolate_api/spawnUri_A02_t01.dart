@@ -10,10 +10,8 @@
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
-import "../../../Utils/expect.dart";
-
 import "dart:isolate";
-
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() => spawnUri(null));

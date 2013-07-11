@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011-2013, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,17 +14,25 @@
  */
 
 import "dart:isolate";
+import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-void main() {
+void check(message) {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   
-  rPort.receive((var message, SendPort replyTo) {
+  rPort.receive((var message2, SendPort replyTo) {
+    Expect.equals(message, message2);
     rPort.close();
     asyncEnd();
   });
   
   asyncStart();
-  sPort.send("message1", null);
+  sPort.send(message, null);
+}
+
+void main() {
+ check("message1");
+ check(1);
+ check(null);
 }

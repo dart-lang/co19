@@ -11,16 +11,18 @@
  * @author iefremov
  * @issue 5222
  */
-import "../../../Utils/expect.dart";
-
 import "dart:isolate";
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   SendPort send_port = spawnUri("spawnUri_A01_t04_isolate.dart");
   send_port.send(1, port.toSendPort());
 
+  asyncStart();
   port.receive((message, replyTo){
     Expect.equals(10, message);
     port.close();
+    asyncEnd();
   });
 }

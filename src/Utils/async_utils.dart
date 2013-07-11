@@ -9,9 +9,9 @@ Duration durationMs(delay) {
   return delay == null? Duration.ZERO : ONE_MS * delay;
 }
 
-Future runLater(void action()) {
+Future runLater(void action(), [int delay=0]) {
   asyncStart();
-  return new Future.delayed(Duration.ZERO, (){
+  return new Future.delayed(durationMs(delay), (){
     action();
     asyncEnd();
   });
@@ -33,6 +33,7 @@ Future runAfter(Future f, void action()) {
  * see co19 issue #423
  * http://code.google.com/p/co19/issues/detail?id=423
  */
+bool first=true;
 
 int _asyncTestStart() {
   print("unittest-suite-wait-for-done");

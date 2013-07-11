@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The [topLevelFunction] argument must be a static top-level function
+ * @assertion SendPort spawnFunction(void topLevelFunction(), [bool unhandledExceptionCallback(IsolateUnhandledException e)])
+ * The [topLevelFunction] argument must be a static top-level function
  * or a static method that takes no arguments. It is illegal to pass a function closure.
  * @description Checks that method throws an exception when passed null, an integer, or a string.
  * @static-warning

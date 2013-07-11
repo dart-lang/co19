@@ -4,41 +4,47 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Each isolate has its own heap, which means that all values in memory,
- * including globals, are available only to that isolate.
- * @description Checks that each isolate gets their own copy of global and static variables.
- * @author iefremov
+ * @assertion SendPort spawnFunction(void topLevelFunction(), [bool unhandledExceptionCallback(IsolateUnhandledException e)])
+ * When any isolate starts (even the main script of the application),
+ * a default ReceivePort is created for it.
+ * This port is available from the top-level getter port defined in this library.
+ * spawnFunction returns a SendPort derived from the child isolate's default port.
+ * @description Checks that a SendPort returned by spawnFunction correstonds to the default port of the isolate.
+ * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 import "dart:isolate";
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
-class A {
-  static var statik = "statik";
+void duplicator() {
+  port.receive((message, replyTo) {
+    replyTo.send([message, message]);
+    port.close();
+  });
 }
 
-var global = "global";
+void check(var value) {
+  SendPort send_port = spawnFunction(duplicator);
+  ReceivePort rPort = new ReceivePort();
+  send_port.send(value, rPort);
 
-
-f() {
-  port.receive((message, replyTo) {
-    global = "f";
-    A.statik = "f";
-    replyTo.send([global, A.statik]);
-    port.close();
+  asyncStart();
+  rPort.receive((message, replyTo){
+    Expect.isTrue(message is List);
+    List ml=message as List;
+    Expect.equals(2, ml.length);
+    Expect.equals(value, ml[0]);
+    Expect.equals(value, ml[1]);
+    asyncEnd();
+    rPort.close();
   });
 }
 
 main() {
-  SendPort send_port = spawnFunction(f);
-  send_port.send("", port.toSendPort());
-
-  port.receive((message, replyTo){
-    Expect.equals("f", message[0]);
-    Expect.equals("f", message[1]);
-    Expect.equals("global", global);
-    Expect.equals("statik", A.statik);
-    port.close();
-  });
+  check(null);
+  check("");
+  check("alex");
+  check(true);
+  check(1);
 }
-

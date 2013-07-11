@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates and spawns an isolate whose code is available at uri. Like with
+ * @assertion SendPort spawnUri(String uri) 
+ * Creates and spawns an isolate whose code is available at uri. Like with
  * spawnFunction, the child isolate will have a default ReceivePort, and this
  * function returns a SendPort derived from it.
  * @description Checks spawning 3 isolates from a single source.
  * @author iefremov
  */
-import "../../../Utils/expect.dart";
 
 import "dart:isolate";
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   SendPort send_port1 = spawnUri("spawnUri_A01_t02_isolate.dart");
@@ -27,16 +29,20 @@ main() {
   send_port2.send(2, rport2.toSendPort());
   send_port3.send(3, rport3.toSendPort());
 
+  asyncMultiStart(3);
   rport1.receive((message, replyTo){
     Expect.equals(-1, message);
     rport1.close();
+    asyncEnd();
   });
   rport2.receive((message, replyTo){
     Expect.equals(-2, message);
     rport2.close();
+    asyncEnd();
   });
   rport3.receive((message, replyTo){
     Expect.equals(-3, message);
     rport3.close();
+    asyncEnd();
   });
 }
