@@ -105,7 +105,6 @@ class Expect {
    * This is different than the typical check for identity equality `identical`
    * used by the standard list implementation.  It should also produce nicer
    * error messages than just calling `Expect.equals(expected, actual)`.
-   */
   static void listEquals(List expected, List actual, [String reason = null]) {
     String msg = _getMessage(reason);
     int n = (expected.length < actual.length) ? expected.length : actual.length;
@@ -124,12 +123,12 @@ class Expect {
         '${expected.length > n ? expected[n] : actual[n]}>');
     }
   }
+   */
 
   /**
    * Checks that all [expected] and [actual] have the same set of keys (using
    * the semantics of [Map.containsKey] to determine what "same" means. For
    * each key, checks that the values in both maps are equal using `==`.
-   */
   static void mapEquals(Map expected, Map actual, [String reason = null]) {
     String msg = _getMessage(reason);
 
@@ -149,6 +148,7 @@ class Expect {
       }
     }
   }
+   */
 
   /**
    * Specialized equality test for strings. When the strings don't match,
@@ -287,40 +287,85 @@ class Expect {
     throw new ExpectException(message);
   }
 
-static void deepListEquals(var expected, var actual) {
-  if((expected is! List) || (actual is! List)) {
-    Expect.equals(expected, actual);
-    return;
+//  static void deepListEquals(var expected, var actual, [String reason = null]) {
+  static void listEquals(var expected, var actual, [String reason = null]) {
+    if((expected is! List) || (actual is! List)) {
+      Expect.fail("not a List");
+    }
+    deepEquals(expected, actual, reason);
   }
 
-  if(expected.length != actual.length) {
-    Expect.fail("Lists are not equal: expected length ${expected.length}, actual length ${actual.length}");
-  }
-  for(int i = 0; i != expected.length; i++) {
-    if(expected[i] is Map) {
-      deepMapEquals(expected[i], actual[i]);
-    } else {
-      deepListEquals(expected[i], actual[i]);
+  static void mapEquals(var expected, var actual, [String reason = null]) {
+    if((expected is! Map) || (actual is! Map)) {
+      Expect.fail("not a Map");
     }
+    deepEquals(expected, actual, reason);
   }
-}
 
-static void deepMapEquals(var expected, var actual) {
-  if((expected is! Map) || (actual is! Map)) {
-    Expect.equals(expected, actual);
-    return;
-  }
-  if(expected.length != actual.length) {
-    Expect.fail("Maps are not equal: expected length ${expected.length}, actual length ${actual.length}");
-  }
-  for(var key in expected.keys) {
-    if(expected[key] is Map) {
-      deepMapEquals(expected[key], actual[key]);
-    } else {
-      deepListEquals(expected[key], actual[key]);
+  /** checks that both collections have identical topology and equal primitive elements.
+   *  used to check cyclic collections passed through ports and streams.
+   */
+  static void deepEquals(var expected, var actual, [String reason = null]) {
+    Map planned=new Map();
+    Map processed=new Map();
+  
+    void plan2check(var expected, var actual) {
+      if (expected == null) {
+         Expect.isNull(actual);
+      };
+      if ((expected is Map) || (expected is List)) {
+        var savedActual=planned[expected];
+        if (savedActual!=null) {
+          // this pair is planned to investigate
+          Expect.equals(savedActual, actual);
+        } else if ((savedActual=processed[expected])!=null) {
+          // this pair is checked already
+          Expect.equals(savedActual, actual);
+        } else {
+          // this pair is not yet investigated
+          Expect.equals(expected.length, actual.length,
+            "Collections' lengths are not equal: expected length=${expected.length}, actual length=${actual.length}");
+          planned[expected]=actual;
+        }
+      } else {
+        Expect.equals(expected, actual);
+      }
+    }
+
+    void runPlanned(var expected, var actual) {
+      if (expected is Map) {
+        for (var key in expected.keys) {
+//        TODO check that key sets are equivalent. Following method does not work:        
+//          Expect.isTrue(actual.keys.toSet().remove(key)");
+          plan2check(expected[key], actual[key]);
+        }
+      } else if (expected is List) {
+        for(int i = 0; i != expected.length; i++) {
+          plan2check(expected[i], actual[i]);
+        }
+      } else {
+        Expect.fail("only Lists and Maps expected in the plan");
+      }
+      // move pair from planned to processed
+      planned.remove(expected);
+      processed[expected]=actual;
+    }
+
+    try {
+      plan2check (expected, actual);
+      for (;;) {
+        Iterable keys=planned.keys;
+        if (keys.isEmpty) {
+          return;
+        }
+        var key=keys.first;
+        runPlanned(key, planned[key]);
+      }
+    } catch (error) {
+      String msg = _getMessage(reason);
+      _fail('deepEquals($expected, $actual, $msg) fails\n   [cause: $error]');
     }
   }
-}
 
 }
 

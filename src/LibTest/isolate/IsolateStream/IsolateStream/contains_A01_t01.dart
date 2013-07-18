@@ -4,25 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<bool> contains(T match)
- * Checks whether match occurs in the elements provided by this stream.
+ * @assertion Future<bool> contains(Object needle)
+ * Checks whether needle occurs in the elements provided by this stream.
  * @description Checks that the method correctly checks whether match
  * occurs in the elements provided by this stream.
  * @author kaigorodov
  */
 
-import "dart:async";
+import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(List l, var match, bool expected) {
-  Stream s=new Stream.fromIterable(l);
-  Future<bool> fu=s.contains(match);
+  MessageBox mbox=new MessageBox();
+
+  Future<bool> fu=mbox.stream.contains(match);
   asyncStart();
   fu.then((actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
+
+  for (var element in l) {
+    mbox.sink.add(element);
+  }
+  mbox.sink.close();
 }
 
 main() {

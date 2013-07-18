@@ -4,23 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void add(message)
- * Sends an asynchronous message to the linked IsolateStream.
- * The message is copied to the receiving isolate.
- * The content of message can be: primitive values (null, num, bool, double, String),
- * instances of IsolateSinks, and lists and maps whose elements are any of these.
- * @description Checks that various primitive values, as well as an IsolateSink,
- * could be sent properly through an IsolateSink.
+ * @assertion abstract void addError(errorEvent)
+ * Create an async error.
+ * @description Checks that corresponding isolate stream listener receives an error.
  * @author kaigorodov
  */
 
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-import "add_A01_util.dart";
 
 IsolateSink replyTo=null;
-int i = 0;
 
 void readMsg(message) {
   if (replyTo==null) {
@@ -36,26 +30,36 @@ void readMsg(message) {
 }
 
 void main2() {
-  stream.listen(readMsg);
+  stream.listen((var message) {
+    if (replyTo==null) {
+      Expect.isTrue(message is IsolateSink);
+      replyTo=message;
+    } else {
+      replyTo.addError(message);
+    }
+  },
+  onError: (error){
+    replyTo.add(error);
+  });
 }
 
 void main() {
+  var msg1=123;
+  var msg2=321;
   IsolateSink sink = streamSpawnFunction(main2);
   MessageBox mbox=new MessageBox();
-  sink.add(mbox.sink);
+  sink.add(mbox.sink); // initial
+  sink.add(msg1); // would be returned as error
+  sink.addError(msg2); // would be returned as data
   
-  int i = 0;
+  asyncMultiStart(2);
   mbox.stream.listen((message) {
-    Expect.equals(messagesList[i], message);
-    if(++i == messagesList.length) {
-      mbox.sink.close();
-    }
+    Expect.equals(msg2, message);
+    asyncEnd();
+  },
+  onError: (error){
+    Expect.equals(msg1, message);
     asyncEnd();
   });
-
-  for(var v in messagesList) {
-    asyncStart();
-    sink.add(v);
-  }
 }
 

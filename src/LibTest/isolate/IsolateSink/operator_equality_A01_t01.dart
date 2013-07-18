@@ -6,7 +6,7 @@
 /**
  * @assertion abstract bool operator ==(other)
  * Tests whether other is an IsolateSink feeding into the same IsolateStream as this one.
- * @description Checks that same sink passed into an isolate twice preserves euality.
+ * @description Checks that same sink passed into an isolate twice preserves equality.
  * as an argument.
  * @author kaigorodov
  */
