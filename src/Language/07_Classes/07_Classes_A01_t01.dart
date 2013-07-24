@@ -5,9 +5,8 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
- * ;
+ * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
+ *   '{' (metadata classMemberDefinition)* '}'
  * @description Checks that various class definitions that are valid according to
  * this syntax do not cause any errors and can be instantiated.
  * @author msyabro
@@ -33,8 +32,10 @@ class L<T extends A, S extends B> implements IT<T> {}
 abstract class N<T, U> extends A {}
 abstract class O extends N<int, int> implements I {}
 
-class P extends O {
-}
+class P extends O {}
+
+class Q1 extends A with D {}
+class Q2 extends A with D, F<int> {}
 
 main() {
   A a = new A();

@@ -5,9 +5,8 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
- * ;
+ * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
+ *   '{' (metadata classMemberDefinition)* '}'
  * @description Checks that it is a compile-time error if type parameters are separated with semicolon.
  * @compile-error
  * @author kaigorodov

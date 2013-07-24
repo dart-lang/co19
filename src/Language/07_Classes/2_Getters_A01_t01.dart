@@ -6,7 +6,7 @@
 /**
  * @assertion
  * getterSignature:
- *   static? returnType? get identifier
+ *   type? get identifier
  * ;
  * @description Checks that various valid getter declarations are parsed correctly.
  * @author iefremov

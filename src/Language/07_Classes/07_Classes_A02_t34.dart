@@ -5,20 +5,20 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
+ * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
+ *   '{' (metadata classMemberDefinition)* '}'
  * ;
  * classMemberDefinition:
- *   metadata declaration ';' |
- *   metadata methodSignature functionBody
+ *   declaration ';' |
+ *   methodSignature functionBody
  * ;
  * declaration:
  *   constantConstructorSignature (redirection | initializers)? |
  *   constructorSignature (redirection | initializers)? |
  *   external constantConstructorSignature |
  *   external constructorSignature |
- *   external? getterSignature |
- *   external? setterSignature |
+ *   (external static?)? getterSignature |
+ *   (external static?)? setterSignature |
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |

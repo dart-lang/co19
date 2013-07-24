@@ -5,8 +5,8 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
+ * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
+ *   '{' (metadata classMemberDefinition)* '}'
  * ;
  * metadata:
  *   (’@’ qualified (. identifier)? (arguments)?)*

@@ -5,9 +5,8 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? superclass? interfaces?
- *   '{' classMemberDefinition* '}'
- * ;
+ * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
+ *   '{' (metadata classMemberDefinition)* '}'
  * @compile-error
  * @description Checks that it is a compile-time error if a class type definition
  * uses square brackets instead of the curly ones. 

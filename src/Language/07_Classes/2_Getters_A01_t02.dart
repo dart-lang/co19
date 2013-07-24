@@ -6,7 +6,7 @@
 /**
  * @assertion
  * getterSignature:
- *   static? returnType? get identifier
+ *   type? get identifier
  * ;
  * @description Checks that it is a compile-time error if the getter identifier is missing.
  * @author iefremov

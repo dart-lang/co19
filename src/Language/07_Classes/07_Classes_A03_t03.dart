@@ -5,21 +5,21 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? superclass? interfaces?
- * ‘{’ metadata classMemberDefinition* ‘}’
- *  ;
- *  classMemberDefinition:
- *    declaration ‘;’ |
- *    methodSignature functionBody
- *    ;
- *  methodSignature:
- *    constructorSignature initializers? |
- *    factoryConstructorSignature |
- *    static? functionSignature |
- *    static? getterSignature |
- *    static? setterSignature |
- *    operatorSignature
- * ; 
+ * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
+ *   '{' (metadata classMemberDefinition)* '}'
+ * ;
+ * classMemberDefinition:
+ *   declaration ';' |
+ *   methodSignature functionBody
+ * ;
+ * methodSignature:
+ *   constructorSignature initializers? |
+ *   factoryConstructorSignature |
+ *   static? functionSignature |
+ *   static? getterSignature |
+ *   static? setterSignature |
+ *   operatorSignature
+ * ;
  * @description Checks that there is no compile-time error if a function
  * method definition in a concrete class does not include a body, and no
  * runtime error is thrown when that class is instantiated.

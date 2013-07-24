@@ -6,7 +6,7 @@
 /**
  * @assertion
  * getterSignature:
- *   static? returnType? get identifier
+ *   type? get identifier
  * ;
  * @description Checks that a compile-time error is produced if an arbitrary static getter specifies
  * a single formal parameter.

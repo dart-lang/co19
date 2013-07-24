@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the extends clause of a class C
- * includes a type expression that does not denote a class available in the
- * lexical scope of C.
+ * @assertion It is a compile-time error if the extends clause of a class C 
+ *  specifies a malformed type as a superclass.
  * @description Checks that it is a compile-time error when the type expression
  * in a class's extends clause denotes an unavailable type.
  * @author pagolubev

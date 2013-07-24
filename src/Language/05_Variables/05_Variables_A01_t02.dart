@@ -31,12 +31,14 @@
  * @description Checks various valid initialized variable declarations.
  * @author iefremov
  * @reviewer rodionov
- * @note Add const variables once they're implemented
+ * @reviewer hlodvig
  */
 
 main() {
   final String $tring = "";
   final f = null;
+  const String sc = "";
+  const ac = 1;
   var v = 1 + 2;
   int i = 42 * 0;
 
@@ -45,6 +47,6 @@ main() {
     $tring3 = "right to the finish",
     $tring4 = "a nocturne on a drainpipe flute";
 
-    var x, y = 1 + 2, z = 3 * 4;
+    var x, y = 1 + 2, z = 3 * 4, xc = ac+1;
     double d, d1 = 0.5, d2;
 }

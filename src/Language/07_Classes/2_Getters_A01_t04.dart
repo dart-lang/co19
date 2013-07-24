@@ -6,7 +6,7 @@
 /**
  * @assertion
  * getterSignature:
- *   static? returnType? get identifier
+ *   type? get identifier
  * ;
  * @description Checks that a compile-time error is produced
  * when a getter declaration includes a non-empty formal parameter list.

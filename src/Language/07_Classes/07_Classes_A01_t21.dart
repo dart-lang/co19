@@ -7,14 +7,14 @@
  * @assertion classDefinition:
  * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
  *   '{' (metadata classMemberDefinition)* '}'
- * @description Checks that it is a compile-time error if type parameters list ends with
- * an extra angle bracket.
+ * @description Checks that it is a compile-time error if mixin has incomplete declaration.
  * @compile-error
- * @author kaigorodov
- * @reviewer iefremov
+ * @author hlodvig
  */
 
-class A<T1>>{}
+class A {}
+
+class C extends A with {}
 
 main() {
   try {

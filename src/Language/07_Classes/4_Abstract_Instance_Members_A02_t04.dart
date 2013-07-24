@@ -7,17 +7,17 @@
  * @assertion Invoking an abstract method, getter or setter results in an invocation of
  *  noSuchMethod exactly as if the declaration did not exist, unless a suitable member
  *  a is available in a superclass, in which case a is invoked.
- * @description Checks that NoSuchMethodError is thrown when calling an abstract method
- *  that is inherited from non-direct superclass.
+ * @description Checks that invoking an abstract method, getter or setter that is 
+ *  inherited from non-direct superclass results in invoking noSuchMethod method.
  * @static-warning
- * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
- * @reviewer kaigorodov
+ * @author hlodvig
  */
 import "../../Utils/expect.dart";
 abstract class A {
-  m1();
+  int m1();
+  int noSuchMethod(Invocation invocation){
+    return 666; 
+  }
 }
 
 abstract class A1 extends A {}
@@ -27,8 +27,10 @@ class C extends A2 { /// static type warning Concrete class has unimplemented me
 
 main() {
   try {
-    new C().m1();
-    Expect.fail("NoSuchMethodError expected when calling abstract method or superclass.");
-  } on NoSuchMethodError catch (ex) {}
+    int v = new C().m1();
+    Expect.equals(666, v);
+  } on NoSuchMethodError catch (ex) {
+    Expect.fail("NoSuchMethodError is not expected.");
+  }
 }
 
