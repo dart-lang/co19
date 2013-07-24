@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 class TestException {}
 
 class A {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     Expect.equals('call', im.memberName);
     throw new TestException();
   }

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a run-time error to attempt to modify a constant list literal.
+ * @assertion Attempting to mutate a constant list literal will result in a dynamic error.
  * @description Checks that it is a run-time error to attempt to modify
  * a constant list literal.
  * @author msyabro

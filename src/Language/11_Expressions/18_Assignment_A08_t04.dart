@@ -19,7 +19,7 @@ import "../../Utils/expect.dart";
 class C {
   operator[](idx) {}
 
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     if(im.memberName != '[]=') {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }

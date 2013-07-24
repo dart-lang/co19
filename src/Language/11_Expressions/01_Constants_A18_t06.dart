@@ -6,7 +6,7 @@
 /**
  * @assertion Let c1 and c2 be a pair of constants. Then identical(c1, c2) iff:
  * - c1 evaluates to either null, a constant map, an constant list, an instance
- *   of bool, num, String or Type and c1 == c2 , OR
+ *   of bool, num, String and c1 == c2 , OR
  * - c1 and c2 are constant objects of the same class C and for each member
  *   field of c1 is identical to the corresponding field of c2 .
  * where identical() is the predefined dart function that returns true iff its two

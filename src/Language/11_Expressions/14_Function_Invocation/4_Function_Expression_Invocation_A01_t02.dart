@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 class TestException {}
 
 class A {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     // member name and number of args are different for an unresolved getter
     Expect.equals("b", im.memberName);
     Expect.equals(1, im.positionalArguments.length);

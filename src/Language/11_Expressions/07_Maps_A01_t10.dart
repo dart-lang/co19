@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A map literal denotes a map from strings to objects.
+ * @assertion A map literal denotes a map object.
  * mapLiteral:
  *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)? '}'
  * ;
  * mapLiteralEntry:
- *   stringLiteral ':' expression
+ *   expression ':' expression
  * ;
- * A map literal consists of zero or more entries. Each entry has a key, which is a
- * string literal, and a value, which is an object.
+ * A map literal consists of zero or more entries.  Each entry has a key and a value.
+ * Each key and each value is denoted by an expression.
  * @description Checks that it is a compile-time error if a const map literal
  * does not begin with '{'.
  * @compile-error

@@ -29,7 +29,7 @@ import "../../Utils/expect.dart";
 class TestException {}
 
 class C {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     Expect.isTrue(im.isSetter);
     Expect.equals('func=', im.memberName);
     //Expect.listEquals([Closure], im.positionalArguments);  //Function.toString is not specified

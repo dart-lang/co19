@@ -27,7 +27,7 @@
 import "../../Utils/expect.dart";
 
 class C {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     if(im.memberName != 'nonExistingSetter=') {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }

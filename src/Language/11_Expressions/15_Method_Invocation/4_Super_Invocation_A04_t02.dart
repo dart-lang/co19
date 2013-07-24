@@ -17,7 +17,7 @@
 import "../../../Utils/expect.dart";
 
 class S1 {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     return "v";
   }
 }

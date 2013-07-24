@@ -20,25 +20,25 @@
 import "../../Utils/expect.dart";
 
 class A {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     return "v";
   }
 }
 
 class B {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     return true;
   }
 }
 
 class C {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     return 1;
   }
 }
 
 class D {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     return null;
   }
 }

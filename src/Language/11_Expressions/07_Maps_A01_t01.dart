@@ -4,18 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A map literal denotes a map from strings to objects.
+ * @assertion A map literal denotes a map object.
  * mapLiteral:
  *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)? '}'
  * ;
  * mapLiteralEntry:
- *   stringLiteral ':' expression
+ *   expression ':' expression
  * ;
- * A map literal consists of zero or more entries. Each entry has a key, which is a
- * string literal, and a value, which is an object.
- * @description Checks that various map literals don't produce a compile-time errors.
+ * A map literal consists of zero or more entries.  Each entry has a key and a value.
+ * Each key and each value is denoted by an expression.
+ * @description Checks that various map keys don't produce a compile-time errors.
  * @author msyabro
  * @reviewer kaigorodov
+ * @needsreview 11255
  */
 
 topFunc() {}
@@ -66,6 +67,12 @@ class Test  {
     x = {"++": id++, "--": --id};
 
     x = {"is bool": true is bool, "is not int": false is! int};
+    
+    x = {5: true, 6: false};
+
+    x = {++5: true, ++6: false};
+
+    x = {1+5: true, 1+6: false};
   }
 
   constants() {

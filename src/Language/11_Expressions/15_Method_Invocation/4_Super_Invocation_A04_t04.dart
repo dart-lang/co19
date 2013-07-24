@@ -23,7 +23,7 @@ class TestException {}
 class S {
   static int get sm {}
   
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     throw new TestException();
   }
 }

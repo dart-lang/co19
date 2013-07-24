@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A runtime map literal <String, V>{k1:e1... kn :en}  is evaluated as follows:
- *   - First, the expressions e1...en are evaluated in left to right order, yielding objects o1... on.
- *   - A fresh instance m that implements the built-in interface Map<String, V> is allocated.
- *   - Let ui be the value of the string literal specified by ki.
- *     The operator []= is invoked on m with first argument ui and second argument oi, 0 <= i < n.
+ * @assertion A runtime map literal <K, V>{k1:e1... kn :en}  is evaluated as follows:
+ *   - First, the expression ki is evaluated yielding object ui, the ei is vaulted
+ *     yielding object oi, for i ∈ 1..n in left to right order, yielding objects
+ *     u1; o1 ... un; on. 
+ *   - A fresh instance m that implements the built-in interface Map<K, V> is allocated.
+ *     The operator []= is invoked on m with first argument ui and second argument oi, i ∈ 1..n.
  *   - The result of the evaluation is m.
  * @description Checks that entries with keys ui and values oi are added to the resulted map object.
  * @author msyabro
- * @needsreview issue 1478
  * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";

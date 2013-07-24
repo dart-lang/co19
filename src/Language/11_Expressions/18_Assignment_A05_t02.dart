@@ -29,7 +29,7 @@ import "../../Utils/expect.dart";
 class TestException {}
 
 class C {
-  noSuchMethod(InvocationMirror im) {
+  noSuchMethod(Invocation im) {
     Expect.isTrue(im.isSetter);
     Expect.equals('setter=', im.memberName);
     Expect.listEquals([1], im.positionalArguments);
