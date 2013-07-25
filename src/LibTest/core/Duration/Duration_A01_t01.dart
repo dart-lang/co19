@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The duration is the sum of all individual parts. This means that
- *            individual parts don't need to be less than the next-bigger unit.
- *            For example [hours] is allowed to have a value greater than 23.
+ * @assertion const Duration({int days: 0, int hours: 0, int minutes: 0, int seconds: 0, int milliseconds: 0, int microseconds: 0})
+ * The duration is the sum of all individual parts.
+ * This means that individual parts don't need to be less than the next-bigger unit.
+ * For example hours is allowed to have a value greater than 23.
  * @description Checks that a Duration instance can be created without error using
  *              various non-negative integer arguments.
  * @author akuznecov

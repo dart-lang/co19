@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int get day();
- * Returns the day of the date [1..31].
- * @description Creates a new DateTime with various integer day values (1..31), and reads the value back.
+ * @assertion final int day
+ * Returns the day into the month 1..31.
+ * @description Creates a new DateTime with various integer day values (1..31)
+ * and reads the value back.
  * @author rodionov
  * @reviewer msyabro
  */

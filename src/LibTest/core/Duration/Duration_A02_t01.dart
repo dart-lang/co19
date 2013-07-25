@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion All individual parts are allowed to be negative.
+ * @assertion const Duration({int days: 0, int hours: 0, int minutes: 0, int seconds: 0, int milliseconds: 0, int microseconds: 0})
+ * All individual parts are allowed to be negative.
  * @description Checks that negative values are allowed and do not cause any errors
  * @author akuznecov
  * @reviewer rodionov

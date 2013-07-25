@@ -4,7 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion interface Duration extends Comparable
+ * @assertion int compareTo(Duration other)
+ * Compares this object to another Comparable
+ * Returns a value like a Comparator when comparing this to other.
+ * May throw an ArgumentError if other is of a type that is not comparable to 
  * @description Checks that compareTo() method is implemented correctly.
  * @needsreview Method undocumented 
  * @author rodionov

@@ -4,29 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented: passing null in place of either argument results in
- *            an Error
- * @description Tries to pass null as an argument, expects an Error.
- * @author akuznecov
- * @reviewer rodionov
- * @reviewer msyabro
- * @needsreview Undocumented
+ * @assertion const Duration({int days: 0, int hours: 0, int minutes: 0, int seconds: 0, int milliseconds: 0, int microseconds: 0})
+ * All arguments are by default 0.
+ * @description Checks that all arguments are by default 0..
+ * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  check(null, 0, 0, 0, 0);
-  check(0, null, 0, 0, 0);
-  check(0, 0, null, 0, 0);
-  check(0, 0, 0, null, 0);
-  check(0, 0, 0, 0, null);
-  check(null, null, null, null, null);
-}
-
-void check(int d, int h, int m, int s, int ms) {
-  try {
-    new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms);
-    Expect.fail("Error expected");
-  } on Error catch(e) {
-  }
+  Expect.equals(new Duration(), new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0));
+  Expect.equals(new Duration(days: 0), new Duration(hours: 0, minutes: 0, seconds: 0, milliseconds: 0));
+  Expect.equals(new Duration(days: 0, hours: 0), new Duration(minutes: 0, seconds: 0, milliseconds: 0));
+  Expect.equals(new Duration(days: 0, hours: 0, minutes: 0), new Duration(seconds: 0, milliseconds: 0));
+  Expect.equals(new Duration(days: 0, hours: 0, minutes: 0, seconds: 0), new Duration(milliseconds: 0));
 }

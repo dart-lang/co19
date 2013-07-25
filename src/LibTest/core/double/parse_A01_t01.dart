@@ -3,12 +3,27 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
+The input string is trimmed (see String.trim) before conversion.
+
+If the source is not a valid double literal, the handleError is called
+ with the source as argument, and its return value is used instead.
+  If no handleError is provided, a FormatException is thrown.
+
+The onError function is only invoked if source is a String. 
+It is not invoked if the source is, for example, null.
+ 
 /**
- * @assertion double parse(String source)
+ * @assertion double parse(String source, [double handleError(String source)])
  * Parse source as an double literal and return its value.
- * Accepts the same format as double literals: ['+'|'-'] [digit* '.'] digit+ [('e'|'E') ['+'|'-'] digit+]
- * Also recognizes "NaN", "Infinity" and "-Infinity" as inputs and returns the corresponding double value.
- * @description Checks that correct string can be converted to double.
+ * Accepts an optional sign (+ or -) followed by either the characters "Infinity",
+ * the characters "NaN" or a floating-point representation.
+ * A floating-point representation is composed of a mantissa and an optional exponent part.
+ * The mantissa is either a decimal point (.) followed by a sequence of (decimal) digits,
+ * or a sequence of digits optionally followed by a decimal point and optionally more digits.
+ * The (optional) exponent part consists of the character "e" or "E", an optional sign,
+ * and one or more digits.
+ 
+* @description Checks that correct string can be converted to double.
  * @author msyabro
  * @reviewer pagolubev
  */

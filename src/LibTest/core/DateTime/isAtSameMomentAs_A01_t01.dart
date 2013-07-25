@@ -2,7 +2,9 @@
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
- */
+ */bool isAtSameMomentAs(DateTime other)
+
+Returns true if this occurs at the same moment as other. The comparison is independent of whether the time is in UTC or in the local time zone.
 /**
  * @assertionbool isAtSameMomentAs(DateTime other)
  * Returns true if this occurs at the same moment as other.

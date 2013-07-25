@@ -14,7 +14,7 @@
 import "../../../Utils/expect.dart";
  
 main() {
-  ArgumentError e = new ArgumentError(null);
+  AbstractClassInstantiationError e = new AbstractClassInstantiationError(null);
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }

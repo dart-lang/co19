@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionDateTime toUtc()
+ * @assertion DateTime toUtc()
  * Returns this in UTC.
  * Returns itself if it is already in UTC.
  * Otherwise, this method is equivalent to

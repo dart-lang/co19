@@ -4,22 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion new ArgumentError([message])
- * The message describes the erroneous argument. 
+ * @assertion AbstractClassInstantiationError(String _className)
+ * Creates a new Object instance.
  * @description Checks that this constructor executes without error for various strings and null.
  * @author kaigorodov
  */
 
-import "../../../Utils/expect.dart";
- 
-void check(var message) {
-  ArgumentError err=new ArgumentError(message);
-  Expect.identical(message, err.message);
-}
-
 main() {
-  check(null);
-  check("");
-  check("foo");
-  check("You are not paid to think!");
+  new AbstractClassInstantiationError(null);
+  new AbstractClassInstantiationError("");
+  new AbstractClassInstantiationError("foo");
+  new AbstractClassInstantiationError("You are not paid to think!");
 }

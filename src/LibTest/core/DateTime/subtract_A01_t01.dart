@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionDateTime subtract(Duration duration)
+ * @assertion DateTime subtract(Duration duration)
  * Returns a new DateTime with the duration subtracted from this. 
  * @description Checks that the method returns DateTime instance
  * @author hlodvig
