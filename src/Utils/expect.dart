@@ -373,7 +373,7 @@ bool _identical(a, b) => identical(a, b);
 
 typedef bool _CheckExceptionFn(exception);
 
-class ExpectException implements Exception {
+class ExpectException implements Error {
   ExpectException(this.message);
   String toString() => message;
   String message;
