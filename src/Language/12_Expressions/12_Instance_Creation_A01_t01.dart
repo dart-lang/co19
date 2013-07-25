@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion It is a static type warning if the type T in an instance creation
+ * expression of one of the forms
+ * new T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
+ * new T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
+ * const T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
+ * const T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ) is malformed or malbounded.
+ * @description Checks that it is a static-warning if a constructor of
+ * a non-generic type invoked by a new expression is passed any type arguments.
+ * @static-warning
+ * @author msyabro
+ * @reviewer kaigorodov
+ */
+
+class A {
+}
+
+main() {
+  try {
+    var o = new A<int>();
+  } catch(e) {}
+}
