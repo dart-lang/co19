@@ -21,7 +21,8 @@ main() {
   try {
     throw "fail";
     Expect.fail("This code shouldn't be executed");
+  } on String catch(ok) {
   } on Unavailable catch(p1, p2) { /// static type warning no such type
     Expect.fail("This code shouldn't be executed");
-  } on String catch(ok) {}
+  }
 }

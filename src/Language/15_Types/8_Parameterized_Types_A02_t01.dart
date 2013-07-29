@@ -13,10 +13,6 @@
  * @reviewer iefremov
  */
 
-import "../../Utils/dynamic_check.dart";
-
 main() {
-  checkTypeError(() {
-    List<UnknownType> a = new List(); /// static type warning 
-  });
+  List<UnknownType> a = new List(); /// static type warning 
 }
