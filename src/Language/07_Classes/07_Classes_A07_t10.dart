@@ -12,7 +12,6 @@
  * both are instance members (abstract or not) or both are static members.
  * @author msyabro
  * @reviewer rodionov
- * @issue 7605
  */
 
 abstract class A {
@@ -36,6 +35,7 @@ abstract class A {
 
 class B extends A {
   get aVal{}
+  set aVal(var val){}
   set bVal(var val){}
   get cVal{}
 }
@@ -44,4 +44,6 @@ main() {
   A a = new B();
   var x=a.bVal;
   a.bVal=x;
+  x=a.aVal;
+  a.aVal=x;
 }

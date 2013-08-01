@@ -8,9 +8,8 @@
  * newExpression:
  *   new type ('.' identifier)? arguments
  * ;
- * @description Checks that it is a compile-time error if
- * a constructor is invoked without new (or const) keyword.
- * @compile-error
+ * @description Checks that if a constructor is invoked without new (or const) keyword,
+ * it is considered as a (malformed) method invocation.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -22,5 +21,5 @@ class A {
 main() {
   try {
     A();
-  } catch(e) {}
+  } on NoSuchMethodError catch(e) {}
 }

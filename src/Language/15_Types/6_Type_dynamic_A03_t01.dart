@@ -19,7 +19,7 @@ typedef int func2(int);
 main() {
   var x = null;
   try {
-    String y = x.wakeUp(new Date(1, 1, 1, 1, 1, 1, 1));
+    String y = x.wakeUp(new DateTime(1, 1, 1, 1, 1, 1, 1));
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
   

@@ -22,7 +22,7 @@ class A {
   const A(var p) : x = p + 42;
 }
 
-var a = const A(1.1);
+var a = const A(new DateTime.now().millisecondsSinceEpoch);
 
 main() {
   try {

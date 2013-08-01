@@ -10,8 +10,8 @@
  * by one of the following means:
  * - Initialization at the declaration of f.
  * - Initialization by means of an initializing formal of k.
- * or a compile-time error occurs.
- * @description Checks that no compile-time error occurs when all final variables are initialized 
+ * or a static warning occurs.
+ * @description Checks that no static warning error occurs when all final variables are initialized 
  * either at the declaration, via constructor's initializing formal, or via an intializer in
  * constructor's intializer list.
  * @author vasya

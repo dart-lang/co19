@@ -10,14 +10,13 @@
  * by one of the following means:
  * - Initialization at the declaration of f.
  * - Initialization by means of an initializing formal of k.
- * or a compile-time error occurs.
+ * or a static warning occurs.
  * @description Checks that error is produced if a final variable is not initialized in one 
  * of the specified ways.
- * @compile-error
+ * @ static-warning 
  * @author vasya
  * @reviewer pagolubev
  * @reviewer iefremov
- * @needsreview issue 991
  */
 
 class C {
