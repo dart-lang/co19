@@ -41,10 +41,9 @@
  *   
  * @description Checks that names not provided as arguments to a 'show' combinator
  * are undefined even if they are defined in the imported library's export namespace.
- * @compile-error see "Unqualified invocation" and "This"
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 7596, 7025
  */
 import "../../Utils/expect.dart";
 

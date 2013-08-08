@@ -41,7 +41,7 @@
  *   
  * @description Checks that all specified show and hide combinators are applied
  * and if a name is hidden by any of them, it's undefined in the resulting namespace. 
- * @compile-error see "Unqualified invocation" and "This"
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 7025

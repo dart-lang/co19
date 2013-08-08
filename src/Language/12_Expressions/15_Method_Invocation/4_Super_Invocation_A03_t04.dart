@@ -6,9 +6,9 @@
 /**
  * @assertion If the method lookup has failed, then let g be the result of looking up getter
  * m in S with respect to L. If the getter lookup succeeded, let vg be the value
- * of the getter invocation super.m. Then the value of i is the value of
- * the method invocation vg.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
- * @description Checks that the value of the expression is the value returned after vg is executed.
+ * of the getter invocation super.m. Then the value of i is the result of invoking
+ * the static method Function.apply() with arguments
+ * v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
  * @author msyabro
  * @reviewer kaigorodov
  */

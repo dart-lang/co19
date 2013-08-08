@@ -5,21 +5,22 @@
  */
 /**
  * @assertion Evaluation of i proceeds as follows:
- * If C does not denote a class in the current scope, or if C does not declare 
- * a static method or getter m then a NoSuchMethodError is thrown.
+ * If C does not denote a class in the current scope, or if C does not declare
+ * a static method or getter m then the argument list (a1, ..., an, xn+1:an+1,
+ * ..., xn+k:an+k) is evaluated, after which a NoSuchMethodError is thrown.
  * Otherwise, evaluation proceeds as follows:
  *   - If the member m declared by C is a getter, then i is equivalent
- *     to the expression C.m.call(a1, …, an, xn+1: an+1, …, xn+k: an+k).
+ *     to the expression (C.m)(a1, …, an, xn+1: an+1, …, xn+k: an+k).
  *   - Otherwise, let f be the the method m declared in class C. Next, 
  *     the argument list(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) is evaluated.
  * The body of f is then executed with respect to the bindings that resulted
  * from the evaluation of the argument list. The value of i is the value returned
  * after the body of f is executed.
  * @description Checks that when m is a getter, then invocation of the form C.m() is equivalent
- * to the expression C.m.call(...).
+ * to the expression C.m(...), which in turn is equivalent to C.m.call(...).
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 3326
  */
 import "../../../Utils/expect.dart";
 

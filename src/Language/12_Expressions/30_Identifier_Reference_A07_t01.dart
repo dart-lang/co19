@@ -15,17 +15,21 @@
  * @description  Checks that there is no compile-time error if identifier
  * expression in a return statement refers to a type parameter.
  * @static-warning
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class A<T> {
-  T func() {
-    return T; /// static type warning - incompatible type, see "Return"
+  Type func() {
+    return T;
   }
 }
 
 main() {
-  new A().func();
-  new A<int>().func();
+  var t=new A<int>().func();
+  Expect.equals(int, t);
+  t=new A<Object>().func();
+  Expect.equals(Object, t);
+  t=new A<List>().func();
+  Expect.equals(List, t);
 }

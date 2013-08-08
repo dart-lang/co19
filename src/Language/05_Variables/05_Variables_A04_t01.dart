@@ -6,7 +6,7 @@
 /**
  * @assertion Static variable declarations are initialized lazily. When a static
  * variable v is read, iff it has not yet been assigned, it is set to the result
- * of evaluating its initializer. The precise rules are given in sections 5.1 and 11.30.
+ * of evaluating its initializer. The precise rules are given in sections 5.1.
  * @description Checks that static variable declarations are initialized lazily by
  * assigning a throw expression to a top-level variable and checking that it is only
  * evaluated when that variable is accessed.

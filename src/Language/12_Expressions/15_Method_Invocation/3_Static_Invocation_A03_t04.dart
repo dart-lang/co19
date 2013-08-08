@@ -7,6 +7,7 @@
  * @assertion It is a static warning if C does not declare a static method or getter m.
  * @description Checks that it is a static warning if interface C does not declare
  * a static method or getter m.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

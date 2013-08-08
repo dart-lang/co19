@@ -16,22 +16,36 @@
  * The body of f is then executed with respect to the bindings that resulted
  * from the evaluation of the argument list. The value of i is the value returned
  * after the body of f is executed.
- * @description Checks that if m is a function,
- * it is executed with respect to the bindings of the evaluated argument list.
- * @author msyabro
+ * @static-warning
+ * @description Checks that the argument list is evaluated before a NoSuchMethodError is thrown.
+ * @author rodionov
  * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
-class TestException {}
+class S {
+  static func(int v) {}
+}
 
-class C {
-  static func(exception) {throw exception;}
+class C extends S {}
+
+int count=0;
+
+int incCount() {
+  count++;
+  return count;
 }
 
 main()  {
   try {
-    C.func(new TestException());
-    Expect.fail("Exception is expected");
-  } on TestException catch(e) {}
+    NonExistentClass.func(incCount()); // static warning - see "Static invocation"
+    Expect.fail("NoSuchMethodError expected.");
+  } on NoSuchMethodError catch(ok) {}
+  Expect.equals(1, count);
+  
+  try {
+    C.func(incCount()); // static warning - see "Static invocation"
+    Expect.fail("NoSuchMethodError expected.");
+  } on NoSuchMethodError catch(ok) {}
+  Expect.equals(2, count);
 }

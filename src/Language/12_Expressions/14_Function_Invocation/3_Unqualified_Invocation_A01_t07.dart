@@ -12,6 +12,9 @@
  * variable then i is interpreted as a function expression invocation.
  *  - Otherwise, if fid is a static method of the enclosing class C, i is equivalent to
  * the static method invocation C.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
+ *  - Otherwise, if i occurs inside a top level or static function (be it function,
+ * method, getter, or setter) or variable initializer, evaluation of i causes a
+ * NoSuchMethodError to be thrown.
  * Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
  * an+1, ... , xn+k : an+k).
  * @description Checks that if fid is a static method of the superclass S,

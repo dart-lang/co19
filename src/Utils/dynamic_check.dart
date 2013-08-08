@@ -1,4 +1,5 @@
 library dynamic_check;
+import "expect.dart";
 
 isCheckedMode() {
   try {

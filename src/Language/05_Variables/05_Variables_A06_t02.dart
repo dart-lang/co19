@@ -7,16 +7,18 @@
  * @assertion It is a static warning if a library, static or local variable v is ﬁnal
  * and v is not initialized at its point of declaration.
  * @static-warning
- * @description Checks that it is a static warning when a final library variable is not
+ * @description Checks that it is a static warning when a final static variable is not
  * initialized in its declaration. 
  * @author rodionov
  * @reviewer kaigorodov
  */
 
-final int v;
+class C {
+  static final v;
+}
 
 main() {
   try {
-    print(v);
+    print(C.v);
   } catch(ok) {}
 }

@@ -10,7 +10,7 @@
  * declaration statement.
  * @description Checks that a local function declaration is not accessible at the point 
  * preceding the function declaration statement.
- * @compile-error
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  * @issue 5773

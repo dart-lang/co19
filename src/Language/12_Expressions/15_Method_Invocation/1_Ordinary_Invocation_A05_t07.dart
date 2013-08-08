@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the method lookup has failed, then let g be the result of looking up getter
- * m in vo with respect to L. If the getter lookup succeeded, let vg be the value of
- * the getter invocation o.m. Then the value of i is the value of the method
- * invocation vg.call(a1, ..., an; xn+1 : an+1, ..., xn+k : an+k).
- * If the getter lookup has also failed, then a new instance im of the predefined
- * interface InvocationMirror is created by calling its factory constructor with
- * arguments m, this, [o1, ..., on] and fxn+1 : on+1, ..., xn+k : on+kg. 
+ * @assertion If the method lookup has failed, then let g be the result of
+ * looking up getter m in vo with respect to L.
+ * If the getter lookup succeeded, let vg be the value of the getter invocation o.m.
+ * Then the value of i is the result of invoking the static method Function.apply()
+ * with arguments v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k }.
+ * If getter lookup has also failed, then a new instance im of the predefined
+ * class Invocation is created, such that :
+ * - im.isMethod evaluates to true.
+ * - im.memberName evaluates to ’m’.
+ * - im.positionalArguments evaluates to an immutable list with the same values as [o1, ..., on].
+ * - im.namedArguments evaluates to an immutable map with the same keys
+ * and values as {xn+1: on+1, ..., xn+k:on+k}.
  * Then the method noSuchMethod() is looked up in o and invoked with argument im,
  * and the result of this invocation is the result of evaluating i.
  * @description Checks that noSuchMethod() is invoked on functions if the method and getter lookup has failed.

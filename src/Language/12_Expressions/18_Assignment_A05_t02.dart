@@ -10,11 +10,11 @@
  * the current library, and its body is executed with its formal parameter bound
  * to o2 and this bound to o1.
  *   If the setter lookup has failed, then a new instance im of the predefined class
- * InvocationMirror is created, such that :
+ * Invocation is created, such that :
  * - im.isSetter evaluates to true.
  * - im.memberName evaluates to ’v=’.
- * - im.positionalArguments evaluates to [o2 ].
- * - im.namedArguments evaluates to the value of {}.
+ * - im.positionalArguments evaluates to an immutable list with the same values as [o2].
+ * -im.namedArguments evaluates to the value of const {}.
  * Then the method noSuchMethod() is looked up in o1 with argument im. The value of the assignment expression is
  * o2 irrespective of whether setter lookup has failed or succeeded.
  * @description Checks that method noSuchMethod is invoked with the specified argument

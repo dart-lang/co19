@@ -46,7 +46,7 @@
  */
 import "../../Utils/expect.dart";
 
-import "1_Imports_A02_lib.dart" show aFoo hide aFunc show A;
+import "1_Imports_A02_lib.dart" show aFoo hide aFunc show A, aFoo;
 
 main() {
   Expect.equals("A_FOO", aFoo);

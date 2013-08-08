@@ -13,7 +13,7 @@
  * @reviewer kaigorodov
  */
 
-final int v;
+final v;
 
 main() {
   try {

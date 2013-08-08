@@ -20,8 +20,16 @@ class A {
   const A(int p1, int p2);
 }
 
+class B {
+  final int r;
+  const B(int p1, int p2):r=p1+p2;
+}
+
 main() {
   checkTypeError(() {
     const A(0x1, "2"); /// static type warning - incompatible formal parameters, see "Instance creation|Const"
+  });
+  checkTypeError(() {
+    const B(0x1, "2"); /// static type warning - incompatible formal parameters, see "Instance creation|Const"
   });
 }

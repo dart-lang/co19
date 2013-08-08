@@ -7,6 +7,7 @@
  * @assertion It is a static warning if C does not declare a static method or getter m.
  * @description Checks that it is a static warning if C inherits an instance method 
  * with the name m instead of declaring a static one.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
