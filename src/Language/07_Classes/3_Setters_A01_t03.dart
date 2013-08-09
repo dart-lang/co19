@@ -6,8 +6,11 @@
 /**
  * @assertion
  * setterSignature:
- * static? returnType? set identifier formalParameterList
+ *   returnType? set identifier formalParameterList
  * ;
+ * methodSignature:
+ *   static? setterSignature
+ * ; 
  * @description Checks that it is a compile-time error if the setter 
  * parameter list is missing.
  * @compile-error

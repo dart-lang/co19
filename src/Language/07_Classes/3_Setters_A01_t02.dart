@@ -6,8 +6,11 @@
 /**
  * @assertion
  * setterSignature:
- * static? returnType? set identifier formalParameterList
+ *   returnType? set identifier formalParameterList
  * ;
+ * methodSignature:
+ *   static? setterSignature
+ * ; 
  * functionSignature:
  *   metadata returnType? identifier formalParameterList
  * ;

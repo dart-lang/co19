@@ -12,11 +12,10 @@
  * @static-warning
  * @author vasya
  * @reviewer kaigorodov
- * @issue 5840
  */
 import "../../Utils/expect.dart";
 
-class C { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
+class C {
   void set foo(value);
   foo(value) { }
 }

@@ -6,8 +6,11 @@
 /**
  * @assertion
  * setterSignature:
- * static? returnType? set identifier formalParameterList
+ *   returnType? set identifier formalParameterList
  * ;
+ * methodSignature:
+ *   static? setterSignature
+ * ; 
  * @description Checks that various valid setter declarations do not cause any errors.
  * @author iefremov
  * @reviewer pagolubev
