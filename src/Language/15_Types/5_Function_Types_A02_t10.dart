@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, [Tx1 x1, ..., Txk xk]) -> T is a subtype of the function
- * type (S1, ..., Sn, [Sy1 y1, ..., Sym ym ]) -> S, if all of the following conditions are met:
- * 1. Either S is void, or T <=> S.
- * 2. k >= m and for all i, 1 <= i <= n+m, Ti <=> Si.
+ * @assertion The function type (T1, ..., Tk, [Tk+1, ..., Tn+k]) -> T is a subtype of the function
+ * type (S1, ..., Sk+j, [Sk+j+1, ..., Sn] -> S, if all of the following conditions are met:
+ * 1. Either S is void or T is assignable to S.
+ * 2. Ti <=> Si for i in 1 to n.
  * @description Checks that function type t1 is not a subtype of function type t2 
  * even if just one of t1's optional positional parameters has a type that is not mutually assignable with
  * the type of t2's corresponding positional optional parameter.
  * @author iefremov
  * @reviewer rodionov
+ * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 

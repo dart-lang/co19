@@ -4,31 +4,29 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, [Tx1 x1, ..., Txk xk]) -> T is a subtype of the function
- * type (S1, ..., Sn, [Sy1 y1, ..., Sym ym ]) -> S, if all of the following conditions are met:
- * 1. Either S is void, or T <=> S.
- * 2. k >= m and for all i, 1 <= i <= n+m, Ti <=> Si.
- * @description Checks that function type t1 is not a subtype of function type t2 if they have different number
- * of required parameters.
+ * @assertion The function type (T1, ..., Tk, [Tk+1, ..., Tn+k]) -> T is a subtype of the function
+ * type (S1, ..., Sk+j, [Sk+j+1, ..., Sn] -> S, if all of the following conditions are met:
+ * 1. Either S is void or T is assignable to S.
+ * 2. Ti <=> Si for i in 1 to n.
+ * @description Checks that function type t1 is not a subtype of function type t2 if t1 has more
+ * required parameters than t2; or t1 accepts less required and optional parameters than t2.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../Utils/expect.dart";
 
 typedef t1(int x);
 typedef t2(int x, int y);
+typedef t3(int x, int y, [int z]);
 
 main() {
   Expect.isFalse(() {} is t1);
   Expect.isFalse((int x, var y) {} is t1);
   Expect.isFalse((int x, int y) {} is t1);
-  Expect.isFalse(([int x]) {} is t1);
-  Expect.isFalse(([var x]) {} is t1);
 
-  Expect.isFalse(() {} is t2);
+  Expect.isFalse(([int x]) {} is t2);
   Expect.isFalse((int x) {} is t2);
   Expect.isFalse((int y) {} is t2);
-  Expect.isFalse((int x, [int y]) {} is t2);
-  Expect.isFalse(([int x, int y]) {} is t2);
   Expect.isFalse((int x, int y, int z) {} is t2);
+
+  Expect.isFalse((int x, int y, int z){} is t3);
 }
