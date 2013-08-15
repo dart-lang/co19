@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the compilation unit found at the
- * specified URI is not a library declaration.
- * @description Checks that it is a compile-time error if the file pointed to
- * by an import directive does not contain a library declaration.
- * @compile-error
+ * @assertion It is a compile-time error if the speciﬁed URI does not refer to
+ * a library declaration.
+ * @description Checks that it is not a compile-time error if the file pointed to
+ * by an import directive exists but does not contain a library declaration.
  * @author rodionov
  * @reviewer kaigorodov
  */

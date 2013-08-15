@@ -6,10 +6,9 @@
 /**
  * @assertion If a name N is referenced by a library L and N is introduced into the top
  * level scope L by more than one import then:
- * - It is a static warning if N is used as a type annotation.
- * - In checked mode, it is a dynamic error if N is used as a type annotation
- *   and referenced during a subtype test.
- * - Otherwise, it is a compile-time error.
+ * - A static warning occurs.
+ * - If N is referenced as a function, getter or setter, a NoSuchMethodError is raised.
+ * - If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is a static warning and a dynamic type error in checked mode
@@ -29,8 +28,5 @@ class Foo2<T extends foo> { /// static-warning doubly imported type used as a ty
 }
 
 main() {
-  checkTypeError(() {
-//    new Foo2();
-    new Foo2<int>();
-  });
+  new Foo2<int>();
 }

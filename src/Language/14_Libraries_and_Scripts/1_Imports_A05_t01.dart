@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is compile-time error to import two different libraries with the same name.
- * @description Checks that it is a compile-time error when a library directly imports
+ * @assertion It is a static warning to import two dfferent libraries with the same name.
+ * @static-warning
+ * @description Checks that it is a static warning when a library directly imports
  * two other libraries that have the same library name.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 3206
  */
 
 import "1_Imports_A05_t01_lib1.dart";

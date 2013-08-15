@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is compile-time error to import two different libraries with the same name.
- * @description Checks that it is not an error when a library directly imports
+ * @assertion It is a static warning to import two dfferent libraries with the same name.
+ * @description Checks that it is not an error or warning when a library directly imports
  * two other libraries (A and B) that have different names and A imports and re-exports
  * a third one (C) that has the same name as B.
  * @author rodionov

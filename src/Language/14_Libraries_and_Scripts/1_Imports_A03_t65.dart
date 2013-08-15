@@ -6,16 +6,15 @@
 /**
  * @assertion If a name N is referenced by a library L and N is introduced into the top
  * level scope L by more than one import then:
- * - It is a static warning if N is used as a type annotation.
- * - In checked mode, it is a dynamic error if N is used as a type annotation
- *   and referenced during a subtype test.
- * - Otherwise, it is a compile-time error.
+ * - A static warning occurs.
+ * - If N is referenced as a function, getter or setter, a NoSuchMethodError is raised.
+ * - If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
- * @description Checks that it is a compile-time error, but not a static type warning if two different 
+ * @static-warning
+ * @description Checks that it is a static warning if two different 
  * library is imported twice with empty prefixes and introduces a name to the top level 
  * scope of A, which A uses as a type annotation in a type cast expression.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -24,7 +23,5 @@ import "1_Imports_A03_t61_lib.dart";
 import "1_Imports_A03_t61_lib.dart";
 
 main() {
-  try {
-    1 as foo;
-  } catch(anything) {}
+  1 as foo;
 }

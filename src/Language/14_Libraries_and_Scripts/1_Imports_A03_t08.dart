@@ -6,19 +6,19 @@
 /**
  * @assertion If a name N is referenced by a library L and N is introduced into the top
  * level scope L by more than one import then:
- * - It is a static warning if N is used as a type annotation.
- * - In checked mode, it is a dynamic error if N is used as a type annotation
- *   and referenced during a subtype test.
- * - Otherwise, it is a compile-time error.
+ * - A static warning occurs.
+ * - If N is referenced as a function, getter or setter, a NoSuchMethodError is raised.
+ * - If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
- * @description Checks that it is a compile-time error if two different libraries 
- * introduce the same name to the top level scope of A and A uses it as 
- * a type name reference in an instance creation expression.
- * @compile-error
- * @author rodionov
- * @reviewer kaigorodov
+ * @assertion (12.12.1 New) If T is malformed a dynamic error occurs. 
+ * @description Checks that it is a static type warning if two different libraries
+ * introduce the same name T to the top level scope of A.
+ * Checks that a dynamic error occurs if T is used in new instance creation expression.
+ * @static-warning
+ * @author kaigorodov
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A03_t01_p1_lib.dart";
 import "1_Imports_A03_t01_p2_lib.dart";
@@ -26,5 +26,6 @@ import "1_Imports_A03_t01_p2_lib.dart";
 main() {
   try {
     new foo();
+    Expect.fail("a dynamic error expected");
   } catch(ok) {}
 }
