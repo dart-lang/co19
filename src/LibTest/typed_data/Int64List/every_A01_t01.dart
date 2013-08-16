@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion bool every(bool test(E element))
+ * Returns true if every elements of this collection satisfy
+ * the predicate [test]. Returns false otherwise.
+ * @descriptionCheck that true is returned only if every element
+ * of the list satisfies the predicate [f].
+ * @author msyabro
+ */
+import "dart:typed_data";
+import "../../../Utils/expect.dart";
+
+pred(element) => element > 5;
+
+main() {
+  var l;
+  l = new Int64List.fromList([]);
+  Expect.isTrue(l.every(pred));
+
+  l = new Int64List.fromList([1]);
+  Expect.isFalse(l.every(pred));
+
+  l = new Int64List.fromList([1, 2, 3, 4, 5, 1, 2, 3, 4, 5]);
+  Expect.isFalse(l.every(pred));
+
+  l = new Int64List.fromList([100]);
+  Expect.isTrue(l.every(pred));
+
+  l = new Int64List.fromList([6, 7, 8, 9, 10]);
+  Expect.isTrue(l.every(pred));
+
+  l = new Int64List.fromList([6, 7, 8, 9, 1]);
+  Expect.isFalse(l.every(pred));
+}
