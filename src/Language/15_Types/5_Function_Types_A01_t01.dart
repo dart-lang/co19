@@ -9,7 +9,6 @@
  * 1. Either S is void, or T <=> S.
  * 2. For all i 1 <= i <= n, Ti <=> Si.
  * @description Checks that this statement is true for function types with no arguments: S is void, T is any type.
- * Also checks their mutual assignability.
  * @static-clean to make sure assignments are legal and cause no warnings
  * @author iefremov
  * @reviewer rodionov
@@ -36,9 +35,6 @@ class Checker<T extends check_t> {
     Expect.isTrue(f is check_t);
     //check assignability () -> S = () -> T
     check_t check1 = f;
-    //vice versa () -> T = () -> S
-    check_t void_func;
-    T t = void_func;
   }
 }
 
