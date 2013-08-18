@@ -15,6 +15,7 @@
  * ;
  * @description Checks that using static members in a cascaded invocation expression results in a NoSuchMethodError
  * as expected, since they're being invoked on an instance.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
