@@ -6,9 +6,9 @@
 /**
  * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
  * apply to abstract methods.
- * 7.1: It is a compile-time error if an instance method m1 overrides an instance
+ * 7.1: It is a static-warning if an instance method m1 overrides an instance
  * member m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that a compile-time error is not produced when the overriding non-abstract
+ * @description Checks that a static warning is not produced when the overriding non-abstract
  * instance method has more named parameters than the abstract method being overridden
  * and neither have any required parameters.
  * @author rodionov

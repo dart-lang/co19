@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if an instance method m1 overrides (7.9.1) an
+ * @assertion It is a  static warning if an instance method m1 overrides (7.9.1) an
  * instance member m2 and m1 has a different number of required parameters than m2.
- * @description Checks that a compile-error is produced if m2 has no parameters and m1 has a single required parameter.
- * @compile-error
+ * @description Checks that a static warning is produced if m2 has no parameters and m1 has a single required parameter.
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
