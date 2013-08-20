@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Set<E> intersection(Collection<E> other)
- * Passing null as argument results in Error
- * the given collection. 
+ * @assertion  abstract Set<E> intersection(Set<Object> other)
+ * Passing null as argument results in Error. 
  * @description Checks that an Error is thrown if the argument is null.
  * Both empty and non-empty Sets are tested.
  * @author rodionov

@@ -37,7 +37,7 @@ main() {
 // correspond to start/end indices of the match, and the strings - to group values
 void check(String pattern, String str, bool multiLine, bool ignoreCase, List expMatchesData) {
   RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
-  Collection<Match> matches = re.allMatches(str);
+  Iterable<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
@@ -71,6 +71,6 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
 
 void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
-  Collection<Match> matches = re.allMatches(str);
+  Iterable<Match> matches = re.allMatches(str);
   Expect.equals(0, matches.length);
 }

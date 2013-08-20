@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void removeAll(Collection<T> collection)
- * Removes all the elements of the given collection from the set.
+ * @assertion  abstract void removeAll(Iterable<Object> elements)
+ * Removes each element of elements from this set.
  * @description Checks that removeAll() works as specified in various simple scenarios.
  * @author pagolubev
  * @reviewer msyabro
@@ -16,19 +16,19 @@ import "../../../Utils/expect.dart";
 main() {
   Set<int> s = new Set<int>();
 
-  s.removeAll([]);
+  s.removeAll([].toSet());
   Expect.isTrue(s.length == 0);
 
-  s.removeAll([-1, 5, 0]);
+  s.removeAll([-1, 5, 0].toSet());
   Expect.isTrue(s.length == 0);
 
   s.addAll([1, 19, -3, 8, -6, -2]);
 
-  s.removeAll([]);
+  s.removeAll([].toSet());
   Expect.isTrue(s.length == 6);
   Expect.isTrue(s.containsAll([1, 19, -3, 8, -6, -2]));
 
-  s.removeAll([5, -6, 2, 19, 8, 8]);
+  s.removeAll([5, -6, 2, 19, 8, 8].toSet());
   Expect.isTrue(s.length == 3);
   Expect.isTrue(s.containsAll([1, -3, -2]));
   Expect.isFalse(s.contains(-6));

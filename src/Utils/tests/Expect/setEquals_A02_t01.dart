@@ -29,7 +29,7 @@ main() {
 
 void check(Iterable arg1, Iterable arg2, [String reason = null]) {
   try {
-    Expect.listEquals(arg1, arg2, reason);
+    Expect.setEquals(arg1, arg2, reason);
     Expect.fail("Error expected");
   } on Error catch(e) {
   }

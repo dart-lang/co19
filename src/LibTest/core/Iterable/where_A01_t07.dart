@@ -21,14 +21,14 @@ main() {
   List<int> list = new List<int>();
   
   for(int i = 0; i < 101; i++) {
-    list.addLast(i - 50);
+    list.add(i - 50);
   }
   
   Iterable a = list.where((int element) {
     return element > 0;
   });
   Expect.isTrue(a.length == 50);
-  Expect.listEquals(list.getRange(51, 50), new List.from(a));
+  Expect.listEquals(list.getRange(51, 101).toList(), new List.from(a));
   
   a = list.where((int element) {
     return element == 0;

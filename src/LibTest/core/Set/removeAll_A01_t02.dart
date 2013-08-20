@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void removeAll(Collection<T> collection)
- * Removes all the elements of the given collection from the set.
+ * @assertion  abstract void removeAll(Iterable<Object> elements)
+ * Removes each element of elements from this set.
  * @description Passes a list containing null as argument to removeAll(), expects no errors.
  * @author pagolubev
  * @reviewer msyabro
@@ -14,14 +14,14 @@ import "../../../Utils/expect.dart";
 
 main() {
   Set<int> s = new Set<int>();
-  s.removeAll([null]);
+  s.removeAll([null].toSet());
   Expect.equals(0, s.length);
-  s.removeAll([1, 2, null]);
+  s.removeAll([1, 2, null].toSet());
   Expect.equals(0, s.length);
 
   s.addAll([1, 2]);
-  s.removeAll([null]);
+  s.removeAll([null].toSet());
   Expect.equals(2, s.length);
-  s.removeAll([1, 2, null]);
+  s.removeAll([1, 2, null].toSet());
   Expect.equals(0, s.length);
 }

@@ -22,8 +22,8 @@ main() {
   Expect.isFalse(a.every((int e) { return (e < 0); } ));
 
   a = [[],[null], [1,2,3,4], ["string"]];
-  Expect.isTrue(a.every((Collection e) { return (e is List); } ));
-  Expect.isFalse(a.every((Collection e) { return (e is Set); } ));
+  Expect.isTrue(a.every((var e) { return (e is List); } ));
+  Expect.isFalse(a.every((var e) { return (e is Set); } ));
 
   a = [1,2,3];
   bool f (int e) { return (e > 0); }

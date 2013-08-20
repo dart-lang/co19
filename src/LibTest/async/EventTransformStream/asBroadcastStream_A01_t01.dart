@@ -20,13 +20,13 @@ import "../../../Utils/expect.dart";
 class MyTransformer extends StreamEventTransformer<int, int> {
 }
 
-check(List events0) {
-  Stream stream=new Stream.fromIterable(events0);
+check(List<int> events0) {
+  Stream<int> stream=new Stream<int>.fromIterable(events0);
   MyTransformer t=new MyTransformer();
   EventTransformStream ets=new EventTransformStream(stream, t);
-  Stream s2=ets.asBroadcastStream();
-  List events1=new List();
-  StreamSubscription ss=s2.listen((event){events1.add(event);});
+  Stream<int> s2=ets.asBroadcastStream();
+  List<int> events1=new List();
+  StreamSubscription ss=s2.listen((int event){events1.add(event);});
   asyncStart();
   ss.onDone((){
     Expect.listEquals(events0, events1);
@@ -36,6 +36,6 @@ check(List events0) {
 
 main() {
   check([]);
-  check([1,2,null,[]]);
+  check([1,2,null,7]);
 }
 

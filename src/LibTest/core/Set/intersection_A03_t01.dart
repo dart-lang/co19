@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Set<E> intersection(Collection<E> other)
+ * @assertion  abstract Set<E> intersection(Set<Object> other)
  * @description Checks that null elements don't cause any errors.
  * @author msyabro
  * @reviewer rodionov

@@ -12,7 +12,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void checkEquals(Collection expected, List actual) {
+void checkEquals(Iterable expected, List actual) {
   Expect.equals(expected.length, actual.length);
   Iterator it = expected.iterator;
   var i = 0;

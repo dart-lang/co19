@@ -9,7 +9,7 @@
  *   the name id (respectively pref ix.id) does not denote a type.
  * • T denotes a type variable in the enclosing lexical scope, but occurs in the
  *   signature or body of a static member.
- * • T is a parameterized type of the form G < S1 , . . . , Sn >, and G is malformed.
+ * • T is a parameterized type of the form G<S1, ..., Sn>, and G is malformed.
  * Any use of a malformed type gives rise to a static warning. A malformed
  * type is then interpreted as dynamic by the static type checker and the runtime.
  * @description Checks that it is a dynamic type error if a malformed type is used in a
@@ -19,6 +19,7 @@
  * @issue 5809
  */
 
+import "../../Utils/dynamic_check.dart";
 import "../../Utils/expect.dart";
 
 class C<T, U, V> {}
@@ -30,16 +31,20 @@ main() {
       
   C<int, double, UnknownType> x = new C(); /// static type warning no such type
   
-  // since null is dynamic
-  Expect.isTrue(null is C<int, double, UnknownType>); /// static type warning no such type
+  // since null is not dynamic
+  Expect.isFalse(null is C<int, double, UnknownType>); /// static type warning no such type
   
-  C<int, double, UnknownType> x = new C(); /// static type warning no such type
+  C<int, double, UnknownType> x1 = new C(); /// static type warning no such type
   
-  Bounded<String> x = new Bounded(); /// static type warning not assignable 
+  checkTypeError( () {
+    Bounded<String> x2 = new Bounded(); /// static type warning not assignable 
+  });
+    
+  checkTypeError( () {
+    BoundedInt<num> x3 = new BoundedInt();
+  });
   
-  BoundedInt<num> x = new BoundedInt();
+  C<Bounded<String>, C, C> x4 = new C();
   
-  C<Bounded<String>, C, C> x = new C();
-  
-  C<C<UnknownType, int, int>, C, C> x = new C(); /// static type warning no such type
+  C<C<UnknownType, int, int>, C, C> x5 = new C(); /// static type warning no such type
 }

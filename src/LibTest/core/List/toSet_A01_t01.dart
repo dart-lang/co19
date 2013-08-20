@@ -11,7 +11,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void checkEquals(Collection expected, Set actual) {
+void checkEquals(Iterable expected, Set actual) {
   Set set0=new Set();
   for (var el in expected) {
     set0.add(el);

@@ -303,7 +303,7 @@ class Expect {
   }
 
   /** checks that both collections have identical topology and equal primitive elements.
-   *  used to check cyclic collections passed through ports and streams.
+   *  useful to check cyclic collections passed through ports and streams.
    */
   static void deepEquals(var expected, var actual, [String reason = null]) {
     Map planned=new Map();

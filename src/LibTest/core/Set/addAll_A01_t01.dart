@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void addAll(Collection<T> collection)
- * Adds all the elements of the given collection to the set.
+ * @assertion  abstract void addAll(Iterable<E> elements)
+ * Adds all of elements to this Set.
  * @description Adds some integers to the set and checks that all of the unique ones are actually added.
  * @author pagolubev
  * @reviewer msyabro

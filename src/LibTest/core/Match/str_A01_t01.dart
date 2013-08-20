@@ -20,7 +20,7 @@ main() {
   
 void check(String pattern, String str, bool multiLine, bool caseSensitive) {
   RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
-  Collection<Match> matches = re.allMatches(str);
+  Iterable<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }

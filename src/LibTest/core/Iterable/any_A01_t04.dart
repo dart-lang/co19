@@ -34,7 +34,7 @@ main() {
   bool f1 (int e) { return (e > 1); }
   a = [1,2,3,4];
   Expect.isTrue(a.any(f1));
-  a.setRange(1, 3, [-2,-3,-4]);
+  a.setRange(1, 4, [-2,-3,-4]);
   Expect.isFalse(a.any(f1));
 
   //const []
@@ -56,6 +56,6 @@ main() {
 
   a = new List.from([1,2,3,4]);
   Expect.isTrue(a.any(f1));
-  a.setRange(1, 3, [-2,-3,-4]);
+  a.setRange(1, 4, [-2,-3,-4]);
   Expect.isFalse(a.any(f1));
 }

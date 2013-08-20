@@ -38,9 +38,9 @@ void main() {
   int i = 0;
   port.receive((message, reply) {
     if(messages[i] is List) {
-      Expect.deepListEquals(messages[i], message);
+      Expect.listEquals(messages[i], message);
     } else if(messages[i] is Map) {
-      Expect.deepMapEquals(messages[i], message);
+      Expect.mapEquals(messages[i], message);
     } else {
       Expect.equals(messages[i], message);
     }

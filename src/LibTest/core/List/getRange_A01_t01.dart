@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List src, int start, int length) {
   Iterator dst = src.getRange(start, start+length).iterator;
-  for(int i = 0; dst.moveNext; i++) {
+  for(int i = 0; dst.moveNext(); i++) {
     Expect.equals(src[i+start], dst.current);
     Expect.identical(src[i+start], dst.current);
   }

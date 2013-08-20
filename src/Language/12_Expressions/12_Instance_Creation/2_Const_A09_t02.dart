@@ -22,7 +22,7 @@ class A {
 
 class B {
   final int r;
-  const B(int p1, int p2):r=p1+p2;
+  const B(int p1, int p2):r=2;
 }
 
 main() {

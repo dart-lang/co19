@@ -9,7 +9,7 @@
  *   the name id (respectively pref ix.id) does not denote a type.
  * • T denotes a type variable in the enclosing lexical scope, but occurs in the
  *   signature or body of a static member.
- * • T is a parameterized type of the form G < S1 , . . . , Sn >, and G is malformed.
+ * • T is a parameterized type of the form G<S1, ..., Sn>, and G is malformed.
  * Any use of a malformed type gives rise to a static warning. A malformed
  * type is then interpreted as dynamic by the static type checker and the runtime.
  * @description Checks that it is a static warning if a type variable is used in static context.

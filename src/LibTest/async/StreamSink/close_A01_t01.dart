@@ -14,13 +14,6 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MySink<S> extends StreamSink<S> {
-void add(T event) 
-void addError(errorEvent)
- Future addStream(Stream<S> stream)
-Future close() #
-}
-
 main() {
   StreamController controller=new StreamController();
   var error0=12345;

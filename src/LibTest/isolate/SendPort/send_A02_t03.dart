@@ -21,7 +21,7 @@ f() {
   int i = 0;
   var maps = makeMaps();
   port.receive((message, replyTo) {
-    Expect.deepMapEquals(maps[i], message);
+    Expect.mapEquals(maps[i], message);
     i++;
     replyTo.send(message);
     if(i == maps.length) {
@@ -48,7 +48,7 @@ void main() {
 
   int i = 0;
   port.receive((message, reply) {
-    Expect.deepMapEquals(maps[i], message);
+    Expect.mapEquals(maps[i], message);
     i++;
     if(i == maps.length) {
      port.close();

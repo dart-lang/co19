@@ -8,14 +8,13 @@
  * @description Checks that [Iterator] has no elements left when the list is cleared.
  * @author msyabro
  * @reviewer varlax
- * @needsreview implementation specific
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
   Queue list = new Queue.from([0,1,2,3,4,5]);
-  Iterator it = list.iterator;
   list.clear();
+  Iterator it = list.iterator;
   Expect.isFalse(it.moveNext());
 }
