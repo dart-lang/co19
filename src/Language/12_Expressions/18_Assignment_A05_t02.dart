@@ -31,7 +31,7 @@ class TestException {}
 class C {
   noSuchMethod(Invocation im) {
     Expect.isTrue(im.isSetter);
-    Expect.equals('setter=', im.memberName);
+    Expect.equals('Symbol("setter=")', im.memberName.toString());
     Expect.listEquals([1], im.positionalArguments);
     Expect.mapEquals({}, im.namedArguments);
     throw new TestException();

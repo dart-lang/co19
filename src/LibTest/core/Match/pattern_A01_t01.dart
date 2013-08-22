@@ -20,7 +20,7 @@ void check(String pattern, String str, bool multiLine, bool caseSensitive) {
   }
 
   matches.forEach((Match match) {
-    Expect.equals(pattern, match.pattern);
+    Expect.isTrue(match.pattern.toString().contains(pattern));
   });
 }
 

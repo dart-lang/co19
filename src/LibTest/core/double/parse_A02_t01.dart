@@ -32,8 +32,8 @@ main() {
   checkFE("0X10");
   checkFE("0xa");
   
-  checkFE("1.");
-  checkFE("1.e0");
+  checkFE("1.1.1");
+  checkFE("1. e0");
   checkFE("2E2.0");
   checkFE("InfiNIty");
   checkFE("nan");

@@ -24,7 +24,7 @@ class TestException {}
 
 class C {
   noSuchMethod(Invocation im) {
-    Expect.equals('g3tt3r', im.memberName);
+    Expect.equals('Symbol("g3tt3r")', im.memberName.toString());
     Expect.isTrue(im.isGetter);
     Expect.isNotNull(im.positionalArguments);
     Expect.isNotNull(im.namedArguments);

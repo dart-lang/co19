@@ -12,8 +12,10 @@
  * @author iefremov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
-  f(f) {f();}
-  f(() => print(""));
+  int g() {return 1;}
+  int f(int g()) { return g();}
+  Expect.equals(2, f(()=>2));
 }

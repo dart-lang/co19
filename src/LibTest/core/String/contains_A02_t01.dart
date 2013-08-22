@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null in place of a pattern results in Error
+ * @assertion  abstract bool contains(Pattern other, [int startIndex = 0])
+ * Passing null in place of a pattern results in Error
  * @description Tries to pass null as [other] and expects an Error
  * @author msyabro
  * @reviewer rodionov

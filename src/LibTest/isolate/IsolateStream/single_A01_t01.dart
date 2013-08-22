@@ -14,7 +14,7 @@ import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(Iterable<int> data, bool expected) {
+check(Iterable<int> data, int expected) {
   MessageBox mbox=new MessageBox();
   for (var element in data) {
     mbox.sink.add(element);
@@ -30,5 +30,5 @@ check(Iterable<int> data, bool expected) {
 
 main() {
   check([123], 123);
-  check(new Iterable.generate(1, (int index)=>""), "");
+  check(new Iterable.generate(1, (int index)=>9), 9);
 }

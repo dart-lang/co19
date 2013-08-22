@@ -29,7 +29,7 @@ class C {
     } on RangeError catch(e) {}
 
     try {
-      '${(const []).addLast(1)}';
+      '${(const []).add(1)}';
       Expect.fail("UnsupportedError is expected");
     } on UnsupportedError catch(e) {}
 

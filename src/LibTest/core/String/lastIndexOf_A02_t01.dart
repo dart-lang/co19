@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns -1 if [other] could not be found.
+ * @assertion  abstract int lastIndexOf(Pattern pattern, [int start])
+ * Returns -1 if other could not be found.
  * @description Checks that -1 is returned when appropriate
  * @author msyabro
  * @reviewer rodionov

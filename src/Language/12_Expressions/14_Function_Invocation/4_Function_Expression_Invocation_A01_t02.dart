@@ -18,7 +18,7 @@ class TestException {}
 class A {
   noSuchMethod(Invocation im) {
     // member name and number of args are different for an unresolved getter
-    Expect.equals("b", im.memberName);
+    Expect.equals('Symbol("b")', im.memberName.toString());
     Expect.equals(1, im.positionalArguments.length);
     throw new TestException();
   }

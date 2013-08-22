@@ -46,8 +46,9 @@ main() {
     port.close();
   });
   
+  asyncStart();
   runLater(() {
-    if (received) return;
+    asyncEnd();
     Expect.isTrue(received, "unhandledExceptionCallback not called");
   }, 200);
 }

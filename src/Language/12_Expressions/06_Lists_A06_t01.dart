@@ -52,7 +52,7 @@ main() {
 
   try {
     b = false;
-    (const []).addLast(1);
+    (const []).add(1);
     b = true;
   } catch(e) {}
   if(b) Expect.fail("Exception is expected");

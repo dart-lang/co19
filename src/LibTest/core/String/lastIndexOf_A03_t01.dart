@@ -4,22 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null as argument results in Error
- * @description Tries to pass null as [other] and expects an Error
- * @author msyabro
- * @reviewer rodionov
- * @needsreview Undocumented
+ * @assertion  abstract int lastIndexOf(Pattern pattern, [int start])
+ * It is an error if start is negative or greater than length.
+ * @description Tries to pass an index that is out of range
+ * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  checkNPE("string", null, 5);
-}
-
-void checkNPE(String str1, String str2, int idx) {
-  try {
-    str1.lastIndexOf(str2, idx);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  String str = "string";
+  Expect.throws((){
+    str.lastIndexOf("s", -1);
+  }, (e) => e is Error);
+  Expect.throws((){
+    str.lastIndexOf("s", 0x80000000);
+  }, (e) => e is Error);
+  Expect.throws((){
+    str.lastIndexOf("s", str.length+1);
+  }, (e) => e is Error);
+  Expect.throws((){
+    str.lastIndexOf("s", 0x7fffffff);
+  }, (e) => e is Error);
 }

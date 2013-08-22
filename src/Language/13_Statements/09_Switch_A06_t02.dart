@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 
 main() {
   try {
-    switch(1) {
+    switch(2) {
       case 1: var x = 2;
               break;
       case 2: x++; /// static type warning x isn't declared in this scope

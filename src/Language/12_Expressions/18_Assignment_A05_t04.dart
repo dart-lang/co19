@@ -26,9 +26,11 @@
  */
 import "../../Utils/expect.dart";
 
+String expected='Symbol("nonExistingSetter=")';
+
 class C {
   noSuchMethod(Invocation im) {
-    if(im.memberName != 'nonExistingSetter=') {
+    if(expected!=im.memberName.toString()) {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }
   }

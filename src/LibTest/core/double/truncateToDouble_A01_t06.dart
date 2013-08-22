@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  abstract int truncate()
+ * @assertion  abstract double truncateToDouble()
  * Returns the integer obtained by discarding any fractional digits from this.
- * @description Checks that [:truncate():] does not change the object.
+ * @description Checks that [:truncateToDouble():] does not change the object.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 check(double d) {
   double oldVal = d;
-  d.truncate();
+  d.truncateToDouble();
   Expect.equals(oldVal, d);
 }
 

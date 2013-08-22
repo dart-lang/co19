@@ -9,7 +9,6 @@
  * scope of S. 
  * @description Checks that a hidden class name can't be used as a type.
  * @static-warning
- * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */

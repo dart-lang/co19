@@ -4,27 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  abstract int truncate()
+ * @assertion  abstract double truncateToDouble()
  * Returns the integer obtained by discarding any fractional digits from this.
- * @description Checks [:truncate():] on a bunch of values.
+ * @description Checks [:truncateToDouble():] on a bunch of values.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 
-check(int expected, double argument) {
-  Expect.equals(expected, argument.truncate());
-  Expect.equals(-expected, (-argument).truncate());
+check(double expected, double argument) {
+  Expect.equals(expected, argument.truncateToDouble());
+  Expect.equals(-expected, (-argument).truncateToDouble());
 }
 
 main() {
-  check(1, 1.0000000000000002);
-  check(0, 0.9999999999999999);
-  check(1, 1.1);
-  check(0, 0.9);
-  check(1, 1.4999999999999998);
-  check(1, 1.5000000000000002);
+  check(1.0, 1.0000000000000002);
+  check(.0, 0.9999999999999999);
+  check(1.0, 1.1);
+  check(.0, 0.9);
+  check(1.0, 1.4999999999999998);
+  check(1.0, 1.5000000000000002);
 
   check(2.0, 2.0000000000000004);
   check(1.0, 1.9999999999999998);

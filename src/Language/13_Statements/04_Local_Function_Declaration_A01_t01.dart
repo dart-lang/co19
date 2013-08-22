@@ -26,7 +26,7 @@
 
 main() {
   void func() {}
-  void f(void f()) {f();}
+  void f(void func()) {f(func);}
   ff(var fp) => f(fp);
   
   int funktion(args) {f(func); func();}

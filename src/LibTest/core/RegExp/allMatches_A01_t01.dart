@@ -52,7 +52,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
     
     Expect.equals(expMatch.length, actMatch.groupCount + 3);
     Expect.equals(str, actMatch.str);
-    Expect.equals(pattern, actMatch.pattern);
+    Expect.isTrue(actMatch.pattern.toString().contains(pattern));
     
     Expect.equals(expMatch[0], actMatch.start);
     Expect.equals(expMatch[1], actMatch.end);

@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether this string contains [other] starting at
- *            [startIndex] (inclusive).
- * @description Checks method with out of bounds [startIndex]
+ * @assertion  abstract bool contains(Pattern other, [int startIndex = 0])
+ * Returns whether this string contains a match of other.
+ * If startIndex is provided, only matches at or after that index are considered.
+ * It is an error if startIndex is negative or greater than length.
+ * @description Checks that it is an error if startIndex is negative or greater than length.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1289
  */
 import "../../../Utils/expect.dart";
 
@@ -33,7 +34,7 @@ main() {
   } on RangeError catch(ok){}
 
   try {
-    str.contains(pattern, str.length);
+    str.contains(pattern, str.length+1);
     Expect.fail("RangeError expected!");
   } on RangeError catch(ok){}
 

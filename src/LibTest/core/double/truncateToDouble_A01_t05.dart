@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  abstract int truncate()
+ * @assertion  abstract double truncateToDouble()
  * Returns the integer obtained by discarding any fractional digits from this.
  * @description Checks that if the value is already equal to a mathematical
  * integer, then the result is the same as the value.
@@ -16,10 +16,9 @@ import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 
 
-check(int arg) {
-  double argd=arg.toDouble();
-  Expect.equals(arg, argd.truncate());
-  Expect.equals(-arg, (-argd).truncate());
+check(double arg) {
+  Expect.equals(arg, arg.truncateToDouble());
+  Expect.equals(-arg, (-arg).truncateToDouble());
 }
 
 main() {

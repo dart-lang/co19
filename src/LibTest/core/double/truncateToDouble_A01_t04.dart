@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double truncate()
- * @description Checks truncation of NaN.
+ * @assertion  abstract double truncateToDouble()
+ * Returns the integer obtained by discarding any fractional digits from this.
+ * @description Checks truncation of infinity.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  double nan = 0 / 0;
-  Expect.isTrue(nan.truncate().isNaN);
-  Expect.isTrue((-nan).truncate().isNaN);
+  double inf = 1 / 0;
+  Expect.equals(inf, inf.truncateToDouble());
+  Expect.equals(-inf, (-inf).truncateToDouble());
 }

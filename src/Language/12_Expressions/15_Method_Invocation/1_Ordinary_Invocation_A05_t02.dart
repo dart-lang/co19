@@ -29,7 +29,7 @@ class TestException {}
 
 class A {
   noSuchMethod(Invocation im) {
-    Expect.equals('call', im.memberName);
+    Expect.equals('Symbol("call")', im.memberName.toString());
     throw new TestException();
   }
 }

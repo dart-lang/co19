@@ -9,7 +9,7 @@
  * a default ReceivePort is created for it.
  * This port is available from the top-level getter port defined in this library.
  * spawnFunction returns a SendPort derived from the child isolate's default port.
- * @description Checks that a SendPort returned by spawnFunction correstonds to the default port of the isolate.
+ * @description Checks that a SendPort returned by spawnFunction corresponds to the default port of the isolate.
  * @author kaigorodov
  */
 
@@ -27,7 +27,7 @@ void duplicator() {
 void check(var value) {
   SendPort send_port = spawnFunction(duplicator);
   ReceivePort rPort = new ReceivePort();
-  send_port.send(value, rPort);
+  send_port.send(value, rPort.toSendPort());
 
   asyncStart();
   rPort.receive((message, replyTo){

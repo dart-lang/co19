@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an expression of the form throw; proceeds as follows:
- * Control is transferred to the nearest innermost enclosing exception handler (12.10).
+ * @assertion Control is transferred to the nearest innermost enclosing exception handler.
  * No change is made to the current exception.
  * @description Checks that the statement of the form "throw;" indeed transfers control
  * to the nearest enclosing exception handler if there is one, leaving the current exception
@@ -27,7 +26,7 @@ main() {
     } on int catch(i) {
     } catch(v, st) {
       strace = st;
-      throw;
+      rethrow;
       Expect.fail("This code shouldn't be executed");
     }
     Expect.fail("This code shouldn't be executed");

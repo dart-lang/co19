@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 const VAL=123;
 
-check(Iterable<int> data, bool expected) {
+check(Iterable<int> data, int expected) {
   MessageBox mbox=new MessageBox();
   for (var element in data) {
     mbox.sink.add(element);

@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the last location of [other] in this string, searching
- * backward starting at [fromIndex] (inclusive).
+ * @assertion  abstract int lastIndexOf(Pattern pattern, [int start])
+ * Returns the last position of a match pattern in this string,
+ * searching backward starting at start.
  * @description Checks that the correct index is returned
  * @author msyabro
  * @reviewer rodionov

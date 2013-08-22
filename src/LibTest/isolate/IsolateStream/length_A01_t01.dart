@@ -14,7 +14,7 @@ import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(Iterable<int> data, bool expected) {
+check(Iterable<int> data, int expected) {
   MessageBox mbox=new MessageBox();
   for (var element in data) {
     mbox.sink.add(element);

@@ -24,7 +24,7 @@ class A {
 main() {
   var a = [];
   for(int i = 0; i < 10; i++) {
-    a.addLast(new A());
+    a.add(new A());
     for(int j = 0; j < i; j++) {
       Expect.isFalse(identical(a[j], a[i]));
     }
