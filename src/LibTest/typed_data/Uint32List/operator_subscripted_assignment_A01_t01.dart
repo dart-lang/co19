@@ -22,9 +22,5 @@ check(list) {
 
 main() {
   check([1]);
-  var list = new List(127);
-  for(int i = 0; i < 127; ++i) {
-    list[i] = i;
-  }
-  check(list);
+  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 }
