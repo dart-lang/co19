@@ -180,7 +180,7 @@ main() {
 
   //numbers
   1;
-  +2;
+  -2;
   3.14;
   0xCAFEBABE;
 

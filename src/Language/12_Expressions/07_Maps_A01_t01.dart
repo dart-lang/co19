@@ -70,8 +70,6 @@ class Test  {
     
     x = {5: true, 6: false};
 
-    x = {++5: true, ++6: false};
-
     x = {1+5: true, 1+6: false};
   }
 

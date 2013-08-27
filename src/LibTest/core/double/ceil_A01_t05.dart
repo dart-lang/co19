@@ -14,6 +14,6 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  Expect.equals(+.0, (+.0).ceil());
+  Expect.equals(.0, (.0).ceil());
   Expect.equals(-.0, (-.0).ceil());
 }

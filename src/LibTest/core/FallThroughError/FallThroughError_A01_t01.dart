@@ -11,5 +11,5 @@
  */
  
 main() {
-  var fte = const FallThroughError();
+  var fte = new FallThroughError();
 }

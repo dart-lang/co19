@@ -7,22 +7,17 @@
  * @assertion A formal constructor parameter is either a formal parameter (6.2)
  * or an initializing formal. An initializing formal has the form this.id, 
  * where id is the name of an instance variable of the immediately enclosing class.
- * It is a compile-time error if id is not the name of an instance variable of the immediately enclosing class.
- * @description Checks that various correct constructor parameters do not produce compile-time errors.
+ * @description Checks that It is a compile-time error if formal parameter of a constructor
+ * is declared as a constant variable.
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
 class C {
-  C() {}
-  C.initialFormal(this.x, int this.y, this.z) {}
-  C.mixed(p1, this.x, [p2, this.y]) {}
-
-  int x, y, z;
+  C.formal(p1, var p2, int p3, final p4, const p5, $()) {}
 }
 
 main() {
-  new C();
-  new C.initialFormal(1, 2, 3);
-  new C.mixed(null, null);
+  new C.formal(1, 2, 3, 4, 5, null);
 }

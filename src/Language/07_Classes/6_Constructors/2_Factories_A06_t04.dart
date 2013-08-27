@@ -8,6 +8,7 @@
  * an object whose type is not a subtype of its actual (13.8.1) return type.
  * @description Checks that returning an object of type other than M
  * from factory M.id produces a dynamic type error in checked mode.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

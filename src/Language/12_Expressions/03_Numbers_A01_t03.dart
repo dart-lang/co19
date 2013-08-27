@@ -24,34 +24,34 @@ void check(i, expected) {
 }
 
 main() {
-  check(+0.0, 0);
+  check(-0.0, -0);
   check(1.0, 1);
-  check(+2.0, 2);
+  check(-2.0, -2);
   check(3.0, 3);
-  check(+4.0, 4);
+  check(-4.0, -4);
   check(5.0, 5);
-  check(+6.0, 6);
+  check(-6.0, -6);
   check(7.0, 7);
-  check(+8.0, 8);
+  check(-8.0,-8);
   check(9.0, 9);
-  check(+0.0, 0);
+  check(-0.0, -0);
   check(1.1, 1.1);
-  check(+2.2, 2.2);
+  check(-2.2, -2.2);
   check(3.3, 3.3);
-  check(+4.4, 4.4);
+  check(-4.4, -4.4);
   check(5.5, 5.5);
-  check(+6.6, 6.6);
+  check(-6.6, -6.6);
   check(7.7, 7.7);
-  check(+8.8, 8.8);
+  check(-8.8, -8.8);
   check(9.9, 9.9);
-  check(+.0, 0);
+  check(-.0, -0);
   check(.1, 0.1);
-  check(+.2, 0.2);
+  check(-.2, -0.2);
   check(.3, 0.3);
-  check(+.4, 0.4);
+  check(-.4, -0.4);
   check(.5, 0.5);
-  check(+.6, 0.6);
+  check(-.6, -0.6);
   check(.7, 0.7);
-  check(+.8, 0.8);
+  check(-.8, -0.8);
   check(.9, 0.9);
 }

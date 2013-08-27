@@ -21,6 +21,6 @@ class C {
 
 main() {
   try {
-    new Z.wrongNamedConstructor();
+  	new C();
   } catch (e){}
 }

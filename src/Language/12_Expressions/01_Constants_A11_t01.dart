@@ -13,17 +13,13 @@
  */
 
 class C {
-  final a, b, c, d, e, f, g, h, i;
+  final a, b, c, d, e;
   const C() :
     a = !true,
     b = !false, 
     c = true && false,
     d = false || true,
-    e = (!true || true) && !(false == true),
-    f = false || null,
-    g = true && null,
-    h = !null,
-    i = null || null;
+    e = (!true || true) && !(false == true);
 }
 
 main() {

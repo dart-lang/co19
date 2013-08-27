@@ -9,11 +9,11 @@
  * prevent one of the potentially constant expressions within it from being a valid
  * compile-time constant.
  * @description Checks that compile-time error is produced if actual parameters passed to the constructor
- * make the constant initializer invalid. Note: this mechanism is described in 11.11.2
+ * make the constant initializer invalid. Note: this mechanism is described in the chapter
+ * Classes.Constructors.Constant_Constructors.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @issue 811
  */
 
 class A {
@@ -23,6 +23,7 @@ class A {
 
 main() {
   try {
-    var a = const A(1.1); // parameter does not evaluate to int/bool/String
+    DateTime d=new DateTime.now();
+    var a = const A(d.millisecond);
   } catch(x) {}
 }

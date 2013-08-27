@@ -28,21 +28,21 @@
 
 class A {
   @B(1) factory A.f() {}
-  @A A() {}
-  @A A.B() {}
+  @A() const A():_x=0;
+  @A() A.B():_x=2;
   @B(1) A.C(): _x = 1 {}
 
-  @A static fun() {}
+  @A() static fun() {}
   @B(1) get x {}
-  @A set x(var v) {}
+  @A() set x(var v) {}
   @B(1) operator==(A other) {}
 
-  @A var _x;
+  @A() final _x;
 }
 
 class B {
-  @B(1) B(this.y) {}
-  @A var y;
+  @B(1) const B(this.y);
+  @A() final y;
 }
 
 main() {

@@ -5,7 +5,7 @@
  */
 
 library Export_test_lib;
-@meta @meta2 export "2_Exports_lib.dart";
+@meta @meta2() export "2_Exports_lib.dart";
 
 const meta = "meta!";
 

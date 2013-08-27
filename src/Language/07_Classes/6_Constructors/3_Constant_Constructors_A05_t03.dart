@@ -9,12 +9,12 @@
  * prevent one of the potentially constant expressions within it from being a valid
  * compile-time constant.
  * @description Checks that compile-time error is produced if actual parameters passed to the constructor
- * make the constant initializer invalid. Note: this mechanism is described in 11.11.2
+ * make the constant initializer invalid. Note: this mechanism is described in
+ * chapter Classes.Constructors.Constant_Constructors.
  * Constant constructor invocation is placed outside of main(), in a global variable initialization expression.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @needsreview issue 811
  */
 
 class A {

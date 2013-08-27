@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
  
 main() {
   try {
-    throw const FallThroughError();
+    throw new FallThroughError();
   } on FallThroughError catch(e) {
     Expect.isTrue(e.toString() != null);
     Expect.isTrue(e.toString() is String);

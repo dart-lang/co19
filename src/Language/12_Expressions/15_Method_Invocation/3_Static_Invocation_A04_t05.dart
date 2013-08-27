@@ -26,20 +26,20 @@ StringBuffer buffer;
 
 class A {
   operator+(otherOperand) {
-    buffer.add(2);
+    buffer.write(2);
   }
   operator-(otherOperand) {
-    buffer.add(3);
+    buffer.write(3);
   }
 }
 
 class C {
   static get m {
-    buffer.add(1);
+    buffer.write(1);
     return func;
   }
   static func(arg1, arg2) {
-    buffer.add(4);
+    buffer.write(4);
   }
 }
 

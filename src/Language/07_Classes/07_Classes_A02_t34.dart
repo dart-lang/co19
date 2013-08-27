@@ -40,56 +40,56 @@
 
 class A {
   @B(1)   const A(): this.anotherConstructor();
-  @A   const A.anotherConstructor();
-  @A static final x = 1, y = 2;
+  @A()   const A.anotherConstructor();
+  @A() static final x = 1, y = 2;
   @B(1) static final int z = 3;
-  @A static const x1 = 1, y1 = 2;
+  @A() static const x1 = 1, y1 = 2;
   @B(1) static const int z1 = 3;
 }
 
 class B {
   @B(1) const B(int a);
-  @A B.anotherConstructor(): this.oneMoreConstructor();
+  @A() B.anotherConstructor(): this.oneMoreConstructor();
   @B(1) B.oneMoreConstructor() {}
-  @A static var initialized = 1;
+  @A() static var initialized = 1;
   @B(1) static int initialized2 = 2;
 }
 
 class C {
   @B(1) const C(): x = 1, x1 = 2;
-  @A final x;
+  @A() final x;
   @B(1) final int x1;
 }
 
 class D {
   @B(1) D();
-  @A D.name() : a = 2;
+  @A() D.name() : a = 2;
   @B(1) var x, y = 2, z;
-  @A int a = 1;
+  @A() int a = 1;
   @B(1) static int typed;
-  @A static var untyped;
+  @A() static var untyped;
 }
 
 class E {
   @B(1) E(): this.D();
-  @A E.D();
+  @A() E.D();
   @B(1) static var nonInitialized;
 }
 
 class F {
   @B(1) F(): x = 1, y = 2;
-  @A var x, y;
+  @A() var x, y;
   @B(1) int x1, y1;
 }
 
 abstract class Abstract {
   @B(1) func();
-  @A funcWithParams(p1, p2);
+  @A() funcWithParams(p1, p2);
   @B(1) funcWithOptionalParams([p1 = 1, p2 = 2]);
   @B(1) funcWithNamedParams({p1: 1, p2: 2});
-  @A get val;
+  @A() get val;
   @B(1) set val(var v);
-  @A operator==(Abstract other);
+  @A() operator==(Abstract other);
 
   @B(1) var _val;
 }

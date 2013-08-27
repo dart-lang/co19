@@ -11,12 +11,13 @@
  * AbstractClassInstantiationError is thrown.
  * If T is malformed a dynamic error occurs.
  * In checked mode, if T is malbounded a dynamic error occurs.
- * Otherwise, if q is not deﬁned or not accessible, a NoSuchMethodError is thrown.
+ * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is thrown.
  * If q has less than n positional parameters or more than n required parameters,
  * or if q lacks any of the keyword parameters {xn+1 , . . . , xn+k },
  * a NoSuchMethodError is thrown.
  * @description  Checks that a NoSuchMethodError is thrown if the actual constructor has more
  * required parameters than the new expression.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
