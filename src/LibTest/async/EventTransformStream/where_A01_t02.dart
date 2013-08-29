@@ -25,7 +25,7 @@ class MyTransformer extends StreamEventTransformer<int, int> {
 void check(Iterable data, bool test(event)) {
   Stream s = new Stream.fromIterable(data)
     .map( (x) => x%2==0?x:throw new ArgumentError(x) );
-  EventTransformStream ets=new EventTransformStream(s, new MyTransformer())
+  Stream ets=new EventTransformStream(s, new MyTransformer())
     .asBroadcastStream();
   List err1=new List();
   List err2=new List();
@@ -35,7 +35,7 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  ets.listen((bool value){},
+  ets.listen((int value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -44,7 +44,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  ets.where(test).listen((bool value){},
+  ets.where(test).listen((int value){},
     onError: (error) {
       sync.put1(error);
     },

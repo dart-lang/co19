@@ -9,6 +9,7 @@
  * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that it is a dynamic error
  * if T is not a class accessible in the current scope.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

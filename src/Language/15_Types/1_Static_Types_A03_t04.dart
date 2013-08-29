@@ -21,7 +21,7 @@
 import "../../Utils/expect.dart";
 
 class C<T> {
-   static void f() {
+   static int f() {
      T v = 12;
      return v;
    }

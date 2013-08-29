@@ -21,7 +21,7 @@ main() {
   MyTransformer t=new MyTransformer();
   EventTransformStream ets=new EventTransformStream(stream, t);
 
-  EventTransformStream bs=ets.asBroadcastStream();
+  Stream bs=ets.asBroadcastStream();
   
   Expect.isTrue(bs.isBroadcast);
 }

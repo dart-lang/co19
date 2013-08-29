@@ -8,6 +8,7 @@
  * new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
  * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that it is a dynamic error if T is a type variable.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */

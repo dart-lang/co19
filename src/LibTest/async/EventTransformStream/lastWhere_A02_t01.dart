@@ -25,7 +25,7 @@ check(Iterable data, bool test(int element), int expected) {
   EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
   asyncStart();
   Future f=ets.lastWhere(test, defaultValue: ()=>expected);
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

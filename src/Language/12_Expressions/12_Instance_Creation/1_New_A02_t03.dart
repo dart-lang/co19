@@ -9,9 +9,9 @@
  * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that it is a dynamic error if a reference to
  * a top-level function is used as a Type.
+ * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @issue 3309, 5806
  */
 import "../../../Utils/expect.dart";
 

@@ -19,17 +19,17 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyTransformer extends StreamEventTransformer<int, int> {
+class MyTransformer extends StreamEventTransformer {
 }
 
-check(Iterable<int> data) {
+check(Iterable data) {
   Stream s=new Stream.fromIterable(data);
   EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
   Stream d=ets.distinct();
   bool first=true;
   var previous;
   asyncStart();
-  d.listen((T event){
+  d.listen((event){
       if (first) {
         first=false;
         previous=event;

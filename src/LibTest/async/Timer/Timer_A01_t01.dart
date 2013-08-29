@@ -15,30 +15,25 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(delay, value) {
-  var res;
+check(delayms) {
+  Duration delay=durationMs(delayms);
+  Stopwatch sw=new Stopwatch();
+  sw.start();
 
   asyncStart();
-  new Timer(durationMs(delay+100), () {
-    Expect.equals(res, value);
-    asyncEnd();
-  });
-
-  asyncStart();
-  new Timer(durationMs(delay), () {
-    res=value;
+  new Timer(delay, () {
+    Duration actual=sw.elapsed;
+    Expect.isTrue(delay<=actual, "expected=$delay, actual=$actual");
     asyncEnd();
   });
 }
 
 main() {
-  check(25, const []);
-  check(10, null);
-  check(2, '');
-  check(1, 1);
-  check(0, 0);
-  check(0, -5);
-  check(0, 'string');
-  check(0, true);
+  check(25);
+  check(10);
+  check(2);
+  check(1);
+  check(0);
+  check(-5);
 }
 

@@ -11,13 +11,15 @@
  */
 import "../../../Utils/expect.dart";
 
-void check(List a, int index) {
-  bool failed=false;
+void check(List a, var index) {
   try {
     a.removeAt(index);
-    failed=true;
-  } on ArgumentError catch(ok) {}
-  Expect.isFalse(failed, "ArgumentError expected");
+    Expect.fail("ArgumentError expected");
+  } on ArgumentError catch(ok) {
+  }  catch(e) {
+    print('unexpected error type:${e. runtimeType}("$e")');
+    rethrow;
+  }
 }
 
 main() {

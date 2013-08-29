@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void start()
- * Starts the [Stopwatch].
- * The [elapsed] count is increasing monotonically.
- * If the [Stopwatch] has been stopped, then calling start again restarts it
- * without resetting the elapsed count.
- * If the [Stopwatch] is currently running, then calling start does nothing.
- * @description Checks that calling this method on a stopwatch that wasn't
- *              previously running starts it, causing the elapsed count to increase.
+ * @assertion final int elapsedTicks
+ * Returns the elapsed number of clock ticks since calling [start]
+ * while the [Stopwatch] is running.
+ * Returns the elapsed number of clock ticks between calling [start] and calling [stop].
+ * Returns 0 if the [Stopwatch] has never been started.
+ * The elapsed number of clock ticks increases by [frequency] every second.
+ * @description Checks that the elapsed tick count increases all the time once
+ *              the stopwatch is started.
  * @author rodionov
  * @reviewer pagolubev
  */

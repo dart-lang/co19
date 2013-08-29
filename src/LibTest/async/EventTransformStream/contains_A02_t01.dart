@@ -63,7 +63,7 @@ class MyIterable<E> extends IterableBase<E> {
   
 }
 
-class MyTransformer extends StreamEventTransformer<int, int> {
+class MyTransformer extends StreamEventTransformer {
 }
 
 check(List l, var match, bool expected) {

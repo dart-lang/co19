@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
-void check(double x) {
+void check(int x) {
   Expect.equals(x.toDouble(), x.ceilToDouble());
 }
 

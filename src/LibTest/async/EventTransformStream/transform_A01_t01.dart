@@ -21,19 +21,19 @@ class MyTransformer extends StreamEventTransformer<int, int> {
   }
 }
 
-class MyTransformer2 implements StreamTransformer<int, int> {
-  factory MyTransformer2()=>new StreamTransformer (
+StreamTransformer<int, int> createMyTransformer2() {
+  return new StreamTransformer (
     handleData: (int event, EventSink<int> sink) {
       sink.add(event);
     }
   );
-}
+}  
 
 void check(Iterable data, bool test(event)) {
   Stream s = new Stream.fromIterable(data)
     .map( (x) => x%2==0?x:throw new ArgumentError(x) );
   EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
-  Stream s2=ets.transform(new MyTransformer2()).asBroadcastStream();
+  Stream s2=ets.transform(createMyTransformer2()).asBroadcastStream();
 
   List err1=new List();
   List err2=new List();
@@ -43,7 +43,7 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  s2.listen((bool value){},
+  s2.listen((var value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -52,7 +52,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  s2.where(test).listen((bool value){},
+  s2.where(test).listen((var value){},
     onError: (error) {
       sync.put1(error);
     },

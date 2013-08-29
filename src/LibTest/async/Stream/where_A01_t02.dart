@@ -28,7 +28,7 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  s.listen((bool value){},
+  s.listen((int value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -37,7 +37,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  s.where(test).listen((bool value){},
+  s.where(test).listen((int value){},
     onError: (error) {
       sync.put1(error);
     },

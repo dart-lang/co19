@@ -20,7 +20,7 @@ void check(Iterable data, initialValue, combine(previous, var element), var expe
   Stream s=new Stream.fromIterable(data);
   asyncStart();
   Future f=s.fold(initialValue, combine);
-  f.then((bool actual){
+  f.then((var actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

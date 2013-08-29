@@ -21,7 +21,8 @@ class MyTransformer extends StreamEventTransformer<int, int> {
 void check(Iterable it) {
   Stream stream=new Stream.fromIterable(it);
   MyTransformer t=new MyTransformer();
-  EventTransformStream ets=new EventTransformStream(stream, t).asBroadcastStream();
+  EventTransformStream transformStream=new EventTransformStream(stream, t);
+  Stream ets=transformStream.asBroadcastStream();
   
   Sync2 sync=new Sync2((v1, v2) {
     Expect.equals(v1, v2);

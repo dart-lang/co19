@@ -20,7 +20,7 @@ void check1(Iterable data, bool test(int element), var expected) {
   Stream s=new Stream.fromIterable(data);
   asyncStart();
   Future f=s.lastWhere(test);
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -35,7 +35,7 @@ void check2(Iterable data, bool test(int element), var expected) {
       Expect.fail("should not be called");
     }
   );
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

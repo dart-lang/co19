@@ -4,8 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Duration elapsed
- * Returns the elapsedTicks counter converted to a Duration.
+ * @assertion final int elapsedTicks
+ * Returns the elapsed number of clock ticks since calling [start]
+ * while the [Stopwatch] is running.
+ * Returns the elapsed number of clock ticks between calling [start] and calling [stop].
+ * Returns 0 if the [Stopwatch] has never been started.
+ * The elapsed number of clock ticks increases by [frequency] every second.
  * @description Checks that the elapsed tick count does not change between
  *              invocations of stop() and start().
  * @author rodionov
@@ -21,16 +25,16 @@ main() {
   
   sw.start();
   for(i = 0; i < LOTS_OF_REPS; i++) {
-    elapsed = sw.elapsed.inMicroseconds;
-    if(sw.elapsed.inMicroseconds > 0) break;
+    elapsed = sw.elapsedTicks;
+    if(sw.elapsedTicks > 0) break;
   }
   sw.stop();
   Expect.isTrue(i < LOTS_OF_REPS, "Elapsed count of a started StopWatch didn't increase soon enough, last value: $elapsed");
   
-  e0 = sw.elapsed.inMicroseconds;
+  e0 = sw.elapsedTicks;
   for(i = 0; i < FEWER_REPS; i++) {
     if(i % 100 == 0) {
-      Expect.equals(e0, sw.elapsed.inMicroseconds);
+      Expect.equals(e0, sw.elapsedTicks);
     }
   }
 }

@@ -25,7 +25,7 @@ void check(Iterable data, combine(previous, var element), var expected) {
   EventTransformStream s2=new EventTransformStream(s1, new MyTransformer());
   asyncStart();
   Future f=s2.reduce(combine);
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -34,5 +34,4 @@ void check(Iterable data, combine(previous, var element), var expected) {
 main() {
   check([1,2,3,4], (int previous, int element)=>previous+element, 10);
   check([1,2,3,4], (int previous, int element)=>previous*element, 24);
-  check([1,2,3,4], (bool previous, int element)=>previous||(element==2), true);
 }

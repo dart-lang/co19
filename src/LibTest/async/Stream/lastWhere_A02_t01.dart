@@ -21,7 +21,7 @@ check(Iterable data, bool test(int element), int expected) {
   Stream s=new Stream.fromIterable(data);
   asyncStart();
   Future f=s.lastWhere(test, defaultValue: ()=>expected);
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

@@ -23,16 +23,11 @@ import "dart:async";
 main() {
   Completer completer = new Completer();
   Future f = completer.future;
-  bool visited = false;
+
   f.catchError((Object asyncError) {
-    visited = true;
     asyncEnd();
   });
 
   asyncStart();
   completer.completeError("!");
-  
-  runLater((){
-    Expect.isTrue(visited);
-  });
 }

@@ -22,7 +22,7 @@ void check(Iterable data, initialValue, combine(previous, var element), var expe
   EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
   asyncStart();
   Future f=ets.fold(initialValue, combine);
-  f.then((bool actual){
+  f.then((var actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

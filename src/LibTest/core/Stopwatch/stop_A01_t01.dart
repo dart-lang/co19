@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stops the [Stopwatch]. The [elapsed] count stops increasing. If
- *            the [Stopwatch] is currently not running, then calling stop does
- *            nothing.
+ * @assertion void stop()
+ * Stops the [Stopwatch].
+ * The [elapsedTicks] count stops increasing.
+ * If the [Stopwatch] is currently not running, then calling this method has no effect.
  * @description Checks that this method indeed stops the stopwatch.
  * @author rodionov
  * @reviewer pagolubev

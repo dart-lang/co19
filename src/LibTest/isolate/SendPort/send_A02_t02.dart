@@ -21,7 +21,7 @@ f() {
   int i = 0;
   var lists = makeLists();
   port.receive((message, replyTo) {
-    Expect.deepListEquals(lists[i], message);
+    Expect.listEquals(lists[i], message);
     i++;
 
     replyTo.send(message);
@@ -48,7 +48,7 @@ void main() {
 
   int i = 0;
   port.receive((message, reply) {
-    Expect.deepListEquals(lists[i], message);
+    Expect.listEquals(lists[i], message);
     i++;
     if(i == lists.length) {
      port.close();

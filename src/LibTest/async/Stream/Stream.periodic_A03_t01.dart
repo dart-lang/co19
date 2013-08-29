@@ -34,12 +34,6 @@ check(int periodMs) {
     }
   });
   subs=s.listen((data){});
-  num p=periodMs>0?(periodMs*maxCount*1.1)+10:10;
-  asyncStart();
-  new Future.delayed(durationMs(p), () {
-    Expect.equals(maxCount, count, "$id: check: count=$count");
-    asyncEnd();
-  });
 }
 
 main() {

@@ -45,20 +45,12 @@ main() {
   sink.add(port.toSendPort());
   sink.add(message0);
 
-  bool received=false;
-
   asyncStart();
   port.receive((message, replyTo){
     Expect.equals(message0, message);
     port.close();
     asyncEnd();
-    received=true;
   });
-  
-  runLater(() {
-    if (received) return;
-    Expect.isTrue(received, "unhandledExceptionCallback not called");
-  }, 200);
 }
 
 

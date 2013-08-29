@@ -14,8 +14,8 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyTransformer extends StreamEventTransformer<int, int> {
-  void handleData(int event, EventSink<int> sink) {
+class MyTransformer extends StreamEventTransformer {
+  void handleData(var event, EventSink sink) {
      throw new ArgumentError(event);
   }
 }
@@ -47,7 +47,7 @@ void check(List data) {
 }
 
 main() {
-  check([]);
-  check([1,2,3,4]);
+//  check([]);
+//  check([1,2,3,4]);
   check([null,"2",-3,4.0, []]);
 }

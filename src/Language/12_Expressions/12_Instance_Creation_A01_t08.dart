@@ -19,11 +19,11 @@
  */
 
 class G<T extends num, S extends String> {
-  const G();
+  G();
 }
 
 main() {
   try {
-    var o = const G<double, double>(); /// static type warning
+    var o = new G<double, double>(); /// static type warning
   } catch (anything) {}
 }

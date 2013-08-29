@@ -19,16 +19,14 @@ class A {
 
 class C extends A {
   static String foo2 = "foo";
+  
   static set foo(String s) {
     foo2=s; 
-  }
-  static String get foo {
-    return foo2; 
   }
   
 }
 
 main() {
   C.foo = "foo";
-  Expect.equals(C.foo, "foo");
+  Expect.equals(C.foo2, "foo");
 }

@@ -27,7 +27,7 @@ void check(Stream s) {
     },
     onError:(error){
       Expect.isFalse(errorSeen);
-      Expect.isTrue(error is ArgumentError, error);
+      Expect.isTrue(error is ArgumentError, error.toString());
       Expect.isTrue((error as ArgumentError).message==1);      
       errorSeen=true;
       asyncEnd();

@@ -7,7 +7,7 @@
  * @assertion static void run(void callback())
  * Runs the given callback asynchronously as soon as possible.
  * This function is equivalent to new Timer(Duration.ZERO, callback).
- * @description Checks that callback finction is called before delayed one.
+ * @description Checks that callback finction is called once.
  * @author kaigorodov
  */
 
@@ -16,26 +16,17 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(delay, value) {
-  var res;
-
-  asyncStart();
-  new Future.delayed(durationMs(delay), () {
-    Expect.equals(res, value);
-    asyncEnd();
-  });
-
-  asyncStart();
-  Timer.run(() {
-    res=value;
-    asyncEnd();
-  });
+check(delay) {
 }
 
 main() {
-  check(25, const []);
-  check(10, null);
-  check(2, '');
-  check(1, 1);
+  bool seen=false;
+
+  asyncStart();
+  Timer.run(() {
+    Expect.isFalse(seen);
+    seen=true;
+    asyncEnd();
+  });
 }
 

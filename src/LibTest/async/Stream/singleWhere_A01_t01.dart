@@ -19,7 +19,7 @@ void check(Iterable data, bool test(int element), var expected) {
   Stream s=new Stream.fromIterable(data);
   asyncStart();
   Future f=s.singleWhere(test);
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

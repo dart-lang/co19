@@ -14,7 +14,7 @@
  */
 
 class C {
-  final a, b, c, d, e, f, g, h, i, j, k, l, m, n, o;
+  final a, b, c, d, e, f, g;
 
   const C() :
     a = ~1,
@@ -23,15 +23,7 @@ class C {
     d = 0xDEAD | 0xBEEF,
     e = 1 >> 100,
     f = 100 << 1,
-    g = ~(((1 + 2) ~/ 2) & (100500 >> 2))  | (~1 ^ (1<<2)),
-    h = 1 ^ null,
-    i = 1 << null,
-    j = 0xcafe & null,
-    k = ~null,
-    l = null ^ 1,
-    m = null & null,
-    n = null | 0xff,
-    o = null >> 2;
+    g = ~(((1 + 2) ~/ 2) & (100500 >> 2))  | (~1 ^ (1<<2));
 }
 
 main() {

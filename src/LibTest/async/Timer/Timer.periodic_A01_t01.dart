@@ -17,24 +17,22 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  int delay=20;
-  int times=5;
+  int times=10;
   int count=0;
+  Duration delay=durationMs(20);
+  Stopwatch sw=new Stopwatch();
+  sw.start();
 
   asyncStart();
-  Timer timer=new Timer.periodic(durationMs(delay), (Timer timer) {
+  new Timer.periodic(delay, (Timer timer) {
     count++;
+    Duration expected=delay*count;
+    Duration actual=sw.elapsed;
+    Expect.isTrue(expected<=actual, "expected=$expected, actual=$actual");
     if (count==times) {
       timer.cancel();
       asyncEnd();
     }
   });
-  
-  asyncStart();
-  new Timer(durationMs(delay*(times+1)), () {
-    Expect.equals(count, times);
-    asyncEnd();
-  });
-  
 }
 

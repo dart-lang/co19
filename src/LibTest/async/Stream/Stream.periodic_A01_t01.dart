@@ -18,29 +18,29 @@ import "../../../Utils/expect.dart";
 
 typedef int Computation(int computationCount);
 
+Stopwatch sw=new Stopwatch();
+const maxCount = 5;
+
 class MyListener extends StreamListener<int> {
-  static const maxCount = 5;
   
   Duration period;
-  DateTime prev=new DateTime.now();
   int count=0;
   
   MyListener(this.period);
   
   void onData(int event) {
-    Expect.isNull(event, "onData");
-    DateTime now=new DateTime.now();
-    Duration delta=now.difference(prev);
-    Expect.approxEquals(period.inMilliseconds, delta.inMilliseconds, 20);
-    prev=now;
     count++;
+    Expect.isNull(event, "onData");
+    Duration expected=period*count;
+    Duration actual=sw.elapsed;
+    Expect.isTrue(expected<=actual, "expected=$expected, actual=$actual");
     if (count>=maxCount) {
       subscription.cancel();
     }
   }
   
   void onError(error)  {
-    throw new Error("onError called unexpectedly");
+    throw error;
   }
   
   void onDone(){
@@ -51,6 +51,8 @@ class MyListener extends StreamListener<int> {
 
 check(int periodMs) {
   Duration period=durationMs(periodMs);
+  sw.start();
+  
   Stream s=new Stream.periodic(period);
   MyListener l=new MyListener(period);
   asyncStart();

@@ -28,7 +28,6 @@ void check(List data) {
   // make a Stream with only error events
   EventTransformStream s2=new EventTransformStream(s1, new MyTransformer());
 
-  Object firstError;
   bool firstErrorSeen=false;
   
   asyncStart();
@@ -38,10 +37,10 @@ void check(List data) {
     onError:(Object error) {
       Expect.isFalse(firstErrorSeen);
       firstErrorSeen=true;
-      firstError=error;
+      asyncEnd();
     },
     onDone:() {
-      Expect.equals(expected, firstError.message);
+      Expect.fail("unexpected call to onDone()");
       asyncEnd();
     },
     cancelOnError: true

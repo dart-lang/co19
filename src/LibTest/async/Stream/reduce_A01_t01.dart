@@ -18,7 +18,7 @@ void check(Iterable data, combine(previous, var element), var expected) {
   Stream s=new Stream.fromIterable(data);
   asyncStart();
   Future f=s.reduce(combine);
-  f.then((bool actual){
+  f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -27,5 +27,4 @@ void check(Iterable data, combine(previous, var element), var expected) {
 main() {
   check([1,2,3,4], (int previous, int element)=>previous+element, 10);
   check([1,2,3,4], (int previous, int element)=>previous*element, 24);
-  check([1,2,3,4], (bool previous, int element)=>previous||(element==2), true);
 }

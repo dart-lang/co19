@@ -37,7 +37,7 @@ void check(Iterable data, bool test(int element)) {
   }
   asyncStart();
   Stream sw=ets.where(_test);
-  sw.listen((bool value){
+  sw.listen((var value){
       Expect.isTrue(test(value));
       collected.add(value);
     },

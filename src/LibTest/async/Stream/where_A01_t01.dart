@@ -30,7 +30,7 @@ void check(Iterable data, bool test(int element)) {
   }
   asyncStart();
   Stream sw=s.where(_test);
-  sw.listen((bool value){
+  sw.listen((int value){
       Expect.isTrue(test(value));
       collected.add(value);
     },

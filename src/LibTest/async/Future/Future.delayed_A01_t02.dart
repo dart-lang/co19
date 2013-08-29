@@ -16,20 +16,20 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var lastValue=null;
-
-check(delay, value, expectedLastValue) {
-  Future future = new Future.delayed(durationMs(delay), ()=>value);
+check(delayms, value) {
+  Duration delay=durationMs(delayms);
+  Stopwatch sw=new Stopwatch();
+  sw.start();
   asyncStart();
-  future.then((fValue) {
-    Expect.equals(lastValue, expectedLastValue);
-    lastValue=fValue;
+  Future future = new Future.delayed(delay, (){
+    Duration elapsed=sw.elapsed;
+    Expect.isTrue(elapsed >= delay, "delay=$delay, elapsed=${elapsed}");
     asyncEnd();
   });
 }
 
 main() {
-  check(100, 3, 22);
-  check(50, 22, 11);
-  check(0, 11, null);
+  check(0, 11);
+  check(300, 3);
+  check(50, 22);
 }

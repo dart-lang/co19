@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyTransformer extends StreamEventTransformer<int, int> {
+class MyTransformer extends StreamEventTransformer {
 }
 
 void check(List data) {
@@ -26,7 +26,7 @@ void check(List data) {
   Future f=ets.forEach((var element){
     sink.add(element);
   });
-  f.then((bool actual){
+  f.then((var actual){
     Expect.listEquals(data, sink);
     asyncEnd();
   });

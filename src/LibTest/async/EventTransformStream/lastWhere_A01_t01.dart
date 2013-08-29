@@ -24,7 +24,7 @@ void check1(Iterable data, bool test(int element), var expected) {
   EventTransformStream ets=new EventTransformStream(s, new MyTransformer());
   asyncStart();
   Future f=ets.lastWhere(test);
-  f.then((bool actual){
+  f.then((var actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -39,7 +39,7 @@ void check2(Iterable data, bool test(int element), var expected) {
       Expect.fail("should not be called");
     }
   );
-  f.then((bool actual){
+  f.then((var actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

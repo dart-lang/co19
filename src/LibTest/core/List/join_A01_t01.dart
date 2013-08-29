@@ -13,7 +13,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void join(List a, [String separator = ""]) {
+String join(List a, [String separator = ""]) {
   StringBuffer sb=new StringBuffer();
   bool first=true;
   for (var element in a) {

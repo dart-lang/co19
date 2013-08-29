@@ -16,6 +16,7 @@
  * or if q lacks any of the keyword parameters {xn+1 , . . . , xn+k },
  * a NoSuchMethodError is thrown.
  * @description Checks that a dynamic error occurs if T is not accessible.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */

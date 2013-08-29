@@ -15,21 +15,15 @@ import "../../../Utils/expect.dart";
 
 import "dart:async";
 
-var listened;
-
 main() {
   var completer = new Completer();
   var future = completer.future;
 
   future.then((fValue) {
-    listened=fValue;
+    Expect.equals(1, fValue);
     asyncEnd();
   });
 
   asyncStart();
   completer.complete(1);
-  
-  runLater((){
-    Expect.equals(1, listened);
-  });  
 }

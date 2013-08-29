@@ -24,14 +24,13 @@ main() {
   
   asyncStart();
   stream.listen(
-    (var event){count=count+1;}, // should be invoked first
+    (var event){  // should be invoked first
+    	count=count+1;
+    },
     onDone: (){
-      count=count*2;
+	  Expect.equals(2, count);
       asyncEnd();
     }   // should be invoked second
   );
 
-  runLater((){
-    Expect.equals(4, count);
-  });
 }

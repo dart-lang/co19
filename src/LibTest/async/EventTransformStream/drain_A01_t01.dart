@@ -17,7 +17,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyTransformer extends StreamEventTransformer<int, int> {
+class MyTransformer extends StreamEventTransformer {
 }
 
 void check(Stream s) {
@@ -31,8 +31,8 @@ void check(Stream s) {
     },
     onError:(error){
       Expect.isFalse(errorSeen);
-      Expect.isTrue(error is ArgumentError, error);
-      Expect.isTrue((error as ArgumentError).message==1);      
+      Expect.isTrue(error is ArgumentError, error.toString());
+      Expect.equals(1, (error as ArgumentError).message);      
       errorSeen=true;
       asyncEnd();
     }

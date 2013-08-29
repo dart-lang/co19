@@ -36,7 +36,7 @@ void check(int eventCount, int takeCount) {
       Expect.fail("datum not expected");
     },
     onError: (error) {
-      Expect.isTrue(error is ArgumentError, error);
+      Expect.isTrue(error is ArgumentError, error.toString());
       var message=(error as ArgumentError).message;
       Expect.equals(seenCount, message);
       seenCount++;

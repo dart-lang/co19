@@ -15,8 +15,8 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyTransformer extends StreamEventTransformer<int, int> {
-  void handleData(int event, EventSink<int> sink) {
+class MyTransformer extends StreamEventTransformer {
+  void handleData(var event, EventSink sink) {
     sink.add(event);
   }
 }
