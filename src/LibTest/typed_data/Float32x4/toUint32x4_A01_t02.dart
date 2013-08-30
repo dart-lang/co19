@@ -19,6 +19,11 @@ main() {
 
   Expect.equals(0x7f800000, res.x);
   Expect.equals(0xff800000, res.y);
-  Expect.equals(0xffc00000, res.z);
-  Expect.equals(0xffc00000, res.w);
+
+  var nanMask = 0x7f800000;
+  var fraction = 0x7fffff;
+  Expect.equals(nanMask, res.z & nanMask);
+  Expect.isTrue((res.z & fraction) != 0);
+  Expect.equals(nanMask, res.w & nanMask);
+  Expect.isTrue((res.w & fraction) != 0);
 }
