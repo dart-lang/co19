@@ -17,19 +17,19 @@ pack(v) => new Float32x4.splat(v);
 check(list) {
   var l = new Float32x4List.fromList(list);
   try {
-    l[-1] = 1;
+    l[-1] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
   try {
-    l[l.length] = 1;
+    l[l.length] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
   try {
-    l[0x80000000] = 1;
+    l[0x80000000] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
   try {
-    l[0x7fffffff] = 1;
+    l[0x7fffffff] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
 }

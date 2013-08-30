@@ -15,19 +15,19 @@ import "../../../Utils/expect.dart";
 check(list) {
   var l = new Float64List.fromList(list);
   try {
-    l[-1] = 1;
+    l[-1] = 1.0;
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
   try {
-    l[l.length] = 1;
+    l[l.length] = 1.0;
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
   try {
-    l[0x80000000] = 1;
+    l[0x80000000] = 1.0;
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
   try {
-    l[0x7fffffff] = 1;
+    l[0x7fffffff] = 1.0;
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
 }
