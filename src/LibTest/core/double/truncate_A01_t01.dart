@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 
-check(int expected, double argument) {
+check(num expected, double argument) {
   Expect.equals(expected, argument.truncate());
   Expect.equals(-expected, (-argument).truncate());
 }

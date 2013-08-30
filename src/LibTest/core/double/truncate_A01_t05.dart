@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 
 
-check(int arg) {
+check(num arg) {
   double argd=arg.toDouble();
   Expect.equals(arg, argd.truncate());
   Expect.equals(-arg, (-argd).truncate());
