@@ -14,10 +14,13 @@
  * constructor.
  * Attempting to assign to a final variable anywhere except in its declaration or in
  * a constructor header will cause a runtime error to be thrown.
- * @static-warning
  * @description Checks that it is a static warning when a final instance variable that
  * has been initialized by means of an initializing formal of a constructor is also initialized
  * elsewhere in the same constructor.
+ * Also checks that it is an error to initialize final instance variable both in
+ * initializing formal and initializer list
+ * @compile-error
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -30,6 +30,6 @@ void main() {
     throw ex;
   } on Exception catch(e, st) {
     Expect.equals(ex, e);
-    Expect.isTrue(st.toString().contains("Language/12_Statements/10_Try_A07_t03.dart"));
+    Expect.isTrue(st.toString().contains("11_Try_A07_t03.dart"));
   }
 }

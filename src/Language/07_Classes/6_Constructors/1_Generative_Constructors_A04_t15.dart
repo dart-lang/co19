@@ -16,13 +16,12 @@
  * ;
  * @description Checks that cascaded invocations are allowed in field initializers.
  * @author rodionov
- * @issue 6954
  * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
 class C {
-  C() : this.foo = null..[1](1)[2](2).foo(3, bar: 4)=5..bar(6)["one ugly cascade"] {}
+  C() : this.foo = null..[1](1)[2](2).foo(3, bar: 4)[0]=5..bar(6)["one ugly cascade"] {}
   var foo;
 }
 

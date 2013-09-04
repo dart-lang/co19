@@ -15,7 +15,7 @@
  */
 import "../../Utils/expect.dart";
 
-import "10_Try_lib.dart" as p; // class Foo declared here
+import "11_Try_lib.dart" as p; // class Foo declared here
 
 main() {
   try {

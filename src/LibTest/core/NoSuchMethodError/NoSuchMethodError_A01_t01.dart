@@ -10,14 +10,16 @@
  * @reviewer pagolubev
  * @needsreview undocumented
  */
- 
+
+sym ([String s = '']) => new Symbol(s);
+
 main() {
-  new NoSuchMethodError(null, null, null, null);
-  new NoSuchMethodError(null, null, [], {});
-  new NoSuchMethodError(null, null, [null], {"a": null});
-  new NoSuchMethodError(null, "foo", [1, 2], {"foo": "bar"});
-  new NoSuchMethodError("foo", null, [1, 2], {"foo": "bar"});
-  new NoSuchMethodError("foo", "foo", [], {});
+  new NoSuchMethodError(null, sym(), null, null);
+  new NoSuchMethodError(null, sym(), [], {});
+  new NoSuchMethodError(null, sym(), [null], {sym("a"): null});
+  new NoSuchMethodError(null, sym("foo"), [1, 2], {sym("foo"): "bar"});
+  new NoSuchMethodError("foo", sym(), [1, 2], {sym("foo"): "bar"});
+  new NoSuchMethodError("foo", sym("foo"), [], {});
   String foo = "foo";
-  new NoSuchMethodError(foo, foo, [foo], {"": foo});
+  new NoSuchMethodError(foo, sym(foo), [foo], {sym(): foo});
 }
