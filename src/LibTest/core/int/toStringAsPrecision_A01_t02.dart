@@ -20,10 +20,7 @@ main() {
 }
 
 void check(int x, int digits) {
-  try {
+  Expect.throws(() {
     x.toStringAsPrecision(digits);
-    Expect.fail("Some exception is expected");
-  } catch(e) {
-    // TODO: specify exact type
-  }
+  });
 }

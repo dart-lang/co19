@@ -17,16 +17,13 @@ main() {
   check(0, -1);
   check(0, 0);
   check(0, 1);
-  check(0, 17);
+//  check(0, 17);
   check(0, 0x80000000);
   check(0, -0x80000000);
 }
 
 void check(int i, int r) {
-  try {
+  Expect.throws(() {
     i.toRadixString(r);
-    Expect.fail("Some exception expected");
-  } catch(e) {
-    // TODO: specify exact exception type
-  }
+  });
 }

@@ -36,11 +36,9 @@ main() {
 
   var f = Future.wait([future1, future2, future3, future4, future5]);
 
-  bool visited = false;
   asyncStart();
   f.catchError((value) {
     Expect.isTrue(completer5.isCompleted);
-    visited = true;
     asyncEnd();
   });
 
@@ -49,8 +47,4 @@ main() {
   completer3.completeError(3);
   completer4.completeError(4);
   completer5.completeError(5);
-
-  runLater((){
-    Expect.isTrue(visited, "Exception handler was not called!");
-  });
 }

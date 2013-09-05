@@ -23,8 +23,9 @@ import "dart:async";
 check(value) {
   Completer completer = new Completer();
   Future f = completer.future;
-  bool visited=false;
   
+  asyncMultiStart(2);
+
   f.catchError((exception) {
     asyncEnd();
     return true;
@@ -34,17 +35,11 @@ check(value) {
       Expect.fail("no error");
     },
     onError:(Object asyncError){
-      visited=true;
       asyncEnd();
     }
   );
 
-  asyncMultiStart(2);
   completer.completeError(value);
-  
-  runLater((){
-    Expect.isTrue(visited);
-  });
 }
 
 main() {

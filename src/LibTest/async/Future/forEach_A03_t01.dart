@@ -20,7 +20,6 @@ int N=input.length;
 int e2stop=2;
 
 main() {
-  bool visited = false;
   List<bool> operationTrace=new List<bool>(N);
   
   for (int k=0; k<N; k++) {
@@ -40,14 +39,8 @@ main() {
   
   f.catchError((Object asyncError) {
     Expect.equals(e2stop, asyncError);
-    visited = true;
-    asyncEnd();
-  });
-
-  runLater((){
-    // make sure future f is completed
-    Expect.isTrue(visited);
     Expect.listEquals([true, true, false, false, false], operationTrace);
+    asyncEnd();
   });
 }
 

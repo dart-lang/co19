@@ -28,10 +28,10 @@ class S {
 
 class A extends S {
   operator+(otherOperand) {
-    buffer.add(1);
+    buffer.write(1);
   }
   operator-(otherOperand) {
-    buffer.add(2);
+    buffer.write(2);
   }
   test() {
     buffer = new StringBuffer();

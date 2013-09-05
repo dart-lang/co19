@@ -5,9 +5,9 @@
  */
 /**
  * @assertion abstract void complete([T value])
- * Completes future with the supplied values. All listeners on the future will be
- * immediately informed about the value.
- * @description Checks that single listener on the future is informed immediately.
+ * Completes future with the supplied values. All listeners on the future are
+ * informed informed about the value.
+ * @description Checks that single listener on the future is informed.
  * @author kaigorodov
  */
 import "../../../Utils/async_utils.dart";

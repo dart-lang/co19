@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by
- * [ifAbsent]. Returns the value in the map.
- * @description Tries to pass incorrect value as ifAbsent argument if [key] 
- * is already in the map and checks that no attempt to call that value is made.
+ * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
+ * If [key] is not associated to a value, calls [ifAbsent] and
+ * updates the map by mapping [key] the value returned by [ifAbsent].
+ * Returns the value in the map.
+ * @description Checks that if [key] is already associated to a value, [ifAbsent]
+ * is not called and its incorrect value is not detected.
  * @static-warning
  * @author msyabro
  * @needsreview undocumented
@@ -20,7 +21,6 @@ main() {
   Map<String, Object> map = new Map<String, Object>();
   map["1"] = 1;
   
-  map.putIfAbsent("1", null);
   checkTypeError(() {
     map.putIfAbsent("1", 1); /// static type warning
   });

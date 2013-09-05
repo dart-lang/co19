@@ -52,10 +52,7 @@ main() {
       completers[k].complete(k);
     }
 
-    // future f is now completed
-    runLater((){
-      Expect.isTrue(visited);
-    });
+    // future f is now completed, test harness checks asyncEnd() invoked 
   });
 
 }

@@ -16,8 +16,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
+  Expect.throws(() {
     new UnavailableType();
-    Expect.fail("Should throw a NoSuchMethodError");
-  } catch(e) {}
+  });
 }

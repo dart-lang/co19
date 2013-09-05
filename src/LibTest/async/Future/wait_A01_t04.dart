@@ -35,17 +35,9 @@ main() {
 
   Future f = Future.wait(futures);
 
-  bool visited = false;
   asyncStart();
   f.then((value) {
-    visited = true;
     Expect.listEquals([0,1,2,3,4], value);
     asyncEnd();
   });
-
-  // future f is now completed
-  runLater((){
-    Expect.isTrue(visited);
-  });
-
 }

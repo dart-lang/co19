@@ -16,20 +16,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   int value = 20;
-  var value2;
   
   Completer completer = new Completer();
   Future f0 = completer.future;
   f0.whenComplete((){throw value;}).catchError((Object err) {
-    value2=err;
+    Expect.equals(value, err);
     asyncEnd();
   });
   
   asyncStart();
   completer.complete(0);
-  
-  runLater((){
-    Expect.equals(value, value2);
-  });
 }
 

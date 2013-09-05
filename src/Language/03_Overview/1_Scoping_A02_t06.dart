@@ -23,8 +23,7 @@ class G<C> {
 }
 
 main() {
-  try {
+  Expect.throws(() {
     new G();
-    Expect.fail("Should throw an exception");
-  } catch(x){}
+  });
 }

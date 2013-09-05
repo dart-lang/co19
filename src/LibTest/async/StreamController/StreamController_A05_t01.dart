@@ -32,7 +32,4 @@ main() {
   Expect.isFalse(onResumeCalled);
 
   subs.resume();
-  runLater((){
-    Expect.isTrue(onResumeCalled);
-  });
 }

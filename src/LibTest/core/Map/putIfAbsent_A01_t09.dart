@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by
- * [ifAbsent]. Returns the value in the map.
+ * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
+ * If [key] is not associated to a value, calls [ifAbsent] and
+ * updates the map by mapping [key] the value returned by [ifAbsent].
+ * Returns the value in the map.
  * @description Checks that it's possible to pass a static function as
  * the second argument.
  * @author msyabro

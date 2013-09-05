@@ -5,10 +5,9 @@
  */
 /**
  * @assertion Future<T> elementAt(int index)
- * If this stream provides fewer than index elements before closing, an error is reported.
- * @description Checks that if this stream provides fewer than index elements before closing,
- * an error is reported.
- * @note undocumented fact: error is StateError
+ * If a done event occurs before the value is found, the future completes with a RangeError.
+ * @description Checks that if a done event occurs before the value is found,
+ * the future completes with a RangeError.
  * @author kaigorodov
  */
 
@@ -26,7 +25,7 @@ void checkError(Stream s, index) {
       Expect.fail("unexpected onDone call");
     },
     onError: (error) {
-      Expect.isTrue(error is StateError);
+      Expect.isTrue(error is RangeError, "error is ${error. runtimeType}");
       asyncEnd();
     }
   );

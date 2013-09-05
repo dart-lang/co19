@@ -14,6 +14,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
+  Expect.equals("1e+2", 100.toStringAsExponential(null));
 
   Expect.equals("1e+2", 100.toStringAsExponential(0));
   Expect.equals("1.0e+2", 100.toStringAsExponential(1));

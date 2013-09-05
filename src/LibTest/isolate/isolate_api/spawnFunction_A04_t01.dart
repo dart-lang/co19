@@ -11,7 +11,7 @@
  * @description Checks that the function passed as the second parameter is invoked when an unhandled exception
  * inside the starting function of the isolate was thrown.
  * @author kaigorodov
- * TODO test fails, file a bug against dart
+ * @issue 10012
  */
 
 import "dart:isolate";
@@ -25,7 +25,9 @@ void main2() {
 }
 
 bool unhandledExceptionCallback(IsolateUnhandledException e){
+print("child unhandledExceptionCallback $e");
   port.receive((message, replyTo) {
+print("child port.receive $message $replyTo");
     replyTo.send(e.source);
     port.close();
   });
@@ -35,20 +37,12 @@ bool unhandledExceptionCallback(IsolateUnhandledException e){
 main() {
   SendPort send_port = spawnFunction(main2, unhandledExceptionCallback);
   send_port.send(message0, port.toSendPort());
-
-  bool received=false;
   
   asyncStart();
   port.receive((message2, replyTo){
-    received=true;
+print("main port.receive $message2 $replyTo");
     asyncEnd();
     Expect.equals(message0, message2);
     port.close();
   });
-  
-  asyncStart();
-  runLater(() {
-    asyncEnd();
-    Expect.isTrue(received, "unhandledExceptionCallback not called");
-  }, 200);
 }

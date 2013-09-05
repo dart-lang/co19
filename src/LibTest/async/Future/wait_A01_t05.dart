@@ -22,17 +22,11 @@ main() {
 
   var f = Future.wait([future]);
 
-  bool visited = false;
   asyncStart();
   f.then((value) {
-    visited = true;
     Expect.listEquals([1], value);
     asyncEnd();
   });
 
   completer.complete(1);
-
-  runLater((){
-    Expect.isTrue(visited);
-  });
 }

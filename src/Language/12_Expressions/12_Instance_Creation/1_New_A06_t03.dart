@@ -23,8 +23,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
+  Expect.throws(() {
     new C();
-    Expect.fail("Should throw an error");
-  } catch(e) {}
+  });
 }

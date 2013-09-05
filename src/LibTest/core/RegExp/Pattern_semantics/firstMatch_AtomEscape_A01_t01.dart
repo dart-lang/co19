@@ -32,21 +32,19 @@ main() {
 void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
-  if(null == fm) {
+  if (null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
-  if(matchPos >= 0) {
+  if (matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
-  if(null != expectedGroups) {
+  if (null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
-    for(int i = 0; i <= fm.groupCount; i++) {
+    for (int i = 0; i <= fm.groupCount; i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      Expect.equals(expGr, actGr, "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
@@ -57,13 +55,3 @@ void checkNeg(String pattern, String str) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }
 }
-
-//void checkEx(String pattern, String str) {
-//  try {
-//    RegExp re = new RegExp(pattern);
-//    re.firstMatch(str);
-//    Expect.fail("An error expected");
-//  } catch(ok) {
-//     //TODO
-//  }
-//}

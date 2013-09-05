@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by
- * [ifAbsent]. Returns the value in the map.
+ * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
+ * If [key] is not associated to a value, calls [ifAbsent] and
+ * updates the map by mapping [key] the value returned by [ifAbsent].
+ * Returns the value in the map.
  * @description Checks that the new mapping added only if the key is not present
- * in the map. Checks the value is returned.
+ * in the map. Checks the returned value.
  * @author msyabro
  * @reviewer varlax
  */

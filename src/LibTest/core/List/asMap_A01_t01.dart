@@ -19,15 +19,17 @@ void check(List a) {
   var map=a.asMap();
   Expect.isTrue(map is Map);
 
-  try {
+  Expect.throws(() {
     map["key"]="value"; 
-    Expect.fail("modification did not fail");
-  } catch (ok) {}
+  }
+  ,(e)=>true
+  ,"modification did not fail"
+  );
 
   Expect.equals(map.length, a.length);
 
   int count=0;
-  map.forEach((K key, V value){
+  map.forEach((key, value){
      Expect.equals(map[key], a[key]);
      count++;
   });

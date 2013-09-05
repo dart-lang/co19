@@ -26,10 +26,6 @@ void check(Future f) {
     asyncEnd();
   });
   Expect.isFalse(visited);
-  
-  runLater((){
-    Expect.isTrue(visited);
-  });
 }
 
 main() {

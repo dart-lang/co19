@@ -20,7 +20,6 @@ int N=input.length;
 main() {
   List<Completer> completers=new List<Completer>(N);
   Future f;
-  bool visited = false;
 
   for (int k=0; k<N; k++) {
     completers[k] = new Completer();
@@ -33,7 +32,6 @@ main() {
   f = Future.forEach(input, ff);
   
   f.then((fValue) {
-    visited = true;
     asyncEnd();
   });
   
@@ -42,10 +40,5 @@ main() {
   for (int k=N-1; k>=0; k--) {
     completers[k].complete(k);
   }
-
-  runLater((){
-    // make sure future f is completed
-    Expect.isTrue(visited);
-  });
 }
 

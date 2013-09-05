@@ -20,12 +20,10 @@ check(List l, var match, int expected) {
   MessageBox mbox=new MessageBox();
   Future<bool> fu=mbox.stream.contains(match);
   int count=0;
-  bool futureFired=false;
   
   asyncStart();
   fu.then((actual) {
     Expect.equals(expected, count);
-    futureFired=true;
     asyncEnd();
   });
 
@@ -34,12 +32,6 @@ check(List l, var match, int expected) {
     mbox.sink.add(it.current);
   }
   mbox.sink.close();
-
-  asyncStart();
-  runLater(() {
-    Expect.isTrue(futureFired);
-    asyncEnd();
-   },5); 
 }
 
 main() {

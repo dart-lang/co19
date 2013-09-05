@@ -9,7 +9,6 @@
  * @description Tries to pass an argument that is null or out of range, expects an exception.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Exact exception/error not specified, no error on null
  */
 import "../../../Utils/expect.dart";
 
@@ -18,7 +17,6 @@ main() {
   check(0, 21);
   check(0, -0x8000000000000000);
   check(0, 0x8000000000000000);
-  check(0, null);
 }
 
 void check(int x, int digits) {

@@ -15,23 +15,16 @@
 import "../../Utils/expect.dart";
 
 main() {
-  try {
+  Expect.throws(() {
     [][0];
-    Expect.fail("Exception is expected");
-  } catch(e) {}
+  });
 
-  try {
+  Expect.throws(() {
     [][-7];
-    Expect.fail("Exception is expected");
-  } catch(e) {}
+  });
 
-  try {
+  Expect.throws(() {
     [1, 2, 3, 4][-10];
-    Expect.fail("Exception is expected");
-  } catch(e) {}
+  });
 
-  try {
-    [true, false][2];
-    Expect.fail("Exception is expected");
-  } catch(e) {}
 }

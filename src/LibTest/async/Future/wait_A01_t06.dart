@@ -19,15 +19,9 @@ import "../../../Utils/expect.dart";
 main() {
   var f = Future.wait([]);
 
-  bool visited = false;
   asyncStart();
   f.then((value) {
     Expect.listEquals([], value);
-    visited = true;
     asyncEnd();
-  });
-
-  runLater((){
-    Expect.isTrue(visited);
   });
 }

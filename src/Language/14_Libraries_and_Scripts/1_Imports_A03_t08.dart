@@ -24,8 +24,7 @@ import "1_Imports_A03_t01_p1_lib.dart";
 import "1_Imports_A03_t01_p2_lib.dart";
 
 main() {
-  try {
+  Expect.throws(() {
     new foo();
-    Expect.fail("a dynamic error expected");
-  } catch(ok) {}
+  });
 }

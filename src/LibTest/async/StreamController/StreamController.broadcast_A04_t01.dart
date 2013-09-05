@@ -16,7 +16,6 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  bool onPauseCalled=false;
   StreamController controller=new StreamController.broadcast();
   Stream stream=controller.stream;
   

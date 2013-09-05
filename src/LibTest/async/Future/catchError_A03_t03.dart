@@ -24,7 +24,6 @@ main() {
   Completer completer = new Completer();
   Future f0 = completer.future;
   Object err1=1;
-  Object err2=2;
 
   Future f=f0.catchError(
     (Object asyncError) {
@@ -32,19 +31,16 @@ main() {
     },
     test: (Object error){
       err1=error;
-    asyncEnd();
+      asyncEnd();
       return false;
     }
   );
+  
   f.catchError((Object asyncError) {
-    err2=asyncError;
+    Expect.equals(err1, asyncError);
     asyncEnd();
   });
 
   asyncMultiStart(2);
   completer.completeError(3);
-
-  runLater((){
-    Expect.equals(err1, err2);
-  });
 }

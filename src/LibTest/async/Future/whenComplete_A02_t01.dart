@@ -18,7 +18,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   int value = 20;
-  var value2;
   
   Completer completer = new Completer();
   Future f0 = completer.future;
@@ -27,13 +26,9 @@ main() {
   asyncStart();
   completer.complete(value);
   
-  f.then((v) {
-    value2=v;
-    asyncEnd();
-  });
-       
-  runLater((){
+  f.then((value2) {
     Expect.equals(value, value2);
+    asyncEnd();
   });
 }
 

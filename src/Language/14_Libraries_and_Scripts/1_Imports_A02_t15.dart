@@ -51,8 +51,7 @@ import "../../Utils/expect.dart";
 import "1_Imports_A02_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {
-  try {
+  Expect.throws(() {
     aFunc();
-    Expect.fail("error/exception expected");
-  } catch(e) {}
+  });
 }

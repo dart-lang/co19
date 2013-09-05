@@ -9,7 +9,7 @@
  * If true, the "done" event might not have fired yet, but it has been scheduled,
  * and it is too late to add more events.
  * @description Checks that the property returns correct value. Checks that an error is thrown if
- * more events added.
+ * more events added when the stream is closed.
  * @author kaigorodov
  */
 
@@ -21,15 +21,18 @@ main() {
   StreamController controller=new StreamController();
   Expect.isFalse(controller.isClosed);
   
+  List events1=new List();
   StreamSubscription ss=controller.stream.listen((event){events1.add(event);});
+  Expect.isFalse(controller.isClosed);
+
+  controller.add(1);
   Expect.isFalse(controller.isClosed);
 
   controller.close();
   Expect.isTrue(controller.isClosed);
   
-  try {
+  Expect.throws(() {
     controller.add(0);
-    Expect.fail("add() works after close()");
-  } catch (ok) {
-  }
+    print("add() works after close()");
+  });
 }

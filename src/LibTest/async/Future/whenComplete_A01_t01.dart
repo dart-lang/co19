@@ -18,9 +18,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  int visited = 0;
   void action() {
-    visited += 1;
     asyncEnd();
   }
 
@@ -34,8 +32,5 @@ main() {
   f2.whenComplete(action).catchError((e){});
   asyncStart();
   completer2.completeError(22);
-  runLater((){
-    Expect.equals(2, visited);
-  });
 }
 

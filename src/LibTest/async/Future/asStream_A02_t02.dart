@@ -28,12 +28,8 @@ main() {
   stream.listen(
     (var event){count=count+1;}, // should be invoked first
     onDone: (){
-      count=count*2;
+      Expect.equals(2, count);
       asyncEnd();
     }   // should be invoked second
   );
-
-  runLater((){
-    Expect.equals(4, count);
-  });
 }

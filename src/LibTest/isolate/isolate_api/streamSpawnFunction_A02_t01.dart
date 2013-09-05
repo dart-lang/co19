@@ -38,8 +38,6 @@ main() {
   IsolateSink sink = streamSpawnFunction(main2, unhandledExceptionCallback);
   sink.add(port.toSendPort());
 
-  bool received=false;
-
   asyncStart();
   port.receive((message, replyTo){
     received=true;
@@ -48,11 +46,6 @@ main() {
     port.close();
     asyncEnd();
   });
-  
-  runLater(() {
-    if (received) return;
-    Expect.isTrue(received, "unhandledExceptionCallback not called");
-  }, 200);
 }
 
 

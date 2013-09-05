@@ -20,7 +20,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   int value = 20;
-  var value2 = null;
   
   Completer completer = new Completer();
   Future f0 = completer.future;
@@ -32,19 +31,13 @@ main() {
   f.then((var v) {print("v=$v");},
     onError: (Object e){
 //      print("e=$e"); 
-      value2=e;
+      Expect.equals(value, e);
       asyncEnd();
     }
   );
  
   completer.complete(1);
 
-  Expect.isNull(value2);
- 
   completer2.completeError(value);
-
-  runLater((){
-    Expect.equals(value, value2);
-  });
 }
 

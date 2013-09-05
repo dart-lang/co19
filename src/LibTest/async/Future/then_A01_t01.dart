@@ -19,19 +19,13 @@ import "../../../Utils/expect.dart";
 check(value) {
   Completer completer = new Completer();
   Future f = completer.future;
-  bool visited = false;
   
+  asyncStart();
   f.then((fValue) {
-    visited = true;
     asyncEnd();
   });
 
-  asyncStart();
   completer.complete(value);
-
-  runLater((){
-    Expect.isTrue(visited);
-  });
 }
 
 main() {

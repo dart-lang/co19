@@ -24,7 +24,6 @@ void check(List data) {
        throw new ArgumentError(event);
     }); 
 
-  Object firstError;
   bool firstErrorSeen=false;
   
   asyncStart();
@@ -33,12 +32,13 @@ void check(List data) {
     },
     onError:(Object error) {
       Expect.isFalse(firstErrorSeen);
+      Expect.isTrue(error is ArgumentError);
+      Expect.equals(expected, (error as ArgumentError).message);
       firstErrorSeen=true;
-      firstError=error;
+      asyncEnd();
     },
     onDone:() {
-      Expect.equals(expected, firstError.message);
-      asyncEnd();
+      Expect.fail("unexpected call to onDone()");
     },
     cancelOnError: true
   );

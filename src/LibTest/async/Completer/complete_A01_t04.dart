@@ -5,9 +5,9 @@
  */
 /**
  * @assertion abstract void complete([T value])
- * Completes future with the supplied values. All listeners on the future will be
- * immediately informed about the value.
- * @description Checks that all listeners on the future are informed immediately.
+ * Completes future with the supplied values. All listeners on the future are
+ * informed informed about the value.
+ * @description Checks that all listeners on the future are informed.
  * @author kaigorodov
  */
 
@@ -17,7 +17,6 @@ import "../../../Utils/expect.dart";
 
 int N=10;
 const v=99;
-List listened=new List(N);
 
 main() {
   var completer = new Completer();
@@ -26,16 +25,10 @@ main() {
   for (int k=0; k<N; k++) {
     asyncStart();
     future.then((fValue) {
-      listened[k]=fValue;
+      Expect.equals(v, fValue);
       asyncEnd();
     });
   }
 
   completer.complete(v);
-
-  runLater((){
-    for (int k=0; k<N; k++) {
-      Expect.equals(v, listened[k]);
-    }
-  });  
 }

@@ -23,33 +23,23 @@ main() {
   Completer completer = new Completer();
   Future f = completer.future;
 
-  var firstThen;
-  var secondThen;
-  var thirdThen;
-
   asyncStart();
   f.then((fValue) {
-    firstThen = 1;
+    Expect.equals(0, fValue);
     asyncEnd();
   });
 
   asyncStart();
   f.then((fValue) {
-    secondThen = 2;
+    Expect.equals(0, fValue);
     asyncEnd();
   });
 
   asyncStart();
   f.then((fValue) {
-    thirdThen = 3;
+    Expect.equals(0, fValue);
     asyncEnd();
   });
 
   completer.complete(0);
-  
-  runLater((){
-    Expect.equals(1, firstThen);
-    Expect.equals(2, secondThen);
-    Expect.equals(3, thirdThen);
-  });
 }
