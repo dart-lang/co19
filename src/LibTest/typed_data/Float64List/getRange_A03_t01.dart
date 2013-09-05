@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float64List.fromList([0.0, 0.0, 0.0, 0.0, 0.0]);
-  try {
+
+  Expect.throws( () {
     var res = l.getRange(1, 0);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }

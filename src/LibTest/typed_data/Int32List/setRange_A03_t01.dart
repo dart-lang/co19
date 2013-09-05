@@ -17,25 +17,21 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Int32List.fromList([0,0,0,0,0,0,0,0,0,0]);
 
-  try {
+  Expect.throws( () {
     l.setRange(10, 1, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setRange(-1, 1, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setRange(1, 100, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setRange(-2147483648, 2147483647, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
 }
 

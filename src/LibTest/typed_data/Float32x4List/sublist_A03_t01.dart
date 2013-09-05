@@ -19,13 +19,11 @@ pack(v) => new Float32x4.splat(v);
 main() {
   var list = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0), pack(.0)]);
 
-  try {
+  Expect.throws( () {
     list.sublist(3, 2);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     list.sublist(4, 0);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }

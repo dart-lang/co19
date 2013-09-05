@@ -17,25 +17,21 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Float64List.fromList([0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]);
 
-  try {
+  Expect.throws( () {
     l.setRange(10, 1, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setRange(-1, 1, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setRange(1, 100, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setRange(-2147483648, 2147483647, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
 }
 

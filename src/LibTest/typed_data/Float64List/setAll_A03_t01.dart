@@ -17,27 +17,23 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float64List.fromList([]);
-  try {
+  Expect.throws( () {
     l.setAll(0, [1.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Float64List.fromList([1.0, 2.0, 3.0]);
-  try {
+  Expect.throws( () {
     l.setAll(0, [1.0, 2.0, 3.0, 4.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Float64List.fromList([1.0, 2.0, 3.0]);
-  try {
+  Expect.throws( () {
     l.setAll(1, [1.0, 2.0, 3.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Float64List.fromList([1.0, 2.0, 3.0]);
-  try {
+  Expect.throws( () {
     l.setAll(2, [1.0, 2.0]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 

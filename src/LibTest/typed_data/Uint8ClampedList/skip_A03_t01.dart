@@ -16,9 +16,8 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Uint8ClampedList.fromList([]);
 
-  try {
+  Expect.throws(() {
     l.skip(-1);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 

@@ -18,10 +18,9 @@ import "../../../Utils/expect.dart";
 check(list, start, end) {
   var l = new Int64List.fromList(list);
 
-  try {
+  Expect.throws( () {
     l.sublist(start, end);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 
 main() {

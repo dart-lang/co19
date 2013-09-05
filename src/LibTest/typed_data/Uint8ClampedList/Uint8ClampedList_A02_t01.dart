@@ -13,11 +13,9 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  try {
+  Expect.throws( () {
     Uint8ClampedList l = new Uint8ClampedList(length);
-    Expect.fail("Error is expected");
-  } catch(ok) {
-  }
+  });
 }
 
 main() {

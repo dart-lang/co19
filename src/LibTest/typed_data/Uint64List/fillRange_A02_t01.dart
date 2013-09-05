@@ -14,28 +14,23 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Uint64List(1000);
-  try {
+  Expect.throws( () {
     l.fillRange(-100, -10, 1);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.fillRange(-1, 2, 1);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.fillRange(1000, 0, 1);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.fillRange(0, 1001, 1);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.fillRange(999, 1001, 1);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  });
 }

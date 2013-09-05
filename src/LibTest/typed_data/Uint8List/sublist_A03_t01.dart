@@ -17,13 +17,11 @@ import "../../../Utils/expect.dart";
 main() {
   var list = new Uint8List.fromList([0, 0, 0, 0]);
 
-  try {
+  Expect.throws( () {
     list.sublist(3, 2);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     list.sublist(4, 0);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }

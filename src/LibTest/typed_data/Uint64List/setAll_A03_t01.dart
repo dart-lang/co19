@@ -17,27 +17,23 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Uint64List.fromList([]);
-  try {
+  Expect.throws( () {
     l.setAll(0, [1]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Uint64List.fromList([1, 2, 3]);
-  try {
+  Expect.throws( () {
     l.setAll(0, [1, 2, 3, 4]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Uint64List.fromList([1, 2, 3]);
-  try {
+  Expect.throws( () {
     l.setAll(1, [1, 2, 3]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Uint64List.fromList([1, 2, 3]);
-  try {
+  Expect.throws( () {
     l.setAll(2, [1, 2]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 

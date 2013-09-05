@@ -19,10 +19,10 @@ pack(x, y, z, w) => new Float32x4(x,y,z,w);
 check(list) {
   var l = new Float32x4List.fromList(list);
   var m = l.asMap();
-  try {
+
+  Expect.throws( () {
     m[0] = 0;
-    Expect.fail("Map is modifiable");
-  } catch(ok) {}
+  });
 }
 
 main() {

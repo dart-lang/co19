@@ -18,10 +18,9 @@ pack(v) => new Float32x4.splat(v);
 void check(var list, var n) {
   var l = new Float32x4List.fromList(list);
 
-  try {
+  Expect.throws( () {
     l.take(n);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 
 main() {

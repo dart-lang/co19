@@ -17,25 +17,21 @@ import "../../../Utils/expect.dart";
 
 check(list) {
   var l = new Uint8List.fromList(list);
-  try {
+  Expect.throws( () {
     l.setAll(-1, []);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
-    l.setAll(list.length, []);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  Expect.throws( () {
+    l.setAll(list.length + 1, []);
+  });
 
-  try {
+  Expect.throws( () {
     l.setAll(0x80000000, []);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.setAll(0x7fffffff, []);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 
 main() {

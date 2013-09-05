@@ -14,28 +14,23 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float32x4List(1000);
-  try {
-    l.fillRange(-100, -10, 1.0);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  Expect.throws( () {
+    l.fillRange(-100, -10, new Float32x4.zero());
+  });
 
-  try {
-    l.fillRange(-1, 2, 1.0);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  Expect.throws( () {
+    l.fillRange(-1, 2, new Float32x4.zero());
+  });
 
-  try {
-    l.fillRange(1000, 0, 1.0);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  Expect.throws( () {
+    l.fillRange(1000, 0, new Float32x4.zero());
+  });
 
-  try {
-    l.fillRange(0, 1001, 1.0);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  Expect.throws( () {
+    l.fillRange(0, 1001, new Float32x4.zero());
+  });
 
-  try {
-    l.fillRange(999, 1001, 1.0);
-    Expect.fail("An exception is expected");
-  } catch(ok) {}
+  Expect.throws( () {
+    l.fillRange(999, 1001, new Float32x4.zero());
+  });
 }

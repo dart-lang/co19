@@ -18,27 +18,23 @@ pack(v) => new Float32x4.splat(v);
 
 main() {
   var l = new Float32x4List.fromList([]);
-  try {
+  Expect.throws( () {
     l.setAll(0, [pack(1.0)]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0)]);
-  try {
+  Expect.throws( () {
     l.setAll(0, [pack(1.0), pack(2.0), pack(3.0), pack(4.0)]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0)]);
-  try {
+  Expect.throws( () {
     l.setAll(1, [pack(1.0), pack(2.0), pack(3.0)]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
   l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0)]);
-  try {
+  Expect.throws( () {
     l.setAll(2, [pack(1.0), pack(2.0)]);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 

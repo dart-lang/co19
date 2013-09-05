@@ -17,25 +17,21 @@ pack(v) => new Float32x4.splat(v);
 
 check(list) {
   var l = new Float32x4List.fromList(list);
-  try {
+  Expect.throws( () {
     l.getRange(-1, list.length);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.getRange(0, list.length + 1);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.getRange(-1, list.length + 1);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 
-  try {
+  Expect.throws( () {
     l.getRange(0x80000000, 0x7fffffff);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 
 main() {

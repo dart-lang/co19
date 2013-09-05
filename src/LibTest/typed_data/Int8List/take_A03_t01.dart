@@ -16,10 +16,9 @@ import "../../../Utils/expect.dart";
 void check(var list, var n) {
   var l = new Int8List.fromList(list);
 
-  try {
+  Expect.throws( () {
     l.take(n);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }
 
 main() {

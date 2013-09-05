@@ -16,8 +16,8 @@ pack(v) => new Float32x4.splat(v);
 
 main() {
   var l = new Float32x4List.fromList([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0)]);
-  try {
+
+  Expect.throws( () {
     var res = l.getRange(1, 0);
-    Expect.fail("Error is expected");
-  } catch(ok) {}
+  });
 }

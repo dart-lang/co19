@@ -13,11 +13,9 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  try {
+  Expect.throws( () {
     Int32List l = new Int32List(length);
-    Expect.fail("Error is expected");
-  } catch(ok) {
-  }
+  });
 }
 
 main() {

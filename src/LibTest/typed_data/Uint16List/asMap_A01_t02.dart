@@ -17,10 +17,9 @@ import "../../../Utils/expect.dart";
 check(list) {
   var l = new Uint16List.fromList(list);
   var m = l.asMap();
-  try {
+  Expect.throws( () {
     m[0] = 0;
-    Expect.fail("Map is modifiable");
-  } catch(ok) {}
+  });
 }
 
 main() {
