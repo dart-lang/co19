@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 void check(count) {
   var l = new ByteData(count);
   try {
-    l.buffer = new Int8List.fromList(array).buffer;
+    l.buffer = new Int8List(count).buffer;
     Expect.fail("[buffer] should be final");
   } on NoSuchMethodError catch(ok) {}
 }
