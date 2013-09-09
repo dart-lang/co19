@@ -16,6 +16,8 @@
  * Attempting to assign to a final variable anywhere except in its declaration
  * or in a constructor header  will cause a runtime error to be thrown as
  * discussed below. The assignment will also give rise to a static warning.
+ * Any repeated assignment to a final variable will also lead to a runtime
+ * error
  * @description Checks that it is a static warning and runtime error to assign
  * to final instance variable anywhere except in its declaration or a
  * constructor header

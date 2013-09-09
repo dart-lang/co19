@@ -13,6 +13,7 @@
  * initialized in its declaration. 
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 12543
  */
 
 main() {
