@@ -29,9 +29,9 @@
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that variable declaration cannot contain both 'const' and 'var'.
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
- * @compile-error
  */
 
 main() {

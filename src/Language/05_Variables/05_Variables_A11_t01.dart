@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Local variables cause a getter (and if necessary a setter) to be added to
- * the innermost enclosing scope at the point following the local variable declaration.
- * @description Checks that local variable getters and setters are not accessible
- * before that variable's declaration.
+ * @assertion Local variables are added to the innermost enclosing scope.
+ * They do not induce getters and setters.  A local variable may only be
+ * referenced at a source code location that is after the variable declaration
+ * is complete, or a compile-time error occurs.
+ * @description Checks that local variable getters and setters are not
+ * accessible before that variable's declaration.
  * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
@@ -16,7 +18,7 @@
 import "../../Utils/expect.dart";
  
 void test1() {
-  var v = w; /// static type warning - unresolved identifier w (12.30)
+  var v = w; /// static type warning - unresolved identifier w
   var w;
 }
 

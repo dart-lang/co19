@@ -15,6 +15,7 @@
  * Checks that it is a static warning to invoke such a setter.
  * @static-warning
  * @author kaigorodov
+ * @issue 12544
  */
 import "../../Utils/expect.dart";
 

@@ -29,8 +29,8 @@
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that a variable declaration must contain an identifier.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 

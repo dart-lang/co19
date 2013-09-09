@@ -8,9 +8,9 @@
  * a top level variable declaration with the built-in identifier static.
  * @description Checks that it is a compile-time error if a top level variable declaration
  * is prefaced with the built-in identifier static.
+ * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
- * @compile-error
  */
 
 static var foo; // error

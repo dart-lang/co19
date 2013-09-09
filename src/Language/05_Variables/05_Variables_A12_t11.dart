@@ -17,6 +17,7 @@
  * @reviewer iefremov
  */
 import "../../Utils/dynamic_check.dart";
+
 class A {
   static const int a = 2;
 }

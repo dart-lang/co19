@@ -11,6 +11,7 @@
  * @description Checks that the signature of this implicit setter is correct
  * and the type of its formal parameter is indeed dynamic by passing values of
  * various types to it.
+ * @static-clean
  * @author pagolubev
  * @reviewer msyabro
  * @reviewer rodionov

@@ -29,9 +29,9 @@
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that only assignment operator is admitted when variable is initialized.
+ * @compile-error
  * @author hlodvig
  * @reviewer iefremov
- * @compile-error
  */
 
 main() {

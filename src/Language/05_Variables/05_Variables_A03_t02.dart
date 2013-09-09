@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion   A static variable is a variable that is not associated with a
- * Static variables include library variables and class variables.
- * Class variables are variables whose declaration is immediately nested inside
- * a class declaration and includes the modiﬁer static.
- * A library variable is implicitly static.
- * It is a compile-time error to preface a top-level variable declaration with
- * the built-in identiﬁer static.
+ * @assertion A static variable is a variable that is not associated with
+ * a particular instance, but rather with an entire library or class. Static
+ * variables include library variables and class variables. Class variables
+ * are variables whose declaration is immediately nested inside a class
+ * declaration and includes the modifer static.
+ * A library variable is implicitly static. It is a compile-time error to
+ * preface a top-level variable declaration with the built-in identier static.
  * @description Checks that it is a compile-time error to preface a top-level
- * variable declaration with the built-in identiﬁer static.
+ * variable declaration with the built-in identifier static.
  * @compile-error
  * @author kaigorodov
  */

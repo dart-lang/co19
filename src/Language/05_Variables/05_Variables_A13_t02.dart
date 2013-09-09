@@ -11,6 +11,7 @@
  * @description Checks that the returned type of this implicit getter is the same as the
  * static field's type (dynamic), by making sure there're no static warnings when invoking
  * non-existing methods on the value returned by these getters.
+ * @static-clean
  * @author rodionov
  * @reviewer msyabro
  * @note This test only makes sense in the presence of static checker.

@@ -11,14 +11,13 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @issue 5885
  */
 import "../../Utils/expect.dart";
 
 main() {
   const foo = "foo";
   try {
-    foo = "bar"; /// static warning 5_Variables_A06    
+    foo = "bar"; /// static warning
    Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }

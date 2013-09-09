@@ -29,8 +29,8 @@
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that a variable declaration cannot contain both 'var' and 'type'.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 

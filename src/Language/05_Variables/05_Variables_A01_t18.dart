@@ -29,9 +29,9 @@
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that a variable cannot be abstract void.
+ * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
- * @compile-error
  */
 
 class C {

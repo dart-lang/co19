@@ -29,9 +29,9 @@
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
  * @description Checks that a variable declaration cannot contain the 'abstract' keyword.
+ * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
- * @compile-error
  */
 
 class C {

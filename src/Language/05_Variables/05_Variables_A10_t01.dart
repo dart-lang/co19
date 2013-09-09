@@ -8,9 +8,9 @@
  * a top level variable declaration with the built-in identifier static.
  * @description Checks that a compile-time error occurs if a top level variable declaration
  * is prefaced with the built-in identifier static.
+ * @compile-error
  * @author vasya
  * @reviewer kaigorodov
- * @compile-error
  */
 
 import "library1.dart";

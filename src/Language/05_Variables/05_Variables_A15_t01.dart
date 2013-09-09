@@ -11,6 +11,7 @@
  * whose execution sets the value of v to the incoming argument x.
  * @description Trivially checks that some arbitrary values may be assigned
  * to the variables declared as in assertion.
+ * @static-clean
  * @author vasya
  * @reviewer pagolubev
  * @reviewer iefremov

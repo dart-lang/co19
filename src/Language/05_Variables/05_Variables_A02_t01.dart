@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A variable that has not been initialized has the initial value null (11.2).
- * @description Checks that various uninitialized variables are set to null by default.
+ * @assertion A variable that has not been initialized has the initial value
+ * null (12.2).
+ * @description Checks that various uninitialized variables are set to null
+ * by default.
  * @author vasya
  * @reviewer kaigorodov
  * @reviewer iefremov

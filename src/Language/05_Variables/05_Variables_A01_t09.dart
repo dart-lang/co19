@@ -30,8 +30,8 @@
  *   ;
  * @description Checks that it is a compile-time error if the right-hand expression is missing
  * in an initialized variable declaration.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 

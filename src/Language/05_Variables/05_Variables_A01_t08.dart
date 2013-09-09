@@ -30,8 +30,8 @@
  *   ;
  * @description Checks different variables in a single variable declaration must be delimited
  * by commas.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 
