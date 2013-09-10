@@ -79,7 +79,7 @@ main() {
   f_func() => (int z) {return z + 1;};
   
   // only one semicolon is fine here because the nested function expression
-  // is not a statement and is parsed using a different grammar production (10.8) 
+  // is not a statement and is parsed using a different grammar production
   g_func() => () => 1;
 
   //Instance creation

@@ -25,17 +25,17 @@
  * fieldFormalParameter:
  *   metadata finalConstVarOrType? this '.' identifier formalParameterList?
  * ;
- * @description Checks that static variable declaration can't be a required formal parameter
+ * @description Checks that initializing formals of function type are not
+ * allowed in library functions.
  * @compile-error
- * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
+ * @author ilya
+ * @reviewer
  */
 
-f(static var x) {}
+f(this.x(y)) {}
 
 main() {
   try {
-    f(1);
-  } catch(x){}
+    f((x){});
+  } catch(e) {}
 }

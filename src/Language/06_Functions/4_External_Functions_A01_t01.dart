@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An external function is a function that can be used within a Dart program, 
- * but that is defined outside of that Dart program. An external function may be a 
+ * @assertion An external function is a function whose body is provided separately from its declaration. An external function may be a 
  * top-level function, a method, a getter, a setter or a non-redirecting constructor.
  * External functions are introduced via the built-in identifier external followed by 
  * the function signature.

@@ -25,17 +25,17 @@
  * fieldFormalParameter:
  *   metadata finalConstVarOrType? this '.' identifier formalParameterList?
  * ;
- * @description Checks that static variable declaration can't be a required formal parameter
+ * @description Checks that it is a compile-error if signature of formal
+ * parameter of a function type has default values
  * @compile-error
- * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
+ * @author ilya
+ * @reviewer
  */
 
-f(static var x) {}
+f(g({x: 1})) {}
 
 main() {
   try {
-    f(1);
-  } catch(x){}
+    f((){});
+  } catch(e) {}
 }

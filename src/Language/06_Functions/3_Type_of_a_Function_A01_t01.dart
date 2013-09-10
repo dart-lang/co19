@@ -9,6 +9,7 @@
  * @description Checks that return type is dynamic
  * static checker should not cause static warnings because type Dynamic
  * has every method and property
+ * @static-clean
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

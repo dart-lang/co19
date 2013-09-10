@@ -23,7 +23,6 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov
- * @issue 965
  */
 
 f() {

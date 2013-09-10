@@ -18,7 +18,7 @@
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that typeArgument in returnType must be surrounded with single angle brackets.
+ * @description Checks that angle brackets in return type must be balanced.
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov

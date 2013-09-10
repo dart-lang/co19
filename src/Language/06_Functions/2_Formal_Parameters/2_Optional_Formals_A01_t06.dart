@@ -17,7 +17,6 @@
  * @author iefremov
  * @reviewer kaigorodov
  * @reviewer rodionov
- * @issue 5885
  */
 import "../../../Utils/expect.dart";
 

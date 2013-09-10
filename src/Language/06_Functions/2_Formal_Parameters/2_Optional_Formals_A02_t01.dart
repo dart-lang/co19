@@ -12,7 +12,6 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov
- * @note issue 963
  */
 
 main() {

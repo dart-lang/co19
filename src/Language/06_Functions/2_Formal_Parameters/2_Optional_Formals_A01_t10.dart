@@ -16,13 +16,12 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 5885
  */
 import "../../../Utils/expect.dart";
 
 foo({final p: 1}) {
   try {
-    p = 1; /// static warning: assigning to a final variable in static/top-level context (see "Assignment")
+    p = 1; /// static warning: assigning to a final variable
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(ok) {}
 }
