@@ -11,8 +11,6 @@
  * and the value is the parsed value.
  * The return value of the reviver will be used as the value of that property
  * instead the parsed value.
-
- * Throws FormatException if the input is not valid JSON text.
  * @description Checks that reviver function, if provided, is called at least once
  * for each object or list property parsed.
  * @author kaigorodov
