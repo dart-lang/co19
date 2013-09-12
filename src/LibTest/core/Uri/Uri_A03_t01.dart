@@ -27,9 +27,11 @@ main() {
   Expect.equals('127.0.0.1', x.host);
 
   var host = '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d';
-  x = new Uri(host: '[$host]');
-  Expect.equals('[$host]', x.host);
-
   x = new Uri(host: host);
-  Expect.equals('[$host]', x.host);
+
+  // host getter will strip off [ ], so need to check otherwise
+  Expect.isTrue(x.toString().contains('[$host]'));
+
+  x = new Uri(host: '[$host]');
+  Expect.isTrue(x.toString().contains('[$host]'));
 }

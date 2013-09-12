@@ -8,7 +8,7 @@
  * Encode the string component using percent-encoding to make it safe for
  * literal use as a URI component.
  * All characters except uppercase and lowercase letters, digits and
- * the characters !$&'()*+,;=:@ are percent-encoded.
+ * the characters -_.!~*'() are percent-encoded.
  * @description Checks that unlisted characters from Unicode Basic
  * Multilingual Plane are percent-encoded.
  * @author ilya
@@ -17,12 +17,10 @@
 
 import "../../../Utils/expect.dart";
 
-String unreserved = "0123456789"
-                    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    "abcdefghijklmnopqrstuvwxyz";
-
-String delimeters = r"!$&'()*+,;=:@";
-String canBeNotEncoded = unreserved + delimeters;
+String canBeNotEncoded = "0123456789"
+                         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                         "abcdefghijklmnopqrstuvwxyz"
+                         r"-_.!~*'()";
 
 findUnescaped(String s) {
   var set = new Set();

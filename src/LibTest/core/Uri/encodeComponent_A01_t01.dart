@@ -8,7 +8,7 @@
  * Encode the string component using percent-encoding to make it safe for
  * literal use as a URI component.
  * All characters except uppercase and lowercase letters, digits and
- * the characters !$&'()*+,;=:@ are percent-encoded.
+ * the characters -_.!~*'() are percent-encoded.
  * @description Checks that basic and extended unicode characters are encoded
  * @author ilya
  * @reviewer

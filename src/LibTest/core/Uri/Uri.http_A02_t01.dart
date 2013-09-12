@@ -21,8 +21,8 @@ main() {
   Expect.equals('localhost', x.host);
   Expect.equals(1234, x.port);
 
-  var host = '[2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d]';
-  x = new Uri.http('user@$host:1234', '');
+  var host = '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d';
+  x = new Uri.http('user@[$host]:1234', '');
   Expect.equals('user', x.userInfo);
   Expect.equals(host, x.host);
   Expect.equals(1234, x.port);
