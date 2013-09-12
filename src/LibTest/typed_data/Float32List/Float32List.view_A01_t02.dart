@@ -24,14 +24,6 @@ check(array, offset, length) {
   }
 }
 
-checkIntersection(array, offset, length, expected) {
-  var tmp = new Uint32List.fromList(array);
-  var byteBuffer = tmp.buffer;
-  var l = new Float32List.view(byteBuffer, offset, length);
-  Expect.equals(length, l.length);
-  Expect.listEquals(expected, l);
-}
-
 main() {
   check([], 0, 0);
   check([1.0], 0, 1);
@@ -40,10 +32,4 @@ main() {
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0], 0, 18);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0], 20, 13);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0], 68, 1);
-
-  checkIntersection([1, 1], 1, 1, [2.350988701644575e-38]);
-  checkIntersection([0xab086745, 0x76bca730, 0x6347cc87, 0x7fed00ff, 0x876312cb], 3, 4,
-  [-0.02040894888341427, 104718.921875, -2.4951765534634815e+27, 2.707888073673336e+21]);
-  checkIntersection([0xab086745, 0x76bca730, 0x6347cc87, 0x7fed00ff, 0x876312cb], 2, 4,
-  [-2.45176227681599e-15, -71022048.0, 2.3453665520758574e-38, 1.28426372406636e-27]);
 }

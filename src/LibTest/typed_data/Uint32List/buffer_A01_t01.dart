@@ -16,9 +16,10 @@ import "../../../Utils/expect.dart";
 main() {
   var tmp = new Uint32List.fromList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   var byteBuffer = tmp.buffer;
+  var elemSize = Uint32List.BYTES_PER_ELEMENT;
 
   for(int i= 0; i <= 10; ++i) {
-    var l = new Uint32List.view(byteBuffer, i, 10 - i) ;
+    var l = new Uint32List.view(byteBuffer, i * elemSize, 10 - i) ;
     Expect.identical(byteBuffer, l.buffer);
   }
 }

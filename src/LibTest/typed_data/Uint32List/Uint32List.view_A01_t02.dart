@@ -24,14 +24,6 @@ void check(array, offset, length) {
   }
 }
 
-checkIntersection(array, offset, length, expected) {
-  var tmp = new Uint32List.fromList(array);
-  var byteBuffer = tmp.buffer;
-  var l = new Uint32List.view(byteBuffer, offset, length);
-  Expect.equals(length, l.length);
-  Expect.listEquals(expected, l);
-}
-
 main() {
   check([], 0, 0);
   check([1], 0, 1);
@@ -40,8 +32,4 @@ main() {
   check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 0, 18);
   check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 20, 13);
   check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 68, 1);
-
-  checkIntersection([1, 1], 1, 1, [16777216]);
-  checkIntersection([0xab086745, 0x76bca730, 0x6347cc87, 0x7fed00ff, 0x876312cb], 3, 4, [0xbca730ab, 0x47cc8776, 0xed00ff63, 0x6312cb7f]);
-  checkIntersection([0xab086745, 0x76bca730, 0x6347cc87, 0x7fed00ff, 0x876312cb], 2, 4, [0xa730ab08, 0xcc8776bc, 0x00ff6347, 0x12cb7fed]);
 }

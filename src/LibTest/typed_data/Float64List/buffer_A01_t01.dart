@@ -16,9 +16,10 @@ import "../../../Utils/expect.dart";
 main() {
   var tmp = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
   var byteBuffer = tmp.buffer;
+  var elemSize = Float64List.BYTES_PER_ELEMENT;
 
   for(int i= 0; i <= 10; ++i) {
-    var l = new Float64List.view(byteBuffer, i, 10 - i) ;
+    var l = new Float64List.view(byteBuffer, i * elemSize, 10 - i) ;
     Expect.identical(byteBuffer, l.buffer);
   }
 }
