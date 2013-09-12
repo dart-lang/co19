@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc tangent of a value.
+ * @assertion double atan(num x)
+ * Converts [x] to a dobule and returns the arc tangent of the vlaue.
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev

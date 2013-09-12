@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns Euler's number e raised to the power of a double value.
+ * @assertion double exp(num x)
+ * Converts [x] to a double and returns the natural exponent, E, to the power [x].
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1:S15.8.2.2_A5.js
  * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
 import "../../Utils/expect.dart";
 import "dart:math" as Math;
@@ -152,6 +152,6 @@ main() {
   y[63] = 8886110.520507872100000000;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.equals(y[i], Math.exp(x[i]));
+    Expect.approxEquals(y[i], Math.exp(x[i]), (y[i]/1e7).abs());
   }
 }

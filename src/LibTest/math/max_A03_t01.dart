@@ -4,19 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc cosine of a value.
- * @description Checks that Error is thrown when passed argument is a null.
+ * @assertion num max(num a, num b)
+ * The larger of -0.0 and 0.0 is 0.0
+ * @description Checks that 0.0 is larger than -0.0.
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  try {
-    Math.acos(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.isFalse(Math.max(.0, -.0).isNegative);
+  Expect.isFalse(Math.max(-.0, .0).isNegative);
 }

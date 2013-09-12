@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If abs(x)> 1 and y is +∞, the result is +∞ .
- * @description Checks result value.
+ * @assertion num pow(num x, num y)
+ * if [y] is Infinity and [x] is -1, the result is 1.0.
+ * @description Checks the result when [x] is -1 and [y] is Infinity.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -15,15 +15,6 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(double.INFINITY, Math.pow(1.0000000000000002, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-1.0000000000000002, double.INFINITY));
-
-  Expect.equals(double.INFINITY, Math.pow(2, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-2, double.INFINITY));
-
-  Expect.equals(double.INFINITY, Math.pow(123.123, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-123.123, double.INFINITY));
-
-  Expect.equals(double.INFINITY, Math.pow(1.7976931348623157e308, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-1.7976931348623157e308, double.INFINITY));
+  Expect.equals(1.0, Math.pow(-1, double.INFINITY));
+  Expect.equals(1.0, Math.pow(-1.0, double.INFINITY));
 }

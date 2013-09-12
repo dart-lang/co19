@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc cosine of a value.
+ * @assertion double acos(num x)
+ * Converts [x] to a double and returns the arc cosine of the value.
  * @description Checks returned values on various arguments.
  * @author msyabro
  * @reviewer pagolubev

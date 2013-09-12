@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluates the trigonometric tangent of an angle.
- * @description Checks special values.
+ * @assertion double tan(num x)
+ * If [x] is not a finite number, the result is NaN.
+ * @description Checks that [tan] returns NaN if [x] is not a finite number.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 

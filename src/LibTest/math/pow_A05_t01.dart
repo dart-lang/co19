@@ -4,11 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If x is -∞ and y> 0 and y is an odd integer, the result is -∞.
- * If x is -∞ and y> 0 and y is not an odd integer, the result is +∞ .
- * @description Checks the result when x equals double.NEGATIVE_INFINITY and
- * y is positive integer.
+ * @assertion num pow(num x, num y)
+ * If either x or y is NaN then the result is NaN.
+ * @description Checks the result when [x] or [y] is NaN.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -17,13 +15,24 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1.0));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11.0));
+  Expect.isTrue(Math.pow(double.NAN, double.INFINITY).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 1).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 1.0).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -1).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -1.0).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 3.33).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -3.33).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, 3).isNaN);
+  Expect.isTrue(Math.pow(double.NAN, -3).isNaN);
 
-  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 2));
-  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 2.0));
-  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 22));
-  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 22.0));
+  Expect.isTrue(Math.pow(double.INFINITY, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(double.NEGATIVE_INFINITY, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(-1, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(-1.0, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(3.33, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(-3.33, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(3, double.NAN).isNaN);
+  Expect.isTrue(Math.pow(-3, double.NAN).isNaN);
 }

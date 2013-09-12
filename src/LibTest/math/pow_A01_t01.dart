@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion static num pow(num x, num exponent)
+ * @assertion num pow(num x, num exponent)
+ * Returns x to the power of exponent.
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1: S15.8.2.13_A24.js
  * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
 import "../../Utils/expect.dart";
 import "dart:math" as Math;
@@ -18,7 +18,7 @@ import "dart:math" as Math;
 main() {
   int vnum = 64;
   var x1 = new List(64);
-  x1[0] = 0.00000000000000000000;
+  x1[0] = 0.25396825396825395000;
   x1[1] = 0.25396825396825395000;
   x1[2] = 0.50793650793650791000;
   x1[3] = 0.76190476190476186000;
@@ -151,7 +151,7 @@ main() {
 
 
   var y = new List(64);
-  y[0] = double.INFINITY;
+  y[0] = 3338328489.5218105;
   y[1] = 1664158979.11096290000000000000;
   y[2] = 25596.98862206424700000000;
   y[3] = 51.24224360332205900000;
@@ -217,6 +217,6 @@ main() {
   y[63] = 18446744073709552000.00000000000000000000;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.equals(y[i], x1[i].pow(x2[i]));
+    Expect.approxEquals(y[i], Math.pow(x1[i], x2[i]), (y[i]/1e7).abs());
   }
 }

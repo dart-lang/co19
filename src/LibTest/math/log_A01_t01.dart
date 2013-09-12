@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the natural logarithm (base e) of a double value.
+ * @assertion double log(num x)
+ * Converts [x] to a double and returns the natural logarithm of the value.
  * @description Checks set of values.
  * @author msyabro
  * @3rdparty sputnik-v1: S15.8.2.10_A6.js

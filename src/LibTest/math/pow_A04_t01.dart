@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If x is +∞ and y< 0, the result is +0.
- * @description Checks the result when x equals double.INFINITY and y is negative.
+ * @assertion num pow(num x, num y)
+ * if x is 1.0, the result is always 1.0.
+ * @description Checks the result if [x] is 1.0.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -15,9 +15,18 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(0, Math.pow(double.INFINITY, -1));
-  Expect.equals(0, Math.pow(double.INFINITY, -1.0));
-  Expect.equals(0, Math.pow(double.INFINITY, -11));
-  Expect.equals(0, Math.pow(double.INFINITY, -11.11));
-  Expect.equals(0, Math.pow(double.INFINITY, double.NEGATIVE_INFINITY));
+  Expect.equals(1.0, Math.pow(1.0, double.NAN));
+  Expect.equals(1.0, Math.pow(1.0, double.INFINITY));
+  Expect.equals(1.0, Math.pow(1.0, double.NEGATIVE_INFINITY));
+
+  Expect.equals(1.0, Math.pow(1.0, .0));
+  Expect.equals(1.0, Math.pow(1.0, -.0));
+
+  Expect.equals(1.0, Math.pow(1.0, 11.11));
+  Expect.equals(1.0, Math.pow(1.0, -11.11));
+  Expect.equals(1.0, Math.pow(1.0, 11));
+  Expect.equals(1.0, Math.pow(1.0, -11));
+
+  Expect.equals(1.0, Math.pow(1.0, 1e20));
+  Expect.equals(1.0, Math.pow(1.0, 1e-20));
 }

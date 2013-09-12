@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If x is +0 and y< 0, the result is +∞ .
- * @description Checks sample values.
+ * @assertion num pow(num x, num y)
+ * if [x] is 0.0 and [y] is negative, the result is Infinity.
+ * @description Checks the result when [x] is 0.0 and [y] is negative.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -31,6 +31,8 @@ main() {
   Expect.equals(double.INFINITY, Math.pow(0, double.NEGATIVE_INFINITY));
 
   Expect.equals(double.INFINITY, Math.pow(.0, -100));
+  Expect.equals(double.INFINITY, Math.pow(0, -100));
 
   Expect.equals(double.INFINITY, Math.pow(.0, -9223372036854775808));
+  Expect.equals(double.INFINITY, Math.pow(0, -9223372036854775808));
 }

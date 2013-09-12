@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns Euler's number e raised to the power of a double value.
- * @description Checks that Error is thrown when passed argument is a null.
+ * @assertion double log(num x)
+ * Returns NaN if [x] is NaN or less than zero.
+ * @description Checks that [log] returns NaN if [x] is
+ * NaN or less than zero.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  try {
-    Math.exp(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.isTrue(Math.log(-1).isNaN);
+  Expect.isTrue(Math.log(-0.5).isNaN);
+  Expect.isTrue(Math.log(double.NAN).isNaN);
+  Expect.isTrue(Math.log(double.NEGATIVE_INFINITY).isNaN);
 }

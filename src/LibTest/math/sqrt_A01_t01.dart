@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the square root of a double value.
+ * @assertion double sqrt(num x)
+ * Converts [x] to a double and returns the positive square root of the value.
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev

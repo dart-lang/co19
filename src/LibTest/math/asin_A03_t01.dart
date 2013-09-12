@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc cosine of a value.
- * @description Checks returned values on special arguments.
+ * @assertion double asin(num x)
+ * Throws an error if [x] is null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -15,7 +16,7 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.acos(0/0).isNaN);
-  Expect.isTrue(Math.acos(1/0).isNaN);
-  Expect.isTrue(Math.acos(-1/0).isNaN);
+  Expect.throws( () {
+    Math.asin(null);
+  });
 }

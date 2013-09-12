@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If y is +0, the result is 1, even if x is NaN.
- * If y is -0, the result is 1, even if x is NaN.
- * @description Checks result if y is zero.
+ * @assertion num pow(num x, num y)
+ * if [x] is Infinity and [y] is negative, the result is 0.0.
+ * @description Checks the result if [x] is Infinity and [y] is negative.
  * @author msyabro
  * @reviewer pagolubev
  */
@@ -16,29 +15,9 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(1, Math.pow(double.NAN, .0));
-  Expect.equals(1, Math.pow(double.NAN, -.0));
-
-  Expect.equals(1, Math.pow(double.INFINITY, .0));
-  Expect.equals(1, Math.pow(double.INFINITY, -.0));
-
-  Expect.equals(1, Math.pow(double.NEGATIVE_INFINITY, .0));
-  Expect.equals(1, Math.pow(double.NEGATIVE_INFINITY, -.0));
-
-  Expect.equals(1, Math.pow(.0, .0));
-  Expect.equals(1, Math.pow(-.0, .0));
-  Expect.equals(1, Math.pow(.0, -.0));
-  Expect.equals(1, Math.pow(-.0, -.0));
-  Expect.equals(1, Math.pow(0, .0));
-  Expect.equals(1, Math.pow(0, -.0));
-
-  Expect.equals(1, Math.pow(11.11, .0));
-  Expect.equals(1, Math.pow(11.11, -.0));
-  Expect.equals(1, Math.pow(-11.11, .0));
-  Expect.equals(1, Math.pow(-11.11, -.0));
-
-  Expect.equals(1, Math.pow(11, .0));
-  Expect.equals(1, Math.pow(11, -.0));
-  Expect.equals(1, Math.pow(-11, .0));
-  Expect.equals(1, Math.pow(-11, -.0));
+  Expect.equals(.0, Math.pow(double.INFINITY, -1));
+  Expect.equals(.0, Math.pow(double.INFINITY, -1.0));
+  Expect.equals(.0, Math.pow(double.INFINITY, -11));
+  Expect.equals(.0, Math.pow(double.INFINITY, -11.11));
+  Expect.equals(.0, Math.pow(double.INFINITY, double.NEGATIVE_INFINITY));
 }

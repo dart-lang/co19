@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double nextDouble()
- * Generates a positive random floating point value uniformly distributed
- * on the range from 0.0, inclusive, to 1.0, exclusive.
- * @description Checks range of the result.
+ * @assertion bool nextBool()
+ * Generates a random boolean value.
+ * @description Checks generated values.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 
@@ -18,7 +16,7 @@ import "dart:math";
 main() {
   Random rand = new Random();
   for(int i = 0; i < 1000; i++) {
-    double x = rand.nextDouble();
-    Expect.isTrue(x < 1 && x >= 0);
+    var x = rand.nextBool();
+    Expect.isTrue(x is bool);
   }
 }

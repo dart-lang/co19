@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc tangent of [a]/[b] with sign according to quadrant.
+ * @assertion double atan2(num a, num b)
+ * Throws an error if either [a] or [b] is null.
  * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
@@ -15,10 +16,9 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 void checkNPE(var arg1, var arg2) {
-  try {
+  Expect.throws( () {
     Math.atan2(arg1, arg2);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  });
 }
 main() {
   checkNPE(null, 1);

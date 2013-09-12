@@ -4,17 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double exp(num x)
- * Converts [x] to a double and returns the natural exponent, E, to the power [x].
- * @description Checks special values.
+ * @assertion num min(num a, num b)
+ * The lesser of -0.0 and 0.0 is -0.0
+ * @description Checks that -0.0 is lesser than 0.0.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(double.INFINITY, Math.exp(double.INFINITY));
-  Expect.equals(.0, Math.exp(double.NEGATIVE_INFINITY));
+  Expect.isTrue(Math.min(.0, -.0).isNegative);
+  Expect.isTrue(Math.min(-.0, .0).isNegative);
 }

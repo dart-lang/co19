@@ -4,17 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double exp(num x)
- * Converts [x] to a double and returns the natural exponent, E, to the power [x].
- * @description Checks special values.
+ * @assertion double atan(num x)
+ * Returns a value in the range -PI/2..PI/2, or NaN if [x] is NaN.
+ * @description Checks that [atan] returns NaN if [x] is NaN.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(double.INFINITY, Math.exp(double.INFINITY));
-  Expect.equals(.0, Math.exp(double.NEGATIVE_INFINITY));
+  Expect.isTrue(Math.atan(double.NAN).isNaN);
 }

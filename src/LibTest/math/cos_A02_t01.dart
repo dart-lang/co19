@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc sine of a value.
- * @description Checks returned values on special arguments.
+ * @assertion double cos(num x)
+ * If [x] is not a finite number, the result is NaN.
+ * @description Checks that [cos] returns NaN if [x] is not a finite number.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.asin(0/0).isNaN);
-  Expect.isTrue(Math.asin(1/0).isNaN);
-  Expect.isTrue(Math.asin(-1/0).isNaN);
+  Expect.isTrue(Math.cos(double.NAN).isNaN);
+  Expect.isTrue(Math.cos(double.INFINITY).isNaN);
+  Expect.isTrue(Math.cos(double.NEGATIVE_INFINITY).isNaN);
 }

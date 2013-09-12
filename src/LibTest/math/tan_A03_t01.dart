@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluates the trigonometric sine of an angle.
- * @description Checks that Error is thrown when passed argument is a null.
+ * @assertion double tan(num x)
+ * Throws an error if [x] is null.
+ * @description Checks that an error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -15,8 +16,7 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  try {
-    Math.sin(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws( () {
+    Math.tan(null);
+  });
 }

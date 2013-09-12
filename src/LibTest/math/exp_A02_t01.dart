@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion static num pow(num x, num exponent)
- * @description Checks the method with integer arguments
- * @author pagolubev
- * @reviewer msyabro
- * @needsreview issue 1267
+ * @assertion double exp(num x)
+ * Returns NaN if [x] is NaN.
+ * @description Checks that [exp] returns NaN if [x] is NaN.
+ * @author msyabro
  */
+import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Math.pow(2, 2);
+  Expect.isTrue(Math.exp(double.NAN).isNaN);
 }

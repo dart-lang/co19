@@ -8,8 +8,8 @@
  * If [x] is an int and exponent is a non-negative int, the result is an int,
  * otherwise both arguments are converted to doubles first,
  * and the result is a double.
- * @description Checks that if [x] is an int and [y] is a non-negative int,
- * the result is an int.
+ * @description Checks that the result is a double if [x] is a double
+ * or [y] is a double or a negative int.
  * @author msyabro
  */
 import "../../Utils/expect.dart";
@@ -17,9 +17,10 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.pow(0, 0) is int);
-  Expect.isTrue(Math.pow(-5, 0) is int);
-  Expect.isTrue(Math.pow(100, 0) is int);
-  Expect.isTrue(Math.pow(1, 1) is int);
-  Expect.isTrue(Math.pow(1000, 1000) is int);
+  Expect.isTrue(Math.pow(0, .0) is double);
+  Expect.isTrue(Math.pow(.0, 0) is double);
+  Expect.isTrue(Math.pow(.0, .0) is double);
+  Expect.isTrue(Math.pow(1, -1) is double);
+  Expect.isTrue(Math.pow(1e1, -2) is double);
+  Expect.isTrue(Math.pow(.25, .25) is double);
 }

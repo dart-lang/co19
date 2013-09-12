@@ -5,9 +5,10 @@
  */
 /**
  * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If x< 0 and x is finite and y is finite and y is not an integer, the result is NaN.
- * @description Checks that if x is finite negative number and y is finite number not
- * equal to a math integer the result is NaN.
+ * if x is -Infinity or -0.0 and y is not an odd integer,
+ * then the result is the same as pow(-x , y).
+ * @description Checks the result when [x] is -Infinity
+ * or -0.0 and [y] is not an odd integer.
  * @author msyabro
  * @reviewer pagolubev
  */
@@ -16,12 +17,43 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.pow(-1, 0.5).isNaN);
-  Expect.isTrue(Math.pow(-1, 1/3).isNaN);
+  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 2));
+  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 2.0));
+  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 22));
+  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 22.0));
+  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, 0.2));
+  Expect.equals(double.INFINITY, Math.pow(double.NEGATIVE_INFINITY, double.INFINITY));
 
-  Expect.isTrue(Math.pow(-1.111, -0.5).isNaN);
-  Expect.isTrue(Math.pow(-1.111, -2/3).isNaN);
+  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -2));
+  Expect.isFalse(Math.pow(double.NEGATIVE_INFINITY, -2).isNegative);
+  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -2.0));
+  Expect.isFalse(Math.pow(double.NEGATIVE_INFINITY, -2.0).isNegative);
+  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -22));
+  Expect.isFalse(Math.pow(double.NEGATIVE_INFINITY, -22).isNegative);
+  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -22.0));
+  Expect.isFalse(Math.pow(double.NEGATIVE_INFINITY, -22.0).isNegative);
+  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -0.2));
+  Expect.isFalse(Math.pow(double.NEGATIVE_INFINITY, -0.2).isNegative);
+  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY));
+  Expect.isFalse(Math.pow(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY).isNegative);
 
-  Expect.isTrue(Math.pow(-4.9406564584124654e-324, -1.1).isNaN);
-  Expect.isTrue(Math.pow(-4.9406564584124654e-324, 0.5).isNaN);
+  Expect.equals(.0, Math.pow(-.0, 2));
+  Expect.isFalse(Math.pow(-.0, 2).isNegative);
+  Expect.equals(.0, Math.pow(-.0, 2.0));
+  Expect.isFalse(Math.pow(-.0, 2.0).isNegative);
+  Expect.equals(.0, Math.pow(-.0, 22));
+  Expect.isFalse(Math.pow(-.0, 22).isNegative);
+  Expect.equals(.0, Math.pow(-.0, 22.0));
+  Expect.isFalse(Math.pow(-.0, 22.0).isNegative);
+  Expect.equals(.0, Math.pow(-.0, 0.2));
+  Expect.isFalse(Math.pow(-.0, 0.2).isNegative);
+  Expect.equals(.0, Math.pow(-.0, double.INFINITY));
+  Expect.isFalse(Math.pow(-.0, double.INFINITY).isNegative);
+
+  Expect.equals(double.INFINITY, Math.pow(-.0, -2));
+  Expect.equals(double.INFINITY, Math.pow(-.0, -2.0));
+  Expect.equals(double.INFINITY, Math.pow(-.0, -22));
+  Expect.equals(double.INFINITY, Math.pow(-.0, -22.0));
+  Expect.equals(double.INFINITY, Math.pow(-.0, -0.2));
+  Expect.equals(double.INFINITY, Math.pow(-.0, double.NEGATIVE_INFINITY));
 }

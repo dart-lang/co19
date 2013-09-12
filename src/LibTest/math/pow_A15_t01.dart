@@ -4,9 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If abs(x)> 1 and y is -∞, the result is +0.
- * @description Checks result value.
+ * @assertion num pow(num x, num y)
+ * if [y] is Infinity and the absolute value of [x] is greater than 1,
+ * the result is Infinity.
+ * @description Checks the result when [y] is Infinity and
+ * the absolute value of [x] is greater than 1.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -15,15 +17,15 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(.0, Math.pow(1.0000000000000002, double.NEGATIVE_INFINITY));
-  Expect.equals(.0, Math.pow(-1.0000000000000002, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(1.0000000000000002, double.INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-1.0000000000000002, double.INFINITY));
 
-  Expect.equals(.0, Math.pow(2, double.NEGATIVE_INFINITY));
-  Expect.equals(.0, Math.pow(-2, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(2, double.INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-2, double.INFINITY));
 
-  Expect.equals(.0, Math.pow(123.123, double.NEGATIVE_INFINITY));
-  Expect.equals(.0, Math.pow(-123.123, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(123.123, double.INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-123.123, double.INFINITY));
 
-  Expect.equals(.0, Math.pow(1.7976931348623157e308, double.NEGATIVE_INFINITY));
-  Expect.equals(.0, Math.pow(-1.7976931348623157e308, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(1.7976931348623157e308, double.INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-1.7976931348623157e308, double.INFINITY));
 }

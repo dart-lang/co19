@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluates the trigonometric tangent of an angle.
+ * @assertion double tan(num x)
+ * Converts [x] to a double and returns the tangent of the value.
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1: S15.8.2.18_A7.js
  * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
 import "../../Utils/expect.dart";
 import "dart:math" as Math;
@@ -153,6 +153,6 @@ main() {
   
   var val;
   for (int i = 0; i < vnum; i++) {
-    Expect.equals(y[i], Math.tan(x[i]));
+    Expect.approxEquals(y[i], Math.tan(x[i]), (y[i]/1e7).abs());
   }
 }

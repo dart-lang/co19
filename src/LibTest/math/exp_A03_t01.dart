@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc sine of a value.
+ * @assertion double exp(num x)
+ * Throws an error if [x] is a null.
  * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
@@ -15,8 +16,7 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  try {
-    Math.asin(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws( () {
+    Math.exp(null);
+  });
 }

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluates the trigonometric cosine of an angle.
+ * @assertion double cos(num x)
+ * Converts [x] to a double and returns the cosine of the value.
  * @description Checks values from [0, 2pi].
  * @author msyabro
  * @reviewer pagolubev

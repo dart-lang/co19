@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If abs(x)< 1 and y is +∞ , the result is +0.
- * @description Checks result value.
+ * @assertion num pow(num x, num y)
+ * if [y] is -Infinity, the result is 1/pow([x], Infinity).
+ * @description Checks the result when [y] is -Infinity.
  * @author pagolubev
  * @reviewer msyabro
  */
@@ -15,16 +15,22 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(.0, Math.pow(0.9999999999999999, double.INFINITY));
-  Expect.equals(.0, Math.pow(-0.9999999999999999, double.INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(0.9999999999999999, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-0.9999999999999999, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(0.5, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-0.5, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(4.9406564584124654e-324, double.NEGATIVE_INFINITY));
+  Expect.equals(double.INFINITY, Math.pow(-4.9406564584124654e-324, double.NEGATIVE_INFINITY));
 
-  Expect.equals(.0, Math.pow(0.5, double.INFINITY));
-  Expect.equals(.0, Math.pow(-0.5, double.INFINITY));
+  Expect.equals(1.0, Math.pow(-1, double.NEGATIVE_INFINITY));
+  Expect.equals(1.0, Math.pow(-1.0, double.NEGATIVE_INFINITY));
 
-  Expect.equals(.0, Math.pow(4.9406564584124654e-324, double.INFINITY));
-  Expect.equals(.0, Math.pow(-4.9406564584124654e-324, double.INFINITY));
-
-  Expect.equals(.0, Math.pow(.0, double.INFINITY));
-  Expect.equals(.0, Math.pow(-.0, double.INFINITY));
-  Expect.equals(.0, Math.pow(0, double.INFINITY));
+  Expect.equals(.0, Math.pow(1.0000000000000002, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(-1.0000000000000002, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(2, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(-2, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(123.123, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(-123.123, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(1.7976931348623157e308, double.NEGATIVE_INFINITY));
+  Expect.equals(.0, Math.pow(-1.7976931348623157e308, double.NEGATIVE_INFINITY));
 }

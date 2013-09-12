@@ -4,18 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the natural logarithm (base e) of a double value.
- * @description Checks values outside of domain of logarithm.
+ * @assertion double acos(num x)
+ * Throws an error if [x] is null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
+ * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(double.NEGATIVE_INFINITY, Math.log(0.0));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.log(-0.0));
-  Expect.isTrue(Math.log(-1).isNaN);
-  Expect.isTrue(Math.log(-0.5).isNaN);
+  Expect.throws( () {
+    Math.acos(null);
+  });
 }

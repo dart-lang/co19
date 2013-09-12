@@ -4,18 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc tangent of a value.
+ * @assertion double atan(num x)
+ * Converts [x] to a dobule and returns the arc tangent of the vlaue.
  * @description Checks special values.
  * @author msyabro
  * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.atan(double.NAN).isNaN);
   Expect.isTrue(Math.atan(double.INFINITY) == Math.PI/2);
   Expect.isTrue(Math.atan(double.NEGATIVE_INFINITY) == -Math.PI/2);
 }

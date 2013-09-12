@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc sine of a value.
+ * @assertion double asin(num x)
+ * Converts [x] to a double and returns the arc sine of the value.
  * @description Checks returned values on various arguments.
  * @author msyabro
  * @reviewer pagolubev

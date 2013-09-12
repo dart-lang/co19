@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns minimum from [a] and [b]
+ * @assertion num min(num a, num b)
+ * Returns NaN if either argument is NaN.
  * @description Checks that if one of the arguments is NaN,
  * the result is also NaN.
  * @author msyabro

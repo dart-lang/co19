@@ -4,28 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ECMA-262 15.8.2.13 pow(x, y)
- * If x is -∞ and y< 0 and y is an odd integer, the result is -0.
- * If x is -∞ and y< 0 and y is not an odd integer, the result is +0.
- * @description Checks the result when x equals double.NEGATIVE_INFINITY and
- * y is negative integer.
+ * @assertion num pow(num x, num y)
+ * if [x] is negative (but not -0.0) and [y] is a finite non-integer, the result is NaN.
+ * @description Checks that if [x] is a negative number and
+ * [y] is a finite non-integer, the result is NaN.
  * @author pagolubev
  * @reviewer msyabro
- * @needsreview Check -.0 ?
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -1));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -1.0));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -11));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -11.11));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY));
+  Expect.isTrue(Math.pow(-1, 0.5).isNaN);
+  Expect.isTrue(Math.pow(-1, 1/3).isNaN);
 
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -2));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -2.0));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -22));
-  Expect.equals(0, Math.pow(double.NEGATIVE_INFINITY, -22.22));
+  Expect.isTrue(Math.pow(-1.111, -0.5).isNaN);
+  Expect.isTrue(Math.pow(-1.111, -2/3).isNaN);
+
+  Expect.isTrue(Math.pow(-4.9406564584124654e-324, -1.1).isNaN);
+  Expect.isTrue(Math.pow(-4.9406564584124654e-324, 0.5).isNaN);
 }

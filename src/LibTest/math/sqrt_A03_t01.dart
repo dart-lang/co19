@@ -4,18 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc sine of a value.
- * @description Checks returned values on arguments outside [-1, 1].
- * @reviewer pagolubev
+ * @assertion double sqrt(num x)
+ * Throws an error if [x] is null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
+ * @reviewer pagolubev
+ * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.asin(-10).isNaN);
-  Expect.isTrue(Math.asin(10).isNaN);
-  Expect.isTrue(Math.asin(1.0000000000001).isNaN);
-  Expect.isTrue(Math.asin(-1.0000000000001).isNaN);
+  Expect.throws( () {
+    Math.sqrt(null);
+  });
 }

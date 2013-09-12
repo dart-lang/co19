@@ -4,18 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluates the trigonometric cosine of an angle.
- * @description Checks special values.
+ * @assertion double sqrt(num x)
+ * Returns -0.0 if x is -0.0, and NaN if x is otherwise negative or NaN.
+ * @description Checks that [sqrt] returns NaN if [x] is NaN.
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.cos(double.NAN).isNaN);
-  Expect.isTrue(Math.cos(double.INFINITY).isNaN);
-  Expect.isTrue(Math.cos(double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.sqrt(double.NAN).isNaN);
 }

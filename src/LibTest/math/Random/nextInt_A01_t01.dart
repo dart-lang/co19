@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double nextDouble()
- * Generates a positive random floating point value uniformly distributed
- * on the range from 0.0, inclusive, to 1.0, exclusive.
+ * @assertion int nextInt(int max)
+ * Generates a positive random integer uniformly distributed on the range from 0,
+ * inclusive, to max, exclusive.
  * @description Checks range of the result.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 
@@ -17,8 +16,9 @@ import "dart:math";
 
 main() {
   Random rand = new Random();
+  int max = 1000;
   for(int i = 0; i < 1000; i++) {
-    double x = rand.nextDouble();
-    Expect.isTrue(x < 1 && x >= 0);
+    int x = rand.nextInt(1000);
+    Expect.isTrue(x < 1000 && x >= 0);
   }
 }

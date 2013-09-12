@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the arc tangent of [a]/[b] with sign according to quadrant.
+ * @assertion double atan2(num a, num b)
+ * Returns the angle between the positive x-axis and the vector ( [b], [a]).
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev

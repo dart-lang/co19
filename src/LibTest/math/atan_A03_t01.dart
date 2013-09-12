@@ -4,19 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the natural logarithm (base e) of a double value.
+ * @assertion double atan(num x)
+ * Throws an error if [x] is null.
  * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
- * @needsreview undocumented
  * @reviewer pagolubev
+ * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  try {
-    Math.log(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws( () {
+    Math.atan(null);
+  });
 }

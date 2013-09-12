@@ -4,19 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluates the trigonometric tangent of an angle.
- * @description Checks that an error is thrown when passed argument is a null.
+ * @assertion double sqrt(num x)
+ * Returns -0.0 if x is -0.0, and NaN if x is otherwise negative or NaN.
+ * @description Checks that [sqrt] returns -0.0 if [x] is -0.0
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  try {
-    Math.tan(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.equals(-.0, Math.sqrt(-0.0));
 }

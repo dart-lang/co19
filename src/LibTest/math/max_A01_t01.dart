@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns maximum from [a] and [b]
+ * @assertion num max(num a, num b)
+ * Returns the larger of two numbers.
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev

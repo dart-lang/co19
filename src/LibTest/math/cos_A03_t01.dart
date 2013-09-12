@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the natural logarithm (base e) of a double value.
- * @description Checks special values.
+ * @assertion double cos(num x)
+ * Throws an error is [x] is null.
+ * @description Checks that Error is thrown when passed argument is a null.
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
@@ -15,7 +16,7 @@ import "../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  Expect.isTrue(Math.log(double.NAN).isNaN);
-  Expect.equals(double.INFINITY, Math.log(double.INFINITY));
-  Expect.isTrue(Math.log(double.NEGATIVE_INFINITY).isNaN);
+  Expect.throws( () {
+    Math.cos(null);
+  });
 }
