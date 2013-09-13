@@ -46,7 +46,7 @@ tryRange(start, end) {
   }
   var s = b.toString();
   var unescapedSet = findUnescaped(Uri.encodeFull(s));
-  var diff = unescapedSet.difference(canBeNotEncoded.runes)
+  var diff = unescapedSet.difference(canBeNotEncoded.runes.toSet())
     .map((x)=>new String.fromCharCode(x)).toSet();
   Expect.isTrue(diff.isEmpty);
 }

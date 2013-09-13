@@ -20,11 +20,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   // relative URIs are created
-  Expect.isFalse(new Uri.file(r'a/b').isAbsolute);
+  Expect.isFalse(new Uri.file(r'a/b', windows: false).isAbsolute);
   Expect.isFalse(new Uri.file(r'a\b', windows: true).isAbsolute);
   
   // absolute URIs are created
-  Expect.isTrue(new Uri.file(r'/a/b').isAbsolute);
+  Expect.isTrue(new Uri.file(r'/a/b', windows: false).isAbsolute);
   Expect.isTrue(new Uri.file(r'/a/b', windows: true).isAbsolute);
   Expect.isTrue(new Uri.file(r'\a\b', windows: true).isAbsolute);
   Expect.isTrue(new Uri.file(r'c:/pagefile.sys', windows: true).isAbsolute);

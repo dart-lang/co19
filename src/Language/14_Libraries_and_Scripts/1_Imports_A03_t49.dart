@@ -19,8 +19,8 @@
  * @reviewer kaigorodov
  */
 
-import "1_Imports_A03_t01_p1_lib.dart";
-import "1_Imports_A03_t01_p2_lib.dart";
+import "1_Imports_A03_t41_p1_lib.dart";
+import "1_Imports_A03_t41_p2_lib.dart";
 
 main() {
   try {

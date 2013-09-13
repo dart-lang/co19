@@ -21,7 +21,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals('a/b', Uri.parse('a/b').toFilePath());
-  Expect.equals('/a/b', Uri.parse('/a/b').toFilePath());
-  Expect.equals('/a/b', Uri.parse('file:///a/b').toFilePath());
+  Expect.equals('a/b', Uri.parse('a/b').toFilePath(windows: false));
+  Expect.equals('/a/b', Uri.parse('/a/b').toFilePath(windows: false));
+  Expect.equals('/a/b', Uri.parse('file:///a/b').toFilePath(windows: false));
 }

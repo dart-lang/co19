@@ -10,9 +10,8 @@
  * ;
  * It is a compile-time error if the string literal x that describes a URI 
  * is not a compile-time constant, or if x involves string interpolation.
- * @description Checks that it is a compile-time error when the URI in a
+ * @description Checks that it is not a compile-time error when the URI in a
  * part directive consists of two adjacent string literals instead of one.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */

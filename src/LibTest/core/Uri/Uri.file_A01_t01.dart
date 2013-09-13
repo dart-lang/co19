@@ -18,10 +18,10 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals('a/b', new Uri.file(r'a/b').path);
-  Expect.notEquals('a/b', new Uri.file(r'a\b').path);
-  Expect.equals('/a/b', new Uri.file(r'/a/b').path);
-  Expect.notEquals('/a/b', new Uri.file(r'\a\b').path);
-  Expect.notEquals('/a/b', new Uri.file(r'/a\b').path);
+  Expect.equals('a/b', new Uri.file(r'a/b', windows: false).path);
+  Expect.notEquals('a/b', new Uri.file(r'a\b', windows: false).path);
+  Expect.equals('/a/b', new Uri.file(r'/a/b', windows: false).path);
+  Expect.notEquals('/a/b', new Uri.file(r'\a\b', windows: false).path);
+  Expect.notEquals('/a/b', new Uri.file(r'/a\b', windows: false).path);
 }
 

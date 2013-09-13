@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() {
-    Uri.parse('asdf://foo/bar').toFilePath();
+    Uri.parse('asdf://foo/bar').toFilePath(windows: false);
   }, (e) => e is UnsupportedError);
   
   Expect.throws(() {
