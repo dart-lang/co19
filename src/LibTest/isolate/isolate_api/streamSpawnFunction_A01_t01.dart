@@ -30,7 +30,6 @@ void readMsg(message) {
   } else {
     Expect.equals("alex", message);
     replyTo.send("justas");
-    replyTo.close();
   }
 }
 

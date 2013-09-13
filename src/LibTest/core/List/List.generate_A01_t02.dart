@@ -17,7 +17,7 @@ import "dart:collection";
 
 typedef Generator(int index);
 
-Generator gengen(List<E> source) {
+Generator gengen(List<int> source) {
   return (int index) {
      return source[index];
    };

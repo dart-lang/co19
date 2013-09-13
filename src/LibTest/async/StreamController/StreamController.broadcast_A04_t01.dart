@@ -19,10 +19,10 @@ main() {
   StreamController controller=new StreamController.broadcast();
   Stream stream=controller.stream;
   
-  boolean event1seen=false;
+  bool event1seen=false;
   StreamSubscription sub1=stream.listen((event){event1seen=true;});
   sub1.pause();
-  boolean event2seen=false;
+  bool event2seen=false;
   StreamSubscription sub2=stream.listen((event){event2seen=true;});
 
   controller.add(1);

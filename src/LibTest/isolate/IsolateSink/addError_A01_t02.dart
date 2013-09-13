@@ -29,7 +29,7 @@ void main() {
     asyncEnd();
   },
   onError: (error){
-    Expect.equals(msg1, message);
+    Expect.equals(msg1, error);
     asyncEnd();
   });
 }

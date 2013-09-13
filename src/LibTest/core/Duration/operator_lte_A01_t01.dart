@@ -25,7 +25,7 @@ void checkEq(int d, int h, int m, int s, int ms) {
   check(d, h, m, s, ms, d, h, m, s, ms);
 }
 
-long seed=1234567;
+int seed=1234567;
 int nextRand() {
   seed = seed * 199933 + 11;
   return seed&127;

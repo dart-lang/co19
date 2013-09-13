@@ -44,7 +44,7 @@ void check(List data, List expected) {
       var element=(error as ArgumentError).message;
       // odd elements forgot and should not appear 
       Expect.isTrue((element%2)==0);
-      sink.add(error.message);
+      sink.add(element);
     },
     onDone:() {
       Expect.listEquals(expected, sink);

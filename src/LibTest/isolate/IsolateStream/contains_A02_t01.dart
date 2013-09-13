@@ -11,12 +11,13 @@
  * @note if check
  */
 
+import "dart:async";
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(List l, var match, int expected) {
-  Itereator it=l.iterator;
+  Iterator it=l.iterator;
   MessageBox mbox=new MessageBox();
   Future<bool> fu=mbox.stream.contains(match);
   int count=0;

@@ -13,7 +13,7 @@
  */
 import "../../../Utils/expect.dart";
 
-boolean invoked=false;
+bool invoked=false;
 
 f(var element) {
   invoked=true;

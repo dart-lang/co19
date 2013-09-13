@@ -16,19 +16,6 @@ import "../../../Utils/expect.dart";
 
 IsolateSink replyTo=null;
 
-void readMsg(message) {
-  if (replyTo==null) {
-    Expect.isTrue(message is IsolateSink);
-    replyTo=message;
-  } else {
-    Expect.equals(messagesList[i], message);
-    replyTo.add(message);
-    if(++i == messagesList.length) {
-      replyTo.close();
-    }
-  }
-}
-
 void main2() {
   stream.listen((var message) {
     if (replyTo==null) {
@@ -58,7 +45,7 @@ void main() {
     asyncEnd();
   },
   onError: (error){
-    Expect.equals(msg1, message);
+    Expect.equals(msg1, error);
     asyncEnd();
   });
 }

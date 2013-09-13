@@ -19,6 +19,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   StreamController controller=new StreamController();
+  List events1=new List();
   StreamSubscription ss=controller.stream.listen((event){events1.add(event);});
   ss.pause();
   Expect.isTrue(controller.isPaused);

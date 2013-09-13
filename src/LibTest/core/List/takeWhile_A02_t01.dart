@@ -11,7 +11,7 @@
  */
 import "../../../Utils/expect.dart"	;
 
-bool test(E value) {
+bool test(int value) {
   Expect.fail("test($value) called");
 }
 

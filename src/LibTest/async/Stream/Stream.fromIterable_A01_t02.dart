@@ -30,7 +30,7 @@ class MyListener extends StreamListener<int> {
   }
   
   void onError(error){
-    throw new Error("onError called unexpectedly");
+    Expect.fail("onError($error) called unexpectedly");
   }
   
   void onDone(){

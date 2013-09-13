@@ -20,7 +20,7 @@ class MyListener extends StreamListener<int> {
   List<bool> seen=[false, false];
   
   void onData(int event) {
-    throw new Error("onData called unexpectedly");
+    Expect.fail("onError called unexpectedly");
   }
   
   void onError(error){

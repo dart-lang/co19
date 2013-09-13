@@ -44,20 +44,20 @@ class CustomIterator<T> implements Iterator<T> {
   int _pos;
 }
 
-class IterableClass implements Iterable {
+class IterableClass extends IterableBase {
   List internalArray;
-  
-  Iterator get iterator {
-    return new CustomIterator(internalArray);
-  }
   
   IterableClass() {
     internalArray = [1, 2, 3];
   }
+  
+  Iterator get iterator {
+    return new CustomIterator(internalArray);
+  }
 }
 
 
-void check(Queue l, Collection c) {
+void check(Queue l, Iterable c) {
   Expect.equals(l.length, c.length);
   c.forEach((var element) {
     Expect.equals(l.removeFirst(), element);

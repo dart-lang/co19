@@ -28,7 +28,7 @@ class MyListener extends StreamListener<int> {
   }
   
   void onError(error){
-    throw new Error("onError called unexpectedly");
+    Expect.fail("onError called unexpectedly");
   }
   
   void onDone(){

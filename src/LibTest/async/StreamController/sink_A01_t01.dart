@@ -6,6 +6,7 @@
 /**
  * @assertion final EventSink<T> sink
  * Returns a view of this object that only exposes the EventSink interface.
+ * @static-warning
  * @description Checks that only the EventSink interface is exposed.
  * @author kaigorodov
  */

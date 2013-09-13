@@ -13,7 +13,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void check(List a0, int start, int end, Iterable<E> iterable) {
+void check(List a0, int start, int end, Iterable iterable) {
   List a=new List.from(a0);
   a.replaceRange(start, end, iterable);
   Expect.equals(a0.length+start-end+iterable.length, a.length);

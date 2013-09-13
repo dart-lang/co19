@@ -17,14 +17,11 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class MyStream extends Stream {
-}
-
 class MyTransformer extends StreamEventTransformer<int, int> {
 }
 
 main() {
-  Stream s0=new MyStream();
+  Stream s0=new Stream.fromIterable([]);
   MyTransformer t=new MyTransformer();
   EventTransformStream s1=new EventTransformStream(s0, t);
   Stream s2=s1.asBroadcastStream();

@@ -19,7 +19,7 @@ void check(int d, int h, int m, int s, int ms, num f) {
       ).inMilliseconds);
 }
 
-long seed=1234567;
+int seed=1234567;
 int nextRand() {
   seed = seed * 199933 + 11;
   return seed&127;

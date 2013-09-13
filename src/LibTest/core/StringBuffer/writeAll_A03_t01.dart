@@ -13,10 +13,10 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  try {
-    new StringBuffer().addAll(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws((){
+    new StringBuffer().writeAll(null);
+  },
+  (e)=>e is Error
+  );
 }

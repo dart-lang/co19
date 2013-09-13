@@ -18,7 +18,7 @@ void check(List a, var element) {
   bool failed=false;
   try {
     a.lastWhere((var value)=>value==element);
-    faled=true;
+    failed=true;
   } on StateError catch(ok) {}
   Expect.isFalse(failed); 
 }

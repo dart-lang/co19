@@ -19,7 +19,7 @@ main() {
   int delay=20;
   int count=0;
 
-  Timer timer=new Timer.periodic(durationMs(delay), (Timer timer) {
+  Timer timer=new Timer.periodic(durationMs(delay), (Timer t) {
     count++;
     }
   );

@@ -20,6 +20,7 @@ main() {
   Stream s=controller.stream;
   Expect.isFalse(controller.hasListener);
   
+  List events1=new List();
   StreamSubscription ss1=s.listen((event){events1.add(event);});
   Expect.isTrue(controller.hasListener);
 

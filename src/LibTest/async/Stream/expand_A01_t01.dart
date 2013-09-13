@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream expand(Iterable convert(T value))
+ * @assertion Stream expand(Iterable convert(var value))
  * Creates a new stream from this stream that converts each element into zero or more events.
  * Each incoming event is converted to an Iterable of new events, and each of these new events
  * are then sent by the returned stream in order.
@@ -16,7 +16,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(List list, Iterable convert(T value), List expected) {
+check(List list, Iterable convert(var value), List expected) {
   Stream s1=new Stream.fromIterable(list);
   Stream s2=s1.expand(convert);
   List actual=new List();
@@ -29,22 +29,22 @@ check(List list, Iterable convert(T value), List expected) {
 }
 
 void checkList(List list) {
-  check(list, (T value)=>[], []);
-  check(list, (T value)=>[value], list);
+  check(list, (var value)=>[], []);
+  check(list, (var value)=>[value], list);
 
   List expected=new List();
   for (var el in list) {
     expected.add(el);
     expected.add(el);
   }
-  check(list, (T value)=>[value, value], expected);
+  check(list, (var value)=>[value, value], expected);
 
   expected=new List();
   for (var el in list) {
     expected.add(el);
     expected.add(null);
   }
-  check(list, (T value)=>[value, null], expected);
+  check(list, (var value)=>[value, null], expected);
 }
 
 main() {

@@ -15,12 +15,19 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class MyStream extends Stream {
+class MyTransformer extends StreamEventTransformer<int, int> {
+}
+  
+class MyStream extends EventTransformStream {
+  MyStream(Stream<int> source, StreamEventTransformer<int, int> transformer):super(source, transformer);
+  
   bool get isBroadcast => true;
 }
 
 main() {
-  Stream s1=new MyStream();
+  Stream<int> stream=new Stream<int>.fromIterable([1,2,3]);
+  MyTransformer t=new MyTransformer();
+  Stream s1=new MyStream(stream, t);
   Stream s2=s1.asBroadcastStream();
   
   Expect.identical(s1, s2);

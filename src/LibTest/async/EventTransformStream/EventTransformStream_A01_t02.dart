@@ -24,7 +24,7 @@ class MyTransformer extends StreamEventTransformer<int, int> {
     sink.add(event);
   }
   
-  void handleDone(EventSink<T> sink) {
+  void handleDone(EventSink<int> sink) {
     Expect.equals(expected, counter);
     sink.close();
     asyncEnd();

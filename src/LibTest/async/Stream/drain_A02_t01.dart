@@ -22,9 +22,6 @@ void check(Stream s) {
     (value){
       Expect.equals(expected, value);
       asyncEnd();
-    },
-    onError:(error){
-      Expect.fail("empty stream returned $value");
     }
   );
 }

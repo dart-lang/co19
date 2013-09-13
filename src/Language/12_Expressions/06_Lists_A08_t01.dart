@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 var evalOrder;
 
 f(p1) {
-  evalOrder = evalOrder.concat(p1.toString());
+  evalOrder = evalOrder+p1.toString();
 }
 
 main() {

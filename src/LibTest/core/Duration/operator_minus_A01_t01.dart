@@ -18,7 +18,7 @@ void check(int d1, int h1, int m1, int s1, int ms1, int d2, int h2, int m2, int 
       ).inMilliseconds);
 }
 
-long seed=1234567;
+int seed=1234567;
 int nextRand() {
   seed = seed * 199933 + 11;
   return seed&127;

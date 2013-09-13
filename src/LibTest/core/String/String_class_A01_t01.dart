@@ -17,9 +17,6 @@ main() {
   String s = "Immutable String ";
   String str = "Immutable String ";
 
-  str.concat("string");
-  Expect.isTrue(str == s);
-
   str.substring(0, 1);
   Expect.isTrue(str == s);
 

@@ -20,7 +20,7 @@ main() {
   Error err=new Error();
   completer.completeError(err);
   asyncStart();
-  s.listen((T event) {
+  s.listen((event) {
       Expect.fail("unexpected call to onData()");
     },
     onError: (error) {

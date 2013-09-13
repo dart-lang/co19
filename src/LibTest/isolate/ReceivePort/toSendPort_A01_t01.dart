@@ -6,21 +6,22 @@
 /**
  * @assertion Creates a new send port that sends to this receive port.
  * @description Checks that a new SendPort that sends to this receive port is created.
- * @runtime-error
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 import "dart:isolate";
+import "../../../Utils/async_utils.dart";
 
 void main() {
   ReceivePort rPort = new ReceivePort();
   SendPort sPort = rPort.toSendPort();
   int x = 1;
   
+  asyncStart();
   rPort.receive((var message, SendPort replyTo) {
     rPort.close();
-    throw 1;
+    asyncEnd();
   });
   
   sPort.send("message1", null);

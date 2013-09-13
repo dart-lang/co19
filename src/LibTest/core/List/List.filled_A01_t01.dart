@@ -11,7 +11,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void check(List<E> lst, int length, E fill) {
+void check(List<String> lst, int length, String fill) {
   Expect.equals(lst.length, length);
   for (int k=0; k<length; k++) {
     Expect.identical(lst[k], fill);

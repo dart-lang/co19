@@ -11,6 +11,7 @@
  * @description Checks that the list created with growable==false cannot change it's size.
  * @author kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 List<String> failures=new List<String>();
  

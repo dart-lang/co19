@@ -7,6 +7,7 @@
  * @assertion abstract void forEach(void f(E element))
  * Applies the function [f] for each element of the list.
  * @description Checks that no exception is thrown if the list is empty.
+ * @static-warning
  * @author iefremov
  * @reviewer pagolubev
  */

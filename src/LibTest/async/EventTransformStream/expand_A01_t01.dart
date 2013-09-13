@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 class MyTransformer extends StreamEventTransformer<int, int> {
 }
 
-check(List list, Iterable convert(T value), List expected) {
+check(List list, Iterable convert(int value), List expected) {
   Stream s1=new Stream.fromIterable(list);
   EventTransformStream ets=new EventTransformStream(s1, new MyTransformer());
   Stream s2=ets.expand(convert);
@@ -33,22 +33,22 @@ check(List list, Iterable convert(T value), List expected) {
 }
 
 void checkList(List list) {
-  check(list, (T value)=>[], []);
-  check(list, (T value)=>[value], list);
+  check(list, (int value)=>[], []);
+  check(list, (int value)=>[value], list);
 
   List expected=new List();
   for (var el in list) {
     expected.add(el);
     expected.add(el);
   }
-  check(list, (T value)=>[value, value], expected);
+  check(list, (int value)=>[value, value], expected);
 
   expected=new List();
   for (var el in list) {
     expected.add(el);
     expected.add(null);
   }
-  check(list, (T value)=>[value, null], expected);
+  check(list, (int value)=>[value, null], expected);
 }
 
 main() {

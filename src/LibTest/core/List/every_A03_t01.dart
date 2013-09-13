@@ -7,6 +7,7 @@
  * @assertion Throws an exception or error if the argument 
  * is null or is not a function and doesn't have a call() method with an appropriate 
  * signature (as long as the list isn't empty).
+ * @static-warning
  * @description Checks that something is thrown if the argument
  * is not a closure, doesn't implement a call() method with appropriate signature or is null.
  * @author vasya

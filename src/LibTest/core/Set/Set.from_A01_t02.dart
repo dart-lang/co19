@@ -43,7 +43,7 @@ class CustomIterator<T> implements Iterator<T> {
   int _pos;
 }
 
-class IterableClass implements IterableBase {
+class IterableClass extends IterableBase {
   List internalArray;
   
   Iterator get iterator {

@@ -25,7 +25,7 @@ check(Iterable<int> data) {
   bool first=true;
   var previous;
   asyncStart();
-  d.listen((T event){
+  d.listen((var event){
       if (first) {
         first=false;
         previous=event;

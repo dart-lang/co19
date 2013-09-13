@@ -27,7 +27,7 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 //import "add_A01_util.dart";
 
-List<IsolateSink> sinks=new List<Sink>();
+List<IsolateSink> sinks=new List<IsolateSink>();
 
 void readMsg(message) {
   if (message is SendPort) {
@@ -39,7 +39,6 @@ void readMsg(message) {
     } else {
       replyTo.send("not equal");
     }
-    replyTo.close();
   } else {
     try {
       sinks.add(message as IsolateSink);

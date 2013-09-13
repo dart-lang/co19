@@ -17,11 +17,8 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class MyStream extends Stream {
-}
-
 main() {
-  Stream s1=new MyStream();
+  Stream s1=new Stream.fromIterable([]);
   Stream s2=s1.asBroadcastStream();
   Stream s3=s2.asBroadcastStream();
   

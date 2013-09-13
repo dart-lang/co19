@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-void check(Queue l, Collection c) {
+void check(Queue l, Iterable c) {
   Expect.isTrue(l.length == c.length);
   c.forEach((var element) {
     Expect.isTrue(l.removeFirst() == element);

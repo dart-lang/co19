@@ -11,7 +11,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void check(List a, int start, int end, Iterable<E> iterable) {
+void check(List a, int start, int end, Iterable iterable) {
   bool failed=false;
   try {
     a.replaceRange(start, end, iterable);

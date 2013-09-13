@@ -13,7 +13,8 @@
 import "../../../Utils/expect.dart";
  
 main() {
-  NoSuchMethodError e = new NoSuchMethodError(null, new Symbol(''), [], {});
+  var symb = new Symbol('');
+  NoSuchMethodError e = new NoSuchMethodError(null, symb, [], {});
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
 }

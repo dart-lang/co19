@@ -16,6 +16,6 @@ import "../../../Utils/expect.dart";
 main() {
   String str1 = "a", str2 = "aa";
   Expect.isTrue(str1.hashCode != str2.hashCode);
-  Expect.equals(str1.concat(str1).hashCode, str2.hashCode);
+  Expect.equals((str1+str1).hashCode, str2.hashCode);
   Expect.equals("".hashCode, "".hashCode);
 }

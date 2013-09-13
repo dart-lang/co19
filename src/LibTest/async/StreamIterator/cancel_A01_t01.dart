@@ -29,7 +29,7 @@ void check(List source, List expected) {
   Stream stream=new Stream.fromIterable(source);
   StreamIterator streamIterator=new StreamIterator(stream);
   asyncStart();
-  void step(boolean hasNext) {
+  void step(bool hasNext) {
     if (!hasNext) {
       Expect.listEquals(expected, actual);
       asyncEnd();

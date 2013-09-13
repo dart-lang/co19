@@ -23,7 +23,7 @@ void check(Iterable it) {
   EventTransformStream ets=new EventTransformStream(stream, t);
   asyncStart();
   ets.first.then((value) {
-      Expec.fail("unexpected call to onValue($value)");
+      Expect.fail("unexpected call to onValue($value)");
     },
       onError: (Object error) {
       asyncEnd();

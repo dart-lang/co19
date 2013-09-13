@@ -28,7 +28,7 @@ void check(List data) {
       Expect.fail("unexpected call to onData($event)");
     },
     onError:(Object error) {
-       sink.add(error.message);
+       sink.add((error as ArgumentError).message);
     },
     onDone:() {
       Expect.listEquals(data, sink);
