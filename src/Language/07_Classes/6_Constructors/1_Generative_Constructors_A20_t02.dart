@@ -14,6 +14,7 @@
  * is final instance variable that has already been initialized.
  * are assigned correctly.
  * @author ilya
+ * @issue 13335
  */
 import "../../../Utils/expect.dart";
 

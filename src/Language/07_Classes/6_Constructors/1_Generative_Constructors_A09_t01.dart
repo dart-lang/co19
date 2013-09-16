@@ -11,12 +11,13 @@
  * - Initialization at the declaration of f.
  * - Initialization by means of an initializing formal of k.
  * or a static warning occurs.
- * @description Checks that error is produced if a final variable is not initialized in one 
+ * @description Checks that static warning is produced if a final variable is not initialized in one 
  * of the specified ways.
- * @ static-warning 
+ * @static-warning 
  * @author vasya
  * @reviewer pagolubev
  * @reviewer iefremov
+ * @issue 5646
  */
 
 class C {

@@ -13,6 +13,7 @@
  * an initializer of the form this.v = e for already initiailized final
  * instance variable.
  * @author ilya
+ * @issue 13335
  */
 import "../../../Utils/expect.dart";
 
