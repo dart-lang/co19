@@ -8,7 +8,7 @@
  * (respectively super.id(a1, ..., an; xn+1: an+1,...,xn+k: an+k) proceeds as follows:
  * First, the argument list (a1, ..., an; xn+1: an+1,...,xn+k: an+k) is evaluated.
  * Let C be the class in which the superinitializer appears and let S be the
- * superclass of C. If S is generic (9), let U1,...,Um be the actual type parameters
+ * superclass of C. If S is generic, let U1,...,Um be the actual type parameters
  * passed to S in the superclass clause of C.
  * Then, the initializer list of the constructor S (respectively S.id) is executed
  * with respect to the bindings that resulted from the evaluation of the argument

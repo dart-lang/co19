@@ -20,7 +20,7 @@
  * @reviewer rodionov
  */
 
-class C extends S {
+class C {
   C() : this. = null {}
   var x;
 }

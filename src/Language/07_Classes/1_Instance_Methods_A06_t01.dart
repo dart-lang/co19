@@ -5,9 +5,9 @@
  */
 /**
  * @assertion It is a static warning if an instance method m1 overrides an
- * instance member m2 and m1 has fewer optional positional parameters than m2.
+ * instance member m2 and m1 has fewer positional parameters than m2.
  * @description Checks that it is a static warning if an instance method m1
- * overrides an instance member m2 and m1 has fewer optional positional parameters
+ * overrides an instance member m2 and m1 has fewer positional parameters
  * than m2.
  * @static-warning
  * @author kaigorodov

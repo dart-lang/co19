@@ -8,10 +8,10 @@
  * member m2 and m1 does not declare all the named parameters declared by m2.
  * @description Checks that there is no  static warning is produced if m1
  * has the same set of named parameters as m2 but in a different order.
+ * @static-clean
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
- * @issue 978
  */
 
 class A {

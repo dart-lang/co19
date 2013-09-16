@@ -20,7 +20,7 @@
  * @reviewer rodionov
  */
 
-class C extends S {
+class C {
   C() : = 1 {}
   var x;
 }

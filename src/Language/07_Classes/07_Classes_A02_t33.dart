@@ -34,7 +34,6 @@
  * ;
  * @description Checks that it is a compile-time error when constructor is declared static.
  * @compile-error
- * @needsreview issue 3284
  * @author rodionov
  * @reviewer kaigorodov
  */

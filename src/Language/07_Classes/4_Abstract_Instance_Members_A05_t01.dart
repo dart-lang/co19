@@ -9,7 +9,7 @@
  * 7.1: It is a static warning if an instance method m1 overrides an instance 
  * member m2 and the type of m1 is not a subtype of the type of m2.
  * @description Checks that a static warning is produced when the return type of an abstract 
- * method m1 is not a subtype of the return type of non-abstract m2 (parameters of both methods
+ * method m1 is not assignable to the return type of non-abstract m2 (parameters of both methods
  * being completely identical).
  * @static-warning
  * @author rodionov

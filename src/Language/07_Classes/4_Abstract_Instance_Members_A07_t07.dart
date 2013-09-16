@@ -12,6 +12,7 @@
  * @description Checks that there are no static warnings if an abstract method
  * overrides another abstract method and overridden method does not
  * explicitly specify a default value for its optional parameter.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */
@@ -20,12 +21,9 @@ abstract class A {
   foo([x]);
 }
 
-class C extends A {
-  foo([x = 1]){}
+abstract class C extends A {
+  foo([x = 1]);
 }
 
 main() {
-  try {
-    (new C()).foo(1);
-  } catch (e) {}
 }

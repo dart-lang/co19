@@ -11,7 +11,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview VM crash: issue 886 - fixed
  */
 
 class A<T> extends T {}

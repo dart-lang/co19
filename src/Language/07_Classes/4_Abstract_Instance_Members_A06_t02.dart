@@ -13,7 +13,6 @@
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 981
  */
 
 class A {

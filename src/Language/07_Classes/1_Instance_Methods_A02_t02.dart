@@ -24,7 +24,7 @@ class C extends A {
 
 main() {
   try {
-    new A().f(1);
+    new A().f(x:1);
     new C().f();
   } catch (e) {}
 }

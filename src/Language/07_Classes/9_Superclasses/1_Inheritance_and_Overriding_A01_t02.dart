@@ -7,9 +7,6 @@
  * @assertion A class C inherits any accessible instance members of its superclass that
  * are not overridden by members declared in C. A class may override instance members
  * that would otherwise have been inherited from its superclass.
- * ...
- * It is a warning if you have an static member named m in your class or any
- * superclass (even though it is not inherited) and an instance member of the same name. 
  * @description Checks that it is a warning and not a compile error if you have a static
  * member named m in superclass and an instance member of the same name. 
  * @static-warning

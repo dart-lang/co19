@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the implements clause of a class C 
- *  specifies a malformed type as a superinterface.
+ * @assertion It is a compile-time error if the implements clause of a class
+ * C species a type variable as a superinterface.
  * @description Checks that it is a compile-time error when the type expression
  * in a class's implements clause denotes a type variable.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview VM crash: issue 887
+ * @note renamed from 10_Superinterfaces_A02_t04.dart
  */
 
 class A<T> implements T {}

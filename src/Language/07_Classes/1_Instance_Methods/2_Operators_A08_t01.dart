@@ -11,7 +11,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @needsreview Issue 1601
  */
 
 class C {

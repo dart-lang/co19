@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a compile-time error if the superclass of a class C appears 
- *  in the implements clause of C.
+ * @assertion It is a compile-time error if the superclass of a class C is
+ * specified as a superinterface of C.
  * @description Test checks that it is a compile-time error when a class has the same
  *  class as superclass and interface. 
  * @compile-error

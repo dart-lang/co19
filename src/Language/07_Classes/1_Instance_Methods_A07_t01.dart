@@ -10,6 +10,7 @@
  * instance method named n and declares a setter named n=.
  * @static-warning
  * @author kaigorodov
+ * @issue 13241
  */
 
 class C {

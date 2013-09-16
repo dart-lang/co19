@@ -12,7 +12,6 @@
  * @compile-error
  * @reviewer msyabro
  * @reviewer rodionov
- * @needsreview issue 969
  */
 
 class A implements dynamic {}

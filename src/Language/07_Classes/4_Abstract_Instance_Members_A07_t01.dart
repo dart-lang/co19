@@ -22,8 +22,7 @@ class A {
 }
 
 class C extends A {
-  foo([x = '']) { /// static type warning
-  }
+  foo([x = '']); /// static type warning
 }
 
 main() {

@@ -11,7 +11,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @needsreview issue 3182
  */
 
 int foo;

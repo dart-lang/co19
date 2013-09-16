@@ -21,7 +21,7 @@
  * the type parameters of the immediately enclosing class bound to a set of actual type arguments V1, ... , Vm
  * and the formal parameter bindings determined by the argument list of the superinitializer of k.
  * @description Checks that 'this' is not accessible to initializers and an unqualified invocation of an
- * instance method in an initializer results in a compile-time error. According to 10.13.3, such unqualified
+ * instance method in an initializer results in a compile-time error. According to (Expressions/Function Invocation/Unqualied Invocation), such unqualified
  * invocation in the presence of an appropriately named instance method is interpreted as ordinary method 
  * invocation and attempts to access this.
  * @compile-error

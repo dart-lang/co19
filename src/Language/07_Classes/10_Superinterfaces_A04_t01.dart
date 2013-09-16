@@ -4,15 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a type T appears more than once in
- * the implements clause of a class.
+ * @assertion It is a compile-time error if the implements clause of a class
+ * C specifies a type T as a superinterface more than once.
  * @description Checks that it is a compile-time error if the same type appears more than once
  * in the implements clause.
  * @author pagolubev
  * @compile-error
  * @reviewer msyabro
  * @reviewer rodionov
- * @needsreview issue 976
  */
 
 abstract class I {}

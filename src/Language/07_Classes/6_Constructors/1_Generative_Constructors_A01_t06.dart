@@ -5,8 +5,7 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier formalParameterList | namedConstructorSignature  ;
- * namedConstructorSignature:  identifier '.' identifier formalParameterList ;
+ * identier (`.' identier)? formalParameterList ;
  * @description Checks that constructor name cannot contain 3 identifiers.
  * @compile-error
  * @author kaigorodov

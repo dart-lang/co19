@@ -16,7 +16,7 @@
  */
 
 class C {
-  var foo() {}
+  foo() {}
   C.foo();
 }
 

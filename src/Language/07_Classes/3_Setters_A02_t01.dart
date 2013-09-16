@@ -5,8 +5,9 @@
  */
 /**
  * @assertion If no return type is specified, the return type of the setter is dynamic.
- * @description Dart does not currently allow to invoke a setter like a regular method,
- * so that its return value can be obtained.
+ * @description Checks that return type is indeed dynamic by calling arbitrary
+ * method on the result of a setter and expecting no warnings.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */
@@ -15,6 +16,10 @@ class C {
   set foo(var x) {}
 }
 
+f(x) => ((new C()).foo = x).asdf();
+
 main() {
-  (new C()).foo = null;
+  try {
+    f(null);
+  } catch(e) {}
 }

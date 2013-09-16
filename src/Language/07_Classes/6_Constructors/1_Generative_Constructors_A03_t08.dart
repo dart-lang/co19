@@ -11,9 +11,8 @@
  * redirection: ':' this ('.' identifier)? arguments
  * @description Checks that the constructor redirection clause cannot reference the
  * same constructor it is a part of.
- * @author iefremov
  * @compile-error
- * @needsreview issue 954
+ * @author iefremov
  * @reviewer rodionov
  */
 

@@ -11,9 +11,8 @@
  * redirection: ':' this ('.' identifier)? arguments
  * @description Checks that cyclic dependency in constructor redirection
  * produces a compile error (Using a longer redirection chain).
- * @author iefremov
  * @compile-error
- * @needsreview issue 954
+ * @author iefremov
  * @reviewer rodionov
  */
 

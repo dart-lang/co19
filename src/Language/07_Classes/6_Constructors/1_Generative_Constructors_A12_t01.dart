@@ -6,7 +6,7 @@
 /**
  * @assertion Execution of an initializer of the form this.v = e proceeds as follows:
  * First, the expression e is evaluated to an object o. Then, the instance variable
- * v of the object denoted by this is bound to o.
+ * v of the object denoted by this is bound to o, unless v is a final variable that has already been initialized, in which case a runtime error occurs.
  * An initializer of the form v = e is equivalent to an initializer of the form
  * this.v = e.
  * @description Checks that RHS expression is evaluated in both forms of an initializer.

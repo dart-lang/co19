@@ -7,7 +7,9 @@
  * @assertion Initializing formals are executed during the execution of
  * generative constructors detailed below. Executing an initializing formal
  * this.id causes the field id of the immediately surrounding class to be
- * assigned the value of the corresponding actual parameter.
+ * assigned the value of the corresponding actual parameter, unless id is a
+ * final variable that has already been initialized, in which case a runtime
+ * error occurs.
  * @description Checks that fields corresponding to an initializing formal
  * are assigned correctly.
  * @author msyabro

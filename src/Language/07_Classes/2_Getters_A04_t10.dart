@@ -18,7 +18,7 @@
 
 class C {
   static get foo {throw new C();}
-  foo {throw new C();}
+  foo() {throw new C();}
 }
 
 main() {

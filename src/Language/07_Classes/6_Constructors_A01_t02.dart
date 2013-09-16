@@ -16,7 +16,7 @@
  */
 
 class C {
-  var get foo {}
+  get foo {}
   C.foo();
 }
 

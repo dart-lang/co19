@@ -7,8 +7,9 @@
  * @assertion It is a compile time error if a class C declares a member with the 
  *  same name as C.
  * @description Checks that a class name cannot be used as a name of a getter.
- * @author hlodvig
  * @compile-error
+ * @author hlodvig
+ * @issue 13236
  */
 
 class A {

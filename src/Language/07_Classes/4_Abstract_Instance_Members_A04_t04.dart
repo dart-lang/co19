@@ -11,6 +11,7 @@
  * @description Checks that no static warning is produced when the overriding abstract method
  * has the same set of named parameters as the non-abstract instance method being overriden,
  * but in a different order.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */

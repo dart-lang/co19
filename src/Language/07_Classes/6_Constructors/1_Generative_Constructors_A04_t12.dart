@@ -21,7 +21,7 @@
  * @reviewer kaigorodov
  */
 
-class C extends S {
+class C {
   C() : 2+2 {}
   var x;
 }

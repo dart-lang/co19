@@ -13,7 +13,6 @@
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 5890
  */
 
 class C {

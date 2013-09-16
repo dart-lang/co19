@@ -5,8 +5,7 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier formalParameterList | namedConstructorSignature  ;
- * namedConstructorSignature:  identifier '.' identifier formalParameterList ;
+ * identier (`.' identier)? formalParameterList ;
  * @description Checks that omitting a named constructor's identifier results in a compile-time error.
  * @compile-error
  * @author pagolubev

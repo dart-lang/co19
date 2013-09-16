@@ -5,8 +5,8 @@
  */
 /**
  * @assertion In checked mode, it is a dynamic type error if a factory returns
- * an object whose type is not a subtype of its actual (13.8.1) return type.
- * @description Checks that returning an object of type other than M
+ * a non-null object whose type is not a subtype of its actual return type.
+ * @description Checks that returning an object whose type is not subtype of M
  * from factory M.id produces a dynamic type error in checked mode.
  * @static-warning
  * @author kaigorodov

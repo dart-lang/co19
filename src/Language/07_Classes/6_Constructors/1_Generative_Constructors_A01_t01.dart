@@ -5,8 +5,7 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier formalParameterList | namedConstructorSignature  ;
- * namedConstructorSignature:  identifier '.' identifier formalParameterList ;
+ * identier (`.' identier)? formalParameterList ;
  * @description Checks valid constructor declarations.
  * @author vasya
  * @reviewer pagolubev

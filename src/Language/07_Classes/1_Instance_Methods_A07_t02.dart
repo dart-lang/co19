@@ -10,6 +10,7 @@
  * instance method named n and inherits a setter named n=.
  * @static-warning
  * @author kaigorodov
+ * @issue 13241
  */
 
 class A {
