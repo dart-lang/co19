@@ -7,16 +7,18 @@
  * @assertion A class declaration, or type alias G may be generic.
  * typeParameter: metadata identifier (extends type)? ;
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
- * @description Checks that at least one typeParameter is a must.
- * @compile-error
- * @author iefremov
- * @reviewer kaigorodov
+ * @description Checks that metadata can be attached to type parameter.
+ * @author ilya
  */
 
-class C<>{}
+const constant = 0;
+
+class Foo {
+  const Foo.bar(x);
+}
+
+class C <@Foo.bar(0) @constant T, @Foo.bar(1) TT extends List<T>> {}
 
 main() {
-  try {
-    new C();
-  } catch(x){}
+  new C();
 }

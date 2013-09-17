@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class declaration,  interface declaration or type alias G may be generic.
- * typeParameter: identifier (extends type)? ;
+ * @assertion A class declaration, or type alias G may be generic.
+ * typeParameter: metadata identifier (extends type)? ;
  * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
  * @description Checks that class can be declared with formal type parameters.
  * @author pagolubev

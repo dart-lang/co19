@@ -5,9 +5,9 @@
  */
 /**
  * @assertion The type parameters of a generic G are in scope in the bounds of all of
- * the type parameters of G. The type parameters of a generic class or interface
+ * the type parameters of G. The type parameters of a generic class
  * declaration G are also in scope in the extends and implements clauses of G
- * (if these exist) and in the non-static members of G.
+ * (if these exist) and in the body of G.
  * @description Checks that type parameters are in scope in the type parameters bounds.
  * @author kaigorodov
  * @reviewer rodionov
