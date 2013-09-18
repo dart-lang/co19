@@ -4,21 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E firstWhere(bool test(E value), {E orElse()})
+ * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
+ * Returns the last element that satisfies the given predicate test.
  * If none matches, the result of invoking the orElse function is returned.
- * @description Checks that the result of invoking the orElse function is returned
- * when none matches.
+ * By default, when orElse is null, a StateError is thrown.
+ * @description Checks that a StateError is thrown when orElse is null and none matches.
  * @author kaigorodov
  */
+
+import "dart:collection";
 import "../../../Utils/expect.dart";
 
-class TestException {}
-
 check(List list) {
+  DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-      list.firstWhere((int value)=>false, orElse: (){throw new TestException();});
+    queue.lastWhere((int value)=>false);
     },
-    (e)=> e is TestException
+    (e)=> e is StateError
   );
 }
 

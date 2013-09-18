@@ -5,15 +5,18 @@
  */
 /**
  * @assertion abstract E singleWhere(bool test(E value))
- * Returns the single element that satisfies f.
- * @description Checks that the single element that satisfies the given predicate f
+ * Returns the single element that satisfies [test].
+ * @description Checks that the single element that satisfies the given predicate [test]
  * is returned.
  * @author kaigorodov
  */
+
+import "dart:collection";
 import "../../../Utils/expect.dart";
 
 check(List a, test(value), int expected) {
-  int actual=a.singleWhere(test);
+  DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
+  int actual=queue.singleWhere(test);
   Expect.equals(expected, actual);
 }
 

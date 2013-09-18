@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a declared or derived mixin refers to super.
+ * @assertion It is a compile-time error if a declared or derived mixin
+ * explicitly declares a constructor.
  * @description Checks that it is a compile-time error if a derived mixin
- * refers to super.
+ * explicitly declares a constructor.
  * @compile-error
  * @author kaigorodov
  */
@@ -16,7 +17,7 @@ class A {
 }
 
 class M {
-  String toString() {return super.toString();}
+  M() {}
 }
 
 class AM extends A with M {
