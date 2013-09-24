@@ -13,6 +13,7 @@
  * @description Checks that runtime error occurs, not compile-error, if id
  * is final instance variable that has already been initialized.
  * are assigned correctly.
+ * @static-warning
  * @author ilya
  * @issue 13335
  */

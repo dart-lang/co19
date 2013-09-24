@@ -12,18 +12,24 @@
  * @description Checks that there are no static warnings if an abstract method
  * overrides an instance method and overridden method does not
  * explicitly specify a default value for its optional parameter.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */
 
-class A {
+class C {
   foo([x]) {}
 }
 
-class C extends A {
+abstract class A implements C {
   foo([x = 1]);
+  factory A() = D;
+}
+
+class D implements A {
+  foo([x = 1]) {}
 }
 
 main() {
-    (new C()).foo(1);
+  (new A()).foo(1);
 }

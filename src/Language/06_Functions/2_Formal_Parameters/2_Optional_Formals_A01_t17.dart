@@ -4,14 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the name of a named
- * optional parameter begins with an _ character.
+ * @assertion Optional parameters may be specified and provided with default values.
+ * defaultFormalParameter:
+ *   normalFormalParameter ('=' expression)?
+ * ;
+ * defaultNamedParameter:
+ *   normalFormalParameter (':' expression)?
+ * ;
  * @description Checks that it is not a compile-time error if the name of a positional
- * optional parameter begins with an '_' character.
+ * optional initializing formal begins with an '_' character.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov
  * @reviewer rodionov
+ * @note renamed from 2_Optional_Formals_A03_t02
  */
 
 class A {
