@@ -14,9 +14,10 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
-  try {
+  Expect.throws(() {
     new UnavailableType.namedConstructor();
-  } catch(e) {}
+  });
 }

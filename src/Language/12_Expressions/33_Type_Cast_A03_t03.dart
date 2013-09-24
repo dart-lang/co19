@@ -11,6 +11,7 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
+ * @issue co19 534
  */
 
 class G<S extends String, N extends num> {}

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion    If T is a parameterized type (15.8) S < U1 , . . . , Um >, let R = S.
+ * @assertion    If T is a parameterized type S < U1 , . . . , Um >, let R = S.
  * If T is not a parameterized type, let R = T.
  * Furthermore, if e is of the form new T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k )
  * then let q be the constructor T.id, otherwise let q be the constructor T.

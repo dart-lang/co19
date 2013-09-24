@@ -13,7 +13,7 @@
  * @reviewer rodionov
  */
 
-class C {
+abstract class C {
   void m(){}
 }
 

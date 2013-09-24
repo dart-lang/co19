@@ -20,7 +20,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issue 1189.
  */
 
 topLevelFunction() {}

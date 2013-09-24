@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The result of a lookup of method m in class C with respect to library L is:
- * If C declares an instance method named m that is accessible to L, then that
+ * If C declares a concrete instance method named m that is accessible to L, then that
  * method is the result of the lookup. Otherwise, if C has a superclass S, then
  * the result of the lookup is the result of looking up m in S with respect to L.
  * Otherwise, we say that the method lookup has failed.

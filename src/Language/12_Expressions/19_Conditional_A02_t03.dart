@@ -14,7 +14,6 @@
  * @description Checks that it is dynamic type error if e1 is not evaluated to a bool object.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 3223
  */
 
 import "../../Utils/dynamic_check.dart";

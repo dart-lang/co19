@@ -9,6 +9,8 @@
  * of the getter invocation super.m. Then the value of i is the result of invoking
  * the static method Function.apply() with arguments
  * v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
+ * @description Checks that the result of super method invocation is the result
+ * of calling Function.apply on v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}
  * @author msyabro
  * @reviewer kaigorodov
  */

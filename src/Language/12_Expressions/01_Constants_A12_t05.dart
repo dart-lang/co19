@@ -15,7 +15,7 @@
  */
 
 final constList = const [
-  1 << "one and a half";
+  1 << "one and a half"
 ];
 
 main() {

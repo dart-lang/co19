@@ -8,7 +8,6 @@
  * @description Checks that any expression can be enclosed in parentheses.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 3400
  */
 
 class C {

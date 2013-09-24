@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The result of a lookup of a getter (respectively setter) m in class C with
- * respect to library L is: If C declares an instance getter (respectively setter)
+ * respect to library L is: If C declares a concrete instance getter (respectively setter)
  * named m that is accessible to L, then that getter (respectively setter) is the
  * result of the lookup. Otherwise, if C has a superclass S, then the result of the
  * lookup is the result of looking up getter (respectively setter) m in S with respect

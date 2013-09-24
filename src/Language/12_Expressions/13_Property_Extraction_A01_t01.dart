@@ -4,16 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If o is an object, and if m is the name of a method
- * member of o, then o.m is defined to be equivalent to
- * - (r1, ..., rn, {p1:d1, ..., pk:dk }){return o.m(r1, ..., rn, p1:p1, ..., pk:
+ * @assertion If e is an expression that evaluates to an object o, and if m is
+ * the name of a concrete method member of e, then e.m is dened to be equivalent to:
+ * - (r1, ..., rn, {p1:d1, ..., pk:dk }){return u.m(r1, ..., rn, p1:p1, ..., pk:
  *   pk); } if m has required parameters r1, ..., rn, and named parameters
  *   p1, ..., pk with defaults d1, ..., dk.
- * - (r1, ..., rn, [p1=d1, ..., pk=dk ]){return o.m(r1, ..., rn, p1, ..., pk ); } if
+ * - (r1, ..., rn, [p1=d1, ..., pk=dk ]){return u.m(r1, ..., rn, p1, ..., pk ); } if
  *   m has required parameters r1, ..., rn, and optional positional parameters
  *   p1, ..., pk with defaults d1, ..., dk .
+ * where u is a fresh final variable bound to o, except that:
+ * 1. iff identical(o1,o2) then o1.m == o2.m.
+ * 2. The static type of the property extraction is the static type of function
+ * T.m, where T is the static type of e, if T.m is defined. Otherwise the
+ * static type of e.m is dynamic.
  * @description Checks that if m is a method, o.m is defined to be equivalent to
- * (r1, ..., rn, [p1 = d1, ..., pk = dk]){return o.m(r1, ..., rn, p1, ..., pk);}
+ * (r1, ..., rn, [p1 = d1, ..., pk = dk]){return u.m(r1, ..., rn, p1, ..., pk);}
  * @author msyabro
  * @reviewer kaigorodov
  */

@@ -8,6 +8,7 @@
  * T.m exists; otherwise the static type of i is dynamic.
  * @description Checks that the static type of a getter invocation expression
  * is the declared return type of the getter.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */

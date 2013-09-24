@@ -30,6 +30,7 @@
  *   booleanLiteral |
  *   numericLiteral |
  *   stringLiteral |
+ *   symbolLiteral |
  *   mapLiteral |
  *   listLiteral
  * ;
@@ -45,6 +46,5 @@ typedef f();
 main() {
   try {
     f = null; /// static type warning - cannot assign to a type literal
-    throw "Exception expected.";
   } catch(e) {}
 }

@@ -30,7 +30,6 @@ class A<T> {
   test() {
     try {
       T++; /// static type warning - no such method/operator, see "Ordinary invocation"
-      throw "Exception expected.";
     } catch(e) {}
   }
 }

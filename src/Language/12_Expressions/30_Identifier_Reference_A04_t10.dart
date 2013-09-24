@@ -11,7 +11,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @issue 2492
  */
 
 typedef int dynamic();

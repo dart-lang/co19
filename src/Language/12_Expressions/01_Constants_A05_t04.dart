@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A reference to a static constant variable is a constant expression.
+ * @assertion A qualified reference to a static constant variable is a constant expression.
  * @description Checks that a reference to a non-constant top-level variable cannot 
  * be used to initialize a constant variable.
  * @author iefremov

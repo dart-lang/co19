@@ -10,9 +10,9 @@
  *   logicalAndExpression ('||' logicalAndExpression)*
  * ;
  * logicalAndExpression:
- *   bitwiseOrExpression ('&&' bitwiseOrExpression)*
+ *   equalityExpression ('&&' equalityExpression)*
  * ;
- * A logical boolean expression is either a bitwise expression, or an
+ * A logical boolean expression is either an equality expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that super can't be used as the first operand of a logical
  * boolean expression.

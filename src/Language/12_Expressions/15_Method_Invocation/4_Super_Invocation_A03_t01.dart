@@ -12,7 +12,6 @@
  * @description Checks that if vg is a function, then it is called with the evaluated argument list.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 1604
  */
 import "../../../Utils/expect.dart";
 

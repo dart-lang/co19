@@ -21,7 +21,6 @@
  * @description Checks that noSuchMethod() is invoked if the method and getter lookup has failed.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 3223
  */
 import "../../../Utils/expect.dart";
 

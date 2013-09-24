@@ -8,8 +8,7 @@
  * unaryExpression:
  *   prefixOperator unaryExpression |
  *   postfixExpression |
- *   unaryOperator super |
- *   '-' super |
+ *   prefixOperator super |
  *   incrementOperator assignableExpression
  * ;
  * prefixOperator:
@@ -26,7 +25,6 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
- * @note issue #1300
  */
 
 class S {

@@ -9,16 +9,8 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a library variable then:
- *   – If d is of one of the forms var v = ei ; , T v = ei ; , final v = ei ;
- *     or final T v = ei ; and no value has yet been stored into v then the
- *     initializer expression ei is evaluated. If, during the evaluation of ei ,
- *     the getter for v is referenced, a CyclicInitializationError is thrown. If
- *     the evaluation succeeded yielding an object o, let r = o, otherwise
- *     let r = null. In any case, r is stored into v. The value of e is r.
- *   – If d is of one of the forms const v = ei ; or const T v = ei ; then the
- *     value id is the value of the compile-time constant e. Otherwise
- *   – e evaluates to the current binding of id.
+ * • If d is the declaration of a library variable or top-level getter, then
+ * e is equivalent to the getter invocation id.
  * @description  Checks that if evaluation of the initializer expression of
  * a library variable is not successful, the variable is initialized with [:null:].
  * @static-warning

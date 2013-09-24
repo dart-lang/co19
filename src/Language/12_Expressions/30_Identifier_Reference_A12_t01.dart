@@ -9,18 +9,18 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is the declaration of a top-level getter, then e is equivalent to the
- *   getter invocation id.
- * @description Checks that reference to a top level getter is evaluated correctly.
- * @author msyabro
- * @reviewer kaigorodov 
+ * • If d is a constant variable of one of the forms const v = e; or const T v
+ * = e; then the value id is the value of the compile-time constant e.
+ * @description Checks that reference to a compile-time constant is evaluated
+ * correctly.
+ * @author ilya
  */
 import "../../Utils/expect.dart";
 
-var _x;
-get x {return _x;}
+const x = 111;
+const int y = 222 + x;
 
 main() {
-  _x = 1;
-  Expect.equals(1, x);
+  Expect.equals(111, x);
+  Expect.equals(333, y);
 }

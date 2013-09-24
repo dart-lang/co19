@@ -11,7 +11,6 @@
  * and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
- * @note issue 5214
  */
 import "../../Utils/expect.dart";
 

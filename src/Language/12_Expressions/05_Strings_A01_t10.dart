@@ -6,7 +6,7 @@
 /**
  * @assertion stringLiteral:
  *   MULTI_LINE_STRING+
- *   | SINGLE_LINE_STRING
+ *   | SINGLE_LINE_STRING+
  * ;
  * SINGLE_LINE_STRING:
  *   '"' STRING_CONTENT_DQ* '"'

@@ -22,6 +22,5 @@ typedef int fun();
 main() {
   try {
     '$fun';
-    throw "Exception expected";
   } catch(e) {}
 }

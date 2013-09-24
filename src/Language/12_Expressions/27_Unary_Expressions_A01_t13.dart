@@ -8,8 +8,7 @@
  * unaryExpression:
  *   prefixOperator unaryExpression |
  *   postfixExpression |
- *   unaryOperator super |
- *   '-' super |
+ *   prefixOperator super |
  *   incrementOperator assignableExpression
  * ;
  * prefixOperator:
@@ -33,6 +32,5 @@ class A {}
 main() {
   try {
     ~A; /// static type warning - no such method/operator, see "Ordinary invocation"
-    throw "Exception expected.";
   } catch(e) {}
 }

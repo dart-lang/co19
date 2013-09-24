@@ -8,12 +8,14 @@
  *  to yield a value, which is always an object.
  *  expression:
  *    assignableExpression assignmentOperator expression |
- *    conditionalExpression cascadeSection*
+ *    conditionalExpression cascadeSection* |
+ *    throwExpression
  *  ;
  *  
  *  expressionWithoutCascade:
  *    assignableExpression assignmentOperator expressionWithoutCascade |
- *    conditionalExpression
+ *    conditionalExpression |
+ *    throwExpressionWithoutCascade
  *  ;
  *  
  *  expressionList:

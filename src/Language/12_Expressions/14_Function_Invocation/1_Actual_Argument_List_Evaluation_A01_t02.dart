@@ -23,7 +23,7 @@
  * @reviewer rodionov
  */
 
-func(p1, [p2]) {}
+func(p1, {p2}) {}
 
 main() {
   try {

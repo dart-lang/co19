@@ -8,7 +8,6 @@
  * @description Checks that enclosing in parentheses has no semantic effect.
  * @author kaigorodov
  * @reviewer rodionov
- * @needsreview issue 3400
  */
 import "../../Utils/expect.dart";
 

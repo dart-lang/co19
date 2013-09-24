@@ -6,6 +6,8 @@
 /**
  * @assertion It is a compile-time error if an expression of the form throw; 
  * is not enclosed within an on-catch clause.
+ * @note the assertion in no longer in spec, though it should be compile-error
+ * to use throw with no expression.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov

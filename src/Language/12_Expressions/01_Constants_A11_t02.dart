@@ -5,7 +5,7 @@
  */
 /**
  * @assertion An expression of one of the forms !e, e1 && e2 or e1 || e2, where e, e1 and
- * e2 are constant expressions that evaluate to a boolean value or to null is a constant expression.
+ * e2 are constant expressions that evaluate to a boolean value is a constant expression.
  * @description Checks that an expression of the form !e cannot be used to initialize
  * a constant variable if e does not evaluate to a boolean value.
  * @author iefremov

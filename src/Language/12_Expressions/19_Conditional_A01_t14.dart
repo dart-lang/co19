@@ -20,7 +20,6 @@ class A<T> {
   test() {
     try {
       T ? "" : ''; /// static type warning - first argument not assignable to boolean, see "Conditional"
-      throw "Exception expected.";
     } catch(e) {}
   }
 }

@@ -5,10 +5,7 @@
  */
 /**
  * @assertion If F is not a function type, the static type of i is Dynamic.
- * Otherwise:
- *    the static type of i is the declared return type of F.
- *    Let Ti be the static type of ai, i from 1 to n + k. It is a static warning if F is
- * not a supertype of (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
+ * Otherwise the static type of i is the declared return type of F.
  * @description Checks that the static type of i is the declared return type of F when F is a function type
  * by verifying that the result of such function invocation expression can be assigned to a variable
  * of the same type without static warnings.
@@ -19,9 +16,14 @@
 
 class C {}
 
+int fInt () => 0;
+bool fBool() => true;
+String fString() => '';
+C fC() => new C();
+
 main() {
-  int resultInt = () {}();
-  bool resultBool = () {}();
-  String resultString = () {}();
-  C resultC = () {}();
+  int resultInt = fInt();
+  bool resultBool = fBool();
+  String resultString = fString();
+  C resultC = fC();
 }

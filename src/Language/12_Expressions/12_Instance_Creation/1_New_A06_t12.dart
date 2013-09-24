@@ -19,6 +19,7 @@
  * AbstractClassInstantiationError is thrown.
  * @static-warning
  * @author kaigorodov
+ * @issue 13420
  */
 import "../../../Utils/expect.dart";
 

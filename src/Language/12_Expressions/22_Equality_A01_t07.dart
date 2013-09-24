@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Equality expressions test objects for identity or equality.
+ * @assertion Equality expressions test objects for equality.
  * equalityExpression:
  *   relationalExpression (equalityOperator relationalExpression)? |
  *   super equalityOperator relationalExpression

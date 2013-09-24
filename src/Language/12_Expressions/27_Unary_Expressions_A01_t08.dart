@@ -8,8 +8,7 @@
  * unaryExpression:
  *   prefixOperator unaryExpression |
  *   postfixExpression |
- *   unaryOperator super |
- *   '-' super |
+ *   prefixOperator super |
  *   incrementOperator assignableExpression
  * ;
  * prefixOperator:

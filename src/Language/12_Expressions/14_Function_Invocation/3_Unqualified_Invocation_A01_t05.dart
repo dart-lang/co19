@@ -11,23 +11,23 @@
  *  - If fid is a local function, a library function, a library or static getter or a
  * variable then i is interpreted as a function expression invocation.
  *  - Otherwise, if fid is a static method of the enclosing class C, i is equivalent to
- * the static method invocation C.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
+ * C.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  *  - Otherwise, if i occurs inside a top level or static function (be it function,
  * method, getter, or setter) or variable initializer, evaluation of i causes a
  * NoSuchMethodError to be thrown.
- * Otherwise, i is equivalent to the ordinary method invocation this.id(a1, ... , an, xn+1 :
+ * Otherwise, i is equivalent to this.id(a1, ... , an, xn+1 :
  * an+1, ... , xn+k : an+k).
- * @description Checks that if fid is a variable,
+ * @description Checks that if fid is a library variable, hence induced library getter,
  * then i is interpreted as a function expression invocation.
  * @author msyabro
  * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
-f (p1) {
+var f = (p1) {
   Expect.equals(null, p1);
   return 100;
-}
+};
 
 class A {
   test() {

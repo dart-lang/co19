@@ -39,7 +39,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview issue 1557.
  */
 import "../../Utils/expect.dart";
 

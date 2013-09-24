@@ -9,7 +9,6 @@
  * of a constant list literal and is, therefore, a constant expression.
  * @author msyabro
  * @reviewer rodionov
- * @issue 5214
  */
 import "../../Utils/expect.dart";
 

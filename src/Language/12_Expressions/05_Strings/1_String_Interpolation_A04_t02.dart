@@ -6,7 +6,6 @@
 /**
  * @assertion  An interpolated string "s1${e}s2" is equivalent to the
  * concatenation of the strings "s1", e.toString() and "s2".
- * It is a runtime error if e.toString() does not return an object of type String.
  * @description Checks that if evaluation of expression e results in exception,
  * string interpolation "s1${e}s2" raises the same exception.
  * @static-warning

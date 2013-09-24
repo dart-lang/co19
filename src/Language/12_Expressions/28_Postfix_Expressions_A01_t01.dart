@@ -24,7 +24,7 @@
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
- * @needsreview Issues 1189, 1300, 1994, 2709
+ * @needsreview issue 2709
  */
 
 class S {

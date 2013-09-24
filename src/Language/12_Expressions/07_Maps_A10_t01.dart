@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of a map literal of the form  const <String, V>{k1:e1... kn :en}
- * or the form <String, V>{k1:e1... kn :en} is Map<String, V>.
+ * @assertion The static type of a map literal of the form  const <K, V>{k1:e1... kn :en}
+ * or the form <K, V>{k1:e1... kn :en} is Map<K, V>.
  * @description Checks that the static type of a map literal is Map<String, V> by ensuring
  * there're no static warnings when assigning such map to a variable of appropriate type.
  * @static-clean

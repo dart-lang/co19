@@ -15,7 +15,7 @@
  */
 
 final constList = const [
-  true >> 25;
+  true >> 25
 ];
 
 main() {

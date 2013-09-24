@@ -30,6 +30,7 @@
  *   booleanLiteral |
  *   numericLiteral |
  *   stringLiteral |
+ *   symbolLiteral |
  *   mapLiteral |
  *   listLiteral
  * ;
@@ -45,6 +46,5 @@ class A {}
 main() {
   try {
     A = 1; /// static type warning - incompatible types, see "Assignment" plus another unspecified warning
-    throw "Exception expected.";
   } catch(e) {}
 }

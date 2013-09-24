@@ -12,6 +12,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 class C<T> {
   test() {
@@ -20,7 +21,5 @@ class C<T> {
 }
 
 main() {
-  try {
-    new C<Object>().test();
-  } catch(e) {}
+  Expect.throws(() => new C<Object>().test());
 }

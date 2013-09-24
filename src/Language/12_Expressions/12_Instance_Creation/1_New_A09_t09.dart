@@ -12,7 +12,7 @@
  * taking into account the evaluation of the super constructor which is a redirecting one.
  * @author iefremov
  * @reviewer rodionov
- * @note http://code.google.com/p/dart/issues/detail?id=1372
+ * @issue 1372
  */
 import "../../../Utils/expect.dart";
 

@@ -34,6 +34,7 @@
  *   booleanLiteral |
  *   numericLiteral |
  *   stringLiteral |
+ *   symbolLiteral |
  *   mapLiteral |
  *   listLiteral
  * ;

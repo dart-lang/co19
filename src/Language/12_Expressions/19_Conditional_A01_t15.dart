@@ -19,7 +19,6 @@ class A<T> {
   test() {
     try {
       true ? T : '';
-      throw "Exception expected.";
     } catch(e) {}
   }
 }

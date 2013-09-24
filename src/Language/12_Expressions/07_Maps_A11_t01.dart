@@ -5,19 +5,19 @@
  */
 /**
  * @assertion The static type a map literal of the form const{k1 : e1 . . . kn : en }
- * or the form {k1 : e1 . . . kn : en } is Map <String, dynamic>.
- * @description Checks that a static warning occurs when assigning a map literal
- * with a single int type parameter to a variable with declared type Map<int, int>.
- * @static-warning
- * @author iefremov
- * @reviewer rodionov
+ * or the form {k1 : e1 . . . kn : en } is Map <dynamic, dynamic>.
+ * @description Checks that static type of map literal with omitted type
+ * arguments is indeed Map<dynamic, dynamic> by assigning it to declared
+ * variable of type Map <K,V> where K, V are arbitrary types. No static
+ * warnings expected.
+ * @static-clean
+ * @author ilya
  */
 
-import "../../Utils/dynamic_check.dart";
+class K {}
+class V {}
 
 main() {
-  Map<int, int> i;
-  checkTypeError( () => 
-    i = <String, int> {} /// static type warning 
-  );
+  Map<K,V> x = {1: true, String: (){}};
+  Map<K,V> y = const {1: true, String: null};
 }

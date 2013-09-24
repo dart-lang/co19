@@ -6,7 +6,7 @@
 /**
  * @assertion stringLiteral:
  *   MULTI_LINE_STRING+ |
- *   SINGLE_LINE_STRING
+ *   SINGLE_LINE_STRING+
  * ;
  * MULTI_LINE_STRING:
  *   '"""' STRING CONTENT TDQ* '"""' |
@@ -29,7 +29,7 @@
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
- * @note see issue 4009
+ * @issue 4009, 13529
  */
 
 main() {

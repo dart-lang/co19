@@ -35,7 +35,7 @@
  *   ‘a’ .. ‘z’ |
  *   ‘A’ ..‘Z’
  * ;
- * @description Checks that neither backslashes, nor unicode escape sequences aren't allowed in identifiers.
+ * @description Checks that neither backslashes, nor unicode escape sequences are allowed in identifiers.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

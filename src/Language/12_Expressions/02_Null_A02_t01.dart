@@ -6,11 +6,11 @@
 /**
  * @assertion The null object is the sole instance of the built-in class Null.
  * @description Checks that null is an instance of the Null class.
- * @author hlodvig
- * @reviewer iefremov
- * @needsreview Class Null is inaccessible. This test stub simply holds the assertion text.
- * It may be possible to write one once the reflection framework becomes available.
+ * @author ilya
  */
+import 'dart:mirrors';
+import '../../Utils/expect.dart';
 
 main() {
+  Expect.isTrue(reflect(null).type.reflectedType == Null);
 }

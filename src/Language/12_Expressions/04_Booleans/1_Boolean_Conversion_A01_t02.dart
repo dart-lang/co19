@@ -12,7 +12,6 @@
  * @description Checks that objects that are not bool and not null are converted to false.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 1552
  * @static-warning
  */
 import "../../../Utils/expect.dart";

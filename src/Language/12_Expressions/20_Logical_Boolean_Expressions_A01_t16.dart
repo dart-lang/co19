@@ -10,9 +10,9 @@
  *   logicalAndExpression ('||' logicalAndExpression)*
  * ;
  * logicalAndExpression:
- *   bitwiseOrExpression ('&&' bitwiseOrExpression)*
+ *   equalityExpression ('&&' equalityExpression)*
  * ;
- * A logical boolean expression is either a bitwise expression, or an
+ * A logical boolean expression is either an equality expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that it is permitted to chain as many OR or AND expressions
  * as one wants to.

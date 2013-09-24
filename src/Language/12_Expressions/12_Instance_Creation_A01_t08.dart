@@ -10,7 +10,7 @@
  * new T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * const T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * const T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ) is malformed or malbounded.
- * @description Checks that it is a static warning if type arguments to a constructor of a
+ * @description Checks that it is a static warning if type arguments to a const constructor of a
  * generic type G invoked by a new expression are not subtypes of the bounds
  * of the corresponding formal type parameters of G.
  * @static-warning
@@ -19,11 +19,11 @@
  */
 
 class G<T extends num, S extends String> {
-  G();
+  const G();
 }
 
 main() {
   try {
-    var o = new G<double, double>(); /// static type warning
+    var o = const G<double, double>(); /// static type warning
   } catch (anything) {}
 }

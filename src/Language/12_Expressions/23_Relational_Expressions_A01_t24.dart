@@ -6,8 +6,8 @@
 /**
  * @assertion Relational expressions invoke the relational operators on objects.
  * relationalExpression:
- *   shiftExpression (typeTest | typeCast | relationalOperator shiftExpression)? |
- *   super relationalOperator shiftExpression
+ *   bitwiseOrExpression (typeTest | typeCast | relationalOperator bitwiseOrExpression)? |
+ *   super relationalOperator bitwiseOrExpression
  * ;
  * relationalOperator:
  *   '>=' |
@@ -15,7 +15,7 @@
  *   '<=' |
  *   '<'
  * ;
- * A relational expression is either a shift expression, or an invocation
+ * A relational expression is either a bitwise expression, or an invocation
  * of a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that super can't be used
  * as the second operand in a relational expression without a compile error.
@@ -30,7 +30,6 @@ class A extends S {
   test() {
     try {
       1 >= super;
-      throw "Exception expected.";
     } catch(e) {}
   }
 }

@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a run-time error to attempt to modify a constant map literal.
+ * @assertion Attempting to mutate a constant map literal will result in
+ * a dynamic error.
  * @description Checks that it is a run-time error to attempt to modify a constant map literal.
  * @author msyabro
- * @note the assertion is removed from the spec.
- * @needsreview Issue 1553
  * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";

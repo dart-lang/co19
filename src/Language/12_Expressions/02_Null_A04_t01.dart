@@ -9,8 +9,6 @@
  * @compile-error
  * @author hlodvig
  * @reviewer iefremov
- * @needsreview Class Null is inaccessible. This test stub simply holds the assertion text.
- * It may be possible to write one once the reflection framework becomes available.
  */
 
 class A extends Null {}

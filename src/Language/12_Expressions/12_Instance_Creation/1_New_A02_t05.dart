@@ -13,11 +13,10 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 var a;
 
 main() {
-  try {
-    new a();
-  } catch(e) {}
+  Expect.throws(() => new a());
 }

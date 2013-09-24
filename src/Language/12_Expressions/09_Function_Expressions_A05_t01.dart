@@ -14,6 +14,7 @@
  * T1, ..., Tn, [Tn+1 xn+1, .., Tn+k xn+k]) -> dynamic and that wherever
  * an argument type of a function literal is not specified, 
  * it is considered to have been specified as dynamic.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */

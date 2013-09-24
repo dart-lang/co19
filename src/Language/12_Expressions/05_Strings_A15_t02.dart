@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Any string may be prefixed with the character @,
- * indicating that it is a raw string, in which case no escapes are recognized.
+ * @assertion Any string may be prefixed with the character 'r',
+ * indicating that it is a raw string, in which case no escapes or
+ * interpolations are recognized.
  * @description Checks that string interpolation is not performed for raw strings.
  * @author kaigorodov
  * @reviewer rodionov

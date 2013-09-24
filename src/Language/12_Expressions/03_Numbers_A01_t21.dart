@@ -6,7 +6,7 @@
 /**
  * @assertion A numeric literal is either a decimal or hexadecimal integer of arbitrary size,
  * or a decimal double. 
- *  NUMBER: '+' ? DIGIT+ ('.' DIGIT+)? EXPONENT? | '+' ? '.' DIGIT+ EXPONENT?
+ *  NUMBER: DIGIT+ ('.' DIGIT+)? EXPONENT? | '.' DIGIT+ EXPONENT?
  *  EXPONENT: ('e' | 'E') ('+' | '-')? DIGIT+
  *  HEX NUMBER: '0x' HEX DIGIT+ | '0X' HEX DIGIT+ ;
  *  HEX DIGIT: 'a'..'f' | 'A'..'F' | DIGIT ;
@@ -19,6 +19,6 @@
 
 main() {
   try {
-    var i = +1e;
+    var i = 1e;
   } catch(e) {}
 }

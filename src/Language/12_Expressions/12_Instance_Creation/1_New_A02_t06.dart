@@ -12,11 +12,10 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../../Utils/expect.dart";
 
 typedef int f(int x, int y);
 
 main() {
-  try {
-    new f();
-  } catch(e) {}
+  Expect.throws(() => new f());
 }

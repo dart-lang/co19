@@ -6,10 +6,10 @@
 /**
  * @assertion The throw expression is used to raise or re-raise an exception.
  * throwExpression:
- *   throw expression?
+ *   throw expression
  * ;
  * throwExpressionWithoutCascade:
- *   throw expressionWithoutCascade?
+ *   throw expressionWithoutCascade
  * ;
  * @description Checks the throw expression can be used on the right-hand side 
  * of a conditional expression.

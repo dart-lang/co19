@@ -6,6 +6,7 @@
 /**
  * @assertion The static type of this is the interface of the immediately enclosing class.
  * @description Checks that type of this is the class itself.
+ * @static-clean
  * @author hlodvig
  * @reviewer kaigorodov
  */

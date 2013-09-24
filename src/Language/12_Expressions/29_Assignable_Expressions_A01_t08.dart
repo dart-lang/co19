@@ -30,6 +30,7 @@
  *   booleanLiteral |
  *   numericLiteral |
  *   stringLiteral |
+ *   symbolLiteral |
  *   mapLiteral |
  *   listLiteral
  * ;
@@ -43,7 +44,6 @@ class A<T> {
   test() {
     try {
       T = null;
-      throw "Exception expected.";
     } catch(e) {}
   }
 }

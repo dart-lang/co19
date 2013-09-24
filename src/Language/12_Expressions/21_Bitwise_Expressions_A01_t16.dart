@@ -14,15 +14,15 @@
  *   super ('^' bitwiseAndExpression)+
  * ;
  * bitwiseAndExpression:
- *   equalityExpression ('&' equalityExpression)* |
- *   super ('&' equalityExpression)+
+ *   shiftExpression ('&' shiftExpression)* |
+ *   super ('&' shiftExpression)+
  * ;
  * bitwiseOperator:
  * '&' |
  * '^' |
  * '|'
  * ;
- * A bitwise expression is either an equality expression, or an invocation
+ * A bitwise expression is either an shift expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a type variable can be used
  * as the first operand of a bitwise expression without a compile error.
@@ -35,7 +35,6 @@ class A<T> {
   test() {
     try {
       T & 1; /// static type warning - invoking an undefined operator, see "Ordinary invocation"
-      throw "Exception expected.";
     } catch(e) {}
   }
 }

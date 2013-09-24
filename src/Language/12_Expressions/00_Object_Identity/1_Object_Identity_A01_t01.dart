@@ -5,19 +5,22 @@
  */
 /**
  * @assertion The predeﬁned Dart function identical() is deﬁned such that identical(c1, c2) iff:
- *   c1 evaluates to either null, an instance of bool, int, String and c1 == c2.
- * @description Checks that two in or string constants are identical iff they are equal.
- * @author msyabro
- * @reviewer rodionov
+ *   c1 evaluates to either null or an instance of bool and c1 == c2.
+ * @description Checks that object is identical() to null iff it equals to
+ * null
+ * @author ilya
  */
 import "../../../Utils/expect.dart";
 
-main() {
-  Expect.isTrue(identical(1, 1));
-  Expect.isTrue(identical(1, 1 + 0));
-  Expect.isTrue(identical(1, (1 * 1)));
-  Expect.isFalse(identical(1, 2));
+var nil = null;
+var notNil = [];
 
-  Expect.isTrue(identical('', ""));
-  Expect.isFalse(identical('', ' '));
+main() {
+  var nil2;
+  Expect.isTrue(identical(null, null));
+  Expect.isTrue(identical(null, nil));
+  Expect.isTrue(identical(nil, nil2));
+
+  Expect.isFalse(identical(null, notNil));
+  Expect.isFalse(identical(null, (){}));
 }

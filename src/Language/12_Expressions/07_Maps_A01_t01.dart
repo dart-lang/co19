@@ -16,7 +16,6 @@
  * @description Checks that various map keys don't produce a compile-time errors.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview 11255
  */
 
 topFunc() {}

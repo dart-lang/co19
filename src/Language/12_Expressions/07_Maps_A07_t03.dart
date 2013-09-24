@@ -5,10 +5,10 @@
  */
 /**
  * @assertion A runtime map literal <K, V>{k1:e1... kn :en}  is evaluated as follows:
- *   - First, the expression ki is evaluated yielding object ui, the ei is vaulted
+ *   - First, the expression ki is evaluated yielding object ui, the ei is evaluated
  *     yielding object oi, for i ∈ 1..n in left to right order, yielding objects
  *     u1; o1 ... un; on. 
- *   - A fresh instance m that implements the built-in interface Map<K, V> is allocated.
+ *   - A fresh instance m whose class implements the built-in class Map<K, V> is allocated.
  *     The operator []= is invoked on m with first argument ui and second argument oi, i ∈ 1..n.
  *   - The result of the evaluation is m.
  * @description Checks that entries with keys ui and values oi are added to the resulted map object.

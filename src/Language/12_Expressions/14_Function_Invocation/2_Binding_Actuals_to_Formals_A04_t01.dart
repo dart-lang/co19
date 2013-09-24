@@ -12,7 +12,7 @@
  * @reviewer rodionov
  */
 
-func([int np1, int np2, int np3]) {}
+func({int np1, int np2, int np3}) {}
 
 main() {
   try {

@@ -10,7 +10,6 @@
  * can be assigned to a constant variable.
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 6556
  */
 
 class C {}

@@ -13,7 +13,6 @@
  * to variables with various declared types.
  * @static-clean
  * @author rodionov
- * @issue 1604
  * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";

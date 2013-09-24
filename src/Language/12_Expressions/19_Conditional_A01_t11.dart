@@ -20,6 +20,5 @@ class A {}
 main() {
   try {
     true ? 1 : A;
-    throw "Exception expected.";
   } catch(e) {}
 }

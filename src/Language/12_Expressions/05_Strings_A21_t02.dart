@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * to form a single string literal, and so are adjacent multiline strings,
- * but the two forms may not be mixed.
- * to form a single string literal.
+ * @assertion Adjacent strings are implicitly concatenated to form a single
+ * string literal.
  * @description Checks that the value of a concatenated string literal is correct.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 1867 - assertion doesn't mention multi-line string literals
  */
 import "../../Utils/expect.dart";
 

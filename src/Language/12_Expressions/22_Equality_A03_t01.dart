@@ -12,7 +12,6 @@
  * @description Checks that if this is identical to e2, the result of an equality expression is true.
  * @author msyabro
  * @reviewer kaigorodov
- * @note issue 1242
  */
 import "../../Utils/expect.dart";
 

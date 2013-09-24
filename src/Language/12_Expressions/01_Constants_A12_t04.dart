@@ -8,14 +8,14 @@
  * e1 >> e2 or e1 << e2, where e1 and e2 are constant expressions that
  * evaluate to an integer value or to null is a constant expression.
  * @description Checks that it is a compile-time error when an expression of the form ~e
- * where e does not evaluate to a boolean value, is used to initialize a constant variable. 
+ * where e does not evaluate to an integer value, is used to initialize a constant variable. 
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 final constList = const [
-  ~"oneoneeleven";
+  ~"oneoneeleven"
 ];
 
 main() {

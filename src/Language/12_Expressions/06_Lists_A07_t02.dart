@@ -21,8 +21,8 @@ class C {
 main() {
   Expect.isFalse(identical(const <String>[], const <Object>[]));
 
-  //Expect.isFalse(identical(const [1, 2, 1 + 2], const [1, 2, 4]));
-  //Expect.isFalse(identical(const <bool>[false], const <bool>[false, true]));
-  //Expect.isFalse(identical(const ["a", "b", "c"], const <String>["a", "b", "c"]));
-  //Expect.isFalse(identical(const [1, null, const C(1)], const [1, null, const C(2)]));
+  Expect.isFalse(identical(const [1, 2, 1 + 2], const [1, 2, 4]));
+  Expect.isFalse(identical(const <bool>[false], const <bool>[false, true]));
+  Expect.isFalse(identical(const ["a", "b", "c"], const <String>["a", "b", "c"]));
+  Expect.isFalse(identical(const [1, null, const C(1)], const [1, null, const C(2)]));
 }

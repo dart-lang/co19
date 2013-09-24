@@ -29,6 +29,5 @@ typedef f();
 main() {
   try {
     0.25 - f; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-    throw "Exception expected.";
   } catch(e) {}
 }

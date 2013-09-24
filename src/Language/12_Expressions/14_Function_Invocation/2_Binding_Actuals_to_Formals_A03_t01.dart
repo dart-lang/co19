@@ -7,11 +7,10 @@
  * @assertion In checked mode, it is a dynamic type error if om+j is not null
  * and the actual type of qj is not a supertype of the type of om+j,  j from 1 to l.
  * @description Checks that it is a dynamic type error when an actual argument is not
- * null and its actual type (Dynamic) is not a subtype of the corresponding
+ * null and its actual type (bool) is not a subtype of the corresponding
  * named parameter's type (int).
  * @author msyabro
  * @reviewer rodionov
- * @needsreview issue 3223
  */
 
 import "../../../Utils/dynamic_check.dart";

@@ -7,11 +7,10 @@
  * @assertion An expression of the form identical(e1 , e2) where e1 and e2 are
  * constant expressions and identical is statically bound to the predefined dart 
  * function identical() discussed below..
- * @description Checks that various expressions of the specified forms can be used within
- * the initializer list of a constant constructor and are, therefore, constant expressions.
+ * @description Checks that various expressions of the specified forms can be used in
+ * a constant list literal and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
- * @issue 5214
  */
 import "../../Utils/expect.dart";
 

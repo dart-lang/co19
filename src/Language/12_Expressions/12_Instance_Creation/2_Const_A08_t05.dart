@@ -19,8 +19,6 @@
  * @description Checks that equal strings constructed at compile-time are canonicalized.
  * @author iefremov
  * @reviewer msyabro
- * @needsreview undocumented
- * @needsreview issue 1918
  */
 import "../../../Utils/expect.dart";
 

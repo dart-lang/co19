@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Otherwise, if m is the name of a getter member of o (declared implicitly
- * or explicitly) then o.m evaluates to the result of invoking the getter.
- * @description Checks that if m is the name of a getter, o.m evaluates to the result of
- * invoking the getter.
+ * @assertion Otherwise e.m is treated as a getter invocation.
+ * @description Checks that if type of e has a getter named m, e.m evaluates
+ * to the result of invoking the getter.
  * @author msyabro
  * @reviewer kaigorodov
  */

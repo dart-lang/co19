@@ -19,7 +19,7 @@
  * @description Checks that an additive expression of the form
  * multiplicativeExpression ('+' multiplicativeExpression)*
  * must have at least two operands.
- * Note that there is no unary plus operator in dart. It's allowed only before number literals.
+ * Note that there is no unary plus operator in dart.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov

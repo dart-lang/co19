@@ -11,7 +11,7 @@
  * @static-warning
  * @author rodionov 
  * @reviewer iefremov
- * @needsreview issue 3282
+ * @needsreview issue 3282, co19 534
  */
 
 class G<S, T> {}

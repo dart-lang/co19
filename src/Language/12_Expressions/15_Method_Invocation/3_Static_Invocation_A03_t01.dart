@@ -6,6 +6,7 @@
 /**
  * @assertion It is a static warning if C does not declare a static method or getter m.
  * @description Checks that it is a static warning if class C does not declare any members named m.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

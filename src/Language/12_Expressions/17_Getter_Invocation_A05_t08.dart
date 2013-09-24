@@ -15,6 +15,7 @@
  * static type of i is the declared return type of C.m if it exists or dynamic otherwise.
  * @description Checks that the static type of a getter invocation expression
  * of the form C.m is the declared return type of the getter.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */

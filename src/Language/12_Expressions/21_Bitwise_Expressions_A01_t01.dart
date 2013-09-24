@@ -14,15 +14,15 @@
  *   super ('^' bitwiseAndExpression)+
  * ;
  * bitwiseAndExpression:
- *   equalityExpression ('&' equalityExpression)* |
- *   super ('&' equalityExpression)+
+ *   shiftExpression ('&' shiftExpression)* |
+ *   super ('&' shiftExpression)+
  * ;
  * bitwiseOperator:
  * '&' |
  * '^' |
  * '|'
  * ;
- * A bitwise expression is either an equality expression, or an invocation
+ * A bitwise expression is either an shift expression, or an invocation
  * of a bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that various bitwise expression which are valid according to this grammar
  * don't cause compile-time errors.
@@ -70,7 +70,7 @@ class A extends S {
     try {method() & topLevelFunction();} catch(e) {}
     try {method() | id;} catch(e) {}
 
-    //equality
+    //shift
     try {true == false;} catch(e) {}
     try {1 != 3 & 0;} catch(e) {}
 

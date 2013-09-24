@@ -13,7 +13,6 @@
  * @author msyabro
  * @reviewer rodionov
  * @note no static warnings are expected: static type of non-Function getters/variables is Dynamic
- * @needsreview issue 3223
  */
 import "../../../Utils/expect.dart";
 

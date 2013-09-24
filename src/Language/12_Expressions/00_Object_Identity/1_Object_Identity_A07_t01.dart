@@ -5,19 +5,19 @@
  */
 /**
  * @assertion The predeﬁned Dart function identical() is deﬁned such that identical(c1, c2) iff:
- *   c1 evaluates to either null, an instance of bool, int, String and c1 == c2.
- * @description Checks that two large ints representing the same value are identical.
- * @author kaigorodov
- * @reviewer rodionov
+ *   c1 and c2 are instances of int and c1 == c2
+ * @description Checks that two int instances are identical() iff they are
+ * equal
+ * @author ilya
  */
 import "../../../Utils/expect.dart";
 
-mul(var i1, var i2) {
-  return i1*i2;
-}
-  
+var n4 = 4;
+var n7 = 3+n4;
+
 main() {
-  var i1=32000;
-  var i2=33000;
-  Expect.isTrue(identical(mul(i1,i2), mul(i2,i1)));
+  Expect.isTrue(identical(1, 1));
+  Expect.isTrue(identical(7, n7));
+
+  Expect.isFalse(identical(7, n7<<1));
 }

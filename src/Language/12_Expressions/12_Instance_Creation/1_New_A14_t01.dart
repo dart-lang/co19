@@ -11,6 +11,7 @@
  * assigned to the type of the corresponding formal parameter of the constructor
  * T.id (respectively T).
  * @description Checks that the static type of an instance creation expression is T.
+ * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */

@@ -20,6 +20,5 @@ typedef int fun();
 main() {
   try {
     false ? fun : [];
-    throw "Exception expected.";
   } catch(e) {}
 }

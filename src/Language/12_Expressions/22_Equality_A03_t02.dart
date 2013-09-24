@@ -13,13 +13,12 @@
  * the result is the same as that of identical(this, o) (false, to be sure).
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 5776
  */
 import "../../Utils/expect.dart";
 
 class S {
   operator ==(other) {
-    throw 'operator== invoked with $other argument';
+    Expect.fail('operator== invoked with $other argument');
   }
 }
 

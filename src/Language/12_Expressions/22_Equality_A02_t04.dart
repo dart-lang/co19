@@ -14,7 +14,6 @@
  * ee is equivalent to the method invocation o1.==(o2).
  * @author msyabro
  * @reviewer iefremov
- * @needsreview issue 3308
  */
 import "../../Utils/expect.dart";
 

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function literal implements the built-in class Function.
+ * @assertion The class of a function literal implements the built-in class
+ * Function.
  * @description Checks that a function literal implements interface Function.
  * @author msyabro
  * @reviewer kaigorodov

@@ -10,9 +10,9 @@
  *   logicalAndExpression ('||' logicalAndExpression)*
  * ;
  * logicalAndExpression:
- *   bitwiseOrExpression ('&&' bitwiseOrExpression)*
+ *   equalityExpression ('&&' equalityExpression)*
  * ;
- * A logical boolean expression is either a bitwise expression, or an
+ * A logical boolean expression is either an equality expression, or an
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that a type parameter can be used as
  * the second operand in a logical boolean expression without a compile error.
@@ -25,7 +25,6 @@ class A<T> {
   test() {
     try {
       true || T; /// static type warning - undefined operator or incompatible argument type
-      throw "Exception expected";
     } catch(e) {}
   }
 }

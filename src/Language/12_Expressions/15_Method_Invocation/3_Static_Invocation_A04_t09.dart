@@ -20,6 +20,7 @@
  * @description Checks that the argument list is evaluated before a NoSuchMethodError is thrown.
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 13494
  */
 import "../../../Utils/expect.dart";
 
