@@ -12,6 +12,7 @@
  * whose class implements operator ==.
  * @compile-error
  * @author ilya
+ * @issue 13532
  */
 
 class C {

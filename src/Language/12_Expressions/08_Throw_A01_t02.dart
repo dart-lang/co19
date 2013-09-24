@@ -15,6 +15,7 @@
  * that this is a compile-error.
  * @compile-error
  * @author ilya
+ * @issue 13533
  */
 
 main() {

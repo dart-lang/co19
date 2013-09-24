@@ -15,9 +15,10 @@
  * the call mirror.getPrivateSymbol(id) where mirror is an instance of the
  * class LibraryMirror defined in the library dart:mirrors, reflecting the
  * current library.
- * @note TODO symbols literals are not yet implemenented
+ * @note TODO symbol literals are not yet implemented
  * @description Checks a basic case that #id is equivalent to const Symbol(id)
  * @author ilya
+ * @issue 12171
  */
 import "../../Utils/expect.dart";
 
