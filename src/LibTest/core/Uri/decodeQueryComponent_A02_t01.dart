@@ -5,33 +5,25 @@
  */
 /**
  * @assertion String decodeQueryComponent(String encodedComponent,
- * {decode: null})
+ * {Encoding encoding: UTF8})
  * Decodes the percent-encoding in encodedComponent, converting pluses
  * to spaces
- * It will create a byte-list of the decoded characters, and then use [decode]
- * to decode the byte-list to a String. Default is a UTF-8 decoder.
- * @description Checks that decodeQueryComponent works with some arbitrary
- * defined decode functions
+ * It will create a byte-list of the decoded characters, and then use [encoding]
+ * to decode the byte-list to a String. The default encoding is UTF-8.
+ * @description Checks that decodeQueryComponent provided with Ascii [encoding]
+ * leaves Ascii strings untouched and throws on unsupported codes.
  * @author ilya
  * @reviewer
  */
-
+import "dart:convert";
 import "../../../Utils/expect.dart";
 
-// decoder takes only even bytes
-even (list) {
-  var i = 0;
-  return new String.fromCharCodes(list.where((_) => (i++).isEven).toList());
-}
-
-// decoder takes only odd bytes
-odd (list) {
-  var i = 0;
-  return new String.fromCharCodes(list.where((_) => (i++).isOdd).toList());
-}
-  
 main() {
-  var x = 'A-%42%43.~_+%42%43%42%43';
-  Expect.equals('A-B.~_ BB', Uri.decodeQueryComponent(x, decode: even));
-  Expect.equals('A-C.~_ CC', Uri.decodeQueryComponent(x, decode: odd));
+  var ascii = const AsciiCodec();
+
+  Expect.equals('A-B', Uri.decodeQueryComponent('A-%42', encoding: ascii));
+  
+  Expect.throws(() {
+    Uri.decodeQueryComponent(Uri.encodeComponent('\u1111'), encoding: ascii);
+  });
 }

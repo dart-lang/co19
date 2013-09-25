@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String decodeQueryComponent(String encodedComponent,
- * {decode: null})
+ * {Encoding encoding: UTF8})
  * Decodes the percent-encoding in encodedComponent, converting pluses
  * to spaces
  * @description Checks expected results on unreserved characters and

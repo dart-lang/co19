@@ -71,12 +71,13 @@ class A extends S {
     try {method() | id;} catch(e) {}
 
     //shift
-    try {true == false;} catch(e) {}
-    try {1 != 3 & 0;} catch(e) {}
+    try {true * false;} catch(e) {}
+    try {1 + 3 & 0;} catch(e) {}
 
-    //relational expressions
-    try {1 < 2 ^ true > false;} catch(e) {}
-    try {true >= false & id > 7;} catch(e) {}
+    //relational expression is a higher grammar rule since spec 0.61
+    //so these are not bitwise exprs, but relational exprs containing bitwise
+    try {1 ^ 2 < true | false;} catch(e) {}
+    try {true & false <= id ^ 7;} catch(e) {}
 
     //shift expressions
     try {id << method() & {}() >> []();} catch(e) {}
