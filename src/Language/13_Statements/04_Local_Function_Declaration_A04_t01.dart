@@ -12,6 +12,7 @@
  * @author kaigorodov
  * @reviewer rodionov
  * @renamed from 04_Local_Function_Declaration_A02_t02
+ * @issue 13603
  */
 import "../../Utils/expect.dart";
 

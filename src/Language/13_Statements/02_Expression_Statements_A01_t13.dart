@@ -17,6 +17,7 @@
  * expression statement is empty map literal.
  * @compile-error
  * @author ilya
+ * @issue 13604
  */
 
 main() {

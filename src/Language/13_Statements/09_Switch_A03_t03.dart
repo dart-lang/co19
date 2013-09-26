@@ -12,6 +12,7 @@
  * @author msyabro
  * @reviewer rodionov
  * @note renamed from 09_Switch_A02_t02
+ * @issue 13605
  */
 
 main() {

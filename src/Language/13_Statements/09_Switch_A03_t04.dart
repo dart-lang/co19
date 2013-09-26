@@ -10,6 +10,7 @@
  * are instances of different user-defined classes.
  * @compile-error
  * @author ilya
+ * @issue 13605
  */
 
 class C {
