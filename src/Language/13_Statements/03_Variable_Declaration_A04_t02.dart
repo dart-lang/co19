@@ -9,8 +9,11 @@
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
+ * @issue 7052
  */
 
 main() {
-  String v = v;
+  try {
+    String v = v;
+  } catch(e) {}
 }

@@ -7,7 +7,7 @@
  * @assertion A try statement try s1 on − catch1 . . . on − catchn finally sf defines an
  * exception handler h that executes as follows:
  *   The on-catch clauses are examined in order, starting with catch1 , until
- * either an on-catch clause that matches the current exception (11.8) is found,
+ * either an on-catch clause that matches the current exception is found,
  * or the list of on-catch clauses has been exhausted. If an on-catch clause
  * on−catchk is found, then pk1 is bound to the current exception, pk2 , if declared,
  * is bound to the active stack trace, and then catchk is executed. If no on-catch

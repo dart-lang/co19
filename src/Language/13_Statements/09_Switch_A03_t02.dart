@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile-time error if the values of the expressions ek are not all
- * instances of the same class C for all k ∈ 1..n.
+ * instances of the same class C or of a class that implements int or String, for all k ∈ 1..n.
  * @description Checks that it is a compile-time error if case expressions
  * of a switch statement with a default case have different types.
  * @compile-error

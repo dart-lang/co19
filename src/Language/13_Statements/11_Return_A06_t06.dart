@@ -10,6 +10,7 @@
  * - The return type of f may not be assigned to void.
  * @description Checks that there's no static warning when a statement of the form "return;" is
  * used in a method that returns type dynamic, or a constructor.
+ * @static-clean
  * @author rodionov
  * @reviewer iefremov
  */

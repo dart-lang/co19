@@ -6,15 +6,15 @@
 /**
  * @assertion A for statement of the form for (varOrType? id in e) s
  *  is equivalent to the following code:
- *    var n0 = e.iterator();
- *    while (n0.hasNext) {
- *      varOrType? id = n0.next();
+ *    var n0 = e.iterator;
+ *    while (n0.moveNext()) {
+ *      varOrType? id = n0.current;
  *      s
  *    }
  *  where n0 is an identifier that does not occur anywhere in the program.
  * @description Checks that a for statement of the form for (varOrType? id in e) s
  * is equivalent to the the following code:
- * var n0 = e.iterator(); while (n0.hasNext) { varOrType? id = n0.next(); s }
+ * var n0 = e.iterator; while (n0.moveNext()) { varOrType? id = n0.current; s }
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

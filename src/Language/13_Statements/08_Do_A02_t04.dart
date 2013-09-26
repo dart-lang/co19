@@ -9,32 +9,17 @@
  * Then, o is then subjected to boolean conversion, producing an object r.
  * If r is false, execution of the do statement is complete.
  * If r is true, then the do statement is re-executed recursively.
- * @description Checks that the number of iterations is correct for various valid expressions.
- * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
+ * @description Checks that do body statement is enclosed in implicit extra block.
+ * @author ilya
  */
 import "../../Utils/expect.dart";
 
 main() {
-  var count = 0;
-  do {
-    ++count;
-  } while (false);
-  Expect.equals(1, count);
+  var x, i=0;
+  
+  do
+    var x = i++;
+  while (i < 5);
 
-  count = 0;
-  do {
-    ++count;
-    if (count == 100)
-      break;
-  } while (true);
-  Expect.equals(100, count);
-
-  count = 0;
-  do {
-    ++count;
-  } while (count < 5);
-  Expect.equals(5, count);
+  Expect.isNull(x);
 }
-

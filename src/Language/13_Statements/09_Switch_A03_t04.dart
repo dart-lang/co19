@@ -7,20 +7,28 @@
  * @assertion It is a compile-time error if the values of the expressions ek are not all
  * instances of the same class C or of a class that implements int or String, for all k ∈ 1..n.
  * @description Checks that it is a compile-time error if case expressions
- * of a switch statement without a default case have different types.
+ * are instances of different user-defined classes.
  * @compile-error
- * @author msyabro
- * @reviewer rodionov
+ * @author ilya
  */
 
+class C {
+  final id;
+  const C(this.id);
+}
+
+class D {
+  final id;
+  const D(this.id);
+}
 
 main() {
-  var x = 1;
+  var x = const C(0);
   try {
     switch(x) {
-      case 0:
-      case 2:
-      case "false":
+    case const C(1):
+    case const C(2):
+    case const D(1):
     }
   } catch(e) {}
 }

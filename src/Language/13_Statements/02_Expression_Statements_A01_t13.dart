@@ -13,18 +13,12 @@
  * Execution of an expression statement e; proceeds by evaluating e.
  * It is a compile-time error if a non-constant map literal that has no explicit
  * type arguments appears in a place where a statement is expected.
- * @description Checks that literals other than map can be used as statements.
- * @author kaigorodov
- * @reviewer rodionov
- * @reviewer iefremov
+ * @description Checks that it is a compile-time error when expression in an
+ * expression statement is empty map literal.
+ * @compile-error
+ * @author ilya
  */
 
 main() {
-  null;
-  true;
-  1;
-  3.14e1;
-  0xff;
-  "1";
-  [null, 0, "O"];
+  {};
 }

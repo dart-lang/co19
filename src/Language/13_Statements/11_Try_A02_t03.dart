@@ -35,7 +35,7 @@ main() {
   success = false;
   try {
     throw new Foo();
-  } catch(p1, st) {
+  } on Foo catch(p1, st) {
     success = true;
   }
   Expect.isTrue(success);

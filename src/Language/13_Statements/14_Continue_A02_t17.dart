@@ -20,6 +20,6 @@
 
 main() {
   while(true) {
-    () {continue;} {}
+    () {continue;} ();
   }
 }

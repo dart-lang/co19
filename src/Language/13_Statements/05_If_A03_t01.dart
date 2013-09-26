@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  If r is true, then the statement s1 is executed,
- *  otherwise statement s2 is executed.
+ * @assertion  If r is true, then the statement {s1} is executed,
+ *  otherwise statement {s2} is executed.
  * @description Checks that if the expression b evaluates to an object o that
  *  converts to the boolean true, then the statement s1 is executed.
  *  Boolean true constant is tested as well as various comparison expressions.

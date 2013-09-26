@@ -10,16 +10,18 @@
  * enclosing sb.
  * It is a compile-time error if no such statement sE exists within the innermost function
  * in which sb occurs.
- * @description Checks that it is a compile-time error when a break statement of the form
- * "break;" is not enclosed in a do, for, switch or while statement within the innermost
- * function
+ * @description Checks that it is a compile-time error when no such statement sE
+ * exists within the innermost function.
  * @compile-error
- * @author msyabro
- * @reviewer iefremov
+ * @author ilya
  */
 
 main() {
-  for(int i in [1,2]) {
-    () {break;} ();
+  L: for(int i in [1,2]) {
+    f(x) {
+      if (x==1)
+        break L;
+    }
+    f(i);
   }
 }

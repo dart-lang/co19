@@ -6,9 +6,9 @@
 /**
  * @assertion A label is an identifier followed by a colon. A labeled statement is a statement
  * prefixed by a label L. A labeled case clause is a case clause within a switch
- * statement (11.8) prefixed by a label L.
- * The sole role of labels is to provide targets for the break (11.12) and continue
- * (11.13) statements.
+ * statement prefixed by a label L.
+ * The sole role of labels is to provide targets for the break and continue
+ * statements.
  * label:
  * identifier ':'
  * ;

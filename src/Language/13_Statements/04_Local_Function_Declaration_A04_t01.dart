@@ -4,16 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if e refers to the name v or the name v=.
- * @description Checks that a variable declaration statement final e = e; causes a compile-time error.
+ * @assertion  It is a compile-time error to reference a local function
+ * before its declaration.
+ * @description Checks that it is a compile-error to reference a local function
+ * before its declaration.
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 7052
+ * @renamed from 04_Local_Function_Declaration_A02_t02
  */
+import "../../Utils/expect.dart";
 
 main() {
   try {
-    final v = v;
+    func();
   } catch(e) {}
+  void func() {}
 }

@@ -17,5 +17,7 @@
 var v = 0;
 
 main() {
-  var v = (v=1);
+  try {
+    var v = (v=1);
+  } catch(e) {}
 }

@@ -24,13 +24,14 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 main() {
   var ex=null, st=null;
   try {
     throw "foo";
   } catch (ex, st) {
-    assert(ex!=null);
-    assert(st!=null);
+    Expect.isNotNull(ex);
+    Expect.isNotNull(st);
   }
 }

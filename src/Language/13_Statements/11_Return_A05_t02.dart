@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile-time error if a return statement of the form return e; 
- * appears in a generative constructor (7.5.1).
+ * appears in a generative constructor.
  * @description Checks that a compile-time error occurs if a return statement 
  * of the form return e; appears in a named generative constructor.
  * @compile-error

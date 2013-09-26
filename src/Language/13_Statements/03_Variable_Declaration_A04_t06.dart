@@ -9,8 +9,11 @@
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
+ * @issue 7052
  */
 
 main() {
-  final int v = v;
+  try {
+    final int v = v;
+  } catch(e) {}
 }

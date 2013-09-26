@@ -16,5 +16,7 @@
 var v = 0;
 
 main() {
-  var v = v;
+  try {
+    var v = v;
+  } catch(e) {}
 }

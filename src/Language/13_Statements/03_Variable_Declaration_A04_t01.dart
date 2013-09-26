@@ -9,8 +9,11 @@
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
+ * @issue 7052
  */
 
 main() {
-  var v = v;
+  try {
+    var v = v;
+  } catch(e) {}
 }

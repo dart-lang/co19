@@ -18,7 +18,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 7095
  */
 
 main() {

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the class C implements the operator ==.
+ * @assertion It is a compile-time error if the class C implements the
+ * operator == unless the value of the expression is a string or integer.
  * @description Checks that it is a compile-time error if the class C implements
  * the operator ==.
  * @compile-error
