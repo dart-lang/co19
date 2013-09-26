@@ -6,9 +6,8 @@
 /**
  * @assertion It is a compile-time error if the compilation unit found at the
  * specified URI is not a library declaration.
- * @description Checks that it is a compile-time error when the library being
+ * @description Checks that it is not a compile-time error when the library being
  * exported does not have a library definition.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -16,7 +15,5 @@ import "../../Utils/expect.dart";
 import "2_Exports_A05_t01_lib.dart";
 
 main() {
-  try {
     Expect.equals(1, foo);
-  } catch (anything) {}
 }

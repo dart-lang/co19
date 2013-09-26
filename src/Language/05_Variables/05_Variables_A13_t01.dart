@@ -23,7 +23,7 @@ class C {
   var v2 = "bar";
   final v3 = 1;
   final v4;
-  const v5 = 0.2;
+  double v5 = 0.2;
 }
 
 main() {

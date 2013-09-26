@@ -13,8 +13,9 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  try {
-    new LinkedHashMap.from(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() {
+      new LinkedHashMap.from(null);
+    },
+    (e)=> e is Error
+  );
 }

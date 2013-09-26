@@ -22,7 +22,7 @@ class C {
   final bool v2;
   String v3 = "bar";
   final int v4 = 1;
-  const double x = 1.1;
+  var x = 1.1;
 }
 
 main() {

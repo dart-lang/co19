@@ -13,8 +13,9 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  try {
+  Expect.throws(() {
     new HashMap.from(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+    },
+    (e)=> e is Error
+  );
 }
