@@ -14,8 +14,8 @@
  * but never referred to.
  * @compile-error
  * @description Checks that it is a compile error if two different 
- * libraries introduce the same name (one of them via re-export) to the top level scope of A 
- * and A uses it as a type name reference in an extends clause.
+ * libraries introduce the same name (one of them via re-export) to the top level scope of L 
+ * and L uses it as a type name reference in an extends clause.
  * @author rodionov
  * @reviewer kaigorodov
  */

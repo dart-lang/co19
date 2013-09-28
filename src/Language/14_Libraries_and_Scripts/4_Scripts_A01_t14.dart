@@ -6,8 +6,8 @@
  */
 /**
  * @assertion A script is a library with a top level function main().
- * scriptDefinition:
- *   scriptTag? libraryDefinition
+ * libraryDefinition:
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that is is a compile-time error when a variable declaration
  * comes before a part directive.

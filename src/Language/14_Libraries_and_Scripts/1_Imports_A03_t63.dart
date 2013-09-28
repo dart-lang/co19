@@ -13,8 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is not a static warning or error if the same library is
- * imported twice with empty prefixes and introduces a type name to the top-level scope of A,
- * but A doesn't reference it.
+ * imported twice with empty prefixes and introduces a type name to the top-level scope of L,
+ * but L doesn't reference it.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */

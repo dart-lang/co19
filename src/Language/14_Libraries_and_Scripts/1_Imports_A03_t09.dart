@@ -14,7 +14,7 @@
  * but never referred to.
  * @static-warning
  * @description Checks that it is a static type warning if two different libraries introduce
- * the same type name to the top level scope of A and A uses it in a stati getter invocation expression.
+ * the same type name to the top level scope of L and L uses it in a static getter invocation expression.
  * @author rodionov
  * @reviewer kaigorodov
  */

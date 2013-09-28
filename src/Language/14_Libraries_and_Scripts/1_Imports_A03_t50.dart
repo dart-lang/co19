@@ -13,8 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is not a static warning or error if two different libraries
- * the same name to the top level scope of A (both via re-export of a third library)
- * and A uses it as an identifier reference in a type test expression.
+ * the same name to the top level scope of L (both via re-export of a third library)
+ * and L uses it as an identifier reference in a type test expression.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -23,7 +24,5 @@ import "1_Imports_A03_t41_p1_lib.dart";
 import "1_Imports_A03_t41_p2_lib.dart";
 
 main() {
-  try {
-    id is Object;
-  } catch(anything) {}
+  id is Object;
 }

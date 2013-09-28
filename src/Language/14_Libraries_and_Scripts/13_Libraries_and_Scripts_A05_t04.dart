@@ -6,13 +6,12 @@
 /**
  * @assertion Libraries are units of privacy. A private declaration declared within a library
  * L can only be accessed by code within L. Any attempt to access a private member declaration
- * from outside L will cause a run-time error.
+ * from outside L will cause a method, getter or setter lookup failure.
  * @description Checks that an attempt to access a private top level variable from outside L 
  * in a top-level function context results in a NoSuchMethodError.
  * @static-warning unresolved identifier in a static context, see "Identifier reference"
  * @author vasya
  * @reviewer msyabro
- * @issue 5839
  */
 import "../../Utils/expect.dart";
 

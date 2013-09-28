@@ -13,8 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is not a static warning or error if the same library is
- * imported twice with empty prefixes and introduces a type name to the top-level scope of A,
- * which A uses in an explicit type test.
+ * imported twice with empty prefixes and introduces a type name to the top-level scope of L,
+ * which L uses in an explicit type test.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -22,8 +23,5 @@ import "1_Imports_A03_t61_lib.dart";
 import "1_Imports_A03_t61_lib.dart";
 
 main() {
-  try {
-    1 is foo;
-  } catch (anything) {
-  }
+  1 is foo;
 }

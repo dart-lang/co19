@@ -20,7 +20,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6127
  */
 
 import "1_Imports_lib.dart" hide;

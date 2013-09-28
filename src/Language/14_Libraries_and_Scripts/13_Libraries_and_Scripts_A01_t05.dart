@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A library consists of (a possibly empty) set of imports, and a set of top level
- * declarations. A top level declaration is either a class, a type declaration, a function 
+ * @assertion A library consists of (a possibly empty) set of imports, asset of exports, and a set of top level
+ * declarations. A top level declaration is either a class, a type alias declaration, a function 
  * or a variable declaration.
  * topLevelDefinition:
  * classDefinition |
- * functionTypeAlias |
+ * typeAlias |
  * external? functionSignature |
  * external? getterSignature |
  * external? setterSignature |

@@ -13,7 +13,7 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is a static type warning if two different libraries
- * introduce the same name N to the top level scope of A.
+ * introduce the same name N to the top level scope of L.
  * Checks that N can be used in a type cast expression.
  * @static-warning
  * @author rodionov

@@ -14,7 +14,8 @@
  * but never referred to.
  * @description Checks that it is not a static warning or error if two different libraries
  * libraries introduce the same name (both via re-export of a third library) to the top level 
- * scope of A and A uses it as a type annotation in a type cast expression.
+ * scope of L and L uses it as a type annotation in a type cast expression.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */

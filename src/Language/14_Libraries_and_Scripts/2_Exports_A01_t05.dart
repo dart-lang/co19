@@ -13,7 +13,6 @@
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6127
  */
 
 import "2_Exports_A01_t05_lib.dart";

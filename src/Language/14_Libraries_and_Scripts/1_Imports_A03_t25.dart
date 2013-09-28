@@ -14,8 +14,8 @@
  * but never referred to.
  * @static-warning
  * @description Checks that it is a static type warning if two different 
- * libraries introduce the same name (one of them via re-export) to the top level scope of A 
- * and A uses it in a type cast expression.
+ * libraries introduce the same name (one of them via re-export) to the top level scope of L 
+ * and L uses it in a type cast expression.
  * @author rodionov
  * @reviewer kaigorodov
  */

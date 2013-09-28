@@ -5,15 +5,15 @@
  */
 /**
  * @assertion A script is a library with a top level function main().
- * scriptDefinition:
+ * libraryDefinition:
  *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * topLevelDefinition:
  *     classDefinition
- *   | functionTypeAlias
- *   | external functionSignature
- *   | external getterSignature
- *   | external setterSignature
+ *   | typeAlias
+ *   | external? functionSignature
+ *   | external? getterSignature
+ *   | external? setterSignature
  *   | functionSignature functionBody
  *   | returnType? getOrSet identifier formalParameterList functionBody
  *   | (final | const) type? staticFinalDeclarationList ';'

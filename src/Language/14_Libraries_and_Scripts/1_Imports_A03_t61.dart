@@ -13,8 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is not a static warning or error if the same library is
- * imported twice with empty prefixes and introduces a name to the top level scope of A,
- * which A uses as a type annotation in a variable declaration.
+ * imported twice with empty prefixes and introduces a name to the top level scope of L,
+ * which L uses as a type annotation in a variable declaration.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -23,5 +24,5 @@ import "1_Imports_A03_t61_lib.dart";
 import "1_Imports_A03_t61_lib.dart";
 
 main() {
-  foo x; /// static-warning doubly imported type used as a type annotation
+  foo x;
 }

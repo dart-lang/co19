@@ -13,8 +13,8 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @static-warning
- * @description Checks that it is a static warning if two different libraries introduce
- * the same name (one of them via re-export) to the top level scope of A and A uses it
+ * @description Checks that it is a static warning and runtime error if two different libraries introduce
+ * the same name (one of them via re-export) to the top level scope of L and L uses it
  * in an instance creation expression.
  * @author rodionov
  * @reviewer kaigorodov
@@ -22,9 +22,8 @@
 
 import "1_Imports_A03_t21_p1_lib.dart";
 import "1_Imports_A03_t21_p2_lib.dart";
+import "../../Utils/expect.dart";
 
 main() {
-  try {
-    new foo();
-  } catch(ok) {}
+  Expect.throws(() => new foo());
 }

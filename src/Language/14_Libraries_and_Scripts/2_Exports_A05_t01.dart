@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the compilation unit found at the
- * specified URI is not a library declaration.
+ * @assertion It is a compile-time error if the specified URI does not refer
+ * to a library declaration.
  * @description Checks that it is not a compile-time error when the library being
  * exported does not have a library definition.
  * @author rodionov

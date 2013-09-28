@@ -15,6 +15,7 @@
  * @description Checks that it is not a static warning or error if the same library is
  * imported twice (one of the imports using a prefix) and uses the names exported
  * by that library in all kinds of valid expressions.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */

@@ -13,9 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @static-warning
- * @description Checks that it is a static warning if two different libraries
- * introduce the same name to the top level scope of A (one of them via re-export)
- * and A uses it as an identifier reference in a type test expression.
+ * @description Checks that it is a static warning and runtime error if two different libraries
+ * introduce the same name to the top level scope of L (one of them via re-export)
+ * and L uses it as an identifier reference in a type test expression.
  * @author rodionov
  * @reviewer kaigorodov
  */

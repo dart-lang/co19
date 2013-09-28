@@ -14,7 +14,8 @@
  * but never referred to.
  * @description Checks that it is not a static warning or error if two different libraries
  * imported with empty prefixes introduce the same name to the top-level scope
- * of A (both via re-export of a third library) and A uses it in an explicit type test.
+ * of L (both via re-export of a third library) and L uses it in an explicit type test.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */

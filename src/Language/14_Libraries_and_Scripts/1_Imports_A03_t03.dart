@@ -13,8 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is a neither an error nor a warning if two different libraries 
- * imported with empty prefixes introduce the same type name to the import namespace of A,
- * but A doesn't reference it.
+ * imported with empty prefixes introduce the same type name to the import namespace of L,
+ * but L doesn't reference it.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */

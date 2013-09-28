@@ -13,19 +13,14 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is not a static warning or error if the same library is
- * imported twice with empty prefixes and introduces a type name to the top-level scope of A,
- * @description Checks that it is a static warning and a dynamic type error in checked mode
- * if the same library is imported twice with empty prefixes
- * and introduces a name to the top level scope of A,
- * which A uses as a type parameter bound (which is a a type annotation).
- * @static-warning
+ * imported twice with empty prefixes and introduces a type name to the top-level scope of L,
+ * which L uses as a type parameter bound (which is a a type annotation).
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
 import "1_Imports_A03_t61_lib.dart";
 import "1_Imports_A03_t61_lib.dart";
-
-import "../../Utils/dynamic_check.dart";
 
 class Foo2 extends foo {
 }

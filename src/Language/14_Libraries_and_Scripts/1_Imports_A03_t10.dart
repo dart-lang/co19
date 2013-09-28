@@ -13,18 +13,17 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @static-warning
- * @description Checks that it is a static warning if
- * two different libraries introduce the same name to the top level scope of A
- * and A uses it as an identifier reference in a type test expression.
+ * @description Checks that it is a static warning and runtime error if
+ * two different libraries introduce the same name to the top level scope of L
+ * and L uses it as an identifier reference in a type test expression.
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 import "1_Imports_A03_t01_p1_lib.dart";
 import "1_Imports_A03_t01_p2_lib.dart";
+import "../../Utils/expect.dart";
 
 main() {
-  try {
-    id is Object;
-  } catch(anything) {}
+  Expect.throws(() => id is Object);
 }

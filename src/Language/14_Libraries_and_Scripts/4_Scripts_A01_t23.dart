@@ -5,8 +5,8 @@
  */
 /**
  * @assertion A script is a library with a top level function main().
- * scriptDefinition:
- *   scriptTag? libraryDefinition
+ * libraryDefinition:
+ *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is not an error when a script (without a script tag)
  * includes an export directive.

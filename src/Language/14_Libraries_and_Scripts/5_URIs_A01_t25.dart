@@ -15,6 +15,7 @@
  * instead of one.
  * @author rodionov
  * @reviewer kaigorodov
+ * @issue 7317
  */
 library URIs_A01;
 part '''5_Part''' '''.dart''';

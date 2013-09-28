@@ -12,9 +12,9 @@
  * - If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
- * @description Checks that it is a static warning and a dynamic type error in checked mode if two different 
- * libraries introduce the same name (one of them via re-export) to the top level scope of A 
- * and A uses it as a type parameter bound.
+ * @description Checks that it is a static warning and no dynamic type error in checked mode if two different 
+ * libraries introduce the same name (one of them via re-export) to the top level scope of L 
+ * and L uses it as a type parameter bound because N is treated as dynamic. 
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
@@ -22,14 +22,9 @@
 import "1_Imports_A03_t21_p1_lib.dart";
 import "1_Imports_A03_t21_p2_lib.dart";
 
-import "../../Utils/dynamic_check.dart";
-
 class Foo2<T extends foo> { /// static-warning
 }
 
 main() {
-  checkTypeError(() {
-//    new Foo2();
-    new Foo2<int>();
-  });
+  new Foo2<int>();
 }

@@ -13,8 +13,9 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is not a static warning or error if the same library is
- * imported twice with empty prefixes and introduces a name to the top level scope of A,
- * which A uses as a type name reference in an extends clause.
+ * imported twice with empty prefixes and introduces a name to the top level scope of L,
+ * which L uses as a type name reference in an extends clause.
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -26,7 +27,5 @@ class Foo2 extends foo {
 }
 
 main() {
-  try {
-    new Foo2();
-  } catch(anything) {}
+  new Foo2();
 }

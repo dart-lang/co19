@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryDefinition:
- *   libraryName? importOrExport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-error if an import declaration comes before
  * the library name.

@@ -6,7 +6,7 @@
 /**
  * @assertion 
  * partHeader:
- *   metadata part of identifier `;'
+ *   metadata part of identifier (`.' identifier)* `;'
  * ;
  * partDeclaration:
  *   partHeader topLevelDefinition* EOF

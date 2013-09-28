@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryDefinition:
- *   libraryName? importOrExport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that a library is parsed without errors
  * if all allowed directives are present in permitted numbers and in the correct order.

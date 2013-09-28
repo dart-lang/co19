@@ -12,9 +12,9 @@
  * - If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
- * @assertion (12.12.1 New) If T is malformed a dynamic error occurs. 
+ * @assertion (Expressions/Instance Creation/New) If T is malformed a dynamic error occurs. 
  * @description Checks that it is a static type warning if two different libraries
- * introduce the same name T to the top level scope of A.
+ * introduce the same name T to the top level scope of L.
  * Checks that a dynamic error occurs if T is used in new instance creation expression.
  * @static-warning
  * @author kaigorodov

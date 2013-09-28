@@ -5,7 +5,7 @@
  */
 /**
  * @assertion libraryDefinition:
- *   libraryName? importOrExport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that only the library name is required for a library
  * and other directives and definitions can be omitted.

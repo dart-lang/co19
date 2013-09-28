@@ -13,8 +13,8 @@
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
  * @description Checks that it is a compile-time error if
- * two different libraries introduce the same name to the top level scope of A
- * and A uses it as a type name reference in an extends clause.
+ * two different libraries introduce the same name to the top level scope of L
+ * and L uses it as a type name reference in an extends clause.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov

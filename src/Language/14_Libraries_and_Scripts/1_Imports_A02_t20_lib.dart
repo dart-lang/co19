@@ -4,7 +4,7 @@
 
 library Imports_A02_t20_lib;
 
-import "1_Imports_A02_lib.dart" as P;
+import "1_Imports_A02_lib.dart";
 export "1_Imports_A02_lib.dart";
 
 // redefine a couple declarations from the re-exported library

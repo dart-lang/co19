@@ -15,7 +15,7 @@
  * @static-warning
  * @description Checks that it is a static type warning 
  * if two different libraries imported with empty prefixes introduce the same name 
- * to the top-level scope of A (one of them via re-export) and A uses it in an explicit type test.
+ * to the top-level scope of L (one of them via re-export) and L uses it in an explicit type test.
  * @author rodionov
  * @reviewer kaigorodov
  */

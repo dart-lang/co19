@@ -20,7 +20,7 @@
  * A part header begins with part of followed by the name of the library the
  * part belongs to. A part declaration consists of a part header followed by a
  * sequence of top-level declarations.
- * @description Checks that part directive must end with a semicolon.
+ * @description Checks that part unit can not contain an import directive.
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
