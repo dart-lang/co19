@@ -10,7 +10,7 @@
  * the inherited non-static members of a null variable whose static type is an interface
  * extending another interface that declares those members. This should indirectly prove
  * that they're indeed inherited by the subinterface.
- * @static-warning
+ * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -40,7 +40,6 @@ main() {
   I2 i2 = null;
   I3 i3 = null;
   
-  check(() {i2.nonexistent;}); /// static type warning - not inherited
   check(() {i2.foo;});
   check(() {i2.bar;});
   check(() {i2.m();});
