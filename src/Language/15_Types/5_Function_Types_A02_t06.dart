@@ -9,7 +9,7 @@
  * 1. Either S is void or T is assignable to S.
  * 2. Ti <=> Si for i in 1 to n.
  * @description Checks that function type t1 is not a subtype of function type t2 if t1 has more
- * required parameters than t2; or t1 accepts less required and optional parameters than t2.
+ * required parameters than t2; or t1 has less positional (both required and optional) parameters than t2
  * @author iefremov
  */
 import "../../Utils/expect.dart";

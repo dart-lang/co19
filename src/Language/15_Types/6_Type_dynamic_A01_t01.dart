@@ -6,19 +6,14 @@
 /**
  * @assertion Type dynamic denotes the unknown type. If no static type annotation 
  * has been provided the type system assumes the declaration has the unknown type.
- * @description Checks that a local variable without any type annotation has the unknown type. 
+ * @description Checks that a local variable without any type annotation has the
+ * unknown type by expecting no static warnings for assigning it a String value.
  * Note: all possible declarations are tested in the corresponding chapters.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */
-import "../../Utils/expect.dart";
-
-test(x) {
-  Expect.isTrue(x is dynamic);
-}
 
 main() {
-  var x;
-  Expect.isTrue(x is dynamic);
-  test(x);
+  var x = 'foo';
 }

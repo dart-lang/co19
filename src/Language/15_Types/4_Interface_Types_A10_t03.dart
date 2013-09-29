@@ -11,6 +11,7 @@
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where T is a type parameter and
  * S is a type parameter bound (T and S are complex generics). Checks their mutual assignability 
  * (no static type warnings) as well.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */
@@ -21,7 +22,7 @@ class J<A, B, T> extends I<A, B, T> {}
 class K extends J {}
 class C implements K {}
 
-// supposedly, f_1 <=> f and f_2 <=> f (see 13.5)
+// supposedly, f_1 <=> f and f_2 <=> f (see Types/Function Types)
 typedef J f(I<J, List<Map>, num> i, [List j]);
 typedef K f_1(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
 typedef I f_2(I<K, List<Map<int, num>>, int> i, [List<Map> j]);

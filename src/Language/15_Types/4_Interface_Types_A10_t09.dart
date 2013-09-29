@@ -9,6 +9,7 @@
  * << is a partial order on types. T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where T and S are non-trivial functions.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */

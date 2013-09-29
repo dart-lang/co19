@@ -10,6 +10,7 @@
  * @description Checks the assignability (both ways) of variables and values that meet the described requirements.
  * This is a test of static checker, as it's a type error in checked mode when variable is assigned a value whose
  * runtime type is a supertype of the variable's actual type.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */

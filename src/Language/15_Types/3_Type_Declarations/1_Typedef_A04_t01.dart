@@ -5,12 +5,12 @@
  */
 /**
  * @assertion If a type annotation is omitted on a formal parameter in typedef declaration, it is taken to be dynamic.
- * @description Indirectly verifies the assertion: checks that function types with various types of formal parameter
+ * @description Checks that function types with various types of formal parameter
  * are subtypes of given type t1 whose declaration omits parameter types, therefore the type of formal parameter
  * of t1 should be dynamic.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
- * @needsreview Currently the test will pass if omitted annotation is taken to be Object.
  */
 import "../../../Utils/expect.dart";
 

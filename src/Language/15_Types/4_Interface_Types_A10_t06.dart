@@ -19,7 +19,7 @@ class J extends I {}
 class K extends J {}
 class L extends K {}
 
-// subtypes of each other, according to 13.5
+// subtypes of each other, according to (Types/Function Types)
 typedef J f(List<num> l, [J i]);
 typedef I f_1(List<int> l, [I i]);
 typedef K f_2(List<int> l, [L i]);

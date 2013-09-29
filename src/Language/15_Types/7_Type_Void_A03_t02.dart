@@ -8,11 +8,11 @@
  * variable will cause a warning unless the variable/formal parameter has type dynamic.
  * @description Checks that assigning the result of a void method invocation to a variable
  * whose declared type is dynamic does not cause any warnings or errors.
+ * @static-clean
  * @author rodionov
  * @reviewer iefremov
  * @needsreview Assertion of this test cites non-normative text.
  * Possibly, this text in the spec should be normative?
- * @issue 3272
  */
 
 void foo() {return;}

@@ -8,13 +8,14 @@
  * @description Checks that accessing properties with all sort of names on a dynamic variable 
  * and assigning the results (in case of getters) to local variables of various types does not produce 
  * any static type warnings.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */
 import "../../Utils/expect.dart";
 
 typedef func();
-typedef int func2(int);
+typedef int func2(int x);
 
 main() {
   var x = null;

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Let p = G < A1, ..., An > be a parameterized type. It is a static type warning
- * if G is not an accessible generic type declaration with n type parameters.
+ * if G is not a generic type with exactly n type parameters.
  * @description Checks that a static type warning is produced if G is not an accessible type.
  * @static-warning
  * @author iefremov

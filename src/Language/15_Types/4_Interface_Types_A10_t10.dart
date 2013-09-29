@@ -10,6 +10,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that GenericType<T> is mutually assignable with GenericType<S> (no static type warnings)
  * where T is a subtype of S (T and S are non-generic interfaces and/or Dynamic).
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */

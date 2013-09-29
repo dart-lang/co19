@@ -9,6 +9,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks that a dynamic variable can be assigned a value of any type
  * without static warnings or type errors. 
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */

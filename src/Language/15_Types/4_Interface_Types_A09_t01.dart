@@ -9,6 +9,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks assignability (no static warnings) of S and T where T is type parameter and S is it's upper bound.
  * Note: detailed checks are contained in tests for the next assertion.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */

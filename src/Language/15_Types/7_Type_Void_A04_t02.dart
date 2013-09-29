@@ -12,6 +12,7 @@
  * @description Checks that returning null or a value with static type dynamic 
  * from within a void method does not result in a static type warning, but it's
  * a type error in the latter case.
+ * @static-clean
  * @author rodionov
  * @reviewer iefremov
  */

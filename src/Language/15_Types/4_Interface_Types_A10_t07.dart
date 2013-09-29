@@ -10,6 +10,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Checks that GenericType1<T> is a subtype of GenericType2<S> where T and S are complex generics. Checks
  * mutual assignability as well.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */
@@ -20,7 +21,7 @@ class J<A, B, C> extends I<A, B, C> {}
 class K extends J {}
 class C extends K {}
 
-// supposedly, f_1 <=> f and f_2 <=> f (see 13.5)
+// supposedly, f_1 <=> f and f_2 <=> f (see Types/Function Types)
 typedef J f(I<J, List<Map>, num> i, [List j]);
 typedef K f_1(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
 typedef I f_2(I<K, List<Map<int, num>>, int> i, [List<Map> j]);

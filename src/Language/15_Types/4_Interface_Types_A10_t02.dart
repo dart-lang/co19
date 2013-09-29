@@ -10,6 +10,7 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
  * @description Trivial checks that GenericType<T> is a subtype of GenericType<S> where T is a type parameter and
  * S is a type parameter bound. Checks their mutual assignability (no static type warnings) as well.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */

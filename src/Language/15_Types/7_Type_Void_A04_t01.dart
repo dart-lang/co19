@@ -11,6 +11,7 @@
  * a void method (since no object has runtime type dynamic).
  * @description Checks that returning the result of a void method invocation from
  * within a void method does not cause any errors or warnings.
+ * @static-clean
  * @author rodionov
  * @reviewer iefremov
  */

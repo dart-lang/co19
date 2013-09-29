@@ -11,9 +11,9 @@
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where T is a type parameter and
  * S is a type parameter bound (S is function type with non-trivial return type and parameters).
  * Checks assignability (no static warnings) as well.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
- * @issue 3280
  */
 import "../../Utils/expect.dart";
 

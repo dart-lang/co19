@@ -9,7 +9,7 @@
  * 1. Either S is void or T is assignable to S.
  * 2. Ti <=> Si for i in 1 to n.
  * @description Checks that function type t1 is not a subtype of function type t2 if it has fewer
- * positional optional parameters.
+ * positional optional parameters and none of them has required parameters.
  * @author iefremov
  * @reviewer rodionov
  * @reviewer iefremov

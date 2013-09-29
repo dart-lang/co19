@@ -9,10 +9,9 @@
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T.
  * @description Checks that a function type t1 is assignable (no static warnings) to a function type t2 if
  * t1 <: t2 or t1 :> t2 where t1 and t2 are quite complex: non-dynamic return type plus a bunch of 
- * formal and optional parameters. Subtypes of a function type described according to Ch. 13.5.
+ * formal and optional parameters. Subtypes of a function type described according to (Types/Function Types)
  * @author iefremov
  * @reviewer rodionov
- * @needsreview issue 3275
  */
 
 import "../../Utils/dynamic_check.dart";

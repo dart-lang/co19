@@ -5,12 +5,12 @@
  */
 /**
  * @assertion If no return type is specified in typedef declaration, it is taken to be dynamic.
- * @description Indirectly verifies the assertion: checks that function types with various return types
+ * @description checks that function types with various return types
  * are all subtypes of given type t1 that declares no return type, therefore the return type of t1 
  * should be dynamic.
+ * @static-clean
  * @author iefremov
  * @reviewer rodionov
- * @needsreview Currently the test will pass if omitted annotation is taken to be Object.
  */
 import "../../../Utils/expect.dart";
 

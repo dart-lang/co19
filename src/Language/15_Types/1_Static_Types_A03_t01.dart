@@ -5,18 +5,19 @@
  */
 /**
  * @assertion  A type T is malformed iff:
- * • T has the form id or the form pref ix.id, and in the enclosing lexical scope,
- *   the name id (respectively pref ix.id) does not denote a type.
+ * • T has the form id or the form prefix.id, and in the enclosing lexical scope,
+ *   the name id (respectively prefix.id) does not denote a type.
  * • T denotes a type variable in the enclosing lexical scope, but occurs in the
  *   signature or body of a static member.
  * • T is a parameterized type of the form G<S1, ..., Sn>, and G is malformed.
+ * • T denotes declarations that were imported from multiple imports clauses.
  * Any use of a malformed type gives rise to a static warning. A malformed
  * type is then interpreted as dynamic by the static type checker and the runtime.
  * @description Checks that it is a dynamic type error if a malformed type is used in a
  * subtype test.
  * @static-warning
  * @author kaigorodov
- * @issue 5809
+ * @issue 5809, 13674, co19 534
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -31,8 +32,7 @@ main() {
       
   C<int, double, UnknownType> x = new C(); /// static type warning no such type
   
-  // since null is not dynamic
-  Expect.isFalse(null is C<int, double, UnknownType>); /// static type warning no such type
+  Expect.isTrue(null is C<int, double, UnknownType>); /// static type warning no such type
   
   C<int, double, UnknownType> x1 = new C(); /// static type warning no such type
   
@@ -44,7 +44,9 @@ main() {
     BoundedInt<num> x3 = new BoundedInt();
   });
   
-  C<Bounded<String>, C, C> x4 = new C();
+  checkTypeError( () {
+    C<Bounded<String>, C, C> x4 = new C();
+  });
   
   C<C<UnknownType, int, int>, C, C> x5 = new C(); /// static type warning no such type
 }
