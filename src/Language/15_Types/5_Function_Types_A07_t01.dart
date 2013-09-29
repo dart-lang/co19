@@ -10,6 +10,7 @@
  * implements Function and has no method named call.
  * @static-warning
  * @author ilya
+ * @issue 13676
  */
 import "../../Utils/expect.dart";
 
