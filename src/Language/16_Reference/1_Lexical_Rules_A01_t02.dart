@@ -5,7 +5,6 @@
  */
 /**
  * @assertion Dart source text is represented as a sequence of Unicode code points 
- * that no longer have to be normalized to Unicode Normalization Form C.
  * @description Checks that Latin small letters are represented as a sequence of Unicode 
  * code points.
  * @author vasya

@@ -5,11 +5,9 @@
  */
 /**
  * @assertion Dart source text is represented as a sequence of Unicode code points 
- * that no longer have to be normalized to Unicode Normalization Form C.
  * @description Checks that decomposed characters in comments do not cause compile errors.
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 2687, 7151
  */
 
 main() {

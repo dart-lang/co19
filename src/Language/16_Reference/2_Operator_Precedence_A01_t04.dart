@@ -6,7 +6,7 @@
 /**
  * @assertion Operator precedence is given implicitly by the grammar.
  * @description Checks that operator precedence given implicitly by the grammar
- * holds true (equality higher than ternary, relative higher than equality). 
+ * holds true (equality higher than conditional, relational higher than equality). 
  * @author vasya
  * @reviewer rodionov
  */

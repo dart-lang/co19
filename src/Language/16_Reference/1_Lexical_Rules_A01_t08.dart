@@ -5,7 +5,6 @@
  */
 /**
  * @assertion Dart source text is represented as a sequence of Unicode code points 
- * that no longer have to be normalized to Unicode Normalization Form C.
  * @description Checks that composed characters in comments and strings are compiled correctly.
  * @author kaigorodov
  * @reviewer rodionov
