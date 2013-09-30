@@ -18,10 +18,10 @@ import "../../../Utils/expect.dart";
 check(x, y, z, w) {
   var obj = new Float32x4(x,y,z,w);
   var res = obj.reciprocalSqrt();
-  Expect.approxEquals(sqrt(1/obj.x), res.x, (res.x/1e7).abs());
-  Expect.approxEquals(sqrt(1/obj.y), res.y, (res.y/1e7).abs());
-  Expect.approxEquals(sqrt(1/obj.z),res.z, (res.z/1e7).abs());
-  Expect.approxEquals(sqrt(1/obj.w), res.w, (res.w/1e7).abs());
+  Expect.approxEquals(sqrt(1/obj.x), res.x, (res.x/1e4).abs());
+  Expect.approxEquals(sqrt(1/obj.y), res.y, (res.y/1e4).abs());
+  Expect.approxEquals(sqrt(1/obj.z),res.z, (res.z/1e4).abs());
+  Expect.approxEquals(sqrt(1/obj.w), res.w, (res.w/1e4).abs());
 }
 
 main() {
