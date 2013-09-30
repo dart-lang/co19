@@ -7,7 +7,7 @@
  * @assertion Float32x4 clamp(Float32x4 lowerLimit, Float32x4 upperLimit)
  *
  * @description Checks that if [upperLimit] is less than [lowerLimit], the
- * resulted value equals [upperLimit]
+ * resulted value equals MAX(MIN([this], [upperLimit]), [lowerLimit]).
  * @note undocumented
  * @author msyabro
  */
@@ -25,14 +25,14 @@ check(obj, lowerLimit, upperLimit, expected) {
 
 main() {
   check(new Float32x4(.0, .0, .0, .0), new Float32x4(1.0, 1.0, 1.0, 1.0),
-    new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(-1.0, -1.0, -1.0, -1.0));
+    new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(1.0, 1.0, 1.0, 1.0));
 
   check(new Float32x4(-5.0, -5.0, -5.0, -5.0), new Float32x4(1.0, 1.0, 1.0, 1.0),
-    new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(-1.0, -1.0, -1.0, -1.0));
+    new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(1.0, 1.0, 1.0, 1.0));
 
   check(new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(1.0, 1.0, 1.0, 1.0),
-  new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(-1.0, -1.0, -1.0, -1.0));
+  new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(1.0, 1.0, 1.0, 1.0));
 
   check(new Float32x4(.0, .0, .0, .0), new Float32x4(1.0, -1.0, -1.0, -1.0),
-    new Float32x4(-1.0, 1.0, 1.0, 1.0), new Float32x4(-1.0, .0, .0, .0));
+    new Float32x4(-1.0, 1.0, 1.0, 1.0), new Float32x4(1.0, .0, .0, .0));
 }
