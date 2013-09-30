@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Float32x4 toFloat32x4()
- * Returns a bit-wise copy of this as a Float32x4.
+ * @assertion Uint32x4.fromFloat32x4Bits(Float32x4 x)
+ *
  * @description Checks that lanes are converted correctly.
  * @author msyabro
  */
@@ -14,13 +14,13 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(x, y, z, w, floatX, floatY, floatZ, floatW) {
-  var obj1 = new Uint32x4(x, y, z, w);
-  var obj2 = obj1.toFloat32x4();
+  var floatObj = new Float32x4(floatX, floatY, floatZ, floatW);
+  var res = new Uint32x4.fromFloat32x4Bits(floatObj);
 
-  Expect.equals(floatX, obj2.x);
-  Expect.equals(floatY, obj2.y);
-  Expect.equals(floatZ, obj2.z);
-  Expect.equals(floatW, obj2.w);
+  Expect.equals(x, res.x);
+  Expect.equals(y, res.y);
+  Expect.equals(z, res.z);
+  Expect.equals(w, res.w);
 }
 
 main() {

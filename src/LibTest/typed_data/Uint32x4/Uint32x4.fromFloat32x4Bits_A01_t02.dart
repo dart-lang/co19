@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uint32x4 toUint32x4()
- * Returns a bit-wise copy of this as a Uint32x4.
+ * @assertion Uint32x4.fromFloat32x4Bits(Float32x4 x)
+ *
  * @description Checks special cases.
  * @author msyabro
  */
@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var obj = new Float32x4(double.INFINITY, double.NEGATIVE_INFINITY, double.NAN, -double.NAN);
-  var res = obj.toUint32x4();
+  var res = new Uint32x4.fromFloat32x4Bits(obj);
 
   Expect.equals(0x7f800000, res.x);
   Expect.equals(0xff800000, res.y);
