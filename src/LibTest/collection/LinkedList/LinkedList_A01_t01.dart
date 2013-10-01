@@ -10,16 +10,18 @@
  * @author kaigorodov
  */
 import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
 check(LinkedList l) {
   Expect.equals(0, l.length);
-  l.add(null);
+  l.add(new MyLinkedListEntry(null));
   Expect.equals(1, l.length);
   l.clear();
   Expect.equals(0, l.length);
-  l.add(1);
+  l.add(new MyLinkedListEntry(1));
   Expect.equals(1, l.length);
-  l.removeLast();
+  l.remove(l.last);
   Expect.equals(0, l.length);
 }
 

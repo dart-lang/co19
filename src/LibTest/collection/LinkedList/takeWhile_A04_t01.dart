@@ -4,34 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> takeWhile(bool test(E value))
+ * @assertion Iterable<E> takeWhile(bool test(E value))
  * When the iterator encounters an element e that does not satisfy test,
- * it discards e and moves into the finished state. That is, it will not ask or
- * provide any more elements.
+ * it discards e and moves into the finished state.
+ * That is, it does not get or provide any more elements.
  * @description Checks that once an element does not satisfy the test,
  * the iterator stops testing.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart"	;
+import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-void check(List a, bool test(var element)) {
+void check(LinkedList<MyLinkedListEntry<int>> a, bool test(int element)) {
+  bool test2(MyLinkedListEntry<int> entry)=>test(entry.value);
+
   int last=0;
-  for (var element in a.takeWhile(test)) {
-    Expect.equals(a[last], element);
-    Expect.isTrue(test(element));
+  for (MyLinkedListEntry<int> entry in a.takeWhile(test2)) {
+    Expect.equals(a.elementAt(last), entry);
+    Expect.isTrue(test(entry.value));
     last++;
   }
   if (last<a.length) {
-    Expect.isFalse(test(a[last]));
+    Expect.isFalse(test(a.elementAt(last).value));
   }
 }
 
 main() {
-  List a0=[1,3,7,4,5,6];
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  LinkedList<MyLinkedListEntry<int>> a0=toLinkedList([1,3,7,4,5,6,1]);
+  check(a0, (int element)=>element==1);
+  check(a0, (int element)=>true);
+  check(a0, (int element)=>false);
+  check(a0, (int element)=>element>4);
+  check(a0, (int element)=>element<4);
+  check(a0, (int element)=>element==4);
 }

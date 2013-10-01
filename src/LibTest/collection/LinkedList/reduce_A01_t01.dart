@@ -19,7 +19,7 @@ check(List<int> a, combine, num expected) {
   LinkedList<MyLinkedListEntry<int>> llist = toLinkedList(a);
   MyLinkedListEntry<int> combine2(MyLinkedListEntry<int> value, MyLinkedListEntry<int> element) =>
     new MyLinkedListEntry<int>(combine(value.value, element.value));
-  int actual=llist.reduce().value;
+  int actual=llist.reduce(combine2).value;
   Expect.equals(expected, actual);
 }	
 

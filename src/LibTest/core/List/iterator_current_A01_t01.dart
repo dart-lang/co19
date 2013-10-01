@@ -7,34 +7,16 @@
  * @assertion final E current
  * Gets the current element in the iteration.
  * @description Checks that the current element in the iteration is returned.
- * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
+ * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
-void checkNext(List a) {
-  Iterator it = a.iterator;
-  var i = 0;
-  while (it.moveNext()) {
-    Expect.equals(it.current, a[i]);
-    Expect.identical(it.current, it.current);
-    ++i;
-  }
-}
-
 main() {
-  checkNext([null,0,"1",false]);
-  checkNext(const [null,0,"1",false]);
-
-  List a = new List(17495);
+  List a = new List();
+  a.length = 25476;
+  Iterator it = a.iterator;
   for (var i=0; i < a.length; i++) {
-    a[i] = a.length - i;
+    it.moveNext();
+    Expect.equals(null, it.current);
   }
-  checkNext(a);
-
-  List l = new List();
-  l.addAll(["0","1","2","3","4","5",6,7,8,9,null]);
-  a = new List.from(l);
-  checkNext(a);
 }

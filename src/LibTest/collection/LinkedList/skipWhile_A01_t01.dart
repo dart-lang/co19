@@ -4,23 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skipWhile(bool test(E value))
+ * @assertion Iterable<E> skipWhile(bool test(E value))
  * Returns an Iterable that skips elements while test is satisfied.
  * @description Checks that all first elements that satisfy test are removed, and
  * elements after that are retained.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart"	;
+import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-void check(List a0, bool test(var element)) {
-  Iterator it0=a0.iterator;
-  Iterable a=a0.skipWhile(test);
-  Iterator it=a.iterator;
+void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(var element)) {
+  bool test2(MyLinkedListEntry<int> entry)=>test(entry.value);
+  
+  Iterator<MyLinkedListEntry<int>> it0=a0.iterator;
+  Iterator<MyLinkedListEntry<int>> it=a0.skipWhile(test2).iterator;
   int skipCount=0;
   
   // skip manually
   bool hasNext0;
-  while ((hasNext0=it0.moveNext()) && test(it0.current)) {
+  while ((hasNext0=it0.moveNext()) && test2(it0.current)) {
     skipCount++;
   }
 
@@ -38,7 +41,7 @@ void check(List a0, bool test(var element)) {
 }
 
 main() {
-  List a0=[1,3,7,4,5,6];
+  LinkedList<MyLinkedListEntry<int>> a0=toLinkedList([1,3,7,4,5,6]);
   check(a0, (var element)=>element==1);
   check(a0, (var element)=>true);
   check(a0, (var element)=>false);

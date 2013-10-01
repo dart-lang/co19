@@ -7,22 +7,11 @@
  * @assertion final E last
  * If this is empty throws a StateError.
  * @description Checks that StateError is thrown if the list is empty.
- * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
+ * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
-check(List a) {
-  try {
-    a.last;
-    Expect.fail("StateError expected when calling a.last");
-  } on StateError catch(ok) {}
-}
+import "../Iterable/last_A02_t01.lib.dart";
+import "test.lib.dart";
 
 main() {
-  check(new List());
-  check([]);
-  check(const[]);
-  check(new List.from([]));
+  test(create);  
 }

@@ -4,19 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skipWhile(bool test(E value))
+ * @assertion Iterable<E> skipWhile(bool test(E value))
  * The filtering happens lazily.
+ * starting from the first element that does not satisfy test.
  * @description Checks that the test method is not called when the skipWhile is executed.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart"	;
+import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-bool test(int value) {
+bool test(var value) {
   Expect.fail("test($value) called");
 }
 
+void check(List a0) {
+  toLinkedList(a0).skipWhile(test);
+}
+
 main() {
-  [].skipWhile(test);
-  [1].skipWhile(test);
-  [1,3,7,4,5,6].skipWhile(test);
+  check([]);
+  check([1]);
+  check([1,3,7,4,5,6]);
 }

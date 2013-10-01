@@ -4,33 +4,36 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skipWhile(bool test(E value))
- * As long as the iterator's elements do not satisfy test they are discarded.
+ * @assertion Iterable<E> skipWhile(bool test(E value))
  * Once an element does not satisfy the test the iterator stops testing and uses
- * every element unconditionally.
+ * every later element unconditionally.
+ * That is, the elements of the returned Iterable are the elements of this
+ * starting from the first element that does not satisfy test.
  * @description Checks that once an element does not satisfy the test,
  * the iterator stops testing and uses every element unconditionally.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart"	;
+import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-void check(List a0, bool test0(var element)) {
+void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {
   bool testPassed=null;
-  bool test(var element) {
-    Expect.isTrue(testPassed==null || testPassed, "testPassed=$testPassed for element=$element");
-    return testPassed=!test0(element);
+  bool test(MyLinkedListEntry<int> entry) {
+    Expect.isTrue(testPassed==null || testPassed, "testPassed=$testPassed for element=${entry.value}");
+    return testPassed=!test0(entry.value);
   }
-  for (var element in a0.skipWhile(test)) {
+  for (MyLinkedListEntry<int> element in a0.skipWhile(test)) {
     Expect.isTrue(testPassed==null || !testPassed);
   }  
 }
 
 main() {
-  List a0=[1,3,7,4,5,6];
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  LinkedList<MyLinkedListEntry<int>> a0=toLinkedList([1,3,7,4,5,6,1]);
+  check(a0, (int element)=>element==1);
+  check(a0, (int element)=>true);
+  check(a0, (int element)=>false);
+  check(a0, (int element)=>element>4);
+  check(a0, (int element)=>element<4);
+  check(a0, (int element)=>element==4);
 }

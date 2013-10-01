@@ -4,19 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> takeWhile(bool test(E value))
+ * @assertion Iterable<E> takeWhile(bool test(E value))
  * The filtering happens lazily.
- * @description Checks that the test method is not called when the skipWhile is executed.
+ * @description Checks that the test method is not called when the takeWhile is executed.
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart"	;
+import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-bool test(int value) {
-  Expect.fail("test($value) called");
+bool test(MyLinkedListEntry<int> entry) {
+  Expect.fail("test(${entry.value}) called");
+}
+
+void check(List a0) {
+  LinkedList<MyLinkedListEntry<int>> a=toLinkedList(a0);
+  a.takeWhile(test);
 }
 
 main() {
-  [].takeWhile(test);
-  [1].takeWhile(test);
-  [1,3,7,4,5,6].takeWhile(test);
+  check([]);
+  check([1]);
+  check([1,3,7,4,5,6]);
 }

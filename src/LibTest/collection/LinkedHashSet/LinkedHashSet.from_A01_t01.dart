@@ -10,26 +10,23 @@
  * (using ==) to be undistinguishable, and requires them to have a compatible
  * Object.hashCode implementation.
  * @description Checks that created hash set contains all elements of [iterable].
- * Both empty and non-empty argument maps are tested.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-check(Set m1, Set m2) {
-  Expect.equals(m1.length, m2.length);
-  m1.forEach((var key, var value) {
-    Expect.isTrue(m2.containsKey(key));
-    Expect.equals(value, m2[key]);
-  });
+check(List l1, List l2) {
+  LinkedHashSet set1 = new LinkedHashSet.from(l1);
+  for (var value in set1) {
+    Expect.isTrue(l2.contains(value));
+  }
+  for (var value in l1) {
+    Expect.isTrue(set1.contains(value));
+  }
 }
 
 main() {
-  Map m = {"1": 1, "2": 2, "3": 3, "4": 4};
-  LinkedHashSet set = new LinkedHashSet.from(m);
-  check(m, set);
-
-  m = new Map();
-  set = new LinkedHashSet.from(m);
-  Expect.isTrue(set.isEmpty);
+  check([], []);
+  check([1,2,3], [1,2,3]);
+  check(["1", 1, 2, 2, 3, 3, "4", 4], ["1", 1, 2, 3, "4", 4]);
 }

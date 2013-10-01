@@ -4,38 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Set<E> toSet()
+ * @assertion Set<E> toSet()
  * Creates a Set containing the elements of this Iterable.
- * @description Checks that proper Set with correct element order is created.
+ * @description Checks that the result Set contains all the elements of this Iterable.
  * @author kaigorodov
  */
+import "dart:collection";
 import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-void checkEquals(Iterable expected, Set actual) {
-  Set set0=new Set();
-  for (var el in expected) {
-    set0.add(el);
+void check(List a0) {
+  LinkedList<MyLinkedListEntry> llist=toLinkedList(a0);
+  Set<MyLinkedListEntry> set=llist.toSet();
+
+  for (MyLinkedListEntry entry in llist) {
+    Expect.isTrue(set.contains(entry));
   }
-  Expect.isTrue(set0.containsAll(actual));
-  Expect.isTrue(actual.containsAll(set0));
 }
 
 main() {
-  List l = new List();
-  Set a = l.toSet();
-  Expect.equals(0, a.length);
-  Expect.equals(0, l.length);
-
-  l.addAll([1,"2","3","4","5", "4", 1]);
-  a = l.toSet();
-  checkEquals(l, a);
-
-  List src = [null, [null], [], [1,2,3], [[null]]];
-  a = src.toSet();
-  checkEquals(src, a);
-
-  src = new List(34567);
-  src[34566] = -111111111;
-  a = src.toSet();
-  checkEquals(src, a);
+  check([]);
+  check(["1","2","3","4","5"]);
+  check([null, [null], [], [1,2,3], [[null]]]);
 }

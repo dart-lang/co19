@@ -21,6 +21,16 @@ LinkedList<MyLinkedListEntry> toLinkedList(Iterable entries) {
   return res;
 }
 
+void entriesEquals(Iterable<MyLinkedListEntry> expected, LinkedList<MyLinkedListEntry> actual) {
+  Iterator eit=expected.iterator;
+  Iterator ait=actual.iterator;
+  while (eit.moveNext()) {
+    Expect.isTrue(ait.moveNext());
+    Expect.equals(eit.current, ait.current);
+  }
+  Expect.isFalse(ait.moveNext());
+}
+
 void contentEquals(Iterable expected, LinkedList<MyLinkedListEntry> actual) {
   Iterator eit=expected.iterator;
   Iterator ait=actual.iterator;

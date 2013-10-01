@@ -367,6 +367,15 @@ class Expect {
     }
   }
 
+  static void iterableEquals(Iterable expected, Iterable actual) {
+    Iterator eit=expected.iterator;
+    Iterator ait=actual.iterator;
+    while (eit.moveNext()) {
+      Expect.isTrue(ait.moveNext());
+      Expect.equals(eit.current, ait.current);
+    }
+    Expect.isFalse(ait.moveNext());
+  }
 }
 
 bool _identical(a, b) => identical(a, b);
@@ -378,3 +387,4 @@ class ExpectException implements Exception {
   ExpectException([this.message]);
   String toString() => message;
 }
+

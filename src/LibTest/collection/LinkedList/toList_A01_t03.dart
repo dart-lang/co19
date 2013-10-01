@@ -4,24 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract List<E> toList({bool growable: true})
+ * @assertion List<E> toList({bool growable: true})
  * Creates a List containing the elements of this Iterable.
- * The elements will be in iteration order. The list is fixed-length if growable is false.
+ * The elements are in iteration order. The list is fixed-length if growable is false.
  * @description Checks that the list created with growable==false cannot change it's size.
  * @author kaigorodov
  */
+import "dart:collection";
 import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
 List<String> failures=new List<String>();
  
-check(List l) {
+void check(List a0) {
+  List<MyLinkedListEntry> l=toLinkedList(a0).toList(growable:false);
   try {
     l.clear();
     failures.add("clear");
-  } on UnsupportedError catch (ok) {}
-  try {
-    l.length = 123;
-    failures.add("set length");
   } on UnsupportedError catch (ok) {}
   try {
     l.add(null);
@@ -38,13 +37,7 @@ check(List l) {
 }
 
 main() {
-  check([].toList(growable:false));
-  List src = [null, [null], [], [1,2,3], [[null]]];
-  List a = src.toList(growable:false);
-  check(a);
-  if (failures.isEmpty) return;
-  StringBuffer sb=new StringBuffer();
-  sb.write("following operations do not cause UnsupportedError on fixed-sized list:\n");
-  sb.writeAll(failures, ", ");
-  Expect.fail(sb.toString());
+  check([]);
+  check(["1","2","3","4","5"]);
+  check([null, [null], [], [1,2,3], [[null]]]);
 }

@@ -4,41 +4,44 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skipWhile(bool test(E value))
+ * @assertion Iterable<E> skipWhile(bool test(E value))
  * Every new Iterator of the returned Iterable iterates over all elements of this.
+ * As long as the iterator's elements satisfy test they are discarded.
  * @description Checks that for every new iterator, all elements either are tested
  * and satisfy the test, or are returned by the iterator .
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart"	;
+import "dart:collection";
+import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
-void check(List a0, bool test0(var element)) {
-  List all;
-  bool test(var element) {
-    bool res=test0(element);
+void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {
+  List<MyLinkedListEntry<int>> all;
+  bool test(MyLinkedListEntry<int> entry) {
+    bool res=test0(entry.value);
     if (res) {
-      all.add(element);
+      all.add(entry);
     }
     return res;
   }
-  Iterable itbl=a0.skipWhile(test);
+  Iterable<MyLinkedListEntry<int>> itbl=a0.skipWhile(test);
   
   for (int k=0; k<5; k++) {
     all=[];
-    Iterator it=itbl.iterator;
+    Iterator<MyLinkedListEntry<int>> it=itbl.iterator;
     while (it.moveNext()) {
       all.add(it.current);
-    }  
-    Expect.listEquals(a0, all);
+    }
+    entriesEquals(all, a0);
   }
 }
 
 main() {
-  List a0=[1,3,7,4,5,6];
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  LinkedList<MyLinkedListEntry<int>> a0=toLinkedList([1,3,7,4,5,6,1]);
+  check(a0, (int element)=>element==1);
+  check(a0, (int element)=>true);
+  check(a0, (int element)=>false);
+  check(a0, (int element)=>element>4);
+  check(a0, (int element)=>element<4);
+  check(a0, (int element)=>element==4);
 }
