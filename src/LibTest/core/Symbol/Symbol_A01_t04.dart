@@ -11,7 +11,7 @@
  * and is not a valid qualified identifier optionally followed by '='.
  * @description Checks that ArgumentError is thrown if name is not a String.
  * @author ilya
- * @reviewer
+ * @issue 13715
  */
 import "../../../Utils/expect.dart";
 

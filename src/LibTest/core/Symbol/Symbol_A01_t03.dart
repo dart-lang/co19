@@ -12,7 +12,7 @@
  * @description Checks that ArgumentError is thrown if name starts with an
  * underscore.
  * @author ilya
- * @reviewer
+ * @issue 13715
  */
 import "../../../Utils/expect.dart";
 

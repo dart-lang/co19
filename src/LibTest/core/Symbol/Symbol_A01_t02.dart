@@ -12,7 +12,7 @@
  * @note. Non-normative.
  * @description Checks that symbols for operators can be created.
  * @author ilya
- * @reviewer
+ * @needsreview issue 13716
  */
 import "../../../Utils/expect.dart";
 

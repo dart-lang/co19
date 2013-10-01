@@ -11,7 +11,7 @@
  * and is not a valid qualified identifier optionally followed by '='.
  * @description Checks that ArgumentError is thrown if name is not a valid
  * qualified identifier.
- * @author ilya
+ * @issue 13715
  * @reviewer
  */
 import "../../../Utils/expect.dart";
