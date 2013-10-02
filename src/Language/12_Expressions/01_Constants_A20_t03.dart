@@ -14,7 +14,7 @@
  */
 
 class C<T> {
-  static const List lst = [T];
+  static const List lst = const [T];
 }
 
 main() {
