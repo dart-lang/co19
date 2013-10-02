@@ -17,7 +17,7 @@
  * subtype test.
  * @static-warning
  * @author kaigorodov
- * @issue 5809, 13674, co19 534
+ * @note see 13674
  */
 
 import "../../Utils/dynamic_check.dart";
@@ -32,7 +32,9 @@ main() {
       
   C<int, double, UnknownType> x = new C(); /// static type warning no such type
   
-  Expect.isTrue(null is C<int, double, UnknownType>); /// static type warning no such type
+  // C<int, double, UnknownType> is not malformed, see (Types/Parameterized Types)
+  // UnknownType is treated as dynamic and parameterized type is C<int,double,dynamic>
+  Expect.isFalse(null is C<int, double, UnknownType>); /// static type warning no such type
   
   C<int, double, UnknownType> x1 = new C(); /// static type warning no such type
   

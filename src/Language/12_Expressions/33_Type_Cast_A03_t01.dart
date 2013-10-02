@@ -6,14 +6,14 @@
 /**
  * @assertion If T is malformed the cast always succeeds.
  * This is a consequence of the rule that malformed types are treated as dynamic
- * @description Checks that the cast succeeds if T is a parameterized type 
- * of the form G < T1, ..., Tn > and G is not a generic type with n type parameters.
+ * @description Checks that if T is a parameterized type 
+ * of the form G < T1, ..., Tn > and G is not a generic type, then T is malformed
+ * and the cast always succeds.
  * @static-warning
  * @author rodionov 
  * @reviewer iefremov
- * @needsreview issue 3282
  */
 
 main() {
-  List<int, bool> x = [] as List<int, bool>;
+  var x = 1 as Unknown<int, bool>;
 }

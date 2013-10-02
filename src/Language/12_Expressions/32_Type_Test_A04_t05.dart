@@ -6,14 +6,17 @@
 /**
  * @assertion If T is malformed the test always succeeds.
  * This is a consequence of the rule that malformed types are treated as dynamic. 
- * @description Checks that test succeeds T is parameterized type and G is not
- * a generic type.
+ * @description Checks that if T is parameterized type with malformed type argument
+ * and G is generic type, then T is not malformed and the test does not always succeed.
  * @static-warning
- * @author msyabro
- * @reviewer iefremov
+ * @author ilya
+ * @note see 13674
  */
 import "../../Utils/expect.dart";
 
+class G<T> {}
+
 main() {
-  Expect.isTrue(1 is G<int, bool>); /// static type warning
+  // Unknown is dynamic, G<Unknown> is G<dynamic>, not malformed
+  Expect.isFalse(1 is G<Unknown>); /// static type warning
 }

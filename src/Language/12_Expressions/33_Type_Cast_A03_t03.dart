@@ -11,16 +11,22 @@
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
- * @issue co19 534
+ * @note see 13674
  */
+import "../../Utils/expect.dart";
 
 class G<S extends String, N extends num> {}
 
 main() {
-  1 as NonExistent; /// static type warning
-  1 as NonExistent<int>; /// static type warning
-  1 as List<NonExistent>; /// static type warning
-  1 as G<String, bool>; /// static type warning
-  1 as List<List<NonExistent>>; /// static type warning
-  1 as G<G<String, bool>, int>; /// static type warning
+  1 as NonExistent; /// static type warning for NonExistent
+  1 as NonExistent<int>; /// static type warning for NonExistent
+
+  // NonExistent is malformed, List<NonExistent> is List<dynamic> then, not malformed
+  Expect.throws(() => 1 as List<NonExistent>); /// static type warning for NonExistent
+  
+  // G<String,bool> is malbouned, not malformed
+  Expect.throws(() => 1 as G<String, bool>); /// static type warning for malbounded type
+  
+  Expect.throws(() => 1 as List<List<NonExistent>>); /// static type warning for NonExistent
+  Expect.throws(() => 1 as G<G<String, bool>, int>); /// two static type warnings for two malbounded types
 }
