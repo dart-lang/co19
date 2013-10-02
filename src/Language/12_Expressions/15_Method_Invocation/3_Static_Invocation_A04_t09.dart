@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Evaluation of i proceeds as follows:
- * If C does not denote a class in the current scope, or if C does not declare
+ * If C does not declare
  * a static method or getter m then the argument list (a1, ..., an, xn+1:an+1,
  * ..., xn+k:an+k) is evaluated, after which a NoSuchMethodError is thrown.
  * Otherwise, evaluation proceeds as follows:
@@ -20,7 +20,6 @@
  * @description Checks that the argument list is evaluated before a NoSuchMethodError is thrown.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 13494
  */
 import "../../../Utils/expect.dart";
 
@@ -39,14 +38,8 @@ int incCount() {
 
 main()  {
   try {
-    NonExistentClass.func(incCount()); // static warning - see "Static invocation"
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(ok) {}
-  Expect.equals(1, count);
-  
-  try {
     C.func(incCount()); // static warning - see "Static invocation"
     Expect.fail("NoSuchMethodError expected.");
   } on NoSuchMethodError catch(ok) {}
-  Expect.equals(2, count);
+  Expect.equals(1, count);
 }

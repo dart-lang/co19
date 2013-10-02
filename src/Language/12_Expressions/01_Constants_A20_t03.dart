@@ -7,16 +7,16 @@
  * @assertion An identifier expression that denotes a constant variable or a class
  * is a constant expression.
  * @description Checks that an identifier expression that denotes a type parameter 
- * can not be assigned to a constant variable.
+ * can not be used as const initializer.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 class C<T> {
-  const List lst = [T];
+  static const List lst = [T];
 }
 
 main() {
-  print(new C().lst);
+  print(C.lst);
 }

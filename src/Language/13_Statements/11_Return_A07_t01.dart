@@ -10,6 +10,7 @@
  * case it is executed by executing return this;.
  * @description Checks that a return statement of the form "return;" in a method, getter, 
  * setter or factory is executed by executing the statement "return null;".
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -21,7 +22,7 @@ bar() {
 }
 
 abstract class I {
-  factory I() { return; }
+  factory I() { return; } //static warning: I may not be assigned to void
 }
 
 class Foo implements I {

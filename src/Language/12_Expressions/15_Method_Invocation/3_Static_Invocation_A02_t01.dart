@@ -5,6 +5,8 @@
  */
 /**
  * @assertion It is a static warning if C does not denote a class in the current scope. 
+ * @note assert is no longer in spec since 0.61. Static invocation applies to
+ * C.m(...) where C denotes a class in the current scope.
  * @description Checks that it is a static warning if C does not denote a class in the current scope.
  * @static-warning
  * @author msyabro
