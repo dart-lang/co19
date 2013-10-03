@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the first line of a multiline string consists solely of whitespace
- * characters then that line is ignored, including the new line at its end.
+ * @assertion If the first line of a multiline string consists solely of the
+ * whitespace characters defined by the production WHITESPACE, possibly
+ * prefixed by \, then that line is ignored, including the new line at its end.
  * @description Checks that the first new-line in a multi-line string is ignored.
  * @author iefremov
  * @reviewer rodionov
- * @issue 5833
  */
 import "../../Utils/expect.dart";
 
@@ -20,6 +20,24 @@ main() {
   Expect.stringEquals("""""", s1, "The first new-line character in a multi-line string should be ignored!");
 
   s1 = '''
+''';
+  Expect.stringEquals('''''', s1, "The first new-line character in a multi-line string should be ignored!");
+
+  // newline prefixed by \
+  s1 = """\
+""";
+  Expect.stringEquals("""""", s1, "The first new-line character in a multi-line string should be ignored!");
+
+  s1 = '''\
+''';
+  Expect.stringEquals('''''', s1, "The first new-line character in a multi-line string should be ignored!");
+
+  // space and newline prefixed by \
+  s1 = """\ \
+""";
+  Expect.stringEquals("""""", s1, "The first new-line character in a multi-line string should be ignored!");
+
+  s1 = '''\ \
 ''';
   Expect.stringEquals('''''', s1, "The first new-line character in a multi-line string should be ignored!");
 

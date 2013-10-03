@@ -28,7 +28,6 @@
  * don't produce a compile-time error.
  * @author msyabro
  * @reviewer rodionov
- * @needsreview Issues 2353, 4009
  */
 
 main() {
@@ -49,12 +48,6 @@ main() {
   ''' '' ''';
   """ "" """;
   
-//issue 4009, there're negative tests for these literals
-//  r'''\''';
-//  r"""\""";
-//  r"""$""";
-//  r'''$''';
-
   '''
   ''';
   """
