@@ -27,7 +27,7 @@ main() {
   Expect.equals(2, count);
   Expect.equals(1, res);
 
-  runes = new Int16List.fromList([]);
+  runes = new Runes('');
   res = runes.lastWhere( (element) => true, orElse: f);
   Expect.equals(3, count);
   Expect.equals(1, res);
