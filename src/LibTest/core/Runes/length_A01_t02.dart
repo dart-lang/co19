@@ -17,6 +17,6 @@ main() {
   try {
     runes.length = 1;
     Expect.fail('[length] should be final');
-  } on NoSuchMethoError catch (ok) {}
+  } on NoSuchMethodError catch (ok) {}
 
 }

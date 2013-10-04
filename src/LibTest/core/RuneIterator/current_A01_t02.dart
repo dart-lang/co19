@@ -18,5 +18,5 @@ main() {
   try {
     it.current = 1;
     Expect.fail('[current] should be final');
-  } on NoSuchMethoError catch(ok) {}
+  } on NoSuchMethodError catch(ok) {}
 }
