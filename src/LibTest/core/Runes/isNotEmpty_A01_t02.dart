@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var rues = new Runes('');
+  var runes = new Runes('');
 
   try {
     runes.isNotEmpty = false;
