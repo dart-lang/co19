@@ -9,6 +9,7 @@
  * If the member is a getter, the positional arguments is empty.
  * @description Checks that positionalArguments is unmodifiable and returns
  * expected results on getters, setters and instance methods invocations.
+ * @static-warning
  * @author ilya
  * @issue 13714
  */

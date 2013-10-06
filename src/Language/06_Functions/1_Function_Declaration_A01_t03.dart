@@ -11,7 +11,9 @@
  * functions. Library functions are
  * often referred to simply as top-level functions.
  * A function declaration consists of an identier indicating the function's
- * name, followed by a signature and body.
+ * name, possibly prefaced by a return type. The function name is followed by
+ * a signature and body. For getters, the signature is empty. The body is empty
+ * for functions that are external.
  * The scope of a library function is the scope of the enclosing library. The
  * scope of a local function is described in section
  * (Statements/Local Function Declaration). In both cases, the name of the

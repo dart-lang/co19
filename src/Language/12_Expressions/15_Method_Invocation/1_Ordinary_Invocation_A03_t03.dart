@@ -11,11 +11,13 @@
  * Otherwise, we say that the method lookup has failed.
  * @description Checks that if C declares an abstract instance method named m
  * and has no superclass, the lookup has failed.
+ * @static-warning
  * @author ilya
  */
+import "../../../Utils/expect.dart";
 
 class S {
-  int m();
+  int m(); // static warning: abstract method in a concrete class
 }
 
 main()  {

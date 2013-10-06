@@ -5,7 +5,8 @@
  */
 /**
  * @assertion An ordinary method invocation i has the form
- * o.m(a1, . . . , an, xn+1 : an+1, ... , xn+k :an+k).
+ * o.m(a1, . . . , an, xn+1 : an+1, ... , xn+k :an+k)
+ * where o is not the name of a class or a library prefix.
  * @description Checks that it is a compile-time error if named
  * arguments precede positional arguments.
  * @compile-error

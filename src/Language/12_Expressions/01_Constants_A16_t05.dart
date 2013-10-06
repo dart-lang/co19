@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if evaluation of a compile-time constant would raise
- * an exception.
- * @description Checks that using null in a boolean constant expression is a compile-time error.
+ * @assertion It is a compile-time error if an expression is required to be a
+ * constant expression but its evaluation would raise an exception.
+ * @description Checks that using null in a shift constant expression is a compile-time error.
  * @compile-error
  * @author kaigorodov
  * @issue 13394

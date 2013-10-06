@@ -9,6 +9,7 @@
  * If the member is a getter, setter or operator, the named arguments is empty.
  * @description Checks that namedArguments is unmodifiable and returns expected
  * results on getters, setters and instance methods invocations.
+ * @static-warning
  * @author ilya
  * @issue 13714
  */

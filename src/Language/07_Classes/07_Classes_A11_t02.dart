@@ -9,7 +9,6 @@
  * @description Checks that a class name cannot be used as a name of a getter.
  * @compile-error
  * @author hlodvig
- * @issue 13236
  */
 
 class A {

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of a throw expression is (empty).
+ * @assertion The static type of a throw expression is bottom.
  * @description It means (Types/Interface Types) that the static type of
  * throw expression is a subtype of any type.
  * Checks that no static warnings are produced when using throw expression

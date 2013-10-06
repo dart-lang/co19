@@ -5,7 +5,8 @@
  */
 /**
  * @assertion A static method invocation i has the form
- * C.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
+ * C.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k)
+ * where C denotes a class in the current scope.
  * @description Checks that arguments must be separated with a comma.
  * @compile-error
  * @author msyabro

@@ -7,6 +7,7 @@
  * @assertion Otherwise e.m is treated as a getter invocation.
  * @description Checks that if type of e has no method nor getter named m,
  * e.m throws NoSuchMethodError.
+ * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
@@ -15,7 +16,7 @@ class C {}
 
 main() {
   Expect.throws(() {
-    new C().qwe;
+    new C().qwe; // static warning
   }, (e) => e is NoSuchMethodError);
 }
 

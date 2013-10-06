@@ -8,6 +8,7 @@
  * Whether the invocation was a getter or a setter call.
  * @description Checks that isAccessor returns false for instance method
  * invocations.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

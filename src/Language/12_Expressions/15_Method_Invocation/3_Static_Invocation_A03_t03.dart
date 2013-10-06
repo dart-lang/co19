@@ -12,13 +12,12 @@
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 class C {
   m() {}
 }
 
 main() {
-  try {
-    C.m(); // static warning
-  } catch(e) {}
+  Expect.throws(() => C.m()); // static warning
 }

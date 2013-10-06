@@ -8,6 +8,7 @@
  * Whether the invocation was a method call.
  * @description Checks that isMethod returns false for getters and setters
  * invocations.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

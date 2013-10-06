@@ -13,6 +13,7 @@
  * @reviewer rodionov
  * @issue 13493
  */
+import "../../../Utils/expect.dart";
 
 class S {
   static m() {}
@@ -21,7 +22,5 @@ class S {
 class C extends S {}
 
 main() {
-  try {
-    C.m(); // static warning
-  } catch(e) {}
+  Expect.throws(() => C.m()); // static warning
 }

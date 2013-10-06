@@ -22,6 +22,7 @@
  * @description Checks that if a lookup has failed, then noSuchMethod() is
  * looked up and called in a superclass with correct Invocation instance
  * and the result of this call is the result of super.m
+ * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
@@ -40,7 +41,7 @@ class S {
 
 class C extends S {
   test() {
-    Expect.equals(123, super.unknown);
+    Expect.equals(123, super.unknown); // static warning
   }
 }
 

@@ -19,6 +19,7 @@
  * of e.
  * @description Checks that if NoSuchMethodError is to be thrown, e is
  * evaluated before throwing an exception.
+ * @static-warning
  * @author ilya
  */
 
@@ -32,12 +33,12 @@ incCount() => ++count;
 
 main() {
   Expect.throws(() {
-    NoClass.foo = incCount();
+    NoClass.foo = incCount(); // static warning: unknown name NoClass
   }, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 
   Expect.throws(() {
-    C.noSetter = incCount();
+    C.noSetter = incCount(); // static warning: no setter
   }, (e) => e is NoSuchMethodError);
   Expect.equals(2, count);
 }

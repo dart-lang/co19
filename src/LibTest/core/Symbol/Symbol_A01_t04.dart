@@ -10,6 +10,7 @@
  * not a String. An ArgumentError is thrown if name is not an empty string
  * and is not a valid qualified identifier optionally followed by '='.
  * @description Checks that ArgumentError is thrown if name is not a String.
+ * @static-warning
  * @author ilya
  * @issue 13715
  */
@@ -21,7 +22,7 @@ main() {
     }, (e) => e is ArgumentError);
 
   Expect.throws(() {
-    new Symbol(new Symbol(''));
+    new Symbol(new Symbol('')); // static warning
     }, (e) => e is ArgumentError);
 }
 

@@ -8,6 +8,7 @@
  * The name of the invoked expect.
  * @description Checks that memberName returns expected results on getters,
  * setters and instance methods invocations.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

@@ -21,12 +21,13 @@
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks that the getter in supercalss is called with this bound
  * to the current value of this and the result is the result of supper.m
+ * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
 
 class S {
-  get field => this.x + 1;
+  get field => this.x + 1; // static warning
 }
 
 class C extends S {

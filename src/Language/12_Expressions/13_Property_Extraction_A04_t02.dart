@@ -7,6 +7,7 @@
  * @assertion Otherwise super.m is treated as a getter invocation
  * @description Checks that NoSuchMethodError is thrown if
  * superclass has an implicit or explicit static getter named m.
+ * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
@@ -19,11 +20,11 @@ class C {
 class D extends C {
   D() {
     Expect.throws(() {
-      super.implicit;
+      super.implicit; // static warning
     }, (e) => e is NoSuchMethodError);
 
     Expect.throws(() {
-      super.explicit;
+      super.explicit; // static warning
     }, (e) => e is NoSuchMethodError);
   }
 }

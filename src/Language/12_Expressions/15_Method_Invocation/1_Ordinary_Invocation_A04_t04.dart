@@ -24,6 +24,7 @@
  * executed.
  * @description Checks that the method lookup fails if a form o.m() has a
  * parameters mismatch listed above with the vo class's instance method.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

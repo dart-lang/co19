@@ -7,6 +7,7 @@
  * @assertion Otherwise super.m is treated as a getter invocation
  * @description Checks that NoSuchMethodError is thrown if
  * superclass has no members named m.
+ * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
@@ -17,7 +18,7 @@ class C {
 class D extends C {
   D() {
     Expect.throws(() {
-      super.qwe;
+      super.qwe; // static warning
     }, (e) => e is NoSuchMethodError);
  }
 }

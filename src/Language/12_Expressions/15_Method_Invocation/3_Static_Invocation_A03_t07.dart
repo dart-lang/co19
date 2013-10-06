@@ -7,19 +7,19 @@
  * @assertion It is a static warning if C does not declare a static method or getter m.
  * @description Checks that it is a static warning if C inherits an instance getter 
  * named m instead of declaring a static method.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
+import "../../../Utils/expect.dart";
 
 class S {
-  int get m {}
+  get m => (){};
 }
 
 class C extends S {
 }
 
 main() {
-  try {
-    C.m(); // static warning
-  } catch(e) {}
+  Expect.throws(() => C.m()); // static warning
 }

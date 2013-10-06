@@ -5,11 +5,11 @@
  */
 /**
  * @assertion An expression of the form e1?e2:e3 where where e1, e2 and e3
- * are constant expressions is a constant expression.
+ * are constant expressions and e1 evaluates to a boolean value is a constant expression.
  * @description Checks that various conditional expressions with constant
  * operands are constant expressions.
  * @author ilya
- * @issue 13536
+ * @issue 13271
  */
 
 const x = false;

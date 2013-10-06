@@ -7,6 +7,7 @@
  * @assertion final bool isMethod
  * Whether the invocation was a method call.
  * @description Checks that isMethod returns true for instance methods invocations.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

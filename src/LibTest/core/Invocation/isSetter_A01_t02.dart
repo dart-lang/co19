@@ -9,6 +9,7 @@
  * If so, arguments has exactly one positonal argument, and namedArguments is empty.
  * @description Checks that isSetter returns false for getters and instance methods
  * invocations.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

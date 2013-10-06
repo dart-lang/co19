@@ -8,6 +8,7 @@
  * Whether the invocation was a getter call. If so, both types of arguments is empty.
  * @description Checks that isGetter returns false for setters and instance method
  * invocations.
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

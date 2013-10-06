@@ -23,6 +23,7 @@
  * Otherwise, the assignment is equivalent to the assignment this.v = e.
  * @description Checks that if NoSuchMethodError is to be thrown, e is
  * evaluated before throwing an exception.
+ * @static-warning
  * @author ilya
  */
 
@@ -34,7 +35,7 @@ incCount() => ++count;
 
 main() {
   Expect.throws(() {
-    unknown = incCount();
+    unknown = incCount(); // static warning
   }, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 }

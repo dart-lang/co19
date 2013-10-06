@@ -15,16 +15,22 @@
  * the call mirror.getPrivateSymbol(id) where mirror is an instance of the
  * class LibraryMirror defined in the library dart:mirrors, reflecting the
  * current library.
- * @note TODO symbol literals are not yet implemented
- * @description Checks a basic case that #id is equivalent to const Symbol(id)
+ * @description Checks that symbol literal whose name starts with an
+ * underscore evaluates to the object returned by mirror.getPrivateSymbol(id)
+ * @note Can't check: getPrivateSymbol not implemented 
  * @author ilya
- * @issue 12171
  */
+
+library test;
+
+import "dart:mirrors";
 import "../../Utils/expect.dart";
 
+var _private;
+
 main() {
-  Expect.equals(const Symbol('foo'), #foo);
-  Expect.identical(const Symbol('foo'), #foo);
+  var l = currentMirrorSystem().findLibrary(#test).first;
+  //print(l.getPrivateSymbol); // method not found
 }
 
 
