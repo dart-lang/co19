@@ -13,7 +13,7 @@
  * @reviewer
  */
 
-import 'dart:utf';
+import 'dart:convert';
 import "../../../Utils/expect.dart";
 
 String unreserved = "0123456789"
@@ -28,7 +28,7 @@ manuallyEncode(String s) => s.runes
   .map((x) =>
       unreserved.runes.contains(x)
       ? new String.fromCharCode(x)
-      : encodeUtf8(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      : UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

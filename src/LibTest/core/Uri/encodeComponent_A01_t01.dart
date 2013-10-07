@@ -14,7 +14,7 @@
  * @reviewer
  */
 
-import 'dart:utf';
+import 'dart:convert';
 import "../../../Utils/expect.dart";
 
 encodeOctet(int x) =>
@@ -23,7 +23,7 @@ encodeOctet(int x) =>
 
 manuallyEncodeFull(String s) => s.runes
   .map((x) =>
-      encodeUtf8(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {
