@@ -6,15 +6,14 @@
 /**
  * @assertion It is a compile-time error if the speciﬁed URI does not refer to
  * a library declaration.
- * @description Checks that it is a compile-time error if the URI in an import directive is an empty string.
+ * @description Checks that it is a compile-time error if the URI in an import directive refers to a part declaration which is not a library declaration.
  * @compile-error
- * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
- * @reviewer rodionov
+ * @author ilya
  */
 
-import "";
+library my_lib;
+
+import "1_Imports_A04_t01_part.dart";
 
 main() {
   try {
