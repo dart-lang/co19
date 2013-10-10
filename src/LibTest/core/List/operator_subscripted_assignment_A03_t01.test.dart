@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion  abstract void operator []=(int index, E value)
+ * Throws [TypeError] if [index] is [:null:] or invalid.
+ * @description Checks that the exception is thrown, for fixed size and growable arrays.
+ * @needsreview undocumented
+ * @author kaigorodov
+ */
+library operator_subscripted_assignment_A03_t01;
+
+import "../../../Utils/expect.dart";
+import "../../../Utils/dynamic_check.dart";
+
+test(List create([int length])) {
+  List a=create(1);
+
+  void check(var idx) {
+    Expect.throws(() {
+        a[idx] = new Object();
+      },
+//      (e) {print("e= ${e.runtimeType}; $e"); return e is TypeError;}
+      (e) => e is TypeError
+    );
+  }
+
+  check('0');
+  check(2.1);
+  check([]);
+}

@@ -22,6 +22,10 @@ import "isNotEmpty_A01_t01.test.dart" as isNotEmpty_A01_t01;
 import "iterator_A01_t01.test.dart" as iterator_A01_t01;
 import "last_A01_t01.test.dart" as last_A01_t01;
 import "last_A02_t01.test.dart" as last_A02_t01;
+import "length_A01_t01.test.dart" as length_A01_t01;
+import "single_A01_t01.test.dart" as single_A01_t01;
+import "contains_A01_t01.test.dart" as contains_A01_t01;
+
 import "where_A01_t01.test.dart" as where_A01_t01;
 import "where_A01_t02.test.dart" as where_A01_t02;
 import "where_A01_t03.test.dart" as where_A01_t03;
@@ -41,6 +45,10 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   iterator_A01_t01.test(create, isSet:isSet);
   last_A01_t01.test(create, isSet:isSet);
   last_A02_t01.test(create);
+  length_A01_t01.test(create);
+  single_A01_t01.test(create);
+  contains_A01_t01.test(create);
+
   where_A01_t01.test(create, isSet:isSet);
   where_A01_t02.test(create);
   where_A01_t03.test(create);

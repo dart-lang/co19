@@ -12,12 +12,12 @@
 import "dart:collection";
 import "allTests.lib.dart";
 
-Iterable create([Iterable content]) {
-  Queue res = new Queue();
-  if (content!=null) {
-    res.addAll(content);
+Queue create([Iterable content]) {
+  if (content==null) {
+    return new Queue();
+  } else {
+    return new Queue.from(content);
   }
-  return res;
 }  
 
 main() {

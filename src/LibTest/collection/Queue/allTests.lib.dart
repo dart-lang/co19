@@ -9,10 +9,39 @@
  * @description Checks that all members of [Iterable] are implemented.
  * @author kaigorodov
  */
-library allTests_A01_t01;
+library allQueueTests;
 
-import "../../core/Iterable/allTests.lib.dart" as libIterator;
+import "dart:collection";
+import "../../core/Iterable/allTests.lib.dart" as libIterable;
+import "add_A01_t01.test.dart" as add_A01_t01;
+import "add_A01_t02.test.dart" as add_A01_t02;
+import "addAll_A01_t01.test.dart" as addAll_A01_t01;
+import "addAll_A01_t02.test.dart" as addAll_A01_t02;
+import "addAll_A02_t01.test.dart" as addAll_A02_t01;
+import "addAll_A03_t01.test.dart" as addAll_A03_t01;
+import "addFirst_A01_t01.test.dart" as addFirst_A01_t01;
+import "addFirst_A01_t02.test.dart" as addFirst_A01_t02;
+import "addLast_A01_t01.test.dart" as addLast_A01_t01;
+import "addLast_A01_t02.test.dart" as addLast_A01_t02;
+import "removeFirst_A01_t01.test.dart" as removeFirst_A01_t01;
+import "removeFirst_A02_t01.test.dart" as removeFirst_A02_t01;
+import "removeLast_A01_t01.test.dart" as removeLast_A01_t01;
+import "removeLast_A02_t01.test.dart" as removeLast_A02_t01;
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
-  libIterator.test(create, isSet:false);  
+test(Queue create([Iterable content]), {bool isSet:false}) {
+  libIterable.test(create, isSet:false);
+  add_A01_t01.test(create);
+  add_A01_t02.test(create);
+  addAll_A01_t01.test(create);
+  addAll_A01_t02.test(create);
+  addAll_A02_t01.test(create);
+  addAll_A03_t01.test(create);
+  addFirst_A01_t01.test(create);
+  addFirst_A01_t02.test(create);
+  addLast_A01_t01.test(create);
+  addLast_A01_t02.test(create);
+  removeFirst_A01_t01.test(create);
+  removeFirst_A02_t01.test(create);
+  removeLast_A01_t01.test(create);
+  removeLast_A02_t01.test(create);
 }

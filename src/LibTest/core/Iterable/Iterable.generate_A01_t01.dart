@@ -23,7 +23,7 @@ void check(int count) {
    expected++;
    return index*3;
  }
- Iterator it=Iterable.generate(count, generator);
+ Iterator it=new Iterable.generate(count, generator);
  int index=0;
  for (var v in it) {
    Expect.equals(index*3, v);

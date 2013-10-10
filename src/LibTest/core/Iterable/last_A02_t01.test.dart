@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 test(Iterable create([Iterable content])) {
   check(Iterable a) {
     Expect.throws(() {
-      create(a).last;
+        create(a).last;
       },
       (e)=> e is StateError
     );

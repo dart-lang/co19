@@ -29,6 +29,8 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
     Expect.isTrue(l.isEmpty);
   }
 
+  Expect.isTrue(create().iterator is Iterator);
+  
   checkIterator([]);
   checkIterator(const [null,0,"1", false, const []]);
   if (!isSet) {

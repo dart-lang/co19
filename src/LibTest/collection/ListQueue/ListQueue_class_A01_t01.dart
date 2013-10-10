@@ -10,16 +10,20 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "../Queue/allTests.lib.dart";
+import "../Queue/allTests.lib.dart" as allQueueTests;
+import "removeWhere_A01_t01.test.dart" as removeWhere_A01_t01;
+import "retainWhere_A01_t01.test.dart" as retainWhere_A01_t01;
 
-Iterable create([Iterable content]) {
-  ListQueue res = new ListQueue();
-  if (content!=null) {
-    res.addAll(content);
+ListQueue create([Iterable content]) {
+  if (content==null) {
+    return new ListQueue();
+  } else {
+    return new ListQueue.from(content);
   }
-  return res;
 }  
 
 main() {
-  test(create);  
+  allQueueTests.test(create);
+  removeWhere_A01_t01.test(create);
+  retainWhere_A01_t01.test(create);
 }
