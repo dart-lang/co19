@@ -9,18 +9,22 @@
  * @description Checks that an RangeError is thrown if the index does not point inside the list.
  * @author kaigorodov
  */
+library removeAt_A03_t01;
+
 import "../../../Utils/expect.dart";
 
-void check(List a, int index) {
-  bool failed=false;
-  try {
-    a.removeAt(index);
-    failed=true;
-  } on ArgumentError catch(ok) {}
-  Expect.isFalse(failed, "ArgumentError expected");
-}
+test(List create([int length])) {
 
-main() {
+  check(List a0, int index) {
+    List a=create();
+    a.addAll(a0);
+    Expect.throws(() {
+        a.removeAt(index);
+      },
+      (e) => e is RangeError
+    );
+  }
+
   List a0=[1,3,3,4,5,6];
   check(a0, -1);
   check(a0, a0.length);

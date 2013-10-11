@@ -16,11 +16,14 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+library indexOf_A02_t01;
+
 import "../../../Utils/expect.dart";
 
 checkList(List list, var elem, int idx, int expected) {
   Expect.equals(expected, list.indexOf(elem, idx));
 }
+
 check(List ls) {
   checkList(ls, 42, -1, 0);
   checkList(ls, 777, -1, -1);
@@ -43,18 +46,17 @@ check(List ls) {
   checkList(ls, 0, -6031769, 1);
 }
 
-main() {
-  var a = [42, 0, -1, 42, -1, 6031769, 0];
+test(List create([int length])) {
+  List a = create();
+  a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
+
   check(a);
 
-  check(new List.from(a));
-
-  check(const<int>[42, 0, -1, 42, -1, 6031769, 0]);
-
-  List<int> b = new List<int>(a.length);
+  List b = create(a.length);
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }
+
   check(b);
 }
 

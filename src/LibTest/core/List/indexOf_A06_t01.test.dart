@@ -11,11 +11,12 @@
  * @author varlax
  * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
+library indexOf_A06_t01;
 
 import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
 
-check(List a) {
+check0(List a) {
   Expect.throws( () {
     var idx = 0.1;
     a.indexOf(1,idx);
@@ -31,10 +32,16 @@ check(List a) {
   });
 }
 
-void main() {
+test(List create([int length])) {
   if(isCheckedMode()) {
     return;
   }
+  check(List a0) {
+    List a = create(a0.length);
+    a.setRange(0, a0.length, a0);
+    check0(a);
+  }
+
   check(const [null]);
   check(['sd','sd']);
   check(new List.from(<int>[null, 1, 0]));

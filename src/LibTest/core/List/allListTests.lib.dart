@@ -31,6 +31,12 @@ import "insert_A01_t01.test.dart" as insert_A01_t01;
 import "insert_A02_t01.test.dart" as insert_A02_t01;
 import "insertAll_A01_t01.test.dart" as insertAll_A01_t01;
 import "insertAll_A02_t01.test.dart" as insertAll_A02_t01;
+import "indexOf_A01_t01.test.dart" as indexOf_A01_t01;
+import "indexOf_A02_t01.test.dart" as indexOf_A02_t01;
+import "indexOf_A03_t01.test.dart" as indexOf_A03_t01;
+import "indexOf_A04_t01.test.dart" as indexOf_A04_t01;
+import "indexOf_A05_t01.test.dart" as indexOf_A05_t01;
+import "indexOf_A06_t01.test.dart" as indexOf_A06_t01;
 
 import "length_A01_t01.test.dart" as length_A01_t01;
 import "length_A02_t01.test.dart" as length_A02_t01;
@@ -47,6 +53,11 @@ import "operator_subscripted_assignment_A01_t01.test.dart" as operator_subscript
 import "operator_subscripted_assignment_A01_t02.test.dart" as operator_subscripted_assignment_A01_t02;
 import "operator_subscripted_assignment_A02_t01.test.dart" as operator_subscripted_assignment_A02_t01;
 import "operator_subscripted_assignment_A03_t01.test.dart" as operator_subscripted_assignment_A03_t01;
+import "remove_A01_t01.test.dart" as remove_A01_t01;
+import "removeAt_A01_t01.test.dart" as removeAt_A01_t01;
+import "removeAt_A02_t01.test.dart" as removeAt_A02_t01;
+import "removeAt_A03_t01.test.dart" as removeAt_A03_t01;
+import "removeAt_A04_t01.test.dart" as removeAt_A04_t01;
 import "reversed_A01_t01.test.dart" as reversed_A01_t01;
 
 test(List create([int length])) {
@@ -71,6 +82,12 @@ test(List create([int length])) {
   insert_A02_t01.test(create);
   insertAll_A01_t01.test(create);
   insertAll_A02_t01.test(create);
+  indexOf_A01_t01.test(create);
+  indexOf_A02_t01.test(create);
+  indexOf_A03_t01.test(create);
+  indexOf_A04_t01.test(create);
+  indexOf_A05_t01.test(create);
+  indexOf_A06_t01.test(create);
   
   length_A01_t01.test(create);
   length_A02_t01.test(create);
@@ -87,5 +104,11 @@ test(List create([int length])) {
   operator_subscripted_assignment_A01_t02.test(create);
   operator_subscripted_assignment_A02_t01.test(create);
   operator_subscripted_assignment_A03_t01.test(create);
+  remove_A01_t01.test(create);
+  removeAt_A01_t01.test(create);
+  removeAt_A01_t01.test(create);
+//  removeAt_A02_t01.test(create); // issue #14013
+  removeAt_A03_t01.test(create);
+  removeAt_A04_t01.test(create);
   reversed_A01_t01.test(create);
 }

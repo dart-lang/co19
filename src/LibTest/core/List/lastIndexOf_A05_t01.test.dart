@@ -11,6 +11,8 @@
  * @author varlax
  * @reviewer iefremov
  */
+library lastIndexOf_A05_t01;
+
 import "../../../Utils/expect.dart";
 
 checkList(List list, var elem, int expected) {
@@ -18,11 +20,11 @@ checkList(List list, var elem, int expected) {
 }
 
 class Eq{
-bool operator==(other) => other is Eq;
+  bool operator==(other) => other is Eq;
 }
 
-main() {
-  List a = new List(10);
+test(List create([int length])) {
+  List a = create(10);
   checkList(a, null, 9);
   
   var o = new Object();

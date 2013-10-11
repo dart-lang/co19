@@ -6,37 +6,33 @@
 /**
  * @assertion abstract int indexOf(E element, [int start = 0])
  * Returns -1 if given element is not found. 
- * @note undocumented
  * @description Checks that -1 is returned, if the element is not present.
  * @author iefremov
  * @reviewer msyabro
  * @reviewer varlax
  */
+library indexOf_A03_t01;
+
 import "../../../Utils/expect.dart";
 
-
-main() {
-  List a = [42, 0, -1, 42, -1, 6031769, 0];
+check(List a) {
   Expect.isTrue(a.indexOf(3.14, 0) == -1);
   Expect.isTrue(a.indexOf(null, 0) == -1);
   Expect.isTrue(a.indexOf(a, 0) == -1);
   Expect.isTrue(a.indexOf(42, 4) == -1);
   Expect.isTrue(a.indexOf(-1, 5) == -1);
+}
 
-  a = const [42, 0, -1, 42, -1, 6031769, 0];
-  Expect.isTrue(a.indexOf(3.14, 0) == -1);
-  Expect.isTrue(a.indexOf(null, 0) == -1);
-  Expect.isTrue(a.indexOf(a, 0) == -1);
-  Expect.isTrue(a.indexOf(42, 4) == -1);
-  Expect.isTrue(a.indexOf(-1, 5) == -1);
+test(List create([int length])) {
+  List a = create();
+  a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
 
-  List b = new List(a.length);
+  check(a);
+
+  List b = create(a.length);
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }
-  Expect.isTrue(b.indexOf(3.14, 0) == -1);
-  Expect.isTrue(b.indexOf(null, 0) == -1);
-  Expect.isTrue(b.indexOf(a, 0) == -1);
-  Expect.isTrue(b.indexOf(42, 4) == -1);
-  Expect.isTrue(b.indexOf(-1, 5) == -1);
+
+  check(b);
 }

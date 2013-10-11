@@ -8,28 +8,18 @@
  * Throws an ArgumentError if index is not an int.
  * @description Checks that an ArgumentError is thrown if index is not an int.
  * @author kaigorodov
+ * @needsreview issue #14013
  */
-library removeAt_A02_t01;
+import "removeAt_A02_t01.test.dart";
 
-import "../../../Utils/expect.dart";
-
-test(List create([int length])) {
-
-  check(List a0, var index) {
-//    List a=create();
-//    a.addAll(a0);
-    List a=create(a0.length);
-    a.setRange(0, a0.length, a0);
-    Expect.throws(() {
-        a.removeAt(index);
-      },
-      (e) => e is ArgumentError
-    );
+List create([int length=null]) {
+  if (length==null) {
+    return new List();
+  } else {
+    return new List(length);
   }
+}  
 
-  List a0=[1,3,3,4,5,6];
-  check(a0, true);
-  check(a0, 0.0);
-  check(a0, "3");
-  check(a0, [3]);
+main() {
+  test(create);
 }

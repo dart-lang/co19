@@ -271,7 +271,7 @@ class Expect {
       if (check != null) {
         if (!check(e)) {
           String msg = reason == null ? "" : reason;
-          _fail("Expect.throws($msg): Unexpected '$e'\n$s");
+          _fail("Expect.throws($msg): Unexpected ${e.runtimeType}('$e')\n$s");
         }
       }
       return;

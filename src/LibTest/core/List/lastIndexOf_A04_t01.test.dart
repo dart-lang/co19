@@ -10,6 +10,8 @@
  * @author varlax
  * @reviewer iefremov
  */
+library lastIndexOf_A04_t01;
+
 import "../../../Utils/expect.dart";
 
 checkList(List list, var elem, int expected) {
@@ -24,18 +26,12 @@ check(List ls) {
   checkList(ls, 6031769, 5);
 }
 
-main() {
-  var a = [42, 0, -1, 42, -1, 6031769, 0];
+test(List create([int length])) {
+  List a = create();
+  a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
   check(a);
 
-  check(new List.from(a));
-
-  check(const<int>[42, 0, -1, 42, -1, 6031769, 0]);
-
-  List<int> b = new List<int>(a.length);
-  for(var i = 0; i<a.length; i++) {
-    b[i] = a[i];
-  }
+  List b = create(a.length);
+  b.setRange(0, a.length, a);
   check(b);
 }
-

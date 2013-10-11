@@ -5,13 +5,14 @@
  */
 /**
  * @assertion abstract int indexOf(E element, [int start = 0])
- * The element is searched by equality (operator ==).
- * @note undocumented
+ * The first time an object o is encountered so that o == element,
+ * the index of o is returned.
  * @description Checks searching custom objects.
  * @author varlax
  * @reviewer iefremov
- * @needsreview not documented
  */
+library indexOf_A05_t01;
+
 import "../../../Utils/expect.dart";
 
 checkList(List list, var elem, int expected) {
@@ -19,11 +20,11 @@ checkList(List list, var elem, int expected) {
 }
 
 class Eq{
-bool operator==(other) => other is Eq;
+  bool operator==(other) => other is Eq;
 }
 
-main() {
-  List a = new List(10);
+test(List create([int length])) {
+  List a = create(10);
   checkList(a, null, 0);
   
   var o = new Object();

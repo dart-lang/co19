@@ -9,22 +9,27 @@
  * false otherwise. The method has no effect if value value was not in the list.
  * @author kaigorodov
  */
+library remove_A01_t01;
+
 import "../../../Utils/expect.dart";
 
-check(List a, Object value, bool expected) {
-  var l1=a.length;
-  bool r = a.remove(value);
-  Expect.isTrue(r is bool, "remove returned: ${r.runtimeType} ${r}, not bool");
-  if (r) {
-     Expect.isTrue(expected);
-     Expect.equals(l1-1, a.length);
-  } else {
-     Expect.isFalse(expected);
-     Expect.equals(l1, a.length);
-  }
-}
+test(List create([int length])) {
 
-main() {
+  check(List a0, Object value, bool expected) {
+    List a=create();
+    a.addAll(a0);
+  
+    bool r = a.remove(value);
+    Expect.isTrue(r is bool, "remove returned: ${r.runtimeType} ${r}, not bool");
+    if (r) {
+      Expect.isTrue(expected);
+      Expect.equals(a0.length-1, a.length);
+    } else {
+      Expect.isFalse(expected);
+      Expect.equals(a0.length, a.length);
+    }
+  }
+
   check([], 1, false);
   check([1], 1, true);
   check(new List.from([]), true, false);
@@ -32,5 +37,4 @@ main() {
   check(a, 2, false);
   a.add(2);
   check(a, 2, true);
-  check(a, 2, false);
 }

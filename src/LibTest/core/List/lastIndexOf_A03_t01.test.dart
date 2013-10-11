@@ -16,7 +16,17 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+library lastIndexOf_A03_t01;
+
 import "../../../Utils/expect.dart";
+
+void check(List a) {
+  Expect.isTrue(a.lastIndexOf(3.14, 0) == -1);
+  Expect.isTrue(a.lastIndexOf(null, 0) == -1);
+  Expect.isTrue(a.lastIndexOf(a, 0) == -1);
+  Expect.isTrue(a.lastIndexOf(-1, 1) == -1);
+  Expect.isTrue(a.lastIndexOf(6031769, 4) == -1);
+}
 
 checkList(List list, var elem, int idx, int expected) {
   Expect.equals(expected, list.lastIndexOf(elem, idx));
@@ -44,11 +54,12 @@ check(List a) {
   checkList(a, 0, -6031769, -1);
 }
 
-main() {
-  check([42, 0, -1, 42, -1, 6031769, 0]);
-  check(const [42, 0, -1, 42, -1, 6031769, 0]);
-  check(new List.from([42, 0, -1, 42, -1, 6031769, 0]));
-  List b = new List(7);
-  b.setRange(0,7,[42, 0, -1, 42, -1, 6031769, 0]);
+test(List create([int length])) {
+  List a = create();
+  a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
+  check(a);
+
+  List b = create(a.length);
+  b.setRange(0, a.length, a);
   check(b);
 }
