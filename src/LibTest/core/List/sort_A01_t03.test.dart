@@ -12,16 +12,16 @@
  * @author iefremov
  * @reviewer pagolubev
  */
+library sort_A01_t03;
+
 import "../../../Utils/expect.dart";
 
-
-
-void check(var a) {
+void check(Iterable a, List create([int length])) {
   int c(var x, var y) {
     return x < y ? -1 : (x == y ? 0 : 1);
   }
 
-  var a_copy = new List(a.length);
+  var a_copy = create(a.length);
   a_copy.setRange(0, a.length, a);
   a_copy.sort(c);
 
@@ -30,7 +30,8 @@ void check(var a) {
   }
 }
 
-main() {
+test(List create([int length])) {
+
   int maxlen = 5;
   var a = new List(maxlen);
   int maxdigit = 3;
@@ -38,7 +39,7 @@ main() {
 
   void iterate(int n) {
     if(n == 0) {
-      check(a);
+      check(a, create);
       return;
     }
     for(int i = mindigit; i < maxdigit; ++i) {

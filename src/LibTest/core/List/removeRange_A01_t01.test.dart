@@ -10,6 +10,8 @@
  * @author vasya
  * @reviewer varlax
  */
+library removeRange_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 check(a) {
@@ -32,8 +34,6 @@ check(a) {
   Expect.equals(-1, a[0]);
 }
 
-main() {
-  check(new List());
-  check([]);
-  check(new List.from([]));
+test(List create([int length])) {
+  check(create());
 }

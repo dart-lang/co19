@@ -5,24 +5,25 @@
  */
 /**
  * @assertion abstract void removeRange(int start, int end)
- * It is an error if start.. end is not a valid range pointing into the this.
- * @description Checks that an [ArgumentError] is thrown if [length] is negative.
+ * An error occurs if start.. end is not a valid range for this.
+ * @description Checks that an [RangeError] is thrown if [length] is negative.
  * @author vasya
  * @reviewer iefremov
  */
+library removeRange_A03_t01;
+
 import "../../../Utils/expect.dart";
 
 check(list) {
-  try {
-    list.removeRange(0, -1);
-    Expect.fail("ArgumentError expected when calling List.removeRange()");
-  } on ArgumentError catch(ok) {}
+  Expect.throws(() {
+      list.removeRange(0, -1);
+    },
+    (e) => e is RangeError
+  );
 }
 
-main() {
-  var a = new List();
+test(List create([int length])) {
+  var a = create();
   a.length = 1;
   check(a);
-  check([1]);
-  check(new List.from([1]));
 }

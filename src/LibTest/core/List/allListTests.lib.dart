@@ -20,13 +20,17 @@ import "addAll_A02_t02.test.dart" as addAll_A02_t02;
 import "asMap_A01_t01.test.dart" as asMap_A01_t01;
 import "asMap_A02_t01.test.dart" as asMap_A02_t01;
 import "clear_A01_t01.test.dart" as clear_A01_t01;
+
 import "clear_A02_t01.test.dart" as clear_A02_t01;
 import "fillRange_A01_t01.test.dart" as fillRange_A01_t01;
 import "fillRange_A02_t01.test.dart" as fillRange_A02_t01;
+
 import "getRange_A01_t01.test.dart" as getRange_A01_t01;
 import "getRange_A01_t02.test.dart" as getRange_A01_t02;
+
 import "getRange_A02_t01.test.dart" as getRange_A02_t01;
 import "getRange_A03_t01.test.dart" as getRange_A03_t01;
+
 import "insert_A01_t01.test.dart" as insert_A01_t01;
 import "insert_A02_t01.test.dart" as insert_A02_t01;
 import "insertAll_A01_t01.test.dart" as insertAll_A01_t01;
@@ -58,7 +62,28 @@ import "removeAt_A01_t01.test.dart" as removeAt_A01_t01;
 import "removeAt_A02_t01.test.dart" as removeAt_A02_t01;
 import "removeAt_A03_t01.test.dart" as removeAt_A03_t01;
 import "removeAt_A04_t01.test.dart" as removeAt_A04_t01;
+import "removeLast_A01_t01.test.dart" as removeLast_A01_t01;
+import "removeLast_A02_t01.test.dart" as removeLast_A02_t01;
+import "removeLast_A02_t01.test.dart" as removeLast_A03_t01;
+import "removeRange_A01_t01.test.dart" as removeRange_A01_t01;
+import "removeRange_A01_t02.test.dart" as removeRange_A01_t02;
+import "removeRange_A02_t01.test.dart" as removeRange_A02_t01;
+import "removeRange_A03_t01.test.dart" as removeRange_A03_t01;
+import "removeWhere_A01_t01.test.dart" as removeWhere_A01_t01;
+import "replaceRange_A01_t01.test.dart" as replaceRange_A01_t01;
+import "replaceRange_A01_t02.test.dart" as replaceRange_A01_t02;
+import "retainWhere_A01_t01.test.dart" as retainWhere_A01_t01;
 import "reversed_A01_t01.test.dart" as reversed_A01_t01;
+import "setRange_A01_t01.test.dart" as setRange_A01_t01;
+import "setRange_A01_t02.test.dart" as setRange_A01_t02;
+import "setRange_A02_t01.test.dart" as setRange_A02_t01;
+import "setRange_A02_t02.test.dart" as setRange_A02_t02;
+import "sort_A01_t01.test.dart" as sort_A01_t01;
+import "sort_A01_t02.test.dart" as sort_A01_t02;
+import "sort_A01_t03.test.dart" as sort_A01_t03;
+import "sort_A01_t04.test.dart" as sort_A01_t04;
+import "sort_A01_t05.test.dart" as sort_A01_t05;
+import "sort_A01_t06.test.dart" as sort_A01_t06;
 
 test(List create([int length])) {
   add_A01_t01.test(create);
@@ -110,5 +135,26 @@ test(List create([int length])) {
 //  removeAt_A02_t01.test(create); // issue #14013
   removeAt_A03_t01.test(create);
   removeAt_A04_t01.test(create);
+  removeLast_A01_t01.test(create);
+  removeLast_A02_t01.test(create);
+  removeLast_A03_t01.test(create);
+  removeRange_A01_t01.test(create);
+  removeRange_A01_t02.test(create);
+  removeRange_A02_t01.test(create);
+  removeRange_A03_t01.test(create);
+  removeWhere_A01_t01.test(create);
+  replaceRange_A01_t01.test(create);
+  replaceRange_A01_t02.test(create);
+  retainWhere_A01_t01.test(create);
   reversed_A01_t01.test(create);
+  setRange_A01_t01.test(create);
+  setRange_A01_t02.test(create);
+  setRange_A02_t01.test(create);
+  setRange_A02_t02.test(create);
+  sort_A01_t01.test(create);  
+  sort_A01_t02.test(create);  
+  sort_A01_t03.test(create);  
+  sort_A01_t04.test(create);  
+  sort_A01_t05.test(create);  
+  sort_A01_t06.test(create);  
 }

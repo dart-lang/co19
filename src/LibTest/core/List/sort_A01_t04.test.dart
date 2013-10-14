@@ -12,17 +12,22 @@
  * @author iefremov
  * @reviewer msyabro
  */
+library sort_A01_t04;
+
 import "../../../Utils/expect.dart";
 
-void check(var actual, var expected) {
-  int c(var a, var b) {
-    return a < b ? -1 : (a == b ? 0 : 1);
-  }
-  actual.sort(c);
-  Expect.listEquals(expected, actual);
-}
+test(List create([int length])) {
 
-main() {
+  void check(var actual0, var expected) {
+    List actual=create();
+    actual.addAll(actual0);
+    int c(var a, var b) {
+      return a < b ? -1 : (a == b ? 0 : 1);
+    }
+    actual.sort(c);
+    Expect.listEquals(expected, actual);
+  }
+
 //length == 8
   check([ 00, -01, -01,  01,  00,  00, -01,  00], [-01, -01, -01,  00,  00,  00,  00,  01]);
   check([ 01,  00,  00, -01,  00,  01, -01,  00], [-01, -01,  00,  00,  00,  00,  01,  01]);

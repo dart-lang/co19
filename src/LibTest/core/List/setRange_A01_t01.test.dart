@@ -15,23 +15,22 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+library setRange_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 class A{A(){}}
 
-main() {
+test(List create([int length])) {
   var a = new A();
-  List dst = new List(1);
-  List src = new List(1);
-  src[0] = a;
-  dst.setRange(0, 1, src, 0);
+  List dst = create(1);
+  dst.setRange(0, 1, [a], 0);
   Expect.isTrue(dst[0] == a);
   Expect.identical(dst[0], a);
   Expect.isTrue(dst.length == 1);
 
   //zero case
-  dst = new List(0);
-  src = new List(0);
-  dst.setRange(0, 0, src);
+  dst = create(0);
+  dst.setRange(0, 0, []);
   Expect.isTrue(dst.length == 0);
 }

@@ -11,40 +11,31 @@
  * @author varlax
  * @reviewer iefremov
  */
+library setRange_A02_t02;
+
 import "../../../Utils/expect.dart";
 
 checkList(dst, dstOffset, count, src) {
-  try {
-    dst.setRange(dstOffset, dstOffset+count, src, 0);
-    Expect.fail("expected RangeError");
-  } on RangeError catch(ok) {}
+  Expect.throws(() {
+      dst.setRange(dstOffset, dstOffset+count, src, 0);
+    },
+    (e) => e is RangeError
+  );
 }
 
-void check(int dstSize, int srcSize, int dstOffset, int count) {
-  List src = new List(srcSize);
-  List dst = new List(dstSize);
-  checkList(dst, dstOffset, count, src);
+test(List create([int length])) {
+  void check(int dstSize, int srcSize, int dstOffset, int count) {
+    List src = create(srcSize);
+    List dst = create(dstSize);
+    checkList(dst, dstOffset, count, src);
 
-  src = new List();
-  src.length = srcSize;
-  dst = new List();
-  dst.length = dstSize;
-  checkList(dst, dstOffset, count, src);
+    src = create();
+    src.length = srcSize;
+    dst = create();
+    dst.length = dstSize;
+    checkList(dst, dstOffset, count, src);
+  }
 
-  src = [];
-  src.length = srcSize;
-  dst = [];
-  dst.length = dstSize;
-  checkList(dst, dstOffset, count, src);
-
-  src = new List.from([]);
-  src.length = srcSize;
-  dst = new List.from([]);
-  dst.length = dstSize;
-  checkList(dst, dstOffset, count, src);
-}
-
-main() {
   check(0, 1, -1, 1);
   check(41, 42, -54, 42);
   check(2, 2, 11, 2);

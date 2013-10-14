@@ -12,17 +12,19 @@
  * @author iefremov
  * @reviewer pagolubev
  */
+library sort_A01_t02;
+
 import "../../../Utils/expect.dart";
 
-main() {
+test(List create([int length])) {
   int c(var a, var b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
 
   int maxlen = 7;
-  for(int length = 1; length < maxlen; ++length) {
-    List a = new List(length);
-    List expected = new List(length);
+  for (int length = 1; length < maxlen; ++length) {
+    List a = create(length);
+    List expected = create(length);
     for(int i = 0; i < length; ++i) {
       expected[i] = i;
       a[i] = i;
@@ -58,4 +60,4 @@ main() {
     } //void permute
     permute(length);
   } //for i in 0..length
-} //main
+} // test

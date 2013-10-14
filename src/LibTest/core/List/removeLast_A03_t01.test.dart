@@ -5,23 +5,20 @@
  */
 /**
  * @assertion abstract E removeLast()
- * Throws a UnsupportedError if the length of the list cannot be changed.
- * @description Checks that [UnsupportedError] exception is thrown
- * if the length of the list cannot be changed.
- * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
+ * Throws RangeError if the list is empty.
+ * @description Checks that exception is thrown.
+ * @note undocumented
+ * @author kaigorodov
  */
-library removeLast_A02_t01;
+library removeLast_A03_t01;
 
 import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
-  List a =create(1);
-  a[0] = 0;
+  List a = create();
   Expect.throws(() {
-    a.removeLast();
+      a.removeLast();
     },
-    (e) => e is UnsupportedError
+    (e) => e is RangeError
   );
 }

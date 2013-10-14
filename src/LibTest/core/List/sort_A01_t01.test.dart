@@ -12,7 +12,8 @@
  * @author iefremov
  * @reviewer msyabro
  */
+library sort_A01_t01;
 
-main() {
-  [].sort(null);    
+test(List create([int length])) {
+  create().sort(null);    
 }

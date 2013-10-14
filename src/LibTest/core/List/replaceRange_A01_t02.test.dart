@@ -9,19 +9,23 @@
  * @description Checks that an error is thrown when the range is invalid.
  * @author kaigorodov
  */
+library replaceRange_A01_t02;
+
 import "../../../Utils/expect.dart";
 
-void check(List a, int start, int end, Iterable iterable) {
-  bool failed=false;
-  try {
-    a.replaceRange(start, end, iterable);
-    failed=true;
-  } on Error catch(ok) {}
-  Expect.isFalse(failed, "an error expected");
-}
+test(List create([int length])) {
 
+  void check(List a0, int start, int end, Iterable iterable) {
+    List a=create();
+    a.addAll(a0);
+    bool failed=false;
+    try {
+      a.replaceRange(start, end, iterable);
+      failed=true;
+    } on Error catch(ok) {}
+    Expect.isFalse(failed, "an error expected");
+  }
 
-main() {
   List a0=[1,3,3,4,5,6];
   check(a0, -1, -1, [7,8,9]);
   check(a0, 0, -1, [7,8,9]);

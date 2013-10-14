@@ -10,6 +10,8 @@
  * @author vasya
  * @reviewer msyabro
  */
+library removeLast_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 check(a) {
@@ -42,8 +44,6 @@ check(a) {
   Expect.isTrue(a.length == 99 && o == b[99]);
 }
 
-main() {
-  check(new List());
-  check([]);
-  check(new List.from([]));
+test(List create([int length])) {
+  check(create());
 }

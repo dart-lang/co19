@@ -15,6 +15,8 @@
  * @reviewer msyabro
  * @reviewer varlax
  */
+library setRange_A01_t02;
+
 import "../../../Utils/expect.dart";
 
 check(dst) {
@@ -31,18 +33,10 @@ check(dst) {
   Expect.listEquals([dst, src, dst, src, dst], dst);
 }
 
-main() {
-  check(new List(5));
+test(List create([int length])) {
+  check(create(5));
 
-  var a = [];
-  a.length = 5;
-  check(a);
-
-  a = new List();
-  a.length = 5;
-  check(a);
-
-  a = new List.from([]);
+  List a = create();
   a.length = 5;
   check(a);
 }

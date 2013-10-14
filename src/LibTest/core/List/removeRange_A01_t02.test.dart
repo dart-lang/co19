@@ -10,10 +10,12 @@
  * @author vasya
  * @reviewer varlax
  */
+library removeRange_A01_t02;
+
 import "../../../Utils/expect.dart";
 
-main() {
-  var a = new List();
+test(List create([int length])) {
+  var a = create();
   a.removeRange(0, 0);
   Expect.equals(0, a.length);
 
@@ -26,28 +28,4 @@ main() {
   a.length = 1025;
   a.removeRange(1025, 1025);
   Expect.equals(1025, a.length);
-
-  //[]
-  a = [];
-  a.length = 11;
-  a.removeRange(10, 10);
-  Expect.equals(11, a.length);
-  a.removeRange(1, 1);
-  Expect.equals(11, a.length);
-
-  a.length = 1026;
-  a.removeRange(1026, 1026);
-  Expect.equals(1026, a.length);
-
-  //List.from([])
-  a = new List.from([]);
-  a.length = 11;
-  a.removeRange(10, 10);
-  Expect.equals(11, a.length);
-  a.removeRange(1, 1);
-  Expect.equals(11, a.length);
-
-  a.length = 1026;
-  a.removeRange(1026, 1026);
-  Expect.equals(1026, a.length);
 }

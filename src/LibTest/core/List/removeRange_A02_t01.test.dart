@@ -5,22 +5,20 @@
  */
 /**
  * @assertion 
- * Throws an [UnsupportedError] if the list is not extendable.
+ * Throws an UnsupportedError if this is a fixed-length list.
  * @description Checks that an [UnsupportedError] is thrown as expected.
  * @author vasya
  * @reviewer varlax
  */
+library removeRange_A02_t01;
+
 import "../../../Utils/expect.dart";
 
-main() {
-  var a = new List(1);
-  try {
-    a.removeRange(0, 1);
-    Expect.fail("UnsupportedError expected when calling List.removeRange()");
-  } on UnsupportedError catch(ok) {}
-
-  try {
-    const[].removeRange(0, 1);
-    Expect.fail("UnsupportedError expected when calling List.removeRange()");
-  } on UnsupportedError catch(ok) {}
+test(List create([int length])) {
+  var a = create(1);
+  Expect.throws(() {
+      a.removeRange(0, 1);
+    },
+    (e) => e is UnsupportedError
+  );
 }
