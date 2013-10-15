@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   var it = new RuneIterator('');
-  try {
-    it.string = ' ';
-    Expect.fail('[string] should be final');
-  } on NoSuchMethodError catch(ok) {}
+  Expect.throws(() {
+      it.string = ' ';
+    }
+  );
 }

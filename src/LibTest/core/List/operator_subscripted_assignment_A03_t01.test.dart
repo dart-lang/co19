@@ -5,7 +5,7 @@
  */
 /**
  * @assertion  abstract void operator []=(int index, E value)
- * Throws [TypeError] if [index] is [:null:] or invalid.
+ * Throws an [Error] if [index] is [:null:] or invalid.
  * @description Checks that the exception is thrown, for fixed size and growable arrays.
  * @needsreview undocumented
  * @author kaigorodov
@@ -23,7 +23,7 @@ test(List create([int length])) {
         a[idx] = new Object();
       },
 //      (e) {print("e= ${e.runtimeType}; $e"); return e is TypeError;}
-      (e) => e is TypeError
+      (e) => e is Error
     );
   }
 

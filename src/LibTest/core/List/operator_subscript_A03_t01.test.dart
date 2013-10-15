@@ -5,7 +5,7 @@
  */
 /**
  * @assertion abstract E operator [](int index)
- * Throws [ArgumentError] if [index] is of invalid type.
+ * Throws [Error] if [index] is of invalid type.
  * @description Checks that the exception is thrown as expected.
  * @needsreview undocumented
  * @author varlax
@@ -24,7 +24,7 @@ test(List create([int length])) {
     Expect.throws(() {
         a[idx];
       },
-      (e)=> e is TypeError
+      (e)=> e is Error
     );
   }
 

@@ -13,8 +13,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   var runes = new Runes('');
-  try {
-    runes.string = ' ';
-    Expect.fail("[string] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  Expect.throws(() {
+      runes.string = ' ';
+    }
+  );
 }

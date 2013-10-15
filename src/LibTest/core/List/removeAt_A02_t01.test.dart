@@ -18,8 +18,8 @@ test(List create([int length])) {
   check(List a0, var index) {
 //    List a=create();
 //    a.addAll(a0);
-    List a=create(a0.length);
-    a.setRange(0, a0.length, a0);
+    List a=create();
+    a.addAll(a0);
     Expect.throws(() {
         a.removeAt(index);
       },
