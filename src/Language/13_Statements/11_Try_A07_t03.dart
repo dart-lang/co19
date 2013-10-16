@@ -21,6 +21,8 @@
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
+ * @note Can't really test anything on stack trace even if its toString()
+ * contains certain function names due to possible minification.
  */
 import "../../Utils/expect.dart";
 
@@ -30,6 +32,6 @@ void main() {
     throw ex;
   } on Exception catch(e, st) {
     Expect.equals(ex, e);
-    Expect.isTrue(st.toString().contains("11_Try_A07_t03.dart"));
+    Expect.isNotNull(st);
   }
 }

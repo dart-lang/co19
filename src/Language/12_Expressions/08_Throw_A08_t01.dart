@@ -10,6 +10,8 @@
  * @description Checks that if thrown object is an instance of Error or its
  * subclass the stackTrace getter contains the stack trace.
  * @author ilya
+ * @note Can't really test anything on stack trace even if its toString()
+ * contains certain function names due to possible minification.
  */
 import "../../Utils/expect.dart";
 
@@ -22,13 +24,11 @@ main() {
   try {
     bar(new Error());
   } on Error catch(e) {
-    Expect.isTrue(e.stackTrace.toString().contains('foo'));
-    Expect.isTrue(e.stackTrace.toString().contains('main'));
+    Expect.isNotNull(e.stackTrace);
   }
   try {
     bar(new E());
   } on Error catch(e) {
-    Expect.isTrue(e.stackTrace.toString().contains('foo'));
-    Expect.isTrue(e.stackTrace.toString().contains('main'));
+    Expect.isNotNull(e.stackTrace);
   }
 }

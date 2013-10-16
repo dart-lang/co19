@@ -22,6 +22,8 @@
  * @description Checks that stack trace contains the names of relevant functions. 
  * @author kaigorodov
  * @reviewer rodionov
+ * @note Can't really test anything on stack trace even if its toString()
+ * contains certain function names due to possible minification.
  */
 import "../../Utils/expect.dart";
 
@@ -33,12 +35,9 @@ void func2() {
 }
 
 main() {
-  String str;    
   try {
     func2();
   } catch (p1, st) {
-    str = st.toString();    
+    Expect.isNotNull(st);
   } 
-  Expect.isTrue(str.contains("func1"));
-  Expect.isTrue(str.contains("func2"));
 }

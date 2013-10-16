@@ -10,18 +10,13 @@
  * new T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * const T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * const T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ) is malformed or malbounded.
- * @description Checks that it is a static-warning if a constructor of
- * a non-generic type invoked by a new expression is passed any type arguments.
+ * @description Checks that it is a static-warning if T does not denote a type
+ * in a new T() expression.
  * @static-warning
- * @author msyabro
- * @reviewer kaigorodov
+ * @author ilya
  */
-
-class A {
-}
+import "../../Utils/expect.dart";
 
 main() {
-  try {
-    var o = new A<int>();
-  } catch(e) {}
+  Expect.throws(() => new Undef());
 }
