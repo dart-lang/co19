@@ -26,7 +26,7 @@ check(value) {
   Completer completer = new Completer();
   Future f = completer.future;
   f.then((fValue) {
-    Expect.equals(value, fValue);
+    Expect.identical(value, fValue);
     asyncEnd();
   });
 

@@ -15,8 +15,6 @@
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-//  asyncStart();
-  //  asyncEnd();
 
 main() {
   int value = 20;
@@ -28,9 +26,10 @@ main() {
   Future f=f0.whenComplete((){return f2;});
 
   asyncStart();
-  f.then((var v) {print("v=$v");},
+  f.then((var v) {
+    Expect.fail('should not be called');
+    },
     onError: (Object e){
-//      print("e=$e"); 
       Expect.equals(value, e);
       asyncEnd();
     }

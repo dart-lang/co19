@@ -11,8 +11,8 @@
  * If test returns false, the exception is not handled by onError, but is thrown unmodified,
  * thus forwarding it to f.
  * If test is omitted, it defaults to a function that always returns true.
- * @description Checks that if an exception is handled in [catchError], call to [then]
- * still raises that exceptions.
+ * @description Checks that if an exception is handled in [catchError] in
+ * returned future, original future still raises that exception.
  * @author kaigorodov
  */
 import "../../../Utils/async_utils.dart";

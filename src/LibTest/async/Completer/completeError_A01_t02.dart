@@ -7,41 +7,30 @@
  * @assertion abstract void completeError(Object exception, [Object stackTrace])
  * Complete future with an error. Completing a future with an error indicates that
  * an exception was thrown while trying to produce a value.
- * @description Checks that after [completeError] is called, the corresponding
- * future is completed with that exception.
- * @author kaigorodov
+ * @description Checks that a stackTrace can be passed to completeError.
+ * @author ilya
  */
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 
-List futures = [];
-int count=0;
-
-check(value) {
+main() {
   var completer = new Completer();
   var future = completer.future;
 
-  completer.completeError(value);
+  try {
+    throw 1;
+  } catch(e, st) {
+    completer.completeError(e, st);
+  }
   
   asyncStart();
-  futures.add(future.then(
-   (fValue) {Expect.fail('should not get here');},
-    onError: (Object asyncError) {
-      Expect.equals(value, asyncError);
-      count++;
+  future
+    .then((fValue) {Expect.fail('should not get here');})
+    .catchError((asyncError) {
+      Expect.equals(1, asyncError);
       asyncEnd();
-    }
-  ));
+    });
 }
 
-main() {
-  check(0);
-  check(-5);
-  check(null);
-  check('string');
-  check(true);
-  check(const {'k1': 1, 'k2': 2});
-  Future.wait(futures).whenComplete(() => Expect.equals(6, count));
-}

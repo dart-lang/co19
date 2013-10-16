@@ -10,7 +10,7 @@
  * of calling computation.
  * If the duration is 0 or less, it completes no sooner than in the next event-loop iteration.
  * @description Checks that a future created with the Future.delayed()
- * has the result returned by the supplied value() function.
+ * has the result returned by the supplied computation() function.
  * @author kaigorodov
  */
 import "dart:async";
@@ -19,9 +19,11 @@ import "../../../Utils/expect.dart";
 
 check(delay, value) {
   Future future = new Future.delayed(durationMs(delay), ()=>value);
-  
+
+  asyncStart();
   future.then((fValue) {
-    Expect.equals(fValue, value);
+    Expect.equals(value, fValue);
+    asyncEnd();
   });
 }
 

@@ -6,32 +6,26 @@
 /**
  * @assertion factory Future.error(error, [Object stackTrace])
  * A future that completes with an error in the next event-loop iteration.
- * @description Checks that a future created with constructor
- * Future.error has the error passed as a parameter.
- * @author kaigorodov
+ * @description Checks that a stackTrace can be passed to Future.error.
+ * @author ilya
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(value) {
-  Future future = new Future.error(value);
+main() {
+  var value = [1,2,3];
+  Future future;
+
+  try {
+    throw value;
+  } catch(e, st) {
+    future = new Future.error(e, st);
+  }
   
   asyncStart();
   future.catchError((error) {
     Expect.identical(value, error);
     asyncEnd();
   });
-}
-
-main() {
-  check(0);
-  check(1);
-  check(-5);
-  check('');
-  check('string');
-  check(null);
-  check(true);
-  check(const []);
-  check(const {'k1': 1, 'k2': 2});
 }

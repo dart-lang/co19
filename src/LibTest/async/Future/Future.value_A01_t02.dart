@@ -8,32 +8,19 @@
  * A future whose value is available in the next event-loop iteration.
  * If value is not a Future, using this constructor is equivalent to
  * new Future<T>.sync(() => value).
- * @description Checks that a future created with constructor
- * Future.value has the value passed as a parameter.
- * @author kaigorodov
+ * @description Checks that [value] is an optional parameter.
+ * @author ilya
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(value) {
-  Future future = new Future.value(value);
+main() {
+  Future future = new Future.value();
   
   asyncStart();
   future.then((fValue) {
-    Expect.equals(value, fValue);
+    Expect.equals(null, fValue);
     asyncEnd();
   });
-}
-
-main() {
-  check(0);
-  check(1);
-  check(-5);
-  check('');
-  check('string');
-  check(null);
-  check(true);
-  check(const []);
-  check(const {'k1': 1, 'k2': 2});
 }

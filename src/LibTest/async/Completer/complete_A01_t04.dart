@@ -17,6 +17,8 @@ import "../../../Utils/expect.dart";
 
 int N=10;
 const v=99;
+List futures=[];
+int count=0;
 
 main() {
   var completer = new Completer();
@@ -24,11 +26,13 @@ main() {
 
   for (int k=0; k<N; k++) {
     asyncStart();
-    future.then((fValue) {
+    futures.add(future.then((fValue) {
       Expect.equals(v, fValue);
+      ++count;
       asyncEnd();
-    });
+    }));
   }
+  Future.wait(futures).whenComplete(() => Expect.equals(N, count));
 
   completer.complete(v);
 }

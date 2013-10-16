@@ -6,7 +6,7 @@
 /**
  * @assertion factory Future.delayed(Duration duration, [T computation()])
  * If calling computation throws, the created future will complete with the error.
- * @description Checks that if calling value throws,
+ * @description Checks that if calling computation() throws,
  * the created future will complete with the error.
  * @author kaigorodov
  */

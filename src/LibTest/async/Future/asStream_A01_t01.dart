@@ -21,7 +21,7 @@ check(var value) {
 
   asyncStart();
   f2.then((fValue) {
-    Expect.equals(fValue, value);
+    Expect.identical(value, fValue);
     asyncEnd();
   });
 }

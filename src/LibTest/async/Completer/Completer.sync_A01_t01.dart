@@ -6,8 +6,8 @@
 /**
  * @assertion factory Completer.sync()
  * Completes the future synchronously.
- * @description Checks that [Completer] creates an object of type Completer
- * which have all methods of Completer interface.
+ * @description Checks that [complete] on object created by Completer.sync()
+ * indeed completes the future synchronously.
  * @author msyabro
  * @reviewer kaigorodov
  */

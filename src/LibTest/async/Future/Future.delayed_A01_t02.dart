@@ -8,7 +8,8 @@
  * Creates a future that completes after a delay.
  * The future will be completed after the given duration has passed with the result
  * of calling computation.
- * @description Checks that execution of the supplied value() function happens after delay.
+ * @description Checks that execution of the supplied computation() function
+ * happens after delay.
  * @author kaigorodov
  */
 
