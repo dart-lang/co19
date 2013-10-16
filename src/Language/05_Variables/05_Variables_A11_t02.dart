@@ -7,7 +7,7 @@
  * @assertion Local variables are added to the innermost enclosing scope.
  * They do not induce getters and setters.  A local variable may only be
  * referenced at a source code location that is after its initializer, if any,
- * is complete, or a a compile-time error occurs.
+ * is complete, or a compile-time error occurs.
  * @description Checks that there are no warnings if local variable is used
  * just after its initializer.
  * @static-clean
