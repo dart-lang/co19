@@ -4,16 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns an Iterable containing all the keys in the map.
+ * @assertion final Iterable<K> keys
+ * The keys of this.
  * @description Checks that an Iterable containing all keys is returned.
  * @author msyabro
  * @reviewer varlax
  */
+library keys_A01_t01;
+ 
 import "../../../Utils/expect.dart";
 
-main() {
-  Map<String, Object> map = new Map<String, Object>();
-  
+test(Map create([Map content])) {
+  Map<String, Object> map = create();  
+
   Iterable a = map.keys;
   Expect.isTrue(a.length == 0);
   

@@ -6,7 +6,7 @@
 /**
  * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
  * If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by [ifAbsent].
+ * updates the map by mapping [key] to the value returned by [ifAbsent].
  * Returns the value in the map.
  * @description Checks that if [key] is already associated to a value, [ifAbsent]
  * is not called and its incorrect value is not detected.
@@ -15,10 +15,14 @@
  * @needsreview undocumented
  * @reviewer varlax
  */
-import "../../../Utils/dynamic_check.dart";
+library putIfAbsent_A01_t07;
 
-main() {
-  Map<String, Object> map = new Map<String, Object>();
+import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
+
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
+
   map["1"] = 1;
   
   checkTypeError(() {

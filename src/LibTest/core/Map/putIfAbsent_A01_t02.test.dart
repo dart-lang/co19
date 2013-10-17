@@ -6,19 +6,20 @@
 /**
  * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
  * If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by [ifAbsent].
+ * updates the map by mapping [key] to the value returned by [ifAbsent].
  * Returns the value in the map.
  * @description Tries to modify map in the function.
  * @author varlax
  * @reviewer msyabro
  * @needsreview undocumented
  */
+library putIfAbsent_A01_t02;
+
 import "../../../Utils/expect.dart";
 
-
-main() {
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
   int i = 1;
-  Map<String, Object> map = new Map<String, Object>();
   Object putIfAbsent() {
     map["1"] = 10;
     return i;

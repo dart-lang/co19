@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The number of {key, value} pairs in the map.
+ * @assertion final int length
+ * The number of {key, value} pairs in the map.
  * @description Checks that in length stored correct size of the map.
  * @author msyabro
  * @reviewer varlax
  */
+library length_A01_t01;
+ 
 import "../../../Utils/expect.dart";
  
-
-main() {
-  Map<String, Object> map = new Map<String, Object>();
-  
+test(Map create([Map content])) {
+  Map<String, Object> map = create();  
   Expect.isTrue(map.length == 0);
   
   map["1"] = 1;

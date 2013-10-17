@@ -10,12 +10,13 @@
  * @author msyabro
  * @reviewer varlax
  */
+library values_A01_t01;
+
 import "../../../Utils/expect.dart";
  
-
-main() {
-  Map<String, Object> map = new Map<String, Object>();
-  
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
+    
   Iterable a = map.values;
   Expect.isTrue(a.length == 0);
   

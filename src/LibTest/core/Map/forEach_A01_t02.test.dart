@@ -4,19 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies [f] to each {key, value} pair of the map.
+ * @assertion  abstract void forEach(void f(K key, V value))
+ * Applies f to each {key, value} pair of the map.
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
  * @static-warning
  * @author msyabro
  * @reviewer varlax
  */
-import "../../../Utils/expect.dart";
+library forEach_A01_t02;
 
 import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
 
-main() {
-  Map<String, Object> map = new Map<String, Object>();
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
   
   map["1"] = 3;
   map["2"] = 5;

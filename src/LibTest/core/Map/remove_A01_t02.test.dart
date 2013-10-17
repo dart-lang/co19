@@ -4,17 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes the association for the given [key]. Returns null if
- * [key] is not in the map.
+ * @assertion  abstract V remove(Object key)
+ * Removes the association for the given key.
+ * Returns the value for key in the map or null if key is not in the map.
  * @description Checks that null key can be removed without error.
  * @author msyabro
  * @reviewer varlax
  */
+library remove_A01_t02;
+
 import "../../../Utils/expect.dart";
  
-
-main() {
-  Map<String, Object> map = new Map<String, Object>();
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
   
   map[null] = 1;
   Expect.isTrue(map.containsKey(null));

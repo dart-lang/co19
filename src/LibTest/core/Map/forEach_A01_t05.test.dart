@@ -4,16 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies [f] to each {key, value} pair of the map.
+ * @assertion  abstract void forEach(void f(K key, V value))
+ * Applies f to each {key, value} pair of the map.
  * @description Tries to pass function that returns something.
  * @author msyabro
  * @reviewer varlax
- * @needsreview should fail static type check??
  */
+library forEach_A01_t05;
 
-
-main() {
-  Map<String, Object> map = new Map<String, Object>();
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
   
   map["1"] = 3;
   map["2"] = 5;

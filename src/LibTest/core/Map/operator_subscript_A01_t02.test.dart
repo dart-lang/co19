@@ -6,12 +6,18 @@
 /**
  * @assertion Returns the value for the given [key] or null if [key] is not in the map.
  * @description Checks that null key is allowed
- * @author msyabro
- * @reviewer varlax
+ * @author kaigorodov
  */
-
-
-main() {
-  Map<int, Object> map = new Map<int, Object>();
-  map[null];
+library operator_subscript_A01_t02;
+ 
+import "../../../Utils/expect.dart";
+ 
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
+  Object value="value";
+  Expect.isFalse(map.containsKey(null));  
+  Expect.equals(null, map[null]);
+  map[null]=value;
+  Expect.isTrue(map.containsKey(null));  
+  Expect.equals(value, map[null]);
 }

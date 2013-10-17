@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies [f] to each {key, value} pair of the map.
+ * @assertion  abstract void forEach(void f(K key, V value))
+ * Applies f to each {key, value} pair of the map.
  * @description Checks that all mappings are iterated exactly once.
  * @author varlax
  * @reviewer varlax
  * @reviewer msyabro
  */
+library forEach_A01_t01;
+
 import "../../../Utils/expect.dart";
 
-
-  
-main() {
+test(Map create([Map content])) {
   
   List keys = new List(2);
   keys[0] = 0;
@@ -25,7 +26,7 @@ main() {
     values[i] = value;
   }
   
-  Map<int, Object> map = new Map<int, Object>();
+  Map<int, Object> map = create();
   map[0] = "3";
   map[1] = "5";
   map.forEach(f);

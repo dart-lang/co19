@@ -4,21 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if there is no {key, value} pair in the map.
+ * @assertion final bool isEmpty
+ * Returns true if there is no {key, value} pair in the map.
  * @description Check that true is returned only if the map is empty.
  * @author msyabro
  * @reviewer varlax
  */
+library isEmpty_A01_t01;
+
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Map<String, Object> map = new Map<String, Object>();
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
   
   Expect.isTrue(map.isEmpty);
   
   map["1"] = 1;
-  Expect.isTrue(!map.isEmpty);
+  Expect.isFalse(map.isEmpty);
   
   map.remove("1");
   Expect.isTrue(map.isEmpty);

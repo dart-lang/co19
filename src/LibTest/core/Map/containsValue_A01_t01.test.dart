@@ -4,17 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether this map contains the given [value].
+ * @assertion  abstract bool containsValue(Object value)
+ * Returns true if this map contains the given value.
  * @description Checks that the method returns true if this map contains a mapping
  * for the specified key.
  * @author msyabro
  * @reviewer varlax
  */
-import "../../../Utils/expect.dart";
- 
+library containsValue_A01_t01;
 
-main() {
-  Map<String, Object> stringObjectMap = new Map<String, Object>();
+import "../../../Utils/expect.dart";
+
+test(Map create([Map content])) {
+  Map<String, Object> stringObjectMap = create();
   Expect.isTrue(!stringObjectMap.containsValue(null));
   
   stringObjectMap["1"] = 1;

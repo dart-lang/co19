@@ -6,7 +6,7 @@
 /**
  * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
  * If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by [ifAbsent].
+ * updates the map by mapping [key] to the value returned by [ifAbsent].
  * Returns the value in the map.
  * @description Checks that isAbsent is indeed called before putting the new key 
  * in the map if it's not already associated to a value, resulting in a NoSuchMethodError 
@@ -17,11 +17,13 @@
  * @reviewer varlax
  * @needsreview undocumented
  */
+library putIfAbsent_A01_t08;
+
 import "../../../Utils/expect.dart";
 import "../../../Utils/dynamic_check.dart";
 
-main() {
-  Map<String, Object> map = new Map<String, Object>();
+test(Map create([Map content])) {
+  Map<String, Object> map = create();
       
   Expect.throws(() {
       map.putIfAbsent("1", 1); /// static type warning
