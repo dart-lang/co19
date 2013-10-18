@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future catchError(onError(Object error), {bool test(Object error)})
+ * @assertion abstract Future catchError(Function onError, {bool test(Object error)})
  * When this completes with a value, the value is forwarded to f unmodified.
  * That is, f completes with the same value.
  * @description Checks that if this completes with a value, [onError] is not

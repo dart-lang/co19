@@ -11,9 +11,9 @@
  * If test returns false, the exception is not handled by onError, but is thrown unmodified,
  * thus forwarding it to f.
  * If test is omitted, it defaults to a function that always returns true.
- * @description Checks that [onError] is called if [test] is omitted and the future gets an exception.
- * @author msyabro
- * @reviewer kaigorodov
+ * @description Checks that stack trace is passed as a second argument to
+ * onError callback.
+ * @author ilya
  */
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -21,13 +21,22 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 
 main() {
-  Completer completer = new Completer();
-  Future f = completer.future;
-
-  f.catchError((Object asyncError) {
-    asyncEnd();
-  });
+  Future future;
+  var stackTtrace;
+  var error = new Error();
 
   asyncStart();
-  completer.completeError("!");
+
+  try {
+    throw error;
+  } catch(e,st) {
+    stackTtrace = st;
+    future = new Future.error(e, st);
+  }
+
+  future.catchError((e, st) {
+    Expect.identical(error, e);
+    Expect.identical(stackTtrace, st);
+    asyncEnd();
+  });
 }

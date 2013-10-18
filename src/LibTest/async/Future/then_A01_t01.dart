@@ -23,7 +23,7 @@ check(value) {
   Future f = completer.future;
   
   asyncStart();
-  f.then((fValue) {
+  f.then((_) {
     Expect.isTrue(completer.isCompleted);
     asyncEnd();
   });

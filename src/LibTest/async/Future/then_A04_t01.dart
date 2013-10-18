@@ -5,8 +5,7 @@
  */
 /**
  * @assertion abstract Future then(onValue(T value), {onError(Object asyncError)})
- * If onError is not given, it is equivalent to (e) { throw e; }.
- * That is, it forwards the error to f.
+ * If onError is not given, it forwards the error to f.
  * @description Checks that if onError is not given then the error propagates to f.
  * @author kaigorodov
  */

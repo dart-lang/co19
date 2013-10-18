@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.error(error, [Object stackTrace])
- * A future that completes with an error in the next event-loop iteration.
- * @description Checks that a stackTrace can be passed to Future.error.
+ * @assertion abstract Future then(onValue(T value), {onError(Object asyncError)})
+ * The onError callback must be of type
+ * void onError(error) or
+ * void onError(error, StackTrace stackTrace).
+ * If onError accepts two arguments it is called with the stack trace
+ * (which could be null if the stream itself received an error without stack
+ * trace). Otherwise it is called with just the error object.
+ * @description Checks that second parameter to onError callback will receive
+ * a stack trace.
  * @author ilya
  */
 import "dart:async";
@@ -14,9 +20,9 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var error = new Error();
   Future future;
   var stackTrace;
+  var error = new Error();
 
   asyncStart();
 
@@ -26,8 +32,8 @@ main() {
     stackTrace = st;
     future = new Future.error(e, st);
   }
-  
-  future.catchError((e, st) {
+
+  future.then((_){}, onError: (e, st) {
     Expect.identical(error, e);
     Expect.identical(stackTrace, st);
     asyncEnd();

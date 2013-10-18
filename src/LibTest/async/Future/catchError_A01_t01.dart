@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future catchError(onError(Object error), {bool test(Object error)})
+ * @assertion abstract Future catchError(Function onError, {bool test(Object error)})
  * Handles errors emitted by this Future.
  * Returns a new Future f.
  * @description Checks that [catchError] returns a new Future f.

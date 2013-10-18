@@ -11,23 +11,13 @@
  * If test returns false, the exception is not handled by onError, but is thrown unmodified,
  * thus forwarding it to f.
  * If test is omitted, it defaults to a function that always returns true.
- * @description Checks that [onError] is called if [test] is omitted and the future gets an exception.
- * @author msyabro
- * @reviewer kaigorodov
+ * @description Checks that it is a runtime error if onError callback has more
+ * than two parameters.
+ * @runtime-error
+ * @author ilya
  */
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
 import "dart:async";
 
 main() {
-  Completer completer = new Completer();
-  Future f = completer.future;
-
-  f.catchError((Object asyncError) {
-    asyncEnd();
-  });
-
-  asyncStart();
-  completer.completeError("!");
+  new Future.error(1).catchError((x,y,z){});
 }
