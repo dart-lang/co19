@@ -7,8 +7,6 @@
  * @assertion factory StreamController.broadcast({void onListen(), void onCancel(), bool sync: false})
  * The onListen callback is called when the first listener is subscribed,
  * and the onCancel is called when there are no longer any active listeners.
- 
-  If a listener is added again later, after the onCancel was called, the onListen will be called again.
  * @description Checks that the onCancel function is called when the listener ends its subscription.
  * @author kaigorodov
  */

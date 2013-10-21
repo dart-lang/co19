@@ -8,11 +8,11 @@
  * Returns a view of this object that only exposes the EventSink interface.
  * @static-warning
  * @description Checks that only the EventSink interface is exposed.
+ * @static-warning
  * @author kaigorodov
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {

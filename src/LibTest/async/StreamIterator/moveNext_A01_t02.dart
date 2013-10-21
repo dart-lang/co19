@@ -10,8 +10,9 @@
  * If the returned future completes with anything except true, the iterator is done,
  * and no new value will ever be available.
  * The future may complete with an error, if the stream produces an error.
- * @description Checks that futures returned by moveNext() complete with
- * expected true and false values.
+ * @description Checks that future returned by moveNext() completes with
+ * an error if stream produces an error and that iterator is automatically
+ * cancelled after that (see doc on cancel).
  * @author ilya
  */
 
@@ -20,23 +21,25 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var si = new StreamIterator(new Stream.fromIterable([1,2,3,4,5]));
-  var count = 1;
-
-  f() {
-    si.moveNext().then((value) {
-      if (count < 6) {
-        Expect.identical(true, value);
-        Expect.identical(count++, si.current);
-        f();
-      } else {
-        Expect.identical(false, value);
-        asyncEnd();
-      }
-    });
-  }
+  var c = new StreamController();
+  var si = new StreamIterator(c.stream);
 
   asyncStart();
 
-  f();
+  si.moveNext().then((value) {
+    Expect.identical(true, value);
+    Expect.identical(1, si.current);
+    si.moveNext().catchError((value) {
+      Expect.identical(2, value);
+      si.moveNext().then((value) {
+        Expect.identical(false, value);
+        asyncEnd();
+      });
+    });
+  });
+
+  c.add(1);
+  c.addError(2);
+  c.add(3);
+  c.close();
 }

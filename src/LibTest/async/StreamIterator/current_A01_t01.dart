@@ -13,7 +13,6 @@
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(expected) {
@@ -24,6 +23,7 @@ void check(expected) {
     Expect.isTrue(value);
     Expect.equals(expected, streamIterator.current);
   });
+  controller.close();
 }
 
 main() {

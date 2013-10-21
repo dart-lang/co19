@@ -4,8 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future close()
- * Close the StreamSink. It'll return the done Future.
+ * @assertion final Future done
+ * The done Future completes with the same values as close, except for the
+ * following case:
+ * - The synchronous methods of EventSink were called, resulting in an error.
+ * If there is no active future (like from an addStream call), the done future
+ * will complete with that error
  * @description Checks that returned value is a Future.
  * @author ilya
  */
@@ -14,5 +18,5 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(new StreamController().close() is Future);
+  Expect.isTrue(new StreamController().done is Future);
 }
