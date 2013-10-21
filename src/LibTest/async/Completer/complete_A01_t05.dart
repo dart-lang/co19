@@ -11,6 +11,7 @@
  * with the value v, completer's future will complete with the value v.
  * @author ilya
  * @note undocumented
+ * @issue 14211
  */
 
 import "dart:async";

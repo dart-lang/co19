@@ -11,6 +11,7 @@
  * the error e, completer's future will complete with the error e.
  * @author ilya
  * @note undocumented
+ * @issue 14211
  */
 
 import "dart:async";
