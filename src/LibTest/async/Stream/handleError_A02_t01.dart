@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> handleError(void handle(error), {bool test(error)})
+ * @assertion Stream<T> handleError(Function onError, {bool test(error)})
  * If test is omitted, every error is considered matching.
  * @description Checks that if test is omitted, every error is considered matching.
  * @author kaigorodov

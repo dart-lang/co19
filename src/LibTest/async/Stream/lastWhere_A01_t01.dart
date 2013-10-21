@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> lastWhere(bool test(T element), {T defaultValue()})
+ * @assertion Future<dynamic> lastWhere(bool test(T element), {Object defaultValue()})
  * Finds the last element in this stream matching test.
  * As firstWhere, except that the last matching element is found.
  * That means that the result cannot be provided before this stream is done.

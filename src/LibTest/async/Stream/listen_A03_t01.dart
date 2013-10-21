@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract StreamSubscription<T> listen(void onData(T event), {void onError(error), void onDone(), bool cancelOnError})
+ * @assertion abstract StreamSubscription<T> listen(void onData(T event),
+ *   {Function onError, void onDone(), bool cancelOnError})
  * On errors from this stream, the onError handler is given a object describing the error.
  * @description Checks that the onError handler is given a object describing the error.
  * @author kaigorodov

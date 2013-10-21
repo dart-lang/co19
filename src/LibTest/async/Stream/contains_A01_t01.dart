@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<bool> contains(T match)
- * Checks whether match occurs in the elements provided by this stream.
+ * @assertion Future<bool> contains(Object needle)
+ * Checks whether needle occurs in the elements provided by this stream.
  * @description Checks that the method correctly checks whether match
  * occurs in the elements provided by this stream.
  * @author kaigorodov

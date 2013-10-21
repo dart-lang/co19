@@ -25,7 +25,7 @@ check(var expectedError) {
       Expect.fail("data passed: $data");
     },
     onError: (error) {
-      Expect.equals(expectedError, error);
+      Expect.identical(expectedError, error);
       asyncEnd();
     }
   );

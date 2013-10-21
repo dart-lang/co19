@@ -16,47 +16,31 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-typedef int Computation(int computationCount);
-
-Stopwatch sw=new Stopwatch();
-const maxCount = 5;
-
-class MyListener extends StreamListener<int> {
-  
-  Duration period;
+check(int periodMs) {
+  Duration period=durationMs(periodMs);
+  const maxCount=5;
   int count=0;
+
+  Stopwatch sw=new Stopwatch();
+  sw.start();
   
-  MyListener(this.period);
+  asyncStart();
   
-  void onData(int event) {
+  Stream s=new Stream.periodic(period);
+
+  var subs = s.listen(null);
+  subs.onData((int event) {
     count++;
     Expect.isNull(event, "onData");
     Duration expected=period*count;
     Duration actual=sw.elapsed;
     Expect.isTrue(expected<=actual, "expected=$expected, actual=$actual");
+    //print('expected=$expected actual=$actual');
     if (count>=maxCount) {
-      subscription.cancel();
+      subs.cancel();
+      asyncEnd();
     }
-  }
-  
-  void onError(error)  {
-    throw error;
-  }
-  
-  void onDone(){
-    asyncEnd();
-  }
-  
-}
-
-check(int periodMs) {
-  Duration period=durationMs(periodMs);
-  sw.start();
-  
-  Stream s=new Stream.periodic(period);
-  MyListener l=new MyListener(period);
-  asyncStart();
-  StreamSubscription<int> subs=l.listenTo(s);
+  });
 }
 
 main() {

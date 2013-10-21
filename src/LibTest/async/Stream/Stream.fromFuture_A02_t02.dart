@@ -16,42 +16,29 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyListener extends StreamListener<int> {
-  List<bool> seen=[false, false];
-  
-  void onData(int event) {
-    Expect.fail("onError called unexpectedly");
-  }
-  
-  void onError(error){
-    Expect.listEquals([false, false], seen, "onError");
-    seen[0]=true;
-  }
-  
-  void onDone(){
-    Expect.listEquals([true, false], seen, "onDone");
-    seen[1]=true;
-    asyncEnd();
-  }
-  
-  void check(){
-    Expect.listEquals([true, true], seen, "check");
-    asyncEnd();
-  }
-}
+var error = new Error();
 
 check(Future f) {
+  bool seen=false;
   Stream s=new Stream.fromFuture(f);
-  MyListener l=new MyListener();
+
   asyncStart();
-  l.listenTo(s);
-  asyncStart();
-  new Timer(durationMs(10), l.check);
+
+  s.listen((int event) {
+    Expect.fail("onData called unexpectedly");
+  }, onError: (e) {
+    Expect.equals(false, seen, "onError");
+    Expect.equals(error, e);
+    seen=true;
+  }, onDone: () {
+    Expect.equals(true, seen, "onDone");
+    asyncEnd();
+  });
 }
 
 main() {
   // using immediate sync future
-  void throwError(){throw new Error();}
+  void throwError(){throw error;}
   check(new Future.sync(throwError));
   
   // using immediate future
@@ -60,6 +47,6 @@ main() {
   // using completable future
   Completer completer = new Completer();
   check(completer.future);
-  completer.completeError(new Error());
+  completer.completeError(error);
 }
 

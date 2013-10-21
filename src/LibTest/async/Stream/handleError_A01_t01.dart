@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> handleError(void handle(error), {bool test(error)})
+ * @assertion Stream<T> handleError(Function onError, {bool test(error)})
  * Creates a wrapper Stream that intercepts some errors from this stream.
- * If this stream sends an error that matches test, then it is intercepted by the handle function.
+ * If this stream sends an error that matches test, then it is intercepted by the onError function.
  * An [AsyncError] [:e:] is matched by a test function if test(e) returns true.
  * @description Checks that an error e is matched by a test function if test(e) returns true.
  * @author kaigorodov

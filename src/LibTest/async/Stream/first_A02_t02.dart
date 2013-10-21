@@ -5,8 +5,10 @@
  */
 /**
  * @assertion final Future<T> first
- * If this is empty throws a StateError.
- * Otherwise this method is equivalent to this.elementAt(0).
+ * If this stream is empty (a done event occurs before the first data event),
+ * the resulting future completes with a StateError.
+ * Except for the type of the error, this method is equivalent to
+ * this.elementAt(0).
  * @description Checks that for non-empty stream, this.first is equivalent to this.elementAt(0).
  * @author kaigorodov
  */

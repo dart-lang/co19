@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream expand(Iterable convert(var value))
+ * @assertion Stream expand(Iterable convert(T value))
  * Creates a new stream from this stream that converts each element into zero or more events.
  * Each incoming event is converted to an Iterable of new events, and each of these new events
  * are then sent by the returned stream in order.

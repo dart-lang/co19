@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> firstWhere(bool test(T element), {T defaultValue()})
+ * @assertion Future<dynamic> firstWhere(bool test(T element), {Object defaultValue()})
  * If an error occurs, or if this stream ends without finding a match and with no defaultValue function
  * provided, the future will receive an error.
  * @description Checks that if this stream ends without finding a match and with no defaultValue

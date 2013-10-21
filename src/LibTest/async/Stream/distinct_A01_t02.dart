@@ -12,7 +12,6 @@
  * If that is omitted, the '==' operator on the last provided data element is used.
  * @description Checks that if parameter is present, returned stream filters events
  * according to the supplied function.
- * consecutive identical elements.
  * @author kaigorodov
  */
 
@@ -29,11 +28,10 @@ check(Iterable<int> data, bool equals(var previous, var next)) {
   d.listen((var event){
       if (first) {
         first=false;
-        previous=event;
       } else {
         Expect.isFalse(equals(previous, event), "p=$previous, e=$event");
-        previous=event;
       }
+      previous=event;
     },
     onDone:(){
       asyncEnd();

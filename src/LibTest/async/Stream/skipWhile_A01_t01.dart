@@ -9,7 +9,7 @@
  * Error and done events are provided by the returned stream unmodified.
  * Starting with the first data event where test returns true for the event data,
  * the returned stream will have the same events as this stream.
- * @description Checks that the first n elements are skipped.
+ * @description Checks that elements matched by a test are skipped.
  * @author kaigorodov
  */
 

@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> asBroadcastStream()
+ * @assertion Stream<T> asBroadcastStream ({void onListen(StreamSubscription<T>
+ *   subscription), void onCancel(StreamSubscription<T> subscription)})
  * Returns a multi-subscription stream that produces the same events as this.
  * If this stream is single-subscription, return a new stream that allows multiple subscribers.
  * It will subscribe to this stream when its first subscriber is added,
- * and unsubscribe again when the last subscription is canceled.
- * @description Checks that returned a multi-subscription stream produces the same events as this.
+ * and will stay subscribed until this stream ends, or a callback cancels the subscription.
+ * @description Checks that returned stream is indeed a multi-subscription
+ * stream and it produces the same events as this.
  * @author kaigorodov
  */
 

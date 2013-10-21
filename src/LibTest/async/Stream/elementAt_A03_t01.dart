@@ -18,10 +18,10 @@ import "../../../Utils/expect.dart";
 void checkError(Stream s, index) {
   asyncStart();
   s.elementAt(index).then((actual){
-      Expect.fail("unexpected onDone call");
+      Expect.fail("unexpected onValue call");
     },
     onError: (error) {
-      Expect.isTrue(error is RangeError, "error is ${error. runtimeType}");
+      Expect.isTrue(error is RangeError, "error is ${error.runtimeType}");
       asyncEnd();
     }
   );

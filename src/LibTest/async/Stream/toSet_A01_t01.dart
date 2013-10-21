@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<List<T>> toList()
- * Collects the data of this stream in a List.
+ * @assertion Future<Set<T>> toSet()
+ * Collects the data of this stream in a Set.
  * @description Checks that returned set contains all elements of the stream.
  * @author kaigorodov
  */
@@ -14,8 +14,6 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-/** index - first position in the stream where test() returns false
- */
 void check(List data) {
   Stream s=new Stream.fromIterable(data);
   Future f=s.toSet();

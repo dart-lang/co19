@@ -14,46 +14,21 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class MyListener extends StreamListener<int> {
-  bool onDoneSeen=false;
-  Iterator<int> it;
-  int dataLength;
-  int count=0;
-    
-  MyListener(Iterable<int> data):this.it=data.iterator, this.dataLength=data.length;
-  
-  void onData(int event) {
-    Expect.isFalse(onDoneSeen, "onData");
+check(Iterable<int> data) {
+  Iterator<int> it = data.iterator;
+  Stream s=new Stream.fromIterable(data);
+
+  asyncStart();
+
+  s.listen((int event) {
     Expect.isTrue(it.moveNext());
     Expect.equals(it.current, event);
-    count++;
-  }
-  
-  void onError(error){
+  }, onError: (error) {
     Expect.fail("onError($error) called unexpectedly");
-  }
-  
-  void onDone(){
-    Expect.isFalse(onDoneSeen, "onDone");
-    onDoneSeen=true;
+  }, onDone: () {
     Expect.isFalse(it.moveNext());
-    Expect.equals(dataLength, count, "check");
     asyncEnd();
-  }
-  
-  void check(){
-    Expect.isTrue(onDoneSeen, "check");
-    asyncEnd();
-  }
-}
-
-check(Iterable<int> data) {
-  Stream s=new Stream.fromIterable(data);
-  MyListener l=new MyListener(data);
-  asyncStart();
-  l.listenTo(s);
-  asyncStart();
-  new Timer(durationMs(10), l.check);
+  });
 }
 
 main() {

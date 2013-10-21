@@ -10,7 +10,6 @@
  */
 
 import "dart:async";
-import "../../../Utils/expect.dart";
 
 class MyStream<T> extends Stream<T> {
   StreamSubscription<T> listen(void onData(T event),

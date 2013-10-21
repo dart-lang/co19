@@ -5,9 +5,10 @@
  */
 /**
  * @assertion final Future<T> first
- * If this is empty throws a StateError.
- * @description Checks that a StateError is thrown when this stream is empty.
- * @needsreview #11118
+ * If this stream is empty (a done event occurs before the first data event),
+ * the resulting future completes with a StateError.
+ * @description Checks that future completes with a StateError when this
+ * stream is empty.
  * @author kaigorodov
  */
 

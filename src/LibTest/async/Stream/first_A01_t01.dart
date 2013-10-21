@@ -5,7 +5,7 @@
  */
 /**
  * @assertion final Future<T> first
- * Returns the first element.
+ * Returns the first element of the stream.
  * @description Checks that the first element is returned.
  * @author kaigorodov
  */
@@ -40,6 +40,5 @@ main() {
   // using periodic
   Stream s=new Stream.periodic(durationMs(0), (computationCount)=>VAL);
   check(s);
-  
 }
 

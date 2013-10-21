@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> handleError(void handle(error), {bool test(error)})
- * If the error is intercepted, the handle function can decide what to do with it.
+ * @assertion Stream<T> handleError(Function onError, {bool test(error)})
+ * If the error is intercepted, the onError function can decide what to do with it.
  * It can throw if it wants to raise a new (or the same) error,
  * or simply return to make the stream forget the error.
- * @description Checks that an error is rethrown, it appears in the stream.
+ * @description Checks that if an error is rethrown, it appears in the stream.
  * @author kaigorodov
  */
 

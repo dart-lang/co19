@@ -5,8 +5,10 @@
  */
 /**
  * @assertion Future<T> elementAt(int index)
- * If an error event occurs, the future will end with this error.
- * @description Checks that if an error event occurs, the future will end with this error.
+ * If an error event occurs before the value is found, the future completes
+ * with this error.
+ * @description Checks that if an error event occurs before the value is found,
+ * the future will end with this error.
  * @author kaigorodov
  */
 
@@ -17,7 +19,7 @@ import "../../../Utils/expect.dart";
 void checkError(Stream s, int index, var expected) {
   asyncStart();
   s.elementAt(index).then((actual){
-      Expect.fail("unexpected onDone call");
+      Expect.fail("unexpected onValue call");
     },
     onError: (error) {
       var message=(error as ArgumentError).message;

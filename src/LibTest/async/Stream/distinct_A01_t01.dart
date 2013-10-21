@@ -11,7 +11,7 @@
  * Equality is determined by the provided equals method.
  * If that is omitted, the '==' operator on the last provided data element is used.
  * @description Checks that if parameter is omitted, returned stream does not contain
- * consecutive identical elements.
+ * consecutive equal elements in terms of operator ==. 
  * @author kaigorodov
  */
 
@@ -28,10 +28,10 @@ check(Iterable<int> data) {
   d.listen((var event){
       if (first) {
         first=false;
-        previous=event;
       } else {
-        Expect.isFalse(identical(previous, event));
+        Expect.isFalse(previous==event);
       }
+      previous=event;
     },
     onDone:(){
       asyncEnd();

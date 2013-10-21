@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<bool> contains(T match)
+ * @assertion Future<bool> contains(Object needle)
  * Completes the Future when the answer is known.
  * @description Checks that the Future is completed when the answer is known.
  * @author kaigorodov

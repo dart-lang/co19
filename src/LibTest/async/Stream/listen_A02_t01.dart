@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract StreamSubscription<T> listen(void onData(T event), {void onError(error), void onDone(), bool cancelOnError})
+ * @assertion abstract StreamSubscription<T> listen(void onData(T event),
+ *   {Function onError, void onDone(), bool cancelOnError})
  * Adds a subscription to this stream.
  * If onData is null, nothing happens.
  * @description Checks that onData can be null;
@@ -13,7 +14,6 @@
 
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check(List data) {
   Stream s1=new Stream.fromIterable(data);

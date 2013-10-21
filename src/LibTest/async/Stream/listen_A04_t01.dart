@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract StreamSubscription<T> listen(void onData(T event), {void onError(error), void onDone(), bool cancelOnError})
+ * @assertion abstract StreamSubscription<T> listen(void onData(T event),
+ *   {Function onError, void onDone(), bool cancelOnError})
  * If cancelOnError is true, the subscription is ended when the first error is reported.
  * The default is false.
- * @description Checks that if cancelOnError is true, the subscription is ended when the first error.
+ * @description Checks that if cancelOnError is true, the subscription is ended
+ * when the first error is reported.
  * @author kaigorodov
  */
 

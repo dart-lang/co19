@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract StreamSubscription<T> listen(void onData(T event), {void onError(error), void onDone(), bool cancelOnError})
+ * @assertion abstract StreamSubscription<T> listen(void onData(T event),
+ *   {Function onError, void onDone(), bool cancelOnError})
  * Adds a subscription to this stream.
  * On each data event from this stream, the subscriber's onData handler is called.
  * @description Checks that on each data event from this stream,

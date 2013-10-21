@@ -7,7 +7,7 @@
  * @assertion final Future<T> single
  * Returns the single element.
  * If this is empty or has more than one element throws a StateError.
- * @description Checks that a StateError if this is empty or has more than one element.
+ * @description Checks that a StateError is thrown if this is empty or has more than one element.
  * @author kaigorodov
  */
 

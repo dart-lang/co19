@@ -18,38 +18,22 @@ import "../../../Utils/expect.dart";
 
 const int value=123;
 
-class MyListener extends StreamListener<int> {
-  List<bool> seen=[false, false];
-  
-  void onData(int event) {
-    Expect.listEquals([false, false], seen, "onData");
-    seen[0]=true;
-    Expect.equals(value, event);
-  }
-  
-  void onError(error){
-    Expect.fail("onError called unexpectedly");
-  }
-  
-  void onDone(){
-    Expect.listEquals([true, false], seen, "onDone");
-    seen[1]=true;
-    asyncEnd();
-  }
-  
-  void check(){
-    Expect.listEquals([true, true], seen, "check");
-    asyncEnd();
-  }
-}
-
 check(Future f) {
+  bool seen=false;
   Stream s=new Stream.fromFuture(f);
-  MyListener l=new MyListener();
+
   asyncStart();
-  l.listenTo(s);
-  asyncStart();
-  new Timer(durationMs(10), l.check);
+
+  s.listen((int event) {
+    Expect.equals(false, seen, "onData");
+    Expect.equals(value, event);
+    seen=true;
+  }, onError: (_) {
+    Expect.fail("onError called unexpectedly");
+  }, onDone: () {
+    Expect.equals(true, seen, "onDone");
+    asyncEnd();
+  });
 }
 
 main() {

@@ -16,17 +16,17 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 StreamTransformer<int, int> createMyTransformer()  {
-  return new StreamTransformer (
+  return new StreamTransformer.fromHandlers (
     handleData: (int event, EventSink<int> sink) {
       sink.add(event);
     }
   );
 }
 
-void check(Iterable data, bool test(event)) {
+void check(Iterable data) {
   Stream s = new Stream.fromIterable(data)
-    .map( (x) => x%2==0?x:throw new ArgumentError(x) );
-  Stream s2=s.transform(createMyTransformer()).asBroadcastStream();
+    .map( (x) => x%2==0?x:throw new ArgumentError(x) ).asBroadcastStream();
+  Stream s2=s.transform(createMyTransformer());
   
   List err1=new List();
   List err2=new List();
@@ -36,7 +36,7 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  s2.listen((int value){},
+  s.listen((int value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -45,7 +45,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  s2.where(test).listen((int value){},
+  s2.listen((int value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -56,8 +56,6 @@ void check(Iterable data, bool test(event)) {
 }
 
 main() {
-  check(new Iterable.generate(10, (int index)=>index),
-    (event)=>true
-  );
+  check(new Iterable.generate(10, (int index)=>index));
 }
 

@@ -6,6 +6,7 @@
 /**
  * @assertion Future<T> elementAt(int index)
  * Returns the value of the indexth data event of this stream.
+ * Stops listening to the stream after a value has been found.
  * @description Checks that the future returns the value of the indexth data event of this stream.
  * @author kaigorodov
  */

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion final Future<T> last
- * Returns the last element.
+ * Returns the last element of the stream.
  * @description Checks that the last element is returned.
  * @author kaigorodov
  */
