@@ -11,7 +11,6 @@
  * @static-clean
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 13242
  */
 import "1_Instance_Methods_A05_lib.dart";
 

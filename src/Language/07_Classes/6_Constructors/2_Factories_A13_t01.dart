@@ -12,7 +12,6 @@
  * of redirected class constructor.
  * @static-warning
  * @author ilya
- * @issue 13345
  */
 
 class F <T extends String> {

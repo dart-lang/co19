@@ -10,7 +10,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
- * @issue 3266, 13495
  */
 import "../../../Utils/expect.dart";
 

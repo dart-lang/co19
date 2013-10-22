@@ -10,7 +10,6 @@
  * a subtype of type of m2. Checks instance methods with optional parameters.
  * @static-clean
  * @author ilya
- * @issue 13344
  */
 
 class Whatever {}
