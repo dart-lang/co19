@@ -9,7 +9,8 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "allTests.lib.dart";
+import "compKeysTests.lib.dart" as compKeysTests;
+import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
 
 Map create([Map content]) {
   if (content==null) {
@@ -20,5 +21,6 @@ Map create([Map content]) {
 }  
 
 main() {
-  test(create);  
+  compKeysTests.test(create);  
+  nonCompKeysTests.test(create);  
 }

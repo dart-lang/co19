@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
   Map map = create();
-  Map other={1:0, "2":2, 3.0:null};
+  Map other={1:0, 2:2, 3.0:null};
   
   map.addAll(other);
   map.forEach ((var key, var value) {

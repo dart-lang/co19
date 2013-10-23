@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Checks that the specified pair is inserted into the map.
+ * @description Checks that null key is not allowed.
  * @author msyabro
  * @reviewer varlax
  */
@@ -15,18 +15,7 @@ import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
   Map<String, Object> map = create();  
-  map[""] = "";
-  Expect.isTrue(map.containsValue(""));
-  
-  map[""] = "1";
-  Expect.isTrue(map.containsKey("") && map.containsValue("1"));
-  Expect.isTrue(!map.containsValue(""));
-  
-  map.remove("");
-  map[""] = map;
-  Expect.isTrue(map.containsKey("") && map.containsValue(map));
-
-  map[""] = null;
-  Expect.isTrue(map.containsValue(null));
-  Expect.isTrue(map[""] == null);
+  Expect.throws(() {
+    map[null] = null;
+  });
 }

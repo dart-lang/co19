@@ -4,17 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion HashMap<K, V> abstract class 
+ * @assertion SplayTreeMap<K, V> class
  * Implements Map<K, V>
  * @description Checks that all members of [Map] are implemented.
  * @author kaigorodov
  */
-library allTests_A01_t01;
-
+import "dart:collection";
 import "../../core/Map/compKeysTests.lib.dart" as compKeysTests;
-import "../../core/Map/nonCompKeysTests.lib.dart" as nonCompKeysTests;
+import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
 
-test(Map create([Map content])) {
+Map create([Map content]) {
+  if (content==null) {
+    return new SplayTreeMap();
+  } else {
+    return new SplayTreeMap.from(content);
+  }
+}  
+
+main() {
   compKeysTests.test(create);  
   nonCompKeysTests.test(create);  
 }
