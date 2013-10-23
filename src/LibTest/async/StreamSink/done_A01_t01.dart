@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future close()
- * Close the StreamSink. It'll return the done Future.
- * @description Checks that close() closes a sink and returns a future that
- * will be completed when sink is closed.
+ * @assertion final Future done
+ * The done Future completes with the same values as close, except for the
+ * following case:
+ * The synchronous methods of EventSink were called, resulting in an error.
+ * If there is no active future (like from an addStream call), the done future
+ * will complete with that error
+ * @description Checks that done completes with the same value as close().
  * @author ilya
  */
 
@@ -28,7 +31,16 @@ main() {
   });
 
   asyncStart();
-  sink.close().then((_) {
+  var sync = new Sync2((x,y) {
+    Expect.identical(x,y);
     asyncEnd();
+  });
+
+  sink.done.then((x) {
+    sync.put1(x);
+  });
+
+  sink.close().then((x) {
+    sync.put2(x);
   });
 }

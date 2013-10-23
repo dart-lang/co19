@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future close()
- * Close the StreamSink. It'll return the done Future.
- * @description Checks that close() closes a sink and returns a future that
- * will be completed when sink is closed.
+ * @assertion abstract Future addStream(Stream<S> stream)
+ * @description Checks that if stream contains only data events, they are
+ * all added to a sink.
  * @author ilya
  */
 
@@ -16,19 +15,21 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
+  var from = new Stream.fromIterable([1,2,3,4,5]);
+
   var c = new StreamController();
   var sink = c.sink;
-  sink.add(1);
-  sink.add(2);
+
+  asyncStart();
+  sink.addStream(from).then((_) {
+    c.close();
+    asyncEnd();
+  });
 
   asyncStart();
   c.stream.toList().then((x) {
-    Expect.listEquals([1,2], x);
+    Expect.listEquals([1,2,3,4,5], x);
     asyncEnd();
   });
 
-  asyncStart();
-  sink.close().then((_) {
-    asyncEnd();
-  });
 }

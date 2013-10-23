@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future close()
- * Close the StreamSink. It'll return the done Future.
- * @description Checks that close() closes a sink and returns a future that
- * will be completed when sink is closed.
+ * @assertion abstract void add(T event)
+ * Create a data event.
+ * @description Checks that data events are added as expected.
  * @author ilya
  */
 
@@ -26,9 +25,5 @@ main() {
     Expect.listEquals([1,2], x);
     asyncEnd();
   });
-
-  asyncStart();
-  sink.close().then((_) {
-    asyncEnd();
-  });
+  c.close();
 }
