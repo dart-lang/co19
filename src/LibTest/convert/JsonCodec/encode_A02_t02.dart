@@ -4,32 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String stringify(Object object)
+ * @assertion Object encode(Object value, {toEncodable(object)})
  * If the object does not support "toJson()" method, throws, or returns a value that is not directly serializable,
  * a JsonUnsupportedObjectError exception is thrown.
  * If the call throws (including the case where there is no nullary "toJson" method,
  * the error is caught and stored in the JsonUnsupportedObjectError's cause field.
- * @description Checks that if "toJson()" method returns a value that is not
- * directly serializable, a JsonUnsupportedObjectError exception is thrown,
- * and JsonUnsupportedObjectError's cause field is filled.
-
- * @note variable table in this test is used also in the test printOn_A03_t03.
+ * @description Checks that if "toJson()" method throws,
+ * the error is caught and stored in the JsonUnsupportedObjectError's cause field.
+ * @note undocumented
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
-import "dart:json";
-
-var exc=new ArgumentError();
+import "../../../Utils/expect.dart";
+import "dart:convert";
 
 class S1 {
   Object a;
   Object b;
   
   S1(this.a, this.b);
-
-  List toJson() {
-    return exc;
-  }
 }
 
 class S2 {
@@ -37,10 +29,6 @@ class S2 {
   Object b;
   
   S2(this.a, this.b);
-
-  List toJson() {
-    return exc;
-  }
 }
 
 List<Object> table=[
@@ -52,10 +40,11 @@ List<Object> table=[
 ];
 
 main() {
+  JsonCodec codec=new JsonCodec();
   bool failed=false;
   for (Object obj in table) {
     try {
-      String res=stringify(obj);
+      String res=codec.encode(obj);
       print("error expected but result returned: $res");
       failed=true;
     } on JsonUnsupportedObjectError catch(e) {

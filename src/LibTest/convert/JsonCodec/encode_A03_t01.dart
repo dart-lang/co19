@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String stringify(Object object)
+ * @assertion Object encode(Object value, {toEncodable(object)})
  * If a List or Map contains a reference to itself, directly or through other
  * lists or maps, it cannot be serialized and a JsonCyclicError is thrown.
  * @description Checks that if a List or Map contains a reference to itself
  * directly or through other lists or maps,
  * it cannot be serialized and a JsonCyclicError is thrown.
- * @note variable table in this test is used also in the test printOn_A04_t01.
+ * @note undocumented
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
-import "dart:json";
+import "../../../Utils/expect.dart";
+import "dart:convert";
 
 List cyclist1() {
   var res=[1,2,3];
@@ -60,9 +60,10 @@ List<Object> table=[
 
 main() {
   bool failed=false;
+  JsonCodec codec=new JsonCodec();
   for (Object obj in table) {
     try {
-      String res=stringify(obj);
+      String res=codec.encode(obj);
       print("error expected but result returned: $res");
       failed=true;
     } on JsonCyclicError catch(e) {

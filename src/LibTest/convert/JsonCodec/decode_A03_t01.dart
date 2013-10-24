@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic parse(String json, [reviver(key, value)])
+ * @assertion Object decode(String str, {reviver(key, value)})
  * Throws FormatException if the input is not valid JSON text.
+ * @note undocumented
  * @description Checks that FormatException is thrown if the input is not valid JSON text.
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
-import "dart:json";
+import "dart:convert";
+import "../../../Utils/expect.dart";
 
 List<String> table = [
 '',
@@ -33,14 +34,14 @@ List<String> table = [
 ];
 
 main() {
+  JsonCodec codec=new JsonCodec();
+  
   for (String str in table) {
-    bool failed=false;
-    try {
-      Object res = parse(str);
-      print("bad string $str parsed");
-      failed=true;
-    } on FormatException catch (ok) {
-    }
-    Expect.isFalse(failed);
+    Expect.throws(() {
+      Object res = codec.decode(str);
+    },
+    (e) => e is FormatException,
+    "bad string $str parsed"
+    );
   }
 }

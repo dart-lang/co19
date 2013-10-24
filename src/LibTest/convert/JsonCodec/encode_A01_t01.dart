@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String stringify(Object object)
- * Serializes object into a JSON string.
- * Directly serializable values are num, String, bool, and Null, as well as some List and Map values.
- * For List, the elements must all be serializable.
- * For Map, the keys must be String and the values must be serializable.
+ * @assertion Object encode(Object value, {toEncodable(object)})
+ * Converts value to a JSON string.
+ * If value contains objects that are not directly encodable to a JSON string
+ * (a value that is not a number, boolean, string, null, list or a map with
+ * string keys), the toEncodable function is used to convert it to an object
+ * that must be directly encodable.
  * @description Checks that num, String, bool, Null, List, and Map values are serialized correctly.
- * @note variable table in this test is used also in the test printOn_A01_t01.
+ * @note variable table in this test is used also in the test decode_A01_t01.
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
-import "dart:json";
+import "../../../Utils/expect.dart";
+import "dart:convert";
 
 List<List<Object>> table=[
   [1234, "1234"],
@@ -36,7 +37,7 @@ List<List<Object>> table=[
 
 main() {
   for (List<Object> pair in table) {
-    String res=stringify(pair[0]);
+    String res=new JsonCodec().encode(pair[0]);
     Expect.equals(pair[1], res);
   }
 }

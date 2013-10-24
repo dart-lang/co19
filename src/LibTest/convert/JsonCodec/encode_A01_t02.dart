@@ -4,20 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String stringify(Object object)
- * If a value is any other type is attempted serialized, a "toJson()" method
- * is invoked on the object and the result, which must be a directly serializable value,
- * is serialized instead of the original value.
- * If the object does not support this method, throws, or returns a value that is not directly serializable,
- * a JsonUnsupportedObjectError exception is thrown.
+ * @assertion Object encode(Object value, {toEncodable(object)})
+ * Converts value to a JSON string.
+ * If value contains objects that are not directly encodable to a JSON string
+ * (a value that is not a number, boolean, string, null, list or a map with
+ * string keys), the toEncodable function is used to convert it to an object
+ * that must be directly encodable.
+ * If toEncodable is omitted, it defaults to calling .toJson() on the unencodable
+ * object.
  * @description Checks that if a value is any other type than num, String, bool, Null, List, or Map,
  * a "toJson()" method is invoked on the object and the result, which must be a directly serializable value,
  * is serialized instead of the original value.
  * @note variable table in this test is used also in the test printOn_A02_t01.
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
-import "dart:json";
+import "../../../Utils/expect.dart";
+import "dart:convert";
 
 class S1 {
   Object a;
@@ -51,8 +53,10 @@ List<List<Object>> table=[
 ];
 
 main() {
+  JsonCodec codec=new JsonCodec();
+
   for (List<Object> pair in table) {
-    String res=stringify(pair[0]);
+    String res=codec.encode(pair[0]);
     Expect.equals(pair[1], res);
   }
 }

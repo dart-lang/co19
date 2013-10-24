@@ -14,11 +14,13 @@
  * @reviewer iefremov
  * @reviewer msyabro
  */
-
+import "../../Utils/dynamic_check.dart";
 
 main() {
-  switch(false) {
-    case 0: /// static warning
-    case 1: /// static warning
-  }  
+  checkTypeError(() {
+      switch(false) {
+      case 0: /// static warning
+      case 1: /// static warning
+    }
+  });  
 }

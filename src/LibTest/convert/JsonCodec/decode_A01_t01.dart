@@ -4,21 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic parse(String json, [reviver(key, value)])
- * Parses json and build the corresponding parsed JSON value.
- * Parsed JSON values are of the types num, String, bool, Null, Lists of parsed
- * JSON values or Maps from String to parsed JSON values.
+ * @assertion Object decode(String str, {reviver(key, value)})
+ * Parses the string and returns the resulting Json object.
  * @description Checks that num, String, bool, Null, List, and Map values
  * are parsed correctly.
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
-import "dart:json";
-import "stringify_A01_t01.dart" show table;
+import "dart:convert";
+import "../../../Utils/expect.dart";
+import "encode_A01_t01.dart" show table;
 
 main() {
   for (List<Object> pair in table) {
-    Object res = parse(pair[1]);
+    Object res = new JsonCodec().decode(pair[1]);
     Expect.deepEquals(pair[0], res);
   }
 }
