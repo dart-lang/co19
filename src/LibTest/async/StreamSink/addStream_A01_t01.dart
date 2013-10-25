@@ -8,6 +8,7 @@
  * @description Checks that if stream contains only data events, they are
  * all added to a sink.
  * @author ilya
+ * @issue 14332
  */
 
 import "dart:async";

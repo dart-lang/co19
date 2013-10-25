@@ -13,17 +13,24 @@
  * StreamSubscription.asFuture.
  * @description Checks that it is a runtime error to try to change event
  * handlers for underlying subscription using StreamSubscription.asFuture.
- * @runtime-error
  * @author ilya
  */
 
 import "dart:async";
+import "../../../Utils/async_utils.dart";
 
-main() {
+f() {
   var s = new Stream.fromIterable([1]);
 
   s.asBroadcastStream(onListen: (subs) {
     subs.asFuture().then((_){});
   }).listen((_) {});
+}
+
+main() {
+  asyncStart();
+  runZoned(f, onError: (_) {
+    asyncEnd();
+  });
 }
 

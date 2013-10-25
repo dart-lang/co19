@@ -13,16 +13,23 @@
  * trace). Otherwise it is called with just the error object.
  * @description Checks that onError callback with more than two parameters
  * causes runtime exception.
- * @runtime-error
  * @author ilya
  */
 import "dart:async";
+import "../../../Utils/async_utils.dart";
 
-main() {
+f() {
   Completer completer = new Completer();
-  Future f = completer.future;
+  Future future = completer.future;
   
-  f.then((x){}, onError: (x,y,z) {});
+  future.then((x){}, onError: (x,y,z) {});
 
   completer.completeError(1);
+}
+
+main() {
+  asyncStart();
+  runZoned(f, onError: (e) {
+    asyncEnd();
+  });
 }

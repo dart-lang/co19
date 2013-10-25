@@ -7,6 +7,7 @@
  * @assertion abstract Future addStream(Stream<S> stream)
  * @description Checks that all data and error events from stream are added.
  * @author ilya
+ * @issue 14334
  */
 
 import "dart:async";

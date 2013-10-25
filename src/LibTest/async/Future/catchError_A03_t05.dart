@@ -13,11 +13,19 @@
  * If test is omitted, it defaults to a function that always returns true.
  * @description Checks that it is a runtime error if onError callback has more
  * than two parameters.
- * @runtime-error
  * @author ilya
  */
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+
+f() {
+  new Future.error(1).catchError((x,y,z){});
+}
 
 main() {
-  new Future.error(1).catchError((x,y,z){});
+  asyncStart();
+  runZoned(f, onError: (e) {
+    //print('---$e');
+    asyncEnd();
+  });
 }

@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future(computation())
+ * @assertion factory Future.microtask(computation())
  * Creates a future containing the result of calling computation
- * asynchronously with Timer.run.
+ * asynchronously with scheduleMicrotask.
  * if the result of executing computation throws, the returned future is
  * completed with the error.
  * If the returned value is itself a Future, completion of the created
@@ -21,6 +21,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x;
-  new Future(() => x=1);
+  new Future.microtask(() => x=1);
   Expect.isNull(x);
 }

@@ -6,14 +6,28 @@
 /**
  * @assertion void completeError(Object exception, [Object stackTrace])
  * The argument exception should not be null.
- * @description Checks that a runtime error is thrown if [exception] is [:null:].
- * @runtime-error
- * @author kaigorodov
+ * @description
+ * @needsreview it's uclear what should happen if exception is null
+ * @author ilya
  */
 
 import "dart:async";
+//import "../../../Utils/async_utils.dart";
+
+f() {
+  var completer = new Completer();
+  completer.future.catchError((e) {
+    print('future completed with error $e');
+  });
+  try {
+    completer.completeError(null);
+  } catch (e) {
+    print('synchronous error thrown');
+  }
+}
 
 main() {
-  var completer = new Completer();
-  completer.completeError(null);
+  runZoned(f, onError: (e) {
+    print('asynchronous error thrown');
+  });
 }
