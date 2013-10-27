@@ -5,8 +5,7 @@
  */
 /**
  * @assertion stringLiteral:
- *   MULTI_LINE_STRING+ |
- *   SINGLE_LINE_STRING+
+ *   (MULTI_LINE_STRING | SINGLE_LINE_STRING)+
  * ;
  * MULTI_LINE_STRING:
  *   '"""' STRING CONTENT TDQ* '"""' |
@@ -16,12 +15,10 @@
  * ;
  * STRING CONTENT TDQ:
  *   ~( '\' | '"""' | '$') |
- *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
  * STRING CONTENT TSQ:
  *   ~( '\' | ''''' | '$') |
- *   '\' ~( NEWLINE ) |
  *   STRING_INTERPOLATION
  * ;
  * @description Checks that it is a compile-time error if a raw multi-line
