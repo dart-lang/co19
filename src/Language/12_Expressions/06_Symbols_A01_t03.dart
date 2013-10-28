@@ -17,10 +17,11 @@
  * current library.
  * @description Checks that symbol literal whose name starts with an
  * underscore evaluates to the object returned by mirror.getPrivateSymbol(id)
- * @note Can't check: getPrivateSymbol not implemented 
+ * @note Test is commented out. Language tests should not import extra libraries.
  * @author ilya
  */
 
+/*
 library test;
 
 import "dart:mirrors";
@@ -30,7 +31,10 @@ var _private;
 
 main() {
   var l = currentMirrorSystem().findLibrary(#test).first;
-  //print(l.getPrivateSymbol); // method not found
+  //print(l.getPrivateSymbol); // can't check, method not implemented
 }
+*/
 
+main() {
+}
 

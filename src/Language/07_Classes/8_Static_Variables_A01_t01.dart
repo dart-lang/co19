@@ -10,6 +10,7 @@
  * declared by C.
  * @description Checks that superclass's static variables are unaccessible
  * via subclass's name.
+ * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
