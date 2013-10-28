@@ -25,7 +25,7 @@ abstract class B extends A {
 }
 
 class C extends B {
-  bool f(int x, [String xx]){} /// static type warning
+  bool f(int x, [String xx]) {}
 }
 
 main() {

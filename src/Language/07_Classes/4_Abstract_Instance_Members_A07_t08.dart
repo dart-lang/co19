@@ -31,5 +31,5 @@ class D implements A {
 }
 
 main() {
-  (new A()).foo(1);
+  new A().foo(1);
 }

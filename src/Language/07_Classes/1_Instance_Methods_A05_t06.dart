@@ -24,6 +24,6 @@ class C extends A {
 }
 
 main() {
-  (new C()).f(1, "");
+  new C().f(1, "");
 }
 

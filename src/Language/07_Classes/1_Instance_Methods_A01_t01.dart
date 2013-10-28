@@ -18,13 +18,11 @@ class A {
 }
 
 class C extends A {
-  f(var x, var y) { return x + y; }
+  f(var x, var y) { return x + y; } /// static warning
 }
 
 main() {
-  try {
-    new A().f(2);
-    new C().f(2, 2);
-  } catch (e) {}
+  new A().f(2);
+  new C().f(2, 2);
 }
 

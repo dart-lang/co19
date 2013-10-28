@@ -6,13 +6,12 @@
 /**
  * @assertion It is a static warning if an instance method m1 overrides an instance
  * member m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that there is no static warning is produced if m1 has the same set of named parameters as
+ * @description Checks that there are no static warnings if m1 has the same set of named parameters as
  * m2 but in a different order when the class declaring m1 is not a direct subtype of the class declaring m2.
  * @static-clean
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov
- * @issue 978
  */
 
 class A {
@@ -28,9 +27,7 @@ class C extends A3 {
 }
 
 main() {
-  try {
-    new A().f(x:1, y:2);
-    new C().f(x:2, y:1);
-  } catch (e){}
+  new A().f(x:1, y:2);
+  new C().f(x:2, y:1);
 }
 

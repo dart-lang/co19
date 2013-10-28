@@ -13,14 +13,14 @@
  * @reviewer rodionov
  */
 
-class A { /// static type warning
-  foo([x]);
+class A {
+  foo([x]); /// static type warning 
 }
 
 class B extends A {
-  foo([x]){}
+  foo([x]) {}
 }
 
 main() {
-  var a=new B();
+  new B();
 }

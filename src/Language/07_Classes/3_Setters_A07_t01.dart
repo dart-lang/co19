@@ -27,5 +27,5 @@ class C<T extends int, S extends String> {
 }
 
 main() {
-  (new C<int, String>()).foo = null;
+  new C<int, String>().foo = null;
 }

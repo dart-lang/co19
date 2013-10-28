@@ -21,15 +21,11 @@ class A {
 }
 
 class C extends A {
-  f({var x, var z});
+  f({var x, var z}); /// static warning
 }
 
 main() {
-  try {
-    new A().f(x: 1, y: 2, z: 3);
-  } catch (e) {}
+  new A().f(x: 1, y: 2, z: 3);
   
-  try {
-    new C().f(x: 1, z: 2);
-  } catch (e) {}
+  new C().f(x: 1, z: 2);
 }

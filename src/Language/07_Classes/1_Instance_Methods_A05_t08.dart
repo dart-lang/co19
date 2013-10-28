@@ -19,5 +19,5 @@ class C extends A {
 }
 
 main() {
-  (new C())._f(1, "");
+  new C()._f(1, "");
 }

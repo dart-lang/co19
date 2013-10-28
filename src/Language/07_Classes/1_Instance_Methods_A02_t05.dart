@@ -6,7 +6,7 @@
 /**
  * @assertion It is a static warning if an instance method m1 overrides an instance
  * member m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that a static warning  is produced if m1 has almost the same set of named
+ * @description Checks that a static warning is produced if m1 has almost the same set of named
  * parameters as m2 except for one of them having a different name.
  * @static-warning
  * @author rodionov
@@ -18,13 +18,11 @@ class A {
 }
 
 class C extends A {
-  f({var x, var y, var zz}) {}
+  f({var x, var y, var zz}) {} /// static warning
 }
 
 main() {
-  try {
-    new A().f(x:"Nothing", y:"endures", z:"but");
-    new C().f(x:"Nothing", y:"endures", zz:"but");
-  } catch (e) {}
+  new A().f(x:"Nothing", y:"endures", z:"but");
+  new C().f(x:"Nothing", y:"endures", zz:"but");
 }
 

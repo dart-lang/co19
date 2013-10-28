@@ -21,5 +21,5 @@ class C extends A { /// static type warning
 }
 
 main() {
-  var a=new C();
+  new C();
 }

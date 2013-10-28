@@ -10,12 +10,11 @@
  *    const? factory identifier (‘.’ identifier)? formalParameterList
  *      ‘=’ typeName (‘.’ identifier)?
  * ;
- * @description Checks that fomal parameters list of redirecting factory
+ * @description Checks that formal parameters list of redirecting factory
  * constructor can not be omitted
  * @compile-error
  * @author ilya
  */
-import "../../../Utils/expect.dart";
 
 class A {
   A() {}

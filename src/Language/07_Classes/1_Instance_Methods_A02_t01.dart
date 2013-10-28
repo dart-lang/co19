@@ -20,12 +20,10 @@ class A {
 }
 
 class C extends A {
-  foo(var a, {x}) {}
+  foo(var a, {x}) {} /// static warning
 }
 
 main() {
-  try {
-    (new A()).foo(2);
-    (new C()).foo(1);
-  } catch (anything) {}
+  new A().foo(2);
+  new C().foo(1);
 }

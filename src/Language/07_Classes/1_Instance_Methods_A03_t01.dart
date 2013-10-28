@@ -25,7 +25,7 @@ class C extends A {
 }
 
 main() {
-  (new A()).foo(2);
-  (new C()).foo(1);
+  new A().foo(2);
+  new C().foo(1);
 }
 

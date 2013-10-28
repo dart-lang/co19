@@ -11,6 +11,7 @@
  * the name of generic class.
  * @compile-error
  * @author ilya
+ * @issue 14513
  */
 
 class A<A> {

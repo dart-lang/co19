@@ -19,13 +19,11 @@ class A {
 }
 
 class C extends A {
-  f() { }
+  f() { } /// static warning
 }
 
 main() {
-  try {
-    new A().f(x:1);
-    new C().f();
-  } catch (e) {}
+  new A().f(x:1);
+  new C().f();
 }
 

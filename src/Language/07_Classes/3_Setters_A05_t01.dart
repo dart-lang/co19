@@ -13,12 +13,11 @@
  * @reviewer rodionov
  */
 
-
 class C {
   int set foo(var x) { /// static type warning
   }
 }
 
 main() {
-  (new C()).foo = 1;
+  new C().foo = 1;
 }

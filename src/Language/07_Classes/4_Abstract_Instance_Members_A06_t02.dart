@@ -24,7 +24,7 @@ abstract class B extends A {
 }
 
 class C extends B {
-  f() {} /// static type warning
+  f() {}
 }
 
 main() {

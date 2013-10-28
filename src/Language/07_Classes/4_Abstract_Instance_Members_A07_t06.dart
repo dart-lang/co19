@@ -17,6 +17,7 @@
  * @reviewer rodionov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 abstract class A {
   foo([x = 1]);
@@ -27,7 +28,5 @@ class C extends A {
 }
 
 main() {
-  try {
-    (new C()).foo(1);
-  } catch (e) {}
+  Expect.throws(() => new C().foo(1));
 }

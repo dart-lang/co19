@@ -28,5 +28,5 @@ class C extends A3 {
 }
 
 main() {
-  (new C()).f();
+  new C().f();
 }

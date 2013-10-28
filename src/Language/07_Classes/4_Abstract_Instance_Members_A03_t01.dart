@@ -20,7 +20,7 @@ class A {
 }
 
 abstract class C extends A {
-  f(var x, var y);
+  f(var x, var y); /// static warning
 }
 
 class D extends C {
@@ -28,9 +28,7 @@ class D extends C {
 }
 
 main() {
-  try {
-    new A().f(2);
-    new D().f(2, 2);
-  } catch (e) {}
+  new A().f(2);
+  new D().f(2, 2);
 }
 

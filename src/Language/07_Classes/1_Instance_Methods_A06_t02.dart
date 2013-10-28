@@ -20,12 +20,10 @@ class A {
 }
 
 class C extends A {
-  f([var x, var y]) {}
+  f([var x, var y]) {} /// static warning
 }
 
 main() {
-  try {
-    new A().f(1, 2, 3);
-    new C().f(1, 2);
-  } catch (e) {}
+  new A().f(1, 2, 3);
+  new C().f(1, 2);
 }

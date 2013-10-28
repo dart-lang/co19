@@ -17,7 +17,6 @@
  * @author vasya
  * @reviewer pagolubev
  * @reviewer iefremov
- * @issue 5646
  */
 
 class C {

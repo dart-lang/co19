@@ -29,7 +29,7 @@ class C extends A3 {
 }
 
 main() {
-  (new A()).foo(1.0);
-  (new C()).foo(0);
+  new A().foo(1.0);
+  new C().foo(0);
 }
 

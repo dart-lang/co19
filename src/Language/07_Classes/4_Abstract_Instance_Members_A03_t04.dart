@@ -15,8 +15,8 @@
  * @author rodionov
  * @reviewer iefremov
  * @reviewer kaigorodov
- * @issue 978
  */
+import "../../Utils/expect.dart";
 
 abstract class A {
   f(var x);
@@ -25,19 +25,15 @@ abstract class A {
 abstract class Foo extends A {}
 
 abstract class C extends Foo {
-  f(var x, var y);
+  f(var x, var y); /// static warning
 }
 
 class D extends C {
-  f(var x, var y){}
+  f(var x, var y) {}
 }
 
 main() {
-  try {
-    new D().f(2, 2);
-  } catch (e) {}
+  Expect.throws(() => new D().f(2));  /// static type warning missing argument
 
-  try {
-    new D().f(2);
-  } catch (e) {}
+  new D().f(2, 2);
 }

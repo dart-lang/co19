@@ -13,10 +13,10 @@
  * @reviewer rodionov
  */
 
-class A { /// static type warning
-  int get foo;
+class A {
+  int get foo; /// static type warning 
 }
 
 main() {
-  var a=new A();
+  new A();
 }

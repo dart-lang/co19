@@ -15,7 +15,6 @@
  * @compile-error
  * @author ilya
  */
-import "../../../Utils/expect.dart";
 
 class A {
   A() {}

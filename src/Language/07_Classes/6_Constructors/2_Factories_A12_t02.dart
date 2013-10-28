@@ -13,6 +13,7 @@
  * @static-warning
  * @author ilya
  */
+import "../../../Utils/dynamic_check.dart";
 
 class F {
   factory F(x) = C;
@@ -23,5 +24,5 @@ class C { // does not implement F, not assignable to F
 }
 
 main() {
-  new F(123);
+  checkTypeError(() => new F(123));
 }

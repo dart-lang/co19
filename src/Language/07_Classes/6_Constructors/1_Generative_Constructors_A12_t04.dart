@@ -11,28 +11,22 @@
  * interface of the class of o is not a subtype of the actual type of the field v.
  * An initializer of the form v = e is equivalent to an initializer of the form
  * this.v = e.
- * @description Checks that RHS expression is evaluated in both forms of an initializer.
- * @author iefremov
- * @reviewer rodionov
+ * @description Checks that in checked mode, it is a dynamic type error if o
+ * is not null and the interface of the class of o is not a subtype of the
+ * actual type of the field v. 
+ * @author ilya
  */
-import "../../../Utils/expect.dart";
+import "../../../Utils/dynamic_check.dart";
 
-bool ok;
-f() {
-  ok = true;
-}
+class A {}
+class B {}
 
-class C {
-  C() : this.x = f() {}
-  C.c2() : x = f() {}
-  var x;
+class C<T> {
+  T a;
+  C() : a = new B() {}
 }
 
 main() {
-  var x = new C();
-  Expect.isTrue(ok, "Expression in initializer was not evaluated!");
-  ok = false;
-  x = new C.c2();
-  Expect.isTrue(ok, "Expression in initializer was not evaluated!");
+  checkTypeError(() => new C<A>());
 }
 

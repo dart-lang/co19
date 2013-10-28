@@ -23,6 +23,6 @@ class C {
 }
 
 main() {
-  (new C()).foo = (new C()).foo; /// static type warning 'String' is not assignable to 'double'
+  new C().foo = new C().foo; /// static type warning 'String' is not assignable to 'double'
 }
 

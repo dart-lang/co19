@@ -14,23 +14,20 @@
  * @author rodionov
  * @reviewer iefremov
  * @reviewer kaigorodov
- * @issue 978
  */
+import "../../Utils/expect.dart";
 
 abstract class A {
   f({var x, var y, var z});
 }
 
 class C extends A {
-  f({var x, var z}) {}
+  f({var x, var z}) {} /// static warning
 }
 
 main() {
   A c=new C();
   c.f(x: 1, z: 2);
-  try {
-    c.f(x: 1, y: 2, z: 3);
-  } catch (e) {
-    print("Exception: $e");
-  }
+
+  Expect.throws(() => c.f(x: 1, y: 2, z: 3)); /// static warning
 }
