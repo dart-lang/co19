@@ -8,6 +8,7 @@
  * or the form T v = e; always induces an implicit setter function 
  * with signature
  *   void set v = (T x)
+ * whose execution sets the value of v to the incoming argument x.
  * @description Checks that a value can be assigned to a static class variable
  * using this implicit setter.
  * @author pagolubev

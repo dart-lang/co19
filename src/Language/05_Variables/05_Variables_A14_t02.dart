@@ -25,6 +25,6 @@ class A {
 main() {
   A a = new A();
   checkTypeError(() {
-    a.v = false; /// static type warning 'bool' is not assignable to 'imt'
+    a.v = false; /// static type warning 'bool' is not assignable to 'int'
   });
 }

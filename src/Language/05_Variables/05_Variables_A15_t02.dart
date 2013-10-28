@@ -8,6 +8,7 @@
  * or the form var v = e; always induces an implicit setter function 
  * with signature
  *   set v = (x)
+ * whose execution sets the value of v to the incoming argument x.
  * @description Checks that the signature of this implicit setter is correct
  * and the type of its formal parameter is indeed dynamic by passing values of
  * various types to it.

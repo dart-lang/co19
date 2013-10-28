@@ -4,14 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a library, static or local variable v is ﬁnal
- * and v is not initialized at its point of declaration.
- * @static-warning
- * @description Checks that it is a static warning when a final library variable is not
- * initialized in its declaration. 
+ * @assertion A library or static variable is guaranteed to have an
+ * initializer at its declaration by the grammar.
+ * @description Checks that it is a compile error when a final library
+ * variable is not initialized in its declaration. 
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 12543
  */
 
 final int v;

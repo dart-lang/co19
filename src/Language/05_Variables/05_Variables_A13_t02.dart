@@ -14,7 +14,6 @@
  * @static-clean
  * @author rodionov
  * @reviewer msyabro
- * @note This test only makes sense in the presence of static checker.
  */
 import "../../Utils/expect.dart";
 

@@ -11,27 +11,17 @@
  * It is a static warning if a final instance variable that has been
  * initialized at its point of declaration  is  also initialized in a
  * constructor.
- * It is a static warning if a library, static or local variable v is final
- * and v is not initialized at its point of declaration.
- * Attempting to assign to a final variable anywhere except in its declaration
- * or in a constructor header  will cause a runtime error to be thrown as
- * discussed below. The assignment will also give rise to a static warning.
- * Any repeated assignment to a final variable will also lead to a runtime
- * error
- * @descripton Checks that it is a static warning and runtime error to assign
- * to final variable anywhere except in its declaration.
- * @static-warning
- * @author rodionov
- * @reviewer kaigorodov
+ * It is a compile-time error if a local variable v is final and v is not
+ * initialized at its point of declaration.
+ * @description Checks that it is a compile error if local variable is final
+ * and not initialized at its point of declaration.
+ * @compile-error
+ * @author ilya
  */
-import "../../Utils/expect.dart";
-
-final v = 1;
-final int v2 = 1;
 
 main() {
-  Expect.throws(() => v = 1);  /// static warning
-  Expect.throws(() => v = 2);  /// static warning
-  Expect.throws(() => v2 = 1); /// static warning
-  Expect.throws(() => v2 = 2); /// static warning
+  () {
+    final i;
+    return i=1;
+  } ();
 }

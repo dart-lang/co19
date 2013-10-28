@@ -12,12 +12,9 @@
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../Utils/expect.dart";
 
 const double foo;
 
 main() {
-  try {
-    Expect.equals(null, foo);
-  } catch(ok) {}
+  foo;
 }

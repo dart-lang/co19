@@ -5,7 +5,7 @@
  */
 /**
  * @assertion If a variable declaration does not explicitly specify a type, 
- * the type of the declared variable(s) is dynamic, the unknown type (15.6). 
+ * the type of the declared variable(s) is dynamic, the unknown type. 
  * @description Checks that no static warnings are produced when trying to access various
  * non-existent members and properties of a variable. It means that the return type of the getter is dynamic.
  * @static-clean

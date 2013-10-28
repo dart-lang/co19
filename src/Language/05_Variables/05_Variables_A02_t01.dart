@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A variable that has not been initialized has the initial value
- * null (12.2).
+ * null.
  * @description Checks that various uninitialized variables are set to null
  * by default.
  * @author vasya

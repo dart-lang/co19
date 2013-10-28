@@ -16,7 +16,6 @@
  * @reviewer rodionov
  * @issue 7052
  */
-import "../../Utils/expect.dart";
  
 main() {
   try {

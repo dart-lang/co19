@@ -11,13 +11,8 @@
  * It is a static warning if a final instance variable that has been
  * initialized at its point of declaration  is  also initialized in a
  * constructor.
- * It is a static warning if a library, static or local variable v is final
- * and v is not initialized at its point of declaration.
- * Attempting to assign to a final variable anywhere except in its declaration
- * or in a constructor header  will cause a runtime error to be thrown as
- * discussed below. The assignment will also give rise to a static warning.
- * Any repeated assignment to a final variable will also lead to a runtime
- * error
+ * It is a compile-time error if a local variable v is final and v is not
+ * initialized at its point of declaration.
  * @description Checks that a static warning occurs if a final instance
  * variable that has been initialized in declaration is also initialized in
  * a constructor.
