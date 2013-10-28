@@ -51,7 +51,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
     Match actMatch = it.current;
     
     Expect.equals(expMatch.length, actMatch.groupCount + 3);
-    Expect.equals(str, actMatch.str);
+    Expect.equals(str, actMatch.input);
     Expect.isTrue(actMatch.pattern.toString().contains(pattern));
     
     Expect.equals(expMatch[0], actMatch.start);

@@ -26,6 +26,6 @@ void check(String pattern, String str, bool multiLine, bool caseSensitive) {
   }
 
   matches.forEach((Match match) {
-    Expect.stringEquals(str, match.str);
+    Expect.stringEquals(str, match.input);
   });
 }
