@@ -15,7 +15,6 @@
  * @static-warning
  */
 import "../../../Utils/expect.dart";
-
 import "../../../Utils/dynamic_check.dart";
 
 class A {}
@@ -31,6 +30,5 @@ main() {
     Expect.isFalse({"k1": 1} && true);
     Expect.isFalse(new A() && true);
     Expect.isFalse((()=>1) && true);
-    print((()=>1) && true);
   }
 }

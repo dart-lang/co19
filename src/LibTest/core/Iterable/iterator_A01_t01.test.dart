@@ -13,7 +13,6 @@
  */
 library iterator_A01_t01;
  
-import "../../../Utils/expect.dart";
 import "../Iterator/allTests.lib.dart" as libIterator;
 
 test(Iterable create([Iterable content]), {bool isSet:false}) {

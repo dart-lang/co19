@@ -4,22 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Map<K, V> abstract class 
+ * @assertion HashMap<K, V> abstract class 
+ * Implements Map<K, V>
+ * @static-warning
  * @description Checks that all members of [Map] are implemented.
  * @author kaigorodov
  */
-import "compKeysTests.lib.dart" as compKeysTests;
-import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
+import "dart:collection";
+import "compKeysWarnTests.lib.dart";
 
 Map create([Map content]) {
   if (content==null) {
-    return new Map();
+    return new HashMap();
   } else {
-    return new Map.from(content);
+    return new HashMap.from(content);
   }
 }  
 
 main() {
-  compKeysTests.test(create);  
-  nonCompKeysTests.test(create);  
+  test(create);  
 }

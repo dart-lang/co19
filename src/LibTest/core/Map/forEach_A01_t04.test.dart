@@ -13,7 +13,6 @@
  */
 library forEach_A01_t04;
 
-import "../../../Utils/dynamic_check.dart";
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {

@@ -15,7 +15,6 @@ import "clear_A01_t01.test.dart" as clear_A01_t01;
 import "containsKey_A01_t01.test.dart" as containsKey_A01_t01;
 import "containsValue_A01_t01.test.dart" as containsValue_A01_t01;
 import "forEach_A01_t01.test.dart" as forEach_A01_t01;
-import "forEach_A01_t02.test.dart" as forEach_A01_t02;
 import "forEach_A01_t04.test.dart" as forEach_A01_t04;
 import "forEach_A01_t05.test.dart" as forEach_A01_t05;
 import "forEach_A01_t06.test.dart" as forEach_A01_t06;
@@ -23,8 +22,6 @@ import "forEach_A01_t08.test.dart" as forEach_A01_t08;
 import "forEach_A02_t01.test.dart" as forEach_A02_t01;
 import "putIfAbsent_A01_t01.test.dart" as putIfAbsent_A01_t01;
 import "putIfAbsent_A01_t06.test.dart" as putIfAbsent_A01_t06;
-import "putIfAbsent_A01_t07.test.dart" as putIfAbsent_A01_t07;
-import "putIfAbsent_A01_t08.test.dart" as putIfAbsent_A01_t08;
 import "putIfAbsent_A01_t09.test.dart" as putIfAbsent_A01_t09;
 import "putIfAbsent_A01_t10.test.dart" as putIfAbsent_A01_t10;
 
@@ -45,7 +42,6 @@ test(Map create([Map content])) {
   containsKey_A01_t01.test(create);
   containsValue_A01_t01.test(create);
   forEach_A01_t01.test(create);
-  forEach_A01_t02.test(create);
   forEach_A01_t04.test(create);
   forEach_A01_t05.test(create);
   forEach_A01_t06.test(create);
@@ -53,8 +49,6 @@ test(Map create([Map content])) {
   forEach_A02_t01.test(create);
   putIfAbsent_A01_t01.test(create);
   putIfAbsent_A01_t06.test(create);
-  putIfAbsent_A01_t07.test(create);
-  putIfAbsent_A01_t08.test(create);
   putIfAbsent_A01_t09.test(create);
   putIfAbsent_A01_t10.test(create);
   

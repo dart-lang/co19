@@ -15,12 +15,12 @@ library contains_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  List a=create();
+  Iterable a=create();
   Expect.isFalse(a.contains(1));
-  a.add(2);
+  a=create([2]);
   Expect.isFalse(a.contains(1));
   Expect.isTrue(a.contains(2));
-  a.add(1);
+  a=create([1,2]);
   Expect.isTrue(a.contains(1));
   Expect.isTrue(a.contains(2));
 }
