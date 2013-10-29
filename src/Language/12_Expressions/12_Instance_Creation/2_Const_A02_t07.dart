@@ -7,7 +7,7 @@
  * @assertion Let e be a constant object expression of the form
  * const T.id(a1, .., an, xn+1: an+1, …, xn+k: an+k) or the form
  * const T(a1, .., an, xn+1: an+1, …, xn+k: an+k). It is a compile-time error if T
- * is not a class accessible in the current scope.
+ * does not denote a class accessible in the current scope.
  * @description Checks that it is a compile-time error if T is a type variable.
  * @compile-error
  * @author msyabro

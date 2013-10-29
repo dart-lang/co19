@@ -23,7 +23,6 @@
  * @static-clean
  * @author ilya
  */
-import "../../Utils/expect.dart";
 
 typedef int PositionalType(int x, [int y]);
 typedef String NamedType(String foo, {String bar});

@@ -20,26 +20,23 @@
  * NoSuchMethodError to be thrown.
  * If i does not occur inside a top level or static function, i is equivalent to
  * this.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @description Checks that if fid is a static method of the superclass S,
- * then unqualified function invocation expression should produce a NoSuchMethodError.
- * @author iefremov
- * @reviewer rodionov
+ * @description Checks that if there is no declaration and i occurs inside
+ * a constructor, i is equivalent to this.id().
+ * @static-warning
+ * @author ilya
  */
 import "../../../Utils/expect.dart";
 
-class S {
-  static m() {}
-}
+bool seen = false;
 
-class C extends S {
-  test() {
-    m();
-  }
+class C {
+  C() { undeclared(); }
+
+  noSuchMethod(Invocation im) { seen = true; }
 }
 
 main() {
-  try {
-    print(new C().test());
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(ok) {}
+  new C();
+
+  Expect.isTrue(seen);
 }

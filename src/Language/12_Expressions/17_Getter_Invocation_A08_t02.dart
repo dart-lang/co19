@@ -8,11 +8,10 @@
  * The static type of i is the declared return type of S.m, if S.m exists;
  * otherwise the static type of i is dynamic.
  * @description Checks that static type of super.m is the return type of getter
- * named m in superclass of super.
+ * named m in the class of super.
  * @static-clean
  * @author ilya
  */
-import "../../Utils/expect.dart";
 
 class S {
   String m;

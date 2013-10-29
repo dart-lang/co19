@@ -6,24 +6,18 @@
 /**
  * @assertion An identifier expression that denotes a constant variable, class
  * or a type alias is a constant expression.
- * @description Checks that an identifier expression that denotes a class
+ * @description Checks that an identifier expression that denotes a type alias
  * can be assigned to a constant variable.
- * @author kaigorodov
- * @reviewer rodionov
+ * @author ilya
  */
 
-class C {}
+typedef int F(int);
+typedef T FF<T>(T);
 
-const a = String;
-const b = int;
-const c = List;
-const c2 = Map;
-const d = C;
+const a = F;
+const b = FF;
 
 main() {
   print(a);
   print(b);
-  print(c);
-  print(c2);
-  print(d);
 }

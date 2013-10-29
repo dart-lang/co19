@@ -15,15 +15,16 @@
  * If q has less than n positional parameters or more than n required parameters,
  * or if q lacks any of the keyword parameters {xn+1 , . . . , xn+k },
  * a NoSuchMethodError is thrown.
- * @description Checks that a dynamic error occurs if T is not accessible.
+ * @description  Checks that in checked mode, dynamic error occurs if direct
+ * superclass of T is malbounded type.
  * @static-warning
- * @author kaigorodov
- * @reviewer rodionov
+ * @author ilya
  */
-import "../../../Utils/expect.dart";
+import "../../../Utils/dynamic_check.dart";
+ 
+class C<T extends int> {}
+class D extends C<String> {}
 
 main() {
-  Expect.throws(() {
-    new C();
-  });
+  checkTypeError(() => new D());
 }

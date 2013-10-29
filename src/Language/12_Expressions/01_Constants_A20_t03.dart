@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An identifier expression that denotes a constant variable or a class
- * is a constant expression.
+ * @assertion An identifier expression that denotes a constant variable, class
+ * or a type alias is a constant expression.
  * @description Checks that an identifier expression that denotes a type parameter 
  * can not be used as const initializer.
  * @compile-error

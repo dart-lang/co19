@@ -29,7 +29,6 @@
  * after that the result of getter is [:null:]
  * @author msyabro
  * @reviewer iefremov
- * @issue 5802, 13180
  */
 import "../../Utils/expect.dart";
 

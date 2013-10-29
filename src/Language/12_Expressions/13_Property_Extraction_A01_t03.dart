@@ -22,14 +22,13 @@
  * @static-clean
  * @author ilya
  */
-import "../../Utils/expect.dart";
 
-typedef bool type(String x);
+typedef bool Type(String x);
 
 class C {
   bool f(String x) => x.isEmpty;
 }
 
 main() {
-  type x = new C().f;
+  Type x = new C().f;
 }

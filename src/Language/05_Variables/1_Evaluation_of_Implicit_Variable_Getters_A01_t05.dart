@@ -28,7 +28,6 @@
  * is referenced during evaluation of initialization expression.
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 13180
  */
 import "../../Utils/expect.dart";
 
