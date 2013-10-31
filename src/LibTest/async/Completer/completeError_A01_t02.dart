@@ -7,6 +7,7 @@
  * @assertion abstract void completeError(Object exception, [Object stackTrace])
  * Complete future with an error. Completing a future with an error indicates that
  * an exception was thrown while trying to produce a value.
+ * If error is a Future, the future itself is used as the error value.
  * @description Checks that a stackTrace can be passed to completeError.
  * @author ilya
  */

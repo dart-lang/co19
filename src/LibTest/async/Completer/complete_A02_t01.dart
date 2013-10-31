@@ -5,12 +5,11 @@
  */
 /**
  * @assertion abstract void complete([T value])
- * StateError is thrown if the completer is already completed.
- * @description Checks that a StateError is thrown if
+ * Calling complete or completeError must not be done more than once.
+ * @description Checks that an error is thrown if
  * the completer is already completed with a value.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
@@ -21,8 +20,5 @@ main() {
   var future = completer.future;
   completer.complete('value');
 
-  try {
-    completer.complete('another value');
-    Expect.fail('an Error is expected');
-  } on StateError catch(e) {}
+  Expect.throws(() => completer.complete('another value'));
 }

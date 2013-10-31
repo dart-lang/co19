@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void complete(value)
- * StateError is thrown if the completer is already completed.
- * @description Checks that a StateError is thrown if
+ * @assertion abstract void complete([T value])
+ * Calling complete or completeError must not be done more than once.
+ * @description Checks that an error is thrown if
  * the completer is already completed with an exception.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
@@ -22,8 +21,5 @@ main() {
   future.catchError((Object e)=>1);
   completer.completeError(0);
 
-  try {
-    completer.complete('another value');
-    Expect.fail('StateError is expected');
-  }  on StateError catch(e) {}
+  Expect.throws(() => completer.complete('another value'));
 }

@@ -7,11 +7,10 @@
  * @assertion abstract void completeError(Object exception, [Object stackTrace])
  * Complete future with an error. Completing a future with an error indicates that
  * an exception was thrown while trying to produce a value.
+ * If error is a Future, the future itself is used as the error value.
  * @description Checks that if exception is another future f which completes
  * with the value v, completer's future will complete with the error f.
  * @author ilya
- * @needsreview undocumented
- * @issue 14212
  */
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";

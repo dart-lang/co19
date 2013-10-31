@@ -5,12 +5,11 @@
  */
 /**
  * @assertion void completeError(Object exception, [Object stackTrace])
- * StateError is thrown if a future is already completed.
- * @description Checks that a StateError is thrown if
+ * Calling complete or completeError must not be done more than once.
+ * @description Checks that an error is thrown if
  * the completer is already completed with an exception.
  * @author msyabro
  * @reviewer kaigorodov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
@@ -21,8 +20,5 @@ main() {
   completer.future.catchError((Object e)=>1);
   completer.completeError('value');
 
-  try {
-    completer.completeError('another value');
-    Expect.fail('StateError is expected');
-  } on StateError catch(e) {}
+  Expect.throws(() => completer.completeError('another value'));
 }

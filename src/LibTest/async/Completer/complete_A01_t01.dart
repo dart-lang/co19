@@ -5,8 +5,11 @@
  */
 /**
  * @assertion abstract void complete([T value])
- * Completes future with the supplied values. All listeners on the future are
- * informed informed about the value.
+ * Completes future with the supplied values.
+ * If the value is itself a future, the completer will wait for that future to
+ * complete, and complete with the same result, whether it is a success or an
+ * error.
+ * All listeners on the future are informed about the value.
  * @description Checks that after [complete] is called, a value in corresponding
  * future is available.
  * @author msyabro
