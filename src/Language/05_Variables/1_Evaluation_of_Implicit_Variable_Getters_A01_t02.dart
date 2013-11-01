@@ -32,52 +32,32 @@
  */
 import "../../Utils/expect.dart";
 
-f() {
-  throw 1;
+f(func) {
+  try {
+    throw 1; // caugth exceptions do not matter
+  } on int catch (e) {
+    func();
+  }
 }
 
 class C {
-  static var sVar = f();
-  static int sTyped = f();
-  static final sFinal = f();
-  static final int sFinalTyped = f();
+  static var sVar = f(() => sVar);
+  static int sTyped = f(() => sTyped);
+  static final sFinal = f(() => sFinal);
+  static final int sFinalTyped = f(() => sFinalTyped);
 }
 
 
 main() {
-  try {
-    C.sVar;
-    Expect.fail('An exception is expected');
-  } on int catch (e) {
-    Expect.equals(1, e);
-    Expect.throws(() => C.sVar, (e) => e is CyclicInitializationError); 
-  }
+  Expect.throws(() => C.sVar, (e) => e is CyclicInitializationError);
   Expect.equals(null, C.sVar);
 
-  try {
-    C.sTyped;
-    Expect.fail('An exception is expected');
-  } on int catch (e) {
-    Expect.equals(1, e);
-    Expect.throws(() => C.sTyped, (e) => e is CyclicInitializationError); 
-  }
+  Expect.throws(() => C.sTyped, (e) => e is CyclicInitializationError); 
   Expect.equals(null, C.sTyped);
 
-  try {
-    C.sFinal;
-    Expect.fail('An exception is expected');
-  } on int catch (e) {
-    Expect.equals(1, e);
-    Expect.throws(() => C.sFinal, (e) => e is CyclicInitializationError); 
-  }
+  Expect.throws(() => C.sFinal, (e) => e is CyclicInitializationError); 
   Expect.equals(null, C.sFinal);
 
-  try {
-    C.sFinalTyped;
-    Expect.fail('An exception is expected');
-  } on int catch (e) {
-    Expect.equals(1, e);
-    Expect.throws(() => C.sFinalTyped, (e) => e is CyclicInitializationError); 
-  }
+  Expect.throws(() => C.sFinalTyped, (e) => e is CyclicInitializationError); 
   Expect.equals(null, C.sFinalTyped);
 }
