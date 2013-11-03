@@ -10,7 +10,6 @@
  * and G is generic type, then T is not malformed and the test does not always succeed.
  * @static-warning
  * @author ilya
- * @note see 13674
  */
 import "../../Utils/expect.dart";
 
@@ -18,5 +17,7 @@ class G<T> {}
 
 main() {
   // Unknown is dynamic, G<Unknown> is G<dynamic>, not malformed
-  Expect.isFalse(1 is G<Unknown>); /// static type warning
+
+  Expect.isFalse(1 is G<Unknown>);      /// static type warning
+  Expect.isTrue(new G() is G<Unknown>); /// static type warning
 }

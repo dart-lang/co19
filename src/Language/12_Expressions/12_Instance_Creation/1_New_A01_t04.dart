@@ -10,6 +10,7 @@
  * ;
  * @description Checks that if a constructor is invoked without new (or const) keyword,
  * it is considered as a (malformed) method invocation.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

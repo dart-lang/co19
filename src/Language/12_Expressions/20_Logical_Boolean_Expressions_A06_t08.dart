@@ -20,7 +20,7 @@
  * closure, then b shows that v has type T. Local variable, closures case.
  * @static-clean
  * @author ilya
- * @issue new
+ * @issue 14655
  */
 
 class C {}

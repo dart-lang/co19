@@ -18,35 +18,34 @@
  */
 import "../../Utils/expect.dart";
 
-var tlVar = new C().foo();
-int tlTyped = new C().foo();
-final tlFinal = new C().foo();
-final int tlFinalTyped = new C().foo();
-
+var tlVar = new C(1).id;
+int tlTyped = new C(2).id;
+final tlFinal = new C(3).id;
+final int tlFinalTyped = new C(4).id;
 
 class C {
-  C() {
-    Expect.equals(0, counter, 'Initializer expression was evaluated twice');
-    ++counter;
+  static Map map = {};
+  factory C(i) {
+    if (map[i] == null)
+      return map[i] = new C._ctor(i);
+    else {
+      Expect.fail('Initializer expression was evaluated twice');
+    }
   }
-  foo() {
-    Expect.equals(1, counter, 'Initializer expression was evaluated twice');
-    ++counter;
-    return counter;
-  }
-  var counter = 0;
+  var id;
+  C._ctor(this.id);
 }
 
 main() {
-  Expect.equals(2, tlVar);
-  Expect.equals(2, tlVar); //The second getter invocation should not evaluate the initializer expression
+  Expect.equals(1, tlVar);
+  Expect.equals(1, tlVar); //The second getter invocation should not evaluate the initializer expression
 
   Expect.equals(2, tlTyped);
   Expect.equals(2, tlTyped);
 
-  Expect.equals(2, tlFinal);
-  Expect.equals(2, tlFinal);
+  Expect.equals(3, tlFinal);
+  Expect.equals(3, tlFinal);
 
-  Expect.equals(2, tlFinalTyped);
-  Expect.equals(2, tlFinalTyped);
+  Expect.equals(4, tlFinalTyped);
+  Expect.equals(4, tlFinalTyped);
 }

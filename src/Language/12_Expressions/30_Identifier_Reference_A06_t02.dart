@@ -9,7 +9,7 @@
  * is id. If no such declaration exists in the lexical scope, let d be the declaration
  * of the inherited member named id if it exists.
  * ...
- * • If d is a class or type alias T, the value of e is the unique instance of class
+ * • If d is a class or type alias T, the value of e is an instance of class
  *   Type reifying T.
  * @description  Checks that there is no compile-time error if identifier
  * expression in a return statement refers to a function type definition.

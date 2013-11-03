@@ -22,6 +22,7 @@
  * this.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that if fid is a static method of the superclass S,
  * then unqualified function invocation expression should produce a NoSuchMethodError.
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

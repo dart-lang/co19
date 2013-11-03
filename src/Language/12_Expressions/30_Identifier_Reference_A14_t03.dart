@@ -12,6 +12,7 @@
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description  Checks that identifier expression can not refer to a static variable
  * in a superclass of the current class
+ * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */

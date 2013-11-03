@@ -11,7 +11,6 @@
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
- * @issue 5775
  */
 
 class A {

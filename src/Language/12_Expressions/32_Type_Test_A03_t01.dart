@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The is-expression e is! T is equivalent to !(e is T).
- * @description Checks that the is-expression is evaluated correctly.
+ * @description Checks that the is!-expression is evaluated correctly.
  * @author msyabro
  * @reviewer kaigorodov 
  */

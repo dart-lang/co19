@@ -9,7 +9,6 @@
  * @description Checks that various conditional expressions with constant
  * operands are constant expressions.
  * @author ilya
- * @issue 13271
  */
 
 const x = false;

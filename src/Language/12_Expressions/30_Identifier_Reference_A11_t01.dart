@@ -20,8 +20,10 @@ import "../../Utils/expect.dart";
 class C {
   void f() {
     Expect.equals(C.c, c);
+    Expect.equals(C.d, d);
   }
   static var c = 1;
+  static get d => 2;
 }
 
 main() {

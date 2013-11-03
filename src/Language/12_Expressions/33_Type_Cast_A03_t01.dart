@@ -7,7 +7,7 @@
  * @assertion If T is malformed the cast always succeeds.
  * This is a consequence of the rule that malformed types are treated as dynamic
  * @description Checks that if T is a parameterized type 
- * of the form G < T1, ..., Tn > and G is not a generic type, then T is malformed
+ * of the form G<T1, ..., Tn> and G is malformed, then T is malformed
  * and the cast always succeds.
  * @static-warning
  * @author rodionov 

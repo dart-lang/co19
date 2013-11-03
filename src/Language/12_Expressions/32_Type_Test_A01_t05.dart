@@ -11,8 +11,8 @@
  * isOperator:
  *   is '!'?
  * ;
- * @description Checks that it is a compile-time error if
- * using a statement that does not yield a value in the left part of the expression.
+ * @description Checks that it is a compile-time error if left part of the
+ * expression is a statement.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov

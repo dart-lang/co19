@@ -6,8 +6,8 @@
 /**
  * @assertion If T is malformed the test always succeeds.
  * This is a consequence of the rule that malformed types are treated as dynamic. 
- * @description Checks that test succeeds T is parameterized type and G is not
- * a generic type.
+ * @description Checks that if T is parameterized type and G is malformed, then
+ * T is malformed and the test always succeeds.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov

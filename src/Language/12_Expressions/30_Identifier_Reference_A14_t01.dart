@@ -21,7 +21,7 @@ class A {
   A() : y = 10;
   func() {
     try {
-      x; /// static type warning - unresolved member ("Getter invocation"?)
+      x; /// static type warning
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch(e) {}
 

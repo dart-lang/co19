@@ -12,7 +12,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @note see 13674
  */
 import "../../Utils/expect.dart";
 
@@ -20,5 +19,7 @@ class G<T> {}
 
 main() {
   // G<int,bool> is G<dynamic>, not malformed
-  Expect.isFalse(1 is G<int, bool>); /// static type warning
+
+  Expect.isFalse(1 is G<int, bool>);      /// static type warning
+  Expect.isTrue(new G() is G<int, bool>); /// static type warning
 }

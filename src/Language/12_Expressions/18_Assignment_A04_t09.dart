@@ -5,20 +5,21 @@
  */
 /**
  * @assertion Evaluation of an assignment of the form C.v = e proceeds as follows:
- * The expression e is evaluated to an object o. If there is no class C in the
- * enclosing lexical scope of the assignment, or if C does not declare, implicitly or
- * explicitly, a setter v =, then a NoSuchMethodError is thrown. Otherwise, the
- * setter C.v = is invoked with its formal parameter bound to o. The value of the
- * assignment expression is o.
- *   It is a static warning if there is no class C in the enclosing lexical scope of
- * the assignment, or if C does not declare, implicitly or explicitly, a setter v =.
+ *   If C does not denote a class available in the current scope, the assignment
+ * is treated as an assignment e1.v = e, where e1 is the expression C.
+ *   Otherwise, the expression e is evaluated to an object o. If C does not declare,
+ * implicitly or explicitly, a setter v =, then a NoSuchMethodError is thrown.
+ *   Otherwise, the setter C.v = is invoked with its formal parameter bound to o.
+ * The value of the assignment expression is o.
+ *   It is a static warning if C does not declare, implicitly or explicitly, a
+ * setter v =.
  *   In checked mode, it is a dynamic type error if o is not null and the interface
- * of the class of o is not a subtype of the static type of C.v.
+ * of the class of o is not a subtype of the declared static type of C.v.
  *   It is a static type warning if the static type of e may not be assigned to the
  * static type of C.v. The static type of the expression C.v = e is the static type
  * of e.
- * @description Checks that if NoSuchMethodError is to be thrown, e is
- * evaluated before throwing an exception.
+ * @description Checks that if class C does not declare a setter v=, then
+ * e is evaluated before throwing NoSuchMethodError.
  * @static-warning
  * @author ilya
  */
@@ -33,12 +34,8 @@ incCount() => ++count;
 
 main() {
   Expect.throws(() {
-    NoClass.foo = incCount(); // static warning: unknown name NoClass
-  }, (e) => e is NoSuchMethodError);
-  Expect.equals(1, count);
-
-  Expect.throws(() {
     C.noSetter = incCount(); // static warning: no setter
   }, (e) => e is NoSuchMethodError);
-  Expect.equals(2, count);
+
+  Expect.equals(1, count);
 }

@@ -11,7 +11,6 @@
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
- * @issue 13449
  */
 
 main() {

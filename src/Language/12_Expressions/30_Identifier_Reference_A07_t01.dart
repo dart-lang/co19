@@ -14,22 +14,16 @@
  *   created the current binding of this.
  * @description  Checks that there is no compile-time error if identifier
  * expression in a return statement refers to a type parameter.
- * @static-warning
  * @author kaigorodov
  */
 import "../../Utils/expect.dart";
 
 class A<T> {
-  Type func() {
-    return T;
-  }
+  Type func() => T;
 }
 
 main() {
-  var t=new A<int>().func();
-  Expect.equals(int, t);
-  t=new A<Object>().func();
-  Expect.equals(Object, t);
-  t=new A<List>().func();
-  Expect.equals(List, t);
+  Expect.equals(int, new A<int>().func());
+  Expect.equals(Object, new A<Object>().func());
+  Expect.equals(List, new A<List>().func());
 }
