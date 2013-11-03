@@ -14,44 +14,32 @@
  * @note undocumented
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 import "dart:convert";
+import "../../../Utils/expect.dart";
 
 class S1 {
-  Object a;
-  Object b;
+  Object a=new Error();
   
-  S1(this.a, this.b);
-}
-
-class S2 {
-  Object a;
-  Object b;
+  S1(this.a);
   
-  S2(this.a, this.b);
+  Object toJson() {
+    throw a;
+  }
 }
-
-List<Object> table=[
-  new S1(1234, "1234"),
-  new S1(null, []),
-  new S1(1.234, {}),
-  new S2("1.234", {}),
-  new S2("key2", [null, 1.0])
-];
 
 main() {
   JsonCodec codec=new JsonCodec();
-  bool failed=false;
-  for (Object obj in table) {
-    try {
-      String res=codec.encode(obj);
-      print("error expected but result returned: $res");
-      failed=true;
-    } on JsonUnsupportedObjectError catch(e) {
-      Expect.isNotNull(e.cause);
-    }
-    if (failed) {
-      Expect.fail("");
-    }
-  }
+  Error e1=new Error();
+  S1 s1=new S1(e1);
+  String res;
+  Expect.throws(() {
+    res=codec.encode(s1);
+  },
+  (e){
+    return 
+      e is JsonUnsupportedObjectError
+      && e.cause!=null;
+  },
+  "error expected but result returned: $res"
+  );
 }

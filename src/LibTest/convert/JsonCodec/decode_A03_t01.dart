@@ -12,26 +12,7 @@
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
-
-List<String> table = [
-'',
-'a',
-'-',
-':',
-'[',
-'{',
-'[1,2,3:33]',
-'{"a":a, "b"}',
-'{"a":, "b":b}',
-'{"a"a, "b":b}',
-'{"a":a "b":b}',
-'[1,2,{3:33}]',
-'[1,2,3}',
-'{1,2,3]',
-'{"a":[], []:b}',
-'{"a":[], 1:b}',
-'{"a":[], {}:b}',
-];
+import "../JsonDecoder/table3.lib.dart" show table;
 
 main() {
   JsonCodec codec=new JsonCodec();

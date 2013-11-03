@@ -16,7 +16,7 @@
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "encode_A01_t01.dart" show table;
+import "../JsonDecoder/table1.lib.dart" show table;
 
 int count=0;
 

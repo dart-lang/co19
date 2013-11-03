@@ -37,10 +37,8 @@ main() {
   abstract;
   var as;
   as;
-  // Dart has one namespace for all declarations, so defining local variable
-  // 'dynamic' causes 'dynamic dynamic;' be incorrect declaration
-  //dynamic dynamic;
-  //dynamic;
+  var dynamic;
+  dynamic;
   String export;
   export;
   var external;

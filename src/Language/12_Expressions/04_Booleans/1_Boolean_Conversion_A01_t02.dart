@@ -12,7 +12,6 @@
  * @description Checks that objects that are not bool and not null are converted to false.
  * @author msyabro
  * @reviewer rodionov
- * @static-warning
  */
 import "../../../Utils/expect.dart";
 import "../../../Utils/dynamic_check.dart";
@@ -23,7 +22,7 @@ main() {
   if(!isCheckedMode()) {
     Expect.isTrue(true && true);
     Expect.isFalse(new Object() && true);
-    Expect.isFalse(0 && true); // static warnings galore - see "Boolean conversion" and "Binding actuals to formals"
+    Expect.isFalse(0 && true);
     Expect.isFalse(1 && true);
     Expect.isFalse("" && true);
     Expect.isFalse([1, 2, 3] && true);

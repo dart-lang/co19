@@ -11,7 +11,6 @@
  *    }(o)
  * @description Checks that boolean conversion is defined by the cited function.
  * @author kaigorodov
- * @static-warning
  */
 import "../../../Utils/expect.dart";
 import "../../../Utils/dynamic_check.dart";
@@ -34,7 +33,7 @@ main() {
   if(!isCheckedMode()) {
     check(true, true);
     check(new Object(), false);
-    check(0, false); // static warnings galore - see "Boolean conversion" and "Binding actuals to formals"
+    check(0, false);
     check(1, false);
     check("", false);
     check([1, 2, 3], false);
