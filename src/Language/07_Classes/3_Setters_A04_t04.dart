@@ -10,6 +10,7 @@
  * @description Checks that there is no compile-time error if a class has 
  * an explicitly defined abstract setter inherited from a superclass and
  * an instance method with the same name.
+ * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
@@ -23,7 +24,9 @@ abstract class C extends A {
     return new D();
   }
   C.c() {}
-  foo(value) {}
+  foo(value) {} // static warning (Classes/Instance methods):
+                // Class declares an instance method named n
+                // and has a setter named n=
 }
 
 class D extends C {

@@ -9,13 +9,16 @@
  * conflict with, override or be overridden by a getter or method.
  * @description Checks that there is no compile-time error if a class has 
  * an explicitly defined setter and an instance method with the same name.
+ * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
 
 class C {
   var _foo;
-  set foo(var v) {_foo=v;}
+  set foo(var v) {_foo=v;} // static warning (Classes/Instance methods):
+                           // Class declares an instance method named n
+                           // and has a setter named n=
   foo(value) { }
 }
 

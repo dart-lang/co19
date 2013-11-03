@@ -9,6 +9,7 @@
  * conflict with, override or be overridden by a getter or method.
  * @description Checks that there is no compile-time error if a class has 
  * an explicitly defined setter inherited from a superclass and an instance method with the same name.
+ * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
@@ -19,7 +20,9 @@ class A {
 }
 
 class C extends A {
-  foo(value) {}
+  foo(value) {} // static warning (Classes/Instance methods):
+                // Class declares an instance method named n
+                // and has a setter named n=
 }
 
 main() {
