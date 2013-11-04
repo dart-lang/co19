@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the class C implements the
- * operator == unless the value of the expression is a string or integer.
+ * @assertion It is a compile-time error if the class C has an implementation
+ * of the operator == other than the one inherited from Object unless the
+ * value of the expression is a string or an integer.
  * @description Checks that it is a compile-time error if a case expression
  * is a compile-time constant of type double, since double is neither String
  * nor int and implements ==.

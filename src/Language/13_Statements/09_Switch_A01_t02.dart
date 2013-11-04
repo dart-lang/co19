@@ -18,7 +18,7 @@
  * allowed by spec) works as expected.
  * @author rodionov
  * @reviewer iefremov
- * @note issue 2238
+ * @issue 2238
  */
 
 main() {

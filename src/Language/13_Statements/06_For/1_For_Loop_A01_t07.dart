@@ -29,7 +29,7 @@ import "../../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError( () {
-    for ( var i = 0;
+    for ( int i = 0;
       ++i ; /// static type warning 'num' is not assignable to 'bool'
     ) {
       break;

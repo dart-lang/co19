@@ -24,8 +24,6 @@
  * @reviewer iefremov
  */
 
-import "../../Utils/dynamic_check.dart";
-
 main() {
   try {
     throw "";

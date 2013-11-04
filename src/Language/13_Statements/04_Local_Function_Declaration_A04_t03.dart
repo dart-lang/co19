@@ -6,18 +6,17 @@
 /**
  * @assertion  It is a compile-time error to reference a local function
  * before its declaration.
- * @description Checks that it is a compile-error to reference a local function
- * before its declaration.
+ * @description Checks that it is a compile-error to declare mutually recursive
+ * functions, because the first one uses the second before declaration.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
- * @renamed from 04_Local_Function_Declaration_A02_t02
- * @issue 13603
+ * @author ilya
  */
 
 main() {
+  evenHandler(x) => x.isEven ? 1 : oddHandler(x);
+  oddHandler(x) => x.isOdd ? 1 : evenHandler(x);
+
   try {
-    func();
-  } catch(e) {}
-  void func() {}
+    evenHandler(1);
+  } catch(_) {}
 }

@@ -11,7 +11,6 @@
  * @compile-error
  * @author kaigorodov
  */
-import "../../Utils/expect.dart";
 
 main() {
   rethrow;

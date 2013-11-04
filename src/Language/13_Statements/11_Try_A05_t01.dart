@@ -5,8 +5,8 @@
  */
 /**
  * @assertion An on-catch clause of the form catch (p) s is equivalent to an on-catch
- * clause on Object catch (p) s. An on-catch clause of the form catch (p1, p2) s
- * is equivalent to an on-catch clause on Object catch (p1, p2) s.
+ * clause on dynamic catch (p) s. An on-catch clause of the form catch (p1, p2) s
+ * is equivalent to an on-catch clause on dynamic catch (p1, p2) s.
  * @description Checks that a catch clause with no particular type specified for the
  * first exception parameter matches any object.
  * @author rodionov
