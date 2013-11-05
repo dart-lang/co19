@@ -20,7 +20,6 @@
  * by that library.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 5399, 4887
  */
 import "../../Utils/expect.dart";
 

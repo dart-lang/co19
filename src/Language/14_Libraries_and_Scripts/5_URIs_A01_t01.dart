@@ -15,7 +15,6 @@
  * since it's getting trimmed.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6352
  */
 import """   	  
 5_Library1.dart""";

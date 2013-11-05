@@ -13,10 +13,9 @@
  * @description Checks that it is not an error to use a multi-line string literal
  * as a URI in a part directive and it still works even with leading whitespace
  * since it's getting trimmed.
+ * @static-warning library name doesn't match that referenced by an included part
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 6352
- * @static-warning library name doesn't match that referenced by an included part
  */
 library URIs_A01;
 part """   	  

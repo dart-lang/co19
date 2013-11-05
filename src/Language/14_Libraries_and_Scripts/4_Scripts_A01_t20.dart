@@ -13,7 +13,6 @@
  * includes an export directive.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 7600
  */
 export "4_Library1.dart";
 

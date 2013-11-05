@@ -14,7 +14,6 @@
  * import directive consists of two adjacent string literals.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 7317
  */
  
 import "5_Library1" ".dart";

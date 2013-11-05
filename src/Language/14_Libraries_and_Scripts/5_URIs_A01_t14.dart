@@ -14,7 +14,6 @@
  * export directive consists of two adjacent string literals.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 7317
  */
 import "5_URIs_A01_t14_lib.dart";
 
