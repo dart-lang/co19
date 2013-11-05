@@ -14,7 +14,6 @@
  * parameters than the supertype as long it's a superset of the supertype's named optional parameters.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 978
  */
 import "../../Utils/expect.dart";
 

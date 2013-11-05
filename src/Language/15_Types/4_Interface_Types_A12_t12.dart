@@ -11,6 +11,8 @@
  *   - S is a direct supertype of T.
  *   - T is a type variable and S is the upper bound of T.
  *   - T is of the form I<T1, ..., Tn > and S is of the form I <S1, ..., Sn> and Ti << Si 1 <= i <= n.
+ *   - T and S are both function types, and T << S under the rules of section (Types/Function Types).
+ *   - T is a function type and S is Function.
  *   - T << U and U << S.
  * T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .

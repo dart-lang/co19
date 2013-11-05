@@ -10,7 +10,6 @@
  * bound of its own type parameter.
  * @compile-error
  * @author ilya
- * @issue 13675
  */
 
 typedef f<T extends List<f>>();

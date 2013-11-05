@@ -15,7 +15,6 @@
  * they're declared in.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 978
  */
 import "../../Utils/expect.dart";
 

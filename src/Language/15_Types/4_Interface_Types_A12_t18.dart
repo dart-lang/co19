@@ -16,19 +16,42 @@
  *   - T << U and U << S.
  * T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
- * @description Checks that a generic interface type B that is a subtype of a generic type A parameterized with type
- * arguments of B is not a subtype of A parameterized with an incompatible set of type arguments.
- * @author iefremov
- * @reviewer rodionov
+ * @description Checks that if T and S are both function types and T << S then the interface type T <<
+ * the interface type S.
+ * @static-clean
+ * @author ilya
  */
 import "../../Utils/expect.dart";
 
-class A<T, S, U, W> {}
-class B<S, U> extends A<S, S, U, U>{}
+typedef void F1(int i, String s, [int p]);
+typedef void F2(int i, String s, {int n});
+
+class Whatever {}
 
 main() {
-  Expect.isFalse(new B<int, double>() is A<int, int, double, int>);
-  Expect.isFalse(new B<int, double>() is A<int, double, double, double>);
-  Expect.isFalse(new B<B, B>() is A<int, B, B, B>);
-  Expect.isFalse(new B<B, B>() is A<B, B, B, int>);
+  void f11(int i, String s, [int p]) {}
+  Expect.isTrue(f11 is F1);
+
+  int f12 (int i, String s, [int p]) {}
+  Expect.isTrue(f12 is F1);
+  
+  int f13 (int i, [String s, int p]) {}
+  Expect.isTrue(f13 is F1);
+
+  int f14 (int i, [String s, int p, Whatever w]) {}
+  Expect.isTrue(f14 is F1);
+  
+  //---
+      
+  void f21(int i, String s, {int n}) {}
+  Expect.isTrue(f21 is F2);
+  
+  void f22(int i, String s, {int n}) {}
+  Expect.isTrue(f22 is F2);
+  
+  int f23 (int i, String s, {int n, int n2}) {}
+  Expect.isTrue(f23 is F2);
+
+  int f24 (int i, String s, {int n, Whatever w}) {}
+  Expect.isTrue(f24 is F2);
 }

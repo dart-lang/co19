@@ -16,19 +16,16 @@
  *   - T << U and U << S.
  * T is a subtype of S, written T <: S, iff [⊥/Dynamic]T << S.
  * A type T may be assigned to a type S, written T <=> S, if either T <: S or S <: T .
- * @description Checks that a generic interface type B that is a subtype of a generic type A parameterized with type
- * arguments of B is not a subtype of A parameterized with an incompatible set of type arguments.
- * @author iefremov
- * @reviewer rodionov
+ * @description Checks that if T is function type and S is Function then the interface type T <<
+ * the interface type Function.
+ * @static-clean
+ * @author ilya
  */
 import "../../Utils/expect.dart";
 
-class A<T, S, U, W> {}
-class B<S, U> extends A<S, S, U, U>{}
+int f(String s) => 1;
 
 main() {
-  Expect.isFalse(new B<int, double>() is A<int, int, double, int>);
-  Expect.isFalse(new B<int, double>() is A<int, double, double, double>);
-  Expect.isFalse(new B<B, B>() is A<int, B, B, B>);
-  Expect.isFalse(new B<B, B>() is A<B, B, B, int>);
+  Expect.isTrue(f is Function);
+  Expect.isTrue((int x, String s) {} is Function);
 }
