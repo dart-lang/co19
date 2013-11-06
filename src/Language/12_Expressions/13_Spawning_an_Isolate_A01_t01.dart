@@ -14,30 +14,27 @@
  * variable to showcase it.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue co19 639
  */
+import 'dart:isolate';
+import "../../Utils/async_utils.dart";
 import "../../Utils/expect.dart";
 
-import 'dart:isolate';
+var expectedMessage="message";
 
-var topLevelVariable;
+void iMain(SendPort replyPort) {
+  replyPort.send(expectedMessage);
+}
 
-void iMain() {
-  port.receive((var message, SendPort replyTo) {
-    Expect.isNull(topLevelVariable);
-    topLevelVariable = 10;
-    replyTo.send("pong", null);
-    port.close();
-  });
+var receivePort = new ReceivePort();
+
+void receiveHandler(var message) {
+  Expect.equals(expectedMessage, message);
+  receivePort.close();
+  asyncEnd();
 }
 
 main() {
-  receiveHandler(var message) {
-    Expect.equals("pong", message);
-    Expect.equals(1, topLevelVariable);
-  }
-
-  SendPort sp = spawnFunction(iMain);
-  topLevelVariable = 1;
-  sp.call('ping').then(receiveHandler);
+  asyncStart();
+  Isolate.spawn(iMain, receivePort.sendPort);
+  receivePort.listen(receiveHandler);
 }

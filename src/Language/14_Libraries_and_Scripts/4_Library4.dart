@@ -5,4 +5,5 @@
 library main_for_import;
 
 main() {
+  print("main_for_import");
 }

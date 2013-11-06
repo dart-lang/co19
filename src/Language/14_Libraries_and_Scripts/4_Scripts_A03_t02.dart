@@ -5,11 +5,11 @@
  */
 /**
  * @assertion It is a run time error if library does not declare or import a top level function main().
- * @description Checks that if script does not have a top-level function main()
- * it can be imported.
+ * @description Checks that it is not a run time error if imports a top level function main().
  * @author vasya
  * @reviewer msyabro
  */
 
 import "4_Library4.dart";
+export "4_Library4.dart";
 
