@@ -19,8 +19,7 @@ import "lib.dart";
 
 main() {
   try {
-    _inaccessibleVariable = 1; /// static type warning [12.18 Assignment] It is a static warning
-                               // if C does not declare a setter v =.
+    _inaccessibleVariable = 1; /// static type warning
     Expect.fail("NoSuchMethodError expected when undefined getter invoked");
   } on NoSuchMethodError catch(e) {}
 }

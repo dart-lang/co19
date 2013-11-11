@@ -9,7 +9,6 @@
  * @description Checks that using null in a shift constant expression is a compile-time error.
  * @compile-error
  * @author kaigorodov
- * @issue 13394
  */
 
 class C {

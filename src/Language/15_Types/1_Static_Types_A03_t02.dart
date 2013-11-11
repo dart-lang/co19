@@ -12,12 +12,14 @@
  * • T is a parameterized type of the form G<S1, ..., Sn>, and G is malformed.
  * • T denotes declarations that were imported from multiple imports clauses.
  * Any use of a malformed type gives rise to a static warning. A malformed
- * type is then interpreted as dynamic by the static type checker and the runtime.
+ * type is then interpreted as dynamic by the static type checker and the
+ * runtime unless explicitly specified otherwise.
  * @description Checks that it is a static warning if a type variable is used in static context.
  * @static-warning
  * @author kaigorodov
  */
 
+import "../../Utils/dynamic_check.dart";
 import "../../Utils/expect.dart";
 
 class C<T> {
@@ -25,5 +27,11 @@ class C<T> {
 }
 
 main() {
-  Expect.equals(12, C.v); /// static type warning
+
+  // in checked mode, implicit type test for malformed type
+  // causes dynamic error
+  checkTypeError(() {
+    C.v; /// static type warning
+  });
+
 }

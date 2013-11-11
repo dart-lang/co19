@@ -11,7 +11,6 @@
  * @description Checks that prefix names can begin with an underscore.
  * @author iefremov
  * @reviewer kaigorodov
- * @needsreview Issue 2242
  */
 import "../../Utils/expect.dart";
 

@@ -16,7 +16,6 @@
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
- * @needsreview issue 2239
  */
 
 typedef f<T, T>();

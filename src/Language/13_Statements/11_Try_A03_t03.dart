@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if T is a malformed type.
- * @description Checks that it is a static warning when type of the exception
- * parameter in a catch clause does not denote a type available in the lexical 
- * scope of the catch clause.
+ * @assertion If T is a malformed type, then performing a match causes a run
+ * time error. It is a static warning if T is a malformed type.
+ * @description Checks that if T is malformed, but match has not been performed
+ * then runtime error is not thrown. Also checks static warning.
  * @static-warning
  * @author rodionov
  * @reviewer iefremov

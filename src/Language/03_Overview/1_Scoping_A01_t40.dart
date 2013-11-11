@@ -16,7 +16,6 @@
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
- * @needsreview issue 2240
  */
 
 typedef f(x, [x]);

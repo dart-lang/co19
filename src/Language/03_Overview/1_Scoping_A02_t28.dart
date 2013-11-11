@@ -12,12 +12,13 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 class C {}
 
 main() {
   var C = 1;
-  try {
-    new C(); /// static type warning - [12.11.1 New]: T is not a class accessible in the current scope
-  } catch(e) {}
+  Expect.throws(() {
+    new C(); /// static type warning
+  }, (e) => e is TypeError);
 }

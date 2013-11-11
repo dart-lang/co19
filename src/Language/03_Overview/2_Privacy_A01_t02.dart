@@ -13,11 +13,12 @@
  * @author msyabro
  * @reviewer iefremov
  */
+import "../../Utils/expect.dart";
 
 import "lib.dart";
 
 main() {
-  try {
-    var c = new _InaccessibleClass(); /// static type warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
-  } catch(e) {}
+  Expect.throws(() {
+    var c = new _InaccessibleClass(); /// static type warning
+  }, (e) => e is TypeError);
 }

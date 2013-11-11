@@ -5,12 +5,13 @@
  */
 /**
  * @assertion A type parameter is considered to be a malformed type when referenced by a static member.
- * @description Checks that it is a static warning when a type parameter is referenced
- * from static context (in a type test expression).
+ * @description Checks that runtime error is thrown if type parameter is used
+ * in a type test in static context.
  * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
+import "../../Utils/expect.dart";
 
 class C<T> {
   static bool f() {
@@ -19,5 +20,5 @@ class C<T> {
 }
 
 main() {
-  C.f();
+  Expect.throws(() => C.f());
 }

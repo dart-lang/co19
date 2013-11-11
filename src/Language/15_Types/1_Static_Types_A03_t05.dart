@@ -12,7 +12,8 @@
  * • T is a parameterized type of the form G<S1, ..., Sn>, and G is malformed.
  * • T denotes declarations that were imported from multiple imports clauses.
  * Any use of a malformed type gives rise to a static warning. A malformed
- * type is then interpreted as dynamic by the static type checker and the runtime.
+ * type is then interpreted as dynamic by the static type checker and the
+ * runtime unless explicitly specified otherwise.
  * @description Checks that type name imported from multiple import clauses
  * that refers to different type declarations gives rise to a static warning
  * when used in type annotation.

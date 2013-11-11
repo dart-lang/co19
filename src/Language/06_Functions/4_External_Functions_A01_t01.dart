@@ -15,7 +15,6 @@
  * its body indeed results in a NoSuchMethodError or its subclass being thrown.
  * @author rodionov
  * @reviewer kaigorodov
- * @issue 5774
  */
 import "../../Utils/expect.dart";
 

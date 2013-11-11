@@ -20,8 +20,7 @@ import "lib.dart";
 class C {
   void test() {
     try {
-      _inaccessibleFunction(); /// static type warning [12.15.1 Ordinary Invocation] It is a static type warning
-                               // if T does not have an accessible (3.2) instance member named m
+      _inaccessibleFunction(); /// static type warning
       Expect.fail("NoSuchMethodError expected when undefined function invoked");
     } on NoSuchMethodError catch(e) {}
   }

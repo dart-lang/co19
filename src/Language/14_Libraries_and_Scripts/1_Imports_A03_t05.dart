@@ -12,17 +12,19 @@
  * - If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more imports
  * but never referred to.
- * @description Checks that it is a static type warning if two different libraries
- * introduce the same name N to the top level scope of L.
- * Checks that N can be used in a type cast expression.
+ * @description Checks that it if N is introduced into L by several imports
+ * that denote different declarations and N is referenced as a type, then it is
+ * treated as malformed.
  * @static-warning
- * @author rodionov
- * @reviewer kaigorodov
+ * @author kaigorodov
+ * @reviewer rodionov
  */
+import "../../Utils/expect.dart";
 
 import "1_Imports_A03_t01_p1_lib.dart";
 import "1_Imports_A03_t01_p2_lib.dart";
 
 main() {
-    1 as foo;
+  // foo is malformed, then TypeError is thrown, not CastError
+  Expect.throws(() => 1 as foo, (e) => e is TypeError); // static warning
 }

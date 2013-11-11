@@ -18,12 +18,10 @@ import "../../Utils/expect.dart";
 class C {}
 class G<C> {
   G() {
-    new C(); /// static warning [12.11.1 New] It is a static warning if T is not a class accessible in the current scope
+    new C(); /// static warning
   }
 }
 
 main() {
-  Expect.throws(() {
-    new G();
-  });
+  Expect.throws(() => new G(), (e) => e is TypeError);
 }

@@ -4,11 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If T is malformed the test always succeeds.
- * This is a consequence of the rule that malformed types are treated as dynamic. 
+ * @assertion Evaluation of the is-expression e is T proceeds as follows:
+ * The expression e is evaluated to a value v.
+ * Then, if T is malformed, a dynamic error occurs.
+ * Otherwise, if the interface of the class of v is a subtype of T, the
+ * is-expression evaluates to true.
+ * Otherwise it evaluates to false.
  * @description Checks that if T is parameterized type and G is generic type
- * with has more then n type parameters, then T is not malformed (see Types/Parameterized Types)
- * and the test does not always succeed.
+ * with has more then n type parameters, then T is not malformed
+ * (see Types/Parameterized Types).
  * @static-warning
  * @author msyabro
  * @reviewer iefremov

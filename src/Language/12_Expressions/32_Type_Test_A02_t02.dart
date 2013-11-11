@@ -5,9 +5,11 @@
  */
 /**
  * @assertion Evaluation of the is-expression e is T proceeds as follows:
- * The expression e is evaluated to a value v. Then, if the interface of
- * the class of v is a subtype of T, the is-expression evaluates to true. Otherwise
- * it evaluates to false.
+ * The expression e is evaluated to a value v.
+ * Then, if T is malformed, a dynamic error occurs.
+ * Otherwise, if the interface of the class of v is a subtype of T, the
+ * is-expression evaluates to true.
+ * Otherwise it evaluates to false.
  * @description Checks that type annotations does not affect the result of the is-expression
  * @author msyabro
  * @reviewer kaigorodov 

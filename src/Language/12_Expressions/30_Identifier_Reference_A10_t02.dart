@@ -12,23 +12,13 @@
  *  • If d is a static method, top-level function or local function then e evaluates
  *    to the function defined by d.
  * @description  Checks that references to a library function and local function
- *  are evaluated correctly.
+ * are evaluated correctly.
  * @author msyabro
  * @reviewer kaigorodov 
  */
 import "../../Utils/expect.dart";
 
 import "lib.dart" as lib;
-
-//library code:
-//
-// var x = 1;
-//
-// f() {return 1;}
-//
-// class A {
-//   static var y;
-// }
 
 main() {
   localFunc() {return 2;}

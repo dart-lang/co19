@@ -14,7 +14,6 @@
  * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
- * @issue 7052
  */
  
 main() {

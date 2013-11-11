@@ -7,7 +7,9 @@ library Script_A01_t01;
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A script is a library with a top level function main().
+ * @assertion A script is a library whose exported namespace includes a
+ * top-level function main().
+ *
  * libraryDefinition:
  *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
  * ;

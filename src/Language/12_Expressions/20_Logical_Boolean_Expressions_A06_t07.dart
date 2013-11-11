@@ -20,7 +20,6 @@
  * closure, then b shows that v has type T. Formal parameter, closures case.
  * @static-clean
  * @author ilya
- * @issue 14655
  */
 
 class C {}
