@@ -6,13 +6,10 @@
 /**
  * @assertion abstract Future addStream(Stream<T> source,
  *                                      {bool cancelOnError: true})
- * Receives events from source and puts them into this controller's stream.
- * Returns a future which completes when the source stream is done.
- * Data and error events are forwarded to this controller's stream. A done
- * event on the source will end the addStream operation and complete the
- * returned future.
- * @description Checks that data events from source are added correctly and that
- * returned future completes when the source ends.
+ * Events must not be added directly to this controller using add, addError,
+ * close or addStream, until the returned future is complete.
+ * @description Checks that events can not be added until the returned future is
+ * complete.
  * @author ilya
  */
 
@@ -36,4 +33,9 @@ main() {
     c.close();
     asyncEnd();
   });
+
+  Expect.throws(() => c.add(0));
+  Expect.throws(() => c.addError(0));
+  Expect.throws(() => c.addStream(s));
+  Expect.throws(() => c.close());
 }

@@ -5,10 +5,13 @@
  */
 /**
  * @assertion abstract Future addStream(Stream<S> stream)
+ * Consumes the elements of stream.
+ * Listens on stream and does something for each event.
+ * The consumer may stop listening after an error, or it may consume all the
+ * errors and only stop at a done event.
  * @description Checks that if stream contains only data events, they are
  * all added to a sink.
  * @author ilya
- * @issue 14332
  */
 
 import "dart:async";

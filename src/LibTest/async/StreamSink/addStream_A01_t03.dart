@@ -5,6 +5,10 @@
  */
 /**
  * @assertion abstract Future addStream(Stream<S> stream)
+ * Consumes the elements of stream.
+ * Listens on stream and does something for each event.
+ * The consumer may stop listening after an error, or it may consume all the
+ * errors and only stop at a done event.
  * @description Checks that addStream() can be preceded by add() and addError().
  * @author ilya
  */

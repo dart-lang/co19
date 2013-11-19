@@ -8,7 +8,6 @@
  * Create an async error.
  * @description Checks that error events with and without stack can be added.
  * @author ilya
- * @issue 14331
  */
 
 import "dart:async";

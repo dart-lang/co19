@@ -14,7 +14,6 @@
  * @description Checks that stack trace from Future.error constructor is
  * propagated correctly to onError callback.
  * @author ilya
- * @issue 14265
  */
 
 import "dart:async";

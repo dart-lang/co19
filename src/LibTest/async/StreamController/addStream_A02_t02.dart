@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future addStream(Stream<S> stream)
- * Consumes the elements of stream.
- * Listens on stream and does something for each event.
- * The consumer may stop listening after an error, or it may consume all the
- * errors and only stop at a done event.
- * @description Checks that addStream() can be followed by add(), addError()
- * or close() when future is completed.
+ * @assertion abstract Future addStream(Stream<T> source,
+ *                                      {bool cancelOnError: true})
+ * Events must not be added directly to this controller using add, addError,
+ * close or addStream, until the returned future is complete.
+ * @description Checks that events can be added when the returned future is
+ * complete.
  * @author ilya
  */
 
@@ -37,21 +36,19 @@ listen(stream, expectedData, expectedErrors) {
       });
 }
 
+
 main() {
-  var from = new Stream.fromIterable([5,6]);
-
   var c = new StreamController();
-  var sink = c.sink;
 
-  listen(c.stream, [5,6,1,3], [2,4]);
+  listen(c.stream, [1,2,3,4,5,6,7], [0]);
 
   asyncStart();
-  sink.addStream(from).then((_) {
-    sink.add(1);
-    sink.addError(2);
-    sink.add(3);
-    sink.addError(4);
-    sink.close();
-    asyncEnd();
+  c.addStream(new Stream.fromIterable([1,2,3])).then((_) {
+    c.add(4);
+    c.addStream(new Stream.fromIterable([5,6,7])).then((_) {
+      c.addError(0);
+      c.close();
+      asyncEnd();
+    });
   });
 }

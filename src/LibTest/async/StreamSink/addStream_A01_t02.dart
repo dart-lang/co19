@@ -5,9 +5,13 @@
  */
 /**
  * @assertion abstract Future addStream(Stream<S> stream)
- * @description Checks that all data and error events from stream are added.
+ * Consumes the elements of stream.
+ * Listens on stream and does something for each event.
+ * The consumer may stop listening after an error, or it may consume all the
+ * errors and only stop at a done event.
+ * @description Checks that addStream ends after the first error event from
+ * stream by default (see StreamController's addStream).
  * @author ilya
- * @issue 14334
  */
 
 import "dart:async";
@@ -24,7 +28,6 @@ listen(stream, expectedData, expectedErrors) {
         actualData.add(x);
       },
       onError: (x) {
-        print(x);
         actualErrors.add(x);
       },
       onDone: () {
@@ -43,7 +46,7 @@ main() {
   var c = new StreamController();
   var sink = c.sink;
 
-  listen(c.stream, [1,3,5], [2,4]);
+  listen(c.stream, [1], [2]);
 
   asyncStart();
   sink.addStream(from).then((_) {
