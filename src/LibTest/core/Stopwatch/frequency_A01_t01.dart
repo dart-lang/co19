@@ -7,31 +7,26 @@
  * @assertion Returns the frequency of the elapsed counter in Hz.
  * @description Checks that the value returned by this method is positive and
  *              constant.
- * @author rodionov
- * @reviewer pagolubev
- * @needsreview
+ * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
  
 main() {
   Stopwatch sw = new Stopwatch();
   int f = sw.frequency;
+  
+  void check() {
+    for(int i = 0; i < 100; i++) {
+      Expect.equals(f, sw.frequency);
+    }
+  }
+  
   Expect.isTrue(f > 0, "stopwatch frequency is not positive: $f");
-  sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      Expect.equals(f, sw.frequency);
-    }
+  
+  for (int k=0; k<10; k++) {
+    check();
+    sw.start();
+    check();
+    sw.stop();
   }
-  sw.stop();
-  Expect.equals(f, sw.frequency);
-
-  sw.start();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 1000 == 0) {
-      Expect.equals(f, sw.frequency);
-    }
-  }
-  sw.stop();
-  Expect.equals(f, sw.frequency);
 }

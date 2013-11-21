@@ -8,22 +8,26 @@
  * Returns the elapsedTicks counter converted to a Duration.
  * @description Checks that the elapsed tick count increases all the time once
  *              the stopwatch is started.
- * @author rodionov
- * @reviewer pagolubev
+ * @author kaigorodov
  */
+import "dart:async";
+
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
- 
+
+Duration delay=durationMs(50);
+Stopwatch sw = new Stopwatch();
+Duration e0;
+
 main() {
-  Stopwatch sw = new Stopwatch();
   sw.start();
-  int e0 = sw.elapsed.inMicroseconds;
-  int et = e0;
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.isTrue(sw.elapsed.inMicroseconds >= et);
-      et = sw.elapsed.inMicroseconds;
-    }
-  }
-  // assuming that a million iterations takes long enough
-  Expect.isTrue(sw.elapsed.inMicroseconds > e0);
+  e0 = sw.elapsed;
+  asyncStart();
+  new Timer(delay,proc1);
+}
+
+void proc1() {
+  Duration e1 = sw.elapsed;
+  Expect.isTrue(e1 > e0);
+  asyncEnd();
 }

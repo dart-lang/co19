@@ -12,22 +12,33 @@
  * The elapsed number of clock ticks increases by [frequency] every second.
  * @description Checks that the elapsed tick count increases all the time once
  *              the stopwatch is started.
- * @author rodionov
- * @reviewer pagolubev
+ * @author kaigorodov
  */
+import "dart:async";
+
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
- 
+
+Duration delay=durationMs(10);
+Stopwatch sw = new Stopwatch();
+int count=5;
+int e0;
+
 main() {
-  Stopwatch sw = new Stopwatch();
   sw.start();
-  int e0 = sw.elapsedTicks;
-  int et = e0;
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.isTrue(sw.elapsedTicks >= et);
-      et = sw.elapsedTicks;
-    }
+  e0 = sw.elapsedTicks;
+  asyncStart();
+  new Timer(delay,proc1);
+}
+
+void proc1() {
+  int e1 = sw.elapsedTicks;
+  Expect.isTrue(e1>e0);
+  if (count==0) {
+    asyncEnd();
+    return;
   }
-  // assuming that a million iterations takes long enough
-  Expect.isTrue(sw.elapsedTicks > e0);
+  count--;
+  e0=e1;
+  new Timer(delay,proc1);
 }

@@ -12,29 +12,34 @@
  * The elapsed number of clock ticks increases by [frequency] every second.
  * @description Checks that the elapsed tick count does not change between
  *              invocations of stop() and start().
- * @author rodionov
- * @reviewer pagolubev
+ * @author kaigorodov
  */
+import "dart:async";
+
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
- 
+
+Duration delay=durationMs(10);
+Stopwatch sw = new Stopwatch();
+int count=5;
+int e0;
+
 main() {
-  Stopwatch sw = new Stopwatch();
-  final int LOTS_OF_REPS  = 1000000000; // long enough for the elapsed count to change
-  final int FEWER_REPS    = 1000000; 
-  int i, elapsed, e0;
-  
-  sw.start();
-  for(i = 0; i < LOTS_OF_REPS; i++) {
-    elapsed = sw.elapsedTicks;
-    if(sw.elapsedTicks > 0) break;
-  }
-  sw.stop();
-  Expect.isTrue(i < LOTS_OF_REPS, "Elapsed count of a started StopWatch didn't increase soon enough, last value: $elapsed");
-  
   e0 = sw.elapsedTicks;
-  for(i = 0; i < FEWER_REPS; i++) {
-    if(i % 100 == 0) {
-      Expect.equals(e0, sw.elapsedTicks);
-    }
+  asyncStart();
+  new Timer(delay,proc1);
+}
+
+void proc1() {
+  int e1 = sw.elapsedTicks;
+  Expect.isTrue(e1==e0);
+  if (count==0) {
+    asyncEnd();
+    return;
   }
+  count--;
+  sw.start();
+  sw.stop();
+  e0 = sw.elapsedTicks;
+  new Timer(delay,proc1);
 }

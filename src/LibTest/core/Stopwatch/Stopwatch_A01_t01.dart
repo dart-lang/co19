@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   Stopwatch sw = new Stopwatch();
   Expect.equals(0, sw.elapsedTicks);
-  for(int i = 0; i < 1000000; i++) {
+  for(int i = 0; i < 100; i++) {
     Expect.equals(0, sw.elapsedTicks);
   }
 }

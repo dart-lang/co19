@@ -18,7 +18,7 @@ test(List create([int length])) {
   List b = create();
   b.add(null);
   Expect.isNull(b[0]);
-  for (var i = 1; i <= 314148; i++) {
+  for (var i = 1; i <= 314; i++) {
     b.add(i);
     Expect.equals(i, b[i]);
     Expect.equals(i+1, b.length);

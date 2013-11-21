@@ -11,16 +11,29 @@
  * Returns 0 if the [Stopwatch] has never been started.
  * The elapsed number of clock ticks increases by [frequency] every second.
  * @description Checks that this method returns 0 if the stopwatch has never been started.
- * @author rodionov
- * @reviewer pagolubev
+ * @author kaigorodov
  */
+import "dart:async";
+
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
- 
+
+Duration delay=durationMs(10);
+Stopwatch sw = new Stopwatch();
+int count=5;
+
 main() {
-  Stopwatch sw = new Stopwatch();
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.equals(0, sw.elapsedTicks);
-    }
+  asyncStart();
+  new Timer(delay,proc1);
+}
+
+void proc1() {
+  int e1 = sw.elapsedTicks;
+  Expect.equals(0, e1);
+  if (count==0) {
+    asyncEnd();
+    return;
   }
+  count--;
+  new Timer(delay,proc1);
 }

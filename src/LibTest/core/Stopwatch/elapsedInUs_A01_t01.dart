@@ -4,39 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the [elapsed] counter converted to microseconds.
+ * @assertion final int elapsedMicroseconds #
+ * Returns the [elapsed] counter converted to microseconds.
  * @description Checks that the proportion between values returned by elapsed()
  *              and this method is correct and that this value is never
  *              negative. Checks several successive different values returned by elapsedInUs().
- * @note stops the StopWatch before measuring the proportion and resumes afterwards
- * @author rodionov
- * @reviewer pagolubev
+ * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
- 
-main() {
-  final int LOTS_OF_REPS  = 100000000; // long enough for the us count to become positive
-  int countdown = 10;
-  
-  Stopwatch sw = new Stopwatch();
-  Expect.equals(0, sw.elapsedMicroseconds);
-  sw.start();
-  int i, us, lastUs = 0;
-  for(i = 0; i < LOTS_OF_REPS && countdown > 0; i++) {
-    if(i % 100 == 0) {
-      us = sw.elapsedMicroseconds;
-      Expect.isFalse(us < 0, "The result of elapsedInUs()  was negative: $us");
+import "dart:async";
 
-      if(us > lastUs) {
-        sw.stop();
-        print("elapsed ticks: ${sw.elapsedTicks}, in us: ${sw.elapsedMicroseconds}");
-        Expect.equals(sw.elapsedMicroseconds, (sw.elapsedTicks * 1000000) ~/ sw.frequency);
-        countdown--;
-        lastUs = us;
-        sw.start();
-      }
-    }
-  }
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
+
+Duration delay=durationMs(10);
+Stopwatch sw = new Stopwatch();
+int count=5;
+
+void check() {
+  Expect.equals(sw.elapsed.inMicroseconds, sw.elapsedMicroseconds);
+}
+
+main() {
+  check();
+  sw.start();
+  asyncStart();
+  new Timer(delay,proc1);
+}
+
+void proc1() {
   sw.stop();
-  Expect.isTrue(i < LOTS_OF_REPS, "microsecond count of a started StopWatch didn't increase soon enough, last value: $us");
+  check();
+  if (count==0) {
+    asyncEnd();
+    return;
+  }
+  count--;
+  sw.start();
+  new Timer(delay,proc1);
 }

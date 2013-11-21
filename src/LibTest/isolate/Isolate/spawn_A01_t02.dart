@@ -6,11 +6,7 @@
 /**
  * @assertionFuture<Isolate> spawn(void entryPoint(message), message)
  * Creates and spawns an isolate that shares the same code as the current isolate.
- * The argument entryPoint specifies the entry point of the spawned isolate.
- * It must be a static top-level function or a static method that takes no arguments.
- * It is not allowed to pass a function closure.
  * The entry-point function is invoked with the initial message.
- * Returns a future that will complete with an Isolate instance.
  * @description Checks spawning 3 isolates for one function.
  * @author kaigorodov
  */

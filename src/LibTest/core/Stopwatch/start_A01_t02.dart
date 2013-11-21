@@ -12,42 +12,31 @@
  * If the [Stopwatch] is currently running, then calling start does nothing.
  * @description Checks that calling this method on a stopwatch that was stopped
  *              causes it to resume count.
- * @author rodionov
- * @reviewer pagolubev
+ * @author kaigorodov
  * @needsreview issue 477
  */
+import "dart:async";
+
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
+Duration delay=durationMs(50);
+Stopwatch sw = new Stopwatch();
+int e0;
+
 main() {
-  Stopwatch sw = new Stopwatch();
   print("Freq: ${sw.frequency}Hz");
   sw.start();
-  // run the counter up
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      // gotta verify the assumption
-      Expect.isTrue(sw.elapsedTicks >= 0);
-    }
-  }
-  int e1 = sw.elapsedTicks;
-  print("Elapsed: ${sw.elapsedTicks}");
   sw.stop();
-  print("Elapsed: ${sw.elapsedTicks}");
-  e1 = sw.elapsedTicks;
   sw.start();
-  print("Elapsed: ${sw.elapsedTicks}");
-  // gotta verify the assumption
-  Expect.isTrue(sw.elapsedTicks >= e1);
+  e0 = sw.elapsedTicks;
+  asyncStart();
+  new Timer(delay,proc1);
+}
 
-  int e0 = sw.elapsedTicks;
-  int et = e0;
-  for(int i = 0; i < 1000000; i++) {
-    if(i % 100 == 0) {
-      Expect.isTrue(sw.elapsedTicks >= et);
-      et = sw.elapsedTicks;
-    }
-  }
-  // assuming that a million iterations takes long enough
-  print("Elapsed: ${sw.elapsedTicks}");
-  Expect.isTrue(sw.elapsedTicks > e0);
+void proc1() {
+  int e1 = sw.elapsedTicks;
+  print("Elapsed: $e1");
+  Expect.isTrue(e1 > e0);
+  asyncEnd();
 }
