@@ -24,17 +24,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   var value = [1,2,3];
-  var completer = new Completer();
-  Future future = new Future(() => completer.future);
 
-  var completer2 = new Completer();
-  Future future2 = new Future(() => completer2.future);
+  Future future = new Future(() => new Future.value(value));
+  Future future2 = new Future(() => new Future.error(value));
 
-  asyncMultiStart(2);
-
+  asyncStart();
   future
     .then((x) {
-      Expect.isTrue(completer.isCompleted);
       Expect.identical(value, x);
       asyncEnd();
     })
@@ -42,16 +38,13 @@ main() {
       Expect.fail('should not be called');
     });
   
+  asyncStart();
   future2
     .then((x) {
       Expect.fail('should not be called');
     })
     .catchError((x) {
-      Expect.isTrue(completer2.isCompleted);
       Expect.identical(value, x);
       asyncEnd();
     });
-
-  completer.complete(value);
-  completer2.completeError(value);
 }
