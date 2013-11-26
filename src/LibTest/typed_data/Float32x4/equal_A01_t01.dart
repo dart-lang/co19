@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uint32x4 equal(Float32x4 other)
+ * @assertion Int32x4 equal(Float32x4 other)
  * Relational equal.
- * @description Checks that the returned [Uint32x4]
+ * @description Checks that the returned [Int32x4]
  * contains correct values.
  * @author msyabro
  */
@@ -23,7 +23,7 @@ check(op1, op2, expected) {
 }
 
 main() {
-  check(new Float32x4(.0, .0, .0, .0), new Float32x4(.0, .0, .0, .0), new Uint32x4.bool(true, true, true, true));
-  check(new Float32x4(.0, .0, .0, .0), new Float32x4(-1.0, 1.0, .02, 1.32), new Uint32x4.bool(false, false, false, false));
-  check(new Float32x4(1.0, -2.0, 1e-3, 0.23e40), new Float32x4(1.0, 2.0, 1e-3, .04e-2), new Uint32x4.bool(true, false, true, false));
+  check(new Float32x4(.0, .0, .0, .0), new Float32x4(.0, .0, .0, .0), new Int32x4.bool(true, true, true, true));
+  check(new Float32x4(.0, .0, .0, .0), new Float32x4(-1.0, 1.0, .02, 1.32), new Int32x4.bool(false, false, false, false));
+  check(new Float32x4(1.0, -2.0, 1e-3, 0.23e40), new Float32x4(1.0, 2.0, 1e-3, .04e-2), new Int32x4.bool(true, false, true, false));
 }

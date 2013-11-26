@@ -13,16 +13,18 @@
  */
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
+import "../toInt32.lib.dart";
 
 void check(array) {
   Int32List l = new Int32List.fromList(array);
   Expect.equals(l.length, array.length);
-  Expect.listEquals(array, l);
+  Expect.listEquals(array.map(toInt32).toList(), l);
 }
 
 main() {
   check([]);
   check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
   check([2147483647, -2147483648]);
+  check([2147483648, -2147483649]);
   check([1000, 1000, 1000]);
 }

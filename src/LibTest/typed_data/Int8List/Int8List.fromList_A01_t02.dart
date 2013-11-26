@@ -13,11 +13,12 @@
  */
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
+import "../toInt8.lib.dart";
 
 void check(array) {
   Int8List l = new Int8List.fromList(array);
   Expect.equals(l.length, array.length);
-  Expect.listEquals(array, l);
+  Expect.listEquals(array.map(toInt8).toList(), l);
 }
 
 main() {
