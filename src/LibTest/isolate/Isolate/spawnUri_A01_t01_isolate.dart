@@ -5,13 +5,10 @@
  */
 
 library spawnUri_A01_t01_isolate;
-import "../../../Utils/expect.dart";
-import "dart:isolate";
 
-main() {
-  port.receive((message, replyTo) {
-    Expect.equals("go!", message);
-    replyTo.send("ok!");
-    port.close();
-  });
+import "dart:isolate";
+import "../../../Utils/expect.dart";
+
+void main(List args, SendPort replyPort) {
+  replyPort.send(args[0]);
 }

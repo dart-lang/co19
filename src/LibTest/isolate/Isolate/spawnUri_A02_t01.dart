@@ -6,7 +6,6 @@
 /**
  * @assertion undocumented
  * @description Checks that method throws an exception when given null, an integer or a List.
- * @static-warning
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
@@ -14,7 +13,12 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() => spawnUri(null));
-  Expect.throws(() => spawnUri(1)); /// static type warning
-  Expect.throws(() => spawnUri([])); /// static type warning
+  var uri=null;
+  Expect.throws(() => Isolate.spawnUri(uri, [], null));
+  uri="null";
+  Expect.throws(() => Isolate.spawnUri(uri, [], null));
+  uri=1;
+  Expect.throws(() => Isolate.spawnUri(uri, [], null));
+  uri=["null"];
+  Expect.throws(() => Isolate.spawnUri(uri, [], null));
 }

@@ -4,29 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion SendPort spawnUri(String uri) 
- * Creates and spawns an isolate whose code is available at uri. Like with
- * spawnFunction, the child isolate will have a default ReceivePort, and this
- * function returns a SendPort derived from it.
+ * @assertion Future<Isolate> spawnUri(Uri uri, List<String> args, message)
+ * Creates and spawns an isolate that runs the code from the library with the specified URI.
+ * The isolate starts executing the top-level main function of the library with the given URI.
+ * The target main may have one of the four following signatures:
+ * main()
+ * main(args)
+ * main(args, message)
+ * When present, the argument message is set to the initial message.
+ * When present, the argument args is set to the provided args list.
+ * Returns a future that will complete with an Isolate instance.
+ * The isolate instance can be used to control the spawned isolate.
  * @description Checks that the function spawns the isolate that executes the
- * specified top-level function. Also checks that the default ReceivePort
- * is available from the top-level getter and that the returned SendPort
- * is actually bound to the child default ReceivePort.
- * @author iefremov
+ * main() function.
+ * @author kaigorodov
  */
 
 import "dart:isolate";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
-main() {
-  SendPort send_port = spawnUri("spawnUri_A01_t01_isolate.dart");
-  send_port.send("go!", port.toSendPort());
+var expectedMessage="spawnUri_A01_t01";
 
+var receivePort = new ReceivePort();
+
+void receiveHandler(var message) {
+  Expect.equals(expectedMessage, message);
+  receivePort.close();
+  asyncEnd();
+}
+
+void main(List args, SendPort replyPort) {
   asyncStart();
-  port.receive((message, replyTo){
-    Expect.equals("ok!", message);
-    port.close();
-    asyncEnd();
-  });
+  Isolate.spawnUri(new Uri.file("spawnUri_A01_t01_isolate.dart"), [expectedMessage], receivePort.sendPort);
+  receivePort.listen(receiveHandler);
+  if (replyPort!=null) {
+    replyPort.send(args[0]);
+  }
 }

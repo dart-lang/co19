@@ -4,28 +4,36 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates and spawns an isolate whose code is available at uri. Like with
- * spawnFunction, the child isolate will have a default ReceivePort, and this
- * function returns a SendPort derived from it.
+ * @assertion Future<Isolate> spawnUri(Uri uri, List<String> args, message)
+ * Creates and spawns an isolate that runs the code from the library with the specified URI.
+ * The isolate starts executing the top-level main function of the library with the given URI.
+ * The target main may have one of the four following signatures:
+ * main()
+ * main(args)
+ * main(args, message)
+ * When present, the argument message is set to the initial message.
+ * When present, the argument args is set to the provided args list.
+ * Returns a future that will complete with an Isolate instance.
+ * The isolate instance can be used to control the spawned isolate.
  * @description Checks that an isolate can be spawned from a newly spawned isolate.
- * @author iefremov
- * @issue 5222
+ * @author kaigorodov
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() {
-  SendPort send_port = spawnUri("spawnUri_A01_t03_isolate1.dart");
-  send_port.send("isolate1", port.toSendPort());
+var expectedMessage="spawnUri_A01_t03";
+
+var receivePort = new ReceivePort();
+
+void receiveHandler(var message) {
+  Expect.equals(expectedMessage, message);
+  receivePort.close();
+  asyncEnd();
+}
+
+void main() {
   asyncStart();
-  port.receive((message, replyTo){
-    if("isolate1_done" == message) {
-      replyTo.send("isolate2", port.toSendPort());
-      return;
-    }
-    Expect.equals("ok", message);
-    port.close();
-    asyncEnd();
-  });
+  Isolate.spawnUri(new Uri.file("spawnUri_A01_t01.dart"), [expectedMessage], receivePort.sendPort);
+  receivePort.listen(receiveHandler);
 }

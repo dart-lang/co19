@@ -4,45 +4,49 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion SendPort spawnUri(String uri) 
- * Creates and spawns an isolate whose code is available at uri. Like with
- * spawnFunction, the child isolate will have a default ReceivePort, and this
- * function returns a SendPort derived from it.
+ * @assertion Future<Isolate> spawnUri(Uri uri, List<String> args, message)
+ * Creates and spawns an isolate that runs the code from the library with the specified URI.
+ * The isolate starts executing the top-level main function of the library with the given URI.
+ * The target main may have one of the four following signatures:
+ * main()
+ * main(args)
+ * main(args, message)
+ * When present, the argument message is set to the initial message.
+ * When present, the argument args is set to the provided args list.
+ * Returns a future that will complete with an Isolate instance.
+ * The isolate instance can be used to control the spawned isolate.
  * @description Checks spawning 3 isolates from a single source.
- * @author iefremov
+ * @author kaigorodov
  */
 
 import "dart:isolate";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
+
+class Connection {
+  var expectedMessage;
+  var receivePort = new ReceivePort();
+
+  Connection(int n) {
+    expectedMessage="spawnUri_A01_t01:$n";
+    receivePort.listen(receiveHandler);
+  }
+  
+  void start() {
+    asyncStart();
+    Isolate.spawnUri(new Uri.file("spawnUri_A01_t01_isolate.dart"), [expectedMessage], receivePort.sendPort);
+  }
+  
+  void receiveHandler(var message) {
+    Expect.equals(expectedMessage, message);
+    receivePort.close();
+    asyncEnd();
+  }
+}
 
 main() {
-  SendPort send_port1 = spawnUri("spawnUri_A01_t02_isolate.dart");
-  SendPort send_port2 = spawnUri("spawnUri_A01_t02_isolate.dart");
-  SendPort send_port3 = spawnUri("spawnUri_A01_t02_isolate.dart");
-
-  ReceivePort rport1 = new ReceivePort();
-  ReceivePort rport2 = new ReceivePort();
-  ReceivePort rport3 = new ReceivePort();
-
-  send_port1.send(1, rport1.toSendPort());
-  send_port2.send(2, rport2.toSendPort());
-  send_port3.send(3, rport3.toSendPort());
-
-  asyncMultiStart(3);
-  rport1.receive((message, replyTo){
-    Expect.equals(-1, message);
-    rport1.close();
-    asyncEnd();
-  });
-  rport2.receive((message, replyTo){
-    Expect.equals(-2, message);
-    rport2.close();
-    asyncEnd();
-  });
-  rport3.receive((message, replyTo){
-    Expect.equals(-3, message);
-    rport3.close();
-    asyncEnd();
-  });
+  for (int k=0; k<3; k++) {
+    Connection conn=new Connection(k);
+    conn.start();
+  }
 }

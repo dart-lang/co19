@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionFuture<Isolate> spawn(void entryPoint(message), message)
+ * @assertion Future<Isolate> spawn(void entryPoint(message), message)
  * Creates and spawns an isolate that shares the same code as the current isolate.
  * The entry-point function is invoked with the initial message.
  * @description Checks spawning 3 isolates for one function.

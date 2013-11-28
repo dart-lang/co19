@@ -4,18 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion undocumented
- * @description Checks that method throws an exception when given an URI that points
+ * @assertion Future<Isolate> spawnUri(Uri uri, List<String> args, message)
+ * @description Checks that returned Future throws an exception when URI points
  * to a script that declares a top-level function but it's not named 'main'.
- * @author rodionov
- * @needsreview documentation looks incomplete
+ * @author kaigorodov
+ * @needsreview dart issue  #15348
  */
+import "dart:async";
 import "dart:isolate";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-//  Expect.throws(() => spawnUri("spawnUri_A02_t03_bad_isolate.dart"));
-  SendPort send_port = spawnUri("spawnUri_A02_t03_bad_isolate.dart");
-  send_port.send("isolate1", port.toSendPort());
-  Expect.fail("spawnUri(bad library) does not gives an error");
+void main() {
+  asyncStart();
+  Future fut = Isolate.spawnUri(new Uri.file("spawnUri_A02_t03_bad_isolate.dart"), [], null);
+  fut.then((value) {
+      Expect.fail("spawnUri(bad library) does not gives an error");
+    },
+    onError: (error) {
+      asyncEnd();
+    }
+  );
 }

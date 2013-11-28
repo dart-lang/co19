@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionFuture<Isolate> spawn(void entryPoint(message), message)
+ * @assertion Future<Isolate> spawn(void entryPoint(message), message)
  * The argument entryPoint specifies the entry point of the spawned isolate.
  * It must be a static top-level function or a static method that takes no arguments.
  * It is not allowed to pass a function closure.

@@ -5,10 +5,11 @@
  */
 /**
  * @assertion Future<Isolate> spawnUri(Uri uri, List<String> args, message)
+ * Creates and spawns an isolate that runs the code from the library with the specified URI.
  * @description Checks that returned Future throws an exception when URI points
- * to a script that doesn't declare any top-level functions.
+ * to an unexistent file.
  * @author kaigorodov
- * @needsreview dart issue  #15348
+ * @needsreview dart issue  #12617
  */
 import "dart:async";
 import "dart:isolate";
@@ -17,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 void main() {
   asyncStart();
-  Future fut = Isolate.spawnUri(new Uri.file("spawnUri_A02_t02_bad_isolate.dart"), [], null);
+  Future fut = Isolate.spawnUri(new Uri.file("unexistent.dart"), [], null);
   fut.then((value) {
       Expect.fail("spawnUri(bad library) does not gives an error");
     },
