@@ -6,17 +6,17 @@
 /**
  * @assertion final bool isBroadcast
  * Reports whether this stream is a broadcast stream.
- * @description Checks that implementation of MessageBox.stream returns false.
+ * @description Checks that default implementation returns false.
  * @author kaigorodov
  */
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 main() {
-  MessageBox mbox=new MessageBox();
-  IsolateStream stream=mbox.stream;
-
-  Expect.isFalse(stream.isBroadcast);
-  mbox.sink.close();
+  ReceivePort s = new ReceivePort();
+  
+  Expect.isFalse(s.isBroadcast);
+  s.close();
 }
 

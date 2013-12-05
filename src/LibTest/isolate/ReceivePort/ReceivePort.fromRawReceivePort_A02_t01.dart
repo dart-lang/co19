@@ -4,14 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory ReceivePort()
- * Opens a long-lived port for receiving messages.
- * A ReceivePort is a non-broadcast stream.
- * This means that it buffers incoming messages until a listener is registered.
- * Only one listener can receive messages.
- * See Stream.asBroadcastStream for transforming the port to a broadcast stream.
- * A receive port is closed by canceling its subscription.
- * @description Checks that incoming messages are buffered until a listener is registered..
+ * @assertion factory ReceivePort.fromRawReceivePort(RawReceivePort rawPort)
+ * The handler of the given rawPort is overwritten during the construction of the result.
+ * @description Checks that the handler of the given rawPort is overwritten
+ * during the construction of the result
  * @author kaigorodov
  */
 
@@ -20,8 +16,13 @@ import "../../../Utils/expect.dart";
 
 var counter=10;
 
+void receiveHandler(var message) {
+  Expect.fail("not overwritten");
+}
+
 void main() {
-  ReceivePort rPort = new ReceivePort();
+  RawReceivePort rrPort = new RawReceivePort(receiveHandler);
+  ReceivePort rPort = new ReceivePort.fromRawReceivePort(rrPort);
   SendPort sPort=rPort.sendPort;
   for (int k=counter; k>0; k--) {
     sPort.send(k);

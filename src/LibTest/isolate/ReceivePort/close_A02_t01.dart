@@ -4,28 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Multiple invocations of [close] are allowed but ignored.
+ * @assertion abstract void close()
+ * If the stream has already been canceled this method has no effect.
  * @description Checks multiple invocation of [close].
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
 
 import "dart:isolate";
+import "../../../Utils/expect.dart";
 
-void main() {
-  ReceivePort rPort = new ReceivePort();
-  SendPort sPort = rPort.toSendPort();
-  
-  int x = 1;
-  rPort.receive((var message, SendPort replyTo) {
-    x *= message;
-    replyTo.send(x);
-    throw "Closed port cannot receive messages!";
-  });
-  
-  rPort.close();
-  rPort.close();
-  rPort.close();
-  
-  sPort.send(2, sPort);
+ReceivePort receivePort = new ReceivePort();
+
+void receiveHandler(var message) {
+  Expect.fail("Unexpected message: $message");
+}
+
+void iMain(SendPort replyPort) {
+  replyPort.send("message");
+}
+
+main() {
+  var sendPort=receivePort.sendPort;
+  receivePort.listen(receiveHandler);
+  for (int k=0; k<10; k++) {
+    receivePort.close();
+  }
+  Isolate.spawn(iMain, sendPort);
 }

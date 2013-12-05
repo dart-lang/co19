@@ -5,28 +5,28 @@
  */
 /**
  * @assertion final Future<T> first
- * Returns the first element.
+ * Returns the first element of the stream.
  * @description Checks that the first element is returned.
  * @author kaigorodov
  */
 
-import "dart:isolate";
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
 const VAL=123;
 
-main() {
-  MessageBox mbox=new MessageBox();
-  IsolateSink sink=mbox.sink;
-  IsolateStream stream=mbox.stream;
-
-  sink.add(VAL);
-  sink.close();
-
+void check(Stream s) {
   asyncStart();
-  stream.first.then((value){
+  s.first.then((value){
     Expect.equals(VAL, value);
     asyncEnd();
   });
 }
+
+main() {
+  check(IsolateStream.fromIterable([VAL,2,3]));
+  check(IsolateStream.fromIterable(new Iterable.generate(1, (int index)=>VAL)));
+}
+

@@ -4,34 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Closes this receive port immediately. Pending 
- * messages will not be processed and it is impossible to re-open the port.
+ * @assertion abstract void close()
+ * Closes this.
+ * If the stream has not been canceled yet, adds a close-event to the event queue
+ * and discards any further incoming messages.
  * @description Checks that messages are not processed when the port is closed.
- * @author msyabro
- * @reviewer kaigorodov
+ * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 import "dart:isolate";
+import "../../../Utils/expect.dart";
 
-void main() {
-  ReceivePort rPort = new ReceivePort();
-  SendPort sPort = rPort.toSendPort();
-  
-  int x = 1;
-  rPort.receive((var message, SendPort replyTo) {
-    x = message;
-    throw "Closed port cannot receive messages!";
-  });
+ReceivePort receivePort = new ReceivePort();
 
-  rPort.close();
-  sPort.send(2);
+void receiveHandler(var message) {
+  Expect.fail("Unexpected message: $message");
+}
 
-  // make check in a callback, to be executed after the rPort.receive()
-  ReceivePort rPort2 = new ReceivePort();
-  rPort2.receive((var message, SendPort replyTo) {
-    rPort2.close();
-    Expect.equals(1, x);
-  });
-  rPort2.toSendPort().send(0);
+void iMain(SendPort replyPort) {
+  replyPort.send("message");
+}
+
+main() {
+  var sendPort=receivePort.sendPort;
+  receivePort.listen(receiveHandler);
+  receivePort.close();
+  Isolate.spawn(iMain, sendPort);
 }

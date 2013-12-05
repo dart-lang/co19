@@ -10,25 +10,24 @@
  * @author kaigorodov
  */
 
-import "dart:isolate";
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, int expected) {
-  MessageBox mbox=new MessageBox();
-  for (var element in data) {
-    mbox.sink.add(element);
-  }
-  mbox.sink.close();
-  
+const VAL=123;
+
+void check(Stream s) {
   asyncStart();
-  mbox.stream.single.then((value){
-    Expect.equals(expected, value);
-    asyncEnd();
-  });
+  s.single.then(
+    (value){
+      Expect.equals(VAL, value);
+      asyncEnd();
+    }
+  );
 }
 
 main() {
-  check([123], 123);
-  check(new Iterable.generate(1, (int index)=>9), 9);
+  check(IsolateStream.fromIterable([VAL]));
+  check(IsolateStream.fromIterable(new Iterable.generate(1, (int index)=>VAL)));
 }

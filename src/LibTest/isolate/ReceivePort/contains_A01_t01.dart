@@ -12,24 +12,18 @@
  */
 
 import "dart:async";
-import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
 check(List l, var match, bool expected) {
-  MessageBox mbox=new MessageBox();
-
-  Future<bool> fu=mbox.stream.contains(match);
+  Stream s=IsolateStream.fromIterable(l);
+  Future<bool> fu=s.contains(match);
   asyncStart();
   fu.then((actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
-
-  for (var element in l) {
-    mbox.sink.add(element);
-  }
-  mbox.sink.close();
 }
 
 main() {

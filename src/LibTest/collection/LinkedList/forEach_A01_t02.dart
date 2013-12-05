@@ -7,13 +7,10 @@
  * @assertion void forEach(void action(E entry))
  * Call action with each entry in the list.
  * @description Checks that no exception is thrown if the list is empty.
- * @static-warning
  * @author kaigorodov
  */
 import "dart:collection";
 import "../../../Utils/dynamic_check.dart";
-import "../../../Utils/expect.dart";
-import "LinkedList.lib.dart";
 
 main() {
   new LinkedList().forEach(null);
@@ -22,7 +19,10 @@ main() {
   if(isCheckedMode()) {
     return;
   }
-  new LinkedList().forEach(1); /// static type warning
-  new LinkedList().forEach(""); /// static type warning
-  new LinkedList().forEach(3.14); /// static type warning
+  var action=1;
+  new LinkedList().forEach(action);
+  action="";
+  new LinkedList().forEach(action);
+  action=3.14;
+  new LinkedList().forEach(action);
 }

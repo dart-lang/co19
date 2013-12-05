@@ -14,16 +14,12 @@
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
 check(Iterable<int> data, bool test(int element), bool expected) {
-  MessageBox mbox=new MessageBox();
-  for (var element in data) {
-    mbox.sink.add(element);
-  }
-  mbox.sink.close();
-  
+  ReceivePort s=IsolateStream.fromIterable(data);
   asyncStart();
-  mbox.stream.any(test).then((actual) {
+  s.any(test).then((bool actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });

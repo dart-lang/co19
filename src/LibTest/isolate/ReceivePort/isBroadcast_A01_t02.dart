@@ -6,7 +6,7 @@
 /**
  * @assertion final bool isBroadcast
  * Reports whether this stream is a broadcast stream.
- * @description Checks that true is returned for a broadcast stream.
+ * @description Checks true is returned for a broadcast stream.
  * @author kaigorodov
  */
 
@@ -15,11 +15,9 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 main() {
-  MessageBox mbox=new MessageBox();
-  IsolateStream stream=mbox.stream;
-  Stream s=stream.asBroadcastStream();
+  ReceivePort rp = new ReceivePort();
+  Stream s = rp.asBroadcastStream();
   
   Expect.isTrue(s.isBroadcast);
-  mbox.sink.close();
+  rp.close();
 }
-

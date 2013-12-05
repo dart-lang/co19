@@ -5,22 +5,21 @@
  */
 /**
  * @assertion final Future<T> last
- * If this is empty throws a StateError.
- * @description Checks that a StateError is thrown when this stream is empty.
- * @needsreview #11118
+ * If this stream is empty (a done event occurs before the first data event),
+ * the resulting future completes with a StateError.
+ * @description Checks that future completes with a StateError when this
+ * stream is empty.
  * @author kaigorodov
  */
 
-import "dart:isolate";
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
-main() {
-  MessageBox mbox=new MessageBox();
-  mbox.sink.close();
-  
+void check(Stream s) {
   asyncStart();
-  mbox.stream.last.then(
+  s.last.then(
     (value){
       Expect.fail("empty stream returned $value");
     },
@@ -29,4 +28,9 @@ main() {
       asyncEnd();
     }
   );
+}
+
+main() {
+  check(IsolateStream.fromIterable([]));
+  check(IsolateStream.fromIterable(new Iterable.generate(0, (int index)=>1)));
 }

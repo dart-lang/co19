@@ -9,19 +9,15 @@
  * @description Checks that the method returns whether this stream contains any elements.
  * @author kaigorodov
  */
-import "dart:isolate";
+
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
 check(Iterable<int> data, bool expected) {
-  MessageBox mbox=new MessageBox();
-  for (var element in data) {
-    mbox.sink.add(element);
-  }
-  mbox.sink.close();
-  
   asyncStart();
-  mbox.stream.isEmpty.then((bool actual) {
+  IsolateStream.fromIterable(data).isEmpty.then((bool actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });

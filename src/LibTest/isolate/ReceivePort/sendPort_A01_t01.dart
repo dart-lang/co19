@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a new send port that sends to this receive port.
- * @description Checks that a new SendPort that sends to this receive port is created.
+ * @assertion final SendPort sendPort
+ * Returns a SendPort that sends to this receive port.
+ * @description Checks that a new SendPort that sends to this receive port is returned.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -15,14 +16,14 @@ import "../../../Utils/async_utils.dart";
 
 void main() {
   ReceivePort rPort = new ReceivePort();
-  SendPort sPort = rPort.toSendPort();
-  int x = 1;
+  var sPort = rPort.sendPort;
+  Expect.isTrue(sPort is SendPort);
   
   asyncStart();
-  rPort.receive((var message, SendPort replyTo) {
+  rPort.listen((var message) {
     rPort.close();
     asyncEnd();
   });
   
-  sPort.send("message1", null);
+  sPort.send("message1");
 }

@@ -5,33 +5,30 @@
  */
 /**
  * @assertion final Future<T> last
- * Returns the last element.
+ * Returns the last element of the stream.
  * @description Checks that the last element is returned.
  * @author kaigorodov
  */
 
-import "dart:isolate";
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
 const VAL=123;
 
-check(Iterable<int> data, int expected) {
-  MessageBox mbox=new MessageBox();
-  for (var element in data) {
-    mbox.sink.add(element);
-  }
-  mbox.sink.close();
-  
+void check(Stream s) {
   asyncStart();
-  mbox.stream.last.then((actual) {
-    Expect.equals(expected, actual);
+  s.last.then((value){
+    Expect.equals(VAL, value);
     asyncEnd();
   });
 }
 
 main() {
-  check([1,2,3,null], null);
-  check([1,2,3,123], 123);
-  check(new Iterable.generate(10, (int index)=>index), 9);
+  check(IsolateStream.fromIterable([VAL]));
+  check(IsolateStream.fromIterable([VAL/2, VAL]));
+  check(IsolateStream.fromIterable(new Iterable.generate(1, (int index)=>VAL)));
+  check(IsolateStream.fromIterable(new Iterable.generate(2, (int index)=>VAL*index)));
 }
+

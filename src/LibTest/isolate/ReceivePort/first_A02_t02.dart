@@ -5,29 +5,29 @@
  */
 /**
  * @assertion final Future<T> first
- * If this is empty throws a StateError.
- * Otherwise this method is equivalent to this.elementAt(0).
+ * If this stream is empty (a done event occurs before the first data event),
+ * the resulting future completes with a StateError.
+ * Except for the type of the error, this method is equivalent to
+ * this.elementAt(0).
  * @description Checks that for non-empty stream, this.first is equivalent to this.elementAt(0).
  * @author kaigorodov
  */
-
-import "dart:isolate";
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "IsolateStream.dart" as IsolateStream;
 
 const VAL=123;
 
-main() {
-  MessageBox mbox=new MessageBox();
-  IsolateSink sink=mbox.sink;
-  IsolateStream stream=mbox.stream;
-
-  sink.add(VAL);
-  sink.close();
-
+void check(Stream s) {
   asyncStart();
-  stream.elementAt(0).then((value){
+  s.elementAt(0).then((value){
     Expect.equals(VAL, value);
     asyncEnd();
   });
+}
+
+main() {
+  check(IsolateStream.fromIterable([VAL,2,3]));
+  check(IsolateStream.fromIterable(new Iterable.generate(1, (int index)=>VAL)));
 }
