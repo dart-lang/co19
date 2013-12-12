@@ -18,9 +18,9 @@ void main() {
   ReceivePort r1 = new ReceivePort();
   ReceivePort r2 = new ReceivePort();
   
-  SendPort s1 = r1.toSendPort();
-  SendPort s2 = r2.toSendPort();
-  SendPort s3 = r2.toSendPort();
+  SendPort s1 = r1.sendPort;
+  SendPort s2 = r2.sendPort;
+  SendPort s3 = r2.sendPort;
 
   Expect.isFalse(s1 == s2);
   Expect.notEquals(s1.hashCode, s2.hashCode);

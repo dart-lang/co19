@@ -19,10 +19,10 @@ void main() {
   ReceivePort r1 = new ReceivePort();
   ReceivePort r2 = new ReceivePort();
   
-  SendPort s1 = r1.toSendPort();
-  SendPort s2 = r1.toSendPort();
-  SendPort s3 = r2.toSendPort();
-  SendPort s4 = r2.toSendPort();
+  SendPort s1 = r1.sendPort;
+  SendPort s2 = r1.sendPort;
+  SendPort s3 = r2.sendPort;
+  SendPort s4 = r2.sendPort;
   
   Expect.isTrue(s1 == s2);
   Expect.isTrue(s3 == s4);

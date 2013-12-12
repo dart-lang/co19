@@ -5,8 +5,6 @@
  */
 
 library send_A02_utils;
-import "../../../Utils/expect.dart";
-import "dart:isolate";
 
 var messagesList = const [
   null, false, true, 0, 1, -1, (1<<31)-1, (1<<32)-1, (1<<32), (1<<64)-1, 1<<64, 1<<128, -(1<<128),

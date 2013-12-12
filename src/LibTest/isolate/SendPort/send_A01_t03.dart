@@ -9,7 +9,7 @@
  * The message is copied to the receiving isolate.
  * The content of message can be: primitive values (null, num, bool, double, String),
  * instances of SendPort, and lists and maps whose elements are any of these.
- * @description Checks that various primitive values could be sent properly.
+ * @description Checks that various maps could be sent properly.
  * @author kaigorodov
  */
 import "dart:isolate";
@@ -18,21 +18,33 @@ import "../../../Utils/expect.dart";
 import "send_A01_util.dart";
 
 void iMain(SendPort replyPort) {
-  for(var v in messagesList) {
+  var maps = makeMaps();
+  for(var v in maps) {
     replyPort.send(v);
   }
 }
 
+makeMaps() {
+  var maps = [
+    const {}, const {"1:":1, "2":2, "3":3}, const {"1":const{}, "2":const{"1":const{}}},
+    messagesMap, {"1":messagesMap}, {"1":{}, "2":{"3":messagesMap}},
+    {"1" : messagesList}
+  ];
+
+  return maps;
+}
+
 main() {
   var receivePort = new ReceivePort();
+  var maps = makeMaps();
   asyncStart();
   Isolate.spawn(iMain, receivePort.sendPort);
   int i = 0;
   
   receivePort.listen((message) {
-    Expect.equals(messagesList[i], message);
+    Expect.mapEquals(maps[i], message);
     i++;
-    if (i == messagesList.length) {
+    if (i == maps.length) {
       receivePort.close();
       asyncEnd();
     }
