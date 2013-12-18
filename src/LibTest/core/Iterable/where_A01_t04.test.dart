@@ -34,7 +34,7 @@ check(Iterable collection, var arg) {
   });
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable create([Iterable content]), {bool isSet:false}) {
   Iterable collection=create(["1","2","3"]);
   check(collection, null);
   check(collection, false);

@@ -289,8 +289,11 @@ class Expect {
 
 //  static void deepListEquals(var expected, var actual, [String reason = null]) {
   static void listEquals(var expected, var actual, [String reason = null]) {
-    if((expected is! List) || (actual is! List)) {
-      Expect.fail("not a List");
+    if (expected is! List) {
+      Expect.fail("expected is not a List:$expected");
+    }
+    if (actual is! List) {
+      Expect.fail("actual is not a List:$expected");
     }
     deepEquals(expected, actual, reason);
   }

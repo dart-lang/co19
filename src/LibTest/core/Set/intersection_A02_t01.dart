@@ -6,14 +6,14 @@
 /**
  * @assertion  abstract Set<E> intersection(Set<Object> other)
  * Passing null as argument results in Error. 
- * @description Checks that an Error is thrown if the argument is null.
+ * @description Checks that either an Error is thrown or empty Set is returned
+ * if the argument is null.
  * Both empty and non-empty Sets are tested.
+ * @note see discussion to co19 issue #659
  * @author rodionov
- * @needsreview Undocumented
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   check(new Set.from([]));
@@ -21,9 +21,11 @@ main() {
 }
 
 void check(Set s) {
+  var res=new Set.from([1]);
   try {
-    s.intersection(null);
-    Expect.fail("Error expected");
+    res=s.intersection(null);
   } on Error catch(e) {
+    return;
   }
+  Expect.isTrue(res.isEmpty);
 }

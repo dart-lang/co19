@@ -24,7 +24,7 @@ class A {
   bool checked;
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable create([Iterable content]), {bool isSet:false}) {
 
   List<A> a = new List(100);
   for(var i = 0; i < a.length; i++) {

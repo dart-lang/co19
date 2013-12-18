@@ -25,7 +25,7 @@ class A {
   bool checked;
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable create([Iterable content]), {bool isSet:false}) {
   Iterable a = create([]).where((var v){return true;});
   Iterator it = a.iterator;
   while(it.moveNext()) {}

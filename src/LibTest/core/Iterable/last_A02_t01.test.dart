@@ -13,7 +13,7 @@ library last_A02_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable create([Iterable content]), {bool isSet:false}) {
   check(Iterable a) {
     Expect.throws(() {
         create(a).last;

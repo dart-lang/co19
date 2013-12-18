@@ -44,17 +44,17 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   isNotEmpty_A01_t01.test(create);
   iterator_A01_t01.test(create, isSet:isSet);
   last_A01_t01.test(create, isSet:isSet);
-  last_A02_t01.test(create);
-  length_A01_t01.test(create);
-  single_A01_t01.test(create);
+  last_A02_t01.test(create, isSet:isSet);
+  length_A01_t01.test(create, isSet:isSet);
+  single_A01_t01.test(create, isSet:isSet);
   contains_A01_t01.test(create);
 
   where_A01_t01.test(create, isSet:isSet);
-  where_A01_t02.test(create);
-  where_A01_t03.test(create);
-  where_A01_t04.test(create);
-  where_A01_t05.test(create);
-  where_A01_t06.test(create);
+  where_A01_t02.test(create, isSet:isSet);
+  where_A01_t03.test(create, isSet:isSet);
+  where_A01_t04.test(create, isSet:isSet);
+  where_A01_t05.test(create, isSet:isSet);
+  where_A01_t06.test(create, isSet:isSet);
   where_A01_t07.test(create, isSet:isSet);
-  where_A01_t08.test(create);
+  where_A01_t08.test(create, isSet:isSet);
 }
