@@ -1,0 +1,16 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: WhiteSmoke;
+  margin: 15px;
+
+}
+
+#log {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 5px 0px 5px 5px;
+  width: 100%;
+  border: 1px solid Silver;
+  background-color: White;
+}
