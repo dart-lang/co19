@@ -4,20 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double floor()
+ * abstract abstract double floorToDouble()
+ * Returns the greatest integer value no greater than this.
+ * The result is a double.
  * @description Checks that if the value is already equal to a mathematical
  * integer, then the result is the same as the value.
- * @author pagolubev
- * @reviewer msyabro
+ * @author kaigorodov
  */
+import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
-
-import "dart:math" as Math;
-
 check(double arg) {
-  Expect.equals(arg, arg.floor());
-  Expect.equals(-arg, (-arg).floor());
+  Expect.equals(arg, arg.floorToDouble());
+  Expect.equals(-arg, (-arg).floorToDouble());
 }
 
 main() {

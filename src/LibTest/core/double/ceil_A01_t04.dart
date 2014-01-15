@@ -4,17 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double ceil()
- * @description Checks that [:ceil():] called on a positive or negative
- * infinity returns the same value.
+ * @assertion abstract int ceil()
+ * Returns the least integer no smaller than this.
+ * @description Checks that if [:ceil():] is called on a value already equal
+ * to a mathematical integer, then the result is the same value.
  * @author pagolubev
  * @reviewer msyabro
  */
+import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
+check(double argument) {
+  Expect.equals(argument, argument.ceil());
+  Expect.equals(-argument, (-argument).ceil());
+}
 
 main() {
-  double inf = 1.0 / .0;
-  Expect.equals(inf, inf.ceil());
-  Expect.equals(-inf, (-inf).ceil());
+  check(1.0);
+  check(2.0);
+  check(3.0);
+  check(4.0);
+  check(5.0);
+  check(12.0);
+  check(123.0);
+  check(1234.0);
+  check(12345.0);
+  check(123456.0);
+  check(1234567.0);
+  check(123456789012345.0);
+  check(1234567.0E10);
+  check(1234567.0E15);
+  check(1234567.0E20);
+  check(1234567.0E40);
+  check(1234567.0E80);
+  check(Math.pow(2.0, 52));
+  check(Math.pow(2.0, 53));
+  check(Math.pow(2.0, 520));
+  check(1.0E308);
 }

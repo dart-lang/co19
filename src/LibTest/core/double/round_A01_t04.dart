@@ -4,17 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double round()
- * @description Checks that [:round():] on a positive or negative infinity
- * returns the same value.
- * @author pagolubev
- * @reviewer msyabro
+ * @assertion abstract int round()
+ * Returns the integer closest to this.
+ * Rounds away from zero when there is no closest integer:
+ * (3.5).round() == 4 and (-3.5).round() == -4.
+ * @description Checks that [:round():] does not change the object.
+ * @author msyabro
  */
 import "../../../Utils/expect.dart";
 
+check(double d) {
+  double oldVal = d;
+  d.round();
+  Expect.equals(oldVal, d);
+}
 
 main() {
-  double inf = 1 / .0;
-  Expect.equals(inf.round(), inf);
-  Expect.equals((-inf).round(), -inf);
+  check(.0);
+  check(.1);
+  check(1.0);
+  check(33.333);
+  check(4.9406564584124654e-324);  // min subnormal
+  check(2.2250738585072014e-308);  // min normal
+  check(1.7976931348623157e308);  // max normal
 }

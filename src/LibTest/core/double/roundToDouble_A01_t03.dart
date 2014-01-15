@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double round()
+ * @assertion abstract double roundToDouble()
+ * Returns the integer value, as a double, closest to this.
+ * Rounds away from zero when there is no closest integer:
+ * (3.5).round() == 4 and (-3.5).round() == -4.
  * @description Checks that if the value is already equal to a mathematical
  * integer, then the result is the same as the value.
  * @author pagolubev
  * @reviewer msyabro
  */
+import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
-
-import "dart:math" as Math;
-
 check(double arg) {
-  Expect.equals(arg, arg.round());
-  Expect.equals(-arg, (-arg).round());
+  Expect.equals(arg, arg.roundToDouble());
+  Expect.equals(-arg, (-arg).roundToDouble());
 }
 
 main() {

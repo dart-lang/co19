@@ -4,20 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double ceil()
- * @description Checks that if [:ceil():] is called on a value already equal
+ * @assertion abstract double ceilToDouble()
+ * Returns the least integer value no smaller than this.
+ * The result is a double.
+ * @description Checks that if [:ceilToDouble():] is called on a value already equal
  * to a mathematical integer, then the result is the same value.
  * @author pagolubev
  * @reviewer msyabro
  */
+import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
-import "dart:math" as Math;
-
-
 check(double argument) {
-  Expect.equals(argument, argument.ceil());
-  Expect.equals(-argument, (-argument).ceil());
+  Expect.equals(argument, argument.ceilToDouble());
+  Expect.equals(-argument, (-argument).ceilToDouble());
 }
 
 main() {

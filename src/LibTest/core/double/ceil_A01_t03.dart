@@ -4,26 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double ceil()
- * @description Checks that [:ceil():] called on a NaN returns the same value.
+ * @assertion abstract int ceil()
+ * Returns the least integer no smaller than this.
+ * @description Checks that [:ceil():] called on a positive or negative zero
+ * returns zero.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
-import "dart:math" as Math;
-
-check(double arg) {
-  Expect.isTrue(arg.ceil().isNaN);
-}
-
 main() {
-  double nan = .0 / .0;
-  check(nan);
-  check(-nan);
-  check(0/(1.0 - 1.0));
-  check(nan*100);
-  check(Math.sqrt(-1.0));
-  check(Math.sin(nan));
+  Expect.equals(0, (.0).ceil());
+  Expect.equals(0, (-.0).ceil());
 }

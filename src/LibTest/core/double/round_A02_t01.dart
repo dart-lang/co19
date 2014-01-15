@@ -5,17 +5,17 @@
  */
 /**
  * @assertion abstract int round()
- * Returns the integer closest to this.
- * Rounds away from zero when there is no closest integer:
- * (3.5).round() == 4 and (-3.5).round() == -4.
- * @description Checks that [:round():] on a positive or negative zeros
- * returns zero.
+ * If this is not finite (NaN or infinity), throws an UnsupportedError.
+ * @description Checks that [:round():] on NaN throws an UnsupportedError.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(0, 0.round());
-  Expect.equals(0, (-.0).round());
+  Expect.throws(() {
+      double.NAN.round();
+    },
+    (e)=>e is UnsupportedError
+  );
 }

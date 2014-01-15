@@ -4,8 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double round()
- * @description Checks that [:round():] does not change the object.
+ * @assertion abstract double roundToDouble()
+ * Returns the integer value, as a double, closest to this.
+ * Rounds away from zero when there is no closest integer:
+ * (3.5).roundToDouble() == 4 and (-3.5).roundToDouble() == -4.
+ * @description Checks that [:roundToDouble():] does not change the object.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
@@ -13,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(double d) {
   double oldVal = d;
-  d.round();
+  d.roundToDouble();
   Expect.equals(oldVal, d);
 }
 

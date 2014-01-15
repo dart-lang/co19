@@ -4,17 +4,43 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double floor()
- * @description Checks that [:ceil():] called on a positive or negative
- * infinity returns the same value.
+ * abstract int floor()
+ * Returns the greatest integer no greater than this.
+ * @description Checks that if the value is already equal to a mathematical
+ * integer, then the result is the same as the value.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 
+import "dart:math" as Math;
+
+check(int arg) {
+  Expect.equals(arg, arg.toDouble().floor());
+  Expect.equals(-arg, (-arg).toDouble().floor());
+}
+
 main() {
-  double inf = 1 / .0;
-  Expect.equals(inf, inf.floor());
-  Expect.equals(-inf, (-inf).floor());
+  check(1);
+  check(2);
+  check(3);
+  check(4);
+  check(5);
+  check(12);
+  check(123);
+  check(1234);
+  check(12345);
+  check(123456);
+  check(1234567);
+  check(123456789012345);
+  check(1234567.0E10.toInt());
+  check(1234567.0E15.toInt());
+  check(1234567.0E20.toInt());
+  check(1234567.0E40.toInt());
+  check(1234567.0E80.toInt());
+  check(Math.pow(2.0, 52).toInt());
+  check(Math.pow(2.0, 53).toInt());
+  check(Math.pow(2.0, 520).toInt());
+  check(1.0E308.toInt());
 }

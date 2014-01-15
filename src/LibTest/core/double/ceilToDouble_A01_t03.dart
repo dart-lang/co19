@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * abstract int floor()
- * Returns the greatest integer no greater than this.
- * @description Checks that [:floor():] called on a positive or negative
- * zero returns zero.
+ * @assertion abstract double ceilToDouble()
+ * Returns the least integer value no smaller than this.
+ * The result is a double.
+ * @description Checks that [:ceilToDouble():] called on a positive or negative zero
+ * returns the same value.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  Expect.equals(0, (.0).floor());
-  Expect.equals(0, (-.0).floor());
+  Expect.equals(0.0, (.0).ceil());
+  Expect.equals(-0.0, (-.0).ceil());
 }

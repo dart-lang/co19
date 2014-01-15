@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract int round()
- * Returns the integer closest to this.
+ * @assertion abstract double roundToDouble()
+ * Returns the integer value, as a double, closest to this.
  * Rounds away from zero when there is no closest integer:
  * (3.5).round() == 4 and (-3.5).round() == -4.
  * @description Checks that [:round():] on a positive or negative zeros
- * returns zero.
+ * returns the same value.
  * @author pagolubev
  * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(0, 0.round());
-  Expect.equals(0, (-.0).round());
+  Expect.equals(.0.roundToDouble(), .0);
+  Expect.equals((-.0).roundToDouble(), -.0);
 }

@@ -5,16 +5,23 @@
  */
 /**
  * abstract int floor()
- * Returns the greatest integer no greater than this.
+ * If this is not finite (NaN or infinity), throws an UnsupportedError.
  * @description Checks that [:floor():] called on a positive or negative
- * zero returns zero.
- * @author pagolubev
- * @reviewer msyabro
+ * infinity throws an UnsupportedError.
+ * @author kaigorodov
  */
+import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
+check(double arg) {
+  Expect.throws(() {
+    arg.floor();
+  },
+  (e)=>e is UnsupportedError
+  );
+}
 
 main() {
-  Expect.equals(0, (.0).floor());
-  Expect.equals(0, (-.0).floor());
+  check(double.INFINITY);
+  check(double.NEGATIVE_INFINITY);
 }
