@@ -5,7 +5,9 @@
  */
 /**
  * @assertion Let T be the static type of o. It is a static type warning if T does not have
- * an accessible instance member named m.
+ * does not have an accessible instance member named m unless T or a
+ * superinterface of T is annotated with an annotation denoting a constant
+ * identical to the constant @proxy deﬁned in dart:core.
  * @description Checks that it is a static type warning if member m exists in T 
  * but is inaccessible.
  * @static-warning
@@ -24,11 +26,11 @@ import "lib.dart";
 //   _func() {}
 // }
 
-
 main() {
-  C o;
-  try {
+  C o=new C();
+  Expect.throws((){
     o._func(); /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+  }
+  , (e)=>e is NoSuchMethodError
+  );
 }

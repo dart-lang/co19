@@ -9,15 +9,18 @@
  * annotated with an annotation denoting a constant identical to the constant @proxy
  * deﬁned in dart:core. 
  * @description Checks that there is no static warning if the class of super in
- * a super.m invocation does not have a getter named m but the class is annotated
- * with @proxy.
+ * a super.m invocation does not have a getter named m but the superinterface
+ * is annotated with @proxy.
  * @static-clean
  * @author kaigorodov
+ * @note issue #16233
  */
 import "../../Utils/expect.dart";
 
 @proxy
-class C {
+class S {}
+
+class C implements S {
 }
 
 main() {

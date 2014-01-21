@@ -8,14 +8,18 @@
  * does not have an accessible instance member named m unless T or a
  * superinterface of T is annotated with an annotation denoting a constant
  * identical to the constant @proxy deﬁned in dart:core.
- * @description Checks that it is a static type warning if T does not have an instance member named m.
- * @static-warning
- * @author msyabro
- * @reviewer rodionov
+ * @description Checks that there is no static type warning if T does not
+ * have an instance member named m but have  @proxy annotation.
+ * @static-clean
+ * @author kaigorodov
+ * @note issue #16233
  */
 import "../../../Utils/expect.dart";
 
-class C {}
+@proxy
+class I {}
+
+class C implements I {}
 
 main() {
   C o=new C();
@@ -25,4 +29,3 @@ main() {
   , (e)=>e is NoSuchMethodError
   );
 }
-
