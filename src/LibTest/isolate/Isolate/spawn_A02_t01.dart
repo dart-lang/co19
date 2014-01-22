@@ -12,13 +12,11 @@
  * Returns a future that will complete with an Isolate instance.
  * @description Attempt to pass a closure. Check that the spawned isolate does not reply. 
  * @needsreview issue #15234: documentation looks incomplete: what happens if a closure is passed?
- * Currently vm does not throw an error, only hangs. So the test is not executed - premature return is inserted.
+ * Currently vm does not throw an error when spawn() is invoked, but the Future ends with an error.
  * @author kaigorodov
  */
 
-import "dart:async";
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -27,21 +25,14 @@ main() {
   }
 
   var receivePort = new ReceivePort();
-  bool replied=false;
-  
-return;
 
-  Isolate.spawn(f, receivePort.sendPort);
-  receivePort.listen((message){
-    replied=true;
-    receivePort.close();
-  });
-
-  asyncStart();
-  new Timer(durationMs(100), () {
-    asyncEnd();
-    Expect.isFalse(replied);
-    receivePort.close();
-  });
-
+  Isolate.spawn(f, receivePort.sendPort).then((v){
+      receivePort.close();
+      Expect.fail(" a closure spawned: $v)");
+    }
+    , onError: (e) {
+      print("onError: $e");
+      receivePort.close();
+    }
+  );
 }

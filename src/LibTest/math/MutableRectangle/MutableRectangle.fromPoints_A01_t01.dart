@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion const Rectangle(T left, T top, T width, T height)
- * Creates a new Object instance. 
+ * @assertion factory MutableRectangle.fromPoints(Point<T> a, Point<T> b)
  * @description checks that coordinate properties of the created object
  * are equal to the constructor arguments.
  * @author kaigorodov
@@ -25,8 +24,7 @@ const List<num> values = const [
    1.7976931348623157e150
  ];
  
-const EPS=1.0e-10;
-
+//Random rand = new Random(123456);
 Random rand = new Random();
 
 num randomVal() {
@@ -34,15 +32,12 @@ num randomVal() {
   return values[k];
 }
 
-void check(num x, num y, num z, num w) {
-  Rectangle r=new Rectangle(x, y, z, w);
-  Expect.equals(x, r.left);
-  Expect.equals(y, r.top);
-  Expect.equals(z, r.width);
-  Expect.equals(w, r.height);
-  // in order not to do separate tests against right and bottom properties
-  Expect.equals(y+w, r.bottom);
-  Expect.equals(x+z, r.right);
+void check(Point p1, Point p2) {
+  MutableRectangle r=new MutableRectangle.fromPoints(p1, p2);
+  Expect.equals(min(p1.x, p2.x), r.left);
+  Expect.equals(min(p1.y, p2.y), r.top);
+  Expect.equals((p2.x-p1.x).abs(), r.width);
+  Expect.equals((p2.y-p1.y).abs(), r.height);
 }
 
 main() {
@@ -50,7 +45,7 @@ main() {
     num x = randomVal();
     num y = randomVal();
     num z = randomVal();
-    num w= randomVal();
-    check(x, y, z, w);
+    num w = randomVal();
+    check(new Point(x, y), new Point(z, w));
   }
 }

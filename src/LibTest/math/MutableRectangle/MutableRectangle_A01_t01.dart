@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion const Rectangle(T left, T top, T width, T height)
+ * @assertion const MutableRectangle(T left, T top, T width, T height)
  * Creates a new Object instance. 
  * @description checks that coordinate properties of the created object
  * are equal to the constructor arguments.
@@ -34,23 +34,33 @@ num randomVal() {
   return values[k];
 }
 
-void check(num x, num y, num z, num w) {
-  Rectangle r=new Rectangle(x, y, z, w);
+void check(num x, num y, num w, num h) {
+  MutableRectangle r=new MutableRectangle(x, y, w, h);
   Expect.equals(x, r.left);
   Expect.equals(y, r.top);
-  Expect.equals(z, r.width);
-  Expect.equals(w, r.height);
+  Expect.equals(h, r.height);
+  Expect.equals(w, r.width);
   // in order not to do separate tests against right and bottom properties
-  Expect.equals(y+w, r.bottom);
-  Expect.equals(x+z, r.right);
+  Expect.equals(y+h, r.bottom);
+  Expect.equals(x+w, r.right);
+  // check that some properties are mutable
+  x+=2; y-=1; w*=2; h/=2;
+  r.left=x;
+  r.top=y;
+  r.height=h;
+  r.width=w;
+  Expect.equals(x, r.left);
+  Expect.equals(y, r.top);
+  Expect.equals(h, r.height);
+  Expect.equals(w, r.width);
 }
 
 main() {
   for(int i = 0; i < 1000; i++) {
     num x = randomVal();
     num y = randomVal();
-    num z = randomVal();
-    num w= randomVal();
-    check(x, y, z, w);
+    num w = randomVal();
+    num h= randomVal();
+    check(x, y, w, h);
   }
 }
