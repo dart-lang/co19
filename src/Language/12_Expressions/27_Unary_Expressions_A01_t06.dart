@@ -5,20 +5,26 @@
  */
 /**
  * @assertion Unary expressions invoke unary operators on objects.
- * unaryExpression:
- *   prefixOperator unaryExpression |
- *   postfixExpression |
- *   prefixOperator super |
- *   incrementOperator assignableExpression
- * ;
- * prefixOperator:
- *   ‘-’ |
- *   unaryOperator
- * ;
- * unaryOperator:
- *  ‘!’ |
- *  ‘˜’
- * ;
+ *   unaryExpression:
+ *          preﬁxOperator unaryExpression |
+ *          postﬁxExpression |
+ *          (minusOperator | tildeOperator) super |
+ *          incrementOperator assignableExpression
+ *   ;
+ *   preﬁxOperator:
+ *          minusOperator |
+ *          negationOperator |
+ *          tildeOperator
+ *   ;
+ *   minusOperator:
+ *        ‘-’ |
+ *   ;
+ *   negationOperator:
+ *        ‘!’ |
+ *   ;
+ *   tildeOperator:
+ *        ‘˜’
+ *   ;
  * @description Checks that incrementOperator can't be used with super
  * @compile-error
  * @author msyabro

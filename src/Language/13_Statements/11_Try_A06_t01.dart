@@ -14,9 +14,8 @@
  * Similarly, any synthetic routines used by the implementation must not appear in the
  * trace.
  *   Nothing is said about how any native function calls may be represented in the trace.
- *   For each such function activation, the active stack trace includes the name
- * of the function, the bindings of all its formal parameters, local variables and
- * this, and the position at which the function was executing.
+ *   Note that we say nothing about the identity of the stack trace, or what notion
+ * of equality is deﬁned for stack traces.
  *   The term position should not be interpreted as a line number, but rather as a
  * precise position - the exact character index of the expression that raised the exception.
  * @description Checks that stack trace contains the names of relevant functions. 

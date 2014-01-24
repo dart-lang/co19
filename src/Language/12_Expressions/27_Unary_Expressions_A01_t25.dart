@@ -5,20 +5,26 @@
  */
 /**
  * @assertion Unary expressions invoke unary operators on objects.
- * unaryExpression:
- *   prefixOperator unaryExpression |
- *   postfixExpression |
- *   prefixOperator super |
- *   incrementOperator assignableExpression
- * ;
- * prefixOperator:
- *   '-' |
- *   unaryOperator
- * ;
- * unaryOperator:
- *   '!' |
- *   '~'
- * ;
+ *   unaryExpression:
+ *          preﬁxOperator unaryExpression |
+ *          postﬁxExpression |
+ *          (minusOperator | tildeOperator) super |
+ *          incrementOperator assignableExpression
+ *   ;
+ *   preﬁxOperator:
+ *          minusOperator |
+ *          negationOperator |
+ *          tildeOperator
+ *   ;
+ *   minusOperator:
+ *        ‘-’ |
+ *   ;
+ *   negationOperator:
+ *        ‘!’ |
+ *   ;
+ *   tildeOperator:
+ *        ‘˜’
+ *   ;
  * @description Checks that it's a compile-time error when a '!'
  * precedes a statement that isn't an expression (block statement).
  * @compile-error

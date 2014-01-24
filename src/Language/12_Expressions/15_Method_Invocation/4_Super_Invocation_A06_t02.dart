@@ -5,7 +5,9 @@
  */
 /**
  * @assertion It is a static type warning if S does not have an accessible
- * instance member named m.
+ * instance member named m unless S or a superinterface of S is annotated
+ * with an annotation denoting a constant identical to the constant @proxy
+ * deﬁned in dart:core.
  * @description Checks that it is a static type warning if member m in S is inaccessible.
  * @static-warning
  * @author msyabro
