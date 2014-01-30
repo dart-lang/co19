@@ -13,12 +13,12 @@ void iMain(List data) {
   ReceivePort receivePort2 = new ReceivePort();
   replyPort2.send([receivePort.sendPort, receivePort2.sendPort]);
   receivePort.listen((var element){
-      print("  replyPort.send($element)");
+ //     print("  replyPort.send($element)");
       replyPort.send(element);
     }
   ); 
   receivePort2.listen((var element){
-      print("  receivePort.close()");
+ //     print("  receivePort.close()");
       replyPort2.send(null);
       receivePort.close();
       receivePort2.close();
@@ -33,9 +33,9 @@ ReceivePort fromFuture(Future content) {
   SendPort sendPort2;
   void sendElement() {
      if (sendPort!=null && completed) {
-       print("sendPort.send($element)");
+   //    print("sendPort.send($element)");
        sendPort.send(element);
-       print("sendPort2.send(null)");
+  //     print("sendPort2.send(null)");
        sendPort2.send(null);
      }
   }
@@ -52,7 +52,7 @@ ReceivePort fromFuture(Future content) {
       sendPort2=portList[1];
       sendElement();
     } else {
-      print("receivePort.close()");
+ //     print("receivePort.close()");
       receivePort.close();
       receivePort2.close();
     }
@@ -69,13 +69,13 @@ ReceivePort fromIterable(Iterable content) {
       SendPort sendPort=portList[0];
       SendPort sendPort2=portList[1];
       for (var element in content) {
-        print("sendPort.send($element)");
+  //      print("sendPort.send($element)");
         sendPort.send(element);
       }
-      print("sendPort2.send(null)");
+ //     print("sendPort2.send(null)");
       sendPort2.send(null);
     } else {
-      print("receivePort.close()");
+ //     print("receivePort.close()");
       receivePort.close();
       receivePort2.close();
     }
