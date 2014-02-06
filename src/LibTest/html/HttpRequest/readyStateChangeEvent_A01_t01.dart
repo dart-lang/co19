@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Stream<ProgressEvent> onLoad
- * Stream of load events handled by this HttpRequestEventTarget.
- * @description Checks the state of request at variuos moments of time.
+ * @assertion const EventStreamProvider<ProgressEvent> readyStateChangeEvent
+ * Static factory designed to expose readystatechange events to event handlers
+ * that are not necessarily instances of HttpRequest.
+ * @description Checks that readystatechange events are exposed.
  */
 import "dart:html";
 import "../../../Utils/async_utils.dart";
@@ -14,12 +15,22 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
+  EventStreamProvider<ProgressEvent> sreamProvider=HttpRequest.readyStateChangeEvent;
+  Stream<ProgressEvent> stream=sreamProvider.forTarget(document);
+  stream.listen((event){
+      Expect.equals("readystatechange", event.type, "stream.listen.onData");
+    },
+    onError:(Object error){
+      Expect.fail("stream.listen:onError($error)");
+    });
+  
   request.open('GET', "test.dart");
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
   asyncStart();
   request.onLoad.listen((event){
       switch(request.readyState) {
         case HttpRequest.DONE:
+//          UtilsHtml.show(request.responseText);
           asyncEnd();
           break;
         case HttpRequest.HEADERS_RECEIVED:

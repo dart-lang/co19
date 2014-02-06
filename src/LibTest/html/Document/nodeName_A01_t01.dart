@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory HttpRequest()
- * General constructor for any type of request (GET, POST, etc).
- * @description Checks the state of newly created request.
+ * @assertion final String nodeName
+ * The name of this node.
+ * This varies by this node's nodeType.
+ * MDN: Interface:Document	nodeName:"#document"
+ * @description Checks the value of document.nodeName.
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  var request = new HttpRequest();
-  Expect.equals(HttpRequest.UNSENT, request.readyState, "after creation");
+  Expect.equals("#document", document.nodeName);
 }

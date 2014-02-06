@@ -4,14 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory HttpRequest()
- * General constructor for any type of request (GET, POST, etc).
- * @description Checks the state of newly created request.
+ * @assertion final bool supportsRegister
+ * Checks if register is supported on the current platform.
+ * @description Checks that this property is present.
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  var request = new HttpRequest();
-  Expect.equals(HttpRequest.UNSENT, request.readyState, "after creation");
+  bool supportsRegister=document.supportsRegister;
 }

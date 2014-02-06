@@ -11,23 +11,10 @@
  * @description Checks the state of opened request.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
+import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', 'http://dartlang.org');
+  request.open('GET', "test.dart");
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
-  /*
-  request.onLoad.listen((event){
-     Expect.fail('Request complete ${event.target.reponseText}');
-     Expect.equals(HttpRequest.OPENED, request.readyState, "after listen");
-   },
-   onError:(Object error){
-     Expect.fail("listen:onError($error)");
-   },
-   onDone:(Object error){
-     Expect.fail("onDone");
-   });
-  request.send();
-  */
 }

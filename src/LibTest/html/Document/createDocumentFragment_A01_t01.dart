@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory HttpRequest()
- * General constructor for any type of request (GET, POST, etc).
- * @description Checks the state of newly created request.
+ * @assertion DocumentFragment createDocumentFragment()
+ * Creates a new document fragment.
+ * @description Checks that newly created document fragment is empty.
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  var request = new HttpRequest();
-  Expect.equals(HttpRequest.UNSENT, request.readyState, "after creation");
+
+  DocumentFragment df=document.createDocumentFragment();
+  Expect.equals(0, df.childNodes.length);
 }
