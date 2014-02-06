@@ -8,7 +8,7 @@
  * Returns a list of nodes with the given class name inside this element.
  * W3C: The classes argument is interpreted as a space-separated list of classes.
  * @description Checks that if name is a space separated list of class names,
- * list of nodes of all classes is returned.
+ * nodes having all specified classes are collected.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -16,11 +16,11 @@ import "../testcommon.dart";
 
 main() {
   var x = new Element.html(
-      '''<div class="foo">
-           <table></table>
-           <button class="foo"></button>
-           <span class="bar">
-             <pre class="foo"></pre>
+      '''<div class="foo bar">
+           <table class="foo"></table>
+           <button class="foo bar"></button>
+           <span class="bar foo">
+             <pre class="foo baz bar"></pre>
            </span>
          </div>''',
       treeSanitizer: new NullTreeSanitizer());
