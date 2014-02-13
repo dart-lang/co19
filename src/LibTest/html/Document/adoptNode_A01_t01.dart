@@ -6,19 +6,24 @@
 /**
  * @assertion Node adoptNode(Node source)
  * Adopt node from an external document
- * Adds a node to the end of the list of children of a specified parent node.
- * http://www.w3.org/: Document can have Element (maximum of one),
- * ProcessingInstruction, Comment, DocumentType
- * @description Checks expected lastChild after append
- * @needsreview issue #16409
+ * from MDN: Adopts a node from an external document. The node and its subtree
+ * is removed from the document it's in (if any), and its ownerDocument is changed
+ * to the current document. The node can then be inserted into the current document.
+ * @description Checks that the node and its subtree is removed from the document
+ * and its ownerDocument is changed to the current document.
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  Documend d2=document.clone(true);
-  var x = new Comment("cool");
-  d2.adoptNode(x);
+  var myButton="myButton";
+  Document d2=document.implementation.createHtmlDocument("Another Document");
+  var x = new Element.html('<button id="$myButton"></button>');
+  d2.body.append(x);
+  Expect.equals(d2, x.ownerDocument);
+  Expect.equals(x, d2.getElementById(myButton));
   document.adoptNode(x);
-  Expect.equals(x, document.lastChild);
+  Expect.isNull(d2.getElementById(myButton));
+  Expect.equals(document, x.ownerDocument);
 }
+

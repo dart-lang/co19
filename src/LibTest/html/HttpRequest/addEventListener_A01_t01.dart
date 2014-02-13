@@ -16,10 +16,11 @@ const myType="myType";
 
 main() {
   Event ev0=new Event(myType);
+  var request = new HttpRequest();
   asyncStart();
-  document.addEventListener(myType, (Event event) {
+  request.addEventListener(myType, (Event event) {
     Expect.equals(ev0, event);
     asyncEnd();
   });
-  document.dispatchEvent(ev0);
+  request.dispatchEvent(ev0);
 }
