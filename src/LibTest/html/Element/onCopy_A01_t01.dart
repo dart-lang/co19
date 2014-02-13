@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<Event> onAbort
- * Stream of abort events handled by this Element.
+ * @assertion ElementStream<Event> get onCopy
+ * Stream of copy events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
@@ -13,11 +13,11 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'abort';
+  var type = 'copy';
   var x = document.body;
 
   asyncStart();
-  x.onAbort.listen((e) {
+  x.onCopy.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

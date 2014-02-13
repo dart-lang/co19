@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<Event> onAbort
- * Stream of abort events handled by this Element.
+ * @assertion ElementStream<MouseEvent> get onMouseDown
+ * Stream of mousedown events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
@@ -13,11 +13,11 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'abort';
+  var type = 'mousedown';
   var x = document.body;
 
   asyncStart();
-  x.onAbort.listen((e) {
+  x.onMouseDown.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

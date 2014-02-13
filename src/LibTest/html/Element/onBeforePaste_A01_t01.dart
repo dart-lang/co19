@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<Event> onAbort
- * Stream of abort events handled by this Element.
+ * @assertion ElementStream<Event> get onBeforePaste
+ * Stream of beforepaste events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
@@ -13,11 +13,11 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'abort';
+  var type = 'beforepaste';
   var x = document.body;
 
   asyncStart();
-  x.onAbort.listen((e) {
+  x.onBeforePaste.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

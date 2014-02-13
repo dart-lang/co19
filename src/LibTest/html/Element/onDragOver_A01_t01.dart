@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<Event> onAbort
- * Stream of abort events handled by this Element.
+ * @assertion ElementStream<MouseEvent> get onDragOver
+ * A stream of dragover events fired when a dragged object is currently being
+ * dragged over this element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
@@ -13,11 +14,11 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'abort';
+  var type = 'dragover';
   var x = document.body;
 
   asyncStart();
-  x.onAbort.listen((e) {
+  x.onDragOver.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

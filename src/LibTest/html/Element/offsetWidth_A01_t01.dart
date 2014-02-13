@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final offsetWidth
+ * @assertion final int offsetWidth
+ * The width of an element, relative to the layout.
  * @description Checks that it should be equal to the width of client
  * rectangle.  
  */

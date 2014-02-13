@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final offsetHeight
+ * @assertion final int offsetHeight
+ * The height of an element, relative to the layout.
  * @description Checks that it should be equal to the height of client
  * rectangle.  
  */

@@ -4,20 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<Event> onAbort
- * Stream of abort events handled by this Element.
- * @description Checks that correct events are delivered via the stream
+ * @assertion void addEventListener(String type, EventListener listener,
+ * [bool useCapture])
+ * Register an event handler of a specific event type on the EventTarget.
+ * @description Checks that listener for standard event can be added
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'abort';
-  var x = document.body;
+  var type = 'click';
+  var x = new ButtonElement();
+  document.body.append(x);
 
   asyncStart();
-  x.onAbort.listen((e) {
+  x.addEventListener(type, (e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

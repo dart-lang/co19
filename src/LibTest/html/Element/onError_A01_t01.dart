@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<Event> onAbort
- * Stream of abort events handled by this Element.
+ * @assertion ElementStream<Event> get onError
+ * Stream of error events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
@@ -13,15 +13,13 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'abort';
+  var type = 'error';
   var x = document.body;
+  x.innerHtml ='<img src="missing.png">';
 
   asyncStart();
-  x.onAbort.listen((e) {
+  x.firstChild.onError.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });
-
-  var event = new Event(type);
-  x.dispatchEvent(event);
 }
