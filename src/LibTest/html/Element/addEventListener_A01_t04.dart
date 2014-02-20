@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var type = 'focus'; // focus event does not bubble
+  var type = 'focus';
   var x = new ButtonElement();
   document.body.append(x);
 
@@ -36,6 +36,6 @@ main() {
   });
   
   // click on button
-  var event = new Event(type);
+  var event = new Event(type, canBubble: false);
   x.dispatchEvent(event);
 }
