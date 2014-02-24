@@ -14,13 +14,14 @@ import "../../../UtilsHtml/expect.dart";
 void check(WindowBase nw, int dx, int dy) {
   int x=nw.screenLeft;
   int y=nw.screenTop;
-  nw.resizeBy(nx, ny);
+  nw.resizeBy(dx, dy);
   Expect.equals(x+dx, nw.innerWidth);
   Expect.equals(y+dy, nw.innerHeight);
 }
 
 main() {
   WindowBase nw=window.open("about:blank", "_blank");
+  print("nw.innerWidth=${nw.innerWidth} nw.innerHeight=${nw.innerHeight}"); 
   try {
     check(nw,0,0);
     check(nw,1,0);

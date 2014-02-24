@@ -33,7 +33,8 @@ Future runAfter(Future f, void action()) {
  * see co19 issue #423
  * http://code.google.com/p/co19/issues/detail?id=423
  */
-bool first=true;
+var _completer = new Completer();
+var asyncCompleted = _completer.future;
 
 int _asyncTestStart() {
   print("unittest-suite-wait-for-done");
@@ -58,6 +59,7 @@ void  asyncEnd() {
   _asyncCounter--;
   if (_asyncCounter==0) {
     print("unittest-suite-success");
+    _completer.complete(null);
   }
 }
 
