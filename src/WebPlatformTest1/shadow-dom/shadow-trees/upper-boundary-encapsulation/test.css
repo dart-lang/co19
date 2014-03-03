@@ -1,0 +1,5 @@
+#log .warning,
+#log .warning a {
+  color: black;
+  background: yellow;
+}
