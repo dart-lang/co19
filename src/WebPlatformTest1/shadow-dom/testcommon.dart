@@ -11,20 +11,31 @@ import 'dart:mirrors';
 import "../../Utils/async_utils.dart";
 export 'testharness.dart';
 
-var HTML5_ELEMENTS = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
-        'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br',
-        'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup',
-        'command', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div',
-        'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure',
-        'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header',
-        'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd',
-        'keygen', 'label', 'legend', 'li', 'link', 'map', 'mark', 'menu',
-        'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup',
-        'option', 'output', 'p', 'param', 'pre', 'progress', 'q', 'rp', 'rt',
-        'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source',
-        'span', 'strong', 'style', 'sub', 'table', 'tbody', 'td', 'textarea',
-        'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul',
-        'var', 'video', 'wbr' ];
+var HTML5_ELEMENT_NAMES = [
+    'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
+    'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
+    'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'command',
+    'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt',
+    'em', 'embed',
+    'fieldset', 'figcaption', 'figure', 'footer', 'form',
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr',
+    'html',
+    'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen',
+    'label', 'legend', 'li', 'link',
+    'map', 'mark', 'menu', 'meta', 'meter',
+    'nav', 'noscript',
+    'object', 'ol', 'optgroup', 'option', 'output',
+    'p', 'param', 'pre', 'progress',
+    'q',
+    'rp', 'rt', 'ruby',
+    's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span',
+    'strong', 'style', 'sub',
+    'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time',
+    'title', 'tr', 'track',
+    'u', 'ul',
+    'var', 'video',
+    'wbr'
+];
 
 // only void (without end tag) HTML5 elements
 var HTML5_VOID_ELEMENTS = [ 'area', 'base', 'br', 'col', 'command', 'embed',
@@ -320,6 +331,11 @@ newHtmlDocument() {
   return d;
 }
 
+newHTMLDocument() {
+  var d = document.implementation.createHtmlDocument('Test Document');
+  return d;
+}
+
 newXHtmlDocument() {
   var doctype = document.implementation.createDocumentType(
       'html',
@@ -421,12 +437,12 @@ testInIFrame(url, testFunc(context), testName) {
   });
 }
 
-generate_tests(func, parameters, namePrefix) {
+generate_tests(func, parameters, [namePrefix='']) {
   for (var list in parameters) {
-    test(namePrefix + ' ' + list[0], () {
+    test(() {
       list.removeAt(0);
       Function.apply(func, list);
-    });
+    }, namePrefix + ' ' + list[0]);
   }
 }
 
@@ -443,6 +459,10 @@ var HTML5_TAG = [
 
 class DynObject {
   var props = new Map();
+
+  DynObject() {}
+
+  DynObject.fromMap(map) { props = map; }
 
   noSuchMethod(Invocation i) {
     var name = MirrorSystem.getName(i.memberName);
@@ -491,4 +511,44 @@ var bobs_page = '''
 
 class NullTreeSanitizer implements NodeTreeSanitizer {
     void sanitizeTree(Node node) {}
+}
+
+//Example taken from http://www.w3.org/TR/shadow-dom/#event-retargeting-example
+createTestMediaPlayer(d) {
+  d.body.setInnerHtml('' +
+    '<div id="player">' +
+            '<input type="checkbox" id="outside-control">' +
+            '<div id="player-shadow-root">' +
+        '</div>' +
+    '</div>',
+    treeSanitizer: new NullTreeSanitizer());
+
+  var playerShadowRoot = createSR(d.querySelector('#player-shadow-root'));
+  playerShadowRoot.setInnerHtml('' +
+    '<div id="controls">' +
+            '<button class="play-button">PLAY</button>' +
+            '<input type="range" id="timeline">' +
+                    '<div id="timeline-shadow-root">' +
+                    '</div>' +
+            '</input>' +
+        '<div class="volume-slider-container" id="volume-slider-container">' +
+            '<input type="range" class="volume-slider" id="volume-slider">' +
+                '<div id="volume-shadow-root">' +
+                '</div>' +
+            '</input>' +
+        '</div>' +
+    '</div>',
+    treeSanitizer: new NullTreeSanitizer());
+
+  var timeLineShadowRoot = createSR(playerShadowRoot.querySelector('#timeline-shadow-root'));
+  timeLineShadowRoot.innerHtml = '<div class="slider-thumb" id="timeline-slider-thumb"></div>';
+
+  var volumeShadowRoot = createSR(playerShadowRoot.querySelector('#volume-shadow-root'));
+  volumeShadowRoot.innerHtml = '<div class="slider-thumb" id="volume-slider-thumb"></div>';
+
+  return new DynObject.fromMap({
+    'playerShadowRoot': playerShadowRoot,
+    'timeLineShadowRoot': timeLineShadowRoot,
+    'volumeShadowRoot': volumeShadowRoot
+  });
 }

@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion Event Retargeting: Event retargeting for document nodes 
+ * distributed among insertion points
+ */
+
+import 'dart:html';
+import "../../../../Utils/expect.dart";
+import "../../../../Utils/async_utils.dart";
+import '../../testcommon.dart';
+
+main() {
+  var d = document;
+  d.body.setInnerHtml(bobs_page,
+      treeSanitizer: new NullTreeSanitizer());
+
+  var ul = d.querySelector('ul.stories');
+  var s = createSR(ul);
+
+  //make shadow subtree
+  var div = document.createElement('div');
+  div.setInnerHtml('<ul id="ip_wrapper"><content select=".shadow"></content></ul>',
+      treeSanitizer: new NullTreeSanitizer());
+  s.append(div);
+
+  asyncStart();
+
+  d.body.addEventListener('click', (event) {
+    assert_equals(event.target.tagName, 'UL', 'Information about event target crossing ' +
+      'the shadow boundaries should be adjusted for document nodes distributed' +
+      'among insertion points');
+    asyncEnd();
+  }, false);
+
+  var event = new Event("click", canBubble:true, cancelable:false);
+  d.querySelector('#li3').dispatchEvent(event);
+}

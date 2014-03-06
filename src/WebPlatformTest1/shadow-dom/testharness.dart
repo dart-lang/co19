@@ -9,3 +9,6 @@ assert_not_equals(actual, expected, [reason]) =>
 assert_true(actual, [reason]) =>
   Expect.isTrue(actual, reason);
 
+assert_false(actual, [reason]) =>
+  Expect.isFalse(actual, reason);
+
