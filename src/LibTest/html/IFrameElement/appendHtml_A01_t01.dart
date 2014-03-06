@@ -25,27 +25,4 @@ main() {
   Expect.isTrue(x.firstChild is DivElement, 'div');
   Expect.isTrue(x.firstChild.nextNode is Comment, 'comment');
   Expect.isTrue(x.lastChild is Text, 'text');
-/*
-  x.appendHtml('<div></div>');
-  Node y=x.lastChild;
-  Expect.equals(null, y.nextNode);
-  
-  x.appendHtml('<span><div></div><button></button></span>');
-  var z = x.lastChild;
-  print("lastChild=${z.runtimeType} $z");
-  Expect.equals(z, y.nextNode);
-  Expect.equals(z, x.lastChild);
-
-
-  var x = new Element.html('<span></span>');
-  x.appendHtml('text');
-  Expect.isTrue(x.firstChild is Text, 'append to empty children list');
-
-  x = new Element.html('<span><div><div></span>');
-  x.appendHtml('<!--comment-->text');
-
-  Expect.isTrue(x.firstChild is DivElement, 'div');
-  Expect.isTrue(x.firstChild.nextNode is Comment, 'comment');
-  Expect.isTrue(x.lastChild is Text, 'text');
-*/
 }
