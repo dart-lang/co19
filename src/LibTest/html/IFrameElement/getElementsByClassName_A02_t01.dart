@@ -17,16 +17,16 @@ import "../testcommon.dart";
 main() {
   IFrameElement x=new IFrameElement();
   x.append(new Element.html(
-      '''<div class="foo bar">
+      '''<div class="foo bar"> first
            <table class="foo"></table>
-           <button class="foo bar"></button>
-           <span class="bar foo">
-             <pre class="foo baz bar"></pre>
+           <button class="foo bar">second</button>
+           <span class="bar foo"> third
+             <pre class="foo baz bar">forth</pre>
            </span>
          </div>''',
       treeSanitizer: new NullTreeSanitizer()));
 
   var y = x.getElementsByClassName('foo bar');
 
-  Expect.equals(3, y.length);
+  Expect.equals(4, y.length);
 }

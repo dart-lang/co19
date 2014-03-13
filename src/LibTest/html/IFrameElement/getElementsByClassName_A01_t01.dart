@@ -18,7 +18,7 @@ main() {
   x.append(new Element.html(
       '''<div class="foo">
            <table></table>
-           <button class="foo"></button>
+           <iframe class="foo"></iframe>
            <span class="bar">
              <pre class="foo"></pre>
            </span>
@@ -27,8 +27,9 @@ main() {
 
   var y = x.getElementsByClassName('foo');
 
-  Expect.equals(2, y.length);
+  Expect.equals(3, y.length);
 
-  Expect.isTrue(y[0] is ButtonElement);
-  Expect.isTrue(y[1] is PreElement);
+  Expect.isTrue(y[0] is DivElement, "DivElement");
+  Expect.isTrue(y[1] is IFrameElement, "IFrameElement");
+  Expect.isTrue(y[2] is PreElement, "PreElement");
 }
