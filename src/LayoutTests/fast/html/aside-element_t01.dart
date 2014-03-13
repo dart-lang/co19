@@ -27,7 +27,6 @@ main() {
   Expect.equals("aside2", aside3.parentNode.id, 'test3');
 
   function getWeight(id) {
-    //return document.defaultView.getComputedStyle(document.getElementById(id), null).getPropertyValue('font-weight');
     var x = document.getElementById(id);
     return x.getComputedStyle().getPropertyValue('font-weight');
   }
@@ -35,7 +34,6 @@ main() {
   testParent.innerHtml = '<b><aside id="aside4">This text should be bold.</aside> <span id="span1">This is also bold.</span></b>';
   Expect.equals("bold", getWeight("aside4"), 'test4');
   Expect.equals("bold", getWeight("span1"), 'test5');
-  //document.body.removeChild(testParent);
   testParent.remove();
 
   var editable = document.createElement('div');
@@ -49,7 +47,6 @@ main() {
   selection.collapseToEnd();
   Expect.equals("ASIDE", document.getElementById("span2").parentNode.nodeName,
       'test6');
-  //document.body.removeChild(editable);
   editable.remove();
 }
 

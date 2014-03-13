@@ -28,7 +28,7 @@ main() {
     <details id="detail" open>
         <summary id="summary">summary </summary>
     </details>
-''', treeSanitizer: new NullTreeSanitizer());
+    ''', treeSanitizer: new NullTreeSanitizer());
 
     var details = document.getElementById("detail");
     details.insertBefore(

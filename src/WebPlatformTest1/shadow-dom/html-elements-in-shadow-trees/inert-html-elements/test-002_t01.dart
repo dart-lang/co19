@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion HTML Elements in shadow trees: link element must behave as 
+ * inert not as part of the document tree
+ */
+
+import 'dart:html';
+import "../../../../Utils/expect.dart";
+import "../../../../Utils/async_utils.dart";
+import '../../testcommon.dart';
+
+main() {
+  var d = document;
+  
+  int saveLength = d.styleSheets.length;
+
+  var link = d.createElement('link');
+  link.setAttribute('href', '/root_dart/tests/co19/src/WebPlatformTest1/shadow-dom/html-elements-in-shadow-trees/inert-html-elements/test.css');
+  link.setAttribute('rel', 'stylesheet');
+
+  //create Shadow root
+  var root = d.createElement('div');
+  d.body.append(root);
+  var s = createSR(root);
+
+  s.append(link);
+
+  assert_equals(d.styleSheets.length, saveLength, 'link element must behave as inert not as part of the document tree');
+}
