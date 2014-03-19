@@ -4,14 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description Test for a <href="https://bugs.webkit.org/show_bug.cgi?id=30982">bug 30982</a>: createHTMLDocument doesn't escape ampersand and less-than in title.
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  var result = document.implementation.createHtmlDocument('foo</title>').title;
+  Expect.equals('foo</title>', result);
 }

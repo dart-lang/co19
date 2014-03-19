@@ -4,14 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description This tests that DocumentFragment is constructable.
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  Expect.equals(document, new DocumentFragment().ownerDocument);
 }

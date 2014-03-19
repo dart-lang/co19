@@ -4,14 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description Test using id in frame
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  var parent = document.createElement('iframe');
+  parent.id = 'theframe';
+  document.body.append(parent);
+
+  Expect.isNotNull(document.getElementById("theframe"));
 }

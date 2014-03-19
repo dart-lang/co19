@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description 
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  Expect.throws(() {
+    // raises a HIERARCHY_REQUEST_ERR
+    document.append(document);
+  }, (e) => e is DomException && e.name == DomException.HIERARCHY_REQUEST);
 }

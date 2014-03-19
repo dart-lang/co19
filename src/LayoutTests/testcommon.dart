@@ -36,3 +36,12 @@ class NullTreeSanitizer implements NodeTreeSanitizer {
     void sanitizeTree(Node node) {}
 }
 
+escapeHTML(text)
+{
+  //return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\0/g, "\\0");
+  
+  return text
+    .replaceAll(new RegExp('&'), "&amp;")
+    .replaceAll(new RegExp('<'), "&lt;")
+    .replaceAll(new RegExp(r'\0'), "\\0");
+}

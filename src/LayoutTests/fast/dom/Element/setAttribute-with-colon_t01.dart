@@ -4,14 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description This tests checks whether setAttribute allows name parameters
+ * with colons in them.
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  var elem = document.createElementNS('http://www.example.org', 'test');
+  elem.setAttribute('bb:dddd', 'attr_value');
+  Expect.equals('attr_value', elem.getAttribute('bb:dddd'));
 }
+

@@ -4,14 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description Test using id in map element.
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  document.body.setInnerHtml('''
+    <map title="map" id="firstmap">
+    ''', treeSanitizer: new NullTreeSanitizer());
+
+  Expect.isNotNull(document.getElementById("firstmap"));
 }

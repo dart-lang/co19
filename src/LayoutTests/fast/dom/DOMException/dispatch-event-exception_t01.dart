@@ -4,14 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests cloneNode for Document.
+ * @description Tests the properties of the exception thrown by dispatchEvent.
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
-  Expect.isTrue(doc.clone(false) is Document);
-  Expect.equals('root', doc.clone(true).documentElement.localName);
+  Expect.throws(() {
+    // raises a InvalidStateError
+    document.dispatchEvent(null);
+  }, (e) => e is DomException && e.name == DomException.INVALID_STATE /*'InvalidStateError'*/);
 }
+
+
+
