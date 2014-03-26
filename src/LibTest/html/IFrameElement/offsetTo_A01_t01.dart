@@ -13,9 +13,8 @@
  * offset parent or transitive offset parent to this element, an ArgumentError
  * is thrown.
  * @description Checks expected offset values
- * @needsreview: 2 problems:
- * - warning "Removing disallowed attribute <IFRAME style="position: absolute; left: 10px; top: 10px">"
- * - ief2.offsetTo(ief1).x causes error "Specified element is not a transitive offset parent of this element"
+ * @needsreview: ief2.offsetTo(ief1).x causes error
+ *  "Specified element is not a transitive offset parent of this element"
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -38,14 +37,16 @@ main() {
         '''<iframe class="ief1"
                    style="position: absolute; left: 10px; top: 10px">
           some text
-         </iframe>''');
+         </iframe>'''
+         , treeSanitizer: new NullTreeSanitizer());
   IFrameElement ief1 = b.getElementsByClassName("ief1")[0];
   var ref = ief1.childNodes[0];
   
   IFrameElement ief2 = new Element.html(
         '''<iframe  class="ief1"
                     style="position: absolute; left: 50px; top: 50px">
-         </iframe>''');
+         </iframe>'''
+         , treeSanitizer: new NullTreeSanitizer());
   ief1.insertBefore(ief2, ref);
   
   print("ief1=${ief1.outerHtml}");

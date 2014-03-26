@@ -10,7 +10,7 @@
  *
  * selectors should be a string using CSS selector syntax.
  * @description Checks various selectors (not exhaustive)
- * @needsreview: all qureies return null
+ * @needsreview issue #17456: all qureies return null
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
