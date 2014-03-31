@@ -8,7 +8,6 @@ library test_common;
 
 import 'dart:html';
 import 'dart:mirrors';
-import "../../Utils/async_utils.dart";
 export 'testharness.dart';
 
 var HTML5_ELEMENT_NAMES = [
@@ -321,11 +320,6 @@ isVoidElement(elementName) {
     return HTML5_VOID_ELEMENTS.contains(elementName);
 }
 
-newDocument() {
-  var d = document.implementation.createDocument();
-  return d;
-}
-
 newHtmlDocument() {
   var d = document.implementation.createHtmlDocument('Test Document');
   return d;
@@ -347,94 +341,12 @@ newXHtmlDocument() {
   return d;
 }
 
-newIFrame(context, [src]) {
-  var iframe = document.createElement('iframe');
-
-  if (!context.debug) {
-    iframe.style.display = 'none';
-  }
-
-  if (src != null)
-    iframe.src = src;
-
-  document.body.append(iframe);
-  context.iframes.add(iframe);
-
-  return iframe;
-}
-
-/*newRenderedHtmlDocument(context) {
-  var frame = newIFrame(context);
-  var d = frame.contentWindow.document; // no such
-  return d;
-}*/
-
-class Context {
-  var debug = false;
-  var iframes = [];
-}
-
-newContext() {
-  return new Context();
-}
-
-cleanContext(context) {
-  context.iframes.forEach((e) {
-    //e.parentNode.removeChild(e);
-  });
-}
-
-// run given test function in context
-// the context is cleaned up after test completes.
-inContext(f) {
-  return () {
-    var context = newContext();
-    try {
-      f(context);
-    } finally {
-      cleanContext(context);
-    }
-  };
-}
-
-var unit = inContext;
-
 test(testFunc(), testName) {
   try {
     testFunc();
   } catch (e) {
     throw '$testName: $e';
   }
-}
-
-// new context and iframe are created and url (if supplied) is asigned to
-// iframe.src
-// function f is bound to the iframe onload event or executed directly after
-// iframe creation
-// the context is passed to function as argument
-
-testInIFrame(url, testFunc(context), testName) {
-  test(testName, () {
-    if (url != null) {
-      asyncStart();
-      var context = newContext();
-      var iframe = newIFrame(context, url);
-        
-      iframe.onLoad.listen((x) {
-        try {
-          testFunc(context);
-          asyncEnd();
-        } finally {
-          cleanContext(context);
-        }
-      });
-    } else {
-      inContext((context) {
-        newRenderedHtmlDocument(context);
-        testFunc(context);
-      }) ();
-    }
-  });
 }
 
 generate_tests(func, parameters, [namePrefix='']) {

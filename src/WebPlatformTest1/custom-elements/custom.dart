@@ -511,7 +511,6 @@ case 'x-foo-textarea': return Foo_textarea;
 case 'x-foo-tfoot': return Foo_tfoot;
 case 'x-foo-th': return Foo_th;
 case 'x-foo-thead': return Foo_thead;
-case 'x-foo-time': return Foo_time;
 case 'x-foo-title': return Foo_title;
 case 'x-foo-tr': return Foo_tr;
 case 'x-foo-track': return Foo_track;

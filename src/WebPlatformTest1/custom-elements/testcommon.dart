@@ -7,7 +7,6 @@
 library test_common;
 
 import 'dart:html';
-import "../../Utils/async_utils.dart";
 export 'custom.dart';
 
 var HTML5_ELEMENTS = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
