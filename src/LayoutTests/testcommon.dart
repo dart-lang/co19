@@ -57,6 +57,7 @@ shouldBe(actual, expected, [unused_quiet]) => Expect.equals(expected, actual, re
 shouldNotBe(actual, expected, [unused_quiet]) => Expect.notEquals(expected, actual, reason);
 shouldBeTrue(actual) => Expect.isTrue(actual, reason);
 shouldBeFalse(actual) => Expect.isFalse(actual, reason);
+shouldBeNull(actual) => Expect.isNull(actual, reason);
 shouldThrow(func(), [check]) => Expect.throws(func, check, reason);
 
 testFailed(message) => Expect.fail(message);
