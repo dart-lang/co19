@@ -14,28 +14,30 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() {
-  var type = 'focus';
-  IFrameElement x=new IFrameElement();
-  document.body.append(x);
+void check(Node x) {
+  var type = 'click';
+//  document.body.append(x);
 
-  asyncMultiStart(2);
-
-  // intercept on capture
-  document.body.addEventListener(type, (e) {
+  x.addEventListener(type, (e) {
     Expect.equals(type, e.type);
-    Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
-    asyncEnd();
-  }, true);
-
-  // intercept on target
-  x.onFocus.listen((e) {
-    Expect.equals(type, e.type);
-    Expect.equals(Event.AT_TARGET, e.eventPhase);
     asyncEnd();
   });
-  
-  // click on button
-  var event = new Event(type, canBubble: false);
+
+  var event = new Event(type);
   x.dispatchEvent(event);
 }
+
+main() {
+  List<Node> targets=[
+    new Text("Text1"), 
+    new Comment("Comment"),
+    new IFrameElement(),
+    document,
+    new DocumentFragment(),
+  ];
+  asyncMultiStart(targets.length);
+  for (Node x in targets) {
+    check(x);
+  }
+}
+

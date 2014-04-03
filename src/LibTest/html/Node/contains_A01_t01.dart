@@ -4,26 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void addEventListener(String type, EventListener listener,
- * [bool useCapture])
- * Register an event handler of a specific event type on the EventTarget.
- * @description Checks that event is delivered to all listeners
+ * @assertion bool contains(Node other)
+ * Returns true if this node contains the specified node.
+ * @description Checks that node contains itself. 
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 void check(Node x) {
-  var type = 'click';
-//  document.body.append(x);
-
-  x.addEventListener(type, (e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new Event(type);
-  x.dispatchEvent(event);
+  Expect.isTrue(x.contains(x));
 }
 
 main() {
@@ -34,7 +23,6 @@ main() {
     document,
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length);
   for (Node x in targets) {
     check(x);
   }
