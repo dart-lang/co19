@@ -21,7 +21,7 @@ main() {
   // <table><tbody/><tr/><caption/><thead/>
   table.insertBefore(table.firstChild.nextNode, null); // move the <tr/> to the end
   // <table><tbody/><caption/><thead/><tr/>
-  table.firstChild.replaceWith(table.lastChild); // move the <tbody/> to the end and remove the <tr>
+  table.lastChild.replaceWith(table.firstChild); // move the <tbody/> to the end and remove the <tr>
   // <table><caption/><thead/><tbody/>
   var tr2 = table.tBodies[0].insertRow(0);
   // <table><caption/><thead/><tbody><tr/></tbody>
