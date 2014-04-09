@@ -3,7 +3,7 @@
  */
 
 import 'dart:html';
-import "../../../../UtilsHtml/expect.dart";
+import "../../../../Utils/expect.dart";
 
 void check(String t) {
   Event ev=new Event(t);
@@ -23,5 +23,4 @@ void check(String t) {
 void main() {
   check("");
   check("test");
-  Expect.show("all passed");
 }

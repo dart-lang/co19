@@ -3,7 +3,7 @@
  */
 
 import 'dart:html';
-import "../../../../UtilsHtml/expect.dart";
+import "../../../../Utils/expect.dart";
 
 void check(String t, bool canBubble, bool cancelable) {
   Event ev=new Event(t, canBubble: canBubble, cancelable: cancelable);
@@ -16,5 +16,4 @@ void main() {
   check("ft", false, true);
   check("tf", true, false);
   check("tt", true, true);
-  Expect.show("test ${Expect.testTitle} passed");
 }
