@@ -9,12 +9,13 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
+import "pwd.dart";
 
 main() {
   var body = document.body;
 
-  var path1 = '/root_dart/tests/co19/src/LayoutTests/fast/html/resources/images/blue.png';
-  var path2 = '/root_dart/tests/co19/src/LayoutTests/fast/html/resources/images/blue-border.png';
+  var path1 = '$root/resources/images/blue.png';
+  var path2 = '$root/resources/images/blue-border.png';
 
   body.setInnerHtml('''
     <table border="">

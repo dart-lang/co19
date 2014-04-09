@@ -11,10 +11,9 @@ import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLImageElement';
-    
   var image = new ImageElement();
 
   image.onLoad.listen((_) => asyncEnd());

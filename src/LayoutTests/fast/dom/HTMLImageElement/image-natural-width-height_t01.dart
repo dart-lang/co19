@@ -11,10 +11,9 @@ import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLImageElement';
-
   document.body.setInnerHtml('''
     <img id="image1" src="$root/resources/blue_rect.jpg">
     <img id="image2" width="10" height="10" src="$root/resources/blue_rect.jpg">

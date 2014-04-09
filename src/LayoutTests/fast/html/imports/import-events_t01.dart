@@ -5,16 +5,14 @@
  */
 /**
  * @description Test that events can be fired on imported documents.
- * @needsreview
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/html/imports';
-
   document.head.append(new Element.html('''
     <link id="harness" rel="import" href="$root/resources/import-events-target.html">
     ''', treeSanitizer: new NullTreeSanitizer()));

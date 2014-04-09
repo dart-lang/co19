@@ -9,6 +9,7 @@
 import "dart:html";
 import "../../../../../Utils/expect.dart";
 import "../../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -21,11 +22,9 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
  
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom';
-
   document.body.setInnerHtml('''
-    <div id="test">xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx<img id="image" src="$root/resources/abe.png">xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx</div>
-    ''', treeSanitizer: new NullTreeSanitizer());
+<div id="test">xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx<img id="image" src="$root/../../resources/abe.png">xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx</div>
+''', treeSanitizer: new NullTreeSanitizer());
 
   caretRangeFromPoint(x, y)
     => document.caretRangeFromPoint(x.round(), y.round());

@@ -14,9 +14,10 @@ main() {
   var body = document.body;
 
   body.setInnerHtml('''
-  <div id="x">
-    <iframe src="does-not-exist">
-  </div>''', treeSanitizer: new NullTreeSanitizer());
+    <div id="x">
+      <iframe src="does-not-exist">
+    </div>
+  ''', treeSanitizer: new NullTreeSanitizer());
 
   document.getElementById("x").innerHtml = "";
 

@@ -13,10 +13,9 @@ import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLLinkElement';
-
   document.body.setInnerHtml('''
     <link rel="prefetch" href="$root/resources/nick.jpg"/>
     <img src="$root/resources/nick.jpg"/>

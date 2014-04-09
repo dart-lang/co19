@@ -10,10 +10,9 @@
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLInputElement';
-
   document.body.setInnerHtml('''
     <form>
     <input type="image" alt="PASS"><br>

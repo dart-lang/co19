@@ -36,7 +36,5 @@ main() {
   Expect.isTrue(r.innerHtml.indexOf('''javascript:test('text&',&quot;test2&&quot;)''') > -1, 'test 4');
   
   r.firstChild.setAttribute('href', 'http://www.google.fi/search?q=scarlett johansson&meta=&btnG=Google-haku');
-  /*print(r.innerHTML);*/
-
 }
 

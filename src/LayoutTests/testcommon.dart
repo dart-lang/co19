@@ -49,21 +49,49 @@ escapeHTML(text)
 
 var reason;
 
-debug(name) {
-  reason = name;
+debug(msg) {
+  msg = msg.toString();
+  var x = document.getElementById('console');
+  if (x != null) {
+    var span = document.createElement("span");
+    span.innerHtml = msg + '<br />';
+    x.append(span);
+  }
+  reason = msg;
 }
+
+consoleList() {
+  var console = document.getElementById('console');
+  var res = [];
+  for (var x in console.childNodes) {
+    if (x is SpanElement) {
+      res.add(x.firstChild.text);
+    }
+  }
+  return res;
+}
+
 
 shouldBe(actual, expected, [unused_quiet]) => Expect.equals(expected, actual, reason);
 shouldNotBe(actual, expected, [unused_quiet]) => Expect.notEquals(expected, actual, reason);
 shouldBeTrue(actual) => Expect.isTrue(actual, reason);
 shouldBeFalse(actual) => Expect.isFalse(actual, reason);
 shouldBeNull(actual) => Expect.isNull(actual, reason);
+shouldBeNonNull(actual) => Expect.isNotNull(actual, reason);
 shouldThrow(func(), [check]) => Expect.throws(func, check, reason);
 
 testFailed(message) => Expect.fail(message);
 testPassed(_) {}
 
 var shouldBeEqualToString = shouldBe;
+var shouldEvaluateTo = shouldBe;
 
 setTimeout(func(), milliseconds) =>
   new Future.delayed(new Duration(milliseconds: milliseconds), func);
+
+startJSTest() {
+  var x = document.createElement('div');
+  x.id = 'asyncJS';
+  x.innerHtml = 'FAIL';
+  document.body.append(x);
+}

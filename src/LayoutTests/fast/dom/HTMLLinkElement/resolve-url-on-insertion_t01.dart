@@ -12,10 +12,9 @@ import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLLinkElement';
-
   document.body.setInnerHtml('''
     <h1 id=test>I should be blue</h1>
     <h1 id=test2>I should be red</h1>

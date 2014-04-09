@@ -14,22 +14,25 @@ main() {
   var body = document.body;
 
   body.setInnerHtml('''
-<span>Content:</span>
-<pre id="content">placeholder</pre>
-<div></div>
-<span></span>
-<b>test</b>
-<br>
-<emptyCustomTag></emptyCustomTag>
-<customTag>more test</customTag>
-<div id="testArea"></div>''', treeSanitizer: new NullTreeSanitizer());
+    <span>Content:</span>
+    <pre id="content">placeholder</pre>
+    <div></div>
+    <span></span>
+    <b>test</b>
+    <br>
+    <emptyCustomTag></emptyCustomTag>
+    <customTag>more test</customTag>
+    <div id="testArea"></div>
+    ''', treeSanitizer: new NullTreeSanitizer());
 
   var n = document.getElementsByTagName("emptyCustomTag")[0];
-  n.parentNode.insertBefore(document.createElementNS("http://webkit.org/test", "anotherEmptyCustomTag"), n.nextNode);
+  n.parentNode.insertBefore(
+    document.createElementNS("http://webkit.org/test", "anotherEmptyCustomTag"),
+    n.nextNode);
   n.parentNode.insertBefore(new Text("\n"), n.nextNode);
   document.getElementById("content").firstChild.text = document.body.innerHtml;
 
   Expect.equals('<anotherEmptyCustomTag></anotherEmptyCustomTag>',
-      n.nextElementSibling.outerHtml);
+    n.nextElementSibling.outerHtml);
 }
 

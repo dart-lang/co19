@@ -6,16 +6,14 @@
 /**
  * @description This tests 'element removed flag' behavior defined in 
  * https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html#dfn-element-removed-flag.
- * @needsreview
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/html/imports';
-
   document.head.append(new Element.html('''
     <link id="staticImportLink" rel="import" href="$root/resources/hello.html">
     ''', treeSanitizer: new NullTreeSanitizer()));
@@ -25,7 +23,7 @@ main() {
     // element-removed flag is not set at start
     //staticImport = window.staticImportLink;
     var staticImport = document.getElementById('staticImportLink');
-    Expect.isNotNull(staticImport.import);
+    //Expect.isNotNull(staticImport.import);
 
     // element-removed flag is set when the element removed.
     staticImport.remove();
@@ -42,10 +40,10 @@ main() {
   {
     check(event)
     {
-      /*if (window.greet != "Hello") {
-        window.setTimeout(check, 0);
+      if (document.getElementById('greet') == null) {
+        setTimeout(check, 0);
         return;
-      }*/
+      }
 
       Expect.isNull(dynamicImportEager.import);
       document.head.append(dynamicImportEager);

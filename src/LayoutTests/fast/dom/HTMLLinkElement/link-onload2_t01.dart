@@ -12,10 +12,9 @@ import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLLinkElement';
-
   var numberOfFiredLoadEvents = 0;
   var expectedNumberOfFiredLoadEvents = 2;
 

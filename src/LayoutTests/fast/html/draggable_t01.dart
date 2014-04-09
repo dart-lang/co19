@@ -9,6 +9,7 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
+import "pwd.dart";
 
 main() {
   var body = document.body;
@@ -26,7 +27,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var path = '/root_dart/tests/co19/src/LayoutTests/fast/html/resources/images/lime.png';
+  var path = '$root/resources/images/lime.png';
 
   body.setInnerHtml('''
     <h2>Intrinsic</h2>

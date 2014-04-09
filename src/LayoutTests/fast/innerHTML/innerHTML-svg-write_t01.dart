@@ -14,17 +14,13 @@ main() {
   var body = document.body;
 
   body.setInnerHtml('''
-<div style="visibility:hidden">
-  <svg></svg>
-</div>
-''', treeSanitizer: new NullTreeSanitizer());
+    <div style="visibility:hidden">
+      <svg></svg>
+    </div>
+  ''', treeSanitizer: new NullTreeSanitizer());
 
   var svg = document.getElementsByTagName('svg')[0];
  
-  shouldBeEqualToString(actual, expected) {
-    Expect.equals(expected, actual);
-  }
-
   svg.innerHtml = "<rect/>";
   shouldBeEqualToString(svg.innerHtml, '<rect></rect>');
   shouldBeEqualToString(svg.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');

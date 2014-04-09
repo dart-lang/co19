@@ -12,10 +12,9 @@ import "resources/link-load-utilities.dart";
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
-  var root = '/root_dart/tests/co19/src/LayoutTests/fast/dom/HTMLLinkElement';
-
   document.head.append(new Element.html(
     '<link id="lnk" rel="stylesheet" href="$root/resources/stylesheet-with-non-existent-import.css">',
     treeSanitizer: new NullTreeSanitizer()));
