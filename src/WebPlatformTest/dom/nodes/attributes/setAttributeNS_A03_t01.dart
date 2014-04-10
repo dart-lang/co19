@@ -7,7 +7,7 @@
  */
 
 import 'dart:html';
-import "../../Utils/expectWeb.dart";
+import "../../../Utils/expectWeb.dart";
 
 void main() {
   var el = document.createElement("foo");

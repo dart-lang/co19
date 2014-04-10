@@ -7,7 +7,7 @@
  */
 
 import 'dart:html';
-import "../../Utils/expectWeb.dart";
+import "../../../Utils/expectWeb.dart";
 
 void main() {
   Element el = document.createElement("baz");
