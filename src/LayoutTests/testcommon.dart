@@ -86,7 +86,7 @@ testPassed(_) {}
 var shouldBeEqualToString = shouldBe;
 var shouldEvaluateTo = shouldBe;
 
-setTimeout(func(), milliseconds) =>
+setTimeout(func(), [milliseconds=0]) =>
   new Future.delayed(new Duration(milliseconds: milliseconds), func);
 
 startJSTest() {
