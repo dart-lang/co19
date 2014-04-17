@@ -6,8 +6,7 @@
  */
 
 import 'dart:html';
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "../../Utils/expectWeb.dart";
 
 void main() {
   // https://www.w3.org/Bugs/Public/show_bug.cgi?id=17713

@@ -5,21 +5,20 @@
  */
 
 import 'dart:html';
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "../../Utils/expectWeb.dart";
 
 void main() {
   var ev = new Event("type", canBubble:false, cancelable:false);
 
   var target = document.createElement("div");
   target.addEventListener("type", (e) {
-    asyncEnd();
     Expect.throws(() {
       target.dispatchEvent(e);
     }, (e)=>e is DomException, "target");
     Expect.throws(() {
       document.dispatchEvent(e);
     }, (e)=>e is DomException, "document");
+    asyncEnd();
   });
 
   asyncStart();

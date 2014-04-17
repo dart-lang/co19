@@ -7,7 +7,6 @@
  */
 
 import 'dart:html';
-import "../../../Utils/expect.dart";
 
 void main() {
   document.addEventListener("x", null, false);

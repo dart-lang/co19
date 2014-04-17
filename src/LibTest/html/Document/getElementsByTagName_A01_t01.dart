@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<Node> getElementsByTagName(String tagname)
+ * @assertion HtmlCollection getElementsByTagName(String localName)
  * Returns a list of elements with the given tag name.
  * @description Checks that a list of elements with the given tag name is returned.
+ * @needsreview dart issue #18240 Document.getElementsByTagName returns NodeList, not HtmlCollection
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -15,7 +16,7 @@ const myTag="div";
 
 main() {
 
-  List<Node> lst=document.getElementsByTagName(myTag);
+  HtmlCollection lst=document.getElementsByTagName(myTag);
   int l0=lst.length; 
 
   var x1 = new Element.tag(myTag);
@@ -33,4 +34,6 @@ main() {
   Expect.isTrue(lst.contains(x1));
   Expect.isTrue(lst.contains(y));
   Expect.isTrue(lst.contains(x2));
+// print("lst is ${lst.runtimeType}; ${lst is HtmlCollection}; ${lst is NodeList}; ${lst is List};");
+  Expect.isTrue(lst is HtmlCollection, "is HtmlCollection"); 
 }
