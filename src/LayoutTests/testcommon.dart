@@ -86,6 +86,12 @@ testPassed(_) {}
 var shouldBeEqualToString = shouldBe;
 var shouldEvaluateTo = shouldBe;
 
+shouldBeGreaterThanOrEqual(x,y) {
+  var msg = '$x >= $y';
+  Expect.isTrue(x >= y, reason != null ? reason + ': $msg' : msg);
+}
+
+
 setTimeout(func(), [milliseconds=0]) =>
   new Future.delayed(new Duration(milliseconds: milliseconds), func);
 
@@ -94,4 +100,34 @@ startJSTest() {
   x.id = 'asyncJS';
   x.innerHtml = 'FAIL';
   document.body.append(x);
+}
+
+getOrCreate(id, tagName) {
+  var element = document.getElementById(id);
+  if (element != null)
+    return element;
+
+  element = document.createElement(tagName);
+  element.id = id;
+  var refNode;
+  var parent = document.body != null ?  document.body : document.documentElement;
+  if (id == "description")
+    refNode = getOrCreate("console", "div");
+  else
+    refNode = parent.firstChild;
+
+  parent.insertBefore(element, refNode);
+  return element;
+}
+
+description(msg, [unused_quiet])
+{
+  var span = document.createElement("span");
+  span.innerHtml = '<p>$msg</p>';
+
+  var description = getOrCreate("description", "p");
+  if (description.firstChild != null)
+    description.firstChild.replaceWith(span);
+  else
+    description.append(span);
 }

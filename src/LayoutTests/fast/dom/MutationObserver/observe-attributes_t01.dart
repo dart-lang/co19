@@ -624,8 +624,11 @@ main() {
 
     start() {
       debug('Testing that attributeFilter respects case with non-HTML elements.');
+      var docType = document.implementation.createDocumentType('svg',
+          '-//W3C//DTD SVG 1.1//EN',
+          'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd');
 
-      svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg', 'svg');
+      svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg', docType);
       mutations = null;
       observer = new MutationObserver((m,o) {
         mutations = m;
