@@ -10,5 +10,5 @@ import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
 void main() {
-  assert_throws("TypeError", () { document.body.append({'a':'b'}); });
+  assert_throws("Invalid class", () { document.body.append({'a':'b'}); });
 }
