@@ -5,7 +5,6 @@
  */
 /**
  * @description This test checks the basic functionality of NodeIterator.
- * @note tbd how to check type in runtime, see FIXME
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
@@ -37,8 +36,10 @@ main() {
   // |expected| should be an object indicating the expected type of node.
   assert_node(actual, expected)
   {
-    //FIXME
-    //assert_equals(actual.runtimeType, expected['type']);
+    // have to use more strict type assertions for dart,
+    // since type checking is with runtimeType,
+    // ex. DivElement instead of Element
+    assert_equals(actual.runtimeType, expected['type']);
     if (expected.containsKey('id'))
       assert_equals(actual.id, expected['id']);
     if (expected.containsKey('nodeValue'))
@@ -82,12 +83,12 @@ main() {
   }
 
   var expectedAll = [
-  { 'type': Element, 'id': 'a' },
+  { 'type': DivElement, 'id': 'a' },
   { 'type': Text, 'nodeValue': 'b' },
-  { 'type': Element, 'id': 'c' },
-  { 'type': Element, 'id': 'd' },
+  { 'type': DivElement, 'id': 'c' },
+  { 'type': DivElement, 'id': 'd' },
   { 'type': Text, 'nodeValue': 'e' },
-  { 'type': Element, 'id': 'f' },
+  { 'type': SpanElement, 'id': 'f' },
   { 'type': Text, 'nodeValue': 'g' },
   { 'type': Comment, 'nodeValue': 'h' },
   { 'type': Text, 'nodeValue': 'i' },
@@ -101,10 +102,10 @@ main() {
 
   test(() {
     var expected = [
-    { 'type': Element, 'id': 'a' },
-    { 'type': Element, 'id': 'c' },
-    { 'type': Element, 'id': 'd' },
-    { 'type': Element, 'id': 'f' },
+    { 'type': DivElement, 'id': 'a' },
+    { 'type': DivElement, 'id': 'c' },
+    { 'type': DivElement, 'id': 'd' },
+    { 'type': SpanElement, 'id': 'f' },
     ];
     var iterator = new NodeIterator(createSampleDOM(), NodeFilter.SHOW_ELEMENT);
     testIteratorForwardAndBackward(iterator, expected);

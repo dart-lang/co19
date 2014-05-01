@@ -21,3 +21,6 @@ assert_true(actual, [reason]) =>
 assert_false(actual, [reason]) =>
   Expect.isFalse(actual, reason);
 
+assert_idl_attribute(property, [season]) {}
+
+assert_throws(func()) => Expect.throws(func);

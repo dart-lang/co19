@@ -79,6 +79,15 @@ shouldBeFalse(actual) => Expect.isFalse(actual, reason);
 shouldBeNull(actual) => Expect.isNull(actual, reason);
 shouldBeNonNull(actual) => Expect.isNotNull(actual, reason);
 shouldThrow(func(), [check]) => Expect.throws(func, check, reason);
+shouldNotThrow(func()) {
+  try {
+    func();
+  } catch (e) {
+    throw "$reason: $e";
+  }
+}
+shouldBeList(actual, expected) => Expect.listEquals(expected, actual, reason);
+shouldBeApprox(actual, expected, tolerance) => Expect.approxEquals(expected, actual, tolerance, reason);
 
 testFailed(message) => Expect.fail(message);
 testPassed(_) {}
@@ -130,4 +139,15 @@ description(msg, [unused_quiet])
     description.firstChild.replaceWith(span);
   else
     description.append(span);
+}
+
+gc() {
+  gcRec(n, i) {
+    if (n < 1)
+      return {};
+    var temp = {i: "ab" + (i + (i / 100000)).toString()};
+    gcRec(n-1, i);
+  }
+  for (var i = 0; i < 1000; i++)
+    gcRec(10, i);
 }
