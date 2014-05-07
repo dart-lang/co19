@@ -47,6 +47,8 @@ escapeHTML(text)
     .replaceAll(new RegExp(r'\0'), "\\0");
 }
 
+var escapeHtml = escapeHTML;
+
 var reason;
 
 debug(msg) {
