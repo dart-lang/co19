@@ -90,6 +90,7 @@ shouldNotThrow(func()) {
 }
 shouldBeList(actual, expected) => Expect.listEquals(expected, actual, reason);
 shouldBeApprox(actual, expected, tolerance) => Expect.approxEquals(expected, actual, tolerance, reason);
+shouldBeDefined(_) {}
 
 testFailed(message) => Expect.fail(message);
 testPassed(_) {}
