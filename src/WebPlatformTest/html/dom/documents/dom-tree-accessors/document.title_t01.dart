@@ -31,4 +31,5 @@ test(() {
   assert_equals(document.title, "PASS2");
 }, "t3");
 
+checkTestFailures();
 }

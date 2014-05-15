@@ -30,4 +30,5 @@ test(() {
   assert_equals(doc.title, "");
 }, "Missing title argument");
 
+checkTestFailures();
 }

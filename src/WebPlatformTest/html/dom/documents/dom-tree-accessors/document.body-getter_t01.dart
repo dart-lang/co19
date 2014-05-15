@@ -134,4 +134,6 @@ test(() {
   doc.appendChild(doc.createElementNS("http://example.org/test", "frameset"));
   assert_equals(doc.body, null);
 }, "Non-HTML frameset as the root node");
+
+checkTestFailures();
 }

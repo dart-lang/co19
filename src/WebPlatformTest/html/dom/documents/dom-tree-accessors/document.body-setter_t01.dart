@@ -33,4 +33,6 @@ test(() {
 test(() {
   assert_equals(document.body, originalBody);
 }, "document.body has not changed");
+
+checkTestFailures();
 }
