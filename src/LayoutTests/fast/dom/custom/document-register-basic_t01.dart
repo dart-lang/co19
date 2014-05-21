@@ -39,8 +39,11 @@ main() {
   debug('Bad prototype: prototype is already a built-in interface prototype object');
   shouldThrow(() => document.register("x-bad-a", HtmlElement));
 
+  /*
+  // This is allowed in dart, see issue 18683
   debug('Bad prototype: prototype is already a Custom Element interface prototype object');
   shouldThrow(() => document.register("x-bad-b", Foo));
+  */
 
   debug('Constructor initiated instantiation');
   var createdFoo = new Foo();

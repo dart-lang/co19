@@ -75,6 +75,7 @@ consoleList() {
 
 
 shouldBe(actual, expected, [unused_quiet]) => Expect.equals(expected, actual, reason);
+shouldBeIdentical(actual, expected, [unused_quiet]) => Expect.identical(expected, actual, reason);
 shouldNotBe(actual, expected, [unused_quiet]) => Expect.notEquals(expected, actual, reason);
 shouldBeTrue(actual) => Expect.isTrue(actual, reason);
 shouldBeFalse(actual) => Expect.isFalse(actual, reason);
@@ -154,3 +155,6 @@ gc() {
   for (var i = 0; i < 1000; i++)
     gcRec(10, i);
 }
+
+firstElementChild(node) => node.childNodes.firstWhere((x) => x is Element);
+lastElementChild(node) => node.childNodes.lastWhere((x) => x is Element);

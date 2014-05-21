@@ -34,7 +34,7 @@ main() {
     var initialStyleSheetsCount = d.styleSheets.length;
 
     var link = d.createElement('link');
-    link.setAttribute('href', '/root_dart/tests/co19/src/WebPlatformTest1/shadow-dom/shadow-trees/upper-boundary-encapsulation/test.css');
+    link.setAttribute('href', '/root_dart/tests/co19/src/WebPlatformTest/shadow-dom/shadow-trees/upper-boundary-encapsulation/test.css');
     link.setAttribute('rel', 'stylesheet');
     d.body.append(link);
 
