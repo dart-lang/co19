@@ -11,17 +11,18 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
+  var doc = document.implementation.createHtmlDocument('');
   var element1;
   var element2;
 
   createElement(type, properties)
   {
-    var element = document.createElement(type);
+    var element = doc.createElement(type);
 
     for (var i in properties.keys)
       element.setAttribute(i,properties[i]);
 
-    document.body.append(element);
+    doc.body.append(element);
     return element;
   }
 
@@ -35,9 +36,9 @@ main() {
   {
     debug(tagName);
     createTwoElements(tagName); 
-    shouldBe(document.getElementsByName('fullname').length, 2);
-    document.querySelector(tagName).setAttribute('name', 'changed-name'); 
-    shouldBe(document.getElementsByName('fullname').length, 1);
+    shouldBe(doc.getElementsByName('fullname').length, 2);
+    doc.querySelector(tagName).setAttribute('name', 'changed-name'); 
+    shouldBe(doc.getElementsByName('fullname').length, 1);
     element1.remove();
     element2.remove();
   }
