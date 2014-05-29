@@ -27,7 +27,7 @@ const List<num> values = const [
  
 const EPS=1.0e-10;
 
-Random rand = new Random();
+Random rand = new Random(817);
 
 num randomVal() {
   int k = rand.nextInt(values.length);

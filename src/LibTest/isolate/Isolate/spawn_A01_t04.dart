@@ -17,13 +17,6 @@ import "../../../Utils/async_utils.dart";
 
 var expectedMessage="message";
 
-class Data {
-  SendPort replyPort;
-  int depth;
-  
-  Data(this.replyPort, this.depth);
-}
-
 class Connection {
   var receivePort = new ReceivePort();
   SendPort replyPort;
@@ -41,17 +34,19 @@ class Connection {
 
   start(int depth) {
     asyncStart();
-    Isolate.spawn(iMain, new Data(receivePort.sendPort, depth));
+    Isolate.spawn(iMain, {"replyPort":receivePort.sendPort, "depth":depth});
     receivePort.listen(receiveHandler);
   }
 }
 
-void iMain(Data data) {
-  if (data.depth==0) {
-    data.replyPort.send(expectedMessage);
+void iMain(Map data) {
+  var depth=data["depth"];
+  SendPort replyPort=data["replyPort"];
+  if (depth==0) {
+    replyPort.send(expectedMessage);
   } else {
     ReceivePort port = new ReceivePort();
-    new Connection(data.replyPort).start(data.depth-1);
+    new Connection(replyPort).start(depth-1);
   }
 }
 

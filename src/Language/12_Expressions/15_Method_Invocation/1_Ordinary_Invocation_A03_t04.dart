@@ -12,7 +12,6 @@
  * @description Checks that if class C declares an abstract instance method
  * and has a superclass, then the result of lookup is the the result of
  * lookup in the superclass.
- * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";

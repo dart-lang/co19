@@ -12,7 +12,6 @@
  * to L. Otherwise, we say that the lookup has failed.
  * @description Checks that declared abstract getters and setters are skipped
  * in a lookup.
- * @static-warning
  * @author ilya
  */
 import "../../Utils/expect.dart";
@@ -22,8 +21,8 @@ class S {
 }
 
 class C extends S{
-  get field;     // static warning: abstract method in a concrete class
-  set field (x); // static warning: abstract method in a concrete class
+  get field;
+  set field (x);
 }
 
 main()  {

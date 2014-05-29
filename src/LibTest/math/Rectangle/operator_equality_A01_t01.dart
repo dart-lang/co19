@@ -25,7 +25,7 @@ const List<num> values = const [
    1.7976931348623157e308
  ];
  
-Random rand = new Random();
+Random rand = new Random(911);
 
 num randomVal() {
   int k = rand.nextInt(values.length);

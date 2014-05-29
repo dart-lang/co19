@@ -9,7 +9,10 @@
  *      assert(v != null);
  *      return identical(v, true);
  *    }(o)
+ * 12.21: It is a static type warning if the static types of e1 may not be assigned
+ * to bool or if the static types of e2 may not be assigned to bool.
  * @description Checks that objects that are not bool and not null are converted to false.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */

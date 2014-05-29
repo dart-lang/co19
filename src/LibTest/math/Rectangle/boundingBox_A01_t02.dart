@@ -22,7 +22,7 @@ const List<num> values = const [
    4.5035996273704955E15, 4.503599627370496E15, 4.503599627370497E15, 3.273390607896142,
  ];
  
-Random rand = new Random();
+Random rand = new Random(917);
 
 num randomVal() {
   int k = rand.nextInt(values.length);
