@@ -44,7 +44,9 @@ class A<T> {
   test() {
     try {
       T = null;
-    } catch(e) {}
+    } catch(e) {
+       print("e=$e");
+    }
   }
 }
 
