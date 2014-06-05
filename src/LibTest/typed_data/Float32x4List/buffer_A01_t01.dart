@@ -6,8 +6,9 @@
 /**
  * @assertion final ByteBuffer buffer
  * Returns the byte buffer associated with this object.
- * @description Checks that the returned buffer is identical to the buffer
+ * @description Checks that the returned buffer is equal to the buffer
  * with which this object is associated.
+ * @note see bug 669
  * @author msyabro
  */
 import "dart:typed_data";
@@ -21,6 +22,6 @@ main() {
 
   for(int i= 0; i <= 4; ++i) {
     var l = new Float32x4List.view(byteBuffer, i * elemSize, 4 - i) ; //16 is size of Float32x4 in bytes
-    Expect.identical(byteBuffer, l.buffer);
+    Expect.equals(byteBuffer, l.buffer);
   }
 }

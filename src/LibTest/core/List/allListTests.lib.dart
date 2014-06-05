@@ -132,7 +132,7 @@ test(List create([int length])) {
   remove_A01_t01.test(create);
   removeAt_A01_t01.test(create);
   removeAt_A01_t01.test(create);
-//  removeAt_A02_t01.test(create); // issue #14013
+  removeAt_A02_t01.test(create);
   removeAt_A03_t01.test(create);
   removeAt_A04_t01.test(create);
   removeLast_A01_t01.test(create);
@@ -153,8 +153,10 @@ test(List create([int length])) {
   setRange_A02_t02.test(create);
   sort_A01_t01.test(create);  
   sort_A01_t02.test(create);  
-  sort_A01_t03.test(create);  
+  sort_A01_t03.test(create);
+  /*  consume too much memory, moved to separate test List_class_A01_t02.dart
   sort_A01_t04.test(create);  
   sort_A01_t05.test(create);  
-  sort_A01_t06.test(create);  
+  sort_A01_t06.test(create);
+  */  
 }
