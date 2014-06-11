@@ -17,14 +17,25 @@ import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  var count=0;
+  int count=0;
+  int first=0;
+  bool encountered=false;
+  bool test(T element) {
+     bool res = element % 10 == 0;
+     if (res && !encountered) {
+       encountered=true;
+       first=element;
+     }
+     return res;
+  }
   asyncStart();
-  IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count))
-    .any((x) => x % 10 == 0)
-    .then((x) {
+  IsolateStream stream=IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
+  Future<bool>  f = stream.any(test);
+  f.then((x) {
       Expect.isTrue(x);
-      Expect.equals(10, count);
+      Expect.isTrue(encountered);
+      Expect.equals(10, first);
       asyncEnd();
-    });
+  });
 }
 
