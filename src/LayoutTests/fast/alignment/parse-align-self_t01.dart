@@ -1,0 +1,239 @@
+/*
+ * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @description Test that setting and getting align-self works as expected
+ */
+import "dart:html";
+import "../../testcommon.dart";
+
+main() {
+  var style = new Element.html('''
+      <style>
+      #alignSelfBaseline {
+          align-self: baseline;
+      }
+
+      #alignSelfStretch {
+          align-self: stretch;
+      }
+
+      #alignSelfStart {
+          align-self: start;
+      }
+
+      #alignSelfEnd {
+          align-self: end;
+      }
+
+      #alignSelfCenter {
+          align-self: center;
+      }
+
+      #alignSelfSelfStart {
+          align-self: self-start;
+      }
+
+      #alignSelfSelfEnd {
+          align-self: self-end;
+      }
+
+      #alignSelfLeft {
+          align-self: left;
+      }
+
+      #alignSelfRight {
+          align-self: right;
+      }
+
+      #alignSelfEndTrue {
+          align-self: end true;
+      }
+
+      #alignSelfCenterTrue {
+          align-self: center true;
+      }
+
+      #alignSelfSelfEndSafe {
+          align-self: self-end safe;
+      }
+
+      #alignSelfSelfStartSafe {
+          align-self: self-start safe;
+      }
+
+      #alignSelfRightSafe {
+          align-self: right safe;
+      }
+
+      #alignSelfLeftTrue {
+          align-self: left true;
+      }
+      </style>
+      ''', treeSanitizer: new NullTreeSanitizer());
+  document.head.append(style);
+
+  document.body.setInnerHtml('''
+      <div id="alignSelfBaseline"></div>
+      <div id="alignSelfStretch"></div>
+      <div id="alignSelfStart"></div>
+      <div id="alignSelfEnd"></div>
+      <div id="alignSelfCenter"></div>
+      <div id="alignSelfSelfStart"></div>
+      <div id="alignSelfSelfEnd"></div>
+      <div id="alignSelfLeft"></div>
+      <div id="alignSelfRight"></div>
+
+      <div id="alignSelfEndTrue"></div>
+      <div id="alignSelfCenterTrue"></div>
+      <div id="alignSelfSelfEndSafe"></div>
+      <div id="alignSelfSelfStartSafe"></div>
+      <div id="alignSelfRightSafe"></div>
+      <div id="alignSelfLeftTrue"></div>
+      ''', treeSanitizer: new NullTreeSanitizer());
+
+  getComputedStyle(elt, [unused]) => elt.getComputedStyle();
+
+  debug("Test getting align-self set through CSS");
+  var alignSelfBaseline = document.getElementById("alignSelfBaseline");
+  shouldBe(getComputedStyle(alignSelfBaseline, '').getPropertyValue('align-self'), 'baseline');
+
+  var alignSelfStretch = document.getElementById("alignSelfStretch");
+  shouldBe(getComputedStyle(alignSelfStretch, '').getPropertyValue('align-self'), 'stretch');
+
+  var alignSelfStart = document.getElementById("alignSelfStart");
+  shouldBe(getComputedStyle(alignSelfStart, '').getPropertyValue('align-self'), 'start');
+
+  var alignSelfEnd = document.getElementById("alignSelfEnd");
+  shouldBe(getComputedStyle(alignSelfEnd, '').getPropertyValue('align-self'), 'end');
+
+  var alignSelfCenter = document.getElementById("alignSelfCenter");
+  shouldBe(getComputedStyle(alignSelfCenter, '').getPropertyValue('align-self'), 'center');
+
+  var alignSelfSelfEnd = document.getElementById("alignSelfSelfEnd");
+  shouldBe(getComputedStyle(alignSelfSelfEnd, '').getPropertyValue('align-self'), 'self-end');
+
+  var alignSelfSelfStart = document.getElementById("alignSelfSelfStart");
+  shouldBe(getComputedStyle(alignSelfSelfStart, '').getPropertyValue('align-self'), 'self-start');
+
+  var alignSelfLeft = document.getElementById("alignSelfLeft");
+  shouldBe(getComputedStyle(alignSelfLeft, '').getPropertyValue('align-self'), 'left');
+
+  var alignSelfRight = document.getElementById("alignSelfRight");
+  shouldBe(getComputedStyle(alignSelfRight, '').getPropertyValue('align-self'), 'right');
+
+  var alignSelfEndTrue = document.getElementById("alignSelfEndTrue");
+  shouldBe(getComputedStyle(alignSelfEndTrue, '').getPropertyValue('align-self'), 'end true');
+
+  var alignSelfCenterTrue = document.getElementById("alignSelfCenterTrue");
+  shouldBe(getComputedStyle(alignSelfCenterTrue, '').getPropertyValue('align-self'), 'center true');
+
+  var alignSelfSelfEndSafe = document.getElementById("alignSelfSelfEndSafe");
+  shouldBe(getComputedStyle(alignSelfSelfEndSafe, '').getPropertyValue('align-self'), 'self-end safe');
+
+  var alignSelfSelfStartSafe = document.getElementById("alignSelfSelfStartSafe");
+  shouldBe(getComputedStyle(alignSelfSelfStartSafe, '').getPropertyValue('align-self'), 'self-start safe');
+
+  var alignSelfRightSafe = document.getElementById("alignSelfRightSafe");
+  shouldBe(getComputedStyle(alignSelfRightSafe, '').getPropertyValue('align-self'), 'right safe');
+
+  var alignSelfLeftTrue = document.getElementById("alignSelfLeftTrue");
+  shouldBe(getComputedStyle(alignSelfLeftTrue, '').getPropertyValue('align-self'), 'left true');
+
+  debug("Test initial value of align-self through JS");
+  var element = document.createElement("div");
+  document.body.append(element);
+  // align-self: auto ends up returning the default value of align-items which is 'stretch'.
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  debug("Test getting and setting align-self through JS");
+  element = document.createElement("div");
+  document.body.append(element);
+  element.style.alignSelf = "center";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'center');
+
+  element = document.createElement("div");
+  document.body.append(element);
+  element.style.alignSelf = "true start";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'start true');
+
+  element.style.alignSelf = "auto";
+  // See explanation for the initial value as to why this is correct.
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  debug("Test bad combinaisons of align-self");
+  element = document.createElement("div");
+  document.body.append(element);
+  element.style.alignSelf = "true auto";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "auto safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "auto left";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "baseline safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "baseline center";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "stretch true";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "stretch right";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "true true";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "true safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "center start";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "stretch true";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "safe stretch";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "baseline safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "true baseline";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "true safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "true safe left";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "true left safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  element.style.alignSelf = "left safe true safe";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  debug("Test the value 'initial'");
+  element.style.alignSelf = "center";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'center');
+  element.style.alignSelf = "initial";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'stretch');
+
+  debug("Test the value 'inherit'");
+  var parentElement = document.createElement("div");
+  document.body.append(parentElement);
+  parentElement.style.alignSelf = "end";
+  shouldBe(getComputedStyle(parentElement, '').getPropertyValue('align-self'), 'end');
+
+  element = document.createElement("div");
+  parentElement.append(element);
+  element.style.alignSelf = "inherit";
+  shouldBe(getComputedStyle(element, '').getPropertyValue('align-self'), 'end');
+}

@@ -158,3 +158,14 @@ gc() {
 
 firstElementChild(node) => node.childNodes.firstWhere((x) => x is Element);
 lastElementChild(node) => node.childNodes.lastWhere((x) => x is Element);
+
+//
+// to not hardwire 'experimental-webgl' 
+//
+glContext(canvas) {
+  var gl = canvas.getContext('webgl');
+  if (gl != null)
+    return gl;
+  return canvas.getContext('experimental-webgl');
+}
+  
