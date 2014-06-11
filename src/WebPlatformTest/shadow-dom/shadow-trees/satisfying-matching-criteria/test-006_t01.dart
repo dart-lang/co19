@@ -22,7 +22,9 @@ main() {
 
   //make shadow subtree
   var subdiv1 = document.createElement('div');
-  subdiv1.setInnerHtml('<content select=":link"></content>',
+  // show all links instead of all unvisited links pseudo-class :link isn't
+  // allowed as a selector in the Shadow DOM content.
+  subdiv1.setInnerHtml('<content select="a"></content>',
       treeSanitizer: new NullTreeSanitizer());
   s.append(subdiv1);
 

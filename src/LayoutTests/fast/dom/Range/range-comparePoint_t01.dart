@@ -76,15 +76,16 @@ main() {
   shouldBe(result, expectedResult);
 
   // test 9 - detached range, attached node
-  // firefox throws an exception and does not return a value
+  // Detach is a noop (DOM4) but still exist for compat
+  // see http://dom.spec.whatwg.org/#dom-range-detach
+  expectedResult = 1;
   var detachedRange = document.createRange();
   detachedRange.detach();
-  shouldThrow(() {
-    result = detachedRange.comparePoint(document.getElementById("a1"), 0);
-  });
+  result = detachedRange.comparePoint(document.getElementById("a1"), 0);
+  shouldBe(result, expectedResult);
 
   // test 10 - attached range, detached node
-  // firefox throws an exception
+  // firefox/webkit throws an exception
   range.selectNode(document.getElementById("a1"));
   var node = document.getElementById("b1");
   node.remove();

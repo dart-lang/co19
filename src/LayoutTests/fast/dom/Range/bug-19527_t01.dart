@@ -37,15 +37,12 @@ main() {
   ra.detach();
 
   _shouldThrow(() => ra.comparePoint(document.createElement('b'), 0),
-      DomException.INVALID_STATE);
-  _shouldThrow(() => ra.comparePoint(document.body, 0),
-      DomException.INVALID_STATE);
+      DomException.WRONG_DOCUMENT);
+  shouldBe(ra.comparePoint(document.body, 0), -1);
   _shouldThrow(() => ra.comparePoint(null, 0),
-      DomException.INVALID_STATE);
-  _shouldThrow(() => ra.isPointInRange(document.createElement('b'), 0),
-      DomException.INVALID_STATE);
-  _shouldThrow(() => ra.isPointInRange(document.body, 0),
-      DomException.INVALID_STATE);
+      DomException.HIERARCHY_REQUEST);
+  shouldBe(ra.isPointInRange(document.createElement('b'), 0), false);
+  shouldBe(ra.isPointInRange(document.body, 0), false);
   _shouldThrow(() => ra.isPointInRange(null, 0),
-      DomException.INVALID_STATE);
+      DomException.HIERARCHY_REQUEST);
 }

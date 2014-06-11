@@ -22,7 +22,9 @@ main() {
 
   //make shadow subtree
   var subdiv1 = document.createElement('div');
-  subdiv1.setInnerHtml('<ul><content select=":last-child"></content></ul>',
+  // :last-child pseudo-element no longer supported see
+  // http://w3c.github.io/webcomponents/spec/shadow/#satisfying-matching-criteria
+  subdiv1.setInnerHtml('<ul><content select="#li6"></content></ul>',
       treeSanitizer: new NullTreeSanitizer());
   s.append(subdiv1);
 
