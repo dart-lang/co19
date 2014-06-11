@@ -6,16 +6,19 @@
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
+
 void main() {
 
   var throwingObject = () {
     throw Error();
   };
 
+  var src="$testSuiteRoot/media/sound_5.mp3";
+  
   var tests = [
     [() { return new AudioElement() ;}, null, "No arguments, with new"],
     [() { return new AudioElement("") ;}, "", "Empty string argument, with new"],
-    [() { return new AudioElement("src") ;}, "src", "Non-empty string argument, with new"],
+    [() { return new AudioElement(src) ;}, src, "Non-empty string argument, with new"],
     [() { return new AudioElement(null) ;}, null, "Null argument, with new"],
   ];
 

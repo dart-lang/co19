@@ -50,6 +50,6 @@ void main() {
   
   
   iframe.src = // "../../../../common/text-plain.txt";
-     "/root_dart/tests/co19/src/WebPlatformTest/common/text-plain.txt";
+     "$testSuiteRoot/common/text-plain.txt";
 
 }

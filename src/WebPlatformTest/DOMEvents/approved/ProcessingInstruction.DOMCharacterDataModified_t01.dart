@@ -26,5 +26,5 @@ void main() {
    });
     
    HELPER.src = //  "./support/ProcessingInstruction.DOMCharacterDataModified.xml";
-   "/root_dart/tests/co19/src/WebPlatformTest/DOMEvents/approved/support/ProcessingInstruction.DOMCharacterDataModified.xml";
+   "$testSuiteRoot/DOMEvents/approved/support/ProcessingInstruction.DOMCharacterDataModified.xml";
 }

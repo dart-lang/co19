@@ -6,6 +6,8 @@ library Expect;
 import "dart:async";
 part "../../Utils/expect_common.dart";
 
+const String testSuiteRoot="/root_dart/tests/co19/src/WebPlatformTest";
+
 /**
  * some functions from harness.js ported 
  */
@@ -36,6 +38,17 @@ void assert_throws(String expectedExceptionName, var function, [String diag]) {
 
 void assert_array_equals(var actual, var expected, [String diag]) {
   Expect.listEquals(expected, actual, diag);
+}
+
+void assert_class_string(var object, String expected, [String diag]) {
+  String actual=object.runtimeType.toString();
+  if (expected == actual) return;
+  String msg = (diag == null) ? "" : ", '$diag'";
+  _fail("assert_class_string(expected: <$expected>, actual: <$actual>$msg) fails.");
+}
+
+void assert_in_array(List actual, var expected, String description) {
+   Expect.isTrue(expected.indexOf(actual) != -1, description);
 }
 
 String failures="";

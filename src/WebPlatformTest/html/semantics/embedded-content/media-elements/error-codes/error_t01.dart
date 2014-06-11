@@ -7,8 +7,6 @@ import 'dart:html';
 import "../../../../../Utils/expectWeb.dart";
 import "../../../../../common/media.dart";
 
-const String root="/root_dart/tests/co19/src/WebPlatformTest";
-
 void main() {
 
 void error_test(tagName, src) {
@@ -42,8 +40,8 @@ void error_test(tagName, src) {
   }, tagName + '.error after setting src to the empty string');
 }
 
-error_test('audio', getAudioURI('$root/media/sound_5'));
-error_test('video', getVideoURI('$root/media/movie_5'));
+error_test('audio', getAudioURI('$testSuiteRoot/media/sound_5'));
+error_test('video', getVideoURI('$testSuiteRoot/media/movie_5'));
   
    checkTestFailures();
 }
