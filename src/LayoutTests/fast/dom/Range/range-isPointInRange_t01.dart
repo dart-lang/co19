@@ -27,7 +27,7 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  // isPointInRange( refNode, offset ) - This method returns Ð1, 0 or 1 depending on 
+  // isPointInRange( refNode, offset ) - This method returns -1, 0 or 1 depending on 
   // if the point described by the refNode node and an offset within the node is 
   // before, same as, or after the range respectively.
 
