@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description Just checking API, no asserts
+ * @description Checking API, no asserts
  * This test is only useful as a pixel test. You should see red canvas of size
  * 100x100.
  */

@@ -6,6 +6,7 @@
 
 library test_common;
 
+import 'dart:math' as Math;
 import 'dart:html';
 import 'dart:async';
 import "../Utils/expect.dart";
@@ -94,7 +95,15 @@ shouldBeApprox(actual, expected, tolerance) => Expect.approxEquals(expected, act
 shouldBeDefined(_) {}
 
 testFailed(message) => Expect.fail(message);
-testPassed(_) {}
+testPassed(msg) {
+  msg = msg.toString();
+  var x = document.getElementById('console');
+  if (x != null) {
+    var span = document.createElement("span");
+    span.innerHtml = msg + '<br />';
+    x.append(span);
+  }
+}
 
 var shouldBeEqualToString = shouldBe;
 var shouldEvaluateTo = shouldBe;
@@ -104,6 +113,10 @@ shouldBeGreaterThanOrEqual(x,y) {
   Expect.isTrue(x >= y, reason != null ? reason + ': $msg' : msg);
 }
 
+shouldBeNonZero(actual) {
+  var msg = '$actual != 0';
+  Expect.isTrue(actual != 0, reason != null ? reason + ': $msg' : msg);
+}
 
 setTimeout(func(), [milliseconds=0]) =>
   new Future.delayed(new Duration(milliseconds: milliseconds), func);
@@ -159,13 +172,16 @@ gc() {
 firstElementChild(node) => node.childNodes.firstWhere((x) => x is Element);
 lastElementChild(node) => node.childNodes.lastWhere((x) => x is Element);
 
-//
-// to not hardwire 'experimental-webgl' 
-//
 glContext(canvas) {
   var gl = canvas.getContext('webgl');
   if (gl != null)
     return gl;
   return canvas.getContext('experimental-webgl');
 }
-  
+
+max(list) => list.reduce(Math.max);
+abs(x) => x.abs();
+floor(x) => x.floor();
+ceil(x) => x.ceil();
+
+qwe() => testFailed('foo');
