@@ -51,18 +51,23 @@ void assert_in_array(List actual, var expected, String description) {
    Expect.isTrue(expected.indexOf(actual) != -1, description);
 }
 
+int passcnt=0;
+int failcnt=0;
 String failures="";
 
 void test(void func(), String name, [properties]) {
   try {
     func();
+    passcnt++;
   } catch (exc) {
+    failcnt++;
     failures="$failures\nTest failed: $name\n$exc\n";
   }
 }
 
 void checkTestFailures() {
-  if (failures=="") return;
+  print("tests passed: $passcnt; failed: $failcnt");
+  if (failcnt==0) return;
   _fail(failures);
 }
 
