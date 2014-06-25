@@ -1,0 +1,22 @@
+/**
+ * after web-platform-tests/html/semantics/grouping-content/the-ol-element/ol.start-reflection-1.html
+ * @assertion
+ * http://www.w3.org/TR/html5/grouping-content.html#the-ol-element
+ * @description ol.start - reflection test
+ * This test checks that the start IDL attribute reflects the respective content attribute of the same name.
+ */
+import 'dart:html';
+import "../../../../Utils/expectWeb.dart";
+
+const String htmlEL='''
+  <ol id='ol' reversed>
+   <li>Three</li>
+   <li>Two</li>
+   <li>One</li>
+  </ol>
+''';
+
+void main() {
+  document.body.appendHtml(htmlEL);
+  assert_equals(document.getElementById('ol').start, 3);
+}

@@ -123,3 +123,9 @@ void  asyncEnd() {
     _completer.complete(null);
   }
 }
+
+/** if async tests are present, use this function instead of checkTestFailures
+ */
+void checkAsyncTestFailures() {
+  asyncCompleted.then((n){checkTestFailures();});
+}
