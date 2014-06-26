@@ -532,7 +532,7 @@ loadTexture(gl, url, callback) {
     var image = new ImageElement();
     image.onLoad.listen((_) {
         gl.bindTexture(wgl.TEXTURE_2D, texture);
-        gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, true);
+        gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, 1);
         gl.texImage2DImage(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, image);
         callback(image);
     });

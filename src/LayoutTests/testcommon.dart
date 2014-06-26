@@ -92,6 +92,7 @@ shouldNotThrow(func()) {
 }
 shouldBeList(actual, expected) => Expect.listEquals(expected, actual, reason);
 shouldBeApprox(actual, expected, tolerance) => Expect.approxEquals(expected, actual, tolerance, reason);
+var shouldBeCloseTo = shouldBeApprox;
 shouldBeDefined(_) {}
 
 testFailed(message) => Expect.fail(message);
@@ -180,8 +181,10 @@ glContext(canvas) {
 }
 
 max(list) => list.reduce(Math.max);
+min(list) => list.reduce(Math.min);
 abs(x) => x.abs();
 floor(x) => x.floor();
 ceil(x) => x.ceil();
+round(x) => x.round();
 
 qwe() => testFailed('foo');
