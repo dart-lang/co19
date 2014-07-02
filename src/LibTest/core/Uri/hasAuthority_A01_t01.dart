@@ -18,9 +18,12 @@ main() {
   Expect.isTrue(x.hasAuthority);
   
   x = new Uri(port:123);
-  Expect.isFalse(x.hasAuthority);
+  Expect.isTrue(x.hasAuthority);
   
   x = new Uri(userInfo: 'root');
+  Expect.isTrue(x.hasAuthority);
+
+  x = Uri.parse('foo:bar');
   Expect.isFalse(x.hasAuthority);
 }
 

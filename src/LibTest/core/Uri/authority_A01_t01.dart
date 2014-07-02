@@ -20,9 +20,12 @@ main() {
   Expect.equals('user:pass@foo:123', x.authority);
   
   x = new Uri(port:123);
-  Expect.equals('', x.authority);
+  Expect.equals(':123', x.authority);
   
   x = new Uri(userInfo: 'root');
+  Expect.equals('root@', x.authority);
+
+  x = Uri.parse('foo:bar');
   Expect.equals('', x.authority);
 }
 

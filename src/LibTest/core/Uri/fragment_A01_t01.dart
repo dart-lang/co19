@@ -15,8 +15,8 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var x = new Uri(fragment: '-._~ frag');
-  Expect.equals('-._~ frag', x.fragment);
+  var x = new Uri(fragment: '-._~%20frag');
+  Expect.equals('-._~%20frag', x.fragment);
 
   x = new Uri.http('host', 'path');
   Expect.equals('', x.fragment);
