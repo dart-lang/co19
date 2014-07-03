@@ -15,7 +15,7 @@ void main() {
 
 // TODO: getElementsByTagName("*")
 test(() {
-  val lst=document.getElementsByTagName("html");
+  var lst=document.getElementsByTagName("html");
 //  assert_false(lst is NodeList,  "Should not return a NodeList");  - why?
   assert_true(lst is HtmlCollection, "Should return an HtmlCollection");
 }, "Interfaces");

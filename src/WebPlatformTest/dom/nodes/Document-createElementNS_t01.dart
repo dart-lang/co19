@@ -13,7 +13,7 @@
 import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
-val invalidNames = [
+var invalidNames = [
     "",
     "1foo",
     "\u0300foo",
@@ -29,7 +29,7 @@ val invalidNames = [
     "f<oo"
   ];
 
-val  invalidNSQNameCombinations = [
+var  invalidNSQNameCombinations = [
     ["", ":foo"],
     ["", "foo:"],
     ["", "foo:foo"],

@@ -87,6 +87,22 @@ Duration durationMs(delay) {
   return delay == null? Duration.ZERO : ONE_MS * delay;
 }
 
+Future runLater(void action(), [int delay=0]) {
+  asyncStart();
+  return new Future.delayed(durationMs(delay), (){
+    action();
+    asyncEnd();
+  });
+}
+  
+Future runAfter(Future f, void action()) {
+  asyncStart();
+  f.whenComplete((){
+    action();
+    asyncEnd();
+  });
+}
+
 
 /**
  * Let the test driver know the test is asynchronous and
