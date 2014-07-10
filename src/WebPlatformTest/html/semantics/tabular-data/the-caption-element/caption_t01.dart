@@ -1,0 +1,72 @@
+/**
+ * after web-platform-tests/html/semantics/tabular-data/the-caption-element/caption_001.html
+ * @assertion
+ * http://www.w3.org/TR/html5/tabular-data.html#the-caption-element
+ * @description HTML5 Table API Tests
+ */
+import 'dart:html';
+import "../../../../Utils/expectWeb.dart";
+
+const String htmlEL = r'''
+    <table id="table1" style="display:none">
+      <tr><td></td></tr>
+      <caption>first caption</caption>
+      <caption>second caption</caption>
+    </table>
+    <table id="table2" style="display:none">
+      <tr><td></td></tr>
+    </table>
+    <table id="table3" style="display:none">
+      <tr><td></td></tr>
+    </table>
+    <table id="table4" style="display:none">
+      <tr><td></td></tr>
+      <caption>first caption</caption>
+    </table>
+''';
+
+void main() {
+  document.body.appendHtml(htmlEL);
+
+  test((){
+    assert_equals(document.getElementById('table1').caption.innerHtml, "first caption");
+  }, "first caption element child of the first table element");
+
+  test((){
+    var caption = document.createElement("caption");
+    caption.innerHtml = "new caption";
+    var table = document.getElementById('table1');
+    table.caption = caption;
+
+    assert_equals(caption.parentNode, table);
+    assert_equals(table.caption.innerHtml, "new caption");
+
+    var captions = table.queryAll('caption');
+    assert_equals(captions.length, 2);
+    assert_equals(captions[0].innerHtml, "new caption");
+    assert_equals(captions[1].innerHtml, "second caption");
+  }, "setting caption on a table");
+
+  test((){
+    assert_equals(document.getElementById('table2').caption, null);
+  }, "caption IDL attribute is null");
+
+  test((){
+    var table = document.getElementById('table3');
+    var caption = document.createElement("caption");
+    table.rows[0].append(caption);
+    assert_equals(table.caption, null);
+  }, "caption of the third table element should be null");
+
+  test((){
+    assert_not_equals(document.getElementById('table4').caption, null);
+
+    var parent = document.getElementById('table4').caption.parentNode;
+    document.getElementById('table4').caption.remove();
+
+    assert_equals(document.getElementById('table4').caption, null);
+  }, "dynamically removing caption on a table");
+  
+  checkTestFailures();
+}
+

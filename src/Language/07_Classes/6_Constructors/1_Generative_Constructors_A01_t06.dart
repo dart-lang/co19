@@ -14,11 +14,12 @@
 
 class C {
   C.c1.c2();
+  C.c3(){}
 }
 
 
 main() {
   try {
-    new C.c1.c2();
+    new C.c3();
   } catch (x) {}
 }
