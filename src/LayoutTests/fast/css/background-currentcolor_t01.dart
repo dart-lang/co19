@@ -11,7 +11,7 @@ import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 
-getComputedStyle(x) => x.getComputedStyle();
+getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
 main() {
   var style = new Element.html('''

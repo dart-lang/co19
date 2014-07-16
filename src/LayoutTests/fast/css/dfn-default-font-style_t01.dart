@@ -9,21 +9,18 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
+import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
 main() {
   document.body.setInnerHtml('''
-      <div style="background-position: 25% 75%">
-          <div id="target" style="background-position: inherit;"></div>
-      </div>
-      <p>
-          This tests that <tt>background-position: inherit</tt> is applied correctly.
-      </p>
+      This test ensures that whatever written within dfn tag is italicized. <br>
+      For example the <dfn id="dfntag">dfn</dfn> should be italicized.
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var targetBackgroundPosition = getComputedStyle(document.getElementById("target"))
-    .backgroundPosition;
+  var dfnfont = getComputedStyle(document.getElementById('dfntag'))
+      .getPropertyValue("font-style");
 
-  shouldBe(targetBackgroundPosition, "25% 75%");
+  shouldBe(dfnfont, 'italic');
 }

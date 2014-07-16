@@ -9,21 +9,28 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
+import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
 main() {
+  var link = new Element.html('''
+      <link rel="stylesheet" href="$root/resources/comment-before-charset.css" />
+      ''', treeSanitizer: new NullTreeSanitizer());
+  document.head.append(link);
+
   document.body.setInnerHtml('''
-      <div style="background-position: 25% 75%">
-          <div id="target" style="background-position: inherit;"></div>
+      <div id="probe" class="green">
+      I should have a green background.
       </div>
-      <p>
-          This tests that <tt>background-position: inherit</tt> is applied correctly.
-      </p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var targetBackgroundPosition = getComputedStyle(document.getElementById("target"))
-    .backgroundPosition;
+  asyncStart();
 
-  shouldBe(targetBackgroundPosition, "25% 75%");
+  window.onLoad.listen((_) {
+    var elmt = document.getElementById("probe");  
+    var color = getComputedStyle(elmt).getPropertyValue("background-color");
+    shouldBe(color, 'rgb(0, 128, 0)');
+    asyncEnd();
+  });
 }

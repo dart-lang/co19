@@ -216,7 +216,7 @@ checkLayout(selectorList, [outputContainer])
 
     var referenceNode = container;
     if (outputContainer != null) {
-      if (outputContainer.lastChild != null) {
+      if (outputContainer.lastChild == null) {
         // Inserting a text node so we have something to insertAfter.
         outputContainer.text = " ";
       }

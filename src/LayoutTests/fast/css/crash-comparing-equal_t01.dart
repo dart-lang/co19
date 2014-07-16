@@ -4,26 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description 
+ * @description This page shouldn't crash when parsing CSS - Bug 95706.
  */
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
+import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
 main() {
-  document.body.setInnerHtml('''
-      <div style="background-position: 25% 75%">
-          <div id="target" style="background-position: inherit;"></div>
-      </div>
-      <p>
-          This tests that <tt>background-position: inherit</tt> is applied correctly.
-      </p>
+  var style = new Element.html('''
+      <style>
+          #parent {
+              font: 20px/1 ahem;
+      </style>
       ''', treeSanitizer: new NullTreeSanitizer());
-
-  var targetBackgroundPosition = getComputedStyle(document.getElementById("target"))
-    .backgroundPosition;
-
-  shouldBe(targetBackgroundPosition, "25% 75%");
+  document.head.append(style);
 }
