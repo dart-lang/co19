@@ -145,3 +145,13 @@ void  asyncEnd() {
 void checkAsyncTestFailures() {
   asyncCompleted.then((n){checkTestFailures();});
 }
+
+void generate_tests(Function func, List args) {
+    for (List x in args) {
+        var name = x[0];
+        test(() {
+           Function.apply(func, x.sublist(1));
+        }, 
+        name);
+     }
+}
