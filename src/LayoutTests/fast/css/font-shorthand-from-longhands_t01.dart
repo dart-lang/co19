@@ -27,9 +27,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(st);
 
-  document.body.setInnerHtml('''
-      ''', treeSanitizer: new NullTreeSanitizer());
-
   var testContainer = document.createElement("div");
   document.body.append(testContainer);
 

@@ -187,4 +187,6 @@ floor(x) => x.floor();
 ceil(x) => x.ceil();
 round(x) => x.round();
 
+getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
+
 qwe() => testFailed('foo');
