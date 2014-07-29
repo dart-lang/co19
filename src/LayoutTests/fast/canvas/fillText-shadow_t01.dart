@@ -18,7 +18,8 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+  CanvasElement canvas = document.query('canvas');
+  var ctx = canvas.getContext('2d');
   ctx.font = 'bold 128px sans-serif';
   ctx.shadowColor = 'red';
   ctx.shadowOffsetY = 100;

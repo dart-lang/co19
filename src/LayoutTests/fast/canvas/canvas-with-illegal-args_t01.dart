@@ -20,7 +20,7 @@ main() {
   var ctx;
 
   debug("Test scale.");
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.scale(NaN, 1);
   ctx.fillStyle = 'green';
@@ -32,7 +32,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.scale(1, NaN);
   ctx.fillStyle = 'green';
@@ -44,7 +44,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.scale(Inf, 1);
   ctx.fillStyle = 'green';
@@ -56,7 +56,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.scale(1, Inf);
   ctx.fillStyle = 'green';
@@ -69,7 +69,7 @@ main() {
   shouldBe(imgdata[2], 0);
 
   debug("Test translate.");
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.translate(NaN, 1);
   ctx.fillStyle = 'green';
@@ -81,7 +81,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.translate(1, NaN);
   ctx.fillStyle = 'green';
@@ -93,7 +93,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.translate(Inf, 1);
   ctx.fillStyle = 'green';
@@ -105,7 +105,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.translate(1, Inf);
   ctx.fillStyle = 'green';
@@ -118,7 +118,7 @@ main() {
   shouldBe(imgdata[2], 0);
 
   debug("Test rotate.");
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.rotate(NaN);
   ctx.fillStyle = 'green';
@@ -130,7 +130,7 @@ main() {
   shouldBe(imgdata[1], 128);
   shouldBe(imgdata[2], 0);
 
-  ctx = document.createElement('canvas').getContext('2d');
+  ctx = createContext2d("canvas");
 
   ctx.rotate(Inf);
   ctx.fillStyle = 'green';

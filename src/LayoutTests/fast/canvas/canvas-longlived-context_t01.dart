@@ -33,7 +33,7 @@ main() {
   }
 
   prepareCanvas() {
-    var context = document.createElement("canvas").getContext("2d");
+    var context = createContext2d("canvas");
     context.fillStyle = "green";
     context.fillRect(0,0,100,100);
     return context;

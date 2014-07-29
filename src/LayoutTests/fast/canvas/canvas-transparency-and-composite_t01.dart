@@ -13,7 +13,7 @@ import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   ctx.globalCompositeOperation = "source-over";
   ctx.fillStyle = 'rgba(0,0,0,0)';

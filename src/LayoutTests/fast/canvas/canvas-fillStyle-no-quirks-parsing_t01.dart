@@ -7,10 +7,11 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart";
 import "../../resources/testharness.dart";
 
 main() {
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   test(() {
     ctx.fillStyle = "#008000";

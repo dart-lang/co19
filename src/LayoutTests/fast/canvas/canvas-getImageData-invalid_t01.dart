@@ -17,7 +17,7 @@ var Inf = double.INFINITY;
 var NegInf = double.NEGATIVE_INFINITY;
 
 main() {
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   debug('test 01'); shouldThrow(() => ctx.getImageData(NaN, 10, 10, 10));
   debug('test 02'); shouldThrow(() => ctx.getImageData(10, NaN, 10, 10));

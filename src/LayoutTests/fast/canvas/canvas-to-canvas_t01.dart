@@ -21,7 +21,7 @@ main() {
   ctx.strokeStyle = 'green';
   ctx.strokeRect(0, 0, 100, 100);
 
-  var ctx2 = document.createElement('canvas').getContext('2d');
+  var ctx2 = createContext2d("canvas");
 
   ctx2.fillStyle = 'red';
   ctx2.fillRect(0, 0, 100, 100);

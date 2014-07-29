@@ -20,7 +20,7 @@ main() {
   var ctx = canvas.getContext("2d");
 
   shouldBeGreen(x, y) {
-    d = ctx.getImageData(x, y, 1, 1).data;
+    var d = ctx.getImageData(x, y, 1, 1).data;
     shouldBeTrue(d[0] == 0);
     shouldBeTrue(d[1] == 255);
     shouldBeTrue(d[2] == 0);

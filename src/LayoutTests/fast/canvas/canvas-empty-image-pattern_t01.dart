@@ -18,7 +18,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas").getContext("2d");
+  var canvas = getContext2d("canvas");
   var pattern = canvas.createPatternFromImage(new ImageElement(), "repeat");
   shouldBeNull(pattern);
 }

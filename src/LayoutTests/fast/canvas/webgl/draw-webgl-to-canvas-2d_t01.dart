@@ -52,10 +52,10 @@ main() {
   var imgdata;
 
   createContexts() {
-    preserve_ctx2D = document.getElementById("preserve-canvas2d").getContext("2d");
+    preserve_ctx2D = getContext2d("preserve-canvas2d");
     preserve_canvas3D = document.getElementById('preserve-canvas3d');
     preserve_gl = preserve_canvas3D.getContext('webgl', {'preserveDrawingBuffer': true});
-    nonpreserve_ctx2D = document.getElementById("nonpreserve-canvas2d").getContext("2d");
+    nonpreserve_ctx2D = getContext2d("nonpreserve-canvas2d");
     nonpreserve_canvas3D = document.getElementById('nonpreserve-canvas3d');
     nonpreserve_gl = nonpreserve_canvas3D.getContext('webgl', {'preserveDrawingBuffer': false});
   }

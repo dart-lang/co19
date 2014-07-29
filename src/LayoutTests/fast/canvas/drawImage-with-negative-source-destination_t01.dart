@@ -30,7 +30,7 @@ main() {
   ctx2.fillStyle = '#0f0';
   ctx2.fillRect(0, 50, 100, 50);
 
-  var canvas = document.getElementById('canvas').getContext('2d');
+  var canvas = getContext2d("canvas");
   canvas.drawImageScaledFromSource(canvas2, 100, 50, -50, 50, 0, 0, 50, 50);
   canvas.drawImageScaledFromSource(canvas2, 100, 100, -50, -50, 0, 100, 50, -50);
   canvas.drawImageScaledFromSource(canvas2, 0, 100, 100, -50, 100, 100, -50, -50);

@@ -25,7 +25,7 @@ main() {
   var button1 = document.getElementById("button1");
   var button2 = document.getElementById("button2");
 
-  var canvas = document.getElementById("canvas").getContext("2d");
+  var canvas = getContext2d("canvas");
   canvas.beginPath();
   canvas.rect(50, 50, 200, 100);
   canvas.fill();

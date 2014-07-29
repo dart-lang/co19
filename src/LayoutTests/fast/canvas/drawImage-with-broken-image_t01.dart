@@ -39,5 +39,5 @@ main() {
   invalidImage.onError.listen(draw);
   invalidImage.src = '$root/drawImage-with-broken-image_t01.dart';
 
-  ctx = document.createElement("canvas").getContext('2d');
+  ctx = createContext2d("canvas");
 }

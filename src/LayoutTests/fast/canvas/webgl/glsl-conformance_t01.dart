@@ -479,7 +479,7 @@ main() {
       var vShaderSuccess = info['vShaderSuccess'];
       var fShaderSource = info['fShaderSource'];
       var fShaderSuccess = info['fShaderSuccess'];
-      vat linkSuccess = info['linkSuccess'];
+      var linkSuccess = info['linkSuccess'];
 
       passMsg = '[' + vShaderId + '/' + fShaderId + ']: ' + passMsg;
       log(passMsg);
@@ -509,7 +509,7 @@ main() {
         gl.linkProgram(program);
         var linked = gl.getProgramParameter(program, wgl.LINK_STATUS);
         if (!linked) {
-          var error = gl.getProgramInfoLog(shader);
+          var error = gl.getProgramInfoLog(program);
           log("*** Error linking program: $error");
         }
         if (linked != linkSuccess) {

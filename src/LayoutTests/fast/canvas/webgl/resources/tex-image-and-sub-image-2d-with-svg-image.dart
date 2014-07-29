@@ -1,3 +1,6 @@
+
+library tex_image_and_sub_image_2d_with_svg_image;
+
 import 'dart:html';
 import 'dart:svg' as svg;
 import 'dart:web_gl' as wgl;

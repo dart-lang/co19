@@ -111,7 +111,8 @@ main() {
     var table = [1, 2, 4, 8];
     for (var ii = 0; ii < table.length; ++ii) {
       gl.pixelStorei(wgl.PACK_ALIGNMENT, table[ii]);
-      ctx2d = document.getElementById("2d0$ii").getContext("2d");
+      CanvasElement canvas = document.getElementById("2d0$ii");
+      ctx2d = canvas.getContext("2d");
       ctx2d.globalCompositeOperation = 'copy';
       ctx2d.drawImage(canvas3d, 0, 0);
       checkColors();

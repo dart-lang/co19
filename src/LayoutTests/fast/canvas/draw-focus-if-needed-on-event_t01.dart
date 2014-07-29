@@ -24,7 +24,7 @@ main() {
 
   document.body.setAttribute("style", "padding: 0; margin: 0");
 
-  var canvas = document.getElementById("canvas").getContext("2d");
+  var canvas = getContext2d("canvas");
 
   document.getElementById("button1").addEventListener('focus', (_) {
     canvas.beginPath();

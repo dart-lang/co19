@@ -19,7 +19,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   init() {
-    var ctx = document.getElementById("canvas").getContext("2d");
+    var ctx = getContext2d("canvas");
     ctx.font = "font-family: Helvetica; font-size: 48pt; font-color: #000000";
     ctx.fillText("Hello world", 10, 200);
   }

@@ -31,7 +31,7 @@ main() {
     shouldBeFalse(diff > tolerance);
   }
 
-  var ctx = document.getElementById('canvas').getContext('2d');
+  var ctx = getContext2d("canvas");
 
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 100);

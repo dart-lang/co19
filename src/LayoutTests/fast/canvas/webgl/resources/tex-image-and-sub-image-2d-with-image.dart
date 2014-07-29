@@ -1,3 +1,6 @@
+
+library tex_image_and_sub_image_2d_with_image;
+
 import 'dart:html';
 import 'dart:web_gl' as wgl;
 import 'webgl-test.dart';

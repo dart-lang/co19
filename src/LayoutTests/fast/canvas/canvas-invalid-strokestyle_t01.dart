@@ -17,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = document.getElementById('canvas').getContext('2d');
+  var ctx = getContext2d("canvas");
   ctx.strokeStyle = 'rgb(0, 255, 0)';
   ctx.strokeStyle = 'nonsense';
   ctx.lineWidth = 200;

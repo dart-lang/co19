@@ -17,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = document.getElementById("canvas").getContext("2d");
+  var ctx = getContext2d("canvas");
   ctx.save();
   debug("Rectangle at (0,0) 20x20");
   ctx.rect(0, 0, 20, 20);

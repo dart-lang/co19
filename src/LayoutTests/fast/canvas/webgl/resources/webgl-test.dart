@@ -4,6 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
+library webgl_test;
+
 import 'dart:html';
 import 'dart:web_gl' as wgl;
 import "../../../../testcommon.dart";

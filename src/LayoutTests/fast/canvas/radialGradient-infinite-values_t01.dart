@@ -16,7 +16,7 @@ var Infinity = double.INFINITY;
 var NegInfinity = double.NEGATIVE_INFINITY;
 
 main() {
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   shouldThrow(() => ctx.createRadialGradient(0, 0, 100, 0, 0, NaN));
   shouldThrow(() => ctx.createRadialGradient(0, 0, 100, 0, 0, Infinity));

@@ -17,7 +17,7 @@ var Inf = double.INFINITY;
 var NegInf = double.NEGATIVE_INFINITY;
 
 main() {
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   var matrix = ctx.currentTransform;
 

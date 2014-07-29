@@ -48,7 +48,8 @@ main() {
 
   asyncStart();
   runAfterDisplay(() {
-    document.getElementsByTagName('canvas')[0].style.top = "60px";
+    CanvasElement canvas = document.getElementsByTagName('canvas')[0];
+    canvas.style.top = "60px";
     asyncEnd();
   });
 }

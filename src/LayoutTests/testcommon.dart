@@ -11,6 +11,8 @@ import 'dart:html';
 import 'dart:async';
 import "../Utils/expect.dart";
 
+const String testSuiteRoot="/root_dart/tests/co19/src/LayoutTests";
+
 var Html5Elements = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
         'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br',
         'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup',
@@ -188,5 +190,15 @@ ceil(x) => x.ceil();
 round(x) => x.round();
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
+
+getContext2d(id) {
+  CanvasElement canvas = document.getElementById(id);
+  return canvas.getContext("2d");
+}
+
+createContext2d(id) {
+  CanvasElement canvas = document.createElement(id);
+  return canvas.getContext('2d');
+}
 
 qwe() => testFailed('foo');

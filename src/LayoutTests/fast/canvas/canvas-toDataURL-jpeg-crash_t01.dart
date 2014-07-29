@@ -20,5 +20,6 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var test = document.getElementById('canvas').toDataUrl('image/jpeg');
+  CanvasElement canvas = document.getElementById('canvas');
+  var test = canvas.toDataUrl('image/jpeg');
 }

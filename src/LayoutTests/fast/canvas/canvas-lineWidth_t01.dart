@@ -27,7 +27,7 @@ main() {
     }
   }
 
-  var ctx = document.getElementById("canvas").getContext("2d");
+  var ctx = getContext2d("canvas");
 
   ctx.strokeStyle = 'blue';
 

@@ -13,7 +13,7 @@ import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 1, 1);

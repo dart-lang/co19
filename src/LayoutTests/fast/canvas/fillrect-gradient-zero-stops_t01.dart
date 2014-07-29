@@ -18,7 +18,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = document.getElementById('c').getContext('2d');
+  var ctx = getContext2d("c");
   ctx.fillStyle = ctx.createLinearGradient(0, 0, 0, 50);
   ctx.fillRect(0, 0, 300, 150);
 }

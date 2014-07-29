@@ -30,7 +30,7 @@ main() {
   var continueTestFunc;
 
   continueTestAfterContextRestored() {
-    window.gl = create3DContext(canvas);
+    gl = create3DContext(canvas);
     var func = continueTestFunc;
     continueTestFunc = () { testFailed("should not be here"); };
     func();

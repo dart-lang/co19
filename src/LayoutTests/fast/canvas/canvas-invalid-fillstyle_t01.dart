@@ -17,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = document.getElementById('canvas').getContext('2d');
+  var ctx = getContext2d("canvas");
   ctx.fillStyle = 'rgb(0, 255, 0)';
   ctx.fillStyle = 'nonsense';
   ctx.fillRect(0, 0, 200, 200);

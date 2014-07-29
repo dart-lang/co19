@@ -16,6 +16,6 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var context = document.getElementById("canvas").getContext("2d");
+  var context = getContext2d("canvas");
   context.fillStyle = "green";
 }

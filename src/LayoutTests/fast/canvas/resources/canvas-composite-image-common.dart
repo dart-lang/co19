@@ -269,7 +269,7 @@ createOutputTable() {
 
 getContext(compositeIndex, testIndex) {
   var id = compositeTypes[compositeIndex] + testNames[testIndex];
-  var context = document.getElementById(id).getContext('2d');
+  var context = getContext2d(id);
   return context;
 }
 

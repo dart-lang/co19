@@ -7,6 +7,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+library webgl_test_utils;
+
 import 'dart:html';
 import 'dart:web_gl' as wgl;
 import 'dart:typed_data';
@@ -347,7 +349,7 @@ setupQuad(gl, gridRes, [opt_positionLocation=0, opt_flipOddTriangles=false]) {
   gl.vertexAttribPointer(positionLocation, 3, wgl.FLOAT, false, 0, 0);
   objects.add(buf);
 
-  var buf = gl.createBuffer();
+  buf = gl.createBuffer();
   gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, buf);
   gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
   objects.add(buf);

@@ -23,7 +23,7 @@ main() {
   ctx2.fillRect(50, 0, 50, 50);
   ctx2.fillRect(0, 50, 50, 50);
 
-  var ctx = document.createElement('canvas').getContext('2d');
+  var ctx = createContext2d("canvas");
 
   ctx.save();
   ctx.transform(2, 0, 0, 2, 0, 0);
