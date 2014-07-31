@@ -33,5 +33,5 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
   
-  document.getElementById("container").parentNode.focus();
+  (document.getElementById("container").parentNode as Element).focus();
 }

@@ -19,7 +19,7 @@ main() {
 
   handle(list, id) => (event) {
     list.add(event.type + "@" + id);
-  }
+  };
 
   testEventsFiredOn(doc) {
     var caughtFoo = [];

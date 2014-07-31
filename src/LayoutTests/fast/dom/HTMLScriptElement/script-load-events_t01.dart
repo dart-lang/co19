@@ -21,11 +21,11 @@ main() {
 
   loaded(i) => (_) {
     status_[i] = "L";
-  }
+  };
 
   erred(i) => (_) {
     status_[i] = "E";
-  }
+  };
 
   var s = new ScriptElement();
   s.type = "text/javascript";

@@ -23,6 +23,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var rule = document.styleSheets[index].cssRules[0];
+  CssStyleSheet ss = document.styleSheets[index];
+  var rule = ss.cssRules[0];
   shouldBe(rule.cssRules.length, 2);
 }

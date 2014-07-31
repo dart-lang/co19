@@ -35,7 +35,9 @@ main() {
       <div id="testresult">Fail</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var st = document.styleSheets[index].cssRules[0].style;
+  CssStyleSheet ss = document.styleSheets[index];
+  CssStyleRule sr = ss.cssRules[0];
+  var st = sr.style;
 
   shouldBe(st.length, 2);
   shouldBe(st.getPropertyValue("color"), "green");

@@ -21,7 +21,7 @@ main() {
     shouldBe(elementName, expectedTarget);
     if (count == 2)
       asyncEnd();
-  }
+  };
   
   var style = new StyleElement();
   style.onLoad.listen(didReceiveLoadEvent('style'));

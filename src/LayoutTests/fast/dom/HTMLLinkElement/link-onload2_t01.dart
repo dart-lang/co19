@@ -28,7 +28,7 @@ main() {
     if (numberOfFiredLoadEvents == expectedNumberOfFiredLoadEvents) {
       asyncEnd();
     }
-  }
+  };
 
   document.head.append(new Element.html(
     '<link id="lnk1" rel="stylesheet" href="$root/resources/stylesheet.css">',

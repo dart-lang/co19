@@ -26,7 +26,8 @@ main() {
     var style = document.createElement('style');
     style.text = '@-webkit-keyframes anim { from { color: green } }';
     document.head.append(style);
-    rule = document.styleSheets[index].cssRules[0].findRule('from');
+    CssKeyframesRule sr = (document.styleSheets[index] as CssStyleSheet).cssRules[0];
+    rule = sr.findRule('from');
     style.remove();
     setTimeout(crash, 0);
   }

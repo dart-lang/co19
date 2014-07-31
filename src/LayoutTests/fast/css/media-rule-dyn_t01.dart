@@ -24,7 +24,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   runTest() {
-    var styleSheet = document.getElementById('style1').sheet;
+    var styleSheet = (document.getElementById('style1') as StyleElement).sheet;
     var mediaRule = styleSheet.cssRules[0];
 
     try {
@@ -35,7 +35,7 @@ main() {
           document.getElementById('result').innerHtml = 'PASS';
       }
     } catch (e) {
-      document.getElementById('result').innerHTML = 'FAIL';
+      document.getElementById('result').innerHtml = 'FAIL';
     }
   }
 

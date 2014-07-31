@@ -27,7 +27,7 @@ main() {
     if (numberOfFiredLoadEvents == expectedNumberOfFiredLoadEvents) {
       asyncEnd();
     }
-  }
+  };
 
   var style1 = new StyleElement();
   style1.onLoad.listen(checkIfDone('style1'));

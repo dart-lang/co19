@@ -19,6 +19,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  document.styleSheets[0].cssRules.item(0);
-  document.styleSheets[0].deleteRule(1);
+  style.sheet.cssRules.item(0);
+  style.sheet.deleteRule(1);
 }

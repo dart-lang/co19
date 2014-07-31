@@ -29,5 +29,7 @@ main() {
   document.body.setInnerHtml('''
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.styleSheets[index].rules[1].style.background;
+  CssStyleSheet ss = document.styleSheets[index];
+  CssStyleRule sr = ss.rules[1];
+  sr.style.background;
 }

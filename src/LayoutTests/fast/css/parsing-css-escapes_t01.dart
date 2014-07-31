@@ -62,8 +62,8 @@ g\72o\75n\64
 
     document.getElementById("result").append(new Text(text));
 
-    shouldBe(document.getElementById("result").firstChild.data,
-        document.getElementById("expected").firstChild.data);
+    shouldBe((document.getElementById("result").firstChild as Text).data,
+        (document.getElementById("expected").firstChild as Text).data);
   }
 
   runTest();

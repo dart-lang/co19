@@ -1,4 +1,6 @@
 
+library check_layout;
+
 import 'dart:html';
 import '../../Utils/expect.dart';
 

@@ -68,7 +68,7 @@ main() {
       // For the case of -webkit-auto check the offset of the text on screen
       // rather than examining the computed style.
       var elementLeftEdge = enclosingListElement.children[0].offsetLeft;
-      isLeftAligned = elementLeftEdge < document.body.clientWidth/2;
+      var isLeftAligned = elementLeftEdge < document.body.clientWidth/2;
       enclosingListElement.innerHtml = (leftAlign == isLeftAligned ? 'PASS' : 'FAIL');
       shouldBe(leftAlign, isLeftAligned);
       return;

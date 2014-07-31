@@ -53,7 +53,8 @@ main() {
 
   asyncStart();
   window.onLoad.listen((_) {
-    var rules = document.styleSheets[index].cssRules;
+    CssStyleSheet ss = document.styleSheets[index];
+    var rules = ss.cssRules;
     shouldEvaluateTo(rules.length, 2);
 
     shouldBe(rules[0].type, CssRule.STYLE_RULE);

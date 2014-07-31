@@ -19,5 +19,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  document.styleSheets[index].cssRules[0].selectorText = ':target';
+  CssStyleSheet ss = document.styleSheets[index];
+  CssStyleRule sr = ss.cssRules[0];
+  sr.selectorText = ':target';
 }

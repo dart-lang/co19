@@ -24,7 +24,7 @@ main() {
     if (ind == 2) {
       asyncEnd();
     }
-  }
+  };
 
   window.onLoad.listen(didReceiveLoadEvent('body'));
 

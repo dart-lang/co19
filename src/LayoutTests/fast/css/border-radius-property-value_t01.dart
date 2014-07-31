@@ -26,7 +26,8 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var element = document.getElementById("element-container");
-  var style = window.getMatchedCssRules(element, '')[0].style;
+  CssStyleRule sr = window.getMatchedCssRules(element, '')[0];
+  var style = sr.style;
   shouldBe(style.getPropertyValue('border-radius'),'5px');
   shouldBe(style.getPropertyValue('border-top-left-radius'),'5px');
   shouldBe(style.getPropertyValue('border-top-right-radius'),'5px');
