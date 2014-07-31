@@ -12,6 +12,8 @@ import 'dart:async';
 import "../Utils/expect.dart";
 
 const String testSuiteRoot="/root_dart/tests/co19/src/LayoutTests";
+const NaN=double.NAN;
+const Infinity=double.INFINITY;
 
 var Html5Elements = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
         'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br',

@@ -20,6 +20,7 @@ class Expect {
    */
   static void equals(var expected, var actual, [String reason = null]) {
     if (expected == actual) return;
+    if (expected is double && expected.isNaN && actual is double && actual.isNaN) return;
     String msg = _getMessage(reason);
     _fail("Expect.equals(expected: <$expected>, actual: <$actual>$msg) fails.");
   }
