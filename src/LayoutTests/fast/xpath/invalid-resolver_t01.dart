@@ -8,24 +8,31 @@
  * @description 
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
+import "xpath-test-pre.dart";
 
+// to cheat the analyzer
+Object toObject(var res) {
+   return res;
+}
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
 
-    Expect.throws((){
-        evaluator.evaluate('/body', document, 5, 0, null);
+    shouldThrow((){
+        evaluator.evaluate('/body', document, toObject(5), 0, null);
     }
-//    , "TypeError: Failed to execute 'evaluate' on 'Document': The 3rd argument provided is either null, or an invalid XPathNSResolver object.");
-    , (e)=>e.toString().contains("TypeError")
+// was:   "TypeError: Failed to execute 'evaluate' on 'Document': The 3rd argument provided is either null, or an invalid XPathNSResolver object.");
+//    , (e)=>e.toString().contains("TypeError")
+    , (e)=>true
     , "resolver is a number");
 
-    Expect.throws(() {
-        evaluator.evaluate('/body', document, 'a resolver', 0, null);
+    shouldThrow(() {
+        evaluator.evaluate('/body', document, toObject('a resolver'), 0, null);
     }
-//    , "TypeError: Failed to execute 'evaluate' on 'Document': The 3rd argument provided is either null, or an invalid XPathNSResolver object.");
+//  was:  "TypeError: Failed to execute 'evaluate' on 'Document': The 3rd argument provided is either null, or an invalid XPathNSResolver object.");
     , (e)=>e.toString().contains("TypeError")
     , "resolver is a String");
     
 //    shouldBe(evaluator.evaluate('/body', document, Date, 0, null).toString(), "[object XPathResult]"); - why Date works in js?
+
+    checkTestFailures();
 }

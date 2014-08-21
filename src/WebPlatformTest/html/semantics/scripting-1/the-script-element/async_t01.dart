@@ -9,5 +9,6 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-  assert_true(document.createElement("script").async);
+  ScriptElement script=document.createElement("script");
+  assert_true(script.async);
 }

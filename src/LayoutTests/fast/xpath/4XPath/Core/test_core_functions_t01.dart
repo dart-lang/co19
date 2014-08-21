@@ -8,25 +8,28 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
+
+class MyXPathNSResolver implements XPathNSResolver {
+    String lookupNamespaceUri(String prefix) {
+        if (prefix == 'f')
+            return 'http://foo.com';
+        Expect.fail("Unexpected prefix:$prefix");
+        return null;
+    }
+}
 
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
     
-    String nsResolver(prefix) {
-        if (prefix == 'f')
-            return 'http://foo.com';
-        return null;
-    }
+    XPathNSResolver nsResolver = new MyXPathNSResolver();
 
     shouldBe(evaluator.evaluate("last()", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 1);
     shouldBe(evaluator.evaluate("position()", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 1);
     shouldBe(evaluator.evaluate("count(/ROOT | /ROOT/CHILD1)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 2);
 
-    var result = evaluator.evaluate("id(1)", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    XPathResult result = evaluator.evaluate("id(1)", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     checkSnapshot("id(1)", result, [CHILD2]);
 
     result = evaluator.evaluate("id('1 1')", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -45,10 +48,7 @@ void main() {
     checkSnapshot("id('0 0 1 1')", result, [CHILD2]);
 
     shouldBe(evaluator.evaluate("local-name(/empty)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
-    shouldBe(evaluator.evaluate("local-name(//f:CHILD3)", CHILD1, nsResolver, XPathResult.ANY_TYPE, null).stringValue, "CHILD3");
     shouldBe(evaluator.evaluate("namespace-uri(/empty)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
-    shouldBe(evaluator.evaluate("namespace-uri(//f:CHILD3)", CHILD1, nsResolver, XPathResult.ANY_TYPE, null).stringValue, "http://foo.com");
-    shouldBe(evaluator.evaluate("name(//f:CHILD3)", CHILD1, nsResolver, XPathResult.ANY_TYPE, null).stringValue, "foo:CHILD3");
 
     String strNodeset3 = "            Text1  ";
 
@@ -113,4 +113,6 @@ void main() {
     shouldBe(evaluator.evaluate("lang(\'\')", LCHILD2, null, XPathResult.ANY_TYPE, null).booleanValue, false);
     shouldBe(evaluator.evaluate("lang(\'foo\')", LCHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, false);
     shouldBe(evaluator.evaluate("lang(\'foo\')", LCHILD2, null, XPathResult.ANY_TYPE, null).booleanValue, false);
+    
+    checkTestFailures();
 }

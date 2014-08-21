@@ -25,7 +25,8 @@ void main() {
     , ["number3", "number4"]
     , "':out-of-range' matches all elements that are candidates for constraint validation, have range limitations, and that are either suffering from an underflow or suffering from an overflow");
     
-  document.getElementById("number1").value = "-10";
+  InputElement number1=document.getElementById("number1");
+  number1.value = "-10";
   testSelector(":in-range"
     , []
     , "':in-range' update number1's value < min");
@@ -34,7 +35,8 @@ void main() {
     , ["number1", "number3", "number4"]
     , "':out-of-range' update number1's value < min");
 
-  document.getElementById("number3").min = "0";
+  InputElement number3=document.getElementById("number3");
+  number3.min =  "0";
   testSelector(":in-range"
     , ["number3"]
     , "':in-range' update number3's min < value");

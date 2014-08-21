@@ -14,7 +14,7 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  var password;
+  InputElement password;
   
   void setup() {
     password = document.getElementById("password");
@@ -23,7 +23,8 @@ void main() {
   test(() {
     setup();
     assert_equals(password.value, "");
-    assert_equals(document.getElementById("password_with_value").value, "foobar");
+    InputElement password_with_value = document.getElementById("password");
+    assert_equals(password_with_value.value, "foobar");
   }, "Value returns the current value for password");
 
   test(() {

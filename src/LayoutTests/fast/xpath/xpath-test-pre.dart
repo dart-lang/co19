@@ -1,34 +1,56 @@
+library xpath_test_pre;
+
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
+const NaN=double.NAN;
 
 int passcnt=0;
 int failcnt=0;
-String failures="";
 
-void checkTestFailures() {
-  print("tests passed: $passcnt; failed: $failcnt");
-  if (failcnt==0) return;
-  Expect.fail(failures);
+void testPassed(String testName) {
+    passcnt++;
+//    print("test $testName passed.");
 }
 
-void checkSnapshot(comment, actual, expected) {
+void testFailed(String testName, String diag) {
+    failcnt++;
+    print("test $testName failed:$diag.");
+}
+
+void shouldBe(actual, expected, [reason]) {
+  try {
+      Expect.equals(expected, actual, reason); // it checks for NaNs      
+      passcnt++;
+//      print("shouldBe($actual, $expected, $reason) passed.");
+  } catch (e) {
+      failcnt++;
+      print("shouldBe($actual, $expected, $reason) failed.");
+  }
+}
+
+void checkTestFailures() {
+  if (failcnt==0) {
+      print("all $passcnt tests passed.");
+  } else {
+      Expect.fail("tests passed: $passcnt; failed: $failcnt");
+  }
+}
+
+void checkSnapshot(String testName, XPathResult actual, List expected) {
     if (actual.snapshotLength != expected.length) {
-        testFailed("$comment: incorrect length (expected ${expected.length}, actual ${actual.snapshotLength})");
-        print("$comment: incorrect length (expected ${expected.length}, actual ${actual.snapshotLength})");
+        testFailed(testName, "incorrect length (expected ${expected.length}, actual ${actual.snapshotLength})");
         return;
     }
     
     for (int i = 0; i < actual.snapshotLength; ++i) {
         if (actual.snapshotItem(i) != expected[i]) {
-            testFailed("$comment: $item $i  incorrect (expected ${expected[i].nodeName}, actual ${actual.snapshotItem(i).nodeName})");
-            print("$comment: $item $i  incorrect (expected ${expected[i].nodeName}, actual ${actual.snapshotItem(i).nodeName})");
+            testFailed(testName, "item $i  incorrect (expected ${expected[i].nodeName}, actual ${actual.snapshotItem(i).nodeName})");
             return;
         }
     }
     
-    testPassed(comment);
+    testPassed(testName);
 }
 
 void test(doc, context, String expr, expected, nsResolver) {
@@ -45,23 +67,38 @@ void test(doc, context, String expr, expected, nsResolver) {
                 if (result.numberValue == expected)
                     testPassed(expr);
                 else
-                    testFailed(expr + ": expected " + expected + ", actual " + result.numberValue);
+                    testFailed(expr, "expected " + expected + ", actual " + result.numberValue);
             } else if (expected is String) {
                 if (result.stringValue == expected)
                     testPassed(expr);
                 else
-                    testFailed(expr + ": expected '" + expected + "', actual '" + result.stringValue + "'");
+                    testFailed(expr, "expected '" + expected + "', actual '" + result.stringValue + "'");
             } else if (expected is bool) {
                 if (result.booleanValue == expected)
                     testPassed(expr);
                 else
-                    testFailed(expr + ": expected '" + expected + "', actual '" + result.booleanValue + "'");
+                    testFailed(expr, "expected '" + expected + "', actual '" + result.booleanValue + "'");
             }
         }
-        passcnt++;
+        testPassed(expr);
     } catch (ex) {
-//        Expect.fail("$expr: raised $ex");
-        failcnt++;
-        failures="$failures\ntest($expr) raised $ex";
+        testFailed(expr, "raised $ex");
     }
 }
+
+void shouldThrow(func(), [check, reason]) {
+    try {
+      func();
+      String msg = reason == null ? "" : reason;
+      testFailed('Expect.throws($msg)', "no exception");
+    } catch (e, s) {
+      if ((check != null) && !check(e)) {
+        String msg = reason == null ? "" : reason;
+        testFailed("Expect.throws($msg)", "Unexpected ${e.runtimeType}('$e')\n$s");
+      } else {
+        String msg = reason == null ? "" : reason;
+        testPassed(msg);
+      }
+    }
+  }
+

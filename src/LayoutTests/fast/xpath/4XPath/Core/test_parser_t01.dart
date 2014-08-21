@@ -8,8 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
 
@@ -117,5 +115,6 @@ void main() {
     shouldThrow((){
         evaluator.evaluate("\\\\", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     });
-
+    
+    checkTestFailures();    
 }

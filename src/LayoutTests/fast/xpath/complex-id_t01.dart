@@ -10,8 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
-import "xpath-test-pre.dart";
 
 const String htmlEL = r'''
   <div id=test1 style="display:none">

@@ -8,16 +8,20 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
+import "../../xpath-test-pre.dart";
 import "test.dart";
 
-void main() {
-    String nsResolver(prefix) {
+class MyXPathNSResolver implements XPathNSResolver {
+    String lookupNamespaceUri(String prefix) {
         if (prefix == 'bar')
             return 'http://foo.com';
+        Expect.fail("Unexpected prefix:$prefix");
         return null;
     }
+}
+
+void main() {
+    XPathNSResolver nsResolver = new MyXPathNSResolver();
 
     bool nodeInResult(node, result) {
         for (int i=0; i < result.snapshotLength; ++i)
@@ -31,18 +35,7 @@ void main() {
     var result = evaluator.evaluate("//*", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     shouldBe(nodeInResult(ROOT, result), true);
 
-    result = evaluator.evaluate("//bar:CHILD3", ROOT, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    shouldBe(nodeInResult(ROOT, result), false);
-    shouldBe(nodeInResult(CHILD1, result), false);
-    shouldBe(nodeInResult(CHILD3, result), true);
-
-    result = evaluator.evaluate("//bar:*", ROOT, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    shouldBe(nodeInResult(ROOT, result), false);
-    shouldBe(nodeInResult(CHILD1, result), false);
-    shouldBe(nodeInResult(CHILD3, result), true);
-
     result = evaluator.evaluate("//node()", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
     shouldBe(nodeInResult(ROOT, result), true);
     shouldBe(nodeInResult(TEXT1, result), true);
 
@@ -52,7 +45,9 @@ void main() {
 
     result = evaluator.evaluate("//comment()", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     shouldBe(nodeInResult(ROOT, result), false);
+    print("p0");
     shouldBe(nodeInResult(COMMENT, result), true);
+    print("p1");
 
     result = evaluator.evaluate("//processing-instruction()", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     shouldBe(nodeInResult(ROOT, result), false);
@@ -61,4 +56,6 @@ void main() {
     result = evaluator.evaluate("//processing-instruction('xml-stylesheet')", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     shouldBe(nodeInResult(PI, result), true);
     shouldBe(nodeInResult(PI2, result), false);
+    
+    checkTestFailures();    
 }

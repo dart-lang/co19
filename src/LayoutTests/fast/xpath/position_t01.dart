@@ -8,16 +8,8 @@
  * @description 
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
+import "../../testcommon.dart" as testcommon;
 import "xpath-test-pre.dart";
-
-class  LiberalSanitizer extends NodeTreeSanitizer {
-//   LiberalSanitizer():super(null);
-   LiberalSanitizer():super();
-
-   void sanitizeTree(Node node){}
-}
 
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
@@ -96,7 +88,9 @@ var result;
     <p num="6" type="warning"></p>
     </div>
     ''';
-    var ROOT2 = new DocumentFragment.html(htmlEL, treeSanitizer: new NullTreeSanitizer()).firstChild;
+    var ROOT2 = new DocumentFragment.html(htmlEL, treeSanitizer: new testcommon.NullTreeSanitizer()).firstChild;
     shouldBe(evaluator.evaluate('p[@type=\"warning\"][5]/@num', ROOT2, null, XPathResult.STRING_TYPE, null).stringValue, "6");
     shouldBe(evaluator.evaluate('p[5][@type=\"warning\"]/@num', ROOT2, null, XPathResult.STRING_TYPE, null).stringValue, "5");
+
+    checkTestFailures();    
 }

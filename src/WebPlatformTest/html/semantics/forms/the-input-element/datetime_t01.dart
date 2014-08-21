@@ -19,104 +19,105 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
+  List<InputElement> inputs=document.getElementsByTagName("input") as List<InputElement>;
 
-  test(() {assert_equals(document.getElementsByTagName("input")[0].type, "date");}
+  test(() {assert_equals(inputs[0].type, "date");}
     , "date type support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-type" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[0].value, "2011-12-01");}
+  test(() {assert_equals(inputs[0].value, "2011-12-01");}
     , "[date] The value must be a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/common-input-element-apis.html#dom-input-value" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[0].min, "2011-12-01");}
+  test(() {assert_equals(inputs[0].min, "2011-12-01");}
     , "[date] The min attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-min" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[0].max, "2011-12-31");}
+  test(() {assert_equals(inputs[0].max, "2011-12-31");}
     , "[date] The max attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-max" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[0].step, "5");}
+  test(() {assert_equals(inputs[0].step, "5");}
     , "[date] The step attribute must be expressed in seconds"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-step" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[1].type, "time");}
+  test(() {assert_equals(inputs[1].type, "time");}
     , "[time] time type support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-type" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[1].value, "12:00");}
+  test(() {assert_equals(inputs[1].value, "12:00");}
     , "[time] The value must be a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/common-input-element-apis.html#dom-input-value" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[1].min, "11:30");}
+  test(() {assert_equals(inputs[1].min, "11:30");}
     , "[time] The min attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-min" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[1].max, "14:00");}
+  test(() {assert_equals(inputs[1].max, "14:00");}
     , "[time] The max attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-max" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[1].step, "600");}
+  test(() {assert_equals(inputs[1].step, "600");}
     , "[time] The step attribute must be expressed in seconds"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-step" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[2].type, "datetime");}
+  test(() {assert_equals(inputs[2].type, "datetime");}
     , "datetime type support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-type" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[2].value, "2011-12-01T12:00Z");}
+  test(() {assert_equals(inputs[2].value, "2011-12-01T12:00Z");}
     , "[datetime] The must be a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/common-input-element-apis.html#dom-input-value" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[2].min, "2011-12-01T12:00Z");}
+  test(() {assert_equals(inputs[2].min, "2011-12-01T12:00Z");}
     , "[datetime] The min attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-min" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[2].max, "2011-12-31T22:00Z");}
+  test(() {assert_equals(inputs[2].max, "2011-12-31T22:00Z");}
     , "[datetime] The max attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-max" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[2].step, "7200");}
+  test(() {assert_equals(inputs[2].step, "7200");}
     , "[datetime] The step attribute must be expressed in seconds"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-step" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[3].type, "month");}
+  test(() {assert_equals(inputs[3].type, "month");}
     , "month type support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-type" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[3].value, "2011-01");}
+  test(() {assert_equals(inputs[3].value, "2011-01");}
     , "[month] The value must be a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/common-input-element-apis.html#dom-input-value" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[3].min, "2011-01");}
+  test(() {assert_equals(inputs[3].min, "2011-01");}
     , "[month] The min attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-min" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[3].max, "2011-12");}
+  test(() {assert_equals(inputs[3].max, "2011-12");}
     , "[month] The max attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-max" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[3].step, "2");}
+  test(() {assert_equals(inputs[3].step, "2");}
     , "[month] The step attribute must be expressed in seconds"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-step" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[4].type, "week");}
+  test(() {assert_equals(inputs[4].type, "week");}
     , "week type support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-type" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[4].value, "2011-W40");}
+  test(() {assert_equals(inputs[4].value, "2011-W40");}
     , "[week] The value must be a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/common-input-element-apis.html#dom-input-value" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[4].min, "2011-W20");}
+  test(() {assert_equals(inputs[4].min, "2011-W20");}
     , "[week] The min attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-min" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[4].max, "2011-W50");}
+  test(() {assert_equals(inputs[4].max, "2011-W50");}
     , "[week] The max attribute must have a value that is a valid global date and time string"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-max" });
       
-  test(() {assert_equals(document.getElementsByTagName("input")[4].step, "2");}
+  test(() {assert_equals(inputs[4].step, "2");}
     , "[week] The step attribute must be expressed in seconds"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-step" });
       

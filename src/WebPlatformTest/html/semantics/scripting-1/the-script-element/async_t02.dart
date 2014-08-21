@@ -13,20 +13,20 @@ const String htmlEL = r'''
 void main() {
   document.body.appendHtml(htmlEL);
   
-          test(() {
-            var s = document.createElement("script");
-            s.async = false;
-            s.setAttribute('async', ''); /*Should change s.async to true*/
-            assert_true(s.async);
-          }, "Test 'async' attribute are reflected in the async property with setAttribute");
+  test(() {
+    ScriptElement s = document.createElement("script");
+    s.async = false;
+    s.setAttribute('async', ''); /*Should change s.async to true*/
+    assert_true(s.async);
+  }, "Test 'async' attribute are reflected in the async property with setAttribute");
 
-          test(() {
-            var s = document.createElement("script");
-            s.async = false;
-            s.setAttribute('async', ''); /*Should change s.async to true*/
-            s.attributes.remove('async'); /*Should change s.async to false*/
-            assert_false(s.async);
-          }, "Test 'async' attribute are reflected in the async property with attributes.remove");
+  test(() {
+    ScriptElement s = document.createElement("script");
+    s.async = false;
+    s.setAttribute('async', ''); /*Should change s.async to true*/
+    s.attributes.remove('async'); /*Should change s.async to false*/
+    assert_false(s.async);
+  }, "Test 'async' attribute are reflected in the async property with attributes.remove");
           
   checkTestFailures();
 }

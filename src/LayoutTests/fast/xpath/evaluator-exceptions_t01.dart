@@ -8,28 +8,27 @@
  * @description 
  */
 import "dart:html";
-import 'package:html5lib/dom.dart';
-import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
+import "xpath-test-pre.dart";
 
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
     var nsResolver = evaluator.createNSResolver(document);
-
+/*
     shouldThrow((){
       evaluator.evaluate('/body', 0, nsResolver, 0, null);
      });
-
+*/
     var fragment = document.createDocumentFragment(); 
     shouldThrow(() {
       evaluator.evaluate('/body', fragment, nsResolver, 0, null);
     });
 
 // was:    var doctype = document.doctype;  
-    DocumentType doctype = new DocumentType("","","");
+    var doctype = document.implementation.createDocumentType('svg:svg', '-//W3C//DTD SVG 1.1//EN', 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd');
     shouldThrow((){
        evaluator.evaluate('/body', doctype, nsResolver, 0, null);
     });
     
+    checkTestFailures();
 }
 

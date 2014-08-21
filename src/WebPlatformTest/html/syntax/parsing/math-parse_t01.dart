@@ -33,7 +33,8 @@ void main() {
     },"The node name should be math");
     
     test(() {
-      assert_equals(document.getElementById("d1").firstChild.namespaceUri ,"http://www.w3.org/1998/Math/MathML");
+      Element firstChild=document.getElementById("d1").firstChild;
+      assert_equals(firstChild.namespaceUri ,"http://www.w3.org/1998/Math/MathML");
     },"math should be in MathML Namespace");
     
     test(() {

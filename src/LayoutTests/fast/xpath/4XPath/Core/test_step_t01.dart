@@ -8,8 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
 
@@ -31,5 +29,6 @@ void main() {
 
     result = evaluator.evaluate("child::GCHILD[1]", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     checkSnapshot("child::GCHILD[1]", result, [GCHILD11]);
-
+   
+    checkTestFailures();    
 }

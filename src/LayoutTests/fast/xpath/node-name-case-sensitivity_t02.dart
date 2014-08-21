@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * @description 
+ * @description xpath expressions considered invalid by dart, but valid in js
  */
 import "dart:html";
 import "xpath-test-pre.dart";
@@ -37,15 +37,6 @@ void main() {
        </p>'''
        , 'application/xhtml+xml');
 
-    void testHTML(query, expectedCount) {
-        var res = evaluator.evaluate(query
-            , document
-            , nsResolver
-            , XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE
-            , null);
-        shouldBe(res.snapshotLength, expectedCount, "HTML $query");
-    }
-
     void testXML(query, expectedCount) {
         var res = evaluator.evaluate(query
             , doc
@@ -55,14 +46,10 @@ void main() {
         shouldBe(res.snapshotLength, expectedCount, "XML $query");
     }
 
-    testHTML('//*[@id="sometext"]//strong', 2);
-    testHTML('//*[@id="sometext"]//Strong', 2);
-    testHTML('//*[@id="Sometext"]//strong', 0);
-    testHTML('//*[@id="sometext"]//foo', 2);
-    testHTML('//*[@id="sometext"]//FOO', 2);
 
-    testXML('//*[@id="sometext"]//foo', '1');
-    testXML('//*[@id="sometext"]//FOO', '1');
+    testXML('//*[@id="sometext"]//x:strong', '1');
+    testXML('//*[@id="sometext"]//x:Strong', '0');
+    testXML('//*[@id="Sometext"]//x:strong', '0');
 
     checkTestFailures();
 }

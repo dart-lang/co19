@@ -12,6 +12,8 @@
  * @author ilya
  */
 
+import "dart:async";
+import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -20,7 +22,7 @@ main() {
   int count=0;
   int first=0;
   bool encountered=false;
-  bool test(T element) {
+  bool test(int element) {
      bool res = element % 10 == 0;
      if (res && !encountered) {
        encountered=true;
@@ -29,7 +31,7 @@ main() {
      return res;
   }
   asyncStart();
-  IsolateStream stream=IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
+  ReceivePort stream=IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
   Future<bool>  f = stream.any(test);
   f.then((x) {
       Expect.isTrue(x);

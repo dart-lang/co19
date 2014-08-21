@@ -15,8 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-@lazy
-import 'DeferredLibrary_A01_t01.lib.dart' as foo;
+import 'DeferredLibrary_A01_t01.lib.dart' deferred as foo;
 
 const lazy = const DeferredLibrary('DeferredLibrary_A01_t01.lib');
 

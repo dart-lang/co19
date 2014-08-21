@@ -12,11 +12,16 @@ const String htmlEL = '''
 <link id="linkImportBlockingParent" rel="import" href="$resources/another.html" />
 ''';
 
+LinkElement linkElement(String id) => document.getElementById(id);
+
 void main() {
     document.body.appendHtml(htmlEL);
     
     test(() {
-      var import = document.getElementById("linkImport").import;
+//      var import = document.getElementById("linkImport").import;
+      var linkImport = linkElement("linkImport");
+//      print("linkImport is ${linkImport.runtimeType}");
+      var import = linkImport.import;
       assert_true(import is DocumentFragment, "import is ${import.runtimeType}");
       var target=import.querySelector("#target");
       assert_true(target is DocumentFragment, "target is ${target.runtimeType}");

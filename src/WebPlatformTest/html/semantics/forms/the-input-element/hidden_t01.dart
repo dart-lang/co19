@@ -19,42 +19,44 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
+  InputElement hidden=document.getElementById("hidden");
+  InputElement hidden_with_value=document.getElementById("hidden_with_value");
 
   test(() {
-    assert_equals(document.getElementById("hidden").value, "");
-    assert_equals(document.getElementById("hidden_with_value").value, "foo");
+    assert_equals(hidden.value, "");
+    assert_equals(hidden_with_value.value, "foo");
   }, "Value returns the current value for hidden");
 
   test(() {
-    document.getElementById("hidden").value = "A";
-    assert_equals(document.getElementById("hidden").value, "A");
-    document.getElementById("hidden").value = "B";
-    assert_equals(document.getElementById("hidden").value, "B");
+    hidden.value = "A";
+    assert_equals(hidden.value, "A");
+    hidden.value = "B";
+    assert_equals(hidden.value, "B");
   }, "Setting value changes the current value for hidden");
 
   test(() {
-    assert_equals(document.getElementById("hidden").files, null);
+    assert_equals(hidden.files, null);
   }, "files attribute must return null for hidden");
 
   test(() {
-    assert_equals(document.getElementById("hidden").valueAsDate, null);
+    assert_equals(hidden.valueAsDate, null);
   }, "valueAsDate attribute must return null for hidden");
 
   test(() {
-    assert_equals(document.getElementById("hidden").valueAsNumber.toString(), "NaN");
+    assert_equals(hidden.valueAsNumber.toString(), "NaN");
   }, "valueAsNumber attribute must return NaN for hidden");
 
   test(() {
-    assert_equals(document.getElementById("hidden").list, null);
+    assert_equals(hidden.list, null);
   }, "list attribute must return null for hidden");
 
   test(() {
-    var el = document.getElementById("hidden");
+    var el = hidden;
     assert_throws("InvalidStateError", () { el.stepDown(); }, "");
   }, "stepDown does not apply for hidden");
 
   test(() {
-    var el = document.getElementById("hidden");
+    var el = hidden;
     assert_throws("InvalidStateError", () { el.stepUp(); }, "");
   }, "stepUp does not apply for hidden");
 

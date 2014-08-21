@@ -30,12 +30,14 @@ const String htmlEL='''
     </div>
 ''';
 
+InputElement getInputElement(String id) => document.getElementById(id);
+
 void main() {
   document.body.appendHtml(htmlEL);
       
       test(
         () {
-          assert_equals(document.getElementById('range_basic').type, "range");
+          assert_equals(getInputElement('range_basic').type, "range");
         },
         "range type support on input element",
         {
@@ -45,7 +47,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('range_basic').min, "0");
+          assert_equals(getInputElement('range_basic').min, "0");
         },
         "min attribute support on input element",
         {
@@ -55,7 +57,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('range_basic').max, "5");
+          assert_equals(getInputElement('range_basic').max, "5");
         },
         "max attribute support on input element", 
         {
@@ -67,7 +69,7 @@ void main() {
       // however, Chrome, Opera and Firefox would not give any default value at all...
       test(
         () {
-          assert_equals(document.getElementById('illegal_min_and_max').min, "0");
+          assert_equals(getInputElement('illegal_min_and_max').min, "0");
         },
         "Illegal value of min attribute",
         {
@@ -77,7 +79,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('illegal_min_and_max').max, "100");
+          assert_equals(getInputElement('illegal_min_and_max').max, "100");
         },
         "Illegal value of max attribute", 
         { "help" : "http://www.w3.org/TR/html5/forms.html#range-state-(type=range)" }
@@ -85,7 +87,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('illegal_value_and_step').value, "3");
+          assert_equals(getInputElement('illegal_value_and_step').value, "3");
         },
         "Converting an illegal string to the default value",
         {
@@ -95,7 +97,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('illegal_value_and_step').step, "1");
+          assert_equals(getInputElement('illegal_value_and_step').step, "1");
         },
         "Converting an illegal string to the default step",
         { "help" : "http://www.w3.org/TR/html5/forms.html#range-state-(type=range)" }
@@ -103,7 +105,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('value_smaller_than_min').value, "0");
+          assert_equals(getInputElement('value_smaller_than_min').value, "0");
         }, 
         "the value is set to min when a smaller value than min attribute is given", 
         {
@@ -113,7 +115,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('value_larger_than_max').value, "5");
+          assert_equals(getInputElement('value_larger_than_max').value, "5");
         },
         "the value is set to max when a larger value than max attribute is given",
         {
@@ -123,7 +125,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('empty_attributes').min, "0");
+          assert_equals(getInputElement('empty_attributes').min, "0");
         },
         "default value of min attribute in input type=range",
         { "help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-min" }
@@ -131,7 +133,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('empty_attributes').max, "100");
+          assert_equals(getInputElement('empty_attributes').max, "100");
         },
         "default value of max attribute in input type=range", 
         {
@@ -141,7 +143,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('value_not_specified').value, "4");
+          assert_equals(getInputElement('value_not_specified').value, "4");
         },
         "default value when min and max attributes are given (= min plus half the difference between min and max)",
         {
@@ -151,7 +153,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('control_step_mismatch').value, "4");
+          assert_equals(getInputElement('control_step_mismatch').value, "4");
         },
         "default value with step control when both min and max attributes are given",
         {
@@ -162,7 +164,7 @@ void main() {
       // Chrome would result in different value out of the range between min and max. Why?
       test(
         () {
-          assert_equals(document.getElementById('max_smaller_than_min').value, "2");
+          assert_equals(getInputElement('max_smaller_than_min').value, "2");
         },
         "default value when both min and max attributes are given, while min > max",
         {
@@ -172,7 +174,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('default_step_scale_factor_1').value, "7");
+          assert_equals(getInputElement('default_step_scale_factor_1').value, "7");
         },
         "The default step scale factor is 1, unless min attribute has non-integer value",
         {
@@ -182,7 +184,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('default_step_scale_factor_2').value, "6.3");
+          assert_equals(getInputElement('default_step_scale_factor_2').value, "6.3");
         },
         "Step scale factor behavior when min attribute has integer value but max attribute is non-integer ",
         {
@@ -191,7 +193,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('default_step_scale_factor_3').step, "1");
+          assert_equals(getInputElement('default_step_scale_factor_3').step, "1");
         },
         "The default scale factor is 1 even if step attribute is explicitly set to non-integer value, unless min attribute has non-integer value",
         {
@@ -201,7 +203,7 @@ void main() {
 
       test(
         () {
-          assert_equals(document.getElementById('float_step_scale_factor').value, "6.8");
+          assert_equals(getInputElement('float_step_scale_factor').value, "6.8");
         },
         "Solving the step mismatch",
         {
@@ -212,7 +214,7 @@ void main() {
       // Firefox Nightly (24.0a1) would result in the possible maximum value in this range... (i.e. 12)
       test(
         () {
-          var e = document.getElementById('stepup');
+          var e = getInputElement('stepup');
           e.stepUp();
           assert_equals(e.value, "9");
         },
@@ -225,7 +227,7 @@ void main() {
       // Firefox Nightly (24.0a1) would result in the possible minimum value in this range... (i.e. 3)
       test(
         () {
-          var e = document.getElementById('stepdown');
+          var e = getInputElement('stepdown');
           e.stepDown();
           assert_equals(e.value, "6");
         },
@@ -239,7 +241,7 @@ void main() {
       // Firefox Nightly gives the correct result
       test(
         () {
-          var e = document.getElementById('stepup_beyond_max');
+          var e = getInputElement('stepup_beyond_max');
           e.stepUp(2);
           assert_equals(e.value, "12");
         },
@@ -253,7 +255,7 @@ void main() {
       // Firefox Nightly gives the correct result
       test(
         () {
-          var e = document.getElementById('stepdown_beyond_min');
+          var e = getInputElement('stepdown_beyond_min');
           e.stepDown(2);
           assert_equals(e.value, "3");
         }, "Performing stepDown() beyond the value of the min attribute", {

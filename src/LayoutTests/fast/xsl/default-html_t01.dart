@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 const String htmlEL = r'''
 <div id="result">Should be green: </div>
@@ -18,11 +17,7 @@ const String htmlEL = r'''
 ''';
 
 main() {
-  document.body.appendHtml(htmlEL);
-
-/* if (window.testRunner)
-    testRunner.dumpAsText();
-    */
+    document.body.appendHtml(htmlEL);
 
     var xsl = (new DomParser()).parseFromString('<?xml version="1.0" encoding="ISO-8859-1"?>'+
     '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">'+
@@ -52,12 +47,9 @@ main() {
     processor = new XsltProcessor();
     processor.importStylesheet(xsl2);
     var result2 = processor.transformToFragment(xml, document);
-    
     document.getElementById("result2").append(result2);
-    
-    if (document.getElementById("result").childNodes[1].style.color == "green" && 
-          !document.getElementById("result2").childNodes[1].style) { 
-        document.body.appendHtml("<p>SUCCESS</p>");
-    }
+
+    Expect.equals("green", (document.getElementById("result").childNodes[1] as Element).style.color);
+    Expect.isNotNull((document.getElementById("result2").childNodes[1] as Element).style);
 }
 

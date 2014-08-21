@@ -58,7 +58,8 @@ void main() {
   document.body.appendHtml(htmlEL);
   testSelector(":default", ["button2", "button4", "input3", "input5", "input7", "checkbox1", "option1", "button6", "button8"], "':default' matches <button>s that are their form's default button, <input>s of type submit/image that are their form's default button, checked <input>s and selected <option>s");
 
-  document.getElementById("button1").type = "submit"; // change the form's default button
+  ButtonElement button1=document.getElementById("button1");
+  button1.type = "submit"; // change the form's default button
   testSelector(":default", ["button1", "button4", "input3", "input5", "input7", "checkbox1", "option1", "button6", "button8"], "':default' matches dynamically changed form's default buttons");
 
   checkTestFailures();

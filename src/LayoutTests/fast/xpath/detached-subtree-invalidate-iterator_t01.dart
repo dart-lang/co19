@@ -8,8 +8,6 @@
  * @description Test that iterators are invalidated even if the original context is detached.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 import "xpath-test-pre.dart";
 
 void main() {
@@ -23,10 +21,10 @@ void main() {
     shouldBe(result.invalidIteratorState, false);
     shouldBe(result.iterateNext().tagName, 'span');
     
-    debug("Modifying the document...");
     doc.documentElement.setAttribute("foo", "bar");
     
     shouldBe(result.invalidIteratorState, true);
     shouldThrow((){result.iterateNext();});
 
+    checkTestFailures();    
 }

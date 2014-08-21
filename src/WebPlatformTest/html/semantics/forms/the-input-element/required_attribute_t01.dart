@@ -16,5 +16,6 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  assert_equals(document.getElementsByTagName("input")[0].getAttribute("required"), "required", "required attribute support on input element");
+  InputElement input0=document.getElementsByTagName("input")[0];
+  assert_equals(input0.getAttribute("required"), "required", "required attribute support on input element");
 }

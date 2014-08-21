@@ -18,5 +18,6 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  assert_equals(document.getElementById('ol').start, 1);
+  OListElement ol=document.getElementById("ol");
+  assert_equals(ol.start, 1);
 }

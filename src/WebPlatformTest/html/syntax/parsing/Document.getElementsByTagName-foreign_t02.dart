@@ -20,14 +20,19 @@ void main() {
   
     var HTML = "http://www.w3.org/1999/xhtml", SVG = "http://www.w3.org/2000/svg";
     test(() {
-      assert_equals(document.getElementsByTagName("FONT").length, 1);
-      assert_equals(document.getElementsByTagName("FONT")[0].namespaceUri, HTML);
+      var fonts=document.getElementsByTagName("FONT");
+      assert_equals(fonts.length, 1);
+      var font0=fonts[0];
+      assert_equals(font0.namespaceUri, HTML);
     }, "Upper-case font");
     
     test(() {
-      assert_equals(document.getElementsByTagName("font").length, 2);
-      assert_equals(document.getElementsByTagName("font")[0].namespaceUri, HTML);
-      assert_equals(document.getElementsByTagName("font")[1].namespaceUri, SVG);
+      var fonts=document.getElementsByTagName("font");
+      assert_equals(fonts.length, 2);
+      var font0=fonts[0];
+      assert_equals(font0.namespaceUri, HTML);
+      var font1=fonts[1];
+      assert_equals(font0.namespaceUri, SVG);
     }, "Lower-case font");
 
     checkTestFailures();

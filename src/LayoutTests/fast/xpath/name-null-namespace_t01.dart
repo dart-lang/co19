@@ -10,25 +10,23 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
-import "xpath-test-pre.dart";
 
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
 
     String strXML = '<doc><record/><record/><record/><record/><record foo="a-a"/></doc>';
-    Documnet doc = (new DomParser()).parseFromString(strXML, "text/xml");
+    Document doc = (new DomParser()).parseFromString(strXML, "text/xml");
     
     // This matches in both Firefox and WebKit, which indicates that 
     // XPathEvaluator does not normalize the document.
-    doc.firstChild.childNodes[0].setAttributeNS("bar", "foo", "-a-");
+    (doc.firstChild.childNodes[0] as Element).setAttributeNS("bar", "foo", "-a-");
     
     // This doesn't match.
-    doc.firstChild.childNodes[1].setAttributeNS("bar", "b:foo", "-a-");
+    (doc.firstChild.childNodes[1] as Element).setAttributeNS("bar", "b:foo", "-a-");
     
     // These both match, too.
-    doc.firstChild.childNodes[2].setAttributeNS("", "foo", "-a-");
-    doc.firstChild.childNodes[3].setAttributeNS(null, "foo", "-a-");
+    (doc.firstChild.childNodes[2] as Element).setAttributeNS("", "foo", "-a-");
+    (doc.firstChild.childNodes[3] as Element).setAttributeNS(null, "foo", "-a-");
     
     // The last (static) record matches, of course.
     

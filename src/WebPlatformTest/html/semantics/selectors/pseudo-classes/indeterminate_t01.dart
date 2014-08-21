@@ -47,7 +47,8 @@ void main() {
     , ["progress2"]
     , "removing progress2's value should put it in an indeterminate state");
 
-  document.getElementById("checkbox1").indeterminate = true; // set checkbox1 in the indeterminate state
+  InputElement checkbox1=document.getElementById("checkbox1");
+  checkbox1.indeterminate = true; // set checkbox1 in the indeterminate state
   testSelector(":indeterminate"
     , ["checkbox1", "progress2"]
     , "':progress' also matches <input> checkbox whose indeterminate IDL is set to true");

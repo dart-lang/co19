@@ -14,14 +14,15 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
+  InputElement input0=document.getElementsByTagName("input")[0];
 
   test(() {
-    assert_equals(document.getElementsByTagName("input")[0].type, "search");}
+    assert_equals(input0.type, "search");}
     , "search type support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-type" });
     
   test(() {
-    assert_equals(document.getElementsByTagName("input")[0].placeholder, "Search...");}
+    assert_equals(input0.placeholder, "Search...");}
     , "placeholder attribute support on input element"
     , {"help" : "http://www.w3.org/TR/html5/the-input-element.html#dom-input-placeholder" });
 

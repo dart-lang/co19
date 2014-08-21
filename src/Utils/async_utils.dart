@@ -19,7 +19,7 @@ Future runLater(void action(), [int delay=0]) {
   
 Future runAfter(Future f, void action()) {
   asyncStart();
-  f.whenComplete((){
+  return f.whenComplete((){
     action();
     asyncEnd();
   });

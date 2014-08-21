@@ -10,8 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
-import "xpath-test-pre.dart";
 
 const String htmlEL = r'''
 <div id="nested1">
@@ -35,7 +33,6 @@ void main() {
         var result = evaluator.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
         bool passed=true;
         if (result==null) {
-          res=false;
           failed=true;
         }        
         results = '${results}${xpath} + ${(passed ? "PASSED" : "FAILED")}: $result<br />';

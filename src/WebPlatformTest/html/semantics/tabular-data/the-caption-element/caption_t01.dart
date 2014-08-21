@@ -29,7 +29,8 @@ void main() {
   document.body.appendHtml(htmlEL);
 
   test((){
-    assert_equals(document.getElementById('table1').caption.innerHtml, "first caption");
+    TableElement table1=document.getElementById('table1');
+    assert_equals(table1.caption.innerHtml, "first caption");
   }, "first caption element child of the first table element");
 
   test((){
@@ -41,14 +42,15 @@ void main() {
     assert_equals(caption.parentNode, table);
     assert_equals(table.caption.innerHtml, "new caption");
 
-    var captions = table.queryAll('caption');
+    var captions = table.querySelectorAll('caption');
     assert_equals(captions.length, 2);
     assert_equals(captions[0].innerHtml, "new caption");
     assert_equals(captions[1].innerHtml, "second caption");
   }, "setting caption on a table");
 
   test((){
-    assert_equals(document.getElementById('table2').caption, null);
+    TableElement table2=document.getElementById('table2');
+    assert_equals(table2.caption, null);
   }, "caption IDL attribute is null");
 
   test((){
@@ -59,12 +61,12 @@ void main() {
   }, "caption of the third table element should be null");
 
   test((){
-    assert_not_equals(document.getElementById('table4').caption, null);
+    TableElement table4=document.getElementById('table4');
+    assert_not_equals(table4.caption, null);
 
-    var parent = document.getElementById('table4').caption.parentNode;
-    document.getElementById('table4').caption.remove();
+    table4.caption.remove();
 
-    assert_equals(document.getElementById('table4').caption, null);
+    assert_equals(table4.caption, null);
   }, "dynamically removing caption on a table");
   
   checkTestFailures();

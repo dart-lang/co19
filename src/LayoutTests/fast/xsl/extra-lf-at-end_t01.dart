@@ -10,17 +10,8 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
-
 
 main() {
-
-    void log(message) {
-        var newChild = document.createElement("div");
-        newChild.appendChild(document.createTextNode(message));
-        document.getElementById("log").appendChild(newChild);
-    }
-
     var oProc = new XsltProcessor();
 
     var oStylesheet = new DomParser().parseFromString(
@@ -44,9 +35,7 @@ main() {
     Expect.equals(Node.DOCUMENT_FRAGMENT_NODE, oResult.nodeType, 'should of type DOCUMENT_FRAGMENT_NODE(11)');
 // was:    Expect.equals('Hello World!', oProc.getParameter(null, 'text') ... see dart issue #20223
     Expect.equals('Hello World!', oProc.getParameter('', 'text'), 'getParameter should return the correct value');
-    return;
     Expect.equals('div', oResult.firstChild.nodeName, 'can have multiple children, firstchild should be the div');
     Expect.equals('br', oResult.lastChild.nodeName, 'can have multiple children, lastchild should be the br');
-    Expect.equals('Hello World!', oResult.firstChild.textContent || oResult.firstChild.text, 'textContent should be set to parameter value');
-    log("Done");
+    Expect.equals('Hello World!', (oResult.firstChild as Element).text, 'textContent should be set to parameter value');
 }

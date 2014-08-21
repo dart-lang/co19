@@ -8,8 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
 
@@ -47,5 +45,6 @@ void main() {
 
     result = evaluator.evaluate("//element[descendant::y[.='z']][2]", dom2, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
     checkSnapshot("//element[descendant::y[.='z']][2]", result, []);
-
+   
+    checkTestFailures();    
 }

@@ -28,64 +28,66 @@ const String htmlEL='''
     </div>
 ''';
 
+InputElement getInputElement(String id) => document.getElementById(id);
+
 void main() {
   document.body.appendHtml(htmlEL);
   
   test(() {
-     assert_equals(document.getElementById("valid").type, "month");
+     assert_equals(getInputElement("valid").type, "month");
    }, "month type support on input element");
 
   test(() {
-     assert_equals(document.getElementById("valid").value, "2011-11");
-     assert_equals(document.getElementById("too_small_value").value, "2011-01");
-     assert_equals(document.getElementById("too_large_value").value, "2011-12");
+     assert_equals(getInputElement("valid").value, "2011-11");
+     assert_equals(getInputElement("too_small_value").value, "2011-01");
+     assert_equals(getInputElement("too_large_value").value, "2011-12");
    }, "The value attribute, if specified and not empty, must have a value that is a valid month string");
 
   test(() {
-     assert_equals(document.getElementById("valid").min, "2011-01");
-     assert_equals(document.getElementById("invalid_min").min, "");
+     assert_equals(getInputElement("valid").min, "2011-01");
+     assert_equals(getInputElement("invalid_min").min, "");
    }, "The min attribute, if specified, must have a value that is a valid month string.");
 
   test(() {
-     assert_equals(document.getElementById("valid").max, "2011-12");
-     assert_equals(document.getElementById("min_larger_than_max").max, "2099-01");
-     assert_equals(document.getElementById("invalid_max").max, "");
+     assert_equals(getInputElement("valid").max, "2011-12");
+     assert_equals(getInputElement("min_larger_than_max").max, "2099-01");
+     assert_equals(getInputElement("invalid_max").max, "");
    }, "The max attribute, if specified, must have a value that is a valid month string");
 
   test(() {
-     assert_equals(document.getElementById("invalid_value").value, "");
+     assert_equals(getInputElement("invalid_value").value, "");
    }, "User agents must not allow the user to set the value to a non-empty string that is not a valid month string.");
 
   test(() {
-     document.getElementById("value_can_be_empty_string").value = "";
-     assert_equals(document.getElementById("value_can_be_empty_string").value, "");
+     getInputElement("value_can_be_empty_string").value = "";
+     assert_equals(getInputElement("value_can_be_empty_string").value, "");
    }, "Month value can be empty string.");
 
   test(() {
-     assert_equals(document.getElementById("invalid_value_with_two_digits_year").value, "");
+     assert_equals(getInputElement("invalid_value_with_two_digits_year").value, "");
    }, "When value attribute has two digits year value, the value,which is invalid, must return empty string.");
 
   test(() {
-     document.getElementById("invalid_value_is_set").value = "invalid value";
-     assert_equals(document.getElementById("invalid_value_is_set").value, "");
+     getInputElement("invalid_value_is_set").value = "invalid value";
+     assert_equals(getInputElement("invalid_value_is_set").value, "");
    }, "When value is set with invalid value, the value must return empty string.");
 
   test(() {
-     document.getElementById("invalid_value_is_set_to_valid_value").value = "invalid value";
-     assert_equals(document.getElementById("invalid_value_is_set_to_valid_value").value, "2013-05");
+     getInputElement("invalid_value_is_set_to_valid_value").value = "invalid value";
+     assert_equals(getInputElement("invalid_value_is_set_to_valid_value").value, "2013-05");
    }, "When value is given invalid value to non-empty valid string, the value must be same as before.");
 
   test(() {
-     document.getElementById("step_attribute_is_invalid_value").stepUp();
-     assert_equals(document.getElementById("step_attribute_is_invalid_value").value, "2013-07");
+     getInputElement("step_attribute_is_invalid_value").stepUp();
+     assert_equals(getInputElement("step_attribute_is_invalid_value").value, "2013-07");
    }, "When step attribute is given invalid value, it must ignore the invalid value and use defaul value instead.");
 
   test(() {
-     assert_equals(document.getElementById("invalid_month_too_high").value, "");
+     assert_equals(getInputElement("invalid_month_too_high").value, "");
    }, "Month should be <= 13: If the value of the element is not a valid month string, then set it to the empty string instead.");
 
   test(() {
-     assert_equals(document.getElementById("invalid_month_too_low").value, "");
+     assert_equals(getInputElement("invalid_month_too_low").value, "");
    }, "Month should be > 0: If the value of the element is not a valid month string, then set it to the empty string instead.>");
 
   checkTestFailures();

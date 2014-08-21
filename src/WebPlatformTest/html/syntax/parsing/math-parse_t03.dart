@@ -47,40 +47,47 @@ void main() {
     },"MATH element name should be lowercased");
     
     test(() {
-      assert_equals(document.getElementById("d1").firstChild.firstChild.nodeName,"mi");
-      assert_equals(document.getElementById("d1").firstChild.firstChild.namespaceUri, "http://www.w3.org/1998/Math/MathML");
-      assert_true(document.getElementById("d1").firstChild.firstChild.attributes.containsKey("mathvariant"));
-      assert_equals(document.getElementById("d1").firstChild.firstChild.getAttribute("mathvariant"),"BOLD");
+      Element firstChild=document.getElementById("d1").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"mi");
+      assert_equals(firstChild.namespaceUri, "http://www.w3.org/1998/Math/MathML");
+      assert_true(firstChild.attributes.containsKey("mathvariant"));
+      assert_equals(firstChild.getAttribute("mathvariant"),"BOLD");
     },"MI element name and mathvariant attribute name should be lowercased, attribute value unchanged");
     
     test(() {
-    assert_true(document.getElementById("d2").firstChild.firstChild.attributes.containsKey("definitionURL"));
-      assert_equals(document.getElementById("d2").firstChild.firstChild.getAttribute("definitionURL"),"www.example.org/FOO");
+      Element firstChild=document.getElementById("d2").firstChild.firstChild;
+      assert_true(firstChild.attributes.containsKey("definitionURL"));
+      assert_equals(firstChild.getAttribute("definitionURL"),"www.example.org/FOO");
     },"DEFINITIONurl attribute markup should produce a definitionURL attribute, attribute value unchanged");
     
     test(() {
-      assert_equals(document.getElementById("m3span-mtext").firstChild.firstChild.nodeName,"SPAN");
-      assert_equals(document.getElementById("m3span-mtext").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m3span-mtext").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"SPAN");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"html Span in mtext produces SPAN nodename in XHTML namespace");
     
     test(() {
-      assert_equals(document.getElementById("m3span-mi").firstChild.firstChild.nodeName,"SPAN");
-      assert_equals(document.getElementById("m3span-mi").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m3span-mi").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"SPAN");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"html Span in mi produces SPAN nodename in XHTML namespace");
     
     test(() {
-      assert_equals(document.getElementById("m3span-mrow").firstChild.firstChild.nodeName,"SPAN");
-      assert_equals(document.getElementById("m3span-mrow").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m3span-mrow").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"SPAN");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"html Span in mrow produces SPAN nodename in XHTML namespace");
     
     test(() {
-      assert_equals(document.getElementById("m3p-mtext").firstChild.firstChild.nodeName,"P");
-      assert_equals(document.getElementById("m3p-mtext").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m3p-mtext").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"P");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"html P in mtext produces P nodename in XHTML namespace");
     
     test(() {
-      assert_equals(document.getElementById("m3p-mi").firstChild.firstChild.nodeName,"P");
-      assert_equals(document.getElementById("m3p-mi").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m3p-mi").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"P");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"html P in mi produces P nodename in XHTML namespace");
     
     test(() {
@@ -102,13 +109,15 @@ void main() {
     },"html P in mrow terminates the math: math,P,MI children of div");
     
     test(() {
-      assert_equals(document.getElementById("m4").firstChild.firstChild.nodeName,"UNDEFINEDELEMENT");
-      assert_equals(document.getElementById("m4").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m4").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"UNDEFINEDELEMENT");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"Undefinedelement in mtext produces UNDEFINEDELEMENT nodename in XHTML namespace");
     
     test(() {
-      assert_equals(document.getElementById("m5").firstChild.firstChild.nodeName,"MI");
-      assert_equals(document.getElementById("m5").firstChild.firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
+      Element firstChild=document.getElementById("m5").firstChild.firstChild;
+      assert_equals(firstChild.nodeName,"MI");
+      assert_equals(firstChild.namespaceUri,"http://www.w3.org/1999/xhtml");
     },"mi in mtext produces MI nodename in XHTML namespace");
     
     test(() {

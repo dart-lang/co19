@@ -20,7 +20,8 @@ void main() {
   RegExp validEmailRegexp = new RegExp(r"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/");
 
   test((){
-    assert_equals(document.getElementById('single_email').type, 'email');
+    InputElement single_email=document.getElementById('single_email');
+    assert_equals(single_email.type, 'email');
   }, 'email type supported on input element');
   
   test((){

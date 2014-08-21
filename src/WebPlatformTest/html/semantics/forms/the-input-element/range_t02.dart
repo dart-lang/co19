@@ -14,36 +14,38 @@ const String htmlEL='''
 <input type="range" id="r04" style="display:none">
 ''';
 
+InputElement getInputElement(String id) => document.getElementById(id);
+
 void main() {
   document.body.appendHtml(htmlEL);
 
 test(() {
-  document.getElementById('r00').value = "";
-  assert_equals(document.getElementById('r00').type, "range");
-  assert_equals(document.getElementById('r00').value, "60");
+  getInputElement('r00').value = "";
+  assert_equals(getInputElement('r00').type, "range");
+  assert_equals(getInputElement('r00').value, "60");
 }, "range input value set to ''");
 
 test(() {
-  document.getElementById('r01').value = ".6";
-  assert_equals(document.getElementById('r01').type, "range");
-  assert_equals(document.getElementById('r01').value, "0.6");
+  getInputElement('r01').value = ".6";
+  assert_equals(getInputElement('r01').type, "range");
+  assert_equals(getInputElement('r01').value, "0.6");
 }, "range input value set to an integer");
 
 test(() {
-  assert_equals(document.getElementById('r02').type, "range");
-  assert_equals(document.getElementById('r02').value, "50");
+  assert_equals(getInputElement('r02').type, "range");
+  assert_equals(getInputElement('r02').value, "50");
 }, "range input value equals 50");
 
 test(() {
-  document.getElementById('r03').value = "200";
-  assert_equals(document.getElementById('r03').type, "range");
-  assert_equals(document.getElementById('r03').value, "100");
+  getInputElement('r03').value = "200";
+  assert_equals(getInputElement('r03').type, "range");
+  assert_equals(getInputElement('r03').value, "100");
 }, "range input value equals 100");
 
 test(() {
-  document.getElementById('r04').value = "2.1";
-  assert_equals(document.getElementById('r04').type, "range");
-  assert_equals(document.getElementById('r04').value, "2");
+  getInputElement('r04').value = "2.1";
+  assert_equals(getInputElement('r04').type, "range");
+  assert_equals(getInputElement('r04').value, "2");
 }, "range input value equals 2");
 
   checkTestFailures();

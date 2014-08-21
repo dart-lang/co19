@@ -8,8 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
 
@@ -25,4 +23,6 @@ void main() {
 
     result = evaluator.evaluate("(/ROOT | /ROOT/CHILD1) | (/ROOT)", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     checkSnapshot("(/ROOT | /ROOT/CHILD1) | (/ROOT)", result, [ROOT, CHILD1]);
+    
+    checkTestFailures();    
 }

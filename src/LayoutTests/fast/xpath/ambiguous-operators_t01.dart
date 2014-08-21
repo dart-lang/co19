@@ -10,8 +10,6 @@
  * binary operator context, and as a NameTest otherwise.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 import "xpath-test-pre.dart";
 
 const String htmlEL = r'''

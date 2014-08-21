@@ -21,7 +21,9 @@ void main() {
   RegExp validEmailRegexp = new RegExp(r"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/");
 
   // When the mutiple attribute is specified on the element
-  element = document.getElementById('multiple_email');
+  InputElement element = document.getElementById('multiple_email');
+  print("element is ${element.runtimeType}");
+  
   test((){
     var values = element.values;
     assert_equals(values.length, 2);

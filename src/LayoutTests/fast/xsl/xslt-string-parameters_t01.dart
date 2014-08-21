@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 const stylsheetString=r'''
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -28,15 +27,15 @@ main() {
 
 // was:   processor.setParameter(null, 'testParam', 'text');
     processor.setParameter('', 'testParam', 'text');
-        return;
+
     var result = processor.transformToFragment(sourceDoc, document);
-    Expec.equals('text', result.textContent);
+    Expect.equals('text', result.text);
 
     processor.setParameter('', 'testParam', 'text with spaces');
     result = processor.transformToFragment(sourceDoc, document);
-    Expec.equals('text with spaces', result.textContent);
+    Expect.equals('text with spaces', result.text);
  
     processor.setParameter('', 'testParam', 'Shakespeare\'s "Twelfth Night"');
     result = processor.transformToFragment(sourceDoc, document);
-    Expec.equals('Shakespeare\'s "Twelfth Night"', result.textContent);
+    Expect.equals('Shakespeare\'s "Twelfth Night"', result.text);
 }

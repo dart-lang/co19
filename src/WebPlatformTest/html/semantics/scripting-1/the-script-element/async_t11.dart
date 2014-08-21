@@ -13,6 +13,7 @@ const String htmlEL = r'''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  assert_true(document.getElementById("scr").async, 
+  ScriptElement scr=document.getElementById("scr");
+  assert_true(scr.async, 
    "An empty parser-inserted script element should return async=true");
 }

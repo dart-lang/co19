@@ -1,3 +1,5 @@
+library test;
+
 import "dart:html";
 
 Document DOM = (new DomParser()).parseFromString(
@@ -33,15 +35,23 @@ var ROOT = DOM.documentElement;
 
 var PI = ((){
   var res=DOM.firstChild;
-  while (res.nodeType != Node.PROCESSING_INSTRUCTION_NODE)
-    PI = res. nextElementSibling;
+  while (res.nodeType != Node.PROCESSING_INSTRUCTION_NODE) {
+    res = res.nextNode;
+    if (res==null) {
+      return null;
+    }    
+  }
   return res;
   })();
 var PI2 = DOM.lastChild;
 var COMMENT = ((){
   var res=ROOT.firstChild;
-  while (res.nodeType != Node.COMMENT_NODE && res.nodeType != Node.TEXT_NODE)
-    PI = res. nextElementSibling;
+  while (res.nodeType != Node.COMMENT_NODE && res.nodeType != Node.TEXT_NODE) {
+    res = res.nextNode;
+    if (res==null) {
+      return null;
+    }    
+  }
   return res;
   })();
 

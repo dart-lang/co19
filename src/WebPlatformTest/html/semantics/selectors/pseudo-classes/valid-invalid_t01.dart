@@ -41,7 +41,8 @@ void main() {
     , ["text2", "form2", "text4", "fieldset2", "text6", "text7", "number1"]
     , "':invalid' matches elements that do not satisfy their constraints, <form>s/<fieldset>s with descendants that do not satisfy their constraints");
 
-  document.getElementById("text7").value="0BBB";
+  InputElement text7=document.getElementById("text7");
+  text7.value="0BBB";
   testSelector(":valid"
     , ["text1", "form1", "text3", "fieldset1", "text5", "text7", "text8", "number2"]
     , "':valid' matches new elements that satisfy their constraints");
@@ -50,7 +51,8 @@ void main() {
     , ["text2", "form2", "text4", "fieldset2", "text6", "number1"]
     , "':invalid' doesn't match new elements that satisfy their constraints");
 
-  document.getElementById("text8").value="BBB";
+  InputElement text8=document.getElementById("text8");
+  text8.value="BBB";
   testSelector(":valid"
     , ["text1", "form1", "text3", "fieldset1", "text5", "text7", "number2"]
     , "':valid' doesn't match new elements that do not satisfy their constraints");

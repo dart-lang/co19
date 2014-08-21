@@ -8,8 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
 
@@ -35,4 +33,7 @@ void main() {
     result = evaluator.evaluate("child::*/child::*", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     expected=new List.from(GCHILDREN1)..addAll(GCHILDREN2)..addAll(LCHILDREN);
     checkSnapshot("child::*/child::*", result, expected);
+    
+    checkTestFailures();
+    
 }

@@ -17,31 +17,33 @@ const String htmlEL='''
    </div>
 ''';
 
+InputElement getInputElement(String id) => document.getElementById(id);
+
 void main() {
   document.body.appendHtml(htmlEL);
 		
 /* check default value */
-test((){ assert_equals(document.getElementById("chkDefaultValue").value, "");
+test((){ assert_equals(getInputElement("chkDefaultValue").value, "");
 }, "time element of default time value");
-test((){assert_equals(document.getElementById('chkStep').step, "");
+test((){assert_equals(getInputElement('chkStep').step, "");
 }	, "step attribute on default value check");
-test((){assert_equals(document.getElementById('chkDefaultValue').max, "");
+test((){assert_equals(getInputElement('chkDefaultValue').max, "");
 }	, "max  attribute on default value check");
-test((){assert_equals(document.getElementById('chkDefaultValue').max, "");
+test((){assert_equals(getInputElement('chkDefaultValue').max, "");
 }	, "min  attribute on default value check");
 
 /* simple attribute test*/
-test((){assert_equals(document.getElementById("chkSupportAttribute").type,"time");}
+test((){assert_equals(getInputElement("chkSupportAttribute").type,"time");}
 	, "type attribute support on input element");
-test((){assert_equals(document.getElementById('chkSupportAttribute').min, "01:01:01.001");}
+test((){assert_equals(getInputElement('chkSupportAttribute').min, "01:01:01.001");}
 	, "max attribute support on input element");
-test((){assert_equals(document.getElementById('chkSupportAttribute').max, "12:12:12.012");}
+test((){assert_equals(getInputElement('chkSupportAttribute').max, "12:12:12.012");}
 	, "min attribute support on input element");
-test((){assert_equals(document.getElementById("chkSupportAttribute").step, "600");}
+test((){assert_equals(getInputElement("chkSupportAttribute").step, "600");}
 	, "step attribute support on input element");
 
 /* check step up and down */
-var _StepTest = document.getElementById("chkStep");
+var _StepTest = getInputElement("chkStep");
 
 test((){
 	_StepTest.value = "12:00";
@@ -190,7 +192,7 @@ test((){
 
 /* set value test */
 test((){
-	var _time = document.getElementById("chkSetValueTest");
+	var _time = getInputElement("chkSetValueTest");
 	_time.value = "12:00:00.000";
 	assert_equals(_time.value, "12:00:00.000");
 	_time.value = "hh:mi:ss.sss";

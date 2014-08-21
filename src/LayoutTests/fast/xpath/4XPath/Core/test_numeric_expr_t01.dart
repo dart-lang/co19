@@ -8,8 +8,7 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
+import "../../xpath-test-pre.dart";
 import "test.dart";
 
 void main() {
@@ -219,5 +218,6 @@ void main() {
     shouldBe(evaluator.evaluate("\'5\' <= @attr31", CHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, true);
     shouldBe(evaluator.evaluate("\'5\' > @attr31", CHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, false);
     shouldBe(evaluator.evaluate("\'5\' >= @attr31", CHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, false);
-
+ 
+    checkTestFailures();    
 }

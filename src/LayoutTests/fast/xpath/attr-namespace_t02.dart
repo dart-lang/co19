@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * @description 
+ * @description evaluate("//@ns:attr2") fails
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -34,12 +34,11 @@ void main() {
     </doc>''',
     'application/xml');
 
-    shouldBe(evaluator.evaluate("//@attr1", doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 1);
-    shouldBe(evaluator.evaluate("//@attr2", doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 0);
-    shouldThrow((){evaluator.evaluate("//@xml:id", doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);});
-//    shouldBe(evaluator.evaluate("//@xml:id", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 1);
-    shouldBe(evaluator.evaluate("//@*", doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 4);
-    shouldBe(evaluator.evaluate("//@xmlns", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 0);
+    shouldBe(evaluator.evaluate("//@ns:attr2", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 1);
+    shouldBe(evaluator.evaluate("//@ns:xmlns", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 1);
+    shouldBe(evaluator.evaluate("//@ns:*", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 2);
+    shouldBe(evaluator.evaluate("//@xml:*", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 1);
+    shouldBe(evaluator.evaluate("//@xmlns:*", doc, nsResolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength, 0);
 
     checkTestFailures();    
 }

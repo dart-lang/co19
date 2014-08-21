@@ -20,6 +20,8 @@ const String htmlEL='''
     </div>
 ''';
 
+InputElement getInputElement(String id) => document.getElementById(id);
+
 void main() {
     document.body.appendHtml(htmlEL);
     
@@ -27,67 +29,67 @@ void main() {
 
     for (var i = 0; i < types.length; ++i) {
       test(() {
-          assert_equals(document.getElementById(types[i]).value, "");
-          assert_equals(document.getElementById(types[i] + "_with_value").value, "foo");
+          assert_equals(getInputElement(types[i]).value, "");
+          assert_equals(getInputElement(types[i] + "_with_value").value, "foo");
         }, "Value returns the current value for " + types[i]);
 
     test(() {
-        document.getElementById(types[i]).value = "A";
-        assert_equals(document.getElementById(types[i]).value, "A");
-        document.getElementById(types[i]).value = "B";
+        getInputElement(types[i]).value = "A";
+        assert_equals(getInputElement(types[i]).value, "A");
+        getInputElement(types[i]).value = "B";
       }, "Setting value changes the current value for " + types[i]);
 
     test(() {
         // Any LF (\n) must be stripped.
-        document.getElementById(types[i]).value = "\nAB";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "A\nB";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "AB\n";
-        assert_equals(document.getElementById(types[i]).value, "AB");
+        getInputElement(types[i]).value = "\nAB";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "A\nB";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "AB\n";
+        assert_equals(getInputElement(types[i]).value, "AB");
 
         // Any CR (\r) must be stripped.
-        document.getElementById(types[i]).value = "\rAB";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "A\rB";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "AB\r";
-        assert_equals(document.getElementById(types[i]).value, "AB");
+        getInputElement(types[i]).value = "\rAB";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "A\rB";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "AB\r";
+        assert_equals(getInputElement(types[i]).value, "AB");
 
         // Any combinations of LF CR must be stripped.
-        document.getElementById(types[i]).value = "\r\nAB";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "A\r\nB";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "AB\r\n";
-        assert_equals(document.getElementById(types[i]).value, "AB");
-        document.getElementById(types[i]).value = "\r\nA\n\rB\r\n";
-        assert_equals(document.getElementById(types[i]).value, "AB");
+        getInputElement(types[i]).value = "\r\nAB";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "A\r\nB";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "AB\r\n";
+        assert_equals(getInputElement(types[i]).value, "AB");
+        getInputElement(types[i]).value = "\r\nA\n\rB\r\n";
+        assert_equals(getInputElement(types[i]).value, "AB");
       }, "Value sanitization algorithm should strip line breaks for " + types[i]);
 
       test(() {
-          assert_equals(document.getElementById(types[i]).files, null);
+          assert_equals(getInputElement(types[i]).files, null);
         }, "files attribute must return null for " + types[i]);
 
       test(() {
-          assert_equals(document.getElementById(types[i]).valueAsDate, null);
+          assert_equals(getInputElement(types[i]).valueAsDate, null);
         }, "valueAsDate attribute must return null for " + types[i]);
 
       test( () {
-          assert_equals(document.getElementById(types[i]).valueAsNumber.toString(), "NaN");
+          assert_equals(getInputElement(types[i]).valueAsNumber.toString(), "NaN");
         }, "valueAsNumber attribute must return NaN for " + types[i]);
 
       test(() {
-          assert_equals(document.getElementById("text").list, null);
+          assert_equals(getInputElement("text").list, null);
         }, "list attribute must return null for " + types[i]);
 
       test(() {
-          var el = document.getElementById(types[i]);
+          var el = getInputElement(types[i]);
           assert_throws("InvalidStateError", () { el.stepDown(); }, "");
         }, "stepDown does not apply for " + types[i]);
 
       test(() {
-          var el = document.getElementById(types[i]);
+          var el = getInputElement(types[i]);
           assert_throws("InvalidStateError", () { el.stepUp(); }, "");
         }, "stepUp does not apply for " + types[i]);
     }

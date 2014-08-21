@@ -9,8 +9,7 @@
  * Wrong proximity positions for XPath reverse axes.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
+import "xpath-test-pre.dart";
 
 const String htmlEL = r'''
 <div id="d">
@@ -28,16 +27,27 @@ void main() {
     document.body.appendHtml(htmlEL);
     XPathEvaluator evaluator=new XPathEvaluator();
 
-    shouldBe(evaluator.evaluate('preceding-sibling::*[1]', document.getElementById('d3'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.id, 'd2');
+    void testId(String expr, String id, String expected) {
+       var res=evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+       shouldBe(res.id, expected, expr);
+    }
+    
+    void testTag(String expr, String id, String expected) {
+       var res=evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+       shouldBe(res.tagName, expected, expr);
+    }
+    
+    testId('preceding-sibling::*[1]', 'd3', 'd2');
 
-    shouldBe(evaluator.evaluate('preceding::*[1]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.id, 'd21');
-    shouldBe(evaluator.evaluate('preceding::*[2]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.id, 'd2');
-    shouldBe(evaluator.evaluate('preceding::*[3]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.id, 'd1');
-    shouldBe(evaluator.evaluate('preceding::*[4]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.tagName, 'A');
-    shouldBe(evaluator.evaluate('preceding::*[5]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.tagName, 'P');
+    testId('preceding::*[1]', 'd31', 'd21');
+    testId('preceding::*[2]', 'd31', 'd2');
+    testId('preceding::*[3]', 'd31', 'd1');
+    testTag('preceding::*[4]', 'd31', 'A');
+    testTag('preceding::*[5]', 'd31', 'P');
 
-    shouldBe(evaluator.evaluate('ancestor::*[1]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.id, 'd3');
+    testId('ancestor::*[1]', 'd31', 'd3');
 
-    shouldBe(evaluator.evaluate('ancestor-or-self::*[1]', document.getElementById('d31'), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.id, 'd31');
+    testId('ancestor-or-self::*[1]', 'd31', 'd31');
 
+    checkTestFailures();    
 }

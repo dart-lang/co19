@@ -45,7 +45,8 @@ void main() {
     , ["option1", "menuitem1", "menuitem4"]
     , "':checked' should no longer match <input>s whose type checkbox/radio has been removed");
 
-  document.getElementById("option2").selected = true;  // select option2
+  OptionElement option2=document.getElementById("option2");
+  option2.selected = true;  // select option2
   document.getElementById("checkbox2").click();  // check chekbox2
   document.getElementById("radio2").click();  // check radio2
   testSelector(":checked"

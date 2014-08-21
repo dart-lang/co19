@@ -52,4 +52,6 @@ void main() {
     shouldBe(evaluator.evaluate('5', document, null, XPathResult.NUMBER_TYPE, null).numberValue, 5.0);
     shouldBe(evaluator.evaluate('-5', document, null, XPathResult.NUMBER_TYPE, null).numberValue, -5.0);
     shouldBe(evaluator.evaluate('-42', document, null, XPathResult.NUMBER_TYPE, null).numberValue, -42.0);
+    
+    checkTestFailures();    
 }
