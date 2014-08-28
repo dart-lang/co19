@@ -1,0 +1,17 @@
+<html>
+<head>
+</head>
+<body>
+    <div id="description"></div>
+
+    <!-- Leave these break tags malformed/open to test HTML parsing.
+         They should be siblings to div#description, and not nested within one another.
+         The XMLDocument parser would treat the second <br> as a child to the first. -->
+    <br><br>
+
+    <div id="console"></div>
+
+    <script>
+    </script>
+</body>
+</html>

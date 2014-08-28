@@ -53,7 +53,7 @@ void checkSnapshot(String testName, XPathResult actual, List expected) {
     testPassed(testName);
 }
 
-void test(doc, context, String expr, expected, nsResolver) {
+void test(doc, context, String expr, expected, [nsResolver]) {
     XPathEvaluator evaluator=new XPathEvaluator();
     try {
         if (context is String)
