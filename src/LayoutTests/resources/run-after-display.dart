@@ -1,3 +1,5 @@
+library run_after_display;
+
 import "dart:html";
 import "../testcommon.dart";
 
