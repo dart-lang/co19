@@ -12,13 +12,13 @@ import "../../testharness.dart";
 
 int testcount=0;
 
-void canFind(target, specimen) {
+bool canFind(target, specimen) {
     window.getSelection().empty();
 //    document.body.innerHTML = specimen;
     var textNode = new Text(specimen);
     document.body.append(textNode);
     document.execCommand("FindString", false, target);
-    var result = window.getSelection().rangeCount != 0;
+    bool result = window.getSelection().rangeCount != 0;
     window.getSelection().empty();
     textNode.remove();
     return result;

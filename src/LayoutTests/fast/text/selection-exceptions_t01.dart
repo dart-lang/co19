@@ -6,6 +6,7 @@
 /**
  * @assertion 
  * @description This tests that 'Selection' methods throw exceptions with reasonable messages.
+ * @static-warning
  */
 import "../../testharness.dart";
 
@@ -40,7 +41,7 @@ void main() {
     shouldThrow((){
             window.getSelection().collapse(document.documentElement, -1);
         }, null
-        , "");
+        , "IndexSizeError");
 
     shouldThrow((){
             window.getSelection().getRangeAt(-1);

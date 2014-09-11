@@ -8,15 +8,16 @@
  * @description Broken Ideographic Font
  */
 import "dart:html";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
-const String htmlEL1 = r'''
+const String htmlEL1 = '''
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   
 <style type="text/css">
 @font-face {
-    src: url(resources/MakibaFont13.ttf);
+    src: url($testSuiteRoot/fast/writing-mode/resources/MakibaFont13.ttf);
     font-family: MakibaFace;
 }
 

@@ -23,7 +23,7 @@ main() {
       Expect.equals(double.NAN, 0);
    }, null, "zero");
    Expect.throws((){
-      Expect.equals(double.NAN, double.Infinity);
+      Expect.equals(double.NAN, double.INFINITY);
    }, null, "Infinity");
    Expect.equals(double.NAN, double.NAN);
    Expect.equals(0.0/0.0, 0.0/0.0);

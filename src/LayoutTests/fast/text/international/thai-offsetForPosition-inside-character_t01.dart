@@ -33,5 +33,5 @@ void main() {
 
     var selection = window.getSelection();
     Expect.identical(target.firstChild, selection.baseNode);
-    Expecy.equals(1, selection.baseOffset);
+    Expect.equals(1, selection.baseOffset);
 }

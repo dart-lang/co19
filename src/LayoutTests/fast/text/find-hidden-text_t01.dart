@@ -12,9 +12,9 @@ import "../../testharness.dart";
 
 bool canFind(String target, String specimen) {
     window.getSelection().empty();
-    document.body.setInnerHtml(specimen);
+    document.body.setInnerHtml(specimen, treeSanitizer: new NullTreeSanitizer());
     document.execCommand("FindString", false, target);
-    int result = window.getSelection().rangeCount != 0;
+    bool result = window.getSelection().rangeCount != 0;
     window.getSelection().empty();
     return result;
 }

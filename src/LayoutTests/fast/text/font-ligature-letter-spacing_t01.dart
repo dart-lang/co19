@@ -49,8 +49,8 @@ const String htmlEL2 = r'''
 ''';
 
 void testLetterSpaceAndLigature(e) {
-    var elementWidthWithLigatureAndLetterSpacing = document.getElementsByClassName("dligSpan")[0].getBoundingClientRect().width;
-    var elementWidthWithLetterSpacing = document.getElementsByClassName("letterSpace")[0].getBoundingClientRect().width;
+    var elementWidthWithLigatureAndLetterSpacing = (document.getElementsByClassName("dligSpan")[0] as Element).getBoundingClientRect().width;
+    var elementWidthWithLetterSpacing = (document.getElementsByClassName("letterSpace")[0] as Element).getBoundingClientRect().width;
     Expect.equals(elementWidthWithLetterSpacing,
                   elementWidthWithLigatureAndLetterSpacing,
                   "Ligature not applied due to letter spacing.");

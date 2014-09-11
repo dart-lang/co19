@@ -20,7 +20,7 @@ const String htmlEL2 = r'''
 </body>
 ''';
 
-function doTest() {
+void doTest() {
     var height = document.getElementById("test").offsetHeight;
     // If the units per em in the font is not respected, the height of the
     // test div will be much smaller than 25*7.

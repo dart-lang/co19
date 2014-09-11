@@ -34,7 +34,7 @@ int testChar(a, b, ch) {
     return 1;
 }
 
-void testWithZeroWidthSpace(String a, String b) {
+int testWithZeroWidthSpace(String a, String b) {
     int failedCount=0;
     for (var i = 1; i < 32; ++i)
         if (i != 9 && i != 10 && i != 13)
@@ -71,7 +71,7 @@ void runTests(e) {
         "$failedArabicCount characters had non-zero width or failed to get measured when test with Arabic");
 
     checkTestFailures();
-    document.getElementById("result").firstChild.data = "PASS: All characters had zero-width.";
+    document.getElementById("result").firstChild.text = "PASS: All characters had zero-width.";
 }
 
 void main() {

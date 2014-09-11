@@ -1,83 +1,68 @@
-<html>
-<head>
-    <script>
-        function canFind(target, specimen)
-        {
-            getSelection().empty();
-            document.body.innerHTML = specimen;
-            document.execCommand("FindString", false, target);
-            var result = getSelection().rangeCount != 0;
-            getSelection().empty();
-            return result;
-        }
+/*
+ * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion 
+ * @description 
+ */
+import "dart:html";
+import "../../testharness.dart";
 
-        var apostrophe = "'";
-        var hebrewPunctuationGeresh = String.fromCharCode(0x05F3);
-        var hebrewPunctuationGershayim = String.fromCharCode(0x05F4);
-        var leftDoubleQuotationMark = String.fromCharCode(0x201C);
-        var leftSingleQuotationMark = String.fromCharCode(0x2018);
-        var quotationMark = '"';
-        var rightDoubleQuotationMark = String.fromCharCode(0x201D);
-        var rightSingleQuotationMark = String.fromCharCode(0x2019);
+var apostrophe = "'";
+var hebrewPunctuationGeresh = new String.fromCharCode(0x05F3);
+var hebrewPunctuationGershayim = new String.fromCharCode(0x05F4);
+var leftDoubleQuotationMark = new String.fromCharCode(0x201C);
+var leftSingleQuotationMark = new String.fromCharCode(0x2018);
+var quotationMark = '"';
+var rightDoubleQuotationMark = new String.fromCharCode(0x201D);
+var rightSingleQuotationMark = new String.fromCharCode(0x2019);
 
-        var success = true;
+bool canFind(target, specimen) {
+    window.getSelection().empty();
+    document.body.setInnerHtml(specimen);
+    document.execCommand("FindString", false, target);
+    bool result = window.getSelection().rangeCount != 0;
+    window.getSelection().empty();
+    return result;
+}
 
-        var message = "FAILURE:";
+void testFindExpectingSuccess(target, specimen) {
+    shouldBeTrue(canFind(target, specimen), "Cannot find $specimen when searching for $target .");
+}
 
-        function testFindExpectingSuccess(targetName, specimenName)
-        {
-            var target = eval(targetName);
-            var specimen = eval(specimenName);
-            if (canFind(target, specimen))
-                return;
-            success = false;
-            message += " Cannot find " + specimenName + " when searching for " + targetName + ".";
-        }
+void testFindExpectingFailure(target, specimen) {
+    shouldBeFalse(canFind(target, specimen), "Found $specimen when searching for $target.");
+}
 
-        function testFindExpectingFailure(targetName, specimenName)
-        {
-            var target = eval(targetName);
-            var specimen = eval(specimenName);
-            if (!canFind(target, specimen))
-                return;
-            success = false;
-            message += " Found " + specimenName + " when searching for " + targetName + ".";
-        }
+void runTests(e) {
+    var singleQuotes = [apostrophe, hebrewPunctuationGeresh, leftSingleQuotationMark, rightSingleQuotationMark];
+    var doubleQuotes = [quotationMark, hebrewPunctuationGershayim, leftDoubleQuotationMark, rightDoubleQuotationMark];
 
-        function runTests()
-        {
-            if (window.testRunner)
-                testRunner.dumpAsText();
+    for (var i = 0; i < singleQuotes.length; ++i) {
+        for (var j = 0; j < singleQuotes.length; ++j)
+            testFindExpectingSuccess(singleQuotes[i], singleQuotes[j]);
+    }
 
-            var singleQuotes = [ "apostrophe", "hebrewPunctuationGeresh", "leftSingleQuotationMark", "rightSingleQuotationMark" ];
-            var doubleQuotes = [ "quotationMark", "hebrewPunctuationGershayim", "leftDoubleQuotationMark", "rightDoubleQuotationMark" ];
+    for (var i = 0; i < doubleQuotes.length; ++i) {
+        for (var j = 0; j < doubleQuotes.length; ++j)
+            testFindExpectingSuccess(doubleQuotes[i], doubleQuotes[j]);
+    }
 
-            for (var i = 0; i < singleQuotes.length; ++i) {
-                for (var j = 0; j < singleQuotes.length; ++j)
-                    testFindExpectingSuccess(singleQuotes[i], singleQuotes[j]);
-            }
+    for (var i = 0; i < singleQuotes.length; ++i) {
+        for (var j = 0; j < doubleQuotes.length; ++j)
+            testFindExpectingFailure(singleQuotes[i], doubleQuotes[j]);
+    }
 
-            for (var i = 0; i < doubleQuotes.length; ++i) {
-                for (var j = 0; j < doubleQuotes.length; ++j)
-                    testFindExpectingSuccess(doubleQuotes[i], doubleQuotes[j]);
-            }
+    for (var i = 0; i < doubleQuotes.length; ++i) {
+        for (var j = 0; j < singleQuotes.length; ++j)
+            testFindExpectingFailure(doubleQuotes[i], singleQuotes[j]);
+    }
+ 
+    checkTestFailures();
+}
 
-            for (var i = 0; i < singleQuotes.length; ++i) {
-                for (var j = 0; j < doubleQuotes.length; ++j)
-                    testFindExpectingFailure(singleQuotes[i], doubleQuotes[j]);
-            }
-
-            for (var i = 0; i < doubleQuotes.length; ++i) {
-                for (var j = 0; j < singleQuotes.length; ++j)
-                    testFindExpectingFailure(doubleQuotes[i], singleQuotes[j]);
-            }
-
-            if (success)
-                message = "SUCCESS: Found all the quotes as expected.";
-
-            document.body.innerHTML = message;
-        }
-    </script>
-</head>
-<body onload="runTests()"></body>
-</html>
+void main() {
+    window.onLoad.listen(runTests);
+}

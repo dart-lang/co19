@@ -33,7 +33,7 @@ void main() {
     document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
     var PANGRAM = 'Pack my box with five dozen liquor jugs.';
-    ing failures = runTest(document.getElementById('test'), PANGRAM);
+    int failures = runTest(document.getElementById('test'), PANGRAM);
     Expect.equals(0, failures,
        'Size of text does not scale smoothly, reported widths highlighted in red do not match reference row.');
     // Hide text if test passes as the actual numbers are

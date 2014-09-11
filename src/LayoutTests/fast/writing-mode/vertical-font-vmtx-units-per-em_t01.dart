@@ -40,7 +40,7 @@ The characters in the vertical div should not overlap.
 </div>
 ''';
 
-function doTest() {
+void doTest() {
     var height = document.getElementById("test").offsetHeight;
     // If the units per em in the font is not respected, the height of the
     // test div will be much smaller than 25*7.

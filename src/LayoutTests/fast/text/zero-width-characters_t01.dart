@@ -46,5 +46,5 @@ void main() {
         "One or more of the characters had a non-zero width.");
     Expect.isTrue(abWidth > aWidth,
         "Width measurement seems to have failed.");
-    document.getElementById("result").firstChild.data = "PASS: All the characters had zero width.";
+    document.getElementById("result").firstChild.text = "PASS: All the characters had zero width.";
 }
