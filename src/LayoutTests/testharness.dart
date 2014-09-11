@@ -1,7 +1,9 @@
 library testharness;
 
 import "dart:html";
+export "dart:html";
 import "../Utils/expect.dart";
+export "../Utils/expect.dart";
 
 const String testSuiteRoot="/root_dart/tests/co19/src/LayoutTests";
 const NaN=double.NAN;
@@ -16,15 +18,23 @@ class NullTreeSanitizer implements NodeTreeSanitizer {
 
 int passcnt=0;
 int failcnt=0;
+bool printPassed=false;
 
 void testPassed(String testName) {
     passcnt++;
-//    print("test $testName passed.");
+    if (printPassed) {
+        print("test $testName passed.");
+    }
 }
 
-void testFailed(String testName, String diag) {
+void testFailed(String testName, [String diag]) {
     failcnt++;
-    print("test $testName failed:$diag.");
+    if (diag==null) {
+        diag=".";
+    } else {
+        diag=": $diag.";
+    }
+    print("test $testName failed$diag");
 }
 
 void shouldBe(actual, expected, [reason]) {
@@ -41,6 +51,16 @@ void shouldBe(actual, expected, [reason]) {
 void shouldBeFalse(bool expr, [reason]) {
   try {
       Expect.isFalse(expr, reason); // it checks for NaNs      
+      passcnt++;
+  } catch (e) {
+      failcnt++;
+      print("shouldBeFalse($expr, $reason) failed.");
+  }
+}
+
+void shouldBeTrue(bool expr, [reason]) {
+  try {
+      Expect.isTrue(expr, reason); // it checks for NaNs      
       passcnt++;
   } catch (e) {
       failcnt++;
