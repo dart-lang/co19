@@ -23,7 +23,7 @@ main() {
       /* Test 2: Download error */
       @font-face {
           font-family: myfont2;
-          src: url('resources/DownLoadErrorAhem.otf');
+          src: url('resources/IntentionallyMissingFile.otf');
       }
 
       /* Test 3: Empty data url */
@@ -35,13 +35,13 @@ main() {
       /* Test 4: Download error followed by existing local font */
       @font-face {
           font-family: myfont4;
-          src: url('resources/DownLoadErrorAhem.otf'), local('Courier New');
+          src: url('resources/IntentionallyMissingFile.otf'), local('Courier New');
       }
 
       /* Test 5: Multiple errors */
       @font-face {
           font-family: myfont5;
-          src: url('resources/DownLoadErrorAhem.otf'), url(data:application/x-truetype-font,) format(truetype);
+          src: url('resources/IntentionallyMissingFile.otf'), url(data:application/x-truetype-font,) format(truetype);
       }
       </style>
       ''', treeSanitizer: new NullTreeSanitizer());

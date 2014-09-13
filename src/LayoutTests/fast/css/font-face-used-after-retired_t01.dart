@@ -16,7 +16,7 @@ main() {
       <style>
           @font-face {
               font-family: custom;
-              src: url(no-such-file.ttf);
+              src: url(IntentionallyMissingFile.ttf);
           }
       </style>
       ''', treeSanitizer: new NullTreeSanitizer());

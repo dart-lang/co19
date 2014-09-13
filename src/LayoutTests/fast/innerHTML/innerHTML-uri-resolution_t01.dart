@@ -17,13 +17,13 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
 
   document.getElementById('container').setInnerHtml(
-      '<span id="test-span" style="background-image: url(image.png)"></span>',
+      '<span id="test-span" style="background-image: url(IntentionallyMissingFile.png)"></span>',
       treeSanitizer: new NullTreeSanitizer());
   
   var currentUri = window.location.href;
   var currentPath = currentUri.substring(0, currentUri.lastIndexOf('/'));
   var cssUriWasResolvedAgainstDocumentUri = document.getElementById("test-span")
-    .style.backgroundImage == 'url(' + currentPath + '/image.png)';
+    .style.backgroundImage == 'url(' + currentPath + '/IntentionallyMissingFile.png)';
   
   // Can't log the actual path since it's different depending on where the test is run.
   Expect.isTrue(cssUriWasResolvedAgainstDocumentUri);

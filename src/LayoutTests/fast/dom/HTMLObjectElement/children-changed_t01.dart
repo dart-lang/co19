@@ -16,11 +16,13 @@ main() {
   document.body.setInnerHtml('''
     <div></div>
     <div id="result">FAIL</div>
-    <object id="a" data="1"/></object>
+    <object id="a" data="IntentionallyMissingFile"/></object>
     ''', treeSanitizer: new NullTreeSanitizer());
 
+  asyncStart();
   document.getElementById('a').text = ' ';
   setTimeout(() {
     document.getElementById('result').innerHtml = "PASS";
+    asyncEnd();
   }, 10);
 }

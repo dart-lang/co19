@@ -16,12 +16,12 @@ import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
-    <script id="s0" src="ignored.js"></script>
-    <script id="s1" src="ignored.js" async></script>
-    <script id="s2" src="ignored.js" async="async"></script>
-    <script id="s3" src="ignored.js" async="ASYNC"></script>
-    <script id="s4" src="ignored.js" async="true"></script>
-    <script id="s5" src="ignored.js" async="false"></script>
+    <script id="s0" src="IntentionallyMissingFile.js"></script>
+    <script id="s1" src="IntentionallyMissingFile.js" async></script>
+    <script id="s2" src="IntentionallyMissingFile.js" async="async"></script>
+    <script id="s3" src="IntentionallyMissingFile.js" async="ASYNC"></script>
+    <script id="s4" src="IntentionallyMissingFile.js" async="true"></script>
+    <script id="s5" src="IntentionallyMissingFile.js" async="false"></script>
     <script id="s6"></script>
     <script id="s7" async></script>
     <script id="s8" async></script>

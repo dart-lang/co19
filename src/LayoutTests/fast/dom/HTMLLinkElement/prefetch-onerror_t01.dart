@@ -16,7 +16,7 @@ import "../../../testcommon.dart";
 
 main() {
   document.body.setInnerHtml('''
-    <link href="prefetch-noexisty.link" rel="prefetch">
+    <link href="IntentionallyMissingFile.link" rel="prefetch">
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var link = document.body.querySelector('link');

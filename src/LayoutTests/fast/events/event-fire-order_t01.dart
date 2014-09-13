@@ -80,7 +80,7 @@ main() {
       x.onReadyStateChange.listen(f2);
       x.addEventListener("readystatechange", f3, false);
 
-      x.open("GET", "resources/does-not-exist");
+      x.open("GET", "IntentionallyMissingFile");
 
       reportResult("testXHR", [ "f1", "f2" ]);
     },
@@ -93,7 +93,7 @@ main() {
       x.upload.onAbort.listen(f2);
       x.upload.addEventListener("abort", f3, false);
 
-      x.open("POST", "resources/does-not-exist");
+      x.open("POST", "IntentionallyMissingFile");
       x.send();
       x.abort();
 

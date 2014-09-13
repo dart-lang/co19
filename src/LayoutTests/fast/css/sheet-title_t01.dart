@@ -16,7 +16,7 @@ main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
 
   var f = new DocumentFragment.html('''
-      <link media="all" href="foo.css" rel="stylesheet" title="basic">
+      <link media="all" href="IntentionallyMissingFile.css" rel="stylesheet" title="basic">
       <style type="text/css" id="q" title="basic">
       #foo {
           background-color: #66CCFF;

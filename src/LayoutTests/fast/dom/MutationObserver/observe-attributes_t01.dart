@@ -248,7 +248,7 @@ main() {
       observer.observe(img, attributes: true);
       observer.observe(a, attributes: true);
 
-      img.src = 'baz.png';
+      img.src = 'IntentionallyMissingFile.png';
       a.href = 'foo.html';
 
       setTimeout(finish, 0);

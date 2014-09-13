@@ -31,7 +31,7 @@ main() {
 
   many_link_updates(iter) {
     for(var i=0;i<iter;++i) {
-      addLink("many_link_updates_$i.html", "prefetch");
+      addLink("IntentionallyMissingFile_$i.html", "prefetch");
     }
   }
 

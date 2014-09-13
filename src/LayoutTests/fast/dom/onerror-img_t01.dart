@@ -21,5 +21,5 @@ main() {
   });
 
   asyncStart();
-  img1.src = "invalidinvalid.jpg";
+  img1.src = "IntentionallyMissingFile.jpg";
 }

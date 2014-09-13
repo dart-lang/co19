@@ -10,10 +10,11 @@
 import "dart:html";
 import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
+import "pwd.dart";
 
 main() {
   var img = new ImageElement();
-  var url = "about:blank";
+  var url = "$root/pwd.dart"; // any valid url
 
   testURL(url)
   {

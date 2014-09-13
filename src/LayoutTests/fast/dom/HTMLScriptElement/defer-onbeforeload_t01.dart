@@ -44,7 +44,7 @@ main() {
     document.body.append(s2);
 
     var s3 = new ScriptElement();
-    s3.src = "resources/external.js";
+    s3.src = "$root/resources/external.js";
     s3.addEventListener('onbeforeload', (_) {
       debug('onbeforeload external');
       return true;

@@ -15,8 +15,8 @@ import "../../../testcommon.dart";
 
 main() {
   document.body.setInnerHtml('''
-    <link rel="prefetch" href="resources/does-not-exist.jpg"/>
-    <img src="resources/does-not-exist.jpg"/>
+    <link rel="prefetch" href="IntentionallyMissingFile.jpg"/>
+    <img src="IntentionallyMissingFile.jpg"/>
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var dne_error_count = 0;

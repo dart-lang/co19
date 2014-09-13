@@ -22,7 +22,7 @@ main() {
   var style = new Element.html('''
     <style>
     @import "$root/../HTMLLinkElement/resources/stylesheet.css";
-    @import "resources/non-existent-stylesheet.css";
+    @import "IntentionallyMissingFile.css";
     #test { color: yellow; }
     </style>
     ''', treeSanitizer: new NullTreeSanitizer());

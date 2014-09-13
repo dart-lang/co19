@@ -13,7 +13,7 @@ import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
-      <div id="foo" style="border-image: url(images/shadow-border.png) stretch 10;">This test should not crash</div>
+      <div id="foo" style="border-image: url(images/IntentionallyMissingFile.png) stretch 10;">This test should not crash</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
   document.getElementById("foo").style.cssText;

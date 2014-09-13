@@ -15,7 +15,7 @@ main() {
   var style = new Element.html('''
       <style>
       #target {
-          background: -webkit-image-set(url(images/noise.png) 1x, url(images/noise@2x.png) 2x), #ff0000;
+          background: -webkit-image-set(url(images/IntentionallyMissingFile.png) 1x, url(images/IntentionallyMissingFile@2x.png) 2x), #ff0000;
       }
       </style>
       ''', treeSanitizer: new NullTreeSanitizer());

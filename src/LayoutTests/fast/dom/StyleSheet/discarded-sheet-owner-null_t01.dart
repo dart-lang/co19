@@ -14,7 +14,7 @@ import "pwd.dart";
 
 main() {
   var link = new Element.html('''
-    <link id="target" rel="stylesheet" href="old.css">
+    <link id="target" rel="stylesheet" href="old_IntentionallyMissingFile.css">
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(link);
 
@@ -22,10 +22,10 @@ main() {
   window.onLoad.listen((_) {
     var target = document.getElementById('target');
     var oldSheet = target.sheet;
-    target.setAttribute("href", "new.css");
+    target.setAttribute("href", "new_IntentionallyMissingFile.css");
     
     waitAndTest() {
-      if (0 <= target.sheet.href.indexOf("old.css"))
+      if (0 <= target.sheet.href.indexOf("old_IntentionallyMissingFile.css"))
           return setTimeout(waitAndTest, 0);
       shouldBeNull(oldSheet.ownerNode);
       if (oldSheet.ownerNode != null)

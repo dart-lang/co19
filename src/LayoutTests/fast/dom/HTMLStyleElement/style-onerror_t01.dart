@@ -20,7 +20,7 @@ main() {
 
   var style = new Element.html('''
     <style>
-    @import "resources/non-existent-stylesheet.css";
+    @import "IntentionallyMissingFile.css";
     #test { color: yellow; }
     </style>
     ''', treeSanitizer: new NullTreeSanitizer());

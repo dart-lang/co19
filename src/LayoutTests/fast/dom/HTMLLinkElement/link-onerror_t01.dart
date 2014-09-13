@@ -14,7 +14,7 @@ import "../../../testcommon.dart";
 
 main() {
   document.head.append(new Element.html(
-    '<link id="lnk" rel="stylesheet" href="resources/non-existent-stylesheet.css">',
+    '<link id="lnk" rel="stylesheet" href="IntentionallyMissingFile.css">',
     treeSanitizer: new NullTreeSanitizer()));
 
   var lnk = document.getElementById('lnk');

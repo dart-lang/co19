@@ -29,14 +29,14 @@ main() {
 
   var s = new ScriptElement();
   s.type = "text/javascript";
-  s.src = "resources/certainlydoesnotexist.js";
+  s.src = "IntentionallyMissingFile.js";
   s.onLoad.listen(loaded(0));
   s.onError.listen(erred(0));
   document.body.append(s);
   
   s = new ScriptElement();
   s.type = "text/javascript";
-  s.src = "resources/certainlydoesnotexist.js";
+  s.src = "IntentionallyMissingFile.js";
   s.onLoad.listen(loaded(1));
   s.onError.listen(erred(1));
   document.body.append(s);

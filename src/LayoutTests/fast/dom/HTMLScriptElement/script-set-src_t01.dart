@@ -50,7 +50,7 @@ main() {
     <script type="text/javascript" id="s1">
     // Parser-created. Has text so it should not load upon setting src.
     </script>
-    <script type="text/javascript" id="s2" src="$root/resources/thisShouldNotExist.null"></script>
+    <script type="text/javascript" id="s2" src="$root/resources/IntentionallyMissingFile.null"></script>
     <script type="text/javascript" id="s5" src="$root/resources/script-set-src-p5pass.js"></script>
     <script type="text/javascript" id="s3"></script>
     <!-- s4 was a self-closing script tag, however that is covered by fast/parser/script-tag-with-trailing-slash.html -->

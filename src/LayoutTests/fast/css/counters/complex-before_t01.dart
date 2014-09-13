@@ -18,11 +18,11 @@ main() {
           #test { counter-reset:ctr; quotes:"\0022" "\0022" "\0022" "\0022"}
 
           #test:before {
-              content:counter(ctr) url(support/square-outline-32x32.png) open-quote "Before-" attr(class);
+              content:counter(ctr) url(support/IntentionallyMissingFile.png) open-quote "Before-" attr(class);
               counter-increment:ctr;
           }
           #test:after {
-              content:counter(ctr) url(support/square-outline-32x32.png) "After-" attr(class) close-quote;
+              content:counter(ctr) url(support/IntentionallyMissingFile.png) "After-" attr(class) close-quote;
               counter-increment:ctr;
           }
           .table:before, .table:after { display:table; }
@@ -44,9 +44,9 @@ main() {
       <table>
           <tr>
               <td id="reference"><div><span style="display: table;">1<img
-              src="support/square-outline-32x32.png"/>"Before-table</span>Inner<span
+              src="support/IntentionallyMissingFile.png"/>"Before-table</span>Inner<span
               style="display: table">2<img
-              src="support/square-outline-32x32.png"/>After-table"</span></div></td>
+              src="support/IntentionallyMissingFile.png"/>After-table"</span></div></td>
               <td>1 1 1 1</td>
           </tr>
       </table>

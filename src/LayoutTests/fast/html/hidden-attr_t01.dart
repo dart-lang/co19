@@ -17,7 +17,7 @@ main() {
     <p id="description"></p>
     <div id="console">
     Tests that hidden in markup works:
-    <div hidden><span class=fail>FAIL</span> - this line should not appear</div><div hidden=hidden><span class=fail>FAIL</span> - this line should not appear</div><div hidden=false><span class=fail>FAIL</span> - this line should not appear</div><p hidden><span class=fail>FAIL</span> - this line should not appear</p><span hidden><span class=fail>FAIL</span> - this line should not appear</span><img width=400px alt="FAIL - this should not appear" src="resources/xxx-missing.jpeg" hidden>
+    <div hidden><span class=fail>FAIL</span> - this line should not appear</div><div hidden=hidden><span class=fail>FAIL</span> - this line should not appear</div><div hidden=false><span class=fail>FAIL</span> - this line should not appear</div><p hidden><span class=fail>FAIL</span> - this line should not appear</p><span hidden><span class=fail>FAIL</span> - this line should not appear</span><img width=400px alt="FAIL - this should not appear" src="IntentionallyMissingFile.jpeg" hidden>
 
     Tests that dynamically adding/removing hidden works:
     <div hidden id=test1><span class=pass>PASS</span> - this line should appear<div id=test2><span class=fail>FAIL</span> - this line should not appear</div>

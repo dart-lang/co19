@@ -72,7 +72,7 @@ main() {
               <input data-expected-display="block" data-offset-x="50" data-offset-y="150" type="text" value="text"></input>
 
               <img data-expected-display="block" data-offset-x="50" data-offset-y="150" src="$root/../images/resources/green-256x256.jpg"></img>
-              <img data-expected-display="block" data-offset-x="50" data-offset-y="150" src="nonexistent.png"></img>
+              <img data-expected-display="block" data-offset-x="50" data-offset-y="150" src="IntentionallyMissingFile.png"></img>
 
               <svg data-expected-display="block" data-offset-x="50" data-offset-y="150">
                   <circle cx="50" cy="50" r="50" fill="blue">

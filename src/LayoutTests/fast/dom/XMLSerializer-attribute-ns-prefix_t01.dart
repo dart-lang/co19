@@ -17,7 +17,7 @@ main() {
         'text/xml');
   var svgEl = svgDoc.firstChild;
   var imageEl = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-  imageEl.setAttributeNS('http://www.w3.org/1999/xlink', 'href', 'blah');
+  imageEl.setAttributeNS('http://www.w3.org/1999/xlink', 'href', 'IntentionallyMissingFile');
   svgEl.append(imageEl);
 
   var serializer = new XmlSerializer();

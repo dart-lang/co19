@@ -13,6 +13,7 @@ import "../../../testcommon.dart";
 main() {
   document.body.setInnerHtml('''
     <map title="map" id="firstmap">
+    <div>PASS</div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
   Expect.isNotNull(document.getElementById("firstmap"));

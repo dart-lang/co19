@@ -20,7 +20,7 @@ main() {
 
   // Create a pending stylesheet, this href intentionally 404s.
   var linkTag = document.createElement('link');
-  linkTag.href = 'does-not-exist.css';
+  linkTag.href = 'IntentionallyMissingFile.css';
   linkTag.rel = 'stylesheet';
   document.head.append(linkTag);
 

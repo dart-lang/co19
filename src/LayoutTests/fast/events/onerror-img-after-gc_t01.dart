@@ -36,7 +36,7 @@ main() {
         testPassed('PASS');
         finishTesting();
       });
-      img.src = "foo";
+      img.src = "IntentionallyMissingFile";
     })();
     gc();
   }

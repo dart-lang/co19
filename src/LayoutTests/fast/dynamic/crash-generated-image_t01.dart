@@ -8,13 +8,14 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
+import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
       <style>
           div:before
           {
-              content: url(resources/greenbox.png);
+              content: url($root/resources/greenbox.png);
               display: block;
               overflow: hidden;
               width: 100;

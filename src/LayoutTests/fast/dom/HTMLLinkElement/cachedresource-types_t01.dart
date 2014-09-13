@@ -12,10 +12,10 @@ import "../../../testcommon.dart";
 
 main() {
   document.documentElement.append(new Element.html(
-        '<link rel="subresource" href="resources/does-not-exist.jpg"/>',
+        '<link rel="subresource" href="IntentionallyMissingFile.jpg"/>',
         treeSanitizer: new NullTreeSanitizer()));
   document.documentElement.append(new Element.html(
-        '<img src="resources/does-not-exist.jpg">',
+        '<img src="IntentionallyMissingFile.jpg">',
         treeSanitizer: new NullTreeSanitizer()));
 }
 

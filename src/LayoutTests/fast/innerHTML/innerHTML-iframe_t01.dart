@@ -15,7 +15,7 @@ main() {
 
   body.setInnerHtml('''
     <div id="x">
-      <iframe src="does-not-exist">
+      <iframe src="IntentionallyMissingFile">
     </div>
   ''', treeSanitizer: new NullTreeSanitizer());
 

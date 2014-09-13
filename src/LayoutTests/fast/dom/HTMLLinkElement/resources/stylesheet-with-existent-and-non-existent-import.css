@@ -1,4 +1,4 @@
 @import "stylesheet.css";
-@import "non-existent-stylesheet.css";
+@import "IntentionallyMissingFile.css";
 
 #test { color: yellow; }

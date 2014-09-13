@@ -17,8 +17,8 @@ main() {
   document.body.setInnerHtml('''
     <img id="image1" src="$root/resources/blue_rect.jpg">
     <img id="image2" width="10" height="10" src="$root/resources/blue_rect.jpg">
-    <img id="image3" src="non-existent.jpg">
-    <img id="image4" src="non-existent.jpg" width="10" height="10">
+    <img id="image3" src="IntentionallyMissingFile.jpg">
+    <img id="image4" src="IntentionallyMissingFile.jpg" width="10" height="10">
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var i1 = document.getElementById('image1');

@@ -8,12 +8,18 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
-    <img id="x" src="broken.gif">
+    <img id="x" src="IntentionallyMissingFile.gif">
     This text should only appear once.
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  shouldBe(document.getElementById("x").text, '');
+  asyncStart();
+
+  window.onLoad.listen((_) {
+    shouldBe(document.getElementById("x").text, '');
+    asyncEnd();
+  });
 }

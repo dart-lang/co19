@@ -12,7 +12,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
-const String htmlEL1 = r'''
+const String htmlEL1 = '''
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 @font-face {
@@ -22,7 +22,7 @@ const String htmlEL1 = r'''
        requirement of web font face.
        It contains a vmtx table and units per pm 256 which is different
        from the default value 1000. */
-    src: url('resources/DroidSansFallback-reduced.ttf');
+    src: url('$testSuiteRoot/fast/writing-mode/resources/DroidSansFallback-reduced.ttf');
 }
 #test {
     font-size: 25px;

@@ -15,7 +15,7 @@ import "../HTMLLinkElement/resources/link-load-utilities.dart";
 
 main() {
   var style =
-    createStyleElementWithString('@import "resources/non-existent-stylesheet.css";');
+    createStyleElementWithString('@import "IntentionallyMissingFile.css";');
 
   style.onLoad.listen((_) {
     testFailed('Fired Load event. Should have fired Error event.');
