@@ -13,7 +13,7 @@
  * @reviewer rodionov
  */
 
-import "Nonexistent_library.dart";
+import "IntentionallyMissingFile.dart";
 
 main() {
   try {

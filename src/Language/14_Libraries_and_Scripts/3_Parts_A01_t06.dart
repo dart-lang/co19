@@ -28,7 +28,7 @@
  */
 
 library Parts_test_lib;
-part "NoSuchPart.dart";
+part "IntentionallyMissingFile.dart";
 
 main() {
 }

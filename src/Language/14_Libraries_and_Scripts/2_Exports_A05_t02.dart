@@ -12,7 +12,7 @@
  * @author ilya
  */
 
-export "missing_file";
+export "IntentionallyMissingFile";
 
 main() {
 }
