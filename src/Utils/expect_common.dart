@@ -273,14 +273,17 @@ class Expect {
                       String reason = null]) {
     try {
       f();
-      String msg = reason == null ? "" : reason;
-      _fail('Expect.throws($msg) fails');
     } catch (e, s) {
-      if ((check != null) && !check(e)) {
-        String msg = reason == null ? "" : reason;
-        _fail("Expect.throws($msg): Unexpected ${e.runtimeType}('$e')\n$s");
+      if (check != null) {
+        if (!check(e)) {
+          String msg = reason == null ? "" : reason;
+          _fail("Expect.throws($msg): Unexpected ${e.runtimeType}('$e')\n$s");
+        }
       }
+      return;
     }
+    String msg = reason == null ? "" : reason;
+    _fail('Expect.throws($msg) fails');
   }
 
   static String _getMessage(String reason)
