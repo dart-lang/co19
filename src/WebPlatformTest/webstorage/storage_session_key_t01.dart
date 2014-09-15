@@ -16,22 +16,14 @@ void main() {
   sessionStorage["b"]="2";
 
   var keys = ["name", "age", "a", "b"];
-  for (var i = 0; i < keys.length; ++i) {
+  int i=0;
+  for (var key in sessionStorage.keys) {
       test(() {
-          var key = sessionStorage.keys[i];
           assert_not_equals(key, null);
           assert_true(keys.indexOf(key) >= 0, "Unexpected key $key found.");
       }, "key($i) should return the right thing.");
+      i++;
   }
-  
-  test(() {
-      assert_throws("RangeError", () {
-         var x=sessionStorage.keys[-1];
-      }, "sessionStorage.key(-1)");
-      assert_throws("RangeError", () {
-         var x=sessionStorage.keys[4];
-      }, "sessionStorage.key(4)");
-  }, "key() should throw for out-of-range arguments.");
   
   checkTestFailures();
 }

@@ -7,8 +7,6 @@
  * @assertion 
  * @description Canonical URL should have a lowercase hostname for server based protocols.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 
@@ -30,17 +28,17 @@ void main() {
     
     for (var protocolIndex = 0; protocolIndex < protocolTestSet.length; ++protocolIndex) {
         String protocol = protocolTestSet[protocolIndex][0];
-        String hostnameShouldBeLowercase = protocolTestSet[protocolIndex][1];
+        bool hostnameShouldBeLowercase = protocolTestSet[protocolIndex][1];
     
         for (int urlIndex = 0; urlIndex < urls.length; ++urlIndex) {
             String url = '$protocol://${urls[urlIndex]}/';
             String src = canonicalize(url);
             String expected;
-            if (hostnameShouldBeLowercase)
+            if (hostnameShouldBeLowercase) {
                 expected = '$protocol://${urlExpectationsLowercase[urlIndex]}/';
-            else
+            } else {
                 expected = '$protocol://${urlExpectationsUppercase[urlIndex]}/';
-    
+            }
             shouldBe(src, expected, "protocolIndex=$protocolIndex, urlIndex=$urlIndex");
         }
     }    

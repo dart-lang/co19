@@ -114,10 +114,10 @@ const String htmlEL2 = r'''
 void runTest(e) {
     var triggers = document.querySelectorAll(".scrollTrigger");
     for (var i=0; i < triggers.length; i++) {
-      triggers[i].scrollIntoView();
+      triggers[i].scrollIntoView(ScrollAlignment.BOTTOM);
     }
-    document.getElementById("c-inner").scrollIntoView(true);
-    document.getElementById("d-inner").scrollIntoView(false);
+    document.getElementById("c-inner").scrollIntoView(ScrollAlignment.TOP);
+    document.getElementById("d-inner").scrollIntoView(ScrollAlignment.BOTTOM);
     
     var selectElements = document.querySelectorAll("select");
     for (var i=0; i < selectElements.length; i++) {
@@ -143,7 +143,7 @@ void runTest(e) {
     scrollTop2 = element2.scrollTop;
     var scrollTop3 = element3.scrollTop;
     var scrollTop4 = element4.scrollTop;
-    Expect.notEquals(scrollTop1, scrollTop2);
+    Expect.notEquals(element1.scrollTop, element2.scrollTop);
     Expect.equals(0, scrollTop2);
     Expect.equals(scrollTop3, scrollTop4);
 }

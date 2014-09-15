@@ -18,14 +18,14 @@ void main() {
     xhr = new HttpRequest();
     xhr.open('GET', 'http://mydomain/', async:false);
     Expect.throws(() {
-       hr.responseType = 'document';
+       xhr.responseType = 'document';
     });
 
     // HTTPS
     xhr = new HttpRequest();
     xhr.open('GET', 'https://mysecuredomain/', async:false);
     Expect.throws(() {
-       hr.responseType = 'document';
+       xhr.responseType = 'document';
     });
 
     // FILE
@@ -33,7 +33,7 @@ void main() {
     xhr = new HttpRequest();
     xhr.open('GET', window.location.href, async:false);
     Expect.throws(() {
-       hr.responseType = 'document';
+       xhr.responseType = 'document';
     });
 
     // DATA
@@ -45,6 +45,6 @@ void main() {
     xhr = new HttpRequest();
     xhr.open('GET', dataUrl, async:false);
     Expect.throws(() {
-       hr.responseType = 'document';
+       xhr.responseType = 'document';
     });
 }

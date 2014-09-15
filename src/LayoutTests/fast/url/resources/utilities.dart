@@ -4,10 +4,11 @@ import "dart:html";
 // Start the bidding at 42 for no particular reason.
 var lastID = 42;
 
-Element canonicalize(String url) {
+String canonicalize(String url) {
   var id = ++lastID;
   document.body.appendHtml("<a id='$id' href='$url'></a>");
-  String res = document.getElementById(id.toString()).href;
+  Element elem = document.getElementById(id.toString());
+  String res = (elem as AnchorElement).href;
 //  print("'$url'=>'$res'");
   return res;
 }

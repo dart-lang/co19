@@ -7,8 +7,6 @@
  * @assertion 
  * @description Test resolution of relative Windows-like URLs.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

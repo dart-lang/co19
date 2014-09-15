@@ -7,8 +7,6 @@
  * @assertion 
  * @description Test resolution of relative UNIX-like URLs.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 
@@ -24,23 +22,17 @@ List cases = [
   ["http://host/a", "//c:\\\\foo", "http://c/foo"],
 ];
 
-void doTest(int i) {
-  String baseURL = cases[i][0];
-  String relativeURL = cases[i][1];
-  String expectedURL = cases[i][2];
-  setBaseURL(baseURL);
-  test((){
-    Expect.equals(
-      expectedURL,
-      canonicalize(relativeURL)
-    );
-    }, ' $i ["$baseURL", "$relativeURL", "$expectedURL"]');
-}
-
 void main() {
   var originalBaseURL = canonicalize(".");
   for (var i = 0; i < cases.length; ++i) {
-    doTest(i);
+      String baseURL = cases[i][0];
+      String relativeURL = cases[i][1];
+      String expectedURL = cases[i][2];
+      setBaseURL(baseURL);
+      String res=canonicalize(relativeURL);
+      shouldBe(res,
+          expectedURL,
+         ' $i canonicalize($relativeURL) is $res ');
   }
   checkTestFailures();
   setBaseURL(originalBaseURL);

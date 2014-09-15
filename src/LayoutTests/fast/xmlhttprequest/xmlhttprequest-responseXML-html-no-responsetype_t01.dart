@@ -19,8 +19,8 @@ const String htmlEL = r'''
 
 void main() {
     document.body.appendHtml(htmlEL);
-    HttpRequest xhr = new HttpRequest(),
-            url = window.location.href;
+    HttpRequest xhr = new HttpRequest();
+    String url = window.location.href;
     xhr.onLoad.listen((e) {
         Expect.isNull(xhr.responseXml);
         asyncEnd();

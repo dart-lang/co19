@@ -6,7 +6,7 @@
 /**
  * @assertion bool dispatchEvent(Event event)
  * Dispatch an event to this EventTarget.
- * @description Checks that an event is diapatched.
+ * @description Checks that an event is dispatched.
  */
 import "dart:html";
 import "../../../Utils/async_utils.dart";

@@ -7,8 +7,6 @@
  * @assertion 
  * @description Canonicalization of IPv4 addresses.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

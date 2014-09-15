@@ -7,8 +7,6 @@
  * @assertion 
  * @description Canonicalization of file URLs when the base URL is an http URL
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

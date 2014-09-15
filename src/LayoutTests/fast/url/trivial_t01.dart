@@ -7,8 +7,6 @@
  * @assertion 
  * @description Test basic features of URL canonicalization.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

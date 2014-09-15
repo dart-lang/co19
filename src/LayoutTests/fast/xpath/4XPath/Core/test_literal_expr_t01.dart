@@ -8,8 +8,7 @@
  * @description 
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../testcommon.dart";
+import "../../../../testharness.dart";
 
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();

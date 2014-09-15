@@ -214,7 +214,7 @@ test(() {
 "child should throw a HierarchyRequestError.");
 */
 
-*/
+/*
 test(() {
   var doc = document.implementation.createHtmlDocument("title");
   var comment = doc.append(new Comment("foo"));

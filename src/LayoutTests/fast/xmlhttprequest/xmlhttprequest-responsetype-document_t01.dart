@@ -31,7 +31,7 @@ pre {
 
 HttpRequest xhr;
 
-function load(e) {
+void load(e) {
     testPassed('DONE LOADING');
     print("received response object of type : ${xhr.response.runtimeType}.");
 
@@ -44,7 +44,9 @@ function load(e) {
     );
 
     // Check that .response is a Document
-    Expect.equals('doc', xhr.response.documentElement.tagName, "xhr.response should be a Document.");
+    Expect.isTrue(xhr.response is Document);
+    Document response=xhr.response;
+    Expect.equals('doc', response.documentElement.tagName, "xhr.response should be a Document.");
     
     // .response is really just an alias to .responseXml when .responseType is set to "document".
     // Make sure they're the same.

@@ -7,8 +7,6 @@
  * @assertion 
  * @description Verify the canonicalization of Safari Extension URLs.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

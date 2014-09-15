@@ -7,7 +7,6 @@
  * @assertion 
  * @description Canonicalization of host names.
  */
-import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
@@ -95,8 +94,8 @@ void main() {
     
     for (var i = 0; i < cases.length; ++i) {
         var test_vector = cases[i][0];
-        String actual=canonicalize('http://$test_vector"');
-        String expected_result='http:${cases[i][1]}';
+        String actual=canonicalize('http://$test_vector/');
+        String expected_result='http://${cases[i][1]}/';
         test((){
             Expect.equals(expected_result, actual);
         }, "$i");

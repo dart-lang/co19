@@ -8,8 +8,6 @@
  * @description IDNA2008 handling in domain name labels.
  * of this test are set to the behavior in IDNA2008.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

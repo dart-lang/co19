@@ -15,7 +15,6 @@ class MyXPathNSResolver implements XPathNSResolver {
     String lookupNamespaceUri(String prefix) {
         if (prefix == 'f')
             return 'http://foo.com';
-        Expect.fail("Unexpected prefix:$prefix");
         return null;
     }
 }

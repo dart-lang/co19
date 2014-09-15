@@ -7,24 +7,22 @@
 import 'dart:html';
 import "../Utils/expectWeb.dart";
 
-void test_storage_builtins(aStorage) {
+void test_storage_builtins(aStorage, diag) {
     test(() {
         aStorage.clear();
         assert_equals(aStorage.length, 0, "aStorage.length");
 
         var builtins = ["key", "getItem", "setItem", "removeItem", "clear"];
-        var origBuiltins = builtins.map(function(b) { return Storage.prototype[b]; });
-        assert_array_equals(builtins.map(function(b) { return aStorage[b]; }), origBuiltins, "a");
-        builtins.forEach(function(b) { aStorage[b] = b; });
-        assert_array_equals(builtins.map(function(b) { return aStorage[b]; }), origBuiltins, "b");
-        assert_array_equals(builtins.map(function(b) { return aStorage.getItem(b); }), builtins, "c");
+        builtins.forEach((b) { aStorage[b] = b; });
+        var actual=builtins.map((b) { return aStorage[b]; });
+        assert_array_equals(actual.toList(), builtins, "c");
 
         assert_equals(aStorage.length, builtins.length, "aStorage.length");
-    });
+    }, diag);
 }
 
 void main() {
-    test_storage_builtins(window.localStorage);
-    test_storage_builtins(window.sessionStorage);}
+    test_storage_builtins(window.localStorage, "localStorage");
+    test_storage_builtins(window.sessionStorage, "sessionStorage");
     checkTestFailures();
 }

@@ -7,8 +7,6 @@
  * @assertion 
  * @description Test URLs that have an anchor.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 

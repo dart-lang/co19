@@ -28,6 +28,13 @@ num randomVal() {
   return values[k];
 }
 
+void rectEquals(Rectangle r1, Rectangle r2, num tolerance, String msg) {
+  Expect.approxEquals(r1.top, r2.top, tolerance, msg);
+  Expect.approxEquals(r1.bottom, r2.bottom, tolerance, msg);
+  Expect.approxEquals(r1.left, r2.left, tolerance, msg);
+  Expect.approxEquals(r1.right, r2.right, tolerance, msg);
+}
+
 main() {
   for(int i = 0; i < 1000; i++) {
     num x = randomVal();
@@ -38,6 +45,6 @@ main() {
     Rectangle r2=new Rectangle(z, w, x, y);
     Rectangle bb1=r1.boundingBox(r2);
     Rectangle bb2=r2.boundingBox(r1);
-    Expect.equals(bb1, bb2, "i=$i; x=$x, y=$y, z=$z, w=$w, bb1=$bb1, bb2=$bb2");
+    rectEquals(bb1, bb2, null, "i=$i; x=$x, y=$y, z=$z, w=$w, bb1=$bb1, bb2=$bb2");
   }
 }

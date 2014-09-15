@@ -7,22 +7,22 @@
 import 'dart:html';
 import "../Utils/expectWeb.dart";
 
-void test_storage(Storage aStorage) {
+void test_storage(Storage aStorage, String diag) {
     test(() {
         aStorage.clear();
-        aStorage.setItem("name", "user1");
+        aStorage["name"]="user1";
 
-        assert_not_equals(aStorage.getItem("name"), null);
+        assert_not_equals(aStorage["name"], null);
         assert_equals(aStorage.length, 1);
 
         aStorage.clear();
-        assert_equals(aStorage.getItem("name"), null, "aStorage.getItem('name')")
-        assert_equals(aStorage.length, 0, "aStorage.length")
-    });
+        assert_equals(aStorage["name"], null, "aStorage['name']");
+        assert_equals(aStorage.length, 0, "aStorage.length");
+    }, diag);
 }
 
 void main() {
-    test_storage(window.localStorage);
-    test_storage(window.sessionStorage);}
+    test_storage(window.localStorage, "localStorage");
+    test_storage(window.sessionStorage, "sessionStorage");
     checkTestFailures();
 }

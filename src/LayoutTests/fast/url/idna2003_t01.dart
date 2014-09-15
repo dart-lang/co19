@@ -8,8 +8,6 @@
  * @description IDNA2003 handling in domain name labels. The PASS/FAIL results
  * of this test are set to the behavior in IDNA2003.
  */
-import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "resources/utilities.dart";
 
