@@ -10,7 +10,7 @@ const String resources = '${testSuiteRoot}/html-imports/resources';
 
 const String htmlEL = '''
 <link id="linkNotImport" rel="style" href="$resources/fake.css">
-<link id="linkNotFound" rel="import" href="$resources/no-such-file.html">
+<link id="linkNotFound" rel="import" href="$resources/IntentionallyMissingFile.html">
 <link id="linkToBeRemoved" rel="import" href="$resources/hello.html">
 ''';
 

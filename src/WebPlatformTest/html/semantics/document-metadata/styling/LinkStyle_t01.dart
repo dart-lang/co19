@@ -6,7 +6,7 @@
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
-const String support="testSuiteRoot/html/semantics/document-metadata/styling/support";
+const String support="$testSuiteRoot/html/semantics/document-metadata/styling/support";
 
 const String htmlEL='''
     <style id="style4" type="text/html">
