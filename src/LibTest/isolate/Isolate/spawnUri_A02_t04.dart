@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 void main() {
   asyncStart();
-  Future fut = Isolate.spawnUri(new Uri.file("unexistent.dart"), [], null);
+  Future fut = Isolate.spawnUri(new Uri.file("IntentionallyMissingFile.dart"), [], null);
   fut.then((value) {
       Expect.fail("spawnUri(bad library) does not gives an error");
     },

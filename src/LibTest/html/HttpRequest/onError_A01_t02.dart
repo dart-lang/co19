@@ -16,7 +16,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "UNEXISTENT");
+  request.open('GET', "IntentionallyMissingFile");
   asyncStart();
   request.onError.listen((event){
       UtilsHtml.show("request.onError.listen: $event");

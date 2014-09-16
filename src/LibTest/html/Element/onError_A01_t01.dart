@@ -15,7 +15,7 @@ import "../../../Utils/async_utils.dart";
 main() {
   var type = 'error';
   var x = document.body;
-  x.innerHtml ='<img src="missing.png">';
+  x.innerHtml ='<img src="IntentionallyMissingFile.png">';
 
   asyncStart();
   x.firstChild.onError.listen((e) {
