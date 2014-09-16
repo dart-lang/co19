@@ -26,7 +26,8 @@ main() {
 
   document.onInvalid.listen((_) => ++count);
 
-  shouldBeFalse(document.getElementById("sad_form").checkValidity());
+  FormElement form = document.getElementById("sad_form");
+  shouldBeFalse(form.checkValidity());
 
   shouldBe(count, 1);
 }

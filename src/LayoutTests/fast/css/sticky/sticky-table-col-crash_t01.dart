@@ -19,7 +19,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   doTest(_) {
-    document.getElementById('crashBox').scrollIntoView(true);
+    document.getElementById('crashBox').scrollIntoView(ScrollAlignment.CENTER);
     asyncEnd();
   }
 

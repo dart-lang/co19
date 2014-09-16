@@ -61,16 +61,6 @@ main() {
     debug('');
   }
 
-  inheritanceTest(ancestorValue)
-  {
-    debug("Value of ancestor is '" + ancestorValue + "':");
-    ancestor.style.textJustify = ancestorValue;
-    expectedInheritedValue = ancestorValue;
-    testElementStyle(expectedInheritedValue);
-    testComputedStyle(expectedInheritedValue);
-    debug('');
-  }
-
   computedValueSettingTest(value, expectedComputedValue)
   {
     debug("Computed value test - '" + value + "':");

@@ -59,7 +59,7 @@ main() {
     div.className = 'transition';
   }
 
-  recordTransitionEvent()
+  recordTransitionEvent(event)
   {
     shouldBe(event.propertyName, expectedEvents[currentEvent][0]);
     shouldBe(event.target.id, expectedEvents[currentEvent][1]);

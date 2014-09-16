@@ -5,6 +5,7 @@
  */
 /**
  * @description Checks that MessageEvent() is working
+ * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";

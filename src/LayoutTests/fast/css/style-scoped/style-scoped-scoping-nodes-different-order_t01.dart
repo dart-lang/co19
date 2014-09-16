@@ -42,8 +42,9 @@ main() {
 
   description('Test a case whether order of scoping nodes is different from order of style elements.');
   shouldBe(document.styleSheets.length, 4);
-  shouldBe(document.styleSheets[1].cssRules[0].cssText, "span { color: green; }");
-  shouldBe(document.styleSheets[2].cssRules[0].cssText, "span { color: grey; }");
-  shouldBe(document.styleSheets[3].cssRules[0].cssText, "span { border: 1px solid green; }");
+  List<CssStyleSheet> ss = document.styleSheets;
+  shouldBe(ss[1].cssRules[0].cssText, "span { color: green; }");
+  shouldBe(ss[2].cssRules[0].cssText, "span { color: grey; }");
+  shouldBe(ss[3].cssRules[0].cssText, "span { border: 1px solid green; }");
   shouldBe(borderColor("target"), "rgb(0, 128, 0)");
 }
