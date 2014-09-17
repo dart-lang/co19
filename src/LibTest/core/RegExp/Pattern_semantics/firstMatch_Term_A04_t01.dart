@@ -19,7 +19,7 @@ import "../../../../Utils/expect.dart";
 
 main() {
   check(r"(a*)b\1+", "baaaac", ["b", ""]);
-  check(r"(a*)*", "b", ["", ""]);
+  check(r"(a*)*", "b", ["", null]);
 }
 
 void check(String pattern, String str, List<String> expectedGroups) {

@@ -14,6 +14,7 @@
  * @description Checks that in checked mode, it is a dynamic type error if o
  * is not null and the interface of the class of o is not a subtype of the
  * actual type of the field v. 
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/dynamic_check.dart";
