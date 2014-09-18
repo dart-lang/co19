@@ -40,11 +40,9 @@ void testFailed(String testName, [String diag]) {
 void shouldBe(actual, expected, [reason]) {
   try {
       Expect.equals(expected, actual, reason); // it checks for NaNs      
-      passcnt++;
-//      print("shouldBe($actual, $expected, $reason) passed.");
+      testPassed("shouldBe($actual, $expected, $reason)");
   } catch (e) {
-      failcnt++;
-      print("shouldBe($actual, $expected, $reason) failed.");
+      testFailed("shouldBe($actual, $expected, $reason)");
   }
 }
 
@@ -101,3 +99,20 @@ void checkTestFailures() {
   }
 }
 
+void description(String descr) {
+    document.body.appendHtml(descr);
+}
+
+var reason;
+
+debug(msg) {
+  msg = msg.toString();
+  print(msg);
+  var x = document.getElementById('console');
+  if (x != null) {
+    var span = document.createElement("span");
+    span.innerHtml = msg + '<br />';
+    x.append(span);
+  }
+  reason = msg;
+}

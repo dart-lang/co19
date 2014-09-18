@@ -233,7 +233,7 @@ checkLayout(selectorList, [outputContainer])
   if (checkedLayout == 0) {
     var message = "FAIL: No valid data-* attributes found in selector list : "
       + selectorList.toString();
-    document.body.innerHtml = message;
+    document.body.append(new Text(message));
     Expect.fail(message);
     return false;
   }

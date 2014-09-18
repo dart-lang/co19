@@ -5,15 +5,14 @@
  */
 /**
  * @assertion It is a run time error if library does not declare or import a top level function main().
- * @description Checks that it is a run time error if a script has top level function main
- * with incorrect signature.
- * @runtime-error
+ * @description Checks that the top level function main can have 2 arguments, as described in 
+ * https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-isolate.Isolate
+ * Fixes in the lang spec pending (see dart bug #14530) 
  * @author vasya
  * @reviewer msyabro
- * @needsreview issue 3271
  */
 
-//error - main must not have arguments.
-main(x) { // static (not type) warning
-  print(x);
+main(x, y) {
+  print("x=${x.runtimeType} $x");
+  print("y=${y.runtimeType} $y");
 }

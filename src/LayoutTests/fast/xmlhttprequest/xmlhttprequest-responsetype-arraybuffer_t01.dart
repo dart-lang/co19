@@ -9,6 +9,7 @@
  * TODO Dartium crashes. Finish the test conversion after it is fixed.  
  */
 import "dart:html";
+import "dart:typed_data";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
@@ -48,14 +49,15 @@ void load(e) {
     // Make sure exception is thrown if responseType is set too late in the loading process.
     Expect.throws(() {
         xhr.responseType = "text";
-    }, "exception not thrown when xhr.responseType is set to valid value too late in the loading process."
+    }
+    , null
+    , "exception not thrown when xhr.responseType is set to valid value too late in the loading process."
     );
 
     var buffer = xhr.response;
 print("buffer is ${buffer.runtimeType}");
-    // Interpret the ArrayBuffer as Uint8Array.
-    var buffer8 = new Uint8Array(buffer);
-    buffer8.set(buffer);
+    // Interpret the ArrayBuffer as Uint8List.
+    var buffer8 = new Uint8List.view(buffer);
 
     var totalLength = buffer8.length;
     debug('response length : ' + totalLength + ".");
