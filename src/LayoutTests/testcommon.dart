@@ -203,4 +203,4 @@ createContext2d(id) {
   return canvas.getContext('2d');
 }
 
-qwe() => testFailed('foo');
+qwe([x]) => testFailed(x.toString());
