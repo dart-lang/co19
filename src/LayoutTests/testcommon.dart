@@ -203,4 +203,6 @@ createContext2d(id) {
   return canvas.getContext('2d');
 }
 
+addConsole() => document.body.appendHtml('<div id="console"></div>');
+
 qwe([x]) => testFailed(x.toString());
