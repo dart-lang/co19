@@ -30,3 +30,9 @@ assert_throws(func(), [reason]) => Expect.throws(func, null, reason);
 
 assert_array_equals(actual, expected, [reason]) =>
   Expect.listEquals(expected, actual, reason);
+
+assert_approx_equals(num actual,
+                           num expected,
+                           [num tolerance = null,
+                            String reason = null])  =>
+   Expect.approxEquals(expected, actual, tolerance, reason);                            

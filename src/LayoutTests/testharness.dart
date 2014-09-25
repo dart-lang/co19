@@ -4,6 +4,7 @@ import "dart:html";
 export "dart:html";
 import "../Utils/expect.dart";
 export "../Utils/expect.dart";
+export "resources/testharness.dart";
 
 const String testSuiteRoot="/root_dart/tests/co19/src/LayoutTests";
 const NaN=double.NAN;
@@ -23,7 +24,7 @@ bool printPassed=false;
 void testPassed(String testName) {
     passcnt++;
     if (printPassed) {
-        print("test $testName passed.");
+        print('test "$testName" passed.');
     }
 }
 
@@ -34,7 +35,7 @@ void testFailed(String testName, [String diag]) {
     } else {
         diag=": $diag.";
     }
-    print("test $testName failed$diag");
+    print('test "$testName" failed$diag');
 }
 
 void shouldBe(actual, expected, [reason]) {
@@ -76,6 +77,10 @@ void test(void func(), String testName, [properties]) {
 }
 
 void shouldThrow(func(), [check, reason]) {
+    test((){
+       Expect.throws(func, check, reason);
+    }, reason);
+/*
     try {
       func();
       String msg = reason == null ? "" : reason;
@@ -89,6 +94,7 @@ void shouldThrow(func(), [check, reason]) {
         testPassed(msg);
       }
     }
+    */
 }
 
 void checkTestFailures() {

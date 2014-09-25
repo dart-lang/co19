@@ -271,6 +271,10 @@ class Expect {
   static void throws(void f(),
                      [_CheckExceptionFn check = null,
                       String reason = null]) {
+    if (!(f is Function)) {
+       String msg = reason == null ? "" : reason;
+       _fail("Expect.throws($f, $msg): first argument is not a Function, but a ${f.runtimeType}");
+    }
     try {
       f();
     } catch (e, s) {
