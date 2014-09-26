@@ -84,13 +84,19 @@ main() {
     shouldBeEqualToString(modifiedFace.featureSettings, "'dlig' 1, 'liga' 0");
 
     debug('');
-    shouldThrow(() => new FontFace('test', 'invalid_src', {}));
     var face = new FontFace('test', 'local(foo)', {});
     shouldThrow(() => face.style = '');
     shouldThrow(() => face.weight = 'a');
     shouldThrow(() => face.unicodeRange = 'U+');
     shouldThrow(() => face.variant = '???');
     shouldThrow(() => face.featureSettings = null);
+    // TODO(terry): When promises are available in Dartium; below tests should
+    //              be enabled (issue #21099) 
+    // promise1 = face.loaded;
+    // promise2 = face.load();
+    // promise3 = face.loaded;
+    // shouldBeTrue(() => promise1 === promise2);
+    // shouldBeTrue(() => promise1 === promise3);
   }
 
   if (document.fonts != null)
