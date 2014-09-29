@@ -54,71 +54,72 @@ const String htmlEL2 = r'''
     <div id="console"></div>
 ''';
 
-void hittest(ele, orgElement) {   
+void hittest(ele, orgElement) {  
     int edge = ele.getBoundingClientRect().right.toInt();
     int middleY = (ele.getBoundingClientRect().bottom / 2).toInt();
     print('Executing for element $orgElement on the right edge of the table cell: middleY=$middleY');
-    
-    case ('tr1-td1'):
+
+    switch (orgElement) {
+    case 'tr1-td1':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr1-td1');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr1-td2');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr1-td2');
         break;
-    case ('tr1-td2'):
+    case 'tr1-td2':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr1-td2');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr1-td4');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr1-td4');
         break;        
-    case ('tr1-td3'):
+    case 'tr1-td3':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr1-td2');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr1-td4');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr1-td4');
         break;
-    case ('tr1-td4'):
+    case 'tr1-td4':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr1-td4');
         shouldBe(document.elementFromPoint(edge, middleY).id, '');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, '');
         break;
-    case ('tr2-td1'):
+    case 'tr2-td1':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr2-td1');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr2-td2');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr2-td2');
         break;
-    case ('tr2-td2'):
-    case ('tr2-td3'):        
+    case 'tr2-td2':
+    case 'tr2-td3':        
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr2-td2');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr2-td4');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr2-td4');
         break; 
-    case ('tr2-td4'):
+    case 'tr2-td4':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr2-td4');
         shouldBe(document.elementFromPoint(edge, middleY).id, '');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, '');
         break;
-    case ('tr3-td1'):
-    case ('tr3-td2'):
-    case ('tr3-td3'):
-    case ('tr3-td4'):
+    case 'tr3-td1':
+    case 'tr3-td2':
+    case 'tr3-td3':
+    case 'tr3-td4':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, '');
         shouldBe(document.elementFromPoint(edge, middleY).id, '');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, '');
         break;
-    case ('tr4-td1'):
+    case 'tr4-td1':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr4-td1');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr4-td2');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr4-td2');
         break;
-    case ('tr4-td2'):
+    case 'tr4-td2':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr4-td2');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr4-td4');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr4-td4');
         break;        
-    case ('tr4-td3'):        
+    case 'tr4-td3':        
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, '');
         shouldBe(document.elementFromPoint(edge, middleY).id, 'tr4-td4');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, 'tr4-td4');
         break;
-    case ('tr4-td4'):
+    case 'tr4-td4':
         shouldBe(document.elementFromPoint(edge - 1, middleY).id, 'tr4-td4');
         shouldBe(document.elementFromPoint(edge, middleY).id, '');
         shouldBe(document.elementFromPoint(edge + 1, middleY).id, '');

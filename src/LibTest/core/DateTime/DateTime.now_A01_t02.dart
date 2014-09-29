@@ -20,5 +20,4 @@ main(){
     Expect.isTrue(prev.compareTo(next) <= 0);
     prev = next;
   }
-  Expect.isTrue(start.compareTo(new DateTime.now()) < 0);
 }

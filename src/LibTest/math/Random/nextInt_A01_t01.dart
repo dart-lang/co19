@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 import "dart:math";
 
 main() {
-  Random rand = new Random();
+  Random rand = new Random(511);
   int max = 1000;
   for(int i = 0; i < 1000; i++) {
     int x = rand.nextInt(1000);

@@ -8,23 +8,18 @@
  * type. Otherwise, the type of an initializing formal named id is Tid, where Tid is
  * the type of the field named id in the immediately enclosing class.
  * @description Checks that the type of an initializing formal is the type of the corresponding field.
- * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
 
-import "../../../Utils/dynamic_check.dart";
-
 class C {
-  C(double this.x) {}
+  C(this.x) {}
   num x;
 }
 
 main() {
+  new C(1);
   new C(3.14);
-  checkTypeError(
-    () => new C(1) /// static type warning
-  );
 }
 
 

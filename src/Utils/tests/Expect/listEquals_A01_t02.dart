@@ -30,10 +30,6 @@ main() {
   check([1, new Object()], [1, new Object()], "");
   check([1, new Object()], [1, new Object()], "not empty");
 
-  check([double.NAN], [double.NAN]);
-  check([double.NAN], [double.NAN], "");
-  check([double.NAN], [double.NAN], "not empty");
-
   check([1,2,3],[1,2,3,4]);
   check([0,1,2,3],[1,2,3]);
 }

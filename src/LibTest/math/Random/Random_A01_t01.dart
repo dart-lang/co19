@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "dart:math";
 
 main() {
-  var rand = new Random();
+  var rand = new Random(519);
   Expect.isTrue(rand is Random);
 
   rand = new Random(100);

@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 import "dart:math";
 
 main() {
-  Random rand = new Random();
+  Random rand = new Random(1023);
   for(int i = 0; i < 1000; i++) {
     double x = rand.nextDouble();
     Expect.isTrue(x < 1 && x >= 0);

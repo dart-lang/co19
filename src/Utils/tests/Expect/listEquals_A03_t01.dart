@@ -29,10 +29,6 @@ main() {
   check([new Object()], [new Object()]);
   check([new Object()], [new Object()], "not empty");
 
-  check([double.NAN], [double.NAN]);
-  check([double.NAN], [double.NAN], "");
-  check([double.NAN], [double.NAN], "not empty");
-
   check([1,2,3], [1,2,3,4]);
   check([0,1,2,3], [1,2,3], "235dsf435g gret sd");
 
