@@ -29,7 +29,7 @@ var frameDoc = iframe.firstChild.ownerDocument;
  testLeaf(node, desc) {
   // WebIDL.
   test(() {
-    assert_throws("HierarchyRequestError", () { node.append(null); });
+    assert_throws("Null value is not a valid DartNode", () { node.append(null); });
   }, "Appending null to a " + desc);
 
   // Pre-insert step 1.
@@ -40,7 +40,7 @@ var frameDoc = iframe.firstChild.ownerDocument;
 
 // WebIDL.
 test(() {
-  assert_throws("NotFoundError", () { document.body.append(null); });
+  assert_throws("Null value is not a valid DartNode", () { document.body.append(null); });
 //  assert_throws("TypeError", () { document.body.append({'a':'b'}); }); -- separate test Node-appendChild_t02
 }, "WebIDL tests");
 

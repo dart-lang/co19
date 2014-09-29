@@ -32,7 +32,9 @@ test(() {
 
 test(() {
   var r = document.createRange();
-  assert_throws("HierarchyRequestError", () { r.comparePoint(null, 0); });
+  assert_throws("Null value is not a valid DartNode", () {
+    r.comparePoint(null, 0);
+  });
 }, "null");
 
 test(() {
