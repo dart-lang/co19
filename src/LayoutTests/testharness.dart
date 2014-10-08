@@ -1,4 +1,4 @@
-library testharness;
+library testharness_top;
 
 import "dart:html";
 export "dart:html";

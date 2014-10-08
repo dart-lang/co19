@@ -20,5 +20,5 @@ import "lib.dart";
 main() {
   Expect.throws(() {
     var c = new _InaccessibleClass(); /// static type warning
-  }, (e) => e is TypeError);
+  });
 }
