@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion 
+ * @description 
+ */
+import "dart:html";
+import "dart:math" as Math;
+import "../../../testharness.dart";
+
+const String htmlEL1 = r'''
+<style>
+    #image-shape {
+        float: left;
+        shape-outside: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='250px' height='100px'><rect x='50' y='50' width='200' height='50' fill='blue'/></svg>");
+        shape-margin: 50px;
+        shape-image-threshold: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='300' height='150' rx='50' ry='50' fill='blue'/></svg>");
+        background-repeat: no-repeat;
+        width: 350px;
+        height: 250px;
+    }
+
+    #content {
+        font: 25px/1 Ahem, sans-serif;
+        color: green;
+    }
+</style>
+''';
+
+const String htmlEL2 = r'''
+  <p>This test requires the Ahem font. The green content should wrap around the blue rounded rectangle.</p>
+  <div id="content" style="position: relative">
+      <div id="image-shape"></div>
+      <span id="a">X</span><br><br><span id="b">X</span><br><span id="c">X</span><br><br><span id="d">X</span><br><span id="e">XXXX</span>
+  </div>
+  <div id="console"></div>
+''';
+
+Rectangle imageShapeRect(elementId) {
+    Rectangle s = document.getElementById("image-shape").getBoundingClientRect();
+    Rectangle r = document.getElementById(elementId).getBoundingClientRect();
+    return new Rectangle(r.left - s.left, r.top - s.top, r.width, r.height);
+}
+
+void runTest(e) {
+    shouldBe(imageShapeRect('a').top, 0);
+    shouldBeCloseTo(imageShapeRect('a').left, 292, 1);
+
+    shouldBe(imageShapeRect('b').top, 50);
+    shouldBe(imageShapeRect('b').left, 300);
+
+    shouldBe(imageShapeRect('c').top, 75);
+    shouldBe(imageShapeRect('c').left, 300);
+
+    shouldBe(imageShapeRect('d').top, 125);
+    shouldBeCloseTo(imageShapeRect('d').left, 292, 1);
+
+    shouldBe(imageShapeRect('e').top, 150);
+    shouldBe(imageShapeRect('e').left, 0);
+
+    checkTestFailures();
+}
+
+void main() {
+    document.head.appendHtml(htmlEL1);
+    document.body.appendHtml(htmlEL2);
+    window.onLoad.listen(runTest);
+}
