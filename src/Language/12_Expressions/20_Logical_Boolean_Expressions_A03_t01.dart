@@ -33,5 +33,5 @@ main() {
 
   checkTypeError(() => Expect.isFalse(0 && 1));
   checkTypeError(() => Expect.isFalse("" && 2));
-  checkTypeError(() => Expect.isFalse(null && []));
+  checkAssertionError(() => Expect.isFalse(null && []));
 }

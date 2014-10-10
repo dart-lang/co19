@@ -17,7 +17,7 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   var v = null;
-  checkTypeError(() {Expect.isTrue(!v);});
+  checkAssertionError(() {Expect.isTrue(!v);});
   v = "true, honestly";
   checkTypeError(() {Expect.isTrue(!v);});
   v = () {};

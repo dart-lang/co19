@@ -33,7 +33,7 @@ main() {
     }
   });
 
-  checkTypeError( () {
+  checkAssertionError( () {
     for ( var i = 0; null; i++) {
       break;
     }

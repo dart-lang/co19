@@ -26,3 +26,19 @@ checkTypeError(f()) {
     }
   }
 }
+
+checkAssertionError(f()) {
+  if(isCheckedMode()) {
+    try {
+      f();
+      Expect.fail("Assertion error expected in checking mode");
+    } on AssertionError catch(ok) {
+    }
+  } else {
+    try {
+      f();
+    } on AssertionError catch(bad) {
+      Expect.fail("Unexpected assertion error in scripting mode: $bad");
+    }
+  }
+}
