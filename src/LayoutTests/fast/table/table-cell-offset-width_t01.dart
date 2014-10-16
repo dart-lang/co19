@@ -21,7 +21,7 @@ void main() {
     // crbug.com/290399 reported that offsetWidth on a table cell
     // would incorrectly return the specified width instead of the layout-expanded width.
     // When this would fail, it would be 12px instead of the 66px 'FAIL' expands to in Ahem.
-    Elem td = document.getElementsByTagName('td')[0];
+    Element td = document.getElementsByTagName('td')[0];
     Expect.equals(66, td.offsetWidth);
     td.text="PASS";
 }

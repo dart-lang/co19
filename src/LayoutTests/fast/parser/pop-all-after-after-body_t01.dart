@@ -12,21 +12,23 @@ import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
-<style> 
-    p.foo + p { color: red; }
-</style> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>last-child test</title>
 ''';
 
 const String htmlEL2 = r'''
-    <p class="foo">This text should be black.</p> 
-    <p>This text should be red.</p> 
-    <p id="p2">This text should be black.</p>
-    <div id="result">FAIL</div>
+  <div id='last'>last</div>
 ''';
+
+void runTest(e) {
+    // Notice that this file lacks a terminating newline character!
+    // That's essential to what this test is testing!
+    Expect.equals(1, document.querySelectorAll('body>:last-child').length);
+    print("test passed");
+}
 
 void main() {
     document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
-    Expect.equals("rgb(0, 0, 0)", document.getElementById('p2').getComputedStyle().color);
-    document.getElementById("result").text = "PASS";
+    window.onLoad.listen(runTest);
 }

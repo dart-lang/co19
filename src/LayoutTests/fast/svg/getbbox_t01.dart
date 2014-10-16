@@ -8,6 +8,7 @@
  * @description getBBox tests
  */
 import "dart:html";
+import "dart:svg";
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 import "../../testharness.dart";
@@ -59,14 +60,18 @@ const String htmlEL2 = r'''
 <div id=log></div>
 ''';
 
-class MyRect {
+class MyRect implements Rect {
    num x, y, width, height;
    MyRect(this.x, this.y, this.width, this.height);
 }
 
 var epsilon = Math.pow(2, -24); // float epsilon
 
-void assert_rect_approx_equals(rect, expected) {
+Rect getBBoxById(String id) {
+    return (document.getElementById(id) as GraphicsElement).getBBox();
+}
+
+void assert_rect_approx_equals(Rect rect, Rect expected) {
     Expect.approxEquals(expected.x, rect.x, epsilon, "x");
     Expect.approxEquals(expected.y, rect.y, epsilon, "y");
     Expect.approxEquals(expected.width, rect.width, epsilon, "width");
@@ -77,49 +82,49 @@ void main() {
 //    document.body.appendHtml(htmlEL2);
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p1").getBBox(), new MyRect(0, 0, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p1"), new MyRect(0, 0, 0, 0));
     }, "getBBox on polygon with no points attribute");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p3").getBBox(), new MyRect(0, 0, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p3"), new MyRect(0, 0, 0, 0));
     }, "getBBox on polyline with no points attribute");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p2").getBBox(), new MyRect(0, 0, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p2"), new MyRect(0, 0, 0, 0));
     }, "getBBox on path with no d attribute");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p4").getBBox(), new MyRect(0, 0, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p4"), new MyRect(0, 0, 0, 0));
     }, "getBBox on path with no valid path segments in d attribute");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p5").getBBox(), new MyRect(0, 0, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p5"), new MyRect(0, 0, 0, 0));
     }, "getBBox on polygon with no valid point in the points attribute");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p6").getBBox(), new MyRect(0, 0, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p6"), new MyRect(0, 0, 0, 0));
     }, "getBBox on polyline with no valid point in the points attribute");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g1").getBBox(), document.getElementById("r1").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g1"), getBBoxById("r1"));
     }, "polygon doesn't contribute to parent bbox");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g1").getBBox(), document.getElementById("r2").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g1"), getBBoxById("r2"));
     }, "group with hidden child");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g3").getBBox(), document.getElementById("r6").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g3"), getBBoxById("r6"));
     }, "path doesn't contribute to parent bbox");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g5").getBBox(), document.getElementById("r8").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g5"), getBBoxById("r8"));
     }, "path with only invalid segments doesn't contribute to parent bbox");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g4").getBBox(), document.getElementById("r7").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g4"), getBBoxById("r7"));
     }, "polyline doesn't contribute to parent bbox");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g6").getBBox(), document.getElementById("r9").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g6"), getBBoxById("r9"));
     }, "polygon with no valid points doesn't contribute to parent bbox");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g7").getBBox(), document.getElementById("r10").getBBox());
+    	assert_rect_approx_equals(getBBoxById("g7"), getBBoxById("r10"));
     }, "polyline with no valid points doesn't contribute to parent bbox");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("p7").getBBox(), new MyRect(40, 20, 0, 0));
+    	assert_rect_approx_equals(getBBoxById("p7"), new MyRect(40, 20, 0, 0));
     }, "getBBox on path with no height");
     test(() {
-    	assert_rect_approx_equals(document.getElementById("g8").getBBox(), new MyRect(40, 20, 60, 80));
+    	assert_rect_approx_equals(getBBoxById("g8"), new MyRect(40, 20, 60, 80));
     }, "path with no height should contribute to parent bbox");
 
     checkTestFailures();

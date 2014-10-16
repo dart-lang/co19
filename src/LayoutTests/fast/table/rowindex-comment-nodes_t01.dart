@@ -21,12 +21,16 @@ rows in a table.</p>
 <div id='console' style="background-color:white; border:2px solid black"></div>
 ''';
 
+TableRowElement getTableRowElement(String id) {
+    return document.getElementById(id) as TableRowElement;
+}
+
 void doTest(e) {
-    shouldBe(document.getElementById('tr1').parentNode.childNodes.length, 5, 'tr1');    
-    shouldBe(document.getElementById('tr1').rowIndex, 0, 'tr1');
-    shouldBe(document.getElementById('tr2').rowIndex, 1, 'tr2');
-    document.getElementById('tr2').parentNode.deleteRow(1);
-    shouldBe(document.getElementById('tr3').rowIndex, 1, 'tr3');
+    shouldBe(document.getElementById('tr1').parentNode.childNodes.length, 5, 'tr1.length');    
+    shouldBe(getTableRowElement('tr1').rowIndex, 0, 'tr1.rowIndex');
+    shouldBe(getTableRowElement('tr2').rowIndex, 1, 'tr2');
+    (document.getElementById('tr2').parentNode as TableSectionElement).deleteRow(1);
+    shouldBe(getTableRowElement('tr3').rowIndex, 1, 'tr3');
     
     checkTestFailures();
 }

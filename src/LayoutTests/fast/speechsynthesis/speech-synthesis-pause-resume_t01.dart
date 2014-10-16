@@ -26,15 +26,15 @@ void main() {
     u.onResume.listen((event) {
        asyncEnd();
        print("On resume event received.");
-       Expect.isfalse(speechSynthesis.paused);
+       Expect.isFalse(speechSynthesis.paused);
        Expect.isTrue(speechSynthesis.speaking);
     });
  
     u.onEnd.listen((event) {
        asyncEnd();
        print("On end event received.");
-       Expect.isfalse(speechSynthesis.paused);
-       Expect.isfalse(speechSynthesis.speaking);
+       Expect.isFalse(speechSynthesis.paused);
+       Expect.isFalse(speechSynthesis.speaking);
     });
 
     speechSynthesis.speak(u);

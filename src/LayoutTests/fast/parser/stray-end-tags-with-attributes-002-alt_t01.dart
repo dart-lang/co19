@@ -5,28 +5,28 @@
  */
 /**
  * @assertion 
- * @description 
+ * @description Attributes on </br> 
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testharness.dart";
 
 const String htmlEL1 = r'''
-<style> 
-    p.foo + p { color: red; }
-</style> 
+<style>
+br+div { background:lime; width:10em; height:10em; display:block; content:""; }
+.fail+div { background:red; }
+</style>
 ''';
 
 const String htmlEL2 = r'''
-    <p class="foo">This text should be black.</p> 
-    <p>This text should be red.</p> 
-    <p id="p2">This text should be black.</p>
-    <div id="result">FAIL</div>
+There should be a green square and no red below: </br class=fail><div></div>
 ''';
 
 void main() {
     document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
-    Expect.equals("rgb(0, 0, 0)", document.getElementById('p2').getComputedStyle().color);
-    document.getElementById("result").text = "PASS";
+    var result = false;
+    var elm = document.getElementsByTagName("br")[0];
+    Expect.isNotNull(elm);
+    Expect.notEquals("fail", elm.className);
+    document.body.appendHtml("PASS");
 }

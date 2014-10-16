@@ -45,7 +45,7 @@ void runTest(e) {
     var tableHeight = document.getElementById('table').offsetHeight;
     var div1Height = parsePixelValue(document.getElementById('div1').style.height);
     var div2Height = parsePixelValue(document.getElementById('div2').style.height);
-    var imageHeight = document.getElementById('image').height;
+    var imageHeight = (document.getElementById('image') as ImageElement).height;
     var contentsHeight = div1Height + div2Height + imageHeight;
 
     Expect.isTrue(contentsHeight < tableHeight,

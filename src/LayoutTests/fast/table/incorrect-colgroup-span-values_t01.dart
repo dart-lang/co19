@@ -43,18 +43,22 @@ const String htmlEL2 = r'''
     </table>
 ''';
 
+int getSpan(String id) {
+    return (document.getElementById(id) as TableColElement).span;
+}
+
 void main() {
     description("This test checks that invalid 'span' values are rejected.");
     document.body.appendHtml(htmlEL2);
     // Remove "span" attribute (set it to null).
     document.getElementById("case1").attributes.remove("span");
 
-    shouldBe(document.getElementById('case1').span, 1);
-    shouldBe(document.getElementById('case2').span, 1);
-    shouldBe(document.getElementById('case3').span, 1);
-    shouldBe(document.getElementById('case4').span, 1);
-    shouldBe(document.getElementById('case5').span, 1);
-    shouldBe(document.getElementById('case6').span, 1);
+    shouldBe(getSpan('case1'), 1);
+    shouldBe(getSpan('case2'), 1);
+    shouldBe(getSpan('case3'), 1);
+    shouldBe(getSpan('case4'), 1);
+    shouldBe(getSpan('case5'), 1);
+    shouldBe(getSpan('case6'), 1);
 
     checkTestFailures();
 }

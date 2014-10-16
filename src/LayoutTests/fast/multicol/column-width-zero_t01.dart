@@ -5,28 +5,31 @@
  */
 /**
  * @assertion 
- * @description 
+ * @description Test for column-width property with zero value 
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testharness.dart";
 
 const String htmlEL1 = r'''
-<style> 
-    p.foo + p { color: red; }
-</style> 
+<style>
+#multicolumn
+{
+    display: block;
+    -moz-column-width: 0;
+    -o-column-width: 0;
+    -webkit-column-width: 0;
+    column-width: 0;
+}
+</style>
 ''';
 
 const String htmlEL2 = r'''
-    <p class="foo">This text should be black.</p> 
-    <p>This text should be red.</p> 
-    <p id="p2">This text should be black.</p>
-    <div id="result">FAIL</div>
+<div id="multicolumn"></div>
 ''';
 
 void main() {
     document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
-    Expect.equals("rgb(0, 0, 0)", document.getElementById('p2').getComputedStyle().color);
-    document.getElementById("result").text = "PASS";
+    var divElement = document.getElementById("multicolumn");
+    Expect.equals("auto", divElement.getComputedStyle().columnWidth);
 }

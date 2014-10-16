@@ -25,7 +25,6 @@ void main() {
        asyncEnd();
        Expect.isTrue(event.elapsedTime > 0);
        Expect.isFalse(speechSynthesis.speaking);
-       finishJSTest();
     });
 
     Expect.isFalse(speechSynthesis.speaking);

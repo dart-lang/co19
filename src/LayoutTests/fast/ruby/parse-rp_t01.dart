@@ -18,9 +18,9 @@ Before <ruby id="ruby">base/<rp><span>left</span> rp/<rt>text/<rp>right <span>rp
 
 void test(e) {
     var markup = document.getElementById("ruby").outerHtml;
-    document.getElementById("result").firstChild.data = "TEST FAILED: Markup was $markup";
+    document.getElementById("result").innerHtml = "TEST FAILED: Markup was $markup";
     Expect.equals('<ruby id="ruby">base/<rp><span>left</span> rp/</rp><rt>text/</rt><rp>right <span>rp</span></rp></ruby>', markup);
-    document.getElementById("result").firstChild.data = "TEST PASSED: Markup was correct";
+    document.getElementById("result").innerHtml = "TEST PASSED: Markup was correct";
 }
 
 void main() {

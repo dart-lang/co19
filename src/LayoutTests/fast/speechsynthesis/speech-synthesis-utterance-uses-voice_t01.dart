@@ -21,7 +21,7 @@ void main() {
     var u = new SpeechSynthesisUtterance("this is a test string.");
     u.voice = voice;
 
-    debug("Verify that setting and retrieving the voice works.");
+    print("Verify that setting and retrieving the voice works.");
     Expect.isTrue(u.voice.name == voice.name);
 
     u.onEnd.listen((event) {

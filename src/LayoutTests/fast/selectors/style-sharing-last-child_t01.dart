@@ -31,9 +31,13 @@ const String htmlEL2 = r'''
     <div>FAIL</div>
 ''';
 
+Element getLi(int n) {
+    return document.getElementsByTagName('li')[n] as Element;
+}
+
 void main() {
     document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
-    Expect.isTrue(document.getElementsByTagName('li')[2].offsetWidth > document.getElementsByTagName('li')[0].offsetWidth);
+    Expect.isTrue(getLi(2).offsetWidth > getLi(0).offsetWidth);
     document.getElementsByTagName('div')[0].text = "PASS";
 }

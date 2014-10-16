@@ -22,11 +22,11 @@ const String htmlEL2 = r'''
 void runTest(e) {
     var img = document.getElementById('img');
     var em = document.getElementById('em');
-    em.parentNode.replaceChild(img, em);
+    em.replaceWith(img);
     document.body.offsetTop;
-    document.body.removeChild(document.getElementById('table'));
+    document.getElementById('table').remove();
     
-    document.getElementById("result").innerHTML = "PASS";
+    document.getElementById("result").innerHtml = "PASS";
 }
 
 void main() {

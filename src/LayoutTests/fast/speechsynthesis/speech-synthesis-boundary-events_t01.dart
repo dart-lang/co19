@@ -14,17 +14,16 @@ void main() {
     var u = new SpeechSynthesisUtterance("this is a test");
     u.onStart.listen((event) {
        asyncEnd();
-       debug("Speech started");
+       print("Speech started");
     });
 
     u.onBoundary.listen((event) {
        asyncEnd();
-       debug("Boundary event: " + event.name + ", Character index: " + event.charIndex);
+       print("Boundary event: ${event.name}, Character index: ${event.charIndex}");
     });
 
     u.onEnd.listen((event) {
        asyncEnd();
-       finishJSTest();
     });
 
     asyncMultiStart(3);
