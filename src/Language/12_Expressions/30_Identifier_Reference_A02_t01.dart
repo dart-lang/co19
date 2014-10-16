@@ -9,6 +9,7 @@
  * BUILT_IN_IDENTIFIER:
  *   abstract |
  *   as |
+ *   deferred |
  *   dynamic |
  *   export |
  *   external |
@@ -37,6 +38,8 @@ main() {
   abstract;
   var as;
   as;
+  var deferred;
+  deferred;
   var dynamic;
   dynamic;
   String export;

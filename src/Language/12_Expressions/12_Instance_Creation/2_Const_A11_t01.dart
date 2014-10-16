@@ -9,6 +9,8 @@
  * factory constructor.
  * @description Checks that an instance creation expression of the form const T(a1, .., an),
  * where T is an abstract class, produces a static warning.
+ * It is also compile error if evaluation of const object throws an error.
+ * @compile-error
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
@@ -22,6 +24,5 @@ abstract class A {
 main() {
   try {
     const A(); /// static type warning - invoking a non-factory constructor of an abstract class, see "Instance creation|Const"
-    Expect.fail("AbstractClassInstantiationError expected");
-  } on AbstractClassInstantiationError catch(e) {}
+  } catch(e) {}
 }
