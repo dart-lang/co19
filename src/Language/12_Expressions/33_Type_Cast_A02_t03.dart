@@ -28,11 +28,6 @@ typedef bool func(int i);
 
 main() {
   try {
-    1 as double;
-    Expect.fail("CastError expected");
-  } on CastError catch(ok) {}
-
-  try {
     1 as func;
     Expect.fail("CastError expected");
   } on CastError catch(ok) {}

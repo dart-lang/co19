@@ -6,9 +6,11 @@
 /**
  * @assertion Control is transferred to the nearest innermost enclosing exception handler.
  * No change is made to the current exception.
- * @description Checks that the statement of the form "throw;" indeed transfers control
+ * @description Checks that the statement of the form "rethrow;" indeed transfers control
  * to the nearest enclosing exception handler if there is one, leaving the current exception
- * and stack trace unchanged.
+ * unchanged.
+ * @note Can not test if the stack trace is unchanged because stack trace
+ * equality is unspecified in spec (co19 issue 719)
  * @author rodionov
  * @reviewer iefremov
  */
@@ -41,7 +43,7 @@ main() {
   } catch (s, st) {
     flag = true;
     Expect.isTrue(identical(ex, s));
-    Expect.isTrue(identical(strace, st));
+    //Expect.isTrue(identical(strace, st)); // see note
   }
   
   Expect.isTrue(flag, "The correct exception handler wasn't triggered");

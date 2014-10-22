@@ -28,7 +28,6 @@ class D {}
 
 main() {
   Expect.isFalse(1 is String);
-  Expect.isFalse(1 is double);
   Expect.isFalse(1 is bool);
   Expect.isFalse(1 is List);
   Expect.isFalse(1 is C);

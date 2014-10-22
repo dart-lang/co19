@@ -17,9 +17,7 @@ import "../../Utils/dynamic_check.dart";
 main() {
   int i = (true ? 1 : 0.5); // int <=> num
 
-  checkTypeError(() {
-    double d = (true ? 1 : 0.5); // double <=> num
-  });
+  double d = (true ? 1.0 : 0); // double <=> num
 
   checkTypeError(() {
     bool b = (false ? true : []); // bool <=> Object

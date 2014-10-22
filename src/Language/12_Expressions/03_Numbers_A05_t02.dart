@@ -6,7 +6,7 @@
 /**
  * @assertion The static type of an integer literal is int.
  * @description Checks that a static warning is produced when assigning an integer literal to
- * a typed double variable.
+ * a typed bool variable.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
@@ -15,6 +15,6 @@ import "../../Utils/dynamic_check.dart";
 
 main() {
   checkTypeError(() {
-    double d = 1; /// static type warning 
+    bool b = 1; /// static type warning 
   });
 }
