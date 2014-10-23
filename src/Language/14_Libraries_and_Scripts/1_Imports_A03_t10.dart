@@ -25,5 +25,5 @@ import "1_Imports_A03_t01_p2_lib.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() => id is Object);
+  Expect.throws(() => id is Object, (ex)=>ex is NoSuchMethodError);
 }

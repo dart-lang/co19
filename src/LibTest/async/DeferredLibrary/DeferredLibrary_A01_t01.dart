@@ -9,29 +9,27 @@
  *  The VM is free to ignore this metadata.)
  * @description Checks that DeferredLibrary loads in lazy way.
  * @author kaigorodov
+ * @todo move from LibTest to Language
  */
 
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import 'DeferredLibrary_A01_t01.lib.dart' deferred as foo;
-
-const lazy = const DeferredLibrary('DeferredLibrary_A01_t01.lib');
+import 'DeferredLibrary_A01_t01.lib.dart' deferred as lazy;
 
 void main() {
   try {
-    foo.method(); // foo is not loaded yet.
+    lazy.method(); // foo is not loaded yet.
 //    Expect.fail("NoSuchMethodError expected"); -- #11507: do not insist on lazy loading
   } on NoSuchMethodError  catch(ok) {
   }
   asyncStart();
-  lazy.load().then(onFooLoaded);
+  lazy.loadLibrary().then(onFooLoaded);
 }
 
 void onFooLoaded(_) {
-  String name=foo.method();
+  String name=lazy.method();
   Expect.equals('DeferredLibrary_A01_t01.lib', name);
   asyncEnd();
 }
-
