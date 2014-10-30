@@ -123,6 +123,8 @@ shouldBeNonZero(actual) {
   Expect.isTrue(actual != 0, reason != null ? reason + ': $msg' : msg);
 }
 
+shouldBeNaN(actual) => shouldBe(actual, NaN);
+
 setTimeout(func(), [milliseconds=0]) =>
   new Future.delayed(new Duration(milliseconds: milliseconds), func);
 

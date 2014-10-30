@@ -20,7 +20,7 @@ class C {
   operator[](idx) {}
 
   noSuchMethod(Invocation im) {
-    Expect.equals('Symbol("[]=")', im.memberName.toString(),
+    Expect.equals(const Symbol("[]="), im.memberName,
            "Incorrect method was searched: ${im.memberName}");
   }
 }

@@ -30,7 +30,7 @@ class TestException {}
 class C {
   noSuchMethod(Invocation im) {
     Expect.isTrue(im.isSetter);
-    Expect.equals('Symbol("func=")', im.memberName.toString());
+    Expect.equals(const Symbol("func="), im.memberName);
     //Expect.listEquals([Closure], im.positionalArguments);  //Function.toString is not specified
     Expect.equals(1, im.positionalArguments.length);
     Expect.mapEquals({}, im.namedArguments);
