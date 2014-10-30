@@ -5,7 +5,7 @@ import 'dart:html';
 import '../../Utils/expect.dart';
 
 class Flag {
-  var checked = 0;
+  int checked = 0;
 }
 
 getComputedStyle(node) => node.getComputedStyle();
@@ -23,96 +23,98 @@ insertAfter(nodeToAdd, referenceNode)
     referenceNode.parentNode.append(nodeToAdd);
 }
 
-checkSubtreeExpectedValues(parent, failures)
-{
-  var checkedLayout = checkExpectedValues(parent, failures);
+int checkSubtreeExpectedValues(parent, failures) {
+  int checkedLayout = checkExpectedValues(parent, failures);
   parent.childNodes.forEach((node) {
     checkedLayout |= checkSubtreeExpectedValues(node, failures);
   });
   return checkedLayout;
 }
 
-checkAttribute(output, node, attribute)
-{
+int checkAttribute(output, node, attribute) {
   if (node is Element) {
-    var res = node.getAttribute(attribute);
-    output.checked |= res != null && res != "" ? 1 : 0;
-    return res;
+    String res = node.getAttribute(attribute);
+    bool isNotEmpty= res != null && res != "";
+    output.checked |= isNotEmpty?1:0;
+    if (!isNotEmpty) {
+        return null;
+    }
+    String res2=res.substring(0, res.length-2);// cut suffix "px"
+    return int.parse(res, onError:(String source){throw new FormatException("bad attr value:'$res'");});
   } else {
     return null;
   }
 }
 
-checkExpectedValues(node, failures)
-{
+int checkExpectedValues(node, failures) {
     var output = new Flag();
     var expectedWidth = checkAttribute(output, node, "data-expected-width");
     if (expectedWidth != null) {
-        if (node.offsetWidth != int.parse(expectedWidth))
-            failures.add("Expected " + expectedWidth + " for width, but got " + node.offsetWidth.toString() + ". ");
+        if (node.offsetWidth != expectedWidth)
+            failures.add("Expected ${expectedWidth} for width, but got ${node.offsetWidth}. ");
     }
 
     var expectedHeight = checkAttribute(output, node, "data-expected-height");
     if (expectedHeight != null) {
-        if (node.offsetHeight != int.parse(expectedHeight))
-            failures.add("Expected " + expectedHeight + " for height, but got " + node.offsetHeight.toString() + ". ");
+        if (node.offsetHeight != expectedHeight)
+            failures.add("Expected ${expectedHeight} for height, but got '${node.offsetHeight}'. ");
     }
 
     var expectedOffset = checkAttribute(output, node, "data-offset-x");
     if (expectedOffset != null) {
-        if (node.offsetLeft != int.parse(expectedOffset))
-            failures.add("Expected " + expectedOffset + " for offsetLeft, but got " + node.offsetLeft.toString() + ". ");
+        if (node.offsetLeft != expectedOffset)
+            failures.add("Expected ${expectedOffset} for offsetLeft, but got ${node.offsetLeft}. ");
     }
 
     expectedOffset = checkAttribute(output, node, "data-offset-y");
     if (expectedOffset != null) {
-        if (node.offsetTop != int.parse(expectedOffset))
-            failures.add("Expected " + expectedOffset + " for offsetTop, but got " + node.offsetTop.toString() + ". ");
+        if (node.offsetTop != expectedOffset)
+            failures.add("Expected ${expectedOffset} for offsetTop, but got ${node.offsetTop}. ");
     }
 
     expectedWidth = checkAttribute(output, node, "data-expected-client-width");
     if (expectedWidth != null) {
-        if (node.clientWidth != int.parse(expectedWidth))
-            failures.add("Expected " + expectedWidth + " for clientWidth, but got " + node.clientWidth.toString() + ". ");
+        if (node.clientWidth != expectedWidth)
+            failures.add("Expected ${expectedWidth} for clientWidth, but got ${node.clientWidth}. ");
     }
 
     expectedHeight = checkAttribute(output, node, "data-expected-client-height");
     if (expectedHeight != null) {
-        if (node.clientHeight != int.parse(expectedHeight))
-            failures.add("Expected " + expectedHeight + " for clientHeight, but got " + node.clientHeight.toString() + ". ");
+        if (node.clientHeight != expectedHeight)
+            failures.add("Expected ${expectedHeight} for clientHeight, but got ${node.clientHeight}. ");
     }
 
     expectedWidth = checkAttribute(output, node, "data-expected-scroll-width");
     if (expectedWidth != null) {
-        if (node.scrollWidth != int.parse(expectedWidth))
-            failures.add("Expected " + expectedWidth + " for scrollWidth, but got " + node.scrollWidth.toString() + ". ");
+        if (node.scrollWidth != expectedWidth)
+            failures.add("Expected ${expectedWidth} for scrollWidth, but got ${node.scrollWidth}. ");
     }
 
     expectedHeight = checkAttribute(output, node, "data-expected-scroll-height");
     if (expectedHeight != null) {
-        if (node.scrollHeight != int.parse(expectedHeight))
-            failures.add("Expected " + expectedHeight + " for scrollHeight, but got " + node.scrollHeight.toString() + ". ");
+        if (node.scrollHeight != expectedHeight)
+            failures.add("Expected ${expectedHeight} for scrollHeight, but got ${node.scrollHeight}. ");
     }
 
     expectedOffset = checkAttribute(output, node, "data-total-x");
     if (expectedOffset != null) {
         var totalLeft = node.clientLeft + node.offsetLeft;
-        if (totalLeft != int.parse(expectedOffset))
-            failures.add("Expected " + expectedOffset + " for clientLeft+offsetLeft, but got " + totalLeft.toString() + ", clientLeft: " + node.clientLeft.toString() + ", offsetLeft: " + node.offsetLeft.toString() + ". ");
+        if (totalLeft != expectedOffset)
+            failures.add("Expected ${expectedOffset} for clientLeft+offsetLeft, but got ${totalLeft}, clientLeft: ${node.clientLeft}, offsetLeft: ${node.offsetLeft}. ");
     }
 
     expectedOffset = checkAttribute(output, node, "data-total-y");
     if (expectedOffset != null) {
         var totalTop = node.clientTop + node.offsetTop;
-        if (totalTop != int.parse(expectedOffset))
-            failures.add("Expected " + expectedOffset + " for clientTop+offsetTop, but got " + totalTop.toString() + ", clientTop: " + node.clientTop.toString() + ", + offsetTop: " + node.offsetTop.toString() + ". ");
+        if (totalTop != expectedOffset)
+            failures.add("Expected ${expectedOffset} for clientTop+offsetTop, but got ${totalTop}, clientTop: ${node.clientTop}, + offsetTop: ${node.offsetTop}. ");
     }
 
     var expectedDisplay = checkAttribute(output, node, "data-expected-display");
     if (expectedDisplay != null) {
         var actualDisplay = getComputedStyle(node).display;
         if (actualDisplay != expectedDisplay)
-            failures.add("Expected " + expectedDisplay + " for display, but got " + actualDisplay + ". ");
+            failures.add("Expected ${expectedDisplay} for display, but got ${actualDisplay}. ");
     }
 
     var expectedPaddingTop = checkAttribute(output, node, "data-expected-padding-top");
@@ -121,7 +123,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualPaddingTop = actualPaddingTop.substring(0, actualPaddingTop.length - 2);
         if (actualPaddingTop != expectedPaddingTop)
-            failures.add("Expected " + expectedPaddingTop + " for padding-top, but got " + actualPaddingTop + ". ");
+            failures.add("Expected ${expectedPaddingTop} for padding-top, but got ${actualPaddingTop}. ");
     }
 
     var expectedPaddingBottom = checkAttribute(output, node, "data-expected-padding-bottom");
@@ -130,7 +132,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualPaddingBottom = actualPaddingBottom.substring(0, actualPaddingBottom.length - 2);
         if (actualPaddingBottom != expectedPaddingBottom)
-            failures.add("Expected " + expectedPaddingBottom + " for padding-bottom, but got " + actualPaddingBottom + ". ");
+            failures.add("Expected ${expectedPaddingBottom} for padding-bottom, but got ${actualPaddingBottom}. ");
     }
 
     var expectedPaddingLeft = checkAttribute(output, node, "data-expected-padding-left");
@@ -139,7 +141,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualPaddingLeft = actualPaddingLeft.substring(0, actualPaddingLeft.length - 2);
         if (actualPaddingLeft != expectedPaddingLeft)
-            failures.add("Expected " + expectedPaddingLeft + " for padding-left, but got " + actualPaddingLeft + ". ");
+            failures.add("Expected ${expectedPaddingLeft} for padding-left, but got ${actualPaddingLeft}. ");
     }
 
     var expectedPaddingRight = checkAttribute(output, node, "data-expected-padding-right");
@@ -148,7 +150,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualPaddingRight = actualPaddingRight.substring(0, actualPaddingRight.length - 2);
         if (actualPaddingRight != expectedPaddingRight)
-            failures.add("Expected " + expectedPaddingRight + " for padding-right, but got " + actualPaddingRight + ". ");
+            failures.add("Expected ${expectedPaddingRight} for padding-right, but got ${actualPaddingRight}. ");
     }
 
     var expectedMarginTop = checkAttribute(output, node, "data-expected-margin-top");
@@ -157,7 +159,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualMarginTop = actualMarginTop.substring(0, actualMarginTop.length - 2);
         if (actualMarginTop != expectedMarginTop)
-            failures.add("Expected " + expectedMarginTop + " for margin-top, but got " + actualMarginTop + ". ");
+            failures.add("Expected ${expectedMarginTop} for margin-top, but got ${actualMarginTop}. ");
     }
 
     var expectedMarginBottom = checkAttribute(output, node, "data-expected-margin-bottom");
@@ -166,7 +168,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualMarginBottom = actualMarginBottom.substring(0, actualMarginBottom.length - 2);
         if (actualMarginBottom != expectedMarginBottom)
-            failures.add("Expected " + expectedMarginBottom + " for margin-bottom, but got " + actualMarginBottom + ". ");
+            failures.add("Expected ${expectedMarginBottom} for margin-bottom, but got ${actualMarginBottom}. ");
     }
 
     var expectedMarginLeft = checkAttribute(output, node, "data-expected-margin-left");
@@ -175,7 +177,7 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualMarginLeft = actualMarginLeft.substring(0, actualMarginLeft.length - 2);
         if (actualMarginLeft != expectedMarginLeft)
-            failures.add("Expected " + expectedMarginLeft + " for margin-left, but got " + actualMarginLeft + ". ");
+            failures.add("Expected ${expectedMarginLeft} for margin-left, but got ${actualMarginLeft}. ");
     }
 
     var expectedMarginRight = checkAttribute(output, node, "data-expected-margin-right");
@@ -184,14 +186,13 @@ checkExpectedValues(node, failures)
         // Trim the unit "px" from the output.
         actualMarginRight = actualMarginRight.substring(0, actualMarginRight.length - 2);
         if (actualMarginRight != expectedMarginRight)
-            failures.add("Expected " + expectedMarginRight + " for margin-right, but got " + actualMarginRight + ". ");
+            failures.add("Expected ${expectedMarginRight} for margin-right, but got ${actualMarginRight}. ");
     }
 
     return output.checked;
 }
 
-checkLayout(selectorList, [outputContainer])
-{
+bool checkLayout(selectorList, [outputContainer]) {
   var result = true;
   if (selectorList == null) {
     throw "You must provide a CSS selector of nodes to check.";
@@ -199,7 +200,7 @@ checkLayout(selectorList, [outputContainer])
   var nodes = document.querySelectorAll(selectorList);
   //nodes = Array.prototype.slice.call(nodes);
   //nodes.reverse();
-  var checkedLayout = 0;
+  int checkedLayout = 0;
   nodes.forEach((node) {
     var failures = [];
     checkedLayout |= checkExpectedValues(node.parentNode, failures);
