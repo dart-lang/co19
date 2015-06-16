@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -48,7 +48,7 @@ void updateMediaQuery2(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     window.onLoad.listen(updateMediaQuery2);
       // update media query while document is parsing

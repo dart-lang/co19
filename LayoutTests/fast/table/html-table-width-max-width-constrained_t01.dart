@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Tests that percent lengths of an absolutely positioned table is resolved
  * against the padding box of the parent.
  */
 import "dart:html";
 import "../../resources/check-layout.dart";
+import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <style>
@@ -51,7 +52,7 @@ void runTest(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(runTest);
 }

@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Tabindex on svg elements tests
  */
 import "dart:html";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
-<div id="testcontainer"><svg id="testroot" width="1" height="1"/></div>
+<div id="testcontainer"><svg id="testroot" width="1" height="1"></svg></div>
 <div id=log></div>
 ''';
 
-var svg = document.getElementById("testroot");
+var svg = null;
 
 bool isFocusable(elm) {
 	switch (elm.nodeName) {
@@ -139,7 +139,7 @@ void createSvg() {
 		"view",
 		"vkern"];
   for (var i = 0; i < svgelements.length; i++) {
-	svg.append(document.createElementNS("http://www.w3.org/2000/svg", svgelements[i]));
+	  svg.append(document.createElementNS("http://www.w3.org/2000/svg", svgelements[i]));
   }
 }
 
@@ -148,20 +148,21 @@ void setupTextContentElements() {
 
   // cleanup any old content
   while(svg.firstChild!=null) {
-	svg.firstChild.remove();
+	  svg.firstChild.remove();
   }
-  
+
   var textContentChildElements = ["textPath", "tref", "tspan"];
   for (var i = 0; i < textContentChildElements.length; i++) {
-	var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-	text.append(document.createElementNS("http://www.w3.org/2000/svg", textContentChildElements[i]));
-	svg.append(text);
+	  var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+	  text.append(document.createElementNS("http://www.w3.org/2000/svg", textContentChildElements[i]));
+	  svg.append(text);
   }
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
-    
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+    svg = document.getElementById("testroot");
+
     createSvg();
     var children=svg.children;
     while(children.length!=0) {
@@ -186,7 +187,7 @@ void main() {
                 document.body.focus();
             }
         }, "${element.nodeName}.focus() with tabindex set.");
-    
+
         element.remove();
     }
 

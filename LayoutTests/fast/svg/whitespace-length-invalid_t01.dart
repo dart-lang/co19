@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description Whitespace in attribute values tests 
+ * @assertion
+ * @description Whitespace in attribute values tests
  */
 import "dart:html";
 import "dart:math" as Math;
@@ -35,7 +35,7 @@ var validunits = [ "", "em", "ex", "px", "in", "cm", "mm", "pt", "pc", "%" ];
 // This test was split out from whitespace-length.html because the trybots were too slow.
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     testType("<length>",
 		 svg,

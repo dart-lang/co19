@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description CSS3 media query test:
- * @media css rule media.mediaText property parsing, media query syntax error should be handled correctly. 
+ * @media css rule media.mediaText property parsing, media query syntax error should be handled correctly.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <link rel="help" href="http://www.w3.org/TR/CSS21/media.html" />
@@ -37,7 +38,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
 
     // The following is valid according to the CSS 2.1 note: "Media Queries

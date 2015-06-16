@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -21,7 +21,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.offsetLeft;
     document.getElementById("node-to-hide").style.display = "none";
     document.getElementById("scrollable").scrollTop = 400;

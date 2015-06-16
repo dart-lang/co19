@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -25,7 +25,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
 
     var rules = document.styleSheets[document.styleSheets.length-1].cssRules;
@@ -41,6 +41,6 @@ void main() {
     test((){
       assert_equals(rules[2].media.mediaText, "not all");
     }, "(color-index: 2.1) is invalid");
-    
+
     checkTestFailures();
 }

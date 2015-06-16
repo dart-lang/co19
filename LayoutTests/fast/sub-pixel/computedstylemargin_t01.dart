@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -19,7 +19,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.attributes['style']="margin: 0; padding: 0;";
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     // Fixed width margins.
     var style = document.getElementById('test').getComputedStyle();
@@ -27,7 +27,7 @@ void main() {
     shouldBe(style.marginRight, '1.5px');
     shouldBe(style.marginBottom, '2.5px');
     shouldBe(style.marginLeft, '3.5px');
-    
+
     // Auto left/right margin.
     style = document.getElementById('test2').getComputedStyle();
     shouldBe(style.marginLeft, '0.5px');

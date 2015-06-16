@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This tests that we don't incorrectly wrap an auto-layout
  * table due to improper truncation of sub-pixel accumulation. See Bug 93911.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <style>
@@ -37,7 +38,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     var lineHeight = document.getElementById('testCell').style.lineHeight;
     Element testCell=document.getElementById('testCell');

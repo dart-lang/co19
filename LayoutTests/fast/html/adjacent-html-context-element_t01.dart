@@ -17,10 +17,10 @@ main() {
   var body = document.body;
 
   body.setInnerHtml('''
-<p>This tests inserting a td element "beforeBegin" of another td element using insertAdjacentHTML.
-If the context element was not properly adjusted, then td will be stripped by the parser.</p>
-<table><tr><td></td></tr></table>
-''', treeSanitizer: new NullTreeSanitizer());
+    <p>This tests inserting a td element "beforeBegin" of another td element using insertAdjacentHTML.
+    If the context element was not properly adjusted, then td will be stripped by the parser.</p>
+    <table><tr><td></td></tr></table>
+    ''', treeSanitizer: new NullTreeSanitizer());
 
   var td = document.querySelector('td');
   td.insertAdjacentHtml('beforeBegin', '<td></td>');

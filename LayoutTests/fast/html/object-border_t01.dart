@@ -9,7 +9,7 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
-import "pwd.dart";
+import "imports/pwd.dart";
 
 main() {
   var body = document.body;
@@ -41,7 +41,7 @@ main() {
       var y = x.currentStyle[styleProp];
     else if (window.getComputedStyle)
       var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
-    */  
+    */
     var y = x.getComputedStyle().getPropertyValue(styleProp);
     return y;
   }

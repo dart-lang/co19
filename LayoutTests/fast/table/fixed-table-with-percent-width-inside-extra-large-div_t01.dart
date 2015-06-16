@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL2 = r'''
     <div style="width: 2000px; position: absolute; left: -9000px;">
@@ -25,7 +26,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var table = document.getElementById("table");
     Expect.equals("1994px", table.getComputedStyle(null).getPropertyValue("width")
         , "The width of the fixed table should be 1994px, which is based on the width of its containing div."

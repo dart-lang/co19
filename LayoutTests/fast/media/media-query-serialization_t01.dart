@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test media query serialization.
  * <a href="https://bugs.webkit.org/show_bug.cgi?id=39220">https://bugs.webkit.org/show_bug.cgi?id=39220</a>
  */
@@ -19,7 +19,7 @@ const String htmlEL1 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     var expected = "not braille, tv and (max-width: 200px) and (min-width: 100px) and (orientation: landscape), (color)";
     List styleSheets=document.styleSheets;
     Expect.equals(expected, styleSheets[styleSheets.length-1].media.mediaText);

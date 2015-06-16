@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -34,14 +34,11 @@ void doTest(e) {
   String paddingLeftS=computedStyle.getPropertyValue('padding-right');
   int paddingLeft=int.parse(paddingLeftS.substring(0, paddingLeftS.length-2)); // cut "suffix "px"
   var wdiff = cell.offsetWidth - text.offsetWidth - (paddingRight + paddingLeft);
-//  print("${cell.offsetWidth} - ${text.offsetWidth} - ($paddingRight + $paddingLeft)");
   Expect.isTrue(wdiff>0);
   text.text = "PASS";
 }
 
 void main() {
-//    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-//    document.body.setInnerHtml(htmlEL2);
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(doTest);
 }

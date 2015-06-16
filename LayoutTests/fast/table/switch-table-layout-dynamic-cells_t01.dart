@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -39,23 +39,23 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
 
     document.body.offsetTop;
-    
+
     var table = document.getElementById("table");
     var row = table.insertRow(table.rows.length);
     row.insertCell(row.cells.length).setAttribute("data-expected-width", "100");
     row.insertCell(row.cells.length).setAttribute("data-expected-width", "100");
-    
+
     document.body.offsetTop;
-    
+
     var container = document.getElementById("container");
     container.style.setProperty("width", "500px");
-    
+
     table.style.setProperty("table-layout", "auto");
     table.style.setProperty("width", "auto");
-    
+
     checkLayout("#table tr td", document.getElementById("test-output"));
 }

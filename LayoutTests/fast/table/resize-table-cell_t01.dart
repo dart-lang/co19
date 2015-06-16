@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -57,8 +57,8 @@ void toggleSmallRows() {
 
 void main() {
     description("Regression(99212): table rows get incorrect height after changing some cells' height<br>https://bugs.webkit.org/show_bug.cgi?id=74303");
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     Element firstRow = document.getElementById("firstRow");
     // Original value.

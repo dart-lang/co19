@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -19,13 +19,13 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     var rules = document.styleSheets[document.styleSheets.length-1].cssRules;
     var mediaList = rules[0].media;
-    
+
     // - appendMedium()
-    
+
     test(() {
         mediaList.mediaText = "screen";
         mediaList.appendMedium("tv, screen");
@@ -33,21 +33,21 @@ void main() {
         // CSSOM 4.1: Parsing media query returns none as
         // there are more than one; terminate steps.
     }, "Add 'tv, screen' to 'screen'");
-    
+
     test(() {
         mediaList.mediaText = "screen";
         mediaList.appendMedium("tv");
         assert_equals(mediaList.mediaText, "screen, tv");
         // The valid media query is appended.
     }, "Add 'tv' to 'screen'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium("tv");
         assert_equals(mediaList.mediaText, "screen, tv");
         // CSSOM says to ignore if it exists, terminate steps.
     }, "Add 'tv' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium("screen");
@@ -58,21 +58,21 @@ void main() {
         // http://dev.w3.org/csswg/cssom/#dom-medialist-appendmedium
         // http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113/stylesheets.html
     }, "Add 'screen' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium(" ");
         // Ignored; terminate steps.
         assert_equals(mediaList.mediaText, "screen, tv");
     }, "Add ' ' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium("");
         // Ignored; terminate steps.
         assert_equals(mediaList.mediaText, "screen, tv");
     }, "Add '' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium(",");
@@ -80,36 +80,36 @@ void main() {
         // CSSOM 4.1: Parsing media query returns none as
         // there are more than one; terminate steps.
     }, "Add ',' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium("&invalid");
         assert_equals(mediaList.mediaText, "screen, tv, not all");
         // Ignored; terminate steps.
     }, "Add '&invalid' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium("not all");
         assert_equals(mediaList.mediaText, "screen, tv, not all");
     }, "Add 'not all' to 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.appendMedium("#?:/");
         assert_equals(mediaList.mediaText, "screen, tv, not all");
         // Ignored; terminate steps.
     }, "Add '#?:/' to 'screen, tv'");
-    
+
     // - deleteMedium()
-    
+
     test(() {
         mediaList.mediaText = "screen, tv, not all";
         mediaList.deleteMedium("&invalid");
         // Ignored; terminate steps.
         assert_equals(mediaList.mediaText, "screen, tv");
     }, "Remove '&invalid' from 'screen, tv, not all'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         Expect.throws(
@@ -118,7 +118,7 @@ void main() {
         );
         // Not found; throw NotFoundError.
     }, "Remove 'not all' from 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         Expect.throws(
@@ -127,7 +127,7 @@ void main() {
         );
         // Not found; throw NotFoundError.
     }, "Remove 'cow' from 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv, not all";
         mediaList.deleteMedium("not all");
@@ -135,7 +135,7 @@ void main() {
         // Remove any media query from the collection of media queries
         // for which comparing the media query returns true.
     }, "Remove 'not all' from 'screen, tv, not all'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv";
         mediaList.deleteMedium("tv");
@@ -143,7 +143,7 @@ void main() {
         // Remove any media query from the collection of media queries
         // for which comparing the media query returns true.
     }, "Remove 'tv' from 'screen, tv'");
-    
+
     test(() {
         mediaList.mediaText = "not all, not all, tv, not all";
         mediaList.deleteMedium("not all");
@@ -151,7 +151,7 @@ void main() {
         // Remove any media query from the collection of media queries
         // for which comparing the media query returns true.
     }, "Remove 'not all' from 'not all, not all, tv, not all'");
-    
+
     test(() {
         mediaList.mediaText = "not all, not all, tv, not all";
         mediaList.deleteMedium("tv");
@@ -159,7 +159,7 @@ void main() {
         // Remove any media query from the collection of media queries
         // for which comparing the media query returns true.
     }, "Remove 'tv' from 'not all, not all, tv, not all'");
-    
+
     test(() {
         mediaList.mediaText = "tv, print, screen";
         mediaList.deleteMedium("tv, print");
@@ -167,13 +167,13 @@ void main() {
         // CSSOM 4.1: Parsing media query returns none as
         // there are more than one; terminate steps.
     }, "Remove 'tv, print' from 'screen, tv, screen'");
-    
+
     test(() {
         mediaList.mediaText = "screen, tv, not all";
         mediaList.deleteMedium("#?:/");
         // Ignored; terminate steps.
         assert_equals(mediaList.mediaText, "screen, tv");
     }, "Remove '#?:/' from 'screen, tv, not all'");
-    
+
     checkTestFailures();
 }

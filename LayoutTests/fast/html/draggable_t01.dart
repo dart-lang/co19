@@ -9,7 +9,7 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
-import "pwd.dart";
+import "imports/pwd.dart";
 
 main() {
   var body = document.body;
@@ -82,10 +82,10 @@ main() {
     for (var i = 16; i < 24; i++) {
       elements[i].draggable = i < 20;
     }
-    
+
     var s = 'dom - attr\n----------\n';
     for (var i = 0; i < elements.length; i++) {
-      s += elements[i].draggable.toString() + ' - ' + 
+      s += elements[i].draggable.toString() + ' - ' +
         elements[i].getAttribute('draggable').toString() + '\n';
     }
 

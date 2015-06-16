@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This tests that we don't cause an assertion failure on relayout
  * of nested positioned elements. This test pass if we don't cause an assertion failure.");
   */
@@ -34,7 +34,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     Expect.equals(document.getElementById("membercenter").offsetTop,
         document.getElementById("support").offsetTop

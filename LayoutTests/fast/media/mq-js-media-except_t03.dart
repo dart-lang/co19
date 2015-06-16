@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description CSS3 media query test: @media css rule media.mediaText property parsing,
  * media query syntax error should be handled correctly (,,,,).
  */
@@ -36,7 +36,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     var styleSheet=document.styleSheets[document.styleSheets.length-1];
     var result=document.getElementById("result");

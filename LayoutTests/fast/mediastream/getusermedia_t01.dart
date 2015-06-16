@@ -65,7 +65,7 @@ void gotStream1(stream) {
     print("callback: gotStream1");
     Expect.equals(1, stream.getAudioTracks().length);
     Expect.equals(0, stream.getVideoTracks().length);
-    navigator.webkitGetUserMedia(video:true).
+    navigator.webkitGetUserMedia(video:true)
     .then(gotStream2, onError:error);
 }
 

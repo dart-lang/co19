@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description 'all and (' is not a valid media query and should become 'not all'.
  * Not all is not present in the media rule, hence a DOMException.NOT_FOUND_ERR should be thrown.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <link rel="help" href="http://www.w3.org/TR/css3-mediaqueries/" />
@@ -25,7 +26,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     Expect.throws(() {
         document.styleSheets[document.styleSheets.length-1].cssRules[0].media.deleteMedium("all and (");
     },

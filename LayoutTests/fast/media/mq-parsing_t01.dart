@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL1 = r'''
     <style type="text/css">
@@ -38,7 +39,7 @@ void printOut(expect, res) {
 
     var a =  resultStringifier(expect);
     var b = resultStringifier(res);
-    
+
     if (a == b) {
         span.innerHtml += "PASS: Got $b as expected.<br>";
     } else {
@@ -91,7 +92,7 @@ void runTests(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     window.onLoad.listen(runTests);
 }
