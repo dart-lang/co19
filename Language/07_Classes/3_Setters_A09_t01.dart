@@ -7,8 +7,8 @@
  * @assertion The effect of a static setter declaration in class C is to add
  * an instance setter with the same name and signature to the Type object for
  * class C that forwards to the static setter.
- * @description Check that static setter declaration adds instance getter with the same
- * name to the Type object of the class and this instance forwards static getter
+ * @description Check that static setter declaration adds instance setter with the same
+ * name to the Type object of the class and this instance forwards to the static getter
  *
  * @author sgrekhov
  */
@@ -26,11 +26,9 @@ main() {
   C c = new C();
   Type t = c.runtimeType;
 
-  try {
-    var x = t.s1;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {var x = t.s1;}, (e) => e is NoSuchMethodError);
 
   t.s2 = 3;
   Expect.equals(3, t.s2, "Static setter should set expected value");
+  Expect.equals(3, C.s2, "Static setter should be forwarded by instance one added to the Type object");
 }

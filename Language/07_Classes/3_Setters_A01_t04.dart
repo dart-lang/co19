@@ -23,6 +23,6 @@ class C {
 
 main() {
   C c = new C();
-  Expect.equals(1, c.s1 = 0, "Static getter should return expected value");
-  Expect.equals(2, C.s2 = 0, "Static getter should return expected value");
+  Expect.equals(1, c.s1 = 0, "Setter should return expected value");
+  Expect.equals(2, C.s2 = 0, "Static setter should return expected value");
 }

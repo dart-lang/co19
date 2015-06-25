@@ -9,8 +9,8 @@
  * by the identifier in the definition. The effect of a static getter declaration in
  * class C is to add an instance getter with the same name and signature to the
  * Type object for class C that forwards to the static getter.
- * @description Check that the instance setter with the same name added to the Type
- * object by static setted declaration is not inherited
+ * @description Check that the instance getter with the same name added to the Type
+ * object by static getter declaration
  *
  * @author sgrekhov
  */
@@ -25,10 +25,6 @@ main() {
   C c = new C();
   Type t = c.runtimeType;
 
-  try {
-    var x = t.g1;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  Expect.equals(1, t.g2, "Static getter should return expected value");
+  Expect.throws(() {var x = t.g1;}, (e) => e is NoSuchMethodError);
+  Expect.equals(1, t.g2, "Static getter should axist and return expected value");
 }

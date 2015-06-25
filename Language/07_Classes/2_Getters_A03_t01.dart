@@ -24,28 +24,9 @@ class C2 extends C1 {
 }
 
 main() {
-  try {
-    var x = C1.g1;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var x = C1.g2;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var x = C2.g1;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var x = C2.g2;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var x = C2.g3;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {var x = C1.g1;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = C1.g2;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = C2.g1;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = C2.g2;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = C2.g3;}, (e) => e is NoSuchMethodError);
 }
