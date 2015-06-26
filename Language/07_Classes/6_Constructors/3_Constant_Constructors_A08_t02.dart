@@ -15,7 +15,7 @@
  * by non-constant expression.
  *
  * @compile-error
- * @author sgrekhov
+ * @author sgrekhov@unipro.ru
  */
 class A {
 }

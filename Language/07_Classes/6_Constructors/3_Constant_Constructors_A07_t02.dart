@@ -11,7 +11,7 @@
  * constructor and has instance variable which is initialised by non-constant expression.
  * Even there are also instance variables initialised by constant expressions
  * @compile-error
- * @author sgrekhov
+ * @author sgrekhov@unipro.ru
  */
 
 class A {

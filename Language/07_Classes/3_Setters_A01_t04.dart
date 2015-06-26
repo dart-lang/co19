@@ -12,7 +12,7 @@
  *   static? setterSignature
  * ;
  * @description Checks setter returns expected value
- * @author sgrekhov
+ * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
 

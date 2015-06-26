@@ -9,8 +9,8 @@
  * class C that forwards to the static setter.
  * @description Check that static setter declaration adds instance setter with the same
  * name to the Type object of the class and this instance forwards to the static getter
- *
- * @author sgrekhov
+ * @author sgrekhov@unipro.ru
+ * @issue 23721
  */
 import "../../Utils/expect.dart";
 
@@ -26,9 +26,10 @@ main() {
   C c = new C();
   Type t = c.runtimeType;
 
-  Expect.throws(() {var x = t.s1;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.s1 = 1;}, (e) => e is NoSuchMethodError);
 
   t.s2 = 3;
   Expect.equals(3, t.s2, "Static setter should set expected value");
-  Expect.equals(3, C.s2, "Static setter should be forwarded by instance one added to the Type object");
+  Expect.equals(3, C.s2, "Static setter should be forwarded by instance " +
+      "one added to the Type object");
 }

@@ -13,7 +13,7 @@
  * @description Checks that compile error is produced if class declares a constant
  * constructor and its superclass has instance variable initialized by non-constant expression
  * @compile-error
- * @author sgrekhov
+ * @author sgrekhov@unipro.ru
  */
 class A {
 }

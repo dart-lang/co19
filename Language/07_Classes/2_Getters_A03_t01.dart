@@ -4,29 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion getter definition that is prefixed with the static modifier defines a static
- * getter. Otherwise, it defines an instance getter. The name of the getter is given
- * by the identifier in the definition. The effect of a static getter declaration in
+ * @assertion The effect of a static getter declaration in
  * class C is to add an instance getter with the same name and signature to the
  * Type object for class C that forwards to the static getter.
- * @description Checks that non-static getter cannot be called as static one
- * @author sgrekhov
+ * @description Check that static getter declaration adds the instance getter with
+ * the same name added to the Type object of this class
+ * @author sgrekhov@unipro.ru
+ * @issue 23721
  */
 import "../../Utils/expect.dart";
 
-class C1 {
+class C {
   int get g1 => 0;
-  get g2 => null;
-}
-
-class C2 extends C1 {
-  int get g3 => 0;
+  static get g2 => 1;
 }
 
 main() {
-  Expect.throws(() {var x = C1.g1;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = C1.g2;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = C2.g1;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = C2.g2;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = C2.g3;}, (e) => e is NoSuchMethodError);
+  C c = new C();
+  Type t = c.runtimeType;
+
+  Expect.throws(() {var x = t.g1;}, (e) => e is NoSuchMethodError);
+  Expect.equals(1, t.g2, "Static getter should exist and return expected value");
 }
