@@ -8,7 +8,7 @@
  * class C is to add an instance getter with the same name and signature to the
  * Type object for class C that forwards to the static getter.
  * @description Check that static getter declaration adds the instance getter with
- * the same name added to the Type object of this class
+ * the same name to the Type object of this class
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */

@@ -9,7 +9,7 @@
  * class C that forwards to the static setter.
  * @description Check that the instance setter, added to the Type
  * object by static setter declaration, is added to Type object of this class only
- * and not addet to the Type of the ancestor
+ * and not added to the Type of the ancestor
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
