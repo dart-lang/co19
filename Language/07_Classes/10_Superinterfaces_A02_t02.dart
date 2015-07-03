@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the implements clause of a class C 
- *  specifies a malformed type as a superinterface.
+ * @assertion It is a compile-time error if the implements clause of a class C
+ * specifies an enumerated type, a malformed type or deferred type
+ * as a superinterface
  * @description Checks that it is a compile-time error when the type expression
  * in a class's implements clause denotes a function type.
  * @compile-error
