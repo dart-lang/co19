@@ -8,17 +8,14 @@
  * specifies an enumerated type, a malformed type or deferred type
  * as a superinterface
  * @description Checks that it is a compile-time error when the type expression
- * in a class's implements clause denotes an unavailable type.
+ * in a class's implements clause denotes an enumerated type
  * @compile-error
- * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
 
-class A implements Unavailable {}
+enum E {a, b, c}
+
+class A implements E {}
 
 main() {
-  try {
-    new A();
-  } catch (e){}
 }

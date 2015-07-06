@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the extends clause of a class C 
- *  specifies a malformed type as a superclass.
+ * @assertion It is a compile-time error if the extends clause of a class C specifies an
+ * enumerated type, a malformed type or a deferred type as a superclass.
  * @description Checks that it is a compile-time error when the type expression
  * in a class's extends clause denotes a type variable.
  * @compile-error

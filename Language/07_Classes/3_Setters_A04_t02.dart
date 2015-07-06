@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The name of a setter is obtained by appending the string ‘=’ 
+ * @assertion The name of a setter is obtained by appending the string ‘=’
  * to the identifier given in its signature. Hence, a setter name can never
  * conflict with, override or be overridden by a getter or method.
- * @description Checks that there is no compile-time error if a class has 
+ * @description Checks that there is no compile-time error if a class has
  * an explicitly defined setter and an instance method with the same name.
  * @static-warning
  * @author iefremov

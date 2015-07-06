@@ -8,17 +8,14 @@
  * specifies an enumerated type, a malformed type or deferred type
  * as a superinterface
  * @description Checks that it is a compile-time error when the type expression
- * in a class's implements clause denotes an unavailable type.
+ * in a class's implements clause denotes a deferred type
  * @compile-error
- * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
 
-class A implements Unavailable {}
+import "10_Superinterfaces_A02_lib.dart" deferred as d;
+
+class C implements d.A {}
 
 main() {
-  try {
-    new A();
-  } catch (e){}
 }

@@ -6,19 +6,16 @@
 /**
  * @assertion It is a compile-time error if the extends clause of a class C specifies an
  * enumerated type, a malformed type or a deferred type as a superclass.
- * @description Checks that it is a compile-time error when the type expression
- * in a class's extends clause denotes a function type.
+ * @description Checks that it is a compile-time error if deferred type is used as a
+ * superclass
  * @compile-error
- * @author rodionov
- * @reviewer iefremov
+ * @author sgrekhov@unipro.ru
  */
 
-typedef void foo();
 
-class A extends foo {}
+import "dart:core" deferred as core;
+
+class A extends core.ArgumentError {}
 
 main() {
-  try {
-    A a = new A();
-  } catch (e){}
 }
