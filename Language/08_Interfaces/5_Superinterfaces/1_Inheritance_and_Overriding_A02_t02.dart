@@ -42,7 +42,7 @@ abstract class I implements SI1, SI2 {}
 
 main() {
   I i = null;
-  
+
   try {
     i.foo(null); /// static type warning cannot
     Expect.fail("NoSuchMethodError expected");
