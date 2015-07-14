@@ -40,10 +40,10 @@ abstract class SI2 {
 }
 
 abstract class SI3 {
-  Object m1();
-  num m2();
-  List m3();
-  m4();
+  Object m1(); // subtype of m1() in SI1 and SI2
+  num m2();   // subtype of m2() in SI1 and SI2
+  List m3();  // subtype of m3() in SI1 and SI2
+  m4();       // subtype of m4() in SI1 and SI2
 }
 
 abstract class I implements SI1, SI2, SI3 {

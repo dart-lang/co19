@@ -12,27 +12,30 @@
  * – m is a member of inherited(A, K).
  * • m is not overridden by J.
  * ...
- * If the above rules would cause multiple members m1 , . . . , mk with
- * the same name n to be inherited (because identically named members existed
- * in several superinterfaces) then at most one member is inherited.
  * If some but not all of the mi , 1 ≤ i ≤ k are getters none of the mi are
  * inherited, and a static warning is issued.
- * @description Checks that if multiple members with the same name are inherited
- * but not all of them are getters then static warning issued
- * @static-warning
+ * Otherwise, if the static types T1 , . . . , Tk of the members m1, . . . , mk are not
+ * identical, then there must be a member mx such that Tx <: Ti, 1 ≤ x ≤ k for
+ * all i ∈ 1..k, or a static type warning occurs.
+ * @description Checks that if all inherited members with the same name are methods and
+ * their static types are not identical, but there is a method such that its type is
+ * subtype of types of all other methods then no static warning issued. Test methods with
+ * parameters and return type void (except the subtype)
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
+import "dart:core";
 
 abstract class SI1 {
-  int get m => 1;
+  void m1(int v1);
 }
 
 abstract class SI2 {
-  int get m => 2;
+  void m1(double v1);
 }
 
 abstract class SI3 {
-  int m();
+  int m1(num v1);
 }
 
 abstract class I implements SI1, SI2, SI3 {

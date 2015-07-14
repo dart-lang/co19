@@ -26,42 +26,37 @@
  * Then I has a method named n, with r required parameters of type dy-
  * namic, h positional parameters of type dynamic, named parameters s of type
  * dynamic and return type dynamic.
- * @description Checks that there's no static warning produced when the subinterface member
- * being accessed is actually inherited. Members tested include variables, methods, getters,
- * setters and operators. There's no way to check whether the resulting inherited method
- * signature is actually as described above, but we can check that it's inherited at all.
+ * @description Checks that if several methods with the same name should be inherited
+ * then interface inherits method with maximum numbers of positional
+ * parameters type dynamic and minimum numbers of required paremeters
+ * and no static warning occurs
  * @static-clean
- * @author rodionov
+ * @author sgrekhov@unipro.ru
+ * @issue 23838
  */
 import "../../../Utils/expect.dart";
 
+class A {}
+class B extends A {}
 class C {}
 class D extends C {}
 
 abstract class SI1 {
-  int method(int v, Pattern p, {num o1, String o2});
-  int method2(C v, [D o]);
-  int get gett0r;
-  void set sett0r(int v);
-  C operator+(C v);
+  void foo(A v1, D v2, [int v3]);
 }
 
 abstract class SI2 {
-  void method(num v, String p, {int o1, Pattern o2});
-  num method2(D v, [C o]);
-  num get gett0r;
-  void set sett0r(num v);
-  D operator+(D v);
+  int foo(B v1, [C v2]);
 }
 
-abstract class I implements SI1, SI2 {}
+abstract class SI3 {
+  int foo(B v1, int v2, bool v3, [C v4]);
+}
+
+abstract class I implements SI1, SI2, SI3 {}
 
 main() {
   I i = null;
-
-  Expect.throws(() {i.method(null, null, o1:null, o2:null);}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var v = i.method2(null, null);}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {num n = i.gett0r;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {i.sett0r = null;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var v = i + null;}, (e) => e is NoSuchMethodError);
+  // We expect that I inherits var foo(var v1, [var v2, var v3, var v4]), so no static warning
+  Expect.throws(() {i.foo(null);}, (e) => e is NoSuchMethodError);
 }

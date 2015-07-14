@@ -4,37 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An interface I inherits any members of its superinterfaces that 
+ * @assertion An interface I inherits any members of its superinterfaces that
  * are not overridden by members declared in I.
- * @description Checks that an interface does not inherit static members of its 
+ * @description Checks that an interface does not inherit static members of its
  * superinterfaces.
  * Expects a NoSuchMethodError when trying to access a superinterface's static member
  * via a subinterface, as specified in (Expressions/Getter Invocation)
  * @static-warning
- * @author vasya
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  * @issue 13677
  */
 import "../../../Utils/expect.dart";
 
 abstract class S {
-  static final int foo = 1;
+  static int get foo => 1;
 }
 
 abstract class S2 implements S {
-  static var bar;
+  static dynamic get bar => 2;
 }
 
 abstract class I implements S2 {
 }
 
 main() {
-  try {
-    var x = I.foo; /// static type warning cannot resolve 'foo'
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(ok) {}
-  try {
-    var x = I.bar; /// static type warning cannot resolve 'bar'
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(ok) {}
+  Expect.throws(() {var x = I.foo;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = I.bar;}, (e) => e is NoSuchMethodError);
 }
