@@ -11,7 +11,7 @@
  * @compile-error
  * @author kaigorodov
  */
- 
+
 class A {
   var x;
 }
@@ -26,6 +26,4 @@ class AM extends A with M {
 }
 
 main() {
-  AM am = new AM();
-  String s=am.toString(); 
 }
