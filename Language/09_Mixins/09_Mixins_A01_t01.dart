@@ -16,7 +16,9 @@ class A {
 }
 
 class M {
-  String toString() {return super.toString();}
+  String toString() {
+    return super.toString();
+  }
 }
 
 class AM extends A with M {
