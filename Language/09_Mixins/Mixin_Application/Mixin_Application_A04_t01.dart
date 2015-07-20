@@ -6,7 +6,7 @@
 /**
  * @assertion If the mixin application declares support for interfaces, the resulting class
  * implements those interfaces.
- * @description Checks that If the mixin application declares support for interfaces,
+ * @description Checks that if the mixin application declares support for interfaces,
  * the resulting class implements those interfaces and no static warning occurs
  * @static-clean
  * @author sgrekhov@unipro.ru
