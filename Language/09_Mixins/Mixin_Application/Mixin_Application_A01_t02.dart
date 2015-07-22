@@ -19,7 +19,7 @@
  * A mixin application of the form S with M ; defines a class C with superclass
  * S.
  * A mixin application of the form S with M 1 , . . . , M k ; defines a class C whose
- * superclass is the application of the mixin composition (12.2) M k−1 ∗ . . . ∗ M 1 to
+ * superclass is the application of the mixin composition M k−1 ∗ . . . ∗ M 1 to
  * S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, M k ).
