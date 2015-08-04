@@ -24,31 +24,28 @@
  * occur. Otherwise
  * Variable declaration without initializer. The result of executing the
  * getter method is the value stored in v.
- * @description Checks that the initializer expression is evaluated at
- * the first use of a static variable.
- * @author msyabro
- * @reviewer iefremov
+ * @description Checks that CyclicInitializationError is thrown when getter
+ * is referenced during evaluation of initialization expression.
+ * @author kaigorodov
+ * @reviewer rodionov
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
-var counter = 0;
+int f() {
+  return C.sTyped;
+}
 
 class C {
-  static var sVar = ++counter;
-  static int sTyped = ++counter;
-  static final sFinal = ++counter;
-  static final int sFinalTyped = ++counter;
+  static int sTyped = f();
 }
 
 
 main() {
-  Expect.equals(0, counter);
-  Expect.equals(1, C.sVar);
-  Expect.equals(1, counter);
-  Expect.equals(2, C.sTyped);
-  Expect.equals(2, counter);
-  Expect.equals(3, C.sFinal);
-  Expect.equals(3, counter);
-  Expect.equals(4, C.sFinalTyped);
-  Expect.equals(4, counter);
+  try {
+    C.sTyped;
+    Expect.fail('CyclicInitializationError is expected');
+  } on CyclicInitializationError catch (e) {
+  } catch (e) {
+    Expect.fail('"$e" of type ${e.runtimeType} thrown instead of CyclicInitializationError');
+  }
 }

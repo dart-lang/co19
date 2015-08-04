@@ -11,14 +11,28 @@
  * declaration and includes the modifer static.
  * A library variable is implicitly static. It is a compile-time error to
  * preface a top-level variable declaration with the built-in identier static.
- * @description Checks that it is a compile-time error to preface a top-level
- * variable declaration with the built-in identifier static.
- * @compile-error
+ * @description Checks that a static variable is not associated with a
+ * particular instance.
  * @author kaigorodov
+ * @reviewer iefremov
  */
- 
-static var foo=1;
+import "../../Utils/expect.dart";
+
+class Cl {
+  static var _foo;
+  int get foo {
+    return _foo;
+  }
+  void set foo(int val) {
+    _foo = val;
+  }
+}
 
 main() {
-  Expect.equals(1, foo);
+  Cl c1 = new Cl();
+  Cl c2 = new Cl();
+  c2.foo = 1;
+  Expect.equals(1, c1.foo);
+  c2.foo = 2;
+  Expect.equals(2, c1.foo);
 }

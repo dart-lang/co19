@@ -24,24 +24,40 @@
  * occur. Otherwise
  * Variable declaration without initializer. The result of executing the
  * getter method is the value stored in v.
- * @description Checks the result of the getter of a constant static variable.
+ * @description Checks that if during the evaluation of e, the getter for v
+ * is invoked, a CyclicInitializationError is thrown. Also expects that
+ * after that the result of getter is [:null:]
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
-class Const {
-  const Const(this.x);
-  final x;
+f(func) {
+  try {
+    throw 1; // caugth exceptions do not matter
+  } on int catch (e) {
+    func();
+  }
 }
 
 class C {
-  static final sConst = const Const(1);
-  static final int sConstTyped = 2;
+  static var sVar = f(() => sVar);
+  static int sTyped = f(() => sTyped);
+  static final sFinal = f(() => sFinal);
+  static final int sFinalTyped = f(() => sFinalTyped);
 }
 
 
 main() {
-  Expect.equals(1, C.sConst.x);
-  Expect.equals(2, C.sConstTyped);
+  Expect.throws(() => C.sVar, (e) => e is CyclicInitializationError);
+  Expect.equals(null, C.sVar);
+
+  Expect.throws(() => C.sTyped, (e) => e is CyclicInitializationError);
+  Expect.equals(null, C.sTyped);
+
+  Expect.throws(() => C.sFinal, (e) => e is CyclicInitializationError);
+  Expect.equals(null, C.sFinal);
+
+  Expect.throws(() => C.sFinalTyped, (e) => e is CyclicInitializationError);
+  Expect.equals(null, C.sFinalTyped);
 }

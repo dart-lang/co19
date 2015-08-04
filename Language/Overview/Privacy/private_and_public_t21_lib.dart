@@ -13,7 +13,7 @@
  * @reviewer rodionov
  */
 
-library Privacy_A01_t21_lib;
+library private_and_public_t21_lib;
 
 import "private_and_public_t21.dart";
 

@@ -24,32 +24,31 @@
  * occur. Otherwise
  * Variable declaration without initializer. The result of executing the
  * getter method is the value stored in v.
- * @description Checks the result of the getter and that the initializer
- * expression  is evaluated only once.
+ * @description Checks that the initializer expression is evaluated at
+ * the first use of a static variable.
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
-String log = "";
-
-writeLog(int i) {
-  log = "${log}${i}";
-  return i;
-}
+var counter = 0;
 
 class C {
-  static var a = writeLog(1);
-  static int b = writeLog(2);
-  static final c = writeLog(3);
-  static final int d = writeLog(4);
+  static var sVar = ++counter;
+  static int sTyped = ++counter;
+  static final sFinal = ++counter;
+  static final int sFinalTyped = ++counter;
 }
 
-main() {
-  Expect.equals(4, C.d);
-  Expect.equals(1, C.a);
-  Expect.equals(2, C.b);
-  Expect.equals(3, C.c);
 
-  Expect.equals("4123", log, "Lazy static getters execution was wrong!");
+main() {
+  Expect.equals(0, counter);
+  Expect.equals(1, C.sVar);
+  Expect.equals(1, counter);
+  Expect.equals(2, C.sTyped);
+  Expect.equals(2, counter);
+  Expect.equals(3, C.sFinal);
+  Expect.equals(3, counter);
+  Expect.equals(4, C.sFinalTyped);
+  Expect.equals(4, counter);
 }

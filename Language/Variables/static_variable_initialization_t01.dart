@@ -6,7 +6,7 @@
 /**
  * @assertion Static variable declarations are initialized lazily. When a static
  * variable v is read, iff it has not yet been assigned, it is set to the result
- * of evaluating its initializer. The precise rules are given in sections 5.1.
+ * of evaluating its initializer
  * @description Checks that static variable declarations are initialized lazily by
  * assigning a throw expression to a top-level variable and checking that it is only
  * evaluated when that variable is accessed.
@@ -14,8 +14,8 @@
  * @reviewer rodionov
  */
 import "../../Utils/expect.dart";
- 
-var foo=throw new IntegerDivisionByZeroException();
+
+var foo = throw new IntegerDivisionByZeroException();
 
 main() {
   Expect.throws(() => foo, (e) => e is IntegerDivisionByZeroException);

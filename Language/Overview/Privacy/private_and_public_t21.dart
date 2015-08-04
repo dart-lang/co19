@@ -13,7 +13,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
-library Privacy_A01_t21;
+library private_and_public_t21;
 import "../../../Utils/expect.dart";
 import "private_and_public_t21_lib.dart";
 

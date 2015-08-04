@@ -13,7 +13,7 @@
  * @reviewer kaigorodov
  */
 
-import "library1.dart";
+import "library_variable_t01_lib.dart";
 
 main() {
   try {
