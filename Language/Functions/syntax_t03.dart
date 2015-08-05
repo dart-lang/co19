@@ -25,11 +25,11 @@
  * @reviewer iefremov
  */
 
-import "06_Functions_A01_t03_lib.dart" as prfx;
+import "syntax_t03_lib.dart" as prfx;
 
 class A {
   const A();
-  
+
   static final a = 1;
 }
 
@@ -77,7 +77,7 @@ main() {
 
   //Function expressions
   f_func() => (int z) {return z + 1;};
-  
+
   // only one semicolon is fine here because the nested function expression
   // is not a statement and is parsed using a different grammar production
   g_func() => () => 1;

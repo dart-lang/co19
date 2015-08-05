@@ -17,7 +17,7 @@
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 
 void func([var x = 1, var y = 2]) {
   Expect.equals(1, x);

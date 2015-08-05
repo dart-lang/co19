@@ -16,7 +16,7 @@
  * @reviewer iefremov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 
 void func(int z, [var x = 1, var y = 2]) {
   Expect.equals(7, z);

@@ -17,7 +17,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 
 foo({final p: 1}) {
   try {

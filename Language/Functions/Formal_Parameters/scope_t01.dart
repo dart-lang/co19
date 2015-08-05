@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The formal parameter list of a function introduces a new scope 
- * known as the function's formal parameter scope. The formal parameter scope 
+ * @assertion The formal parameter list of a function introduces a new scope
+ * known as the function's formal parameter scope. The formal parameter scope
  * of a function f is enclosed in the scope where f is declared.
  * Every formal parameter introduces a local variable into the formal parameter scope.
  * However, the scope of a function's signature is the function's enclosing scope,
@@ -13,13 +13,13 @@
  * The body of a function introduces a new scope known as the function's body
  * scope. The body scope of a function f is enclosed in the scope introduced by
  * the formal parameter scope of f.
- * @description Checks that the function scopes are enclosed in the scope where it's
+ * @description Checks that function scope are enclosed in the scope where it's
  * declared and not the one where it's invoked.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 f() {
   try {
