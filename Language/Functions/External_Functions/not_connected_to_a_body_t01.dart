@@ -16,7 +16,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../Utils/expect.dart";
+import '../../../Utils/expect.dart';
 
 external f();
 external g([var x]);

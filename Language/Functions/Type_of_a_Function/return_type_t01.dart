@@ -14,7 +14,7 @@
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 f() {}
 g() {return 1;}
@@ -24,7 +24,7 @@ main() {
     f().someMethod();
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
-  
+
   try {
     f().x;
     Expect.fail("NoSuchMethodError expected");
@@ -34,7 +34,7 @@ main() {
     g().someMethod();
     Expect.fail("NoSuchMethodError expected");
   } on NoSuchMethodError catch(e) {}
-  
+
   try {
     g().x;
     Expect.fail("NoSuchMethodError expected");
