@@ -9,7 +9,7 @@
  * @description Checks that static getter returns correct value
  * @author sgrekhov@unipro.ru
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   static int get g1 => 0;

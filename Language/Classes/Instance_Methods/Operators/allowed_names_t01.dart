@@ -11,7 +11,7 @@
  * @reviewer iefremov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 
 class C {
   int value;

@@ -4,25 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a  static warning if an instance method m1 overrides (7.9.1) an
+ * @assertion It is a  static warning if an instance method m1 overrides an
  * instance member m2 and m1 has a greater number of required parameters than m2.
- * @description Checks that a static warning is produced if m2 has one required parameter and m1 has two required parameters.
+ * @description Checks that a static warning is produced if m2 has no parameters
+ * and m1 has a single required parameter.
  * @static-warning
- * @author vasya
- * @reviewer iefremov
+ * @author iefremov
+ * @reviewer pagolubev
  * @reviewer rodionov
  */
 
 class A {
-  f(var x) { return x; }
+  f() { }
 }
 
 class C extends A {
-  f(var x, var y) { return x + y; } /// static warning
+  f(var x) { } /// static warning
 }
 
 main() {
-  new A().f(2);
-  new C().f(2, 2);
+  new A().f();
+  new C().f(1);
 }
-

@@ -14,7 +14,7 @@
  * @reviewer rodionov
  */
 
-import "1_Instance_Methods_A05_lib.dart";
+import "same_name_static_member_in_superclass_lib.dart";
 
 class C extends A {
   f() { /// static type warning

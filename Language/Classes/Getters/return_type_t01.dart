@@ -13,7 +13,7 @@
  * @reviewer pagolubev
  * @reviewer rodionov
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   get foo {}

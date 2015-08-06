@@ -14,7 +14,7 @@
  * @issue 23721
  */
 import "dart:core";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 abstract class A<V> {
   int get g1 => 1;

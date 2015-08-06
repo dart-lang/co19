@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   int get g1 => 0;

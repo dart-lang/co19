@@ -9,7 +9,7 @@
  * @description Checks that non-static getter cannot be called as static one
  * @author sgrekhov@unipro.ru
  */
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C1 {
   int get g1 => 0;
