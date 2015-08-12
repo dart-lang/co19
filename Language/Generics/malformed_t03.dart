@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A type parameter is considered to be a malformed type when referenced by a static member.
+ * @assertion A type parameter is considered to be a malformed type when referenced
+ * by a static member.
  * @description Checks that type parameter is not malformed in not static
  * context.
  * @author ilya
