@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A mixin application of the form S with M 1 , . . . , M k ; defines a class C whose
- * superclass is the application of the mixin composition (12.2) M k−1 ∗ . . . ∗ M 1 to S
+ * superclass is the application of the mixin composition M k−1 ∗ . . . ∗ M 1 to S
  * ...
  * It is a compile-time error if S is an enumerated type or a malformed
  * type.

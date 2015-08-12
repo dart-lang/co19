@@ -13,7 +13,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 23878
  */
-import "dart:core";
 
 class S {
   bool get g => false;

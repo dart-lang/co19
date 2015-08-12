@@ -5,11 +5,11 @@
  */
 /**
  * @assertion A mixin application of the form S with M 1 , . . . , M k ; defines a class C whose
- * superclass is the application of the mixin composition (12.2) M k−1 ∗ . . . ∗ M 1 to S
+ * superclass is the application of the mixin composition M k−1 ∗ . . . ∗ M 1 to S
  * ...
  * It is a compile-time error if M (respectively, any of M 1 , . . . , M k ) is an
  * enumerated type or a malformed type.
- * @description Checks that it is a compile-time error if M is an enumerated type
+ * @description Checks that it is a compile-time error if Mi is an enumerated type
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -17,9 +17,12 @@
 class S {
 }
 
-enum M {a, b, c}
+class M1 {
+}
 
-class C = S with M;
+enum M2 {a, b, c}
+
+class C = S with M1, M2;
 
 main() {
 }

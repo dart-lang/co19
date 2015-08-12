@@ -3,7 +3,7 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-library Mixins_A04_lib;
+library deferred_lib;
 
 class A {
 }
