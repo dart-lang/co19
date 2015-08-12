@@ -11,7 +11,7 @@
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
+import '../../../../Utils/expect.dart';
 
 class A {
   int get m => 0;

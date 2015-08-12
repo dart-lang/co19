@@ -13,7 +13,7 @@
  * @static-clean
  * @author sgrekhov@unopro.ru
  */
-import "../../../Utils/expect.dart";
+import '../../../../Utils/expect.dart';
 
 abstract class I {
   void m();

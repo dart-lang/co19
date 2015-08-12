@@ -20,22 +20,30 @@
  * @description Checks that if all inherited members with the same name are methods and
  * their static types are not identical, but there is a method such that its type is
  * subtype of types of all other methods then no static warning issued. Test methods with
- * parameters and return type void (except the subtype)
+ * parameters
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import "dart:core";
 
 abstract class SI1 {
-  void m1(int v1);
+  int m1(int v1);
+  int m2(String v1);
+  List<int> m3(List<int> v1);
+  int m4(int v1);
 }
 
 abstract class SI2 {
-  void m1(double v1);
+  bool m1(double v1);
+  double m2(Object v1);
+  List<String> m3(List<double> v1);
+  bool m4(int v1);
 }
 
 abstract class SI3 {
-  int m1(num v1);
+  Object m1(num v1); // subtype of m1() in SI1 and SI2
+  num m2(Object v1);   // subtype of m2() in SI1 and SI2
+  List m3(List v1);  // subtype of m3() in SI1 and SI2
+  void m4(num v1);  // subtype of m4() in SI1 and SI2
 }
 
 abstract class I implements SI1, SI2, SI3 {

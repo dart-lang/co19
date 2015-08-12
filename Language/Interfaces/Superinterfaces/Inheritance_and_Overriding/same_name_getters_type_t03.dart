@@ -17,24 +17,32 @@
  * Otherwise, if the static types T1 , . . . , Tk of the members m1, . . . , mk are not
  * identical, then there must be a member mx such that Tx <: Ti, 1 ≤ x ≤ k for
  * all i ∈ 1..k, or a static type warning occurs.
- * @description Checks that if all inherited members with the same name are methods and
- * their static types are not identical, but there is no method such that its type is
- * subtype of types of all other methods, then a static warning issued
- * @static-warning
+ * @description Checks that if all inherited members with the same name are getters and
+ * their static types are not identical, but there is a getter such that its type is
+ * subtype of types of all other getters then no static warning issued
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import "dart:core";
 
 abstract class SI1 {
-  int m();
+  int get m1;
+  int get m2;
+  List<int> get m3;
+  int get m4;
 }
 
 abstract class SI2 {
-  bool m();
+  bool get m1;
+  double get m2;
+  List<String> get m3;
+  bool get m4;
 }
 
 abstract class SI3 {
-  String m();
+  Object get m1; // subtype of m1 in SI1 and SI2
+  num get m2;   // subtype of m2 in SI1 and SI2
+  List get m3;  // subtype of m3 in SI1 and SI2
+  get m4;       // subtype of m4 in SI1 and SI2
 }
 
 abstract class I implements SI1, SI2, SI3 {

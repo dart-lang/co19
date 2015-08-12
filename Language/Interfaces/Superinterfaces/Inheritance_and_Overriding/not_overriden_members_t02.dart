@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 13677
  */
-import "../../../Utils/expect.dart";
+import '../../../../Utils/expect.dart';
 
 abstract class S {
   static int get foo => 1;

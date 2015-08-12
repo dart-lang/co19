@@ -15,29 +15,35 @@
  * However, if the above rules would cause multiple members m 1 , . . . , m k with
  * the same name n to be inherited (because identically named members existed
  * in several superinterfaces) then at most one member is inherited
- * @description Checks that if multiple getters with the same name are inherited actually
- * only one getter is inherited and no static warning issued
+ * @description Checks that if multiple methods with the same name are inherited actually
+ * only one method is inherited and no static warning issued
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
+import '../../../../Utils/expect.dart';
 
 abstract class SI1 {
-  int get m => 1;
+  int m() {
+    return 1;
+  }
 }
 
 abstract class SI2 {
-  int get m => 2;
+  int m() {
+    return 2;
+  }
 }
 
 abstract class I implements SI1, SI2 {
 }
 
 class C extends I {
-  int get m => 3;
+  int m() {
+    return 3;
+  }
 }
 
 main() {
   I i = new C();
-  Expect.equals(3, i.m, "Wrong getter inherited");
+  Expect.equals(3, i.m(), "Wrong method inherited");
 }
