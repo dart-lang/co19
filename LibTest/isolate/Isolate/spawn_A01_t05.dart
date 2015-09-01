@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionFuture<Isolate> spawn(void entryPoint(message), message)
+ * @assertion Future<Isolate> spawn(void entryPoint(message), message)
  * Creates and spawns an isolate that shares the same code as the current isolate.
  * The entry-point function is invoked with the initial message.
  * @description Checks that sending multiple messages works fine.
@@ -21,7 +21,7 @@ iMain(SendPort replyPort) {
   var receivePort = new ReceivePort();
 
   replyPort.send(receivePort.sendPort);
-  
+
   receivePort.listen((message) {
     replyPort.send(message-1);
     if(message == 0) {
@@ -42,7 +42,7 @@ main() {
     } else if (message is int) {
       if (message==0) {
         receivePort.close();
-      } else {    
+      } else {
         asyncStart();
         requestPort.send(message);
       }

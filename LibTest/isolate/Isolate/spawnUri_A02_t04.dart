@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Future<Isolate> spawnUri(Uri uri, List<String> args, message)
- * Creates and spawns an isolate that runs the code from the library with the specified URI.
+ * Creates and spawns an isolate that runs the code from the library with the
+ * specified URI.
  * @description Checks that returned Future throws an exception when URI points
  * to an unexistent file.
  * @author kaigorodov

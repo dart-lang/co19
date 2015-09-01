@@ -7,7 +7,6 @@
 library spawnUri_A01_t01_isolate;
 
 import "dart:isolate";
-import "../../../Utils/expect.dart";
 
 void main(List args, SendPort replyPort) {
   replyPort.send(args[0]);
