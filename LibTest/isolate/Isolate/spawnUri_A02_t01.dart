@@ -5,7 +5,8 @@
  */
 /**
  * @assertion undocumented
- * @description Checks that method throws an exception when given null, an integer or a List.
+ * @description Checks that method throws an exception when given null,
+ * an integer or a List.
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
