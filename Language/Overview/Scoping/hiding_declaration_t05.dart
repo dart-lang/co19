@@ -22,5 +22,5 @@ class G<C> {
 }
 
 main() {
-  Expect.throws(() => G.f(), (e) => e is TypeError);
+  Expect.throws(() => G.f());
 }
