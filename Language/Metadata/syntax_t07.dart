@@ -8,39 +8,20 @@
  *  metadata:
     (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
     ;
-    @description Verify several kinds of valid metadata declarations
+    @description It is a compile time error, if mandatory arguments are missing
+    @note issue #24281
+    @compile-error
     @author a.semenov@unipro.ru
  */
-
-const Z = 'Zombie';
+import "dart:mirrors";
 
 class A {
-    const A();
+    const A(int x);
 }
 
-class B<T> {
-    const B();
-    const B.b(T t);
-}
-
-class Foo {
-    const Foo(int x, int y);
-}
-
-@A()
-class Test1{}
-
-@A() @B() @B.b(10)
-class Test2{}
-
-@Foo(1,2)
-class Test3{}
-
-@B() @Z
-class Test4{}
-
-@B.b('aaa')
-class Test5{}
+@A
+class B{}
 
 main() {
+    reflectClass(B).metadata; // compile error
 }

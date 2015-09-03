@@ -8,39 +8,18 @@
  *  metadata:
     (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
     ;
-    @description Verify several kinds of valid metadata declarations
+    @description It is a compile time error, if @ is missing
+    @compile-error
     @author a.semenov@unipro.ru
  */
-
-const Z = 'Zombie';
 
 class A {
     const A();
 }
 
-class B<T> {
-    const B();
-    const B.b(T t);
-}
-
-class Foo {
-    const Foo(int x, int y);
-}
-
-@A()
-class Test1{}
-
-@A() @B() @B.b(10)
-class Test2{}
-
-@Foo(1,2)
-class Test3{}
-
-@B() @Z
-class Test4{}
-
-@B.b('aaa')
-class Test5{}
+A()
+class B{}
 
 main() {
+
 }

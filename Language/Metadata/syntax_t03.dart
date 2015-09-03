@@ -12,35 +12,24 @@
     @author a.semenov@unipro.ru
  */
 
-const Z = 'Zombie';
+import "syntax_lib2.dart" as syntax_lib2;
 
-class A {
-    const A();
-}
 
-class B<T> {
-    const B();
-    const B.b(T t);
-}
-
-class Foo {
-    const Foo(int x, int y);
-}
-
-@A()
+@syntax_lib2.C()
 class Test1{}
 
-@A() @B() @B.b(10)
+@syntax_lib2.C() @syntax_lib2.D() @syntax_lib2.D.d(10)
 class Test2{}
 
-@Foo(1,2)
+@syntax_lib2.Bar(1,2)
 class Test3{}
 
-@B() @Z
+@syntax_lib2.D() @syntax_lib2.Y
 class Test4{}
 
-@B.b('aaa')
+@syntax_lib2.D.d('aaa')
 class Test5{}
+
 
 main() {
 }

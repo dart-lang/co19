@@ -12,20 +12,8 @@
     @author a.semenov@unipro.ru
  */
 
-const Z = 'Zombie';
+import "syntax_lib1.dart";
 
-class A {
-    const A();
-}
-
-class B<T> {
-    const B();
-    const B.b(T t);
-}
-
-class Foo {
-    const Foo(int x, int y);
-}
 
 @A()
 class Test1{}
@@ -36,11 +24,12 @@ class Test2{}
 @Foo(1,2)
 class Test3{}
 
-@B() @Z
+@B() @X
 class Test4{}
 
 @B.b('aaa')
 class Test5{}
+
 
 main() {
 }

@@ -8,39 +8,15 @@
  *  metadata:
     (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
     ;
-    @description Verify several kinds of valid metadata declarations
+    @description It is a compile time error, if qualified identifier is not complete
+    @compile-error
+    @note issue #24280
     @author a.semenov@unipro.ru
  */
+import "syntax_lib2.dart" as syntax_lib2;
 
-const Z = 'Zombie';
-
-class A {
-    const A();
-}
-
-class B<T> {
-    const B();
-    const B.b(T t);
-}
-
-class Foo {
-    const Foo(int x, int y);
-}
-
-@A()
-class Test1{}
-
-@A() @B() @B.b(10)
-class Test2{}
-
-@Foo(1,2)
-class Test3{}
-
-@B() @Z
-class Test4{}
-
-@B.b('aaa')
-class Test5{}
+@syntax_lib2()
+class B{}
 
 main() {
 }

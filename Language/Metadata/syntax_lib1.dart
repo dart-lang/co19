@@ -6,6 +6,8 @@
 
 library syntax_lib1;
 
+const X = 'No';
+
 class A {
   const A();
 }

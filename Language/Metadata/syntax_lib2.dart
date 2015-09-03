@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library syntax_lib1;
+library syntax_lib2;
 
 class C {
   const C();
@@ -18,3 +18,5 @@ class D<T> {
 class Bar {
   const Bar(int x, int y);
 }
+
+const Y = 'Yes';
