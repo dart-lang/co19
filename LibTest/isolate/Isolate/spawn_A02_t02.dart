@@ -10,7 +10,8 @@
  * It is not allowed to pass a function closure.
  * The entry-point function is invoked with the initial message.
  * Returns a future that will complete with an Isolate instance.
- * @description Checks that method throws an exception when passed null, an integer, or a string.
+ * @description Checks that method throws an exception when passed null,
+ * an integer, or a string.
  * @author iefremov
  * @needsreview documentation looks incomplete
  */
@@ -22,8 +23,8 @@ var x = null;
 main() {
   Expect.throws(() => Isolate.spawn(null, 1));
   Expect.throws(() => Isolate.spawn(x, 1));
-  x=1;
+  x = 1;
   Expect.throws(() => Isolate.spawn(x, 1));
-  x="";
+  x = "";
   Expect.throws(() => Isolate.spawn(x, 1));
 }
