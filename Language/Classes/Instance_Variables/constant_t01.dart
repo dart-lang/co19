@@ -17,4 +17,5 @@ class C {
 }
 
 main() {
+  var x = new C().v1;
 }
