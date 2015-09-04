@@ -7,7 +7,7 @@
  * @assertion Instance variables are variables whose declarations are
  * immediately contained within a class declaration and that are not declared
  * static. The instance variables of a class C are those instance variables
- * declared by C and the instancev ariables inherited by C from its superclass.
+ * declared by C and the instance variables inherited by C from its superclass.
  * @description Checks that class instance contains declared instance variable
  * and inherited from superclass
  * @author sgrekhov@unipro.ru
