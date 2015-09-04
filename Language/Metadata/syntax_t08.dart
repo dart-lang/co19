@@ -8,29 +8,18 @@
  *  metadata:
  *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
  *   ;
- *   @description Verify several kinds of valid metadata declarations.
- *   Metadata refers to constants and classes imported from library without prefix.
+ *   @description Check that it is a compile time error,
+ *   if arguments parenthesis are wrong
+ *   @compile-error
  *   @author a.semenov@unipro.ru
  */
+class A {
+  const A();
+}
 
-import "syntax_lib1.dart";
-
-
-@A()
-class Test1{}
-
-@A() @B() @B.b(10) @E.c
-class Test2{}
-
-@Foo(1,2)
-class Test3{}
-
-@B() @X @E.b
-class Test4{}
-
-@B.b('aaa')
-class Test5{}
-
+@A{}
+class B{}
 
 main() {
+
 }

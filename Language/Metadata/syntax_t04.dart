@@ -6,11 +6,11 @@
 /**
  * @assertion
  *  metadata:
-    (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
-    ;
-    @description It is a compile time error, if @ is missing
-    @compile-error
-    @author a.semenov@unipro.ru
+ *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   ;
+ *   @description Check that it is a compile time error, if @ is missing
+ *   @compile-error
+ *   @author a.semenov@unipro.ru
  */
 
 class A {

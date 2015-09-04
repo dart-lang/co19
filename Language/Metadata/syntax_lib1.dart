@@ -20,3 +20,5 @@ class B<T> {
 class Foo {
   const Foo(int x, int y);
 }
+
+enum E {a, b, c}

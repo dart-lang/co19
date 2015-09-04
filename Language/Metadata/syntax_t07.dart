@@ -6,22 +6,20 @@
 /**
  * @assertion
  *  metadata:
-    (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
-    ;
-    @description It is a compile time error, if mandatory arguments are missing
-    @note issue #24281
-    @compile-error
-    @author a.semenov@unipro.ru
+ *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   ;
+ *   @description Check that it is a compile time error,
+ *   if closing arguments parenthesis is missing
+ *   @compile-error
+ *   @author a.semenov@unipro.ru
  */
-import "dart:mirrors";
-
 class A {
-    const A(int x);
+  const A();
 }
 
-@A
+@A(
 class B{}
 
 main() {
-    reflectClass(B).metadata; // compile error
+
 }

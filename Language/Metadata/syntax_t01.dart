@@ -6,10 +6,11 @@
 /**
  * @assertion
  *  metadata:
-    (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
-    ;
-    @description Verify several kinds of valid metadata declarations
-    @author a.semenov@unipro.ru
+ *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   ;
+ *   @description Verify several kinds of valid metadata declarations.
+ *   Metadata refers to local constants and classes.
+ *   @author a.semenov@unipro.ru
  */
 
 const Z = 'Zombie';
@@ -27,16 +28,18 @@ class Foo {
     const Foo(int x, int y);
 }
 
+enum E {a, b, c}
+
 @A()
 class Test1{}
 
-@A() @B() @B.b(10)
+@A() @B() @B.b(10) @E.c
 class Test2{}
 
 @Foo(1,2)
 class Test3{}
 
-@B() @Z
+@B() @Z @E.b
 class Test4{}
 
 @B.b('aaa')

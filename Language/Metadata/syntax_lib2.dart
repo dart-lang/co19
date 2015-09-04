@@ -20,3 +20,5 @@ class Bar {
 }
 
 const Y = 'Yes';
+
+enum F {x,y,z}

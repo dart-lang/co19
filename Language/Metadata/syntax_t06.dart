@@ -6,17 +6,20 @@
 /**
  * @assertion
  *  metadata:
-    (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
-    ;
-    @description It is a compile time error, if qualified identifier is not complete
-    @compile-error
-    @note issue #24280
-    @author a.semenov@unipro.ru
+ *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   ;
+ *   @description Check that it is a compile time error,
+ *   if opening arguments parenthesis is missing
+ *   @compile-error
+ *   @author a.semenov@unipro.ru
  */
-import "syntax_lib2.dart" as syntax_lib2;
+class A {
+  const A();
+}
 
-@syntax_lib2()
+@A)
 class B{}
 
 main() {
+
 }
