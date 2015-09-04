@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion
+ *  metadata:
+    (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+    ;
+    @description Verify several kinds of valid metadata declarations
+    @author a.semenov@unipro.ru
+ */
+
+import "syntax_lib2.dart" as syntax_lib2;
+
+
+@syntax_lib2.C()
+class Test1{}
+
+@syntax_lib2.C() @syntax_lib2.D() @syntax_lib2.D.d(10)
+class Test2{}
+
+@syntax_lib2.Bar(1,2)
+class Test3{}
+
+@syntax_lib2.D() @syntax_lib2.Y
+class Test4{}
+
+@syntax_lib2.D.d('aaa')
+class Test5{}
+
+
+main() {
+}
