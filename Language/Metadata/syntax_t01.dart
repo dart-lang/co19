@@ -8,9 +8,9 @@
  *  metadata:
  *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
  *   ;
- *   @description Verify several kinds of valid metadata declarations.
- *   Metadata refers to local constants and classes.
- *   @author a.semenov@unipro.ru
+ * @description Verify several kinds of valid metadata declarations.
+ * Metadata refers to local constants and classes.
+ * @author a.semenov@unipro.ru
  */
 
 const Z = 'Zombie';

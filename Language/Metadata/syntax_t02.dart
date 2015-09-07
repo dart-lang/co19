@@ -8,9 +8,9 @@
  *  metadata:
  *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
  *   ;
- *   @description Verify several kinds of valid metadata declarations.
- *   Metadata refers to constants and classes imported from library without prefix.
- *   @author a.semenov@unipro.ru
+ * @description Verify several kinds of valid metadata declarations.
+ * Metadata refers to constants and classes imported from library without prefix.
+ * @author a.semenov@unipro.ru
  */
 
 import "syntax_lib1.dart";

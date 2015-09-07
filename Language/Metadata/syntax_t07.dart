@@ -8,10 +8,10 @@
  *  metadata:
  *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
  *   ;
- *   @description Check that it is a compile time error,
- *   if closing arguments parenthesis is missing
- *   @compile-error
- *   @author a.semenov@unipro.ru
+ * @description Check that it is a compile time error,
+ * if closing arguments parenthesis is missing
+ * @compile-error
+ * @author a.semenov@unipro.ru
  */
 class A {
   const A();
