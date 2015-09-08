@@ -8,7 +8,8 @@
  *  metadata:
  *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
  *   ;
- * @description Check that it is a compile time error, if qualified identifier is missing
+ * @description Check that it is a compile time error, if qualified identifier
+ * is missing
  * @compile-error
  * @author a.semenov@unipro.ru
  */
@@ -17,5 +18,4 @@
 class B{}
 
 main() {
-
 }

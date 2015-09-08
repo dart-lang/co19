@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile time error if the expression is not one of the following:
+ * @assertion It is a compile time error if the expression is not one of the
+ * following:
  *   • A reference to a compile-time constant variable.
  *   • A call to a constant constructor.
- * @description Check that if metadata expression refers to not defined class or constant,
- * then a compile time error is raised
+ * @description Check that if metadata expression refers to not defined class
+ * or constant, then a compile time error is raised
  * @compile-error
  * @author a.semenov@unipro.ru
  */
@@ -18,7 +19,8 @@ import "../../Utils/expect.dart";
 @Hello
 class A {}
 
-main(){
+main() {
   // have to retrieve metadata to get the compile error
-  Expect.fail("Compilation error is expected, but retrieved metadata: "+reflectClass(A).metadata);
+  Expect.fail("Compilation error is expected, but retrieved metadata: " +
+      reflectClass(A).metadata);
 }

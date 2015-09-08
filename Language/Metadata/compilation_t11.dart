@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile time error if the expression is not one of the following:
+ * @assertion It is a compile time error if the expression is not one of the
+ * following:
  *   • A reference to a compile-time constant variable.
  *   • A call to a constant constructor.
- * @description Check that it is a compile time error, if called constructor is not constant
+ * @description Check that it is a compile time error, if called constructor
+ * is not constant
  * @note issue #24281
  * @compile-error
  * @author a.semenov@unipro.ru
@@ -24,5 +26,6 @@ class B{}
 
 main() {
     // have to retrieve metadata to get the compile error
-    Expect.fail("Compilation error is expected, but retrieved metadata: "+reflectClass(B).metadata);
+    Expect.fail("Compilation error is expected, but retrieved metadata: " +
+        reflectClass(B).metadata);
 }

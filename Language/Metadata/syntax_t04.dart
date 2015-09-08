@@ -21,5 +21,4 @@ A()
 class B{}
 
 main() {
-
 }

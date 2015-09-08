@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile time error if the expression is not one of the following:
+ * @assertion It is a compile time error if the expression is not one of the
+ * following:
  *   • A reference to a compile-time constant variable.
  *   • A call to a constant constructor.
  * @description Check that variable used as metadata cause a compile time error
@@ -19,7 +20,8 @@ var variable = 'hello';
 @variable
 class A {}
 
-main(){
+main() {
   // have to retrieve metadata to get the compile error
-  Expect.fail("Compilation error is expected, but retrieved metadata: "+reflectClass(A).metadata);
+  Expect.fail("Compilation error is expected, but retrieved metadata: " +
+      reflectClass(A).metadata);
 }

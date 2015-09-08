@@ -31,6 +31,5 @@ class Test4{}
 @B.b('aaa')
 class Test5{}
 
-
 main() {
 }

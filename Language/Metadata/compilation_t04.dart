@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile time error if the expression is not one of the following:
+ * @assertion It is a compile time error if the expression is not one of the
+ * following:
  *   • A reference to a compile-time constant variable.
  *   • A call to a constant constructor.
  * @description Check that if static class method is used as metadata,
@@ -24,7 +25,8 @@ class A {
 @A.a()
 class B {}
 
-main(){
+main() {
   // have to retrieve metadata to get compile error
-  Expect.fail("Compilation error is expected, but retrieved metadata: "+reflectClass(B).metadata);
+  Expect.fail("Compilation error is expected, but retrieved metadata: " +
+      reflectClass(B).metadata);
 }
