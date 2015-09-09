@@ -23,5 +23,5 @@ class A {}
 main() {
   // have to retrieve metadata to get the compile error
   Expect.fail("Compilation error is expected, but retrieved metadata: " +
-      reflectClass(A).metadata);
+      reflectClass(A).metadata.map( (e) => e.reflectee ).join(" "));
 }
