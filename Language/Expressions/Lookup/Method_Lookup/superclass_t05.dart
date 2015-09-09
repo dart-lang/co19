@@ -10,8 +10,7 @@
  * if C has a superclass S, then the result of the lookup is the result of
  * looking up m in S with respect to L. Otherwise, we say that the method
  * lookup has failed.
- * @description Checks that result of a lookup of a method m in class C
- * is method m in class C
+ * @description Checks that abstract methods are skipped during lookup.
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
