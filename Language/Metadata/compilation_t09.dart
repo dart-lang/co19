@@ -11,7 +11,7 @@
  * @description Check that it is a compile time error, if qualified identifier
  * is not complete
  * @compile-error
- * @note issue #24280
+ * @issue #24280
  * @author a.semenov@unipro.ru
  */
 import "dart:mirrors";

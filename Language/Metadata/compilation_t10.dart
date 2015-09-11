@@ -10,7 +10,7 @@
  *   • A call to a constant constructor.
  * @description Check that it is a compile time error, if mandatory arguments
  * are missing
- * @note issue #24281
+ * @issue #24281
  * @compile-error
  * @author a.semenov@unipro.ru
  */
