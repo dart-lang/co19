@@ -6,14 +6,14 @@
 /**
  * @assertion
  *  metadata:
- *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
  *   ;
  * @description Verify several kinds of valid metadata declarations.
  * Metadata refers to constants and classes imported from library with prefix.
  * @author a.semenov@unipro.ru
  */
 
-import "syntax_lib2.dart" as syntax_lib2;
+import 'syntax_lib2.dart' as syntax_lib2;
 
 @syntax_lib2.C()
 class Test1{}

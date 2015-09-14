@@ -13,14 +13,14 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
-import "dart:mirrors";
-import "../../Utils/expect.dart";
+import 'dart:mirrors';
+import '../../Utils/expect.dart';
 
 @true
 class A {}
 
 main() {
   // have to retrieve metadata to get the compile error
-  Expect.fail("Compilation error is expected, but retrieved metadata: " +
-      reflectClass(A).metadata.map( (e) => e.reflectee ).join(" "));
+  Expect.fail('Compilation error is expected, but retrieved metadata: ' +
+      reflectClass(A).metadata.map( (e) => e.reflectee ).join(' '));
 }

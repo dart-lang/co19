@@ -14,15 +14,15 @@
  * @issue #24280
  * @author a.semenov@unipro.ru
  */
-import "dart:mirrors";
-import "../../Utils/expect.dart";
-import "syntax_lib2.dart" as syntax_lib2;
+import 'dart:mirrors';
+import '../../Utils/expect.dart';
+import 'syntax_lib2.dart' as syntax_lib2;
 
 @syntax_lib2()
 class B{}
 
 main() {
     // have to retrieve metadata to get the compile error
-    Expect.fail("Compilation error is expected, but retrieved metadata: " +
-        reflectClass(B).metadata.map( (e) => e.reflectee ).join(" "));
+    Expect.fail('Compilation error is expected, but retrieved metadata: ' +
+        reflectClass(B).metadata.map( (e) => e.reflectee ).join(' '));
 }

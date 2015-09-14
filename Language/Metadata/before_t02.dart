@@ -4,21 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- *  metadata:
- *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
- *   ;
- * @description Check that it is a compile time error, if @ is missing
- * @compile-error
+ * @assertion Metadata can appear before  ...  part header ...
+ * @description Check that metadata is allowed before part header
+ * @issue 24313
  * @author a.semenov@unipro.ru
  */
 
-class A {
-    const A();
-}
+import 'before_lib2.dart';
 
-A()
-class B{}
 
-main() {
+main(){
+// There is no way to obtain the part header metadata via reflection
 }

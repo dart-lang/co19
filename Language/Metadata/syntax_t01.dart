@@ -6,7 +6,7 @@
 /**
  * @assertion
  *  metadata:
- *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
  *   ;
  * @description Verify several kinds of valid metadata declarations.
  * Metadata refers to local constants and classes.

@@ -6,7 +6,7 @@
 /**
  * @assertion
  *  metadata:
- *   (‘@’ qualiﬁed (‘.’ identiﬁer)? (arguments)?)*
+ *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
  *   ;
  * @description Check that it is a compile time error,
  * if closing arguments parenthesis is missing
