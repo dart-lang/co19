@@ -14,5 +14,5 @@
  */
 
 main() {
-  var x = String.hashCode;
+  var x = int.hashCode;
 }
