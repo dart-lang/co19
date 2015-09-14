@@ -14,5 +14,5 @@
  */
 
 main() {
-  var x = String.toString;
+  var x = int.toString;
 }

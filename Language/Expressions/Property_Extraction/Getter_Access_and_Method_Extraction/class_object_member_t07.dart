@@ -15,5 +15,5 @@
  */
 
 main() {
-  var x = String.noSuchMethod;
+  var x = int.noSuchMethod;
 }

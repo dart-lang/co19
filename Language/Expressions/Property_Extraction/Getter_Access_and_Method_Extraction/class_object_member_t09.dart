@@ -6,13 +6,11 @@
 /**
  * @assertion It is a compile-time error if m is a member of class Object and
  * e is either a prefix object or a constant type literal.
- * @description Check that it is a compile-time error if in expression e.m
- * e is a constant type literal and m is Object's runtimeType property
- * @issue 24332
- * @compile-error
+ * @description Check that it is no compile-time error if in expression e.m
+ * e is a parenthesized expression
  * @author sgrekhov@unipro.ru
  */
 
 main() {
-  var x = int.runtimeType;
+  var x = (int).toString;
 }
