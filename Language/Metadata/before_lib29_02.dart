@@ -7,5 +7,4 @@
 library before_lib29_02;
 
 class B {
-
 }

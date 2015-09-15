@@ -30,6 +30,5 @@ class Test4{}
 @syntax_lib2.D.d('aaa')
 class Test5{}
 
-
 main() {
 }

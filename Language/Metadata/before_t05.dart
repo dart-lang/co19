@@ -16,10 +16,10 @@ class A {
 }
 
 
-class B<@A() T>{
+class B<@A() T> {
 }
 
-main(){
+main() {
   Expect.equals('.A',
     MirrorSystem.getName(reflectClass(B).typeVariables[0]
       .metadata[0].type.qualifiedName));

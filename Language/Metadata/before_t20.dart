@@ -17,8 +17,7 @@ class A {
 
 void hello(@A() int x) {}
 
-
-main(){
+main() {
   MethodMirror helloMirror = reflect(hello).function;
   ParameterMirror paramMirror = helloMirror.parameters[0];
   Expect.equals('.A',

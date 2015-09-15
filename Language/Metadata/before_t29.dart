@@ -13,7 +13,7 @@ import '../../Utils/expect.dart';
 
 import 'before_lib29_01.dart';
 
-main(){
+main() {
   Symbol libraryName = MirrorSystem.getSymbol('before_lib29_01');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libraryName);
   LibraryDependencyMirror exportMirror = libraryMirror.libraryDependencies

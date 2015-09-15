@@ -23,7 +23,7 @@ class B {
   @A() static int staticVariable = 10;
 }
 
-main(){
+main() {
   ClassMirror classMirror = reflectClass(B);
   var varNames = ['variable', 'finalVariable', 'dynamicVariable', 'staticVariable'];
   for (var name in varNames) {

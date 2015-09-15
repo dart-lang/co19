@@ -18,7 +18,7 @@ class A {
 
 typedef void f(@A() int, String);
 
-main(){
+main() {
   ParameterMirror paramMirror = reflectType(f).referent.parameters[0];
   Expect.equals('.A',
     MirrorSystem.getName(paramMirror.metadata[0].type.qualifiedName));

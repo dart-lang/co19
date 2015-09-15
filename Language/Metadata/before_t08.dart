@@ -15,13 +15,12 @@ class A {
   const A();
 }
 
-
 class B {
   @A() factory B(){}
   @A() factory B.b(){}
 }
 
-main(){
+main() {
   Symbol ctorName1 = MirrorSystem.getSymbol('B');
   DeclarationMirror ctorMirror1 = reflectClass(B).declarations[ctorName1];
   InstanceMirror aMirror1 = ctorMirror1.metadata[0];

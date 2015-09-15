@@ -14,13 +14,13 @@ import '../../Utils/expect.dart';
 class A {
   const A();
 }
+
 class B {
   static void b(@A() int x) {
   }
 }
 
-
-main(){
+main() {
   var methodName = MirrorSystem .getSymbol('b');
   MethodMirror bMirror = reflectClass(B).staticMembers[methodName];
   ParameterMirror paramMirror = bMirror.parameters[0];

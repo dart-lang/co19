@@ -18,7 +18,7 @@ class A {
 @A()
 class B {}
 
-main(){
+main() {
   Expect.equals('.A',
     MirrorSystem.getName(reflectClass(B).metadata[0].type.qualifiedName));
 }

@@ -12,7 +12,6 @@
 
 import 'before_lib2.dart';
 
-
-main(){
+main() {
 // There is no way to obtain the part header metadata via reflection
 }

@@ -18,7 +18,7 @@ class A {
 @A()
 typedef void f(int, String);
 
-main(){
+main() {
   Expect.equals('.A',
     MirrorSystem.getName(reflectType(f).metadata[0].type.qualifiedName));
 }

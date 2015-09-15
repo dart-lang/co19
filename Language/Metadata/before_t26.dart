@@ -20,7 +20,7 @@ class A {
 @A() final int finalVariable = 0;
 @A() var dynamicVariable;
 
-main(){
+main() {
   Symbol emptyName = MirrorSystem.getSymbol('');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(emptyName);
   var varNames = ['variable', 'constVariable', 'finalVariable', 'dynamicVariable'];

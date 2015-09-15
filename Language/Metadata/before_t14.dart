@@ -14,10 +14,10 @@ import '../../Utils/expect.dart';
 class A {
   const A();
 }
+
 class B {
   @A() static int get b => 0;
 }
-
 
 main(){
   var getterName = MirrorSystem .getSymbol('b');
