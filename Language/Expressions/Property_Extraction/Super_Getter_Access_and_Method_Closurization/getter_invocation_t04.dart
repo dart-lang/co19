@@ -21,8 +21,8 @@ class C extends A {
   int get g => 20;
 
   void test() {
-    var f = super.g;
-    Expect.equals(10, f);
+    var i = super.g;
+    Expect.equals(10, i);
   }
 }
 
