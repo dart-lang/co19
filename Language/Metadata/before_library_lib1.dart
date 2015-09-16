@@ -4,5 +4,5 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library before_lib2;
-part 'before_lib2_p01.dart';
+@Deprecated('before_library_lib1')
+library before_library_lib1;

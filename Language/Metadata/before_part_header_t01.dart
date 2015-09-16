@@ -10,7 +10,7 @@
  * @author a.semenov@unipro.ru
  */
 
-import 'before_lib2.dart';
+import 'before_part_header_lib1.dart';
 
 main() {
 // There is no way to obtain the part header metadata via reflection

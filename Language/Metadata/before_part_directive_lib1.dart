@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library before_lib30;
+library before_part_directive_lib1;
 
-@A() part 'before_lib30_p01.dart';
+@A() part 'before_part_directive_lib1_p1.dart';
 
 class A {
   const A();

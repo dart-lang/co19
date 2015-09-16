@@ -11,12 +11,12 @@
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
 
-import 'before_lib28_01.dart';
+import 'before_import_lib1.dart';
 
 main() {
-  Symbol libraryName = MirrorSystem.getSymbol('before_lib28_01');
+  Symbol libraryName = MirrorSystem.getSymbol('before_import_lib1');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libraryName);
   LibraryDependencyMirror importMirror = libraryMirror.libraryDependencies[0];
-  Expect.equals('before_lib28_01.A',
+  Expect.equals('before_import_lib1.A',
       MirrorSystem.getName(importMirror.metadata[0].type.qualifiedName));
 }

@@ -4,10 +4,4 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-library before_lib29_01;
-
-@A() export 'before_lib29_02.dart';
-
-class A {
-  const A();
-}
+library before_import_lib2;

@@ -4,5 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-@Deprecated('before_lib1')
-library before_lib1;
+library before_export_lib2;
+
+class B {
+}

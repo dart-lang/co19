@@ -8,7 +8,7 @@
  * @description Check that metadata is allowed before part directive
  * @author a.semenov@unipro.ru
  */
-import 'before_lib30.dart';
+import 'before_part_directive_lib1.dart';
 
 main(){
   // Unfortunately, there is no way to obtain part directive metadata.

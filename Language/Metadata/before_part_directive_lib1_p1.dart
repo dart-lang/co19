@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-part of before_lib30;
+part of before_part_directive_lib1;
 
 class B {
 }
