@@ -75,7 +75,7 @@ void main() {
     checkSnapshot("descendant::GCHILD[position() > 1]", result, new List.from([GCHILD12])..addAll(GCHILDREN2));
 
     result = evaluator.evaluate("@attr1[.='val1']", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//    checkSnapshot("@attr1[.='val1']", result, [ATTR1]); // getAttributeNode
+    checkSnapshot("@attr1[.='val1']", result, [ATTR1]);
 
     shouldBe(evaluator.evaluate("1", ROOT, null, XPathResult.ANY_TYPE, null).numberValue, 1);
     shouldBe(evaluator.evaluate("00200", ROOT, null, XPathResult.ANY_TYPE, null).numberValue, 200);
@@ -105,7 +105,7 @@ void main() {
     shouldBe(evaluator.evaluate("/.. * 0", ROOT, null, XPathResult.NUMBER_TYPE, null).numberValue, NaN);
 
     result = evaluator.evaluate("CHILD2/@CODE", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//    checkSnapshot("CHILD2/@CODE", result, [IDATTR2]); // getAttributeNode
+    checkSnapshot("CHILD2/@CODE", result, [IDATTR2]);
 
     shouldBe(evaluator.evaluate("CHILD2/@CODE * 0", ROOT, null, XPathResult.NUMBER_TYPE, null).numberValue, 0);
 

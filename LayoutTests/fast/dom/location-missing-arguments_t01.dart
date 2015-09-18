@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description 
+ * @description
  */
 import "dart:html";
 import "../../testcommon.dart";
+import "package:unittest/unittest.dart";
 
 main() {
-  shouldThrow(() => window.location.assign());
-  shouldThrow(() => window.location.replace());
+  test("location missing arguments", () {
+      shouldThrow(() => window.location.replace());
+    });
 }

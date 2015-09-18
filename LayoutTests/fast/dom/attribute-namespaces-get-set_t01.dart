@@ -19,16 +19,14 @@ main() {
   shouldBe(docElem.getAttribute('attr'), "test2");
   shouldBe(docElem.getAttribute('bar:attr'), null);
 
-  /*
   // Test hasAttribute
   shouldBe(docElem.hasAttribute('foo:attr'), true);
   shouldBe(docElem.hasAttribute('attr'), true);
   shouldBe(docElem.hasAttribute('bar:attr'), false);
 
-  // Test getAttributeNode
-  shouldBe(docElem.getAttributeNode('foo:attr').value, "test");
-  shouldBe(docElem.getAttributeNode('bar:attr'), null);
-  */
+  // Test getAttribute
+  shouldBe(docElem.getAttribute('foo:attr').value, "test");
+  shouldBe(docElem.getAttribute('bar:attr'), null);
 
   // Test setAttribute
   //dart's attributes map does not include namepaspaced attributes

@@ -16,20 +16,20 @@ const myButton="myButton";
 main() {
 
   List<Node> lst=document.getElementsByClassName(myButton);
-  Expect.equals(0, lst.length); 
+  Expect.equals(0, lst.length);
 
   var x1 = new Element.html('<button class="$myButton"></button>');
   var y = new DivElement();
   y.append(x1);
   document.body.append(y);
   lst=document.getElementsByClassName(myButton);
-  Expect.equals(1, lst.length); 
-  Expect.identical(x1, lst[0]);
+  Expect.equals(1, lst.length);
+  Expect.equals(x1, lst[0]);
 
   var x2 = new Element.html('<div class="$myButton"></div>');
   document.body.append(x2);
   lst=document.getElementsByClassName(myButton);
-  Expect.equals(2, lst.length); 
+  Expect.equals(2, lst.length);
   // order is not guarateed, so cannot compare lists directly
   Expect.isTrue(lst.contains(x1));
   Expect.isTrue(lst.contains(x2));

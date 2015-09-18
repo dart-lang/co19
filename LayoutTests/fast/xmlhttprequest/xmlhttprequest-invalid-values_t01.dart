@@ -11,7 +11,7 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-bool checkExc(Exception e) {
+bool checkExc(e) {
 //   print("checkExc:");
 //   print("  e=${e.toString()}; type=${e.runtimeType}");
    return (e is DomException) 

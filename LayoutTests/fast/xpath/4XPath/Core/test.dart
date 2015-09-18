@@ -56,11 +56,11 @@ var COMMENT = ((){
   })();
 
 var CHILD1 = DOM.getElementsByTagName("CHILD1")[0];
-var ATTR1 = CHILD1.getAttributeNode("attr1");
-var ATTR31 = CHILD1.getAttributeNode("attr31");
+var ATTR1 = CHILD1.getAttribute("attr1");
+var ATTR31 = CHILD1.getAttribute("attr31");
 var CHILD2 = DOM.getElementsByTagName("CHILD2")[0];
-var ATTR2 = CHILD2.getAttributeNode("attr1");
-var IDATTR2 = CHILD2.getAttributeNode('CODE');
+var ATTR2 = CHILD2.getAttribute("attr1");
+var IDATTR2 = CHILD2.getAttribute('CODE');
 /* CHILD3 = DOM.getElementsByTagName("CHILD3")[0];
 if (!CHILD3)
     CHILD3 = DOM.getElementsByTagName("foo:CHILD3")[0];

@@ -11,8 +11,8 @@
  */
 /**
  * after web-platform-tests/webstorage/storage_session_setitem_js.html
- * @assertion: http://dev.w3.org/html5/webstorage/ 
- * @description 
+ * @assertion: http://dev.w3.org/html5/webstorage/
+ * @description
  */
 import 'dart:html';
 import "../Utils/expectWeb.dart";
@@ -40,19 +40,9 @@ void main() {
         assert_equals(sessionStorage["name"], "user3");
     }, "name user3");
     test(() {
-        assert_throws("", () {
-            sessionStorage["age"] = null;
-        });
-    }, "age null");
-    test(() {
         sessionStorage["age"] = "null";
         assert_equals(sessionStorage.length, 2, "sessionStorage.length");
         assert_equals(sessionStorage["age"], "null");
     }, 'age "null"');
-    test(() {
-        assert_throws("", () {
-            sessionStorage[null]="test";
-        });
-    }, 'null test');
     checkTestFailures();
 }

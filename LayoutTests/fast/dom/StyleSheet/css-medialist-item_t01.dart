@@ -21,8 +21,7 @@ main() {
   shouldBeEqualToString(mediaList.item(0), 'screen');
   shouldBeEqualToString(mediaList.item(1), 'print');
   shouldBeNull(mediaList.item(2));
-  shouldThrow(() => mediaList.item(-1));
+  shouldBeNull(() => mediaList.item(-1));
 
   styleElement.remove();
 }
-

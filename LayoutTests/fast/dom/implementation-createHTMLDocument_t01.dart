@@ -24,6 +24,5 @@ main() {
 
   debug("[document with null title]");
   doc = document.implementation.createHtmlDocument(null);
-  //shouldBe(doc.title, "null");
-  shouldBe(doc.title, "");
+  shouldBe(doc.title, "null");
 }

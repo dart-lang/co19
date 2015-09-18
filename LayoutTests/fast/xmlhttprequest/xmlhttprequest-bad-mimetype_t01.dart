@@ -11,7 +11,7 @@
 import "dart:html";
 import "../../testcommon.dart";
 
-void sendRequest(url) {
+HttpRequest sendRequest(url) {
     var request = new HttpRequest();
     request.open("GET", url, async:false);
     request.send(null);

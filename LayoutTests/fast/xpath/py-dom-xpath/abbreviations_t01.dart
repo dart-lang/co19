@@ -24,11 +24,10 @@ test(doc, doc.documentElement, "*", [doc.getElementsByTagName("para")[0], doc.ge
 doc = (new DomParser()).parseFromString('<doc>This is <i>some</i> text.</doc>', 'application/xml');
 test(doc, doc.documentElement, "text()", [doc.documentElement.firstChild, doc.documentElement.lastChild]);
 
-/* getAttributeNode not defined
 doc = (new DomParser()).parseFromString('<doc name="foo" value="bar" />', 'application/xml');
-test(doc, doc.documentElement, "@name", [doc.documentElement.getAttributeNode("name")]);
-test(doc, doc.documentElement, "@*", [doc.documentElement.getAttributeNode("name"), doc.documentElement.getAttributeNode("value")]);
-*/
+test(doc, doc.documentElement, "@name", [doc.documentElement.getAttribute("name")]);
+test(doc, doc.documentElement, "@*", [doc.documentElement.getAttribute("name"), doc.documentElement.getAttribute("value")]);
+
 doc = (new DomParser()).parseFromString('<doc><para id="1" /><para id="2" /><para id="3" /></doc>', 'application/xml');
 test(doc, doc.documentElement, "para[1]", [doc.getElementsByTagName("para")[0]]);
 test(doc, doc.documentElement, "para[last()]", [doc.getElementsByTagName("para")[2]]);
@@ -112,7 +111,6 @@ doc = (new DomParser()).parseFromString(
     'application/xml');
 test(doc, '//item[@id="3"]', '..', [doc.getElementsByTagName("chapter")[0]]);
 
-/* getAttributeNode not defined
 doc = (new DomParser()).parseFromString(
     '<doc id="0">' +
     '    <chapter id="1" lang="en">' +
@@ -121,8 +119,8 @@ doc = (new DomParser()).parseFromString(
     '    </chapter>' +
     '</doc>',
     'application/xml');
-test(doc, '//item[@id="3"]', '../@lang', [doc.getElementsByTagName("chapter")[0].getAttributeNode("lang")]);
-*/
+test(doc, '//item[@id="3"]', '../@lang', [doc.getElementsByTagName("chapter")[0].getAttribute("lang")]);
+
 doc = (new DomParser()).parseFromString(
     '<doc>' +
     '    <para id="1" type="info" />' +

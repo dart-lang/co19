@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <style>
@@ -31,8 +30,8 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: NodeTreeSanitizer.trusted);
+    document.body.appendHtml(htmlEL2, treeSanitizer: NodeTreeSanitizer.trusted);
     var backgroundColor = document.getElementById("test").getComputedStyle(null).backgroundColor;
     const expectedBackgroundColor = "rgb(0, 128, 0)";
     Expect.equals(expectedBackgroundColor, backgroundColor);

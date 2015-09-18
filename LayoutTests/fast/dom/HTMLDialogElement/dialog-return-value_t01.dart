@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Tests that dialog.returnValue is settable and returns the 
+ * @description Tests that dialog.returnValue is settable and returns the
  * last value set.
  */
 import "dart:html";
@@ -39,11 +39,6 @@ main() {
   //dialog.show();
   //dialog.close(null);
   //shouldBe(dialog.returnValue, 'null');
-
-  dialog.returnValue = 'Should not change because no (null) argument to close()';
-  dialog.show();
-  dialog.close(null);
-  shouldBe(dialog.returnValue, 'Should not change because no (null) argument to close()');
 
   dialog.returnValue = 'Should not change because close() is invalid';
   shouldThrow(() {

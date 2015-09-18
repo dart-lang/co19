@@ -11,6 +11,6 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  shouldBeIdentical(document.documentElement.childNodes,
+  shouldBe(document.documentElement.childNodes,
       document.documentElement.childNodes);
 }

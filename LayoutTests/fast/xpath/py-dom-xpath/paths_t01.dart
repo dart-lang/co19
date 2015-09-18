@@ -29,12 +29,12 @@ var doc = (new DomParser()).parseFromString(r'''
 test(doc, doc.documentElement, 'child::text()', [doc.documentElement.firstChild, doc.documentElement.lastChild]);
 test(doc, doc.documentElement, 'child::node()', [doc.documentElement.firstChild, doc.documentElement.firstChild.nextElementSibling, doc.documentElement.lastChild]);
 }
-{// getAttributeNode not defined
+{
 var doc = (new DomParser()).parseFromString(r'''
     <doc name="foo" value="bar" />''',
     'application/xml');
-//test(doc, doc.documentElement, 'attribute::name', [doc.documentElement.getAttributeNode("name")]);
-//test(doc, doc.documentElement, 'attribute::*', [doc.documentElement.getAttributeNode("name"), doc.documentElement.getAttributeNode("value")]);
+test(doc, doc.documentElement, 'attribute::name', [doc.documentElement.getAttribute("name")]);
+test(doc, doc.documentElement, 'attribute::*', [doc.documentElement.getAttribute("name"), doc.documentElement.getAttribute("value")]);
 }
 {
 var doc = (new DomParser()).parseFromString(r'''

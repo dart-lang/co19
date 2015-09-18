@@ -32,7 +32,7 @@ test(() {
 
 test(() {
   var r = document.createRange();
-  assert_throws("Null value is not a valid DartNode", () {
+  assert_throws("TypeError: Failed to execute 'comparePoint' on 'Range': parameter 1 is not of type 'Node'.", () {
     r.comparePoint(null, 0);
   });
 }, "null");

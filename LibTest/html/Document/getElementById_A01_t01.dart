@@ -20,5 +20,5 @@ main() {
   document.body.append(y);
 
   var z=document.getElementById(myButton);
-  Expect.identical(x, z);
+  Expect.equals(x, z);
 }

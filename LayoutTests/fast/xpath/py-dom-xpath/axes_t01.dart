@@ -114,8 +114,7 @@ void main() {
     test(doc, doc.documentElement, '//*[@id="2.2"]/following::*', [SECTION23, ITEM231, CHAPTER3, SECTION31, ITEM311]);
     test(doc, doc.documentElement, '//*[@id="2.2"]/preceding::*', [CHAPTER1, SECTION11, ITEM111, SECTION21, ITEM211]);
     
-    // getAttributeNode not defined
-    //test(doc, doc.documentElement, '//*[@id="2.2"]/attribute::*', [SECTION22.getAttributeNode("id")]);
+    test(doc, doc.documentElement, '//*[@id="2.2"]/attribute::*', [SECTION22.getAttribute("id")]);
     
     test(doc, doc.documentElement, '//*[@id="2.2"]/self::*', [SECTION22]);
     test(doc, doc.documentElement, '//*[@id="1"]/descendant-or-self::*', [CHAPTER1, SECTION11, ITEM111]);

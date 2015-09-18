@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description 
+ * @description
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
@@ -26,14 +26,14 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  testQuerySelectorAll(node, selectorString) 
+  testQuerySelectorAll(node, selectorString)
     => node.querySelectorAll(selectorString).map((x) => x.runtimeType).toList();
 
-  testQuerySelector(node, selectorString) 
+  testQuerySelector(node, selectorString)
     => node.querySelector(selectorString).runtimeType;
 
   testList(actual, expected) => shouldBeList(actual, expected);
-  
+
   test(actual, expected) => shouldBe(actual, expected);
 
   testThrows(func(), [expected]) {
@@ -63,10 +63,9 @@ main() {
     DomException.SYNTAX);
   testThrows(() => testQuerySelectorAll(document, ""),
     DomException.SYNTAX);
-  testThrows(() => testQuerySelectorAll(document, null));
   testList(testQuerySelectorAll(document, "#test>div"),
       [DivElement, DivElement, DivElement, DivElement]);
-  
+
   debug("Element.querySelectorAll");
 
   testList(testQuerySelectorAll(elm, "#test"), []);
@@ -78,7 +77,6 @@ main() {
   testThrows(() => testQuerySelectorAll(elm, "@font-face"),
       DomException.SYNTAX);
   testThrows(() => testQuerySelectorAll(elm, ""), DomException.SYNTAX);
-  testThrows(() => testQuerySelectorAll(elm, null));
 
   debug("DocumentFragment.querySelectorAll");
 
@@ -94,7 +92,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelectorAll(frag, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelectorAll(frag, null));
 
   debug("Document.querySelector");
 
@@ -107,7 +104,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelector(document, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelector(document, null));
 
   debug("Element.querySelector");
 
@@ -121,7 +117,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelector(elm, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelector(elm, null));
 
   debug("DocumentFragment.querySelector");
 
@@ -135,5 +130,4 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelector(frag, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelector(frag, null));
 }

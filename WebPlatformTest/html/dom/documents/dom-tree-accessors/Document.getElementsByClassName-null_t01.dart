@@ -15,7 +15,9 @@
  * (originally http://www.whatwg.org/html5/#dom-getelementsbyclassname)
  * @description getElementsByClassName and null/undefined
  * the spec requires the arg to be a string, so I think the original test is wrong.
- * changed the test to check for exception 
+ * changed the test to check for exception.
+ * Changed it back to match de facto dart2js and JS behavior, which is that null gets
+ * converted to the string "null".
  */
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
@@ -32,7 +34,8 @@ const fragment='''
 
 void main() {
   document.body.appendHtml(fragment);
-  Expect.throws((){
-    document.getElementsByClassName(null);
-  });
+  var nullClass= document.getElementsByClassName(null);
+  assert_equals(nullClass.length, 2);
+  assert_equals(nullClass[0], document.getElementById("p3"));
+  assert_equals(nullClass[1], document.getElementById("p4"));
 }

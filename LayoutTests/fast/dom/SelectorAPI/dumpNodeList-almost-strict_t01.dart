@@ -54,6 +54,10 @@ main() {
 
   debug("Document.querySelectorAll");
 
+  // Workarounds for https://github.com/dart-lang/sdk/issues/24173
+  shouldBe(doc.querySelector("#test") is DivElement, true);
+  shouldBe(doc.querySelector("#test") is ParagraphElement, false);
+  
   testList(testQuerySelectorAll(doc, "#test"), [DivElement]);
   testList(testQuerySelectorAll(doc, "#notthere"), []);
   testList(testQuerySelectorAll(doc, "#dupe"), [DivElement, DivElement]);
@@ -65,7 +69,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelectorAll(doc, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelectorAll(doc, null));
   testList(testQuerySelectorAll(doc, "#test>div"),
       [DivElement, DivElement, DivElement, DivElement]);
 
@@ -80,7 +83,6 @@ main() {
   testThrows(() => testQuerySelectorAll(elm, "@font-face"),
       DomException.SYNTAX);
   testThrows(() => testQuerySelectorAll(elm, ""), DomException.SYNTAX);
-  testThrows(() => testQuerySelectorAll(elm, null));
 
   debug("DocumentFragment.querySelectorAll");
 
@@ -96,7 +98,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelectorAll(frag, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelectorAll(frag, null));
 
   debug("Document.querySelector");
 
@@ -109,7 +110,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelector(doc, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelector(doc, null));
 
   debug("Element.querySelector");
 
@@ -123,7 +123,6 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelector(elm, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelector(elm, null));
 
   debug("DocumentFragment.querySelector");
 
@@ -137,5 +136,4 @@ main() {
       DomException.SYNTAX);
   testThrows(() => testQuerySelector(frag, ""),
       DomException.SYNTAX);
-  testThrows(() => testQuerySelector(frag, null));
 }

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Test checking that node list fetched by various queries have 
+ * @description Test checking that node list fetched by various queries have
  * proper object identity
  */
 import "dart:html";
@@ -19,7 +19,9 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   areSame(f) {
-    Expect.identical(f(), f());
+    // Except we don't preserve identity in Dartium, so only compare
+    // for equality.
+    Expect.equals(f(), f());
   }
 
   areSame(() => document.getElementsByTagName("ol"));

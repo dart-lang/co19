@@ -11,8 +11,8 @@
  */
 /**
  * after web-platform-tests/webstorage/storage_local_setitem_js.html
- * @assertion: http://dev.w3.org/html5/webstorage/ 
- * @description 
+ * @assertion: http://dev.w3.org/html5/webstorage/
+ * @description
  */
 import 'dart:html';
 import "../Utils/expectWeb.dart";
@@ -40,20 +40,9 @@ void main() {
         assert_equals(localStorage["name"], "user3");
     }, "name user3");
     test(() {
-        assert_throws("", () {
-            localStorage["age"] = null;
-        });
-    }, "age null");
-    test(() {
         localStorage["age"] = "null";
         assert_equals(localStorage.length, 2, "localStorage.length");
         assert_equals(localStorage["age"], "null");
     }, 'age "null"');
-    test(() {
-        assert_throws("", () {
-            localStorage[null]="test";
-        });
-    }, 'null test');
     checkTestFailures();
 }
-    

@@ -30,9 +30,9 @@ main() {
     debug('===> Tests for ' + controls[i].tagName);
     var validity1, validity2;
     validity1 = controls[i].validity;
-    validity2 = controls[i].validity; 
+    validity2 = controls[i].validity;
     shouldBeTrue(validity1 is ValidityState);
-    shouldBeIdentical(validity1, validity2);
+    shouldBe(validity1, validity2);
   }
 
   shouldThrow(() => new ValidityState());

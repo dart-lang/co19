@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Tests find going both forward and backwards in small and large documents.
  */
 import "dart:html";
@@ -34,7 +34,7 @@ String testFind(subjectString, pattern, backwards) {
         result = "internal inconsistency";
     } else {
         var resultRange = selection.getRangeAt(0);
-        if (!identical(resultRange.startContainer, textNode) || !identical(resultRange.endContainer, textNode)) {
+        if ((resultRange.startContainer != textNode) || resultRange.endContainer != textNode) {
             result = "not found";
         } else {
             result = "${resultRange.startOffset}, ${resultRange.endOffset}";
@@ -48,13 +48,13 @@ void main() {
 
     var forward = false;
     var backward = true;
-    
+
     var manyCharacters = "1234567890";
     for (int i = 0; i < 10; ++i) {
         manyCharacters += manyCharacters;
     }
     var tenThousandCharacters = manyCharacters.substring(0, 10000);
-    
+
     shouldBe(testFind('abc', 'a', forward), '0, 1');
     shouldBe(testFind('abc', 'b', forward), '1, 2');
     shouldBe(testFind('abc', 'c', forward), '2, 3');

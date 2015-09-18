@@ -3,7 +3,7 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-/** 
+/**
  * @description This test makes sure that focusable elements in canvas fallback
  * content are focusable.
  */
@@ -56,7 +56,7 @@ main() {
     debug(id + " should be focusable.");
     element = document.getElementById(id);
     element.focus();
-    shouldBeIdentical(document.activeElement, element);
+    shouldBe(document.activeElement, element);
     debug("");
   }
 
@@ -91,7 +91,7 @@ main() {
     previousFocusedElement = document.activeElement;
     element = document.getElementById(id);
     element.focus();
-    shouldBeIdentical(document.activeElement, previousFocusedElement);
+    shouldBe(document.activeElement, previousFocusedElement);
     debug("");
   }
 

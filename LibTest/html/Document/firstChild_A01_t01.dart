@@ -12,5 +12,5 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.identical(document.childNodes[0], document.firstChild);
+  Expect.equals(document.childNodes[0], document.firstChild);
 }
