@@ -16,7 +16,7 @@
 import '../../Utils/expect.dart';
 
 class C {
-  С() {
+  C() {
     var a = ;
   }
 }
