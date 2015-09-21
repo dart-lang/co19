@@ -8,8 +8,8 @@
  * looking up getter m in o with respect to L. If o is an instance of Type
  * but e is not a constant type literal, then if f is a getter that forwards
  * to a static getter, getter lookup fails.
- * @description Check that if object is an instance but not a constant type
- * literal and result of getter lookup forwards to a static getter, then
+ * @description Check that if object is an instance of Type but not a constant
+ * type literal and result of getter lookup forwards to a static getter, then
  * lookup fails
  * @author sgrekhov@unipro.ru
  */
@@ -22,5 +22,5 @@ class C {
 
 main() {
   var o = new C();
-  Expect.throws(() {o.s;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {o.runtimeType.s;}, (e) => e is NoSuchMethodError);
 }

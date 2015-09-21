@@ -10,8 +10,8 @@
  * looking up method m in o with respect to the current library L. If o is an
  * instance of Type but e is not a constant type literal, then if f is a method
  * that forwards to a static method, method lookup fails
- * @description Check that if object is an instance but not a constant type
- * literal and result of method lookup forwards to a static method, then
+ * @description Check that if object is an instance of Type but not a constant
+ * type literal and result of method lookup forwards to a static method, then
  * lookup fails
  * @author sgrekhov@unipro.ru
  */
@@ -24,5 +24,5 @@ class C {
 
 main() {
   var o = new C();
-  Expect.throws(() {o.s;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {o.runtimeType.s;}, (e) => e is NoSuchMethodError);
 }
