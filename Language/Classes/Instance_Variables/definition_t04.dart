@@ -12,12 +12,11 @@
  * superclass
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
+import '../../../Utils/expect.dart';
 
 class A {
     var a = 1;
 }
-
 class B extends A {
     var b = 2;
 }
