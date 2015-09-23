@@ -19,7 +19,9 @@ import 'syntax_lib1.dart';
 @A()
 class Test1{}
 
-@A() @B() @B.b(10) @E.c
+const _b10 = const B<int>.b(10);
+
+@A() @B() @_b10 @E.c
 class Test2{}
 
 @Foo(1,2)
@@ -28,7 +30,9 @@ class Test3{}
 @B() @X @E.b
 class Test4{}
 
-@B.b('aaa')
+const _ba = const B<String>.b('aaa');
+
+@_ba
 class Test5{}
 
 main() {

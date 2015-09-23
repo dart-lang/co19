@@ -18,7 +18,7 @@ class A {
 @A() void hello() {}
 
 main() {
-  MethodMirror helloMirror = reflect(hello).function;
+  MethodMirror helloMirror = (reflect(hello) as ClosureMirror).function;
   Expect.equals('.A',
     MirrorSystem.getName(helloMirror.metadata[0].type.qualifiedName));
 }
