@@ -16,7 +16,7 @@
  * static const List<E> values = const <E>[id 0 . . . id n−1 ];
  * String toString() => { 0: ‘E.id 0 ’, . . ., n-1: ‘E.id n−1 ’}[index]
  * }
- * @description Checks that type of each member of an enum is this enum type
+ * @description Checks that each member of an enum is constant
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
@@ -25,4 +25,6 @@ enum E {a, b, c}
 
 main() {
   Expect.throws((){E.a = E.b;});
+  Expect.throws((){E.b = E.c;});
+  Expect.throws((){E.c = E.a;});
 }

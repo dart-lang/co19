@@ -9,11 +9,11 @@
  *  enumType:
  *  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
  *  ;
- * @description Checks that it is compile-time error if closing brace is missing
+ * @description Checks that it is compile-time error if enum id is missing
  * @compile-error
- * @author sgrekhov@unipro.ru
+ * @author a.semenov@unipro.ru
  */
-enum E {a, b, c
+enum {a, b, c}
 
 main() {
 }

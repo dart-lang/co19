@@ -9,7 +9,7 @@
  *  enumType:
  *  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
  *  ;
- * @description Checks that it is compile-time error if open brace is missing
+ * @description Checks that it is compile-time error if opening brace is missing
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
