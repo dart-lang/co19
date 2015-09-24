@@ -4,12 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private iff its name begins with an underscore (the _ character)
+ * @assertion Dart supports two levels of privacy: public and private. 
+ * A declaration is private iff its name is private, otherwise it is public.
+ * A name q is private iff any one of the identifiers that comprise q is 
+ * private, otherwise it is public.
+ * An identifier is private iff it begins with an underscore (the _ character) 
  * otherwise it is public.
- * A declaration m is accessible to library L if m is declared in L or if m is public.
- * @description Checks that trying to access a private static field that is not accessible to the
- * current script results in a static warning and a NoSuchMethodError.
+ * A declaration m is accessible to library L if m is declared in L or if m is 
+ * public.
+ * @description Checks that trying to access a private static field that is 
+ * not accessible to the current script results in a static warning and a 
+ * NoSuchMethodError.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
@@ -22,5 +27,5 @@ main() {
   try {
     ClassWithPrivateMembers._staticvar = 1; /// static type warning
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(x) {}
+  } on NoSuchMethodError {}
 }

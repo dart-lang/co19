@@ -5,10 +5,11 @@
  */
 /**
  * @assertion The run-time type of every object is represented as an instance
- * of class Type which can be obtained by calling the getter runtimeType declared
- * in class Object, the root of the Dart class hierarchy.
- * @description Checks that this getter indeed returns an instance of class Type
- * that is not null for non-null values of various types and doesn't cause any errors.
+ * of class Type which can be obtained by calling the getter runtimeType 
+ * declared in class Object, the root of the Dart class hierarchy.
+ * @description Checks that this getter indeed returns an instance of class 
+ * Type that is not null for non-null values of various types and doesn't 
+ * cause any errors.
  * @author rodionov
  * @reviewer kaigorodov
  */
