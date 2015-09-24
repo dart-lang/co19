@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a declaration d named n is in the namespace induced by a scope S,
- * then d hides any declaration named n that is available in the lexically enclosing
- * scope of S.
+ * @assertion If a declaration d named n is in the namespace induced by a 
+ * scope S, then d hides any declaration named n that is available in the 
+ * lexically enclosing scope of S.
  * @description Checks that no static warning is produced if a local variable
- * declared inside an else statement shadows another local variable declared in an
- * enclosing lexical scope.
+ * declared inside an else statement shadows another local variable declared in 
+ * an enclosing lexical scope.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -23,7 +23,7 @@ never() {
 
 main() {
   var x = 1;
-  if(never()) {
+  if (never()) {
     var y = 42;
   } else {
     var x = 0;

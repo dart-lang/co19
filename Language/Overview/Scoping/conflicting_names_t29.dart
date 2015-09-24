@@ -4,15 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart is lexically scoped. Scopes may nest. A name or declaration d is
- * available in scope S if d is in the namespace induced by S or if d is available
- * in the lexically enclosing scope of S. We say that a name or declaration d is in
- * scope if d is available in the current scope.
- * It is a compile-time error if there is more than one entity with the same name
- * declared in the same scope, with the exception of the operator -, where both
- * a unary and a binary version may coexist.
- * @description Checks that a name from the current lexical scope does not conflict
- * with names in other, non-enclosing scopes.
+ * @assertion It is a compile-time error if there is more than one entity 
+ * with the same name declared in the same scope.
+ * Dart is lexically scoped. Scopes may nest. A name or declaration d is 
+ * available in scope S if d is in the namespace induced by S or if d is 
+ * available in the lexically enclosing scope of S. We say that a name or 
+ * declaration d is in scope if d is available in the current scope.
+ * @description Checks that a name from the current lexical scope does not 
+ * conflict with names in other, non-enclosing scopes.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov

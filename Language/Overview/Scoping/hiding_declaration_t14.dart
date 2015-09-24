@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a declaration d named n is in the namespace induced by a scope S,
- * then d hides any declaration named n that is available in the lexically enclosing
- * scope of S.
+ * @assertion If a declaration d named n is in the namespace induced by a 
+ * scope S, then d hides any declaration named n that is available in the 
+ * lexically enclosing scope of S.
  * @description Checks that no static warning is produced if a local variable
  * declared inside a for loop shadows another local variable declared in an
  * enclosing lexical scope.
@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 var flag = false;
 
 once() {
-  if(flag) {
+  if (flag) {
     return flag;
   }
   flag = true;
@@ -27,6 +27,6 @@ once() {
 
 main() {
   var x = 1;
-  for(; once() ;) var x = 42;
+  for (; once() ;) var x = 42;
   Expect.equals(1, x);
 }

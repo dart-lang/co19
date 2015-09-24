@@ -6,8 +6,8 @@
 /**
  * @assertion Names may be introduced into a scope by  declarations within the
  * scope or by other mechanisms such as imports or inheritance.
- * @description Checks that names may be introduced into a scope by declaration within
- * the scope.
+ * @description Checks that names may be introduced into a scope by 
+ * declaration within the scope.
  * @author msyabro
  * @reviewer iefremov
  */

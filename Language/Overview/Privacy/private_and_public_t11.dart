@@ -4,12 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private iff its name begins with an underscore (the _ character)
+ * @assertion Dart supports two levels of privacy: public and private. 
+ * A declaration is private iff its name is private, otherwise it is public.
+ * A name q is private iff any one of the identifiers that comprise q is 
+ * private, otherwise it is public.
+ * An identifier is private iff it begins with an underscore (the _ character) 
  * otherwise it is public.
- * A declaration m is accessible to library L if m is declared in L or if m is public.
- * @description Checks that various private class members are perfectly accessible to a subclass
- * that is declared in the same script.
+ * A declaration m is accessible to library L if m is declared in L or if m is 
+ * public.
+ * @description Checks that various private class members are perfectly 
+ * accessible to a subclass that is declared in the same script.
  * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
@@ -48,22 +52,22 @@ class B extends _A { /// static type warning Concrete class has unimplemented me
     try {
       _abstractfun();
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok){}
+    } on NoSuchMethodError catch (ok) {}
     try {
       super._abstractfun();
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok){}
+    } on NoSuchMethodError catch (ok) {}
 
     Expect.equals(100500, _getter);
     Expect.equals(100500, super._getter);
     try {
       _setter = 1;
-    } on int catch(ok) {
+    } on int catch (ok) {
       Expect.equals(1, ok);
     }
     try {
       super._setter = 1;
-    } on int catch(ok) {
+    } on int catch (ok) {
       Expect.equals(1, ok);
     }
   }

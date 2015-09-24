@@ -4,12 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart supports two levels of privacy: public and private.
- * A declaration is private iff its name begins with an underscore (the _ character)
+ * @assertion Dart supports two levels of privacy: public and private. 
+ * A declaration is private iff its name is private, otherwise it is public.
+ * A name q is private iff any one of the identifiers that comprise q is 
+ * private, otherwise it is public.
+ * An identifier is private iff it begins with an underscore (the _ character) 
  * otherwise it is public.
- * A declaration m is accessible to library L if m is declared in L or if m is public.
- * @description Checks that private fields/methods inherited from a class declared in another library
- * are not visible and do not overload members from a super class declared in the current library.
+ * A declaration m is accessible to library L if m is declared in L or if m is 
+ * public.
+ * @description Checks that private fields/methods inherited from a class 
+ * declared in another library are not visible and do not overload members 
+ * from a super class declared in the current library.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -30,7 +35,5 @@ class C extends B {
 }
 
 main() {
-  try {
-    new C().test();
-  } catch(x) {}
+  new C().test();
 }
