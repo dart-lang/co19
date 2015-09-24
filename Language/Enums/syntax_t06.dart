@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An enumerated type, or enum, is used to represent a fixed number 
+ * @assertion An enumerated type, or enum, is used to represent a fixed number
  * of constant values.
  *  enumType:
  *  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
