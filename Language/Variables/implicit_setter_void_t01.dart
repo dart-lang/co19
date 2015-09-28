@@ -9,8 +9,9 @@
  * with signature
  *   void set v = (T x)
  * whose execution sets the value of v to the incoming argument x.
- * @description Trivially checks that some arbitrary values may be assigned
- * to the variables declared as in assertion.
+ * @description Trivially checks that some arbitrary values of corresponding 
+ * type may be assigned to the variables declared with explicitly specified 
+ * type.
  * @author vasya
  * @reviewer pagolubev
  * @reviewer iefremov

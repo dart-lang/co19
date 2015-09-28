@@ -20,5 +20,5 @@ class C {
 main() {
   try {
     print(C.v);
-  } catch(ok) {}
+  } catch (ok) {}
 }

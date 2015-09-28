@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Static variable declarations are initialized lazily. When a static
- * variable v is read, iff it has not yet been assigned, it is set to the result
- * of evaluating its initializer
- * @description Checks that static variable declarations are initialized lazily by
- * assigning a throw expression to a top-level variable and checking that it is only
- * evaluated when that variable is accessed.
+ * @assertion Static variable declarations are initialized lazily. When a 
+ * static variable v is read, iff it has not yet been assigned, it is set to 
+ * the result of evaluating its initializer.
+ * @description Checks that static variable declarations are initialized lazily 
+ * by assigning a throw expression to a top-level variable and checking that 
+ * it is only evaluated when that variable is accessed.
  * @author kaigorodov
  * @reviewer rodionov
  */

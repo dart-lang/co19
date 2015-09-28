@@ -10,7 +10,6 @@
  * is complete, or a compile-time error occurs.
  * @description Checks that it is not a compile-error to reference the name of
  * local variable before its declaration, but in outer scope.
- * before its initializer.
  * @static-warning
  * @author ilya
  */
@@ -25,6 +24,6 @@ main() {
   Expect.throws(() {
     i;         // static type warning
 
-    for (int i=0; i<10; ++i) {}
+    for (int i = 0; i < 10; ++i) {}
   });
 }

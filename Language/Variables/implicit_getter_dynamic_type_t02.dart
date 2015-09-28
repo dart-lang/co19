@@ -8,9 +8,10 @@
  * var v;, var v = e; , const v = e;, final v; or final v = e;
  * always induces an implicit getter function with signature
  *   get v
- * @description Checks that the returned type of this implicit getter is the same as the
- * static field's type (dynamic), by making sure there're no static warnings when invoking
- * non-existing methods on the value returned by these getters.
+ * @description Checks that the returned type of this implicit getter is the 
+ * same as the static field's type (dynamic), by making sure there're no 
+ * static warnings when invoking non-existing methods on the value returned by 
+ * these getters.
  * @static-clean
  * @author rodionov
  * @reviewer msyabro

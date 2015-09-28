@@ -28,7 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that a variable declaration cannot contain both 'var' and 'type'.
+ * @description Checks that a variable declaration cannot contain both 'var' 
+ * and 'type'.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -37,5 +38,5 @@
 main() {
   try {
     var int x = 1;
-  } catch(ok) {}
+  } catch (ok) {}
 }

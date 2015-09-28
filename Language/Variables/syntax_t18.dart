@@ -41,5 +41,5 @@ class C {
 main() {
   try {
     new C();
-  } catch(ok) {}
+  } catch (ok) {}
 }

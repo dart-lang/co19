@@ -28,8 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that a non-expression statement cannot be used instead of expression in an initialized 
- * variable declaration.
+ * @description Checks that a non-expression statement cannot be used instead 
+ * of expression in an initialized variable declaration.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -38,5 +38,5 @@
 main() {
   try {
     var x = return 0;
-  } catch(ok) {}
+  } catch (ok) {}
 }

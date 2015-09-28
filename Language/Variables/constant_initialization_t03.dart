@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A constant variable must be initialized to a compile-time constant or a compile-time error occurs.
- * @description Checks that constant variables can be initialized to
+ * @assertion A constant variable must be initialized to a compile-time 
+ * constant or a compile-time error occurs.
+ * @description Checks that constant variables should be initialized to
  * a compile-time constant.
  * @author msyabro
  * @reviewer iefremov

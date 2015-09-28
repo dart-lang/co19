@@ -18,5 +18,5 @@ final int v;
 main() {
   try {
     print(v);
-  } catch(ok) {}
+  } catch (ok) {}
 }

@@ -22,7 +22,7 @@
 class C {
   f() {
     final i;
-    return i=1;
+    return i = 1;
   }
 }
 
