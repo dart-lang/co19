@@ -28,8 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks different variables in a single variable declaration must be delimited
- * by commas.
+ * @description Checks that different variables in a single variable 
+ * declaration must be delimited by commas.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -38,5 +38,5 @@
 main() {
   try {
     var x y;
-  } catch(ok) {}
+  } catch (ok) {}
 }

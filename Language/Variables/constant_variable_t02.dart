@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A constant variable is a variable whose declaration includes the modifier
- * const. A constant variable is always implicitly final.
- * @description Checks that a NoSuchMethodError occurs and a static warning is given
- * when a constant local variable is assigned a new value after being initialized at declaration.
+ * @assertion A constant variable is a variable whose declaration includes the 
+ * modifier const. A constant variable is always implicitly final.
+ * @description Checks that, if a new value is assigned to a constant local 
+ * variable after it was initialized at declaration, this will cause a static 
+ * warning and a runtime error throwing at execution.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
@@ -18,6 +19,6 @@ main() {
   const int foo = 1;
   try {
     foo = 2; /// static warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("Runtime error expected");
+  } on Error catch (ok) {}
 }

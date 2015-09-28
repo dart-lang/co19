@@ -28,7 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that variable declaration cannot contain both 'const' and 'final'.
+ * @description Checks that variable declaration cannot contain both 'const' 
+ * and 'final'.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -37,5 +38,5 @@
 main() {
   try {
     const final x = 1;
-  } catch(ok) {}
+  } catch (ok) {}
 }

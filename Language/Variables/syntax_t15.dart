@@ -28,7 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that a variable declaration cannot contain the 'abstract' keyword.
+ * @description Checks that a variable declaration cannot contain the 
+ * 'abstract' keyword.
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
@@ -41,5 +42,5 @@ class C {
 main() {
   try {
     new C();
-  } catch(ok) {}
+  } catch (ok) {}
 }

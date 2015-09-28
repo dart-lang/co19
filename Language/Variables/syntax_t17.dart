@@ -28,7 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that only assignment operator is admitted when variable is initialized.
+ * @description Checks that only assignment operator is admitted when 
+ * variable is initialized.
  * @compile-error
  * @author hlodvig
  * @reviewer iefremov
@@ -37,5 +38,5 @@
 main() {
   try {
     var x += 1;
-  } catch(ok) {}
+  } catch (ok) {}
 }

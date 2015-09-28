@@ -9,8 +9,8 @@
  * always induces an implicit getter function with signature
  *   get v
  * whose invocation evaluates as described below.
- * @description Trivially checks that instance variables declared as in
- * assertion are accessible.
+ * @description Trivially checks that instance variables declared without 
+ * specified type are accessible.
  * @author vasya
  * @reviewer pagolubev
  * @reviewer iefremov

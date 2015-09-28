@@ -28,7 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that finalConstVarOrType cannot appear twice in variable declaration.
+ * @description Checks that finalConstVarOrType cannot appear twice in 
+ * variable declaration.
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
@@ -37,5 +38,5 @@
 main() {
   try {
     var x, var y;
-  } catch(wtvr) {}
+  } catch (wtvr) {}
 }

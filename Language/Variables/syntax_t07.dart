@@ -37,5 +37,5 @@
 main() {
   try {
     var x, ;
-  } catch(ok) {}
+  } catch (ok) {}
 }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A constant variable is a variable whose declaration includes the modifier
- * const. A constant variable is always implicitly final.
+ * @assertion A constant variable is a variable whose declaration includes the 
+ * modifier const. A constant variable is always implicitly final.
  * @description Checks that constant variables are initialized properly.
  * @author msyabro
  * @reviewer iefremov

@@ -9,8 +9,9 @@
  * always induces an implicit getter function with signature
  *   T get v
  * whose invocation evaluates as described below.
- * @description Checks that the returned type of this implicit getter is the same as the
- * static field's type by assigning the result of its invocation to a variable of the same type.
+ * @description Checks that the returned type of this implicit getter is the 
+ * same as the static field's type by assigning the result of its invocation 
+ * to a variable of the same type.
  * @static-clean
  * @author msyabro
  * @reviewer iefremov
