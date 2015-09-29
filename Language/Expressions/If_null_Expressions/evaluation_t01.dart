@@ -14,19 +14,19 @@
 import '../../../Utils/expect.dart';
 
 int e1count = 0;
-int e1(int r){
+int e1(int r) {
   e1count++;
   return r;
 }
 
 int e2count = 0;
-int e2(int r){
+int e2(int r) {
   e2count++;
   return r;
 }
 
 int e3count = 0;
-int e3(int r){
+int e3(int r) {
   e3count++;
   return r;
 }
@@ -40,19 +40,19 @@ void reset() {
 main() {
   // if e1 evaluates to not null value, e2 is not evaluated
   reset();
-  var x = e1(1)??e2(null);
+  var x = e1(1) ?? e2(null);
   Expect.equals(1, e1count);
   Expect.equals(0, e2count);
 
   // if e1 evaluates to null value, e2 is evaluated
   reset();
-  x = e1(null)??e2(1);
+  x = e1(null) ?? e2(1);
   Expect.equals(1, e1count);
   Expect.equals(1, e2count);
 
   // if e1 evaluates to not null value, e2 and e3 are not evaluated
   reset();
-  x = e1(1)??e2(2)??e3(3);
+  x = e1(1) ?? e2(2) ?? e3(3);
   Expect.equals(1, e1count);
   Expect.equals(0, e2count);
   Expect.equals(0, e3count);
@@ -60,7 +60,7 @@ main() {
   // if e1 evaluates to null value and e2 is evaluated to not null value,
   // e3 is not evaluated
   reset();
-  x = e1(null)??e2(2)??e3(3);
+  x = e1(null) ?? e2(2) ?? e3(3);
   Expect.equals(1, e1count);
   Expect.equals(1, e2count);
   Expect.equals(0, e3count);
@@ -68,7 +68,7 @@ main() {
   // if e1 evaluates to null value and e2 is evaluated to null,
   // e3 is evaluated
   reset();
-  x = e1(null)??e2(null)??e3(3);
+  x = e1(null) ?? e2(null) ?? e3(3);
   Expect.equals(1, e1count);
   Expect.equals(1, e2count);
   Expect.equals(1, e3count);

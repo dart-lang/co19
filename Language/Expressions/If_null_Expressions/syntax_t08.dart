@@ -8,12 +8,12 @@
  *  ifNullExpression:
  *   logicalOrExpression (‘??’ logicalOrExpression)*
  *
- * @description Check that it is a compile time error, if
- * third logicalOrExpression is missing
+ * @description Check that it is a compile time error, if '??' is used twice
+ *
  * @compile-error
- * @author a.semenov@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
 
 main() {
-  var x = 10 ?? 20 ??;
+  var x = 10 ?? ?? 20;
 }

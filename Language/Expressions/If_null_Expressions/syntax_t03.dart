@@ -17,7 +17,7 @@ import '../../../Utils/expect.dart';
 main() {
   int x = 1;
 
-  Expect.equals(2, (x+1)??10);
-  Expect.iterableEquals([], []??10);
-  Expect.equals(30, (10+5*4)??(2+2*2));
+  Expect.equals(2, (x + 1) ?? 10);
+  Expect.iterableEquals([], [] ?? 10);
+  Expect.equals(30, (10 + 5 * 4) ?? (2 + 2 * 2));
 }
