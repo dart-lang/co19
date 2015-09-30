@@ -24,7 +24,7 @@
  */
  
 library Parts_test_lib;
-part "3_Parts_A01_t05.dart";
+part "compilation_t09.dart";
 
 main() {
 }
