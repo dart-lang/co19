@@ -6,20 +6,19 @@
 /**
  * @assertion Evaluation of a property extraction i of the form new T#m
  * proceeds as follows:...
- * If T does not denote a class, a dynamic error occurs.
- * @description Check that it is a dynamic error if T denotes variable
+ * Otherwise, if the type T does not declare an accessible named constructor
+ * f with name m, a NoSuchMethodError is thrown.
+ * @description Check that NoSuchMethodError is thrown if T does not declare
+ * an accessible named constructor m
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/dynamic_check.dart';
+import '../../../../Utils/expect.dart';
 
 class C {
-  C.m() {
+  C.n() {
   }
 }
 
 main() {
-  C c = new C.m();
-  checkDynamicError(() {
-    var x = new c#m;
-  });
+  Expect.throws(() {var x = new C#m;}, (e) => e is NoSuchMethodError);
 }

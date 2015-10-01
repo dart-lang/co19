@@ -6,15 +6,22 @@
 /**
  * @assertion Evaluation of a property extraction i of the form new T#m
  * proceeds as follows:...
- * If T is a malformed type, a dynamic error occurs.
- * @description Check that it is a dynamic error if T is a malformed type
- * (not existing type)
+ * In checked mode, if T or any of its superclasses is malbounded a dynamic
+ * error occurs
+ * @description Check that it is a dynamic error if T is a malbounded type
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/dynamic_check.dart';
 
+class Bounded<T extends num> {
+  Bounded.m() {
+  }
+}
+
 main() {
-  checkDynamicError(() {
-    var x = new c#m;
-  });
+  if (isCheckedMode()) {
+    checkDynamicError(() {
+      var x = new Bounded<String>#m; /// static warning
+    });
+  }
 }

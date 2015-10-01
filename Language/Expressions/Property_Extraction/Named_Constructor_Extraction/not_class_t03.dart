@@ -10,11 +10,14 @@
  * @description Check that it is a dynamic error if T denotes function
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
+import '../../../../Utils/dynamic_check.dart';
 
 void f() {
+  var m;
 }
 
 main() {
-  Expect.throws(() {var x = new f#m;}, (e) => e is Error);
+  checkDynamicError(() {
+    var x = new f#m;
+  });
 }

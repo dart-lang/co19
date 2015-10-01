@@ -12,9 +12,11 @@
  * prefix p and p has not been successfully loaded
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
+import '../../../../Utils/dynamic_check.dart';
 import 'deferred_type_lib.dart' deferred as p;
 
 main() {
-  Expect.throws(() {var x = new p.C#m;}, (e) => e is Error);
+  checkDynamicError(() {
+    var x = new p.C#m;
+  });
 }

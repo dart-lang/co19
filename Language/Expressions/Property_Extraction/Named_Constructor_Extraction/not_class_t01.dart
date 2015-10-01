@@ -10,10 +10,12 @@
  * @description Check that it is a dynamic error if T denotes enum
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
+import '../../../../Utils/dynamic_check.dart';
 
 enum E {a, b, c, m}
 
 main() {
-  Expect.throws(() {var x = new E#m;}, (e) => e is Error);
+  checkDynamicError(() {
+    var x = new E.a#m;
+  });
 }
