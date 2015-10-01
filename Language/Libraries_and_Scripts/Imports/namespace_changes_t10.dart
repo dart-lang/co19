@@ -48,7 +48,7 @@
 
 library import_itself_library;
 
-import "1_Imports_A02_t10.dart";
+import "namespace_changes_t10.dart";
 
 var foo;
 class bar { }
