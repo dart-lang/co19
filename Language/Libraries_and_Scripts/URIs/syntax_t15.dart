@@ -17,7 +17,7 @@
  * @reviewer kaigorodov
  */
 library URIs_A01;
-part '''5_Part''' '''.dart''';
+part '''part''' '''.dart''';
 
 main() {
 }

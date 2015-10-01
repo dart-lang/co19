@@ -16,7 +16,7 @@
  * @reviewer kaigorodov
  */
  
-import '''5_Library1''' '''.dart''';
+import '''library1''' '''.dart''';
 
 main() {
 }
