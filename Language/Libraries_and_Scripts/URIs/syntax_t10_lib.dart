@@ -4,4 +4,4 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 library URIs_A01;
-export '''5_Library1''' '''.dart''';
+export '''library1''' '''.dart''';
