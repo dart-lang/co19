@@ -5,13 +5,13 @@
  */
 /**
  * @assertion Evaluation of a property extraction i of the form new T#m
- * proceeds as follows:
+ * proceeds as follows:...
  * If T is a malformed type, a dynamic error occurs.
  * @description Check that it is a dynamic error if T is a malformed type
  * (T is not a type)
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
+import '../../../../Utils/dynamic_check.dart';
 
 class C {
   C.m() {
@@ -20,5 +20,7 @@ class C {
 
 main() {
   C c = new C.m();
-  Expect.throws(() {var x = new c#m;}, (e) => e is Error);
+  checkDynamicError(() {
+    var x = new c#m;
+  });
 }
