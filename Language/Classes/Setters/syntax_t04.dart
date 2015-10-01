@@ -11,18 +11,23 @@
  * methodSignature:
  *   static? setterSignature
  * ;
- * @description Checks setter returns expected value
+ * @description Checks if setter return value ohter than void is specified
+ * then no error occurs
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class C {
-  int set s1(int value) {return 1;}
-  static int set s2(int value) {return 2;}
+  String set s1(int value) {return "1";} /// static warning
+  static int set s2(int value) {return 2;} /// static warning
 }
 
 main() {
   C c = new C();
-  Expect.equals(1, c.s1 = 0, "Setter should return expected value");
-  Expect.equals(2, C.s2 = 0, "Static setter should return expected value");
+  // There is no way to check setter return value. Return value of assignment
+  // e1.v = e2; is always e2. So just call setters to check that there's no
+  // error
+  Expect.equals(0, c.s1 = 0);
+  Expect.equals(0, C.s2 = 0);
 }
