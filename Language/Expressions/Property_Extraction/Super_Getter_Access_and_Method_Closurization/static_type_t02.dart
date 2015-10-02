@@ -12,20 +12,17 @@
  * • The type dynamic otherwise.
  * @description Check that static type of the extracted method is static type
  * of the function
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class A {
   int m() => 1;
 }
 
 class C extends A {
-  String m() => "s";
-
   void test() {
-      var i = super.m;
-      Expect.isTrue(i is Function);
+      Function i = super.m;
   }
 }
 

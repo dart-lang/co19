@@ -9,13 +9,17 @@
  * Otherwise, if the type T does not declare an accessible named constructor
  * f with name m, a NoSuchMethodError is thrown.
  * @description Check that NoSuchMethodError is thrown if T does not declare
- * a named constructor m
+ * an accessible named constructor m
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
-class C {
-  C.n();
+class A {
+  A.m();
+}
+
+class C extends A{
+  C.n() : super.m();
 }
 
 main() {

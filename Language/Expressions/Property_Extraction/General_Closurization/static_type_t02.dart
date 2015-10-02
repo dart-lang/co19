@@ -13,6 +13,7 @@
  * • The type dynamic otherwise.
  * @description Check that static type of extracted method is static type of
  * the function. Test short syntax
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -24,10 +25,9 @@ class C {
 
 main() {
   C o = new C();
-  var i1 = o#m;
+  Function i1 = o#m;
   var i2 = o.m;
   var i3 = o.n;
-  Expect.isTrue(i1 is Function);
   Expect.isTrue(i1 == i2);
   Expect.isFalse(i1 == i3);
 }

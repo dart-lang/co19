@@ -6,18 +6,26 @@
 /**
  * @assertion Evaluation of a property extraction i of the form new T#m
  * proceeds as follows:...
- * Otherwise, if the type T does not declare an accessible named constructor
- * f with name m, a NoSuchMethodError is thrown.
- * @description Check that NoSuchMethodError is thrown if T does not declare
- * a named constructor m
+ * Otherwise, i evaluates to the closurization of constructor f of type T
+ * @description Check extracted constructor evaluates to the closurization
+ * of constructor f of type T
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class C {
-  C.n();
+  String creator;
+  C() {
+    this.creator = "Default";
+  }
+  C.m() {
+    this.creator = "m";
+  }
 }
 
 main() {
-  Expect.throws(() {var x = new C#m;}, (e) => e is NoSuchMethodError);
+  var i = new C#m;
+  var o = i();
+  Expect.isTrue(o is C);
+  Expect.equals("m", o.creator);
 }

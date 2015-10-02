@@ -18,15 +18,14 @@
  * • The type dynamic otherwise.
  * @description Check that static type of an accessible static method is the
  * static type of the method
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class C {
   static int m() => 1;
 }
 
 main() {
-  var x = C.m;
-  Expect.isTrue(x is Function);
+  Function x = C.m;
 }

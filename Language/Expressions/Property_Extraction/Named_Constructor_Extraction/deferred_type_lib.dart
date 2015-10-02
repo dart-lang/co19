@@ -6,6 +6,5 @@
 library deferred_type_lib;
 
 class C {
-  C.m() {
-  }
+  C.m();
 }

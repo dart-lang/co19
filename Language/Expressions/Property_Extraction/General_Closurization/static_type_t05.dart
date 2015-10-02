@@ -13,19 +13,18 @@
  * • The type dynamic otherwise.
  * @description Check that static type of extracted named constructor is static
  * type of the constructor
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class C {
-  C.m() {
-  }
+  C.m();
   static int n(int val) => 2;
 }
 
 main() {
-  var i1 = new C#m;
+  Function i1 = new C#m;
   var i2 = C.n;
-  Expect.isTrue(i1 is Function);
   Expect.isFalse(i1 == i2);
 }

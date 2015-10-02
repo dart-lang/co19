@@ -18,9 +18,9 @@
  * • The type dynamic otherwise.
  * @description Check that static type of the getter is getter's declared
  * return type
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class C {
   int get m => 1;
@@ -28,6 +28,5 @@ class C {
 
 main() {
   C c = new C();
-  var x = c.m;
-  Expect.isTrue(x is int);
+  int x = c.m;
 }

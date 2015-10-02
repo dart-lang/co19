@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a setter declares a return type other than void. 
+ * @assertion It is a static warning if a setter declares a return type other
+ * than void.
  * @description Checks that a static warning is produced if a setter declares
  * int as its return type.
  * @static-warning

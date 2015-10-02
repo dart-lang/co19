@@ -13,8 +13,7 @@
 import '../../../../Utils/dynamic_check.dart';
 
 class C {
-  C.m() {
-  }
+  C.m();
 }
 
 main() {

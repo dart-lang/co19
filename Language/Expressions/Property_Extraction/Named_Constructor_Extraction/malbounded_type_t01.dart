@@ -8,14 +8,15 @@
  * proceeds as follows:...
  * In checked mode, if T or any of its superclasses is malbounded a dynamic
  * error occurs
- * @description Check that it is a dynamic error if T is a malbounded type
+ * @description Check that it is a dynamic error and static warning if T is
+ * a malbounded type
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/dynamic_check.dart';
 
 class Bounded<T extends num> {
-  Bounded.m() {
-  }
+  Bounded.m();
 }
 
 main() {

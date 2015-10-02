@@ -12,20 +12,17 @@
  * • The type dynamic otherwise.
  * @description Check that static type of the extracted getter is declared
  * return type of the getter
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class A {
   int get m => 1;
 }
 
 class C extends A {
-  String get m => "s";
-
   void test() {
-      var i = super.m;
-      Expect.isTrue(i is int);
+      int i = super.m;
   }
 }
 
