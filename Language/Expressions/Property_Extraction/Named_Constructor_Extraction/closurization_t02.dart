@@ -23,7 +23,6 @@ class A {
 }
 
 class C extends A {
-
   C() : super.m() {
     this.creator = "Default";
   }
