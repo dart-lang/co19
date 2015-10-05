@@ -24,5 +24,5 @@ main() {
   try {
     var i = new C#m;
     i.something; // i is dynamic, so no static warning here
-  } catch (e) {}
+  } on NoSuchMethodError {}
 }
