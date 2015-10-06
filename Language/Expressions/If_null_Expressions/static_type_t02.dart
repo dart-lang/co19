@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Evaluation of an if-null expression e of the form e1??e2 is
- * equivalent ... The static type of e is least upper bound (19.8.2) of the
+ * equivalent ... The static type of e is least upper bound of the
  * static type of e1 and the static type of e2 .
  *
  * @description Check that static type of expression e1??e2 do not match with
