@@ -5,10 +5,12 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
- * @description Checks that it is a compile-time error if a class type definition
- * is missing the closing curly bracket. Class body is not empty.
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if a closing curly 
+ * bracket is missed in a class type definition. Class body is not empty.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov

@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody

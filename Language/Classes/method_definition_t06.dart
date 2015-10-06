@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
@@ -29,7 +31,7 @@
  */
 
 class A {/// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
-  operator==(A other);
+  operator ==(A other);
 }
 
 main() {

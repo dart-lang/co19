@@ -5,17 +5,19 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if a class type 
+ * definition uses round brackets instead of the curly ones. Class body is 
+ * not empty.
  * @compile-error
- * @description Checks that it is a compile-time error if a class type definition
- * uses regular brackets instead of the curly ones. 
- * Class body is not empty.
  * @author msyabro
  * @reviewer rodionov
  */
 
-class A(
+class A (
   var someMember;
 )
 

@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
@@ -19,6 +21,7 @@
  *   static? getterSignature |
  *   static? setterSignature |
  *   operatorSignature
+ * ;
  * ;
  * @description Checks that there is no compile-time error if a getter
  * method definition in a concrete class does not include a body, and no

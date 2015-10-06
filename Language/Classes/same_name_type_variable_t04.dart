@@ -15,7 +15,7 @@
  */
 
 class A<T> {
-  set T (x) {}
+  set T (x){}
 }
 
 main() {

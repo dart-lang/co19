@@ -5,13 +5,15 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
- *  mixins:
- *    with typeList
+ * mixins:
+ *   with typeList
  * ;
- * @description Checks that a correct class declaration with mixins is accepted.
+ * @description Checks that a correct class declaration with mixins is 
+ * accepted.
  * @author kaigorodov
  */
 
@@ -28,5 +30,5 @@ class AM extends A with M {
 
 main() {
   AM am = new AM();
-  am.m=am.a(); 
+  am.m = am.a(); 
 }

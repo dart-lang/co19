@@ -5,13 +5,16 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
  * ;
+ * .  .  .
  * declaration:
  *   constantConstructorSignature (redirection | initializers)? |
  *   constructorSignature (redirection | initializers)? |
@@ -22,7 +25,6 @@
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |
- *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
  *   static? (var | type) initializedIdentifierList
  * ;
@@ -32,14 +34,15 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that it is a compile-time error when constructor is declared static.
+ * @description Checks that it is a compile-time error when constructor is 
+ * declared static.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 
 class C {
-  static C(){}
+  static C() {}
 }
 
 main() {

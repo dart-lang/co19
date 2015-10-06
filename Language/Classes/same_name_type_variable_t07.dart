@@ -15,7 +15,7 @@
  */
 
 class A<T> {
-  static set T (x) {}
+  static set T(x) {}
 }
 
 main() {

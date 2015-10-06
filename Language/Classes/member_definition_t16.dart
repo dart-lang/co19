@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ‘;’ |
  *   methodSignature functionBody
@@ -30,12 +32,12 @@
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |
- *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
  *   static? (var | type) initializedIdentifierList
  * ;
+ * @description Checks that a continue statement can't be used in place of a 
+ * class member definition.
  * @compile-error
- * @description Checks that a continue statement can't be used in place of a class member definition.
  * @author msyabro
  * @reviewer rodionov
  */

@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
@@ -20,22 +22,23 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that various class member method definitions wich are valid according to
- * this syntax do not cause any errors and such class can be instantiated. 
+ * @description Checks that various class member method definitions wich are 
+ * valid according to this syntax do not cause any errors and such class can 
+ * be instantiated. 
  * @author msyabro
  * @reviewer rodionov
  */
 
 class A {
   @B(1) factory A.f() {}
-  @A() const A():_x=0;
-  @A() A.B():_x=2;
+  @A() const A():_x = 0;
+  @A() A.B():_x = 2;
   @B(1) A.C(): _x = 1 {}
 
   @A() static fun() {}
   @B(1) get x {}
   @A() set x(var v) {}
-  @B(1) operator==(A other) {}
+  @B(1) operator ==(A other) {}
 
   @A() final _x;
 }

@@ -5,12 +5,14 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if square brackets are 
+ * used instead of the curly ones in a class type definition. Class body is 
+ * not empty.
  * @compile-error
- * @description Checks that it is a compile-time error if a class type definition
- * uses square brackets instead of the curly ones. 
- * Class body is not empty.
  * @author msyabro
  * @reviewer rodionov
  */

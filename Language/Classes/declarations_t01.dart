@@ -5,13 +5,16 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
  * ;
+ * .  .  .
  * declaration:
  *   constantConstructorSignature (redirection | initializers)? |
  *   constructorSignature (redirection | initializers)? |
@@ -22,7 +25,6 @@
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |
- *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
  *   static? (var | type) initializedIdentifierList
  * ;
@@ -32,8 +34,9 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that various class member declarations that are valid according to
- * this syntax do not cause any errors and such class can be instantiated. 
+ * @description Checks that various class member declarations that are valid 
+ * according to this syntax do not cause any errors and such class can be 
+ * instantiated. 
  * @author kaigorodov
  * @reviewer rodionov
  */

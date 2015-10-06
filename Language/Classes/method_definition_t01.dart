@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
@@ -20,8 +22,9 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that various class member method definitions that are valid according to
- * this syntax do not cause any errors and such class can be instantiated. 
+ * @description Checks that various class member method definitions that are 
+ * valid according to this syntax do not cause any errors and such class can 
+ * be instantiated. 
  * @author msyabro
  * @reviewer rodionov
  */

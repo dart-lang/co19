@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a class declares two members of the same name.
+ * @assertion It is a compile-time error if a class declares two members of 
+ * the same name.
  * @description Checks that it is a compile-time error if a class declares 
  * an abstract function and getter of the same name.
  * @compile-error

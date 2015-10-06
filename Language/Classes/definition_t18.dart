@@ -5,15 +5,18 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
- * @description Checks that it is a compile-time error if type parameters are separated with semicolon.
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if type parameters are 
+ * separated with semicolon in a a class definition.
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
  */
 
-class A<T1;T2>{}
+class A<T1;T2> {}
 
 main() {
   try {

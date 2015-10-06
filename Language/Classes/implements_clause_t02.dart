@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class may implement a number of interfaces by declaring them in its
- * implements clause
+ * @assertion A class may implement a number of interfaces by declaring them 
+ * in its implements clause.
  * @description Checks that class can implement one or more interfaces.
  * @author kaigorodov
  * @reviewer rodionov

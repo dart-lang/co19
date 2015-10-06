@@ -5,10 +5,12 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
- * @description Checks that it is a compile-time error if an abstract class declaration
- * is missing both opening and closing curly brackets.
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if both opening and 
+ * closing curly brackets are missed in an abstract class declaration.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov

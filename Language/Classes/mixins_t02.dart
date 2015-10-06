@@ -5,11 +5,12 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
- *  mixins:
- *    with typeList
+ * mixins:
+ *   with typeList
  * ;
  * @description Checks that mixins without superclass are not accepted.
  * @compile-error
@@ -29,5 +30,5 @@ class AM with A,M {
 
 main() {
   AM am = new AM();
-  am.m=am.a(); 
+  am.m = am.a(); 
 }

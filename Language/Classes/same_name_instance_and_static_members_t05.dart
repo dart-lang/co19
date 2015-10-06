@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a class declares two members of the same name.
- * @description Checks that it is a compile-time error if a class declares a non-abstract instance
- * method and a static method with the same name.
+ * @assertion It is a compile-time error if a class has an instance member and 
+ * a static member with the same name.
+ * @description Checks that it is a compile-time error if a class declares a 
+ * non-abstract instance method and a static method with the same name.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov

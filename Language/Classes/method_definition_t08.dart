@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
@@ -22,9 +24,9 @@
  * ;
  * @description Checks that it is a compile-time error if a static setter
  * method definition does not include a body.
- * @reviewer rodionov
  * @compile-error
  * @author msyabro
+ * @reviewer rodionov
  */
 
 class A {

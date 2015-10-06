@@ -5,13 +5,16 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
  * ;
+ * .  .  .
  * declaration:
  *   constantConstructorSignature (redirection | initializers)? |
  *   constructorSignature (redirection | initializers)? |
@@ -22,7 +25,6 @@
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |
- *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
  *   static? (var | type) initializedIdentifierList
  * ;
@@ -32,15 +34,16 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that various class member declarations with metadata that are valid according to
- * this syntax do not cause any errors and such class can be instantiated. 
+ * @description Checks that various class member declarations with metadata 
+ * that are valid according to this syntax do not cause any errors and such 
+ * class can be instantiated. 
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 class A {
-  @B(1)   const A(): this.anotherConstructor();
-  @A()   const A.anotherConstructor();
+  @B(1) const A(): this.anotherConstructor();
+  @A() const A.anotherConstructor();
   @A() static final x = 1, y = 2;
   @B(1) static final int z = 3;
   @A() static const x1 = 1, y1 = 2;
@@ -89,7 +92,7 @@ abstract class Abstract {
   @B(1) funcWithNamedParams({p1: 1, p2: 2});
   @A() get val;
   @B(1) set val(var v);
-  @A() operator==(Abstract other);
+  @A() operator ==(Abstract other);
 
   @B(1) var _val;
 }

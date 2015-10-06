@@ -5,12 +5,14 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
- * @compile-error
- * @description Checks that it is a compile-time error if a class type definition
- * ends with a semicolon. 
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if a class type 
+ * definition ends with a semicolon. 
  * Class body is empty.
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */

@@ -5,9 +5,11 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ‘;’ |
  *   methodSignature functionBody
@@ -30,13 +32,12 @@
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |
- *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
  *   static? (var | type) initializedIdentifierList
  * ;
+ * @description Checks that a class can't be defined inside another class as 
+ * it is not among the allowed class member definitions.
  * @compile-error
- * @description Checks that a class can't be defined inside another class as it is not among
- * the allowed class member definitions.
  * @author msyabro
  * @reviewer rodionov
  */

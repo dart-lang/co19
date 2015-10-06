@@ -5,9 +5,12 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
- * @description Checks that it is a compile-time error if mixin has incorrect declaration.
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that it is a compile-time error if mixin has incorrect 
+ * declaration in a class definition.
  * @compile-error
  * @author hlodvig
  */

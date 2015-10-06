@@ -5,13 +5,16 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
+ * .  .  .
  * classMemberDefinition:
  *   declaration ';' |
  *   methodSignature functionBody
  * ;
+ * .  .  .
  * declaration:
  *   constantConstructorSignature (redirection | initializers)? |
  *   constructorSignature (redirection | initializers)? |
@@ -22,7 +25,6 @@
  *   external? operatorSignature |
  *   (external static?)? functionSignature |
  *   static (final | const) type? staticFinalDeclarationList |
- *   const type? staticFinalDeclarationList |
  *   final type? initializedIdentifierList |
  *   static? (var | type) initializedIdentifierList
  * ;
@@ -40,7 +42,7 @@
  */
 
 class A {
-  operator==(A other )
+  operator ==(A other)
 }
 
 main() {

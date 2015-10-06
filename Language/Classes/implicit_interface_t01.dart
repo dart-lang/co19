@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The interface of class C is an implicit interface that declares instance members
- * that correspond to the instance members declared by C, and whose direct superinterfaces
- * are the direct superinterfaces of C. When a class name appears as type,
- * that name denotes the interface of the class.
+ * @assertion The interface of class C is an implicit interface that declares 
+ * instance members that correspond to the instance members declared by C, and 
+ * whose direct superinterfaces are the direct superinterfaces of C. When a 
+ * class name appears as type, that name denotes the interface of the class.
  * @description Checks that a class can be used as an interface.
  * @author msyabro
  * @reviewer iefremov

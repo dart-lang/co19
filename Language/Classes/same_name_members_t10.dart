@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a class declares two members of the same name.
- * @assertion The name of a setter is obtained by appending the string ‘=’ to the
- * identifier given in its signature.
- * Hence, a setter name can never conflict with, override or be overridden by a getter or method.
- * @description Checks that a class can declare a getter and a setter of the same name provided
- * both are instance members (abstract or not) or both are static members.
+ * @assertion It is a compile-time error if a class declares two members of 
+ * the same name.
+ * @assertion The name of a setter is obtained by appending the string ‘=’ to 
+ * the identifier given in its signature.
+ * Hence, a setter name can never conflict with, override or be overridden by 
+ * a getter or method.
+ * @description Checks that a class can declare a getter and a setter of the 
+ * same name provided both are instance members (abstract or not) or both are 
+ * static members.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -42,8 +45,8 @@ class B extends A {
 
 main() {
   A a = new B();
-  var x=a.bVal;
-  a.bVal=x;
-  x=a.aVal;
-  a.aVal=x;
+  var x = a.bVal;
+  a.bVal = x;
+  x = a.aVal;
+  a.aVal = x;
 }

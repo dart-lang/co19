@@ -5,14 +5,16 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
  * ;
  * metadata:
  *   (’@’ qualified (. identifier)? (arguments)?)*
  * ;
- * @description Checks that various class definitions that are valid according to
- * this syntax and have metadata do not cause any errors and can be instantiated.
+ * @description Checks that various class definitions that are valid according 
+ * to this syntax and have metadata do not cause any errors and can be 
+ * instantiated.
  * @author kaigorodov
  * @reviewer rodionov
  */

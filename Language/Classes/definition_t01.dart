@@ -5,17 +5,19 @@
  */
 /**
  * @assertion classDefinition:
- * metadata abstract? class identifier typeParameters? (superclass mixins?)? interfaces?
- *   '{' (metadata classMemberDefinition)* '}'
- * @description Checks that various class definitions that are valid according to
- * this syntax do not cause any errors and can be instantiated.
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+ *   metadata abstract? class mixinApplicationClass
+ * ;
+ * @description Checks that various class definitions that are valid according 
+ * to this syntax do not cause any errors and can be instantiated.
  * @author msyabro
  * @reviewer rodionov
  */
 
 abstract class I {}
 abstract class J {}
-abstract class IT <T> {}
+abstract class IT<T> {}
 
 class A {}
 class B extends A {}
