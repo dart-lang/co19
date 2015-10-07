@@ -5,7 +5,8 @@
  */
 /**
  * @assertion It is a  static warning if an instance method m1 overrides an
- * instance member m2 and m1 has a greater number of required parameters than m2.
+ * instance member m2 and m1 has a greater number of required parameters than 
+ * m2.
  * @description Checks that a static warning is produced if m2 has no parameters
  * and m1 has a single required parameter.
  * @static-warning

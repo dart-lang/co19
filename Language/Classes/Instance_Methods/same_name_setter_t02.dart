@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a static warning if a class C declares an instance method
-  * named n and has a setter named n=.
+ * named n and has a setter named n=.
  * @description Checks that it is a static warning if a class C declares an
  * instance method named n and inherits a setter named n=.
  * @static-warning

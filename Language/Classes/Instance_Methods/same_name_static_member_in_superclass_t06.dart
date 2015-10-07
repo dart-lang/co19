@@ -5,10 +5,11 @@
  */
 /**
  * @assertion It is a static warning if a class C declares an instance method
- * named n and an accessible static member named n is declared in a superclass of C.
- * @description Checks that a static warning is produced when a class declares an instance
- * method with the same name as a static method in its superclass even if their signatures
- * are wildly different.
+ * named n and an accessible static member named n is declared in a superclass 
+ * of C.
+ * @description Checks that a static warning is produced when a class declares 
+ * an instance method with the same name as a static method in its superclass 
+ * even if their signatures are wildly different.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov

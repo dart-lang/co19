@@ -19,8 +19,9 @@
  *   ‘==’ |
  *   bitwiseOperator 
  * ;
- * @description Checks that it is not a compile-time error if a class attempts to define
- * an operator without a name because an instance method named 'operator' is allowed by the spec.
+ * @description Checks that it is not a compile-time error if a class attempts 
+ * to define an operator without a name because an instance method named 
+ * 'operator' is allowed by the spec.
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

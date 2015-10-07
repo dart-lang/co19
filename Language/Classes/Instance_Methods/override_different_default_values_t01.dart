@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if an instance method m1 overrides an instance member m2,
- * the signature of m2 explicitly specifies a default value for a formal parameter p
- * and the signature of m1 specifies a different default value for p.
- * @description Checks that it is a static warning if overridden and overriding methods
- * have different default values for their optional parameter.
+ * @assertion It is a static warning if an instance method m1 overrides an 
+ * instance member m2, the signature of m2 explicitly specifies a default 
+ * value for a formal parameter p and the signature of m1 specifies a different 
+ * default value for p.
+ * @description Checks that it is a static warning if overridden and overriding 
+ * methods have different default values for their optional parameter.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to declare an optional parameter in an operator.
+ * @assertion It is a compile-time error to declare an optional parameter in an 
+ * operator.
  * @description Checks that a compile-time error is produced if a user-defined
  * operator []= specifies one optional named parameter.
  * @compile-error
@@ -13,7 +14,7 @@
  */
 
 class C {
-  operator[]=({var v}) {}
+  operator []=({var v}) {}
 }
 
 main() {

@@ -22,8 +22,8 @@
  *   ‘==’ |
  *   bitwiseOperator 
  * ;
- * @description Checks that any return type (including function type, type parameter,
- * void or no return type at all) can be specified for any operator.
+ * @description Checks that any return type (including function type, type 
+ * parameter, void or no return type at all) can be specified for any operator.
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer rodionov

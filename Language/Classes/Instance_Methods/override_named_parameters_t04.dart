@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if an instance method m1 overrides an instance
- * member m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that there are no static warnings if m1
- * has the same set of named parameters as m2 but in a different order.
+ * @assertion It is a static warning if an instance method m1 overrides an 
+ * instance member m2 and m1 does not declare all the named parameters declared 
+ * by m2.
+ * @description Checks that there are no static warnings if m1 has the same 
+ * set of named parameters as m2 but in a different order.
  * @static-clean
  * @author iefremov
  * @reviewer pagolubev

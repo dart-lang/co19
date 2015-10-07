@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the return type of the user-declared operator []=
- * is explicitly declared and not void.
+ * @assertion It is a static warning if the return type of the user-declared 
+ * operator []= is explicitly declared and not void.
  * @description Checks that it is a static warning if the return type of
  * the user-declared operator []= is not void.
  * @static-warning
