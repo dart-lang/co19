@@ -8,7 +8,8 @@
  * to the identifier given in its signature. Hence, a setter name can never
  * conflict with, override or be overridden by a getter or method.
  * @description Checks that there is no compile-time error if a class has
- * an explicitly defined setter inherited from a superclass and an instance method with the same name.
+ * an explicitly defined setter inherited from a superclass and an instance
+ * method with the same name.
  * @static-warning
  * @author iefremov
  * @reviewer kaigorodov

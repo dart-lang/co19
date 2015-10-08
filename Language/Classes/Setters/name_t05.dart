@@ -20,8 +20,10 @@ class A {
   foo(value) {}
 }
 
-class C extends A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
-  void set foo(var x);
+class C extends A {
+  void set foo(var x); /// static type warning Abstract Instance Members:
+                       /// It is a static warning if an abstract member is
+                       /// declared or inherited in a concrete class.
 }
 
 main() {
