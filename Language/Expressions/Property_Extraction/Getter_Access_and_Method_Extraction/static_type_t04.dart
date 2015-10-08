@@ -16,8 +16,8 @@
  * and the class corresponding to e declares an accessible static method named
  * m.
  * • The type dynamic otherwise.
- * @description Check that static type of an accessible static method is the
- * static type of the method
+ * @description Check that static type of an accessible static method is
+ * Function
  * @static-clean
  * @author sgrekhov@unipro.ru
  */

@@ -11,23 +11,16 @@
  * literal and the class corresponding to e declares an accessible static
  * member or constructor named m.
  * • The type dynamic otherwise.
- * @description Check that static type of extracted method is static type of
- * the function
+ * @description Check that static type of extracted method is Function
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class C {
   void m(int val) {}
-  void n(int val) {}
 }
 
 main() {
   C o = new C();
   Function i1 = o#m;
-  var i2 = o.m;
-  var i3 = o.n;
-  Expect.isTrue(i1 == i2);
-  Expect.isFalse(i1 == i3);
 }

@@ -12,17 +12,21 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
+import '../../../../Utils/dynamic_check.dart';
+
 class A {
   A.m();
 }
 
 class C extends A {
-  C() : super.m();
+  C(): super.m();
 }
 
 main() {
-  try {
-    var i = new C#m;
-    i.something; // i is dynamic, so no static warning here
-  } on NoSuchMethodError {}
+  if (isCheckedMode()) {
+    try {
+      A i = new C#m; // Here we expect that static type of new C#m is dynamic.
+                     // Dynamic can be assigned to A without static warning.
+    } on NoSuchMethodError {}
+  }
 }

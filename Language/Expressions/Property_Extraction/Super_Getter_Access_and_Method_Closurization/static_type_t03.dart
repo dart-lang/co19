@@ -15,6 +15,8 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
+class B {
+}
 
 @proxy class A {
 }
@@ -22,8 +24,8 @@
 class C extends A {
   void test() {
     try {
-      var i = super.m;
-      i.something; // i is dynamic, so no static warning here
+      B i = super.m;  // Here we expect that static type of super.m is dynamic.
+                      // Dynamic can be assigned to B without static warning.
     } on NoSuchMethodError {}
   }
 }
