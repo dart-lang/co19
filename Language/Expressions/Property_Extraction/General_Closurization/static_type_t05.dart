@@ -11,20 +11,16 @@
  * literal and the class corresponding to e declares an accessible static
  * member or constructor named m.
  * • The type dynamic otherwise.
- * @description Check that static type of extracted named constructor is static
- * type of the constructor
+ * @description Check that static type of extracted named constructor is
+ * Function
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class C {
   C.m();
-  static int n(int val) => 2;
 }
 
 main() {
   Function i1 = new C#m;
-  var i2 = C.n;
-  Expect.isFalse(i1 == i2);
 }

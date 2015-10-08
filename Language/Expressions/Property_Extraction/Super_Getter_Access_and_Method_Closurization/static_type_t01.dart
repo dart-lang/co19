@@ -22,7 +22,7 @@ class A {
 
 class C extends A {
   void test() {
-      int i = super.m;
+    int i = super.m;
   }
 }
 

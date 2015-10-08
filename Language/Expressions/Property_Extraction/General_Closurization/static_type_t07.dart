@@ -11,15 +11,23 @@
  * literal and the class corresponding to e declares an accessible static
  * member or constructor named m.
  * • The type dynamic otherwise.
- * @description Check that static type of extracted static method is Function
- * @static-clean
+ * @description Check that it is static warning if extracted method assigned
+ * to a not a function type
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
+import '../../../../Utils/dynamic_check.dart';
+
+class A {
+}
 
 class C {
-  static void m(int val) {}
+  void m(int val) {}
 }
 
 main() {
-  Function i1 = C#m;
+  C o = new C();
+  checkTypeError(() {
+    A i = o#m;  /// static type warning
+  });
 }

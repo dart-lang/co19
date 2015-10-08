@@ -12,11 +12,19 @@
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
+import '../../../../Utils/dynamic_check.dart';
+
+class A {
+}
 
 class C {
   C.m();
 }
 
 main() {
-  int i = new C#m;
+  checkTypeError(() {
+    try {
+      A i = new C#m;  /// static type warning
+    } on NoSuchMethodError {}
+  });
 }

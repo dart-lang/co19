@@ -10,8 +10,7 @@
  * • The static type of function S.m if S has an accessible instance method
  * named m.
  * • The type dynamic otherwise.
- * @description Check that static type of the extracted method is static type
- * of the function
+ * @description Check that static type of the extracted method is Function
  * @static-clean
  * @author sgrekhov@unipro.ru
  */

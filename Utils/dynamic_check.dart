@@ -6,7 +6,7 @@ isCheckedMode() {
     var i = 1;
     String s = i;
     return false;
-  } on TypeError catch(e) {
+  } on TypeError {
     return true;
   }
 }
@@ -16,7 +16,7 @@ checkTypeError(f()) {
     try {
       f();
       Expect.fail("Type error expected in checking mode");
-    } on TypeError catch(ok) {
+    } on TypeError {
     }
   } else {
     try {
@@ -32,7 +32,7 @@ checkAssertionError(f()) {
     try {
       f();
       Expect.fail("Assertion error expected in checking mode");
-    } on AssertionError catch(ok) {
+    } on AssertionError {
     }
   } else {
     try {

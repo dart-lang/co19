@@ -21,8 +21,10 @@
 import '../../../../Utils/expect.dart';
 
 class A {
+  bool called = false;
+
   void noSuchMethod(Invocation i) {
-    _called = true;
+    called = true;
     Expect.isTrue(i.isGetter);
     Expect.equals(new Symbol('someGetter'), i.memberName);
     Expect.equals(const[], i.positionalArguments);
@@ -31,10 +33,6 @@ class A {
 }
 
 class C extends A {
-  bool _called = false;
-
-  bool get called => _called;
-
   void test() {
     super.someGetter;
   }
