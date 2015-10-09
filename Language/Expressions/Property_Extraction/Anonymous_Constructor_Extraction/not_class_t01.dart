@@ -17,6 +17,6 @@ enum E {a, b, c, m}
 
 main() {
   checkDynamicError(() {
-    var x = new E.a#;
+    var x = new E#;
   });
 }

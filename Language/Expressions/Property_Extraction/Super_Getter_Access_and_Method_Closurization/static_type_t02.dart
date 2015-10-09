@@ -21,7 +21,7 @@ class A {
 
 class C extends A {
   void test() {
-      Function i = super.m;
+    Function i = super.m;
   }
 }
 

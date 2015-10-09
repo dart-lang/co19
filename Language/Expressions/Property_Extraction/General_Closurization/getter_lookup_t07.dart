@@ -14,16 +14,19 @@
  * the closurization of getter f on object o. If getter lookup failed, a
  * NoSuchMethodError is thrown.
  *
- * @description Check that if library object is an instance of Type but is not
- * a constant type literal, then and f is a method that forwards to a static
- * getter, then getter lookup fails and NoSuchMethodError is thrown
+ * @description Check that if there are variable named m in the class then
+ * implicit getter lookup succeeds
  *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
-import 'method_lookup_lib.dart';
+
+class C {
+  int m = 2;
+}
 
 main() {
   var o = new C();
-  Expect.throws(() {var x = (o.runtimeType)#s;}, (e) => e is NoSuchMethodError);
+  var x = o#m;
+  Expect.equals(2, x());
 }

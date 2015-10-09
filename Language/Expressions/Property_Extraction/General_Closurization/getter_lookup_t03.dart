@@ -13,8 +13,10 @@
  * getter, getter lookup fails. If getter lookup succeeds then i evaluates to
  * the closurization of getter f on object o. If getter lookup failed, a
  * NoSuchMethodError is thrown.
+ *
  * @description Check that if getter lookup succeeds then i evaluates to
  * the closurization of getter f on object o
+ *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

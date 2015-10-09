@@ -13,9 +13,11 @@
  * getter, getter lookup fails. If getter lookup succeeds then i evaluates to
  * the closurization of getter f on object o. If getter lookup failed, a
  * NoSuchMethodError is thrown.
+ *
  * @description Check that if object is an instance of Type but is not a
  * constant type literal, then and f is a method that forwards to a static
  * getter, then getter lookup fails and NoSuchMethodError is thrown
+ *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
