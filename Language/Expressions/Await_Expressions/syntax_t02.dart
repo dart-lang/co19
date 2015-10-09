@@ -24,10 +24,10 @@ test() async* {
   await true;
   await 1;
   await x;
-  await x+3;
+  await (x+3);
   await x++;
   await --x;
-  await (x+10)*10;
+  await ((x+10)*10);
   await 'hello';
   await f();
   await (await f());
