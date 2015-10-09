@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion getter definition that is prefixed with the static modifier defines
- * a static getter
+ * @assertion A getter definition that is prefixed with the static modifier 
+ * defines a static getter
  * @description Checks that non-static getter cannot be called as static one
  * @author sgrekhov@unipro.ru
  */

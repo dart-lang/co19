@@ -6,9 +6,10 @@
 /**
  * @assertion
  * getterSignature:
- *   type? get identifier
+ *   returnType? get identifier
  * ;
- * @description Checks that it is a compile-time error if the getter identifier is missing.
+ * @description Checks that it is a compile-time error if the getter identifier 
+ * is missing.
  * @author iefremov
  * @compile-error
  * @reviewer pagolubev

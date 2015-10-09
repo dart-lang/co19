@@ -6,9 +6,10 @@
 /**
  * @assertion
  * getterSignature:
- *   type? get identifier
+ *   returnType? get identifier
  * ;
- * @description Checks that a compile-time error is produced if an arbitrary static getter specifies
+ * @description Checks that a compile-time error is produced if an arbitrary 
+ * static getter specifies
  * a single formal parameter.
  * @compile-error
  * @author vasya

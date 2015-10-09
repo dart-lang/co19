@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion    It is a static warning if a getter m1 overrides (7.9.1) a getter m2 and the
- * type of m1 is not a subtype of the type of m2 .
- * @description Checks that a static warning is produced when the return type of m1
- * is void and the return type of m2 is String.
+ * @assertion It is a static warning if a getter m1 overrides a getter m2 and 
+ * the type of m1 is not a subtype of the type of m2.
+ * @description Checks that a static warning is produced when the return type 
+ * of m1 is void and the return type of m2 is String.
  * @static-warning
  * @author vasya
  * @reviewer iefremov

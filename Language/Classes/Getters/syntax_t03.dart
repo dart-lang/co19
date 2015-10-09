@@ -6,10 +6,10 @@
 /**
  * @assertion
  * getterSignature:
- *   type? get identifier
+ *   returnType? get identifier
  * ;
- * @description Checks that a compile-time error is produced
- * when a getter declaration includes an empty formal parameter list.
+ * @description Checks that a compile-time error is produced when a getter 
+ * declaration includes an empty formal parameter list.
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
