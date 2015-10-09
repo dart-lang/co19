@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a class declares a static getter named 
+ * @assertion It is a static warning if a class declares a static getter named
  * v and also has a non-static setter named v =.
- * @description Checks that a static warning is arisen if a class has an 
- * implicitly declared static getter and an implicitlly declared instance 
+ * @description Checks that a static warning is arisen if a class has an
+ * implicitly declared static getter and an implicitlly declared instance
  * setter with the same name.
+ * @issue 24534
  * @compile-error
  * @author ngl@unipro.ru
  */
 
 class C {
-  static var v;
-  int v = 1;
+  static int v;
+  int v = 1;  /// static type warning
 }
 
 main() {
-  C.v();
+  C.v = 2;
 }
