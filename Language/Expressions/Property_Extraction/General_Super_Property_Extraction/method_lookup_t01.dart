@@ -12,7 +12,7 @@
  * evaluates to the closurization of method m with respect to superclass S
  *
  * @description Check that if method lookup succeeds then result of the
- * property extraction is method that was found
+ * property extraction is method that was found during lookup
  *
  * @author sgrekhov@unipro.ru
  */

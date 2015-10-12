@@ -12,8 +12,8 @@
  * evaluates to the closurization of method m with respect to superclass S
  *
  * @description Check that if method lookup succeeds then result of the
- * property extraction is method that was found. Method defined in
- * superclass of the superclass
+ * property extraction is method that was found during lookup. Method defined
+ * in superclass of the superclass
  *
  * @author sgrekhov@unipro.ru
  */
