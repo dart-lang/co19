@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a setter's formal parameter list 
+ * @assertion It is a compile-time error if a setter's formal parameter list
  * does not consist of exactly one required formal parameter p.
- * @description Checks that a compile-time error is produced if a setter's formal parameter list
- * is empty.
+ * @description Checks that a compile-time error is produced if a setter's
+ * formal parameter list is empty.
  * @compile-error
  * @author iefremov
  * @reviewer pagolubev

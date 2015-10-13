@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If no return type is specified, the return type of the setter is dynamic.
+ * @assertion If no return type is specified, the return type of the setter is 
+ * dynamic.
  * @description Checks that return type is indeed dynamic by calling arbitrary
  * method on the result of a setter and expecting no warnings.
  * @static-clean

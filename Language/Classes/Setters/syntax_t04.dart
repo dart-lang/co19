@@ -8,10 +8,7 @@
  * setterSignature:
  *   returnType? set identifier formalParameterList
  * ;
- * methodSignature:
- *   static? setterSignature
- * ;
- * @description Checks if setter return value ohter than void is specified
+ * @description Checks if setter return value other than void is specified
  * then no error occurs
  * @static-warning
  * @author sgrekhov@unipro.ru

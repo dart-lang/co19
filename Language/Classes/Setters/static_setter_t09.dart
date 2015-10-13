@@ -6,27 +6,18 @@
 /**
  * @assertion  It is a static warning if a class declares a static setter
  * named v= and also has a non-static member named v.
- * @description Checks that it is a static warning if a class declares a
- * static setter named v= and also has a non-static inherited method named v.
+ * @description Checks that a static warning is arisen if a class has an
+ * implicitly declared static setter and an instance method with the same name.
+ * @compile-error
  * @static-warning
- * @author kaigorodov
+ * @author ngl@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
-class A {
-  void foo() {}
-}
-
-class C extends A {
-  static String foo2 = "foo";
-
-  static set foo(String s) {
-    foo2 = s;
-  }
-
+class C {
+  static int v;
+  int v() { return 3; }
 }
 
 main() {
-  C.foo = "foo";
-  Expect.equals(C.foo2, "foo");
+  C.v = 2;
 }

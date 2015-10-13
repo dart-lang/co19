@@ -6,8 +6,8 @@
 /**
  * @assertion It is a static warning if a setter m1 overrides a setter
  * or method m2 and the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced if the argument types of these
- * two setters are not mutually assignable.
+ * @description Checks that a static warning is produced if the argument types
+ * of these two setters are not mutually assignable.
  * @static-warning
  * @author vasya
  * @reviewer iefremov

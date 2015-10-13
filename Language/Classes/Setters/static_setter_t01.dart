@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if a class declares a static setter named v=
- * and also has a non-static member named v.
- * @description Checks that it is a static warning if a class declares a static
- * setter named v= and also has a non-static field named v.
- * Also checks it is a compile error to declare more than one entity with the same name
- * in the same scope.
+ * @assertion  It is a static warning if a class declares a static setter
+ * named v= and also has a non-static member named v.
+ * @description Checks that it is a static warning if a class declares a
+ * static setter named v= and also has a non-static field named v.
+ * Also checks it is a compile error to declare more than one entity with the
+ * same name in the same scope.
  * @compile-error
  * @static-warning
  * @author kaigorodov

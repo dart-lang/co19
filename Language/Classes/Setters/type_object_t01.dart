@@ -7,8 +7,9 @@
  * @assertion The effect of a static setter declaration in class C is to add
  * an instance setter with the same name and signature to the Type object for
  * class C that forwards to the static setter.
- * @description Check that static setter declaration adds instance setter with the same
- * name to the Type object of the class and this instance forwards to the static getter
+ * @description Check that static setter declaration adds instance setter with
+ * the same name to the Type object of the class and this instance forwards to
+ * the static getter
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
