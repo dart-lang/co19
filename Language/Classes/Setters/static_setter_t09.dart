@@ -10,12 +10,13 @@
  * implicitly declared static setter and an instance method with the same name.
  * @compile-error
  * @static-warning
+ * @issue 24573
  * @author ngl@unipro.ru
  */
 
 class C {
   static int v;
-  int v() { return 3; }
+  int v() { return 3; } /// static type warning
 }
 
 main() {

@@ -10,12 +10,13 @@
  * implicitly declared static setter and an instance getter with the same name.
  * @compile-error
  * @static-warning
+ * @issue 24573
  * @author ngl@unipro.ru
  */
 
 class C {
   get v => 5;
-  static int v;
+  static int v; /// static type warning
 }
 
 main() {
