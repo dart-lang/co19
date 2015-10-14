@@ -32,4 +32,5 @@ main() {
 
   Expect.equals(f(1), f1(1));
   Expect.equals(f(-1), f1(-1));
+  Expect.notEquals(f(1), f1(2));
 }

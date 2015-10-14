@@ -11,26 +11,29 @@
  * -, +, /,  ̃/, *, %, |, ˆ, &, <<, >> (this precludes closurization of unary
  * -).
  *
- * @description Check that closurization of operator > on object o is
- * equivalent of (a) {return u > a;}
+ * @description Check that closurization of operator unary- is unavailable
  *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class C {
-  int operator > (var v) {
-    return v + 1;
+  int value;
+  int operator - () {
+    return -value;
   }
 }
 
 main() {
   C o = new C();
-  var f = o#>;
+  o.value = 1;
 
-  var f1 = (a) {return o > a;};
+  Expect.throws(() {var f = o#-;}, (e) => e is NoSuchMethodError);
+/*
+  var f1 = (a) {return o >> a;};
 
-  Expect.equals(f(1), f1(1));
-  Expect.equals(f(-1), f1(-1));
-  Expect.notEquals(f(1), f1(2));
+  Expect.equals(f(2), f1(2));
+  Expect.equals(f(-3), f1(-3));
+  Expect.equals(f(0), f1(0));
+  Expect.notEquals(f(16), f1(8));*/
 }
