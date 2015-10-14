@@ -29,11 +29,4 @@ main() {
   o.value = 1;
 
   Expect.throws(() {var f = o#-;}, (e) => e is NoSuchMethodError);
-/*
-  var f1 = (a) {return o >> a;};
-
-  Expect.equals(f(2), f1(2));
-  Expect.equals(f(-3), f1(-3));
-  Expect.equals(f(0), f1(0));
-  Expect.notEquals(f(16), f1(8));*/
 }
