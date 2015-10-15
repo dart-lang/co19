@@ -4,8 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if an abstract member is declared or
- * inherited in a concrete class unless that member overrides a concrete one.
+ * @assertion  It is a static warning if an abstract member m is declared or
+ * inherited in a concrete class C unless:
+ *  - m overrides a concrete member, or
+ *  - C has a noSuchMethod() method distinct from the one declared in class
+ *    Object.
  * @description Checks that it is a static warning if an abstract setter is
  * inherited in a concrete class.
  * @static-warning

@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
- * apply to abstract methods.
- * It is a static warning if a class C declares an instance method
- * named n and an accessible static member named n is declared in a superclass of C.
- * @description Checks that a static warning is produced when a class declares an abstract
- * or concrete method with the same name as a static variable in its superclass even if it is not
- * a direct superclass of the first one.
+ * @assertion Unless explicitly stated otherwise, all ordinary rules that apply
+ * to methods apply to abstract methods.
+ * It is a static warning if a class C declares an instance method named n and
+ * an accessible static member named n is declared in a superclass of C.
+ * @description Checks that a static warning is produced when a class declares
+ * an abstract or concrete method with the same name as a static variable in
+ * its superclass even if it is not a direct superclass of the first one.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov

@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
- * apply to abstract methods.
- * It is a static warning if an instance method m1 overrides an instance
- * member m2 and the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced when the return type of an abstract
- * method m1 is not assignable to the return type of non-abstract m2 (parameters of both methods
- * being completely identical).
+ * @assertion Unless explicitly stated otherwise, all ordinary rules that apply
+ * to methods apply to abstract methods.
+ * It is a static warning if an instance method m1 overrides an instance member
+ * m2 and the type of m1 is not a subtype of the type of m2.
+ * @description Checks that a static warning is produced when the return type of
+ * an abstract method m1 is not assignable to the return type of non-abstract m2
+ * (parameters of both methods being completely identical).
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov

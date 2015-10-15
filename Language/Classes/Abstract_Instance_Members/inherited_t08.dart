@@ -9,18 +9,19 @@
  *  - m overrides a concrete member, or
  *  - C has a noSuchMethod() method distinct from the one declared in class
  *    Object.
- * @description Checks that it is a static warning if an abstract getter is
- * inherited in a concrete class.
- * @static-warning
- * @author kaigorodov
- * @reviewer rodionov
+ * @description Checks that there is no static warning if an abstract
+ * method is inherited in a concrete class and this class declared method
+ * noSuchMethod() that overrides method from class Object.
+ * @static-clean
+ * @author ngl@unipro.ru
  */
 
 abstract class A {
-  int get foo;
+  foo([x]);
 }
 
 class C extends A { /// static type warning
+  noSuchMethod(Invocation i) {}
 }
 
 main() {

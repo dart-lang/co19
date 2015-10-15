@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
- * apply to abstract methods.
- * It is a static-warning if an instance method m1 overrides an instance
- * member m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that no static warning is produced when the overriding abstract method
- * has the same set of named parameters as the non-abstract instance method being overriden,
- * but in a different order.
+ * @assertion Unless explicitly stated otherwise, all ordinary rules that apply
+ * to methods apply to abstract methods.
+ * It is a static-warning if an instance method m1 overrides an instance member
+ * m2 and m1 does not declare all the named parameters declared by m2.
+ * @description Checks that no static warning is produced when the overriding
+ * abstract method has the same set of named parameters as the non-abstract
+ * instance method being overriden, but in a different order.
  * @static-clean
  * @author rodionov
  * @reviewer kaigorodov
@@ -30,8 +30,8 @@ class D extends C {
 }
 
 main() {
-  A a=new A();
+  A a = new A();
   Expect.equals(3, a.f(x:2, y:1));
-  a=new D();
+  a = new D();
   Expect.equals(1, a.f(x:2, y:1));
 }

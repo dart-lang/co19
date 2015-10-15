@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Unless explicitly stated otherwise, all ordinary rules that apply to methods
- * apply to abstract methods.
- * It is a static-warning if an instance method m1 overrides an instance
- * member m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that a static warning is produced when the overriding abstract method
- * has fewer named parameters than the instance method being overridden (2 vs 3) and neither
- * have any required parameters.
+ * @assertion Unless explicitly stated otherwise, all ordinary rules that apply
+ * to methods apply to abstract methods.
+ * It is a static-warning if an instance method m1 overrides an instance member
+ * m2 and m1 does not declare all the named parameters declared by m2.
+ * @description Checks that a static warning is produced when the overriding
+ * abstract method has fewer named parameters than the instance method being
+ * overridden (2 vs 3) and neither have any required parameters.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov

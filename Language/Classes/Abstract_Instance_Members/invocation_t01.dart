@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Invoking an abstract method, getter or setter results in an invocation of
- *  noSuchMethod exactly as if the declaration did not exist, unless a suitable member
- *  a is available in a superclass, in which case a is invoked.
+ * @assertion Invoking an abstract method, getter or setter results in an
+ * invocation of noSuchMethod exactly as if the declaration did not exist,
+ * unless a suitable member a is available in a superclass, in which case a is
+ * invoked.
  * @description Checks that invoking an abstract method, getter or setter
  * results in a NoSuchMethodError.
  * @static-warning
@@ -15,10 +16,10 @@
  */
 import "../../../Utils/expect.dart";
 
-class C { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
-  void m();
-  int get g;
-  set g(int v);
+class C {
+  void m();   /// static type warning
+  int get g;    /// static type warning
+  set g(int v);   /// static type warning
 }
 
 main() {
