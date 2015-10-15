@@ -20,7 +20,7 @@ import '../../../Utils/expect.dart';
 main() async {
   try {
     await f();
-    Expect.fail('await expression should throw  NoSuchMethodError');
+    Expect.fail('await expression should throw NoSuchMethodError');
   } catch (x) {
     Expect.isTrue(x is NoSuchMethodError);
   }

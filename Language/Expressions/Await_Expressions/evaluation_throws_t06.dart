@@ -10,16 +10,17 @@
  * and later completed with x. ... If f has completed with an exception x,
  * a raises x.
  *
- * @description Check that if e is a call to synchronous function, which
- * throws IntegerDivisionByZeroException, then await expression throws the same
- * exception.
+ * @description Check that if e is a call to synchronous function returning
+ * Future instance, which later completes with IntegerDivisionByZeroException,
+ * then await expression throws the same exception.
  *
  * @author a.semenov@unipro.ru
  */
+import 'dart:async';
 import '../../../Utils/expect.dart';
 
-f() {
-  return (1 ~/ 0);
+Future<int> f() {
+  return new Future<int>(() => (1 ~/ 0));
 }
 
 main() async {
