@@ -21,7 +21,7 @@ main() async {
   try {
     await f();
     Expect.fail('await expression should throw  NoSuchMethodError');
-  } catch (x){
+  } catch (x) {
     Expect.isTrue(x is NoSuchMethodError);
   }
 }

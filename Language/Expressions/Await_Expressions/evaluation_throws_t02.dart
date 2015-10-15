@@ -19,7 +19,7 @@ import '../../../Utils/expect.dart';
 
 final Exception E1 = new Exception("1");
 
-f(){
+f() {
   throw E1;
 }
 
@@ -27,7 +27,7 @@ main() async {
   try {
     await f();
     Expect.fail('await expression should throw ' + E1.toString());
-  } catch (x){
+  } catch (x) {
     Expect.identical(E1, x);
   }
 }

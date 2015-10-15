@@ -23,7 +23,7 @@ main() async {
   try {
     await (throw E1);
     Expect.fail('await expression should throw ' + E1.toString());
-  } catch (x){
+  } catch (x) {
     Expect.identical(E1, x);
   }
 }
