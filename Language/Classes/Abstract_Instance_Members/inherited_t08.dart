@@ -20,7 +20,7 @@ abstract class A {
   foo([x]);
 }
 
-class C extends A { /// static type warning
+class C extends A {
   noSuchMethod(Invocation i) {}
 }
 

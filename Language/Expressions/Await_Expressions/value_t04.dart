@@ -26,7 +26,7 @@ import '../../../Utils/expect.dart';
 const String HELLO = 'hello';
 
 Future<int> f1() async {
-  return int.parse('100'+ '500');
+  return int.parse('100' + '500');
 }
 
 Future<String> f2() async {

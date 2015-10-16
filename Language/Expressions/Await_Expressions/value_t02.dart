@@ -32,5 +32,5 @@ main() async {
   Expect.equals(11, await ++x);
   Expect.equals('hello, world', await ('hello,' + ' world'));
   Expect.equals(100500, await f1());
-  Expect.equals(100000, await (f1()-500));
+  Expect.equals(100000, await (f1() - 500));
 }
