@@ -4,25 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Except that iff identical(T1, T2) then new T1#m == new T2#m
+ * @assertion Except that iff identical(T1, T2) then new T1# == new T2#
  *
- * @description Check that if it is not identical(T1, T2) then new
- * T1#m != new T2#m
- *
+ * @description Check that if identical(T1, T2) then new T1# == new T2#.
+ * Test default constructor
+ * @issue 24607
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
-class A {
-  A.m() {
-  }
-}
-
-class C extends A {
-  C.m(): super.m() {
-  }
+class C {
 }
 
 main() {
-  Expect.notEquals(new C#m, new A#m);
+  Expect.equals(new C#, new C#);
 }
