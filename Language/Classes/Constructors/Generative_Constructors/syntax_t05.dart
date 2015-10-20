@@ -5,10 +5,10 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier (‘.’ identifier)? formalParameterList
+ *   identifier (‘.’ identifier)? formalParameterList
  * ;
- * @description Checks that it is a compile-time error if a named constructor declares
- * a return type
+ * @description Checks that it is a compile-time error if a named constructor
+ * declares a return type
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -21,5 +21,5 @@ class C {
 main() {
   try {
     var c = new C.name();
-  } catch (x){}
+  } catch (x) {}
 }

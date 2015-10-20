@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * initializers:
  *   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
  * ;
- * superCallOrFieldInitializer: 
+ * superCallOrFieldInitializer:
  *   super arguments  | super '.' identifier arguments | fieldInitializer
  * ;
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks that it is a compile-time error when identifier in an initializer references
- * an explicit setter method rather than a variable.
+ * @description Checks that it is a compile-time error when identifier in an
+ * initializer references an explicit setter method rather than a variable.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -23,7 +23,7 @@
 
 class C {
   C() : this.x = null {}
-  
+
   void set x(var v) {
     throw v;
   }
@@ -32,6 +32,6 @@ class C {
 main() {
   try {
     new C();
-  } catch (v){}
+  } catch (v) {}
 }
 

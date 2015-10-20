@@ -5,9 +5,10 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier (‘.’ identifier)? formalParameterList
+ *   identifier (‘.’ identifier)? formalParameterList
  * ;
- * @description Checks that omitting a named constructor's identifier results in a compile-time error.
+ * @description Checks that omitting a named constructor's identifier results
+ * in a compile-time error.
  * @compile-error
  * @author pagolubev
  * @reviewer iefremov
@@ -21,5 +22,5 @@ class C {
 main() {
   try {
     var c = new C();
-  } catch (x){}
+  } catch (x) {}
 }

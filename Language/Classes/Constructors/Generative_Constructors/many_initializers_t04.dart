@@ -7,9 +7,9 @@
  * @assertion Let k be a generative constructor. It is a compile-time error if
  * more than one initializer corresponding to a given instance variable appears
  * in k's initializer list.
- * @description Checks that a compile-time error is produced if the same instance
- * variable is initialized more than once in an initializer list (referenced as both
- * this.name and just name).
+ * @description Checks that a compile-time error is produced if the same
+ * instance variable is initialized more than once in an initializer list
+ * (referenced as both this.name and just name).
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov

@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the static type of id is not assignable to Tid.
- * @description Checks that it is a static warning if the static type of id is not assignable to Tid.
+ * @assertion It is a static warning if the static type of id is not assignable
+ * to Tid.
+ * @description Checks that it is a static warning if the static type of id is
+ * not assignable to Tid.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov

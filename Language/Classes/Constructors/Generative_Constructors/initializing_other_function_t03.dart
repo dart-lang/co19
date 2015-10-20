@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if an initializing formal is used by a function other
- * than a non-redirecting generative constructor.
- * @description Checks that it is a compile-time error when the initializing formal
- * syntax is used by an instance method.
+ * @assertion It is a compile-time error if an initializing formal is used by a
+ * function other than a non-redirecting generative constructor.
+ * @description Checks that it is a compile-time error when the initializing
+ * formal syntax is used by an instance method.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov

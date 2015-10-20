@@ -7,8 +7,9 @@
  * @assertion Let k be a generative constructor. It is a compile-time error if
  * more than one initializer corresponding to a given instance variable appears
  * in k's initializer list.
- * @description Checks that a compile-time error is produced if the same instance
- * variable is initialized more than once in an initializer list (referenced as this.name).
+ * @description Checks that a compile-time error is produced if the same
+ * instance variable is initialized more than once in an initializer list
+ * (referenced as this.name).
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -26,5 +27,5 @@ main() {
   try {
     C c = new C(0, 1);
     print(c.x);
-  } catch (x){}
+  } catch (x) {}
 }

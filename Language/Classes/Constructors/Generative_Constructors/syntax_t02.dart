@@ -5,10 +5,10 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier (‘.’ identifier)? formalParameterList
+ *   identifier (‘.’ identifier)? formalParameterList
  * ;
- * @description Checks that constructor declaration without a formal parameter list
- * produces a compile-time error.
+ * @description Checks that constructor declaration without a formal parameter
+ * list produces a compile-time error.
  * @compile-error
  * @author pagolubev
  * @reviewer iefremov
@@ -22,5 +22,5 @@ class C {
 main() {
   try {
     var c = new C();
-  } catch (x){}
+  } catch (x) {}
 }

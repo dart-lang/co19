@@ -6,14 +6,14 @@
 /**
  * @assertion Let k be a generative constructor.
  * Each final instance variable f declared in the immediately enclosing class
- * must have an initializer in k's initializer list unless it has already been initialized
- * by one of the following means:
- * - Initialization at the declaration of f.
- * - Initialization by means of an initializing formal of k.
+ * must have an initializer in k's initializer list unless it has already been
+ * initialized by one of the following means:
+ *  - Initialization at the declaration of f.
+ *  - Initialization by means of an initializing formal of k.
  * or a static warning occurs.
- * @description Checks that no static warning occurs when all final variables are initialized 
- * either at the declaration, via constructor's initializing formal, or via an intializer in
- * constructor's intializer list.
+ * @description Checks that no static warning occurs when all final variables
+ * are initialized either at the declaration, via constructor's initializing
+ * formal, or via an intializer in constructor's intializer list.
  * @static-clean
  * @author vasya
  * @reviewer pagolubev

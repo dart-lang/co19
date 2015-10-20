@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * initializers:
  *   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
  * ;
- * superCallOrFieldInitializer: 
+ * superCallOrFieldInitializer:
  *   super arguments  | super '.' identifier arguments | fieldInitializer
  * ;
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks that an invalid cascaded invocation in a field initializer
- * results in a compile-time error.
+ * @description Checks that an invalid cascaded invocation in a field
+ * initializer results in a compile-time error.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov

@@ -4,18 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * initializers:
  *   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
  * ;
- * superCallOrFieldInitializer: 
+ * superCallOrFieldInitializer:
  *   super arguments  | super '.' identifier arguments | fieldInitializer
  * ;
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks that it is a compile-time error when the field initializer does not include
- * the right-side expression.
+ * @description Checks that it is a compile-time error when the field
+ * initializer does not include the right-side expression.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

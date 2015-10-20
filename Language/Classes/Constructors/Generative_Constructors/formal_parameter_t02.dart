@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A formal constructor parameter is either a formal parameter
- * or an initializing formal. An initializing formal has the form this.id,
- * where id is the name of an instance variable of the immediately enclosing class.
- * It is a compile-time error if id is not the name of an instance variable of the immediately enclosing class.
- * @description Checks that it is a compile-time error if id is the name
- * of a static variable of the immediately enclosing class.
+ * @assertion A formal constructor parameter is either a formal parameter or
+ * an initializing formal. An initializing formal has the form this.id, where
+ * id is the name of an instance variable of the immediately enclosing class.
+ * It is a compile-time error if id is not the name of an instance variable of
+ * the immediately enclosing class.
+ * @description Checks that it is a compile-time error if id is the name of a
+ * static variable of the immediately enclosing class.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov

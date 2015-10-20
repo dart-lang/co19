@@ -5,7 +5,7 @@
  */
 /**
  * @assertion constructorSignature:
- * identifier (‘.’ identifier)? formalParameterList
+ *   identifier (‘.’ identifier)? formalParameterList
  * ;
  * @description Checks that constructor name cannot contain 3 identifiers.
  * @compile-error
@@ -15,7 +15,7 @@
 
 class C {
   C.c1.c2();
-  C.c3(){}
+  C.c3() {}
 }
 
 

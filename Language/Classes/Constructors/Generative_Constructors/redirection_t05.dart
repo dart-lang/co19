@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A generative constructor may be redirecting, in which case its only
- * action is to invoke another generative constructor. A redirecting constructor
- * has no body; instead, it has a redirect clause that specifies which constructor 
- * the invocation is redirected to, and with what arguments.
- * redirection: ':' this ('.' identifier)? arguments
- * @description Checks that redirecting constructor can not have initializing formals.
+ * @assertion A generative constructor may be redirecting, in which case its
+ * only action is to invoke another generative constructor. A redirecting
+ * constructor has no body; instead, it has a redirect clause that specifies
+ * which constructor the invocation is redirected to, and with what arguments.
+ * redirection:
+ *   ':' this ('.' identifier)? arguments
+ * ;
+ * @description Checks that redirecting constructor can not have initializing
+ * formals.
  * @compile-error
  * @author pagolubev
  * @reviewer iefremov
@@ -25,5 +28,5 @@ class C {
 main() {
   try {
     var x = new C(1);
-  } catch (x){}
+  } catch (x) {}
 }
