@@ -12,7 +12,7 @@
  * -).
  *
  * @description Check that closurization of operator - on object o is
- * equivalent of (a) {return u - a;}
+ * equivalent to (a) {return u - a;}
  *
  * @author sgrekhov@unipro.ru
  */

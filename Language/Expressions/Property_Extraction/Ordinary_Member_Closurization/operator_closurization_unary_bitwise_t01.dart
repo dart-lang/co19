@@ -11,7 +11,7 @@
  * • (){return  ̃ u;} if f is named  ̃.
  *
  * @description Check that closurization of operator ~ on object o is
- * equivalent of () {return ~u;}
+ * equivalent to () {return ~u;}
  *
  * @author sgrekhov@unipro.ru
  */

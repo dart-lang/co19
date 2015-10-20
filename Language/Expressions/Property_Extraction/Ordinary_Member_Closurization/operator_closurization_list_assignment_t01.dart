@@ -11,7 +11,7 @@
  * • (a, b){return u[a] = b;} if f is named []=
  *
  * @description Check that closurization of operator []= on object o is
- * equivalent of (a, b) {return u[a] = b;}
+ * equivalent to (a, b) {return u[a] = b;}
  *
  * @author sgrekhov@unipro.ru
  */
