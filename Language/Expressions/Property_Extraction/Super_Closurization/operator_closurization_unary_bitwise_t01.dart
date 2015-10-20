@@ -19,7 +19,7 @@ import '../../../../Utils/expect.dart';
 class A {
   int value;
 
-  int operator ~ () {
+  int operator ~() {
     return ~value;
   }
 }

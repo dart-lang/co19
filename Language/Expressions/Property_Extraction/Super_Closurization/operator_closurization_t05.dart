@@ -17,7 +17,7 @@
 import '../../../../Utils/expect.dart';
 
 class A {
-  bool operator == (var v) {
+  bool operator ==(var v) {
     return identical(this, v);;
   }
 }

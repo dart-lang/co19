@@ -19,7 +19,7 @@
 import '../../../../Utils/expect.dart';
 
 class C {
-  bool operator == (var v) {
+  bool operator ==(var v) {
     return identical(this, v);
   }
 }

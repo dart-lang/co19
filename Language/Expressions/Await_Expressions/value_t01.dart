@@ -26,7 +26,7 @@ import '../../../Utils/async_utils.dart';
 test() async {
   Expect.equals(1, await 1);
   Expect.equals('hello', await 'hello');
-  Expect.equals(11, await (10+1));
+  Expect.equals(11, await (10 + 1));
 }
 
 main() {

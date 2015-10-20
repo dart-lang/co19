@@ -18,7 +18,7 @@
 import '../../../../Utils/expect.dart';
 
 class C {
-  int operator [] (var v) {
+  int operator [](var v) {
     return v + 1;
   }
 }

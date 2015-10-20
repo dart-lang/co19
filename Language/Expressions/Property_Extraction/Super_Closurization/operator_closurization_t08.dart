@@ -17,7 +17,7 @@
 import '../../../../Utils/expect.dart';
 
 class A {
-  int operator / (var v) {
+  int operator /(var v) {
     return v / 2;
   }
 }

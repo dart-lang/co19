@@ -34,5 +34,5 @@ test() async {
 
 main() {
   asyncStart();
-  test().then( (value) => asyncEnd() );
+  test().then((value) => asyncEnd());
 }

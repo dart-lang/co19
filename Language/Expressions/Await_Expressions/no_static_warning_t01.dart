@@ -26,7 +26,7 @@ test() async {
   await true;
   await 1;
   await x;
-  await (x+3);
+  await (x + 3);
   await 'hello';
   await new Object();
   await f();
@@ -34,5 +34,5 @@ test() async {
 
 main() {
   asyncStart();
-  test().then( (value) => asyncEnd() );
+  test().then((value) => asyncEnd());
 }

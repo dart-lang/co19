@@ -19,7 +19,7 @@ import '../../../../Utils/expect.dart';
 
 class C {
   int value;
-  int operator - () {
+  int operator -() {
     return -value;
   }
 }
