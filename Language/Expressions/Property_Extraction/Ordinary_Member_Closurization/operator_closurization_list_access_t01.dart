@@ -11,14 +11,14 @@
  * • (a){return u[a];} if f is named []
  *
  * @description Check that closurization of operator [] on object o is
- * equivalent of (a) {return u[a];}
+ * equivalent to (a) {return u[a];}
  *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class C {
-  int operator [] (var v) {
+  int operator [](var v) {
     return v + 1;
   }
 }

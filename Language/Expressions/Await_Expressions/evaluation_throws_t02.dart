@@ -16,6 +16,7 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
 final Exception E1 = new Exception("1");
 
@@ -23,11 +24,16 @@ f() {
   throw E1;
 }
 
-main() async {
+test() async {
   try {
     await f();
     Expect.fail('await expression should throw ' + E1.toString());
   } catch (x) {
     Expect.identical(E1, x);
   }
+}
+
+main() {
+  asyncStart();
+  test().then((value) => asyncEnd());
 }

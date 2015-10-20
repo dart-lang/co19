@@ -21,9 +21,15 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
-main() async {
+test() async {
   Expect.equals(1, await 1);
   Expect.equals('hello', await 'hello');
-  Expect.equals(11, await (10+1));
+  Expect.equals(11, await (10 + 1));
+}
+
+main() {
+  asyncStart();
+  test().then( (value) => asyncEnd() );
 }

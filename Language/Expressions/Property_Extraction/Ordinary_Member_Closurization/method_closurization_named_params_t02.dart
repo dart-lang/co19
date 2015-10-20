@@ -16,7 +16,7 @@
  *
  * @description Check that closurization of method
  * m(r1, . . . , rn, p1 : p1, . . . , pk : pk ) on object o is
- * equivalent of (r1, . . . , rn , {p1 : d1, . . . , pk : dk }) {
+ * equivalent to (r1, . . . , rn , {p1 : d1, . . . , pk : dk }) {
  * return u.m(r1, . . . , rn, p1 : p1, . . . , pk : pk );
  * }
  * Test the case when m calls another method

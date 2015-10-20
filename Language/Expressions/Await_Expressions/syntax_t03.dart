@@ -13,6 +13,7 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
+import '../../../Utils/async_utils.dart';
 
 f() {
   return new Future<int>.value(1);
@@ -23,5 +24,6 @@ test() async {
 }
 
 main() {
-  test();
+  asyncStart();
+  test().then( (value) => asyncEnd() );
 }

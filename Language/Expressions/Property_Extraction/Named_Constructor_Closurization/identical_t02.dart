@@ -6,7 +6,8 @@
 /**
  * @assertion Except that iff identical(T1, T2) then new T1#m == new T2#m
  *
- * @description Check that if not identical(T1, T2) then new T1#m != new T2#m
+ * @description Check that if it is not identical(T1, T2) then new
+ * T1#m != new T2#m
  *
  * @author sgrekhov@unipro.ru
  */

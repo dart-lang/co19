@@ -22,6 +22,7 @@
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
 const String HELLO = 'hello';
 
@@ -37,9 +38,13 @@ Future<String> f3() async {
   return (100000 + 500).toString();
 }
 
-
-main() async {
+test() async {
   Expect.equals(100500, await f1());
   Expect.identical(HELLO, await f2());
   Expect.equals('100500', await f3());
+}
+
+main() {
+  asyncStart();
+  test().then( (value) => asyncEnd() );
 }

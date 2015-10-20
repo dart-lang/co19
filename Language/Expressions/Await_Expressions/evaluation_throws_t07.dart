@@ -18,16 +18,22 @@
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
 Future<int> f() async {
   return (1 ~/ 0);
 }
 
-main() async {
+test() async {
   try {
     await f();
     Expect.fail('await expression should throw IntegerDivisionByZeroException');
   } catch (x) {
     Expect.isTrue(x is IntegerDivisionByZeroException);
   }
+}
+
+main() {
+  asyncStart();
+  test().then((value) => asyncEnd());
 }

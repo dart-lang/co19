@@ -21,16 +21,22 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
 f1() {
   return 100500;
 }
 
-main() async {
+test() async {
   int x = 10;
 
   Expect.equals(11, await ++x);
   Expect.equals('hello, world', await ('hello,' + ' world'));
   Expect.equals(100500, await f1());
   Expect.equals(100000, await (f1() - 500));
+}
+
+main() {
+  asyncStart();
+  test().then( (value) => asyncEnd() );
 }

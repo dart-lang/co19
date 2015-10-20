@@ -12,14 +12,14 @@
  * -).
  *
  * @description Check that closurization of operator == on object o is
- * equivalent of (a) {return u == a;}
+ * equivalent to (a) {return u == a;}
  *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class C {
-  bool operator == (var v) {
+  bool operator ==(var v) {
     return identical(this, v);
   }
 }

@@ -13,6 +13,7 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
+import '../../../Utils/async_utils.dart';
 
 f() {
   return new Future<int>.value(1);
@@ -24,10 +25,10 @@ test() async {
   await true;
   await 1;
   await x;
-  await (x+3);
+  await (x + 3);
   await x++;
   await --x;
-  await ((x+10)*10);
+  await ((x + 10) * 10);
   await 'hello';
   await f();
   await (await f());
@@ -40,8 +41,8 @@ test() async {
 
 class S {
   var x=1;
-  operator-() { return this; }
-  operator~() { return this; }
+  operator -() { return this; }
+  operator ~() { return this; }
 }
 
 class A extends S {
@@ -52,6 +53,10 @@ class A extends S {
 }
 
 main() {
-  test();
-  new A().test();
+  asyncStart();
+  test().then(
+    (value) => new A().test()
+  ).then(
+    (value) => asyncEnd()
+  );
 }
