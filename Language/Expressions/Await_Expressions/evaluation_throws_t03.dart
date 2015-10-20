@@ -17,12 +17,18 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
-main() async {
+test() async {
   try {
     await (1 ~/ 0);
     Expect.fail('await expression should throw IntegerDivisionByZeroException');
   } catch (x) {
     Expect.isTrue(x is IntegerDivisionByZeroException);
   }
+}
+
+main() {
+  asyncStart();
+  test().then( (value) => asyncEnd() );
 }

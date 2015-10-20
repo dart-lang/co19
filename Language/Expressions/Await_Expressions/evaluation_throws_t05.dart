@@ -16,12 +16,18 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
+import '../../../Utils/async_utils.dart';
 
-main() async {
+test() async {
   try {
     await f();
     Expect.fail('await expression should throw NoSuchMethodError');
   } catch (x) {
     Expect.isTrue(x is NoSuchMethodError);
   }
+}
+
+main() {
+  asyncStart();
+  test().then( (value) => asyncEnd() );
 }
