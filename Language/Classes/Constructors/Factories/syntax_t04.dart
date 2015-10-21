@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A factory is a constructor prefaced by the built-in identifier factory.
+ * @assertion A factory is a constructor prefaced by the built-in identifier
+ * factory.
  * factoryConstructorSignature:
- *   factory qualified ('.' identifier)? formalParameterList
+ *   factory identifier ('.' identifier)? formalParameterList
  * ;
- * @description Checks that it is a compile-time error if a factory constructor declaration
- * is missing the formal parameter list.
+ * @description Checks that it is a compile-time error if a factory constructor
+ * declaration is missing the formal parameter list.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
  */
 
 class C {
@@ -22,5 +23,5 @@ class C {
 main() {
   try {
     new C();
-  } catch (x){}
+  } catch (x) {}
 }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if k explicitly specifies a default value
- * for an optional parameter.
+ * @assertion It is a compile-time error if k explicitly specifies a default
+ * value for an optional parameter.
  * @description Checks that it is a compile-error if refirecting factory
  * constructor specifies a default value for its optional positional parameter.
  * @compile-error

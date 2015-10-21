@@ -8,9 +8,10 @@
  * form factory M or the form factory M.id is M if M is not a generic type;
  * otherwise the return type is M <T1, …, Tn>, where T1, …, Tn are the type
  * parameters of the enclosing class.
- * @description Checks that assigning the result of invoking a factory constructor
- * to a variable whose type is not assignable to M<T1,...,Tn> produces a static warning.
- * Factory constructor name is that of its enclosing class.
+ * @description Checks that assigning the result of invoking a factory
+ * constructor to a variable whose type is not assignable to M<T1,...,Tn>
+ * produces a static warning. Factory constructor name is that of its
+ * enclosing class.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov

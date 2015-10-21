@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if M is not the name of the immediately enclosing class.
- * @description Checks that it's a compile-time error
- * when M is the name of a function type alias available in the same scope.
+ * @assertion It is a compile-time error if M is not the name of the
+ * immediately enclosing class.
+ * @description Checks that it's a compile-time error when M is the name of a
+ * function type alias available in the same scope.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -22,5 +23,5 @@ class C {
 main() {
   try{
     new C();
-  } catch(x) {}
+  } catch (x) {}
 }

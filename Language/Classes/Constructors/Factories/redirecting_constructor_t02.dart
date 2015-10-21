@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A redirecting factory constructor specifies a call to a constructor
- * of another class that is to be used whenever the redirecting constructor is called.
+ * @assertion A redirecting factory constructor specifies a call to a
+ * constructor of another class that is to be used whenever the redirecting
+ * constructor is called.
  * redirectingFactoryConstructorSignature:
- *    const? factory identifier (‘.’ identifier)? formalParameterList
- *      ‘=’ typeName (‘.’ identifier)?
+ *   const? factory identifier (‘.’ identifier)? formalParameterList
+ * ‘=’ typeName (‘.’ identifier)?
  * ;
  * @description Checks that formal parameters list of redirecting factory
  * constructor can not be omitted

@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A factory is a constructor prefaced by the built-in identifier factory.
+ * @assertion A factory is a constructor prefaced by the built-in identifier
+ * factory.
  * factoryConstructorSignature:
  *   factory identifier ('.' identifier)? formalParameterList
  * ;
- * @description Checks various valid factory declarations, including those referencing
- * classes from another file.
+ * @description Checks various valid factory declarations, including those
+ * referencing classes from another file.
  * @author iefremov
  * @reviewer rodionov
  */
