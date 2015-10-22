@@ -36,10 +36,10 @@ Future<bool> test() async {
   String s = await string('hello');
   Exception z = await exception(null);
   // use variables, so  dart analyzer is happy
-  return b && i==1 && s=='hello' &&  z==null;
+  return b && i == 1 && s == 'hello' &&  z == null;
 }
 
 main() {
   asyncStart();
-  test().then( (value) => asyncEnd() );
+  test().then((value) => asyncEnd());
 }

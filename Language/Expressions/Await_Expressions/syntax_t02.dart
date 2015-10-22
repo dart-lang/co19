@@ -34,7 +34,7 @@ test() async* {
   await f();
   await (await f());
   await ! await false;
-  await ~ await (x*x);
+  await ~ await (x * x);
   await - await f();
   await (10 - await 5);
   await await 'bye bye';

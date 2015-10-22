@@ -19,7 +19,7 @@
  * @description Check that static type warning is issued, if static type of
  * await expression does no match with expected type. Expression e is Future<T>.
  *
- * @static-clean
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

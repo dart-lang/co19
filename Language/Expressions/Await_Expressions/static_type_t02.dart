@@ -19,7 +19,7 @@
  * @description Check that static type warning is issued, if static type of
  * await expression does no match with expected type.
  *
- * @static-clean
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -47,10 +47,10 @@ check(f()){
 main() {
   asyncStart();
   List checks = [
-    check( () async => static_int(await true) ), /// static type warning
-    check( () async => static_int(await 'hello') ), /// static type warning
-    check( () async => static_bool(await 1) ), /// static type warning
-    check( () async => static_bool(await 'world') ), /// static type warning
+    check(() async => static_int(await true)), /// static type warning
+    check(() async => static_int(await 'hello')), /// static type warning
+    check(() async => static_bool(await 1)), /// static type warning
+    check(() async => static_bool(await 'world')), /// static type warning
   ];
-  Future.wait(checks).then( (value) => asyncEnd() );
+  Future.wait(checks).then((value) => asyncEnd());
 }
