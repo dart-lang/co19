@@ -10,8 +10,8 @@
  * invoked.
  * @description Checks that invoking an abstract method that is inherited from
  * non-direct superclass results in invoking noSuchMethod method.
- * @static-warning
- * @author hlodvig
+ *
+ * @author hlodvig, sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
@@ -24,7 +24,7 @@ abstract class A {
 
 abstract class A1 extends A {}
 abstract class A2 extends A1 {}
-class C extends A2 { /// static type warning
+class C extends A2 {
 }
 
 main() {

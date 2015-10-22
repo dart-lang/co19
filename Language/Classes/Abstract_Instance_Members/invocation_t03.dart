@@ -10,15 +10,15 @@
  * invoked.
  * @description Checks that invoking an abstract method, getter or setter
  * results in invoking noSuchMethod method.
- * @static-warning
- * @author hlodvig
+ *
+ * @author hlodvig, sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class C {
-  int m();    /// static type warnin
-  int get g;    /// static type warnin
-  set g(int v);   /// static type warnin
+  int m();
+  int get g;
+  set g(int v);
   int noSuchMethod(Invocation invocation) {
     return 666;
   }
@@ -34,14 +34,14 @@ main() {
   }
 
   try {
-  	var v = c.g; /// static type warning not assignable
+  	var v = c.g;
   	Expect.equals(666, v);
   } on NoSuchMethodError catch (e) {
     Expect.fail("NoSuchMethodError is not expected");
   }
 
   try {
-  	c.g = 1; /// static type warning cannot assign to 'METHOD'
+  	c.g = 1;
     Expect.equals(666, c.g);
   } on NoSuchMethodError catch (e) {
     Expect.fail("NoSuchMethodError is not expected");
