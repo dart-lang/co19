@@ -8,9 +8,9 @@
  * in the same class with identical bindings of this then super1#m == super2#m,
  * super1.m == super2.m, super1#m == super2.m and super1.m == super2#m.
  *
- * @description Check that if super1 == super2 then super1#m == super2#m,
- * super1.m == super2.m, super1#m == super2.m and super1.m == super2#m
- *
+ * @description Check that if super1 != super2 then super1#m != super2#m,
+ * super1.m != super2.m, super1#m != super2.m and super1.m != super2#m
+ * @issue 24661
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -19,12 +19,17 @@ class A {
   int m() => 1;
 }
 
+class B extends A {
+  getClosurization() => super.m;
+  getTearOff() => super#m;
+}
+
 class C extends A {
   void test() {
-    Expect.isTrue(super#m == super#m);
-    Expect.isTrue(super.m == super.m);
-    Expect.isTrue(super#m == super.m);
-    Expect.isTrue(super.m == super#m);
+    Expect.isTrue(super#m != getTearOff());
+    Expect.isTrue(super.m != getClosurization());
+    Expect.isTrue(super#m != getClosurization());
+    Expect.isTrue(super.m != getTearOff());
   }
 }
 main() {
