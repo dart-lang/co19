@@ -32,6 +32,7 @@ class C extends A {
     Expect.isTrue(super.m != getTearOff());
   }
 }
+
 main() {
   C o = new C();
   o.test();

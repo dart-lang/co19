@@ -8,9 +8,10 @@
  * in the same class with identical bindings of this then super1#m == super2#m,
  * super1.m == super2.m, super1#m == super2.m and super1.m == super2#m.
  *
- * @description Check that if super1 == super2 then super1#m == super2#m,
- * super1.m == super2.m, super1#m == super2.m and super1.m == super2#m
- *
+ * @description Check that if two closurizations were created by code declared
+ * in the same class but with different bindings of this then super1#m != super2#m,
+ * super1.m != super2.m, super1#m != super2.m and super1.m != super2#m.
+ * 
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -20,15 +21,20 @@ class A {
 }
 
 class C extends A {
-  void test() {
-    Expect.isTrue(super#m == super#m);
-    Expect.isTrue(super.m == super.m);
-    Expect.isTrue(super#m == super.m);
-    Expect.isTrue(super.m == super#m);
+  getClosurization() {
+    return super.m;
+  }  
+  getTearOff() {
+    return super#m;
   }
 }
 
 main() {
-  C o = new C();
-  o.test();
+  C o1 = new C();
+  C o2 = new C();
+  
+  Expect.isTrue(o1.getTearOff() != o2.getTearOff());
+  Expect.isTrue(o1.getClosurization() != o2.getClosurization());
+  Expect.isTrue(o1.getTearOff() != o2.getClosurization());
+  Expect.isTrue(o1.getClosurization() != o2.getTearOff());
 }
