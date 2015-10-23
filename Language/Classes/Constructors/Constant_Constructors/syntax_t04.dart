@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * constantConstructorSignature:
  *   const qualified formalParameterList
  * ;
- * @description Checks that it is a compile-time error if the semicolon at the end
- * of constructor declaration is missing.
+ * @description Checks that it is a compile-time error if the semicolon at the
+ * end of constructor declaration is missing.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
  */
 
 class A {

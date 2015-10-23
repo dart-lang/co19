@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a constant constructor is declared by a
- * class that has a non-final instance variable.
- * @description Checks that a compile-time error is produced when a class with constant 
- * constructor also declares a non-final instance variable.
+ * @assertion It is a compile-time error if a constant constructor is declared
+ * by a class that has a non-final instance variable.
+ * @description Checks that a compile-time error is produced when a class with
+ * constant constructor also declares a non-final instance variable.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Note that a parameter that is not used in a superexpression that is restricted to
- * certain types can be a constant of any type. For example
+ * @assertion Note that a parameter that is not used in a superexpression that
+ * is restricted to certain types can be a constant of any type. For example
  * class A {
- * final m;
- * const A(this.m);
+ *   final m;
+ *   const A(this.m);
  * }
  * can be instantiated via const A(const[]);
  *

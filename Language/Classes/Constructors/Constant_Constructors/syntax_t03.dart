@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * constantConstructorSignature:
  *   const qualified formalParameterList
  * ;
- * @description Checks that it is a compile-time error if the constructor formal
- * parameters are missing.
+ * @description Checks that it is a compile-time error if the constructor
+ * formal parameters are missing.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
  */
 
 class A {
@@ -22,5 +22,5 @@ class A {
 main() {
   try {
     var a = const A();
-  } catch (x){}
+  } catch (x) {}
 }
