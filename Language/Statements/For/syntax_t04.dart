@@ -6,7 +6,7 @@
 /**
  * @assertion The for statement supports iteration.
  * forStatement:
- *   for '(' forLoopParts ')' statement
+ *   await? for '(' forLoopParts ')' statement
  * ;
  * forLoopParts:
  *   forInitializerStatement expression? ';' expressionList? |
@@ -17,7 +17,8 @@
  *   localVariableDeclaration ‘;’ |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error when the loop parts are enclosed in curly braces
+ * @description Checks that it is a compile-time error if the loop parts are
+ * enclosed in curly braces
  * instead of parentheses.
  * @compile-error
  * @author rodionov

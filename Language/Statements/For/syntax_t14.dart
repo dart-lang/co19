@@ -14,18 +14,17 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   localVariableDeclaration ‘;’ |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error if the loop variable
- * in a 'id in expression' includes initializer.
+ * @description Checks that it is a compile-time error if the loop parts are
+ * missing entirely in asynchronous for-in statement.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
+ * @author a.semenov@unipro.ru
  */
 
-main() {
+main() async {
   try {
-    for ( var l=1 in new List(100)) break;
+    await for () {}
   } catch(x){}
 }

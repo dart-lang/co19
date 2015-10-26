@@ -6,7 +6,7 @@
 /**
  * @assertion The for statement supports iteration.
  * forStatement:
- *   for '(' forLoopParts ')' statement
+ *   await? for '(' forLoopParts ')' statement
  * ;
  * forLoopParts:
  *   forInitializerStatement expression? ';' expressionList? |

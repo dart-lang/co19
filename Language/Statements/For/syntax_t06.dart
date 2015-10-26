@@ -6,7 +6,7 @@
 /**
  * @assertion The for statement supports iteration.
  * forStatement:
- *   for '(' forLoopParts ')' statement
+ *   await? for '(' forLoopParts ')' statement
  * ;
  * forLoopParts:
  *   forInitializerStatement expression? ';' expressionList? |
@@ -17,8 +17,8 @@
  *   localVariableDeclaration ‘;’ |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error when the statement inside the for statement 
- * does not end with a semicolon, even if empty.
+ * @description Checks that it is a compile-time error if the statement inside
+ * the for statement does not end with a semicolon, even if empty.
  * @compile-error
  * @author vasya
  * @reviewer rodionov

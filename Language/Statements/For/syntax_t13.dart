@@ -6,7 +6,7 @@
 /**
  * @assertion The for statement supports iteration.
  * forStatement:
- *   for '(' forLoopParts ')' statement
+ *   await? for '(' forLoopParts ')' statement
  * ;
  * forLoopParts:
  *   forInitializerStatement expression? ';' expressionList? |
@@ -17,7 +17,7 @@
  *   initializedVariableDeclaration ';' |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error when the loop variable
+ * @description Checks that it is a compile-time error if the loop variable
  * in a 'id in expression' is not a simple variable.
  * @compile-error
  * @author kaigorodov

@@ -6,7 +6,7 @@
 /**
  * @assertion The for statement supports iteration.
  * forStatement:
- *   for '(' forLoopParts ')' statement
+ *   await? for '(' forLoopParts ')' statement
  * ;
  * forLoopParts:
  *   forInitializerStatement expression? ';' expressionList? |
@@ -17,8 +17,9 @@
  *   localVariableDeclaration ‘;’ |
  *   expression? ';'
  * ;
- * @description Checks that it is a runtime error when the iteration variable identifier
- * in a 'identifier in expression' loop variety is not declared prior to the for statement.
+ * @description Checks that it is a runtime error when the iteration variable
+ * identifier in a 'identifier in expression' loop variety is not declared
+ * prior to the for statement.
  * @static-warning
  * @author vasya
  * @reviewer rodionov

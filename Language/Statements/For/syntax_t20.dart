@@ -18,14 +18,19 @@
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop variable
- * in a 'id in expression' includes initializer.
+ * in an asynchronous form of 'id in expression' is not a simple variable.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
+ * @author a.semenov@unipro.ru
  */
+import 'dart:async';
 
-main() {
+class C {
+  int i;
+}
+
+main() async {
   try {
-    for ( var l=1 in new List(100)) break;
+    C c=new C();
+    await for ( c.i in Stream.fromIterable([1,2]) ) break;
   } catch(x){}
 }

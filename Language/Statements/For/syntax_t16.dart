@@ -17,15 +17,16 @@
  *   initializedVariableDeclaration ';' |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error if the loop variable
- * in a 'id in expression' includes initializer.
+ * @description Checks that it is a compile-time error if the loop parts
+ * in an asynchronous loop form 'id in expression' contain more than one
+ * identifier.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
+ * @author a.semenov@unipro.ru
  */
+import 'dart:async';
 
-main() {
+main() async {
   try {
-    for ( var l=1 in new List(100)) break;
+    await for ( var x,y in Stream.fromIterable(new List(100)) ) break;
   } catch(x){}
 }
