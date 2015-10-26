@@ -14,27 +14,29 @@
  * the closurization of setter f on object o. If setter lookup failed,
  * a NoSuchMethodError is thrown.
  *
- * @description Check that if if there are variable named m (including
- * superclass) in the class then implicit setter lookup succeeds
+ * @description Check that if there are setter named m in the mixin then setter
+ * lookup succeeds
  *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class A {
-  int n;
 }
 
-class C extends A {
-  int m;
+class M {
+  int mValue;
+  void set m(int val) {
+    mValue = val;
+  }
+}
+class C extends A with M {
 }
 
 main() {
   var o = new C();
   var x = o#m=;
-  var y = o#n=;
+  Expect.isNotNull(x);
   x(3);
-  y(2);
-  Expect.equals(3, o.m);
-  Expect.equals(2, o.n);
+  Expect.equals(3, o.mValue);
 }
