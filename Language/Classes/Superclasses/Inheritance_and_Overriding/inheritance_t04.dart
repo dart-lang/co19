@@ -4,10 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class C inherits any accessible instance members of its superclass that
- * are not overridden by members declared in C. A class may override instance members
- * that would otherwise have been inherited from its superclass.
- * @description Checks that static members don't conflict with static methods of a class.
+ * @assertion Let C be a class, let A be a superclass of C, and let S1...Sk
+ * be superclasses of C that are also subclasses of A. C inherits all
+ * accessible instance members of A that have not been overridden by a
+ * declaration in C or in at least one of S1...Sk.
+ * A class may override instance members that would otherwise have been
+ * inherited from its superclass.
+ * @description Checks that static members don't conflict with static methods
+ * of a class.
  * @author msyabro
  * @reviewer iefremov
  */

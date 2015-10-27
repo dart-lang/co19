@@ -7,8 +7,8 @@
  * @assertion If no extends clause is specified, then either:
  * - C is Object, which has no superclass. OR
  * - The superclass of C is Object.
- * @description Checks that in absence of an extends clause, a class still extends
- * Object.
+ * @description Checks that in absence of an extends clause, a class still
+ * extends Object.
  * @author msyabro
  * @reviewer rodionov
  */

@@ -10,7 +10,8 @@
  * of Sj for j in 1..k, that has the same name as m, such that m' is
  * accessible to L. Then m overrides m' if m' is not already overridden by a
  * member of at least one of S1 ... Sj-1 and neither m nor m' are fields.
- * @description Checks that an instance method can override another instance method.
+ * @description Checks that an instance method can override another instance
+ * method.
  * @author pagolubev
  * @reviewer msyabro
  * @reviewer rodionov

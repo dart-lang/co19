@@ -11,7 +11,8 @@
  * accessible to L. Then m overrides m' if m' is not already overridden by a
  * member of at least one of S1 ... Sj-1 and neither m nor m' are fields.
  * @description Checks that a setter can override another setter.
- * @note (Classes/Setters) says that a setter cannot override a method so not testing that.
+ * @note (Classes/Setters) says that a setter cannot override a method so not
+ * testing that.
  * @author pagolubev
  * @reviewer msyabro
  * @reviewer rodionov

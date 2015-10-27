@@ -5,10 +5,10 @@
  */
 /**
  * @assertion It is a compile-time error if a class C is a superclass of itself.
- * @description Checks that it is a compile-time error if a class attempts to extend
- * itself indirectly, by transition.
- * @author msyabro
+ * @description Checks that it is a compile-time error if a class attempts to
+ * extend itself indirectly, by transition.
  * @compile-error
+ * @author msyabro
  * @reviewer rodionov
  */
 
@@ -20,5 +20,5 @@ class D extends C {}
 main() {
   try {
     A a = new A();
-  } catch (e){}
+  } catch (e) {}
 }

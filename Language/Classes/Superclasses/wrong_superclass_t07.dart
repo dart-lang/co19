@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the extends clause of a class C specifies an
- * enumerated type, a malformed type or a deferred type as a superclass.
- * @description Checks that it is a compile-time error if enumeration is used as a
- * superclass
+ * @assertion It is a compile-time error if the extends clause of a class C
+ * specifies an enumerated type, a malformed type or a deferred type as a
+ * superclass.
+ * @description Checks that it is a compile-time error if enumeration is used
+ * as a superclass
  * @compile-error
  * @author sgrekhov@unipro.ru
  */

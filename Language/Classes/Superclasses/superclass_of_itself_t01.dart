@@ -5,10 +5,10 @@
  */
 /**
  * @assertion It is a compile-time error if a class C is a superclass of itself.
- * @description Checks that it is a compile-time error if a class references itself
- * in its extends clause.
- * @author pagolubev
+ * @description Checks that it is a compile-time error if a class references
+ * itself in its extends clause.
  * @compile-error
+ * @author pagolubev
  * @reviewer msyabro
  * @reviewer rodionov
  */
@@ -18,5 +18,5 @@ class A extends A {}
 main() {
   try {
     A a = new A();
-  } catch (e){}
+  } catch (e) {}
 }
