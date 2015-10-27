@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The effect of a static method declaration in class C is to add an instance
- * method with the same name and signature to the Type object for class C that
- * forwards to the static method.
- * @description Check that the instance method, added to the Type
- * object by static method declaration, is added to Type object of this class only
- * and not added to the Type of the ancestor
+ * @assertion The effect of a static method declaration in class C is to add an
+ * instance method with the same name and signature to the Type object for
+ * class C that forwards to the static method.
+ * @description Check that the instance method, added to the Type object by
+ * static method declaration, is added to Type object of this class only and
+ * not added to the Type of the ancestor
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */

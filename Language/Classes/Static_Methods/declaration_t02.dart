@@ -8,8 +8,8 @@
  * whose declarations are immediately contained within a class declaration
  * and that are declared static.
  * The static methods of a class C are those static methods declared by C.
- * @description Checks that static methods can access static members of the class they're
- * declared in using both fully qualified and shortened syntax.
+ * @description Checks that static methods can access static members of the
+ * class they're declared in using both fully qualified and shortened syntax.
  * @author rodionov
  * @reviewer kaigorodov
  */

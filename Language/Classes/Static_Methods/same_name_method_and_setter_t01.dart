@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a class C declares a static method named n and has
- * a setter named n =
- * @description Check that static warning is produced if class declares a static method
- * and has setter with the same name
+ * @assertion It is a static warning if a class C declares a static method
+ * named n and has a setter named n =
+ * @description Check that static warning is produced if class declares a
+ * static method and has setter with the same name
  * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 23749
