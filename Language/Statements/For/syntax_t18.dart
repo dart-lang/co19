@@ -36,6 +36,6 @@ test() async {
 main() {
   asyncStart();
   test().then(
-          (value) => asyncEnd()
+    (value) => asyncEnd()
   );
 }
