@@ -19,5 +19,5 @@ class A<T> implements T {}
 main() {
   try {
     A a = new A();
-  } catch (e){}
+  } catch (e) {}
 }

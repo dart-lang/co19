@@ -10,14 +10,14 @@
  * member m of type F and C does not declare or inherit a corresponding
  * non-abstract instance member m of type F' such that F' <: F.
  * @description Checks that it is a static warning if a class does not declare
- * nor inherit an instance method declared in class' interface.
+ * nor inherit an instance method declared in the interface of non-abstract
+ * class.
  * @static-warning
- * @author msyabro
- * @reviewer kaigorodov
+ * @author ngl@unipro.ru
  */
 
-abstract class I {
-  foo();
+class I {
+  foo() {}
 }
 
 class C implements I { /// static type warning

@@ -20,5 +20,5 @@ class A implements Unavailable {}
 main() {
   try {
     new A();
-  } catch (e){}
+  } catch (e) {}
 }
