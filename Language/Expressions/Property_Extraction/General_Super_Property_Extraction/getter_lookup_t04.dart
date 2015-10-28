@@ -10,11 +10,9 @@
  * Otherwise, let f be the result of looking up getter m in S with respect to
  * the current library L. If getter lookup succeeds then i evaluates to the
  * closurization of getter f with respect to superclass S
- *
  * @description Check that if getter lookup succeeds then result of the
- * property extraction is getter that was found during lookup. Getter is
- * defined in superclass of the superclass
- *
+ * property extraction is getter that was found during lookup. Getter
+ * is defined in a mixin
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -23,15 +21,16 @@ class A {
   int get m => 1;
 }
 
-class B extends A {
+class M {
+  int get m => 2;
 }
 
-class C extends B {
-  int get m => 2;
+class C extends A with M {
+  int get m => 3;
 
   void test() {
     var f = super#m;
-    Expect.equals(1, f());
+    Expect.equals(2, f());
   }
 }
 

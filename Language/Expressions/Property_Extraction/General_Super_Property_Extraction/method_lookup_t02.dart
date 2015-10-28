@@ -10,11 +10,9 @@
  * If m is not a setter name, let f be the result of looking up method m in S
  * with respect to the current library L. If method lookup succeeds then i
  * evaluates to the closurization of method m with respect to superclass S
- *
  * @description Check that if method lookup succeeds then result of the
  * property extraction is method that was found during lookup. Method defined
  * in superclass of the superclass
- *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -37,7 +35,7 @@ class C extends B {
 
   void test() {
     var i = super#m;
-    i(1);
+    i();
     Expect.equals("A", this.result);
   }
 }

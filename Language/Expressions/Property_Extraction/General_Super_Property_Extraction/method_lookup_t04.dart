@@ -11,20 +11,38 @@
  * with respect to the current library L. If method lookup succeeds then i
  * evaluates to the closurization of method m with respect to superclass S
  * @description Check that if method lookup succeeds then result of the
- * property extraction is method that was found during lookup
+ * property extraction is method that was found during lookup. Method defined
+ * in a mixin
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 class A {
+}
+
+class M1 {
   String result = "none";
 
   void m() {
-    this.result = "A";
+    this.result = "M1";
   }
 }
 
-class C extends A {
+class M2 {
+  String result = "none";
+
+  void m() {
+    this.result = "M2";
+  }
+}
+
+class B extends A with M1 {
+  void m() {
+    this.result = "C";
+  }
+}
+
+class C extends B with M2 {
   void m() {
     this.result = "C";
   }
@@ -32,7 +50,7 @@ class C extends A {
   void test() {
     var i = super#m;
     i();
-    Expect.equals("A", this.result);
+    Expect.equals("M2", this.result);
   }
 }
 

@@ -27,7 +27,6 @@ class C extends A {
 
   void test() {
     var f = super#m;
-    f();
     Expect.equals(1, f());
   }
 }
