@@ -18,12 +18,13 @@
  *
  * A mixin application of the form S with M ; defines a class C with superclass
  * S.
- * A mixin application of the form S with M 1 , . . . , M k ; defines a class C whose
- * superclass is the application of the mixin composition M k−1 ∗ . . . ∗ M 1 to
- * S.
+ * A mixin application of the form S with M 1 , . . . , M k ; defines a class C
+ * whose superclass is the application of the mixin composition Mk−1 ∗ ...∗ M1
+ * to S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, M k ).
- * @description Checks that instance class has the same instance methods as its mixins
+ * @description Checks that instance class has the same instance methods as its
+ * mixins
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

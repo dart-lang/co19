@@ -8,7 +8,7 @@
  * resulting class implements those interfaces.
  * @description Checks that if the mixin application declares support for
  * interfaces and the resulting class implements those interfaces then no
- * static warning occurs
+ * static warning occurs. Interface implementation declared in mixin
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
@@ -17,17 +17,14 @@ abstract class I {
   num get g;
 }
 
-class A {
+class S {
 }
 
 class M {
-}
-
-abstract class B = A with M implements I;
-
-class C implements B {
   num get g => 0;
 }
+
+class C = S with M implements I;
 
 main() {
   C c = new C();

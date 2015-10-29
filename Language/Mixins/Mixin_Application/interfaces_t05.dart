@@ -7,29 +7,26 @@
  * @assertion If the mixin application declares support for interfaces, the
  * resulting class implements those interfaces.
  * @description Checks that if the mixin application declares support for
- * interfaces and the resulting class implements those interfaces then no
+ * interfaces and the resulting class does not implement those interfaces then
  * static warning occurs
- * @static-clean
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
+import "../../../Utils/expect.dart";
 
 abstract class I {
   num get g;
 }
 
-class A {
+class S {
 }
 
 class M {
 }
 
-abstract class B = A with M implements I;
-
-class C implements B {
-  num get g => 0;
-}
+class C = S with M implements I; /// static type warning
 
 main() {
-  C c = new C();
-  c.g;
+  C c = null;
+  Expect.throws(() {c.g;}, (e) => e is NoSuchMethodError);
 }

@@ -10,14 +10,15 @@
  * The name of the class is also set to C. Iff the class is prefixed by the
  * built-in identifier abstract, the class being defined is an abstract class.
  * @description Checks that class C is not abctract (can be instantiated by new)
- * if mixin application is not abstract and there are no abstract identifier
+ * if there are no abstract identifier but all clases in mixin application are
+ * abstract
  * @author sgrekhov@unipro.ru
  */
 
-class S {
+abstract class M {
 }
 
-class M {
+abstract class S {
 }
 
 class C = S with M;

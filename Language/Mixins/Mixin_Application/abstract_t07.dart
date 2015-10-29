@@ -9,19 +9,22 @@
  * the scope of L, bound to the class defined by the mixin application M.
  * The name of the class is also set to C. Iff the class is prefixed by the
  * built-in identifier abstract, the class being defined is an abstract class.
- * @description Checks that class C is not abctract (can be instantiated by new)
- * if mixin application is not abstract and there are no abstract identifier
+ * @description Checks that class C is abctract (cannot be instantiated by new)
+ * if there are abstract identifier even if all clases in mixin application are
+ * not abstract
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
-
-class S {
-}
+import "../../../Utils/expect.dart";
 
 class M {
 }
 
-class C = S with M;
+class S {
+}
+
+abstract class C = S with M;
 
 main() {
-  new C();
+  Expect.throws(() {C c = new C();}); /// static type warning
 }

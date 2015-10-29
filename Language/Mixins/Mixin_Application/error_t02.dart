@@ -4,11 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let K be a class declaration with the same constructors, superclass and in-
- * terfaces as C, and the instance members declared by M (respectively M 1 , . . . , M k ).
- * ... It is a compile-time error if the declaration of K would cause a compile-time error.
- * @description Checks that it is a compile-time error if S and Mi declare getter and
- * method with the same names
+ * @assertion Let K be a class declaration with the same constructors,
+ * superclass and interfaces as C, and the instance members declared by M
+ * (respectively M1,...,Mk).
+ * ...
+ * It is a compile-time error if the declaration of K would cause a
+ * compile-time error.
+ * @description Checks that it is a compile-time error if S and Mi declare
+ * getter and method with the same names
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @issue 23878
@@ -29,4 +32,5 @@ class M2 {
 class C = S with M1, M2;
 
 main() {
+  new C();
 }
