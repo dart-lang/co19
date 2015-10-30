@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 
-import '../deferred_lib.dart'deferred_lib.dart' deferred as d;
+import 'deferred_lib.dart' deferred as d;
 
 class B {
 }
