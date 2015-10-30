@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A mixin application of the form S with M 1 , . . . , M k ; defines a class C whose
- * superclass is the application of the mixin composition M k−1 ∗ . . . ∗ M 1 to S
+ * @assertion A mixin application of the form S with M1,...,Mk; defines a class
+ * C whose superclass is the application of the mixin composition
+ * Mk−1 ∗ ... ∗ M 1 to S
  * ...
- * It is a compile-time error if M (respectively, any of M 1 , . . . , M k ) is an
- * enumerated type or a malformed type.
- * @description Checks that it is a compile-time error if M is an enumerated type
+ * It is a compile-time error if M (respectively, any of M1,..., Mk) is
+ * an enumerated type or a malformed type.
+ * @description Checks that it is a compile-time error if M is an enumerated
+ * type
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -22,4 +24,5 @@ enum M {a, b, c}
 class C = S with M;
 
 main() {
+  new C();
 }

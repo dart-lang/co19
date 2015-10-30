@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,7 +10,8 @@
  * ...
  * It is a compile-time error if M (respectively, any of M1,..., Mk) is
  * an enumerated type or a malformed type.
- * @description Checks that it is a compile-time error if M is malformed type
+ * @description Checks that it is a compile-time error if extends mixin
+ * application where M is malformed type
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -20,7 +21,8 @@ class S {
 
 var M;
 
-class C = S with M;
+class C extends S with M {
+}
 
 main() {
   new C();

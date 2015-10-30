@@ -5,9 +5,9 @@
  */
 /**
  * @assertion For each generative constructor named
- * q i (T i1 a i1 , . . . , T ik i a ik i ), i ∈ 1..n of
- * S, C has an implicitly declared constructor named q i = [C/S]q i of the form
- * q i (a i1 , . . . , a ik i ) : super(a i1 , . . . , a ik i );.
+ * qi(Ti1 ai1,..., Tiki aiki), i ∈ 1..n of S, C has an implicitly declared
+ * constructor named qi = [C/S]q i of the form
+ * qi(ai1,..., aiki): super(ai1,...,aiki);.
  * @description Checks that for each generative constructor mixin application
  * declares constructor described in the assertion
  * @author sgrekhov@unipro.ru

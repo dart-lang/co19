@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -8,7 +8,7 @@
  * superclass and interfaces as C, and the instance members declared by M
  * (respectively M1,...,Mk). It is a static warning if the declaration of K
  * would cause a static warning.
- * @description Checks that it is a static warning if S and Mi declare members
+ * @description Checks that it is a static warning if Mi declare members
  * with the same names but conflicting types
  * @static-warning
  * @author sgrekhov@unipro.ru
@@ -16,7 +16,6 @@
  */
 
 class S {
-  bool get g => false;
 }
 
 class M1 {

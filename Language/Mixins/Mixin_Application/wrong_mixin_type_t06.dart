@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,7 +10,7 @@
  * ...
  * It is a compile-time error if M (respectively, any of M1,..., Mk) is
  * an enumerated type or a malformed type.
- * @description Checks that it is a compile-time error if M is malformed type
+ * @description Checks that it is a compile-time error if Mi is malformed type
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -18,9 +18,15 @@
 class S {
 }
 
-var M;
+class M1 {
+}
 
-class C = S with M;
+var M2;
+
+class M3 {
+}
+
+class C = S with M1, M2, M3;
 
 main() {
   new C();

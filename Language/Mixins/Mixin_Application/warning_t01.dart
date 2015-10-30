@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let K be a class declaration with the same constructors, superclass and in-
- * terfaces as C, and the instance members declared by M (respectively M 1 , . . . , M k ).
- * It is a static warning if the declaration of K would cause a static warning.
- * @description Checks that it is a static warning if S and M declare members with the same
- * names but conflicting types
+ * @assertion Let K be a class declaration with the same constructors,
+ * superclass and interfaces as C, and the instance members declared by M
+ * (respectively M1,...,Mk). It is a static warning if the declaration of K
+ * would cause a static warning.
+ * @description Checks that it is a static warning if S and M declare members
+ * with the same names but conflicting types
  * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 23878
@@ -25,4 +26,5 @@ class M {
 class C = S with M;
 
 main() {
+  new C();
 }
