@@ -29,18 +29,18 @@ final ERROR = new Exception();
 
 test1() async {
   var processedValues = [];
-  await for (var i in new Stream.fromIterable([1,2,3])) {
+  await for (var i in new Stream.fromIterable([1, 2, 3])) {
     processedValues.add(i);
   }
-  Expect.listEquals([1,2,3], processedValues);
+  Expect.listEquals([1, 2, 3], processedValues);
 }
 
 test2() async {
   var processedValues = [];
-  await for (var i in new Stream.fromIterable(['a','b','c'])) {
+  await for (var i in new Stream.fromIterable(['a', 'b' ,'c'])) {
     processedValues.add(i);
   }
-  Expect.listEquals(['a','b','c'], processedValues);
+  Expect.listEquals(['a', 'b', 'c'], processedValues);
 }
 
 test3() async {

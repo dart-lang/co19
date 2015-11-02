@@ -39,14 +39,14 @@ test1() async {
       processedValues.add(i);
     }
     Expect.fail("Asynchronous for-in statement should throw $ERROR");
-  } catch (e){
+  } catch (e) {
     Expect.identical(ERROR, e);
   }
   Expect.listEquals([], processedValues);
 }
 
 computation(int computationCount){
-  if (computationCount<5){
+  if (computationCount < 5) {
     return computationCount;
   }
   throw ERROR;
@@ -60,10 +60,10 @@ test2() async {
       processedValues.add(i);
     }
     Expect.fail("Asynchronous for-in statement should throw $ERROR");
-  } catch (e){
+  } catch (e) {
     Expect.identical(ERROR, e);
   }
-  Expect.listEquals([0,1,2,3,4], processedValues);
+  Expect.listEquals([0, 1, 2, 3, 4], processedValues);
 }
 
 main() {

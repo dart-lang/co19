@@ -17,5 +17,5 @@
 import 'dart:async';
 
 main() sync* {
-  await for (var i in new Stream.fromIterable([1,2])) break;
+  await for (var i in new Stream.fromIterable([1, 2])) break;
 }

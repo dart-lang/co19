@@ -30,7 +30,7 @@ Future test1() async {
 }
 
 Future test2() async {
-  await for (int i in [1,2,3]) {
+  await for (int i in [1, 2, 3]) {
   }
 }
 

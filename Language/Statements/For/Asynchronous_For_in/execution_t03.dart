@@ -29,7 +29,7 @@ final ERROR = new Exception();
 test1() async {
   var processedValues = [];
   try {
-    await for (var i in new Stream.fromIterable([1,2])) {
+    await for (var i in new Stream.fromIterable([1, 2])) {
       processedValues.add(i);
       throw ERROR;
     }

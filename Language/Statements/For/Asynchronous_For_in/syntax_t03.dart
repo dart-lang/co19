@@ -16,5 +16,5 @@
  */
 
 main() async {
-  await for (int i=0; i<100; i++) break;
+  await for (int i = 0; i < 100; i++) break;
 }
