@@ -12,11 +12,12 @@
  * – m is a member of inherited(A, K).
  * • m is not overridden by J.
  * ...
- * However, if the above rules would cause multiple members m 1 , . . . , m k with
+ * However, if the above rules would cause multiple members m1,...,mk with
  * the same name n to be inherited (because identically named members existed
  * in several superinterfaces) then at most one member is inherited
- * @description Checks that if multiple getters with the same name are inherited actually
- * only one getter is inherited and no static warning issued
+ * @description Checks that if multiple getters with the same name are
+ * inherited actually only one getter is inherited and no static warning
+ * issued
  * @static-clean
  * @author sgrekhov@unipro.ru
  */

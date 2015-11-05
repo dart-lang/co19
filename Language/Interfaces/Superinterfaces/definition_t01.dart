@@ -5,10 +5,11 @@
  */
 /**
  * @assertion An interface has a set of direct superinterfaces.
- * An interface J is a superinterface of an interface I iff either J is a direct
- * superinterface of I or J is a superinterface of a direct superinterface of I.
- * @description Checks that an interface can declare generic and non-generic direct
- * superinterfaces or not declare any.
+ * An interface J is a superinterface of an interface I iff either J is a
+ * direct superinterface of I or J is a superinterface of a direct
+ * superinterface of I.
+ * @description Checks that an interface can declare generic and non-generic
+ * direct superinterfaces or not declare any.
  * @author vasya
  * @reviewer rodionov
  */

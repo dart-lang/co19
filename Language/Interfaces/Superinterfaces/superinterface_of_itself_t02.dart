@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if an interface is a superinterface of itself.
- * @description Checks that it is a compile-time error if a generic interface is 
- * a superinterface of itself.
+ * @assertion It is a compile-time error if an interface is a superinterface
+ * of itself.
+ * @description Checks that it is a compile-time error if a generic interface
+ * is a superinterface of itself.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -19,6 +20,6 @@ class A implements I {}
 main() {
   try {
     new A();
-  } catch(e) {}
+  } catch (e) {}
 }
 

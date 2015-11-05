@@ -25,31 +25,29 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks that if two methods with the same name should be
- * inherited then interface inherits method with minimum numbers of positional
- * parameters type dynamic and no static warning occurs
+ * @description Checks that there's no static warning if class implements two
+ * interfaces with same named methods and different number of required formal
+ * parameters and defines method with minimum number of required parameters
+ * and maximum number of positional parameters.
  * @static-clean
- * @author sgrekhov@unipro.ru
+ * @author ngl@unipro.ru
  */
-import '../../../../Utils/expect.dart';
-
-class A {}
-class B extends A {}
-class C {}
-class D extends C {}
 
 abstract class SI1 {
-  void foo(A v1, D v2);
+  void foo(var v);
 }
 
 abstract class SI2 {
-  void foo(B v1, C v2);
+  void foo(var v, var vv);
 }
 
-abstract class I implements SI1, SI2 {}
+class I implements SI1, SI2 {
+  // It is expected that I inherits void foo(dynamic v1, [dynamic a])
+  void foo(dynamic v, [dynamic a]) {}
+}
 
 main() {
-  I i = null;
-  // We expect that I inherits var foo(var v1, var v2), so no static warning
-  Expect.throws(() {i.foo(null, null);}, (e) => e is NoSuchMethodError);
+  I i = new I();
+  i.foo(1);
+  i.foo(1,2);
 }

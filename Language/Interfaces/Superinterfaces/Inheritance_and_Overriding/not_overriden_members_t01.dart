@@ -6,10 +6,11 @@
 /**
  * @assertion An interface I inherits any members of its superinterfaces that
  * are not overridden by members declared in I.
- * @description Checks that there're no static warnings produced when attempting to access
- * the inherited non-static members of a null variable whose static type is an interface
- * extending another interface that declares those members. This should indirectly prove
- * that they're indeed inherited by the subinterface.
+ * @description Checks that there're no static warnings produced when
+ * attempting to access the inherited non-static members of a null variable
+ * whose static type is an interface extending another interface that declares
+ * those members. This should indirectly prove that they're indeed inherited
+ * by the subinterface.
  * @static-clean
  * @author sgrekhov@unopro.ru
  */

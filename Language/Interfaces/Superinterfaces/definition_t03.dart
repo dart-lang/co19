@@ -5,10 +5,11 @@
  */
 /**
  * @assertion An interface has a set of direct superinterfaces.
- * An interface J is a superinterface of an interface I iff either J is a direct
- * superinterface of I or J is a superinterface of a direct superinterface of I.
- * @description Checks that it is a compile-time error if the chain of superinterfaces
- * forms a circular dependency.
+ * An interface J is a superinterface of an interface I iff either J is a
+ * direct superinterface of I or J is a superinterface of a direct
+ * superinterface of I.
+ * @description Checks that it is a compile-time error if the chain of
+ * superinterfaces forms a circular dependency.
  * @compile-error
  * @author vasya
  * @reviewer rodionov

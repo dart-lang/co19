@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if m is a method and m' is a getter, or if m is a getter
- * and m' is a method.
- * @description Checks that there is a static warning if class has a getter and its
- * superinterface has method with the same name
+ * @assertion It is a static warning if m is a method and m' is a getter, or
+ * if m is a getter and m' is a method.
+ * @description Checks that there is a static warning if class has a getter
+ * and its superinterface has method with the same name
  * @static-warning
  * @author sgrekhov@unipro.ru
  */

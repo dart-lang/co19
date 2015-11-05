@@ -6,10 +6,10 @@
 /**
  * @assertion An interface I inherits any members of its superinterfaces that
  * are not overridden by members declared in I.
- * @description Checks that an interface does not inherit static members of its
- * superinterfaces.
- * Expects a NoSuchMethodError when trying to access a superinterface's static member
- * via a subinterface, as specified in (Expressions/Getter Invocation)
+ * @description Checks that an interface does not inherit static members of
+ * its superinterfaces.
+ * Expects a NoSuchMethodError when trying to access a superinterface's static
+ * member S via a subinterface, as specified in (Expressions/Getter Invocation)
  * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 13677

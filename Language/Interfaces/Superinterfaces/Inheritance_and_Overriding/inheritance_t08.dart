@@ -25,31 +25,27 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks that if two methods with the same name should be
- * inherited then interface inherits method with minimum numbers of positional
- * parameters type dynamic and no static warning occurs
+ * @description Checks that there's no static warning if non-abstract class
+ * implements two interfaces with same named methods that have different named
+ * formal parameters and defines method from its implicit interface. In this
+ * case the implicit iterface of non-abstract class has method with one
+ * required parameter of type dynamic and a set of all named optional
+ * parameters.
  * @static-clean
- * @author sgrekhov@unipro.ru
+ * @author ngl@unipro.ru
  */
-import '../../../../Utils/expect.dart';
-
-class A {}
-class B extends A {}
-class C {}
-class D extends C {}
 
 abstract class SI1 {
-  void foo(A v1, D v2);
+  void foo(var v, {int foo, int bar});
 }
 
 abstract class SI2 {
-  void foo(B v1, C v2);
+  void foo(var v, {int foo, int b4r});
 }
 
-abstract class I implements SI1, SI2 {}
+class I implements SI1, SI2 {
+  void foo(dynamic v, {dynamic foo, dynamic b4r, dynamic bar}) {}
+}
 
 main() {
-  I i = null;
-  // We expect that I inherits var foo(var v1, var v2), so no static warning
-  Expect.throws(() {i.foo(null, null);}, (e) => e is NoSuchMethodError);
 }
