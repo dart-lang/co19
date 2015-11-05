@@ -20,6 +20,7 @@
  * statement is completed with that exception.
  *
  * @issue 24766
+ * @issue 24748
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -32,7 +33,7 @@ Future<int> f() async {
   throw ERROR;
 }
 
-test1() async {
+Future test1() async {
   var processedValues = [];
   try {
     await for (var i in f().asStream()) {
@@ -52,7 +53,7 @@ computation(int computationCount){
   throw ERROR;
 }
 
-test2() async {
+Future test2() async {
   var processedValues = [];
   var period = new Duration(microseconds:1);
   try {
@@ -66,11 +67,30 @@ test2() async {
   Expect.listEquals([0, 1, 2, 3, 4], processedValues);
 }
 
+// try an already closed single subscription stream
+Future test3() async {
+  // make a stream that is closed
+  Stream stream = new Stream.fromIterable([1,2]);
+  await for (var x in stream){
+  }
+  var processedValues = [];
+  try {
+    await for (var i in stream) {
+      processedValues.add(i);
+    }
+    Expect.fail("Asynchronous for-in statement should complete with error");
+  } catch (e) {
+    // the exception type is not specified
+    // neither in Dart Language Specification nor in Dart Async API
+    // (see issue 24748)
+    // so just catch it
+  }
+  Expect.isTrue(processedValues.isEmpty);
+}
+
+
 main() {
   asyncStart();
-  test1().then(
-          (value) => test2().then(
-              (value) => asyncEnd()
-      )
-  );
+
+  Future.wait([test1(), test2(), test3()]).then((v) => asyncEnd());
 }

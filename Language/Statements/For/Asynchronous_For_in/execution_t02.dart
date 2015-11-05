@@ -53,11 +53,5 @@ test3() async {
 
 main() {
   asyncStart();
-  test1().then(
-          (value) => test2().then(
-                  (value) => test3().then(
-                          (value) => asyncEnd()
-                  )
-          )
-  );
+  Future.wait([test1(), test2(), test3()]).then((v) => asyncEnd());
 }
