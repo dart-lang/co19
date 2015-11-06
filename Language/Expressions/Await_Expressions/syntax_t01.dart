@@ -40,7 +40,7 @@ test() async {
 }
 
 class S {
-  var x=1;
+  var x = 1;
   operator -() { return this; }
   operator ~() { return this; }
 }

@@ -34,7 +34,7 @@ test1() async {
       throw ERROR;
     }
     Expect.fail("Asynchronous for-in statement should throw $ERROR");
-  } catch (e){
+  } catch (e) {
     Expect.identical(ERROR, e);
   }
   Expect.listEquals([1], processedValues);
