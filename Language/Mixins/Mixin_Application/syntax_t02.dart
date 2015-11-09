@@ -7,24 +7,23 @@
  * @assertion A class may be defned as a mixin application.
  *
  * classDefinition:
- * metadata abstract? class mixinApplicationClass
+ *   metadata abstract? class mixinApplicationClass
  * ;
  * mixinClassApplication:
- * identifer typeParameters? `=' mixinApplication `;'
+ *   identifer typeParameters? `=' mixinApplication `;'
  *
  * mixinApplication:
- * type mixins interfaces?
+ *   type mixins interfaces?
  * ;
  *
- * A mixin application of the form S with M ; defines a class C with superclass
+ * A mixin application of the form S with M; defines a class C with superclass
  * S.
- * A mixin application of the form S with M 1 , . . . , M k ; defines a class C
- * whose superclass is the application of the mixin composition Mk−1 ∗ ...∗ M1
- * to S.
+ * A mixin application of the form S with M1,...,Mk; defines a class C whose
+ * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
- * tively, M k ).
- * @description Checks that instance class has the same instance setters as its
- * mixins
+ * tively, Mk).
+ * @description Checks that instance class has the same instance setters as
+ * its mixins
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

@@ -7,24 +7,23 @@
  * @assertion A class may be defned as a mixin application.
  *
  * classDefinition:
- * metadata abstract? class mixinApplicationClass
+ *   metadata abstract? class mixinApplicationClass
  * ;
  * mixinClassApplication:
- * identifer typeParameters? `=' mixinApplication `;'
+ *   identifer typeParameters? `=' mixinApplication `;'
  *
  * mixinApplication:
- * type mixins interfaces?
+ *   type mixins interfaces?
  * ;
  *
- * A mixin application of the form S with M ; defines a class C with superclass
+ * A mixin application of the form S with M; defines a class C with superclass
  * S.
- * A mixin application of the form S with M 1 , . . . , M k ; defines a class C
- * whose superclass is the application of the mixin composition Mk−1 ∗ ...∗ M1
- * to S.
+ * A mixin application of the form S with M1,...,Mk; defines a class C whose
+ * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
- * tively, M k ).
- * @description Checks that mixin application of the form S with M ; defines a
- * class C with superclass S. So if M and S have methods with the same names
+ * tively, Mk).
+ * @description Checks that mixin application of the form S with M; defines a
+ * class C with superclass S. So if M and S have getters with the same names
  * then mixin method overrides one from S
  * @author sgrekhov@unipro.ru
  */

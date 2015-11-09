@@ -4,21 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  * A mixin application of the form S with M 1 , . . . , M k ;
- * defines a class C whose superclass is the application of the mixin composition M k−1
- * ∗ . . . ∗ M 1 to * S.
+ * @assertion A mixin application of the form S with M1,...,Mk; defines a
+ * class C whose superclass is the application of the mixin composition
+ * Mk−1 ∗ ... ∗ M1 to S.
  * ...
- * The composition of two mixins, M 1 < T 1 . . . T k M 1 > and M 2 < U 1 . . . U k M 2 >,
- * written M 1 < T 1 . . . T k M 1 > ∗M 2 < U 1 . . . U k M 2 > defines an anonymous mixin
- * such that for any class S < V 1 . . . V k S >, the application of
- * M 1 < T 1 . . . T k M 1 > ∗M 2 < U 1 . . . U k M 2 >
- * to S < V 1 . . . V k S > is equivalent to
- * abstract class Id 1 < T 1 . . . T k M 1 , U 1 . . . U k M 2 , V 1 . . . V k S > =
- * Id 2 < U 1 . . . U k M 2 , V 1 . . . V k S > with M 1 < T 1 . . . T k M 1 >;
- * where Id 2 denotes
- * abstract class Id 2 < U 1 . . . U k M 2 , V 1 . . . V k S > =
- * S < V 1 . . . V k S > with M 2 < U 1 . . . U k M 2 >;
- * @description Checks that mixin composition applyes mixins in the right order
+ * The composition of two mixins, M1< T1...TkM1 > and M2< U1...UkM2 >,
+ * written M1< T1...TkM1 > ∗ M2< U1...UkM2 > defines an anonymous mixin
+ * such that for any class S< V1...VkS >, the application of
+ * M1< T1...TkM1 > ∗ M2< U1...UkM2 >
+ * to S< V1...VkS > is equivalent to
+ * abstract class Id1< T1...TkM1, U1...UkM2, V1...VkS > =
+ * Id2< U1...UkM2, V1...VkS > with M1< T1...TkM1 >;
+ * where Id2 denotes
+ * abstract class Id2< U1...UkM2, V1...VkS > =
+ * S< V1...VkS > with M2< U1...UkM2 >;
+ * @description Checks that mixin composition applyes mixins in the right
+ * order
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

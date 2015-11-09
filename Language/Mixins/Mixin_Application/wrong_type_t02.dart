@@ -6,10 +6,10 @@
 /**
  * @assertion A mixin application of the form S with M1,...,Mk; defines a class
  * C whose superclass is the application of the mixin composition
- * Mk−1 ∗ ... ∗ M 1 to S
+ * Mk−1 ∗ ... ∗ M1 to S
  * ...
  * It is a compile-time error if S is an enumerated type or a malformed type.
- * @description Checks that it is a compile-time error if S is an malformed type
+ * @description Checks that it is a compile-time error if S is a malformed type
  * @compile-error
  * @author sgrekhov@unipro.ru
  */

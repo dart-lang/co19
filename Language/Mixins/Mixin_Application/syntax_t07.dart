@@ -7,22 +7,21 @@
  * @assertion A class may be defned as a mixin application.
  *
  * classDefinition:
- * metadata abstract? class mixinApplicationClass
+ *   metadata abstract? class mixinApplicationClass
  * ;
  * mixinClassApplication:
- * identifer typeParameters? `=' mixinApplication `;'
+ *   identifer typeParameters? `=' mixinApplication `;'
  *
  * mixinApplication:
- * type mixins interfaces?
+ *   type mixins interfaces?
  * ;
  *
- * A mixin application of the form S with M ; defines a class C with superclass
+ * A mixin application of the form S with M; defines a class C with superclass
  * S.
- * A mixin application of the form S with M 1 , . . . , M k ; defines a class C
- * whose superclass is the application of the mixin composition Mk−1 ∗ ...∗ M1
- * to S.
+ * A mixin application of the form S with M1,...,Mk; defines a class C whose
+ * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
- * tively, M k ).
+ * tively, Mk).
  * @description Test that instance of class (S with M) is S
  * @author sgrekhov@unipro.ru
  */
