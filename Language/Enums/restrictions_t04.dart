@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is also a compile-time error to subclass, mix-in or implement 
+ * @assertion It is also a compile-time error to subclass, mix-in or implement
  * an enum or to explicitly instantiate an enum.
  * @description Checks that it is compile-time error to mix-in an enum using
  * the form S with M1,..., Mn
@@ -20,8 +20,10 @@ class M1 {
 class M2 {
 }
 
-class C with M1, E, M2 {
+class C {
 }
+
+class A = C with M1, E, M2;
 
 main() {
 }

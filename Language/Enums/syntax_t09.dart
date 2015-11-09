@@ -9,13 +9,16 @@
  *  enumType:
  *  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
  *  ;
- * @description Checks that it is compile-time error if enum does not declare
- * any member
+ * @description Checks that it is compile-time error if enum has more then one
+ * comma in the end of member list.
  * @compile-error
- * @author sgrekhov@unipro.ru
+ * @author ngl@unipro.ru
  */
+import "../../Utils/expect.dart";
 
-enum E {}
+enum E {a, b,, }
 
 main() {
+  E e = E.b;
+  Expect.equals(e, E.b);
 }
