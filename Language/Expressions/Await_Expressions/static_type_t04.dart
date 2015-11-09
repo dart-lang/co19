@@ -53,10 +53,10 @@ check(f()){
 main() {
   asyncStart();
   List checks = [
-    check(() async => static_int(await boolean(true))),/// static type warning
-    check(() async => static_int(await string('hello'))),/// static type warning
-    check(() async => static_bool(await integer(1))),/// static type warning
-    check(() async => static_bool(await string('abc'))),/// static type warning
+    check(() async => static_int(await boolean(true))), /// static type warning
+    check(() async => static_int(await string('hello'))), /// static type warning
+    check(() async => static_bool(await integer(1))), /// static type warning
+    check(() async => static_bool(await string('abc'))), /// static type warning
   ];
   Future.wait(checks).then( (value) => asyncEnd() );
 }
