@@ -43,7 +43,7 @@ abstract class SI3 {
   Object m1(num v1); // subtype of m1() in SI1 and SI2
   num m2(Object v1);   // subtype of m2() in SI1 and SI2
   List m3(List v1);  // subtype of m3() in SI1 and SI2
-  void m4(num v1);  // subtype of m4() in SI1 and SI2
+  m4(num v1);  // subtype of m4() in SI1 and SI2
 }
 
 abstract class I implements SI1, SI2, SI3 {
