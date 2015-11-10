@@ -25,8 +25,6 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 import '../../../../Utils/async_utils.dart';
 
-final ERROR = new Exception();
-
 test1() async {
   var processedValues = [];
   await for (var i in new Stream.fromIterable([1, 2, 3])) {

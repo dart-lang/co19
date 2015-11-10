@@ -114,10 +114,3 @@ class Sync2<T> {
 
 }
 /*----------------------------*/
-
-Future sleep(int duration, [dynamic result]) {
-  Completer completer = new Completer();
-  Duration drn = new Duration(milliseconds: duration);
-  Timer timer = new Timer(drn, () => completer.complete(result) );
-  return completer.future;
-}

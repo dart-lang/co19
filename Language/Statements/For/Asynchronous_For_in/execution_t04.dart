@@ -46,7 +46,7 @@ Future test1() async {
   Expect.listEquals([], processedValues);
 }
 
-computation(int computationCount){
+int computation(int computationCount) {
   if (computationCount < 5) {
     return computationCount;
   }
@@ -55,7 +55,7 @@ computation(int computationCount){
 
 Future test2() async {
   var processedValues = [];
-  var period = new Duration(microseconds:1);
+  var period = new Duration(microseconds: 1);
   try {
     await for (var i in new Stream.periodic(period, computation)) {
       processedValues.add(i);
@@ -70,8 +70,8 @@ Future test2() async {
 // try an already closed single subscription stream
 Future test3() async {
   // make a stream that is closed
-  Stream stream = new Stream.fromIterable([1,2]);
-  await for (var x in stream){
+  Stream stream = new Stream.fromIterable([1, 2]);
+  await for (var x in stream) {
   }
   var processedValues = [];
   try {
@@ -91,6 +91,5 @@ Future test3() async {
 
 main() {
   asyncStart();
-
   Future.wait([test1(), test2(), test3()]).then((v) => asyncEnd());
 }

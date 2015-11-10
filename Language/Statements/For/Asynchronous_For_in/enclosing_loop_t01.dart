@@ -26,9 +26,9 @@ Future test1() async {
     log.add(s);
     await for (int k in new Stream.fromIterable([1, 2])) {
       log.add(s + k.toString());
-      if (log.length<=4) {
+      if (log.length <= 4) {
         streamController.add(k.toString());
-      } else if (!streamController.isClosed){
+      } else if (!streamController.isClosed) {
         streamController.close();
       }
     }
@@ -45,9 +45,9 @@ Future test2() async {
     log.add(s);
     await for (int k in new Stream.fromIterable([1, 2])) {
       log.add(s + k.toString());
-      if (log.length<=3) {
+      if (log.length <= 3) {
         streamController.add(k.toString());
-      } else if (!streamController.isClosed){
+      } else if (!streamController.isClosed) {
         streamController.close();
       }
       await new Future.delayed(new Duration(microseconds: 100));
