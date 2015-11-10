@@ -15,24 +15,18 @@
  * Next, execution of the function m immediately enclosing a is suspended
  * until after f completes.
  * @description Check that execution of the function m immediately enclosing a
- * is suspended until after f completes. Call sync functions to test
+ * is suspended until after f completes
  * @author sgrekhov@unipro.ru
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
 import '../../../Utils/async_utils.dart';
 
-Future f1() {
-  return new Future.delayed(new Duration(milliseconds: 50));
-}
+Future f1() async => new Future.delayed(new Duration(milliseconds: 50));
 
-Future f2() {
-  return new Future.delayed(new Duration(milliseconds: 100));
-}
+Future f2() async => new Future.delayed(new Duration(milliseconds: 100));
 
-Future f3() {
-  return new Future.delayed(new Duration(milliseconds: 10));
-}
+Future f3() async => new Future.delayed(new Duration(milliseconds: 10));
 
 test() async {
   List<String> log = [];

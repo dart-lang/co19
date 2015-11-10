@@ -15,34 +15,31 @@
  * Next, execution of the function m immediately enclosing a is suspended
  * until after f completes.
  * @description Check that execution of the function m immediately enclosing a
- * is suspended until after f completes. Call sync functions to test
+ * is suspended until after f completes. Test instance methods
  * @author sgrekhov@unipro.ru
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
 import '../../../Utils/async_utils.dart';
 
-Future f1() {
-  return new Future.delayed(new Duration(milliseconds: 50));
-}
-
-Future f2() {
-  return new Future.delayed(new Duration(milliseconds: 100));
-}
-
-Future f3() {
-  return new Future.delayed(new Duration(milliseconds: 10));
+class C {
+  Future f1() async => new Future.delayed(new Duration(milliseconds: 50));
+  Future f2() async => new Future.delayed(new Duration(milliseconds: 100));
+  Future f3() async {
+    return new Future.delayed(new Duration(milliseconds: 10));
+  }
 }
 
 test() async {
   List<String> log = [];
-  f1().then((val) { log.add("f1"); });
-  f2().then((val) { log.add("f2"); });
-  f3().then((val) { log.add("f3"); });
+  C c = new C();
+  c.f1().then((val) { log.add("f1"); });
+  c.f2().then((val) { log.add("f2"); });
+  c.f3().then((val) { log.add("f3"); });
   await new Future.delayed(new Duration(milliseconds: 100));
-  await f1().then((val) { log.add("f11"); });
-  await f2().then((val) { log.add("f22"); });
-  await f3().then((val) { log.add("f33"); });
+  await c.f1().then((val) { log.add("f11"); });
+  await c.f2().then((val) { log.add("f22"); });
+  await c.f3().then((val) { log.add("f33"); });
   Expect.listEquals(["f3", "f1", "f2", "f11", "f22", "f33"], log);
 }
 

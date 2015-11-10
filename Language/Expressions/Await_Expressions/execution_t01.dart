@@ -23,18 +23,15 @@ import '../../../Utils/expect.dart';
 import '../../../Utils/async_utils.dart';
 
 Future f1() async {
-  Future f = sleep(50);
-  return f;
+  return new Future.delayed(new Duration(milliseconds: 50));
 }
 
 Future f2() async {
-  Future f = sleep(100);
-  return f;
+  return new Future.delayed(new Duration(milliseconds: 100));
 }
 
 Future f3() async {
-  Future f = sleep(10);
-  return f;
+  return new Future.delayed(new Duration(milliseconds: 10));
 }
 
 test() async {
@@ -42,7 +39,7 @@ test() async {
   f1().then((val) { log.add("f1"); });
   f2().then((val) { log.add("f2"); });
   f3().then((val) { log.add("f3"); });
-  await sleep(101, null);
+  await new Future.delayed(new Duration(milliseconds: 100));
   await f1().then((val) { log.add("f11"); });
   await f2().then((val) { log.add("f22"); });
   await f3().then((val) { log.add("f33"); });
