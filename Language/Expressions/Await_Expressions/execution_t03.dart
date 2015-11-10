@@ -15,7 +15,7 @@
  * Next, execution of the function m immediately enclosing a is suspended
  * until after f completes.
  * @description Check that execution of the function m immediately enclosing a
- * is suspended until after f completes
+ * is suspended until after f completes. Test f() async => e; syntax
  * @author sgrekhov@unipro.ru
  */
 import 'dart:async';
