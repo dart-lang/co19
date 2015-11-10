@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The declaration of an enum of the form 
+ * @assertion The declaration of an enum of the form
  * metadata enum E { id 0 , . . . id n−1 };
  * has the same effect as a class declaration
  * metadata class E {
@@ -17,6 +17,7 @@
  * String toString() => { 0: ‘E.id 0 ’, . . ., n-1: ‘E.id n−1 ’}[index]
  * }
  * @description Checks that each member of an enum is constant
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
@@ -24,7 +25,7 @@ import "../../Utils/expect.dart";
 enum E {a, b, c}
 
 main() {
-  Expect.throws((){E.a = E.b;});
-  Expect.throws((){E.b = E.c;});
-  Expect.throws((){E.c = E.a;});
+  Expect.throws(() {E.a = E.b;});  // static warning here
+  Expect.throws(() {E.b = E.c;});  // static warning here
+  Expect.throws(() {E.c = E.a;});  // static warning here
 }
