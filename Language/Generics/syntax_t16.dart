@@ -4,17 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class declaration, or type alias G may be generic.
- * typeParameter: metadata identifier (extends type)? ;
- * typeParameters: '<' typeParameter (',' typeParameter)* '>' ;
- * @description Checks that a generic syntax is not confused
- * with relational expressions.
+ * @assertion A class declaration, or type alias G may be generic, this is,
+ * G may have formal type parametera declared.
+ * . . .
+ * typeParameter:
+ *   metadata identifier (extends type)?
+ * ;
+ * typeParameters:
+ *   '<' typeParameter (',' typeParameter)* '>'
+ * ;
+ * @description Checks that a generic syntax is not confused with relational
+ * expressions.
  * @author msyabro
  * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
-class A <B, C, D, E> {
+class A<B, C, D, E> {
   foo(p1, p2, p3, p4) {
     Expect.equals(true, p1);
     Expect.equals(3, p2);

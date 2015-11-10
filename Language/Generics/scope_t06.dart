@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The type parameters of a generic G are in scope in the bounds of all of
- * the type parameters of G. The type parameters of a generic class
+ * @assertion The type parameters of a generic G are in scope in the bounds of
+ * all of the type parameters of G. The type parameters of a generic class
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the body of G.
  * @description Checks bounds of type parameters are checked at runtime.

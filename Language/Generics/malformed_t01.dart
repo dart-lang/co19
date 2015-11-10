@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A type parameter is considered to be a malformed type when referenced
- * by a static member.
+ * @assertion A type parameter is considered to be a malformed type when
+ * referenced by a static member.
  * @description Checks that runtime error is thrown if type parameter is used
  * in a type test in static context.
  * @static-warning
@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 
 class C<T> {
   static bool f() {
-    return null is T; // static (not type) warning here: type variable in static context
+    return null is T; // static warning here: type variable in static context
   }
 }
 

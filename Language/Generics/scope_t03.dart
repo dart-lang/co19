@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The type parameters of a generic G are in scope in the bounds of all of
- * the type parameters of G. The type parameters of a generic class
+ * @assertion The type parameters of a generic G are in scope in the bounds of
+ * all of the type parameters of G. The type parameters of a generic class
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the body of G.
  * @description Checks that type parameters are in scope in the body of G
@@ -17,14 +17,14 @@ import "../../Utils/expect.dart";
 
 class A<N, S, U> {
   final List<U> field;
-  
+
   A(N n, S s) : field = new List<U>() {
     Expect.isTrue(n is N);
     Expect.isTrue(s is S);
   }
 
   A.empty() : field = null{}
-  
+
   factory A.f(S s) {
     Expect.isTrue(s is S);
     return new A.empty();
@@ -35,14 +35,13 @@ class A<N, S, U> {
   List<U> get getter {
     return field;
   }
-  
-  void set setter(S s){}
+
+  void set setter(S s) {}
 }
 
-abstract class J<Aa, B>{}
+abstract class J<Aa, B> {}
 
-abstract class I<H, C, K> extends J<C, K>
-{ }
+abstract class I<H, C, K> extends J<C, K> {}
 
 
 main() {
