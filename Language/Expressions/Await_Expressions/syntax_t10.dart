@@ -40,6 +40,8 @@ class C {
     await await 'bye bye';
   }
 
+  static s() {}
+
   static stest() async {
     int x = 100500;
 
@@ -51,11 +53,11 @@ class C {
     await --x;
     await ((x + 10) * 10);
     await 'hello';
-    await f();
-    await (await f());
+    await s();
+    await (await s());
     await ! await false;
     await ~ await (x * x);
-    await - await f();
+    await - await s();
     await (10 - await 5);
     await await 'bye bye';
   }
