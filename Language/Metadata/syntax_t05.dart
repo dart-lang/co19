@@ -15,7 +15,7 @@
  */
 
 @()
-class B{}
+class B {}
 
 main() {
 }

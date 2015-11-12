@@ -18,7 +18,7 @@ class A {
 }
 
 @A)
-class B{}
+class B {}
 
 main() {
 }

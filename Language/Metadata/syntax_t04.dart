@@ -14,11 +14,11 @@
  */
 
 class A {
-    const A();
+  const A();
 }
 
 A()
-class B{}
+class B {}
 
 main() {
 }

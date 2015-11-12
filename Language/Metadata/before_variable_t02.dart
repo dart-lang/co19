@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Metadata can appear before  ...  variable declaration ...
- * @description Check that metadata is allowed before instance variable
- * declaration
+ * @description Check that metadata is allowed before variable declared in
+ * class
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';

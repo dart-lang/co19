@@ -19,7 +19,7 @@ import '../../Utils/expect.dart';
 import 'syntax_lib2.dart' as syntax_lib2;
 
 @syntax_lib2()
-class B{}
+class B {}
 
 main() {
     // have to retrieve metadata to get the compile error

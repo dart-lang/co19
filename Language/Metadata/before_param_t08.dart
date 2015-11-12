@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Metadata can appear before  ...  parameter ...
- * @description Check that metadata is allowed before setter parameter
+ * @description Check that metadata is allowed before static setter parameter
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';

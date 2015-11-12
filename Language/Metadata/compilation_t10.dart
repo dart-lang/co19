@@ -22,7 +22,7 @@ class A {
 }
 
 @A
-class B{}
+class B {}
 
 main() {
     // have to retrieve metadata to get the compile error
