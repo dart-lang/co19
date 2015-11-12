@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The predeﬁned Dart function identical() is deﬁned such that identical(c1, c2) iff:
- *   c1 and c2 are constant maps that are deﬁned to be identical
- *   in the speciﬁcation of literal map expressions.
+ * @assertion The predeﬁned Dart function identical() is deﬁned such that
+ * identical(c1, c2) iff:
+ *  • c1 and c2 are constant maps that are deﬁned to be identical in the
+ *    speciﬁcation of literal map expressions.
  * @description Checks that constatnt maps are identical() if they have both
  * identical types and content.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
-const nums1 = const <num,String>{1:"1", 2:"2", 3:"3"};
-const nums2 = const <num,String>{1:"1", 2:"2", 3:"3"};
-const ints1 = const <int,String>{1:"1", 2:"2", 3:"3"};
-const ints2 = const <int,String>{1:"1", 2:"2", 3:"3"};
+const nums1 = const <num, String>{1:"1", 2:"2", 3:"3"};
+const nums2 = const <num, String>{1:"1", 2:"2", 3:"3"};
+const ints1 = const <int, String>{1:"1", 2:"2", 3:"3"};
+const ints2 = const <int, String>{1:"1", 2:"2", 3:"3"};
 
 // Expression/Maps: map literal with double key is illegal, since
 // it's not an int nor String and implements ==

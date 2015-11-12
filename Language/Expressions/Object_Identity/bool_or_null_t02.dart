@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The predeﬁned Dart function identical() is deﬁned such that identical(c1, c2) iff:
- *   c1 evaluates to either null or an instance of bool and c1 == c2.
+ * @assertion The predefined Dart function identical() is defined such that
+ * identical(c1, c2) iff:
+ *  • c1 evaluates to either null or an instance of bool and c1 == c2.
  * @description Checks that two bool instances are identical() iff they are
  * equal
  * @author ilya
@@ -20,7 +21,7 @@ main() {
   Expect.isTrue(identical(false, false));
   Expect.isTrue(identical(true2, true));
   Expect.isTrue(identical(false2, false));
-  
+
   Expect.isFalse(identical(true, false));
   Expect.isFalse(identical(true2, false2));
 }
