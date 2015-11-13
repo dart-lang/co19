@@ -45,6 +45,4 @@ main() {
     }, false);
 
   roots.playerShadowRoot.querySelector('.volume-slider').focus();
-
-  assert_true(invoked, 'Event listener was not invoked');
 }

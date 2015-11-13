@@ -45,6 +45,4 @@ main() {
 
   // move focus out of shadow tree. blur should be fired
   d.querySelector('#outside-control').focus();
-
-  assert_true(invoked, 'Event listener was not invoked');
 }
