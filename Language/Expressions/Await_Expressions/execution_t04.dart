@@ -33,14 +33,10 @@ class C {
 test() async {
   List<String> log = [];
   C c = new C();
-  c.f1().then((val) { log.add("f1"); });
-  c.f2().then((val) { log.add("f2"); });
-  c.f3().then((val) { log.add("f3"); });
-  await new Future.delayed(new Duration(milliseconds: 100));
-  await c.f1().then((val) { log.add("f11"); });
-  await c.f2().then((val) { log.add("f22"); });
-  await c.f3().then((val) { log.add("f33"); });
-  Expect.listEquals(["f3", "f1", "f2", "f11", "f22", "f33"], log);
+  await c.f1().then((val) { log.add("f1"); });
+  await c.f2().then((val) { log.add("f2"); });
+  await c.f3().then((val) { log.add("f3"); });
+  Expect.listEquals(["f1", "f2", "f3"], log);
 }
 
 main() {
