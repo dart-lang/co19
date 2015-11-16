@@ -34,7 +34,7 @@ void test(String value, String expected) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
     test("alpha, alpha, alpha, alpha", "alpha, alpha, alpha, alpha");
     test("luminance, alpha", "luminance, alpha, alpha, alpha");

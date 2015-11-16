@@ -101,8 +101,8 @@ if the max-width property overrides the computed width of a html container with 
 A html container with display:table should not exceed the max-width even if its calculated
 width is greater than the max-width value.<br>However when min-width property is set and its value is greated than
 the max-width value, the width of the container must be equal to the min-width value.''');
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     
 // 'Note:The width of the css tables inclusive of its border width.
     

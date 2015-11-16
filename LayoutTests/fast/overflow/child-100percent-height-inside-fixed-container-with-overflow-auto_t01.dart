@@ -39,8 +39,8 @@ When a container having overflow:auto has a horizontal scrollbar,
 the scrollbar is to be placed between the inner border edge and the outer padding edge.
 Thus the content height of a child inside the container must not include the height of the horizontal scollbars.
 ''');
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     
     debug('''The height of the inner element box should be 100% of the containers height minus the height of horizontal scrollbar.
 There should be no vertical scrollable content in the container<br>

@@ -19,7 +19,7 @@ void main() {
     for (i = 0; i < depth; ++i)
         markup += "<div id='d$i'>";
     var doc = document.implementation.createHtmlDocument("");
-    doc.body.innerHtml = markup;
+    doc.body.appendHtml(markup, treeSanitizer: new NullTreeSanitizer());
     
     var d510 = doc.getElementById("d510");
     var d511 = doc.getElementById("d511");

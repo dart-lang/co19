@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
@@ -24,8 +25,8 @@ const String htmlEL3 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
-    document.body.appendHtml(htmlEL3);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL3, treeSanitizer: new NullTreeSanitizer());
     var doc = document.implementation.createHtmlDocument("");
     var div = document.createElement('div');
     doc.adoptNode(div);

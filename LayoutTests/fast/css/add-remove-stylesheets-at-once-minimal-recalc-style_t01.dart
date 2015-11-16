@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -39,10 +38,12 @@ main() {
   // Add and remove sheets in the same run.
   document.documentElement.offsetTop;
   var sheetContainer = document.getElementById('sheet-container');
-  sheetContainer.innerHtml = '<style>.foo { color: green; }</style><style>.bar { color: red; }</style>';
+  sheetContainer.setInnerHtml('<style>.foo { color: green; }</style><style>.bar { color: red; }</style>',
+      treeSanitizer: new NullTreeSanitizer());
 
   document.documentElement.offsetTop;
-  sheetContainer.innerHtml = '<style>.baz { color: blue; }</style>';
+  sheetContainer.setInnerHtml('<style>.baz { color: blue; }</style>',
+      treeSanitizer: new NullTreeSanitizer());
 
   shouldBe(document.querySelector('.foo').getComputedStyle().color, 'rgb(0, 0, 0)');
   shouldBe(document.querySelector('.baz').getComputedStyle().color, 'rgb(0, 0, 255)');

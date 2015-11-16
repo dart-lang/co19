@@ -48,7 +48,7 @@ void negativeTest(String property, String value) {
 
 void main() {
     description('Test that clip-path shapes accept different length units');
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
     // absolute lengths - number serialization, units
     testInner("-webkit-clip-path", "circle(0 at 0 0)", "circle(0px at 0% 0%)");

@@ -64,7 +64,7 @@ void testBorderSpacing(index) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     for (var i = 1; i < 6; i++) {
         document.getElementById('console').append(document.createElement('br'));

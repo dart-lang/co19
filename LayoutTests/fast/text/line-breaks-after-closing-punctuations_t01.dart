@@ -41,12 +41,12 @@ const String htmlEL2 = r'''
 ''';
 
 String paragraphHeight(paragraphNumber) {
-    Element el=document.getElementsByTagName("p")[paragraphNumber];
+    Element el = document.getElementsByTagName("p")[paragraphNumber];
     return el.getComputedStyle().getPropertyValue("height");
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Expect.equals(paragraphHeight(0), paragraphHeight(2), "0 2");
     Expect.equals(paragraphHeight(1), paragraphHeight(3), "1 3");
 }

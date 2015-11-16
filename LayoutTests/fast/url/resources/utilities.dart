@@ -1,5 +1,6 @@
 library utilities;
 import "dart:html";
+import "../../../testharness.dart";
 
 // Start the bidding at 42 for no particular reason.
 var lastID = 42;
@@ -22,13 +23,13 @@ void setBaseURL(url) {
     }
 
     // Add a new base element.
-    document.body.appendHtml('<base href="$url">');
+    document.body.appendHtml('<base href="$url">', treeSanitizer: new NullTreeSanitizer());
 }
 
 List segments(String url) {
   var id = ++lastID;
   String idstr=id.toString();
-  document.body.appendHtml("<a id='$idstr' href='$url'></a>");
+  document.body.appendHtml("<a id='$idstr' href='$url'></a>", treeSanitizer: new NullTreeSanitizer());
   var elmt = document.getElementById(idstr);
   return [
     elmt.protocol,

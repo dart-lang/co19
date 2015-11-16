@@ -42,7 +42,7 @@ void testInner(String property, String value, String expected) {
 
 void main() {
     description('Test clip-path IRIs');
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     
     testInner("-webkit-clip-path", "url(#clip1)", "url(#clip1)");
     testInner("-webkit-clip-path", "url(clip.svg#clip1)", "url(clip.svg#clip1)");

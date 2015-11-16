@@ -102,8 +102,8 @@ List<List> tests = [
 
 void main() {
     document.body.attributes["style"]="-webkit-writing-mode:vertical-lr";
-    document.head.appendHtml(htmlEL1);
-    document.body.setInnerHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var test;
     var failures = 0;

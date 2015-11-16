@@ -8,7 +8,6 @@
  * @description Table rowspan
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
@@ -389,7 +388,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen((e){checkLayout('tr');});
 }

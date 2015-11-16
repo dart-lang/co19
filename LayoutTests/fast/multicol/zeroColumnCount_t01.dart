@@ -8,6 +8,7 @@
  * @description Test that column-count:0 is parsed as invalid syntax and thrown away. 
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -20,6 +21,6 @@ body {
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     Expect.equals("2", document.body.getComputedStyle().columnCount);
 }

@@ -24,8 +24,8 @@ const String htmlEL3 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
-    document.body.appendHtml(htmlEL3);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL3, treeSanitizer: new NullTreeSanitizer());
     var tr = document.querySelector('tr');
     var doc = document.implementation.createHtmlDocument("");
     doc.adoptNode(tr);

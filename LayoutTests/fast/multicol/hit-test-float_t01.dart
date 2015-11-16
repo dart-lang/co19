@@ -43,7 +43,7 @@ const String htmlEL2 = r'''
 
 void main() {
 //    document.head.attributes["style"]=htmlEL11; -- even worse
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer:new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
 
     var result = document.getElementById("result");

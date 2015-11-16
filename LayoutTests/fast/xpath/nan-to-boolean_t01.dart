@@ -9,6 +9,7 @@
  * XPath incorrectly converts NaN to boolean.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL = r'''
@@ -17,7 +18,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
     XPathEvaluator evaluator=new XPathEvaluator();
 
     var result = evaluator.evaluate("//div[number(substring-after(@id,'r_')) or false()]", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);

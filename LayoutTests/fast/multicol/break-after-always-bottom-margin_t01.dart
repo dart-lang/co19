@@ -9,6 +9,7 @@
  * [CSS Regions] Region overset property is not properly computed when there is a region break 
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -38,8 +39,8 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.className = "fail";
     Expect.equals(document.querySelector(".columns p:nth-child(2)").offsetTop, document.querySelector(".columns p:first-child").offsetTop);
     document.body.className = "pass";

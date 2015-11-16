@@ -37,8 +37,8 @@ void testBoxPosition(id, expectedLeft, expectedTop) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     testBoxPosition("break-before", 220, 8);
     testBoxPosition("after-break", 431, 8);
     testBoxPosition("no-break", 537, 8);

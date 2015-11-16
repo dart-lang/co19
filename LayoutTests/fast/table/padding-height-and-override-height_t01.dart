@@ -19,7 +19,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     shouldBe(document.getElementById('cell-contents').offsetHeight, 78);
     // FIXME: We currently get 98 for this value. It appears we don't take left/right padding
     // into account for the widths of the contents of table cells.

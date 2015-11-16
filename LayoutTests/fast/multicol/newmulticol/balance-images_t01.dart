@@ -30,8 +30,8 @@ const String htmlEL2 = '''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Element mc=document.getElementById("mc");
     Expect.equals(246, mc.offsetHeight);
     Expect.equals(document.documentElement.clientWidth, document.documentElement.scrollWidth);

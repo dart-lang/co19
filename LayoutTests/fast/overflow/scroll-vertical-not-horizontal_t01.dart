@@ -47,7 +47,7 @@ ${window.scrollY == 0 ? '' : 'not '} at top.""";
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(startTest);
     asyncStart();
 }

@@ -15,7 +15,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     debug("Verify that a fragment's DOCTYPE does not affect parsing. We expect DOCTYPEs to be ignored for fragments with context elements.");
     var container = document.createElement("div");
     document.body.append(container);

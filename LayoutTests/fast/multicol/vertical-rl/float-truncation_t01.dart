@@ -103,8 +103,8 @@ List<List> tests = [
 void main() {
 // <html style="-webkit-writing-mode:horizontal-tb;">
     document.body.attributes["style"]="-webkit-writing-mode:horizontal-tb;";
-    document.head.appendHtml(htmlEL1);
-    document.body.setInnerHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var test;
     var failures = 0;

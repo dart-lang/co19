@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
@@ -17,7 +18,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     // crbug.com/290399 reported that offsetWidth on a table cell
     // would incorrectly return the specified width instead of the layout-expanded width.
     // When this would fail, it would be 12px instead of the 66px 'FAIL' expands to in Ahem.

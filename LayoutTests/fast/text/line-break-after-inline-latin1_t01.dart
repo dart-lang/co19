@@ -89,7 +89,7 @@ void compareParagraphLineRects(paragraphNumber1, paragraphNumber2) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     for (var i = 0; i < 3; i++ ) {
         compareParagraphLineRects(i*2 + 1, i*2 + 1 + 6);
     }

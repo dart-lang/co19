@@ -20,7 +20,7 @@ const String htmlEL2 = '''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);//,  treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var target = document.getElementById("target");
     var x = target.offsetLeft + 1;
     var y = target.offsetTop + target.offsetHeight ~/ 2;

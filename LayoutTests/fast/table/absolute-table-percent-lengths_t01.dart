@@ -9,6 +9,7 @@
  * against the padding box of the parent.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
 const String htmlEL1 = r'''
@@ -60,7 +61,7 @@ against the <em>padding box</em> of the parent.
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     checkLayout(".tbl", document.getElementById("output"));
 }

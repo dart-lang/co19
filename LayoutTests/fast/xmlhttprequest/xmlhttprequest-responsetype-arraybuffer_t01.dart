@@ -55,7 +55,7 @@ void load(e) {
     );
 
     var buffer = xhr.response;
-print("buffer is ${buffer.runtimeType}");
+    print("buffer is ${buffer.runtimeType}");
     // Interpret the ArrayBuffer as Uint8List.
     var buffer8 = new Uint8List.view(buffer);
 

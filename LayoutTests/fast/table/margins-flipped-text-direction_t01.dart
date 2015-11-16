@@ -8,7 +8,6 @@
  * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 

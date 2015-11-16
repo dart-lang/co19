@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // See http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#space-character

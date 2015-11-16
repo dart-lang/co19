@@ -27,8 +27,8 @@ String computeLogicalWidth(writingMode, direction, tableStyle) {
 
 void main() {
     description("This test checks that the min-width style is applied to block CSS tables.");
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 //    printPassed=true;
     runTests("css", computeLogicalWidth);
     checkTestFailures();

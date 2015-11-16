@@ -21,7 +21,8 @@ String getLineHeight(id) {
 void main() {
     description("Test that the CSS property 'line-height' is not applied to ruby base and annotation texts.");
     var div = document.createElement("div");
-    div.innerHtml = "<p style='line-height: 300%' id='p'>The line height of this is <ruby id='r'>three times normal<rt id='t'>&quot;line-height: 48px;&quot;</rt></ruby>, but the ruby should have 'line-height: normal'.</p>";
+    div.setInnerHtml("<p style='line-height: 300%' id='p'>The line height of this is <ruby id='r'>three times normal<rt id='t'>&quot;line-height: 48px;&quot;</rt></ruby>, but the ruby should have 'line-height: normal'.</p>",
+        treeSanitizer: new NullTreeSanitizer());
     document.body.append(div);
     
     shouldBe(getLineHeight('p'), "48px");

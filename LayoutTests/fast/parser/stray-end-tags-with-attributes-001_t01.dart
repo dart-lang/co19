@@ -8,6 +8,7 @@
  * @description Attributes on </p> 
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -22,9 +23,8 @@ There should be a green square and no red below: </p class=fail>
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    var result = false;
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var elm = document.getElementsByTagName("p")[0];
     Expect.isNotNull(elm);
     Expect.notEquals("fail", elm.className);

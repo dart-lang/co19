@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -29,11 +28,10 @@ main() {
   }
 
   addSelect(id, numOptions) {
-    var select = document.createElement("select2");
     var html = '<select multiple id="$id">';
     for (var i = 0; i <= numOptions; i++)
       html += '<option value="$i">$i</option>';
-    getElemById('output').innerHtml += html + '</select>';
+    getElemById('output').appendHtml(html + '</select>', treeSanitizer: new NullTreeSanitizer());
   }
 
   addSelect('select1', 10);

@@ -146,7 +146,7 @@ void runTest(e) {
 void main() {
     description("""An event generated on the edge of a table cell is not being consumed by the appropriate underlying element.
      This test verifies that the hittest result on the right edge of a table cell returns the proper underlying element.""");
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(runTest);
 }

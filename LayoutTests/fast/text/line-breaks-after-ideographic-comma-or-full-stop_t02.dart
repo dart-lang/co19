@@ -15,7 +15,7 @@ const String htmlEL2 = '''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var target = document.getElementById("target");
     var range = document.createRange();
     range.setStart(target.firstChild, 0);

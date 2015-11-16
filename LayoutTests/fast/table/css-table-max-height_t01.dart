@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart";
 import "../../resources/check-layout.dart";
 
 const String htmlEL1 = r'''
@@ -127,8 +128,8 @@ void runTest(e) {
     checkLayout('.child');
 }
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(runTest);
 
 }

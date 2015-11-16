@@ -53,7 +53,7 @@ void negativeTest(String property, String value) {
 
 void main() {
     description('Test that clip-path shapes accept different length units');
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
     // test mask-image
     testInner("-webkit-mask", "none", "none");

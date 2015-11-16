@@ -35,7 +35,7 @@ var expected = [
 ];
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
     for (int i = 1; i <= tests.length; ++i) {
         document.body.appendHtml("""

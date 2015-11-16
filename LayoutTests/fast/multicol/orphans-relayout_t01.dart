@@ -8,7 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -100,7 +99,7 @@ Test if an element with orphans relayouts correctly.
 The red lines of text must be at the top of the blue rectangle.
 The green lines of text must be at the bottom of the blue rectangle.
 """);
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.addEventListener("load", runTest, false);
 }

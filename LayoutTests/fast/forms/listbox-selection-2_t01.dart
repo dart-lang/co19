@@ -8,11 +8,10 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var parent = document.createElement('div');
-  parent.innerHtml = '<select id="sl1" multiple size=5>'
+  parent.setInnerHtml('<select id="sl1" multiple size=5>'
     + '<option>one</option>'
     + '<option>two</option>'
     + '<option>three</option>'
@@ -35,7 +34,7 @@ main() {
     + '<option>one</option>'
     + '<option>two</option>'
     + '<option>three</option>'
-    + '</select>';
+    + '</select>', treeSanitizer: new NullTreeSanitizer());
   document.body.append(parent);
 
   // Determine the item height.
