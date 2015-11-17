@@ -4,7 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A constant map literal is a constant expression.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • A constant map literal.
  * @description Checks that a non-constant map literal cannot be assigned to
  * a constant variable.
  * @author iefremov
@@ -17,5 +21,5 @@ const a = {"a" : "b"};
 main() {
   try {
     print(a);
-  } catch(x) {}
+  } catch (x) {}
 }

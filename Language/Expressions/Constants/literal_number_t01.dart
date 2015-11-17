@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A literal number is a constant expression.
- * @description Checks that various literal numbers can be elements of a constant list literal
- * and are, therefore, constant expressions. Minus sign is not a part of a number literal so
- * those are not included in this test.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * • A literal number.
+ * @description Checks that various literal numbers can be elements of a
+ * constant list literal and are, therefore, constant expressions. Minus sign
+ * is not a part of a number literal so those are not included in this test.
  * @author iefremov
  * @reviewer rodionov
  */

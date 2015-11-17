@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the value of a compile-time constant expression
- * depends on itself
- * @description Checks that it is a compile-time error if a constant variable is initialized with itself.
- * @author iefremov
+ * @assertion It is a compile-time error if the value of a compile-time
+ * constant expression depends on itself.
+ * @description Checks that it is a compile-time error if a constant variable
+ * is initialized with itself.
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 
@@ -17,5 +18,5 @@ const m = m;
 main() {
   try {
     print(m);
-  } catch(x) {}
+  } catch (x) {}
 }

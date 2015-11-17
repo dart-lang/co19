@@ -4,8 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A simple or qualified identifier denoting a static
- * method is a constant expression.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • A simple or qualified identifier denoting a top-level function or a static
+ *   method that is not qualified by a deferred prefix.
  * @description Checks that an identifier denoting an instance method is not
  * a constant expression.
  * @compile-error
@@ -24,7 +28,7 @@ class Bad {
 
 main() {
   try {
-    Bad b=new Bad();
+    Bad b = new Bad();
     b.test();
-  } catch(x) {}
+  } catch (x) {}
 }

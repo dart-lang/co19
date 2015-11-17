@@ -7,8 +7,8 @@
  * @assertion There are no other constant expressions.
  * @description Checks that a new expression cannot be used to initialize
  * a constant variable.
- * @author iefremov
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 
@@ -18,5 +18,5 @@ const a = new A();
 main() {
   try {
     print(a);
-  } catch(x) {}
+  } catch (x) {}
 }

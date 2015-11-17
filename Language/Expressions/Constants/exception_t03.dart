@@ -6,8 +6,8 @@
 /**
  * @assertion It is a compile-time error if an expression is required to be a
  * constant expression but its evaluation would raise an exception.
- * @description Checks that a NoSuchMethodError raised during evaluation of a compile-time constant
- * causes a compile-time error.
+ * @description Checks that a NoSuchMethodError raised during evaluation of a
+ * compile-time constant causes a compile-time error.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A qualified reference to a static constant variable is a constant expression.
- * @description Checks that a reference to a final variable
- * cannot be assigned to a constant variable.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • A qualified reference to a static constant variable that is not qualified
+ *   by a deferred prefix.
+ * @description Checks that a reference to a final variable cannot be assigned
+ * to a constant variable.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -19,5 +24,5 @@ const i1 = x;
 main() {
   try {
     print(i1);
-  } catch(x) {}
+  } catch (x) {}
 }

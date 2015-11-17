@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A constant constructor invocation is a constant expression.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • A constant constructor invocation that is not qualified by a deferred
+ *   prefix.
  * @description Checks that a value created using constant constructor can be
- * an element of a constant list literal and is, therefore, a constant expression.
+ * an element of a constant list literal and is, therefore, a constant
+ * expression.
  * @author iefremov
  * @reviewer rodionov
  */

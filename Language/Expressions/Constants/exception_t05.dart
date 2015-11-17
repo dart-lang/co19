@@ -6,7 +6,8 @@
 /**
  * @assertion It is a compile-time error if an expression is required to be a
  * constant expression but its evaluation would raise an exception.
- * @description Checks that using null in a shift constant expression is a compile-time error.
+ * @description Checks that using null in a shift constant expression is a
+ * Scompile-time error.
  * @compile-error
  * @author kaigorodov
  */
@@ -21,5 +22,5 @@ class C {
 main() {
   try {
     const C();
-  } catch(ok) {} // NPEs and whatnot
+  } catch (ok) {} // NPEs and whatnot
 }

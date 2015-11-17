@@ -4,11 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of the form identical(e1 , e2) where e1 and e2 are
- * constant expressions and identical is statically bound to the predefined dart 
- * function identical() discussed below..
- * @description Checks that various expressions of the specified forms can be used in
- * a constant list literal and are, therefore, constant expressions.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • An expression of the form identical(e1, e2) where e1 and e2 are constant
+ *   expressions and identical is statically bound to the predefined dart
+ *   function identical() discussed above.
+ * @description Checks that various expressions of the specified forms can be
+ * used in a constant list literal and are, therefore, constant expressions.
  * @author iefremov
  * @reviewer rodionov
  */

@@ -5,10 +5,10 @@
  */
 /**
  * @assertion There are no other constant expressions.
- * @description Checks that a method invocation expression cannot be used to initialize
- * a constant variable.
- * @author iefremov
+ * @description Checks that a method invocation expression cannot be used to
+ * initialize a constant variable.
  * @compile-error
+ * @author iefremov
  * @reviewer rodionov
  */
 
@@ -23,5 +23,5 @@ const m = a.m();
 main() {
   try {
     print(m);
-  } catch(x) {}
+  } catch (x) {}
 }

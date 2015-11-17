@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  A literal string where any interpolated expression is a
- * compile-time constant that evaluates to a numeric, string or boolean value or to null,
- * is a constant expression.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • A literal string where any interpolated expression is a compile-time
+ *   constant that evaluates to a numeric, string or boolean value or to null.
  * @description Checks that a string literal that involves string interpolation,
- * that is a constant expression not evaluated to numeric, string or boolean value,
- * cannot be assigned to a constant variable.
+ * that is a constant expression not evaluated to numeric, string or boolean
+ * value, cannot be assigned to a constant variable.
  * @author iefremov
  * @compile-error
  * @reviewer rodionov
@@ -20,5 +23,5 @@ const l = "${const {'k1': 1, 'k2': 2}}";
 main() {
   try {
     print(l);
-  } catch(x) {}
+  } catch (x) {}
 }

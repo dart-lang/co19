@@ -4,12 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of the form e1?e2:e3 where where e1, e2 and e3
- * are constant expressions and e1 evaluates to a boolean value is a constant expression.
+ * @assertion A constant expression is an expression whose value can never
+ * change, and that can be evaluated entirely at compile time.
+ * A constant expression is one of the following:
+ * . . .
+ * • An expression of the form e1?e2:e3 where where e1, e2 and e3 are constant
+ *   expressions and e1 evaluates to a boolean value.
  * @description Checks that various conditional expressions with constant
  * operands are constant expressions.
  * @author ilya
  */
+import '../../../Utils/expect.dart';
 
 const x = false;
 const y = !x ? true : x;
@@ -24,5 +29,5 @@ const list = const [
 ];
 
 main() {
-  print(list);
+  Expect.isTrue(list is List);
 }
