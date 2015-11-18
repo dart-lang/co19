@@ -17,5 +17,5 @@ class A extends num {}
 main() {
   try {
     new A();
-  } catch(x) {}
+  } catch (x) {}
 }

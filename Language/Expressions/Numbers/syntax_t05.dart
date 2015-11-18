@@ -4,13 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A numeric literal is either a decimal or hexadecimal integer of arbitrary size,
- * or a decimal double. 
- *  NUMBER: DIGIT+ ('.' DIGIT+)? EXPONENT? | '.' DIGIT+ EXPONENT?
- *  EXPONENT: ('e' | 'E') ('+' | '-')? DIGIT+
- *  HEX NUMBER: '0x' HEX DIGIT+ | '0X' HEX DIGIT+ ;
- *  HEX DIGIT: 'a'..'f' | 'A'..'F' | DIGIT ;
- * @description Checks that specifying the exponent value of (+/-)0 is indeed redundant.
+ * @assertion A numeric literal is either a decimal or hexadecimal integer of
+ * arbitrary size, or a decimal double.
+ *
+ * numericLiteral:
+ *   NUMBER|
+ *   HEX_NUMBER
+ *;
+ * NUMBER:
+ *   DIGIT+ ('.' DIGIT+)? EXPONENT? |
+ *  '.' DIGIT+ EXPONENT?
+ * ;
+ * EXPONENT:
+ *   ('e' | 'E') ('+' | '-')? DIGIT+
+ * ;
+ * HEX NUMBER:
+ *   '0x' HEX DIGIT+ |
+ *   '0X' HEX DIGIT+
+ * ;
+ * HEX DIGIT:
+ *   'a'..'f' |
+ *   'A'..'F' |
+ *   DIGIT
+ * ;
+ * @description Checks that specifying the exponent value of (+/-)0 is indeed
+ * redundant.
  * @author hlodvig
  * @reviewer iefremov
  * @reviewer rodionov

@@ -17,5 +17,5 @@ class A extends double {}
 main() {
   try {
     new A();
-  } catch(x) {}
+  } catch (x) {}
 }

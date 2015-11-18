@@ -17,5 +17,5 @@ class A extends int {}
 main() {
   try {
     new A();
-  } catch(x) {}
+  } catch (x) {}
 }
