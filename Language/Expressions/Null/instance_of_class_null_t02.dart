@@ -5,19 +5,18 @@
  */
 /**
  * @assertion The null object is the sole instance of the built-in class Null.
- * @description Checks that null is an instance of the Null class.
- * @author ilya
- * @note Test is commented out. Language tests should not import extra libraries.
+ * @description Checks that type of null is Null type.
+ * @author ngl@unipro.ru
  */
-
-/*
-import 'dart:mirrors';
 import '../../../Utils/expect.dart';
 
-main() {
-  Expect.isTrue(reflect(null).type.reflectedType == Null);
-}
-*/
+class A {}
 
 main() {
+  var n = null;
+  Expect.isTrue(Null is Type);
+  Expect.isTrue(null is Null);
+  Expect.isTrue(n is Null);
+  Expect.isFalse(null is A);
+  Expect.isFalse(n is A);
 }
