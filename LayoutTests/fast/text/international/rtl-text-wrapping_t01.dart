@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test for CJK segmentation
  */
 import "dart:html";
@@ -51,7 +51,7 @@ void testSection(id) {
     var testElements = el.queryAll('div');
     var referenceHeight = el.getElementsByClassName('reference')[0].
         getBoundingClientRect().height;
-    
+
     for (var i = 0; i < testElements.length; i++) {
         var el = testElements[i];
         var height = el.getBoundingClientRect().height;
@@ -60,8 +60,8 @@ void testSection(id) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     testSection('test');
     testSection('test-rtl');
     checkTestFailures();

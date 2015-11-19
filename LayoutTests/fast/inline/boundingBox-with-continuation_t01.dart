@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
@@ -22,8 +23,9 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var elem = document.getElementById('test');
+    window.
     var rect = internals.boundingBox(elem);
     Expect.equals(400, rect.width);
 }

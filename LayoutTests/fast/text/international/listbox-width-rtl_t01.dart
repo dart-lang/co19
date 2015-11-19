@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description  Test that text directionality is taken into account when
  * sizing list boxes.
  */
 import "dart:html";
+import "../../../testharness.dart";
 import "../../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -65,7 +66,7 @@ void testListbox(id) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     testListbox('list');
 }

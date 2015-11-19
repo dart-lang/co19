@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Line breaks after hyphen before number
  */
 import "../../testharness.dart";
@@ -44,11 +44,11 @@ void main() {
             <div class='test' id='test$i'>${tests[i - 1]}</div>
             Expected:
             <div id='expected$i'>${expected[i - 1]}</div>
-        """);
+        """, treeSanitizer: new NullTreeSanitizer());
         shouldBe(document.getElementById("test$i").getComputedStyle().height,
                  document.getElementById("expected$i").getComputedStyle().height,
                  "no. $i");
     }
-    
+
     checkTestFailures();
 }

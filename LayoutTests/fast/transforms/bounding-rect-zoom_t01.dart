@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Tests that these functions account for full page zoom.
  * There should be no red visible.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
@@ -75,7 +76,7 @@ void runTest(e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.style.zoom = "0.9";
     window.onLoad.listen(runTest);
 }

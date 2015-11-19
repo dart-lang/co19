@@ -37,7 +37,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var forceLayout1 = document.body.offsetTop;
     var span1 = document.getElementById('span1');
     var span2 = document.getElementById('span2');

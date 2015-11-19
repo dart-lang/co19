@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test ensures WebKit renders the trailing whitespace properly.
  */
 import "../../testharness.dart";
@@ -19,9 +19,9 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var tests = document.getElementById('tests').children;
-    
+
     var letter = 'a';
     var endOffset;
     for (int i = 0; i < tests.length; i++) {

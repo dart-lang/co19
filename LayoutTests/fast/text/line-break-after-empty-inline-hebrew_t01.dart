@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Line breaks after empty inline - Hebrew
  */
 import "../../testharness.dart";
@@ -40,8 +40,8 @@ List getLineWidths(paragraphNumber) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var widths1 = getLineWidths(0);
     var widths2 = getLineWidths(1);
     if (widths1.length != widths2.length) {
@@ -49,7 +49,7 @@ void main() {
     } else {
         for (var i = 0; i < widths1.length; ++i) {
             shouldBe(widths2[i], widths1[i], "line[$i] width differs");
-        } 
+        }
     }
     checkTestFailures();
 }

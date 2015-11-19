@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/async_utils.dart";
@@ -27,7 +27,7 @@ void navigate(e) {
         return;
     }
 
-    runLater(() { 
+    runLater(() {
         var scrollPosition = document.body.scrollTop;
         var result = document.getElementById("result");
         Expect.equals(100, scrollPosition);
@@ -38,7 +38,7 @@ void navigate(e) {
 
 void main() {
     document.body.setAttribute("style", "width:800px");
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onPageShow.listen(navigate);
 }

@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -37,12 +38,12 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var testRect = document.getElementById('test').getBoundingClientRect();
     var referenceRect = document.getElementById('reference').getBoundingClientRect();
-    
+
     var matches = testRect.left == referenceRect.left &&
         testRect.right == referenceRect.right &&
         testRect.height == referenceRect.height;

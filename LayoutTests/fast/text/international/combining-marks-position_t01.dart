@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test ensures that combining marks apper over the previous (or next)
  * character by comparing the length of words (one has marks, and the other doesn't have marks).
  */
 import "dart:html";
+import "../../../testharness.dart";
 import "../../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -39,14 +40,14 @@ words (one has marks, and the other doesn't have marks).
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var reference1 = document.getElementById('reference1');
     var target1 = document.getElementById('target1');
     var reference2 = document.getElementById('reference2');
     var target2 = document.getElementById('target2');
     var result = document.getElementById('result');
-    
+
     // Ignore a slight diff of the width between target and reference.
     var diff1 = (reference1.offsetWidth - target1.offsetWidth).abs();
     var diff2 = (reference2.offsetWidth - target2.offsetWidth).abs();

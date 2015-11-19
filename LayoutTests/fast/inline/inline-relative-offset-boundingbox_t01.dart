@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -17,7 +17,7 @@ const String htmlEL2 = r'''
 
 void main() {
     description('<a href="https://bugs.webkit.org/show_bug.cgi?id=91168">Bug 91168</a>: REGRESSION: RenderInline boundingBox ignores relative position offset');
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Element inline = document.getElementById("inlineElement");
     var inlineRect = inline.getBoundingClientRect();
     var inlineLeftOffset = inline.style.left;

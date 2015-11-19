@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -33,7 +32,7 @@ void checkClientRect(test, index, offset, dir, char) {
             String testname="$index/$dir/$i";
             var succeed = true;
             range.setStart(test, i);
-            range.setEnd(test, i+1); 
+            range.setEnd(test, i+1);
             List<Rectangle> rects = range.getClientRects();
             if (dir == "ltr") {
                 if (rects[0].left < offset) {
@@ -48,7 +47,7 @@ void checkClientRect(test, index, offset, dir, char) {
             }
             offset = rects[0].left;
             char = range.toString();
-            if (succeed == true) { 
+            if (succeed == true) {
                  testPassed(testname);
             }
         }
@@ -58,19 +57,18 @@ void checkClientRect(test, index, offset, dir, char) {
             checkClientRect(node, index, offset, dir, char);
         }
     }
-} 
+}
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-//    printPassed=true;
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var tests = document.getElementsByClassName('test');
     for (var i = 0; i < tests.length; ++i) {
         checkClientRect(tests[i], i, -1, "ltr", " ");
 
         tests[i].style.direction = "rtl";
         checkClientRect(tests[i], i, 10000, "rtl", " ");
-    
+
         tests[i].style.display = "none";
     }
     checkTestFailures();

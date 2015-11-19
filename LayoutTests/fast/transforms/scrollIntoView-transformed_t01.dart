@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Select element scrolling when in transformed container
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -118,14 +119,14 @@ void runTest(e) {
     }
     document.getElementById("c-inner").scrollIntoView(ScrollAlignment.TOP);
     document.getElementById("d-inner").scrollIntoView(ScrollAlignment.BOTTOM);
-    
+
     var selectElements = document.querySelectorAll("select");
     for (var i=0; i < selectElements.length; i++) {
       selectElements[i].focus();
     }
 
     var id1, id2, element1, element2, scrollTop1, scrollTop2;
-    
+
     // The test results should be (for scrollTop)
     // a != b
     // b == 0
@@ -149,8 +150,8 @@ void runTest(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     window.onLoad.listen(runTest);
 }
