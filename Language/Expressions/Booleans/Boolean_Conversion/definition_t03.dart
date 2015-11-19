@@ -9,7 +9,8 @@
  *      assert(v != null);
  *      return identical(v, true);
  *    }(o)
- * @description Checks that boolean conversion is defined by the cited function.
+ * @description Checks that boolean conversion is defined by the cited
+ * function.
  * @author kaigorodov
  */
 import '../../../../Utils/expect.dart';
@@ -23,14 +24,14 @@ bool convert1(bool v){
 }
 
 void check(var v, bool expected) {
-  bool converted=v?true:false;
-  bool converted1=convert1(v);
+  bool converted = v ? true : false;
+  bool converted1 = convert1(v);
   Expect.equals(expected, converted);
   Expect.equals(expected, converted1);
 }
- 
+
 main() {
-  if(!isCheckedMode()) {
+  if (!isCheckedMode()) {
     check(true, true);
     check(new Object(), false);
     check(0, false);
@@ -39,6 +40,6 @@ main() {
     check([1, 2, 3], false);
     check({"k1": 1}, false);
     check(new A(), false);
-    check((()=>1), false);
+    check((() => 1), false);
   }
 }

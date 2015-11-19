@@ -9,22 +9,21 @@
  *      assert(v != null);
  *      return identical(v, true);
  *    }(o)
- * @description Checks that AssertionError is thrown when trying to convert null to bool
- * if asserts are enabled.
+ * @description Checks that AssertionError is thrown when trying to convert
+ * null to bool if asserts are enabled.
  * @author msyabro
  * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
-
 import '../../../../Utils/dynamic_check.dart';
 
 main() {
-  if(isCheckedMode()) {
+  if (isCheckedMode()) {
     bool fail = false;
     try {
-      if(null) {}
+      if (null) {}
       fail = true;
-    } on AssertionError catch(ok) {}
+    } on AssertionError catch (ok) {}
     Expect.isFalse(fail, "AssertError is expected");
   }
 }

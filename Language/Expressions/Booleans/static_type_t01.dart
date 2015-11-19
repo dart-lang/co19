@@ -5,8 +5,8 @@
  */
 /**
  * @assertion The static type of a boolean literal is bool.
- * @description Checks that no static warnings are produced when assigning a boolean
- * literal to a typed bool variable.
+ * @description Checks that no static warnings are produced when assigning a
+ * boolean literal to a typed bool variable.
  * @static-clean
  * @author msyabro
  * @reviewer rodionov
