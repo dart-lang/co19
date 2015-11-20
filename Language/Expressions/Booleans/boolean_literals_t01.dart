@@ -4,13 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The reserved words true and false denote objects that represent the boolean
- * values true and false respectively. They are the boolean literals.
+ * @assertion The reserved words true and false denote objects that represent
+ * the boolean values true and false respectively. They are the boolean
+ * literals.
  * booleanLiteral:
- *   true
- *   | false
+ *   true |
+ *   false
  * ;
- * @description Checks that "true" is a reserved word (so it can't be used to name a variable).
+ * @description Checks that "true" is a reserved word (so it can't be used to
+ * name a variable).
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
@@ -19,5 +21,5 @@
 main() {
   try {
     var true;
-  } catch(e) {}
+  } catch (e) {}
 }

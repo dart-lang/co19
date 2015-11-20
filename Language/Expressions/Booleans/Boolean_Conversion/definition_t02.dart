@@ -9,9 +9,10 @@
  *      assert(v != null);
  *      return identical(v, true);
  *    }(o)
- * 12.21: It is a static type warning if the static types of e1 may not be assigned
- * to bool or if the static types of e2 may not be assigned to bool.
- * @description Checks that objects that are not bool and not null are converted to false.
+ * @description Checks that objects that are not bool and not null are
+ * converted to false. To check logical boolean expression e1 && e2 is used.
+ * 16.22: It is a static type warning if the static types of e1 may not be
+ * assigned to bool or if the static types of e2 may not be assigned to bool.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
@@ -22,15 +23,15 @@ import '../../../../Utils/dynamic_check.dart';
 class A {}
 
 main() {
-  if(!isCheckedMode()) {
+  if (!isCheckedMode()) {
     Expect.isTrue(true && true);
     Expect.isFalse(new Object() && true);
-    Expect.isFalse(0 && true);
-    Expect.isFalse(1 && true);
-    Expect.isFalse("" && true);
-    Expect.isFalse([1, 2, 3] && true);
-    Expect.isFalse({"k1": 1} && true);
-    Expect.isFalse(new A() && true);
-    Expect.isFalse((()=>1) && true);
+    Expect.isFalse(0 && true);          /// static type warning
+    Expect.isFalse(1 && true);          /// static type warning
+    Expect.isFalse("" && true);         /// static type warning
+    Expect.isFalse([1, 2, 3] && true);  /// static type warning
+    Expect.isFalse({"k1": 1} && true);  /// static type warning
+    Expect.isFalse(new A() && true);    /// static type warning
+    Expect.isFalse((() => 1) && true);  /// static type warning
   }
 }

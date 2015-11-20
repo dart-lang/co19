@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class to attempt to extend or implement bool.
- * @description Checks that it is a compile-time error when a user-defined interface attempts to extend bool.
+ * @assertion It is a compile-time error for a class to attempt to extend or
+ * implement bool.
+ * @description Checks that it is a compile-time error when a user-defined
+ * interface attempts to extend bool.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
@@ -17,5 +19,5 @@ class C implements I {}
 main() {
   try {
     new C();
-  } catch(e) {}
+  } catch (e) {}
 }

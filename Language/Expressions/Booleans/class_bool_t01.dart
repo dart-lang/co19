@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Both  true and false are implement the built-in class bool.
- * @description Checks that true and false are implement the built-in interface bool.
+ * @description Checks that true and false are implement the built-in interface
+ * bool.
  * @author msyabro
  * @reviewer rodionov
  */
