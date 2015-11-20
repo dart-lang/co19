@@ -10,7 +10,7 @@
  * are canceled, 1 ≤ j ≤ m, innermost first, so that aj is canceled before
  * aj+1.
  *
- * @description Check various mixes of synchronous and asynchronous loops
+ * @description Check various mixes of synchronous and asynchronous for loops
  * with single break statement.
  *
  * @author a.semenov@unipro.ru
@@ -137,12 +137,12 @@ Future test7() async {
           }
         }
       }
-      if (s=='b'){
+      if (s.startsWith('b')){
         streamController.close();
       }
     }
   }
-  Expect.listEquals([1, 2, 0], log);
+  Expect.listEquals([1, 2, 0, 4, 5, 3], log);
 }
 
 Future test8() async {
@@ -161,7 +161,7 @@ Future test8() async {
         }
       }
     }
-    if (s=='b'){
+    if (s.startsWith('b')){
       streamController.close();
     }
   }
