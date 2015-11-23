@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error when a non-raw string literal contains a
- * character sequence of the form \x that is not followed by a sequence of two
- * hexadecimal digits.
- * @description Checks that it is a compile-time error if a string literal contains
- * a character sequence of the form \x that is followed only by one hexadecimal digit.
+ * @assertion It is a compile-time error when a non-raw string literal contains
+ * a character sequence of the form \x that is not followed by a sequence of
+ * two hexadecimal digits.
+ * @description Checks that it is a compile-time error if a string literal
+ * contains a character sequence of the form \x that is followed only by one
+ * hexadecimal digit.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
@@ -17,5 +18,5 @@
 main() {
   try {
     "\x1";
-  } catch(e) {}
+  } catch (e) {}
 }

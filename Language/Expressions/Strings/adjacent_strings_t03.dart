@@ -6,7 +6,8 @@
 /**
  * @assertion Adjacent strings are implicitly concatenated to form a single
  * string literal.
- * @description Checks that adjacent string literals form a single string literal.
+ * @description Checks that adjacent string literals form a single string
+ * literal.
  * @author msyabro
  * @reviewer iefremov
  */

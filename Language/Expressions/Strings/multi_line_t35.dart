@@ -4,25 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion stringLiteral:
- *   (MULTI_LINE_STRING | SINGLE_LINE_STRING)+
+ * @assertion
+ * stringLiteral:
+ *   (multilineString | singleLineString)+
  * ;
- * MULTI_LINE_STRING:
- *   '"""' STRING CONTENT TDQ* '"""' |
- *   ''''' STRING CONTENT TSQ* ''''' |
- *   r'"""'  (~ '"""')* '"""' |
- *   r''''' (~ ''''')* '''''
+ * multilineString:
+ *   '"""' stringContentTDQ* '"""' |
+ *   ''''' stringContentTSQ* ''''' |
+ *   '"""'  (~ '"""')* '"""' |
+ *   ''''' (~ ''''')* '''''
  * ;
- * STRING CONTENT TDQ:
+ * stringContentTDQ:
  *   ~( '\' | '"""' | '$') |
- *   STRING_INTERPOLATION
+ *   stringInterpolation
  * ;
- * STRING CONTENT TSQ:
+ * stringContenTSQ:
  *   ~( '\' | ''''' | '$') |
- *   STRING_INTERPOLATION
+ *   stringInterpolation
  * ;
- * @description Checks that raw multi-line strings are allowed to have any content 
- * except the same kind of triple quotes they're enclosed in.
+ * @description Checks that raw multi-line strings are allowed to have any
+ * content except the same kind of triple quotes they're enclosed in.
  * @author rodionov
  * @reviewer kaigorodov
  */

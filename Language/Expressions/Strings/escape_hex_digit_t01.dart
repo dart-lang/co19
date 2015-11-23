@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings support escape sequences for special characters. The escapes are:
- * \xHEX_DIGIT1 HEX_DIGIT2, equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2}.
- * @description Checks that \xHEX_DIGIT1 HEX_DIGIT2 is equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2}.
+ * @assertion Strings support escape sequences for special characters. The
+ * escapes are:
+ * . . .
+ * • \xHEX_DIGIT1 HEX_DIGIT2, equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2}.
+ * @description Checks that \xHEX_DIGIT1 HEX_DIGIT2 is equivalent to
+ * \u{ HEX_DIGIT1 HEX_DIGIT2}.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -63,7 +66,7 @@ main() {
   Expect.identical('\x2D', '\u{2D}');
   Expect.identical('\x2e', '\u{2E}');
   Expect.identical('\x2f', '\u{2f}');
-  
+
   Expect.identical('\x30', '\u{30}');
   Expect.identical('\x31', '\u{31}');
   Expect.identical('\x32', '\u{32}');
@@ -80,7 +83,7 @@ main() {
   Expect.identical('\x3D', '\u{3D}');
   Expect.identical('\x3e', '\u{3E}');
   Expect.identical('\x3f', '\u{3f}');
-  
+
   Expect.identical('\x40', '\u{40}');
   Expect.identical('\x41', '\u{41}');
   Expect.identical('\x42', '\u{42}');
@@ -97,7 +100,7 @@ main() {
   Expect.identical('\x4D', '\u{4D}');
   Expect.identical('\x4e', '\u{4E}');
   Expect.identical('\x4f', '\u{4f}');
-  
+
   Expect.identical('\x50', '\u{50}');
   Expect.identical('\x51', '\u{51}');
   Expect.identical('\x52', '\u{52}');
@@ -114,7 +117,7 @@ main() {
   Expect.identical('\x5D', '\u{5D}');
   Expect.identical('\x5e', '\u{5E}');
   Expect.identical('\x5f', '\u{5f}');
-  
+
   Expect.identical('\x60', '\u{60}');
   Expect.identical('\x61', '\u{61}');
   Expect.identical('\x62', '\u{62}');
@@ -131,7 +134,7 @@ main() {
   Expect.identical('\x6D', '\u{6D}');
   Expect.identical('\x6e', '\u{6E}');
   Expect.identical('\x6f', '\u{6f}');
-  
+
   Expect.identical('\x70', '\u{70}');
   Expect.identical('\x71', '\u{71}');
   Expect.identical('\x72', '\u{72}');
@@ -148,7 +151,7 @@ main() {
   Expect.identical('\x7D', '\u{7D}');
   Expect.identical('\x7e', '\u{7E}');
   Expect.identical('\x7f', '\u{7f}');
-  
+
   Expect.identical('\x80', '\u{80}');
   Expect.identical('\x81', '\u{81}');
   Expect.identical('\x82', '\u{82}');
@@ -165,7 +168,7 @@ main() {
   Expect.identical('\x8D', '\u{8D}');
   Expect.identical('\x8e', '\u{8E}');
   Expect.identical('\x8f', '\u{8f}');
-  
+
   Expect.identical('\x90', '\u{90}');
   Expect.identical('\x91', '\u{91}');
   Expect.identical('\x92', '\u{92}');
@@ -182,7 +185,7 @@ main() {
   Expect.identical('\x9D', '\u{9D}');
   Expect.identical('\x9e', '\u{9E}');
   Expect.identical('\x9f', '\u{9f}');
-  
+
   Expect.identical('\xA0', '\u{A0}');
   Expect.identical('\xA1', '\u{A1}');
   Expect.identical('\xA2', '\u{A2}');
@@ -199,7 +202,7 @@ main() {
   Expect.identical('\xAD', '\u{AD}');
   Expect.identical('\xAe', '\u{AE}');
   Expect.identical('\xAf', '\u{Af}');
-  
+
   Expect.identical('\xb0', '\u{b0}');
   Expect.identical('\xb1', '\u{b1}');
   Expect.identical('\xb2', '\u{b2}');
@@ -216,7 +219,7 @@ main() {
   Expect.identical('\xbD', '\u{bD}');
   Expect.identical('\xbe', '\u{bE}');
   Expect.identical('\xbf', '\u{bf}');
-  
+
   Expect.identical('\xc0', '\u{c0}');
   Expect.identical('\xc1', '\u{c1}');
   Expect.identical('\xc2', '\u{c2}');
@@ -233,7 +236,7 @@ main() {
   Expect.identical('\xcD', '\u{cD}');
   Expect.identical('\xce', '\u{cE}');
   Expect.identical('\xcf', '\u{cf}');
-  
+
   Expect.identical('\xD0', '\u{D0}');
   Expect.identical('\xD1', '\u{D1}');
   Expect.identical('\xD2', '\u{D2}');
@@ -250,7 +253,7 @@ main() {
   Expect.identical('\xDD', '\u{DD}');
   Expect.identical('\xDe', '\u{DE}');
   Expect.identical('\xDf', '\u{Df}');
-  
+
   Expect.identical('\xE0', '\u{E0}');
   Expect.identical('\xE1', '\u{E1}');
   Expect.identical('\xE2', '\u{E2}');
@@ -267,7 +270,7 @@ main() {
   Expect.identical('\xED', '\u{ED}');
   Expect.identical('\xEe', '\u{EE}');
   Expect.identical('\xEf', '\u{Ef}');
-  
+
   Expect.identical('\xf0', '\u{f0}');
   Expect.identical('\xf1', '\u{f1}');
   Expect.identical('\xf2', '\u{f2}');

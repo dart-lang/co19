@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class to attempt to extend or implement String.
- * @description Checks that it is a compile-time error for an interface to attempt
- * to extend String.
+ * @assertion It is a compile-time error for a class to attempt to extend or
+ * implement String.
+ * @description Checks that it is a compile-time error for an interface to
+ * attempt to extend String.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
@@ -18,5 +19,5 @@ class C implements I {}
 main() {
   try {
     new C();
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings support escape sequences for special characters. The escapes are:
- * \f for form feed, equivalent to \x0C.
+ * @assertion Strings support escape sequences for special characters. The
+ * escapes are:
+ * . . .
+ * • \f for form feed, equivalent to \x0C.
  * @description Checks that \f is equivalent to \x0C.
  * @author msyabro
  * @reviewer rodionov

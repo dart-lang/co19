@@ -7,7 +7,8 @@
  * @assertion Any string may be prefixed with the character 'r',
  * indicating that it is a raw string, in which case no escapes or
  * interpolations are recognized.
- * @description Checks that string interpolation is not performed for raw strings.
+ * @description Checks that string interpolation is not performed for raw
+ * strings.
  * @author kaigorodov
  * @reviewer rodionov
  */

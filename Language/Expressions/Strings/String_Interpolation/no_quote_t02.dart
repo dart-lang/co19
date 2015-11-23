@@ -5,8 +5,9 @@
  */
 /**
  * @assertion The form $id is equivalent to the form ${id}.
- * @description Checks that the result of using either form of string interpolation
- * construct is the same for both $id and ${id}, when id is a function name.
+ * @description Checks that the result of using either form of string
+ * interpolation construct is the same for both $id and ${id}, when id is a
+ * function name.
  * @author kaigorodov
  * @reviewer rodionov
  */

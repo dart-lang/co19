@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is possible to embed expressions within non-raw string literals,
- * such that these expressions are evaluated, and the resulting values are converted
- * into strings and concatenated with the enclosing string. This process is known as
- * string interpolation.
- * STRING_INTERPOLATION:
- *   '$' IDENTIFIER_NO_DOLLAR
- *   | '$' '{' Expression '}'
+ * @assertion It is possible to embed expressions within non-raw string
+ * literals, such that these expressions are evaluated, and the resulting
+ * values are converted into strings and concatenated with the enclosing
+ * string. This process is known as string interpolation.
+ * stringInterpolation:
+ *   '$' IDENTIFIER_NO_DOLLAR |
+ *   '$' '{' expression '}'
  * ;
- * @description Checks that the identifier is parsed in a greedy manner and the entire substring from the '$'
- * character to the first non-identifier or '$' character is used, even if there're shorter matches for lexically
- * visible identifiers.
+ * @description Checks that the identifier is parsed in a greedy manner and the
+ * entire substring from the '$' character to the first non-identifier or '$'
+ * character is used, even if there're shorter matches for lexically visible
+ * identifiers.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
@@ -26,6 +27,6 @@ main() {
   try {
     "$fooo"; /// static type warning
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {
+  } on NoSuchMethodError catch (e) {
   }
 }

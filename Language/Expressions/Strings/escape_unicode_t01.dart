@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings support escape sequences for special characters. The escapes are:
- * \uHEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4, equivalent to
- * \u{ HEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4}.
- * @description Checks that \uHEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4 is equivalent
- * to \u{ HEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4}.
+ * @assertion Strings support escape sequences for special characters. The
+ * escapes are:
+ * . . .
+ * • \uHEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4, equivalent to
+ *   \u{ HEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4}.
+ * @description Checks that \uHEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4 is
+ * equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4}.
  * @author msyabro
  * @reviewer rodionov
  */

@@ -18,7 +18,7 @@ class C {
   var id;
   test() {
     try {
-      "${x}"; /// static type warning - undeclared identifier in non-static context ("Getter invocation"?)
+      "${x}"; /// static type warning - undefined name 'x'
       Expect.fail("NoSuchMethodError is expected");
     } on NoSuchMethodError catch(e) {}
 

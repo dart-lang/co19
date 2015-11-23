@@ -4,31 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion stringLiteral:
- *   (MULTI_LINE_STRING | SINGLE_LINE_STRING)+
+ * @assertion
+ * stringLiteral:
+ *   (multilineString | singleLineString)+
  * ;
- * SINGLE_LINE_STRING:
- *   '"' STRING_CONTENT_DQ* '"'
- *   | ''' STRING_CONTENT_SQ* '''
- *   | 'r' ''' (~( ''' | NEWLINE ))* '''
- *   | 'r' '"' (~( '"' | NEWLINE ))* '"'
+ * singleLineString:
+ *   '"' stringContentDQ* '"' |
+ *   ''' stringContentSQ* ''' |
+ *   'r' ''' (~( ''' | NEWLINE ))* ''' |
+ *   'r' '"' (~( '"' | NEWLINE ))* '"'
  * ;
- * STRING_CONTENT_DQ:
- *   ~( '\' | '"' | '$' | NEWLINE )
- *   | '\' ~( NEWLINE )
- *   | STRING_INTERPOLATION
+ * stringContentDQ:
+ *   ~( '\' | '"' | '$' | NEWLINE ) |
+ *   '\' ~( NEWLINE ) |
+ *   stringInterpolation
  * ;
- * STRING_CONTENT_SQ:
- *   ~( '\' | ''' | '$' | NEWLINE )
- *   | '\' ~( NEWLINE )
- *   | STRING_INTERPOLATION
+ * stringContentSQ:
+ *   ~( '\' | ''' | '$' | NEWLINE ) |
+ *   '\' ~( NEWLINE ) |
+ *   stringInterpolation
  * ;
  * NEWLINE:
- *   '\n'
- *   | '\r'
+ *   '\n' |
+ *   '\r'
  * ;
- * @description Checks that a raw string literal can't begin with a double quote
- * and end with single.
+ * @description Checks that a raw string literal can't begin with a double
+ * quote and end with single.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
@@ -37,5 +38,5 @@
 main() {
   try {
     r"string';
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings support escape sequences for special characters. The escapes are:
- * \r for carriage return, equivalent to \x0D.
+ * @assertion Strings support escape sequences for special characters. The
+ * escapes are:
+ * . . .
+ * • \r for carriage return, equivalent to \x0D.
  * @description Checks that \r is equivalent to \x0D.
  * @author msyabro
  * @reviewer rodionov

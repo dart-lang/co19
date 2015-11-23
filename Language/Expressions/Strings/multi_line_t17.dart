@@ -4,22 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion stringLiteral:
- *   (MULTI_LINE_STRING | SINGLE_LINE_STRING)+
+ * @assertion
+ * stringLiteral:
+ *   (multilineString | singleLineString)+
  * ;
- * MULTI_LINE_STRING:
- *   '"""' STRING CONTENT TDQ* '"""' |
- *   ''''' STRING CONTENT TSQ* ''''' |
+ * multilineString:
+ *   '"""' stringContentTDQ* '"""' |
+ *   ''''' stringContentTSQ* ''''' |
  *   '"""'  (~ '"""')* '"""' |
  *   ''''' (~ ''''')* '''''
  * ;
- * STRING CONTENT TDQ:
+ * stringContentTDQ:
  *   ~( '\' | '"""' | '$') |
- *   STRING_INTERPOLATION
+ *   stringInterpolation
  * ;
- * STRING CONTENT TSQ:
+ * stringContenTSQ:
  *   ~( '\' | ''''' | '$') |
- *   STRING_INTERPOLATION
+ *   stringInterpolation
  * ;
  * @description Checks that it is a compile-time error when a raw multi-line
  * single-quotes string literal does not have the closing triplet.
@@ -31,5 +32,5 @@
 main() {
   try {
     r'''incorrect string;
-  } catch(e) {}
+  } catch (e) {}
 }

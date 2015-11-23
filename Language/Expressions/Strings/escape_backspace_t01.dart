@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings support escape sequences for special characters. The escapes are:
- * \b for backspace, equivalent to \x08.
+ * @assertion Strings support escape sequences for special characters. The
+ * escapes are:
+ * . . .
+ * • \b for backspace, equivalent to \x08.
  * @description Checks that \b is equivalent to \x08.
  * @author msyabro
  * @reviewer rodionov

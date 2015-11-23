@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Strings support escape sequences for special characters. The escapes are:
- * \n for newline, equivalent to \x0A.
+ * @assertion Strings support escape sequences for special characters. The
+ * escapes are:
+ * • \n for newline, equivalent to \x0A.
  * @description Checks that \n is equivalent to \x0A and newline.
  * @author msyabro
  * @reviewer rodionov

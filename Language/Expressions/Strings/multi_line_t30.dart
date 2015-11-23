@@ -4,22 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion stringLiteral:
- *   (MULTI_LINE_STRING | SINGLE_LINE_STRING)+
+ * @assertion
+ * stringLiteral:
+ *   (multilineString | singleLineString)+
  * ;
- * MULTI_LINE_STRING:
- *   '"""' STRING CONTENT TDQ* '"""' |
- *   ''''' STRING CONTENT TSQ* ''''' |
+ * multilineString:
+ *   '"""' stringContentTDQ* '"""' |
+ *   ''''' stringContentTSQ* ''''' |
  *   '"""'  (~ '"""')* '"""' |
  *   ''''' (~ ''''')* '''''
  * ;
- * STRING CONTENT TDQ:
+ * stringContentTDQ:
  *   ~( '\' | '"""' | '$') |
- *   STRING_INTERPOLATION
+ *   stringInterpolation
  * ;
- * STRING CONTENT TSQ:
+ * stringContenTSQ:
  *   ~( '\' | ''''' | '$') |
- *   STRING_INTERPOLATION
+ *   stringInterpolation
  * ;
  * @description Checks that it is a compile-time error if a multi-line
  * single-quoted string opens with one double quote.
@@ -31,5 +32,5 @@
 main() {
   try {
     "s''';
-  } catch(e) {}
+  } catch (e) {}
 }

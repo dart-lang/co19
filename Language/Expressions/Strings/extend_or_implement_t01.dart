@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class to attempt to extend or implement String.
+ * @assertion It is a compile-time error for a class to attempt to extend or
+ * implement String.
  * @description Checks that it is a compile-time error for a class to attempt
  * to implement String.
  * @compile-error
@@ -17,5 +18,5 @@ class C implements String {}
 main() {
   try {
     new C();
-  } catch(e) {}
+  } catch (e) {}
 }
