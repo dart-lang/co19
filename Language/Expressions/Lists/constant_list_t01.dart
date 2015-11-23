@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a compile time error if the type argument of a constant
- * list literal includes a type parameter.
+ * @assertion  It is a compile time error if an element of a constant list
+ * literal is not a compile-time constant. It is a compile time error if the
+ * type argument of a constant list literal includes a type parameter.
  * @description Checks that it is a compile-time error if the type argument
  * of a constant list literal includes a type variable.
  * @compile-error
@@ -22,5 +23,5 @@ class C<T> {
 main() {
   try {
     new C().test();
-  } catch(e) {}
+  } catch (e) {}
 }

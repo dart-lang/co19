@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  The value of a constant list literal  const <E>[e1... en] is an object a
- * that implements the built-in class List<E>. The ith element of a is vi+1,
- * where vi is the value of the compile time expression ei.
+ * @assertion  The value of a constant list literal  const <E>[e1... en] is an
+ * object a that implements the built-in class List<E>. The ith element of a is
+ * vi+1, where vi is the value of the compile time expression ei.
  * @description Checks that the resulted object contains correct elements.
  * @author msyabro
  * @reviewer kaigorodov
@@ -16,7 +16,7 @@ import '../../../Utils/expect.dart';
 main() {
   var l = const[1, 2, 3, 4, 5, 5 + 1, 5 + 2, 9 - 1, 9, 2 * 5];
   for(int i = 0; i < 10; i++) {
-    Expect.equals(i +  1, l[i]);
+    Expect.equals(i + 1, l[i]);
   }
 
   l = const<bool>[false, true];

@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  A list has an associated set of indices.  An empty list has an
- * empty set of indices. A non-empty list has the index set {0 … n -1} where n is
- * the size of the list.
+ * @assertion  A list has an associated set of indices. An empty list has an
+ * empty set of indices. A non-empty list has the index set {0 … n - 1} where n
+ * is the size of the list.
  * It is a runtime error to attempt to access a list using an index that is not
  * a member of its set of indices.
  * @description Checks that it is a runtime error to attempt to access a list

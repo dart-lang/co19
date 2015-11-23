@@ -6,8 +6,9 @@
 /**
  * @assertion The static type of a list literal of the form
  * const <E>[e1... en]  or the form <E>[e1... en] is List<E>.
- * @description Checks that a static warning occurs when assigning a list literal
- * with int type parameter to a variable with declared type List<String>.
+ * @description Checks that a static warning occurs when assigning a list
+ * literal with int type parameter to a variable with declared type
+ * List<String>.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
@@ -19,7 +20,7 @@ main() {
   List<String> s;
   checkTypeError(
     () {
-      s = <int>[1, 2, 3]; /// static type warning 
+      s = <int>[1, 2, 3]; /// static type warning
     }
   );
 }

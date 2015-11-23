@@ -5,8 +5,10 @@
  */
 /**
  * @assertion  It is a compile time error if an element of a constant list
- * literal is not a compile-time constant.
- * @description Checks that a constant list literal cannot contain non-constant expression.
+ * literal is not a compile-time constant. It is a compile time error if the
+ * type argument of a constant list literal includes a type parameter.
+ * @description Checks that a constant list literal cannot contain non-constant
+ * expression.
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
@@ -19,5 +21,5 @@ class A {
 main() {
   try {
     new A();
-  } catch(x) {}
+  } catch (x) {}
 }

@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A list literal denotes a list, which is an integer indexed collection of objects.
+ * @assertion A list literal denotes a list, which is an integer indexed
+ * collection of objects.
  * listLiteral:
  *   const? typeArguments? '[' (expressionList ','?)? ']'
  * ;
- * @description Checks that its a compile-time error if elements in a list are not separated by comma.
+ * @description Checks that its a compile-time error if elements in a list are
+ * not separated by comma.
  * @author msyabro
  * @compile-error
  * @reviewer kaigorodov
@@ -17,5 +19,5 @@
 main() {
   try {
     [1 2 3];
-  } catch(e) {}
+  } catch (e) {}
 }

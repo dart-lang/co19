@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A list literal denotes a list, which is an integer indexed collection of objects.
+ * @assertion A list literal denotes a list, which is an integer indexed
+ * collection of objects.
  * listLiteral:
  *   const? typeArguments? '[' (expressionList ','?)? ']'
  * ;
- * @description Checks that it is a compile-time error if a const list literal does not
- * start with '['.
+ * @description Checks that it is a compile-time error if a const list literal
+ * does not start with '['.
  * @author kaigorodov
  * @reviewer iefremov
  * @compile-error
@@ -18,5 +19,5 @@
 main() {
   try {
     var x = const 1, 2, 3];
-  } catch(e) {}
+  } catch (e) {}
 }

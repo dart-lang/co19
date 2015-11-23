@@ -4,13 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A runtime list literal <E>[e1... en]  is evaluated as follows:
- *   First, the expressions e1... en are evaluated in order, they appear in the
+ * @assertion A runtime list literal <E>[e1... en] is evaluated as follows:
+ * • First, the expressions e1... en are evaluated in order, they appear in the
  *   program, yielding objects o1... on.
- *   A fresh instance a, of size n, whose class implements the built-in class List<E> is allocated.
- *   The operator []= is invoked on a with first argument i and second argument oi+1, 0 <= i < n.
- *   The result of the evaluation is a.
- * @description Checks that the result of evaluation is an object that implements interface List<E>.
+ * • A fresh instance a, of size n, whose class implements the built-in class
+ *   List<E> is allocated.
+ * • The operator []= is invoked on a with first argument i and second argument
+ *   oi+1, 0 <= i < n.
+ * • The result of the evaluation is a.
+ * @description Checks that the result of evaluation is an object that
+ * implements interface List<E>.
  * @author msyabro
  * @reviewer rodionov
  */

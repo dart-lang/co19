@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A list literal denotes a list, which is an integer indexed collection of objects.
+ * @assertion A list literal denotes a list, which is an integer indexed
+ * collection of objects.
  * listLiteral:
  *   const? typeArguments? '[' (expressionList ','?)? ']'
  * ;
- * @description Checks that various list literals don't produce a compile-time errors.
+ * @description Checks that various list literals don't produce a compile-time
+ * errors.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -77,7 +79,7 @@ class Test  {
     <String> ["index 0", "index 1"];
     <bool> [true, false && true];
     <Test> [new Test()];
-    <Function> [(){}, ()=>1];
+    <Function> [() {}, () => 1];
   }
 
   endsWithComma() {
