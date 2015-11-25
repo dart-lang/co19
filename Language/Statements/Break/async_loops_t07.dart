@@ -10,7 +10,8 @@
  * are canceled, 1 ≤ j ≤ m, innermost first, so that aj is canceled before
  * aj+1.
  *
- * @description Test various enclosing combinations of asynchronous for loops
+ * @description Test various enclosing combinations of asynchronous and
+ * synchronous while loops with several break statements
  *
  * @author a.semenov@unipro.ru
  */
@@ -32,13 +33,13 @@ Future test1() async {
   List<int> log = [];
 
   L4:
-  await for (String s in newStreamControllerString(4, log).stream) {
+  await for (String s in newStreamControllerString(2, log).stream) {
     L3:
-    await for (String s in newStreamControllerString(3, log).stream) {
+    while (log.length < 10) {
       L2:
-      await for (String s in newStreamControllerString(2, log).stream) {
+      await for (String s in newStreamControllerString(1, log).stream) {
         L1:
-        await for (String s in newStreamControllerString(1, log).stream) {
+        while (log.length < 10) {
           L0:
           await for (String s in newStreamControllerString(0, log).stream) {
             break L0;
@@ -51,30 +52,30 @@ Future test1() async {
     }
     break L4;
   }
-  Expect.listEquals([0, 1, 2, 3, 4], log);
+  Expect.listEquals([0, 1, 2], log);
 }
 
 Future test2() async {
   List<int> log = [];
 
   L0:
-  await for (String s in newStreamControllerString(0, log).stream) {
+  while (log.length < 10) {
     L1:
-    await for (String s in newStreamControllerString(1, log).stream) {
+    await for (String s in newStreamControllerString(0, log).stream) {
       L2:
-      await for (String s in newStreamControllerString(2, log).stream) {
+      while (log.length < 10) {
         L3:
-        await for (String s in newStreamControllerString(3, log).stream) {
+        await for (String s in newStreamControllerString(1, log).stream) {
           L4:
-          await for (String s in newStreamControllerString(4, log).stream) {
+          while (log.length < 10) {
             break L4;
           }
-          await for (String s in newStreamControllerString(5, log).stream) {
+          await for (String s in newStreamControllerString(2, log).stream) {
             break L3;
           }
         }
-        await for (String s in newStreamControllerString(6, log).stream) {
-          await for (String s in newStreamControllerString(7, log).stream) {
+        while (log.length < 10) {
+          await for (String s in newStreamControllerString(3, log).stream) {
             break L1;
           }
         }
@@ -82,7 +83,7 @@ Future test2() async {
     }
     break L0;
   }
-  Expect.listEquals([4, 5, 3, 7, 6, 2, 1, 0], log);
+  Expect.listEquals([2, 1, 3, 0], log);
 }
 
 Future test3() async {
@@ -91,22 +92,22 @@ Future test3() async {
   L0:
   await for (String s in newStreamControllerString(0, log).stream) {
     L1:
-    await for (String s in newStreamControllerString(1, log).stream) {
+    while (log.length < 10) {
       break L0;
       L2:
-      await for (String s in newStreamControllerString(2, log).stream) {
+      await for (String s in newStreamControllerString(1, log).stream) {
         L3:
-        await for (String s in newStreamControllerString(3, log).stream) {
+        while (log.length < 10) {
           L4:
-          await for (String s in newStreamControllerString(4, log).stream) {
+          await for (String s in newStreamControllerString(2, log).stream) {
             break L4;
           }
-          await for (String s in newStreamControllerString(5, log).stream) {
+          for (String s in ['a','b']) {
             break L3;
           }
         }
-        await for (String s in newStreamControllerString(6, log).stream) {
-          await for (String s in newStreamControllerString(7, log).stream) {
+        await for (String s in newStreamControllerString(3, log).stream) {
+          while (log.length < 10) {
             break L1;
           }
         }
@@ -114,7 +115,7 @@ Future test3() async {
     }
     break L0;
   }
-  Expect.listEquals([1, 0], log);
+  Expect.listEquals([0], log);
 }
 
 
@@ -122,32 +123,27 @@ Future test4() async {
   List<int> log = [];
   int i = 0;
 
-  var streamController0 = newStreamControllerString(i++, log);
-  await for (String s in streamController0.stream) {
-    var streamController1 = newStreamControllerString(i++, log);
-    await for (String s in streamController1.stream) {
+  while (i < 9) {
+    var streamController0 = newStreamControllerString(i++, log);
+    await for (String s in streamController0.stream) {
       L1:
-      await for (String s in newStreamControllerString(i++, log).stream) {
+      while (log.length < 10) {
         await for (String s in newStreamControllerString(i++, log).stream) {
           break L1;
         }
       }
       L2:
       await for (String s in newStreamControllerString(i++, log).stream) {
-        await for (String s in newStreamControllerString(i++, log).stream) {
+        while (log.length < 10) {
           break L2;
         }
       }
       if (s.startsWith("b")) {
-        streamController1.close();
+        streamController0.close();
       }
     }
-    if (s.startsWith("b")) {
-      streamController0.close();
-    }
   }
-  Expect.listEquals([3, 2, 5, 4, 7, 6, 9, 8, 1,
-                      12, 11, 14, 13, 16, 15, 18, 17, 10, 0], log);
+  Expect.listEquals([1, 2, 3, 4, 0,  6, 7, 8, 9, 5], log);
 }
 main() {
   asyncStart();

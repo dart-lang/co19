@@ -22,8 +22,8 @@ import '../../../Utils/async_utils.dart';
 
 StreamController<String> newStreamControllerString(int id, List<int> log) {
   StreamController<String> sc = new StreamController<String>();
-  sc.add('a'+id.toString());
-  sc.add('b'+id.toString());
+  sc.add('a' + id.toString());
+  sc.add('b' + id.toString());
   sc.onCancel = () {
     log.add(id);
   };
