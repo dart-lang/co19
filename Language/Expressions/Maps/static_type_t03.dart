@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of a map literal of the form  const <K, V>{k1:e1... kn :en}
- * or the form <K, V>{k1:e1... kn :en} is Map<K, V>.
+ * @assertion The static type of a map literal of the form
+ * const <K, V>{k1: e1...kn: en} or the form <K, V>{k1: e1...kn: en} is
+ * Map<K, V>.
  * @description Checks that a static warning occurs when assigning a map literal
  * to a String variable.
  * @static-warning
@@ -19,6 +20,6 @@ main() {
   String s;
   checkTypeError(
     () =>
-      s = <String, String> {} /// static type warning 
+      s = <String, String> {} /// static type warning
   );
 }

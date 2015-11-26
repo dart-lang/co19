@@ -6,14 +6,16 @@
 /**
  * @assertion A map literal denotes a map object.
  * mapLiteral:
- *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)? '}'
+ *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)?
+ *   '}'
  * ;
  * mapLiteralEntry:
  *   expression ':' expression
  * ;
- * A map literal consists of zero or more entries.  Each entry has a key and a value.
- * Each key and each value is denoted by an expression.
- * @description Checks that various map keys don't produce a compile-time errors.
+ * A map literal consists of zero or more entries. Each entry has a key and a
+ * value. Each key and each value is denoted by an expression.
+ * @description Checks that various map keys don't produce a compile-time
+ * errors.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -35,7 +37,7 @@ class Test  {
     x = {"1": 1, "2": true, "3": null, "4": ""};
     x = {"map": {"1": 1, "2": 2}, "list": []};
 
-    x = {"": (){}, "f": () => 1, "g": (p1) {return p1;}};
+    x = {"": () {}, "f": () => 1, "g": (p1) {return p1;}};
 
     x = {"top-level": topFunc(), "method": this.method()};
 
@@ -66,7 +68,7 @@ class Test  {
     x = {"++": id++, "--": --id};
 
     x = {"is bool": true is bool, "is not int": false is! int};
-    
+
     x = {5: true, 6: false};
 
     x = {1+5: true, 1+6: false};
@@ -76,27 +78,27 @@ class Test  {
     var x;
     x = const {};
 
-    x = const <String, int> {"key1": 1, "key2": 2 + 2};
-    x = const <String, String> {"1": "2", "3": "4"};
-    x = const <String, List> {"l1": const [], "l2": const [1, 2, 3]};
-    x = const <String, Map> {"" : const {}};
+    x = const <String, int>{"key1": 1, "key2": 2 + 2};
+    x = const <String, String>{"1": "2", "3": "4"};
+    x = const <String, List>{"l1": const [], "l2": const [1, 2, 3]};
+    x = const <String, Map>{"" : const {}};
     x = const {"int": 1, "bool" : true, "S": const S(), "list": const []};
   }
 
   typeVariables() {
     var x;
-    x = <String, int> {"key": 1};
-    x = <String, String> {"key": "value"};
-    x = <String, bool> {"key": true};
-    x = <String, Test> {"key": new Test()};
-    x = <String, Function> {"key": (){}};
+    x = <String, int>{"key": 1};
+    x = <String, String>{"key": "value"};
+    x = <String, bool>{"key": true};
+    x = <String, Test>{"key": new Test()};
+    x = <String, Function>{"key": (){}};
   }
 
   endsWithComma() {
     var x;
     x = {"1": 2,};
     x = const {"1": true, "2": false,};
-    x = <String, int> {"key": 1,};
+    x = <String, int>{"key": 1,};
   }
 
   interpolation() {

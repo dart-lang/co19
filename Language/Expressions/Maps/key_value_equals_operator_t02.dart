@@ -8,18 +8,21 @@
  * map literal is an instance of a class that implements the operator == unless
  * the key is a string or integer, a literal symbol or the result of invoking a
  * constant constructor of class Symbol.
- * @description Checks that compile-error is produced for const
- * Map<dynamic,dynamic> literal that contains a non-string, non-integer key
- * whose class implements operator ==.
- * @compile-error
- * @author ilya
+ * @description Checks that there is no compile-error if const map literal has
+ * as the key entry a string or integer, a literal symbol or the result of
+ * invoking a constant constructor of class Symbol.
+ * @author ngl@unipro.ru
  */
 
-class C {
-  const C();
-  bool operator ==(other) => true;
-}
+import '../../../Utils/expect.dart';
 
 main() {
-  var x = const {const C(): 1};
+  var x = const {"abc": 1};
+  Expect.equals(1, x["abc"]);
+  x = const {1: 1};
+  Expect.equals(1, x[1]);
+  x = const {#abc: 1};
+  Expect.equals(1, x[#abc]);
+  x = const {const Symbol("abc"): 1};
+  Expect.equals(1, x[const Symbol("abc")]);
 }

@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of a map literal of the form  const <K, V>{k1:e1... kn :en}
- * or the form <K, V>{k1:e1... kn :en} is Map<K, V>.
- * @description Checks that a static warning occurs when assigning a constant map literal
- * to an int variable.
+ * @assertion The static type of a map literal of the form
+ * const <K, V>{k1: e1...kn: en} or the form <K, V>{k1: e1...kn: en} is
+ * Map<K, V>.
+ * @description Checks that a static warning occurs when assigning a constant
+ * map literal to an int variable.
  * @static-warning
  * @author msyabro
  * @reviewer iefremov
@@ -19,6 +20,6 @@ main() {
   int i;
   checkTypeError(
     () =>
-      i = const <String, String> {} /// static type warning 
+      i = const <String, String> {} /// static type warning
   );
 }
