@@ -5,7 +5,8 @@
  */
 /**
  * @assertion The current exception is the last unhandled exception thrown.
- * @description Checks the current exception is the last unhandled exception thrown.
+ * @description Checks the current exception is the last unhandled exception
+ * thrown.
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -15,10 +16,10 @@ main() {
   var last = "fail2";
   try {
     throw "fail1";
-  } catch(e) {
+  } catch (e) {
     try {
       throw last;
-    } catch(e) {
+    } catch (e) {
        Expect.equals(last, e);
    }
   }

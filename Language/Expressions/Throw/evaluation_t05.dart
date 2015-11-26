@@ -11,17 +11,28 @@
  * is transferred to the nearest dynamically enclosing exception handler, with
  * the current exception set to v and the current return value becomes
  * undefined.
- * @description Checks that an expression statement of the form "throw e;"
- * indeed raises an exception and transfers control to the nearest enclosing
- * exception handler if there is one.
- * @runtime-error
- * @author rodionov
- * @reviewer iefremov
+ * @description Checks that if exception was raised inside the function and it was
+ * not caught in this function, then control is transferred to the nearest
+ * dynamically enclosing exception handler and return value becomes undefined.
+ * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
+int f(int i) {
+  if (i == 2) {
+    throw new Error();
+  }
+  return i + 1;
+}
 main() {
-  void f() => throw "";
-  Expect.throws(f, (e) => e is String);
-  Expect.throws(() => throw "", (e) => e is String);
+  int r = 0;
+  try {
+    r = f(3);
+    Expect.equals(4, r);
+    r = f(2);
+  } catch (e) {
+    Expect.equals(4, r,
+        "Exception was caught: f(2) invocation changes r value");
+  }
+  Expect.equals(4, r, "f(2) invocation changes r value");
 }
