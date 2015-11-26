@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -31,7 +30,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     // Clicking below the last line in the first column should not select anything from the first
     // line on the second column.

@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
@@ -37,7 +36,7 @@ var childTypes = [
 ];
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     for (var i = 0; i < tableParts.length; ++i) {
         for (var j = 0; j < childTypes.length; ++j) {
             document.body.append(document.createElement("pre")).append(new Text("Prepending ${childTypes[j]} to ${tableParts[i]}:"));

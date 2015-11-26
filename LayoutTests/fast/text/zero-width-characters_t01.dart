@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test checks various characters that should always be zero width to ensure that they are.
  * The WebKit text system ensures this in a way that's independent of the fonts installed on the system.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
@@ -19,7 +20,7 @@ The WebKit text system ensures this in a way that's independent of the fonts ins
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var testString = "";
     for (var i = 0; i < 32; ++i) // >

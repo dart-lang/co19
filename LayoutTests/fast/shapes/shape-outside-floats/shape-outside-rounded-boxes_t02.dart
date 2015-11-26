@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "dart:math" as Math;
@@ -66,27 +66,27 @@ int cornerEllipseLeftXIntercept(y, cx, rx, ry) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     // The layout implementation rounds up the width right of right floats. To account for that we compare truncated
     // values for the right edge of spans b and e, since they intercept the box's rounded corners.
-    
+
     shouldBe(elementRect('a').top, 0);
     shouldBe(elementRect('a').right, 200);
-    
+
     shouldBe(elementRect('b').top, 20);
     shouldBe(elementRect('b').right.floor(), cornerEllipseLeftXIntercept(40, 0, 100, 30).floor());
-    
+
     shouldBe(elementRect('c').top, 40);
     shouldBe(elementRect('c').right, 100);
-    
+
     shouldBe(elementRect('d').top, 60);
     shouldBe(elementRect('d').right, 100);
-    
+
     shouldBe(elementRect('e').top, 80);
     shouldBe(elementRect('e').right.floor(), cornerEllipseLeftXIntercept(40, 0, 100, 30).floor());
-    
+
     shouldBe(elementRect('f').top, 100);
     shouldBe(elementRect('f').right, 200);
 

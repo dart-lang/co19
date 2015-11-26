@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -66,15 +66,15 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var autoEl = document.getElementById("content");
     var autoCell = document.getElementById("firstCell");
     var autoExpectedWidth = autoCell.getBoundingClientRect().width;
     autoEl.style.width = "${autoEl.getBoundingClientRect().width}px";
     shouldBe(autoCell.getBoundingClientRect().width, autoExpectedWidth, 'Cell in AutoTable');
-    
+
     var fixedEl = document.getElementById("fixedContent");
     var fixedCell = document.getElementById("firstFixedCell");
     var fixedExpectedWidth = fixedCell.getBoundingClientRect().width;

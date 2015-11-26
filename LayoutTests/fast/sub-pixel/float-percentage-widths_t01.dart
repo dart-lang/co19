@@ -29,7 +29,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var children = document.getElementsByClassName('child');
     var firstChildTop = children[0].getBoundingClientRect().top;

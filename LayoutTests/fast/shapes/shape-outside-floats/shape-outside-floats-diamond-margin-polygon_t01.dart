@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "dart:math" as Math;
@@ -65,8 +65,8 @@ Rectangle elementRect(elementId) {
 // margin boundary are 0, and 140. This is because the margin boundary has circular arc segments
 // at the vertices, i.e. it's a rounded rectangle rotated by 45 degrees. None of the character
 // positions in this test are defined by the arc segments.
-// 
-// The left edge of the (20px square) Ahem character on the first "l1" line (y == 20) is: 
+//
+// The left edge of the (20px square) Ahem character on the first "l1" line (y == 20) is:
 // 20 + (20*sqrt(2) + 50) = 98.28. The second and third lines, "l2" and "l3" are similar, each
 // one begins 20 pixels farther to the right. The left edges of "l4-l6" are the same as the first three,
 // just in reverse order.
@@ -77,25 +77,25 @@ int marginLeftXIntercept(lineNumber) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var quiet = true; // PASS output depends on SubPixelLayout.isEnabled()
-    
+
     shouldBe(elementRect('l1').top, 0);
     shouldBeCloseTo(elementRect('l1').left, marginLeftXIntercept(1), 1);
-    
+
     shouldBe(elementRect('l2').top, 20);
     shouldBeCloseTo(elementRect('l2').left, marginLeftXIntercept(2), 1);
-    
+
     shouldBe(elementRect('l3').top, 40);
     shouldBeCloseTo(elementRect('l3').left, marginLeftXIntercept(3), 1);
-    
+
     shouldBe(elementRect('l4').top, 80);
     shouldBeCloseTo(elementRect('l4').left, marginLeftXIntercept(3), 1);
-    
+
     shouldBe(elementRect('l5').top, 100);
     shouldBeCloseTo(elementRect('l5').left, marginLeftXIntercept(2), 1);
-    
+
     shouldBe(elementRect('l6').top, 120);
     shouldBeCloseTo(elementRect('l6').left, marginLeftXIntercept(1), 1);
 

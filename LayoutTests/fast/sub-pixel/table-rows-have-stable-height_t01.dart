@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -68,9 +67,9 @@ double r(n) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     var mainTable = document.getElementById('main');
     var measureTable = document.getElementById('measure');
     var rowHeights = [];
@@ -87,20 +86,20 @@ void main() {
             rowHeights.add(rect.bottom - rect.top);
         }
     }
-    
+
     void testHeights(zoom) {
         document.body.style.zoom = zoom.toString();
         computeHeights();
-print("testHeights 1");    
+print("testHeights 1");
         var rows = mainTable.tBodies[0].rows;
         for (var i = 0; i < rows.length; i++) {
             var rowElement = rows[i];
-print("testHeights 2 $i");    
+print("testHeights 2 $i");
             rowElement.style.height = '${rowHeights[i]}px';
-print("testHeights 3 $i");    
+print("testHeights 3 $i");
             var rect = rowElement.getBoundingClientRect();
             if (i>0) {
-print("testHeights 4 $i");    
+print("testHeights 4 $i");
                 rowElement.cells[0].firstChild.text = r(rowHeights[i]).toString();
                 rowElement.cells[1].firstChild.text = r(rect.height).toString();
                 rowElement.cells[2].firstChild.text = r(rect.bottom - rect.top).toString();
@@ -113,7 +112,7 @@ print("testHeights 4 $i");
             shouldBe(r(rowHeights[i]), r(rect.bottom - rect.top), 'rect.bottom - rect.top at ${r(zoom * 100)}');
         }
     }
-    
+
     testHeights(0.5);
     testHeights(0.75);
     testHeights(0.9);

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "dart:math" as Math;
@@ -59,24 +59,24 @@ int borderXIntercept(y) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     shouldBe(elementRect('a').top, 0);
     shouldBe(elementRect('a').right, 120);
-    
+
     shouldBe(elementRect('b').top, 20);
     shouldBeCloseTo(elementRect('b').right, borderXIntercept(20), 1);
-    
+
     shouldBe(elementRect('c').top, 40);
     shouldBeCloseTo(elementRect('c').right, borderXIntercept(40), 1);
-    
+
     shouldBe(elementRect('d').top, 60);
     shouldBeCloseTo(elementRect('d').right, borderXIntercept(60), 1);
-    
+
     shouldBe(elementRect('e').top, 80);
     shouldBeCloseTo(elementRect('e').right, borderXIntercept(80), 1);
-    
+
     shouldBe(elementRect('f').top, 100);
     shouldBe(elementRect('f').right, 20);
 

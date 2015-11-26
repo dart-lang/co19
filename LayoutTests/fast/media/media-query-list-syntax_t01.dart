@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Media Query List syntax
  */
 import "dart:html";
@@ -21,7 +21,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
     var tests = [
         [ "@media all, not,{}", "all, not all, not all" , "Media query error #1" ],
@@ -47,6 +47,6 @@ void main() {
             Expect.equals(tests[i][1], mediaText,  "cssRule.media.mediaText=$mediaText");
         }, tests[i][2]);
     }
-    
+
     checkTestFailures();
 }

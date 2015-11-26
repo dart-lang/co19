@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -21,12 +20,12 @@ const String htmlEL2 = r'''
 
 void main() {
     description('You should see two lines, both with 1,2,3.');
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var container = document.getElementById('container');
     var div = container.append(document.createElement('div'));
     Element last;
-    
+
     Element insert(tagName, [id])
     {
         last = container.insertBefore(document.createElement(tagName), last);

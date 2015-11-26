@@ -69,7 +69,7 @@ This test passes if all lines have the same width.<br/>
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var inlines = document.getElementsByClassName('inline');
     var referenceWidth = inlines[0].offsetWidth;

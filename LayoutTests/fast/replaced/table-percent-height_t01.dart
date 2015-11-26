@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test for Buzilla Bug 15359: JPEG image not shown when height is
  * specified as percentage inside a table
  */
@@ -90,7 +90,7 @@ void is75PercentOf(String str75, String str100, [String testName]) {
     if (num75 < 0 || num100 < 0)
         return;
     double expectedValue = num100 * 75 / 100;
-    if ((num75 - expectedValue).abs() < 0.001) 
+    if ((num75 - expectedValue).abs() < 0.001)
         testPassed(testName);
     else
         testFailed(testName, "$str75 is not 75% of $str100");
@@ -170,7 +170,7 @@ void doTest(e) {
 
 void main() {
     description("This test checks that replaced elements with percentage heights within table cells have the correct height.<br>Note, some of the button height tests fail on the Windows ports. See bug #34071.");
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onLoad.listen(doTest);
 }

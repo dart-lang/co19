@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -137,7 +136,7 @@ void doTest(String className, String tagName) {
     var referenceHeight = getItems('reference', tagName)[0].
         getBoundingClientRect().height;
     var testItems = getItems(className, tagName);
-    
+
     // Check that all items have the right height
     for (int i = 0; i<testItems.length; i++) {
         var item = testItems[i];
@@ -161,8 +160,8 @@ void doTest(String className, String tagName) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     doTest('floating', 'ul');
     doTest('floating', 'ol');
     doTest('block', 'ul');

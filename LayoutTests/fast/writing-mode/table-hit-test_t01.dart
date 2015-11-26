@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -55,7 +55,7 @@ void checkElementAtPoint(x, y, id) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var style = document.getElementById("table").style;
@@ -109,6 +109,6 @@ void main() {
     checkElementAtPoint(1, 1, "2-1-1");
     checkElementAtPoint(1, 26, "2-1-2");
     checkElementAtPoint(1, 51, "2-1-3");
-    
+
     checkTestFailures();
 }

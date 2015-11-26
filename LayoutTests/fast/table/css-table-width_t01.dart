@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test checks that the width style is applied correctly to
  * CSS tables with respect to table paddings and borders.
  */
 import "dart:html";
 import "../../testharness.dart";
-import "../../resources/check-layout.dart";
 
 const String htmlEL1 = r'''
 ''';
@@ -62,32 +61,32 @@ void main() {
 
     document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
-    
+
     // separated borders
 
     shouldBe(computeCSSTableOffsetWidth('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px;'), 200+2+4+6+8);
     shouldBe(computeCSSTableOffsetWidth('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; direction: rtl;'), 200+2+4+6+8);
-    
+
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl;'), 150+10+30+50+70);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; -webkit-text-orientation: upright; text-orientation: upright;'), 150+10+30+50+70);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; direction: rtl;'), 150+10+30+50+70);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; direction: rtl; -webkit-text-orientation: upright; text-orientation: upright;'), 150+10+30+50+70);
-    
+
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr;'), 150+10+30+50+70);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr; -webkit-text-orientation: upright; text-orientation: upright;'), 150+10+30+50+70);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr; direction: rtl;'), 150+10+30+50+70);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr; direction: rtl; -webkit-text-orientation: upright; text-orientation: upright;'), 150+10+30+50+70);
-    
+
     // collapsed borders
-    
+
     shouldBe(computeCSSTableOffsetWidth('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse;'), 200+(2+4)/2);
     shouldBe(computeCSSTableOffsetWidth('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; direction: rtl;'), 200+(2+4)/2);
-    
+
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl;'), 150+(10+30)/2);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; -webkit-text-orientation: upright; text-orientation: upright;'), 150+(10+30)/2);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; direction: rtl;'), 150+(10+30)/2);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; direction: rtl; -webkit-text-orientation: upright; text-orientation: upright;'), 150+(10+30)/2);
-    
+
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr;'), 150+(10+30)/2);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr; -webkit-text-orientation: upright; text-orientation: upright;'), 150+(10+30)/2);
     shouldBe(computeCSSTableOffsetHeight('width: 200px; height: 150px; border-style: solid; border-width: 10px 2px 30px 4px; padding: 50px 6px 70px 8px; border-collapse: collapse; -webkit-writing-mode: vertical-lr; writing-mode: vertical-lr; direction: rtl;'), 150+(10+30)/2);

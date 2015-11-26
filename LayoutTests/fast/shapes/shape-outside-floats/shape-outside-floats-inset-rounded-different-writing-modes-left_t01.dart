@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../../testharness.dart";
-import "../resources/subpixel-utils.dart" as SubPixelLayout;
 
 const String htmlEL1 = r'''
 <style>
@@ -60,75 +58,75 @@ Rectangle elementRect(elementId) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     test(() {
         var rect = elementRect("s1");
         assert_equals(rect.left, 1);
         assert_equals(rect.top, 1);
     }, "1st square doesn't overlap shape.");
-    
+
     test(() {
         var rect = elementRect("s2");
         assert_equals(rect.left, 11);
         assert_approx_equals(rect.top, 91, 0.5);
     }, "2nd square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s3");
         assert_equals(rect.left, 21);
         assert_approx_equals(rect.top, 97, 0.5);
     }, "3rd square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s4");
         assert_equals(rect.left, 31);
         assert_approx_equals(rect.top, 100, 0.5);
     }, "4th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s5");
         assert_equals(rect.left, 41);
         assert_approx_equals(rect.top, 101, 0.5);
     }, "5th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s6");
         assert_equals(rect.left, 51);
         assert_approx_equals(rect.top, 101, 0.5);
     }, "6th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s7");
         assert_equals(rect.left, 61);
         assert_approx_equals(rect.top, 101, 0.5);
     }, "7th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s8");
         assert_equals(rect.left, 71);
         assert_approx_equals(rect.top, 101, 0.5);
     }, "8th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s9");
         assert_equals(rect.left, 81);
         assert_approx_equals(rect.top, 101, 0.5);
     }, "9th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s10");
         assert_equals(rect.left, 91);
         assert_approx_equals(rect.top, 99, 0.5);
     }, "10th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s11");
         assert_equals(rect.left, 101);
         assert_approx_equals(rect.top, 91, 0.5);
     }, "11th square is properly affected by shape.");
-    
+
     test(() {
         var rect = elementRect("s12");
         assert_equals(rect.left, 111);

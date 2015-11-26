@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description This test checks that invalid 'span' values are rejected. 
+ * @assertion
+ * @description This test checks that invalid 'span' values are rejected.
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -49,7 +49,7 @@ int getSpan(String id) {
 
 void main() {
     description("This test checks that invalid 'span' values are rejected.");
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     // Remove "span" attribute (set it to null).
     document.getElementById("case1").attributes.remove("span");
 

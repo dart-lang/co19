@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description getBBox tests
  */
 import "dart:html";
@@ -79,7 +79,6 @@ void assert_rect_approx_equals(Rect rect, Rect expected) {
 }
 
 void main() {
-//    document.body.appendHtml(htmlEL2);
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     test(() {
     	assert_rect_approx_equals(getBBoxById("p1"), new MyRect(0, 0, 0, 0));

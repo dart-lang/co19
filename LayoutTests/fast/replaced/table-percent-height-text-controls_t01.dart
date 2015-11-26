@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test for Buzilla Bug 15359: JPEG image not shown when height is specified as percentage inside a table
  */
 import "dart:html";
@@ -59,7 +59,7 @@ void is75PercentOf(double num75, double num100, [String testName]) {
         return;
 //    if (num75 == (num100 * 75 / 100).floor()) -- wrong
     double expectedValue = num100 * 75 / 100;
-    if ((num75 - expectedValue).abs() < 0.001) 
+    if ((num75 - expectedValue).abs() < 0.001)
         testPassed(testName);
     else
         testFailed(testName, "$num75 is not 75% of $num100");
@@ -88,7 +88,7 @@ void doTest(e) {
 void main() {
     description("This test checks that text controls with percentage heights within table cells have the correct height." +
         "Text controls are in a different test than other replaced elements because their metrics are platform-specific.");
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onLoad.listen(doTest);
 }

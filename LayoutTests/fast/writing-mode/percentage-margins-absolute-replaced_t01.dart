@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Percentage margins on absolutely positioned replaced elements
- * are relative to the container\'s logical width. 
+ * are relative to the container\'s logical width.
  */
 import "dart:html";
+import "../../testcommon.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -88,7 +89,7 @@ void doTest(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(doTest);
 }

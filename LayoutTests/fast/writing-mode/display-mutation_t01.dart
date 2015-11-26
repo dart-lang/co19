@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL = r'''
@@ -15,7 +16,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
     var elt = document.getElementById('test');
     Expect.equals("inline-block", elt.getComputedStyle().getPropertyValue("display"));
 }

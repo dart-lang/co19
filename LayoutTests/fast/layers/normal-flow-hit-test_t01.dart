@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Reflections and hit testing
  */
 import "dart:html";
@@ -39,7 +39,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body. setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var hitNode = document.elementFromPoint(160, 168);
     var link = document.getElementById('link');

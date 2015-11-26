@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Testing Widows and Orphans
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -149,7 +148,7 @@ void runTest(e) {
     container = createTestContainer("test5", "Widows blocked by Orphan rule", [7, 3, 4]);
     container.style.orphans = "2";
     container.style.widows = "2";
-    
+
 
     markTopLine("test5", 1, 1);
     markBottomLine("test5", 2, 2); // This line should not move - protected by orphaning.
@@ -179,7 +178,7 @@ void runTest(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.addEventListener("load", runTest, false);
 }

@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This is a test that relative position percentages are computed with respect to physical dimensions.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL1 = r'''
@@ -24,9 +25,9 @@ This is a test that relative position percentages are computed with respect to p
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     var test = document.getElementById("test");
     var rect = test.getBoundingClientRect();
     var parentRect = test.parentNode.getBoundingClientRect();

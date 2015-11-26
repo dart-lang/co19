@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -38,11 +37,11 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.attributes['style']="margin: 0; padding: 0;";
-    document.head.appendHtml(htmlEL1);
-    document.body.setInnerHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     shouldBe(document.getElementById('a').getBoundingClientRect().top, 0, 'id="a"');
     shouldBe(document.getElementById('b').getBoundingClientRect().top, 0, 'id="b"');
-    
+
     checkTestFailures();
 }

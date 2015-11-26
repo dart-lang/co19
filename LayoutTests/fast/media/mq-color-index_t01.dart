@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This tests validates that the (color-index) media query feature is supported.
  */
 import "dart:html";
@@ -16,7 +16,7 @@ const String htmlEL1 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     shouldBe(window.matchMedia('(min-color-index: 1)').matches,
                   !window.matchMedia('(color-index: 0)').matches);
 

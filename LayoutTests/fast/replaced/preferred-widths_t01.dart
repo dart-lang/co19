@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
 const String htmlEL1 = r'''
@@ -76,9 +77,9 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-// Need to do this onload to make sure all the images have loaded.
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+    // Need to do this onload to make sure all the images have loaded.
     window.onLoad.listen((e) {
         checkLayout(".container");
     });

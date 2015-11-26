@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description webkit.org/b/29447: Replaced elements squeezed when width is specified as percentage inside a table with Auto layout
  */
 import "dart:html";
@@ -91,7 +91,7 @@ void doTest(e) {
 
 void main() {
     description("This test checks that a replaced element with percentage width (and no height specified) within a table cell is squeezed to the dimensions of the table cell.<br>See bug #29447.");
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onLoad.listen(doTest);
 }

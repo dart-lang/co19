@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test passes if it does not crash.
  */
 import "dart:html";
+import "../../testharness.dart";
 
 const String htmlEL2 = r'''
 <input type="range" value=0>
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.querySelector(":in-range").style.setProperty("-webkit-mask-composite", "source-over");
     document.querySelector(":in-range").style.paddingBottom="9223372036854775808em";
 }

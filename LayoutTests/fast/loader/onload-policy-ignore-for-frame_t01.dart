@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test for Bug 33533: window.onload never fires if page contains
  * an &lt;iframe> with a bad scheme or whose load is cancelled by returning
- * null from resource load delegate's willSendRequest. 
+ * null from resource load delegate's willSendRequest.
  */
 import "dart:html";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL2 = r'''
 <p>Test for <a href="http://webkit.org/b/33533">window.onload never fires if page contains an
@@ -22,12 +22,12 @@ delegate's willSendRequest</a>. If the test passes, you should see the word "PAS
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onLoad.listen((e) {
         asyncEnd();
         var result = document.getElementById("result");
         result.text = "PASSED";
     });
-    
+
 }

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Vertical text using font with vmtx table and units per em
  */
 import "dart:html";
@@ -48,8 +48,7 @@ void doTest() {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-//    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     window.onLoad.listen((e) {

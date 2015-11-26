@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "../../testharness.dart";
 
@@ -23,7 +23,7 @@ num widthOfFirstThreeCharacters(id) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Expect.equals(widthOfFirstThreeCharacters("test"), widthOfFirstThreeCharacters("reference"));
 }
 

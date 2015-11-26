@@ -5,11 +5,11 @@ import "../../../Utils/async_utils.dart";
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../testharness.dart";
 
 const String htmlEL2 = r'''
 This test makes sure that the various methods of setting an onhashchange handler all work as expected.<br>
@@ -42,7 +42,7 @@ void windowAttribute(e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onHashChange.listen(bodyInlineAttribute);
     window.onLoad.listen(startTest);

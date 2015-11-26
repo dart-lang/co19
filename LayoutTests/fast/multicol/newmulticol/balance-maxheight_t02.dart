@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description balancing multicol with max-height
  */
 import "dart:html";
@@ -25,7 +25,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Element mc=document.getElementById("mc");
     Element ref=document.getElementById("ref");
     Expect.equals(ref.offsetHeight, mc.offsetHeight);

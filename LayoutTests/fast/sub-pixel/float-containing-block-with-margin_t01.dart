@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Links to the right should not wrap.
  */
 import "dart:html";
@@ -27,14 +27,14 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var elements = document.getElementsByTagName('li');
     num getItemHeight(i) {
         return elements[i].getBoundingClientRect().top;
     }
-    
+
     shouldBe(getItemHeight(1), getItemHeight(0), 'getItemHeight(1)');
     shouldBe(getItemHeight(2), getItemHeight(0), 'getItemHeight(2)');
 

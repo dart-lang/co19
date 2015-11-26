@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -25,7 +25,7 @@ void main() {
     description('Test for crbug.com/304069: querySelectorAll regression.');
     document.body.id='target';
     document.body.classes.add('target');
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     shouldBe(document.body.querySelectorAll('#target > div').length, 6);
     shouldBe(document.body.querySelectorAll('#target').length, 0);

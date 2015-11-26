@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description layout zoom test
  */
 import "dart:html";
@@ -32,8 +32,8 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var testElement = document.getElementById('test');
     var consoleElement = document.getElementById('console');
@@ -46,10 +46,10 @@ void main() {
 
     void test(zoom) {
         testElement.style.zoom = '$zoom%';
-        
+
         var lastElementBottom = testElement.lastChild.getBoundingClientRect().bottom;
         var containerBottom = testElement.getBoundingClientRect().bottom;
-        
+
         var tolerance = (1 / (zoom / 100)).ceil();
         shouldBeTrue((lastElementBottom - containerBottom).abs() <= tolerance,
             'zoom = $zoom%, bottom edge of last child at $lastElementBottom, container at $containerBottom.');

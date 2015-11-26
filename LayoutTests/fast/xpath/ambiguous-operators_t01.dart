@@ -10,6 +10,7 @@
  * binary operator context, and as a NameTest otherwise.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "xpath-test-pre.dart";
 
 const String htmlEL = r'''
@@ -19,7 +20,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
     var context = document.getElementById('context');
     var div = document.getElementById('two');
 
@@ -108,6 +109,6 @@ void main() {
     test(xmlDoc2, xmlDoc2, "mod mod mod", 0, null);
     test(xmlDoc2, xmlDoc2, "(mod) mod 5", 3, null);
     test(xmlDoc2, xmlDoc2, "string(mod/@and)", 'x', null);
-    
+
     checkTestFailures();
 }

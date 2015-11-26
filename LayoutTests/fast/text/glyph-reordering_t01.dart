@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This tests text selection in complex scripts where glyph reordering occurs.
  */
 import "../../testharness.dart";
@@ -18,7 +18,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var target = document.getElementById("target");
 
     var textNode = target.firstChild.nextNode;
@@ -35,7 +35,7 @@ void main() {
     range.setStart(reference, 0);
     range.setEnd(reference, 3);
     var referenceWidth = totalWidth - range.getBoundingClientRect().width;
-    
+
     var delta = (width - referenceWidth).abs();
     Expect.isTrue(delta < 0.5, "width was $width instead of $referenceWidth");
-}   
+}

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test CSSOM View module: MediaQueryList interface
  */
 import "dart:html";
@@ -21,7 +21,7 @@ void testQuery(query, expected) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     testQuery('screen', true);
     testQuery('projection', false);
 

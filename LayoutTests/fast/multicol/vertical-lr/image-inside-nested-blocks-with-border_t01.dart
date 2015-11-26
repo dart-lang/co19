@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../testharness.dart";
@@ -34,16 +34,14 @@ List<List> tests = [
 
 void main() {
     document.body.attributes["style"]="-webkit-writing-mode:vertical-lr";
-    document.body.setInnerHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var test;
-    var failures = 0;
     for  (List test in tests) {
         var float = document.getElementById(test[0]);
         Map result = floatOffset(float);
         float.style.color = "red";
-        shouldBe(result[width], test[1], "width"); 
-        shouldBe(result[height], test[2], "height"); 
+        shouldBe(result[width], test[1], "width");
+        shouldBe(result[height], test[2], "height");
         float.style.color = "green";
     }
 

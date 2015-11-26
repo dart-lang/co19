@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "dart:math" as Math;
@@ -79,18 +79,18 @@ String  marginEllipseRightXIntercept(y, cx, rx, ry) {
     return f.floor().toString();
 }
 
-// In the ".right" tests below, it's the lower edge of the 20px Ahem glyph that that defines the element rect's left edge. 
+// In the ".right" tests below, it's the lower edge of the 20px Ahem glyph that that defines the element rect's left edge.
 // That's why the Y coordinate in each of those tests is 20 greater than the ".top" test.
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     shouldBe(elementRect('s1').top, 0);
     shouldBe(elementRect('s1').right, marginEllipseRightXIntercept(20, 225, 225, 125));
-    
+
     shouldBe(elementRect('s2').top, 20);
     shouldBe(elementRect('s2').right, marginEllipseRightXIntercept(40, 225, 225, 125));
-    
+
     shouldBe(elementRect('s3').top, 40);
     shouldBe(elementRect('s3').right, marginEllipseRightXIntercept(60, 225, 225, 125));
 

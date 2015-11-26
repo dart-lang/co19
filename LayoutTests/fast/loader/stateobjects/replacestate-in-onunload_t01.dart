@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  * @needsreview dart issue #21371
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -31,6 +30,6 @@ void onload (e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(onload);
 }

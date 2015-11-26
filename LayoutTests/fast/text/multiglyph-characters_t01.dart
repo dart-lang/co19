@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This tests text with characters that have multiple glyphs.
  */
 import "../../testharness.dart";
@@ -15,7 +15,7 @@ const String htmlEL2 = '''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var target = document.getElementById("target");
 
     var textNodeTarget = target.firstChild.nextNode;
@@ -28,7 +28,7 @@ void main() {
     var textNodeReference = reference.firstChild.nextNode;
     range.setStart(textNodeReference, 0);
     range.setEnd(textNodeReference, 2);
-    
+
     var referenceWidth = range.getClientRects()[0].width;
 
     Expect.isTrue((targetWidth - referenceWidth).abs() <= 1, "width was $targetWidth instead of $referenceWidth");

@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test passes if it does not CRASH.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <style>
@@ -20,7 +20,7 @@ const String htmlEL1 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
     Element el0 = document.createElement('div');
     el0.setAttribute('id', 'el0');

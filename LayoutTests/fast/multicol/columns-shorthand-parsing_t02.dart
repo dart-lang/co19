@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 'columns' property with 'auto' and something else 
+ * @assertion
+ * @description 'columns' property with 'auto' and something else
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -40,7 +40,7 @@ void test1(List testData) {
 
 void main() {
     description("Test the behavior when 'auto' is part of the 'columns' property value. See http://www.w3.org/TR/css3-multicol/#columns");
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
     for (List testData in tests) {
         test1(testData);
     }

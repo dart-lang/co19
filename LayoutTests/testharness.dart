@@ -17,8 +17,8 @@ class NullTreeSanitizer implements NodeTreeSanitizer {
     void sanitizeTree(Node node) {}
 }
 
-int passcnt=0;
-int failcnt=0;
+int passcnt = 0;
+int failcnt = 0;
 bool printPassed=false;
 
 void testPassed(String testName) {
@@ -30,7 +30,7 @@ void testPassed(String testName) {
 
 void testFailed(String testName, [String diag]) {
     failcnt++;
-    if (diag==null) {
+    if (diag == null) {
         diag=".";
     } else {
         diag=": $diag.";
@@ -40,7 +40,7 @@ void testFailed(String testName, [String diag]) {
 
 void shouldBe(actual, expected, [reason]) {
   try {
-      Expect.equals(expected, actual, reason); // it checks for NaNs      
+      Expect.equals(expected, actual, reason); // it checks for NaNs
       testPassed("shouldBe($actual, $expected, $reason)");
   } catch (e) {
       testFailed("shouldBe($actual, $expected, $reason)");
@@ -49,7 +49,7 @@ void shouldBe(actual, expected, [reason]) {
 
 void shouldBeFalse(bool expr, [reason]) {
   try {
-      Expect.isFalse(expr, reason); // it checks for NaNs      
+      Expect.isFalse(expr, reason); // it checks for NaNs
       passcnt++;
   } catch (e) {
       failcnt++;
@@ -59,7 +59,7 @@ void shouldBeFalse(bool expr, [reason]) {
 
 void shouldBeTrue(bool expr, [reason]) {
   try {
-      Expect.isTrue(expr, reason); // it checks for NaNs      
+      Expect.isTrue(expr, reason); // it checks for NaNs
       passcnt++;
   } catch (e) {
       failcnt++;
@@ -98,7 +98,7 @@ void shouldThrow(func(), [check, reason]) {
 }
 
 void checkTestFailures() {
-  if (failcnt==0) {
+  if (failcnt == 0) {
       print("all $passcnt tests passed.");
   } else {
       Expect.fail("tests passed: $passcnt; failed: $failcnt");
@@ -106,7 +106,7 @@ void checkTestFailures() {
 }
 
 void description(String descr) {
-    document.body.appendHtml(descr);
+    document.body.appendHtml(descr, treeSanitizer:new NullTreeSanitizer());
 }
 
 var reason;
@@ -117,7 +117,7 @@ debug(msg) {
   var x = document.getElementById('console');
   if (x != null) {
     var span = document.createElement("span");
-    span.innerHtml = msg + '<br />';
+    span.setInnerHtml(msg + '<br />', treeSanitizer:new NullTreeSanitizer());
     x.append(span);
   }
   reason = msg;

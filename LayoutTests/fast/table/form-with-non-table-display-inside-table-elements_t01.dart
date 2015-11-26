@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
-import "../../resources/check-layout.dart";
 
 const String htmlEL1 = r'''
 <style>
@@ -74,10 +72,10 @@ void main() {
 table section or a table row is considered as a demoted element. <br>Renderer for such an element is not created when its display is to a
 non table type (Eg. BLOCK, INLINE, etc). However when a table containing form element is cloned, <br>the form element is not properly demoted.
 This results in the creation of an unexpected renderer for the form element.''');
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     String diag='Expected: The tables should contain only one row of width 150px and one column of height 20px.';
-    
+
     for(var i = 1; i <=3; i++) {
         var container = document.getElementById('case$i');
         var clonedTable = container.querySelector("TABLE").clone(true);
@@ -85,5 +83,5 @@ This results in the creation of an unexpected renderer for the form element.''')
         container.append(clonedTable);
         shouldBe(clonedTable.getBoundingClientRect().width, 150, diag);
         shouldBe(clonedTable.getBoundingClientRect().height, 20, diag);
-    }    
+    }
 }

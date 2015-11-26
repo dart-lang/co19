@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -29,14 +29,14 @@ void main() {
     description('Test for crbug.com/304069: querySelectorAll regression.');
     document.body.id='body';
     document.body.classes.add('body');
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var rootNode = document.getElementById('rootNode');
-    
+
     shouldBe(rootNode.querySelectorAll('#body div').length, 6);
     shouldBe(rootNode.querySelectorAll('#body').length, 0);
     shouldBe(rootNode.querySelectorAll('div + #rootNode div').length, 6);
-    
+
     shouldBe(rootNode.querySelectorAll('.sibling + .rootNode div').length, 6);
     shouldBe(rootNode.querySelectorAll('.sibling ~ .rootNode div').length, 6);
     shouldBe(rootNode.querySelectorAll('.sibling .rootNode div').length, 0);
@@ -47,10 +47,10 @@ void main() {
     shouldBe(rootNode.querySelectorAll('.body .parentSibling ~ .parent div').length, 6);
     shouldBe(rootNode.querySelectorAll('.body div').length, 6);
     shouldBe(rootNode.querySelectorAll('.body').length, 0);
-    
+
     shouldBe(rootNode.querySelectorAll('body div').length, 6);
     shouldBe(rootNode.querySelectorAll('body').length, 0);
-    
+
     shouldBe(rootNode.querySelector('#body'), null);
     shouldBe(rootNode.querySelector('.body'), null);
     shouldBe(rootNode.querySelector('body'), null);

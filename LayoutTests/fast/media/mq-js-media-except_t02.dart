@@ -39,7 +39,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     // The following is valid according to the CSS 2.1 note: "Media Queries
     // supercedes this error handling.", as it is malformed and should be

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../../testharness.dart";
@@ -20,7 +20,7 @@ div { font-size: 8px; }
 
 void main() {
     description('Test that basic shapes accept different length units');
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
 // The test functions and globals used here are defined parsing-test-utils.js.
 
@@ -99,7 +99,7 @@ testInvalidValue("shape-outside", "inset(1cm 1mm 1in 1px round 1pt -1pc)");
 testInvalidValue("shape-outside", "ellipse(-1em 1em at 1em 1em)");
 testInvalidValue("shape-outside", "ellipse(1em -1em at 1em 1em)");
 
-    
+
     checkTestFailures();
 }
 

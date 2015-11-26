@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Letter spacing and Ligature
  */
 import "../../testharness.dart";
@@ -57,8 +57,8 @@ void testLetterSpaceAndLigature(e) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 //    setup({ explicit_done: true });
     window.onLoad.listen(testLetterSpaceAndLigature);
 }

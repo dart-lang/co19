@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test ensures that documentElement.scrollTop/Left properties
- * are available by the time DOMContentLoaded event fires. 
+ * are available by the time DOMContentLoaded event fires.
  */
 import "dart:html";
 import "../../../Utils/async_utils.dart";
@@ -36,7 +36,7 @@ void init(evt) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.addEventListener('DOMContentLoaded', init, true);
     window.onUnload.listen((e) {});  // prevent caching

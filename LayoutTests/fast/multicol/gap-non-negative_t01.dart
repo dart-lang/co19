@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description     Test for <i><a href="rdar://problem/5962118">rdar://problem/5962118</a>
  * Crash in RenderBlock::calcColumnWidth()</i>.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
@@ -20,7 +21,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
     var style = document.getElementById("target").getComputedStyle();
     var columnGap = style.getPropertyValue("-webkit-column-gap");
     Expect.isTrue(columnGap == "0" || columnGap == "normal", "column-gap is $columnGap");

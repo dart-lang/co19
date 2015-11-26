@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Tests that the bottom border at a column boundary is recorded properly for balancing
  */
 import "dart:html";
@@ -25,7 +25,6 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-//    document.body.appendHtml(htmlEL2);
     document.body.setInnerHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
     Element mc=document.getElementById("mc");
     Expect.equals(168, mc.offsetHeight);

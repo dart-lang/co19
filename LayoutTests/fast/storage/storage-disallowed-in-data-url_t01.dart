@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description This tests that storage methods throw exceptions with reasonable messages inside 'data:' URLs. 
+ * @assertion
+ * @description This tests that storage methods throw exceptions with reasonable messages inside 'data:' URLs.
  */
 import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "../../testharness.dart";
 
 const String htmlEL2 = r'''
     <iframe src="data:text/html,<script>try { window.localStorage; } catch(e) { window.top.postMessage(e.message, '*'); }; try { window.sessionStorage; } catch(e) { window.top.postMessage(e.message, '*'); }</script>"></iframe>
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var errorsSeen = 0;
     var exceptionMessage;

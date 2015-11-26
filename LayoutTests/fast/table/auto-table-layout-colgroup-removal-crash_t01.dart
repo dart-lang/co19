@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
-import "../../resources/check-layout.dart";
+import "../../testharness.dart";
 
 const String htmlEL2 = r'''
 <p>Bug <a href="https://bugs.webkit.org/show_bug.cgi?id=88676">88676</a>: Crash in FixedTableLayout::layout</p>
@@ -22,7 +22,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.offsetTop;
     Element colGroup=document.getElementById("colGroup");
     colGroup.remove();

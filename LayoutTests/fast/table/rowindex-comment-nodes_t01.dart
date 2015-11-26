@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -26,16 +26,16 @@ TableRowElement getTableRowElement(String id) {
 }
 
 void doTest(e) {
-    shouldBe(document.getElementById('tr1').parentNode.childNodes.length, 5, 'tr1.length');    
+    shouldBe(document.getElementById('tr1').parentNode.childNodes.length, 5, 'tr1.length');
     shouldBe(getTableRowElement('tr1').rowIndex, 0, 'tr1.rowIndex');
     shouldBe(getTableRowElement('tr2').rowIndex, 1, 'tr2');
     (document.getElementById('tr2').parentNode as TableSectionElement).deleteRow(1);
     shouldBe(getTableRowElement('tr3').rowIndex, 1, 'tr3');
-    
+
     checkTestFailures();
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(doTest);
 }

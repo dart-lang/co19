@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
-import "../../resources/check-layout.dart";
 
 const String htmlEL2 = r'''
 <p>Test for bug <a href="http://webkit.org/b/87314">87314</a>: Crash in RenderTableCol::nextColumn</p>
@@ -23,7 +22,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     var colgroup = document.createElement("colgroup");
     document.getElementsByTagName("colgroup")[0].append(colgroup);

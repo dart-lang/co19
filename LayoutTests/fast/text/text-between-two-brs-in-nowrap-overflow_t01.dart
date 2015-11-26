@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This test ensures WebKit renders text node between two BR elements
  * in a pre when inserted by a script immediately after triggering a layout.
  */
@@ -17,15 +17,15 @@ You should see PASS below:</p>
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL2);
-    
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     var text = new Text('text');
     var span = document.createElement('span');
     span.append(text);
     var testElem = document.getElementById("test");
 //    testElem.insertBefore(span, document.getElementsByTagName('br')[1]);
     testElem.insertBefore(span, document.getElementById('br'));
-    
+
     Expect.isTrue(span.offsetHeight > 0);
 //test.parentNode.removeChild(test);
     document.body.appendHtml('PASS');

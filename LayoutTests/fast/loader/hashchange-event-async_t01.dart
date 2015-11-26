@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
@@ -44,7 +45,7 @@ void hashChangeHandler (e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.addEventListener('load', loadHandler, false);
     window.addEventListener('hashchange', hashChangeHandler, false);

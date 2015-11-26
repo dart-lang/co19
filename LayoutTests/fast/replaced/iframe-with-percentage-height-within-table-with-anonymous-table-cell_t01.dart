@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description Test for embedded iframe with height: 100% and anonymous table cell parent.
  */
 import "dart:html";
@@ -56,8 +56,8 @@ void doTest(e) {
 
 void main() {
     description("This test checks that iframe with percentage height within anonymous table cell has the correct height (strict mode).");
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onLoad.listen(doTest);
 }

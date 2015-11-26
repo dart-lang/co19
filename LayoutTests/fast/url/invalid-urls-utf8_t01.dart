@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description This ensure we do not mess up the bytes when an URL is partially parsed and is invalid.
  * of this test are set to the behavior in IDNA2008.
  */
@@ -51,7 +51,7 @@ List testSet = [
 ];
 
 void main() {
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
 
     for (var i = 0; i < testSet.length; ++i) {
         var src = canonicalize(testSet[i]);

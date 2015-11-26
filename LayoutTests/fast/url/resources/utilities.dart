@@ -7,7 +7,7 @@ var lastID = 42;
 
 String canonicalize(String url) {
   var id = ++lastID;
-  document.body.appendHtml("<a id='$id' href='$url'></a>");
+  document.body.appendHtml("<a id='$id' href='$url'></a>", treeSanitizer: new NullTreeSanitizer());
   Element elem = document.getElementById(id.toString());
   String res = (elem as AnchorElement).href;
 //  print("'$url'=>'$res'");

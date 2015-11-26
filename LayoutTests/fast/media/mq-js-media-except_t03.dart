@@ -9,7 +9,6 @@
  * media query syntax error should be handled correctly (,,,,).
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -37,7 +36,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var styleSheet=document.styleSheets[document.styleSheets.length-1];
     var result=document.getElementById("result");
 

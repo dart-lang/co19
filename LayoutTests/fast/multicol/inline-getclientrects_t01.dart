@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -31,7 +31,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.attributes["style"]="margin-left:10px; margin-top:15px;";
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var rects = document.getElementById('elm').getClientRects();
     shouldBe(rects.length, 2);
     shouldBeTrue(rects[1].left > rects[0].left);

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion
  * @description client rect precision test
  */
 import "dart:html";
@@ -28,18 +28,18 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var testElement = document.getElementById('test');    
+    var testElement = document.getElementById('test');
     var rect = testElement.getBoundingClientRect();
     var width = rect.right - rect.left;
 
     shouldBe(width, 4.5, 'width');
     shouldBe(testElement.clientWidth, 4.5, 'testElement.clientWidth');
     shouldBe(testElement.offsetWidth, 4.5, 'testElement.offsetWidth');
-    
-    var height = rect.bottom - rect.top;    
+
+    var height = rect.bottom - rect.top;
     shouldBe(height, 4.5, 'height');
     shouldBe(testElement.clientHeight, 4.5, 'testElement.clientHeight');
     shouldBe(testElement.offsetHeight, 4.5, 'testElement.offsetHeight');

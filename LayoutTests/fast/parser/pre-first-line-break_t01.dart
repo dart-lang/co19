@@ -4,23 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
 
 void main() {
     description('Test for handling of line breaks following the pre element.');
-    
+
     var element = document.createElement("div");
-    
+
     void roundTrip(string) {
         element.setInnerHtml(string, treeSanitizer:new NullTreeSanitizer());
-        element.innerHtml = string;
         return element.innerHtml;
     }
-    
+
     shouldBe(roundTrip('<pre></pre>'), '<pre></pre>');
     shouldBe(roundTrip('<pre>\n</pre>'), '<pre></pre>');
     shouldBe(roundTrip('<pre>\n\n</pre>'), '<pre>\n</pre>');
@@ -31,7 +30,7 @@ void main() {
     shouldBe(roundTrip('<pre><a>\n</a></pre>'), '<pre><a>\n</a></pre>');
     shouldBe(roundTrip('<pre>\n<a></a></pre>'), '<pre><a></a></pre>');
     shouldBe(roundTrip('<pre>\n<a>\n</a></pre>'), '<pre><a>\n</a></pre>');
-    
+
     shouldBe(roundTrip('<listing></listing>'), '<listing></listing>');
     shouldBe(roundTrip('<listing>\n</listing>'), '<listing></listing>');
     shouldBe(roundTrip('<listing>\n\n</listing>'), '<listing>\n</listing>');
@@ -42,7 +41,7 @@ void main() {
     shouldBe(roundTrip('<listing><a>\n</a></listing>'), '<listing><a>\n</a></listing>');
     shouldBe(roundTrip('<listing>\n<a></a></listing>'), '<listing><a></a></listing>');
     shouldBe(roundTrip('<listing>\n<a>\n</a></listing>'), '<listing><a>\n</a></listing>');
-    
+
     shouldBe(roundTrip('<div></div>'), '<div></div>');
     shouldBe(roundTrip('<div>\n</div>'), '<div>\n</div>');
     shouldBe(roundTrip('<div>\n\n</div>'), '<div>\n\n</div>');
@@ -57,4 +56,3 @@ void main() {
     checkTestFailures();
 }
 
-    

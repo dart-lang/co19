@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "dart:math" as Math;
@@ -64,24 +64,24 @@ int cornerEllipseRightXIntercept(y, cx, rx, ry) {
 }
 
 void main() {
-    document.head.appendHtml(htmlEL1);
-    document.body.appendHtml(htmlEL2);
-    
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     shouldBe(elementRect('a').top, 0);
     shouldBe(elementRect('a').left, 0);
-    
+
     shouldBe(elementRect('b').top, 20);
     shouldBeCloseTo(elementRect('b').left, cornerEllipseRightXIntercept(40, 0, 100, 30), SubPixelLayout.resolution());
-    
+
     shouldBe(elementRect('c').top, 40);
     shouldBe(elementRect('c').left, 100);
-    
+
     shouldBe(elementRect('d').top, 60);
     shouldBe(elementRect('d').left, 100);
-    
+
     shouldBe(elementRect('e').top, 80);
     shouldBeCloseTo(elementRect('e').left, cornerEllipseRightXIntercept(40, 0, 100, 30), SubPixelLayout.resolution());
-    
+
     shouldBe(elementRect('f').top, 100);
     shouldBe(elementRect('f').left, 0);
 

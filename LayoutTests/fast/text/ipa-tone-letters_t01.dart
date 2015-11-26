@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "../../testharness.dart";
 
@@ -23,8 +23,8 @@ const String htmlEL2 = r'''
 
 var testStrings = ["\u02E5\u02E9", "\u02E9\u02E5", "\u02E7\u02E9",
                    "\u02E5\u02E7", "\u02E5\u02E7\u02E5"];
-                    
-bool testString(int i) {
+
+void testString(int i) {
     String s=testStrings[i];
     var fast = document.getElementById("fastPath");
     fast.firstChild.data = s;
@@ -44,6 +44,6 @@ void doTest(e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     window.onLoad.listen(doTest);
 }

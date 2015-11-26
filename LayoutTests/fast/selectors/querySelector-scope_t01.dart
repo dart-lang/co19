@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -20,8 +20,8 @@ const String htmlEL2 = r'''
 
 void main() {
     description('This test makes sure that :scope works correctly.');
-    document.body.appendHtml(htmlEL2);
-    
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     var scope = document.getElementById('scope');
     shouldBe(scope.querySelectorAll("ul a").length, 1);
     shouldBe(scope.querySelector("ul a"), scope.firstChild);
@@ -29,7 +29,7 @@ void main() {
     shouldBe(scope.querySelector(":scope ul a"), null);
     shouldBe(document.querySelectorAll(":scope ul a").length, 2);
     shouldBe(document.querySelectorAll(":root ul a").length, 2);
-    
+
     shouldBe(document.querySelectorAll(":scope a").length, 2);
     shouldBe(scope.querySelectorAll(":scope a").length, 1);
     shouldBe(scope.querySelectorAll(":scope a")[0], scope.firstChild);

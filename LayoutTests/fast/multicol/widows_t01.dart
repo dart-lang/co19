@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -24,8 +24,8 @@ const String htmlEL2 = r'''
 
 void main() {
     description("Test column balancer behavior when widows requirements are high, and there's need for an early break to honor widows");
-    document.body.appendHtml(htmlEL2);
-    
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+
     var mc=document.getElementById("mc");
     var inFirstColumn=document.getElementById("inFirstColumn");
     var first=document.getElementById("first");
@@ -35,6 +35,6 @@ void main() {
     shouldBe(first.offsetTop, inFirstColumn.offsetTop, "offsetTop");
     shouldBeTrue(first.offsetLeft > inFirstColumn.offsetLeft, "offsetLeft 1");
     shouldBe(last.offsetLeft, first.offsetLeft, "offsetLeft 2");
-    
+
     checkTestFailures();
 }

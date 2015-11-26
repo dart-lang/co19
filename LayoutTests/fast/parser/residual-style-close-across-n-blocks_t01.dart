@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
@@ -76,15 +76,15 @@ void runTest(e) {
     // Bug 12808 reduction:
     testParsing("<a href=\"#outside\"><p>Outside link.</p><div><div><a href=\"#inside\">Inside link.</a></div></div><p>After all links</p>",
                 "<a href=\"#outside\"><p>Outside link.</p></a><div><a href=\"#outside\"></a><div><a href=\"#outside\"></a><a href=\"#inside\">Inside link.</a></div></div><p>After all links</p>");
-    
+
     // Bug 12861 reduction:
     testParsing("<a href=\"http://webkit.org\"><div><h3><a href=\"about:blank\">This is a link.</a></h3>This is not a link under Firefox, but it is under Safari.",
                 "<a href=\"http://webkit.org\"></a><div><a href=\"http://webkit.org\"></a><h3><a href=\"http://webkit.org\"></a><a href=\"about:blank\">This is a link.</a></h3>This is not a link under Firefox, but it is under Safari.</div>");
-    
+
     checkTestFailures();
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
     window.onLoad.listen(runTest);
 }
