@@ -23,12 +23,12 @@ bar(x) => foo(x);
 main() {
   try {
     bar(new Error());
-  } on Error catch(e) {
+  } on Error catch (e) {
     Expect.isNotNull(e.stackTrace);
   }
   try {
     bar(new E());
-  } on Error catch(e) {
+  } on Error catch (e) {
     Expect.isNotNull(e.stackTrace);
   }
 }

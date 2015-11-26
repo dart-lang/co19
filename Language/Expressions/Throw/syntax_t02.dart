@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The throw expression is used to raise or re-raise an exception.
+ * @assertion The throw expression is used to raise an exception.
  * throwExpression:
  *   throw expression
  * ;
@@ -19,7 +19,7 @@
 
 main() {
   try {
-  } catch(e) {
+  } catch (e) {
     throw;
   }
 }

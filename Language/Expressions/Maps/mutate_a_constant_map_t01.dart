@@ -6,7 +6,8 @@
 /**
  * @assertion Attempting to mutate a constant map literal will result in
  * a dynamic error.
- * @description Checks that it is a run-time error to attempt to modify a constant map literal.
+ * @description Checks that it is a run-time error to attempt to modify a
+ * constant map literal.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -18,35 +19,35 @@ main() {
     b = false;
     (const {})["1"] = 2;
     b = true;
-  } catch(e) {}
-  if(b) Expect.fail("Exception is expected");
+  } catch (e) {}
+  if (b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {"k1": 1}).remove("k1");
     b = true;
-  } catch(e) {}
-  if(b) Expect.fail("Exception is expected");
+  } catch (e) {}
+  if (b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {"k1": 1})["k1"] = 0;
     b = true;
-  } catch(e) {}
-  if(b) Expect.fail("Exception is expected");
+  } catch (e) {}
+  if (b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {"k1" : 1, "k2": false}).clear();
     b = true;
-  } catch(e) {}
-  if(b) Expect.fail("Exception is expected");
+  } catch (e) {}
+  if (b) Expect.fail("Exception is expected");
 
   try {
     b = false;
     (const {}).clear();
     Expect.fail("Exception is expected");
     b = true;
-  } catch(e) {}
-  if(b) Expect.fail("Exception is expected");
+  } catch (e) {}
+  if (b) Expect.fail("Exception is expected");
 }

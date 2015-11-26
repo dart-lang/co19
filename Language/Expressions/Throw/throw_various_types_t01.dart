@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion There is no requirement that the expression e evaluate to a special
- * kind of exception or error object.
+ * @assertion There is no requirement that the expression e evaluate to a
+ * special kind of exception or error object.
  * @description Checks that values of various types can be thrown.
  * @author kaigorodov
  * @reviewer rodionov
@@ -16,21 +16,21 @@ main() {
   var last = -1;
   try {
     throw last;
-  } catch(e) {
+  } catch (e) {
     Expect.equals(last, e);
   }
 
-  last = {"1" : 1, "2" : 2, "3" : 3, "4" : 4};
+  last = {"1": 1, "2": 2, "3": 3, "4": 4};
   try {
     throw last;
-  } catch(e) {
+  } catch (e) {
     Expect.equals(last, e);
   }
 
   last = () => null;
   try {
     throw last;
-  } catch(e) {
+  } catch (e) {
     Expect.equals(last, e);
   }
 }

@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The throw expression is used to raise or re-raise an exception.
+ * @assertion The throw expression is used to raise an exception.
  * throwExpression:
  *   throw expression
  * ;
  * throwExpressionWithoutCascade:
  *   throw expressionWithoutCascade
  * ;
- * @description Checks the throw expression can be used on the right-hand side 
+ * @description Checks the throw expression can be used on the right-hand side
  * of a conditional expression.
  * @author kaigorodov
  * @reviewer rodionov
@@ -21,5 +21,5 @@ main() {
   var p;
   try {
     var x = p == null ? throw "fail" : p;
-  } catch(e) { }
+  } catch (e) { }
 }

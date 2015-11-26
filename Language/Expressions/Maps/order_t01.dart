@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A map literal is ordered: iterating over the keys and/or values of the maps
- * always happens in the order the keys appeared in the source code.
+ * @assertion A map literal is ordered: iterating over the keys and/or values
+ * of the maps always happens in the order the keys appeared in the source
+ * code.
  * @description Checks that a map literal is ordered.
  * @static-warning
  * @author msyabro
@@ -23,25 +24,25 @@ func(var k, var v) {
 
 main() {
   //runtime map
-  orderKeys = ""; 
+  orderKeys = "";
   orderValues = "";
-  var m = {"1" : 1, "2" : 2, "3" : 3, "4" : 4};
+  var m = {"1": 1, "2": 2, "3": 3, "4": 4};
   m.forEach(func);
   Expect.equals("1234", orderKeys);
   Expect.equals("1234", orderValues);
 
   //repeating keys
-  orderKeys = ""; 
+  orderKeys = "";
   orderValues = "";
-  m = {"5" : 5, "2" : 2, "3" : 3, "4" : 4, "5" : 1}; /// static type warning 
+  m = {"5": 5, "2": 2, "3": 3, "4": 4, "5": 1}; /// static type warning
   m.forEach(func);
   Expect.equals("5234", orderKeys);
   Expect.equals("1234", orderValues);
 
   //constant map
-  orderKeys = ""; 
+  orderKeys = "";
   orderValues = "";
-  m = const {"1" : 1, "2" : 2, "3" : 3, "4" : 4, "5" : 5};
+  m = const {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5};
   m.forEach(func);
   Expect.equals("12345", orderKeys);
   Expect.equals("12345", orderValues);

@@ -6,7 +6,8 @@
 /**
  * @assertion It is a compile-time error if either a key or a value of an
  * entry in a constant map literal is not a compile-time constant.
- * @description Checks that there is no compile-time error if the key is constant list.
+ * @description Checks that there is no compile-time error if the key is a
+ * constant list.
  * @author hlodvig
  */
 

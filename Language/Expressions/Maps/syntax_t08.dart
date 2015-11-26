@@ -6,13 +6,14 @@
 /**
  * @assertion A map literal denotes a map object.
  * mapLiteral:
- *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)? '}'
+ *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)?
+ *   '}'
  * ;
  * mapLiteralEntry:
  *   expression ':' expression
  * ;
- * A map literal consists of zero or more entries.  Each entry has a key and a value.
- * Each key and each value is denoted by an expression.
+ * A map literal consists of zero or more entries. Each entry has a key and a
+ * value. Each key and each value is denoted by an expression.
  * @description Checks that it is a compile-time error if a map literal
  * does not end with '}'.
  * @compile-error
@@ -23,5 +24,5 @@
 main() {
   try {
     var x = {"key1": true, "key2":false;
-  } catch(e) {}
+  } catch (e) {}
 }
