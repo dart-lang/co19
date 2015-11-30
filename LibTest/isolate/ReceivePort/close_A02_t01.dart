@@ -8,26 +8,28 @@
  * If the stream has already been canceled this method has no effect.
  * @description Checks multiple invocation of [close].
  * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 
+import 'dart:async';
 import "dart:isolate";
-import "../../../Utils/expect.dart";
-
-ReceivePort receivePort = new ReceivePort();
-
-void receiveHandler(var message) {
-  Expect.fail("Unexpected message: $message");
-}
+import '../../../Utils/async_utils.dart';
 
 void iMain(SendPort replyPort) {
   replyPort.send("message");
 }
 
 main() {
+  asyncStart();
+  ReceivePort receivePort = new ReceivePort();
   var sendPort=receivePort.sendPort;
-  receivePort.listen(receiveHandler);
-  for (int k=0; k<10; k++) {
-    receivePort.close();
-  }
-  Isolate.spawn(iMain, sendPort);
+  Future.wait([Isolate.spawn(iMain, sendPort), receivePort.first]).then(
+      (v) => receivePort.close()
+  ).then(
+      (v) => receivePort.close()
+  ).then(
+      (v) => receivePort.close()
+  ).then(
+      (v) => asyncEnd()
+  );
 }

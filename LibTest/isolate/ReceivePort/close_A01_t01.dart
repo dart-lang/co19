@@ -10,24 +10,39 @@
  * and discards any further incoming messages.
  * @description Checks that messages are not processed when the port is closed.
  * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:isolate";
 import "../../../Utils/expect.dart";
+import '../../../Utils/async_utils.dart';
 
-ReceivePort receivePort = new ReceivePort();
+List receivedMessages = [];
 
 void receiveHandler(var message) {
-  Expect.fail("Unexpected message: $message");
+  receivedMessages.add(message);
 }
 
 void iMain(SendPort replyPort) {
-  replyPort.send("message");
+  replyPort.send("message1");
+  replyPort.send("message2");
 }
 
 main() {
-  var sendPort=receivePort.sendPort;
-  receivePort.listen(receiveHandler);
-  receivePort.close();
-  Isolate.spawn(iMain, sendPort);
+  asyncStart();
+  ReceivePort closedPort = new ReceivePort();
+  SendPort sendPort=closedPort.sendPort;
+  closedPort.listen(receiveHandler);
+  closedPort.close();
+
+  Isolate.spawn(iMain, sendPort).then(
+      // give some time for messages to be delivered
+      (v) => new Future.delayed(new Duration(microseconds: 500))
+  ).then(
+      (v) {
+        Expect.listEquals([], receivedMessages,
+            'Unexpected messages are received');
+        asyncEnd();
+      }
+  );
 }
