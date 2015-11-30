@@ -5,9 +5,10 @@
  */
 /**
  * @assertion
- * @description Test for <a href="http://bugs.webkit.org/show_bug.cgi?id=12602">bug 12602</a>: 
+ * @description Test for <a href="http://bugs.webkit.org/show_bug.cgi?id=12602">bug 12602</a>:
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL = r'''
@@ -16,8 +17,8 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
+    XPathEvaluator evaluator = new XPathEvaluator();
 
     var tests = [
           "//div[string() = '123']"
