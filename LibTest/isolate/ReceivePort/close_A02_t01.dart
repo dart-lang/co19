@@ -22,7 +22,7 @@ void iMain(SendPort replyPort) {
 main() {
   asyncStart();
   ReceivePort receivePort = new ReceivePort();
-  var sendPort=receivePort.sendPort;
+  var sendPort = receivePort.sendPort;
   Future.wait([Isolate.spawn(iMain, sendPort), receivePort.first]).then(
       (v) => receivePort.close()
   ).then(

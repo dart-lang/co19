@@ -31,7 +31,7 @@ void iMain(SendPort replyPort) {
 main() {
   asyncStart();
   ReceivePort closedPort = new ReceivePort();
-  SendPort sendPort=closedPort.sendPort;
+  SendPort sendPort = closedPort.sendPort;
   closedPort.listen(receiveHandler);
   closedPort.close();
 
