@@ -4,15 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function literal is an object that encapsulates an executable unit of code.
+ * @assertion A function literal is an object that encapsulates an executable
+ * unit of code.
  * functionExpression:
  *   formalParameterList functionExpressionBody
  * ;
- * functionExpressionBody:
- *   '=>' expression
- *   | block
- * ;
- * @description Checks that identifier can be omitted as long as the return type is omitted as well.
+ * @description Checks that identifier can be omitted as long as the return
+ * type is omitted as well.
  * @author msyabro
  * @reviewer kaigorodov
  */

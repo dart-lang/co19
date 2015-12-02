@@ -4,16 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function literal is an object that encapsulates an executable unit of code.
+ * @assertion A function literal is an object that encapsulates an executable
+ * unit of code.
  * functionExpression:
  *   formalParameterList functionExpressionBody
  * ;
- * functionExpressionBody:
- *   '=>' expression
- *   | block
- * ;
- * @description Checks that various valid function literal invocation expressions 
- * don't produce compile-time errors.
+ * @description Checks that various valid function literal invocation
+ * expressions don't produce compile-time errors.
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -33,5 +30,5 @@ main() {
   (tf p1, tf p2, [tf p3]) => null();
   try {
     ((tf p1, tf p2, [tf p3]) => null())(null, null); //null() is parsed as a closure invocation
-  } catch(x){}
+  } catch (x) {}
 }

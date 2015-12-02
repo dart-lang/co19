@@ -4,15 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function literal is an object that encapsulates an executable unit of code.
+ * @assertion A function literal is an object that encapsulates an executable
+ * unit of code.
  * functionExpression:
  *   formalParameterList functionExpressionBody
  * ;
- * functionExpressionBody:
- *   '=>' expression
- *   | block
- * ;
- * @description Checks that expression is necessary in the form ['=>' expression ';']
+ * @description Checks that expression is necessary in the form
+ * ['=>' expression ';']
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
@@ -21,9 +19,9 @@
 f(var func) {
   return func();
 }
- 
+
 main() {
   try {
     f(void func() =>);
-  } catch(x){}
+  } catch (x) {}
 }
