@@ -13,23 +13,21 @@
  * It is a static warning if there is no class C in the enclosing lexical scope
  * of i, or if C does not declare, implicitly or explicitly, a getter named m. The
  * static type of i is the declared return type of C.m if it exists or dynamic otherwise.
- * @description Checks that static getter m is invoked when evaluating a getter invocation C.m.
+ * @description Checks that it is a static type warning if C does not declare, explicitly
+ * or implicitly, a getter with the appropriate name and that such code results in a
+ * NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../Utils/expect.dart';
-
-class TestException {}
+import '../../../../Utils/expect.dart';
 
 class C {
-  static get m {
-    throw new TestException();
-  }
 }
 
 main()  {
   try {
-    C.m;
-    Expect.fail("TestException is expected");
-  }  on TestException catch(e) {}
+    C.getter; /// static type warning
+    Expect.fail("NoSuchMethodError expected");
+  } on NoSuchMethodError catch(ok) {}
 }

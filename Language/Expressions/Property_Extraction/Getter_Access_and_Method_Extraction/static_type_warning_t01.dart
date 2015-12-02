@@ -20,5 +20,5 @@ class C {
 
 main() {
   C c = new C();
-  Expect.throws(() { c.m; });
+  Expect.throws(() { c.m; }); /// static type warning
 }

@@ -9,31 +9,31 @@
  * m is looked up in o with respect to the current library, and its body is
  * executed with this bound to o. The value of the getter invocation expression is
  * the result returned by the call to the getter function.
- * @description Checks that a setter body is executed with [:this:] bound to o.
+ * @description Checks that a getter body is executed with [:this:] bound to o.
  * @author msyabro
  * @reviewer rodionov
- * @note setters not mentioned in this particular assertion, but it is in others around it
- * so this omission might be accidental.
  */
-import '../../../Utils/expect.dart';
+import '../../../../Utils/expect.dart';
 
 class TestException {}
 
 class C {
-  C(this.exception);
-  
-  set v(val) {throw exception;}
-  
   var exception;
+
+  C(this.exception);
+
+  get v {
+    throw exception;
+  }
 }
 
 main()  {
   TestException te = new TestException();
   var o = new C(te);
   try {
-    o.v = 1;
+    o.v;
     Expect.fail("TestException is expected");
-  }  on TestException catch(e) {
+  } on TestException catch (e) {
     Expect.identical(te, e);
   }
 }

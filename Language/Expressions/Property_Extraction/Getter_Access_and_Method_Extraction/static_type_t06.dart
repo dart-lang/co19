@@ -4,15 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of a getter invocation i of the form C.m proceeds as follows:
- * If there is no class C in the enclosing lexical scope of i, or if C does not
- * declare, implicitly or explicitly, a getter named m, then a NoSuchMethodError
- * is thrown.
- * Otherwise, the getter function C.m is invoked. The value of i is the result returned by
- * the call to the getter function.
- * It is a static warning if there is no class C in the enclosing lexical scope
- * of i, or if C does not declare, implicitly or explicitly, a getter named m. The
- * static type of i is the declared return type of C.m if it exists or dynamic otherwise.
+ * @assertion The static type of i is:
+ * • The declared return type of T.m, if T has an accessible instance getter
+ * named m.
+ * • The declared return type of m, if T is Type, e is a constant type literal
+ * and the class corresponding to e declares an accessible static getter
+ * named m.
+ * • The static type of function T.m if T has an accessible instance method
+ * named m.
+ * • The static type of function m, if T is Type, e is a constant type literal
+ * and the class corresponding to e declares an accessible static method named
+ * m.
+ * • The type dynamic otherwise.
  * @description Checks that the static type of a getter invocation expression
  * of the form C.m is the declared return type of the getter.
  * @static-clean

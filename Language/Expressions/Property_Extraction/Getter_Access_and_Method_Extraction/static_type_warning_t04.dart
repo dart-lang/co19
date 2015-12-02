@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let T be the static type of e. It is a static type warning if T does not have
- * a getter named m.
- * @description Checks that it is a static type warning if T does not have a setter named m.
+ * @assertion Evaluation of a property extraction i of the form e.m proceeds
+ * as follows: ...
+ * Let T be the static type of e. It is a static type warning if T does not
+ * have a method or getter named m
+ * @description Checks that it is a static type warning if T does not have a
+ * setter (method named m=) named m.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
