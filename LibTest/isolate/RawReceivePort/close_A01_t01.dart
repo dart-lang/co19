@@ -9,15 +9,20 @@
  * After a call to this method any incoming message is silently dropped.
  * @description Checks that after closing, messages are dropped silently.
  * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 
+import 'dart:async';
 import "dart:isolate";
 import "../../../Utils/expect.dart";
+import '../../../Utils/async_utils.dart';
+
+List receivedMessages = [];
 
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);
 
 void receiveHandler(var message) {
-  Expect.fail("Unexpected message: $message");
+  receivedMessages.add(message);
 }
 
 void iMain(SendPort replyPort) {
@@ -25,7 +30,17 @@ void iMain(SendPort replyPort) {
 }
 
 main() {
-  var sendPort=receivePort.sendPort;
+  asyncStart();
+  var sendPort = receivePort.sendPort;
   receivePort.close();
-  Isolate.spawn(iMain, sendPort);
+  Isolate.spawn(iMain, sendPort).then(
+      // give some time for messages to be delivered
+      (v) => new Future.delayed(new Duration(milliseconds: 500))
+  ).then(
+      (v) {
+        Expect.listEquals([], receivedMessages,
+          'Unexpected messages are received');
+        asyncEnd();
+      }
+  );
 }
