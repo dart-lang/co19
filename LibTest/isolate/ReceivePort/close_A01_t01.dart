@@ -13,6 +13,7 @@
  * @author a.semenov@unipro.ru
  */
 
+import 'dart:async';
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import '../../../Utils/async_utils.dart';
@@ -37,7 +38,7 @@ main() {
 
   Isolate.spawn(iMain, sendPort).then(
       // give some time for messages to be delivered
-      (v) => new Future.delayed(new Duration(microseconds: 500))
+      (v) => new Future.delayed(new Duration(milliseconds: 500))
   ).then(
       (v) {
         Expect.listEquals([], receivedMessages,
