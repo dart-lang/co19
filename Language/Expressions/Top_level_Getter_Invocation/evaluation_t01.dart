@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of a top-level getter invocation i of the form m, where m is an
- * identifier, proceeds as follows:
+ * @assertion Evaluation of a top-level getter invocation i of the form m,
+ * where m is an identifier, proceeds as follows:
  * The getter function m is invoked. The value of i is the result returned by
  * the call to the getter function.
- * The static type of i is the declared return type of m.
  * @description Checks that a getter function m is invoked
  * when evaluating a top-level getter invocation of the form m.
  * @author msyabro
