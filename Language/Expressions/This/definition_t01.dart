@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The reserved word this denotes the target of the current instance member
- * invocation.
- * @description Checks that word this cannot be used to declare a variable.
+ * @assertion The reserved word this denotes the target of the current instance
+ * member invocation.
+ *   thisExpression:
+ *     this
+ *   ;
+ * @description Checks that word 'this' cannot be used to declare a variable.
  * @author hlodvig
  * @compile-error
  * @reviewer kaigorodov
@@ -15,5 +18,5 @@
 main() {
   try {
     var this;
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of this is the interface of the immediately enclosing class.
- * @description Checks that type of this is the class itself.
+ * @assertion The static type of this is the interface of the immediately
+ * enclosing class.
+ * @description Checks that type of 'this' is the class itself.
  * @static-clean
  * @author hlodvig
  * @reviewer kaigorodov
  */
 
 class A {
-  A getSelf(){
+  A getSelf() {
     return this;
   }
 }
 class B {
-  B getSelf(){
+  B getSelf() {
     return this;
   }
 }

@@ -4,22 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The reserved word this denotes the target of the current instance member
- * invocation.
- * @description Checks that word this cannot be used to declare an abstract class.
- * @author hlodvig
+ * @assertion The reserved word this denotes the target of the current instance
+ * member invocation.
+ *   thisExpression:
+ *     this
+ *   ;
+ * @description Checks that word 'this' cannot be used to declare an abstract
+ * class.
  * @compile-error
+ * @author hlodvig
  * @reviewer kaigorodov
  */
 
-abstract class this{
+abstract class this {
 }
 
-class A implements this{
+class A implements this {
 }
 
 main() {
   try {
     new A();
-  } catch(e) {}
+  } catch (e) {}
 }

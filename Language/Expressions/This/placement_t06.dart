@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if this appears in a top-level function
- * or variable initializer, in a factory constructor, or in a static method or
- * variable initializer, or in the initializer of an instance variable.
- * @description Checks that it is a compile-error if this appears in a static method.
+ * @assertion It is a compile-time error if this appears in a top-level
+ * function or variable initializer, in a factory constructor, or in a static
+ * method or variable initializer, or in the initializer of an instance
+ * variable.
+ * @description Checks that it is a compile-error if 'this' appears in a static
+ * method.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -20,5 +22,5 @@ class C {
 main() {
   try {
     print(C.method());
-  } catch(e) {}
+  } catch (e) {}
 }

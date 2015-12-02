@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The reserved word this denotes the target of the current instance member
- * invocation.
- * @description Checks that this denotes instance target.
+ * @assertion The reserved word this denotes the target of the current instance
+ * member invocation.
+ *   thisExpression:
+ *     this
+ *   ;
+ * @description Checks that 'this' denotes instance target.
  * @author hlodvig
  * @reviewer kaigorodov
  */
@@ -14,7 +17,7 @@ import '../../../Utils/expect.dart';
 
 class A{
   int x = 5;
-  
+
   A getSelf(){
     return this;
   }
@@ -30,7 +33,7 @@ main() {
   a.x = 1;
   Expect.equals(1, a.x);
   Expect.equals(1, a.getSelf().x);
-  
+
   a.getSelf().x = 2;
   Expect.equals(2, a.x);
   Expect.equals(2, a.getSelf().x);

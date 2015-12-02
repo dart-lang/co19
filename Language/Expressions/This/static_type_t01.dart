@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static type of this is the interface of the immediately enclosing class.
- * @description Checks that the static type of this is not assignment compatible with another class.
+ * @assertion The static type of this is the interface of the immediately
+ * enclosing class.
+ * @description Checks that the static type of 'this' is not assignment
+ * compatible with another class.
  * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
@@ -21,6 +23,6 @@ class B {
 
 main() {
   checkTypeError(() {
-    A a=new B().func(); /// static type warning
+    A a = new B().func(); /// static type warning
   });
 }
