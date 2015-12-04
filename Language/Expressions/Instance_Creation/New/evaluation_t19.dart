@@ -17,18 +17,14 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description  Checks that dynamic error occurs if T is type variable.
- * @static-warning
- * @author ilya
+ * @description Checks if T is a deferred type with prefix p, and p has not
+ * been loaded, a dynamic error occurs.
+ * @author ngl@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
-class C<T> {
-   test() => new T();
-}
+import 'evaluation_t06_lib.dart' deferred as p;
 
 main() {
-  var c = new C<String>();
-
-  Expect.throws(() => c.test());
+  Expect.throws(() {new p.C();}, (e) => e is TypeError);
 }

@@ -7,5 +7,7 @@
 library evaluation_t06_lib;
 
 class C {
-  C._inaccessibleConstructor(){}
+  C() {}
+  C._inaccessibleConstructor() {}
+  C.accessibleConstructor() {}
 }

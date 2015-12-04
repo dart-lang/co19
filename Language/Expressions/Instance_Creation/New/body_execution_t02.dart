@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Then, the body of q is executed with respect to the bindings that
- * resulted from the evaluation of the argument list and the type parameters (if
- * any) of q bound to the actual type arguments V1, ..., Vm resulting in an object i.
- * The result of the evaluation of e is i.
+ * @assertion Otherwise, the body of q is executed with respect to the bindings
+ * that resulted from the evaluation of the argument list and the type
+ * parameters (if any) of q bound to the actual type arguments V1, ..., Vl
+ * resulting in an object i. The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly.
  * @author msyabro
  * @reviewer rodionov
@@ -20,7 +20,7 @@ var p2;
 var p3;
 
 abstract class I1<T, U, V> {
-  factory I1(){
+  factory I1() {
     return new A<T, U, V>();
   }
 }

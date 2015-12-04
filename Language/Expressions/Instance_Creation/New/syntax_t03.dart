@@ -22,5 +22,5 @@ class A {
 main() {
   try {
     new ();
-  } catch(e) {}
+  } catch (e) {}
 }

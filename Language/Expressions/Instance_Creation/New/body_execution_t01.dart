@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Then, the body of q is executed with respect to the bindings that
- * resulted from the evaluation of the argument list and the type parameters (if
- * any) of q bound to the actual type arguments V1, ..., Vm resulting in an object i.
- * The result of the evaluation of e is i.
- * @description Checks that arguments of a constructor and instance variables are
- * bound correctly.
+ * @assertion Otherwise, the body of q is executed with respect to the bindings
+ * that resulted from the evaluation of the argument list and the type
+ * parameters (if any) of q bound to the actual type arguments V1, ..., Vl
+ * resulting in an object i. The result of the evaluation of e is i.
+ * @description Checks that arguments of a constructor and instance variables
+ * are bound correctly.
  * @author msyabro
  * @reviewer rodionov
  */

@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Next, q is executed with this bound to i, the type parameters (if any)
- * of R bound to the actual type arguments V1, ..., Vm and the formal parameter
- * bindings that resulted from the evaluation of the argument list. The result of
- * the evaluation of e is i.
+ * @assertion Next, q is executed with this bound to i, the type parameters
+ * (if any) of R bound to the actual type arguments V1, ..., Vm and the formal
+ * parameter bindings that resulted from the evaluation of the argument list.
+ * The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly when evaluating
  * the initializer list of a redirected constructor.
  * @author msyabro
@@ -23,7 +23,7 @@ var p3;
 
 class A<T, U, V> {
   A() : this.redirected();
-  
+
   A.redirected(): x = p1, y = p2, z = p3 {
     Expect.equals(1, x);
     Expect.equals("", y);
@@ -31,7 +31,7 @@ class A<T, U, V> {
     Expect.identical(p3, z);
     Expect.isTrue(z is D);
   }
-  
+
   T x;
   U y;
   V z;
@@ -39,7 +39,7 @@ class A<T, U, V> {
 
 class B <T extends A> {
   B() : this.redirected();
-  
+
   B.redirected(): t = new A() {
     Expect.isNotNull(t);
     Expect.isTrue(t is A);
@@ -50,7 +50,7 @@ class B <T extends A> {
 
 class C<T, U> {
   C.name() : this.redirected();
-  
+
   C.redirected(): a = p1, b = p3 {
     Expect.equals(p1, a);
     Expect.identical(p3, b);

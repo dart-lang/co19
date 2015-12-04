@@ -5,11 +5,11 @@
  */
 /**
  * @assertion If q is a redirecting factory constructor of the form
- * T(p1, ..., pn+k ) = c; or of the form T.id(p1, ..., pn+k ) = c;
- * then the result of the evaluation of e is equivalent to evaluating the expression
- * [V1, ..., Vm /T1, ..., Tm ](new c(a1, ..., an, xn+1:an+1, ..., xn+k: an+k )).
- * @description Checks that evaluation of redirecting factory constructor is equivalent to 
- * evaluation of the constructor it's redirecting to.
+ * T(p1, ..., pn+k ) = c; or of the form T.id(p1, ..., pn+k ) = c; then the
+ * result of the evaluation of e is equivalent to evaluating the expression
+ * [V1, ..., Vm/T1, ..., Tm ](new c(a1, ..., an, xn+1: an+1, ..., xn+k: an+k)).
+ * @description Checks that evaluation of redirecting factory constructor is
+ * equivalent to evaluation of the constructor it's redirecting to.
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -21,10 +21,10 @@ class R<T> {
 
 class C<T> implements R<T> {
    T value;
-   
+
    C(this.value) {}
-   
-   int get hashCode { 
+
+   int get hashCode {
      return value.hashCode;
    }
 

@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Next, q is executed with this bound to i, the type parameters (if any)
- * of R bound to the actual type arguments V1, ..., Vm and the formal parameter
- * bindings that resulted from the evaluation of the argument list. The result of
- * the evaluation of e is i.
+ * @assertion Next, q is executed with this bound to i, the type parameters
+ * (if any) of R bound to the actual type arguments V1, ..., Vm and the formal
+ * parameter bindings that resulted from the evaluation of the argument list.
+ * The result of the evaluation of e is i.
  * @description Checks the order of a new expression evaluation
  * taking into account the evaluation of the super constructor:
  * first the argument list of class C is evaluated, then the argument list
@@ -29,7 +29,7 @@ class A {
     evalOrder = '$evalOrder$arg';
     return arg + 1;
   }
-  
+
   logAndAdd3(arg) {
     evalOrder = '$evalOrder$arg';
     return arg + 3;
