@@ -60,10 +60,9 @@ ReceivePort fromFuture(Future content) {
   return receivePort;
 }
 
-ReceivePort fromIterable(Iterable content) {
+ReceivePort fromIterable(Iterable content, {onDone(): null}) {
   ReceivePort receivePort = new ReceivePort();
   ReceivePort receivePort2 = new ReceivePort();
-  Isolate.spawn(iMain, [receivePort.sendPort, receivePort2.sendPort]);
   receivePort2.listen((portList){
     if (portList!=null) {
       SendPort sendPort=portList[0];
@@ -78,7 +77,11 @@ ReceivePort fromIterable(Iterable content) {
  //     print("receivePort.close()");
       receivePort.close();
       receivePort2.close();
+      if (onDone!=null){
+        onDone();
+      }
     }
-  }); 
+  });
+  Isolate.spawn(iMain, [receivePort.sendPort, receivePort2.sendPort]);
   return receivePort;
 }

@@ -15,6 +15,7 @@
  * gets its subscribers and if subscription to underlying stream is cancelled
  * in this callback, no onData events will be fired.
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
@@ -22,22 +23,33 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-main() {
-  var s = IsolateStream.fromIterable([0,1,2,3]);
+List receivedEvents = [];
+bool cancelOk = true;
 
-  asyncStart();
-
-  var b = s.asBroadcastStream(onListen: (subs) {
-    subs.cancel();
+void finish() {
+  new Future.delayed(new Duration(milliseconds: 500), (){
+    // give some time for events to be delivered
+    if (!cancelOk) {
+      Expect.listEquals([], receivedEvents, "Received unexpected events");
+    }
     asyncEnd();
-  });
-
-  b.listen((_) {
-    Expect.fail('unexpected onData event');
-  });
-  
-  b.listen((_) {
-    Expect.fail('unexpected onData event');
   });
 }
 
+
+main() {
+  asyncStart();
+  var s = IsolateStream.fromIterable([0,1,2,3], onDone:finish);
+
+  Stream b = s.asBroadcastStream(onListen: (subs) {
+    cancelOk = (subs.cancel()==null) && cancelOk;
+  });
+
+  b.listen((e) {
+    receivedEvents.add(e);
+  });
+
+  b.listen((e) {
+    receivedEvents.add(e);
+  });
+}

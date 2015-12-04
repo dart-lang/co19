@@ -16,16 +16,19 @@
  */
 
 import "dart:async";
+import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  Stream s1=IsolateStream.fromIterable([]);
+  ReceivePort s1=new ReceivePort();
   Stream s2=s1.asBroadcastStream();
   Stream s3=s2.asBroadcastStream();
-  
-  Expect.isFalse(s1.isBroadcast);
-  Expect.isTrue(s2.isBroadcast);
-  Expect.isTrue(s3.isBroadcast);
+  try {
+    Expect.isFalse(s1.isBroadcast);
+    Expect.isTrue(s2.isBroadcast);
+    Expect.isTrue(s3.isBroadcast);
+  } finally {
+    s1.close();
+  }
 }
 
