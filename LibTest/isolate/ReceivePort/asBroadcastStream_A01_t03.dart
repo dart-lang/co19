@@ -13,6 +13,7 @@
  * @description Checks that if the only subscription to broadcast stream cancel,
  * broadcast stream unsubscribes from underlying stream.
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
@@ -21,23 +22,33 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
+var cancelResult;
+List receivedData = [];
+bool onDoneCalled = false;
+
+void finish() {
+  if (cancelResult==null) {
+    Expect.listEquals([0], receivedData);
+    Expect.isFalse(onDoneCalled);
+  }
+  asyncEnd();
+}
+
 main() {
-  var s = IsolateStream.fromIterable([0,1,2,3]);
-  var b = s.asBroadcastStream();
-  
   asyncStart();
+
+  var s = IsolateStream.fromIterable([0,1,2,3], onDone: finish);
+  var b = s.asBroadcastStream();
 
   StreamSubscription subs = b.listen(null);
 
   subs.onData((i) {
-    if (i>0) {
-      Expect.fail('Subscription is still alive');
-    }
-    subs.cancel();
-    asyncEnd();
+    receivedData.add(i);
+    cancelResult = subs.cancel();
   });
+
   subs.onDone(() {
-    Expect.fail('onDone event after cancel');
+    onDoneCalled = true;
   });
 }
 
