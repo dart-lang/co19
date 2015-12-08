@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Given an instance creation expression of the form const q(a1, ..., an) it is
- * a static warning if q is a constructor of an abstract class but q is not a
- * factory constructor.
- * @description Checks that an instance creation expression of the form const T.id(a1, .., an),
- * where T is a class containing an abstract method, produces a static warning.
+ * @assertion Given an instance creation expression of the form
+ * const q(a1, ..., an) it is a static warning if q is a constructor of an
+ * abstract class but q is not a factory constructor.
+ * @description Checks that an instance creation expression of the form const
+ * T.id(a1, .., an), where T is a class containing an abstract method,
+ * produces a static warning.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
-class A { /// static type warning - abstract member in a concrete class, see "Abstract instance members"
+class A {
   const A.id();
-  f();
+  f(); /// static type warning - abstract member in a concrete class, see "Abstract instance members"
 }
 
 main() {

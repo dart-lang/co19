@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If e is of the form const T.id(a1, .., an, xn+1: an+1, …, xn+k: an+k)
- * It is a compile-time error if T.id is not the name of a constant constructor declared
- * by the type T.
+ * @assertion If e is of the form
+ * const T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) it is a compile-time
+ * error if T.id is not the name of a constant constructor declared by the
+ * type T.
  * @description Checks that it is a compile-time error if T.id
  * is not a name of any constructor declared by the type T.
  * @compile-error
@@ -19,5 +20,5 @@ class  A {}
 main() {
   try {
     const A.nonexistentConstructor();
-  } catch(e) {}
+  } catch (e) {}
 }

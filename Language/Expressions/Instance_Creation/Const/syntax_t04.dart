@@ -8,8 +8,8 @@
  * constObjectExpression:
  *   const type ('.' identifier)? arguments
  * ;
- * @description Checks that it is a compile-time error if
- * the identifier of a named constructor in a constant object expression is empty.
+ * @description Checks that it is a compile-time error if the identifier of a
+ * named constructor in a constant object expression is empty.
  * @compile-error
  * @author msyabro
  * @reviewer rodionov
@@ -22,5 +22,5 @@ class A {
 main() {
   try {
     const A.();
-  } catch(e) {}
+  } catch (e) {}
 }

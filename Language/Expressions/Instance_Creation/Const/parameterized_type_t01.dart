@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Let e be a constant object expression of the form
- * const T.id(a1, .., an, xn+1: an+1, …, xn+k: an+k) or the form
- * const T(a1, .., an, xn+1: an+1, …, xn+k: an+k).
+ * const T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) or the form
+ * const T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
  * If T is a parameterized type, it is a compile-time error if T includes
  * a type variable among its type arguments.
  * @description Checks that it is a compile-time error if T
@@ -29,5 +29,5 @@ class A<T> {
 main() {
   try {
     new A<int>().test();
-  } catch(e) {}
+  } catch (e) {}
 }

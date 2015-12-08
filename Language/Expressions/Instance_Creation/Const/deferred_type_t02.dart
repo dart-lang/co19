@@ -4,23 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
+/**
  * @assertion Let e be a constant object expression of the form
  * const T.id(a1, .., an, xn+1: an+1, ..., xn+k: an+k) or the form
- * const T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k). It is a compile-time
- * error if T does not denote a class accessible in the current scope.
- * @description Checks that it is a compile-time error if T is a reference to
- * a static method.
- * @compile-error
- * @author msyabro
- * @reviewer iefremov
+ * const T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
+ * . . .
+ * It is a compile-time error if T is a deferred type.
  */
-
-class A {
-  static method() {}
-}
+ * @description Checks that it is a compile-time error if a constant object
+ * expression of the form const prefix.T.id() is used and T is a deferred type.
+ * @compile-error
+ * @author ngl@unipro.ru
+ */
+import 'deferred_type_lib.dart' deferred as lb;
 
 main() {
-  try {
-    const A.method();
-  } catch (e) {}
+    const lb.C.n()();
 }

@@ -22,5 +22,5 @@ class A {
 main() {
   try {
     const ();
-  } catch(e) {}
+  } catch (e) {}
 }
