@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Function invocation involves evaluation of the list of actual arguments to the
- * function and binding of the results to the functions formal parameters.
+ * @assertion Function invocation involves evaluation of the list of actual
+ * arguments to the function and binding of the results to the functions
+ * formal parameters.
  * arguments:
  *   '(' argumentList? ')'
  * ;
@@ -16,8 +17,8 @@
  * namedArgument:
  *   label expression
  * ;
- * @description Checks that various arguments which fit into the grammar don't
- * cause compile-time errors.
+ * @description Checks that various arguments which fit into the grammar
+ * don't cause compile-time errors.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -45,7 +46,7 @@ main() {
   bothParameters(true, name: {"key1": 1, "key2": 2});
 
   //functionExpressions
-  positionalParameters(()=>[], (){}, (param) {});
+  positionalParameters(()=>[], () {}, (param) {});
   namedParameters($$$: (x) {return x + 1;}, u__: () => 1, name1: ()=> ()=> 1);
   bothParameters(() => 1 + 1, name: () {return true;});
 

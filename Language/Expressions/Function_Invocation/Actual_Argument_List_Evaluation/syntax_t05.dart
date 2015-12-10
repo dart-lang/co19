@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Function invocation involves evaluation of the list of actual arguments to the
- * function and binding of the results to the functions formal parameters.
+ * @assertion Function invocation involves evaluation of the list of actual
+ * arguments to the function and binding of the results to the functions
+ * formal parameters.
  * arguments:
  *   '(' argumentList? ')'
  * ;
@@ -28,5 +29,5 @@ func(p1, p2) {}
 main() {
   try {
     func(1, 2, );
-  } catch(e) {}
+  } catch (e) {}
 }
