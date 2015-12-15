@@ -4,17 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If ef is an identifier id, then id must necessarily denote a local function,
- * a library function, a library or static getter or a variable as described above,
- * or i is not considered a function expression invocation.
- * @description Checks that the function invocation produces expected results when the
- * expression is an identifier denoting a local function, a library function, a library
- * or static getter or a variable.
+ * @assertion A function expression invocation i has the form
+ * ef(a1, ..., an, xn+1: an+1, ..., xn+k: an+k), where ef is an expression. If
+ * ef is an identifier id, then id must necessarily denote a local function,
+ * a library function, a library or static getter or a variable as described
+ * above, or i is not considered a function expression invocation.
+ * @description Checks that the function invocation produces expected results
+ * when the expression is an identifier denoting a local function, a library
+ * function, a library or static getter or a variable.
  * @static-clean
  * @author msyabro
  * @reviewer rodionov
- * @note no static warnings are expected: static type of non-Function getters/variables
- * is Dynamic
+ * @note no static warnings are expected: static type of non-Function
+ * getters/variables is Dynamic
  */
 import '../../../../Utils/expect.dart';
 
@@ -44,7 +46,7 @@ class Foo {
     try {
       staticgetter2();
       Expect.fail("NoSuchMethodError expected");
-    } on NoSuchMethodError catch(ok) {}
+    } on NoSuchMethodError catch (ok) {}
   }
 }
 
@@ -57,7 +59,7 @@ main() {
   try {
     varnotfunc();
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 
   localfunc() {
     return "localfunc";
@@ -71,7 +73,7 @@ main() {
   try {
     libgetter2();
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 
   Expect.equals("libfunc", libfunc());
 }

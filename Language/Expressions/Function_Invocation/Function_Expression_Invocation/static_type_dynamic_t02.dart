@@ -7,10 +7,10 @@
  * @assertion If F is not a function type, the static type of i is Dynamic.
  * Otherwise the static type of i is the declared return type of F.
  * @note no longer in spec:
- *    Let Ti be the static type of ai, i from 1 to n + k. It is a static warning if F is
- * not a supertype of (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
- * @description Checks that it is a static type warning if F is not a supertype of
- * (T1, ... , Tn, [Tn+1 xn+1, ... , Tn+k xn+k]) -> ⊥.
+ *   Let Ti be the static type of ai, i from 1 to n + k. It is a static warning
+ * if F is not a supertype of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
+ * @description Checks that it is a static type warning if F is not a supertype
+ * of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
