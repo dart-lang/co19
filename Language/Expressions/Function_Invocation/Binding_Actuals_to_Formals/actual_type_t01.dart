@@ -5,9 +5,9 @@
  */
 /**
  * @assertion In checked mode, it is a dynamic type error if oi is not null and
- * the actual type of pi is not a supertype of the type of oi, i from 1 to m.
- * @description Checks that it is a dynamic type error when an actual argument is not
- * null and its actual type (bool) is not a subtype of the corresponding
+ * the actual type of pi is not a supertype of the type of oi, i ∈ 1..m.
+ * @description Checks that it is a dynamic type error when an actual argument
+ * is not null and its actual type (bool) is not a subtype of the corresponding
  * positional parameter's type (int).
  * @author msyabro
  * @reviewer rodionov
