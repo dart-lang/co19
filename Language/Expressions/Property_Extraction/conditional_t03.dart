@@ -6,11 +6,9 @@
 /**
  * @assertion Evaluation of a conditional property extraction expression e of
  * the form e1?.id is equivalent to the evaluation of the expression
- * ((x) => x == null?null : x.id)(e1).
- * @description Check that e1?.id is equivalent to
- * ((x) => x == null?null : x.id)(e1). Test that static property is not
- * returned by ?. extraction
- * @issue 25087
+ * ((x) => x == null?null :x.id)(e1). unless e1 is a type literal, in which
+ * case it is equivalent to e1.m.
+ * @description Check that for static property e1?.id is equivalent to e1.id
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -20,5 +18,5 @@ class C {
 }
 
 main() {
-  Expect.throws(() {C?.id;}, (e) => e is NoSuchMethodError);
+  Expect.equals(C?.id, C.id);
 }

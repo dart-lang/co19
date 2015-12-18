@@ -9,13 +9,13 @@
  * ((x) => x == null?null : x.id)(e1). The static type of e is the same as the
  * static type of e1.id.
  * @description Check that static type of the e?.id is the same as e.id. Test
- * getter
+ * implicit getter
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
 
 class C {
-  int get m => 1;
+  int m = 1;
 }
 
 main() {
