@@ -42,7 +42,7 @@ main() {
 
   try {
     null(p1: 1);
-   // Expect.fail("NoSuchMethodError is expected");
+    Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch (e) {}
 
   try {
