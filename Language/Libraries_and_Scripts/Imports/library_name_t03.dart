@@ -6,15 +6,14 @@
 /**
  * @assertion It is a static warning to import two different libraries with the
  * same name unless their name is the empty string.
- * @description Checks that it is a static warning when a library directly
- * imports two other libraries that have the same library name.
- * @static-warning
- * @author rodionov
- * @reviewer kaigorodov
+ * @description Checks that it is no static warning if two different libraries
+ * with empty string as name are imported
+ * @static-clean
+ * @author sgrekhov@unipro.ru
  */
 
-import "library_name_t01_lib1.dart";
-import "library_name_t01_lib2.dart";
+import "library_name_t03_lib1.dart";
+import "library_name_t03_lib2.dart";
 
 main() {
   foo == 1;
