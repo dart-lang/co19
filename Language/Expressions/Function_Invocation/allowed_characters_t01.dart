@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Space, tab and line terminators characters are allowed between tokens.
- * @description Checks that different whitespace characters and line terminators are allowed
- *  in function invocation expressions.
+ * @assertion Space, tab and line terminators characters are allowed between
+ * tokens.
+ * @description Checks that different whitespace characters and line terminators
+ * are allowed in function invocation expressions.
  * @author hlodvig
  * @reviewer kaigorodov
  */
@@ -22,7 +23,7 @@ main() {
   x = 0;
   f ( );
   Expect.equals(1, x);
-  
+
   x = 0;
   f	(	)	;
   Expect.equals(1, x);

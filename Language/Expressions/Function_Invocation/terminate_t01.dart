@@ -6,9 +6,11 @@
 /**
  * @assertion Execution of the body terminates when the first of
  * the following occurs:
- *  An uncaught exception is thrown.
- *  A return statement immediately nested in the body of f is executed.
- *  The last statement of the body completes execution.
+ *  • An exception is thrown and not caught within the current function
+ *    activation.
+ *  • A return statement immediately nested in the body of f is executed and
+ *    not intercepted in a finally clause.
+ *  • The last statement of the body completes execution.
  * @description Checks that execution of a function body terminates after
  * an uncaught exception is thrown.
  * @author msyabro
@@ -26,7 +28,6 @@ void f() {
 main() {
   try {
     f();
-  }catch(e) {
-    Expect.isNull(x);
-  }
+  } catch (e) {}
+  Expect.isNull(x);
 }
