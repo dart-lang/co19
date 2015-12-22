@@ -8,21 +8,17 @@
  * the form e1?.id is equivalent to the evaluation of the expression
  * ((x) => x == null?null : x.id)(e1).
  * @description Check that e1?.id is equivalent to
- * ((x) => x == null?null : x.id)(e1). Extracted property is in the superclass
+ * ((x) => x == null?null : x.id)(e1). Test non-existing property
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
+import '../../../../Utils/expect.dart';
 
-class A {
-  String id = "id";
-}
-
-class C extends A {
+class C {
 }
 
 main() {
   C c1 = new C();
   C c2 = null;
-  Expect.equals("id", c1?.id);
-  Expect.isNull(c2?.id);
+  Expect.throws(() {c1?.m();}, (e) => e is NoSuchMethodError); /// static type warning
+  Expect.isNull(c2?.m()); /// static type warning
 }

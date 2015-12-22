@@ -19,5 +19,7 @@ class C {
 
 main() {
   C c = new C();
-  String x = c?.m; /// static type warning
+  try {
+    String x = c?.m; /// static type warning
+  } catch (e) {}
 }
