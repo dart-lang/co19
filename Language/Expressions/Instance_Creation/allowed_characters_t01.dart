@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Space, tab and line terminators characters are allowed between tokens.
- * @description Checks that different whitespace characters and line terminators are allowed
- *  in instance creation expressions.
+ * @assertion Space, tab and line terminators characters are allowed between
+ * tokens.
+ * @description Checks that different whitespace characters and line terminators
+ * are allowed in instance creation expressions.
  * @author hlodvig
  * @reviewer kaigorodov
  */

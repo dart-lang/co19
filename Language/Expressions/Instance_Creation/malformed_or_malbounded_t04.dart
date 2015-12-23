@@ -9,7 +9,8 @@
  * new T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * new T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * const T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
- * const T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ) is malformed or malbounded.
+ * const T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ) is malformed
+ * or malbounded.
  * @description Checks that it is a static-warning if T does not denote a type
  * in a const T<args>() expression.
  * @static-warning
