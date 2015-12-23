@@ -8,8 +8,7 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
+
 
 main() {
   document.body.setInnerHtml('''
@@ -34,66 +33,82 @@ main() {
   }
 
   e.style.background = "center / cover red url(dummy://test.png) no-repeat border-box";
-  shouldBe(e.style.background, 'url(dummy://test.png) 50% 50% / cover no-repeat border-box border-box red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 50% 50% / cover no-repeat border-box border-box red');
   shouldBe(e.style.backgroundSize, 'cover');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) no-repeat scroll 50% 50% / cover border-box border-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) no-repeat scroll 50% 50% / cover border-box border-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), 'cover');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "red 20px / contain url(dummy://test.png) no-repeat padding-box";
-  shouldBe(e.style.background, 'url(dummy://test.png) 20px 50% / contain no-repeat padding-box padding-box red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 20px 50% / contain no-repeat padding-box padding-box red');
   shouldBe(e.style.backgroundSize, 'contain');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) no-repeat scroll 20px 50% / contain padding-box padding-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) no-repeat scroll 20px 50% / contain padding-box padding-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), 'contain');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "red url(dummy://test.png) 50px 60px / 50% 75% no-repeat";
-  shouldBe(e.style.background, 'url(dummy://test.png) 50px 60px / 50% 75% no-repeat red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 50px 60px / 50% 75% no-repeat red');
   shouldBe(e.style.backgroundSize, '50% 75%');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) no-repeat scroll 50px 60px / 50% 75% padding-box border-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) no-repeat scroll 50px 60px / 50% 75% padding-box border-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), '50% 75%');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "red url(dummy://test.png) repeat top left / 100px 200px border-box content-box";
-  shouldBe(e.style.background, 'url(dummy://test.png) 0% 0% / 100px 200px repeat border-box content-box red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 0% 0% / 100px 200px repeat border-box content-box red');
   shouldBe(e.style.backgroundSize, '100px 200px');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) repeat scroll 0% 0% / 100px 200px border-box content-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) repeat scroll 0% 0% / 100px 200px border-box content-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), '100px 200px');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "red url(dummy://test.png) repeat 50% / auto auto content-box padding-box";
-  shouldBe(e.style.background, 'url(dummy://test.png) 50% 50% / auto repeat content-box padding-box red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 50% 50% / auto repeat content-box padding-box red');
   shouldBe(e.style.backgroundSize, 'auto');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) repeat scroll 50% 50% / auto content-box padding-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) repeat scroll 50% 50% / auto content-box padding-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), 'auto');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "url(dummy://test.png) red 50px 60px / 50% no-repeat fixed";
-  shouldBe(e.style.background, 'url(dummy://test.png) 50px 60px / 50% no-repeat fixed red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 50px 60px / 50% no-repeat fixed red');
   shouldBe(e.style.backgroundSize, '50%');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) no-repeat fixed 50px 60px / 50% padding-box border-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) no-repeat fixed 50px 60px / 50% padding-box border-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), '50%');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "red repeat scroll padding-box border-box top left / 100px url(dummy://test.png)";
-  shouldBe(e.style.background, 'url(dummy://test.png) 0% 0% / 100px repeat scroll padding-box border-box red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 0% 0% / 100px repeat scroll padding-box border-box red');
   shouldBe(e.style.backgroundSize, '100px');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) repeat scroll 0% 0% / 100px padding-box border-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) repeat scroll 0% 0% / 100px padding-box border-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), '100px');
   shouldBe(checkComputedStyleValue(), true);
 
   e.style.background = "50% / auto fixed url(dummy://test.png) repeat content-box red";
-  shouldBe(e.style.background, 'url(dummy://test.png) 50% 50% / auto repeat fixed content-box content-box red');
+  shouldBe(stripQuotes(e.style.background),
+      'url(dummy://test.png) 50% 50% / auto repeat fixed content-box content-box red');
   shouldBe(e.style.backgroundSize, 'auto');
   shouldBe(checkStyle(), true);
-  shouldBe(computedStyle.getPropertyValue("background"), 'rgb(255, 0, 0) url(dummy://test.png) repeat fixed 50% 50% / auto content-box content-box');
+  shouldBe(stripQuotes(computedStyle.getPropertyValue("background")),
+      'rgb(255, 0, 0) url(dummy://test.png) repeat fixed 50% 50% / auto content-box content-box');
   shouldBe(computedStyle.getPropertyValue("background-size"), 'auto');
   shouldBe(checkComputedStyleValue(), true);
 

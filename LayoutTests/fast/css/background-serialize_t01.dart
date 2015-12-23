@@ -3,13 +3,12 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-/** 
+/**
  * @description Test background properties obtained by using cssText when the
  * properties are set by using style element's textContent.
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -39,6 +38,6 @@ main() {
   shouldBeEqualToString(test('.test { background-position-y: 5%; }'), ".test { background-position-y: 5%; }");
   shouldBeEqualToString(test('.test { background-position-x: 5%; background-position-y: 10%; }'), ".test { background-position: 5% 10%; }");
   shouldBeEqualToString(test('.test { background-position-x: 5%; background-position-y: 10% !important; }'), ".test { background-position-x: 5%; background-position-y: 10% !important; }");
-  shouldBeEqualToString(test('.test { background: url(dummy://test.png); }'), ".test { background: url(dummy://test.png); }");
-  shouldBeEqualToString(test('.test { background: url(dummy://test.png); background-color: black; }'), ".test { background: url(dummy://test.png) black; }");
+  shouldBeEqualToString(stripQuotes(test('.test { background: url(dummy://test.png); }')), ".test { background: url(dummy://test.png); }");
+  shouldBeEqualToString(stripQuotes(test('.test { background: url(dummy://test.png); background-color: black; }')), ".test { background: url(dummy://test.png) black; }");
 }

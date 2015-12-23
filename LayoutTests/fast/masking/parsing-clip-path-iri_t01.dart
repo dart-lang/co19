@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
+import "../../testcommon.dart" as c;
 
 const String htmlEL1 = r'''
 <style>
@@ -33,20 +34,20 @@ String innerStyle(String property, String value) {
 }
 
 void testComputed(String property, String value, String expected) {
-    shouldBe(computedStyle(property, value), expected);
+    shouldBe(c.stripQuotes(computedStyle(property, value)), expected);
 }
 
 void testInner(String property, String value, String expected) {
-     shouldBe(innerStyle(property, value), expected);
+     shouldBe(c.stripQuotes(innerStyle(property, value)), expected);
 }
 
 void main() {
     description('Test clip-path IRIs');
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    
+
     testInner("-webkit-clip-path", "url(#clip1)", "url(#clip1)");
     testInner("-webkit-clip-path", "url(clip.svg#clip1)", "url(clip.svg#clip1)");
-    
+
     testComputed("-webkit-clip-path", "url(#clip1)", "url(#clip1)");
     testComputed("-webkit-clip-path", "url(clip.svg#clip1)", "url(clip.svg#clip1)");
 

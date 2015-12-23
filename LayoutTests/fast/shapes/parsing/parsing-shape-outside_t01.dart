@@ -4,18 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
-import "dart:html";
 import "../../../testharness.dart";
 import "parsing-test-utils.dart";
 
 void main() {
     description('Testing parsing of the shape-outside property.');
-    
+
     // The test functions and globals used here are defined in parsing-test-utils.dart.
-    
+
     validShapeValues.forEach((elt) {
         var value = (elt is List) ? elt[0] : elt;
         var expectedValue = (elt is List) ? elt[1] : elt;
@@ -23,13 +22,13 @@ void main() {
         testShapeSpecifiedProperty("shape-outside", value, expectedValue);
         testShapeComputedProperty("shape-outside", value, computedValue);
     });
-    
+
     testLocalURLShapeProperty("shape-outside", "url('image')", "url(image)");
-    
+
     invalidShapeValues.forEach((value) {
         testShapePropertyParsingFailure("shape-outside", value, "none");
     });
-    
+
     applyToEachArglist(
         testNotInheritedShapeProperty,
         [// [property, parentValue, childValue, expectedValue]
@@ -40,6 +39,6 @@ void main() {
          ["shape-outside", "", "inherit", "parent: none, child: none"],
          ["shape-outside", "none", "inherit", "parent: none, child: none"]]
     );
-    
+
     checkTestFailures();
 }

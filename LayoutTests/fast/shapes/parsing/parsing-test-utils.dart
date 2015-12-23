@@ -1,6 +1,7 @@
 library parsing_test_utils;
 
 import "../../../testharness.dart";
+import "../../../testcommon.dart" as c;
 
 
 // Valid values for both shape-inside and shape-outside. Two values are specified when the shape property value
@@ -237,11 +238,11 @@ void getChildComputedStyle(property, parentValue, childValue) {
 }
 
 void testShapeSpecifiedProperty(property, value, expectedValue) {
-    shouldBe(getCSSText(property, value), expectedValue);
+    shouldBe(c.stripQuotes(getCSSText(property, value)), c.stripQuotes(expectedValue));
 }
 
 void testShapeComputedProperty(property, value, expectedValue) {
-    shouldBe(getComputedStyleValue(property, value), expectedValue);
+    shouldBe(c.stripQuotes(getComputedStyleValue(property, value)), c.stripQuotes(expectedValue));
 }
 
 void testNotInheritedShapeChildProperty(property, parentValue, childValue, expectedChildValue) {
@@ -249,20 +250,15 @@ void testNotInheritedShapeChildProperty(property, parentValue, childValue, expec
 }
 
 // Need to remove the base URL to avoid having local paths in the expected results.
-void removeBaseURL(String src) {
-    var urlRegexp = new RegExp("url\(([^\)]*)\)");
-    var replaced= src.replaceAllMapped(urlRegexp, (match) {
-       String url=match[1];
-       String last=url.substring(url.lastIndexOf('/') + 1);
-//       String res="url($last)";  // this is how it should be, but does not work 
-       String res="url($last"; // workaround
-       return res;
-    });
-    return replaced;
+String removeBaseURL(String src) {
+  String url = src.substring(src.indexOf('(') + 1, src.lastIndexOf(')'));
+  String last = url.substring(url.lastIndexOf('/') + 1);
+  String res = "url($last)";
+  return c.stripQuotes(res);
 }
 
 void testLocalURLShapeProperty(property, value, expected) {
-    shouldBe(removeBaseURL(getCSSText(property, value)), expected, 
+    shouldBe(removeBaseURL(getCSSText(property, value)), expected,
         "getCSSText($property, $value)");
     shouldBe(removeBaseURL(getComputedStyleValue(property, value)), expected,
         "getComputedStyleValue($property, $value)");

@@ -27,10 +27,10 @@ var Html5Elements = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
         'option', 'output', 'p', 'param', 'pre', 'progress', 'q', 'rp', 'rt',
         'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source',
         'span', 'strong', 'style', 'sub', 'table', 'tbody', 'td', 'textarea',
-        'tfoot', 'th', 'thead', 
-        
+        'tfoot', 'th', 'thead',
+
         // 'time',
-        
+
         'title', 'tr', 'track', 'u', 'ul',
         'var', 'video', 'wbr' ];
 
@@ -45,7 +45,7 @@ class NullTreeSanitizer implements NodeTreeSanitizer {
 escapeHTML(text)
 {
   //return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\0/g, "\\0");
-  
+
   return text
     .replaceAll(new RegExp('&'), "&amp;")
     .replaceAll(new RegExp('<'), "&lt;")
@@ -208,3 +208,10 @@ createContext2d(id) {
 addConsole() => document.body.appendHtml('<div id="console"></div>');
 
 qwe([x]) => testFailed(x.toString());
+
+String stripQuotes(String text) {
+  if (text == null) {
+    return null;
+  }
+  return text.replaceAll("\"", "").replaceAll("'", "");
+}

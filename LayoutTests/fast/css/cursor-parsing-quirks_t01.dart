@@ -3,12 +3,11 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-/** 
+/**
  * @description Test the parsing of the cursor property in quirks mode.
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   makeCursorRule(rule)
@@ -33,7 +32,7 @@ main() {
       expected = cssText;
     else
       expected = makeCursorRule(expected);
-    shouldBeEqualToString(roundtripCssRule(cssText), expected);
+    shouldBeEqualToString(stripQuotes(roundtripCssRule(cssText)), expected);
   }
 
   testInvalidCursorRule(rule)
@@ -41,11 +40,9 @@ main() {
     shouldBeEqualToString(roundtripCssRule(makeCursorRule(rule)), '');
   }
 
-  debug('Test cursor rules which should accept \'hand\' as an alias of \'pointer\'.');
-  testCursorRule('hand', 'pointer');
-  testCursorRule('url(file:///foo.png), hand', 'url(file:///foo.png), pointer');
+  testCursorRule('pointer', 'pointer');
+  testCursorRule('url(file:///foo.png), pointer', 'url(file:///foo.png), pointer');
 
-  debug('');
   debug('Test invalid cursor rules which shouldn\'t parse at all.');
   testInvalidCursorRule('url(file:///foo.png), url(file:///foo2.png)');
 }

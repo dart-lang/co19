@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * @description 
+ * @assertion
+ * @description
  */
 import "dart:html";
 import "../../testharness.dart";
+import "../../testcommon.dart" as c;
 
 const String htmlEL1 = r'''
 <style>
@@ -37,7 +38,7 @@ void testComputed(String property, String value, String expected) {
 }
 
 void testInner(String property, String value, String expected) {
-     shouldBe(innerStyle(property, value), expected, "testInner($property, $value, $expected)");
+     shouldBe(c.stripQuotes(innerStyle(property, value)), expected, "testInner($property, $value, $expected)");
 }
 
 void negativeTest(String property, String value) {
@@ -61,8 +62,8 @@ void main() {
     testInner("-webkit-mask", "none, none, none", "none, none, none");
     testInner("-webkit-mask", "url(file:///image.png), none", "url(file:///image.png), none");
     testInner("-webkit-mask", "none, url(file:///image.png)", "none, url(file:///image.png)");
-    
-    
+
+
     // test mask-position
     testInner("-webkit-mask", "top left", "0% 0%");
     testInner("-webkit-mask", "bottom right", "100% 100%");
@@ -88,7 +89,7 @@ void main() {
     testInner("-webkit-mask", "center left 30px", "left 30px top 50%");
     testInner("-webkit-mask", "left 20% top", "left 20% top 0%");
     testInner("-webkit-mask", "center center", "50% 50%");
-    
+
     testInner("-webkit-mask-position", "left 10px top 15px", "left 10px top 15px");
     testInner("-webkit-mask-position", "left 10% top 30%", "left 10% top 30%");
     testInner("-webkit-mask-position", "right top 15px", "right 0% top 15px");
@@ -96,7 +97,7 @@ void main() {
     testInner("-webkit-mask-position", "center top 20px", "left 50% top 20px");
     testInner("-webkit-mask-position", "center left 30px", "left 30px top 50%");
     testInner("-webkit-mask-position", "left 20% top", "left 20% top 0%");
-    
+
     // test mask-source-type
     testInner("mask-source-type", "alpha", "alpha");
     testInner("mask-source-type", "luminance", "luminance");
@@ -105,7 +106,7 @@ void main() {
     testComputed("mask-source-type", "auto", "alpha");
     testComputed("mask-source-type", "luminance", "luminance");
     testComputed("mask-source-type", "", "alpha");
-    
+
     // test mask-repeat
     testInner("-webkit-mask", "repeat-x", "repeat-x");
     testInner("-webkit-mask", "repeat-y", "repeat-y");
@@ -118,7 +119,7 @@ void main() {
     testInner("-webkit-mask", "repeat space, repeat-x", "repeat space, repeat-x");
     testInner("-webkit-mask", "repeat none", "none repeat");
     testInner("-webkit-mask", "none repeat", "none repeat");
-    
+
     // test mask-origin / mask-clip
     testInner("-webkit-mask", "padding-box", "padding-box padding-box");
     testInner("-webkit-mask", "border-box", "border-box border-box");
@@ -130,7 +131,7 @@ void main() {
     testInner("-webkit-mask", "padding-box border-box", "padding-box border-box");
     testInner("-webkit-mask", "padding-box border-box none", "none padding-box border-box");
     testInner("-webkit-mask", "none padding-box border-box", "none padding-box border-box");
-    
+
     // test mask-size
     testInner("-webkit-mask", "none left top / auto", "none 0% 0% / auto");
     testInner("-webkit-mask", "none left top / auto auto", "none 0% 0% / auto");
@@ -142,7 +143,7 @@ void main() {
     testInner("-webkit-mask", "none left top / contain", "none 0% 0% / contain");
     testInner("-webkit-mask", "none left 20px top 10px / contain", "none left 20px top 10px / contain");
     testInner("-webkit-mask", "none left 20px top / contain", "none left 20px top 0% / contain");
-    
+
     // combinations
     testInner("-webkit-mask", "none padding-box content-box", "none padding-box content-box");
     testInner("-webkit-mask", "none padding-box", "none padding-box padding-box");
@@ -153,11 +154,11 @@ void main() {
     testInner("-webkit-mask", "none border-box content-box left top repeat-x", "none 0% 0% repeat-x border-box content-box");
     testInner("-webkit-mask", "none border-box content-box left top / auto repeat-x", "none 0% 0% / auto repeat-x border-box content-box");
     testInner("-webkit-mask", "none border-box content-box right 0px center / auto repeat-x", "none right 0px top 50% / auto repeat-x border-box content-box");
-    
+
     // FIXME: Computed style not yet implemented.
     // testComputed("-webkit-mask", "", "");
     // https://bugs.webkit.org/show_bug.cgi?id=103021
-    
+
     // negative tests
     negativeTest("-webkit-mask", "top none left");
     negativeTest("-webkit-mask", "right none bottom");
@@ -190,7 +191,7 @@ void main() {
     negativeTest("-webkit-mask", "none top 20px right 30px center / auto repeat-x scroll border-box border-box");
     negativeTest("-webkit-mask", "none top 20px top 30px / auto repeat-x scroll border-box border-box");
     negativeTest("-webkit-mask", "none top 20px bottom / auto repeat-x scroll border-box border-box");
-    
+
     negativeTest("mask-source-type", "rubbish");
     negativeTest("mask-source-type", "");
     negativeTest("mask-source-type", "center");
