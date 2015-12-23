@@ -34,7 +34,7 @@ main()  {
 
   try {
     Expect.equals(-1, x.field);
-  } catch(e) {
+  } catch (e) {
     Expect.fail('Concrete getter from superclass is not called');
   }
 

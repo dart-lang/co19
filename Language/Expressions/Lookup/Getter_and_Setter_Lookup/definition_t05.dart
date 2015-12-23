@@ -31,14 +31,14 @@ main()  {
 
   try {
     Expect.equals(-1, x.field);
-  } catch(e) {
+  } catch (e) {
     Expect.fail('Concrete getter from superclass is not called');
   }
 
   try {
     x.field = 1;
     Expect.equals(1, x.field);
-  } catch(e) {
+  } catch (e) {
     Expect.fail('Concrete setter from superclass is not called');
   }
 }
