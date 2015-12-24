@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class to attempt to extend or
- * implement int.
+ * @assertion It is a compile-time error for a class to attempt to extend,
+ * mix in or implement int
  * @description Checks that a user-defined class cannot extend int.
  * @compile-error
  * @author iefremov

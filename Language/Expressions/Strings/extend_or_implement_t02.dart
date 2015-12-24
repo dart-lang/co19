@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error for a class to attempt to extend or
- * implement String.
+ * @assertion It is a compile-time error for a class to attempt to extend,
+ * mix in or implement String.
  * @description Checks that it is a compile-time error for an interface to
  * attempt to extend String.
  * @compile-error

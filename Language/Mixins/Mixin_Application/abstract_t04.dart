@@ -9,8 +9,8 @@
  * the scope of L, bound to the class defined by the mixin application M.
  * The name of the class is also set to C. Iff the class is prefixed by the
  * built-in identifier abstract, the class being defined is an abstract class.
- * @description Checks that class C is not abctract (can be instantiated by
- * new) if there are no abstract identifier but all clases in mixin
+ * @description Checks that class C is not abstract (can be instantiated by
+ * new) if there are no abstract identifier but all classes in mixin
  * application are abstract
  * @author sgrekhov@unipro.ru
  */

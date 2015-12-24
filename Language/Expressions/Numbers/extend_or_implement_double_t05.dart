@@ -1,21 +1,20 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion It is a compile-time error for a class to attempt to extend,
  * mix in or implement double.
- * @description Checks that a user-defined class cannot implement double.
+ * @description Checks that double cannot be mixed in abstract class
  * @compile-error
- * @author iefremov
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
 
-class A implements double {}
+class A {}
+
+abstract class C extends A with double {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  C c = null;
 }
