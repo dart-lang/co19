@@ -8,18 +8,18 @@
  * where m is an identifier, proceeds as follows:
  * ...
  * The static type of i is the declared return type of m.
- * @description Checks that the static type of a top-level getter invocation expression
- * is the declared return type of the getter.
+ * @description Checks that the static type of a top-level getter invocation
+ * expression is the declared return type of the getter.
  * @static-clean
  * @author msyabro
  * @reviewer rodionov
  */
 
-int get a {}
+int get a => 1;
 
-bool get b {}
+bool get b => true;
 
-String get c {}
+String get c => "";
 
 main()  {
   int resInt = a;

@@ -25,5 +25,5 @@ main()  {
   try {
     v = 1;
     Expect.fail("TestException is expected");
-  }  on TestException catch(e) {}
+  } on TestException catch (e) {}
 }
