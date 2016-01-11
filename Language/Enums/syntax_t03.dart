@@ -21,5 +21,4 @@ enum E {a, b, }
 main() {
   E e = E.b;
   Expect.equals(e, E.b);
-  
 }
