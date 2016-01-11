@@ -27,4 +27,5 @@ abstract class C extends A {
 }
 
 main() {
+  C c = null;
 }

@@ -6,3 +6,4 @@ library Exports_A06_t01_lib;
 export "reexport__itself_t01_lib.dart";
 
 typedef foo();
+int libVar = 1;

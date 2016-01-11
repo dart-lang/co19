@@ -18,4 +18,5 @@
 import "reexport__itself_t01_lib.dart";
 
 main() {
+  libVar++;
 }

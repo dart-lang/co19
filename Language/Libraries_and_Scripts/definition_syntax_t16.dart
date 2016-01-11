@@ -21,4 +21,5 @@
 import "definition_syntax_t16_lib.dart";
 
 main() {
+  libVar++;
 }

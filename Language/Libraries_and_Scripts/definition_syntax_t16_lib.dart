@@ -4,3 +4,5 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 library Libraries_and_Scripts_A03_t04_lib
+
+int libVar = 1;

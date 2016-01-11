@@ -20,4 +20,5 @@ class C extends A with E {
 }
 
 main() {
+  new C();
 }

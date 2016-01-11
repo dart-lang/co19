@@ -18,4 +18,5 @@ enum E {a, b, c}
 class A implements E {}
 
 main() {
+  new A();
 }

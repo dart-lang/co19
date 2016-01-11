@@ -8,7 +8,8 @@
  *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that a library is parsed without errors
- * if all allowed directives are present in permitted numbers and in the correct order.
+ * if all allowed directives are present in permitted numbers and in the correct
+ * order.
  * @author msyabro
  * @reviewer rodionov
  */
@@ -16,4 +17,5 @@
 import "definition_syntax_t11_lib.dart";
 
 main() {
+  int x = boo + boo1 + boo2 + boo3;
 }

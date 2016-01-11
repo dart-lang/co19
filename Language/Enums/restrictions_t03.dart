@@ -20,4 +20,5 @@ class C {
 class A = C with E;
 
 main() {
+  new A();
 }

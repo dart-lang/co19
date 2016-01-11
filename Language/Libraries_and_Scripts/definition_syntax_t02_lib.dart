@@ -4,3 +4,5 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 library Definition_Syntax_t02_lib;
+
+int libVar = 0;

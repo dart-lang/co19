@@ -26,4 +26,5 @@ class C {
 class A = C with M1, E, M2;
 
 main() {
+  new A();
 }

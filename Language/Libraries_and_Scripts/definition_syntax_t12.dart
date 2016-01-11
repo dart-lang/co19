@@ -15,4 +15,5 @@
 import "definition_syntax_t12_lib.dart";
 
 main() {
+  libVar++;
 }

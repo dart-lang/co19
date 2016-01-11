@@ -30,4 +30,5 @@ class C extends B {
 }
 
 main() {
+  const C();
 }

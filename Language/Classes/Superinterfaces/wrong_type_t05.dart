@@ -18,4 +18,5 @@ import "wrong_type_lib.dart" deferred as d;
 class C implements d.A {}
 
 main() {
+  new C();
 }

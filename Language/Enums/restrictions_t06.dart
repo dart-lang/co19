@@ -17,4 +17,5 @@ class C implements E {
 }
 
 main() {
+  new C();
 }
