@@ -27,4 +27,5 @@ class C extends A with M1, E, M2 {
 }
 
 main() {
+  new C();
 }

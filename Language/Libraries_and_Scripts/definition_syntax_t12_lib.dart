@@ -6,3 +6,5 @@
  */
 
 library foo;
+
+int libVar = 1;

@@ -18,4 +18,5 @@
 enum E {}
 
 main() {
+  E e;
 }

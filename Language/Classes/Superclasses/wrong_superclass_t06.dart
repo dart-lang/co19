@@ -16,4 +16,5 @@
 class A extends var {}
 
 main() {
+  new A();
 }

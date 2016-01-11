@@ -18,4 +18,5 @@
 import "definition_syntax_t02_lib.dart";
 
 main() {
+  libVar = 1;
 }

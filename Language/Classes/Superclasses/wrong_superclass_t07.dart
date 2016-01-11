@@ -19,4 +19,5 @@ enum E {a, b, c}
 class A extends E {}
 
 main() {
+  new A();
 }

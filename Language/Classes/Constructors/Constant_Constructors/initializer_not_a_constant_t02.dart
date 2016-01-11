@@ -25,4 +25,5 @@ class C {
 }
 
 main() {
+  const C();
 }

@@ -19,4 +19,5 @@ import "dart:core" deferred as core;
 class A extends core.ArgumentError {}
 
 main() {
+  new A();
 }

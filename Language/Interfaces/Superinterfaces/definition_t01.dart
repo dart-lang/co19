@@ -32,5 +32,11 @@ abstract class C<Q, R, S> implements A<Q, S> {}
 abstract class D<Q> implements A<int, Q>, J, I {}
 
 main() {
+  I i = null;
+  I1 i1 = null;
+  I2 i2 = null;
+  B<String, int> b = null;
+  C<List, String, num> c = null;
+  D<String> d = null;
 }
 

@@ -7,3 +7,5 @@ library Exports_A04_lib;
 
 export "reexport_lib_p1.dart";
 export "reexport_lib_p2.dart";
+
+var libVar = 1;

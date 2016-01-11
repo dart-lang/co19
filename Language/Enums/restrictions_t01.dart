@@ -17,4 +17,5 @@ class C extends E {
 }
 
 main() {
+  new C();
 }
