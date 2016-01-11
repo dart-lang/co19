@@ -18,21 +18,16 @@
  *
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
 import '../../../Utils/expect.dart';
 import '../../../Utils/async_utils.dart';
+import 'stream_utils.dart' as StreamUtils;
 
 test() async {
   List log = new List();
-
-  StreamController<String> streamController = new StreamController<String>();
-  streamController.add('a');
-  streamController.add('b');
-  streamController.close();
   int i = 0;
 
   L:
-  await for (String s in streamController.stream) {
+  await for (String s in StreamUtils.makeStream(['a', 'b'])) {
     try {
       try {
         try {
