@@ -23,7 +23,7 @@ import '../../../Utils/expect.dart';
 import '../../../Utils/async_utils.dart';
 import 'stream_utils.dart' as StreamUtils;
 
-Stream makeStream(Iterable iterable, int id, List log){
+Stream makeStream(Iterable iterable, int id, List log) {
   return StreamUtils.makeStream(iterable, beforeCancel: () { log.add(id); });
 }
 
@@ -31,7 +31,7 @@ Future test1() async {
   List<int> log = [];
   int i = 0;
 
-  switch (i){
+  switch (i) {
     case 0:
       await for (String s in makeStream(['a', 'b'], i++, log)) {
         continue L;

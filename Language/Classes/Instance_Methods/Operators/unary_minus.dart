@@ -7,21 +7,17 @@
  * @assertion The name of the unary operator - is unary-.
  * @description Checks that the name of unary operator - is 'unary-'
  * @author ilya
- * @note Test is commented out. Language tests should not import extra libraries.
+ * @author sgrekhov@unipro.ru
  */
 
-/*
+
 import 'dart:mirrors';
-import '../../../Utils/expect.dart';
+import '../../../../Utils/expect.dart';
 
 class C {
   operator - () {}
 }
 
 main() {
-  Expect.isNotNull(reflectClass(C).methods[const Symbol('unary-')]);
-}
-*/
-
-main() {
+  Expect.isNotNull(reflectClass(C).instanceMembers[const Symbol('unary-')]);
 }
