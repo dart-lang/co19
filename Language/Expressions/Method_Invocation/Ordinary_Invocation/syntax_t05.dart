@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An ordinary method invocation i has the form
- * o.m(a1, . . . , an, xn+1 : an+1, ... , xn+k :an+k)
- * where o is not the name of a class or a library prefix.
+ * @assertion An unconditional ordinary method invocation i has the form
+ * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Checks that argument list should not end with comma.
  * @compile-error
  * @author msyabro
@@ -17,5 +16,5 @@ main() {
   var o;
   try {
     o.f(1, 2, 3, );
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -4,12 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let T be the static type of o. It is a static type warning if T does not have
- * does not have an accessible instance member named m unless T or a
- * superinterface of T is annotated with an annotation denoting a constant
- * identical to the constant @proxy deﬁned in dart:core.
- * @description Checks that it is a static type warning if member m exists in T 
- * but is inaccessible.
+ * @assertion Let T be the static type of o. It is a static type warning if T
+ * does not have an accessible instance member named m unless either:
+ * • T or a superinterface of T is annotated with an annotation denoting a
+ *   constant identical to the constant @proxy defined in dart:core. Or
+ * • T is Type, e is a constant type literal and the class corresponding to e
+ *   has a static getter named m.
+ * • T is Function and m is call. The type Function is treated as if it has a
+ *   call method for any possible signature of call. The expectation is that
+ *   any concrete subclass of Function will implement call. Note that a warning
+ *   will be issue if this is not the case. Furthermore, any use of call on a
+ *   subclass of Function that fails to implement call will also provoke a
+ *   warning, as this exemption is limited to type Function, and does not apply
+ *   to its subtypes.
+ * @description Checks that it is a static type warning if member m exists in
+ * T but is inaccessible.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
@@ -27,10 +36,10 @@ import '../lib.dart';
 // }
 
 main() {
-  C o=new C();
+  C o = new C();
   Expect.throws((){
     o._func(); /// static type warning
   }
-  , (e)=>e is NoSuchMethodError
+  , (e) => e is NoSuchMethodError
   );
 }

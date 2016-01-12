@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An ordinary method invocation i has the form
- * o.m(a1, . . . , an, xn+1 : an+1, ... , xn+k :an+k)
- * where o is not the name of a class or a library prefix.
+ * @assertion An unconditional ordinary method invocation i has the form
+ * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Checks that method invocations, which matching the production,
  * don't cause compile-time errors.
  * @author msyabro
@@ -37,6 +36,6 @@ main() {
   o.f5(null, null);
   o.f5(null, null, name2: null);
   o.f5(null, null, name1: null, name2: null);
-  o.f6(() {}, () {return true;}, {}, [], name1: (x) => x + 1, name2: (y) => (z) => z - y);
-
+  o.f6(() {}, () {return true;}, {}, [], name1: (x) => x + 1,
+      name2: (y) => (z) => z - y);
 }

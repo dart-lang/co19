@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of a conditional property extraction expression e of
- * the form e1?.id is equivalent to the evaluation of the expression
- * ((x) => x == null?null : x.id)(e1).
+ * @assertion Evaluation of a conditional ordinary method invocation e of the
+ * form o?.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k)
+ * is equivalent to the evaluation of the expression
+ * ((x) => x == null?null : x.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k))(o).
+ * unless o is a type literal, in which case it is equivalent to
+ * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Check that e1?.id is equivalent to
  * ((x) => x == null?null : x.id)(e1). Test non-existing property
  * @author sgrekhov@unipro.ru

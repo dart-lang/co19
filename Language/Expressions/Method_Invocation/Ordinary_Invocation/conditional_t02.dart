@@ -5,11 +5,11 @@
  */
 /**
  * @assertion Evaluation of a conditional ordinary method invocation e of the
- * form o?.m(a1, . . . , an, xn+1 : an+1, . . . , xn+k : an+k)
+ * form o?.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k)
  * is equivalent to the evaluation of the expression
- * ((x) => x == null?null : x.m(a1, . . . , an, xn+1 : an+1, . . . , xn+k : an+k))(o).
+ * ((x) => x == null?null : x.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k))(o).
  * unless o is a type literal, in which case it is equivalent to
- * o.m(a1, . . . , an, xn+1 : an+1, . . . , xn+k : an+k).
+ * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Check that e1?.m() is equivalent to
  * ((x) => x == null?null : x.m())(o)
  * @author sgrekhov@unipro.ru
