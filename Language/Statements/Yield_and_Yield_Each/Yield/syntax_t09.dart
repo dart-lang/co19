@@ -10,21 +10,17 @@
  *    yield expression ‘;’
  *   ;
  *
- * @description Check correct usage of yield statement in synchronous
- * generator function
+ * @description Check that it is compile error if ';' is missing
+ * in yield statement in synchronous generator function
  *
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 Iterable<int> test() sync* {
-  yield 1;
+  yield 1
 }
 
 main() {
-  int k = 0;
-  for (int i in test()) {
-    k = k + i;
-  }
-  Expect.equals(1, k);
+  test();
 }

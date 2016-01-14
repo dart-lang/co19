@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,15 +10,22 @@
  * Note, that, in checked mode, it is a dynamic type error if a malbounded type
  * is used in a type test as specified in 19.2.
  * Any use of a malbounded type gives rise to a static warning.
- * @description Checks that it is dynamic type error if a malbounded type is
- * used in a type test.
+ * @description Checks that in checked mode, it is a dynamic type error if
+ * a malbounded type is used in a type test
  * @static-warning
- * @author ilya
+ * @author sgrekhov@yandex.ru
  */
 import "../../../Utils/dynamic_check.dart";
 
-class C<T extends int> {}
+class I<T extends num> {
+}
+class J {
+}
+class A<T> implements J, I<T> { /// static type warning
+}
 
 main() {
-  checkTypeError(() => 1 is C<String>); /// static type warning
+  checkTypeError(() {
+    I x = new A<String>();
+  });
 }
