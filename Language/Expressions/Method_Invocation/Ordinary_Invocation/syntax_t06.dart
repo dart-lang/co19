@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A static method invocation i has the form
- * C.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k)
+ * @assertion An unconditional ordinary method invocation i has the form
+ * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * where C denotes a class in the current scope.
- * @description Checks that static invocations, which matching the production, don't cause compile-time errors.
+ * @description Checks that static invocations (when o denotes a class in the
+ * current scope), which matching the production, don't cause compile-time
+ * errors.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -35,6 +37,7 @@ main() {
   C.f5(null, null);
   C.f5(null, null, name2: null);
   C.f5(null, null, name1: null, name2: null);
-  C.f6(() {}, () {return true;}, {}, [], name1: (x) => x + 1, name2: (y) => (z) => z - y);
+  C.f6(() {}, () {return true;}, {}, [],
+      name1: (x) => x + 1, name2: (y) => (z) => z - y);
 
 }
