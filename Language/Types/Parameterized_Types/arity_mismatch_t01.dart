@@ -22,5 +22,5 @@ class C {}
 
 main() {
   C<int> c = new C<int>(); /// static type warning
- Expect.isTrue(c is C);
+  Expect.isTrue(c is C);
 }
