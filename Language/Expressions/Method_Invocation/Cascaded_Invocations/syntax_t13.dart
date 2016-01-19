@@ -4,16 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A cascaded method invocation has the form e..suffix where suffix is a sequence
- * of operator, method, getter or setter invocations.
+ * @assertion A cascaded method invocation has the form e..suffix where e is
+ * an expression and suffix is a sequence of operator, method, getter or
+ * setter invocations.
  * cascadeSection:
- * '..'  (cascadeSelector arguments*)(assignableSelector arguments*)* (assignmentOperator expressionWithoutCascade)?
+ *   '..'  (cascadeSelector arguments*)(assignableSelector arguments*)*
+ * (assignmentOperator expressionWithoutCascade)?
  * ;
  * cascadeSelector:
- *  '[ ' expression '] '
- *  | identifier
+ *   '[' expression ']' |
+ *   identifier
  * ;
- * @description Checks that it is a compile-time error if suffix is an instance creation expression.
+ * @description Checks that it is a compile-time error if suffix is an
+ * instance creation expression.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -27,6 +30,6 @@ main() {
   var c = new C();
   try {
     c..new C();
-  } catch(e) {}
+  } catch (e) {}
 }
 

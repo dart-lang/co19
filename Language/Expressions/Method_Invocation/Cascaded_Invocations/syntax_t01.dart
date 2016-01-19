@@ -4,17 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A cascaded method invocation has the form e..suffix where suffix is a sequence
- * of operator, method, getter or setter invocations.
+ * @assertion A cascaded method invocation has the form e..suffix where e is
+ * an expression and suffix is a sequence of operator, method, getter or
+ * setter invocations.
  * cascadeSection:
- * '..'  (cascadeSelector arguments*)(assignableSelector arguments*)* (assignmentOperator expressionWithoutCascade)?
+ *   '..'  (cascadeSelector arguments*)(assignableSelector arguments*)*
+ * (assignmentOperator expressionWithoutCascade)?
  * ;
  * cascadeSelector:
- *  '[ ' expression '] '
- *  | identifier
+ *   '[' expression ']' |
+ *   identifier
  * ;
- * @description Checks that various correct cascaded invocations
- * do not produce compile-time errors.
+ * @description Checks that various correct cascaded invocations do not
+ * produce compile-time errors.
  * @author msyabro
  * @reviewer iefremov
  */
@@ -24,10 +26,10 @@ class C {
   m2(p1, p2) {}
   m3(p1, [p2]) {}
 
-  operator+(other) {}
-  operator-() {}
-  operator[](index) {}
-  operator[]=(index, value) {}
+  operator +(other) {}
+  operator -() {}
+  operator [](index) {}
+  operator []=(index, value) {}
 
   get x {}
   get y {}

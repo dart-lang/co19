@@ -20,6 +20,6 @@ main() {
   try {
     var result = o..method();
     Expect.fail('NoSuchMethodError is expected');
-  } on NoSuchMethodError catch(e) {}
+  } on NoSuchMethodError catch (e) {}
 }
 
