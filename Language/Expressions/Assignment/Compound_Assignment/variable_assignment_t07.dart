@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A compound assignment of the form v op= e is equivalent to v=v op e.
- * @description Checks that an expression of the form v <<= e is equivalent to v = v << e.
+ * @assertion For any other valid operator op, a compound assignment of the
+ * form v op =e is equivalent to v=v op e
+ * @description Checks that an expression of the form v <<= e is equivalent
+ * to v = v << e.
  * @author msyabro
  * @reviewer rodionov
  */

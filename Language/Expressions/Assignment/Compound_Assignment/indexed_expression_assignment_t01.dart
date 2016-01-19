@@ -5,9 +5,10 @@
  */
 /**
  * @assertion A compound assignment of the form e1[e2] op=e3 is equivalent to 
- * ((a, i) => a[i] = a[i] op e3)(e1, e2) where a and i are a variables that are not used in e3.
- * @description Checks that a compound assignment expression of the form e1[e2] *= e3 is equivalent
- * to ((a, i) => a[i] = a[i] * e3)(e1, e2).
+ * ((a, i) => a[i] = a[i] op e3)(e1, e2) where a and i are a variables that are
+ * not used in e3.
+ * @description Checks that a compound assignment expression of the form
+ * e1[e2] *= e3 is equivalent to ((a, i) => a[i] = a[i] * e3)(e1, e2).
  * @author rodionov
  * @reviewer iefremov
  */
