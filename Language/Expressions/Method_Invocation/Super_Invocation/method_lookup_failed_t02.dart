@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the method lookup has failed, then let g be the result of looking up getter
- * m in S with respect to L. If the getter lookup succeeded, let vg be the value
- * of the getter invocation super.m. Then the value of i is the result of invoking
- * the static method Function.apply() with arguments
- * v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
- * @description Checks that NoSuchMethodError is thrown if an implicit getter is invoked
- * and its value is neither null, nor function.
+ * @assertion If the method lookup has failed, then let g be the result of
+ * looking up getter m in Sdynamic with respect to L. If the getter lookup
+ * succeeded, let vg be the value of the getter invocation super.m. Then the
+ * value of i is the result of invoking the static method Function.apply()
+ * with arguments v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
+ * @description Checks that NoSuchMethodError is thrown if an implicit getter
+ * is invoked and its value is neither null, nor function.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +25,7 @@ class A extends S {
     try {
       super.func();
       Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch(e) {}
+    } on NoSuchMethodError catch (e) {}
   }
 }
 

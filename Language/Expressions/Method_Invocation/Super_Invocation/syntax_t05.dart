@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A super method invocation has the form
+ * @assertion A super method invocation i has the form
  * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that argument list should not end with comma.
  * @compile-error
@@ -20,7 +20,7 @@ class A extends S {
   test() {
     try {
       super.f(1, 2, 3, );
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 

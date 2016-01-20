@@ -5,17 +5,18 @@
  */
 /**
  * @assertion If getter lookup has also failed, then a new instance im of the
- * predeﬁned class Invocation is created, such that :
- * - im.isMethod evaluates to true.
- * - im.memberName evaluates to ’m’.
- * - im.positionalArguments evaluates to an immutable list with the same values
- * as [o1, ..., on].
- * - im.namedArguments evaluates to an immutable map with the same keys
- * and values as {xn+1:on+1, ..., xn+k:on+k}.
- * Then the method noSuchMethod() is looked up in S and invoked on this with
- * argument im, and the result of this invocation is the result of evaluating i.
- * @description Checks the result of invocation if the method noSuchMethod() invoked.
- * @static-warning
+ * predeﬁned class Invocation is created, such that:
+ * • im.isMethod evaluates to true.
+ * • im.memberName evaluates to ’m’.
+ * • im.positionalArguments evaluates to an immutable list with the same values
+ *   as [o1, ..., on].
+ * • im.namedArguments evaluates to an immutable map with the same keys and
+ *   values as {xn+1:on+1, ..., xn+k:on+k}.
+ * Then the method noSuchMethod() is looked up in Sdynamic and invoked on this
+ * with argument im, and the result of this invocation is the result of
+ * evaluating i.
+ * @description Checks the result of invocation if the method noSuchMethod()
+ * invoked.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -29,7 +30,7 @@ class S1 {
 
 class A extends S1 {
   test() {
-    Expect.equals("v", super.m()); /// static type warning - see "Super invocation"
+    Expect.equals("v", super.m()); /// static type warning
   }
 }
 

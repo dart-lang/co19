@@ -5,18 +5,18 @@
  */
 /**
  * @assertion If getter lookup has also failed, then a new instance im of the
- * predeﬁned class Invocation is created, such that :
- * - im.isMethod evaluates to true.
- * - im.memberName evaluates to ’m’.
- * - im.positionalArguments evaluates to an immutable list with the same values
- * as [o1, ..., on].
- * - im.namedArguments evaluates to an immutable map with the same keys
- * and values as {xn+1:on+1, ..., xn+k:on+k}.
- * Then the method noSuchMethod() is looked up in S and invoked on this with
- * argument im, and the result of this invocation is the result of evaluating i.
- * @description Checks that noSuchMethod is invoked if there's a static getter named m
- * in the invoking class's superclass.
- * @static-warning
+ * predeﬁned class Invocation is created, such that:
+ * • im.isMethod evaluates to true.
+ * • im.memberName evaluates to ’m’.
+ * • im.positionalArguments evaluates to an immutable list with the same values
+ *   as [o1, ..., on].
+ * • im.namedArguments evaluates to an immutable map with the same keys and
+ *   values as {xn+1:on+1, ..., xn+k:on+k}.
+ * Then the method noSuchMethod() is looked up in Sdynamic and invoked on this
+ * with argument im, and the result of this invocation is the result of
+ * evaluating i.
+ * @description Checks that noSuchMethod is invoked if there's a static getter
+ * named m in the invoking class's superclass.
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -25,8 +25,8 @@ import '../../../../Utils/expect.dart';
 class TestException {}
 
 class S {
-  static int get sm {}
-  
+  static int get sm {return 3;}
+
   noSuchMethod(Invocation im) {
     throw new TestException();
   }
@@ -35,9 +35,9 @@ class S {
 class A extends S {
   test() {
     try {
-      super.sm(); /// static type warning - see "Super invocation"
+      super.sm(); /// static type warning
       Expect.fail("Exception is expected");
-    } on TestException catch(e) {}
+    } on TestException catch (e) {}
   }
 }
 

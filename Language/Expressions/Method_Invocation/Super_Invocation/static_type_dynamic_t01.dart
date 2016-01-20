@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If S.m does not exist, or if F is not a function type,
- * the static type of i is Dynamic;
- * otherwise the static type of i is the declared return type of F.
- * @description Checks that the static type of a method invocation
- * is the declared return type of F.
+ * @assertion Let Sstatic be the superclass of the immediately enclosing class.
+ * ...
+ * If Sstatic.m does not exist, or if F is not a function type, the static
+ * type of i is Dynamic; otherwise the static type of i is the declared return
+ * type of F.
+ * @description Checks that the static type of a method invocation is the
+ * declared return type of F.
  * @static-clean
  * @author msyabro
  * @reviewer kaigorodov

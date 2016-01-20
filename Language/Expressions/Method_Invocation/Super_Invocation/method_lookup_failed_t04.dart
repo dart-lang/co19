@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If the method lookup has failed, then let g be the result of looking up getter
- * m in S with respect to L. If the getter lookup succeeded, let vg be the value
- * of the getter invocation super.m. Then the value of i is the result of invoking
- * the static method Function.apply() with arguments
- * v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
+ * @assertion If the method lookup has failed, then let g be the result of
+ * looking up getter m in Sdynamic with respect to L. If the getter lookup
+ * succeeded, let vg be the value of the getter invocation super.m. Then the
+ * value of i is the result of invoking the static method Function.apply()
+ * with arguments v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
  * @description Checks that the result of super method invocation is the result
  * of calling Function.apply on v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}
  * @author msyabro
@@ -46,7 +46,7 @@ class A extends S {
 
     super.func = f3;
     Expect.equals(1, super.func());
-  
+
     super.func = f4;
     Expect.equals(null, super.func());
   }

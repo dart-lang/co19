@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if S does not have an accessible
- * instance member named m unless S or a superinterface of S is annotated
+ * @assertion Let Sstatic be the superclass of the immediately enclosing class.
+ * It is a static type warning if Sstatic does not have an accessible instance
+ * member named m unless Sstatic or a superinterface of Sstatic is annotated
  * with an annotation denoting a constant identical to the constant @proxy
  * deﬁned in dart:core.
  * @description Checks that it is a static type warning if S does not have
@@ -21,9 +22,9 @@ class S {}
 class A extends S {
   test() {
     try {
-      super.m(); /// static type warning - see "Super invocation"
+      super.m(); /// static type warning
       Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch(e) {}
+    } on NoSuchMethodError catch (e) {}
   }
 }
 

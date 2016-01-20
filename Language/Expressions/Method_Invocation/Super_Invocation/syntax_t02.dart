@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A super method invocation has the form
+ * @assertion A super method invocation i has the form
  * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that it is a compile-time error if named
  * arguments precede positional arguments.
@@ -21,7 +21,7 @@ class A extends S {
   test() {
     try {
       super.f(name: null, 1);
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 

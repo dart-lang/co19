@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A super method invocation has the form
+ * @assertion A super method invocation i has the form
  * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that method invocations, which matching the production,
  * don't cause compile-time errors.
@@ -36,7 +36,8 @@ class A extends S {
     super.f5(null, null);
     super.f5(null, null, name2: null);
     super.f5(null, null, name1: null, name2: null);
-    super.f6(() {}, () {return true;}, {}, [], name1: (x) => x + 1, name2: (y) => (z) => z - y);
+    super.f6(() {}, () {return true;}, {}, [], name1: (x) => x + 1,
+        name2: (y) => (z) => z - y);
   }
 }
 
