@@ -6,7 +6,7 @@
 /**
  * @assertion Evaluation of a conditional property extraction expression e of
  * the form e1?.id is equivalent to the evaluation of the expression
- * ((x) => x == null?null :x.id)(e1). unless e1 is a type literal, in which
+ * ((x) => x == null?null : x.id)(e1), unless e1 is a type literal, in which
  * case it is equivalent to e1.m.
  * @description Check that for static property e1?.id is equivalent to e1.id
  * @author sgrekhov@unipro.ru
