@@ -5,13 +5,13 @@
  */
 /**
  * @assertion The static type of i is:
- * • The declared return type of S.m, if S has an accessible instance getter
- * named m.
- * • The static type of function S.m if S has an accessible instance method
- * named m.
+ * • The declared return type of Sstatic.m, if Sstatic has an accessible
+ *   instance getter named m.
+ * • The static type of function Sstatic.m if Sstatic has an accessible
+ *   instance method named m.
  * • The type dynamic otherwise.
  * @description Check that static type of the extracted getter is declared
- * return type of the getter
+ * return type of the getter.
  * @static-clean
  * @author sgrekhov@unipro.ru
  */

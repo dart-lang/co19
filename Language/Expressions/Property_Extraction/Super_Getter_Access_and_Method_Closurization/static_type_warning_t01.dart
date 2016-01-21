@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static type warning if S does not have an accessible
- * instance method or getter named m.
+ * @assertion Let Sstatic be the superclass of the immediately enclosing class.
+ * It is a static type warning if Sstatic does not have an accessible instance
+ * method or getter named m.
  * @description Checks that it is a static warning if the class of super in
  * a super.m invocation does not have a getter named m.
  * @static-warning
@@ -17,7 +18,7 @@ class S {}
 
 class C extends S {
   C() {
-    Expect.throws(() => super.foo); /// static warning
+    Expect.throws(() => super.foo); /// static type warning
   }
 }
 

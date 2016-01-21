@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if S does not have an accessible
- * instance method or getter named m.
+ * @assertion Let Sstatic be the superclass of the immediately enclosing class.
+ * It is a static type warning if Sstatic does not have an accessible instance
+ * method or getter named m.
  * @description Check that It is a static type warning if S does not have an
- * accessible instance method or getter named m
+ * accessible instance method or getter named m.
  * @static-warning
  * @author sgrekhov@unipro.ru
  */

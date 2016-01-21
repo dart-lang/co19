@@ -10,12 +10,11 @@
  * • im.memberName evaluates to the symbol m.
  * • im.positionalArguments evaluates to the value of const [].
  * • im.namedArguments evaluates to the value of const {}.
- * Then the method noSuchMethod() is looked up in S and invoked with argument
- * im, and the result of this invocation is the result of evaluating i
+ * Then the method noSuchMethod() is looked up in Sdynamic and invoked with
+ * argument im, and the result of this invocation is the result of evaluating i.
  * @description Checks that if a lookup has failed, then noSuchMethod() is
  * looked up and called in a superclass with correct Invocation instance
- * and the result of this call is the result of super.m
- * @static-warning
+ * and the result of this call is the result of super.m.
  * @author ilya, sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

@@ -10,11 +10,11 @@
  * • im.memberName evaluates to the symbol m.
  * • im.positionalArguments evaluates to the value of const [].
  * • im.namedArguments evaluates to the value of const {}.
- * Then the method noSuchMethod() is looked up in S and invoked with argument
- * im, and the result of this invocation is the result of evaluating i
+ * Then the method noSuchMethod() is looked up in Sdynamic and invoked with
+ * argument im, and the result of this invocation is the result of evaluating i.
  * @description Check that if getter lookup failed and object has
  * noSuchMethod() then this method called with Invocation as agrument
- * with properties set to the values listed in the assertion
+ * with properties set to the values listed in the assertion.
  * @issue 24331
  * @author sgrekhov@unipro.ru
  */
