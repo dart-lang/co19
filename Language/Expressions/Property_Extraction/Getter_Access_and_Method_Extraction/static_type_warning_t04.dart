@@ -22,5 +22,5 @@ main()  {
   C o = new C();
   try {
     o.v = 1; /// static type warning
-  } catch(e) {}
+  } catch (e) {}
 }

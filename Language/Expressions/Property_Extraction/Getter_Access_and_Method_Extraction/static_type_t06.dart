@@ -6,15 +6,15 @@
 /**
  * @assertion The static type of i is:
  * • The declared return type of T.m, if T has an accessible instance getter
- * named m.
+ *   named m.
  * • The declared return type of m, if T is Type, e is a constant type literal
- * and the class corresponding to e declares an accessible static getter
- * named m.
+ *   and the class corresponding to e declares an accessible static getter
+ *   named m.
  * • The static type of function T.m if T has an accessible instance method
- * named m.
+ *   named m.
  * • The static type of function m, if T is Type, e is a constant type literal
- * and the class corresponding to e declares an accessible static method named
- * m.
+ *   and the class corresponding to e declares an accessible static method
+ *   named m.
  * • The type dynamic otherwise.
  * @description Checks that the static type of a getter invocation expression
  * of the form C.m is the declared return type of the getter.

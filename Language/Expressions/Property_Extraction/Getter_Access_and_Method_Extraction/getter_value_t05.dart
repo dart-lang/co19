@@ -4,12 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of a getter invocation i of the form e.m proceeds as follows:
- * First, the expression e is evaluated to an object o. Then, the getter function
- * m is looked up in o with respect to the current library, and its body is
- * executed with this bound to o. The value of the getter invocation expression is
- * the result returned by the call to the getter function.
- * @description Checks that a getter body is executed with [:this:] bound to o.
+ * @assertion Otherwise, the body of f is executed with this bound to o. The
+ * value of i is the result returned by the call to the getter function.
+ * @description Checks that a getter body is executed with this bound to o.
  * @author msyabro
  * @reviewer rodionov
  */

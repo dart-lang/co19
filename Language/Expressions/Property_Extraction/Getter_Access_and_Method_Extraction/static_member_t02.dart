@@ -9,8 +9,8 @@
  * Let T be the static type of e. It is a static type warning if T does not
  * have a method or getter named m unless either:
  * ...
- * T is Type, e is a constant type literal and the class corresponding to e has
- * a static method or getter named m
+ * • T is Type, e is a constant type literal and the class corresponding to e
+ *   has a static method or getter named m
  * @description Check that it is no static type warning if e is a constant type
  * literal and the class corresponding to e has a static getter named m
  * @static-clean

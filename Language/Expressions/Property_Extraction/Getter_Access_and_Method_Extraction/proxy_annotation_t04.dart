@@ -9,7 +9,7 @@
  * Let T be the static type of e. It is a static type warning if T does not
  * have a method or getter named m unless either:
  * • T or a superinterface of T is annotated with an annotation denoting a
- * constant identical to the constant @proxy defined in dart:core.
+ *   constant identical to the constant @proxy defined in dart:core.
  * @description Check that it is no static type warning if object's
  * superinterface is annotated with the constant @proxy. Test static
  * method/getter
