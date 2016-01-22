@@ -22,7 +22,7 @@ class Bounded<T extends num> {
 main() {
   if (isCheckedMode()) {
     checkDynamicError(() {
-      var x = new Bounded<String>#m; /// static warning
+      var x = new Bounded<String>#m; /// static type warning
     });
   }
 }

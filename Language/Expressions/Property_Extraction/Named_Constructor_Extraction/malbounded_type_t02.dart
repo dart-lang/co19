@@ -24,7 +24,7 @@ class C extends Bounded<String> {
 main() {
   if (isCheckedMode()) {
     checkDynamicError(() {
-      var x = new C#m;; /// static warning
+      var x = new C#m;; /// static type warning
     });
   }
 }
