@@ -21,6 +21,6 @@ class C {
 main() {
   C c = new C();
   checkDynamicError(() {
-    var x = new c#;  /// static warning
+    var x = new c#;  /// static type warning
   });
 }
