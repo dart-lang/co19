@@ -7,9 +7,10 @@
  * @assertion Evaluation of a property extraction i of the form super#m
  * proceeds as follows:
  * ...
- * If m is not a setter name, let f be the result of looking up method m in S
- * with respect to the current library L. If method lookup succeeds then i
- * evaluates to the closurization of method m with respect to superclass S
+ * If m is not a setter name, let f be the result of looking up method m in
+ * Sdynamic with respect to the current library L. If method lookup succeeds
+ * then i evaluates to the closurization of method m with respect to superclass
+ * Sdynamic.
  * @description Check that if method lookup succeeds then result of the
  * property extraction is method that was found during lookup
  * @author sgrekhov@unipro.ru

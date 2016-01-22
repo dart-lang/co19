@@ -7,8 +7,8 @@
  * @assertion Evaluation of a property extraction i of the form super#m
  * proceeds as follows:
  * ...
- * The static type of i is the static type of the function S.m, if S has an
- * accessible instance member named m. Otherwise the static type of i is
+ * The static type of i is the static type of the function Sstatic.m, if Sstatic
+ * has an accessible instance member named m. Otherwise the static type of i is
  * dynamic.
  *
  * @description Check that static type of the extracted method is Function

@@ -7,8 +7,9 @@
  * @assertion Evaluation of a property extraction i of the form super#m
  * proceeds as follows:
  * ...
- * It is a static type warning if S does not have an accessible instance member
- * named m
+ * Let Sstatic be the superclass of the immediately enclosing class. It is a
+ * static type warning if Sstatic does not have an accessible instance member
+ * named m.
  *
  * @description Check that it is a static type warning if S does not have an
  * accessible instance member named m but has static getter only

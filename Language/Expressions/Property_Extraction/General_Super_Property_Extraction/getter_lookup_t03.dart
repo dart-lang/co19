@@ -7,9 +7,9 @@
  * @assertion Evaluation of a property extraction i of the form super#m
  * proceeds as follows:
  * ...
- * Otherwise, let f be the result of looking up getter m in S with respect to
- * the current library L. If getter lookup succeeds then i evaluates to the
- * closurization of getter f with respect to superclass S
+ * Otherwise, let f be the result of looking up getter m in Sdynamic with
+ * respect to the current library L. If getter lookup succeeds then i evaluates
+ * to the closurization of getter f with respect to superclass Sdynamic.
  *
  * @description Check that if getter lookup succeeds then result of the
  * property extraction is getter that was found during lookup. Implicit getter
