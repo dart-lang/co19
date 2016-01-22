@@ -8,9 +8,10 @@
  * T does not have an accessible instance method or getter named m unless
  * either:
  * • T or a superinterface of T is annotated with an annotation denoting a
- * constant identical to the constant @proxy defined in dart:core. Or
+ *   constant identical to the constant @proxy defined in dart:core. Or
  * • T is Type, e is a constant type literal and the class corresponding to e
- * declares an accessible static method or getter named m.
+ *   declares an accessible static method or getter named m.
+ * • T is Function and m is call.
  * @description Check that it is no static type warning if object instance has
  * no accessible method or getter but its superinterface annotated with
  * annotation identical to @proxy

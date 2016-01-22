@@ -15,7 +15,7 @@ import '../../../../Utils/expect.dart';
 
 class A {
   int m() => 1;
-  A operator+ (A a) {
+  A operator +(A a) {
     return new A();
   }
 }
