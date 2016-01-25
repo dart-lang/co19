@@ -45,7 +45,7 @@ Stream<int> generator(List log) async* {
       log.add(i);
       i++;
     }
-  }S
+  }
 }
 
 test() async {

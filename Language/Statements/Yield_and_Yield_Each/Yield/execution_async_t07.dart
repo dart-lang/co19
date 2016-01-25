@@ -32,7 +32,6 @@
  */
 import 'dart:async';
 import '../../../../Utils/async_utils.dart';
-import '../../../../Utils/expect.dart';
 
 bool finish = false;
 
@@ -47,8 +46,7 @@ test() async {
   asyncStart();
   finish = false;
   Stream<int> s = generator();
-  StreamSubscription<int> ss;
-  ss = s.listen(
+  s.listen(
       (int x) async {
         finish = (x > 10);  // let generator to work some time
       },

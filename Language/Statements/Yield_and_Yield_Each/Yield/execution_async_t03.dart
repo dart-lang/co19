@@ -44,7 +44,7 @@ test() async {
   List data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   List log = [];
   Stream<int> s = generator(data);
-  StreamSubscription<int> ss = s.listen(
+  s.listen(
       (var x) =>  log.add(x),
       onDone:() {
         Expect.listEquals(data, log);
