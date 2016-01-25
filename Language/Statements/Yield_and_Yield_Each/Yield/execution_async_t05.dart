@@ -39,13 +39,13 @@ bool cancelHandled = false;
 Stream<int> generator() async* {
   bool canceled;
   int i = 0;
-  while (true){
+  while (true) {
     try {
       canceled = true;
       yield i++;
       canceled = false;
     } finally {
-      if (canceled){
+      if (canceled) {
         cancelHandled = true;
       }
     }

@@ -34,7 +34,7 @@ import '../../../../Utils/async_utils.dart';
 import '../../../../Utils/expect.dart';
 
 Stream generator(Iterable iterable) async* {
-  for (var o in iterable){
+  for (var o in iterable) {
     yield o;
   }
 }
@@ -46,7 +46,7 @@ test() async {
   Stream<int> s = generator(data);
   StreamSubscription<int> ss = s.listen(
       (var x) =>  log.add(x),
-      onDone:(){
+      onDone:() {
         Expect.listEquals(data, log);
         asyncEnd();
       }

@@ -39,8 +39,8 @@ bool generatorActive = true;
 
 Stream<int> generator(List log) async* {
   int i = 0;
-  while (generatorActive){
-    if (paused){
+  while (generatorActive) {
+    if (paused) {
       yield i;
       log.add(i);
       i++;

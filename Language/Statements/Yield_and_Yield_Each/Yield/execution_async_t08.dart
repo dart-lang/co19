@@ -38,7 +38,7 @@ bool finish = false;
 
 Stream<int> generator() async* {
   int i = 0;
-  while (!finish){
+  while (!finish) {
     yield i++;
   }
 }

@@ -38,7 +38,7 @@ bool generatorAlive = false;
 
 Stream<int> generator() async* {
   int i = 0;
-  while (true){
+  while (true) {
     generatorAlive = true;
     yield i++;
   }
