@@ -39,14 +39,14 @@ main() {
     return new C(r1, r2, r3, p1, p2, p3);
   };
 
-  var o1 = f1(1, 2, 3, 4, 5, 6);
-  var o2 = f2(1, 2, 3, 4, 5, 6);
+  var o1 = f1(1, 2, 3.1, 4, 5, 6);
+  var o2 = f2(1, 2, 3.1, 4, 5, 6);
   Expect.isTrue(o1 is C);
   Expect.isTrue(o2 is C);
   Expect.equals(o1.value, o2.value);
 
-  o1 = f1(3, 2, 3, 6, -2);
-  o2 = f2(3, 2, 3, 6, -2);
+  o1 = f1(3, 2, 3.2, 6, -2);
+  o2 = f2(3, 2, 3.2, 6, -2);
   Expect.isTrue(o1 is C);
   Expect.isTrue(o2 is C);
   Expect.equals(o1.value, o2.value);
@@ -57,14 +57,14 @@ main() {
   Expect.isTrue(o2 is C);
   Expect.equals(o1.value, o2.value);
 
-  o1 = f1(3, 2, 3);
-  o2 = f2(3, 2, 3);
+  o1 = f1(3, 2, 3.3);
+  o2 = f2(3, 2, 3.3);
   Expect.isTrue(o1 is C);
   Expect.isTrue(o2 is C);
   Expect.equals(o1.value, o2.value);
 
-  o1 = f1(3, 2, 3, 6);
-  o2 = f2(3, 2, 3, -6);
+  o1 = f1(3, 2, 3.4, 6);
+  o2 = f2(3, 2, 3.4, -6);
   Expect.isTrue(o1 is C);
   Expect.isTrue(o2 is C);
   Expect.notEquals(o1.value, o2.value);
