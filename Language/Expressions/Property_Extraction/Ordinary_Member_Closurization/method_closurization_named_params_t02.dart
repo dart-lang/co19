@@ -30,7 +30,7 @@ class C {
     return r1 * r2 * r3 * p1 * p2 * p3;
   }
 
-  int sum(a, b) => a + b;
+  sum(a, b) => a + b;
 
   double m(int r1, int r2, double r3, {p1: 2, p2: -3, p3: -7}) {
     return sum(r3, p2) + n(r1, r2, r3, p1: p1, p2: p2, p3: p3);
@@ -45,7 +45,7 @@ main() {
     return o.m(r1, r2, r3, p1: p1, p2: p2, p3: p3);
   };
 
-  Expect.equals(f(1, 2, 3, p1: 4, p2: 5, p3: 6), f1(1, 2, 3, p1: 4, p2: 5, p3: 6));
+  Expect.equals(f(1, 2, 3.2, p1: 4, p2: 5, p3: 6), f1(1, 2, 3.2, p1: 4, p2: 5, p3: 6));
   Expect.equals(f(2, 3, 8.5), f1(2, 3, 8.5));
   Expect.equals(f(-1, 3, 9.1, p1: 4), f1(-1, 3, 9.1, p1: 4));
   Expect.equals(f(-1, 3, 9.1, p2: 4), f1(-1, 3, 9.1, p2: 4));

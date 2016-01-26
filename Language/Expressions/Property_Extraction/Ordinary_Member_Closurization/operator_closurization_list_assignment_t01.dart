@@ -19,7 +19,7 @@ import '../../../../Utils/expect.dart';
 
 class C {
   var values = [1, 2, 3];
-  void operator []=(var a, b) {
+  operator []=(var a, b) {
     return values[a] = b;
   }
 }

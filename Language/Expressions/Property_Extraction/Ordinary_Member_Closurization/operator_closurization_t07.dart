@@ -11,7 +11,7 @@
  * -, +, /,  ̃/, *, %, |, ˆ, &, <<, >> (this precludes closurization of unary
  * -).
  *
- * @description Check that closurization of operator - on object o is
+ * @description Check that closurization of operator + on object o is
  * equivalent to (a) {return u - a;}
  *
  * @author sgrekhov@unipro.ru
@@ -19,16 +19,16 @@
 import '../../../../Utils/expect.dart';
 
 class C {
-  int operator -(var v) {
-    return v - 1;
+  int operator +(var v) {
+    return v + 1;
   }
 }
 
 main() {
   C o = new C();
-  var f = o#-;
+  var f = o#+;
 
-  var f1 = (a) {return o - a;};
+  var f1 = (a) {return o + a;};
 
   Expect.equals(f(1), f1(1));
   Expect.equals(f(-1), f1(-1));

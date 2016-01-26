@@ -8,7 +8,7 @@
  * equivalent to (a){return u.m = a;} if f is named m =, except that iff
  * identical(o1, o2) then o1#m= == o2#m=.
  *
- * @description Check thatonly if identical(o1, o2) then o1#m= == o2#m=
+ * @description Check that only if identical(o1, o2) then o1#m= == o2#m=
  *
  * @author sgrekhov@unipro.ru
  */

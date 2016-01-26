@@ -45,7 +45,7 @@ main() {
     return o.m(r1, r2, r3, p1, p2, p3);
   };
 
-  Expect.equals(f(1, 2, 3, 4, 5, 6), f1(1, 2, 3, 4, 5, 6));
+  Expect.equals(f(1, 2, 3.2, 4, 5, 6), f1(1, 2, 3.2, 4, 5, 6));
   Expect.equals(f(2, 3, 8.5), f1(2, 3, 8.5));
   Expect.equals(f(-1, 3, 9.1, 4), f1(-1, 3, 9.1, 4));
   Expect.equals(f(-1, 3, 9.1, 4, 5), f1(-1, 3, 9.1, 4, 5));
