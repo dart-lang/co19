@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The closurization of getter f with respect to superclass S is 
- * defined to be equivalent to ()f {return super.m;} if f is named m, except 
+ * @assertion The closurization of getter f with respect to superclass S is
+ * defined to be equivalent to ()f {return super.m;} if f is named m, except
  * that iff two closurizations were created by code declared in the same class
  * with identical bindings of this then super1#m == super2#m
  * @issue 24661
@@ -27,7 +27,7 @@ class B extends A {
 
 class C extends B {
   void test() {
-    Expect.isTrue(super#m != getClosurization());    
+    Expect.isTrue(super#m != getClosurization());
   }
 }
 

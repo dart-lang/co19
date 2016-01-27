@@ -26,10 +26,11 @@ class B extends A {
 
 class C extends A {
   void test() {
-    Expect.isTrue(super#m != getTearOff());
-    Expect.isTrue(super.m != getClosurization());
-    Expect.isTrue(super#m != getClosurization());
-    Expect.isTrue(super.m != getTearOff());
+    B o = new B();
+    Expect.isTrue(super#m != o.getTearOff());
+    Expect.isTrue(super.m != o.getClosurization());
+    Expect.isTrue(super#m != o.getClosurization());
+    Expect.isTrue(super.m != o.getTearOff());
   }
 }
 

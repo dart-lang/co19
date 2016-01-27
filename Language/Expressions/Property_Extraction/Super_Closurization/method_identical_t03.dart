@@ -11,7 +11,7 @@
  * @description Check that if two closurizations were created by code declared
  * in the same class with identical bindings of this then super1#m == super2#m,
  * super1.m == super2.m, super1#m == super2.m and super1.m == super2#m.
- * 
+ *
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

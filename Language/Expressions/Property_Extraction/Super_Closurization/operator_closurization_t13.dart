@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionThe closurization of method f with respect to superclass S is
+ * @assertion The closurization of method f with respect to superclass S is
  * defined to be equivalent to:
  * • (a){return super op a;} if f is named op and op is one of <, >, <=, >=,
  * ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>

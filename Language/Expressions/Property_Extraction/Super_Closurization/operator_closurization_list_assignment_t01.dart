@@ -16,34 +16,39 @@
  */
 import '../../../../Utils/expect.dart';
 
-class C {
+class A {
   var values = [1, 2, 3];
-  void operator []=(var a, b) {
+  operator []=(var a, b) {
     return values[a] = b;
+  }
+}
+
+class C extends A {
+  void test() {
+    var f = super#[]=;
+    var f1 = (a, b) {super[a] = b;};
+
+    f(0, 10);
+    Expect.equals(10, values[0]);
+    values[0] = 1;
+    f1(0, 10);
+    Expect.equals(10, values[0]);
+
+    f(1, 20);
+    Expect.equals(20, values[1]);
+    values[1] = 2;
+    f1(1, 20);
+    Expect.equals(20, values[1]);
+
+    f(2, 30);
+    Expect.equals(30, values[2]);
+    values[2] = 3;
+    f1(2, 30);
+    Expect.equals(30, values[2]);
   }
 }
 
 main() {
   C o = new C();
-  var f = o#[]=;
-
-  var f1 = (a, b) {return o[a] = b;};
-
-  f(0, 10);
-  Expect.equals(10, o.values[0]);
-  o.values[0] = 1;
-  f1(0, 10);
-  Expect.equals(10, o.values[0]);
-
-  f(1, 20);
-  Expect.equals(20, o.values[1]);
-  o.values[1] = 2;
-  f1(1, 20);
-  Expect.equals(20, o.values[1]);
-
-  f(2, 30);
-  Expect.equals(30, o.values[2]);
-  o.values[2] = 3;
-  f1(2, 30);
-  Expect.equals(30, o.values[2]);
+  o.test();
 }
