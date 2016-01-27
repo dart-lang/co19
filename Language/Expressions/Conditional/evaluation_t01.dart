@@ -6,18 +6,17 @@
 /**
  * @assertion Evaluation of a conditional expression c of the form e1 ? e2 : e3
  * proceeds as follows:
- * First, e1 is evaluated to an object o1. In checked mode, it is a dynamic
- * type error if o1 is not of type bool. Otherwise, o1 is then subjected to boolean
+ * First, e1 is evaluated to an object o1. Then, o1 is subjected to boolean
  * conversion producing an object r. If r is true, then the value of c is the
- * result of evaluating the expression e2. Otherwise the value of c is the result of
- * evaluating the expression e3.
+ * result of evaluating the expression e2. Otherwise the value of c is the
+ * result of evaluating the expression e3.
  * @description Checks that a conditional expression is evaluated correctly.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
- 
+
 import '../../../Utils/dynamic_check.dart';
 
 main() {
@@ -32,11 +31,11 @@ main() {
   checkTypeError(() {
     Expect.equals(0, [] ? 1 : 0); /// static type warning - first argument not assignable to boolean, see "Conditional"
   });
-  
+
   checkTypeError(() {
     Expect.equals(0, new Object() ? 1 : 0);
   });
-  
+
   checkTypeError(() {
     Expect.equals(0, "" ? 1 : 0); /// static type warning - first argument not assignable to boolean, see "Conditional"
   });

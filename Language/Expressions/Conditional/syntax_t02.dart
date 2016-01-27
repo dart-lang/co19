@@ -7,10 +7,11 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
+ *   ifNullExpression ('?' expressionWithoutCascade ':'
+ * expressionWithoutCascade)?
  * ;
  * @description Checks that super can't be used in a conditional expression
- * as the first expression.
+ * as the condition.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
@@ -22,11 +23,11 @@ class A extends S {
   test() {
     try {
       super ? 1 : 2;
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 
 main() {
-  A a  = new A();
+  A a = new A();
   a.test();
 }

@@ -7,10 +7,11 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
+ *   ifNullExpression ('?' expressionWithoutCascade ':'
+ * expressionWithoutCascade)?
  * ;
- * @description Checks that a type parameter
- * can be used as the condition in a conditional expression without a compile error.
+ * @description Checks that a type parameter can be used as the condition in a
+ * conditional expression without a compile error.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -20,7 +21,7 @@ class A<T> {
   test() {
     try {
       T ? "" : ''; /// static type warning - first argument not assignable to boolean, see "Conditional"
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 
