@@ -60,7 +60,7 @@ test() async {
   ss = s.listen(
       (int x) async {
         Expect.equals(false, cancelHandled);
-        if (x==5) { // let generator to work some time
+        if (x == 5) { // let generator to work some time
           await ss.cancel();
           Expect.equals(true, cancelHandled);
           asyncEnd();

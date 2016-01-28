@@ -30,9 +30,9 @@ import '../../../../Utils/expect.dart';
 
 Iterable<int> generator(List log) sync* {
   int code = 'a'.codeUnitAt(0);
-  for (int i=0; i<3; i++) {
+  for (int i = 0; i < 3; i++) {
     yield i;
-    String s = new String.fromCharCode(code+i);
+    String s = new String.fromCharCode(code + i);
     log.add(s);
   }
 }
@@ -41,7 +41,7 @@ main() {
   List log = [];
   Iterable iterable = generator(log);
   Iterator<int> it = iterable.iterator;
-  while(it.moveNext()){
+  while (it.moveNext()) {
     log.add(it.current);
   }
   Expect.listEquals([0, 'a', 1, 'b', 2, 'c'], log);

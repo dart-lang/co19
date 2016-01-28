@@ -38,7 +38,7 @@ main() {
   List log = [];
   Iterable iterable = generator(data);
   Iterator<int> it = iterable.iterator;
-  while(it.moveNext()){
+  while (it.moveNext()) {
     log.add(it.current);
   }
   Expect.listEquals(data, log);

@@ -24,6 +24,5 @@ Iterable<String> generator() sync* {
 }
 
 main() {
-
   Expect.equals(1, generator().first);
 }
