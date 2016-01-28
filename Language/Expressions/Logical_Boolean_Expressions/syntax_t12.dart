@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The logical boolean expressions combine boolean objects using the boolean
- * conjunction and disjunction operators.
+ * @assertion The logical boolean expressions combine boolean objects using
+ * the boolean conjunction and disjunction operators.
  * logicalOrExpression:
  *   logicalAndExpression ('||' logicalAndExpression)*
  * ;
@@ -13,9 +13,10 @@
  *   equalityExpression ('&&' equalityExpression)*
  * ;
  * A logical boolean expression is either an equality expression, or an
- * invocation of a logical boolean operator on an expression e1 with argument e2.
- * @description Checks that a reference to a type alias declaration can be used as
- * the first operand in a logical boolean expression without a compile error.
+ * invocation of a logical boolean operator on an expression e1 with argument
+ * e2.
+ * @description Checks that a reference to a type alias declaration can be used
+ * as the first operand in a logical boolean expression without a compile error.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -26,5 +27,5 @@ typedef int fun();
 main() {
   try {
     fun || true; /// static type warning - undefined operator or incompatible argument type
-  } catch(e) {}
+  } catch (e) {}
 }

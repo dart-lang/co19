@@ -6,15 +6,15 @@
 /**
  * @assertion A logical boolean expression b of the form e1 && e2 shows that a
  * variable v has type T if all of the following conditions hold:
- * - Either e1 shows that v has type T or e2 shows that v has type T.
- * - v is a local variable or formal parameter.
- * - The variable v is not mutated in e2 or within a closure.
+ * • Either e1 shows that v has type T or e2 shows that v has type T.
+ * • v is a local variable or formal parameter.
+ * • The variable v is not mutated in e2 or within a closure.
  * Furthermore, if all of the following hold:
- * - e1 shows that v has type T .
- * - v is not mutated in either e1 , e2 or within a closure.
- * - If the variable v is accessed by a closure in e2 then the variable v is not
- * potentially mutated anywhere in the scope of v.
- * then the type of v is known to be T in e2 .
+ * • e1 shows that v has type T.
+ * • v is not mutated in either e1 , e2 or within a closure.
+ * • If the variable v is accessed by a closure in e2 then the variable v is not
+ *   potentially mutated anywhere in the scope of v.
+ * then the type of v is known to be T in e2.
  * @description Checks that if v is not a local variable or formal parameter,
  * then b does not show that v has any promoted type. Instance variable case.
  * @static-warning

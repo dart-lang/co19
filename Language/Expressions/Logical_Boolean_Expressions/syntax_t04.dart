@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The logical boolean expressions combine boolean objects using the boolean
- * conjunction and disjunction operators.
+ * @assertion The logical boolean expressions combine boolean objects using
+ * the boolean conjunction and disjunction operators.
  * logicalOrExpression:
  *   logicalAndExpression ('||' logicalAndExpression)*
  * ;
@@ -13,8 +13,10 @@
  *   equalityExpression ('&&' equalityExpression)*
  * ;
  * A logical boolean expression is either an equality expression, or an
- * invocation of a logical boolean operator on an expression e1 with argument e2.
- * @description Checks that a logical boolean expression can't start with operator ||.
+ * invocation of a logical boolean operator on an expression e1 with argument
+ * e2.
+ * @description Checks that a logical boolean expression can't start with
+ * operator ||.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
@@ -23,5 +25,5 @@
 main() {
   try {
     || true || false;
-  } catch(e) {}
+  } catch (e) {}
 }

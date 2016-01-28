@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The logical boolean expressions combine boolean objects using the boolean
- * conjunction and disjunction operators.
+ * @assertion The logical boolean expressions combine boolean objects using
+ * the boolean conjunction and disjunction operators.
  * logicalOrExpression:
  *   logicalAndExpression ('||' logicalAndExpression)*
  * ;
@@ -13,7 +13,8 @@
  *   equalityExpression ('&&' equalityExpression)*
  * ;
  * A logical boolean expression is either an equality expression, or an
- * invocation of a logical boolean operator on an expression e1 with argument e2.
+ * invocation of a logical boolean operator on an expression e1 with argument
+ * e2.
  * @description Checks that various expression which fit into this grammar
  * don't cause compile-time errors.
  * @static-warning
@@ -34,10 +35,10 @@ class S {
 class A {
   int method() {return 3;}
   var id = 6;
-  
+
   test() {
     var arr = [1, 2];
-    
+
     //literals
     1 && "1"; /// static type warning galore
     false || null;
@@ -77,14 +78,14 @@ class A {
     //unary expressions
     --id || id++;
     ~-id && !!false;
-    
+
     // selector operator invocations
     try {
       id[2.0] || topLevelFunction()[0] && [1, 2][0];
       Expect.fail("NoSuchMethodError expected.");
     } on NoSuchMethodError catch(ok) {}
 
-     id && id || id; 
+     id && id || id;
 
      //function expressions
      (){} || ()=>({});
