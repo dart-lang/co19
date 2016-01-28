@@ -7,7 +7,8 @@
  * @assertion A conditional expression evaluates one of two expressions
  * based on a boolean condition.
  * conditionalExpression:
- *   logicalOrExpression ('?' expressionWithoutCascade ':' expressionWithoutCascade)?
+ *   ifNullExpression ('?' expressionWithoutCascade ':'
+ * expressionWithoutCascade)?
  * ;
  * @description Checks that ':' expression is necessary.
  * @compile-error
@@ -18,5 +19,5 @@
 main() {
   try {
     true ? 1 2;
-  } catch(e) {}
+  } catch (e) {}
 }
