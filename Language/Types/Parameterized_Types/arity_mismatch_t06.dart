@@ -15,7 +15,7 @@
  * generic type invocation, then all type arguments being dropped, and
  * replaced with the correct number of type arguments, all set to dynamic
  * @static-warning
- * @author sgrekhov@yandex.ru
+ * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 

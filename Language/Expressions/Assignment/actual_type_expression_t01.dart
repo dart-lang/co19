@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as follows:
+ * @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as
+ * follows:
  * ...
- * In checked mode, it is a dynamic type error if o2 is not null and the interface
- * of the class of o2 is not a subtype of the actual type of e1.v.
- * @description Checks that it is a dynamic type error if o2 is not null and the interface
- * of the class of o2 is not a subtype of the actual type of e1.v.
+ * In checked mode, it is a dynamic type error if o2 is not null and the
+ * interface of the class of o2 is not a subtype of the actual type of e1.v.
+ * @description Checks that it is a dynamic type error if o2 is not null and the
+ * interface of the class of o2 is not a subtype of the actual type of e1.v.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 import '../../../Utils/dynamic_check.dart';

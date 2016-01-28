@@ -13,7 +13,7 @@
  * @description Checks that in checked mode, it is a dynamic type error if
  * a malbounded type is used in a type test
  * @static-warning
- * @author sgrekhov@yandex.ru
+ * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/dynamic_check.dart";
 
