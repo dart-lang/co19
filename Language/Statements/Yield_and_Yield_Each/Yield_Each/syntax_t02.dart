@@ -27,7 +27,7 @@ class A {
 main() {
   int k = 0;
   Iterator<int> i = A.test().iterator;
-  while(i.moveNext()){
+  while (i.moveNext()) {
     k++;
   }
   Expect.equals(10, k);

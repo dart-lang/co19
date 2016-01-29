@@ -24,7 +24,7 @@ Iterable<int> test() sync* {
 main() {
   int k = 0;
   Iterator<int> i = test().iterator;
-  while(i.moveNext()){
+  while (i.moveNext()) {
     k++;
   }
   Expect.equals(10, k);
