@@ -19,7 +19,7 @@ import '../../../Utils/expect.dart';
 
 class C {
   test() {
-    Expect.throws(() {v = 1;}, (e) => e is NoSuchMethodError);
+    Expect.throws(() {v = 1;}, (e) => e is NoSuchMethodError); /// static type warning
   }
 }
 

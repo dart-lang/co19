@@ -23,10 +23,7 @@ class C {
   static int get v => _v;
   
   test() {
-    try {
-      v = 1;
-    } on NoSuchMethodError {
-    }
+    Expect.throws(() {v = 1;}, (e) => e is NoSuchMethodError);
   }
 }
 

@@ -12,36 +12,20 @@
  * constant type literal, then if v = is a setter that forwards to a static
  * setter, setter lookup fails. Otherwise, the body of v = is executed with its
  * formal parameter bound to o2 and this bound to o1.
- * @description Checks that an assignment of the form e1.v = e2 is evaluated
- * correctly if e1 is a constant type literal
+ * @description Checks the value of an assignment of the form e1.v = e2 is e
+ * evaluated to o. Test the case when e1 is a constant type literal
  * @author msyabro
+ * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 class C {
-  static var _v;
-  static var t;
-
-  static set v(val) {
-    _v = val;
-    t = val + 1;
-  }
-  static get v {
-    return _v;
-  }
+  static var v;
 }
 
 main() {
-  C.v = 1;
-  Expect.equals(1, C.v);
-  Expect.equals(2, C.t);
-  C.v = 2;
-  Expect.equals(2, C.v);
-  Expect.equals(3, C.t);
-  C.v = 1;
-  Expect.equals(1, C.v);
-  Expect.equals(2, C.t);
-  C.v = 2 * 6;
-  Expect.equals(12, C.v);
-  Expect.equals(13, C.t);
+  Expect.equals(1, C.v = 1);
+  Expect.equals(2, C.v = 2);
+  Expect.equals(1, C.v = 1);
+  Expect.equals(12, C.v = 2 * 6);
 }
