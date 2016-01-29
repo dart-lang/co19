@@ -11,12 +11,12 @@
  * ;
  * equalityOperator:
  *   '==' |
- *   '!=' 
+ *   '!='
  * ;
  * An equality expression is either a relational expression, or an invocation of
- * a equality operator on either super or an expression e1, with argument e2.
- * @description Checks that various equality expression which are valid according to this grammar
- * don't cause compile-time errors.
+ * an equality operator on either super or an expression e1, with argument e2.
+ * @description Checks that various equality expression which are valid
+ * according to this grammar don't cause compile-time errors.
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
@@ -42,8 +42,8 @@ class A extends S {
     false != null;
 
     //function expressions -- issue 1189
-    (){} == ()=>{};
-    () {return null;} == (int x) => 7; 
+    () {} == () => {};
+    () {return null;} == (int x) => 7;
     () => [] != 1;
     () {} != new Object();
 
@@ -56,24 +56,24 @@ class A extends S {
     method() != id;
 
     //relational expressions
-    try {1 < 2 == true > false;} catch(e) {} /// static type warnings galore
-    try {true >= false == id > 7;} catch(e) {}
+    try {1 < 2 == true > false;} catch (e) {} /// static type warnings galore
+    try {true >= false == id > 7;} catch (e) {}
 
     //shift expressions
     try {1 >> -1 != (){};} catch(e) {}
-    try {1 << 2 != null >> null;} catch(e) {}
+    try {1 << 2 != null >> null;} catch (e) {}
 
     //additive expressions
-    try { 1 + 2 == 2;} catch(e) {}
-    try { 0 - 0 != null + null;} catch(e ) {}
+    try { 1 + 2 == 2;} catch (e) {}
+    try { 0 - 0 != null + null;} catch (e) {}
 
     //multiplicative expressions
-    try {true * false == id.id / []();} catch(e) {}
-    try {0 ~/ 1 != 1 - -1;} catch(e) {}
+    try {true * false == id.id / []();} catch (e) {}
+    try {0 ~/ 1 != 1 - -1;} catch (e) {}
 
     //unary expressions
-    try {-this == ~this;} catch(e) {}
-    try {~-id != !!false;} catch(e) {}
+    try {-this == ~this;} catch (e) {}
+    try {~-id != !!false;} catch (e) {}
   }
 }
 

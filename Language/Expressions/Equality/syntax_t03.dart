@@ -11,10 +11,10 @@
  * ;
  * equalityOperator:
  *   '==' |
- *   '!=' 
+ *   '!='
  * ;
  * An equality expression is either a relational expression, or an invocation of
- * a equality operator on either super or an expression e1, with argument e2.
+ * an equality operator on either super or an expression e1, with argument e2.
  * @description Checks that an equality expression can't start with operator ==.
  * @compile-error
  * @author msyabro
@@ -24,5 +24,5 @@
 main() {
   try {
     == 1;
-  } catch(e) {}
+  } catch (e) {}
 }

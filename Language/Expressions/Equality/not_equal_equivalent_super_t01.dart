@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An equality expression of the form super != e
- * is equivalent to the expression !(super == e).
- * @description Checks that expression of the form super != e  is
- * equivalent to the expression !(super == e).
+ * @assertion An equality expression of the form super != e is equivalent to the
+ * expression !(super == e).
+ * @description Checks that expression of the form super != e is equivalent to
+ * the expression !(super == e).
  * @author msyabro
  * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 class S{
-  operator==(var val) {
+  operator ==(var val) {
     return identical(this, val);
   }
 }

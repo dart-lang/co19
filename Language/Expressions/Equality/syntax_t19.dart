@@ -11,12 +11,12 @@
  * ;
  * equalityOperator:
  *   '==' |
- *   '!=' 
+ *   '!='
  * ;
  * An equality expression is either a relational expression, or an invocation of
- * a equality operator on either super or an expression e1, with argument e2.
- * @description Checks that a class name can be
- * used as the first operand in an equality expression.
+ * an equality operator on either super or an expression e1, with argument e2.
+ * @description Checks that a class name can be used as the first operand in
+ * an equality expression.
  * @author msyabro
  * @reviewer kaigorodov
  */

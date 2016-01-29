@@ -11,10 +11,10 @@
  * ;
  * equalityOperator:
  *   '==' |
- *   '!=' 
+ *   '!='
  * ;
  * An equality expression is either a relational expression, or an invocation of
- * a equality operator on either super or an expression e1, with argument e2.
+ * an equality operator on either super or an expression e1, with argument e2.
  * @description Checks that super can be used only as the first operand
  * of an equality expression.
  * @compile-error
@@ -28,7 +28,7 @@ class A extends S {
   test() {
     try {
       1 == super;
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 
