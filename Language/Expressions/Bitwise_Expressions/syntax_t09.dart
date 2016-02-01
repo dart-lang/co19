@@ -18,12 +18,12 @@
  *   super ('&' shiftExpression)+
  * ;
  * bitwiseOperator:
- * '&' |
- * '^' |
- * '|'
+ *   '&' |
+ *   '^' |
+ *   '|'
  * ;
- * A bitwise expression is either an shift expression, or an invocation
- * of a bitwise operator on either super or an expression e1, with argument e2.
+ * A bitwise expression is either an shift expression, or an invocation of a
+ * bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that two operators & can't placed one after another.
  * @compile-error
  * @author msyabro
@@ -33,6 +33,6 @@
 main() {
   try {
     1 & & 2;
-  } catch(e) {}
+  } catch (e) {}
 }
 

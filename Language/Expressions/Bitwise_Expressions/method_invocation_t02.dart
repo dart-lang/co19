@@ -15,14 +15,14 @@ import '../../../Utils/expect.dart';
 
 class A {
   var val;
-  operator^(var arg) {
-    val=arg;
+  operator ^(var arg) {
+    val = arg;
   }
 }
 
 main() {
   A a = new A();
-  int arg=123;
+  int arg = 123;
   a ^ arg;
-  Expect.isTrue(a.val==arg);
+  Expect.isTrue(a.val == arg);
 }

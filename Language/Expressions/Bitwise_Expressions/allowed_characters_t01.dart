@@ -4,28 +4,29 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Space, tab and line terminators characters are allowed between tokens.
- * @description Checks that different whitespace characters and line terminators are allowed
- *  in boolean expressions.
+ * @assertion Space, tab and line terminators characters are allowed between
+ * tokens.
+ * @description Checks that different whitespace characters and line
+ * terminators are allowed in boolean expressions.
  * @author hlodvig
  * @reviewer rodionov
  */
 
 main() {
   int i = 1;
-  
+
   i | 1;
   i	|	1;
   i
   |
   1;
-  
+
   i ^ 1;
   i	^	1;
   i
   ^
   1;
-  
+
   i & 1;
   i	&	1;
   i

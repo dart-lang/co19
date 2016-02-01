@@ -22,10 +22,10 @@
  * '^' |
  * '|'
  * ;
- * A bitwise expression is either an shift expression, or an invocation
- * of a bitwise operator on either super or an expression e1, with argument e2.
- * @description Checks that a type variable can be used
- * as the second operand of a bitwise expression without a compile error.
+ * A bitwise expression is either an shift expression, or an invocation of a
+ * bitwise operator on either super or an expression e1, with argument e2.
+ * @description Checks that a type variable can be used as the second operand
+ * of a bitwise expression without a compile error.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -35,7 +35,7 @@ class A<T> {
   test() {
     try {
       1 | T; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 

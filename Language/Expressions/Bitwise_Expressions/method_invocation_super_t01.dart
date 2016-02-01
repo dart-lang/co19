@@ -16,7 +16,7 @@ import '../../../Utils/expect.dart';
 class S {
   var val;
   operator | (var arg) {
-    val=arg;
+    val = arg;
   }
 }
 
@@ -28,7 +28,7 @@ class A extends S {
 
 main() {
   A a = new A();
-  int arg=123;
+  int arg = 123;
   a.test(arg);
-  Expect.isTrue(a.val==arg);
+  Expect.isTrue(a.val == arg);
 }

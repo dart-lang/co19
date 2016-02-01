@@ -18,12 +18,12 @@
  *   super ('&' shiftExpression)+
  * ;
  * bitwiseOperator:
- * '&' |
- * '^' |
- * '|'
+ *   '&' |
+ *   '^' |
+ *   '|'
  * ;
- * A bitwise expression is either an shift expression, or an invocation
- * of a bitwise operator on either super or an expression e1, with argument e2.
+ * A bitwise expression is either an shift expression, or an invocation of a
+ * bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a class declaration can be used
  * as the first operand of a bitwise expression without a compile error.
  * @static-warning
@@ -36,6 +36,6 @@ class A {}
 main() {
   try {
     A & 1; /// static type warning - invoking an undefined operator, see "Ordinary invocation"
-  } catch(e) {}
+  } catch (e) {}
 }
 
