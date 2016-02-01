@@ -15,7 +15,7 @@
  * ;
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
- * @description Checks that a shift expression of the form
+ * @description Checks that a shift expression of the form e1 op e2
  * can't terminate with the shift operator >>.
  * @compile-error
  * @author msyabro
@@ -25,5 +25,5 @@
 main() {
   try {
     1 << 2 >> 1 >>;
-  } catch(e) {}
+  } catch (e) {}
 }

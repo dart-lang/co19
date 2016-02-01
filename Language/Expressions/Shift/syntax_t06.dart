@@ -25,5 +25,5 @@
 main() {
   try {
     1 << << 2;
-  } catch(e) {}
+  } catch (e) {}
 }
