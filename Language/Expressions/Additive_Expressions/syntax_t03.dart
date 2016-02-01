@@ -18,7 +18,7 @@
  * argument e2.
  * @description Checks that an additive expression of the form
  * multiplicativeExpression ('-' multiplicativeExpression)*
- * must have at least two operands
+ * must have at least two operands.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
@@ -28,5 +28,5 @@
 main() {
   try {
     [] -;
-  } catch(e) {}
+  } catch (e) {}
 }

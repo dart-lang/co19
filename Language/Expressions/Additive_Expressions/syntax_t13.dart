@@ -28,7 +28,7 @@ class A <T> {
   test() {
     try {
       T - 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 

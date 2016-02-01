@@ -16,8 +16,8 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that assignment expression cannot be used as the second operand
- * of an additive expression.
+ * @description Checks that assignment expression cannot be used as the second
+ * operand of an additive expression.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -26,5 +26,5 @@
 
 main() {
   var foo;
-  try {1 + foo = 2;} catch(ok) {}
+  try {1 + foo = 2;} catch (ok) {}
 }

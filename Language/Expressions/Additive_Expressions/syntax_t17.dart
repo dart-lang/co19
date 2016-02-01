@@ -17,7 +17,8 @@
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
  * @description Checks that using an assignment expression as the first operand
- * of an additive expression results in the latter being an operand of the former.
+ * of an additive expression results in the latter being an operand of the
+ * former.
  * @author rodionov
  * @reviewer iefremov
  */

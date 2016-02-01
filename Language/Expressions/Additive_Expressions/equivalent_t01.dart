@@ -6,8 +6,8 @@
 /**
  * @assertion An additive expression of the form e1 op e2 is equivalent
  * to the method invocation e1.op(e2).
- * @description Checks that an expression of the form e1 + e2 is
- * equivalent to the method invocation e1.operator+(e2).
+ * @description Checks that an additive expression of the form e1 op e2 is
+ * equivalent to the method invocation e1.op(e2).
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -18,15 +18,15 @@ var logStr = "";
 class A {
   final int value;
 
-  const A(var v) : value=v;
-  
-  operator+(var v) {
+  const A(var v) : value = v;
+
+  operator +(var v) {
     logStr = "${logStr}+";
     return new A(value+v);
   }
-  operator-(var v) {
+  operator -(var v) {
     logStr = "${logStr}-";
-    return new A(v-value);
+    return new A(v - value);
   }
 }
 

@@ -6,8 +6,8 @@
 /**
  * @assertion An additive expression of the form super op e2 is equivalent
  * to the method invocation super.op(e2).
- * @description Checks that an expression of the form super + e2 is
- * equivalent to the method invocation super.operator+(e2).
+ * @description Checks that an additive expression of the form super op e2 is
+ * equivalent to the method invocation super.op(e2).
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -17,22 +17,22 @@ var logStr = "";
 
 class S {
   final value;
-  
-  const S(var v) : value=v;
-  
-  operator+(var v) {
+
+  const S(var v) : value = v;
+
+  operator +(var v) {
     logStr = "${logStr}+";
-    return new A(value+v);
+    return new A(value + v);
   }
-  operator-(var v) {
+  operator -(var v) {
     logStr = "${logStr}-";
-    return new A(v-value);
+    return new A(v - value);
   }
 }
 
 class A extends S {
   A(var v) : super(v) {}
-  
+
   test() {
     logStr = "";
     super + 5;

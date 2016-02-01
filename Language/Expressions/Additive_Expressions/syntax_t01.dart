@@ -28,9 +28,9 @@ topLevelFunction() {}
 
 class S {
   const S();
-  operator+(var x) {}
-  operator-(var x) {}
-  operator[](var idx) {}
+  operator +(var x) {}
+  operator -(var x) {}
+  operator [](var idx) {}
   final foo = 1;
 }
 
@@ -41,41 +41,41 @@ class A extends S {
 
   test() {
     //super is a primary
-    try {super + 0;} catch(e) {}
-    try {super - super[0];} catch(e) {}
-    try {super + super.foo - [0][1][2][3]; } catch(e) {}
+    try {super + 0;} catch (e) {}
+    try {super - super[0];} catch (e) {}
+    try {super + super.foo - [0][1][2][3]; } catch (e) {}
 
     // chaining
-    try {super + 0 - 1 + {} - null;} catch(e) {}
-    try {0 - 1 + {} - null;} catch(e) {} /// static type warnings galore
+    try {super + 0 - 1 + {} - null;} catch (e) {}
+    try {0 - 1 + {} - null;} catch (e) {} /// static type warnings galore
 
     // (...)
-    try {(this) + (1 ^ 0 & 4) - (1 <= 0);} catch(e) {}
+    try {(this) + (1 ^ 0 & 4) - (1 <= 0);} catch (e) {}
 
     //literals with selectors
-    try {null + 5(); } catch(e) {}
-    try {true[0] + "x".x - [[[0]]].y; } catch(e) {}
+    try {null + 5(); } catch (e) {}
+    try {true[0] + "x".x - [[[0]]].y; } catch (e) {}
 
     //constants
-    try {const [] + const {};} catch(e) {}
-    try {const ["1", 2] - const S();} catch(e) {}
+    try {const [] + const {};} catch (e) {}
+    try {const ["1", 2] - const S();} catch (e) {}
 
     //invocations
-    try {method() + topLevelFunction();} catch(e) {}
-    try {this.method()(1)(1, 2) - id[0]().x;} catch(e) {}
+    try {method() + topLevelFunction();} catch (e) {}
+    try {this.method()(1)(1, 2) - id[0]().x;} catch (e) {}
 
     //multiplicative expressions
-    try {true * false + id.id / []();} catch(e) {}
-    try {this[1] % null(1) - topLevelFunction()[0]++ ~/ {}()[0];} catch(e) {}
+    try {true * false + id.id / []();} catch (e) {}
+    try {this[1] % null(1) - topLevelFunction()[0]++ ~/ {}()[0];} catch (e) {}
 
     //unary expressions
-    try {-this + ~this;} catch(e) {}
-    try {--id - id++;} catch(e) {}
-    try {~-id + !!false;} catch(e) {}
-    try {++1[1] - ()=>2[0]--;} catch(e) {}
+    try {-this + ~this;} catch (e) {}
+    try {--id - id++;} catch (e) {}
+    try {~-id + !!false;} catch (e) {}
+    try {++1[1] - ()=>2[0]--;} catch (e) {}
 
     //identifier
-    try {id + id - id;} catch(e) {}
+    try {id + id - id;} catch (e) {}
   }
 
   var _id;

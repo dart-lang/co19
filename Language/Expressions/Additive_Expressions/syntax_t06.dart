@@ -26,14 +26,14 @@
  */
 
 class S {
-  operator-() {}
+  operator -() {}
 }
 
 class A {
   test() {
     try {
       super -;
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 
