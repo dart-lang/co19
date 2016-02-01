@@ -6,7 +6,8 @@
 /**
  * @assertion Relational expressions invoke the relational operators on objects.
  * relationalExpression:
- *   bitwiseOrExpression (typeTest | typeCast | relationalOperator bitwiseOrExpression)? |
+ *   bitwiseOrExpression (typeTest | typeCast | relationalOperator
+ * bitwiseOrExpression)? |
  *   super relationalOperator bitwiseOrExpression
  * ;
  * relationalOperator:
@@ -15,8 +16,8 @@
  *   '<=' |
  *   '<'
  * ;
- * A relational expression is either a bitwise expression, or an invocation
- * of a relational operator on either super or an expression e1, with argument e2.
+ * A relational expression is either a bitwise expression, or an invocation of
+ * a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that a relational expression can't start with operator >=.
  * @compile-error
  * @author msyabro
@@ -26,5 +27,5 @@
 main() {
   try {
     >= (1 < 2);
-  } catch(e) {}
+  } catch (e) {}
 }

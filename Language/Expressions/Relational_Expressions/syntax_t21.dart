@@ -6,7 +6,8 @@
 /**
  * @assertion Relational expressions invoke the relational operators on objects.
  * relationalExpression:
- *   bitwiseOrExpression (typeTest | typeCast | relationalOperator bitwiseOrExpression)? |
+ *   bitwiseOrExpression (typeTest | typeCast | relationalOperator
+ * bitwiseOrExpression)? |
  *   super relationalOperator bitwiseOrExpression
  * ;
  * relationalOperator:
@@ -15,9 +16,9 @@
  *   '<=' |
  *   '<'
  * ;
- * A relational expression is either a bitwise expression, or an invocation
- * of a relational operator on either super or an expression e1, with argument e2.
- * @description Checks that a type alias name can be used as the second operand 
+ * A relational expression is either a bitwise expression, or an invocation of
+ * a relational operator on either super or an expression e1, with argument e2.
+ * @description Checks that a type alias name can be used as the second operand
  * in a relational expression without a compile error.
  * @static-warning
  * @author kaigorodov
@@ -29,5 +30,5 @@ typedef void proc();
 main() {
   try {
     1 >= proc; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch(e) {} // NSME or type error depending on mode
+  } catch (e) {} // NSME or type error depending on mode
 }

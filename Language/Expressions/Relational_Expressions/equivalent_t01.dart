@@ -16,19 +16,19 @@ import '../../../Utils/expect.dart';
 var logStr = "";
 
 class A {
-  operator<(var v) {
+  operator <(var v) {
     logStr = "${logStr}<";
     return true;
   }
-  operator>(var v) {
+  operator >(var v) {
     logStr = "${logStr}>";
     return true;
   }
-  operator<=(var v) {
+  operator <=(var v) {
     logStr = "${logStr}<=";
     return true;
   }
-  operator>=(var v) {
+  operator >=(var v) {
     logStr = "${logStr}>=";
     return true;
   }
