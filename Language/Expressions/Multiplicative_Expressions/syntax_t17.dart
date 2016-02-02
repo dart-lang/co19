@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Multiplicative expressions invoke the multiplication operators on objects.
+ * @assertion Multiplicative expressions invoke the multiplication operators on
+ * objects.
  * multiplicativeExpression:
  *   unaryExpression (multiplicativeOperator unaryExpression)* |
  *   super (multiplicativeOperator unaryExpression)+
@@ -16,9 +17,10 @@
  *   '~/'
  * ;
  * A multiplicative expression is either a unary expression, or an invocation
- * of a multiplicative operator on either super or an expression e1, with argument e2.
- * @description Checks that a type parameter name can be used
- * as the right operand of a multiplicative expression without a compile error.
+ * of a multiplicative operator on either super or an expression e1, with
+ * argument e2.
+ * @description Checks that a type parameter name can be used as the right
+ * operand of a multiplicative expression without a compile error.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -29,7 +31,7 @@ class A<T> {
   test() {
     try {
       1 ~/ T; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 

@@ -17,7 +17,7 @@
  * The static type of an expression e1 ~/ e2 where e1 has static type int is
  * int if the static type of e2 is int.
  * @description Checks special cases for static types of expressions
- * x*y, x%y, x~/y when x is int.
+ * x * y, x % y, x ~/ y when x is int.
  * @static-clean
  * @author ilya
  */

@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Multiplicative expressions invoke the multiplication operators on objects.
+ * @assertion Multiplicative expressions invoke the multiplication operators on
+ * objects.
  * multiplicativeExpression:
  *   unaryExpression (multiplicativeOperator unaryExpression)* |
  *   super (multiplicativeOperator unaryExpression)+
@@ -16,9 +17,11 @@
  *   '~/'
  * ;
  * A multiplicative expression is either a unary expression, or an invocation
- * of a multiplicative operator on either super or an expression e1, with argument e2.
- * @description Checks that reference to a function type alias name can't be used
- * as the left operand of a multiplicative expression without a compile error.
+ * of a multiplicative operator on either super or an expression e1, with
+ * argument e2.
+ * @description Checks that reference to a function type alias name can't be
+ * used as the left operand of a multiplicative expression without a compile
+ * error.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -30,5 +33,5 @@ typedef int f();
 main() {
   try {
     f * 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -6,8 +6,8 @@
 /**
  * @assertion A multiplicative expression of the form e1 op e2
  * is equivalent to the method invocation e1.op(e2).
- * @description Checks that an expression of the form e1 * e2
- * is equivalent to the method invocation e1.operator*(e2).
+ * @description Checks that an expression of the form e1 op e2
+ * is equivalent to the method invocation e1.op(e2).
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -15,29 +15,29 @@ import '../../../Utils/expect.dart';
 
 class A {
   var val;
-  
+
   List<int> trace;
-  
-  A(this.val) : trace=new List<int>(4) {
-     for (var k=0; k<4; k++) {
-        trace[k]=0;
+
+  A(this.val) : trace = new List<int>(4) {
+     for (var k = 0; k < 4; k++) {
+        trace[k] = 0;
      }
   }
-  
-  operator*(var v) {
-    trace[0]+=1;
+
+  operator *(var v) {
+    trace[0] += 1;
     return val * v;
   }
-  operator/(var v) {
-    trace[1]+=1;
+  operator /(var v) {
+    trace[1] += 1;
     return val / v;
   }
-  operator%(var v) {
-    trace[2]+=1;
+  operator %(var v) {
+    trace[2] += 1;
     return val % v;
   }
-  operator~/(var v) {
-    trace[3]+=1;
+  operator ~/(var v) {
+    trace[3] += 1;
     return val ~/ v;
   }
 }
