@@ -5,26 +5,30 @@
  */
 /**
  * @assertion Unary expressions invoke unary operators on objects.
- *   unaryExpression:
- *          preﬁxOperator unaryExpression |
- *          postﬁxExpression |
- *          (minusOperator | tildeOperator) super |
- *          incrementOperator assignableExpression
- *   ;
- *   preﬁxOperator:
- *          minusOperator |
- *          negationOperator |
- *          tildeOperator
- *   ;
- *   minusOperator:
- *        ‘-’ |
- *   ;
- *   negationOperator:
- *        ‘!’ |
- *   ;
- *   tildeOperator:
- *        ‘˜’
- *   ;
+ * unaryExpression:
+ *   preﬁxOperator unaryExpression |
+ *   awaitExpression |
+ *   postﬁxExpression |
+ *   (minusOperator | tildeOperator) super |
+ *   incrementOperator assignableExpression
+ * ;
+ * preﬁxOperator:
+ *   minusOperator |
+ *   negationOperator |
+ *   tildeOperator
+ * ;
+ * minusOperator:
+ *   ‘-’ |
+ * ;
+ * negationOperator:
+ *   ‘!’ |
+ * ;
+ * tildeOperator:
+ *   ‘˜’
+ * ;
+ * A unary expression is either a postfix expression, an await expression or
+ * an invocation of a prefix operator on an expression or an invocation of a
+ * unary operator on either super or an expression e.
  * @description Checks that incrementOperator can't be used with super
  * @compile-error
  * @author msyabro
@@ -38,7 +42,7 @@ class A extends S {
   test() {
     try {
       ++super;
-    } catch(e) {}
+    } catch (e) {}
   }
 }
 

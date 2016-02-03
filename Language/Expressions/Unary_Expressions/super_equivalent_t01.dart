@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of the form op super is equivalent to the method invocation
- * super.op().
- * @description Checks that an expression of the form ~ super is equivalent to the method
- * invocation super.operator~().
+ * @assertion An expression of the form op super is equivalent to the method
+ * invocation super.op().
+ * @description Checks that an expression of the form ~ super is equivalent to
+ * the method invocation super.operator~().
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -27,7 +27,7 @@ class A extends S{
     try {
       ~super;
       Expect.fail("Operator ~ was not called");
-    } on TestException catch(e) {}
+    } on TestException catch (e) {}
   }
 }
 

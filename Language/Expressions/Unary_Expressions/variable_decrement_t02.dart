@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an expression of the form --e is equivalent to e -= 1.
+ * @assertion Evaluation of an expression of the form --e is equivalent to
+ * e -= 1.
  * @description Checks that evaluation of an expression of the form --e
  * results in invoking operator- on the result of e with the proper argument.
  * @author rodionov
@@ -16,9 +17,9 @@ bool minusInvoked = false;
 
 class A {
   final String value;
-  
+
   A(this.value);
-  
+
   operator -(var other) {
     minusInvoked = true;
     return new A("${value}-${other}");
@@ -28,7 +29,7 @@ class A {
 main() {
   var foo = new A("foo");
   Expect.isFalse(minusInvoked);
-  
+
   Expect.equals("foo-1", (--foo).value);
   Expect.isTrue(minusInvoked);
   Expect.equals("foo-1", foo.value);

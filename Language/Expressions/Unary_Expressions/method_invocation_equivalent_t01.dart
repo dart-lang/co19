@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression of the form op e is equivalent to the method invocation e.op().
- * @description Checks that an expression of the form ~ e is equivalent to the method invocation e.operator~().
+ * @assertion An expression of the form op e is equivalent to the method
+ * invocation e.op().
+ * @description Checks that an expression of the form ~ e is equivalent to the
+ * method invocation e.operator~().
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -25,5 +27,5 @@ main() {
   try {
     ~a;
     Expect.fail("Operator ~ was not called");
-  } on TestException catch(e) {}
+  } on TestException catch (e) {}
 }

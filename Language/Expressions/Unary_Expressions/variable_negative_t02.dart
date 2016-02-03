@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The expression !e is equivalent to the expression e ? false : true.
- * @description Checks that expression !!e is equivalent to the expression e when e
- * is a boolean.
+ * @assertion The expression !e is equivalent to the expression
+ * e ? false : true.
+ * @description Checks that expression !!e is equivalent to the expression e
+ * when e is a boolean.
  * @author hlodvig
  * @reviewer iefremov
  * @reviewer rodionov
