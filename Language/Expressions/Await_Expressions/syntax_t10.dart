@@ -10,7 +10,7 @@
  *
  * @description Verify several kinds of valid await expressions inside
  * a method with async modifier
- * @author agrekhov@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
 import 'dart:async';
 import '../../../Utils/async_utils.dart';
@@ -40,7 +40,7 @@ class C {
     await await 'bye bye';
   }
 
-  static s() {}
+  static s() {return 1;}
 
   static stest() async {
     int x = 100500;

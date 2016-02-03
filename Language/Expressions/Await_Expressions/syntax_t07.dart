@@ -11,7 +11,6 @@
  *
  * @description Check that in the context of a normal function, await has no
  * special meaning and can be used as a variable
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
