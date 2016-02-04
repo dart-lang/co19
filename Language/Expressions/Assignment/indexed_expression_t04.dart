@@ -4,24 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent to the
- * evaluation of the expression (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
- * The static type of the expression e1 [e2 ] = e3 is the static type of e3.
- * @description Checks that the correct value of an assignment expression of the form e1[e2] = e3
- * is still returned even if no []= operator was found in the type of e1, as long as noSuchMethod()
- * is overridden and no exception is thrown.
+ * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent
+ * to the evaluation of the expression
+ * (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
+ * @description Checks that the correct value of an assignment expression of
+ * the form e1[e2] = e3 is still returned even if no []= operator was found in
+ * the type of e1, as long as noSuchMethod() is overridden and no exception
+ * is thrown.
  * @static-warning
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
 class C {
-  operator[](idx) {}
+  operator [](idx) {}
 
   noSuchMethod(Invocation im) {
     Expect.equals(const Symbol("[]="), im.memberName,
-           "Incorrect method was searched: ${im.memberName}");
+        "Incorrect method was searched: ${im.memberName}");
   }
 }
 

@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion In checked mode, it is a dynamic type error if o is not null and the interface
- * of the class of o is not a subtype of the actual type of v.
+ * @assertion Evaluation of an assignment of the form v = e2 proceeds as
+ * follows:
+ * ...
+ * In checked mode, it is a dynamic type error if o is not null and the
+ * interface of the class of o is not a subtype of the actual type of v.
  * @description Checks that it is a dynamic type error if the interface of
  * the class of o is not a subtype of the actual type of v
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 import '../../../Utils/dynamic_check.dart';
@@ -21,6 +23,8 @@ class B extends A {}
 
 main() {
   int v;
+  B b;
+
   checkTypeError( () {
     v = f(true); //to avoid static warning
   });
@@ -30,7 +34,6 @@ main() {
   checkTypeError( () {
     v = f(0.2); //to avoid static warning
   });
-  B b;
   checkTypeError( () {
     b = f(new A()); //to avoid static warning
   });

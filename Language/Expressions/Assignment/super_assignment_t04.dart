@@ -39,6 +39,7 @@ class C extends B {
 
   test() {
     super.v = 100;
+    Expect.equals(100, super.v);
   }
 }
 

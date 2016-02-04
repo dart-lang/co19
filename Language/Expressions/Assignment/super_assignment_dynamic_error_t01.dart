@@ -9,8 +9,8 @@
  * ...
  * In checked mode, it is a dynamic type error if o is not null and the
  * interface of the class of o is not a subtype of the actual type of v.
- * @description Checks that it is a dynamic type error if o is not null and the
- * interface of the class of o is not a subtype of the actual type of v.
+ * @description Checks that it is a dynamic type error if the interface of
+ * the class of o is not a subtype of the actual type of v
  * @author sgrekhov@unipro.ru
  */
 
@@ -18,23 +18,29 @@ import '../../../Utils/dynamic_check.dart';
 
 f(x) {return x;}
 
-class A {}
-class B extends A {}
+class A {
+  int v;
+  C b;
+}
+
+class C extends A {
+  test() {
+    checkTypeError( () {
+      super.v = f(true); //to avoid static warning
+    });
+    checkTypeError( () {
+      super.v = f(""); //to avoid static warning
+    });
+    checkTypeError( () {
+      super.v = f(0.2); //to avoid static warning
+    });
+    checkTypeError( () {
+      super.b = f(new A()); //to avoid static warning
+    });
+  }
+}
 
 main() {
-  int v;
-  B b;
-
-  checkTypeError( () {
-    v = f(true); //to avoid static warning
-  });
-  checkTypeError( () {
-    v = f(""); //to avoid static warning
-  });
-  checkTypeError( () {
-    v = f(0.2); //to avoid static warning
-  });
-  checkTypeError( () {
-    b = f(new A()); //to avoid static warning
-  });
+  C c = new C();
+  c.test();
 }
