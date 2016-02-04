@@ -19,7 +19,7 @@ f() {
   return new Future<int>.value(1);
 }
 
-test() async {
+Future test() async {
   await;
 }
 

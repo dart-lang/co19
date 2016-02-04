@@ -15,17 +15,16 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../../Utils/async_utils.dart';
+import '../../../Utils/expect.dart';
 
 f() {
   return new Future<int>.value(1);
 }
 
-test() sync* {
+Iterable test() sync* {
   await f();
 }
 
 main() {
-  asyncStart();
-  test().then( (value) => asyncEnd() );
+  Expect.isTrue(test().isEmpty);
 }

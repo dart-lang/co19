@@ -21,11 +21,6 @@ f() {
   return new Future<int>.value(1);
 }
 
-test() {
-  await f();
-}
-
 main() {
-  asyncStart();
-  test().then( (value) => asyncEnd() );
+  await f();
 }
