@@ -20,7 +20,7 @@ f() {
   return new Future<int>.value(1);
 }
 
-test() async* {
+Stream test() async* {
   int x = 100500;
 
   await true;
@@ -47,7 +47,7 @@ class S {
 }
 
 class A extends S {
-  test() async* {
+  Stream test() async* {
     await - super;
     await ~ super;
   }
@@ -55,8 +55,8 @@ class A extends S {
 
 main() {
   asyncStart();
-  test().then(
-    (value) => new A().test()
+  test().isEmpty.then(
+    (value) => new A().test().isEmpty
   ).then(
     (value) => asyncEnd()
   );

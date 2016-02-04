@@ -19,7 +19,7 @@ f() {
   return new Future<int>.value(1);
 }
 
-test() async {
+Future test() async {
   int x = 100500;
 
   await true;
@@ -46,7 +46,7 @@ class S {
 }
 
 class A extends S {
-  test() async {
+  Future test() async {
     await - super;
     await ~ super;
   }

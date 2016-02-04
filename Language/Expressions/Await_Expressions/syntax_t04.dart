@@ -20,11 +20,11 @@ f() {
   return new Future<int>.value(1);
 }
 
-test() async* {
+Stream test() async* {
   await (await);
 }
 
 main() {
   asyncStart();
-  test().then( (value) => asyncEnd() );
+  test().isEmpty.then( (value) => asyncEnd() );
 }
