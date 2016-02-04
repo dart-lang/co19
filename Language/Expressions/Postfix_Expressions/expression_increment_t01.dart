@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A postfix expression of the form e1.v++ is equivalent to 
+ * @assertion A postfix expression of the form e1.v++ is equivalent to
  * (x){var r = x.v; x.v = r + 1; return r}(e1 ).
  * @description Checks that evaluation of an expression of the form e1.v++
  * is equivalent to (x){var r = x.v; x.v = r + 1; return r;}(e1) in effect.
@@ -22,7 +22,7 @@ void test(var n) {
   var e1 = new C(n);
   var r = e1.v++;
   Expect.equals(r, n);
-  Expect.equals(e1.v, (n+1));
+  Expect.equals(e1.v, (n + 1));
 }
 
 main() {

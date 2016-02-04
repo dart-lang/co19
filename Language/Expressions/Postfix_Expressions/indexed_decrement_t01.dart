@@ -5,9 +5,9 @@
  */
 /**
  * @assertion A postfix expression of the form e1[e2]--, is equivalent to
- *  (a, i){var r = a[i]; a[i] = r - 1; return r}(e1 , e2 ).
- * @description Checks that a postfix expression of the form e1[e2]--, is equivalent to
- *  (a, i){var r = a[i]; a[i] = r - 1; return r}(e1 , e2 ) in effect.
+ * (a, i){var r = a[i]; a[i] = r - 1; return r}(e1 , e2 ).
+ * @description Checks that a postfix expression of the form e1[e2]--, is
+ * equivalent to (a, i){var r = a[i]; a[i] = r - 1; return r}(e1, e2) in effect.
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -22,7 +22,7 @@ void test(var n) {
   List e1 = [new C(n)];
   var r = e1[0].v--;
   Expect.equals(r, n);
-  Expect.equals(e1[0].v, (n-1));
+  Expect.equals(e1[0].v, (n - 1));
 }
 
 main() {

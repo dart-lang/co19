@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Execution of a postfix expression of the form v++, where v is an
- * identifier, is equivalent to executing ()fvar r = v; v = r + 1; return rg().
+ * identifier, is equivalent to executing (){var r = v; v = r + 1; return r}().
  * ...
- * The above ensures that if v is a field, then e.v++ the getter gets called
- * exactly once. Likewise in the cases below.
+ * The above ensures that if v is a field, the getter gets called exactly once.
+ * Likewise in the cases below.
  * @description Checks that in e.v-- expression, the getter gets called exactly
  * once
  * @author sgrekhov@unipro.ru

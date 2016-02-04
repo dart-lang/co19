@@ -7,10 +7,14 @@
  * @assertion Postfix expressions invoke the postfix operators on objects.
  * postfixExpression:
  *   assignableExpression postfixOperator |
- *   primary selector*
+ *   primary (selector* | (‘#’ ( (identifier ‘=’?) | operator)))
  * ;
  * postfixOperator:
  *   incrementOperator
+ * ;
+ * selector:
+ *   assignableSelector |
+ *   arguments
  * ;
  * incrementOperator:
  *   '++' |
@@ -18,8 +22,8 @@
  * ;
  * A postfix expression is either a primary expression, a function, method or
  * getter invocation, or an invocation of a postfix operator on an expression e.
- * @description Checks that a reference to a class declaration can be used with postfixOperator
- * without a compile error.
+ * @description Checks that a reference to a class declaration can be used with
+ * postfixOperator without a compile error.
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
@@ -31,5 +35,5 @@ class A {}
 main() {
   try {
     A++; /// static type warning - no such method/operator, see "Ordinary invocation"
-  } catch(e) {}
+  } catch (e) {}
 }

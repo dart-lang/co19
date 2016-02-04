@@ -7,10 +7,14 @@
  * @assertion Postfix expressions invoke the postfix operators on objects.
  * postfixExpression:
  *   assignableExpression postfixOperator |
- *   primary selector*
+ *   primary (selector* | (‘#’ ( (identifier ‘=’?) | operator)))
  * ;
  * postfixOperator:
  *   incrementOperator
+ * ;
+ * selector:
+ *   assignableSelector |
+ *   arguments
  * ;
  * incrementOperator:
  *   '++' |
@@ -31,5 +35,5 @@ typedef f();
 main() {
   try {
     f++; /// static type warning - no such method/operator, see "Ordinary invocation"
-  } catch(e) {}
+  } catch (e) {}
 }

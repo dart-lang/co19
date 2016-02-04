@@ -7,10 +7,14 @@
  * @assertion Postfix expressions invoke the postfix operators on objects.
  * postfixExpression:
  *   assignableExpression postfixOperator |
- *   primary selector*
+ *   primary (selector* | (‘#’ ( (identifier ‘=’?) | operator)))
  * ;
  * postfixOperator:
  *   incrementOperator
+ * ;
+ * selector:
+ *   assignableSelector |
+ *   arguments
  * ;
  * incrementOperator:
  *   '++' |
@@ -30,5 +34,5 @@ main() {
   var x = 1;
   try {
     {x;}--;
-  } catch(e) {}
+  } catch (e) {}
 }

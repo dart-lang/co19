@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Execution of a postfix expression of the form C.v ++ is equivalent
- * to executing ()fvar r = C.v; C.v = r + 1; return rg().
+ * to executing (){var r = C.v; C.v = r + 1; return r}().
  * The static type of such an expression is the static type of C.v.
  * @description Checks that static type of C.v++ is static type C.v
  * static-clean
