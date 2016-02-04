@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,13 +14,13 @@
  * @description Checks that the value of an assignment expression is o2
  * even if setter lookup failed.
  * @static-warning
- * @author msyabro
+ * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
-var expected = const Symbol("nonExistingSetter=");
+var expected = const Symbol("v=");
 
-class C {
+class A {
   noSuchMethod(Invocation im) {
     if(expected != im.memberName) {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
@@ -28,10 +28,16 @@ class C {
   }
 }
 
+class C extends A {
+  test() {
+    Expect.equals(1, super.v = 1);  /// static type warning
+    Expect.equals(2, super.v = 2);  /// static type warning
+    Expect.equals("12", super.v = "1" "2"); /// static type warning
+    Expect.equals(true, super.v = 1 < 2);   /// static type warning
+  }
+}
+
 main() {
   C c = new C();
-  Expect.equals(1, c.nonExistingSetter = 1); /// static type warning
-  Expect.equals(2, c.nonExistingSetter = 2); /// static type warning
-  Expect.equals("12", c.nonExistingSetter = "1" "2"); /// static type warning
-  Expect.equals(true, c.nonExistingSetter = 1 < 2); /// static type warning
+  c.test();
 }

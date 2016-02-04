@@ -4,31 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent to the
- * evaluation of the expression (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
- * The static type of the expression e1 [e2 ] = e3 is the static type of e3.
- * @description Checks that an assignment of the form e1[e2] = e3 is evaluated correctly.
+ * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent
+ * to the evaluation of the expression
+ * (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
+ * @description Checks that an assignment of the form e1[e2] = e3  is equivalent
+ * to (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 class C {
   var v, i;
 
-  operator[](idx) {
+  operator [](idx) {
     return v;
   }
 
-  operator[]=(idx, val) {
-    v = val;
+  operator []=(idx, val) {
     i = idx;
+    v = val;
   }
 }
 
 main() {
   C c = new C();
-  var res=(c[-10] = 1);
+  var res = (c[-10] = 1);
   Expect.equals(1, res);
   Expect.equals(1, c.v);
   Expect.equals(-10, c.i);

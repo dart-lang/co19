@@ -11,30 +11,27 @@
  * evaluated to an object o. Then, the setter v = is looked up inSdynamic with
  * respect to the current library. The body of v = is executed with its formal
  * parameter bound to o and this bound to this.
- * @description Checks that in assignment of the form super.v = e2 the body of
- * the setter v= in superclass is executed with this bound to this
+ * @description Checks that expression e is evaluated even if super.v=
+ * assignment failed
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
-class A {
-  var _v = 0;
+int evaluationCount = 0;
 
-  set v(val) {
-    _v = val;
-    Expect.equals(-1, this.v);
-  }
-  get v {
-    return _v;
-  }
+int e() {
+  return evaluationCount++;
+}
+
+class A {
 }
 
 class C extends A {
-  var v = -1;
+  var v = 1;
 
   test() {
-    super.v = 1;
-    Expect.equals(1, super.v);
+    Expect.throws(() {super.v = e();}, (e) => e is NoSuchMethodError); /// static type warning
+    Expect.equals(1, evaluationCount);
   }
 }
 
