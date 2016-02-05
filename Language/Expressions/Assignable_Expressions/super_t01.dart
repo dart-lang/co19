@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An assignable expression of the form super.id is
- * evaluated as a getter invocation.
+ * @assertion An assignable expression of the form super.id is evaluated as
+ * a property extraction.
  * @description Checks that an assignable expression of the form super.id is
  * evaluated as a getter invocation.
  * @author msyabro

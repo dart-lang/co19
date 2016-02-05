@@ -4,40 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Assignable expressions are expressions that can appear on the left hand side of
- * an assignment.
+ * @assertion Assignable expressions are expressions that can appear on the
+ * left hand side of an assignment.
  * assignableExpression:
  *   primary (arguments* assignableSelector)+ |
- *   super assignableSelector |
+ *   super unconditionalAssignableSelector |
  *   identifier
  * ;
- * selector:
- *   assignableSelector |
- *   arguments
- * ;
- * assignableSelector:
+ * unconditionalAssignableSelector:
  *   '[' expression ']' |
  *   '.' identifier
  * ;
- * primary:
- *   thisExpression |
- *   super assignableSelector |
- *   functionExpression |
- *   literal |
- *   identifier |
- *   newExpression |
- *   constantObjectExpression |
- *   '(' expression ')'
+ * assignableSelector:
+ *   unconditionalAssignableSelector |
+ *   '?.' identifier
  * ;
- * literal:
- *   nullLiteral |
- *   booleanLiteral |
- *   numericLiteral |
- *   stringLiteral |
- *   symbolLiteral |
- *   mapLiteral |
- *   listLiteral
- * ;
+ * An assignable expression is either:
+ * • An identifier.
+ * • An invocation (possibly conditional) of a getter or list access operator
+ *   on an expression e.
+ * • An invocation of a getter or list access operator on super.
  * @description Checks that a do statement
  * can't be used in the left hand side of an assignment.
  * @compile-error
@@ -47,6 +33,6 @@
 
 main() {
   try {
-    do {} while(true) = null;
-  } catch(e) {}
+    do {} while (true) = null;
+  } catch (e) {}
 }

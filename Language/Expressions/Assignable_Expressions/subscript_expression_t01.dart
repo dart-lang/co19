@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An assignable expression of the form e1[e2] is evaluated as a method
- * invocation of the operator method [] on e1 with argument e2.
- * @description Checks that an assignable expression of the form e1[e2] is evaluated as a method
- * invocation of the operator method [] on e1 with argument e2.
+ * @assertion An assignable expression of the form e1[e2] is evaluated as a
+ * method invocation of the operator method [] on e1 with argument e2.
+ * @description Checks that an assignable expression of the form e1[e2] is
+ * evaluated as a method invocation of the operator method [] on e1 with
+ * argument e2.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -15,7 +16,7 @@ import '../../../Utils/expect.dart';
 
 
 class A {
-  operator[](var ind) {return ind * 2;}
+  operator [](var ind) {return ind * 2;}
 }
 
 main() {
