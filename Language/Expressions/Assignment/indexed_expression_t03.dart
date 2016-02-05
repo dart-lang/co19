@@ -12,6 +12,7 @@
  * []= operator.
  * @static-warning
  * @author rodionov
+ * * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
@@ -21,23 +22,5 @@ class C {
 
 main() {
   C c = new C();
-  try {
-    c[0] = 1; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
-
-  try {
-    c["o"] = 1; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
-
-  try {
-    c[false] = 1; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
-
-  try {
-    c[1.01] = 1; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(e) {}
+  Expect.throws(() {c[0] = 1;}, (e) => e is NoSuchMethodError); /// static type warning
 }
