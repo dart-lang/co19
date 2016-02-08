@@ -3,34 +3,32 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-/** 
- * @description 
+/**
+ * @description
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
       <style>
-        div {
+        canvas {
           width:600px;
           height:500px;
           border:2px solid black;
-          content: -webkit-canvas(squares);
         }
       </style>
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
   document.body.setInnerHtml('''
-      <div></div>
+      <canvas id="canvas"></canvas>
       ''', treeSanitizer: new NullTreeSanitizer());
 
   draw(w, h)
   {
-    var ctx = document.getCssCanvasContext("2d", "squares", w, h);
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
 
     ctx.fillStyle = "rgb(200,0,0)";
     ctx.fillRect (10, 10, 100, 100);
