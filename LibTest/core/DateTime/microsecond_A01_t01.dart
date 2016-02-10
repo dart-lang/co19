@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  for(int i = 999; i >= 0; --i){
+  for(int i = 999; i >= 0; --i) {
     check(i);
   }
 }
