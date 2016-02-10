@@ -4,71 +4,67 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an exception if [formattedString] is in incorrect format.
- * @description Checks that an exception is thrown.
+ * @assertion Throws a FormatException if the input cannot be parsed
+ * @description Checks that a FormatException exception is thrown if the input
+ * cannot be parsed.
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview #1878 Documentation does not specify the format and the thrown exception.
+ * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-bool failed=false;
-
-check(String str) {
-  try {
-    DateTime dt=DateTime.parse(str);
-    failed=true;
-    print("$str parsed as $dt");
-  } catch(ok) {
-    //print("got $ok for $str");
-  }
-}
-
 main(){
-  check("just text");
-  check('');
-  check("2000/01/01 00/00/00/0");
-  check("2000 01 01 00 00 00 0");
-  check("23:23:23.23 2001-01-01");
-  check("2001-01-01 00:00:00.###");
-  check("2001-s-01 00:00:00.0");
-  check("s-t-r i:n:g.");
+  Expect.throws(() {DateTime.parse(null);}, (e) => e is ArgumentError);
 
-  //Components are out of bounds
-  check("2001-00-01 00:00:00.0");
-  check("2001-13-01 00:00:00.0");
-  check("2001-01-00 00:00:00.0");
-  check("2001-01-32 00:00:00.0");
-  check("2001-01-01 25:00:00.0");
-  check("2001-01-01 00:60:00.0");
-  check("2001-01-01 00:00:60.0");
-  check("2001-01-01 00:00:00.100000");//one zero less it would be a correct date
+  Expect.throws(() {DateTime.parse("just text");}, (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("");}, (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000/01/01 00/00/00/0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000 01 01 00 00 00 0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("23:23:23.23 2001-01-01");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-01-01 00:00:00.###");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-s-01 00:00:00.0");},
+      (e) => e is FormatException);
 
   //Incorrect number of digits
-  check("95-01-01 00:00:00.0");
-  check("2001-1-01 00:00:00.0");
-  check("2001-01-1 00:00:00.0");
-  check("2001-01-01 0:00:00.0");
-  check("2001-01-01 00:0:00.0");
-  check("2001-01-01 00:00:0.0");
+  Expect.throws(() {DateTime.parse("95-01-01 00:00:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-1-01 00:00:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-01-1 00:00:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-01-01 0:00:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-01-01 00:0:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2001-01-01 00:00:0.0");},
+      (e) => e is FormatException);
 
   //Missing components
-  check("2000");
-  check("2000-01");
-  check("-01-01 00:00:00.0");
-  check("2000-01-01 :00:00.0");
-  check("2000-01-01 00::00.0");
-  check("2000-01-01 00:00:.0");
-  check("2000-01-01 00:00:00.");
-  check("2000--1 0:0:0.0");
-  check("2000-1- 0:0:0.0");
-  check("--- ::.");
+  Expect.throws(() {DateTime.parse("2000");}, (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000-01");}, (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("-01-01 00:00:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000-01-01 :00:00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000-01-01 00::00.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000-01-01 00:00:.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000-01-01 00:00:00.");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000--1 0:0:0.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("2000-1- 0:0:0.0");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("--- ::.");},
+      (e) => e is FormatException);
 
-  //There is no support for these formats (yet?).
-  check("2000-01-01 15:25:12.03+01:00");
-  check("2000-01-01 15:25:12.00-02:00");
-  check("1999-11-12 00:05:23+07:00");
-  check("1985-W15-5 00:05:23");
-
-  Expect.isFalse(failed);
+  // wrong characters
+  Expect.throws(() {DateTime.parse("1985-W11-11 00:05:23");},
+      (e) => e is FormatException);
+  Expect.throws(() {DateTime.parse("1985-01-01 00:05:23.123F");},
+      (e) => e is FormatException);
 }

@@ -7,14 +7,16 @@
  * @assertion final int millisecondsSinceEpoch
  * The milliseconds since 1970-01-01T00:00:00Z (UTC).
  * This value is independent of the time zone.
- * @description Checks that the method returns correct values.
+ * @description Checks that the getter returns correct values.
  * @author iefremov
  */
 import "../../../Utils/expect.dart";
 
 check(millis) {
-  Expect.equals(millis, new DateTime.fromMillisecondsSinceEpoch(millis, isUtc: true).millisecondsSinceEpoch);
-  Expect.equals(millis, new DateTime.fromMillisecondsSinceEpoch(millis, isUtc: false).millisecondsSinceEpoch);
+  Expect.equals(millis, new DateTime.fromMillisecondsSinceEpoch(millis,
+      isUtc: true).millisecondsSinceEpoch);
+  Expect.equals(millis, new DateTime.fromMillisecondsSinceEpoch(millis,
+      isUtc: false).millisecondsSinceEpoch);
 }
 
 main() {
@@ -28,4 +30,3 @@ main() {
   check(8640000000000000);
   check(-8640000000000000);
 }
-
