@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an identifier expression e of the form id proceeds as follows:
+ * @assertion Evaluation of an identifier expression e of the form id proceeds
+ * as follows:
  * Let d be the innermost declaration in the enclosing lexical scope whose name
- * is id. If no such declaration exists in the lexical scope, let d be the declaration
- * of the inherited member named id if it exists.
+ * is id or id=. If no such declaration exists in the lexical scope, let d be
+ * the declaration of the inherited member named id if it exists.
  * ...
  * • Otherwise, e is equivalent to the property extraction this.id.
- * @description  Checks that identifier expression can not refer to a static variable
- * in a superclass of the current class
+ * @description  Checks that identifier expression can not refer to a static
+ * variable in a superclass of the current class.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov
@@ -19,7 +20,7 @@
 import '../../../Utils/expect.dart';
 
 class A {
-  static var x=3;
+  static var x = 3;
 }
 
 class B extends A {
@@ -32,5 +33,5 @@ main() {
   try {
     print(new B().func());
     Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An identifier expression consists of a single identifier; it provides access to an
- * object via an unqualified name.
+ * @assertion An identifier expression consists of a single identifier; it
+ * provides access to an object via an unqualified name.
  * identifier:
  *   IDENTIFIER
  * ;
@@ -38,7 +38,7 @@
  * @description Checks that identifier can't contain '@' symbol.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
@@ -51,5 +51,5 @@ class C {
 main() {
   try {
   	Expect.isTrue(new C().x());
- } catch(e) {} 
+ } catch (e) {}
 }

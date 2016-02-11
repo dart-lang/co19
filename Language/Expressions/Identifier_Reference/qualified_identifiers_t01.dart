@@ -9,13 +9,13 @@
  * ;
  * @description Checks qualified identifiers
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 import '../lib.dart' as lib;
 
 main() {
-  Expect.isTrue(lib.x==1);
-  Expect.isTrue(lib.A.y==null);
+  Expect.isTrue(lib.x == 1);
+  Expect.isTrue(lib.A.y == null);
 }

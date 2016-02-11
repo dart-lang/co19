@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An identifier expression consists of a single identifier; it provides access to an
- * object via an unqualified name.
+ * @assertion An identifier expression consists of a single identifier; it
+ * provides access to an object via an unqualified name.
  * BUILT_IN_IDENTIFIER:
  *   abstract |
  *   as |
@@ -23,9 +23,10 @@
  *   static |
  *   typedef
  * ;
- * @description Checks that built-in identifiers can be used to name local functions.
+ * @description Checks that built-in identifiers can be used to name local
+ * functions.
  * @author kaigorodov
- * @reviewer rodionov 
+ * @reviewer rodionov
  */
 
 main() {

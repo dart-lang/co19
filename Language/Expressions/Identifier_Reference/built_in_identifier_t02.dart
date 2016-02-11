@@ -4,13 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a built-in identifier is
- * used as the declared name of a class, type parameter or type alias.
- * @description  Checks that it is not a compile-time error by itself when a built-in identifier
- * is used in an identifier reference, but since no declaration with that name can exist, lookup
- * fails eventually with the type of error depending on context. This test checks that in a class
- * instance scope, referencing a built-in identifier results in NoSuchMethodError as long
- * as the identifier is placed in such a way that it cannot be mistaken for another token.
+ * @assertion It is a compile-time error if a built-in identifier is used as
+ * the declared name of a prefix, class, type parameter or type alias.
+ * @description  Checks that it is not a compile-time error by itself when a
+ * built-in identifier is used in an identifier reference, but since no
+ * declaration with that name can exist, lookup fails eventually with the type
+ * of error depending on context. This test checks that in a class instance
+ * scope, referencing a built-in identifier results in NoSuchMethodError as
+ * long as the identifier is placed in such a way that it cannot be mistaken.
+ * for another token.
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
@@ -22,74 +24,74 @@ class A {
     try {
       abstract(); /// static type warnings galore - unresolved identifiers and members
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
+    } on NoSuchMethodError catch (ok) {}
 
     try {
       1 + as;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
+    } on NoSuchMethodError catch (ok) {}
 
     // skipping Dynamic as it's also a type name and thus causes a compile-time error
 
     try {
       1 << export;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       external ^ 0;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       1 * factory;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       1 >= get;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       var x = implements;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       1 == import;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       1 == library;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       operator.x;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       1 == part;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       --set;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       true & static;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
-    
+    } on NoSuchMethodError catch (ok) {}
+
     try {
       ++typedef;
       Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch(ok) {}
+    } on NoSuchMethodError catch (ok) {}
   }
 }
 

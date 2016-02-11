@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an identifier expression e of the form id proceeds as follows:
+ * @assertion Evaluation of an identifier expression e of the form id proceeds
+ * as follows:
  * Let d be the innermost declaration in the enclosing lexical scope whose name
- * is id. If no such declaration exists in the lexical scope, let d be the declaration
- * of the inherited member named id if it exists.
+ * is id or id=. If no such declaration exists in the lexical scope, let d be
+ * the declaration of the inherited member named id if it exists.
  * ...
- * • If d is the declaration of a library variable or top-level getter, then
- * e is equivalent to the getter invocation id.
+ * • If d is the declaration of a library variable, top-level getter or
+ *   top-level setter, then e is equivalent to the getter invocation id.
  * @description  Checks that the initializer expression is evaluated at
  * the first use of a library variable.
  * @author msyabro

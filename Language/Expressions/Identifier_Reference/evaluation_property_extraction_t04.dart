@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an identifier expression e of the form id proceeds as follows:
+ * @assertion Evaluation of an identifier expression e of the form id proceeds
+ * as follows:
  * Let d be the innermost declaration in the enclosing lexical scope whose name
- * is id. If no such declaration exists in the lexical scope, let d be the declaration
- * of the inherited member named id if it exists.
+ * is id or id=. If no such declaration exists in the lexical scope, let d be
+ * the declaration of the inherited member named id if it exists.
  * ...
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description  Checks that if id is not declared nor inherited it is indeed
- * equivalent to thid.id, by implementing noSuchMethod() in the class and
+ * equivalent to this.id, by implementing noSuchMethod() in the class and
  * intercepting NoSuchMethodError.
  * @static-warning
  * @author ilya
@@ -20,7 +21,7 @@ import '../../../Utils/expect.dart';
 
 class C {
   noSuchMethod(Invocation _) { times++; }
-  
+
   test() {
     undeclared; // first reference
   }

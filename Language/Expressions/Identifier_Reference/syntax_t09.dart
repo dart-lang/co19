@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An identifier expression consists of a single identifier; it provides access to an
- * object via an unqualified name.
+ * @assertion An identifier expression consists of a single identifier; it
+ * provides access to an object via an unqualified name.
  * identifier:
  *   IDENTIFIER
  * ;
@@ -35,7 +35,8 @@
  *   ‘a’ .. ‘z’ |
  *   ‘A’ ..‘Z’
  * ;
- * @description Checks that neither backslashes, nor unicode escape sequences are allowed in identifiers.
+ * @description Checks that neither backslashes, nor unicode escape sequences
+ * are allowed in identifiers.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -44,5 +45,5 @@
 main() {
   try {
   	var abc\u0061=1; // var abca=1;
- } catch(e) {} 
+ } catch (e) {}
 }
