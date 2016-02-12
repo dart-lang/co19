@@ -51,7 +51,7 @@ var actualException;
 Iterable generator(Iterable iterable) sync* {
   try {
     yield* iterable;
-  } catch (x){
+  } catch (x) {
     actualException = x;
   }
 }

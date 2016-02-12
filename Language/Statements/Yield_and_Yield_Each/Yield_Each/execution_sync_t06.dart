@@ -59,7 +59,7 @@ main() {
   Iterable g = generator(its, log);
   Iterator i = g.iterator;
   log.add('main');
-  while(i.moveNext()){
+  while(i.moveNext()) {
     log.add(i.current);
   }
   log.add('finish');

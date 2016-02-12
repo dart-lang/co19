@@ -32,7 +32,7 @@ class IterableWrapper<E> extends Iterable<E> {
   int _iteratorCallCount;
   Iterable<E> _iterable;
 
-  IterableWrapper(Iterable<E> iterable){
+  IterableWrapper(Iterable<E> iterable) {
     _iterable = iterable;
     _iteratorCallCount = 0;
   }
