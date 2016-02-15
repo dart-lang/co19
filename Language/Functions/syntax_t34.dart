@@ -13,12 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that typeArgument in returnType must be surrounded with single angle brackets.
+ *
+ * @description Checks that typeArgument in returnType must be surrounded with
+ * single angle brackets.
+ *
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov

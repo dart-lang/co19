@@ -13,13 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that it is a compile error if the function body of the form ['=>' expression ';']
- * isn't terminated with semicolon
+ *
+ * @description Checks that it is a compile error if the function body of the
+ * form ['=>' expression ';'] isn't terminated with semicolon
+ *
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov

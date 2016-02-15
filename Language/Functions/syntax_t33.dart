@@ -13,12 +13,14 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
+ *
  * @description Checks that returnType must be a valid identifier.
+ *
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov

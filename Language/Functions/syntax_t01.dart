@@ -13,12 +13,14 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
+ *
  * @description Checks different variants of functions
+ *
  * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
