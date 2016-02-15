@@ -11,8 +11,8 @@
  * asOperator:
  *   as
  * ;
- * @description Checks that it is a compile-time error when the second argument of 
- * a type cast operator is a shift expression rather than a type.
+ * @description Checks that it is a compile-time error when the second argument
+ * of a type cast operator is a shift expression rather than a type.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -21,5 +21,5 @@
 main() {
   try {
     1 as 1 << 2;
-  } catch(x) {}
+  } catch (x) {}
 }

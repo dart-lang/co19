@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,20 +11,18 @@
  * expression evaluates to v.
  * Otherwise, if v is null, the cast expression evaluates to v.
  * In all other cases, a CastError is thrown.
- * @description Checks that if T is a parameterized type of the form
- * G<T1,...,Tn>, G is generic type and Ti are malformed, then T is not
- * malformed (see Types/Parameterized Types) and CastError is thrown,
- * not TypeError
+ * @description Checks that if T is deferred type, then a dynamic error occurs.
  * @static-warning
- * @author ilya
+ * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';
+import '../lib.dart' deferred as lb;
 
-class G<S, T> {}
+class B {}
 
 main() {
-  // G<Foo,Bar> is G<dynamic,dynamic>, not malformed
-  Expect.throws(() => [] as G<Foo,Bar>, (e) => e is CastError);
-
-  new G() as G<Foo,Bar>;
+  try {
+    new B() as lb.A;      /// static type warning
+    Expect.fail("dynamic error expected");
+  } catch (e) {}
 }

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Evaluation of the cast expression e as T proceeds as follows:
- * The expression e is evaluated to a value v. 
- * Then, if T is malformed, a dynamic error occurs.
+ * The expression e is evaluated to a value v.
+ * Then, if T is malformed or deferred type, a dynamic error occurs.
  * Otherwise, if the interface of the class of v is a subtype of T, the cast
  * expression evaluates to v.
  * Otherwise, if v is null, the cast expression evaluates to v.
@@ -14,9 +14,9 @@
  * @description Checks that if T is a parameterized type of the form
  * G<T1,...,Tn> and G is generic type with different number of parameters, then
  * T is not malformed (see Types/Parameterized Types) and CastError is thrown,
- * not TypeError
+ * not TypeError.
  * @static-warning
- * @author rodionov 
+ * @author rodionov
  * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';

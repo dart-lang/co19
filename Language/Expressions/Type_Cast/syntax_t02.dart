@@ -11,8 +11,8 @@
  * asOperator:
  *   as
  * ;
- * @description Checks that it is a compile-time error when the type cast operator
- * is missing the first argument.
+ * @description Checks that it is a compile-time error when the type cast
+ * operator is missing the first argument.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -21,5 +21,5 @@
 main() {
   try {
     var x = (as int);
-  } catch(x) {}
+  } catch (x) {}
 }

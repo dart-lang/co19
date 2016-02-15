@@ -12,8 +12,8 @@
  *   as
  * ;
  * @description Checks that there're no errors or warnings when the type cast
- * operator is used correctly (testing simple types as well as generics and function
- * types).
+ * operator is used correctly (testing simple types as well as generics and
+ * function types).
  * @static-clean
  * @author rodionov
  * @reviewer iefremov
@@ -36,7 +36,7 @@ main() {
   "bar" as Pattern;
   new C() as I;
   new GG<int, bool>() as G<int, bool>;
-  ((int x, String y) => "$x$y") as func; 
+  ((int x, String y) => "$x$y") as func;
   f as func;
   f as Function;
   f as Object;

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Evaluation of the cast expression e as T proceeds as follows:
- * The expression e is evaluated to a value v. 
- * Then, if T is malformed, a dynamic error occurs.
+ * The expression e is evaluated to a value v.
+ * Then, if T is malformed or deferred type, a dynamic error occurs.
  * Otherwise, if the interface of the class of v is a subtype of T, the cast
  * expression evaluates to v.
  * Otherwise, if v is null, the cast expression evaluates to v.
@@ -15,9 +15,9 @@
  * G<T1,...,Tn> and G is malformed, then T is malformed, and TypeError is
  * thrown, not CastError.
  * @static-warning
- * @author rodionov 
+ * @author rodionov
  * @reviewer iefremov
- */ 
+ */
 import '../../../Utils/expect.dart';
 
 main() {
