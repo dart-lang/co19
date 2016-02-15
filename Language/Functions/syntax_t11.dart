@@ -13,12 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that statements can be empty in the form [functionSignature '{' statements '}']
+ *
+ * @description Checks that statements can be empty in the form
+ * [functionSignature '{' statements '}']
+ *
  * @author msyabro
  * @reviewer kaigorodov
  */

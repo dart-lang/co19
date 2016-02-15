@@ -13,12 +13,14 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
+ *
  * @description Checks that angle brackets in return type must be balanced.
+ *
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov

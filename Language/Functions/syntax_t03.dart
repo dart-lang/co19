@@ -13,13 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
+ *
  * @description Checks that any specified expression can be a body
  * of a function of the form [functionSignature '=>' expression ';']
+ *
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov

@@ -13,12 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that 'abstract' keyword can't be used inside of a function body.
+ *
+ * @description Checks that 'abstract' keyword can't be used inside of
+ * a function body.
+ *
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov

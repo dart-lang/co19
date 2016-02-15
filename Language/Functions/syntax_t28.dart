@@ -13,13 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
+ *
  * @description Checks that a typedef can't be defined in a body
  * of a function of the form [functionSignature '=>' expression ';'].
+ *
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov

@@ -13,12 +13,15 @@
  * returnType: void | type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? '=>' expression ';' | (async | async* | sync*)? block
  * ;
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that expression is necessary in the form ['=>' expression ';']
+ *
+ * @description Checks that expression is necessary in the form
+ * ['=>' expression ';']
+ *
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
