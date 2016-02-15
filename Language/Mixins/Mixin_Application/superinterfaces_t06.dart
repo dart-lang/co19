@@ -7,29 +7,28 @@
  * @assertion Let C be a class declaration that includes MA in a with clause.
  * It is a static warning if C does not implement, directly or indirectly, all
  * the direct superinterfaces of M
- * @description Checks that it is no static warning if C does implement
- * directly all the direct superinterfaces of M
- * @static-clean
+ * @description Checks that it is a static warning if M has implicit
+ * superinterfaces and C does not implement them
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 
-abstract class A {
-  int get a;
+class A {
+  int get a => 0;
 }
 
-abstract class B implements A {
-  int get b;
+class B extends A {
+  int get b => 1;
 }
 
-abstract class M implements B {
+class M extends B {
+  int get c => -1;
 }
 
 class S {
 }
 
-class C extends S with M { /// static type warning
-  int get a => 0;
-  int get b => 0;
+class C extends S with M { /// static type warning, C does not implement b and a
 }
 
 main() {

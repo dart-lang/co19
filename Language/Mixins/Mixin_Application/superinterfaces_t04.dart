@@ -8,7 +8,7 @@
  * It is a static warning if C does not implement, directly or indirectly, all
  * the direct superinterfaces of M
  * @description Checks that it is no static warning if C does implement
- * directly all the direct superinterfaces of M
+ * indirectly all the direct superinterfaces of M
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
@@ -25,10 +25,10 @@ abstract class M implements B {
 }
 
 class S {
+  int get a => 0;
 }
 
 class C extends S with M { /// static type warning
-  int get a => 0;
   int get b => 0;
 }
 

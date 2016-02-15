@@ -7,31 +7,35 @@
  * @assertion Let C be a class declaration that includes MA in a with clause.
  * It is a static warning if C does not implement, directly or indirectly, all
  * the direct superinterfaces of M
- * @description Checks that it is no static warning if C does implement
- * directly all the direct superinterfaces of M
+ * @description Checks that it is no static warning if M has implicit
+ * superinterfaces and C does implement them
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
+import "../../../Utils/expect.dart";
 
-abstract class A {
-  int get a;
+class A {
+  int get a => 1;
 }
 
-abstract class B implements A {
-  int get b;
+class B extends A {
+  int get b => 2;
 }
 
-abstract class M implements B {
+class M extends B {
+  int get c => 3;
 }
 
 class S {
+  int get a => -1;
 }
 
-class C extends S with M { /// static type warning
-  int get a => 0;
-  int get b => 0;
+class C extends S with M {
+  int get b => -2;
 }
 
 main() {
-  new C();
+  C c = new C();
+  Expect.equals(-1, c.a);
+  Expect.equals(-2, c.b);
 }
