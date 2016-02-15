@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,20 +10,13 @@
  * Otherwise, if the interface of the class of v is a subtype of T, the
  * is-expression evaluates to true.
  * Otherwise it evaluates to false.
- * @description Checks that if T is parameterized type and G is generic type
- * which has more then n type parameters, then T is not malformed
- * (see Types/Parameterized Types).
+ * @description Checks that if T is deferred, then dynamic error occurs.
  * @static-warning
- * @author msyabro
- * @reviewer iefremov
+ * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';
-
-class G<T, U, V> {}
+import '../lib.dart' deferred as lb;
 
 main() {
-  // G<int,bool> is G<dynamic,dynamic,dynamic>, not malformed
-
-  Expect.isFalse(1 is G<int, bool>);      /// static type warning
-  Expect.isTrue(new G() is G<int, bool>); /// static type warning
+  Expect.throws(() => 1 is lb.A); /// static type warning
 }

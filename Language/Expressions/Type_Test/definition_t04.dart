@@ -14,7 +14,7 @@
  */
 
 class C {}
-class D extends C { f(){} }
+class D extends C { f() {} }
 
 C x;
 

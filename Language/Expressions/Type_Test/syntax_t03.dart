@@ -6,20 +6,20 @@
 /**
  * @assertion The is-expression tests if an object is a member of a type.
  * typeTest:
- *  isOperator type
+ *   isOperator type
  * ;
  * isOperator:
  *   is '!'?
  * ;
- * @description Checks that it is a compile-time error when
- * using a value literal in the right part of the expression.
+ * @description Checks that it is a compile-time error when using a value
+ * literal in the right part of the expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 
 main () {
   try {
     1 is 1;
-  } catch(e) {}
+  } catch (e) {}
 }

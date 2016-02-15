@@ -5,9 +5,10 @@
  */
 /**
  * @assertion The is-expression e is! T is equivalent to !(e is T).
- * @description Checks that type annotations does not affect the result of the is!-expression
+ * @description Checks that type annotations does not affect the result of the
+ * is!-expression
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

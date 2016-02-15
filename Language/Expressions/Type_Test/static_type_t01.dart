@@ -5,16 +5,16 @@
  */
 /**
  * @assertion The static type of an is-expression is bool.
- * @description Checks that the static checker does not raise warnings when assigning
- * the result of the is-expression to bool variables.
+ * @description Checks that the static checker does not raise warnings when
+ * assigning the result of the is-expression to bool variables.
  * @static-clean
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 
 main() {
   bool e = 1 is int;
   e = 1 is String;
-  e = 1 is ! bool;
-  e = 1 is ! Object;
+  e = 1 is! bool;
+  e = 1 is! Object;
 }

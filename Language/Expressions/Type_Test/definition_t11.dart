@@ -14,8 +14,8 @@
  */
 
 class C {}
-class D extends C { f(){} }
-class E extends D { g(){} }
+class D extends C { f() {} }
+class E extends D { g() {} }
 
 f(C x) {
   C y = x;

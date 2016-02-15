@@ -15,7 +15,7 @@
  */
 
 class C {}
-class D { f(){} }
+class D { f() {} }
 
 f(C x) {
   x is D ? x.f() : null;

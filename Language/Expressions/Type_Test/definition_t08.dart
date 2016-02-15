@@ -15,7 +15,7 @@
  */
 
 class C {}
-class D { f(){} }
+class D { f() {} }
 
 f(C y) {
   C x = y;

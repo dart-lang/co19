@@ -6,17 +6,17 @@
 /**
  * @assertion The is-expression tests if an object is a member of a type.
  * typeTest:
- *  isOperator type
+ *   isOperator type
  * ;
  * isOperator:
  *   is '!'?
  * ;
  * @description Checks basic grammar.
  * @author msyabro
- * @reviewer kaigorodov 
+ * @reviewer kaigorodov
  */
 
 main() {
   1 is int;
-  2 is ! int;
+  2 is! int;
 }

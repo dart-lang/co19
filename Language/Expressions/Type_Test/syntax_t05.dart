@@ -6,7 +6,7 @@
 /**
  * @assertion The is-expression tests if an object is a member of a type.
  * typeTest:
- *  isOperator type
+ *   isOperator type
  * ;
  * isOperator:
  *   is '!'?
@@ -20,6 +20,6 @@
 
 main () {
   try {
-    if(1 < 2) {} is bool;
-  } catch(e) {}
+    if (1 < 2) {} is bool;
+  } catch (e) {}
 }
