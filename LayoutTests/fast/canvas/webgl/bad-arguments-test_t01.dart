@@ -3,7 +3,7 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-/** 
+/**
  * @description Tests calling WebGL APIs with wrong argument types
  */
 import "dart:html";
@@ -12,7 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,7 +22,6 @@ main() {
   var context = wtu.create3DContext();
   var program = wtu.loadStandardProgram(context);
   var shader = wtu.loadStandardVertexShader(context);
-  var shouldGenerateGLError = wtu.shouldGenerateGLError;
 
   assertMsg(program != null, "Program Compiled");
   assertMsg(shader != null, "Shader Compiled");
@@ -37,10 +35,6 @@ main() {
   { 'value': null, 'throw': false }
   ];
 
-  shouldBeEmptyString(command) {
-    shouldBe(command, '');
-  }
-
   var shouldBeUndefined = shouldBeNull;
 
   for (var i = 0; i < arguments.length; ++i) {
@@ -49,13 +43,13 @@ main() {
     var case1=0, case2=0, case3=0;
     var msg = 'testing value ${argument}';
     if (arguments[i]['throw']) {
-      func = (x)  { ++case1; debug(msg + ', func case $case1'); shouldThrow(x); };
-      func2 = (x) { ++case2; debug(msg + ', func2 case $case2'); shouldThrow(x); };
-      func3 = (x) { ++case3; debug(msg + ', func3 case $case3'); shouldThrow(x); };
+      func = (x)  { ++case1; debug(msg + ', func case1 $case1'); shouldThrow(x); };
+      func2 = (x) { ++case2; debug(msg + ', func2 case2 $case2'); shouldThrow(x); };
+      func3 = (x) { ++case3; debug(msg + ', func3 case3 $case3'); shouldThrow(x); };
     } else {
-      func = (x)  { ++case1; debug(msg + ', func case $case1'); shouldBeUndefined(x()); };
-      func2 = (x) { ++case2; debug(msg + ', func2 case $case2'); shouldBeNull(x()); };
-      func3 = (x) { ++case3; debug(msg + ', func3 case $case3'); shouldBeEmptyString(x()); };
+      func = (x)  { ++case1; debug(msg + ', func case1 $case1'); shouldBeUndefined(x()); };
+      func2 = (x) { ++case2; debug(msg + ', func2 case2 $case2'); shouldBeNull(x()); };
+      func3 = (x) { ++case3; debug(msg + ', func3 case3 $case3'); shouldBeNull(x()); };
     }
     func(() => context.compileShader(argument));
     func(() => context.linkProgram(argument));
