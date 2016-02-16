@@ -26,7 +26,7 @@ class M extends B {
   int get c => 3;
 }
 
-class S {
+class S extends A {
   int get a => -1;
 }
 
