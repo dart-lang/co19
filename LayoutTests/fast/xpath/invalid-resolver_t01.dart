@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * @description 
+ * @description
  */
 import "dart:html";
 import "xpath-test-pre.dart";
@@ -20,18 +20,15 @@ void main() {
     shouldThrow((){
         evaluator.evaluate('/body', document, toObject(5), 0, null);
     }
-// was:   "TypeError: Failed to execute 'evaluate' on 'Document': The 3rd argument provided is either null, or an invalid XPathNSResolver object.");
-//    , (e)=>e.toString().contains("TypeError")
-    , (e)=>true
+    , (e) => e is TypeError
     , "resolver is a number");
 
     shouldThrow(() {
         evaluator.evaluate('/body', document, toObject('a resolver'), 0, null);
     }
-//  was:  "TypeError: Failed to execute 'evaluate' on 'Document': The 3rd argument provided is either null, or an invalid XPathNSResolver object.");
-    , (e)=>e.toString().contains("TypeError")
+    , (e) => e is TypeError
     , "resolver is a String");
-    
+
 //    shouldBe(evaluator.evaluate('/body', document, Date, 0, null).toString(), "[object XPathResult]"); - why Date works in js?
 
     checkTestFailures();
