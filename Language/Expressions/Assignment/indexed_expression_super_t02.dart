@@ -7,7 +7,7 @@
  * @assertion An assignment of the form super[e1] = e2 is equivalent to the
  * expression super.[e1] = e2
  * @description Checks that the value of an assignment of the form super[e1]=e2
- * is the result of evaluating e3.
+ * is the result of evaluating e2.
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

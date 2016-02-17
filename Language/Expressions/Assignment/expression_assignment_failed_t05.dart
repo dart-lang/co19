@@ -12,13 +12,13 @@
  *  • im.isSetter evaluates to true.
  *  • im.memberName evaluates to the symbol v=.
  *  • im.positionalArguments evaluates to an immutable list with the same values
- *  as [o2].
- *  • im.namedArguments evaluates to the value of const fg.
+ *    as [o2].
+ *  • im.namedArguments evaluates to the value of const {}.
  *  Then the method noSuchMethod() is looked up in o1 and invoked with
  *  argument im. However, if the implementation found cannot be invoked with
  *  a single positional argument, the implementation of noSuchMethod() in class
  *  Object is invoked on o1
- * @description Checks that if class has no noSuchMethod? then  the
+ * @description Checks that if class has no noSuchMethod then  the
  * implementation of noSuchMethod() in class Object is invoked and this produces
  * NoSuchMethodError
  * @static-warning

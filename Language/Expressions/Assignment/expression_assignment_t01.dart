@@ -13,7 +13,7 @@
  * setter, setter lookup fails. Otherwise, the body of v = is executed with its
  * formal parameter bound to o2 and this bound to o1.
  * @description Checks that in assignment of the form e1.v = e2 the body of the
- * setter v=i is executed
+ * setter v = i is executed
  * @author msyabro
  */
 import '../../../Utils/expect.dart';

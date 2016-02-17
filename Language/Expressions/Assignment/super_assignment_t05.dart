@@ -11,7 +11,7 @@
  * evaluated to an object o. Then, the setter v = is looked up inSdynamic with
  * respect to the current library. The body of v = is executed with its formal
  * parameter bound to o and this bound to this.
- * @description Checks that in assignment of the form super.v = e2 the body of
+ * @description Checks that in assignment of the form super.v = e the body of
  * the setter v= in superclass is executed with this bound to this. Test the
  * case when superclass also has a superclass
  * @author sgrekhov@unipro.ru

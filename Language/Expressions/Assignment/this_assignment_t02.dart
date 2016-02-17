@@ -8,9 +8,9 @@
  * follows:
  * ...
  * Otherwise, the assignment is equivalent to the assignment this.v = e.
- * @description Checks that an assignment of the form v = e, where v is not declared
- * in the lexical scope is equivalent to the assignment this.v = e and causes
- * NoSuchMethodError
+ * @description Checks that an assignment of the form v = e, where v is not
+ * declared in the lexical scope is equivalent to the assignment this.v = e and
+ * causes NoSuchMethodError
  * @static-warning
  * @author msyabro
  * @author sgrekhov@unipro.ru

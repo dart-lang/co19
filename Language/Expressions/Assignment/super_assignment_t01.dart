@@ -8,10 +8,10 @@
  * follows:
  * Let g be the method currently executing, and let C be the class in which
  * g was looked up. Let Sdynamic be the superclass of C. The expression e is
- * evaluated to an object o. Then, the setter v = is looked up (16.15.2) in
- * Sdynamic with respect to the current library. The body of v = is executed
- * with its formal parameter bound to o and this bound to this.
- * @description Checks that in assignment of the form super.v = e2 the body of
+ * evaluated to an object o. Then, the setter v = is looked up in Sdynamic with
+ * respect to the current library. The body of v = is executed with its formal
+ * parameter bound to o and this bound to this.
+ * @description Checks that in assignment of the form super.v = e the body of
  * the setter v= is executed
  * @author sgrekhov@unipro.ru
  */

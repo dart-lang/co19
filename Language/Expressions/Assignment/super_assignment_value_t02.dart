@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as
+ * @assertion Evaluation of an assignment of the form super.v = e proceeds as
  * follows:
- * The expression e1 is evaluated to an object o1. Then, the expression e2 is
- * evaluated to an object o2.
+ * Let g be the method currently executing, and let C be the class in which
+ * g was looked up. Let Sdynamic be the superclass of C. The expression e is
+ * evaluated to an object o.
  * ...
- * The value of the assignment expression is o2 irrespective of whether setter
+ * The value of the assignment expression is o irrespective of whether setter
  * lookup has failed or succeeded.
- * @description Checks that the value of an assignment expression is o2
+ * @description Checks that the value of an assignment expression is o
  * even if setter lookup failed.
  * @static-warning
  * @author sgrekhov@unipro.ru
