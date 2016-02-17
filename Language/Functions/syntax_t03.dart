@@ -45,7 +45,7 @@ class B {
 
 main() {
   int x = 1;
-  int y = 0;
+  int y = 10;
   B b = new B();
   List l = new List.from([1, 2]);
 
@@ -154,4 +154,110 @@ main() {
   //Type test
   f_type() => x is String;
   g_type() => f_type is Function;
+
+  // now call every function to force the compiler to parse it
+  new B().method();
+  //Constants
+  f_const();
+  g_const();
+
+  //null
+  f_null();
+
+  //Numbers
+  f_num();
+  g_num();
+  h_num();
+
+  //Booleans
+  f_bool();
+  g_bool();
+
+  //Strings
+  f_string();
+  g_string();
+  h_string();
+
+  //Lists
+  f_list();
+  g_list();
+
+  //Maps
+  f_map();
+
+  //Function expressions
+  f_func();
+
+  g_func();
+
+  //Instance creation
+  f_instance();
+  g_instance();
+
+  //Property extraction
+  f_property();
+  g_property();
+
+  //Function invocation
+  f_fInvocation();
+
+  //Method invocation
+  f_mInvocation();
+
+  //Assignment
+  f_assignment();
+  g_assignment();
+
+  //Conditional
+  f_conditional();
+
+  //Logical boolean expressions
+  f_logical();
+  g_logical();
+
+  //Bitwise expressions
+  f_bitwise();
+  g_bitwise();
+  h_bitwise();
+
+  //Equality
+  f_equality();
+  g_equality();
+  h_equality();
+  i_equality();
+
+  //Relational expressions
+  f_relational();
+  g_relational();
+
+  //Shift
+  f_shift();
+  g_shift();
+
+  //Additive expressions
+  f_additive();
+  g_additive();
+
+  //Multiplicative expressions
+  f_multiplicative();
+  g_multiplicative();
+  h_multiplicative();
+  i_multiplicative();
+
+  //Unary expressions
+  f_unari();
+  g_unari();
+  h_unari();
+
+  //Assignable expressions
+  f_assignable();
+
+  //Identifier reference
+  f_identifier();
+  g_identifier();
+  h_identifier();
+
+  //Type test
+  f_type();
+  g_type();
 }
