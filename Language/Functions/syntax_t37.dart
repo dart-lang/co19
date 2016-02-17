@@ -19,33 +19,46 @@
  *   '{' statements '}'
  * ;
  *
- * @description Checks that returnType is optional
+ * @description Checks different valid variants of asynchronous
+ * generator functions
  *
- * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
+ * @author a.semenov@unipro.ru
  */
-import "../../Utils/expect.dart";
+import 'dart:async';
+import '../../Utils/async_utils.dart';
 
-func(int x) => x + x + 1;
-proc() {}
+Stream<int> a1() async* {
+  yield 1;
+}
 
-class A {
-  f() {return () {return 20;};}
-  g(int arg) {return arg + arg;}
-  h(int arg) => f()() + g(arg);
+Stream a2() async* {
+  yield 1;
+}
+
+a3() async* {
+  yield 2;
+}
+
+Stream<String> b1(int x) async* {
+  yield 'a'+new String.fromCharCode(x);
+}
+
+Stream b2(String s) async* {
+  yield s.length;
+}
+
+b3(z) async* {
+  yield z;
 }
 
 main() {
-  f() {}
-  g() => 1;
-
-  // now call every function to force the compiler to parse it
-  Expect.equals(5, func(2));
-  proc();
-  Expect.equals(20, new A().f()());
-  Expect.equals(10, new A().g(5));
-  Expect.equals(22, new A().h(1));
-  f();
-  Expect.equals(1, g());
+  asyncStart();
+  Future.wait([
+    a1().first, a2().first, a3().first,
+    b1(70).first, b2('hello').first, b3(b3).first
+  ]).then(
+      (_) {
+        asyncEnd();
+      }
+  );
 }

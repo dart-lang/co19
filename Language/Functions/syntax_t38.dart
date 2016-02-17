@@ -19,33 +19,42 @@
  *   '{' statements '}'
  * ;
  *
- * @description Checks that returnType is optional
+ * @description Checks different valid variants of synchronous
+ * generator functions
  *
- * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
+ * @author a.semenov@unipro.ru
  */
-import "../../Utils/expect.dart";
+import '../../Utils/expect.dart';
 
-func(int x) => x + x + 1;
-proc() {}
+Iterable<String> a1() sync* {
+  yield 'a';
+}
 
-class A {
-  f() {return () {return 20;};}
-  g(int arg) {return arg + arg;}
-  h(int arg) => f()() + g(arg);
+Iterable a2() sync* {
+  yield 1;
+}
+
+a3() sync* {
+  yield 2;
+}
+
+Iterable<String> b1(int x) sync* {
+  yield new String.fromCharCode(x + 'a'.codeUnitAt(0));
+}
+
+Iterable b2(String y) sync* {
+  yield y.length;
+}
+
+b3(z) sync* {
+  yield z;
 }
 
 main() {
-  f() {}
-  g() => 1;
-
-  // now call every function to force the compiler to parse it
-  Expect.equals(5, func(2));
-  proc();
-  Expect.equals(20, new A().f()());
-  Expect.equals(10, new A().g(5));
-  Expect.equals(22, new A().h(1));
-  f();
-  Expect.equals(1, g());
+  Expect.equals('a', a1().first);
+  Expect.equals(1, a2().first);
+  Expect.equals(2, a3().first);
+  Expect.equals('e', b1(4).first);
+  Expect.equals(5, b2('hello').first);
+  Expect.equals(b3, b3(b3).first);
 }
