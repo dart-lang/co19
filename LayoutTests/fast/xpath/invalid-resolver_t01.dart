@@ -20,13 +20,13 @@ void main() {
     shouldThrow((){
         evaluator.evaluate('/body', document, toObject(5), 0, null);
     }
-    , (e) => e is TypeError || e.toString().contains("TypeError")
+    , (e) => e is TypeError || e.toString().contains("TypeError") // we expect TypeError in checked mode and DomException in production mode
     , "resolver is a number");
 
     shouldThrow(() {
         evaluator.evaluate('/body', document, toObject('a resolver'), 0, null);
     }
-    , (e) => e is TypeError || e.toString().contains("TypeError")
+    , (e) => e is TypeError || e.toString().contains("TypeError") // we expect TypeError in checked mode and DomException in production mode
     , "resolver is a String");
 
 //    shouldBe(evaluator.evaluate('/body', document, Date, 0, null).toString(), "[object XPathResult]"); - why Date works in js?
