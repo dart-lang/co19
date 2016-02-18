@@ -26,6 +26,6 @@ check(LinkedList l) {
 }
 
 main() {
-  check(new LinkedList<String>());
+  check(new LinkedList<MyLinkedListEntry>());
   check(new LinkedList());
 }
