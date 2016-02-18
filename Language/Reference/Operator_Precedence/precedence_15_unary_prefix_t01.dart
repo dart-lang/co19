@@ -6,16 +6,15 @@
 /**
  * @assertion
  * Description    Operator                          Associativity Precedence
- * Unary postfix  ., ?., e++, e–-, e1[e2], e1(), ()  None           16
- * @description Test that '--' unary postfix operator has highest
- * precedence (16). Compare with Unary prefix (precedence 15). Test that
- * '--' has priority higher than -
+ * Unary prefix   -e, !e, ˜e, ++e, –e               None           15
+ * @description Test that '-e' unary prefix operator has precedence (15).
+ * Compare with Multiplicative operators (precedence 14). Test that '-e' has
+ * priority higher than '*'
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  int e = 2;
-  Expect.equals(-2, -e--);
-  Expect.equals(1, e);
+  int e = 1;
+  Expect.equals(-2, 2 * -e);
 }
