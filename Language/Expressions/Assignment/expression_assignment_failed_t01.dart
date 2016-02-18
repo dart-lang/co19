@@ -12,8 +12,8 @@
  *  • im.isSetter evaluates to true.
  *  • im.memberName evaluates to the symbol v=.
  *  • im.positionalArguments evaluates to an immutable list with the same values
- *  as [o2].
- *  • im.namedArguments evaluates to the value of const fg.
+ *    as [o2].
+ *  • im.namedArguments evaluates to the value of const {}.
  *  Then the method noSuchMethod() is looked up in o1 and invoked with
  *  argument im. However, if the implementation found cannot be invoked with
  *  a single positional argument, the implementation of noSuchMethod() in class
@@ -23,7 +23,7 @@
  * @static-warning
  * @author msyabro
  * @reviewer rodionov
- *
+ */
 import '../../../Utils/expect.dart';
 
 class TestException {}
@@ -44,18 +44,4 @@ main() {
     c.setter = 1; /// static type warning
     Expect.fail("TestException is expected");
   } on TestException catch(e) {}
-}
-*/
-class C {
-  noSuchMethod() {  /// static type warning
-    throw new Exception("Wrong noSuchMethod() should not be called");
-  }
-}
-main() {
-  C c = new C();
-  try {
-    c.v = 1;
-  } on NoSuchMethodError catch(e) {
-    print("Expected");
-  }
 }

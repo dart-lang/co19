@@ -15,10 +15,10 @@
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
+import '../../../Utils/dynamic_check.dart';
 
 main() {
   int v;
   double e = 3.14;
-  v = e; ///static type warning
+  checkTypeError(() {v = e;}); ///static type warning
 }

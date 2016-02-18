@@ -10,7 +10,7 @@
  * It is a static type warning if the static type of e may not be assigned to
  * the static type of v. The static type of the expression v = e is the static
  * type of e.
- * @description Checks that static type of v=e is static type of e.
+ * @description Checks that static type of v = e is static type of e.
  * @static-warning
  * @author ilya
  */
@@ -22,5 +22,5 @@ main() {
   var x;
   try {
     D y = (x = new C()); /// static warning C is not a subtype of D
-  } catch(e) {}
+  } catch (e) {}
 }

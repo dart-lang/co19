@@ -12,7 +12,7 @@
  * The value of the assignment expression is o2 irrespective of whether setter
  * lookup has failed or succeeded.
  * @description Checks the value of an assignment of the form e1.v = e2 is
- * e2 evaluated to o.
+ * e2 evaluated to o2.
  * @author msyabro
  */
 import '../../../Utils/expect.dart';

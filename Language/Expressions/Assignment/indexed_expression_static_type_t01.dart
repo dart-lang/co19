@@ -6,7 +6,7 @@
 /**
  * @assertion The static type of the expression e1[e2] = e3 is the static
  * type of e3.
- * @description Checks that static type of e1[e2]=e3 is static type of e3
+ * @description Checks that static type of e1[e2] = e3 is static type of e3.
  * @static-clean
  * @author ilya
  */

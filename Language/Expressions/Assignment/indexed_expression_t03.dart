@@ -12,7 +12,7 @@
  * []= operator.
  * @static-warning
  * @author rodionov
- * * @author sgrekhov@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
