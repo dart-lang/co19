@@ -32,21 +32,21 @@ main() {
   Expect.isTrue(list.removeFirst() == true);
   Expect.isTrue(list.length == 0);
 
-  list = new Queue();
-  list.addLast(1);
-  list.addLast(1);
-  list.addLast(1);
+  Queue queue = new Queue();
+  queue.addLast(1);
+  queue.addLast(1);
+  queue.addLast(1);
 
-  Expect.isTrue(list.length == 3);
+  Expect.isTrue(queue.length == 3);
 
-  Expect.isTrue(list.removeFirst() == 1);
-  Expect.isTrue(list.length == 2);
-  Expect.isTrue(list.first == 1);
+  Expect.isTrue(queue.removeFirst() == 1);
+  Expect.isTrue(queue.length == 2);
+  Expect.isTrue(queue.first == 1);
 
-  Expect.isTrue(list.removeFirst() == 1);
-  Expect.isTrue(list.length == 1);
-  Expect.isTrue(list.first == 1);
+  Expect.isTrue(queue.removeFirst() == 1);
+  Expect.isTrue(queue.length == 1);
+  Expect.isTrue(queue.first == 1);
 
-  Expect.isTrue(list.removeFirst() == 1);
-  Expect.isTrue(list.length == 0);
+  Expect.isTrue(queue.removeFirst() == 1);
+  Expect.isTrue(queue.length == 0);
 }
