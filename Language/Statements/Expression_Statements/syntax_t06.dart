@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression statement consists of an expression other than a non-constant
- * map literal that has no explicit type arguments.
+ * @assertion An expression statement consists of an expression other than a
+ * non-constant map literal that has no explicit type arguments.
  * The restriction on maps is designed to resolve an ambiguity in the grammar,
- *     expressionStatement:
- *       expression? ‘;’
- *     ;
+ *   expressionStatement:
+ *     expression? ‘;’
+ *   ;
  * Execution of an expression statement e; proceeds by evaluating e.
  * It is a compile-time error if a non-constant map literal that has no explicit
  * type arguments appears in a place where a statement is expected.
- * @description Checks that any expression except a map literal can form a statement.
+ * @description Checks that any expression except a map literal can form a
+ * statement.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -22,7 +23,7 @@ var v;
 get g {}
 
 class D {
-  operator[](var x){}
+  operator [](var x) {}
   check() {}
 }
 
@@ -31,7 +32,7 @@ class C extends D{
   static get sg {}
   var l;
 
-  operator[](x){
+  operator [](x) {
     const []; //list
     []; //list
     const <int>[];
@@ -162,7 +163,7 @@ main() {
 
   //function expression
   () => null;
-  (){return null;};
+  () {return null;};
   void f() {f();};
 
   //string interpolation

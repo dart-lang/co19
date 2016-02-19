@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression statement consists of an expression other than a non-constant
- * map literal that has no explicit type arguments.
+ * @assertion An expression statement consists of an expression other than a
+ * non-constant map literal that has no explicit type arguments.
  * The restriction on maps is designed to resolve an ambiguity in the grammar,
- *     expressionStatement:
- *       expression? ‘;’
- *     ;
+ *   expressionStatement:
+ *     expression? ‘;’
+ *   ;
  * Execution of an expression statement e; proceeds by evaluating e.
  * It is a compile-time error if a non-constant map literal that has no explicit
  * type arguments appears in a place where a statement is expected.
- * @description Checks that an empty expression statement consisting of just a semicolon is perfectly valid.
+ * @description Checks that an empty expression statement consisting just a
+ * semicolon is perfectly valid.
  * @author rodionov
  * @reviewer iefremov
  */
