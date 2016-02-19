@@ -4,24 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An expression is a fragment of Dart code that can be evaluated at run time
- *  to yield a value, which is always an object.
+ * @assertion An expression is a fragment of Dart code that can be evaluated
+ * at run time to yield a value, which is always an object.
+ * . . .
  *  expression:
  *    assignableExpression assignmentOperator expression |
  *    conditionalExpression cascadeSection* |
  *    throwExpression
  *  ;
- *  
+ *
  *  expressionWithoutCascade:
  *    assignableExpression assignmentOperator expressionWithoutCascade |
  *    conditionalExpression |
  *    throwExpressionWithoutCascade
  *  ;
- *  
+ *
  *  expressionList:
  *    expression (`, ' expression)*
  *  ;
- *  
+ *
  *  primary:
  *    thisExpression |
  *    super assignableSelector |
@@ -29,6 +30,7 @@
  *    literal |
  *    identifier |
  *    newExpression |
+ *    new type ‘#’ (‘.’ identifier)? |
  *    constObjectExpression |
  *    `(' expression `)'
  *  ;
@@ -49,7 +51,7 @@ class A extends S {
   void checkThis(){
     Expect.equals(this, (this));
     Expect.equals(super.x, (super.x));
-  } 
+  }
 }
 
 main() {
