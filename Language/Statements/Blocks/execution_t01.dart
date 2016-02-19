@@ -7,7 +7,8 @@
  * @assertion A block statement supports sequencing of code.
  * Execution of a block statement { s1, ... , sn } proceeds as follows:
  * For i in 1..n; si is executed.
- * @description Checks that contents of a block statement are executed sequentially from top to bottom.
+ * @description Checks that contents of a block statement are executed
+ * sequentially from top to bottom.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

@@ -7,7 +7,8 @@
  * @assertion A block statement supports sequencing of code.
  * Execution of a block statement { s1, ... , sn } proceeds as follows:
  * For i in 1..n; si is executed.
- * @description Checks that it is not an error if a block statement has empty contents.
+ * @description Checks that it is not an error if a block statement has empty
+ * contents.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -16,6 +17,7 @@
 main() {
   { }
   {{{ }{ }{ }{ }{ }{ }{ }{ { }{ }{ }{ { }{ { }}}} } }
-  {{ { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} }
+  {{{{{{{{ { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { { {
+  }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} }
 }
 
