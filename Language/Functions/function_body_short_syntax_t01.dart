@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function body of the form => e is equivalent to a body of the form
- * {return e;}.
- * @description Checks that the function body of the form => e is equivalent to a
- * body of the form {return e;}.
+ * @assertion A function body of the form => e is equivalent to a body of
+ * the form {return e;} or the form async => e which is equivalent to a body
+ * of the form async {return e;}.
+ *
+ * @description Checks that the function body of the form => e is equivalent
+ * to a body of the form {return e;}.
+ *
  * @author msyabro
  * @reviewer kaigorodov
  */

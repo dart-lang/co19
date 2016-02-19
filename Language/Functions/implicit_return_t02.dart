@@ -8,24 +8,33 @@
  * the statement return; is implicitly appended to the function body.
  *
  * @description Checks that the statement return; is implicitly appended
- * to the function body.
+ * to the asynchronous function body.
  *
- * @author msyabro
- * @reviewer kaigorodov
+ * @author a.semenov@unipro.ru
  */
-import "../../Utils/expect.dart";
+import 'dart:async';
+import '../../Utils/expect.dart';
+import '../../Utils/async_utils.dart';
 
-func() {}
+func() async {}
 
-f() {
+f() async {
   int x = 1;
   int y = x + 1;
 }
 
-void g() {}
+Future g() {}
+
+test() async {
+  Expect.isNull(await func());
+  Expect.isNull(await f());
+  Expect.isNull(await g());
+}
 
 main() {
-  Expect.equals(null, func());
-  Expect.equals(null, f());
-  Expect.equals(null, g());
+  asyncStart();
+  test().then((value) {
+    Expect.isNull(value);
+    asyncEnd();
+  });
 }

@@ -6,7 +6,9 @@
 /**
  * @assertion The body is a block statement containing the statements
  * executed by the function.
+ *
  * @description Checks that the statements are executed by the function.
+ *
  * @author msyabro
  * @reviewer kaigorodov
  */
