@@ -16,11 +16,11 @@ class A {
 }
 
 class C {
-   A operator[](int idx) {
+   A operator [](int idx) {
     return new A();
   }
 
-  void operator[]=(int idx, A val) {
+  void operator []=(int idx, A val) {
   }
 }
 

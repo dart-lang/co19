@@ -15,8 +15,8 @@ import '../../../../Utils/expect.dart';
 
 class C {
   C(this.v);
-  
-  operator|(val) {
+
+  operator |(val) {
     C c = new C(v | val);
     return c;
   }
@@ -30,12 +30,12 @@ class A {
     getterInvocation = 0;
     setterInvocation = 0;
   }
-  
+
   get c {
     ++getterInvocation;
     return _c;
   }
-  
+
   set c(val) {
     ++setterInvocation;
     _c = val;

@@ -9,7 +9,7 @@
  * ((x) => x == null ? null: x.v?? = e2)(e1) where x is a variable that is not
  * used in e2.
  * @description Checks that in expression of the form e1?.v ??= e value is set
- * only if e1.v == null anf returns null if e1 == null
+ * only if e1.v == null and returns null if e1 == null
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

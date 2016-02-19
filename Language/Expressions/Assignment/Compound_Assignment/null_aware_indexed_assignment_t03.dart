@@ -25,12 +25,12 @@ class C {
     v = val;
   }
 
-  operator[](idx) {
+  operator [](idx) {
     ++getterInvocation;
     return idx == 0 ? null : idx;
   }
 
-  void operator[]=(idx, val) {
+  void operator []=(idx, val) {
     ++setterInvocation;
     v = val;
   }

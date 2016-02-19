@@ -21,19 +21,19 @@ class C {
     getterSelectorArg = null;
     setterSelectorArg = null;
   }
-  
-  operator+(val) {
+
+  operator +(val) {
     C c = new C(v + val);
     return c;
   }
-  
-  operator[](idx) {
+
+  operator [](idx) {
     ++getterInvocation;
     getterSelectorArg = idx;
     return v;
   }
-  
-  void operator[]=(idx, val) {
+
+  void operator []=(idx, val) {
     ++setterInvocation;
     setterSelectorArg = idx;
     v = val;

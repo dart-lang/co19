@@ -14,7 +14,7 @@
 import '../../../../Utils/expect.dart';
 
 class A {
-  operator+(val) {
+  operator +(val) {
     return val.toString();
   }
 }
@@ -24,12 +24,12 @@ class C {
     ++getterInvocation;
     return _v;
   }
-  
+
   static set v(val) {
     ++setterInvocation;
     _v = val;
   }
-  
+
   static var _v;
 
   static int setterInvocation;

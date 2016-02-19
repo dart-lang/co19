@@ -17,11 +17,11 @@ import '../../../../Utils/expect.dart';
 class C {
   var v;
 
-  operator[](idx) {
+  operator [](idx) {
     return idx == 0 ? null : idx;
   }
 
-  void operator[]=(idx, val) {
+  void operator []=(idx, val) {
     v = val;
   }
 }
