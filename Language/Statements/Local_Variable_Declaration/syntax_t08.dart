@@ -6,9 +6,10 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that a newly introduced variable may shadow the one declared
- * in an enclosing scope but doesn't replace it.
+ *     initializedVariableDeclaration ’;’
+ *   ;
+ * @description Checks that a newly introduced variable may shadow the one
+ * declared in an enclosing scope but doesn't replace it.
  * @author rodionov
  * @reviewer iefremov
  */

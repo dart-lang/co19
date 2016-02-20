@@ -6,9 +6,10 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that the variable created by such statement is not
- * available in a scope that is a "sibling" to the one it was declared in.
+ *     initializedVariableDeclaration ’;’
+ *   ;
+ * @description Checks that the variable declared 'var id;' in a block is not
+ * available in another block that isn't included in the first one.
  * @static-warning
  * @author iefremov
  * @reviewer rodionov

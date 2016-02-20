@@ -6,8 +6,10 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that incorrect syntax of type parameters causes compile error.
+ *     initializedVariableDeclaration ’;’
+ *   ;
+ * @description Checks that incorrect syntax of type parameters causes compile
+ * error.
  * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
@@ -18,6 +20,6 @@ class T<K,V> {}
 main() {
   try {
     T<int, String;> id;
-  } catch(x) {}
+  } catch (x) {}
 }
 

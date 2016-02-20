@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Executing a variable declaration statement of one of the forms var v = e;,
- * T v = e;, const v = e;, const T v = e;, final v = e; or final T v = e; proceeds
- * as follows:
- *   The expression e is evaluated to an object o. Then, the variable v is set to o.
- * @description Checks that an expression e is evaluated correctly in a multiple variable
- * declaration statement.
+ * @assertion Executing a variable declaration statement of one of the forms
+ * var v = e;, T v = e;, const v = e;, const T v = e;, final v = e; or
+ * final T v = e; proceeds as follows:
+ * The expression e is evaluated to an object o. Then, the variable v is set
+ * to o.
+ * @description Checks that an expression e is evaluated correctly in a multiple
+ * variable declaration statement.
  * @author msyabro
  * @reviewer rodionov
  */

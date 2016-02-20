@@ -6,7 +6,8 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
+ *     initializedVariableDeclaration ’;’
+ *   ;
  * @description Checks that a declared local variable is also available in the
  * nested scopes.
  * @author rodionov
@@ -17,11 +18,11 @@ main() {
   int id;
   {
     id = 1;
-    for(int i = 0; i < 1; i++) {
+    for (int i = 0; i < 1; i++) {
       id = 2;
       try {
         id = 3;
-      } catch(ok) {}
+      } catch (ok) {}
     }
   }
 }

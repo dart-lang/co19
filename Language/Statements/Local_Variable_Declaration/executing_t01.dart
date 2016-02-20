@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Executing a variable declaration statement of one of the forms var v = e;,
- * T v = e;, const v = e;, const T v = e;, final v = e; or final T v = e; proceeds
- * as follows:
- *   The expression e is evaluated to an object o. Then, the variable v is set to o.
- * @description Checks that a variable declaration statement T id = e; indeed results in
- * variable id being assigned the value of e, whether or not it's final.
+ * @assertion Executing a variable declaration statement of one of the forms
+ * var v = e;, T v = e;, const v = e;, const T v = e;, final v = e; or
+ * final T v = e; proceeds as follows:
+ * The expression e is evaluated to an object o. Then, the variable v is set
+ * to o.
+ * @description Checks that a variable declaration statement T id = e; indeed
+ * results in variable id being assigned the value of e, whether or not it's
+ * final.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

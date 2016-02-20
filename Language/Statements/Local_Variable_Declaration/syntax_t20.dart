@@ -6,11 +6,11 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that a variable is introduced into the scope
- * after a variable declaration statement is evaluated. Checks that a variable name
- * is not available in a local function that is used in the initializing expression
- * of that variable's declaration.
+ *     initializedVariableDeclaration ’;’
+ *   ;.
+ * @description Checks that a variable is introduced into the scope after a
+ * variable declaration statement is evaluated, and the name of this variable
+ * cannot be used in its initialization.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -19,6 +19,6 @@
 main() {
   try {
     var x;
-    var f = () {x = f};
-  } catch(x) {}
+    var f = () {x = f;};
+  } catch (x) {}
 }

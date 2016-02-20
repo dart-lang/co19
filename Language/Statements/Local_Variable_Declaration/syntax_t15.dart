@@ -6,9 +6,11 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that a variable declaration statement var id = e; introduces
- * a new variable id with static type dynamic into the innermost enclosing scope.
+ *     initializedVariableDeclaration ’;’
+ *   ;
+ * @description Checks that a variable declaration statement var id = e;
+ * introduces a new variable id with dynamic static type into the innermost
+ * enclosing scope.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

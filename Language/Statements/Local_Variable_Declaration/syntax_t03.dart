@@ -6,9 +6,10 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that a variable declaration statement T id; 
- * must end with a semicolon.
+ *     initializedVariableDeclaration ’;’
+ *   ;
+ * @description Checks that a variable declaration statement T id;  must end
+ * with a semicolon.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -20,5 +21,5 @@ class T {}
 main() {
   try {
     T id
-  } catch(ok) {}
+  } catch (ok) {}
 }

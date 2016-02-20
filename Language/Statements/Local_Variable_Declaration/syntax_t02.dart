@@ -6,7 +6,8 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
+ *     initializedVariableDeclaration ’;’
+ *   ;
  * @description Checks several assignments of variables declared as "T id = e;"
  * that are correct in checked mode and do not produce static warnings.
  * @author vasya
@@ -30,7 +31,7 @@ main() {
 
   bool id1 = false;
   id1 = true;
-  
+
   String id2 = null;
   id2 = "";
 }

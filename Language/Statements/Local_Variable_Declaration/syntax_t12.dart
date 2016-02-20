@@ -6,8 +6,10 @@
 /**
  * @assertion A variable declaration statement declares a new local variable.
  *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’ .
- * @description Checks that the type T in a variable declaration can be parameterized.
+ *     initializedVariableDeclaration ’;’
+ *   ;
+ * @description Checks that the type T in a variable declaration can be
+ * parameterized.
  * @author kaigorodov
  * @reviewer iefremov
  */
