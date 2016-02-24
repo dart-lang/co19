@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -22,16 +22,15 @@
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that it is a compile error if a function with an
- * expression for a body is missing the formal parameter list.
- * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
+ * @description Checks that when a local function declared with the function
+ * body of a form (1) `=> expession` it may have `async` before a function body,
+ * (2) 'block` it may have async, async* and sync* a block.
+ * @author ngl@unipro.ru
  */
 
 main() {
-  int function1 => 1;
-  try {
-    function1();
-  } catch (x){}
+  f0() async => 3;
+  f1() async {}
+  f2() async* {}
+  f3() sync* {};
 }

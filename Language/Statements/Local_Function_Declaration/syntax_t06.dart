@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -22,16 +22,13 @@
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that it is a compile error if a function with an
- * expression for a body is missing the formal parameter list.
+ * @description Checks that it is a compile time error if a local function
+ * declared with the function body of a form `=> expession` has `sync*` before
+ * a function body.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
+ * @author ngl@unipro.ru
  */
 
 main() {
-  int function1 => 1;
-  try {
-    function1();
-  } catch (x){}
+  f0() sync* => 3;
 }

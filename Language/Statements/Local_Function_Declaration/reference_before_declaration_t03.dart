@@ -18,5 +18,5 @@ main() {
 
   try {
     evenHandler(1);
-  } catch(_) {}
+  } catch (_) {}
 }
