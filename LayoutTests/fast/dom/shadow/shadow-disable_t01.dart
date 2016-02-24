@@ -11,12 +11,6 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 main() {
-  document.body.setInnerHtml('''
-    <p id="description"></p>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><tref id="tref" /></svg>
-    <pre id="console"></pre>
-    ''', treeSanitizer: new NullTreeSanitizer());
-
   testToAddShadowRoot(element, success) {
     debug(element.nodeName);
 
@@ -39,7 +33,6 @@ main() {
 
   // See crbug.com/234020 .
   var elementsToFail = [
-    document.getElementById('tref'),
     document.createElement('audio'),
     document.createElement('video'),
     document.createElement('select'),
