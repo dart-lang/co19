@@ -36,14 +36,10 @@ main() {
   var b = document.getElementById('b');
   b.addEventListener('click', (event) {
     var path = event.path;
-    //debug(dumpNodeList(path));
 
-    var expected = ['#b', '#a', BodyElement, HtmlHtmlElement, HtmlDocument];
+    var expected = ['#b', '#a', BodyElement, HtmlHtmlElement, HtmlDocument,
+      Window];
     shouldBeList(dumpNodeList(path), expected);
-
-    //debug('Makes sure that event.path returns static NodeList.');
-    //path[1] = '';
-    //debug(dumpNodeList(event.path));
   });
 
   var clickEvent = new MouseEvent("click", canBubble: true,
