@@ -10,12 +10,11 @@
  * http://www.w3.org/Consortium/Legal/2008/04-testsuite-copyright.html
  */
 /**
- * @assertion Extensions to Event Interface: event.path cross the shadow
+ * @assertion Extensions to Event Interface: event.path crosses the shadow
  * boundary
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -32,13 +31,14 @@ main() {
   asyncStart();
 
   child.addEventListener('click', (e) {
-    assert_equals(e.path.length, 6, 'path.length');
+    assert_equals(e.path.length, 7, 'path.length');
     assert_equals(e.path[0], child, 'path[0] should be child');
     assert_equals(e.path[1], shadowRoot, 'path[1] should be shadowRoot');
     assert_equals(e.path[2], host, 'path[2] should be host');
     assert_equals(e.path[3], doc.body, 'path[3] should be body');
     assert_equals(e.path[4], doc.documentElement, 'path[4] should be html');
     assert_equals(e.path[5], doc, 'path[5] should be document');
+    assert_equals(e.path[6], doc.window, 'path[6] should be window');
 
     asyncEnd();
   });
