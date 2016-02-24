@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var form = document.createElement("form");
@@ -82,6 +81,7 @@ main() {
   form.append(numberInput);
   numberInput.focus();
   document.execCommand("InsertText", false, "abc");
+  document.execCommand("InsertText", false, "+++");
   debug("input badInput: " + numberInput.validationMessage);
   var nonRequiredBadInputMessage = numberInput.validationMessage;
 
@@ -173,4 +173,3 @@ main() {
 
   form.remove();
 }
-
