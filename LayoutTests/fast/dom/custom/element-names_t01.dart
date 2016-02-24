@@ -7,8 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "dart:svg";
-import "../../../testcommon.dart";
 import "../../../resources/testharness.dart";
 
 class C extends HtmlElement {
@@ -50,31 +48,39 @@ main() {
     // hyphen-containing names from the applicable specifications,
     // namely the SVG and the MathML.
     'annotation-xml',
+    'color-profile',
     'font-face',
     'font-face-src',
     'font-face-uri',
     'font-face-format',
     'font-face-name',
-    'missing-glyph'
+    'missing-glyph',
+    // names containing colon
+    ':-xfoo',
+    'xfoo-:yfoo',
+    // names containing uppercase ASCII letters
+    'xx-Foo',
+    'X-Men',
+    'ab-cdE'
     ];
 
     for (var i = 0; i < invalidNames.length; i++) {
       var invalidName = invalidNames[i];
       assert_throws(() {
-        document.register(invalidName, C);
-      }, 'register invalid custom element name: ' + invalidName);
+        document.registerElement(invalidName, C);
+      }, 'Successfully registered custom element with invalid name: ' + invalidName);
     }
-  }, 'invalid and reserved names');
+  }, 'Invalid and reserved names');
 
   test((){
-    document.register('x-foo', Foo);
+    document.registerElement('x-foo', Foo);
     assert_throws(() {
-      document.register('x-foo', Foo);
-    }, 'register already registered "x-foo"');
+      document.registerElement('x-foo', Foo);
+    }, 'Register already registered "x-foo"');
     assert_throws(() {
-      document.register('X-FOO', Foo);
-    }, 'register "X-FOO", same as already registered "x-foo"');
-  }, 'name conflicts');
+      document.registerElement('X-FOO', Foo);
+    }, 'Register "X-FOO", same as already registered "x-foo"');
+  }, 'Name conflicts');
 
   test(() {
     var validNameClassMap = {
@@ -86,9 +92,9 @@ main() {
     for(var elementName in validNameClassMap.keys) {
       var expectedTagName = elementName.toUpperCase();
       var klass = validNameClassMap[elementName];
-      document.register(elementName, klass);
+      document.registerElement(elementName, klass);
       var tagName = document.createElement(elementName).tagName;
       assert_equals(tagName, expectedTagName, tagName + ' must be treated as a custom element');
     }
-  }, 'strange but valid names');
+  }, 'Strange but valid names');
 }
