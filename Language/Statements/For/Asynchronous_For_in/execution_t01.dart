@@ -8,7 +8,7 @@
  * (finalConstVarOrType? id in e) s proceeds as follows:
  *    The expression e is evaluated to an object o. It is a dynamic error if o
  *  is not an instance of a class that implements Stream. Otherwise,
- *  the expression await vf is evaluated, where v f is a fresh variable
+ *  the expression await vf is evaluated, where vf is a fresh variable
  *  whose value is a fresh instance f implementing the built-in class Future.
  *    The stream o is listened to, and on each data event in o
  *  the statement s is executed with id bound to the value of the current
