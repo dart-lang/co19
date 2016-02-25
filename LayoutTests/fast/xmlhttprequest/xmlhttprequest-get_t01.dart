@@ -57,7 +57,7 @@ void main() {
     void myfunc(ProgressEvent e) {
       asyncEnd();
       document.getElementById("id1").firstChild.text = p.responseText;
-      if (p.responseXml!=null) {
+      if (p.responseXml != null) {
         var s = new XmlSerializer();
         var d = p.responseXml;
         var str = s.serializeToString(d);
@@ -68,11 +68,10 @@ void main() {
       document.getElementById("id5").firstChild.text = p.statusText;
       document.getElementById("id6").firstChild.text = p.readyState.toString();
       document.getElementById("id7").firstChild.text = '''
-    Event object: ${e.toString()}
-    Event properties:
-      bubbles=${e. bubbles}
-      cancelable=${e. cancelable}
-      clipboardData=${e.clipboardData}
+      Event object: ${e.toString()}
+      Event properties:
+      bubbles=${e.bubbles}
+      cancelable=${e.cancelable}
       currentTarget=${e.currentTarget}
       defaultPrevented=${e.defaultPrevented}
       eventPhase=${e.eventPhase}
@@ -89,5 +88,4 @@ void main() {
     p.open("GET", "$testSuiteRoot/fast/xmlhttprequest/resources/xmlhttprequest-get-data.xml");
     
     p.send();
-
 }
