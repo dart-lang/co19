@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -113,17 +112,17 @@ main() {
     v[i].setCustomValidity(null);
   }
   shouldBeFalse(customErrorFor("fieldset-many-changes"));
-  shouldBeFalse(customErrorFor("button-many-changes"));
+  shouldBeTrue(customErrorFor("button-many-changes"));
   shouldBeFalse(customErrorFor("button-button-many-changes"));
   shouldBeFalse(customErrorFor("button-reset-many-changes"));
-  shouldBeFalse(customErrorFor("select-many-changes"));
-  shouldBeFalse(customErrorFor("textarea-many-changes"));
-  shouldBeFalse(customErrorFor("input-many-changes"));
-  shouldBeFalse(customErrorFor("input-submit-many-changes"));
+  shouldBeTrue(customErrorFor("select-many-changes"));
+  shouldBeTrue(customErrorFor("textarea-many-changes"));
+  shouldBeTrue(customErrorFor("input-many-changes"));
+  shouldBeTrue(customErrorFor("input-submit-many-changes"));
 
-  /*debug('Set with three arguments.');
+  debug('Set null.');
   for (var i = 0; i < v.length; i++)
-    v[i].setCustomValidity("one", "two", "three");
+    v[i].setCustomValidity(null);
   shouldBeFalse(customErrorFor("fieldset-many-changes"));
   shouldBeTrue(customErrorFor("button-many-changes"));
   shouldBeFalse(customErrorFor("button-button-many-changes"));
@@ -131,31 +130,5 @@ main() {
   shouldBeTrue(customErrorFor("select-many-changes"));
   shouldBeTrue(customErrorFor("textarea-many-changes"));
   shouldBeTrue(customErrorFor("input-many-changes"));
-  shouldBeTrue(customErrorFor("input-submit-many-changes"));*/
-
-  debug('Set null.');
-  for (var i = 0; i < v.length; i++)
-    v[i].setCustomValidity(null);
-  shouldBeFalse(customErrorFor("fieldset-many-changes"));
-  shouldBeFalse(customErrorFor("button-many-changes"));
-  shouldBeFalse(customErrorFor("button-button-many-changes"));
-  shouldBeFalse(customErrorFor("button-reset-many-changes"));
-  shouldBeFalse(customErrorFor("select-many-changes"));
-  shouldBeFalse(customErrorFor("textarea-many-changes"));
-  shouldBeFalse(customErrorFor("input-many-changes"));
-  shouldBeFalse(customErrorFor("input-submit-many-changes"));
-
-  /*debug('Set some value, and set undefined.');
-  for (var i = 0; i < v.length; i++) {
-    v[i].setCustomValidity("Custom string");
-    v[i].setCustomValidity(undefined);
-  }
-  shouldBeFalse(customErrorFor("fieldset-many-changes"));
-  shouldBeFalse(customErrorFor("button-many-changes"));
-  shouldBeFalse(customErrorFor("button-button-many-changes"));
-  shouldBeFalse(customErrorFor("button-reset-many-changes"));
-  shouldBeFalse(customErrorFor("select-many-changes"));
-  shouldBeFalse(customErrorFor("textarea-many-changes"));
-  shouldBeFalse(customErrorFor("input-many-changes"));
-  shouldBeFalse(customErrorFor("input-submit-many-changes"));*/
+  shouldBeTrue(customErrorFor("input-submit-many-changes"));
 }
