@@ -4,9 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion First, the expression b is evaluated to an object o.
- *  Then, o is subjected to boolean conversion, producing an object r.
- * @description Checks that it an AssertionError (see 11.4.1 Boolean conversion)
+ * @assertion Execution of an if statement of the form if (b) s1 else s2
+ * proceeds as follows:
+ * First, the expression b is evaluated to an object o. Then, o is subjected to
+ * boolean conversion, producing an object r.
+ * @description Checks that it an AssertionError (see  Boolean conversion)
  * is thrown in checked mode if the expression evaluates to null.
  * @author kaigorodov
  * @reviewer rodionov

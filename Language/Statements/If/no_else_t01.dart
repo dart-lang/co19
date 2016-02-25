@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An if statement of the form if (b)s1 is equivalent to the 
+ * @assertion An if statement of the form if (b)s1 is equivalent to the
  * if statement if (b)s1 else {}.
- * @description Checks that the result of executing an if statement with and without
- * an empty else clause is the same.
+ * @description Checks that the result of executing an if statement with and
+ * without an empty else clause is the same.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -27,7 +27,6 @@ f_if_else(v) {
 }
 
 main() {
-  Expect.equals(f_if(true), f_if_else(true));    
-  Expect.equals(f_if(false), f_if_else(false));    
+  Expect.equals(f_if(true), f_if_else(true));
+  Expect.equals(f_if(false), f_if_else(false));
 }
-

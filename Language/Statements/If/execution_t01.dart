@@ -4,11 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  If r is true, then the statement {s1} is executed,
- *  otherwise statement {s2} is executed.
+ * @assertion Execution of an if statement of the form if (b) s1 else s2
+ * proceeds as follows:
+ * . . .
+ * If r is true, then the statement {s1} is executed, otherwise statement {s2}
+ * is executed.
  * @description Checks that if the expression b evaluates to an object o that
- *  converts to the boolean true, then the statement s1 is executed.
- *  Boolean true constant is tested as well as various comparison expressions.
+ * converts to the boolean true, then the statement s1 is executed.
+ * Boolean true constant is tested as well as various comparison expressions.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -20,7 +23,7 @@ main() {
   if (true) {
     i = 1;
   } else {
-    i = 2; 
+    i = 2;
   }
   Expect.equals(1, i);
 
@@ -28,7 +31,7 @@ main() {
   if ( 2 > -1 ) {
     i = 1;
   } else {
-    i = 2; 
+    i = 2;
   }
   Expect.equals(1, i);
 
@@ -36,7 +39,7 @@ main() {
   if ( "str".length > 0 ) {
     i = 1;
   } else {
-    i = 2; 
+    i = 2;
   }
   Expect.equals(1, i);
 
@@ -44,7 +47,7 @@ main() {
   if ( [].length == 0 ) {
     i = 1;
   } else {
-    i = 2; 
+    i = 2;
   }
   Expect.equals(1, i);
 }

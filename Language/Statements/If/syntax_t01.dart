@@ -6,9 +6,10 @@
 /**
  * @assertion The if statement allows for conditional execution of statements.
  * ifStatement:
- * if '(' expression ')' statement ( else statement)?
+ *   if '(' expression ')' statement ( else statement)?
  * ;
- * @description Checks that a compile error is produced if the expression is missing.
+ * @description Checks that a compile error is produced if the expression is
+ * missing.
  * @compile-error
  * @author vasya
  * @reviewer rodionov

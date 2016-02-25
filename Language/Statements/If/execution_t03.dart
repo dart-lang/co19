@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  If r is true, then the statement {s1} is executed,
- *  otherwise statement {s2} is executed.
- * @description Checks that if and else branches statements are enclosed in implicit
- * extra blocks.
+ * @assertion Execution of an if statement of the form if (b) s1 else s2
+ * proceeds as follows:
+ * . . .
+ * If r is true, then the statement {s1} is executed, otherwise statement {s2}
+ * is executed.
+ * @description Checks that if and else branches statements are enclosed in
+ * implicit extra blocks.
  * @author ilya
  */
 import '../../../Utils/expect.dart';
@@ -21,7 +24,7 @@ main() {
 
   Expect.equals(1,x);
   }
-  
+
   {
   var x = 1;
 

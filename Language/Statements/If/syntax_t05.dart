@@ -6,10 +6,10 @@
 /**
  * @assertion The if statement allows for conditional execution of statements.
  * ifStatement:
- * if '(' expression ')' statement ( else statement)?
+ *   if '(' expression ')' statement ( else statement)?
  * ;
- * @description Checks that it is a compile-time error if the closing expression bracket
- * is missing.
+ * @description Checks that it is a compile-time error if the closing expression
+ * bracket is missing.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -18,7 +18,7 @@
 
 main() {
   var foo;
-  if (true 
-    foo = "foo";    
+  if (true
+    foo = "foo";
 }
 

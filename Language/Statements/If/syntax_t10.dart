@@ -6,9 +6,10 @@
 /**
  * @assertion The if statement allows for conditional execution of statements.
  * ifStatement:
- * if '(' expression ')' statement ( else statement)?
+ *   if '(' expression ')' statement ( else statement)?
  * ;
- * @description Checks that nested if-else statements are allowed and work correctly.
+ * @description Checks that nested if-else statements are allowed and work
+ * correctly.
  * @author hlodvig
  * @reviewer iefremov
  */
@@ -29,25 +30,25 @@ main() {
   if(true) {
     if (true) ;
   }
-  else { 
+  else {
     if (true) x = 1;
   }
-  
+
   Expect.equals(0, x);
 
   if(false) {
     if (true) x = 1;
   }
-  else { 
+  else {
     if (true) ;
   }
-  
+
   Expect.equals(0, x);
 
   if(false) {
     if (true) x = 1;
   }
-  else { 
+  else {
     if (false) x = 1;
   }
 

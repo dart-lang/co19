@@ -6,10 +6,10 @@
 /**
  * @assertion The if statement allows for conditional execution of statements.
  * ifStatement:
- * if '(' expression ')' statement ( else statement)?
+ *   if '(' expression ')' statement ( else statement)?
  * ;
- * @description Checks that it is a compile-time error if the expression is enclosed
- * in curly braces rather than parentheses.
+ * @description Checks that it is a compile-time error if the expression is
+ * enclosed in curly braces rather than parentheses.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov

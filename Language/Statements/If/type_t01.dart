@@ -6,9 +6,9 @@
 /**
  * @assertion An if statement of the form if (b) s1 else s2.
  * If:
- * - b shows that a variable v has type T .
- * - v is not potentially mutated in s1 or within a closure.
- * - If the variable v is accessed by a closure in s1 then the variable v is
+ * • b shows that a variable v has type T .
+ * • v is not potentially mutated in s1 or within a closure.
+ * • If the variable v is accessed by a closure in s1 then the variable v is
  *   not potentially mutated anywhere in the scope of v.
  * Then the type of v is known to be T in s1.
  * @description Checks that if b shows that v has type T and v is not
