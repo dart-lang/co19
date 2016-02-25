@@ -8,6 +8,7 @@
  * @description 'columns' property with 'auto' and something else
  */
 import "dart:html";
+
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -21,28 +22,31 @@ List<List> tests =
     ["-webkit-columns:10em auto;", "10em", "auto", "10em auto"],
     ["-webkit-columns:7 7em; -webkit-columns:auto auto auto;", "7em", "7", "7em 7"],
     ["-webkit-columns:7 7em; -webkit-columns:10em auto auto;", "7em", "7", "7em 7"],
-    ["-webkit-columns:7 7em; -webkit-columns:auto;", "auto", "auto", "auto"],
+    ["-webkit-columns:7 7em; -webkit-columns:auto;", "auto", "auto", "auto auto"],
     ["-webkit-columns:7 7em; -webkit-columns:auto auto;",  "auto", "auto", "auto auto"],
     ["-webkit-columns:auto; -webkit-columns:initial;", "initial", "initial", "initial"],
-    ["-webkit-columns:auto; -webkit-columns:initial initial;", "auto", "auto", "auto"],
+    ["-webkit-columns:auto; -webkit-columns:initial initial;", "auto", "auto", "auto auto"],
     ["-webkit-columns:auto; -webkit-columns:inherit;", "inherit", "inherit", "inherit"],
-    ["-webkit-columns:auto; -webkit-columns:inherit inherit;", "auto", "auto", "auto"],
-    ["-webkit-columns:7;", "auto", "7", "7"],
-    ["-webkit-columns:7em;", "7em", "auto", "7em"]];
+    ["-webkit-columns:auto; -webkit-columns:inherit inherit;", "auto", "auto", "auto auto"],
+    ["-webkit-columns:7;", "auto", "7", "auto 7"],
+    ["-webkit-columns:7em;", "7em", "auto", "7em auto"]];
 
 void test1(List testData) {
-    Element element=document.getElementById("element");
+    Element element = document.getElementById("element");
     element.style.cssText = testData[0];
-    shouldBe(element.style.columnWidth, testData[1]);
-    shouldBe(element.style.columnCount, testData[2]);
-    shouldBe(element.style.columns, testData[3]);
+    shouldBe(element.style.columnWidth, testData[1], "Wrong columnWidth for <" + testData[0] + ">");
+    shouldBe(element.style.columnCount, testData[2], "Wrong columnCount for <" + testData[0] + ">");
+    shouldBe(element.style.columns, testData[3], "Wrong columns for <" + testData[0] + ">");
 }
 
 void main() {
     description("Test the behavior when 'auto' is part of the 'columns' property value. See http://www.w3.org/TR/css3-multicol/#columns");
-    document.body.appendHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
-    for (List testData in tests) {
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+    Element element = document.getElementById("element");
+    if (element.style.supportsProperty('-webkit-columns')) {
+      for (List testData in tests) {
         test1(testData);
+      }
+      checkTestFailures();
     }
-    checkTestFailures();
 }
