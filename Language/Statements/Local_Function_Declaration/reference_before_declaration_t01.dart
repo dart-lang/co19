@@ -17,6 +17,6 @@
 main() {
   try {
     func();
-  } catch(e) {}
+  } catch (e) {}
   void func() {}
 }

@@ -11,10 +11,13 @@
  * functionSignature:
  *   metadata returnType? identifier formalParameterList
  * ;
- * returnType: void | type
+ * returnType:
+ *   void |
+ *   type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? ‘=>’ expression ‘;’ |
+ *   (async | async* | sync*)?  block
  * ;
  * block:
  *   '{' statements '}'
@@ -28,7 +31,7 @@ main() {
   void func() {}
   void f(void func()) {f(func);}
   ff(var fp) => f(fp);
-  
+
   int funktion(args) {f(func); func();}
 
   int f2(int x) {throw '';}
@@ -37,7 +40,7 @@ main() {
   int func3(var x, {var y:1}) {return x*y;}
   Object obj() => null;
 
-  fgh(g(h())){}
+  fgh(g(h())) {}
   int func4([int x = null, int y = null, int z = null]) {
     return func2(x, y)+func3(y, y:z);
   }

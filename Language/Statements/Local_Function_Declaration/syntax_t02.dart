@@ -11,16 +11,19 @@
  * functionSignature:
  *   metadata returnType? identifier formalParameterList
  * ;
- * returnType: void | type
+ * returnType:
+ *   void |
+ *   type
  * ;
  * functionBody:
- *   '=>' expression ';' | block
+ *   async? ‘=>’ expression ‘;’ |
+ *   (async | async* | sync*)?  block
  * ;
  * block:
  *   '{' statements '}'
  * ;
- * @description Checks that it is a compile error if a local function declaration with a block
- * for a body is missing the formal parameter list.
+ * @description Checks that it is a compile error if a local function
+ * declaration with a block for a body is missing the formal parameter list.
  * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
@@ -30,5 +33,5 @@ main() {
   void function1 {}
   try {
     function1();
-  } catch(x){}
+  } catch (x){}
 }

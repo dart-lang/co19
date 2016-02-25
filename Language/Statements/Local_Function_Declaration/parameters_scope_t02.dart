@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion As for all function declarations, the function is also made available under its
- * name in the function’s formal parameters scope.
- * @description Checks that the name a local function declaration is available in the scope of
- * its own formal parameters.
+ * @assertion As for all function declarations, the function is also made
+ * available under its name in the function’s formal parameters scope.
+ * @description Checks that the name a local function declaration is available
+ * in the scope of its own formal parameters.
  * @author kaigorodov
  * @reviewer rodionov
  */
