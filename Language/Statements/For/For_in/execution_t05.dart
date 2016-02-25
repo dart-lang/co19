@@ -4,15 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A for statement of the form for (varOrType? id in e) s
- *  is equivalent to the following code:
- *    var n0 = e.iterator;
- *    while (n0.moveNext()) {
- *      varOrType? id = n0.current;
- *      s
- *    }
- *  where n0 is an identifier that does not occur anywhere in the program.
- * @description Checks that all of the mentioned methods are executed in the specified order.
+ * @assertion A for statement of the form for (finalConstVarOrType? id in e) s
+ * is equivalent to the following code:
+ *   var n0 = e.iterator;
+ *   while (n0.moveNext()) {
+ *     finalConstVarOrType? id = n0.current;
+ *     s
+ *   }
+ * where n0 is an identifier that does not occur anywhere in the program, except
+ * that for purposes of static typechecking, it is checked under the assumption
+ * that n0 is declared to be of type T, where T is the static type of e.iterator.
+ * @description Checks that all of the mentioned methods are executed in the
+ * specified order.
  * @author iefremov
  * @reviewer rodionov
  * @static-warning unimplemented abstract methods
@@ -30,7 +33,7 @@ class TestIterator implements Iterator {
   }
 
   bool moveNext() {
-    if(i < 2) {
+    if (i < 2) {
       addLog("moveNext()");
       i++;
       return true;

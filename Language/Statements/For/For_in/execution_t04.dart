@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A for statement of the form for (varOrType? id in e) s
- *  is equivalent to the following code:
- *    var n0 = e.iterator;
- *    while (n0.moveNext()) {
- *      varOrType? id = n0.current;
- *      s
- *    }
- *  where n0 is an identifier that does not occur anywhere in the program.
- * @description Checks that [NoSuchMethodError] is thrown when e is null. 
+ * @assertion A for statement of the form for (finalConstVarOrType? id in e) s
+ * is equivalent to the following code:
+ *   var n0 = e.iterator;
+ *   while (n0.moveNext()) {
+ *     finalConstVarOrType? id = n0.current;
+ *     s
+ *   }
+ * where n0 is an identifier that does not occur anywhere in the program, except
+ * that for purposes of static typechecking, it is checked under the assumption
+ * that n0 is declared to be of type T, where T is the static type of e.iterator.
+ * @description Checks that [NoSuchMethodError] is thrown when e is null.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -25,18 +27,18 @@ main() {
     for ( var id in l ) {
     }
     Expect.fail("NoSuchMethodError expected when calling for statement");
-  } on NoSuchMethodError catch(ok) {}   
+  } on NoSuchMethodError catch (ok) {}
 
   try {
     for ( dynamic id in l ) {
     }
     Expect.fail("NoSuchMethodError expected when calling for statement");
-  } on NoSuchMethodError catch(ok) {}   
+  } on NoSuchMethodError catch (ok) {}
 
   try {
     var id;
     for ( id in l ) {
     }
     Expect.fail("NoSuchMethodError expected when calling for statement");
-  } on NoSuchMethodError catch(ok) {}   
+  } on NoSuchMethodError catch (ok) {}
 }
