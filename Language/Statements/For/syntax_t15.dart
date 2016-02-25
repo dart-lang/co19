@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop parts
@@ -26,6 +26,6 @@ import 'dart:async';
 
 main() async {
   try {
-    await for (var l in Stream.fromIterable(new List(100));) break;
-  } catch(x) {}
+    await for (var l in new Stream.fromIterable(new List(100));) break;
+  } catch (x) {}
 }

@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop variable
@@ -31,6 +31,6 @@ class C {
 main() async {
   try {
     C c = new C();
-    await for (c.i in Stream.fromIterable([1,2])) break;
-  } catch(x) {}
+    await for (c.i in new Stream.fromIterable([1,2])) break;
+  } catch (x) {}
 }

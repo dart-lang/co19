@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop variable
@@ -30,7 +30,7 @@ class C {
 
 main() {
   try {
-    C c=new C();
+    C c = new C();
     for (c.i in new List(100)) break;
-  } catch(x){}
+  } catch (x) {}
 }

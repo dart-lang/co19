@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that several valid variations of the asynchronous for-in
@@ -26,11 +26,13 @@ import '../../../Utils/async_utils.dart';
 
 test() async {
   int i = 0;
-  await for(var i in new Stream.fromIterable([1, 2])) {break;}
-  await for(int i  in new Stream.fromIterable([1, 2])) break;
-  await for(final i in const Stream.empty()) break;
-  await for(final String s in new Stream.fromIterable(['a', 'b', 'c'])) {break;}
-  await for(i in new Stream.fromIterable([1, 2, 3, 4, 5])) break;
+  await for (var i in new Stream.fromIterable([1, 2])) {break;}
+  await for (int i  in new Stream.fromIterable([1, 2])) break;
+  await for (final i in const Stream.empty()) break;
+  await for (final String s in new Stream.fromIterable(['a', 'b', 'c'])) {
+    break;
+  }
+  await for (i in new Stream.fromIterable([1, 2, 3, 4, 5])) break;
 }
 
 main() {

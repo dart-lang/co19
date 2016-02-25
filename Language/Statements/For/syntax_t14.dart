@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   localVariableDeclaration ‘;’ |
+ *   localVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop parts are
@@ -26,5 +26,5 @@
 main() async {
   try {
     await for () {}
-  } catch(x) {}
+  } catch (x) {}
 }

@@ -14,11 +14,11 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error if the loop parts
- * in a 'id in expression' loop variety end with a semicolon.
+ * @description Checks that it is a compile-time error if the 'forLoopParts'
+ * in a 'id in expression' loop variety ends with a semicolon.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -28,5 +28,5 @@
 main() {
   try {
     for ( var l in new List(100); ) break;
-  } catch(x){}
+  } catch (x) {}
 }

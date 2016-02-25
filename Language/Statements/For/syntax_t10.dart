@@ -14,11 +14,11 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
- * @description Checks that it is a compile-time error if the loop parts
- * in a 'id in expression' loop variety are missing the expression.
+ * @description Checks that it is a compile-time error if the expression is
+ * missing in a 'id in expression' of for-in statement.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -27,5 +27,5 @@
 main() {
   try {
     for ( var x in  ) break;
-  } catch(x){}
+  } catch (x) {}
 }

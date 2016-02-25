@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop parts
@@ -28,6 +28,6 @@
 main() {
   try {
     for ( var x, y in new List(10) ) break;
-  } catch(x){}
+  } catch (x) {}
 }
 

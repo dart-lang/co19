@@ -14,12 +14,11 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   localVariableDeclaration ‘;’ |
+ *   localVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop parts are
- * enclosed in curly braces
- * instead of parentheses.
+ * enclosed in curly braces instead of parentheses.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -28,5 +27,5 @@
 main() {
   try {
     for {;;}  {}
-  } catch(x){}
+  } catch (x) {}
 }

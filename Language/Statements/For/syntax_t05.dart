@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   localVariableDeclaration ‘;’ |
+ *   localVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if the loop parts are
@@ -28,5 +28,5 @@
 main() {
   try {
     for (var i = 0 i < 1 ++i) { }
-  } catch(x){}
+  } catch (x) {}
 }

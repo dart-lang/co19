@@ -14,7 +14,7 @@
  *   identifier in expression
  * ;
  * forInitializerStatement:
- *   initializedVariableDeclaration ';' |
+ *   initializedVariableDeclaration |
  *   expression? ';'
  * ;
  * @description Checks that it is a compile-time error if expression is
@@ -26,5 +26,5 @@
 main() async {
   try {
     await for (var i in ) break;
-  } catch(x) {}
+  } catch (x) {}
 }
