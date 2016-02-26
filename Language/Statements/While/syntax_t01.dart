@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The while statement supports conditional iteration, where the condition 
- * is evaluated prior to the loop.
+ * @assertion The while statement supports conditional iteration, where the
+ * condition is evaluated prior to the loop.
  * whileStatement:
- * while '(' expression ')' statement
- * ;. 
- * @description Checks that it is a compile-time error if the opening bracket of the expression is missing.
+ *   while '(' expression ')' statement
+ * ;
+ * @description Checks that it is a compile-time error if the opening bracket of
+ * the expression is missing.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -19,6 +20,6 @@
 main() {
   try {
     while true) { }
-  } catch(x) {}
+  } catch (x) {}
 }
 

@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The expression e is evaluated to an object o. Then, o is
- * subjected to boolean conversion, producing an object r.
- * If r is true, then the statement {s} is executed and then the while
- * statement is re-executed recursively.
+ * @assertion Execution of a while statement of the form while (e) s; proceeds
+ * as follows:
+ *   The expression e is evaluated to an object o. Then, o is subjected to
+ * boolean conversion, producing an object r. If r is true, then the statement
+ * {s} is executed and then the while statement is re-executed recursively.
  * If r is false, execution of the while statement is complete.
- * @description Checks that the number of iterations is correct for various valid expressions.
+ * @description Checks that the number of iterations is correct for various
+ * valid expressions.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -30,13 +32,13 @@ main() {
       break;
   }
   Expect.equals(7, count);
-  
+
   count = 0;
   while (count < 2) {
     ++count;
   }
   Expect.equals(2, count);
-  
+
   count = 0;
   var it = [0,1].iterator;
   while (it.moveNext()) {
@@ -44,7 +46,7 @@ main() {
     ++count;
   }
   Expect.equals(2, count);
-  
+
   count = 0;
   while (++count < 3) {  }
   Expect.equals(3, count);
