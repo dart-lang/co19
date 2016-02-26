@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The do statement supports conditional iteration, where the condition
- * is evaluated after the loop.
+ * @assertion The do statement supports conditional iteration, where the
+ * condition is evaluated after the loop.
  * doStatement:
- * do statement while '(' expression ')' ';'
+ *   do statement while '(' expression ')' ';'
  * ;
- * @description Checks that it is a compile-time error if the loop statement is empty.
+ * @description Checks that it is a compile-time error if the loop statement is
+ * empty.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -20,6 +21,6 @@ main() {
   try {
     do
     while (true);
-  } catch(x) {}
+  } catch (x) {}
 }
 
