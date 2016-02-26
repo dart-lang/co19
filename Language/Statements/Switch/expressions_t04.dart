@@ -6,9 +6,9 @@
 /**
  * @assertion It is a compile-time error if the values of the expressions ek
  * are not either:
- * - instances of the same class C, for all k in 1..n
- * - instances of a class that implements int, for all k in 1..n
- * - instances of a class that implements String, for all k in 1..n
+ * • instances of the same class C, for all k in 1..n, or
+ * • instances of a class that implements int, for all k in 1..n, or
+ * • instances of a class that implements String, for all k in 1..n.
  * @description Checks that it is a compile-time error if case expressions
  * are instances of different user-defined classes.
  * @compile-error
@@ -28,10 +28,10 @@ class D {
 main() {
   var x = const C(0);
   try {
-    switch(x) {
-    case const C(1):
-    case const C(2):
-    case const D(1):
+    switch (x) {
+      case const C(1):
+      case const C(2):
+      case const D(1):
     }
-  } catch(e) {}
+  } catch (e) {}
 }

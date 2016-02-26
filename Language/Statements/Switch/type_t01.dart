@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the type of e is may not be assigned to 
+ * @assertion It is a static warning if the type of e is may not be assigned to
  * the type of ek.
- * @description Checks that a static warning is produced if the type of the switch expression's
- * value cannot be assigned to any of the case expression types.
+ * @description Checks that a static warning is produced if the type of the
+ * switch expression's value cannot be assigned to any of the case expression
+ * types.
  * @static-warning
  * @author vasya
  * @reviewer rodionov
@@ -18,9 +19,9 @@ import '../../../Utils/dynamic_check.dart';
 
 main() {
   checkTypeError(() {
-      switch(false) {
+    switch (false) {
       case 0: /// static warning
       case 1: /// static warning
     }
-  });  
+  });
 }

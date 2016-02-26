@@ -6,7 +6,8 @@
 /**
  * @assertion It is a compile-time error if the class C has an implementation
  * of the operator == other than the one inherited from Object unless the
- * value of the expression is a string or an integer.
+ * value of the expression is a string, an integer, literal symbol or the result
+ * of invoking a constant constructor of class Symbol.
  * @description Checks that it is a compile-time error if a case expression
  * is a compile-time constant of type double, since double is neither String
  * nor int and implements ==.
@@ -18,8 +19,8 @@
 
 main() {
   try {
-    switch(1.0) {
+    switch (1.0) {
       case 0.5:
     }
-  } catch(e) {}
+  } catch (e) {}
 }

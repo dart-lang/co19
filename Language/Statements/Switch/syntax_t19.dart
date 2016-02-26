@@ -4,22 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The switch statement supports dispatching control among a large number of cases.
- * switch '(' expression ')' '{' switchCase* defaultCase? '}'
+ * @assertion The switch statement supports dispatching control among a large
+ * number of cases.
+ * switchStatement:
+ *   switch '(' expression ')' '{' switchCase* defaultCase? '}'
  * ;
  * switchCase:
- * label* (case expression ':') statements
+ *   label* case expression ':' statements
  * ;
  * defaultCase:
- * label* default ':' statements
+ *   label* default ':' statements
  * ;
- * @description Checks that a case clause that contains labeled statement doesn't produce any errors.
+ * @description Checks that a case clause that contains labeled statement
+ * doesn't produce any errors.
  * @author iefremov
  * @reviewer rodionov
  */
 
 main() {
-  switch(1) {
+  switch (1) {
     case 0: break;
     label: print("hello"); /// unspecified static warning - unreachable code
   }

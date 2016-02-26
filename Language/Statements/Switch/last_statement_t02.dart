@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the last statement of the statement sequence sk
- * is not a break, continue, return or throw statement.
- * @description Checks that it is a static warning if the last statement of the statement
- * sequence of the last case clause is not a break, continue, return or throw statement.
+ * @assertion It is a static warning if the last statement of the statement
+ * sequence sk is not a break, continue, return or throw statement.
+ * @description Checks that it is a static warning if the last statement of the
+ * statement sequence of the last case clause is not a break, continue, return
+ * or throw statement.
  * @author msyabro
  * @reviewer rodionov
  * @issue 7537
@@ -15,10 +16,10 @@
 
 main() {
   try {
-    switch(1) {
+    switch (1) {
       case 0: false;
               break;
       case 1: true;
     }
-  } catch(ok) {}
+  } catch (ok) {}
 }

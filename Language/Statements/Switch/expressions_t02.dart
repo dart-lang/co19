@@ -6,9 +6,9 @@
 /**
  * @assertion It is a compile-time error if the values of the expressions ek
  * are not either:
- * - instances of the same class C, for all k in 1..n
- * - instances of a class that implements int, for all k in 1..n
- * - instances of a class that implements String, for all k in 1..n
+ * • instances of the same class C, for all k in 1..n, or
+ * • instances of a class that implements int, for all k in 1..n, or
+ * • instances of a class that implements String, for all k in 1..n.
  * @description Checks that it is a compile-time error if case expressions
  * of a switch statement with a default case have different types.
  * @compile-error
@@ -21,11 +21,11 @@ main() {
   var x = 1;
 
   try {
-    switch(x) {
+    switch (x) {
       case 0:
       case 2:
       case "false":
       default:
     }
-  } catch(e) {}
+  } catch (e) {}
 }

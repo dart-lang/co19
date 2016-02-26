@@ -4,36 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The switch statement supports dispatching control among a large number of cases.
- * switch '(' expression ')' '{' switchCase* defaultCase? '}'
+ * @assertion The switch statement supports dispatching control among a large
+ * number of cases.
+ * switchStatement:
+ *   switch '(' expression ')' '{' switchCase* defaultCase? '}'
  * ;
  * switchCase:
- * label* (case expression ':') statements
+ *   label* case expression ':' statements
  * ;
  * defaultCase:
- * label* default ':' statements
+ *   label* default ':' statements
  * ;
- * @description Checks that it is a compile-time error if the default case is is not the last case
- * of a switch statement.
+ * @description Checks that it is a compile-time error if the default case is
+ * not the last case of a switch statement.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-foo (value){
+foo(value) {
   var result;
-  
-  switch(value) {
+
+  switch (value) {
     case 0: break;
     default: break;
     case 1: break;
-  }  
+  }
   return result;
 }
 
 main() {
   try {
     foo(1);
-  } catch(x) {}
+  } catch (x) {}
 }
