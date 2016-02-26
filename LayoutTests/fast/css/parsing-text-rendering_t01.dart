@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   test(value)
@@ -24,10 +22,10 @@ main() {
     return result;
   }
 
-  shouldBe(test("text-rendering: auto;"), "auto");
-  shouldBe(test("text-rendering: optimizeSpeed;"), "optimizespeed");
-  shouldBe(test("text-rendering: optimizeLegibility;"), "optimizelegibility");
-  shouldBe(test("text-rendering: geometricPrecision;"), "geometricprecision");
+  shouldBeLikeString(test("text-rendering: auto;"), "auto", ignoreCase: true);
+  shouldBeLikeString(test("text-rendering: optimizeSpeed;"), "optimizeSpeed", ignoreCase: true);
+  shouldBeLikeString(test("text-rendering: optimizeLegibility;"), "optimizeLegibility", ignoreCase: true);
+  shouldBeLikeString(test("text-rendering: geometricPrecision;"), "geometricPrecision", ignoreCase: true);
 
   shouldBeNull(x) => shouldBe(x, '');
 

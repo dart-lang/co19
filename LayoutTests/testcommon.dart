@@ -113,6 +113,31 @@ testPassed(msg) {
 var shouldBeEqualToString = shouldBe;
 var shouldEvaluateTo = shouldBe;
 
+/**
+ * Compares actual and expected string, but before comparison removes all
+ * quotes and whitespaces
+ */
+shouldBeLikeString(actual, expected, {message, bool ignoreCase: false}) {
+  return Expect.equals(normaliseCSSString(expected, ignoreCase),
+      normaliseCSSString(actual, ignoreCase), message);
+}
+
+String normaliseCSSString(String str, bool ignoreCase) {
+  if (str == null) {
+    return null;
+  }
+  if (ignoreCase) {
+    str = str.toLowerCase();
+  }
+  return str
+    .replaceAll(" ", "")
+    .replaceAll("'", "")
+    .replaceAll("\"", "")
+    .replaceAll("\n", "")
+    .replaceAll("\r", "")
+    .replaceAll("\t", "");
+}
+
 shouldBeGreaterThanOrEqual(x,y) {
   var msg = '$x >= $y';
   Expect.isTrue(x >= y, reason != null ? reason + ': $msg' : msg);

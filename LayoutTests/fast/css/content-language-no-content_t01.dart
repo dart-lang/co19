@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description 
+ * @description  Test that a content-language with missing content is
+ * effectively ignored
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -30,12 +29,14 @@ main() {
       <div id="y" lang="ar"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  languageOfNode(id) {
-    var element = document.getElementById(id);
-    //return getComputedStyle(element).webkitLocale;
-    return getComputedStyle(element).getPropertyValue('-webkit-locale');
-  }
+  if(document.getElementById('x').style.supportsProperty('-webkit-locale')) {
 
-  shouldBeEqualToString(languageOfNode('x'), "auto");
-  shouldBeEqualToString(languageOfNode('y'), "ar");
+    languageOfNode(id) {
+      var element = document.getElementById(id);
+      return getComputedStyle(element).getPropertyValue('-webkit-locale');
+    }
+
+    shouldBeLikeString(languageOfNode('x'), "auto");
+    shouldBeLikeString(languageOfNode('y'), "ar");
+  }
 }

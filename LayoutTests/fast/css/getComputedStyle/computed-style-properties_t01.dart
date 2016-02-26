@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description 
+ * @description Test computed style properties
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -73,14 +71,14 @@ main() {
     return style.getPropertyValue(property);
   }
 
-  shouldBe(computedStyleFor('outline', null, 'outline-offset'), '5px');
-  shouldBe(computedStyleFor('content', 'before', 'content'), 'text');
-  shouldBe(computedStyleFor('content', 'after', 'content'), "'test ' url(data:image/gif;base64,R0lGODlhAQABAJAAAP8AAAAAACwAAAAAAQABAAACAgQBADs=)");
-  shouldBe(computedStyleFor('counter', null, 'counter-reset'), 'section 0');
+  shouldBeLikeString(computedStyleFor('outline', null, 'outline-offset'), '5px');
+  shouldBeLikeString(computedStyleFor('content', 'before', 'content'), 'text');
+  shouldBeLikeString(computedStyleFor('content', 'after', 'content'), "'test ' url(data:image/gif;base64,R0lGODlhAQABAJAAAP8AAAAAACwAAAAAAQABAAACAgQBADs=)");
+  shouldBeLikeString(computedStyleFor('counter', null, 'counter-reset'), 'section 0');
   var str = computedStyleFor('subcounter', null, 'counter-reset');
   shouldBe(str.indexOf('subsection 0') != -1, true);
   shouldBe(str.indexOf('anothercounter 5') != -1, true);
-  shouldBe(computedStyleFor('counter1', 'before', 'counter-increment'), 'section 1');
-  shouldBe(computedStyleFor('subcounter2', 'before', 'counter-increment'), 'subsection 1');
-  shouldBe(computedStyleFor('subcounter2', 'before', 'content'), "counter(section) '.' counter(subsection) '. '");
+  shouldBeLikeString(computedStyleFor('counter1', 'before', 'counter-increment'), 'section 1');
+  shouldBeLikeString(computedStyleFor('subcounter2', 'before', 'counter-increment'), 'subsection 1');
+  shouldBeLikeString(computedStyleFor('subcounter2', 'before', 'content'), "counter(section) '.' counter(subsection) '. '");
 }

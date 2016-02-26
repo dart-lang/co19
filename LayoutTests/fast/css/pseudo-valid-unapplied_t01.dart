@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -18,7 +16,6 @@ main() {
        :valid { background: red; }
        :invalid { background: red; }
        input { background: lime; }
-       fieldset { background: lime; }
        object { background: lime; }
        button { background: lime; }
        progress { background: lime; }
@@ -62,7 +59,6 @@ main() {
     "input-reset",
     "input-hidden",
     "input-image",
-    "fieldset",
     "object",
     "button-button",
     "button-reset",
@@ -73,5 +69,6 @@ main() {
 
   var normalColor = "rgb(0, 255, 0)";
   for (var i = 0; i < names.length; i++)
-    shouldBe(getBackgroundColor(names[i]), normalColor);
+    shouldBeLikeString(getBackgroundColor(names[i]), normalColor,
+        message: "Failed for: " + names[i]);
 }

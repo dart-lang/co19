@@ -20,7 +20,7 @@ import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {
-  setEquals(actual,expected,reason) => Expect.setEquals(expected,actual,reason);
+  setEquals(actual,expected,reason) => Expect.setEquals(expected,actual,reason + actual);
 
   setupBlock(ctx, prefix, root) {
     // create <div id='prefix+_id1' class='cls'><p class='cls'><div id='prefix+_id2' class='cls'></div></p></div> like structure
@@ -65,38 +65,6 @@ main() {
 
     return ctx;
   };
-
-  //check getElementsByTagName
-  test(() {
-    var ctx = setup();
-
-    setEquals(
-      ctx.s1.getElementsByTagName('div'), [ctx.s1_div1, ctx.s1_div2],
-      'nodes, other than shadow root descendants, should not be accessible with ' +
-      'ShadowRoot.getElementsByTagName (s1)');
-
-    setEquals(
-      ctx.s2.getElementsByTagName('div'), [ctx.s2_div1, ctx.s2_div2],
-      'nodes, other than shadow root descendants, should not be accessible with ' +
-      'ShadowRoot.getElementsByTagName (s2)');
-
-  }, 'A_04_01_09_T01');
-
-  //check getElementsByClassName
-  test(() {
-    var ctx = setup();
-
-    setEquals(
-      ctx.s1.getElementsByClassName('cls'), [ctx.s1_div1, ctx.s1_p1, ctx.s1_div2],
-      'nodes, other than shadow root descendants, should not be accessible with ' +
-      'ShadowRoot.getElementsByClassName (s1)');
-
-    setEquals(
-      ctx.s2.getElementsByClassName('cls'), [ctx.s2_div1, ctx.s2_p1, ctx.s2_div2],
-      'nodes, other than shadow root descendants, should not be accessible with ' +
-      'ShadowRoot.getElementsByClassName (s2)');
-
-  }, 'A_04_01_09_T03');
 
   // check getElementById
   test(() {

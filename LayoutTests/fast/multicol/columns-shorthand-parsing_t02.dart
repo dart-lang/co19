@@ -8,7 +8,6 @@
  * @description 'columns' property with 'auto' and something else
  */
 import "dart:html";
-
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''

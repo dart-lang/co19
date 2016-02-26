@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description 
+ * @description Test that counterIncrement property value is none if no counter
+ * specified
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,6 +16,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var style = getComputedStyle(document.body, null);
-  shouldBe(style.counterIncrement, '');
-  shouldBe(style.counterReset, '');
+  shouldBe(style.counterIncrement, 'none');
+  shouldBe(style.counterReset, 'none');
 }

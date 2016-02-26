@@ -10,10 +10,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
+
   var style = new Element.html('''
       <style>
         .test {
@@ -36,22 +35,23 @@ main() {
       <div id="columns9" class="test" style="-webkit-column-width: 10px;"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  webkitColumnsValue(id) {
-    var element = document.getElementById(id);
-    return element.style.getPropertyValue("-webkit-columns");
-  }
+  if (document.getElementById("columns1").style.supportsProperty("-webkit-columns")) {
+    webkitColumnsValue(id) {
+      var element = document.getElementById(id);
+      return element.style.getPropertyValue("-webkit-columns");
+    }
 
-  shouldBeEqualToString(webkitColumnsValue("columns1"), '10px');
-  shouldBeEqualToString(webkitColumnsValue("columns2"), '10');
-  shouldBeEqualToString(webkitColumnsValue("columns3"), '10px auto');
-  shouldBeEqualToString(webkitColumnsValue("columns4"), 'auto');
-  shouldBeEqualToString(webkitColumnsValue("columns5"), 'auto 2');
-  shouldBeEqualToString(webkitColumnsValue("columns6"), '10px 2');
-  shouldBeEqualToString(webkitColumnsValue("columns7"), 'auto auto');
-  debug("NOTE: 'foo' is an illegal CSS value for '-webkit-columns'.");
-  //shouldBe(webkitColumnsValue("columns8"), null);
-  shouldBe(webkitColumnsValue("columns8"), "");
-  debug("NOTE: If only few longhand properties are specified, getPropertyValue for shorthand property returns null.");
-  //shouldBe(webkitColumnsValue("columns9"), null);
-  shouldBe(webkitColumnsValue("columns9"), "");
+    shouldBeLikeString(webkitColumnsValue("columns1"), '10px auto');
+    shouldBeLikeString(webkitColumnsValue("columns2"), 'auto 10');
+    shouldBeLikeString(webkitColumnsValue("columns3"), '10px auto');
+    shouldBeLikeString(webkitColumnsValue("columns4"), 'auto auto');
+    shouldBeLikeString(webkitColumnsValue("columns5"), 'auto 2');
+    shouldBeLikeString(webkitColumnsValue("columns6"), '10px 2');
+    shouldBeLikeString(webkitColumnsValue("columns7"), 'auto auto');
+    debug("NOTE: 'foo' is an illegal CSS value for '-webkit-columns'.");
+    shouldBeLikeString(webkitColumnsValue("columns8"), "");
+    debug(
+        "NOTE: If only few longhand properties are specified, getPropertyValue for shorthand property returns null.");
+    shouldBeLikeString(webkitColumnsValue("columns9"), "");
+  }
 }

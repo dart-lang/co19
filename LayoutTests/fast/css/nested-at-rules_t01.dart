@@ -77,8 +77,8 @@ main() {
     shouldBe(rules[1].cssRules[1].cssRules[1].type, CssRule.MEDIA_RULE);
     shouldBe(rules[1].cssRules[1].cssRules[1].cssRules[0].type, CssRule.PAGE_RULE);
 
-    shouldBeEqualToString(getComputedStyle(document.getElementById('t0')).content, "APPLIED");
-    shouldBeEqualToString(getComputedStyle(document.getElementById('t1')).content, "UNTOUCHED");
+    shouldBeLikeString(getComputedStyle(document.getElementById('t0')).content, "APPLIED");
+    shouldBeLikeString(getComputedStyle(document.getElementById('t1')).content, "UNTOUCHED");
 
     asyncEnd();  
   });

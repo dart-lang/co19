@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
@@ -32,8 +31,8 @@ main() {
       <pre id='console'></pre>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  shouldBeEqualToString(style.sheet.cssRules[0].cssText, "#A::after { content: 'A'; }");
-  shouldBeEqualToString(style.sheet.cssRules[1].cssText, "#B::after { content: '\\'B\\''; }");
-  shouldBeEqualToString(style.sheet.cssRules[2].cssText, "#C::after { content: '\\'C\\8\\''; }");
-  shouldBeEqualToString(style.sheet.cssRules[3].cssText, "#D::after { content: '\\'D\\'', url(http://example.com/), 'EFG'; }");
+  shouldBeLikeString(style.sheet.cssRules[0].cssText, "#A::after { content: 'A'; }");
+  shouldBeLikeString(style.sheet.cssRules[1].cssText, "#B::after { content: '\'B\''; }");
+  shouldBeLikeString(style.sheet.cssRules[2].cssText, "#C::after { content: '\'C\\8\''; }");
+  shouldBeLikeString(style.sheet.cssRules[3].cssText, "#D::after { content: '\'D\'' url(http://example.com/) 'EFG'; }");
 }

@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description 
+ * @description Test that content-language meta tag can be removed dynamically
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -35,17 +33,19 @@ main() {
       <div id="y" lang="ar"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  languageOfNode(id) {
-    var element = document.getElementById(id);
-    //return getComputedStyle(element).webkitLocale;
-    return getComputedStyle(element).getPropertyValue('-webkit-locale');
+  if(document.getElementById('x').style.supportsProperty('-webkit-locale')) {
+
+    languageOfNode(id) {
+      var element = document.getElementById(id);
+      return getComputedStyle(element).getPropertyValue('-webkit-locale');
+    }
+
+    shouldBeLikeString(languageOfNode('x'), "zh");
+    shouldBeLikeString(languageOfNode('y'), "ar");
+
+    meta.remove();
+
+    shouldBeLikeString(languageOfNode('x'), "zh");
+    shouldBeLikeString(languageOfNode('y'), "ar");
   }
-  
-  shouldBeEqualToString(languageOfNode('x'), "zh");
-  shouldBeEqualToString(languageOfNode('y'), "ar");
-
-  meta.remove();
-
-  shouldBeEqualToString(languageOfNode('x'), "zh");
-  shouldBeEqualToString(languageOfNode('y'), "ar");
 }

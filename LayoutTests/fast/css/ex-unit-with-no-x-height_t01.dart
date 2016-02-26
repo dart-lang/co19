@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description This test ensures that the CSS 'ex' unit is treated as half the
+ * @description This test ensures that the CSS 'ex' unit is treated as about half
  * size of the CSS 'em' unit when a font has no x-height information.
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -45,9 +44,10 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  measureExBox() {
-    return getComputedStyle(document.getElementById('ex')).width;
+  num measureExBox() {
+    String sHeight = getComputedStyle(document.getElementById('ex')).height;
+    return num.parse(sHeight.replaceFirst('px', ''));
   }
 
-  shouldBe(measureExBox(), '50px');
+  shouldBeApprox(measureExBox(), 50, 10);
 }

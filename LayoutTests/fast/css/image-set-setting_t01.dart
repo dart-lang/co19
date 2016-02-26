@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,18 +21,17 @@ main() {
     var div = document.createElement("div");
     document.body.append(div);
     div.setAttribute("style", property + ": " + fullRule);
-    var computedValue = div.style.background;
+    var computedValue = div.style.backgroundImage;
     div.remove();
     return computedValue;
   }
 
   testImageSetRule(description, property, rule)
   {
-    debug("");
     debug(description + " : " + rule);
 
     var fullRule = "-webkit-image-set(" + rule + ")";
-    shouldBeEqualToString(testComputedStyle(property, fullRule), fullRule);
+    shouldBeLikeString(testComputedStyle(property, fullRule), fullRule);
   }
 
   testImageSetRule("Single value for background-image",

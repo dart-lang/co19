@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description 
+ * @description Test background CSS property
  */
 import "dart:html";
 import "../../testcommon.dart";
@@ -24,8 +24,8 @@ main() {
 
   document.body.setAttribute("style", "background: green; color:white");
 
-  shouldBe(document.body.style.background, 'green');
-  shouldBe(document.getElementById('div1').style.background, 'repeat-x, repeat-y white');
-  shouldBe(document.getElementById('div2').style.background, '50% 50% blue');
-  shouldBe(document.getElementById('div3').style.background, 'none repeat scroll rgb(255, 255, 255)');
+  shouldBeLikeString(document.body.style.background, 'green');
+  shouldBeLikeString(document.getElementById('div1').style.background, '');
+  shouldBeLikeString(document.getElementById('div2').style.background, '50% 50% blue');
+  shouldBeLikeString(document.getElementById('div3').style.background, 'none repeat scroll rgb(255, 255, 255)');
 }

@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   // do not indent
@@ -58,27 +56,21 @@ main() {
 
 <p>Expected result:</p>
 
-<pre id="expected">#a:nth-child(1n+0) { color: green; }
-#b:nth-child(n+0) { color: green; }
+<pre id="expected">#a:nth-child(n) { color: green; }
+#b:nth-child(n) { color: green; }
 #c:nth-child(n) { color: green; }
-#d:nth-child(-n+0) { color: green; }
+#d:nth-child(-n) { color: green; }
 #e:nth-child(-n) { color: green; }
-#f:nth-child(1N+0) { color: green; }
-#g:nth-child(N+0) { color: green; }
-#h:nth-child(N) { color: green; }
-#i:nth-child(-N+0) { color: green; }
-#j:nth-child(-N) { color: green; }
-#l:nth-child(-1N
-  -
-  123) { color: green; }
-#m:nth-child(N- 123) { color: green; }
-#o:nth-child(23n
-
- +
-
-123) { color: green; }
-#t:nth-child(+n+3) { color: green; }
-#u:nth-child(+n + 7) { color: green; }
+#f:nth-child(n) { color: green; }
+#g:nth-child(n) { color: green; }
+#h:nth-child(n) { color: green; }
+#i:nth-child(-n) { color: green; }
+#j:nth-child(-n) { color: green; }
+#l:nth-child(-n - 123) { color: green; }
+#m:nth-child(n - 123) { color: green; }
+#o:nth-child(23n + 123) { color: green; }
+#t:nth-child(n + 3) { color: green; }
+#u:nth-child(n + 7) { color: green; }
 </pre>
 ''', treeSanitizer: new NullTreeSanitizer());
 
@@ -94,8 +86,12 @@ main() {
 
     document.getElementById("result").append(new Text(text));
 
-    shouldBe((document.getElementById("result").firstChild as Text).data,
-        (document.getElementById("expected").firstChild as Text).data);
+    String expected = (document.getElementById("expected").firstChild as Text).data;
+    String actual = (document.getElementById("result").firstChild as Text).data;
+
+    // Different browsers may return n or 1n. It's Ok
+    actual = actual.replaceAll("1n", "n");
+    shouldBeLikeString(actual, expected);
   }
 
   runTest();

@@ -43,22 +43,11 @@ main() {
   shouldBe(shadowRoot.getElementById('div1'), div1);
   shouldBeNull(shadowRoot.getElementById('foo'));
 
-  shouldBeList(shadowRoot.getElementsByClassName('class2'), [div2]);
-  shouldBeList(shadowRoot.getElementsByClassName('foo'), []);
-
-  shouldBeList(shadowRoot.getElementsByTagName('div'), [div1, div2]);
-  shouldBeList(shadowRoot.getElementsByTagName('foo'), []);
-
-  // FIXME: Add more tests using XML documents.
-  /* no getElementsByTagNameNS in dart */
-  //shouldBeList(shadowRoot.getElementsByTagNameNS('*', 'div'), [div1, div2]);
-  //shouldBeList(shadowRoot.getElementsByTagNameNS('', 'div'), []);
-  //shouldBeList(shadowRoot.getElementsByTagNameNS('*', 'foo'), []);
-
   shouldBe(shadowRoot.querySelector('#div1'), div1);
   shouldBeNull(shadowRoot.querySelector('#foo'));
   shouldBe(shadowRoot.querySelector('.class2'), div2);
   shouldBeNull(shadowRoot.querySelector('.foo'));
+
   shouldBeList(shadowRoot.querySelectorAll('div'), [div1, div2]);
   shouldBeList(shadowRoot.querySelectorAll('foo'), []);
 

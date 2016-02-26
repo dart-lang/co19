@@ -5,13 +5,16 @@
  */
 /** 
  * @description The height of a horizontal marquee is computed as normal for
- * inline-blocks. The 'auto' height of a vertical marquee defaults to 200px.
+ * inline-blocks. The 'auto' height of a vertical marquee defaults to 360px in
+ * Webkit
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
+  if (!document.documentElement.style.supportsProperty('WebkitAppearance')) {
+    return;
+  }
   var style = new Element.html('''
       <style>
       .pre {
@@ -92,7 +95,7 @@ main() {
   var horiz = document.querySelector('#horiz marquee');
   var vertAuto = document.querySelector('#vertAuto marquee');
   var vertFixed = document.querySelector('#vertFixed marquee');
-  shouldBe(horiz.getComputedStyle().height, "10px");
-  shouldBe(vertAuto.getComputedStyle().height, "200px");
-  shouldBe(vertFixed.getComputedStyle().height, "100px");
+  shouldBeLikeString(horiz.getComputedStyle().height, "10px");
+  shouldBeLikeString(vertAuto.getComputedStyle().height, "360px");
+  shouldBeLikeString(vertFixed.getComputedStyle().height, "100px");
 }

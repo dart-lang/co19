@@ -27,16 +27,8 @@ main() {
     return styleElement.sheet.cssRules[0].cssText;
   }
 
-  String stripSpaces(String s) {
-    return s.replaceAll(" ", "");
-  }
-
-  bool shouldBeIgnoreSpaces(String actual, String expected) {
-    return shouldBe(stripSpaces(actual), stripSpaces(expected));
-  }
-
   testSelectorRoundTrip(selector) {
-    shouldBeIgnoreSpaces(parseThenSerializeRule("$selector {}"), "$selector {}");
+    shouldBeLikeString(parseThenSerializeRule("$selector {}"), "$selector {}");
   }
 
   testSelectorRoundTrip('*');
@@ -76,10 +68,9 @@ main() {
   testSelectorRoundTrip(":lang(a)");
   testSelectorRoundTrip(":not(a)");
 
-  shouldBeIgnoreSpaces(parseThenSerializeRule('*:active { }'), ':active { }');
-  shouldBeIgnoreSpaces(parseThenSerializeRule('|a { }'), '|a { }');
+  shouldBeLikeString(parseThenSerializeRule('*:active { }'), ':active { }');
 
-  shouldBeIgnoreSpaces(parseThenSerializeRule('a+b { }'), 'a + b { }');
-  shouldBeIgnoreSpaces(parseThenSerializeRule('a~b { }'), 'a ~ b { }');
-  shouldBeIgnoreSpaces(parseThenSerializeRule('a>b { }'), 'a > b { }');
+  shouldBeLikeString(parseThenSerializeRule('a+b { }'), 'a + b { }');
+  shouldBeLikeString(parseThenSerializeRule('a~b { }'), 'a ~ b { }');
+  shouldBeLikeString(parseThenSerializeRule('a>b { }'), 'a > b { }');
 }

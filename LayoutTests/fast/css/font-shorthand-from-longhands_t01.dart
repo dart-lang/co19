@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -47,58 +45,58 @@ main() {
   style.fontSize = "20px";
   // We need at least the font-family to build the shorthand.
   shouldBe(style.font, '');
-  shouldBe(computedStyle.font, 'normal normal normal normal 20px/normal foobar');
+  shouldBeLikeString(computedStyle.font, 'normal normal normal normal 20px/normal foobar');
   shouldBe(computedStyle.fontSize, '20px');
   shouldBe(checkFontStyleValue(), true);
 
   style.fontSize = "20px";
   style.fontFamily = "sans-serif";
-  shouldBe(style.font, '20px sans-serif');
-  shouldBe(computedStyle.font, 'normal normal normal normal 20px/normal sans-serif');
+  shouldBeLikeString(style.font, '20px sans-serif');
+  shouldBeLikeString(computedStyle.font, 'normal normal normal normal 20px/normal sans-serif');
   shouldBe(computedStyle.fontFamily, 'sans-serif');
   shouldBe(checkFontStyleValue(), true);
 
   style.fontStyle = "italic";
-  shouldBe(style.font, 'italic 20px sans-serif');
-  shouldBe(computedStyle.font, 'italic normal normal normal 20px/normal sans-serif');
+  shouldBeLikeString(style.font, 'italic 20px sans-serif');
+  shouldBeLikeString(computedStyle.font, 'italic normal normal normal 20px/normal sans-serif');
   shouldBe(computedStyle.fontStyle, 'italic');
   shouldBe(checkFontStyleValue(), true);
 
   style.fontVariant = "small-caps";
-  shouldBe(style.font, 'italic small-caps 20px sans-serif');
-  shouldBe(computedStyle.font, 'italic small-caps normal normal 20px/normal sans-serif');
+  shouldBeLikeString(style.font, 'italic small-caps 20px sans-serif');
+  shouldBeLikeString(computedStyle.font, 'italic small-caps normal normal 20px/normal sans-serif');
   shouldBe(computedStyle.fontVariant, 'small-caps');
   shouldBe(checkFontStyleValue(), true);
 
   style.fontWeight = "bold";
-  shouldBe(style.font, 'italic small-caps bold 20px sans-serif');
-  shouldBe(computedStyle.font, 'italic small-caps bold normal 20px/normal sans-serif');
+  shouldBeLikeString(style.font, 'italic small-caps bold 20px sans-serif');
+  shouldBeLikeString(computedStyle.font, 'italic small-caps bold normal 20px/normal sans-serif');
   shouldBe(computedStyle.fontWeight, 'bold');
   shouldBe(checkFontStyleValue(), true);
 
   style.lineHeight = "40px";
-  shouldBe(style.font, 'italic small-caps bold 20px/40px sans-serif');
-  shouldBe(computedStyle.font, 'italic small-caps bold normal 20px/40px sans-serif');
+  shouldBeLikeString(style.font, 'italic small-caps bold 20px/40px sans-serif');
+  shouldBeLikeString(computedStyle.font, 'italic small-caps bold normal 20px/40px sans-serif');
   shouldBe(computedStyle.lineHeight, '40px');
   shouldBe(checkFontStyleValue(), true);
 
   style.font = "";
   shouldBe(style.font, '');
-  shouldBe(computedStyle.font, 'normal normal normal normal 16px/normal foobar');
+  shouldBeLikeString(computedStyle.font, 'normal normal normal normal 16px/normal foobar');
   shouldBe(checkFontStyleValue(), true);
 
   style.fontWeight = "bold";
   // It is normal to return null as the font-size is mandatory to build the shorthand.
   shouldBe(style.font, '');
-  shouldBe(computedStyle.font, 'normal normal bold normal 16px/normal foobar');
+  shouldBeLikeString(computedStyle.font, 'normal normal bold normal 16px/normal foobar');
   shouldBe(computedStyle.fontWeight, 'bold');
   shouldBe(checkFontStyleValue(), true);
 
   style.fontSize = "40px";
   style.fontFamily = "sans-serif";
   style.fontWeight = "bold";
-  shouldBe(style.font, 'bold 40px sans-serif');
-  shouldBe(computedStyle.font, 'normal normal bold normal 40px/normal sans-serif');
+  shouldBeLikeString(style.font, 'bold 40px sans-serif');
+  shouldBeLikeString(computedStyle.font, 'normal normal bold normal 40px/normal sans-serif');
   shouldBe(computedStyle.fontSize, '40px');
   shouldBe(computedStyle.fontFamily, 'sans-serif');
   shouldBe(checkFontStyleValue(), true);

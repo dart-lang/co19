@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -40,9 +38,9 @@ main() {
   document.head.append(style);
 
   var rules = style.sheet.cssRules;
-  shouldBeEqualToString(rules[2].style.cssText, "content: counter(section, decimal);");
-  shouldBeEqualToString(rules[3].style.cssText, "content: counters(section, ':', decimal);");
-  shouldBeEqualToString(rules[4].style.cssText, "content: counter(section, lower-roman);");
-  shouldBeEqualToString(rules[5].style.cssText, "content: counters(section, ',', upper-roman);");
-  shouldBeEqualToString(rules[6].style.cssText, "content: counter(section, none);");
+  shouldBeLikeString(rules[2].style.cssText, "content: counter(section);");
+  shouldBeLikeString(rules[3].style.cssText, "content: counters(section, ':');");
+  shouldBeLikeString(rules[4].style.cssText, "content: counter(section, lower-roman);");
+  shouldBeLikeString(rules[5].style.cssText, "content: counters(section, ',', upper-roman);");
+  shouldBeLikeString(rules[6].style.cssText, "content: counter(section, none);");
 }

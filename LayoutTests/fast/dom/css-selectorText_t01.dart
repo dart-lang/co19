@@ -116,23 +116,23 @@ main() {
     ':disabled',
     ':checked',
     ':indeterminate',
-    ':nth-child(odd)',
-    ':nth-child(even)',
+    ':nth-child(2n+1)',
+    ':nth-child(2n)',
     ':nth-child(2n)',
     ':nth-child(2n+1)',
     ':nth-child(-n+6)',
-    ':nth-last-child(odd)',
-    ':nth-last-child(even)',
+    ':nth-last-child(2n+1)',
+    ':nth-last-child(2n)',
     ':nth-last-child(2n)',
     ':nth-last-child(2n+1)',
     ':nth-last-child(-n+6)',
-    ':nth-of-type(odd)',
-    ':nth-of-type(even)',
+    ':nth-of-type(2n+1)',
+    ':nth-of-type(2n)',
     ':nth-of-type(2n)',
     ':nth-of-type(2n+1)',
     ':nth-of-type(-n+6)',
-    ':nth-last-of-type(odd)',
-    ':nth-last-of-type(even)',
+    ':nth-last-of-type(2n+1)',
+    ':nth-last-of-type(2n)',
     ':nth-last-of-type(2n)',
     ':nth-last-of-type(2n+1)',
     ':nth-last-of-type(-n+6)',
@@ -151,6 +151,10 @@ main() {
 
   for (var i = 0; i < styleSheet.cssRules.length; i++) {
     var rule = styleSheet.cssRules[i];
-    shouldBe(rule.selectorText, expected[i]);
+    String actual = rule.selectorText;
+
+    // Different browsers may return 1n or n. So replace 1n by n
+    actual = actual.replaceAll("1n", "n");
+    shouldBeLikeString(actual, expected[i]);
   }
 }

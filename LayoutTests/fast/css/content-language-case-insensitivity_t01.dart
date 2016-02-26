@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description 
+ * @description Test that content-language meta tag is case insensitive
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -29,10 +27,9 @@ main() {
       <div id="x"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  languageOfNode(id) {
-    var element = document.getElementById(id);
-    //return getComputedStyle(element).webkitLocale;
-    return getComputedStyle(element).getPropertyValue('-webkit-locale');
+  var element = document.getElementById('x');
+  if (element.style.supportsProperty('-webkit-locale')) {
+    shouldBeLikeString(
+        getComputedStyle(element).getPropertyValue('-webkit-locale'), "ja-JP");
   }
-  shouldBeEqualToString(languageOfNode('x'), "ja-JP");
 }
