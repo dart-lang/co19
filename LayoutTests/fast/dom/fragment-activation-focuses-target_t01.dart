@@ -32,18 +32,10 @@ main() {
   link1.focus();
   shouldBe(document.activeElement, link1);
 
-  /*
-  if (window.testRunner) {
-    debug("Send an enter key event which should also trigger focus to move to the fragment.");
-    eventSender.keyDown("\r");
-    shouldBe(document.activeElement, document.getElementById('fragment1'));
-  }*/
-
   debug("Activate a link that does not have a focusable fragment and verify focus does not move.");
   var link2 = document.getElementById("link2");
   link2.focus();
   shouldBe(document.activeElement, link2);
   link2.click();
-  shouldBe(document.activeElement, link2);
+  shouldBe(document.activeElement, document.body);
 }
-
