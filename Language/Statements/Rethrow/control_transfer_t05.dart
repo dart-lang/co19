@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Control is transferred to the nearest innermost enclosing exception handler.
- * No change is made to the current exception.
- * @description Checks that the statement of the form "rethrow;" indeed transfers control
- * to the nearest enclosing exception handler if there is one, leaving the current exception
- * unchanged.
+ * @assertion Otherwise, control is transferred to the nearest innermost
+ * enclosing exception handler.
+ * @description Checks that the statement of the form "rethrow;" indeed
+ * transfers control to the nearest enclosing exception handler if there is one,
+ * leaving the current exception unchanged.
  * @note Can not test if the stack trace is unchanged because stack trace
  * equality is unspecified in spec (co19 issue 719)
  * @author rodionov
@@ -20,14 +20,14 @@ main() {
   bool flag = false;
   var strace;
   var ex = "";
-  
+
   try {
     try {
       void foo() {
         try {
           throw ex;
           Expect.fail("This code shouldn't be executed");
-        } on int catch(i) {
+        } on int catch (i) {
         } catch (v, st) {
           strace = st;
           rethrow;
@@ -37,14 +37,14 @@ main() {
       }
       foo();
       Expect.fail("This code shouldn't be executed");
-    } on int catch(i) {}
+    } on int catch (i) {}
     Expect.fail("This code shouldn't be executed");
-  } on int catch(i) {
+  } on int catch (i) {
   } catch (s, st) {
     flag = true;
     Expect.isTrue(identical(ex, s));
     //Expect.isTrue(identical(strace, st)); // see note
   }
-  
+
   Expect.isTrue(flag, "The correct exception handler wasn't triggered");
 }

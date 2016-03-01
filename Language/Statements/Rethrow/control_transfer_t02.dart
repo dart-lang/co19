@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Control is transferred to the nearest innermost enclosing exception handler.
- * @description Checks that control is transferred to the nearest innermost enclosing
- * exception handler
+ * @assertion Otherwise, control is transferred to the nearest innermost
+ * enclosing exception handler.
+ * @description Checks that control is transferred to the nearest innermost
+ * enclosing exception handler.
  * @author kaigorodov
  */
 import '../../../Utils/expect.dart';
 
-var obj="foo";
-var seen=null;
+var obj = "foo";
+var seen = null;
 
 void f0() {
   throw obj;
@@ -21,7 +22,7 @@ void f0() {
 void f1() {
   try {
     f0();
-  } on String catch(ok) {
+  } on String catch (ok) {
     rethrow;
   }
 }
@@ -29,15 +30,15 @@ void f1() {
 void f2() {
   try {
     f1();
-  } on String catch(ok) {
-    seen=ok;
+  } on String catch (ok) {
+    seen = ok;
   }
 }
 
 main() {
   try {
 	f2();
-  } on String catch(bad) {
+  } on String catch (bad) {
     Expect.fail("wrong handler");
   }
   Expect.identical(obj, seen);
