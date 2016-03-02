@@ -58,6 +58,7 @@ main() {
       },
       onDone: () {
         Expect.fail("Stream returned by test() should return error");
-      }
+      },
+      cancelOnError: true
   );
 }
