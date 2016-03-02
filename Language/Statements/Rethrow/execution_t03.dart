@@ -30,7 +30,7 @@ test1() {
   throw s;
 }
 
-test() async* {
+Stream test() async* {
   try {
     try {
       r += 1;
@@ -47,14 +47,13 @@ test() async* {
 
 main() {
   asyncStart();
-  test().isEmpty.then((v) {
-    print("then $v r $r");
-    Expect.equals(1 + 4 + 8, r);
-    Expect.equals(true, v);
-    asyncEnd();
-  },
-  onError: (e) {
-    print("error $r $e");
-  //  asyncEnd();
-  });
+  test().listen(
+      (_) {
+        Expect.fail("Stream returned by test() should not return data");
+      },
+      onDone:(){
+        Expect.equals(1 + 4 + 8, r);
+        asyncEnd();
+      }
+  );
 }

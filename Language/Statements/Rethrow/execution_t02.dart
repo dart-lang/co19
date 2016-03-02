@@ -30,7 +30,7 @@ test1() {
   throw s;
 }
 
-test() async {
+Future test() async {
   try {
     try {
       r += 1;
@@ -43,18 +43,15 @@ test() async {
   } on int catch (p1, p2) {
     r += 8;
   }
-  print("test $r");
   return 5;
 }
 
 main() {
   asyncStart();
   test().then((v) {
-    print("then $v r $r");
-  //  asyncEnd();
+    Expect.fail('Future returned by test() should complete with error');
   },
   onError: (e) {
-  //  print("error $r $e");
     Expect.equals(1 + 4, r);
     Expect.equals(s, e);
     asyncEnd();

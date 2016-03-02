@@ -30,7 +30,7 @@ test1() {
   throw s;
 }
 
-test() async {
+Future test() async {
   try {
     try {
       r += 1;
@@ -49,13 +49,8 @@ test() async {
 main() {
   asyncStart();
   test().then((v) {
-  //  print("then $v r $r");
     Expect.equals(1 + 4 + 8, r);
     Expect.equals(5, v);
     asyncEnd();
-  },
-  onError: (e) {
-    print("error $r $e");
-  //  asyncEnd();
   });
 }
