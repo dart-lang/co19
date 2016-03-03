@@ -8,7 +8,7 @@
  * setterSignature:
  *   returnType? set identifier formalParameterList
  * ;
- * @description Checks if setter return value other than void is specified
+ * @description Checks if setter return value is other than void,
  * then no error occurs
  * @static-warning
  * @author sgrekhov@unipro.ru
@@ -22,9 +22,8 @@ class C {
 
 main() {
   C c = new C();
-  // There is no way to check setter return value. Return value of assignment
-  // e1.v = e2; is always e2. So just call setters to check that there's no
-  // error
+  // Return value of assignment e1.v = e2; is always e2.
+  // So just call setters to check that there's no error
   Expect.equals(0, c.s1 = 0);
   Expect.equals(0, C.s2 = 0);
 }

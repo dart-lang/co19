@@ -7,12 +7,13 @@
  * @assertion Static warnings are those errors reported by the static checker.
  * They have no effect on execution
  * @description Checks that static warning in class constructor has
- * no effect on execution
+ * no effect on execution in production mode
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
 
 import '../../Utils/expect.dart';
+import '../../Utils/dynamic_check.dart';
 
 class C {
   C() {
@@ -22,12 +23,14 @@ class C {
 }
 
 main() {
-  int i = 0;
-  try {
-    C c = new C();
-    i++;
-  } catch (e) {
-    Expect.fail("No exeption should be thrown");
+  if (!isCheckedMode()) {
+    int i = 0;
+    try {
+      C c = new C();
+      i++;
+    } catch (e) {
+      Expect.fail("No exeption should be thrown");
+    }
+    Expect.equals(1, i, "There should be no effect on execution");
   }
-  Expect.equals(1, i, "There should be no effect on execution");
 }

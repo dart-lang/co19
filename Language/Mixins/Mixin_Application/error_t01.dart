@@ -28,5 +28,5 @@ class M {
 class C = S with M;
 
 main() {
-  new C();
+  new C().m;
 }
