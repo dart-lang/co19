@@ -32,5 +32,5 @@ class M2 {
 class C = S with M1, M2;
 
 main() {
-  new C();
+  new C().m;
 }
