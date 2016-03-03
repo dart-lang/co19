@@ -43,7 +43,7 @@ main() {
   } catch (s, st) {
     flag = true;
     Expect.isTrue(identical(ex, s));
-    //Expect.isTrue(identical(strace, st)); // see note
+    Expect.isTrue(identical(strace, st)); // see note
   }
 
   Expect.isTrue(flag, "The correct exception handler wasn't triggered");
