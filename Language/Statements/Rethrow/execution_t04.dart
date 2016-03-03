@@ -55,9 +55,10 @@ main() {
         Expect.equals(1 + 4, r);
         Expect.equals(s, e);
         asyncEnd();
-      },
+      } ,
       onDone: () {
         Expect.fail("Stream returned by test() should return error");
-      }
+      },
+      cancelOnError: true
   );
 }
