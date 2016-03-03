@@ -25,7 +25,7 @@ Future test() async {
 
 main() {
   Set history = new Set.identity();
-  for (var i=0; i<10; i++){
+  for (var i = 0; i < 10; i++) {
     Future f = test();
     Expect.isFalse(history.contains(f));
     history.add(f);
