@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The return statement returns a result to the caller of a function.
+ * @assertion The return statement returns a result to the caller of a
+ * synchronous function, completes the future associated with an asynchronous
+ * function or terminates the stream or iterable associated with a generator.
  * returnStatement:
- * return expression? ';'
+ *   return expression? ';'
  * ;
- * @description Checks that the expression in a return statement can be omitted.
+ * @description Checks that the expression in a return statement mays be omitted.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

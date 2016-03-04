@@ -4,12 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A return statement of the form return; is executed by executing the statement
- * return null; if it occurs inside a method, getter, setter or factory; otherwise,
- * the return statement necessarily occurs inside a generative constructor, in which
- * case it is executed by executing return this;.
- * @description Checks that a return statement of the form "return;" in a method, getter, 
- * setter or factory is executed by executing the statement "return null;".
+ * @assertion A return statement with no expression, return; is executed as
+ * follows:
+ * . . .
+ * Otherwise the return statement is executed by executing the statement
+ * return null; if it occurs inside a method, getter, setter or factory;
+ * otherwise, the return statement necessarily occurs inside a generative
+ * constructor, in which case it is executed by executing return this;
+ * @description Checks that a return statement of the form "return;" in a
+ * method, getter, setter or factory is executed by executing the statement
+ * "return null;".
  * @static-warning
  * @author vasya
  * @reviewer rodionov
@@ -26,7 +30,7 @@ abstract class I {
 }
 
 class Foo implements I {
-  Foo() {}    
+  Foo() {}
   get foo { return; }
   method() { return; }
 
