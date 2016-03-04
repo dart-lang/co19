@@ -19,8 +19,13 @@
  * finallyPart:
  *   finally block
  * ;
- * @description Checks that it is a compile-time error if the try block is missing
- * the closing curly brace.
+ * A try statement consists of a block statement, followed by at least one of:
+ * 1. A set of on-catch clauses, each of which specifies (either explicitly or
+ *    implicitly) the type of exception object to be handled, one or two
+ *    exception parameters and a block statement.
+ * 2. A finally clause, which consists of a block statement.
+ * @description Checks that it is a compile-time error if the try block is
+ * missing the closing curly braces.
  * @compile-error
  * @author vasya
  * @reviewer rodionov

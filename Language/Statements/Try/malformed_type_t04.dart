@@ -19,7 +19,7 @@ f() {
   try {
     throw error;
     Expect.fail("This code shouldn't be executed");
-  } on Unavailable catch(_) { /// static type warning no such type
+  } on Unavailable catch (_) { /// static type warning no such type
     Expect.fail("This code shouldn't be executed");
   }
 }

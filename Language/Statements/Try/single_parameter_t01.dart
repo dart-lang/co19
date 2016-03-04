@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An on-catch clause of the form on T catch (p1) s is equivalent to an on-
- * catch clause on T catch (p1, p2) s where p2 is an identiier that does not occur
- * anywhere else in the program.
- * @description Checks that a catch clause with an explicitly specified type T of the first
- * exception parameter does not match a thrown object if it's not null and its type is not
- * a subtype of T.
+ * @assertion An on-catch clause of the form on T catch (p1) s is equivalent to
+ * an on-catch clause on T catch (p1, p2) s where p2 is an identiier that does
+ * not occur anywhere else in the program.
+ * @description Checks that a catch clause with an explicitly specified type T
+ * of the first exception parameter does not match a thrown object if it's not
+ * null and its type is not a subtype of T.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -23,12 +23,12 @@ main() {
   try {
     try {
       throw new A();
-    } on B catch(ex) {
+    } on B catch (ex) {
       Expect.fail("This clause shouldn't be executed");
-    } on String catch(ex) {
+    } on String catch (ex) {
       Expect.fail("This clause shouldn't be executed");
-    } on int catch(ex) {
+    } on int catch (ex) {
       Expect.fail("This clause shouldn't be executed");
     }
-  } on A catch(ok) {}
+  } on A catch (ok) {}
 }

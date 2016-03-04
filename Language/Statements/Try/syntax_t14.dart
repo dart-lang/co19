@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The try statement supports the definition of exception handling 
+ * @assertion The try statement supports the definition of exception handling
  * code in a structured way.
  * tryStatement:
  *   try block (onPart+ finallyPart? | finallyPart)
@@ -19,15 +19,20 @@
  * finallyPart:
  *   finally block
  * ;
- * @description Checks that it is not a compile-time error if a catch clause specifies
- * parameters with a previously declared id.
+ * A try statement consists of a block statement, followed by at least one of:
+ * 1. A set of on-catch clauses, each of which specifies (either explicitly or
+ *    implicitly) the type of exception object to be handled, one or two
+ *    exception parameters and a block statement.
+ * 2. A finally clause, which consists of a block statement.
+ * @description Checks that it is not a compile-time error if a catch clause
+ * specifies parameters with a previously declared id.
  * @author kaigorodov
  * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  var ex=null, st=null;
+  var ex = null, st = null;
   try {
     throw "foo";
   } catch (ex, st) {

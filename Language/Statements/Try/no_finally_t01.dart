@@ -4,10 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A try statement of the form
- *   try s1 on−catch1 ... on−catchn;
- * is equivalent to the statement
- *   try s1 on−catch1 ... on−catchn finally {};
+ * @assertion A try statement of the form try s1 on−catch1 ... on−catchn; is
+ * equivalent to the statement try s1 on−catch1 ... on−catchn finally {};
  * @description checks that both forms are equivalent as far as execution of
  * the on-catch clauses is concerned.
  * @author kaigorodov
@@ -28,11 +26,11 @@ int test1(void f()) {
     append(1);
     f();
     append(2);
-  } on E2 catch(e) {
+  } on E2 catch (e) {
     append(3);
-  } on E1 catch(e) {
+  } on E1 catch (e) {
     append(4);
-  } catch(e) {
+  } catch (e) {
     append(5);
   }
 
@@ -47,11 +45,11 @@ int test2(void f()) {
     append(1);
     f();
     append(2);
-  } on E2 catch(e) {
+  } on E2 catch (e) {
     append(3);
-  } on E1 catch(e) {
+  } on E1 catch (e) {
     append(4);
-  } catch(e) {
+  } catch (e) {
     append(5);
   }
   finally {}
@@ -64,10 +62,10 @@ void test(void f()) {
 }
 
 void main() {
-  test((){});
-  test((){throw new E0();});
-  test((){throw new E1();});
-  test((){throw new E2();});
-  test((){throw new E3();});
-  test((){throw 1;});
+  test(() {});
+  test(() {throw new E0();});
+  test(() {throw new E1();});
+  test(() {throw new E2();});
+  test(() {throw new E3();});
+  test(() {throw 1;});
 }

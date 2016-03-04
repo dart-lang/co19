@@ -19,8 +19,13 @@
  * finallyPart:
  *   finally block
  * ;
- * @description Checks that various valid variations of the try statement do not cause
- * a compile-time error.
+ * A try statement consists of a block statement, followed by at least one of:
+ * 1. A set of on-catch clauses, each of which specifies (either explicitly or
+ *    implicitly) the type of exception object to be handled, one or two
+ *    exception parameters and a block statement.
+ * 2. A finally clause, which consists of a block statement.
+ * @description Checks that various valid variations of the try statement do not
+ * cause a compile-time error.
  * @author rodionov
  * @reviewer iefremov
  */
@@ -29,15 +34,15 @@ main() {
   try {
     throw "";
   }
-  on int catch(ok) {}
-  catch(ok) {}
+  on int catch (ok) {}
+  catch (ok) {}
   finally {}
 
   try {
     throw "";
   }
   on int catch (ok, st) {}
-  catch(wtvr) {}
+  catch (wtvr) {}
   finally {}
 
   try {
@@ -55,13 +60,13 @@ main() {
   try {
     throw 1;
   }
-  on int catch(x) {}
-  on double catch(x) {}
+  on int catch (x) {}
+  on double catch (x) {}
 
   try {
     throw 1;
   }
-  on int catch(x) {}
-  on num catch(x) {}
-  on Object catch(x) {}
+  on int catch (x) {}
+  on num catch (x) {}
+  on Object catch (x) {}
 }

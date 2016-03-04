@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An on-catch clause of the form on T catch (p1) s is equivalent to an on-
- * catch clause on T catch (p1, p2) s where p2 is an identiier that does not occur
- * anywhere else in the program.
- * @description Checks that a catch clause matches an object o if the type of o is a
- * subtype of T1.
+ * @assertion An on-catch clause of the form on T catch (p1) s is equivalent to
+ * an on-catch clause on T catch (p1, p2) s where p2 is an identiier that does
+ * not occur anywhere else in the program.
+ * @description Checks that a catch clause matches an object o if the type of o
+ * is a subtype of T1.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -28,7 +28,7 @@ main() {
   bool success = false;
   try {
     throw new T2();
-  } on T1 catch(p1) {
+  } on T1 catch (p1) {
     success = true;
   }
   Expect.isTrue(success);
@@ -37,7 +37,7 @@ main() {
   success = false;
   try {
     throw new Foo();
-  } on Foo catch(p1) {
+  } on Foo catch (p1) {
     success = true;
   }
   Expect.isTrue(success);
