@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   test(value)
@@ -30,41 +28,40 @@ main() {
     div.setAttribute("style", value);
     document.body.append(div);
 
-    //var result = getComputedStyle(div).objectPosition;
     var result = getComputedStyle(div).getPropertyValue("object-position");
     div.remove();
     return result;
   }
 
-  shouldBeEqualToString(testComputedStyle(";"), '50% 50%');
-  shouldBeEqualToString(testComputedStyle("object-position: 10px;"), '10px 50%');
-  shouldBeEqualToString(testComputedStyle("object-position: 10px 10px;"), '10px 10px');
-  shouldBeEqualToString(testComputedStyle("object-position: right top;"), '100% 0%');
-  shouldBeEqualToString(testComputedStyle("object-position: top right;"), '100% 0%');
+  shouldBeLikeString(testComputedStyle(";"), '50% 50%');
+  shouldBeLikeString(testComputedStyle("object-position: 10px;"), '10px 50%');
+  shouldBeLikeString(testComputedStyle("object-position: 10px 10px;"), '10px 10px');
+  shouldBeLikeString(testComputedStyle("object-position: right top;"), '100% 0%');
+  shouldBeLikeString(testComputedStyle("object-position: top right;"), '100% 0%');
 
-  shouldBeEqualToString(test("object-position: inherit;"), 'inherit');
-  shouldBeEqualToString(test("object-position: initial;"), 'initial');
-  shouldBeEqualToString(test("object-position: left;"), '0% 50%');
-  shouldBeEqualToString(test("object-position: top;"), '50% 0%');
-  shouldBeEqualToString(test("object-position: top right;"), '100% 0%');
-  shouldBeEqualToString(test("object-position: right top;"), '100% 0%');
-  shouldBeEqualToString(test("object-position: center center;"), '50% 50%');
-  shouldBeEqualToString(test("object-position: center;"), '50% 50%');
-  shouldBeEqualToString(test("object-position: bottom center;"), '50% 100%');
-  shouldBeEqualToString(test("object-position: left center;"), '0% 50%');
-  shouldBeEqualToString(test("object-position: bottom center;"), '50% 100%');
-  shouldBeEqualToString(test("object-position: center left;"), '0% 50%');
-  shouldBeEqualToString(test("object-position: center bottom;"), '50% 100%');
-  shouldBeEqualToString(test("object-position: 100px;"), '100px 50%');
-  shouldBeEqualToString(test("object-position: 100px 100px;"), '100px 100px');
-  shouldBeEqualToString(test("object-position: 100px 200px;"), '100px 200px');
-  shouldBeEqualToString(test("object-position: -50% 0;"), '-50% 0px');
-  shouldBeEqualToString(test("object-position: 3em 0;"), '3em 0px');
-  shouldBeEqualToString(test("object-position: left 33px;"), '0% 33px');
-  shouldBeEqualToString(test("object-position: center 33px;"), '50% 33px');
-  shouldBeEqualToString(test("object-position: 33px center;"), '33px 50%');
-  shouldBeEqualToString(test("object-position: 33px bottom;"), '33px 100%');
-  shouldBeEqualToString(test("object-position: 1vh 1vw;"), '1vh 1vw');
+  shouldBeLikeString(test("object-position: inherit;"), 'inherit');
+  shouldBeLikeString(test("object-position: initial;"), 'initial');
+  shouldBeLikeString(test("object-position: left;"), 'left center');
+  shouldBeLikeString(test("object-position: top;"), 'center top');
+  shouldBeLikeString(test("object-position: top right;"), 'right top');
+  shouldBeLikeString(test("object-position: right top;"), 'right top');
+  shouldBeLikeString(test("object-position: center center;"), 'center center');
+  shouldBeLikeString(test("object-position: center;"), 'center center');
+  shouldBeLikeString(test("object-position: bottom center;"), 'center bottom');
+  shouldBeLikeString(test("object-position: left center;"), 'left center');
+  shouldBeLikeString(test("object-position: bottom center;"), 'center bottom');
+  shouldBeLikeString(test("object-position: center left;"), 'left center');
+  shouldBeLikeString(test("object-position: center bottom;"), 'center bottom');
+  shouldBeLikeString(test("object-position: 100px;"), '100px center');
+  shouldBeLikeString(test("object-position: 100px 100px;"), '100px 100px');
+  shouldBeLikeString(test("object-position: 100px 200px;"), '100px 200px');
+  shouldBeLikeString(test("object-position: -50% 0;"), '-50% 0px');
+  shouldBeLikeString(test("object-position: 3em 0;"), '3em 0px');
+  shouldBeLikeString(test("object-position: left 33px;"), 'left 33px');
+  shouldBeLikeString(test("object-position: center 33px;"), 'center 33px');
+  shouldBeLikeString(test("object-position: 33px center;"), '33px center');
+  shouldBeLikeString(test("object-position: 33px bottom;"), '33px bottom');
+  shouldBeLikeString(test("object-position: 1vh 1vw;"), '1vh 1vw');
 
   shouldBeNull(x) => shouldBe(x, '');
 
