@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The scope of a label that labels a statement s is s. The scope of a label that
- * labels a case clause of a switch statement s is s.
- * @description Checks that a label can't be referenced from outside of its statement.
+ * @assertion The scope of a label that labels a statement s is s. The scope of
+ * a label that labels a case clause of a switch statement s is s.
+ * @description Checks that a label can't be referenced from outside of its
+ * statement.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -16,5 +17,5 @@ main() {
   L: var x;
   do {
     continue L;
-  } while(false);
+  } while (false);
 }

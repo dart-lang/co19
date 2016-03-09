@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A label is an identifier followed by a colon. A labeled statement is a statement
- * prefixed by a label L. A labeled case clause is a case clause within a switch
- * statement prefixed by a label L.
+ * @assertion A label is an identifier followed by a colon. A labeled statement
+ * is a statement prefixed by a label L. A labeled case clause is a case clause
+ * within a switch statement prefixed by a label L.
  * The sole role of labels is to provide targets for the break and continue
  * statements.
  * label:
- * identifier ':'
+ *   identifier ':'
  * ;
- * @description Checks that it is a compile-time error if the label is used without the colon character.
+ * @description Checks that it is a compile-time error if the label is used
+ * without the colon character.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -22,6 +23,6 @@
 
 main() {
   try {
-    L while(true) { break L; }
-  } catch(x) {}
+    L while (true) { break L; }
+  } catch (x) {}
 }
