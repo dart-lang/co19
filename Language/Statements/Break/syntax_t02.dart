@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The break statement consists of the reserved word break and an optional label.
+ * @assertion The break statement consists of the reserved word break and an
+ * optional label.
  * breakStatement:
- * break identifier? ';'
+ *   break identifier? ';'
  * ;
  * @description Checks that a break statement can reference its own label.
  * @author kaigorodov
@@ -17,5 +18,5 @@
 main() {
   try {
 	L: break L;
-  } catch(x) {}
+  } catch (x) {}
 }

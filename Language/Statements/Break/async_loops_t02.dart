@@ -75,7 +75,7 @@ Future test2() async {
         break L;
       }
     }
-    if (i>4){
+    if (i > 4){
       sc0.close();
     }
   }

@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The scope of a label that labels a statement s is s. The scope of a label that
- * labels a case clause of a switch statement s is s.
- * @description Checks that it is a compile-time error when multiple cases of the same switch
- * statement have labels with the same identifier.
+ * @assertion The scope of a label that labels a statement s is s. The scope of
+ * a label that labels a case clause of a switch statement s is s.
+ * @description Checks that it is a compile-time error when multiple cases of
+ * the same switch statement have labels with the same identifier.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
@@ -15,7 +15,7 @@
 
 main() {
   try {
-    switch(1) {
+    switch (1) {
       Label:
       case 1:
         break;
@@ -30,5 +30,5 @@ main() {
       default:
         break;
     }
-  } catch(x) {}
+  } catch (x) {}
 }
