@@ -14,6 +14,7 @@
  * sync* and the type T may not be assigned to the declared return
  * type of f.
  *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import '../../../../Utils/dynamic_check.dart';

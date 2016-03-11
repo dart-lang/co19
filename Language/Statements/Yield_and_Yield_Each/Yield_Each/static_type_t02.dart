@@ -14,6 +14,7 @@
  * async* and the type T may not be assigned to the declared return
  * type of f.
  *
+ * @static-warning
  * @issue #25634
  * @author a.semenov@unipro.ru
  */
