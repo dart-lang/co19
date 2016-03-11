@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The continue statement consists of the reserved word continue and an optional
- * label.
+ * @assertion The continue statement consists of the reserved word continue and
+ * an optional label.
  * continueStatement:
- * continue identifier? ';'
+ *   continue identifier? ';'
  * ;
- * @description Checks that it is a compile-time error if the continue statement does not
- * end with a semicolon.
+ * @description Checks that it is a compile-time error if the continue statement
+ * of the form 'contitue L;' does not end with a semicolon.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -22,6 +22,6 @@ main() {
   try {
     L: do {
       continue L
-    } while(false);
-  } catch(x) {}
+    } while (false);
+  } catch (x) {}
 }

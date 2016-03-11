@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let sc be a continue statement. If sc is of the form continue L;, 
- * then let sE be the the innermost labeled do, for or while
- * statement or case clause with label L enclosing sc. If sc is of the form continue;
- * then let sE be the innermost do, for or while statement enclosing sc.
- * It is a compile-time error if no such statement or case clause sE exists within the
- * innermost function in which sc occurs.
- * @description Checks that it is a compile-time error when continue statement
- * is captured in a closure.
+ * @assertion Let sc be a continue statement. If sc is of the form continue L;,
+ * then let sE be the the innermost labeled do, for or while statement or case
+ * clause with label L enclosing sc. If sc is of the form continue; then let sE
+ * be the innermost do, for or while statement enclosing sc.
+ * It is a compile-time error if no such statement or case clause sE exists
+ * within the innermost function in which sc occurs.
+ * @description Checks that it is a compile-time error if a 'continue;'
+ * statement occurs in a function literal described in while statement without
+ * label.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -19,7 +20,7 @@
 
 
 main() {
-  while(true) {
+  while (true) {
     () {continue;} ();
   }
 }

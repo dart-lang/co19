@@ -10,8 +10,8 @@
  * subscriptions associated with aj are canceled, 1 ≤ j ≤ m, innermost first,
  * so that aj is canceled before aj+1 .
  *
- * @description Check that break do not cancel streams associated with sE and
- * with asynchronous loops, that enclose sE
+ * @description Check that continue statement do not cancel streams associated
+ * with sE and with asynchronous loops, that enclose sE
  *
  * @issue 25247
  * @issue 25234
