@@ -31,7 +31,7 @@ int sum = 0;
 Stream generator() async* {
   // do not use yield here, because it may terminate the function
   // without defining current return value, just do some actions
-  for(int i = 0; i < 10000; i++){
+  for(int i = 0; i < 10000; i++) {
     sum += i;
   }
 }

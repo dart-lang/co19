@@ -32,7 +32,7 @@ Stream generator1() async* {
 Stream generator2() async* {
   try {
     throw 'abc';
-  } on String catch(e){
+  } on String catch(e) {
     throw 3.14;
   }
 }
@@ -42,7 +42,7 @@ test1() {
   Stream stream = generator1();
   Future cancelFuture = stream.listen((v) {} ).cancel();
   cancelFuture.then(
-      (v){
+      (v) {
         Expect.fail('cancellation future has completed without error');
       },
       onError: (e) {
@@ -57,7 +57,7 @@ test2() {
   Stream stream = generator2();
   Future cancelFuture = stream.listen((v) {} ).cancel();
   cancelFuture.then(
-      (v){
+      (v) {
         Expect.fail('cancellation future has completed without error');
       },
       onError: (e) {
