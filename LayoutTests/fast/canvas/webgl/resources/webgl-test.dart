@@ -50,6 +50,10 @@ create3DContext([canvas, attributes]) {
   }
 
   if (context == null)
+    context = tryContext(canvas, "webgl", attributes);
+  if (context == null)
+    context = tryContext(canvas, "webgl2", attributes);
+  if (context == null)
     context = tryContext(canvas, "experimental-webgl", attributes);
   if (context == null)
     context = tryContext(canvas, "webkit-3d", attributes);
