@@ -15,6 +15,7 @@
  * async* and the type Stream<T> may not be assigned to the declared return
  * type of f.
  *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

@@ -15,6 +15,7 @@
  * sync* and the type Iterable<T> may not be assigned to the declared return
  * type of f.
  *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
