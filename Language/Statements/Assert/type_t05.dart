@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if the type of e may not be assigned 
+ * @assertion It is a static type warning if the type of e may not be assigned
  * to either bool or () -> bool.
- * @description Checks that it is a static type warning if the type of e is () -> int.
+ * @description Checks that it is a static type warning if the type of e is
+ * () -> int.
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
 import '../../../Utils/dynamic_check.dart';
 
-int foo() {}
+int foo() { return 1; }
 
 main() {
   checkTypeError(() {
-    assert(foo); /// static type warning
+    assert (foo); /// static type warning
   });
 }

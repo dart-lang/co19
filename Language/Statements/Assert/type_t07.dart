@@ -4,13 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if the type of e may not be assigned 
+ * @assertion It is a static type warning if the type of e may not be assigned
  * to either bool or () -> bool.
- * @description Checks that it is not a static type warning if the static type of e is Object (conditional expression).
+ * @description Checks that it is a static type warning if the static type
+ * of e is Function (conditional expression).
+ * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
 
 main() {
-  assert(true ? (() => true) : ((var x) => 1));
+  assert (true ? (() => true) : ((var x) => 1));  /// static type warning
 }

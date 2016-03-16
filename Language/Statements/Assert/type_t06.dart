@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if the type of e may not be assigned 
+ * @assertion It is a static type warning if the type of e may not be assigned
  * to either bool or () -> bool.
  * @description Checks that it is a static type warning if the type of e is num.
  * @static-warning
@@ -17,6 +17,6 @@ bool foo() {return true;}
 
 main() {
   checkTypeError(() {
-    assert(foo ? 1 : 1.0); /// static type warning
+    assert (foo ? 1 : 1.0); /// static type warning
   });
 }

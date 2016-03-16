@@ -5,7 +5,8 @@
  */
 /**
  * @assertion The assert statement has no effect in production mode.
- * @description Checks that the assert statement has no effect in production mode.
+ * @description Checks that the assert statement has no effect in production
+ * mode.
  * @static-warning
  * @author vasya
  * @reviewer rodionov
@@ -16,10 +17,10 @@ import '../../../Utils/dynamic_check.dart';
 
 main() {
   if (!isCheckedMode()) {
-    assert(false);
-    assert("not a bool"); /// static type warning
-    assert(1 % 0); /// static type warning
-    assert(null);
-    assert(()=>true);
+    assert (false);
+    assert ("not a bool"); /// static type warning
+    assert (1 % 0); /// static type warning
+    assert (null);
+    assert (() => true);
   }
 }

@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An assert statement is used to disrupt normal execution if a 
+ * @assertion An assert statement is used to disrupt normal execution if a
  * given boolean condition does not hold.
  * assertStatement:
- * assert '(' conditionalExpression ')' ';'
- * @description Checks that it is a compile-time error when the assert expression 
- * is empty.
+ *   assert '(' conditionalExpression ')' ';'
+ * ;
+ * @description Checks that it is a compile-time error when the assert
+ * expression is empty.
  * @compile-error
  * @author vasya
  * @reviewer rodionov
@@ -18,6 +19,6 @@
 
 main() {
   try {
-    assert();
-  } catch(x) {}
+    assert ();
+  } catch (x) {}
 }
