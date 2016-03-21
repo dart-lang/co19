@@ -12,7 +12,7 @@ import "../../../testcommon.dart";
 main() {
   var style = new DocumentFragment.html(''' 
     <style id="style1">
-    .foo:host-context(div, body.mytheme, p#myid, .bar:active, span:hover) > div { display: block; }
+    .foo:host-context(div, body.mytheme, p#myid, div::before, span:hover) > div { display: block; }
     :host-context(*) { display: block; }
     </style>
     <style id="style-invalid">
@@ -22,8 +22,6 @@ main() {
     :host-context(div ~ div) { display: block }
     :host-context) { display: block }
     :host-context() { display: block; }
-    :host-context(div::before) { display: block; }
-    :host-context(.y::after) { display: block; }
     </style>
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
@@ -32,7 +30,7 @@ main() {
   CssStyleSheet sh1 = se1.sheet;
 
   shouldBeLikeString(sh1.cssRules[0].cssText,
-      ".foo:host-context(div,body.mytheme,p#myid,.bar:active,span:hover) > div { display: block; }");
+      ".foo:host-context(div,body.mytheme,p#myid,div::before,span:hover) > div { display: block; }");
   shouldBeLikeString(sh1.cssRules[1].cssText,
       ":host-context(*) { display: block; }");
 

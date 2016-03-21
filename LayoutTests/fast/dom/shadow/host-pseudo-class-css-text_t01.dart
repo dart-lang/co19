@@ -12,7 +12,7 @@ import "../../../testcommon.dart";
 main() {
   var style = new DocumentFragment.html(''' 
     <style id="style1">
-    .foo:host(div, body.mytheme, p#myid, .bar:active, span:hover) > div { display: block; }
+    .foo:host(div, body.mytheme, p#myid, .bar::before, span:hover) > div { display: block; }
     :host { display: block; }
     :host(*) { display: block; }
     </style>
@@ -23,8 +23,6 @@ main() {
     :host(div ~ div) { display: block }
     :host) { display: block }
     :host() { display: block; }
-    :host(div::before) { display: block; }
-    :host(.x::after) { display: block; }
     </style>
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
@@ -34,7 +32,7 @@ main() {
 
   shouldBeLikeString(
       sh1.cssRules[0].cssText,
-      ".foo:host(div,body.mytheme,p#myid,.bar:active,span:hover) > div { display: block; }");
+      ".foo:host(div,body.mytheme,p#myid,.bar::before,span:hover) > div { display: block; }");
   shouldBeLikeString(sh1.cssRules[1].cssText, ":host { display: block; }");
   shouldBeLikeString(sh1.cssRules[2].cssText, ":host(*) { display: block; }");
 
