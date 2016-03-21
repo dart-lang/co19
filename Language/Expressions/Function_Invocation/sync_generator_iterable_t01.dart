@@ -35,10 +35,10 @@ Iterable test() sync* {
 
 main() {
   var iterable = test();
-  Expect.equals(1<<15, iterable.last);
+  Expect.equals(1 << 15, iterable.last);
   Expect.equals(0xffff, yielded);
 
   // check that iterable.last is not cached
-  Expect.equals(1<<15, iterable.last);
-  Expect.equals(2*0xffff, yielded);
+  Expect.equals(1 << 15, iterable.last);
+  Expect.equals(2 * 0xffff, yielded);
 }
