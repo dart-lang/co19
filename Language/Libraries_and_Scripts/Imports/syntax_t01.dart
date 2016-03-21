@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An import specifies a library to be used in the scope of another library.
+ * @assertion An import specifies a library to be used in the scope of another
+ * library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* `;'
+ *   metadata importSpecification
+ * ;
+ * importSpecification:
+ *   import uri (as identifier)? combinator* ‘;’ |
+ *   import uri deferred as identifier combinator* ‘;’
  * ;
  * combinator:
  *   show identifierList |
@@ -14,6 +19,7 @@
  * ;
  * identifierList:
  *   identifier (, identifier)*
+ * ;
  * @description Checks that it is a compile-time error when an import
  * directive starts with '#' symbol.
  * @compile-error
@@ -28,5 +34,5 @@
 main() {
   try {
     someVar = 0;
-  } catch(e) {}
+  } catch (e) {}
 }

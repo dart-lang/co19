@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An import specifies a library to be used in the scope of another library.
+ * @assertion An import specifies a library to be used in the scope of another
+ * library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* `;'
+ *   metadata importSpecification
+ * ;
+ * importSpecification:
+ *   import uri (as identifier)? combinator* ‘;’ |
+ *   import uri deferred as identifier combinator* ‘;’
  * ;
  * combinator:
  *   show identifierList |
@@ -16,7 +21,8 @@
  *   identifier (, identifier)*
  * ;
  * @description Checks that it is not an error if the arguments of show/hide
- * combinators include identifiers not declared or re-exported by the library being imported.
+ * combinators include identifiers not declared or re-exported by the library
+ * being imported.
  * @author rodionov
  * @reviewer kaigorodov
  */

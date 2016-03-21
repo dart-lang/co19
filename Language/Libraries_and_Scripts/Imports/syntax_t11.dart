@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An import specifies a library to be used in the scope of another library.
+ * @assertion An import specifies a library to be used in the scope of another
+ * library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* `;'
+ *   metadata importSpecification
+ * ;
+ * importSpecification:
+ *   import uri (as identifier)? combinator* ‘;’ |
+ *   import uri deferred as identifier combinator* ‘;’
  * ;
  * combinator:
  *   show identifierList |
@@ -15,8 +20,8 @@
  * identifierList:
  *   identifier (, identifier)*
  * ;
- * @description Checks that it is a compile-time error when the URI of the library being imported
- * is missing entirely.
+ * @description Checks that it is a compile-time error when the URI of the
+ * library being imported is missing entirely.
  * @compile-error
  * @author vasya
  * @reviewer hlodvig
@@ -29,5 +34,5 @@ import as lib;
 main() {
   try {
     someVar = 0;
-  } catch(e) {}
+  } catch (e) {}
 }

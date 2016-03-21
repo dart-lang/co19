@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An import specifies a library to be used in the scope of another library.
+ * @assertion An import specifies a library to be used in the scope of another
+ * library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* `;'
+ *   metadata importSpecification
+ * ;
+ * importSpecification:
+ *   import uri (as identifier)? combinator* ‘;’ |
+ *   import uri deferred as identifier combinator* ‘;’
  * ;
  * combinator:
  *   show identifierList |
@@ -15,8 +20,8 @@
  * identifierList:
  *   identifier (, identifier)*
  * ;
- * @description Checks that all types of quotes allowed for string literals are also allowed
- * for the URI in an import directive.
+ * @description Checks that all types of quotes allowed for string literals are
+ * also allowed for the URI in an import directive.
  * @author rodionov
  * @reviewer kaigorodov
  */

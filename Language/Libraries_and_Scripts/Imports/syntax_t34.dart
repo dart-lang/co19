@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An import specifies a library to be used in the scope of another library.
+ * @assertion An import specifies a library to be used in the scope of another
+ * library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* `;'
+ *   metadata importSpecification
+ * ;
+ * importSpecification:
+ *   import uri (as identifier)? combinator* ‘;’ |
+ *   import uri deferred as identifier combinator* ‘;’
  * ;
  * combinator:
  *   show identifierList |
@@ -15,8 +20,8 @@
  * identifierList:
  *   identifier (, identifier)*
  * ;
- * @description Checks that it is a compile-time error when the arguments of a show/hide
- * combinator include a string literal.
+ * @description Checks that it is a compile-time error when the arguments of a
+ * show/hide combinator include a string literal.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -27,5 +32,5 @@ import "syntax_lib.dart" show foo, "someVar";
 main() {
   try {
     someVar = 0;
-  } catch(e) {}
+  } catch (e) {}
 }

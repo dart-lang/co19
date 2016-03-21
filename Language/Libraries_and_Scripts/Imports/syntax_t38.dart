@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion An import specifies a library to be used in the scope of another library.
+ * @assertion An import specifies a library to be used in the scope of another
+ * library.
  * libraryImport:
- *   metadata import uri (as identifier)? combinator* `;'
+ *   metadata importSpecification
+ * ;
+ * importSpecification:
+ *   import uri (as identifier)? combinator* ‘;’ |
+ *   import uri deferred as identifier combinator* ‘;’
  * ;
  * combinator:
  *   show identifierList |
@@ -17,7 +22,7 @@
  * ;
  * @description Checks that it is not an error if the arguments of show/hide
  * combinators include identifiers named 'hide' and 'show' and that filtering
- * of the imported names is done correctly
+ * of the imported names is done correctly.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
@@ -33,5 +38,5 @@ main() {
   try {
     var x = foo; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }

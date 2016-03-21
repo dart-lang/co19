@@ -19,5 +19,5 @@ import "../../../Utils/expect.dart";
 import 'dart:core' hide List;
 
 main() {
-  Expect.throws(() => List);
+  Expect.throws(() => List);  /// static type warning
 }

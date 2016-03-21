@@ -20,5 +20,5 @@ import 'dart:core' show List;
 
 main() {
   List;
-  Expect.throws(() => String);
+  Expect.throws(() => String);  /// static type warning
 }

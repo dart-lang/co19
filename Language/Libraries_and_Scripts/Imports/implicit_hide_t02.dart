@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a name N is referenced by a library L and N would be
- * introduced into the top level scope of L by an import from a library whose
- * URI begins with dart: and an import from a library whose URI does not begin
- * with dart: 
- * The import from dart: is implicitly extended by a hide N clause.
- * A static warning is issued.
+ * @assertion If a name N is referenced by a library L and N would be introduced
+ * into the top level scope of L by imports of two libraries, L1 and L2, and the
+ * exported namespace of L1 binds N to a declaration originating in a system
+ * library:
+ * • The import of L1 is implicitly extended by a hide N clause.
+ * • A static warning is issued.
+ *
  * @description Checks that if N is referenced by L and N would be introduced
  * by explicit import of 'dart:core' and library whose URI does not begin with
  * 'dart:', then N from dart:core is hidden. Also checks that static warning is
