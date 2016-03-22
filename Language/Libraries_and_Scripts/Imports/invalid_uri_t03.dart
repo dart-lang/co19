@@ -17,6 +17,6 @@ import "invalid_uri_t03_lib.dart";
 
 main() {
   try {
-    var someVar = 0;
-  } catch(e) {}
+    foo();
+  } catch (e) {}
 }
