@@ -6,4 +6,4 @@
 
 library Libraries_and_Scripts_A01_t10;
 
-for(;;);
+for (;;);

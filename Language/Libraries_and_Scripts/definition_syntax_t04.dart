@@ -7,8 +7,22 @@
  * @assertion libraryDefinition:
  *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
- * @description Checks that it is a compile-error if a part directive comes before
- * the library name.
+ * scriptTag:
+ *   ‘#!’ ( ̃NEWLINE)* NEWLINE
+ * ;
+ * libraryName:
+ *   metadata library identifier (‘.’ identifier)* ‘;’
+ * ;
+ * importOrExport:
+ *   libraryImport |
+ *   libraryExport
+ * ;
+ * Libraries may be explicitly named or implicitly named. An explicitly named
+ * library begins with the word library (possibly prefaced with any applicable
+ * metadata annotations), followed by a qualified identifier that gives the
+ * name of the library.
+ * @description Checks that it is a compile-error if a part directive comes
+ * before the library name.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -19,5 +33,5 @@ import "definition_syntax_t04_lib.dart";
 main() {
   try {
     var someVar = 1;
-  } catch(e) {}
+  } catch (e) {}
 }

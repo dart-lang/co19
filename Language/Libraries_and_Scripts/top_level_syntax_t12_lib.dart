@@ -8,4 +8,4 @@ library Libraries_and_Scripts_A01_t12;
 
 try {
   var x = 0;
-} catch(e) {}
+} catch (e) {}

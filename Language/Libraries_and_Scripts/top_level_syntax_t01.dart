@@ -4,24 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A library consists of (a possibly empty) set of imports, a set of exports, and a set of top level
- * declarations. A top level declaration is either a class, a type alias declaration, a function 
- * or a variable declaration.
+ * @assertion A library consists of (a possibly empty) set of imports, a set
+ * of exports, and a set of top level declarations. A top level declaration
+ * is either a class, a type alias declaration, a function or a variable
+ * declaration. The members of a library L are those top level declarations
+ * given within L.
  * topLevelDefinition:
- * classDefinition |
- * typeAlias |
- * external? functionSignature |
- * external? getterSignature |
- * external? setterSignature |
- * functionSignature functionBody |
- * returnType? getOrSet identifier formalParameterList function-Body |
- * (final | const) type? staticFinalDeclarationList ';' |
- * variableDeclaration ';'
+ *   classDefinition |
+ *   enumType |
+ *   typeAlias |
+ *   external? functionSignature ';' |
+ *   external? getterSignature ';' |
+ *   external? setterSignature ';' |
+ *   functionSignature functionBody |
+ *   returnType? get identifier functionBody |
+ *   returnType? set identifier formalParameterList functionBody |
+ *   (final | const) type? staticFinalDeclarationList ';' |
+ *   variableDeclaration ';'
  * ;
- * getOrSet:
- * get |
- * set
- * ;.
  * @description Checks that a library containing correct top level definitions
  * is parsed without errors.
  * @author vasya
@@ -41,7 +41,7 @@ main() {
   g(1, 2);
   h('', "");
 
-  typeF funcF = ()=>1;
+  typeF funcF = () => 1;
   typeG funcG = () {};
   typeH funcH = (p1, p2) {};
 
