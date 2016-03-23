@@ -6,8 +6,8 @@
 /**
  * @assertion It is a compile-time error if the specified URI does not refer
  * to a library declaration.
- * @description Checks that it is not a compile-time error when the library being
- * exported does not have a library definition.
+ * @description Checks that it is not a compile-time error when the library
+ * being exported does not have a library definition.
  * @author rodionov
  * @reviewer kaigorodov
  */

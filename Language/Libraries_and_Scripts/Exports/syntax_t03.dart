@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
+ * @assertion A library L exports a namespace, meaning that the declarations in
+ * the namespace are made available to other libraries if they choose to import
+ * L. The namespace that L exports is known as its exported namespace.
  * libraryExport:
  *   metadata export uri combinator* `;'
- * ; 
- * @description Checks that it is not an error when the identifiers used with show/hide combinators 
- * are also named 'hide' and 'show', and that filtering the export namespace is done correctly.
+ * ;
+ * @description Checks that it is not an error when the identifiers used with
+ * show/hide combinators are also named 'hide' and 'show', and that filtering
+ * the export namespace is done correctly.
  * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
@@ -25,5 +28,5 @@ main() {
   try {
     var x = foo; /// static type warning cannot resolve
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }
