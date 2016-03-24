@@ -4,18 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 
- * partHeader:
- *   metadata part of identifier (`.' identifier)* `;'
- * ;
- * partDeclaration:
- *   partHeader topLevelDefinition* EOF
- * ;
- * A part header begins with part of followed by the name of the library the
- * part belongs to. A part declaration consists of a part header followed by a
- * sequence of top-level declarations.
- * It is a compile-time error if the contents of the URI are not a
- * valid part declaration. 
+ * @assertion Compiling a part directive of the form part s; causes the Dart
+ * system to attempt to compile the contents of the URI that is the value of s.
+ * The top-level declarations at that URI are then compiled by the Dart compiler
+ * in the scope of the current library. It is a compile-time error if the
+ * contents of the URI are not a valid part declaration.
  * @description Checks that it is a compile-time error if the included part
  * contains an expression where a top-level definition is expected.
  * @compile-error
@@ -23,6 +16,7 @@
  * @reviewer kaigorodov
  */
 
+library Parts_test_lib;
 part "part_7.dart";
 
 main() {

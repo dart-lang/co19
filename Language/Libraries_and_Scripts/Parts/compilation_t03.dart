@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Compiling a part directive of the form part s; causes the Dart system to
- * attempt to compile the contents of the URI that is the value of s. The top-level
- * declarations at that URI are then compiled by the Dart compiler in the scope of
- * the current library.
+ * @assertion Compiling a part directive of the form part s; causes the Dart
+ * system to attempt to compile the contents of the URI that is the value of s.
+ * The top-level declarations at that URI are then compiled by the Dart compiler
+ * in the scope of the current library. It is a compile-time error if the
+ * contents of the URI are not a valid part declaration.
  * @description Checks that the top level declarations at URI are compiled in
- * the scope of the current library(including private declarations).
+ * the scope of the current library (including private declarations).
  * @author rodionov
  * @reviewer kaigorodov
  */

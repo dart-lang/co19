@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Compiling a part directive of the form part s; causes the Dart system to
- * attempt to compile the contents of the URI that is the value of s. The top-level
- * declarations at that URI are then compiled by the Dart compiler in the scope of
- * the current library.
- * A compilation unit is a sequence of top level declarations.
- * @description Checks that more than one part can be included in a library without
- * errors as long as there're no name conflicts.
+ * @assertion Compiling a part directive of the form part s; causes the Dart
+ * system to attempt to compile the contents of the URI that is the value of s.
+ * The top-level declarations at that URI are then compiled by the Dart compiler
+ * in the scope of the current library. It is a compile-time error if the
+ * contents of the URI are not a valid part declaration.
+ * @description Checks that more than one part can be included in a library
+ * without errors as long as there're no name conflicts.
  * @author rodionov
  * @reviewer kaigorodov
  */

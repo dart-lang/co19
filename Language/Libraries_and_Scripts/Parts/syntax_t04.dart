@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A library may be divided into parts, each of which can be stored in a separate
- * location. A library identifies its parts by listing them via part directives.
+ * @assertion A library may be divided into parts, each of which can be stored
+ * in a separate location. A library identifies its parts by listing them via
+ * part directives.
  * A part directive specifies a URI where a Dart compilation unit that should
  * be incorporated into the current library may be found.
  * partDirective:

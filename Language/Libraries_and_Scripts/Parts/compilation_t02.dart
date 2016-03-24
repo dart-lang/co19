@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Compiling a part directive of the form part s; causes the Dart system to
- * attempt to compile the contents of the URI that is the value of s. The top-level
- * declarations at that URI are then compiled by the Dart compiler in the scope of
- * the current library.
- * @description Checks that it is a compile-time error if there're two part directives
- * referencing the same URI.
+ * @assertion It is a static warning if the referenced part declaration p names
+ * a library other than the current library as the library to which p belongs.
+ * @description Checks that it is a static warning if the referenced part nemes
+ * another library, but not a compile-time error and all definitions from such
+ * part are available without errors.
+ * @description Checks that it is a compile-time error if there're two part
+ * directives referencing the same URI.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -22,5 +23,5 @@ part "part_0.dart";
 main() {
   try {
     foo is int;
-  } catch(e) {}
+  } catch (e) {}
 }

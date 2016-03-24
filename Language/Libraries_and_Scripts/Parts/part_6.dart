@@ -5,6 +5,6 @@
 part of Parts_test_lib;
 
 var foo;
-if (foo == null){
+if (foo == null) {
   foo = -1;
 }
