@@ -8,16 +8,15 @@
  * uri:
  *   stringLiteral
  * ;
- * It is a compile-time error if the string literal x that describes a URI 
+ * It is a compile-time error if the string literal x that describes a URI
  * is not a compile-time constant, or if x involves string interpolation.
- * @description Checks that it is not an error to use a multi-line string literal
- * as a URI in a part directive and it still works even with leading whitespace
- * since it's getting trimmed.
- * @static-warning library name doesn't match that referenced by an included part
+ * @description Checks that it is not an error to use a multi-line string
+ * literal as a URI in a part directive.
  * @author rodionov
  * @reviewer kaigorodov
  */
-library URIs_A01;
+
+library SomeLibrary;
 part """part.dart""";
 
 main() {

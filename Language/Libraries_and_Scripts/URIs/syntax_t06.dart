@@ -8,15 +8,15 @@
  * uri:
  *   stringLiteral
  * ;
- * It is a compile-time error if the string literal x that describes a URI 
+ * It is a compile-time error if the string literal x that describes a URI
  * is not a compile-time constant, or if x involves string interpolation.
- * @description Checks that it is not an error to use a multi-line string literal
- * as a URI in an export directive and it still works even with leading whitespace
- * since it's getting trimmed.
+ * @description Checks that it is not an error to use a multi-line string
+ * literal as a URI in an export directive.
  * @author rodionov
  * @reviewer kaigorodov
  */
 import "syntax_t06_lib.dart";
 
 main() {
+  new FooClass();
 }

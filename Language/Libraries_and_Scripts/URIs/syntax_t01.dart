@@ -8,11 +8,10 @@
  * uri:
  *   stringLiteral
  * ;
- * It is a compile-time error if the string literal x that describes a URI 
+ * It is a compile-time error if the string literal x that describes a URI
  * is not a compile-time constant, or if x involves string interpolation.
- * @description Checks that it is not an error to use a multi-line string literal
- * as a URI in an import directive and it still works even with leading whitespace
- * since it's getting trimmed.
+ * @description Checks that it is not an error to use a multi-line string
+ * literal as a URI in an import directive.
  * @author rodionov
  * @reviewer kaigorodov
  */
