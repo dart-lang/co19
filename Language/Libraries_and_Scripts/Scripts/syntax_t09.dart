@@ -9,7 +9,7 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when a top level
  * definition (function type alias) comes before an import directive.
@@ -25,5 +25,5 @@ import "library1.dart";
 main() {
   try {
     f func = (p1, p2) {}
-  } catch(e) {}
+  } catch (e) {}
 }

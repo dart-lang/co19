@@ -11,10 +11,10 @@ library Script_A01_t01;
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
- * @description Checks that it is a compile-time error when the library name comes
- * before the script tag.
+ * @description Checks that it is a compile-time error when the library name
+ * comes before the script tag.
  * @compile-error
  * @author vasya
  * @reviewer msyabro

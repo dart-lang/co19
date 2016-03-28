@@ -8,10 +8,10 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
- * @description Checks that it is nor an error when a script (without a script tag)
- * includes an export directive.
+ * @description Checks that it is nor an error when a script (without a script
+ * tag) includes an export directive.
  * @author rodionov
  * @reviewer kaigorodov
  */

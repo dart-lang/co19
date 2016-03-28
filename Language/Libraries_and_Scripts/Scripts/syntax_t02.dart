@@ -10,7 +10,7 @@ part "../Parts/part_0.dart";
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when a part directive
  * comes before the script tag.

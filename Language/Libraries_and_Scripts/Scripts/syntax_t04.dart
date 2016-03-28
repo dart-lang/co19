@@ -11,7 +11,7 @@ class C {}
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that it is a compile-time error when a top-level
  * definition (a class declaration) comes before the script tag.
@@ -23,5 +23,5 @@ class C {}
 main() {
   try {
     new C();
-  } catch(e) {}
+  } catch (e) {}
 }

@@ -9,10 +9,10 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
- * @description Checks that is is a compile-time error when a variable declaration
- * comes before a part directive.
+ * @description Checks that is is a compile-time error when a variable
+ * declaration comes before a part directive.
  * @compile-error
  * @author vasya
  * @reviewer msyabro
@@ -27,5 +27,5 @@ part "../Parts/part_0.dart";
 main() {
   try {
     Expect.equals(1, script);
-  } catch(e) {}
+  } catch (e) {}
 }

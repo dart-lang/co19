@@ -9,14 +9,14 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
  * @description Checks that a script is parsed without errors
  * if all allowed directives are present and in the correct order.
+ * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer msyabro
- * @static-warning library name doesn't match that referenced by an included part
  */
 
 
@@ -29,8 +29,8 @@ import 'library2.dart';
 
 export "library2.dart";
 
-part "../Parts/part_0.dart";
-part "../Parts/part_3.dart";
+part "../Parts/part_0.dart";  /// static type warning
+part "../Parts/part_3.dart";  /// static type warning
 
 main() {
 }

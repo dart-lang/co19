@@ -8,9 +8,10 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
  * ;
- * @description Checks that script is a library and it is possible to import it with a prefix.
+ * @description Checks that script is a library and it is possible to import it
+ * with a prefix.
  * @author vasya
  * @reviewer rodionov
  * @reviewer msyabro

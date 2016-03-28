@@ -8,22 +8,20 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrImport* partDirective* topLevelDefinition*
  * ;
  * topLevelDefinition:
- *     classDefinition
- *   | typeAlias
- *   | external? functionSignature
- *   | external? getterSignature
- *   | external? setterSignature
- *   | functionSignature functionBody
- *   | returnType? getOrSet identifier formalParameterList functionBody
- *   | (final | const) type? staticFinalDeclarationList ';'
- *   | variableDeclaration ';'
- * ;
- * getOrSet:
- *     get
- *   | set
+ *   classDefinition |
+ *   enumType |
+ *   typeAlias |
+ *   external? functionSignature ‘;’ |
+ *   external? getterSignature ‘;’ |
+ *   external? setterSignature ‘;’ |
+ *   functionSignature functionBody |
+ *   returnType? get identifier functionBody |
+ *   returnType? set identifier formalParameterList functionBody |
+ *   (final | const) type? staticFinalDeclarationList ‘;’ |
+ *   variableDeclaration ‘;’
  * ;
  * @description Checks that it is a compile-time error when a throw statement
  * is used in place of a top level definition in a script.

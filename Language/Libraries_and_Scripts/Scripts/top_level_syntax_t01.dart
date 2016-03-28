@@ -8,22 +8,20 @@
  * top-level function main().
  *
  * libraryDefinition:
- *   scriptTag? libraryName? libraryImport* partDirective* topLevelDefinition*
+ *   scriptTag? libraryName? importOrImport* partDirective* topLevelDefinition*
  * ;
  * topLevelDefinition:
- *     classDefinition
- *   | typeAlias
- *   | external? functionSignature
- *   | external? getterSignature
- *   | external? setterSignature
- *   | functionSignature functionBody
- *   | returnType? getOrSet identifier formalParameterList functionBody
- *   | (final | const) type? staticFinalDeclarationList ';'
- *   | variableDeclaration ';'
- * ;
- * getOrSet:
- *     get
- *   | set
+ *   classDefinition |
+ *   enumType |
+ *   typeAlias |
+ *   external? functionSignature ‘;’ |
+ *   external? getterSignature ‘;’ |
+ *   external? setterSignature ‘;’ |
+ *   functionSignature functionBody |
+ *   returnType? get identifier functionBody |
+ *   returnType? set identifier formalParameterList functionBody |
+ *   (final | const) type? staticFinalDeclarationList ‘;’ |
+ *   variableDeclaration ‘;’
  * ;
  * @description Checks that a script with valid top level definitions is parsed
  * without errors.
@@ -72,7 +70,7 @@ main() {
   g(1, 2);
   h('', "");
 
-  typeF funcF = ()=>1;
+  typeF funcF = () => 1;
   typeG funcG = () {};
   typeH funcH = (p1, p2) {};
 
