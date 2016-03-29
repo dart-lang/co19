@@ -54,4 +54,8 @@ main() {
 
   getX;
   setY = 1;
+
+  E.a;
+  E.b;
+  E.c;
 }
