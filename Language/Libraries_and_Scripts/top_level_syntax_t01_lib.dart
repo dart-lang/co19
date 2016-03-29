@@ -34,3 +34,5 @@ set setY(p) {}
 external double extF(int);
 external get extGet;
 external set extSet(int);
+
+enum E {a, b, c}
