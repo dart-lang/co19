@@ -18,7 +18,5 @@ import "invalid_uri_t03_lib.dart" deferred as p;
 main() {
   try {
     p.foo();
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
+  } catch (e) {}
 }
