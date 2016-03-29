@@ -7,8 +7,10 @@
  * @assertion It is a static warning if a function contains both one or more
  * return statements of the form return; and one or more return statements of
  * the form return e;.
+ *
  * @description Checks that it is not a warning if a function has explicit
  * and implicit return statements of different kind.
+ *
  * @note implicit returns do not count, see 14764
  * @static-clean
  * @author ilya

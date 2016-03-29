@@ -10,8 +10,10 @@
  *  • f is synchronous and the return type of f may not be assigned to void or,
  *  • f is asynchronous and the return type of f may not be assigned to
  *    Future<Null>.
+ *
  * @description Checks that a static warning occurs if a statement of the form
  * "return;" is used in a getter method whose declared return type is bool.
+ *
  * @static-warning
  * @author vasya
  * @reviewer rodionov

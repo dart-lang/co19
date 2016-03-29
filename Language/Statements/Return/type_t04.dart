@@ -15,21 +15,31 @@
  * assigned to the declared return type of the immediately enclosing function.
  *
  * @static-clean
- * @author rodionov
- * @reviewer iefremov
- */
-import '../../../Utils/dynamic_check.dart';
+ * @author a.semenov@unipro.ru
+  */
+import 'dart:async';
+import '../../../Utils/async_utils.dart';
 
 abstract class I {}
 class S implements I {}
 class C extends S {}
 
-S foo() {  return new C(); }
-I foo2() { return new C(); }
-C bar() {  return new S(); }
+Future<S> foo() async {  return new C(); }
+Future<I> foo2() async { return new C(); }
+Future<C> bar() async {  return new S(); }
+bar2() async { return new C(); }
 
 main() {
-  foo();
-  foo2();
-  checkTypeError(() => bar());
+  asyncStart();
+  Future.wait([foo(), foo2(), bar2()]).then(
+      (_) {
+        bar().then(
+          (_) {
+            asyncEnd();
+          }, onError: (e) {
+            asyncEnd();
+          }
+        );
+      }
+  );
 }

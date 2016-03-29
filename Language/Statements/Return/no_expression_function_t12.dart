@@ -11,22 +11,24 @@
  *  • f is asynchronous and the return type of f may not be assigned to
  *    Future<Null>.
  *
- * @description Checks that a static warning occurs if a statement of the form
- * "return;" is used in a static method whose declared return type may not be
- * assigned to void.
+ * @description Checks that there's no static warning when a statement of the
+ * form "return;" is used in a method that whose return type is void
  *
- * @static-warning
- * @author rodionov
- * @reviewer iefremov
+ * @static-clean
+ * @author a.semenov@unipro.ru
  */
 
+void bar() {
+  return;
+}
+
 class C {
-  C() { }
-  static C foo() {
-    return;  /// static type warning
-  }
+  static void sm() { return; }
+  void foo() { return; }
 }
 
 main() {
-  C.foo();
+  bar();
+  C.sm();
+  new C().foo();
 }

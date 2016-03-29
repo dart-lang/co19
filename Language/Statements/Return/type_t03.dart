@@ -11,21 +11,28 @@
  * Otherwise, it is a static type warning if T may not be assigned to the
  * declared return type of f.
  *
- * @description Checks that a static type warning occurs if the type of e may
- * not be assigned to the declared return type of the immediately enclosing
- * function.
+ * @description Checks that a static type warning occurs if the type
+ * Future<flatten(T)> may not be assigned to the declared return type of the
+ * immediately enclosing function, marked async.
  *
  * @static-warning
- * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
+ * @author a.semenov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
+import 'dart:async';
+import '../../../Utils/async_utils.dart';
 
-int foo() {
-  return "0";  /// static type warning
+Future<int> foo() async {
+  return 'a';  /// static type warning
 }
 
 main() {
-  checkTypeError(() => foo());
+  asyncStart();
+  foo().then(
+      (_) {
+        asyncEnd();
+      },
+      onError: (e) {
+        asyncEnd();
+      }
+  );
 }

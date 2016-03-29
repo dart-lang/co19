@@ -10,9 +10,11 @@
  *  • f is synchronous and the return type of f may not be assigned to void or,
  *  • f is asynchronous and the return type of f may not be assigned to
  *    Future<Null>.
+ *
  * @description Checks that a static warning occurs if a statement of the form
  * "return;" is used in an instance method whose declared return type may not be
  * assigned to void.
+ *
  * @static-warning
  * @author rodionov
  * @reviewer iefremov

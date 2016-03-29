@@ -12,21 +12,18 @@
  *    Future<Null>.
  *
  * @description Checks that a static warning occurs if a statement of the form
- * "return;" is used in a static method whose declared return type may not be
- * assigned to void.
+ * "return;" is used in a top-level asynchronous function whose declared return
+ * type is Future<int>.
  *
  * @static-warning
- * @author rodionov
- * @reviewer iefremov
+ * @author a.semenov@unipro.ru
  */
+import 'dart:async';
 
-class C {
-  C() { }
-  static C foo() {
-    return;  /// static type warning
-  }
+Future<int> bar() {
+  return; /// static type warning
 }
 
 main() {
-  C.foo();
+  bar();
 }

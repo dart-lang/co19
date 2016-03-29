@@ -12,9 +12,11 @@
  *   statement, if any. If c is defined, let h be the handler induced by c. If
  *   h is defined, control is transferred to h.
  * • Otherwise execution of the current method terminates.
+ *
  * @description Checks that the return statement returns a value received after
  * evaluating the return expression and if this evaluation results in a runtime
  * exception the control is transferred to the appropriate handler.
+ *
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
