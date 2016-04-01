@@ -11,8 +11,10 @@
  * return null; if it occurs inside a method, getter, setter or factory;
  * otherwise, the return statement necessarily occurs inside a generative
  * constructor, in which case it is executed by executing return this;
+ *
  * @description Checks that a return statement of the form "return;" in a
  * generative constructor is executed by executing "return this;".
+ *
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov

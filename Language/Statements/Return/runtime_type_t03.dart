@@ -7,18 +7,18 @@
  * @assertion Let S be the runtime type of o. In checked mode:
  *    • If the body of f is marked async it is a dynamic type error if o is not
  * null and Future<S> is not a subtype of the actual return type of f.
- *    • Otherwise, it is a dynamic type error if o is not null and the runtime
- * type of o is not a subtype of the actual return type of f.
+ *    • Otherwise, it is a dynamic type error if o is not null and the runtime type
+ * of o is not a subtype of the actual return type of f.
  *
- * @description Checks that it's not an error in any mode if o is null.
+ * @description Checks that it's not an error in any mode if S is subtype of
+ * the actual return type of f.
  *
- * @author kaigorodov
- * @reviewer rodionov
- */
+ * @author a.semenov@unipro.tu
+  */
 
-var r = null;
+var r = 3.14;
 
-int foo() {  return r; }
+num foo() {  return r; }
 
 main() {
   foo();
