@@ -8,8 +8,8 @@
  * mode and checked mode. Those dynamic checks specified as occurring
  * specifically in checked mode must be performed iff the code is executed in
  * checked mode.
- * In checked mode, it is a dynamic type error if a malformed or malbounded
- * type is used in a subtype test.
+ * In checked mode, it is a dynamic type error if a deferred, malformed or
+ * malbounded type is used in a subtype test.
  * @description Checks that a dynamic type error occurs in checked mode when
  * malbounded type is used in a subtype test.
  * @static-warning
@@ -22,7 +22,7 @@ class C <T extends int> {}
 
 main() {
   checkTypeError(() {
-    int is C<double>;
+    int is C<double>;   /// static type warning
   });
 }
 

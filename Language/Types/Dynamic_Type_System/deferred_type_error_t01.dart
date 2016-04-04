@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,18 +10,22 @@
  * checked mode.
  * In checked mode, it is a dynamic type error if a deferred, malformed or
  * malbounded type is used in a subtype test.
- * @description Checks that a dynamic type error occurs in checked mode when
- * a variable is being assigned an expression of incompatible type (failed
- * implicit subtype test).
- * @author rodionov
- * @reviewer iefremov
+ * @description Checks that a dynamic type error occurs (in checked mode and in
+ * product mode) when deferred type is used in a subtype test (explicit and
+ * implicit).
+ * @static-warning
+ * @author ngl@unipro.ru
  */
 
-import "../../../Utils/dynamic_check.dart";
+import "../somelib1.dart" deferred as p;
+
+class A {}
 
 main() {
-  var i = 1;
-  checkTypeError( () {
-    String v = i;
-  });
+  try {
+    A is p.C;     /// static type warning
+  } on TypeError catch (e) {}
+  try {
+  A a = new p.C();      /// static type warning
+  } on TypeError catch (e) {}
 }
