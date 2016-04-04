@@ -4,7 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Static type annotation grammar:
+ * @assertion Static type annotations are used in variable declarations
+ * (including formal parameters), in the return types of functions and in the
+ * bounds of type variables. Static type annotations are used during static
+ * checking and when running programs in checked mode. They have no effect
+ * whatsoever in production mode.
  * type:
  *   typeName typeArguments?
  * ;
@@ -17,7 +21,8 @@
  * typeList:
  *   type (',' type)*
  * ;
- * @description Checks that a generic type can not be parameterized with non-type (using null).
+ * @description Checks that a generic type can not be parameterized with
+ * non-type (using null).
  * @compile-error
  * @author iefremov
  * @reviewer rodionov
@@ -30,5 +35,5 @@ class G<T> {
 main() {
   try {
     G<null> t;
-  } catch(x){}
+  } catch (x) {}
 }

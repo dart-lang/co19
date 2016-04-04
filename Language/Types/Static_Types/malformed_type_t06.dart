@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,17 +14,14 @@
  * Any use of a malformed type gives rise to a static warning. A malformed type
  * is then interpreted as dynamic by the static type checker and the runtime
  * unless explicitly specified otherwise.
- * @description Checks that it is a static warning if a type variable is used
- * in static context as a type of static member.
+ * @description Checks that it is a static warning if a type is a parameterized
+ * type of the form C<int, String>, and C is malformed.
  * @static-warning
- * @author kaigorodov
+ * @author ngl@unipro.ru
  */
 
-
-class C<T> {
-   static T v = null;   /// static type warning
-}
+var C = null;
 
 main() {
-  C.v;
+  C<int, String> c;  /// static type warning
 }

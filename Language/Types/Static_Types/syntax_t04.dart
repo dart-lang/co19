@@ -4,7 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Static type annotation grammar:
+ * @assertion Static type annotations are used in variable declarations
+ * (including formal parameters), in the return types of functions and in the
+ * bounds of type variables. Static type annotations are used during static
+ * checking and when running programs in checked mode. They have no effect
+ * whatsoever in production mode.
  * type:
  *   typeName typeArguments?
  * ;
@@ -19,9 +23,9 @@
  * ;
  * @description Checks that it is a compile-time error when the list of type
  * arguments in a static type annotation is empty.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
  */
 
 class Generic<T> {
@@ -31,5 +35,5 @@ class Generic<T> {
 main() {
   try {
     Generic <> t;
-  } catch(x){}
+  } catch (x) {}
 }

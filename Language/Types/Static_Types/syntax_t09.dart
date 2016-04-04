@@ -4,7 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Static type annotation grammar:
+ * @assertion Static type annotations are used in variable declarations
+ * (including formal parameters), in the return types of functions and in the
+ * bounds of type variables. Static type annotations are used during static
+ * checking and when running programs in checked mode. They have no effect
+ * whatsoever in production mode.
  * type:
  *   typeName typeArguments?
  * ;
@@ -17,7 +21,8 @@
  * typeList:
  *   type (',' type)*
  * ;
- * @description Checks that using fully qualified type name allows to import it from some library.
+ * @description Checks that using fully qualified type name allows to import it
+ * from some library.
  * @author iefremov
  * @reviewer rodionov
  */
