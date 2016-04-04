@@ -8,9 +8,9 @@
  * the signature of function type alias.
  * @description Checks that a compile error is produced when default values are
  * specified for several parameters in a function type alias.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
  */
 import '../../../../Utils/expect.dart';
 
@@ -18,6 +18,6 @@ typedef F(var a, var b = "", var c = main, var z = null);
 
 main() {
   try {
-    Expect.isFalse(_(){} is F);
+    Expect.isFalse(() {} is F);
   } catch (x) {}
 }

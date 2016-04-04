@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Typedef grammar:
+ * @assertion A type alias declares a name for a type expression.
+ * typeAlias:
+ *   metadata typedef typeAliasBody
+ * ;
+ * typeAliasBody:
+ *   functionTypeAlias
+ * ;
  * functionTypeAlias:
- *   metadata typedef functionPrefix typeParameters? formalParameterList ’;’
+ *   functionPrefix typeParameters? formalParameterList ’;’
  * ;
  * functionPrefix:
  *   returnType? identifier

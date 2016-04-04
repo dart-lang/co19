@@ -1,0 +1,162 @@
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t01.dart': error: line 17 pos 17: parameter must not specify a default value
+typedef F(var a = null);
+                ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t01.dart': error: line 17 pos 17: parameter must not specify a default value
+typedef F(var a = null);
+                ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t02.dart': error: line 17 pos 18: parameter must not specify a default value
+typedef F([var a = null]);
+                 ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t02.dart': error: line 17 pos 18: parameter must not specify a default value
+typedef F([var a = null]);
+                 ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t03.dart': error: line 17 pos 17: parameter must not specify a default value
+typedef F({var a: null});
+                ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t03.dart': error: line 17 pos 17: parameter must not specify a default value
+typedef F({var a: null});
+                ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t04.dart': error: line 17 pos 38: parameter must not specify a default value
+typedef F(var a, var b, var c, var z = null);
+                                     ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t04.dart': error: line 17 pos 38: parameter must not specify a default value
+typedef F(var a, var b, var c, var z = null);
+                                     ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t05.dart': error: line 17 pos 24: parameter must not specify a default value
+typedef F(var a, var b = "", var c = main, var z = null);
+                       ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/param_default_value_t05.dart': error: line 17 pos 24: parameter must not specify a default value
+typedef F(var a, var b = "", var c = main, var z = null);
+                       ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t01.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F F();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t01.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F F();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t02.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F(F x);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t02.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F(F x);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t03.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F([F x]);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t03.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F([F x]);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t04.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F({F x});
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t04.dart': error: line 16 pos 1: typedef 'F' illegally refers to itself
+typedef F({F x});
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t08.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F<T extends F>();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t08.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F<T extends F>();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t09.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F<T extends List<F>>();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t09.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F<T extends List<F>>();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t10.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F(List<F> x);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t10.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F(List<F> x);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t11.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef List<F> F();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t11.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef List<F> F();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t13.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F<T> F<T>();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t13.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F<T> F<T>();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t14.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F(G x);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t14.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef F(G x);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t15.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef G F();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t15.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef G F();
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t16.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef void F(G g);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t16.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef void F(G g);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t17.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef void F(G g);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/self_reference_t17.dart': error: line 15 pos 1: typedef 'F' illegally refers to itself
+typedef void F(G g);
+^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t02.dart': error: line 26 pos 9: type name expected
+typedef <T>();
+        ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t02.dart': error: line 26 pos 9: type name expected
+typedef <T>();
+        ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t03.dart': error: line 28 pos 20: semicolon expected
+typedef void F<T>()
+                   ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t03.dart': error: line 28 pos 20: semicolon expected
+typedef void F<T>()
+                   ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t04.dart': error: line 28 pos 15: formal parameter list expected
+typedef void F;
+              ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t04.dart': error: line 28 pos 15: formal parameter list expected
+typedef void F;
+              ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t05.dart': error: line 28 pos 12: semicolon expected
+typedef F() {};
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t05.dart': error: line 28 pos 12: semicolon expected
+typedef F() {};
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t06.dart': error: line 28 pos 13: right angle bracket expected
+typedef F<T1; T2>();
+            ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t06.dart': error: line 28 pos 13: right angle bracket expected
+typedef F<T1; T2>();
+            ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t07.dart': error: line 28 pos 12: function alias name expected
+typedef F<T>>();
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t07.dart': error: line 28 pos 12: function alias name expected
+typedef F<T>>();
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t08.dart': error: line 28 pos 12: formal parameter list expected
+typedef A B;
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t08.dart': error: line 28 pos 12: formal parameter list expected
+typedef A B;
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t09.dart': error: line 29 pos 12: formal parameter list expected
+typedef A B;
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t09.dart': error: line 29 pos 12: formal parameter list expected
+typedef A B;
+           ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t10.dart': error: line 28 pos 20: formal parameter list expected
+typedef int integer;
+                   ^
+'file:///home/ngl/dart_wd/dtests/co19/Language/Types/Type_Declarations/Typedef/syntax_t10.dart': error: line 28 pos 20: formal parameter list expected
+typedef int integer;
+                   ^

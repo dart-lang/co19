@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a type annotation is omitted on a formal parameter in typedef
- * declaration, it is taken to be dynamic.
+ * @assertion Likewise, if a type annotation is omitted on a formal parameter
+ * in typedef declaration, it is taken to be dynamic.
  * @description Checks that function types with various types of formal
  * optional parameter and named parameter are subtypes of given type t1 whose
  * declaration omits parameter types, therefore the type of formal parameter
@@ -23,13 +23,13 @@ typedef Func();
 typedef int Func2(int x);
 
 main() {
-  Expect.isTrue(([int x]){} is F1);
-  Expect.isTrue(([Object x]){} is F1);
-  Expect.isTrue(([Func x]){} is F1);
-  Expect.isTrue(([Func2 x]){} is F1);
+  Expect.isTrue(([int x]) {} is F1);
+  Expect.isTrue(([Object x]) {} is F1);
+  Expect.isTrue(([Func x]) {} is F1);
+  Expect.isTrue(([Func2 x]) {} is F1);
 
-  Expect.isTrue(({int x}){} is F2);
-  Expect.isTrue(({Object x}){} is F2);
-  Expect.isTrue(({Func x}){} is F2);
-  Expect.isTrue(({Func2 x}){} is F2);
+  Expect.isTrue(({int x}) {} is F2);
+  Expect.isTrue(({Object x}) {} is F2);
+  Expect.isTrue(({Func x}) {} is F2);
+  Expect.isTrue(({Func2 x}) {} is F2);
 }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If no return type is specified in typedef declaration, it is
- * taken to be dynamic.
+ * @assertion In either case, iff no return type is specified, it is taken to
+ * be dynamic.
  * @description checks that function types with various return types
  * are all subtypes of given type t1 that declares no return type, therefore
  * the return type of t1 should be dynamic.

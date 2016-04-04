@@ -4,16 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Typedef grammar:
+ * @assertion A type alias declares a name for a type expression.
+ * typeAlias:
+ *   metadata typedef typeAliasBody
+ * ;
+ * typeAliasBody:
+ *   functionTypeAlias
+ * ;
  * functionTypeAlias:
- *   metadata typedef functionPrefix typeParameters? formalParameterList ’;’
+ *   functionPrefix typeParameters? formalParameterList ’;’
  * ;
  * functionPrefix:
  *   returnType? identifier
  * ;
  * @description Checks that it is a compile-time error if the terminating
- * semicolon is missing
- * from a type alias declaration.
+ * from a type alias declaration from a type alias declaration.
  * @compile-error
  * @author iefremov
  * @reviewer rodionov

@@ -4,12 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Type aliases are restricted to function types.
+ * @assertion A type alias declares a name for a type expression.
+ * typeAlias:
+ *   metadata typedef typeAliasBody
+ * ;
+ * typeAliasBody:
+ *   functionTypeAlias
+ * ;
+ * functionTypeAlias:
+ *   functionPrefix typeParameters? formalParameterList ’;’
+ * ;
+ * functionPrefix:
+ *   returnType? identifier
+ * ;
  * @description Checks that it is impossible to introduce alias for a class
  * type (C style).
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
- * @compile-error
  */
 
 class A {}
