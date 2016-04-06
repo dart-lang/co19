@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The supertypes of an interface are its direct supertypes and their supertypes.
- * @description Trivially checks that an interface extending some other interface extends its superinterfaces as well.
+ * @assertion S is a supertype of T , written S :> T , iff T is a subtype of S.
+ * @description Trivially checks that an interface extending some other
+ * interface extends its superinterfaces as well.
  * @author iefremov
  * @reviewer rodionov
  */

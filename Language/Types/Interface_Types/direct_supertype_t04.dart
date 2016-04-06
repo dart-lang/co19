@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,19 +11,16 @@
  * • If I is listed in the implements clause of J
  * • If I is listed in the with clause of J
  * • If J is a mixin application of the mixin of I.
- * @description Checks that a type listed in the implements clause of another
- * class is its supertype.
- * @author iefremov
- * @reviewer rodionov
- * @needsreview It's currently impossible to check whether a type is a direct
- * supertype of another without some sort of reflection framework.
+ * @description Checks that a type listed in the with clause of another class
+ * is its supertype.
+ * @author ngl@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class I {}
-
-class J implements I {}
+class M {}
+class J extends I with M {}
 
 main() {
-  Expect.isTrue(new J() is I);
+  Expect.isTrue(new J() is M);
 }
