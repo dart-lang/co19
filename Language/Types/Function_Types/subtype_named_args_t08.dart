@@ -4,15 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, {Tx1 x1, ..., Txk xk}) -> T is a subtype of the function
- * type (S1, ..., Sn, {Sy1 y1, ..., Sym ym }) -> S, if all of the following conditions are met:
- * 1. Either S is void, or T <=> S.
- * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and yi belongs to {x1, ..., xk} for each i in 1..m.
- * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
- * @description Checks that function type t1 is still a subtype of function type t2 if their named
- * named optional parameters have identical names and mutually assignale types, regardless of the order
- * they're declared in.
+ * @assertion The function type (T1, ... Tn, {Tx1 x1, ..., Txk xk}) -> T is a
+ * subtype of the function type (S1, ..., Sn, {Sy1 y1, ..., Sym ym }) -> S, if
+ * all of the following conditions are met:
+ * 1. Either
+ *    • S is void, Or
+ *    • T ⇐⇒ S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
+ * 3. k ≥ m and yi ∈ {x1 , ..., xk }, i ∈ 1..m.
+ * 4. For all yi ∈ {y1 , ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+ * @description Checks that function type t1 is still a subtype of function type
+ * t2 if their named optional parameters have identical names and mutually
+ * assignale types, regardless of the order they're declared in.
  * @author rodionov
  * @reviewer kaigorodov
  */

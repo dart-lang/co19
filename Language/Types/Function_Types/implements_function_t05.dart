@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function is always an instance of some class that implements the class Function.
- * All function types are subtypes of Function.
- * @description Checks that various functions are also Objects, courtesy of the transitive << relation
- * that subtype relation is based on.
+ * @assertion A function is always an instance of some class that implements the
+ * class Function and implements a call method with the same signature as the
+ * function. All function types are subtypes of Function.
+ * @description Checks that various functions are also Objects, courtesy of the
+ * transitive << relation that subtype relation is based on.
  * @author iefremov
  * @reviewer rodionov
  */
@@ -33,7 +34,8 @@ main() {
 
   Expect.isTrue(() {} is Object);
   Expect.isTrue((var x) {} is Object);
-  Expect.isTrue(((var x, int z, [Object o, var v = 1]) => x + z + o + v) is Object);
+  Expect.isTrue(
+      ((var x, int z, [Object o, var v = 1]) => x + z + o + v) is Object);
 
   Expect.isTrue(lf1 is Object);
   Expect.isTrue(lf2 is Object);

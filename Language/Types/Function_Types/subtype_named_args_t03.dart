@@ -4,14 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, {Tx1 x1, ..., Txk xk}) -> T is a subtype of the function
- * type (S1, ..., Sn, {Sy1 y1, ..., Sym ym }) -> S, if all of the following conditions are met:
- * 1. Either S is void, or T <=> S.
- * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and yi belongs to {x1, ..., xk} for each i in 1..m.
- * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
- * @description Checks that this statement is true even if the subtype function type has more named optional
- * parameters than the supertype as long it's a superset of the supertype's named optional parameters.
+ * @assertion The function type (T1, ... Tn, {Tx1 x1, ..., Txk xk}) -> T is a
+ * subtype of the function type (S1, ..., Sn, {Sy1 y1, ..., Sym ym }) -> S, if
+ * all of the following conditions are met:
+ * 1. Either
+ *    • S is void, Or
+ *    • T ⇐⇒ S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
+ * 3. k ≥ m and yi ∈ {x1 , ..., xk }, i ∈ 1..m.
+ * 4. For all yi ∈ {y1 , ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+ * @description Checks that this statement is true even if the subtype function
+ * type has more named optional parameters than the supertype as long it's a
+ * superset of the supertype's named optional parameters.
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -45,7 +49,7 @@ main() {
   Expect.isTrue(({A x, G y, mixFunc z, List<Map<int, mixFunc>> xxx, Object xx,
                   var v, mixFunc xxxx}) {} is dynamicFunc);
 
-  Expect.isTrue(({okWithClassesFunc f1, mixFunc xx, 
+  Expect.isTrue(({okWithClassesFunc f1, mixFunc xx,
                   okWithDynamicFunc f3, okWithGenericsFunc f2}) {} is funcFunc);
 
 }

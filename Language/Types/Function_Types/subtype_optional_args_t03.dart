@@ -4,13 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ..., Tk, [Tk+1, ..., Tn+k]) -> T is a subtype of the function
- * type (S1, ..., Sk+j, [Sk+j+1, ..., Sn] -> S, if all of the following conditions are met:
- * 1. Either S is void or T is assignable to S.
- * 2. Ti <=> Si for i in 1 to n.
- * @description Checks that this statement is true even if the subtype function type has more positional optional
- * parameters than the supertype as long as the supertype's positional optional parameters match the beginning
- * of the list of subtype's positional optional parameters.
+ * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+ * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+ * conditions are met:
+ * 1. Either
+ *    • S is void, or
+ *    • T <=> S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+ * @description Checks that this statement is true even if the subtype function
+ * type has more positional optional parameters than the supertype as long as the
+ * supertype's positional optional parameters match the beginning of the list of
+ * subtype's positional optional parameters.
  * @author iefremov
  * @reviewer rodionov
  * @reviewer iefremov
@@ -35,8 +39,10 @@ typedef mixFunc([var x, B b, G<A, B, C, D> g, funcFunc f]);
 typedef okWithClassesFunc_1(A aa, [A a, A1 b, A1 c, A1 d]);
 typedef okWithClassesFunc_2(A aa, [D a, D b, D c, D d]);
 
-typedef okWithGenericsFunc_1([Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g]);
-typedef okWithGenericsFunc_2([Map<int, int> m, List<List<D>> l, G<D, D, D, D> g]);
+typedef okWithGenericsFunc_1(
+    [Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g]);
+typedef okWithGenericsFunc_2(
+    [Map<int, int> m, List<List<D>> l, G<D, D, D, D> g]);
 
 typedef okWithDynamicFunc_1([A x, G y, mixFunc z, var v]);
 typedef okWithDynamicFunc_2([int x, bool y, List<Map> z, classesFunc v]);

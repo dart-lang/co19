@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,13 +9,15 @@
  * F. It is a static warning if a concrete class implements Function and does
  * not have a concrete method named call unless that class has an implementation
  * of noSuchMethod() distinct from the one declared in class Object.
- * @description Checks that it is a static warning if concrete class implements
- * Function and has no method named call.
- * @static-warning
- * @author ilya
+ * @description Checks that it is not a static warning if concrete class
+ * implements Function, does not have a concrete method named call and has an
+ * implementation of noSuchMethod.
+ * @author ngl@unipro.ru
  */
 
-class C implements Function {}    /// static type warning
+class C implements Function {
+  noSuchMethod(Invocation i) {}
+}
 
 main() {
   new C();

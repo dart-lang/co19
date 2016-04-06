@@ -4,13 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ..., Tk, [Tk+1, ..., Tn+k]) -> T is a subtype of the function
- * type (S1, ..., Sk+j, [Sk+j+1, ..., Sn] -> S, if all of the following conditions are met:
- * 1. Either S is void or T is assignable to S.
- * 2. Ti <=> Si for i in 1 to n.
- * @description Checks that function type t1 is not a subtype of function type t2 if the declared type
- * of an positional optional parameter of t1 is not assignable to a corresponding parameter of t2 
- * (both t1 and t2 have a single positional optional parameter).
+ * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+ * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+ * conditions are met:
+ * 1. Either
+ *    • S is void, or
+ *    • T <=> S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+ * @description Checks that function type t1 is not a subtype of function type
+ * t2 if the declared type of an positional optional parameter of t1 is not
+ * assignable to a corresponding parameter of t2 (both t1 and t2 have a single
+ * positional optional parameter).
  * @author iefremov
  * @reviewer rodionov
  */
@@ -30,20 +34,20 @@ main() {
   Expect.isFalse(([A p]) {} is t1);
   Expect.isFalse(([List<int> p]) {} is t1);
   Expect.isFalse(([t3 p]) {} is t1);
-                   
+
   Expect.isFalse(([double p]) {} is t3);
   Expect.isFalse(([bool p]) {} is t3);
   Expect.isFalse(([List<int> p]) {} is t3);
   Expect.isFalse(([t3 p]) {} is t3);
   Expect.isFalse(([B p]) {} is t3);
-                   
+
   Expect.isFalse(([double p]) {} is t4);
   Expect.isFalse(([bool p]) {} is t4);
   Expect.isFalse(([A p]) {} is t4);
   Expect.isFalse(([List<int> p]) {} is t4);
   Expect.isFalse(([List<B> p]) {} is t4);
   Expect.isFalse(([t3 p]) {} is t4);
-                   
+
   Expect.isFalse(([double p]) {} is t5);
   Expect.isFalse(([bool p]) {} is t5);
   Expect.isFalse(([A p]) {} is t5);

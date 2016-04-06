@@ -4,14 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ... Tn, {Tx1 x1, ..., Txk xk}) -> T is a subtype of the function
- * type (S1, ..., Sn, {Sy1 y1, ..., Sym ym }) -> S, if all of the following conditions are met:
- * 1. Either S is void, or T <=> S.
- * 2. For all i 1 <= i <= n, Ti <=> Si.
- * 3. k >= m and yi belongs to {x1, ..., xk} for each i in 1..m.
- * 4. For all y in {y1, ..., ym}, yi = xj  =>  Tj <=> Si
- * @description Checks that function type t1 is not a subtype of function type t2 if the type of a single
- * named optional parameter of t1 is not assignable to the type of t2's single named optional parameter.
+ * @assertion The function type (T1, ... Tn, {Tx1 x1, ..., Txk xk}) -> T is a
+ * subtype of the function type (S1, ..., Sn, {Sy1 y1, ..., Sym ym }) -> S, if
+ * all of the following conditions are met:
+ * 1. Either
+ *    • S is void, Or
+ *    • T ⇐⇒ S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
+ * 3. k ≥ m and yi ∈ {x1 , ..., xk }, i ∈ 1..m.
+ * 4. For all yi ∈ {y1 , ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+ * @description Checks that function type t1 is not a subtype of function type
+ * t2 if the type of a single named optional parameter of t1 is not assignable
+ * to the type of t2's single named optional parameter.
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -31,20 +35,20 @@ main() {
   Expect.isFalse(({A p}) {} is t1);
   Expect.isFalse(({List<int> p}) {} is t1);
   Expect.isFalse(({t2 p}) {} is t1);
-                   
+
   Expect.isFalse(({double p}) {} is t2);
   Expect.isFalse(({bool p}) {} is t2);
   Expect.isFalse(({List<int> p}) {} is t2);
   Expect.isFalse(({t2 p}) {} is t2);
   Expect.isFalse(({B p}) {} is t2);
-                   
+
   Expect.isFalse(({double p}) {} is t3);
   Expect.isFalse(({bool p}) {} is t3);
   Expect.isFalse(({A p}) {} is t3);
   Expect.isFalse(({List<int> p}) {} is t3);
   Expect.isFalse(({List<B> p}) {} is t3);
   Expect.isFalse(({t2 p}) {} is t3);
-                   
+
   Expect.isFalse(({double p}) {} is t4);
   Expect.isFalse(({bool p}) {} is t4);
   Expect.isFalse(({A p}) {} is t4);

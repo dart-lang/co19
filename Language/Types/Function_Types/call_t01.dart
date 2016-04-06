@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a type I includes a method named call, and the type of call
- * is the function type F, then I is considered to be a subtype of F.
- * @description Checks that declaring a method named call with a function type F makes the
- * declaring type a subtype of F.
+ * @assertion If a type I includes an instance method named call, and the type
+ * of call is the function type F, then I is considered to be more specific than
+ * F. It is a static warning if a concrete class implements Function and does
+ * not have a concrete method named call unless that class has an implementation
+ * of noSuchMethod() distinct from the one declared in class Object.
+ * @description Checks that declaring a method named call with a function type F
+ * makes the declaring type a subtype of F.
  * @author msyabro
  * @reviewer rodionov
  */

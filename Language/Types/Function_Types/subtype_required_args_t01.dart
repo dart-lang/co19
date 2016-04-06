@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of the function
- * type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following conditions are met:
- * 1. Either S is void, or T <=> S.
- * 2. For all i 1 <= i <= n, Ti <=> Si.
- * @description Checks that this statement is true for function types with a single formal parameter
- * (class, generic, function, Dynamic).
+ * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+ * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+ * conditions are met:
+ * 1. Either
+ *    • S is void, or
+ *    • T <=> S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+ * @description Checks that this statement is true for function types with a
+ * single formal parameter (class, generic, function, Dynamic).
  * @author iefremov
  * @reviewer rodionov
  */
@@ -69,7 +72,7 @@ f42(t7 a) {}
 
 f50(Map m) {}
 f51(Map<List, t8> m) {}
-f52(Object m) {}  
+f52(Object m) {}
 f53(var m) {}
 f54(Map<List, List> m) {}
 f55(Map<int, t8> m) {}
@@ -77,7 +80,7 @@ f55(Map<int, t8> m) {}
 f61(Map<num, num> m) {}
 f62(Map<int, int> m) {}
 f63(Map m) {}
-f64(Object m) {} 
+f64(Object m) {}
 f65(var m) {}
 
 f71(okWithF1_1 g) {}
@@ -130,7 +133,7 @@ main() {
   Expect.isTrue(f40 is t4);
   Expect.isTrue(f41 is t4);
   Expect.isTrue(f42 is t4);
-  
+
   Expect.isTrue(f50 is t5);
   Expect.isTrue(f51 is t5);
   Expect.isTrue(f52 is t5);
@@ -159,5 +162,5 @@ main() {
   Expect.isTrue(f88 is t8);
   Expect.isTrue(f89 is t8);
   Expect.isTrue(f90 is t8);
-  Expect.isTrue(f91 is t8); 
+  Expect.isTrue(f91 is t8);
 }

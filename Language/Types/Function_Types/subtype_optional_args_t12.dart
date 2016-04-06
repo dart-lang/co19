@@ -4,15 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The function type (T1, ..., Tk, [Tk+1, ..., Tn+k]) -> T is a subtype of the function
- * type (S1, ..., Sk+j, [Sk+j+1, ..., Sn] -> S, if all of the following conditions are met:
- * 1. Either S is void or T is assignable to S.
- * 2. Ti <=> Si for i in 1 to n.
- * @description Assertion means that as long function type t1 has no more required parameters and
- * no less total positional parameters than function type t2, types of extra positional parameters
- * of t1 do not matter for subtype relation. Under this condition, checks that t1 is subtype of t2
- * if their parameter types are assignable on t2 parameters set range, and t1 has extra optional
- * positional parameters of some arbitary type.
+ * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+ * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+ * conditions are met:
+ * 1. Either
+ *    • S is void, or
+ *    • T <=> S.
+ * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+ * @description Assertion means that as long function type t1 has no more
+ * required parameters and no less total positional parameters than function
+ * type t2, types of extra positional parameters of t1 do not matter for subtype
+ * relation. Under this condition, checks that t1 is subtype of t2 if their
+ * parameter types are assignable on t2 parameters set range, and t1 has extra
+ * optional positional parameters of some arbitary type.
  * @author ilya
  */
 import "../../../Utils/expect.dart";

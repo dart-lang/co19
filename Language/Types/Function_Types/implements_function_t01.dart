@@ -4,9 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A function is always an instance of some class that implements the class Function.
- * All function types are subtypes of Function.
- * @description Checks that the types of various top-level functions are a subtype of Function.
+ * @assertion A function is always an instance of some class that implements the
+ * class Function and implements a call method with the same signature as the
+ * function. All function types are subtypes of Function.
+ * @description Checks that the types of various top-level functions are a
+ * subtype of Function.
  * @author iefremov
  * @reviewer rodionov
  */
