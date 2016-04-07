@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The special type void may only be used as the return type of a function:
- * it is a compile-time error to use void in any other context (for example,
- * as a type argument, or as the type of a variable or parameter).
- * @description Checks that using void as a declaration name is also a compile-time error.
- * @author rodionov
+ * @assertion The special type void may only be used as the return type of a
+ * function: it is a compile-time error to use void in any other context.
+ * For example, as a type argument, or as the type of a variable or parameter.
+ * @description Checks that using void as a declaration name is also a c
+ * ompile-time error.
  * @compile-error
+ * @author rodionov
  * @reviewer kaigorodov
  */
 

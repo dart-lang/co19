@@ -4,10 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing the result of a void method as a parameter or assigning it to a 
- * variable will cause a warning unless the variable/formal parameter has type dynamic.
- * @description Checks that assigning the result of a void method invocation to a variable
- * whose declared type is dynamic does not cause any warnings or errors.
+ * @assertion Hence, the static checker will issue warnings if one attempts to
+ * access a member of the result of a void method invocation (even for members
+ * of null, such as ==). Likewise, passing the result of a void method as a
+ * parameter or assigning it to a variable will cause a warning unless the
+ * variable/formal parameter has type dynamic.
+ * @description Checks that assigning the result of a void method invocation to
+ * a variable whose declared type is dynamic does not cause any warnings or
+ * errors.
  * @static-clean
  * @author rodionov
  * @reviewer iefremov

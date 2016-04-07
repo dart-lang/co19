@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The static checker will issue warnings if one attempts to access a member 
- * of the result of a void method invocation (even for members of null, such as ==).
- * @description Checks that using the result of a void method invocation in an expression
- * results in a static warning.
+ * @assertion Hence, the static checker will issue warnings if one attempts to
+ * access a member of the result of a void method invocation (even for members
+ * of null, such as ==). Likewise, passing the result of a void method as a
+ * parameter or assigning it to a variable will cause a warning unless the
+ * variable/formal parameter has type dynamic.
+ * @description Checks that using the result of a void method invocation in an
+ * expression results in a static warning.
  * @static-warning
  * @author rodionov
  * @reviewer iefremov
@@ -18,5 +21,5 @@
 void foo() {return;}
 
 main() {
-  bool b = (foo() == 1); /// static type warning 
+  bool b = (foo() == 1); /// static type warning
 }
