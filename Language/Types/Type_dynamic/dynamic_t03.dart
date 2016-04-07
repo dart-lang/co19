@@ -8,8 +8,9 @@
  * with every possible combination of named parameters. These methods all have
  * dynamic as their return type, and their formal parameters all have type
  * dynamic.
- * @description Checks that invoking all sorts of methods on a dynamic variable with all sorts of arguments 
- * and assigning the results to local variables of various types does not produce any static type warnings.
+ * @description Checks that invoking all sorts of methods on a dynamic variable
+ * with all sorts of arguments and assigning the results to local variables of
+ * various types does not produce any static type warnings.
  * @static-clean
  * @author iefremov
  * @reviewer rodionov
@@ -24,20 +25,20 @@ main() {
   try {
     String y = x.wakeUp(new DateTime(1, 1, 1, 1, 1, 1, 1));
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
-  
+  } on NoSuchMethodError catch (ok) {}
+
   try {
     int i = x.writeConformanceTest(13.6, "Type_Dynamic_A03_t01");
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
-  
+  } on NoSuchMethodError catch (ok) {}
+
   try {
     func f = x.eatPatty();
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
-  
+  } on NoSuchMethodError catch (ok) {}
+
   try {
     func2 f2 = x.goSleep(new Duration(), true, secretFlag: true);
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }
