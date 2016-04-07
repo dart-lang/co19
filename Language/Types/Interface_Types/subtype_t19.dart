@@ -41,7 +41,7 @@ class C implements K {}
 // supposedly, f_1 <=> f and f_2 <=> f (see Types/Function Types)
 typedef J f(I<J, List<Map>, num> i, [List j]);
 typedef K f_1(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
-typedef I f_2(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
+typedef C f_2(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
 
 class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   Checker_I() {}
