@@ -27,7 +27,6 @@
  * @description Check that the immediately enclosing function m may suspend
  * to give an opportunity for synchronous consumers to drain the stream.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

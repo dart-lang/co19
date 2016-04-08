@@ -10,6 +10,7 @@
  * @description Check that it is compile error if yield-each statement appears
  * inside static synchronous method.
  *
+ * @issue #25495
  * @compile-error
  * @author a.semenov@unipro.ru
  */

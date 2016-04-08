@@ -25,6 +25,7 @@
  * exception ex, execution of s throws ex.
  *
  * @issue #25662
+ * @issue #25634
  * @author a.semenov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -58,7 +59,7 @@ Iterable generator(Iterable iterable) sync* {
 
 main() {
   IterableStub its = new IterableStub();
-  Expect.isTrue(generator(its).isEmpty);
+  Expect.isTrue(generator(its).first);
   Expect.isTrue(actualException is TestException);
 }
 
