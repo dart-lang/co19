@@ -12,7 +12,7 @@
  * @author ilya
  */
 
-typedef T<T>(F<T> x);
+typedef F<T>(F<T> x);
 
 main() {
   try {
