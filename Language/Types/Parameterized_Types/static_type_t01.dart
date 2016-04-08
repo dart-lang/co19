@@ -5,8 +5,8 @@
  */
 /**
  * @assertion If S is the static type of a member m of G, then the static type
- * of the member m of G < A1, . . . ,An > is [A1, . . . ,An/T1, . . . , Tn]S
- * where T1, . . . , Tn are the formal type parameters of G.
+ * of the member m of G <A1, ..., An> is [A1, ..., An/T1, ..., Tn]S where
+ * T1, ..., Tn are the formal type parameters of G.
  * @description Checks that static type of member m G<T1, T2> is [T1, T2]S
  * @static-clean
  * @author sgrekhov@unipro.ru

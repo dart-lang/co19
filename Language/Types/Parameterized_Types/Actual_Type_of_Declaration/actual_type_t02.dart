@@ -6,11 +6,11 @@
 /**
  * @assertion Let T be the declared type of a declaration d, as it appears in
  * the program source. The actual type of d is
- *  • [A1, . . . ,An/U1, . . . ,Un]T if d depends on type parameters U1,...,Un,
- *  and Ai is the value of Ui, 1  i  n.
+ *  • [A1,...,An/U1,...,Un]T if d depends on type parameters U1,...,Un, and
+ *    Ai is the value of Ui, 1 ≤ i ≤ n.
  *  • T otherwise.
  * @description Checks that in case of arity mismatch (less type arguments than
- * expected) actual type is TT<dynamic, ..., dynamic>
+ * expected) actual type is T<dynamic, ..., dynamic>
  * @static-warning
  * @author sgrekhov@unipro.ru
  */

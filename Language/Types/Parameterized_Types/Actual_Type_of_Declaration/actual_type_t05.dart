@@ -6,12 +6,11 @@
 /**
  * @assertion Let T be the declared type of a declaration d, as it appears in
  * the program source. The actual type of d is
- *  • [A1, . . . ,An/U1, . . . ,Un]T if d depends on type parameters U1,...,Un,
- *  and Ai is the value of Ui, 1  i  n.
+ *  • [A1,...,An/U1,...,Un]T if d depends on type parameters U1,...,Un, and
+ *    Ai is the value of Ui, 1 ≤ i ≤ n.
  *  • T otherwise.
  * @description Checks that if type T depends on type parameters, then
- * its actual type is [A1, . . . ,An/U1, . . . ,Un]T. Test <dynamic> parameter
- * type
+ * its actual type is [A1,...,An/U1,...,Un]T. Test <dynamic> parameter type
  * @author sgrekhov@unipro.ru
  */
 import "../../../../Utils/expect.dart";

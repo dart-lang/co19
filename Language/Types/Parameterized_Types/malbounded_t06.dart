@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Otherwise, let Ti be the type parameters of G and let Bi be the
- * bound of Ti, i 2 1..n,. T is malbounded iff either Si is malbounded or Si is
- * not a subtype of [S1, . . . , Sn/T1, . . . , Tn]Bi, i in 1..n.
+ * bound of Ti, i ∈ 1..n. T is malbounded iff either Si is malbounded or Si is
+ * not a subtype of [S1, ..., Sn/T1, ..., Tn]Bi, i ∈ 1..n.
  * Note, that, in checked mode, it is a dynamic type error if a malbounded type
  * is used in a type test as specified in 19.2.
  * Any use of a malbounded type gives rise to a static warning.
