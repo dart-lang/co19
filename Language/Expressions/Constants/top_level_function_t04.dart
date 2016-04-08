@@ -13,7 +13,7 @@
  * @description Checks that a qualified identifier denoting a top-level
  * function accessed via a deferred prefix cannot be assigned to a constant
  * variable.
- * compile-error
+ * @compile-error
  * @author ngl@unipro.ru
  */
 import 'constants_lib.dart' deferred as clib;

@@ -22,5 +22,5 @@ const Object o = "ab" + "cd";
 const l = o.toString().length;
 
 main() {
-  Expect.isTrue(o is String);
+  Expect.isTrue(l is int);
 }

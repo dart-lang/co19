@@ -22,5 +22,5 @@ String m = "abc";
 const l = m.length;
 
 main() {
-  Expect.isTrue(m is String);
+  Expect.isTrue(l is int);
 }
