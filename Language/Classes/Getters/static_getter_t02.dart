@@ -9,7 +9,7 @@
  * @description Checks that a static warning is arisen if a class has an
  * implicitly declared static getter and an explicitly declared instance
  * setter with the same name.
- * @compile-error
+ * @static-warning
  * @issue 24534
  * @author ngl@unipro.ru
  */
