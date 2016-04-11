@@ -14,7 +14,7 @@
  * @description Checks that an expression statement of the form "throw e;"
  * indeed raises an exception and transfers control to the nearest enclosing
  * exception handler if there is one.
- * @runtime-error
+ *
  * @author rodionov
  * @reviewer iefremov
  */
