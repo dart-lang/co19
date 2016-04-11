@@ -40,5 +40,5 @@ main() {
 
   // check that iterable.length is not cached
   Expect.equals(16, iterable.length);
-  Expect.equals(0xffff, yielded);
+  Expect.equals(2 * 0xffff, yielded);
 }
