@@ -8,15 +8,13 @@
  * proceeds as follows:
  * ...
  * If T does not denote a class, a dynamic error occurs.
- * @description Check that it is a dynamic error if T denotes enum
+ * @description Check that it is a dynamic error if T denotes not existing class
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/dynamic_check.dart';
 
-enum E {a, b, c, m}
-
 main() {
   checkDynamicError(() {
-    var x = new E#;
+    var x = new C#;
   });
 }
