@@ -32,15 +32,15 @@ class S {
   void set s1(val) {}
 }
 
-class M1 {
+class A extends S {
   void set s2(val) {}
 }
 
-class M2 extends M1 {
+class M extends S {
   void set s3(val) {}
 }
 
-class C extends S with M2 {
+class C extends A with M {
 }
 
 main() {

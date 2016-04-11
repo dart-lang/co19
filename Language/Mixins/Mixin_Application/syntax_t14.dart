@@ -32,15 +32,15 @@ class S {
   int m1() => 1;
 }
 
-class M1 {
+class M extends S {
   int m2() => 2;
 }
 
-class M2 extends M1 {
+class A extends S {
   int m3() => 3;
 }
 
-class C extends S with M2 {
+class C extends A with M {
 }
 
 main() {

@@ -32,15 +32,15 @@ class S {
   var v1;
 }
 
-class M1 {
+class M extends S {
   var v2;
 }
 
-class M2 extends M1 {
+class A extends S {
   var v3;
 }
 
-class C extends S with M2 {
+class C extends A with M {
 }
 
 main() {

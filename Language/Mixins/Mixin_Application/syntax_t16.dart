@@ -23,6 +23,7 @@
  * tively, Mk).
  * @description Test that mixin can be derived from the superclass
  * @author sgrekhov@unipro.ru
+ * @issue 25765
  */
 class S {
 }
