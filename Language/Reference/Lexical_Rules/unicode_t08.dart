@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart source text is represented as a sequence of Unicode code points 
- * @description Checks that composed characters in comments and strings are compiled correctly.
+ * @assertion Dart source text is represented as a sequence of Unicode code
+ * points.
+ * @description Checks that composed characters in comments and strings are
+ * compiled correctly.
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 main() {
-  String aWithRingAbove="Å"; // Å
+  String aWithRingAbove = "Å"; // Å
 }

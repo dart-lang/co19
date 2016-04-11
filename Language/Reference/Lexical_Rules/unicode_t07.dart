@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart source text is represented as a sequence of Unicode code points 
+ * @assertion Dart source text is represented as a sequence of Unicode code
+ * points.
  * @description Checks that unicode escape sequences cause compile errors when
  * used outside of string literals.
  * @compile-error
