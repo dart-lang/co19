@@ -16,13 +16,13 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-var noneMatches=new Object();
+var noneMatches = new MyLinkedListEntry(new Object());
 
 void check(LinkedList a, var element) {
   Expect.identical(noneMatches,
     a.lastWhere(
-      (MyLinkedListEntry entry)=>entry.value==element,
-      orElse: ()=>noneMatches)
+      (MyLinkedListEntry entry) => entry.value == element,
+      orElse: () => noneMatches)
     );
 }
 

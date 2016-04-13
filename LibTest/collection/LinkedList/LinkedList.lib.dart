@@ -16,14 +16,14 @@ class MyLinkedListEntry<E> extends LinkedListEntry<MyLinkedListEntry<E>> {
 }
 
 LinkedList<MyLinkedListEntry> toLinkedList(Iterable entries) {
-  LinkedList<MyLinkedListEntry> res=new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> res = new LinkedList<MyLinkedListEntry>();
   entries.forEach((entry) => res.add(new MyLinkedListEntry(entry)));
   return res;
 }
 
 void entriesEquals(Iterable<MyLinkedListEntry> expected, LinkedList<MyLinkedListEntry> actual) {
-  Iterator eit=expected.iterator;
-  Iterator ait=actual.iterator;
+  Iterator eit = expected.iterator;
+  Iterator ait = actual.iterator;
   while (eit.moveNext()) {
     Expect.isTrue(ait.moveNext());
     Expect.equals(eit.current, ait.current);
@@ -32,8 +32,8 @@ void entriesEquals(Iterable<MyLinkedListEntry> expected, LinkedList<MyLinkedList
 }
 
 void contentEquals(Iterable expected, LinkedList<MyLinkedListEntry> actual) {
-  Iterator eit=expected.iterator;
-  Iterator ait=actual.iterator;
+  Iterator eit = expected.iterator;
+  Iterator ait = actual.iterator;
   while (eit.moveNext()) {
     Expect.isTrue(ait.moveNext());
     Expect.equals(eit.current, ait.current.value);
