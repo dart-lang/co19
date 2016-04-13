@@ -5,8 +5,8 @@
  */
 /**
  * @assertion "if" is a reserved word.
- * A reserved word may not be used as an identifier; 
- * it is a compile-time error if a reserved word is used where an identifier is expected.
+ * A reserved word may not be used as an identifier;  it is a compile-time error
+ * if a reserved word is used where an identifier is expected.
  * @description Checks that it is a compile-time error when a reserved word "if"
  * is used as an identifier in a catch clause.
  * @compile-error
@@ -18,7 +18,7 @@ main() {
   try {
     try {
       int x = 0;
-    } catch(if) {}
+    } catch (if) {}
   } catch (anything) {
   }
 }
