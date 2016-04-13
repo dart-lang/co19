@@ -5,10 +5,10 @@
  */
 /**
  * @assertion "extends" is a reserved word.
- * A reserved word may not be used as an identifier; 
- * it is a compile-time error if a reserved word is used where an identifier is expected.
- * @description Checks that it is a compile-time error when a reserved word "extends"
- * is used as a label name.
+ * A reserved word may not be used as an identifier; it is a compile-time error
+ * if a reserved word is used where an identifier is expected.
+ * @description Checks that it is a compile-time error when a reserved word
+ * "extends" is used as a label name.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -19,6 +19,6 @@ main() {
     extends:
     do {
       break extends;
-    } while(false);
-  } catch(x) {}
+    } while (false);
+  } catch (x) {}
 }
