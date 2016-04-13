@@ -5,10 +5,10 @@
  */
 /**
  * @assertion "else" is a reserved word.
- * A reserved word may not be used as an identifier; 
- * it is a compile-time error if a reserved word is used where an identifier is expected.
- * @description Checks that it is a compile-time error when a reserved word "else"
- * is used as an identifier in a catch clause.
+ * A reserved word may not be used as an identifier; it is a compile-time error
+ * if a reserved word is used where an identifier is expected.
+ * @description Checks that it is a compile-time error when a reserved word
+ * "else" is used as an identifier in a catch clause.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -18,7 +18,7 @@ main() {
   try {
     try {
       int x = 0;
-    } catch(else) {}
+    } catch (else) {}
   } catch (anything) {
   }
 }
