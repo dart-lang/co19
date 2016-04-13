@@ -5,10 +5,10 @@
  */
 /**
  * @assertion "for" is a reserved word.
- * A reserved word may not be used as an identifier; 
- * it is a compile-time error if a reserved word is used where an identifier is expected.
- * @description Checks that it is a compile-time error when a reserved word "for"
- * is used as an identifier in a part declaration.
+ * A reserved word may not be used as an identifier; it is a compile-time error
+ * if a reserved word is used where an identifier is expected.
+ * @description Checks that it is a compile-time error when a reserved word
+ * "for" is used as an identifier in a part declaration.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
