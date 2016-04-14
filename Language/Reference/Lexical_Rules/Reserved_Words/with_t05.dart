@@ -5,10 +5,10 @@
  */
 /**
  * @assertion "with" is a reserved word.
- * A reserved word may not be used as an identifier; 
- * it is a compile-time error if a reserved word is used where an identifier is expected.
- * @description Checks that it is a compile-time error when a reserved word "with"
- * is used as a local function name.
+ * A reserved word may not be used as an identifier; it is a compile-time error
+ * if a reserved word is used where an identifier is expected.
+ * @description Checks that it is a compile-time error when a reserved word
+ * "with" is used as a local function name.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
