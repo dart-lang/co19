@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Documentation comments are comments that begin with the tokens /// or '/''*''*'.
- * @description Checks that contents of a documentation comment have no effect on the actual
- * code's execution.
+ * @assertion Documentation comments are comments that begin with the tokens ///
+ * or '/''*''*'.
+ * @description Checks that contents of a documentation comment have no effect
+ * on the actual code's execution.
  * @author hlodvig
  * @reviewer iefremov
  * @needsreview issue 2459

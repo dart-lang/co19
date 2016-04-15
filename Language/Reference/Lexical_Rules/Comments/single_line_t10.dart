@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A single line comment begins with the token //. 
- * Everything between // and the end of line must be ignored by the Dart compiler,
- * unless the comment is a documentation comment.
+ * @assertion A single line comment begins with the token //.
+ * Everything between // and the end of line must be ignored by the Dart
+ * compiler unless the comment is a documentation comment.
  * SINGLE LINE COMMENT:
- * '//' ~(NEWLINE)* (NEWLINE)?
+ *   '//' ~(NEWLINE)* (NEWLINE)?
  * ;
- * @description Checks that single-line comment start tokens inside a documentation
- * comment are ignored.
+ * @description Checks that single-line comment start tokens inside a
+ * documentation comment are ignored.
  * @author hlodvig
  * @reviewer rodionov
  */

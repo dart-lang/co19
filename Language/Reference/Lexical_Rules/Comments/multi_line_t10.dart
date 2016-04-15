@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A multi-line comment begins with the token '/''*' and ends with the token '*''/'.
- * Everything between '/''*' and '*''/' must be ignored by the Dart compiler unless the
- * comment is a documentation comment. Comments may nest.
- * MULTI LINE COMMENT:
- * '/''*' (MULTI LINE COMMENT | ~ '*''/')* '*''/'
+ * @assertion A multi-line comment begins with the token '/*' and ends with the
+ * token '*/'. Everything between '/*' and '*/' must be ignored by the Dart
+ * compiler unless the comment is a documentation comment. Comments may nest.
+ * MULTI LINE COMMENT  :
+ *   '/''*' (MULTI LINE COMMENT | ~ '*''/')* '*''/'
  * ;
- * @description Checks that everything between '/''*' and '*''/' is ignored by the Dart compiler.
+ * @description Checks that everything between '/*' and '*/' is ignored by
+ * the Dart compiler.
  * @author vasya
  * @reviewer rodionov
  */
@@ -36,7 +37,8 @@ main() {
 
   l[0/* init this value to 'String' */] = "String";
 
-  for (var i = 1; i < l.length; i++ /* set last elements to numbers from 1 to 4 */) {
+  for (var i = 1; i < l.length; i++
+      /* set last elements to numbers from 1 to 4 */) {
     l[i] = i;
   }
   Expect.listEquals(["String", 1, 2, 3, 4], l);
@@ -45,5 +47,5 @@ main() {
   Expect.isFalse(foo(false/* check 'false' */));
 
   C c/*create instance of C*/ = new C();
-  Expect.isTrue(c  is C );
+  Expect.isTrue(c is C );
 }

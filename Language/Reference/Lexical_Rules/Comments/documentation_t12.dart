@@ -4,22 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Comments may nest.
- * MULTI LINE COMMENT:
- * '/''*' (MULTI LINE COMMENT | ~ '*''/')* '*''/'
- * ;
- * @description Checks that the nesting of documentation comments is allowed and there doesn't need
- * to be whitespace between adjacent start/end tokens.
+ * @assertion Documentation comments are comments that begin with the tokens ///
+ * or '/''*''*'.
+ * @description Checks that the nesting of documentation comments is allowed and
+ * there doesn't need to be whitespace between adjacent start/end tokens.
  * @author rodionov
  * @reviewer iefremov
  */
 
 import "../../../../Utils/expect.dart";
 
-/** 
-  Main comment 
-  /** 
-    Sub comment 
+/**
+  Main comment
+  /**
+    Sub comment
   */
   End of main comments
   /** /* /** Deeply nested comment **/**/**/

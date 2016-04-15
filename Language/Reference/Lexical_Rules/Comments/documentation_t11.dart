@@ -4,18 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Comments may nest.
- * MULTI LINE COMMENT:
- * '/''*' (MULTI LINE COMMENT | ~ '*''/')* '*''/'
- * ;
- * @description Checks that it is a compile-time error when there is an unpaired documentation comment
- * start token inside another documentation comment.
+ * @assertion Documentation comments are comments that begin with the tokens ///
+ * or '/''*''*'.
+ * @description Checks that it is a compile-time error when there is an unpaired
+ * documentation comment start token inside another documentation comment.
  * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
 
-/**  
+/**
 /* Comment */
 /*/* Nested comment **/ */
 /*/* */ /** Unpaired token **/
