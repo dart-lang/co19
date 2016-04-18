@@ -6,7 +6,10 @@
 /**
  * @assertion double atan(num x)
  * Converts [x] to a dobule and returns the arc tangent of the vlaue.
+ *
  * @description Checks set of values.
+ *
+ * @issue 26261
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1:S15.8.2.2_A5.js

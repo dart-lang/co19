@@ -6,7 +6,10 @@
 /**
  * @assertion double cos(num x)
  * Converts [x] to a double and returns the cosine of the value.
+ *
  * @description Checks values from [0, 2pi].
+ *
+ * @issue 26261
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1: S15.8.2.7_A7.js
