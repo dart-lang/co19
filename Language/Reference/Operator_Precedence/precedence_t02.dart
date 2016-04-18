@@ -7,7 +7,7 @@
  * @assertion Operator precedence is given implicitly by the grammar.
  * @description Checks that operator precedence given implicitly by the grammar
  * holds true (multiplicative operators have higher precedence than additive
- * and unary expressions have even higher). 
+ * and unary expressions have even higher).
  * @author vasya
  * @reviewer rodionov
  */
@@ -19,5 +19,6 @@ main() {
   Expect.equals(4 * 11 + -5 * 3, (4 * 11) + ((-5) * 3));
   Expect.equals(-7 + 99 - 6 * 74, (-7) + 99 - (6 * 74));
   Expect.equals(~-3 * 2 + 5, ((~(-3)) * 2) + 5);
-  Expect.equals(10 * 5 + 100 / 10 - 5 + 7 % 2, (((10 * 5) + (100 / 10)) - 5 + (7 % 2)));
+  Expect.equals(10 * 5 + 100 / 10 - 5 + 7 % 2,
+      (((10 * 5) + (100 / 10)) - 5 + (7 % 2)));
 }

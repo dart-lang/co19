@@ -7,7 +7,7 @@
  * @assertion
  * Description    Operator                          Associativity Precedence
  * Multiplicative *, /, ˜/, %                         Left          14
- * @description Test that '~/' unary prefix operator has precedence (14).
+ * @description Test that '~/' multiplicative operator has precedence (14).
  * Compare with Unary prefix (precedence 15). Test that '~/' has
  * priority less than '-'
  * @author sgrekhov@unipro.ru

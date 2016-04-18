@@ -6,8 +6,8 @@
 /**
  * @assertion
  * Description    Operator                          Associativity Precedence
- * Relational        <                                 None           8
- * @description Test that '<' relational operator has no associativity. It is
+ * Relational        >=                                None           8
+ * @description Test that '>=' relational operator has no associativity. It is
  * compile error to expect any associativity from it
  * @compile-error
  * @author sgrekhov@unipro.ru

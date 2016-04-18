@@ -6,7 +6,8 @@
 /**
  * @assertion Operator precedence is given implicitly by the grammar.
  * @description Checks that operator precedence given implicitly by the grammar
- * holds true (logical AND higher than logical OR and logical negation higher than both). 
+ * holds true (logical AND higher than logical OR and logical negation higher
+ * than both).
  * @author vasya
  * @reviewer rodionov
  */

@@ -6,7 +6,7 @@
 /**
  * @assertion Operator precedence is given implicitly by the grammar.
  * @description Checks that operator precedence given implicitly by the grammar
- * holds true (multiplicative operators have higher precedence than additive). 
+ * holds true (multiplicative operators have higher precedence than additive).
  * @author vasya
  * @reviewer rodionov
  */
@@ -15,8 +15,10 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.equals( 8 - 3 - 2, (8 - 3) - 2);
   Expect.equals( 5 + 3 * 2, 5 + (3 * 2));
-  Expect.equals(13 + 77 / 5.0 - 16 * 17 + 1 * 1, ((13 + (77 / 5.0)) - (16 * 17)) + (1 * 1));
-  Expect.equals(1 + 2 + 3 * 4 * 5 + 6 + 7, ((((1 + 2) + ((3 * 4) * 5)) + 6) + 7));
+  Expect.equals(13 + 77 / 5.0 - 16 * 17 + 1 * 1,
+      ((13 + (77 / 5.0)) - (16 * 17)) + (1 * 1));
+  Expect.equals(1 + 2 + 3 * 4 * 5 + 6 + 7,
+      ((((1 + 2) + ((3 * 4) * 5)) + 6) + 7));
   Expect.equals(1 + 2 * 2 * 4, 1 + ((2 * 2) * 4));
   Expect.equals((1 + 2) * 2 * 4, ((1 + 2) * 2) * 4);
   Expect.equals(72 / 12 / 3, (72 / 12) / 3);

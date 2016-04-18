@@ -7,7 +7,7 @@
  * @assertion
  * Description    Operator                          Associativity Precedence
  * Assignment       ^=                                 Right          1
- * @description Test that '^=' assignment operator has lowest associativity.
+ * @description Test that '^=' assignment operator has lowest precedence.
  * Compare with cascade '..' (precedence 2) and conditional 'e1 ? e2 : e3'
  * (precedence 3) operators
  * @author sgrekhov@unipro.ru

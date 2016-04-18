@@ -7,7 +7,7 @@
  * @assertion
  * Description    Operator                          Associativity Precedence
  * Multiplicative *, /, ˜/, %                         Left          14
- * @description Test that '%' unary prefix operator has precedence (14).
+ * @description Test that '%' multiplicative operator has precedence (14).
  * Compare with Additive operators (precedence 13). Test that '%' has
  * priority higher than '+'
  * @author sgrekhov@unipro.ru

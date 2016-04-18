@@ -7,7 +7,7 @@
  * @assertion
  * Description    Operator                          Associativity Precedence
  * Unary prefix   -e, !e, ˜e, ++e, –e               None           15
- * @description Test that 'e--' unary prefix operator has precedence (15).
+ * @description Test that '--e' unary prefix operator has precedence (15).
  * Compare with Unary postfix operators (precedence 16). Test that 'e--' has
  * priority lower than '.'
  * @author sgrekhov@unipro.ru
