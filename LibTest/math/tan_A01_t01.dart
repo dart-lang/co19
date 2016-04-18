@@ -6,7 +6,10 @@
 /**
  * @assertion double tan(num x)
  * Converts [x] to a double and returns the tangent of the value.
+ *
  * @description Checks set of values.
+ *
+ * @issue 26261
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1: S15.8.2.18_A7.js

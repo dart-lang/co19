@@ -6,7 +6,10 @@
 /**
  * @assertion double asin(num x)
  * Converts [x] to a double and returns the arc sine of the value.
+ *
  * @description Checks returned values on various arguments.
+ *
+ * @issue 26261
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1:S15.8.2.2_A5.js
