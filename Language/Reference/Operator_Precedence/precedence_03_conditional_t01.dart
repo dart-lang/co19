@@ -23,21 +23,21 @@ class C {
 
   bool getFalse(String val) {
     log += val;
-    return true;
+    return false;
   }
 }
 
 main() {
   C c = new C();
-  var v = c.getTrue("c0") ? c.getTrue("c1") ? c.getTrue("c2") : c.getFalse("c3")
+  var v = c.getTrue("c0") ? c.getTrue("c1") ? c.getTrue("c2") : c.getTrue("c3")
       : c.getFalse("c4");
   Expect.isTrue(v);
   Expect.equals("c0c1c2", log);
 
   log = "";
 
-  v = c.getTrue("c0") ? c.getTrue("c1") ? c.getTrue("c2") : c.getFalse("c3")
+  v = c.getTrue("c0") ? c.getTrue("c1") ? c.getFalse("c2") : c.getTrue("c3")
       : c.getFalse("c4");
-  Expect.isTrue(v);
+  Expect.isFalse(v);
   Expect.equals("c0c1c2", log);
 }
