@@ -6,12 +6,12 @@
 /**
  * @assertion A required formal parameter may be specied in one of three ways:
  *
- * By means of a function signature that names the parameter and describes
- * its type as a function type. It is a compile-time error if any default
- * values are specied in the signature of such a function type.
- * As an initializing formal, which is only valid as a parameter to a
- * generative constructor.
- * Via an ordinary variable declaration
+ * • By means of a function signature that names the parameter and describes
+ *   its type as a function type. It is a compile-time error if any default
+ *   values are specied in the signature of such a function type.
+ * • As an initializing formal, which is only valid as a parameter to a
+ *   generative constructor.
+ * • Via an ordinary variable declaration
  *
  * normalFormalParameter:
  *   functionSignature |
@@ -37,6 +37,6 @@ func(final x()) {
 
 main() {
   try {
-    func((){});
-  } catch(e) {}
+    func(() {});
+  } catch (e) {}
 }
