@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The scope of a library function is the scope of the enclosing library. The
- * scope of a local function is described in section
+ * @assertion The scope of a library function is the scope of the enclosing
+ * library. The scope of a local function is described in section
  * (Statements/Local Function Declaration). In both cases, the name of the
  * function is in scope in its formal parameter scope.
- * @description Checks that two top-level functions are in the scope of each other
- * and can be mutually recursive.
+ * @description Checks that two top-level functions are in the scope of each
+ * other and can be mutually recursive.
  * @author rodionov
  * @reviewer kaigorodov
  */

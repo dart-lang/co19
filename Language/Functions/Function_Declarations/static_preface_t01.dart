@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- * It is a compile-time error to preface a function declaration with the
- * built-in identier static.
- * @description Checks that it is a compile-time error to preface library function with 'static'.
+ * @assertion It is a compile-time error to preface a function declaration with
+ * the built-in identier static.
+ * @description Checks that it is a compile-time error to preface library
+ * function with 'static'.
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
@@ -19,5 +19,5 @@ static void f() {}
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }
