@@ -4,29 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Every function includes a formal parameter list, 
- * which consists of a list of required parameters, followed by any optional parameters. 
+ * @assertion Every function includes a formal parameter list, which consists
+ * of a list of required parameters, followed by any optional parameters.
  * The optional parameters may be specified either as a set of named parameters
  * or as a list of positional parameters, but not both.
  * formalParameterList:
  *   '(' ')' |
- *   '(' normalFormalParameters ( ',' optionalFormalParameters)? ')' |
- *   (optionalFormalParameters)
+ *   '('normalFormalParameters(',' optionalFormalParameters)?')' |
+ *   '('optionalFormalParameters')'
  * ;
  * normalFormalParameters:
- *   normalFormalParameter (', ' normalFormalParameter)*
+ *   normalFormalParameter(',' normalFormalParameter)*
  * ;
  * optionalFormalParameters:
  *   optionalPositionalFormalParameters |
- *    namedFormalParameters
- *  ;
- *  optionalPositionalFormalParameters:
- *    `[' defaultFormalParameter (`, ' defaultFormalParameter)* `]'
- *  ;
- *  namedFormalParameters:
- *    `{' defaultNamedParameter (`, ' defaultNamedParameter)* `}'
- *  ;
- * @description Checks that the named parameter list must begin with an opening curly brace.
+ *   namedFormalParameters
+ * ;
+ * optionalPositionalFormalParameters:
+ *  `['defaultFormalParameter(`,' defaultFormalParameter)*`]'
+ * ;
+ * namedFormalParameters:
+ *  `{'defaultNamedParameter(`,' defaultNamedParameter)*`}'
+ * ;
+ * @description Checks that the named parameter list must begin with an opening
+ * curly brace.
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
@@ -38,5 +39,5 @@ void f(}) {}
 main () {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a formal parameter is
- * declared as a constant variable.
- * @description Checks that it is a compile-time error if a required
- * parameter is declared as a constant typed variable.
+ * @assertion It is a compile-time error if a formal parameter is declared as
+ * a constant variable.
+ * @description Checks that it is a compile-time error if a required parameter
+ * is declared as a constant typed variable.
  * @compile-error
  * @author msyabro
  * @reviewer iefremov
@@ -19,5 +19,5 @@ void f(const int x) {}
 main () {
   try {
     f(1);
-  } catch(x){}
+  } catch (x) {}
 }
