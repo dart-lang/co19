@@ -32,5 +32,5 @@ f() => throw "exception";
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

@@ -32,5 +32,5 @@ f(var y) => int x;
 main() {
   try {
     f(null);
-  } catch(x){}
+  } catch (x) {}
 }

@@ -28,10 +28,10 @@
  * @reviewer iefremov
  */
 
-f() => for(var i in [1,2,3]);
+f() => for (var i in [1,2,3]);
 
 main() {
   try {
     f();
-  } catch(x) {}
+  } catch (x) {}
 }

@@ -26,7 +26,7 @@ foo2() async {
 bar1(int val) async => val * 2;
 
 bar2(int val) async {
-  return val*2;
+  return val * 2;
 }
 
 test() async {

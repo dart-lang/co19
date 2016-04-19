@@ -47,7 +47,7 @@ b3() async {
 }
 
 // f(arg) async => expression;
-Future<String> c1(int x) async => 'c'+x.toString();
+Future<String> c1(int x) async => 'c' + x.toString();
 
 Future c2(String y) async => y.length;
 
@@ -55,7 +55,7 @@ c3(z) async => z;
 
 // f(arg) { statements }
 Future<String> d1(int x) async {
-  return 'd'+x.toString();
+  return 'd' + x.toString();
 }
 
 Future d2(String y) async {

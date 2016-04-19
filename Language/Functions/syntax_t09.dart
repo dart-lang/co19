@@ -31,7 +31,7 @@
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }
 
 int f() => 1

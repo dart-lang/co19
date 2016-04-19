@@ -18,9 +18,9 @@ import "../../Utils/expect.dart";
 
 main() {
   int x = 2;
-  
+
   foo1() => 1;
-  foo2(){return 1;}
+  foo2() {return 1;}
   bar1(int val) => val * 2;
   bar2(int val) {return val*2;}
 

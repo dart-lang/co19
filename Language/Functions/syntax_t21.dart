@@ -19,8 +19,8 @@
  *   '{' statements '}'
  * ;
  *
- * @description Checks that the return statement can't be a body of a function of
- * the form [functionSignature '=>' expression ';'].
+ * @description Checks that the return statement can't be a body of a function
+ * of the form [functionSignature '=>' expression ';'].
  *
  * @compile-error
  * @author msyabro
@@ -33,5 +33,5 @@ f() => return 1;
 main() {
   try {
     f();
-  } catch(x) {}
+  } catch (x) {}
 }

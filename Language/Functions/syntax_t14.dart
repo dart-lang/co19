@@ -28,10 +28,10 @@
  * @reviewer iefremov
  */
 
-f() => if(1 > 0) 1 else 2;
+f() => if (1 > 0) 1 else 2;
 
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

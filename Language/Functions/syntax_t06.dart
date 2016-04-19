@@ -31,7 +31,7 @@
 main() {
   try {
     function();
-  } catch(x){}
+  } catch (x) {}
 }
 
 function() {

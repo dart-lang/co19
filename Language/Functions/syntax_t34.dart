@@ -34,5 +34,5 @@ main() {
 
     f1();
     f2();
-  } catch(x) {}
+  } catch (x) {}
 }

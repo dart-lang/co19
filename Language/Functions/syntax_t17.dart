@@ -28,10 +28,10 @@
  * @reviewer iefremov
  */
 
-f() => while(true);
+f() => while (true);
 
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

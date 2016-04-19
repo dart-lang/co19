@@ -8,8 +8,7 @@
  * is attached to the body of a setter or constructor.
  *
  * @description Checks that class constant constructor with async* modifier
- * cause
- * compiler error.
+ * cause compiler error.
  *
  * @compile-error
  * @author a.semenov@unipro.ru

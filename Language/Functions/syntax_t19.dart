@@ -19,8 +19,8 @@
  *   '{' statements '}'
  * ;
  *
- * @description Checks that the switch statement can't be a body of a function of
- * the form [functionSignature '=>' expression ';'].
+ * @description Checks that the switch statement can't be a body of a function
+ * of the form [functionSignature '=>' expression ';'].
  *
  * @compile-error
  * @author msyabro
@@ -28,10 +28,10 @@
  * @reviewer iefremov
  */
 
-f() => switch(1 + 1) {case 1: false; case 2: true; default: false;};
+f() => switch (1 + 1) {case 1: false; case 2: true; default: false;};
 
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

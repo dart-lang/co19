@@ -43,25 +43,37 @@ main() {
   g_declaration() {A a;}
 
   //If
-  f_if() {if(1 > 0) {true;}}
-  g_if() {if(1 > 0) {true;} else {false;}}
+  f_if() {if (1 > 0) {true;}}
+  g_if() {if (1 > 0) {true;} else {false;}}
 
   //For
-  f_for() {for(int i = 0; i < 100; i++) {i--;}}
-  g_for() {for(int i in [1, 2, 3, 4, 5]) ;}
+  f_for() {for (int i = 0; i < 100; i++) {i--;}}
+  g_for() {for (int i in [1, 2, 3, 4, 5]) ;}
 
   //While
-  f_while() {while(true) true;}
+  f_while() {while (true) true;}
 
   //Do
-  f_do() {do f_blocks(); while(true);}
+  f_do() {do f_blocks(); while (true);}
 
   //Switch
-  f_switch() {switch(1 + 1) {case 1: false; break; case 2: true; break; default: false; break;} }
+  f_switch() {
+    switch (1 + 1) {
+      case 1:
+        false;
+        break;
+      case 2:
+        true;
+        break;
+      default:
+        false;
+        break;
+    }
+  }
 
   //Try
-  f_try() {try {} catch(e) {}}
-  g_try() {try {throw "exception";} on String catch(s) {} finally {}}
+  f_try() {try {} catch (e) {}}
+  g_try() {try {throw "exception";} on String catch (s) {} finally {}}
 
   //Return
   f_return() {return 1;}
@@ -70,12 +82,12 @@ main() {
   f_label() {label: int x;}
 
   //Break
-  f_break() {while(true) {break;}}
-  g_break() {label: while(true) {break label;}}
+  f_break() {while (true) {break;}}
+  g_break() {label: while (true) {break label;}}
 
   //Continue
-  f_continue() {while(true) continue;}
-  g_continue() {label: while(true) continue label;}
+  f_continue() {while (true) continue;}
+  g_continue() {label: while (true) continue label;}
 
   //Throw
   f_throw() {throw "";}

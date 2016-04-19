@@ -33,5 +33,5 @@ f() => typedef void f();
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

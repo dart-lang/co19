@@ -28,10 +28,10 @@
  * @reviewer iefremov
  */
 
-f() => assert(false);
+f() => assert (false);
 
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

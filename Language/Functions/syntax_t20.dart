@@ -28,10 +28,10 @@
  * @reviewer iefremov
  */
 
-f() => try {1+1;} catch(e) {};
+f() => try {1+1;} catch (e) {};
 
 main() {
   try {
     f();
-  } catch(x) {}
+  } catch (x) {}
 }

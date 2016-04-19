@@ -40,7 +40,7 @@ a3() async* {
 }
 
 Stream<String> b1(int x) async* {
-  yield 'a'+new String.fromCharCode(x);
+  yield 'a' + new String.fromCharCode(x);
 }
 
 Stream b2(String s) async* {
