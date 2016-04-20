@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Optional parameters may be specified and provided with default values.
+ * @assertion Optional parameters may be specified and provided with default
+ * values.
  * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
  * ;
@@ -36,8 +37,8 @@ main() {
   func(7, 1, 2);
 
   func2(7);
-  func2(7, x:1);
-  func2(7, y:2);
-  func2(7, x:1, y:2);
-  func2(7, y:2, x:1);
+  func2(7, x: 1);
+  func2(7, y: 2);
+  func2(7, x: 1, y: 2);
+  func2(7, y: 2, x: 1);
 }

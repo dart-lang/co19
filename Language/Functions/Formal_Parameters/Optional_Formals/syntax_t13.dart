@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Optional parameters may be specified and provided with default values.
+ * @assertion Optional parameters may be specified and provided with default
+ * values.
  * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
  * ;
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that it is a compile-time error when the two kinds of brackets
- * are mixed in an optional parameters declaration.
+ * @description Checks that it is a compile-time error when the two kinds of
+ * brackets are mixed in an optional parameters declaration.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -25,5 +26,5 @@ foo([const p = 1}) {
 main() {
   try {
     foo();
-  } catch(x) {}
+  } catch (x) {}
 }

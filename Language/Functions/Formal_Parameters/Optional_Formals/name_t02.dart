@@ -23,5 +23,5 @@ class A {
 main() {
   try {
     new A(_p: "Optional parameters names must not begin with an underscore!");
-  } catch(x) {}
+  } catch (x) {}
 }

@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Optional parameters may be specified and provided with default values.
+ * @assertion Optional parameters may be specified and provided with default
+ * values.
  * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
  * ;
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that reassigning a final optional parameter inside the function
- * produces a static warning and a NoSuchMethodError.
+ * @description Checks that reassigning a final optional parameter inside the
+ * function produces a static warning and a NoSuchMethodError.
  * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
@@ -24,7 +25,7 @@ foo([final p = 1]) {
   try {
     p = 1; /// static warning cannot assign value to final variable
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }
 
 main() {
