@@ -18,14 +18,14 @@
 import "../../../../Utils/expect.dart";
 
 foo (int x, int y) { /// this function returns modulo of x and y.
-  return x%y;
+  return x % y;
 } //// end of function
 
 main() {
   try { ////////// start try statement
     foo(1, 0); ///////// call foo() with 1 and 0 params
     Expect.fail("");
-  } on Exception catch(e) { ////// try to catch exception
+  } on Exception catch (e) { ////// try to catch exception
     //////// Expect.fail(e.toString());
   } ///// end try statement
 }
