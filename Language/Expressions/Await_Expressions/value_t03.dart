@@ -27,14 +27,14 @@ import '../../../Utils/async_utils.dart';
 const String HELLO = 'hello';
 
 Future<int>f1() {
-  return new Future<int>(() => int.parse('100'+ '500'));
+  return new Future<int>(() => int.parse('100' + '500'));
 }
 
-Future<String> f2(){
+Future<String> f2() {
   return new Future<String>(() => HELLO);
 }
 
-Future<String> f3(){
+Future<String> f3() {
   return new Future<String>(() => (100000 + 500).toString());
 }
 

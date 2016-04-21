@@ -8,7 +8,7 @@
  * getterSignature:
  *   returnType? get identifier
  * ;
- * @description Checks that it is a compile-time error if the getter identifier 
+ * @description Checks that it is a compile-time error if the getter identifier
  * is missing.
  * @author iefremov
  * @compile-error
@@ -23,6 +23,6 @@ class C {
 main() {
   try {
     new C();
-  } catch (e){}
+  } catch (e) {}
 }
 

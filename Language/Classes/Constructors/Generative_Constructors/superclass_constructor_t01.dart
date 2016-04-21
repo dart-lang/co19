@@ -17,7 +17,7 @@
  */
 
 class S {
-  S.smth(){}
+  S.smth() {}
 }
 
 class C extends S {

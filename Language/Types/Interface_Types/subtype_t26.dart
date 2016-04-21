@@ -40,7 +40,7 @@ typedef I f_1(List<Object> l, [I i]);
 typedef K f_2(List<int> l, [L i]);
 
 main() {
-  List<List> l1 = (){} ();
+  List<List> l1 = () {}();
   List l1_ = new List<List>();
 
   List<List> l2 = new List<List<List>>();

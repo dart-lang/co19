@@ -21,7 +21,7 @@ class B {
   @A() B.b();
 }
 
-main(){
+main() {
   Symbol ctorName1 = MirrorSystem.getSymbol('B');
   DeclarationMirror ctorMirror1 = reflectClass(B).declarations[ctorName1];
   InstanceMirror aMirror1 = ctorMirror1.metadata[0];

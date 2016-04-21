@@ -31,7 +31,7 @@ abstract class C extends A {
 
 class D extends C {
   D():super.c();
-  void set foo(var x){}
+  void set foo(var x) {}
 }
 
 main() {

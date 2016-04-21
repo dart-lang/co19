@@ -36,7 +36,7 @@ Stream<int> generator() async* {
 main() {
   asyncStart();
   generator().listen(
-      (_){},
+      (_) {},
       onError: (e) {
         Expect.isTrue(e is Error);
         asyncEnd();

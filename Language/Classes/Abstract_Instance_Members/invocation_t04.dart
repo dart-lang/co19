@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 abstract class A {
   int m1();
-  int noSuchMethod(Invocation invocation){
+  int noSuchMethod(Invocation invocation) {
     return 666;
   }
 }

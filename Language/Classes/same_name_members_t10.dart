@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a class declares two members of 
+ * @assertion It is a compile-time error if a class declares two members of
  * the same name.
- * @assertion The name of a setter is obtained by appending the string ‘=’ to 
+ * @assertion The name of a setter is obtained by appending the string ‘=’ to
  * the identifier given in its signature.
- * Hence, a setter name can never conflict with, override or be overridden by 
+ * Hence, a setter name can never conflict with, override or be overridden by
  * a getter or method.
- * @description Checks that a class can declare a getter and a setter of the 
- * same name provided both are instance members (abstract or not) or both are 
+ * @description Checks that a class can declare a getter and a setter of the
+ * same name provided both are instance members (abstract or not) or both are
  * static members.
  * @author msyabro
  * @reviewer rodionov
@@ -25,7 +25,7 @@ abstract class A {
   var _val;
   get val {}
   set val(var value) {}
-  
+
   get aVal;
   set aVal(var val);
 
@@ -37,10 +37,10 @@ abstract class A {
 }
 
 class B extends A {
-  get aVal{}
-  set aVal(var val){}
-  set bVal(var val){}
-  get cVal{}
+  get aVal {}
+  set aVal(var val) {}
+  set bVal(var val) {}
+  get cVal {}
 }
 
 main() {

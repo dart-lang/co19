@@ -37,10 +37,10 @@ Future<int> integer(int i) async => i;
 Future<String> string(String s) async => s;
 Future<Exception> exception(Exception e) async => e;
 
-check(f()){
+check(f()) {
   return f().then(
           (value) {
-            if (isCheckedMode()){
+            if (isCheckedMode()) {
               Expect.fail("Type error expected in checked mode");
             }
           },

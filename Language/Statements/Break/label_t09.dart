@@ -21,7 +21,7 @@
 main() {
   try {
     var L = "label";
-    while (true){
+    while (true) {
       break L;
     }
   } catch (x) {}

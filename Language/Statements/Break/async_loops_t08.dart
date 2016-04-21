@@ -136,7 +136,7 @@ Future test7() async {
           } while (log.length < 10);
         }
       } while (log.length < 10);
-      if (s.startsWith('b')){
+      if (s.startsWith('b')) {
         streamController.close();
       }
     }
@@ -162,7 +162,7 @@ Future test8() async {
       }
       k++;
     } while (k < 2);
-    if (s.startsWith('b')){
+    if (s.startsWith('b')) {
       streamController.close();
     }
   }

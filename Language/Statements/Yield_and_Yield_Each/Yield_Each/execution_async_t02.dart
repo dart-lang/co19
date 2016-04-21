@@ -38,10 +38,10 @@ Future test() async {
   StreamController<int> sc = new StreamController<int>();
   Stream<int> s = generator(sc.stream);
   StreamSubscription<int> ss = s.listen(
-      (int i){
+      (int i) {
         log.add(i);
       },
-      onDone: (){
+      onDone: () {
         Expect.listEquals(['a','b','c', 1, 2, 3], log);
         asyncEnd();
       }

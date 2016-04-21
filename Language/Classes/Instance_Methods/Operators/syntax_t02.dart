@@ -5,21 +5,21 @@
  */
 /**
  * @assertion
- * operator: 
+ * operator:
  *   ‘˜’ |
- *   binaryOperator | 
+ *   binaryOperator |
  *   ‘[’ ‘]’ |
  *   ‘[’ ‘]’ ‘=’
  * ;
- * binaryOperator: 
- *   multiplicativeOperator | 
- *   additiveOperator | 
+ * binaryOperator:
+ *   multiplicativeOperator |
+ *   additiveOperator |
  *   shiftOperator |
- *   relationalOperator | 
+ *   relationalOperator |
  *   ‘==’ |
- *   bitwiseOperator 
+ *   bitwiseOperator
  * ;
- * @description Checks that it is a compile-time error if an operator-specific 
+ * @description Checks that it is a compile-time error if an operator-specific
  * method name is used without the operator keyword.
  * @compile-error
  * @author iefremov
@@ -28,12 +28,12 @@
  */
 
 class C {
-  int ~/(var v){} /// compile-time error
+  int ~/(var v) {} /// compile-time error
 }
 
 main() {
   try {
     C c = new C();
     var x = c ~/ 'a';
-  } catch (x){}
+  } catch (x) {}
 }

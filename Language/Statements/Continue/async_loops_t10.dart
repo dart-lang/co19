@@ -62,7 +62,7 @@ Future test3() async {
   List<int> log = [];
   int i = 0;
 
-  switch (i){
+  switch (i) {
     case 0:
       await for (String s in makeStream(['a', 'b'], i++, log)) {
         await for (String s in makeStream(['a', 'b'], i++, log)) {
@@ -87,7 +87,7 @@ Future test4() async {
   List<int> log = [];
   int i = 0;
 
-  switch (i){
+  switch (i) {
     case 0:
       await for (String s in makeStream(['a0', 'b0'], i++, log)) {
         await for (String s in makeStream(['a1', 'b1'], i++, log)) {

@@ -11,13 +11,13 @@
  * the name of generic class instance setter.
  * @compile-error
  * @author ilya
- * @issue 14513 
+ * @issue 14513
  */
 
 class A<T> {
-  set T (x){}
+  set T(x) {}
 }
 
 main() {
-  new A(); 
+  new A();
 }

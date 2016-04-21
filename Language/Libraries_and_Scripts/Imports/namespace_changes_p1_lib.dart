@@ -30,7 +30,7 @@ class F implements I {
 
 abstract class I {
   factory I() = F;
-  I.c(){}
+  I.c() {}
   //static final FOO = "I.FOO";
   String foo();
   get value;

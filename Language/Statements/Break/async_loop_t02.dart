@@ -23,7 +23,7 @@ Future test1() async {
   streamController.add('b');
   streamController.onCancel = () { streamCanceled = true; };
   await for (String s in streamController.stream) {
-    if (s=='b') {
+    if (s == 'b') {
       break;
     }
   }
@@ -37,7 +37,7 @@ Future test2() async {
   streamController.add('b');
   streamController.onCancel = () { streamCanceled = true; };
   L: await for (String s in streamController.stream) {
-    if (s=='b') {
+    if (s == 'b') {
       break L;
     }
   }

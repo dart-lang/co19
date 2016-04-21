@@ -30,7 +30,7 @@
  * @reviewer rodionov
  */
 
-int f(){}
+int f() {}
 
 main() {
   double d = f(); /// static type warning

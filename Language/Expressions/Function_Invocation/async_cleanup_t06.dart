@@ -47,7 +47,7 @@ test(int skip) async {
   List log = [];
   try {
     await f(log, skip);
-  } catch (e){
+  } catch (e) {
     Expect.equals('finish', e);
   }
   Expect.listEquals([4, 3, 2, 1, 0], log);

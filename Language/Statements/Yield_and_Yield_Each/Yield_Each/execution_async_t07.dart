@@ -41,7 +41,7 @@ Future test() async {
   ss = s.listen(
       (int i) async {
         log.add(i);
-        if (i==5){
+        if (i == 5) {
           ss.cancel();
 
           Expect.listEquals([1,2,3,4,5], log);

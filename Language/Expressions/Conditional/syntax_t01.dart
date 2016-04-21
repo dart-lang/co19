@@ -51,7 +51,7 @@ class A {
     try { (true || false) ? false && true : true || false;} catch (e) {}
 
     //bitwise expressions
-    try { (1 | 2) ? "" ^ [] : (){} & this;} catch (e) {}
+    try { (1 | 2) ? "" ^ [] : () {} & this;} catch (e) {}
 
     //equality
     try { (identical(1, 1)) ? !identical(1, 2) : 1 == 2;} catch (e) {}

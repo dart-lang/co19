@@ -23,5 +23,5 @@ class C {
 main() {
   try {
     new C.foo();
-  } catch (e){}
+  } catch (e) {}
 }

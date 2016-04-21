@@ -16,8 +16,8 @@ class A {
 }
 
 class B {
-  @A() factory B(){}
-  @A() factory B.b(){}
+  @A() factory B() {}
+  @A() factory B.b() {}
 }
 
 main() {

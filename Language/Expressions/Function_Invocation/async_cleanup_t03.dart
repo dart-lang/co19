@@ -25,9 +25,9 @@ Stream makeStream(Iterable iterable, int id, List log) {
 }
 
 Stream f(Stream stream, int skip) async* {
-  await for (var s in stream){
+  await for (var s in stream) {
     skip--;
-    if (skip==0) {
+    if (skip == 0) {
       return;
     }
     yield s;
@@ -48,7 +48,7 @@ test(int skip) async {
 }
 
 main() {
-  for (int skip = 1; skip<6; skip++) {
+  for (int skip = 1; skip < 6; skip++) {
     test(skip);
   }
 }

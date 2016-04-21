@@ -38,7 +38,7 @@ class C extends K {}
 typedef J   f(I<J, List<Map>,           num> i, [List j]);
 typedef K f_1(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
 
-I<f, num, List<Map<num, Map<int, double>>>> checker(){}
+I<f, num, List<Map<num, Map<int, double>>>> checker() {}
 
 main() {
 //  I<f_1, int, List<Map<int, Map<int, int>>>> i = new I<f, num, List<Map<num, Map<int, double>>>>();

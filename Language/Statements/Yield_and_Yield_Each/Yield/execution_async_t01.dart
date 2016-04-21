@@ -56,7 +56,7 @@ test() async {
   StreamSubscription<int> ss = s.listen(
       (int i) {
       },
-      onDone:(){
+      onDone:() {
         Expect.listEquals(['a', 'b', 0], log);
         asyncEnd();
       }

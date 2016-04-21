@@ -48,7 +48,7 @@ class A {
 }
 
 main() {
-  f(g(h())){}
+  f(g(h())) {}
   int func([int x = null, int y = null, int z = null]) {f(f(x()));} /// static type warning int not a function type
   int foo(Object x, var y) => func(1, 2, 3);
 }

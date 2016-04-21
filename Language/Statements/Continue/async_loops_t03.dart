@@ -22,7 +22,7 @@ import '../../../Utils/expect.dart';
 import '../../../Utils/async_utils.dart';
 import 'stream_utils.dart' as StreamUtils;
 
-Stream makeStream(Iterable iterable, int id, List log){
+Stream makeStream(Iterable iterable, int id, List log) {
   return StreamUtils.makeStream(iterable, beforeCancel: () { log.add(id); });
 }
 

@@ -21,6 +21,6 @@ class C {
 main() {
   try {
     new C().setter = null;
-  } catch (e){}
+  } catch (e) {}
 }
 

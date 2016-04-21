@@ -88,7 +88,7 @@ class A {
      id && id || id;
 
      //function expressions
-     (){} || ()=>({});
+     () {} || () => ({});
      () {return null;} && (int x) => 7; // issue 1189
   }
 }

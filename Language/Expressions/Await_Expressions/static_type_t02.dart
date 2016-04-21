@@ -31,10 +31,10 @@ import '../../../Utils/async_utils.dart';
 static_int(int x) => x;
 static_bool(bool x) => x;
 
-check(f()){
+check(f()) {
   return f().then(
           (value) {
-            if (isCheckedMode()){
+            if (isCheckedMode()) {
               Expect.fail("Type error expected in checked mode");
             }
           },

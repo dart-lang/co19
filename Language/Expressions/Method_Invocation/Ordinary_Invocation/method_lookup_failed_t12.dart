@@ -31,7 +31,7 @@
 import "../../../../Utils/expect.dart";
 
 abstract class C {
-  void m(){}
+  void m() {}
 }
 
 main() {

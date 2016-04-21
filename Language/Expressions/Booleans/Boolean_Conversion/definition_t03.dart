@@ -19,7 +19,7 @@ import '../../../../Utils/dynamic_check.dart';
 class A {}
 
 bool convert1(bool v){
-  assert(v != null);
+  assert (v != null);
   return identical(v, true);
 }
 

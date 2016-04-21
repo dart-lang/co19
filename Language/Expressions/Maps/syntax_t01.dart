@@ -91,7 +91,7 @@ class Test  {
     x = <String, String>{"key": "value"};
     x = <String, bool>{"key": true};
     x = <String, Test>{"key": new Test()};
-    x = <String, Function>{"key": (){}};
+    x = <String, Function>{"key": () {}};
   }
 
   endsWithComma() {

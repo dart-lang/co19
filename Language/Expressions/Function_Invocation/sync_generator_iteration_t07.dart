@@ -88,15 +88,15 @@ Iterable generator2(int x, String y, double z) sync* {
   yield z;
 }
 
-List take(Iterator iterator, int count){
+List take(Iterator iterator, int count) {
   List result = [];
-  while (count-->0 && iterator.moveNext()){
+  while (count-->0 && iterator.moveNext()) {
     result.add(iterator.current);
   }
   return result;
 }
 
-test2(){
+test2() {
   Iterable iterable = generator2(1, "2", 3.14);
   Iterator iterator1 = iterable.iterator;
   Iterator iterator2 = iterable.iterator;

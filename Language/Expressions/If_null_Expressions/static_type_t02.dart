@@ -19,14 +19,14 @@ import 'dart:collection';
 import '../../../Utils/dynamic_check.dart';
 
 main() {
-  checkTypeError((){int x = 1.0 ?? 2.0; return x;}); /// static type warning
-  checkTypeError((){int x = null ?? 2.0; return x;}); /// static type warning
-  checkTypeError((){int x = 'aaa' ?? 'bbb'; return x;}); /// static type warning
-  checkTypeError((){int x = true ?? false; return x;}); /// static type warning
-  checkTypeError((){
+  checkTypeError(() {int x = 1.0 ?? 2.0; return x;}); /// static type warning
+  checkTypeError(() {int x = null ?? 2.0; return x;}); /// static type warning
+  checkTypeError(() {int x = 'aaa' ?? 'bbb'; return x;}); /// static type warning
+  checkTypeError(() {int x = true ?? false; return x;}); /// static type warning
+  checkTypeError(() {
     int x = new LinkedHashMap() ?? new SplayTreeMap(); /// static type warning
     return x;
   });
-  checkTypeError((){int x = 'aaa' ?? null; return x;}); /// static type warning
+  checkTypeError(() {int x = 'aaa' ?? null; return x;}); /// static type warning
 }
 

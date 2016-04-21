@@ -40,11 +40,16 @@ typedef Map<List, List<Map<num,List>>> complexFunction_t1();
 typedef t1_1();
 typedef Map<List<int>, List> t1_2();
 typedef Map<List<int>, List<Map>> t1_3();
-typedef Map<List<complexFunction_t1>, List<Map<int, List<Map<complexFunction_t1, complexFunction_t2>>>>> t1_4();
+typedef Map<List<complexFunction_t1>,
+            List<Map<int,
+                     List<Map<complexFunction_t1,
+                              complexFunction_t2>>>>> t1_4();
 
 typedef badFunction(int x); //not assignable to complexFunction_t1
 
-typedef complexFunction_t1 complexFunction_t2(complexFunction_t1 f1, complexFunction_t1 f2);
+typedef complexFunction_t1 complexFunction_t2(
+                                              complexFunction_t1 f1,
+                                              complexFunction_t1 f2);
 typedef t1_1 t2_1(t1_2 f1, badFunction f2); //not assignable to complexFunction_t2 because of badFunction
 
 typedef K typeParameter1(J j, complexFunction_t1 f1, [num i, complexFunction_t2 f2]);
@@ -54,7 +59,7 @@ typedef C typeParameter2(K j, t1_4 f1,               [int i, t2_1 f2]);
 
 class Generic<G> {}
 
-Generic<typeParameter2> f(){}
+Generic<typeParameter2> f() {}
 
 main() {
   Generic<typeParameter1> g = f(); /// static type warning

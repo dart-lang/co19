@@ -17,7 +17,7 @@
 
 class A {
   var _foo;
-  set foo(var v){_foo = v;}
+  set foo(var v) {_foo = v;}
 }
 
 class C extends A {

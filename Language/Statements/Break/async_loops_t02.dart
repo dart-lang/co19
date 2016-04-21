@@ -68,14 +68,14 @@ Future test2() async {
     log.add(0);
   };
 
-  await for (StreamController<String> sc in sc0.stream){
+  await for (StreamController<String> sc in sc0.stream) {
     L:
-    await for (String s in sc.stream){
-      await for (String s in newStreamControllerString(i++, log).stream){
+    await for (String s in sc.stream) {
+      await for (String s in newStreamControllerString(i++, log).stream) {
         break L;
       }
     }
-    if (i > 4){
+    if (i > 4) {
       sc0.close();
     }
   }

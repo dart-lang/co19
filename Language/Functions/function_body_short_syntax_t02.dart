@@ -37,7 +37,7 @@ test() async {
 
 main() {
   asyncStart();
-  test().then((_){
+  test().then((_) {
     asyncEnd();
   });
 }

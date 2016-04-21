@@ -35,7 +35,7 @@
  */
 import '../../../Utils/expect.dart';
 
-void check(i, expected){
+void check(i, expected) {
   Expect.isTrue(i is num);
   Expect.equals(expected, i);
 }

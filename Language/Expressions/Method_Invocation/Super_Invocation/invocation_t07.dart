@@ -32,5 +32,5 @@ class C implements I {
 main() {
   try {
     new I.foo();
-  } catch (x){}
+  } catch (x) {}
 }

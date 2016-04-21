@@ -37,7 +37,7 @@ import '../lib.dart';
 
 main() {
   C o = new C();
-  Expect.throws((){
+  Expect.throws(() {
     o._func(); /// static type warning
   }
   , (e) => e is NoSuchMethodError

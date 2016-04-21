@@ -28,7 +28,7 @@ class D {
 }
 
 class C extends D{
-  static s(){}
+  static s() {}
   static get sg {}
   var l;
 
@@ -66,7 +66,7 @@ class ConstClass {
 }
 
 main() {
-  local_f(){}
+  local_f() {}
 
   //type test
   1 is int;
@@ -154,7 +154,7 @@ main() {
   j = g;
 
   //function expression invocation
-  (){}();
+  () {}();
   (() => i + 2)();
 
   //instance creation

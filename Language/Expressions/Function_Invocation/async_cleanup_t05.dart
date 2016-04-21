@@ -25,9 +25,9 @@ Stream makeStream(Iterable iterable, int id, List log) {
 }
 
 Future f(Stream stream, int skip) async {
-  await for (var s in stream){
+  await for (var s in stream) {
     skip--;
-    if (skip==0) {
+    if (skip == 0) {
       throw 'finish';
     }
   }
@@ -39,7 +39,7 @@ test(int skip) async {
   Stream stream = makeStream(['a', 'b', 'c', 'd', 'e', 'f'], 1, log);
   try {
     await f(stream, skip);
-  } catch (e){
+  } catch (e) {
     Expect.equals('finish', e);
   }
   Expect.listEquals([1], log);
@@ -47,7 +47,7 @@ test(int skip) async {
 }
 
 main() {
-  for (int skip = 1; skip<6; skip++) {
+  for (int skip = 1; skip < 6; skip++) {
     test(skip);
   }
 }

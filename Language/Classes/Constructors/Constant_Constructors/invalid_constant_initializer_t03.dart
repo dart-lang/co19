@@ -28,5 +28,5 @@ var a = const A(new DateTime.now().millisecondsSinceEpoch);
 main() {
   try {
     var b = a;
-  } catch (x){}
+  } catch (x) {}
 }

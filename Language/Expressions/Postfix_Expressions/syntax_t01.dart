@@ -71,8 +71,8 @@ class A  extends S {
     try { () {}.x; } catch (e) {}
     try { () {} [0]++; } catch (e) {}
     try { () {}.x--; } catch (e) {}
-    try { (){}.x; } catch (e) {}
-    try { (){}.x--; } catch (e) {}
+    try { () {}.x; } catch (e) {}
+    try { () {}.x--; } catch (e) {}
 
     //nullLiteral
     try { null["key"]; } catch (e) {}

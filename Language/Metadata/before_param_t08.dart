@@ -16,10 +16,10 @@ class A {
 }
 
 class B {
-  static void set b(@A() int value){}
+  static void set b(@A() int value) {}
 }
 
-main(){
+main() {
   var getterName = MirrorSystem .getSymbol('b=');
   MethodMirror bMirror = reflectClass(B).staticMembers[getterName];
   ParameterMirror paramMirror = bMirror.parameters[0];

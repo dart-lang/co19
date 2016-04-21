@@ -10,7 +10,7 @@
  */
 import 'before_part_directive_lib1.dart';
 
-main(){
+main() {
   // Unfortunately, there is no way to obtain part directive metadata.
   // Just make sure the syntax parser allows metadata before part directive
 }

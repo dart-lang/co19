@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)?
  * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
  *   metadata abstract? class mixinApplicationClass
  * ;
@@ -34,7 +34,7 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that it is a compile-time error if a constant 
+ * @description Checks that it is a compile-time error if a constant
  * constructor declaration with initializers includes a body.
  * @compile-error
  * @author msyabro
@@ -49,5 +49,5 @@ class A {
 main() {
   try {
     A a = const A();
-  } catch (e){}
+  } catch (e) {}
 }

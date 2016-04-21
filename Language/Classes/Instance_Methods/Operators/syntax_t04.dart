@@ -5,19 +5,19 @@
  */
 /**
  * @assertion
- * operator: 
+ * operator:
  *   ‘˜’ |
- *   binaryOperator | 
+ *   binaryOperator |
  *   ‘[’ ‘]’ |
  *   ‘[’ ‘]’ ‘=’
  * ;
- * binaryOperator: 
- *   multiplicativeOperator | 
- *   additiveOperator | 
+ * binaryOperator:
+ *   multiplicativeOperator |
+ *   additiveOperator |
  *   shiftOperator |
- *   relationalOperator | 
+ *   relationalOperator |
  *   ‘==’ |
- *   bitwiseOperator 
+ *   bitwiseOperator
  * ;
  * @description Checks that it is a compile-time error if a class defines an
  * operator without a formal parameter list.
@@ -35,5 +35,5 @@ main() {
   try {
     C c = new C();
     var x = -c;
-  } catch (x){}
+  } catch (x) {}
 }

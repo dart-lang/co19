@@ -46,7 +46,7 @@ Iterable generator1(A a) sync* {
 test1() {
   A a = new A(0);
   Iterable iterable = generator1(a);
-  for (int i=0; i<10; i++){
+  for (int i = 0; i < 10; i++) {
     Iterator it = iterable.iterator;
     Expect.isTrue(it.moveNext());
     Expect.identical(a, it.current);
@@ -67,9 +67,9 @@ test2() {
   Expect.listEquals([8,9,10,11], take(iterable.iterator, 4));
 }
 
-List take(Iterator iterator, int count){
+List take(Iterator iterator, int count) {
   List result = [];
-  while (count-->0 && iterator.moveNext()){
+  while (count-->0 && iterator.moveNext()) {
     result.add(iterator.current);
   }
   return result;

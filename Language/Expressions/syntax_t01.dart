@@ -48,7 +48,7 @@ class S {
 }
 
 class A extends S {
-  void checkThis(){
+  void checkThis() {
     Expect.equals(this, (this));
     Expect.equals(super.x, (super.x));
   }

@@ -21,5 +21,5 @@ class A extends foo {}
 main() {
   try {
     A a = new A();
-  } catch (e){}
+  } catch (e) {}
 }

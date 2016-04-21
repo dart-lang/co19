@@ -16,7 +16,7 @@ class A {
 }
 
 class B {
-  void set b(@A() int value){}
+  void set b(@A() int value) {}
 }
 
 

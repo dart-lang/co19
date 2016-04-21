@@ -8,7 +8,7 @@
  * setterSignature:
  *   returnType? set identifier formalParameterList
  * ;
- * @description Checks that various valid setter declarations do not cause any 
+ * @description Checks that various valid setter declarations do not cause any
  * errors.
  * @author iefremov
  * @reviewer pagolubev
@@ -24,12 +24,12 @@ abstract class A<U, V> {
   set s6(var x);
 
   void set s7(U x) {}
-  set s8(V x){}
+  set s8(V x) {}
 }
 
 class C<U, V> extends A<U, V> {
   static void set s1(var x) {}
-  static set s3(var x){}
+  static set s3(var x) {}
 
   void set s5(var x) {}
   set s6(var x) {}

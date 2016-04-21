@@ -39,7 +39,7 @@ class A implements I {
 }
 
 abstract class J {
-  factory J.name(p1, p2){
+  factory J.name(p1, p2) {
     return new B.name(p1, p2);
   }
 }

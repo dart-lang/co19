@@ -19,7 +19,7 @@ class B {
   @A() static int get b => 0;
 }
 
-main(){
+main() {
   var getterName = MirrorSystem .getSymbol('b');
   MethodMirror bMirror = reflectClass(B).staticMembers[getterName];
   Expect.equals('.A',

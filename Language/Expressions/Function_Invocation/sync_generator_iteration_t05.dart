@@ -43,7 +43,7 @@ Iterable generator() sync* {
 }
 
 // first iterator is running two times faster than second
-test1(){
+test1() {
   Iterable iterable = generator();
   Iterator iterator1 = iterable.iterator;
   Iterator iterator2 = iterable.iterator;

@@ -76,7 +76,7 @@ class A extends S {
     //additive expression is a shift expr.
     Expect.isFalse(1 + 2 < 2);
     try { 0 - 0 > null + null;} catch (e) {}
-    try { [] + {} <= (){} - () => null;} catch (e) {}
+    try { [] + {} <= () {} - () => null;} catch (e) {}
     try { "" - '' >= 0;} catch (e) {}
 
     //multiplicative expression is a shift expr.
@@ -102,7 +102,7 @@ class A extends S {
     try { ()=>0 < 1; } catch (e) {}
     try { (var x) {} <= 0.5; } catch (e) {}
     try { () {return 0.5;} > () => 1; } catch (e) {}
-    try { (){} >= () => null;} catch (e) {}
+    try { () {} >= () => null;} catch (e) {}
   }
 
   var _id;

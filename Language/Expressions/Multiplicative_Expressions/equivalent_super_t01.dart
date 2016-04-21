@@ -42,7 +42,7 @@ class S {
 }
 
 class A extends S {
-  A(var val) : super(val){}
+  A(var val) : super(val) {}
 
   test() {
     super * 1;

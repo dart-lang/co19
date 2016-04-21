@@ -16,10 +16,10 @@ class A {
 }
 
 class B {
-  @A() void set b(int value){}
+  @A() void set b(int value) {}
 }
 
-main(){
+main() {
   var getterName = MirrorSystem .getSymbol('b=');
   MethodMirror bMirror = reflectClass(B).instanceMembers[getterName];
   Expect.equals('.A',

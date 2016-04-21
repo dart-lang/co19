@@ -35,9 +35,9 @@ topLevelFunction() {}
 
 class S {
   const S();
-  operator|(var val) {return this;}
-  operator&(var val) {return this;}
-  operator^(var val) {return this;}
+  operator |(var val) {return this;}
+  operator &(var val) {return this;}
+  operator ^(var val) {return this;}
 }
 
 class A extends S {
@@ -56,7 +56,7 @@ class A extends S {
     try {[1, 2, 3, 4] ^ {"1": 2, "3": 4};} catch (e) {}
 
     //function expressions
-    try {(){} | ()=>{};} catch (e) {}
+    try {() {} | () => {};} catch (e) {}
     try {() {return null;} & (int x) => 7;} catch (e) {} // issue 1189
     try {() => ({}) ^ () {};} catch (e) {}
 
@@ -96,7 +96,7 @@ class A extends S {
 
     //multiplicative expressions
     try {true * false ^ id.id / []();} catch (e) {}
-    try {this[1] % null(1) & topLevelFunction()[0]++ ~/ {}()[0];} catch (e) {}
+    try {this[1] % null(1) & topLevelFunction()[0]++ ~/ {} ()[0];} catch (e) {}
     try {0 ~/ 1 | 1 - -1;} catch (e) {}
 
     //unary expressions

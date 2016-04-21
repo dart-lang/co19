@@ -33,7 +33,7 @@ Future test1() async {
   List<int> log = [];
   int i = 0;
   L:
-  switch (i){
+  switch (i) {
     case 0:
     await for (String s in newStreamControllerString(i++, log).stream) {
       break L;
@@ -61,7 +61,7 @@ Future test3() async {
   List<int> log = [];
   int i = 0;
   L:
-  switch (i){
+  switch (i) {
     case 0:
       await for (String s in newStreamControllerString(i++, log).stream) {
         await for (String s in newStreamControllerString(i++, log).stream) {
@@ -76,7 +76,7 @@ Future test4() async {
   List<int> log = [];
   int i = 0;
   L:
-  switch (i){
+  switch (i) {
     case 0:
       await for (String s in newStreamControllerString(i++, log).stream) {
         await for (String s in newStreamControllerString(i++, log).stream) {

@@ -32,7 +32,7 @@ class C implements I {}
 
 main() {
   C o = new C();
-  Expect.throws((){
+  Expect.throws(() {
     o.nonExistingMethod();
   }
   , (e) => e is NoSuchMethodError

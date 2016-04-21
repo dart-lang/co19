@@ -4,16 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart supports two levels of privacy: public and private. 
+ * @assertion Dart supports two levels of privacy: public and private.
  * A declaration is private iff its name is private, otherwise it is public.
- * A name q is private iff any one of the identifiers that comprise q is 
+ * A name q is private iff any one of the identifiers that comprise q is
  * private, otherwise it is public.
- * An identifier is private iff it begins with an underscore (the _ character) 
+ * An identifier is private iff it begins with an underscore (the _ character)
  * otherwise it is public.
- * A declaration m is accessible to library L if m is declared in L or if m is 
+ * A declaration m is accessible to library L if m is declared in L or if m is
  * public.
- * @description Checks that various private class members are perfectly 
- * accessible inside the library where the class is declared even when 
+ * @description Checks that various private class members are perfectly
+ * accessible inside the library where the class is declared even when
  * accessed via a subclass instance.
  * @static-warning
  * @author iefremov
@@ -26,7 +26,7 @@ abstract class _A {
   static var _staticvar = "abyrvalg";
   final _finalvar = "final!";
 
-  _fun(){return 42;}
+  _fun() {return 42;}
   static _staticfun() {return 54;}
   _abstractfun();
 

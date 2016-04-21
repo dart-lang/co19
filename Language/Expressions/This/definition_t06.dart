@@ -18,7 +18,7 @@ import '../../../Utils/expect.dart';
 class A{
   int x = 5;
 
-  A getSelf(){
+  A getSelf() {
     return this;
   }
 }

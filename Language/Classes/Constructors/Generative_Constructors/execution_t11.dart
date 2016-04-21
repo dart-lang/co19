@@ -38,7 +38,7 @@ class C<T, U, V> {
 
   C(T a, U b, V c): this.actual(a, b, c);
   C.redirecting(T a, U b, V c): this.actual(a, b, c);
-  C.actual(this.a, this.b, this.c){}
+  C.actual(this.a, this.b, this.c) {}
 }
 
 main() {

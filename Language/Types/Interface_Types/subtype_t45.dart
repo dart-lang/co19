@@ -34,7 +34,7 @@
 class A<T> {}
 class B extends A<int> {}
 
-A<double> checker(){}
+A<double> checker() {}
 
 main() {
   B b = checker(); /// static type warning

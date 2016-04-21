@@ -27,7 +27,7 @@ abstract class C extends A {
 }
 
 class D extends C {
-  f(var x, var y){}
+  f(var x, var y) {}
 }
 
 main() {

@@ -17,7 +17,7 @@ import 'dart:mirrors';
 import '../../Utils/expect.dart';
 
 class A {
-  static int a(){
+  static int a() {
     return 10;
   }
 }

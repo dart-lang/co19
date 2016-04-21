@@ -39,10 +39,10 @@ Future test() async {
   Completer c = new Completer();
   Stream<int> s = generator(new Stream.fromIterable([1, 2, 3]), c.future);
   StreamSubscription<int> ss = s.listen(
-      (int i){
+      (int i) {
         log.add(i);
       },
-      onDone: (){
+      onDone: () {
         Expect.listEquals(['a','b','c', 1, 2, 3], log);
         asyncEnd();
       }

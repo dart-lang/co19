@@ -32,5 +32,5 @@ main() {
   Expect.isFalse((int y) {} is t2);
   Expect.isFalse((int x, int y, int z) {} is t2);
 
-  Expect.isFalse((int x, int y, int z){} is t3);
+  Expect.isFalse((int x, int y, int z) {} is t3);
 }

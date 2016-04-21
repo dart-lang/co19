@@ -51,7 +51,7 @@ main() {
       (_) {
         Expect.fail("Stream returned by test() should not return data");
       },
-      onDone:(){
+      onDone:() {
         Expect.equals(1 + 4 + 8, r);
         asyncEnd();
       }

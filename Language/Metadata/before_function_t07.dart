@@ -16,7 +16,7 @@ class A {
 }
 
 class B {
-  @A() static void set b(int value){}
+  @A() static void set b(int value) {}
 }
 
 main() {

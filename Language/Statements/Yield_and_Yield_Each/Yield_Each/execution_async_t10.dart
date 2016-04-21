@@ -61,7 +61,7 @@ Future test() async {
   StreamController<String> sc = new StreamController<String>();
   Stream<String> s = generator(sc.stream, log);
   StreamSubscription<String> ss = s.listen(
-      (String v){
+      (String v) {
         log.add(v);
       }
   );

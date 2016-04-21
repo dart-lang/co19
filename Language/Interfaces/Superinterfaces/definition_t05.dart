@@ -24,7 +24,7 @@ class C implements I {
 main() {
  try {
    I i1 = new C();
-   assert(i1 != null);
+   assert (i1 != null);
  } catch (x) {
  }
 }

@@ -38,7 +38,7 @@ Stream generator() async* {
 main() {
   asyncStart();
   Stream stream = generator();
-  Future cancelFuture = stream.listen((_){}).cancel();
+  Future cancelFuture = stream.listen((_) {}).cancel();
   cancelFuture.then((v) {
       // make sure the generator function has finished
       Expect.equals(49995000, sum);

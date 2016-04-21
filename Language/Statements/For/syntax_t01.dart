@@ -28,5 +28,5 @@
 main() {
   try {
     for () {}
-  } catch (x){}
+  } catch (x) {}
 }

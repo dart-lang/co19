@@ -136,7 +136,7 @@ Future test7() async {
           }
         }
       }
-      if (s.startsWith('b')){
+      if (s.startsWith('b')) {
         streamController.close();
       }
     }
@@ -162,7 +162,7 @@ Future test8() async {
       }
       k++;
     }
-    if (s.startsWith('b')){
+    if (s.startsWith('b')) {
       streamController.close();
     }
   }

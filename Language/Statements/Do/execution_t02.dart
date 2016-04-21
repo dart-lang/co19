@@ -21,6 +21,6 @@ main() {
   var log = "";
   do
     log = "ping";
-  while ((){log = "${log} pong"; return false;}());
+  while (() {log = "${log} pong"; return false;}());
   Expect.equals("ping pong", log);
 }

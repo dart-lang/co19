@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)?
  * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
  *   metadata abstract? class mixinApplicationClass
  * ;
@@ -34,9 +34,9 @@
  * staticFinalDeclaration:
  *   identifier '=' expression
  * ;
- * @description Checks that various class member declarations that are valid 
- * according to this syntax do not cause any errors and such class can be 
- * instantiated. 
+ * @description Checks that various class member declarations that are valid
+ * according to this syntax do not cause any errors and such class can be
+ * instantiated.
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -93,19 +93,19 @@ abstract class Abstract {
   funcWithOptionalParams2({p1: 1, p2: 2});
   get val;
   set val(var v);
-  operator==(Abstract other);
+  operator ==(Abstract other);
 
   var _val;
 }
 
 class Concrete extends Abstract {
-  func(){}
-  funcWithParams(p1, p2){}
-  funcWithOptionalParams([p1 = 1, p2 = 2]){}
-  funcWithOptionalParams2({p1: 1, p2: 2}){}
-  get val=>_val;
-  set val(var v){_val=v;}
-  operator==(Abstract other){return identical(this, other);}
+  func() {}
+  funcWithParams(p1, p2) {}
+  funcWithOptionalParams([p1 = 1, p2 = 2]) {}
+  funcWithOptionalParams2({p1: 1, p2: 2}) {}
+  get val => _val;
+  set val(var v) {_val = v;}
+  operator ==(Abstract other) {return identical(this, other);}
 }
 
 main() {
@@ -115,5 +115,5 @@ main() {
   D d = new D();
   E e = new E();
   F f = new F();
-  Abstract abst=new Concrete();
+  Abstract abst = new Concrete();
 }

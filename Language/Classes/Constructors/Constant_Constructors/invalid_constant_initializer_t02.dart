@@ -32,5 +32,5 @@ class IntPair {
 main() {
   try {
     var a = const A(const IntPair(1,2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
-  } catch (x){}
+  } catch (x) {}
 }

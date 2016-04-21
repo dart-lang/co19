@@ -31,7 +31,7 @@ class Test  {
     [1, true, null, ""];
     [{"1": 1, "2": 2}, []];
 
-    [(){}, () => 1, (p1) {return p1;}];
+    [() {}, () => 1, (p1) {return p1;}];
 
     [topFunc(), this.method()];
 

@@ -39,7 +39,7 @@ main() {
   var x2 = new Object();
   var x3 = true;
   var x4 = false;
-  var x5 = (){};
+  var x5 = () {};
   var x6 = new List();
   var x7 = new Map<int, int>();
   var x8 = 1;
