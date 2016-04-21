@@ -20,12 +20,12 @@ class C {}
 main() {
   List instances = new List();
   final int total = 100;
-  for(var i = 0; i < total; ++i) {
+  for (var i = 0; i < total; ++i) {
     instances.add(new C());
   }
 
-  for(var i = 0; i < total; ++i) {
-    for(var j = i+1; j < total; ++j) {
+  for (var i = 0; i < total; ++i) {
+    for (var j = i + 1; j < total; ++j) {
       Expect.isFalse(identical(instances[i], instances[j]));
     }
   }

@@ -23,7 +23,7 @@
 class C {
   C() { }
   int foo() {
-    if(true) {
+    if (true) {
       return 1;
     } else {
       return; /// static type warning

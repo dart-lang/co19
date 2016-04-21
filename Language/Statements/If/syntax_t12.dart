@@ -18,22 +18,22 @@ import '../../../Utils/expect.dart';
 main() {
   var x = 0;
 
-  if(true)
+  if (true)
     if (false) x = 1;
 
   Expect.equals(0, x);
 
-  if(true)
+  if (true)
     if (true) ;
 
   Expect.equals(0, x);
 
-  if(false)
+  if (false)
     if (true) x = 1;
 
   Expect.equals(0, x);
 
-  if(false)
+  if (false)
     if (false) x = 1;
 
   Expect.equals(0, x);

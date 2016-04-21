@@ -40,7 +40,7 @@ class B {
 
 main() {
   var o = const A();
-  for(int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++) {
     Expect.identical(o, const A());
   }
 

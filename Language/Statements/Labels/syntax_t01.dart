@@ -24,7 +24,7 @@ main() {
     C: 1 + 2;
   }
 
-  D: if(true) {}
+  D: if (true) {}
 
   E: for (;;) {
     F: break;

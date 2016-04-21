@@ -32,6 +32,6 @@
 
 main() {
   try {
-    label: for(var i in []) {};++;
+    label: for (var i in []) {};++;
   } catch (e) {}
 }

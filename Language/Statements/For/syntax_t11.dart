@@ -35,7 +35,7 @@ main() {
   for (int i = 100;;) break;
   for (;;) break;
   for (var y = () => null;;) break;
-  for (var y = () {for(;;) break;} ;;) break;
+  for (var y = () {for (;;) break;} ;;) break;
   for (final y = const [];;) break;
   for (var y = {};;) break;
   for (x = {};;) break;

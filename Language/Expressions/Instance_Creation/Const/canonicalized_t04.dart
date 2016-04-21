@@ -39,7 +39,7 @@ main() {
   var o2 = const A(2);
   Expect.isFalse(identical(o1, o2));
 
-  for(int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++) {
     Expect.identical(o1, const A(1));
     Expect.isFalse(identical(const A(1), o2));
     Expect.identical(o2, const A(2));

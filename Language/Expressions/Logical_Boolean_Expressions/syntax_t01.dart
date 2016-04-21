@@ -94,7 +94,7 @@ class A {
 }
 
 main() {
-  if(isCheckedMode()) {
+  if (isCheckedMode()) {
     return; //this test is a nonsense in checked mode
   }
   A a = new A();

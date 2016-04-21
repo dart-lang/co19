@@ -30,7 +30,7 @@ main() {
   Expect.isTrue(checkTrue(true));
   Expect.isTrue(checkFalse(false));
 
-  if(!isCheckedMode()) {
+  if (!isCheckedMode()) {
     Expect.isTrue(checkFalse(""));
     Expect.isTrue(checkFalse(" "));
     Expect.isTrue(checkFalse(1));

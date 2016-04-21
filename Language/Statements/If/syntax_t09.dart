@@ -18,7 +18,7 @@ import '../../../Utils/expect.dart';
 main() {
   var x = 0;
 
-  if(true)
+  if (true)
     if (false) x = 1;
     else ;
   else
@@ -27,7 +27,7 @@ main() {
 
   Expect.equals(0, x);
 
-  if(true)
+  if (true)
     if (true) ;
     else x = 1;
   else
@@ -36,7 +36,7 @@ main() {
 
   Expect.equals(0, x);
 
-  if(false)
+  if (false)
     if (true) x = 1;
     else x = 1;
   else
@@ -45,7 +45,7 @@ main() {
 
   Expect.equals(0, x);
 
-  if(false)
+  if (false)
     if (true) x = 1;
     else x = 1;
   else

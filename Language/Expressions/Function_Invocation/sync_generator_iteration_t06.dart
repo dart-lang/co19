@@ -53,7 +53,7 @@ test1(){
   Iterator iterator2 = iterable.iterator;
   int k = 0;
   int i = 0;
-  while( i < COUNT/2 ) {
+  while ( i < COUNT/2 ) {
     Expect.isTrue(iterator1.moveNext());
     Expect.equals(k++, iterator1.current);
 

@@ -22,7 +22,7 @@ var expected = const Symbol("nonExistingSetter=");
 
 class C {
   noSuchMethod(Invocation im) {
-    if(expected != im.memberName) {
+    if (expected != im.memberName) {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }
   }

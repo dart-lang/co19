@@ -36,7 +36,7 @@ main() {
           order.add(3);
         }
         Expect.fail("This code shouldn't be executed");
-      } while(false);
+      } while (false);
       order.add(2);
     }
   } finally {

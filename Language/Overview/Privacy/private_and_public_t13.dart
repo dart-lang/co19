@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Dart supports two levels of privacy: public and private. 
+ * @assertion Dart supports two levels of privacy: public and private.
  * A declaration is private iff its name is private, otherwise it is public.
- * A name q is private iff any one of the identifiers that comprise q is 
+ * A name q is private iff any one of the identifiers that comprise q is
  * private, otherwise it is public.
- * An identifier is private iff it begins with an underscore (the _ character) 
+ * An identifier is private iff it begins with an underscore (the _ character)
  * otherwise it is public.
- * A declaration m is accessible to library L if m is declared in L or if m is 
+ * A declaration m is accessible to library L if m is declared in L or if m is
  * public.
- * @description Checks that local variables and functions names can begin with 
+ * @description Checks that local variables and functions names can begin with
  * an underscore and are still accessible in the same scope.
  * @author iefremov
  * @reviewer rodionov
@@ -43,7 +43,7 @@ main() {
   Expect.equals(54, f3()());
 
   var i = 1;
-  for(var _i in [1,2,3]) {
+  for (var _i in [1,2,3]) {
     Expect.equals(i++, _i);
   }
 }

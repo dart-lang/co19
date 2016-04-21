@@ -23,7 +23,7 @@ import 'dart:async';
 class C {
   C() { }
   Future<int> foo() async {
-    if(true) {
+    if (true) {
       return 1;
     } else {
       return; /// static type warning

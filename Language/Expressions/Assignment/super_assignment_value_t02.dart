@@ -23,7 +23,7 @@ var expected = const Symbol("v=");
 
 class A {
   noSuchMethod(Invocation im) {
-    if(expected != im.memberName) {
+    if (expected != im.memberName) {
       Expect.fail("Incorrect method was searched: ${im.memberName}");
     }
   }

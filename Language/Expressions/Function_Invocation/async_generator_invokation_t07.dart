@@ -28,7 +28,7 @@ import '../../../Utils/async_utils.dart';
 int sum = 0;
 
 Stream generator() async* {
-  for(int i = 0; i < 10000; i++) {
+  for (int i = 0; i < 10000; i++) {
     sum += i;
     yield sum;
   }
