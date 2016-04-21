@@ -28,7 +28,7 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that it is a compile-time error if the right-hand 
+ * @description Checks that it is a compile-time error if the right-hand
  * expression is missing in an initialized variable declaration.
  * @compile-error
  * @author iefremov
@@ -38,5 +38,5 @@
 main() {
   try {
     var x = 1, y = ;
-  } catch(ok) {}
+  } catch (ok) {}
 }

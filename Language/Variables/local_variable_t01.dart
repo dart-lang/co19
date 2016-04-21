@@ -15,10 +15,10 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
- 
+
 main() {
   try {
     var v = w; /// static type warning - unresolved identifier w
     var w;
-  } catch(_) {}
+  } catch (_) {}
 }

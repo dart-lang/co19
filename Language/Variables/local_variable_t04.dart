@@ -13,9 +13,9 @@
  * @compile-error
  * @author ilya
  */
- 
+
 main() {
   try {
     var x = x;
-  } catch(_) {};
+  } catch (_) {};
 }

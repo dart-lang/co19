@@ -13,9 +13,9 @@
  * an initializer.
  * @author ilya
  */
- 
+
 main() {
   try {
     var f = (f) => f;
-  } catch(_) {};
+  } catch (_) {};
 }

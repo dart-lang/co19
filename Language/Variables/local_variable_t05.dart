@@ -13,9 +13,9 @@
  * @compile-error
  * @author ilya
  */
- 
+
 main() {
   try {
     var f = () => f;
-  } catch(_) {};
+  } catch (_) {};
 }
