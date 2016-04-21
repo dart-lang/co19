@@ -8,7 +8,7 @@
  * getterSignature:
  *   returnType? get identifier
  * ;
- * @description Checks that a compile-time error is produced when a getter 
+ * @description Checks that a compile-time error is produced when a getter
  * declaration includes an empty formal parameter list.
  * @compile-error
  * @author kaigorodov
@@ -22,5 +22,5 @@ class C {
 main() {
   try {
     var x = new C().getter;
-  } on C catch(ok) {}
+  } on C catch (ok) {}
 }

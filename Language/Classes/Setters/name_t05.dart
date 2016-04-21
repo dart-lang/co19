@@ -32,5 +32,5 @@ main() {
   try {
     c.foo = 1;
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }

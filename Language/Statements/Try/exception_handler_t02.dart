@@ -76,7 +76,7 @@ void main() {
       isFinallyExecuted = true;
     }
     Expect.fail("This code shouldn't be executed");
-  } on String catch(s) {
+  } on String catch (s) {
     Expect.equals(ex, s);
   }
   Expect.equals(true, isFinallyExecuted);

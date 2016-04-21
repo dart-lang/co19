@@ -25,6 +25,6 @@ class D implements A {}
 main() {
   try {
     new D();
-  } catch(e) {}
+  } catch (e) {}
 }
 

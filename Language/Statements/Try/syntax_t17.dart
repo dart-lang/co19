@@ -33,7 +33,7 @@
 
 main() {
   try {
-  } on int catch(foo) {
+  } on int catch (foo) {
   } finally {
   } catch (bar) {}
 }
