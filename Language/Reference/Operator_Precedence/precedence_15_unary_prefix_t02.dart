@@ -22,5 +22,5 @@ class C {
 main() {
   C c = new C();
   bool e = true;
-  Expect.isFalse(c * !e);
+  Expect.equals(c * (!e), c * !e);
 }

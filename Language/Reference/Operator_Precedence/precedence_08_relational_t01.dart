@@ -15,5 +15,5 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(7 < 2 == 2 < 1);
+  Expect.equals((7 < 2) == (2 < 1), 7 < 2 == 2 < 1);
 }

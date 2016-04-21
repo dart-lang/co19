@@ -17,5 +17,6 @@ import "../../../Utils/expect.dart";
 main() {
   int a = 0;
   int b = 0;
-  Expect.isFalse(a == b is! double);
+  Expect.equals(a == (b is! double), a == b is! double);
+  Expect.notEquals((a == b) is! double, a == b is! double);
 }

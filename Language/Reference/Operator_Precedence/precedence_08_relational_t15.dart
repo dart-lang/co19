@@ -17,5 +17,6 @@ import "../../../Utils/expect.dart";
 main() {
   num a = 0;
   num b = 0;
-  Expect.isFalse(a == b is bool);
+  Expect.equals(a == (b is bool), a == b is bool);
+  Expect.notEquals((a == b) is bool, a == b is bool);
 }

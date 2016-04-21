@@ -17,5 +17,5 @@ import "../../../Utils/expect.dart";
 main() {
   num a = 0;
   num b = 0;
-  Expect.isTrue(a == b as int);
+  Expect.equals(a == (b as int), a == b as int);
 }

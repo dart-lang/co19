@@ -15,5 +15,8 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(16, 2 + 2 << 1 + 1);
+  Expect.equals((2 + 2) << (1 + 1), 2 + 2 << 1 + 1);
+  Expect.notEquals(2 + (2 << 1) + 1, 2 + 2 << 1 + 1);
+  Expect.notEquals(((2 + 2) << 1) + 1, 2 + 2 << 1 + 1);
+  Expect.notEquals(2 + (2 << (1 + 1)), 2 + 2 << 1 + 1);
 }
