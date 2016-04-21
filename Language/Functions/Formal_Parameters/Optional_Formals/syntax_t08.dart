@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Optional parameters may be specified and provided with default values.
+ * @assertion Optional parameters may be specified and provided with default
+ * values.
  * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
  * ;
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that the ':' character in an optional named parameter declaration
- * must be followed by an expression.
+ * @description Checks that the ':' character in an optional named parameter
+ * declaration must be followed by an expression.
  * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
@@ -23,5 +24,5 @@ f({var x: }) {}
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

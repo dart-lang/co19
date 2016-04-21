@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Optional parameters may be specified and provided with default values.
+ * @assertion Optional parameters may be specified and provided with default
+ * values.
  * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
  * ;
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that it is not a compile-time error if the name of a positional
- * optional initializing formal begins with an '_' character.
+ * @description Checks that it is not a compile-time error if the name of a
+ * positional optional initializing formal begins with an '_' character.
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer iefremov

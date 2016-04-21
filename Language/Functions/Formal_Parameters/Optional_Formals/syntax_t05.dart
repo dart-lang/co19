@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Optional parameters may be specified and provided with default values.
+ * @assertion Optional parameters may be specified and provided with default
+ * values.
  * defaultFormalParameter:
  *   normalFormalParameter ('=' expression)?
  * ;
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that a statement cannot be used instead of expression in an
- * optional positional parameter declaration.
+ * @description Checks that a statement cannot be used instead of expression
+ * in an optional positional parameter declaration.
  * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
@@ -24,5 +25,5 @@ f([var x = var z]) {}
 main() {
   try {
     f();
-  } catch(x){}
+  } catch (x) {}
 }

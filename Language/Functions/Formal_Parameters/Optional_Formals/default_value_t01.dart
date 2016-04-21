@@ -18,5 +18,5 @@ main() {
   try {
     int x = 1;
     void func([var y = x]) {}
-  } catch(x) {}
+  } catch (x) {}
 }
