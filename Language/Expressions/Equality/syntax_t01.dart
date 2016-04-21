@@ -60,7 +60,7 @@ class A extends S {
     try {true >= false == id > 7;} catch (e) {}
 
     //shift expressions
-    try {1 >> -1 != (){};} catch(e) {}
+    try {1 >> -1 != (){};} catch (e) {}
     try {1 << 2 != null >> null;} catch (e) {}
 
     //additive expressions

@@ -31,7 +31,7 @@ Stream generator1() async* {
 Stream generator2() async* {
   try {
     throw 'abc';
-  } on String catch(e) {
+  } on String catch (e) {
     throw 3.14;
   }
 }

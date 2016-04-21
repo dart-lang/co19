@@ -43,5 +43,5 @@ main() {
   try {
     c.setter = 1; /// static type warning
     Expect.fail("TestException is expected");
-  } on TestException catch(e) {}
+  } on TestException catch (e) {}
 }

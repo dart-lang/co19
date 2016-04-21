@@ -30,5 +30,5 @@
 main() {
   try {
     [] %;
-  } catch(e) {}
+  } catch (e) {}
 }

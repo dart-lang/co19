@@ -86,7 +86,7 @@ class A extends S {
     !!!!!!true;
     try {~true;} catch (e) {}
 
-    try {-[];} catch(e) {}
+    try {-[];} catch (e) {}
     try {~{"1": 1};} catch (e) {}
     try {!const [1];} catch (e) {}
 

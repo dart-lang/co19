@@ -25,5 +25,5 @@ const i1 = "${foo()}";
 main() {
   try {
     print(i1);
-  } catch(x) {}
+  } catch (x) {}
 }

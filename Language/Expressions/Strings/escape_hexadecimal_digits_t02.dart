@@ -18,5 +18,5 @@
 main() {
   try {
     "\xx";
-  } catch(e) {}
+  } catch (e) {}
 }

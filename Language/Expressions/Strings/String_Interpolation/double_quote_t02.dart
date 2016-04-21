@@ -20,27 +20,27 @@ class C {
     try {
       "${x}"; /// static type warning - undefined name 'x'
       Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch(e) {}
+    } on NoSuchMethodError catch (e) {}
 
     try {
       "${[][10]}";
       Expect.fail("RangeError is expected");
-    } on RangeError catch(e) {}
+    } on RangeError catch (e) {}
 
     try {
       "${(const []).add(1)}";
       Expect.fail("UnsupportedError is expected");
-    } on UnsupportedError catch(e) {}
+    } on UnsupportedError catch (e) {}
 
     try {
       "${null.someMethod()}";
       Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch(e) {}
+    } on NoSuchMethodError catch (e) {}
 
     try {
       "${id()}";
       Expect.fail("NoSuchMethodError expected");
-    } on NoSuchMethodError catch(e) {}
+    } on NoSuchMethodError catch (e) {}
   }
 }
 

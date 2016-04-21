@@ -33,5 +33,5 @@ main() {
   try {
     new C();
     Expect.fail("Should throw AbstractClassInstantiationError");
-  } on AbstractClassInstantiationError catch(e) {}
+  } on AbstractClassInstantiationError catch (e) {}
 }

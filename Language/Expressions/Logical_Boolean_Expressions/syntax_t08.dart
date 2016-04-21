@@ -24,5 +24,5 @@
 main() {
   try {
     true || || false;
-  } catch(e) {}
+  } catch (e) {}
 }
