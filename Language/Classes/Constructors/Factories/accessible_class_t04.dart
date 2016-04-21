@@ -29,5 +29,5 @@ class C implements F {
 main() {
   try {
     new F.foo();
-  } catch(e) {}
+  } catch (e) {}
 }

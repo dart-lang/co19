@@ -37,6 +37,6 @@ main() {
   try {
     var c = new C(); /// static type warning instantiating abstract class
     Expect.fail("AbstractClassInstantiationError expected");
-  } on AbstractClassInstantiationError catch(e) {
+  } on AbstractClassInstantiationError catch (e) {
   }
 }

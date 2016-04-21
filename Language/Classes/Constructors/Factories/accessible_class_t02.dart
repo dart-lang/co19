@@ -23,5 +23,5 @@ class F {
 main() {
   try {
     new F();
-  } catch(e) {}
+  } catch (e) {}
 }

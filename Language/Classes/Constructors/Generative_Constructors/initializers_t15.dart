@@ -23,7 +23,7 @@ import "../../../../Utils/expect.dart";
 
 class C {
   C() : this.foo =
-      null..[1](1)[2](2).foo(3, bar: 4)[0]=5..bar(6)["one ugly cascade"] {}
+      null..[1](1)[2](2).foo(3, bar: 4)[0] = 5..bar(6)["one ugly cascade"] {}
   var foo;
 }
 
@@ -31,5 +31,5 @@ main() {
   try {
     new C();
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }
