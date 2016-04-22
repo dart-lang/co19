@@ -17,4 +17,7 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.equals((1 == 1) && (2 == 2), 1 == 1 && 2 == 2);
   Expect.equals((1 == 1) && (2 == 3), 1 == 1 && 2 == 3);
+
+  Expect.equals((false == false) && true, false == false && true);
+  Expect.equals((true == false) && true, true == false && true);
 }
