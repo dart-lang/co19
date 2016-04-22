@@ -14,10 +14,10 @@
 import "../../../Utils/expect.dart";
 
 check(bool A, bool B, bool C, [bool D=true]) {
-  Expect.equals(A || B && C, A || (B && C));
-  Expect.equals(A && B || C && D,	(A && B) || (C && D));
-  Expect.equals(A && B && C || D,	((A && B) && C) || D);
-  Expect.equals(!A && B || C,	((!A) && B) || C);
+  Expect.equals(A || (B && C), A || B && C);
+  Expect.equals((A && B) || (C && D), A && B || C && D);
+  Expect.equals(((A && B) && C) || D, A && B && C || D);
+  Expect.equals(((!A) && B) || C, !A && B || C);
 }
 
 main() {

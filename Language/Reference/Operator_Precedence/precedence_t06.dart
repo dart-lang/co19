@@ -14,13 +14,9 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  i() => 5;
-  b() => true;
-  a() => [true, 1];
-  
-  Expect.equals( 1 == 1 && 2 == 2, (1 == 1) && (2 == 2));
-  Expect.equals( 1 != 1 || 2 == 2, (1 != 1) || (2 == 2));
-  Expect.equals( 1 <= 1 && 2 >= 2, (1 <= 1) && (2 >= 2));
+  Expect.equals( (1 == 1) && (2 == 2), 1 == 1 && 2 == 2);
+  Expect.equals( (1 != 1) || (2 == 2), 1 != 1 || 2 == 2);
+  Expect.equals( (1 <= 1) && (2 >= 2), 1 <= 1 && 2 >= 2);
   var arr = [true, false];
   Expect.isTrue(!arr[0] == arr[1]);
 }
