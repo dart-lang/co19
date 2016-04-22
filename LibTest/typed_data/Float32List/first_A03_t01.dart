@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E first
- * This method is equivalent to this.elementAt(0).
- * @description Checks that this method is equivalent to this.elementAt(0).
+ * @assertion E first
+ * Returns the first element.
+ * Throws a StateError if this is empty. Otherwise returns the first element
+ * in the iteration order, equivalent to (iterator..moveNext()).current.
+ * @description Checks that this method is equivalent to
+ * (iterator..moveNext()).current.
  * @author msyabro
  */
 import "dart:typed_data";
@@ -14,11 +17,11 @@ import "../../../Utils/expect.dart";
 
 void check(array) {
   var l = new Float32List.fromList(array);
-  Expect.equals(l.elementAt(0), l.first);
+  Expect.equals((l.iterator..moveNext()).current, l.first);
 }
 void checkClear(length) {
   var l = new Float32List(length);
-  Expect.equals(l.elementAt(0), l.first);
+  Expect.equals((l.iterator..moveNext()).current, l.first);
 }
 
 main() {

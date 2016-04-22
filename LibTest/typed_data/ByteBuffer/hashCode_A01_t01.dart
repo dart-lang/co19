@@ -6,8 +6,9 @@
 /**
  * @assertion final int hashCode
  * Get a hash code for this object. Hash codes are guaranteed to be
- * the same for objects that are equal when compared using the equality operator ==.
- * @description Checks that equals objects have equal hash codes and
+ * the same for objects that are equal when compared using the equality
+ * operator ==.
+ * @description Checks that equal objects have equal hash codes and
  * different objects have different hash codes.
  * @author msyabro
  */
