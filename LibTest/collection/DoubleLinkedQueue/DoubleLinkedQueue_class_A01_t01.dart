@@ -14,7 +14,7 @@ import "../Queue/allTests.lib.dart";
 
 Iterable create([Iterable content]) {
   DoubleLinkedQueue res = new DoubleLinkedQueue();
-  if (content!=null) {
+  if (content != null) {
     res.addAll(content);
   }
   return res;
