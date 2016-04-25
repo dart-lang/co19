@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void fillRange(int start, int end, [E fill])
- * It is an error if start.. end is not a valid range pointing into the [this].
+ * An error occurs if start..end is not a valid range for this.
  * @description Checks that the given range is filled with [fill] value.
  * @author msyabro
  */

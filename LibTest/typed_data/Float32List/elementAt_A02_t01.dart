@@ -5,7 +5,8 @@
  */
 /**
  * @assertion E elementAt(int index)
- * If [this] has fewer than [index] elements throws a RangeError.
+ *The index must be non-negative and less than length. Index zero represents
+ * the first element (so iterable.elementAt(0) is equivalent to iterable.first).
  * @description Checks that a [RangeError] is thrown if [this]
  * has fewer than [index] elements.
  * @author msyabro
@@ -19,6 +20,11 @@ check(length) {
     l.elementAt(length + 1);
     Expect.fail("RangeError is expected");
   } on RangeError catch(ok) {}
+  try {
+    l.elementAt(length);
+    Expect.fail("RangeError is expected");
+  } on RangeError catch(ok) {}
+
   try {
     l.elementAt(-1);
     Expect.fail("RangeError is expected");

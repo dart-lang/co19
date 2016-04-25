@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 check(length) {
   var l = new Float32List(length);
   try {
-    l.add(0);
+    l.add(0.0);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError catch(ok) {}
   Expect.equals(length, l.length);

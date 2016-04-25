@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void fillRange(int start, int end, [E fill])
- * Sets the elements in the range [start] to [end] exclusive to
- * the given fillValue.
+ *  Sets the objects in the range start inclusive to end exclusive to the given
+ *  fillValue.
  * @description Checks that the given range is filled with [fill] value.
  * @author msyabro
  */

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
- * By default, when orElse is null, a [StateError] is thrown.
+ * If orElse is omitted, it defaults to throwing a StateError.
  * @description Checks that a [StateError] is thrown.
  * @author msyabro
  */
