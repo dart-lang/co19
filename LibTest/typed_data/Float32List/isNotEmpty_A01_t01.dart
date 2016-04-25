@@ -6,7 +6,8 @@
 /**
  * @assertion final bool isNotEmpty
  * Returns true if there is at least one element in this collection.
- * @description Checks that this method returns true iff [this] has at least one element.
+ * @description Checks that this method returns true iff [this] has at least
+ * one element.
  * @author msyabro
  */
 import "dart:typed_data";

@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Map<int, E> asMap()
- * Returns an unmodifiable [Map] view of this.
- * It has the indices of this list as keys, and the corresponding elements
- * as values.
+ *   Returns an unmodifiable [Map] view of this.
+ *   The map uses the indices of this list as keys and the corresponding
+ * objects as values.
  * @description Checks that the returned map is unmodifiable.
  * @author msyabro
  */

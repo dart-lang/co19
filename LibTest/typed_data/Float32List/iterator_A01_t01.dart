@@ -5,7 +5,8 @@
  */
 /**
  * @assertion final Iterator<E> iterator
- * Returns an [Iterator] that iterates over this [Iterable] object.
+ * Returns a new [Iterator] that allows iterating the elements of this
+ * [Iterable].
  * @description Checks that the returned [Iterator] iterates over
  * all elements of this [Iterable] object.
  * @author msyabro

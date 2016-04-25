@@ -6,7 +6,7 @@
 /**
  * @assertion final E single
  * Returns the single element in this.
- * @description Checks that [last] is final and can't be set
+ * @description Checks that [single] is final and can't be set
  * @author msyabro
  */
 import "dart:typed_data";
