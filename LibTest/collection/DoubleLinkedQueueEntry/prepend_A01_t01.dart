@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion nextEntry() → DoubleLinkedQueueEntry<E>
- * @description Checks that nextEntry() returns the next element
+ * @assertion prepend(E e) → void
+ * @description Checks that prepend() adds element before this one
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -13,7 +13,8 @@ import "dart:collection";
 
 main() {
   DoubleLinkedQueueEntry e = new DoubleLinkedQueueEntry(1);
-  e.append(2);
+  e.prepend(2);
 
-  Expect.equals(2, e.nextEntry().element);
+  Expect.equals(2, e.previousEntry().element);
+  Expect.isNull(e.nextEntry());
 }

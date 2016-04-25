@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion nextEntry() → DoubleLinkedQueueEntry<E>
+ * @assertion previousEntry() → DoubleLinkedQueueEntry<E>
  * @description Checks that nextEntry() returns the next element
  * @author sgrekhov@unipro.ru
  */
@@ -17,7 +17,7 @@ main() {
   queue.add(2);
   queue.add(3);
 
-  Expect.equals(2, queue.firstEntry().nextEntry().element);
-  Expect.equals(3, queue.firstEntry().nextEntry().nextEntry().element);
-  Expect.isNull(queue.firstEntry().nextEntry().nextEntry().nextEntry());
+  Expect.equals(2, queue.lastEntry().previousEntry().element);
+  Expect.equals(1, queue.lastEntry().previousEntry().previousEntry().element);
+  Expect.isNull(queue.firstEntry().previousEntry());
 }

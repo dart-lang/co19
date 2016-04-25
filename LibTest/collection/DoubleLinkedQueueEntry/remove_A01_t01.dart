@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion nextEntry() → DoubleLinkedQueueEntry<E>
- * @description Checks that nextEntry() returns the next element
+ * @assertion remove() → E
+ * @description Checks that append() appends element to this one
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -17,7 +17,10 @@ main() {
   queue.add(2);
   queue.add(3);
 
-  Expect.equals(2, queue.firstEntry().nextEntry().element);
-  Expect.equals(3, queue.firstEntry().nextEntry().nextEntry().element);
-  Expect.isNull(queue.firstEntry().nextEntry().nextEntry().nextEntry());
+  var e = queue.firstEntry().nextEntry().remove();
+  Expect.equals(2, e);
+  Expect.equals(2, queue.length);
+  Expect.equals(1, queue.first);
+  Expect.equals(3, queue.firstEntry().nextEntry().element);
+  Expect.equals(1, queue.lastEntry().previousEntry().element);
 }
