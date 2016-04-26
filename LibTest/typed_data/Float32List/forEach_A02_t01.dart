@@ -6,24 +6,21 @@
 /**
  * @assertion void forEach(void f(E element))
  * Applies the function f to each element of this collection in iteration order.
- * @description Checks that the function [f] is called for each element of
- * the list.
- * @author msyabro
+ * @description Checks that elements are passed to the function [f] in
+ * iteration order.
+ * @author a.semenov@unipro.ru
  */
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float32List(0);
-  var res = 0.0;
-  l.forEach( (e) {
-    res += e;
-  });
-  Expect.equals(0, res);
+  List<double> data = [1.0, 2.1, 3.2, 4.3, 5.4, 6.5 ,7.6, 8.7, 9.8, 10.9];
+  Float32List list = new Float32List.fromList(data);
 
-  l = new Float32List.fromList([1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ,1.0, 1.0, 1.0, 1.0]);
-  l.forEach( (e) {
-    res += e;
+  Iterator<double> expected = list.iterator;
+  list.forEach( (e) {
+    Expect.isTrue(expected.moveNext());
+    Expect.equals(expected.current, e);
   });
-  Expect.equals(10.0, res);
+  Expect.isFalse(expected.moveNext());
 }

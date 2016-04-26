@@ -6,7 +6,7 @@
 /**
  * @assertion int lastIndexOf(Object element, [int startIndex])
  * Returns -1 if element is not found.
- * @description Checks that the correct index is returned, if the element
+ * @description Checks that value -1 is returned, if the element
  * is not present.
  * @author msyabro
  */
@@ -16,6 +16,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float32List.fromList([-1.0, 0.0, 0.0, -1.0, 2.0]);
+  Expect.equals(-1, l.lastIndexOf(5.0));
   Expect.equals(-1, l.lastIndexOf(5.0, 4));
   Expect.equals(-1, l.lastIndexOf(5.0, 0));
   Expect.equals(-1, l.lastIndexOf(0.0, 0));
