@@ -18,7 +18,7 @@
 
 var r = null;
 
-int foo() {  return r; }
+int foo() { return r; }
 
 main() {
   foo();

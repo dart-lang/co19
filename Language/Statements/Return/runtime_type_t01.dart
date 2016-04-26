@@ -22,7 +22,7 @@ import '../../../Utils/dynamic_check.dart';
 
 var r = 'a';
 
-int foo() {  return r; }
+int foo() { return r; }
 
 main() {
   checkTypeError(() {
