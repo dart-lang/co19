@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -90,7 +90,7 @@ Iterable generator2(int x, String y, double z) sync* {
 
 List take(Iterator iterator, int count) {
   List result = [];
-  while (count-->0 && iterator.moveNext()) {
+  while (count-- > 0 && iterator.moveNext()) {
     result.add(iterator.current);
   }
   return result;

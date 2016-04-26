@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -39,7 +39,7 @@ Iterable generator1() sync* {
 test1() {
   Iterable iterable = generator1();
   Iterator iterator = iterable.iterator;
-  for (int i=0; i<10; i++) {
+  for (int i = 0; i < 10; i++) {
     Expect.isFalse(iterator.moveNext());
     Expect.isNull(iterator.current);
   }
@@ -54,14 +54,14 @@ test2() {
   Iterator iterator = iterable.iterator;
   Expect.isTrue(iterator.moveNext());
   Expect.equals(1, iterator.current);
-  for (int i=0; i<10; i++) {
+  for (int i = 0; i < 10; i++) {
     Expect.isFalse(iterator.moveNext());
     Expect.isNull(iterator.current);
   }
 }
 
 Iterable generator3() sync* {
-  for (int i=0; i<5; i++) {
+  for (int i = 0; i < 5; i++) {
     yield i;
   }
 }
@@ -69,11 +69,11 @@ Iterable generator3() sync* {
 test3() {
   Iterable iterable = generator3();
   Iterator iterator = iterable.iterator;
-  for (int i=0; i<5; i++) {
+  for (int i = 0; i < 5; i++) {
     Expect.isTrue(iterator.moveNext());
     Expect.equals(i, iterator.current);
   }
-  for (int i=0; i<10; i++) {
+  for (int i = 0; i < 10; i++) {
     Expect.isFalse(iterator.moveNext());
     Expect.isNull(iterator.current);
   }
