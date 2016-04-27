@@ -22,7 +22,7 @@ main() {
   foo1() => 1;
   foo2() {return 1;}
   bar1(int val) => val * 2;
-  bar2(int val) {return val*2;}
+  bar2(int val) {return val * 2;}
 
   Expect.equals(foo1(), foo2());
   Expect.equals(bar1(5), bar2(5));
