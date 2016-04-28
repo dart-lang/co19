@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E first
- * @assertion Returns the first element.
+ * @assertion E first
+ * Returns the first element.
+ * Throws a StateError if this is empty. Otherwise returs the first element
+ * in the iteration order, equivalent to (iterator..moveNext())..current.
  * @description Checks that the method returns the first element.
  * @author kaigorodov
  */
@@ -18,8 +20,8 @@ check(Iterable create([Iterable content]), Iterable source) {
 }
 
 test(Iterable create([Iterable content])) {
-  check(create, [null]);
+  check(create, [0]);
   check(create, [1]);
-  check(create, [1,2,3]);
-  check(create, [[null]]);
+  check(create, [1, 2, 3]);
 }
+

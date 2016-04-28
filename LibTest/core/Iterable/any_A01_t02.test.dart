@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -8,19 +8,21 @@
  * Checks whether any element of this iterable satisfies test.
  * Checks every element in iteration order, and returns true if any of them make
  * test return true, otherwise returns false.
- * @description Checks that this method returns true if any of the elements of
- * this Iteratable make test return true, otherwise returns false.
+ * @description Checks that if test always returns false, then it is called for
+ * each element of this iteratable
  * @author pagolubev
  * @author sgrekhov@unipro.ru
  */
-library any_A01_t01;
+library any_A01_t02;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  bool foo(num x) { return x > 0; }
+  Iterable s = create([1, -3, 10, 17]);
 
-  Expect.isFalse(create().any(foo));
-  Expect.isFalse(create([-1, -3, -11]).any(foo));
-  Expect.isTrue(create([-1, -3, -11, 5]).any(foo));
-  Expect.isTrue(create([-1, -3, -11, 5, 3]).any(foo));
+  Set outer = new Set();
+  s.any((num x) {
+    outer.add(x);
+    return false;
+  });
+  Expect.isTrue(outer.containsAll(s));
 }

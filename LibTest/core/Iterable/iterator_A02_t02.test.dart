@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -25,16 +25,23 @@
  * an error the next time Iterator.moveNext is called on that iterator. Any
  * modifiable iterable class should specify which operations will break
  * iteration.
- * @description Checks the returned [Iterator] properties and methods
- * list.
- * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
+ * @description Checks that iterator iterates all elements of this Iterable.
+ * Test not empty collection
+ * @author sgrekhov@unipro.ru
  */
-library iterator_A01_t01;
- 
-import "../Iterator/allTests.lib.dart" as libIterator;
+library iterator_A02_t02;
 
-test(Iterable create([Iterable content]), {bool isSet: false}) {
-  libIterator.test(create, isSet: isSet);
+import "../../../Utils/expect.dart";
+
+test(Iterable create([Iterable content])) {
+  Iterable it = create([1, 2, 3, null, 10, 5]);
+  List l = new List();
+  Iterator i = it.iterator;
+  while(i.moveNext()) {
+    l.add(i.current);
+  }
+  Expect.equals(it.length, l.length);
+  for (int i = 0; i < it.length; i++) {
+    Expect.equals(it.elementAt(i), l[i]);
+  }
 }

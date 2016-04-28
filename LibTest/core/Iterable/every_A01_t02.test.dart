@@ -4,25 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract bool every(bool f(E element))
- * Returns true if every elements of this collection satisify the predicate f.
- * Returns false otherwise.
- * @description Checks that the predicate method is called for each element until the first false result.
+ * @assertion bool every(bool f(E element))
+ * Checks whether every element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns false if any of them
+ * make test return false, otherwise returns true.
+ * @description Checks that the predicate method is called for each element
+ * until the first false result.
  * @author vasya
  * @author msyabro
  * @reviewer varlax
  */
-library elementAt_A01_t02;
+library every_A01_t02;
 
-//import "../../../Utils/dynamic_check.dart";
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
 
   //Checks that [every] calls [predicate] a [count] number of times
   check(List a0, bool predicate(var e), int count) {
-    List a=create();
-    a.addAll(a0);
+    Iterable a = create(a0);
     int actualCount = 0;
     a.every((var e) {
       actualCount++;

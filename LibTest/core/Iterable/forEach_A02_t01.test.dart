@@ -14,25 +14,16 @@
  * @author pagolubev
  * @reviewer varlax
  */
+library forEach_A02_t01;
 import "../../../Utils/expect.dart";
 
 check(list, arg) {
   Expect.throws(() => list.forEach(arg));
 }
 
-main() {
-  check([1], 1);
-  check([1], null);
-  check([1], "");
-  check([1], 3.14);
-
-  check(const [1], 1);
-  check(const [1], null);
-  check(const [1], "");
-  check(const [1], 3.14);
-
-  check(new List.from([1]), 1);
-  check(new List.from([1]), null);
-  check(new List.from([1]), "");
-  check(new List.from([1]), 3.14);
+test(Iterable create([Iterable content])) {
+  check(create([1]), 1);
+  check(create([1]), null);
+  check(create([1]), "");
+  check(create([1]), 3.14);
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -13,29 +13,39 @@
  * integer values.
  * As an Iterable, new Iterable.generate(n, generator)) is equivalent to
  * const [0, ..., n - 1].map(generator).
- * @description Checks that Iterators created by the Iterable.generate() count
- * from zero to [count]-1 while iterating, and call [generator] with that index
- * to create the next value.
- * Checks that Iterators created by the Iterable contain results of invocations
- * of [generator].
- * @author kaigorodov
+ * @description Checks that Iterators created by the Iterable.generate() is
+ * equivalent to const [0, ..., n - 1].map(generator). Check how many times
+ * generator function is called
+ * @issue 26358
+ * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-void check(int count) {
- int generator(int index) => index * 3;
+int counter1 = 0;
+int counter2 = 0;
 
- Iterable itbl = new Iterable.generate(count, generator);
- for (var i = 0; i < count; i++) {
-   Expect.equals(i * 3, itbl.elementAt(i));
- }
-
- Expect.equals(count, itbl.length);
+int generator1(int index) {
+  counter1++;
+  return index;
+}
+int generator2(int index) {
+  counter2++;
+  return index;
 }
 
 main() {
-  check(0);
-  check(1);
-  check(10);
-  check(1000);
+  const arr = const [0, 1, 2, 3, 4, 5];
+  Iterable i1 = arr.map(generator1);
+  Iterable i2 = new Iterable.generate(arr.length, generator2);
+
+  counter1 = 0;
+  counter2 = 0;
+
+  i1.elementAt(2);
+  i1.elementAt(2);
+
+  i2.elementAt(2);
+  i2.elementAt(2);
+
+  Expect.equals(counter1, counter2);
 }

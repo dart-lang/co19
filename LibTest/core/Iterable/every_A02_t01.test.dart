@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If this collection is empty, returns true.
- * @needsreview not documented
+ * @assertion bool every(bool f(E element))
+ * Checks whether every element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns false if any of them
+ * make test return false, otherwise returns true.
  * @description Checks that method always returns true on an empty list.
  * @author iefremov
  * @reviewer pagolubev
  * @reviewer msyabro
  * @reviewer varlax
  */
-library elementAt_A02_t01;
+library every_A02_t01;
 
 import "../../../Utils/expect.dart";
 

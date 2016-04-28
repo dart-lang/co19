@@ -4,8 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E elementAt(int index)
+ * @assertion E elementAt(int index)
  * Returns the indexth element.
+ * The index must be non-negative and less than length. Index zero represents
+ * the first element (so iterable.elementAt(0) is equivalent to iterable.first).
+ * May iterate through the elements in iteration order, skipping the first index
+ * elements and returning the next. Some iterable may have more efficient ways
+ * to find the element.
  * @description Checks that the indexth element is returned.
  * @author kaigorodov
  */
@@ -14,10 +19,10 @@ library elementAt_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  List a=create();
-  List b=[5, 4, 3, 2, 1, 0];
-  a.addAll(b);
-  for (int k=0; k<a.length; k++) {
-    Expect.equals(b[k], a.elementAt(k));
+  List b = [5, 4, 3, 2, 1, 0];
+  Iterable a = create(b);
+
+  for (int i = 0; i < a.length; i++) {
+    Expect.equals(b[i], a.elementAt(i));
   }
 }

@@ -4,23 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If this collection is empty, returns true.
- * @needsreview not documented
+ * @assertion bool every(bool f(E element))
+ * Checks whether every element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns false if any of them
+ * make test return false, otherwise returns true.
  * @description Checks that [f] is not called if list is empty
  * @author kaigorodov
  */
-library elementAt_A02_t02;
+library every_A02_t02;
 
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-
-  List a=create();
-
+  Iterable a = create();
   int actualCount = 0;
   a.every((var e) {
     actualCount++;
-    return predicate(e);
+    return e;
   });
   Expect.equals(0, actualCount);
 }

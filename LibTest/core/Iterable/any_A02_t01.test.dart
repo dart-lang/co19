@@ -5,9 +5,10 @@
  */
 /**
  * @assertion bool any(bool f(E element))
- * Returns true if one element of the collection satisfies the predicate [f].
- * Returns false otherwise.
- * @description Checks that exception thrown in [f] breaks the iteration.
+ * Checks whether any element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns true if any of them make
+ * test return true, otherwise returns false.
+ * @description Checks that exception thrown in [test] breaks the iteration.
  * @author msyabro
  * @reviewer varlax
  */
@@ -18,7 +19,7 @@ import "../../../Utils/expect.dart";
 test(Iterable create([Iterable content])) {
   int count = 0;
   try {
-     create([1,2]).any((var element) {
+     create([1, 2]).any((var element) {
       throw ++count;
     });
   } on int catch(e) {

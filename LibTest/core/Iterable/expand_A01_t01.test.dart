@@ -4,45 +4,42 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable expand(Iterable f(E element))
- * Expand each element of this Iterable into zero or more elements.
- * The resulting Iterable will run through the elements returned by f for each
- * element of this, in order.
- * @description Checks that the function [f] is called for every element of the list.
- * Checks that resulting Iterable will run through the elements returned by f for each
- * element of this, in order.
+ * @assertion Iterable expand(Iterable f(E element))
+ * Expands each element of this Iterable into zero or more elements.
+ * The resulting Iterable runs through the elements returned by f for each
+ * element of this, in iteration order.
+ * The returned Iterable is lazy, and calls f for each element of this every
+ * time it's iterated.
+ * @description Checks that the function [f] is called for every element of the
+ * list.
+ * Checks that resulting Iterable will run through the elements returned by f
+ * for each element of this
  * @author kaigorodov
+ * @author sgrekhov@unipro.ru
  */
-library elementAt_A03_t01;
-
+library expand_A01_t01;
 import "../../../Utils/expect.dart";
-
-class A {
-  A() {}
-}
 
 test(Iterable create([Iterable content])) {
 
-  check(List a0, bool predicate(var e), exc) {
-
-  void checkCount(List a0) {
-    List a=create();
-    a.addAll(a0);
-    int count=0;
-    Iterable expanded=a.expand((var element) {
-      Expect.equals(a[count], element);
+  void checkCount(Iterable a) {
+    int count = 0;
+    Iterable expanded = a.expand((element) {
+      Expect.equals(a.elementAt(count), element);
       count++;
-      return [element];
+      return [element, element];
     });
-    Expect.listEquals(a, expanded.toList());
-    Expect.equals(a.length, count);
+
+    Expect.equals(a.length * 2, expanded.length);
+    // It's important to call expanded exactly once (the string above) before
+    // this check. Otherwise count will have wrong value because returned
+    // Iteratable is lazy
+    Expect.equals(count, a.length);
   }
-  List a=new List();
-  checkCount(a);
-  a.add(22);
-  checkCount(a);
-  a.add(11);
-  checkCount(a);
-  a.add(11);
-  checkCount(a);
+
+  checkCount(create());
+  checkCount(create([1]));
+  checkCount(create([1, 2]));
+  checkCount(create([1, 2, 2]));
+  checkCount(create([1, 2, 2, 3]));
 }

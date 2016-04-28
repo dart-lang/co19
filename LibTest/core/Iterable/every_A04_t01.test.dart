@@ -4,25 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Any error in the predicate [f] breaks the cycle.
+ * @assertion bool every(bool f(E element))
+ * Checks whether every element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns false if any of them
+ * make test return false, otherwise returns true.
  * @description Checks that predicate exception goes through to the caller
- * @needsreview not documented
  * @author varlax
  * @reviewer iefremov
  */
-library elementAt_A04_t01;
+library every_A04_t01;
 
 import "../../../Utils/expect.dart";
-
-class A {
-  A() {}
-}
 
 test(Iterable create([Iterable content])) {
 
   check(List a0, bool predicate(var e), exc) {
-    List a=create();
-    a.addAll(a0);
+    Iterable a = create(a0);
     int actualCount = 0;
     Expect.throws(
       () {

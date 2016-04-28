@@ -4,25 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E firstWhere(bool test(E value), {E orElse()})
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that a StateError is thrown when orElse is null and none matches.
+ * @assertion E firstWhere(bool test(E element), {E orElse()})
+ * Returns the first element that satisfies the given predicate test.
+ * Iterates through elements and returns the first to satsify test.
+ * If no element satisfies test, the result of invoking the orElse function
+ * is returned. If orElse is omitted, it defaults to throwing a StateError.
+ * @description Checks that a StateError is thrown when orElse is null and
+ * none matches.
  * @author kaigorodov
  */
+library firstWhere_A03_t01;
 import "../../../Utils/expect.dart";
 
-check(List list) {
+check(Iterable list) {
     Expect.throws(() {
-      list.firstWhere((int value)=>false);
-    },
-    (e)=> e is StateError
+      list.firstWhere((int value) => false);
+    }, (e) => e is StateError
   );
 }
 
-main() {
-  check(new List());
-  check([]);
-  check(const[]);
-  check(new List.from([]));
-  check([1,2,3]);
+test(Iterable create([Iterable content])) {
+  check(create());
+  check(create([]));
+  check(create(const[]));
+  check(create([1, 2, 3]));
 }

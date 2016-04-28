@@ -11,6 +11,7 @@
  * @author varlax
  * @reviewer iefremov
  */
+library forEach_A03_t01;
 import "../../../Utils/expect.dart";
 
 check(List a, predicate(var e), exc) {
@@ -21,27 +22,25 @@ check(List a, predicate(var e), exc) {
         actualCount++;
         return predicate(e);
       });
-    },
-    (e) {return identical(exc, e);}
+    }, (e) {return identical(exc, e);}
   );
   Expect.equals(1, actualCount);
 }
 
-main() {
+test(Iterable create([Iterable content])) {
   allTrue(var e) {
     throw true;
   }
-  check([1, 2, 3, 4, 5], allTrue, true);
+  check(create([1, 2, 3, 4, 5]), allTrue, true);
   
   allFalse(var e) {
     throw false;
   }
-  check([1, 2, 3, 4, 5], allFalse, false);
+  check(create([1, 2, 3, 4, 5]), allFalse, false);
   
   lessThan3(var e) {
     throw 3;
   }
-  check([1, 2, 3, 4, 5], lessThan3, 3);
-  check(const [1, 2, 3, 4, 5], lessThan3, 3);
-  check(new List.from([1, 2, 3, 4, 5]), lessThan3, 3);
+  check(create([1, 2, 3, 4, 5]), lessThan3, 3);
+  check(create(const [1, 2, 3, 4, 5]), lessThan3, 3);
 }
