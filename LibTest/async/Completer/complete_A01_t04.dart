@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void complete([T value])
+ * @assertion void complete([T value])
  * Completes future with the supplied values.
+ * The value must be either a value of type T or a future of type Future<T>.
  * If the value is itself a future, the completer will wait for that future to
  * complete, and complete with the same result, whether it is a success or an
  * error.
@@ -18,16 +19,16 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-int N=10;
-const v=99;
-List futures=[];
-int count=0;
+int N = 10;
+const v = 99;
+List futures = [];
+int count = 0;
 
 main() {
   var completer = new Completer();
   var future = completer.future;
 
-  for (int k=0; k<N; k++) {
+  for (int k = 0; k < N; k++) {
     asyncStart();
     futures.add(future.then((fValue) {
       Expect.equals(v, fValue);

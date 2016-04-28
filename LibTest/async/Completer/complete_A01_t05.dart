@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void complete([T value])
+ * @assertion void complete([T value])
  * Completes future with the supplied values.
+ * The value must be either a value of type T or a future of type Future<T>.
  * If the value is itself a future, the completer will wait for that future to
  * complete, and complete with the same result, whether it is a success or an
  * error.

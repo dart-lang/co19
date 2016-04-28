@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool isCompleted
+ * @assertion bool isCompleted
  * Whether the future has been completed.
  * @description Checks that after [complete] is called, isCompleted equals true.
  * @author kaigorodov

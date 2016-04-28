@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void completeError(Object exception, [Object stackTrace])
- * The argument exception should not be null.
- * @description Checks that an error is thrown if exception is null.
+ * If error is null, it is replaced by a NullThrownError.
+ * @description Checks that NullThrownError is thrown if exception is null.
  * @author ilya
  */
 
@@ -20,9 +20,9 @@ main() {
     .then((_) {
       Expect.fail('should not complete with a value');
     })
-    .catchError((_) {
-      Expect.fail('should not complete with an error');
+    .catchError((e) {
+      Expect.isTrue(e is NullThrownError);
     });
 
-  Expect.throws(() => completer.completeError(null));
+  completer.completeError(null);
 }

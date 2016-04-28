@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Completer.sync()
+ * @assertion Completer.sync()
  * Completes the future synchronously.
  * @description Checks that [complete] on object created by Completer.sync()
  * indeed completes the future synchronously.
@@ -15,13 +15,13 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-const cv="done";
+const cv = "done";
 
 main() {
   Completer completer = new Completer.sync();
-  Future f=completer.future;
+  Future f = completer.future;
   var value;
-  f.then((v){value=v;});
+  f.then((v) {value = v;});
   completer.complete(cv);
   Expect.identical(cv, value);
 }

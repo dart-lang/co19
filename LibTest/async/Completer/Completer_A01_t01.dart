@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Completer()
- * Create a completer
- * @description Checks that [Completer] creates an object of type Completer
- * which have all methods of Completer interface.
+ * @assertion Completer()
+ * Create a new completer.
+ * @description Checks that [Completer] creates an object of class Completer.
  * @author msyabro
  * @reviewer kaigorodov
  */

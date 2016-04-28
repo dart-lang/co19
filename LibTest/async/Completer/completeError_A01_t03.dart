@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void completeError(Object exception, [Object stackTrace])
- * Complete future with an error. Completing a future with an error indicates that
- * an exception was thrown while trying to produce a value.
+ * @assertion void completeError(Object exception, [Object stackTrace])
+ * Complete future with an error. Completing a future with an error indicates
+ * that an exception was thrown while trying to produce a value.
  * If error is a Future, the future itself is used as the error value.
  * @description Checks that if exception is another future f which completes
  * with the value v, completer's future will complete with the error f.
@@ -24,7 +24,7 @@ main() {
   var v = [1,2,3];
 
   asyncMultiStart(2);
-  
+
   var f = new Future.value(v).then((x) {
     asyncEnd();
     return x;
