@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Stream<T> asStream()
- * Creates a Stream that sends this' completion value, data or error, to its subscribers.
+ * @assertion Stream<T> asStream()
+ * Creates a Stream containing the result of this future.
+ * The stream will produce single data or error event containing the completion
+ * result of this future, ...
  * @description Checks that the stream sends this' error to its subscribers.
  * @author kaigorodov
  */
@@ -15,10 +17,10 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 
 main() {
-  Error error=new Error();
-  Future future = new Future.sync((){throw error;});
-  Stream stream=future.asStream();
-  Future f2=stream.single;
+  Error error = new Error();
+  Future future = new Future.sync(() {throw error;});
+  Stream stream = future.asStream();
+  Future f2 = stream.single;
 
   asyncStart();
   f2.then((fValue) {

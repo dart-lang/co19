@@ -5,8 +5,10 @@
  */
 /**
  * @assertion abstract Stream<T> asStream()
- * The stream closes after the completion value.
- * @description Checks that the stream closes after the completion value is send.
+ * The stream will produce single data or error event containing the completion
+ * result of this future, and then it will close with a done event.
+ * @description Checks that the stream is closed after the completion value is
+ * send.
  * @author kaigorodov
  */
 import "../../../Utils/async_utils.dart";
@@ -17,16 +19,16 @@ import "dart:async";
 String output1;
 
 main() {
-  var value=99;
+  var value = 99;
   Completer completer = new Completer();
   Future future = completer.future;
   completer.complete(value);
-  Stream stream=future.asStream();
-  int count=1;
-  
+  Stream stream = future.asStream();
+  int count = 1;
+
   asyncStart();
   stream.listen(
-    (var event){count=count+1;}, // should be invoked first
+    (var event) {count = count + 1;}, // should be invoked first
     onDone: (){
       Expect.equals(2, count);
       Expect.isTrue(completer.isCompleted);
