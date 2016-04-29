@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future catchError(Function onError, {bool test(Object error)})
- * When this completes with a value, the value is forwarded to f unmodified.
- * That is, f completes with the same value.
+ * @assertion Future catchError(Function onError, {bool test(Object error)})
+ * If this future completes with a value, the returned future completes with
+ * the same value.
  * @description Checks that if this completes with a value, [onError] is not
  * called and a future gets the same value.
- * value.
  * @author kaigorodov
  */
 import "../../../Utils/async_utils.dart";
