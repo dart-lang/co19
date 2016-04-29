@@ -4,8 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E last
+ * @assertion E last
  * Returns the last element.
+ * Throws a StateError if this is empty. Otherwise may iterate through the
+ * elements and returns the last one seen. Some iterables may have more
+ * efficient ways to find the last element (for example a list can directly
+ * access the last element, without iterating through the previous ones).
  * @description Checks that the last element of the list is returned.
  * @author kaigorodov
  */
@@ -14,6 +18,7 @@ library last_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content]), {bool isSet:false}) {
+
   check(Iterable source) {
     if (isSet) {
       //  for Sets, we can only check that returned element belongs to the set
@@ -22,22 +27,19 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
       Expect.equals(source.last, create(source).last);
     }
   }
-  
+
   List a = new List();
-  a.add(null);
+  a.add(0);
   check(a);
 
   a.add(1);
   check(a);
 
-  a.add("1");
-  check(a);
-
-  a.add(false);
+  a.add(1);
   check(a);
 
   List b = new List(1000);
-  b[999] = "top";
+  b[999] = 999;
   a.addAll(b);
   check(b);
   
@@ -52,6 +54,6 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   a = [null, 0, "0", false, -1];
   check(a);
 
-  a = const [null, 0, "0", false];
+  a = const [null, 0, "0", false, 100];
   check(a);
 }

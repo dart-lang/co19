@@ -4,26 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E last
- * If this is empty throws a StateError.
- * @description Checks that StateError is thrown if the list is empty.
+ * @assertion E last
+ * Returns the last element.
+ * Throws a StateError if this is empty. Otherwise may iterate through the
+ * elements and returns the last one seen. Some iterables may have more
+ * efficient ways to find the last element (for example a list can directly
+ * access the last element, without iterating through the previous ones).
+ * @description Checks that StateError is thrown if this Iteratable is empty.
  * @author kaigorodov
  */
 library last_A02_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterable create([Iterable content])) {
   check(Iterable a) {
-    Expect.throws(() {
-        create(a).last;
-      },
-      (e)=> e is StateError
-    );
+    Expect.throws(() {a.last;}, (e)=> e is StateError );
   }
 
-  check(new List());
-  check([]);
-  check(const[]);
-  check(new List.from([]));
+  check(create());
+  check(create([]));
+  check(create(const[]));
 }
