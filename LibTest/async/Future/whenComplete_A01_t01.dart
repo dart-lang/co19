@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future<T> whenComplete(action())
+ * @assertion Future<T> whenComplete(action())
  * Register a function to be called when this future completes.
  * The action function is called when this future completes,
  * whether it does so with a value or with an error.
@@ -25,10 +25,10 @@ main() {
   completer.future.whenComplete(action);
   asyncStart();
   completer.complete(20);
-  
+
   Completer completer2 = new Completer();
   Future f2 = completer2.future;
-  f2.whenComplete(action).catchError((e){});
+  f2.whenComplete(action).catchError((e) {});
   asyncStart();
   completer2.completeError(22);
 }
