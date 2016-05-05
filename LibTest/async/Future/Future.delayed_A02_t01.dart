@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.delayed(Duration duration, [T computation()])
- * If computation is not given or null then it will behave as if computation was set to () => null.
- * That is, it will complete with null.
+ * @assertion Future.delayed(Duration duration, [dynamic  computation()])
+ * If computation is omitted, it will be treated as if computation was set to
+ * () => null, and the future will eventually complete with the null value.
  * @description Checks that if computation is not given or null,
  * then it will behave as if computation was set to () => null.
  * @author kaigorodov

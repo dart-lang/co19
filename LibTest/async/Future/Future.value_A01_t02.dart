@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.value([value])
+ * @assertion Future.value([value])
  * A future whose value is available in the next event-loop iteration.
  * If value is not a Future, using this constructor is equivalent to
  * new Future<T>.sync(() => value).
@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   Future future = new Future.value();
-  
+
   asyncStart();
   future.then((fValue) {
     Expect.equals(null, fValue);

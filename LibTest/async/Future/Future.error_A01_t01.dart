@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.error(error, [Object stackTrace])
+ * @assertion Future.error(error, [Object stackTrace])
  * A future that completes with an error in the next event-loop iteration.
+ * If error is null, it is replaced by a NullThrownError.
  * @description Checks that a future created with constructor
  * Future.error has the error passed as a parameter.
  * @author kaigorodov
@@ -16,10 +17,14 @@ import "../../../Utils/expect.dart";
 
 check(value) {
   Future future = new Future.error(value);
-  
+
   asyncStart();
   future.catchError((error) {
-    Expect.identical(value, error);
+    if (value == null) {
+      Expect.isTrue(error is NullThrownError);
+    } else {
+      Expect.identical(value, error);
+    }
     asyncEnd();
   });
 }

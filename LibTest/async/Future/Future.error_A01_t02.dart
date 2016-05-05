@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Future.error(error, [Object stackTrace])
+ * @assertion Future.error(error, [Object stackTrace])
  * A future that completes with an error in the next event-loop iteration.
+ * If error is null, it is replaced by a NullThrownError.
  * @description Checks that a stackTrace can be passed to Future.error.
  * @author ilya
  */
@@ -26,7 +27,7 @@ main() {
     stackTrace = st;
     future = new Future.error(e, st);
   }
-  
+
   future.catchError((e, st) {
     Expect.identical(error, e);
     Expect.identical(stackTrace, st);
