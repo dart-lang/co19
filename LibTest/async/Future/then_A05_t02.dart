@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future then(onValue(T value), {onError(Object asyncError)})
- * The onError callback must be of type
- * void onError(error) or
- * void onError(error, StackTrace stackTrace).
- * If onError accepts two arguments it is called with the stack trace
- * (which could be null if the stream itself received an error without stack
- * trace). Otherwise it is called with just the error object.
+ * @assertion Future then(dynamic onValue(T value), {Function onError})
+ * If onError is provided, and this future completes with an error, the onError
+ * callback is called with that error and its stack trace. The onError callback
+ * must accept either one argument or two arguments. If onError accepts two
+ * arguments, it is called with both the error and the stack trace, otherwise
+ * it is called with just the error object.
  * @description Checks that second parameter to onError callback will receive
  * a stack trace.
  * @author ilya
@@ -33,7 +32,7 @@ main() {
     future = new Future.error(e, st);
   }
 
-  future.then((_){}, onError: (e, st) {
+  future.then((_) {}, onError: (e, st) {
     Expect.identical(error, e);
     Expect.identical(stackTrace, st);
     asyncEnd();
