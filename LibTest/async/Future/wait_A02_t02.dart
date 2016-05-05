@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future<List> wait(Iterable<Future> futures)
- * If any of the futures in the list completes with an error, the resulting future
- * also completes with an error.
- * Otherwise the value of the returned future will be a list of all the values that were produced.
- * @description Checks that the returned future is completed when a single future in the list
- * is completed with exception.
+ * @assertion Future<List> wait(Iterable<Future> futures,
+ *                {bool eagerError: false, void cleanUp(successValue)})
+ * If any of the futures in the list completes with an error, the resulting
+ * future also completes with an error.
+ * Otherwise the value of the returned future will be a list of all the values
+ * that were produced.
+ * @description Checks that the returned future is completed when a single
+ * future in the list is completed with exception.
  * @author iefremov
  */
 import "dart:async";
@@ -32,10 +34,20 @@ main() {
   var f = Future.wait([future1, future2, future3, future4, future5]);
 
   asyncStart();
-  f.catchError((value) {
-    Expect.isTrue(completer1.isCompleted);
-    asyncEnd();
-  });
+  f.then(
+      (value) {
+        Expect.fail("Should not be here");
+        asyncEnd();
+      },
+      onError: (Object err) {
+        Expect.isTrue(completer1.isCompleted);
+        Expect.isTrue(completer2.isCompleted);
+        Expect.isTrue(completer3.isCompleted);
+        Expect.isTrue(completer4.isCompleted);
+        Expect.isTrue(completer5.isCompleted);
+        asyncEnd();
+      }
+  );
 
   completer1.completeError(1);
   completer2.complete(2);
