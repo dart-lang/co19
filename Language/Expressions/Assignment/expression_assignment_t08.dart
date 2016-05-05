@@ -15,6 +15,7 @@
  * @description Checks that if o1 is an instance of Type but e1 is not a
  * constant type literal, then if v = is a setter that forwards to a static
  * setter, setter lookup fails
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

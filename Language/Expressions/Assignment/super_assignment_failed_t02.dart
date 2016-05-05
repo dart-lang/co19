@@ -22,6 +22,7 @@
  *  in class Object is invoked on this
  * @description Checks that method noSuchMethod is invoked with the right
  * argument if there is setter v= in class C but no setter for v= in Sdynamic.
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

@@ -9,7 +9,6 @@
  * the direct superinterfaces of M
  * @description Checks that it is no static warning if M has a superinterfaces
  * and C does implement them. Test class C = S with M; syntax
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 abstract class A {

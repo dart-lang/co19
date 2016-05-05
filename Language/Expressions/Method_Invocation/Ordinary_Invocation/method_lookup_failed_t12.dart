@@ -24,6 +24,7 @@
  * @description Checks static invocations when interface C does not declare
  * a static method or getter m. Default method noSuchMethod() is invoked.
  * It throws NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

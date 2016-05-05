@@ -13,6 +13,7 @@
  * in which case a dynamic error occurs. If no error occurs, the value of the
  * assignment expression is o.
  * @description Checks that if v is final then dynamic error occurs
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/dynamic_check.dart';

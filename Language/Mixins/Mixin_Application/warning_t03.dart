@@ -10,7 +10,6 @@
  * would cause a static warning.
  * @description Checks that it is a static warning if Mi declare members
  * with the same names but conflicting types
- * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 23878
  */

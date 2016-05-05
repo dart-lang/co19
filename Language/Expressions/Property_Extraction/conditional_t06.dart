@@ -10,6 +10,7 @@
  * case it is equivalent to e1.m.
  * @description Check that e1?.id is equivalent to
  * ((x) => x == null?null : x.id)(e1). Test non-existing property
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

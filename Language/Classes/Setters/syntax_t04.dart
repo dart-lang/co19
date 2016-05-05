@@ -16,8 +16,8 @@
 import "../../../Utils/expect.dart";
 
 class C {
-  String set s1(int value) {return "1";} /// static warning
-  static int set s2(int value) {return 2;} /// static warning
+  String set s1(int value) {return "1";} /// static type warning
+  static int set s2(int value) {return 2;} /// static type warning
 }
 
 main() {

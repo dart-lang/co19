@@ -9,6 +9,7 @@
  * in a pre when inserted by a script immediately after triggering a layout.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''

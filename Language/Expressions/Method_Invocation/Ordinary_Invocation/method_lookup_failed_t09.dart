@@ -23,6 +23,7 @@
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks static invocations when class C does not declare any
  * members named m.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

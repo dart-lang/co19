@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning to export two different libraries with
- * the same name.
+ * @assertion  It is a static warning to export two different libraries with the
+ * same name unless their name is the empty string.
  * @description Checks it is a static warning if there are two export
  * directives referring to different uris with the same library name.
  * @static-warning

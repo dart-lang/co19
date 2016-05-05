@@ -24,6 +24,7 @@
  * @description Checks that a NoSuchMethodError is thrown if C does not
  * denote a class in the current scope, or if C does not declare a static
  * method or getter with the required name.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

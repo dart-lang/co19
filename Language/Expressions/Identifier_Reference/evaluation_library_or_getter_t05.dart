@@ -28,7 +28,7 @@ void f() {
   Expect.equals(c, 1);
   Expect.equals(s1, 2);
   Expect.equals(s1 = 4, 4);
-  Expect.throws(() {s2;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {s2;}, (e) => e is NoSuchMethodError); /// static type warning
   Expect.equals(s2 = 5, 5);
 }
 

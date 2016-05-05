@@ -24,6 +24,7 @@
  * @description Checks static invocations when class C inherits an instance
  * method with the name m instead of declaring a static one. Default method
  * noSuchMethod() is invoked. It throws NoSuchMethodError.
+ * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */

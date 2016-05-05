@@ -17,6 +17,7 @@
  * evaluating i.
  * @description Checks the result of invocation if the method noSuchMethod()
  * invoked.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */

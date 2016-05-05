@@ -10,7 +10,7 @@
  * binary operator context, and as a NameTest otherwise.
  */
 import "dart:html";
-import "../../testharness.dart";
+import "../../testharness.dart" as hrns;
 import "xpath-test-pre.dart";
 
 const String htmlEL = r'''
@@ -20,7 +20,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL, treeSanitizer: new hrns.NullTreeSanitizer());
     var context = document.getElementById('context');
     var div = document.getElementById('two');
 

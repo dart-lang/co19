@@ -14,6 +14,7 @@
  * formal parameter bound to o2 and this bound to o1.
  * @description Checks that if evaluation of e1 successful then e2 is evaluated
  * even if setter lookup failed
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

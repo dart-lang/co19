@@ -23,6 +23,7 @@
  * returned after f is executed.
  * @description Checks that the method lookup fails if a form super.m() has a
  * parameters mismatch listed above with the enclosing class's instance method.
+ * @static-warning
  * @author ilya
  */
 import '../../../../Utils/expect.dart';

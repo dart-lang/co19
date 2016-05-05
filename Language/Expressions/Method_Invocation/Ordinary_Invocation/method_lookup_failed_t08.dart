@@ -24,6 +24,7 @@
  * @description Checks static invocations when C does not denote a class in
  * the current scope. Default method noSuchMethod() is invoked. It throws
  * NoSuchMethodError.
+ * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

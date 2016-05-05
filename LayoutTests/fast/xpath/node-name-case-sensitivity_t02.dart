@@ -8,7 +8,7 @@
  * @description xpath expressions considered invalid by dart, but valid in js
  */
 import "dart:html";
-import "../../testharness.dart";
+import "../../testharness.dart" as hrns;
 import "xpath-test-pre.dart";
 
 const String htmlEL = r'''
@@ -25,7 +25,7 @@ class MyXPathNSResolver implements XPathNSResolver {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL, treeSanitizer: new hrns.NullTreeSanitizer());
     XPathEvaluator evaluator=new XPathEvaluator();
     XPathNSResolver nsResolver = new MyXPathNSResolver();
 

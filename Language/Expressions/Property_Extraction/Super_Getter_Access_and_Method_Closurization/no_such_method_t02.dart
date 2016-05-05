@@ -15,6 +15,7 @@
  * @description Checks that if a lookup has failed, then noSuchMethod() is
  * looked up and called in a superclass with correct Invocation instance
  * and the result of this call is the result of super.m.
+ * @static-warning
  * @author ilya, sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

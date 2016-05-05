@@ -18,6 +18,7 @@
  *
  * @description Check that a dynamic error occurs if o is not an instance
  * of a class that implements Stream
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -30,7 +31,7 @@ Future test1() async {
 }
 
 Future test2() async {
-  await for (int i in [1, 2, 3]) {
+  await for (int i in [1, 2, 3]) { /// static type warning
   }
 }
 

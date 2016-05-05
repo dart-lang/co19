@@ -12,6 +12,7 @@
  * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Check that e1?.id is equivalent to
  * ((x) => x == null?null : x.id)(e1). Test non-existing property
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

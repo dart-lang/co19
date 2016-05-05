@@ -23,13 +23,13 @@
  *
  * @description Check that dynamic error occurs if the class of o does not
  * implement Iterable.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import '../../../../Utils/dynamic_check.dart';
 
 Iterable<int> generator() sync* {
-  yield* 1;
+  yield* 1; /// static type warning
 }
 
 main() {

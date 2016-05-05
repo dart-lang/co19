@@ -24,6 +24,7 @@
  * method noSuchMethod then the implementation of noSuchMethod() in class Object
  * is invoked on this, that results in NoSuchMethodError. Test the case when
  * class C has its own implementation of noSuchMethod()
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 25671
  */

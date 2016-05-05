@@ -14,6 +14,7 @@
  * expression is o.
  * @description Checks that if d is top level getter, then the setter v= is
  * invoked with and this causes noSuchMethodError
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

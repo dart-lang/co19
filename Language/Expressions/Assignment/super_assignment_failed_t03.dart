@@ -23,6 +23,7 @@
  * @description Checks that if there is no setter v= in class Sdynamic and no
  * method noSuchMethod then the implementation of noSuchMethod() in class Object
  * is invoked on this, that results in NoSuchMethodError
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

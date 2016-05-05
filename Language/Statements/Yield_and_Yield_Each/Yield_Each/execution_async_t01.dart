@@ -23,6 +23,7 @@
  * implement Stream.
  *
  * @issue #25634 - the test assumes that dynamic error is added to the stream.
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -30,7 +31,7 @@ import '../../../../Utils/expect.dart';
 import '../../../../Utils/async_utils.dart';
 
 Stream<int> generator() async* {
-  yield* 'a';
+  yield* 'a'; /// static type warning
 }
 
 main() {
