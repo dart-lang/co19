@@ -11,7 +11,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   test(declaration, property) {
@@ -24,7 +23,6 @@ main() {
     return result;
   }
 
-  shouldBe(test("background-clip: -webkit-text", "background-clip"), "-webkit-text");
   shouldBe(test("background-clip: -webkit-text", "-webkit-background-clip"), '');
 
   shouldBe(test("background-clip: content-box", "background-clip"), "content-box");
@@ -35,10 +33,8 @@ main() {
   shouldBe(test("background-clip: text", "-webkit-background-clip"), '');
 
   shouldBe(test("-webkit-background-clip: -webkit-text", "background-clip"), '');
-  shouldBe(test("-webkit-background-clip: -webkit-text", "-webkit-background-clip"), "-webkit-text");
 
   shouldBe(test("-webkit-background-clip: text", "background-clip"), '');
-  shouldBe(test("-webkit-background-clip: text", "-webkit-background-clip"), "text");
   shouldBe(test("background: url() padding-box", "-webkit-background-clip"), '');
 
   shouldBe(test("-webkit-mask: url() ", "background-clip"), '');
