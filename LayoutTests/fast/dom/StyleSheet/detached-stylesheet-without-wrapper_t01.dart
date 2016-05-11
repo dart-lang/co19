@@ -10,27 +10,31 @@
  * do for DOM nodes in detached subtrees.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
-  var style = new Element.html('''
+  var style = new Element.html(
+      '''
     <style>
     #test-element {
         text-decoration: line-through;
     }
     </style>
-    ''', treeSanitizer: new NullTreeSanitizer());
+    ''',
+      treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  document.body.setInnerHtml('''
+  document.body.setInnerHtml(
+      '''
     <span id="test-element"></div>
     <div>PASS</div>
-    ''', treeSanitizer: new NullTreeSanitizer());
+    ''',
+      treeSanitizer: new NullTreeSanitizer());
 
-  var rule = window.getMatchedCssRules(document.getElementById("test-element"), '').item(0);
+  int stylesNum = document.styleSheets.length;
   document.head.remove();
-  shouldBe(rule.parentStyleSheet, null);
+
+  shouldBe(document.getElementById("test-element").getComputedStyle()
+      .getPropertyValue('text-decoration'), 'none');
+  shouldBeTrue(stylesNum > document.styleSheets.length);
 }
