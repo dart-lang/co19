@@ -5,7 +5,7 @@
  */
 /**
  * @assertion A class declaration, or type alias G may be generic, this is,
- * G may have formal type parametera declared.
+ * G may have formal type parameters declared.
  * . . .
  * typeParameter:
  *   metadata identifier (extends type)?
@@ -25,9 +25,6 @@ typedef f2<$, $$, $$$>();
 typedef f3<T extends f1<T>, S extends I, V extends Function>();
 typedef f4<T extends f3<U, S, V>, U extends T, V extends U, S>();
 typedef f5<T extends f1<List<List<List<List>>>>>();
-// prohibited by 13.13.1
-//typedef f6<T extends f1<f6>>();
-//typedef f7<t extends f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7<f7>>>>>>>>>>>>>>>>>>>>>();
 
 main() {
   f1 foo1;
@@ -35,8 +32,6 @@ main() {
   f3 foo3;
   f4 foo4;
   f5 foo5;
-//  f6 foo6;
-//  f7 foo7;
   fManyParameters foo8;
 }
 
