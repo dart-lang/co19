@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E singleWhere(bool test(E value))
+ * @assertion E singleWhere(bool test(E element))
  * Returns the single element that satisfies f.
- * @description Checks that the single element that satisfies the given predicate f
- * is returned.
+ * @description Checks that the single element that satisfies the given
+ * predicate f is returned.
  * @author kaigorodov
  */
+library singleWhere_A01_t01;
 import "../../../Utils/expect.dart";
 
-check(List a, test(value), int expected) {
-  int actual=a.singleWhere(test);
+check(Iterable a, f(value), int expected) {
+  var actual = a.singleWhere(f);
   Expect.equals(expected, actual);
 }
 
-main() {
-  check([1,2,-3,0], (value)=>value>1, 2);
-  check(const[1,2,-5,-6], (value)=>value==1, 1);
+test(Iterable create([Iterable content])) {
+  check(create([1, 2, -3, 0]), (value) => value > 1, 2);
+  check(create(const[1, 2, -5, -6]), (value) => value == 1, 1);
 }

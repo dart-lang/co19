@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E single
+ * @assertion E single
  * Returns the single element in this.
  * If this is empty or has more than one element throws a StateError.
  * @description Checks that the single element is returned.
@@ -15,18 +15,13 @@ library single_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
-  var v;
+test(Iterable create([Iterable content])) {
   void check(List content) {
-    Iterable a=create(content);
-    if (content.length==1) {
-      Expect.equals(content[0], a.single);
+    Iterable a = create(content);
+    if (content.length == 1) {
+      Expect.equals(a.elementAt(0), a.single);
     } else {
-      Expect.throws(() {
-          v=a.single;
-        },
-        (e)=> e is StateError
-      );
+      Expect.throws(() {a.single;}, (e) => e is StateError);
     }
   }
   check([]);

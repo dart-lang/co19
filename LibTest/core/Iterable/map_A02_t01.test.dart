@@ -4,33 +4,36 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable map(f(E element))
- * As long as the returned Iterable is not iterated over, the supplied function f will not
- * be invoked.
- * @description Checks that the supplied function f will not be invoked if the returned
- * Iterable is not iterated over.
+ * @assertion Iterable map(dynamic f(E e))
+ * ...
+ * As long as the returned Iterable is not iterated over, the supplied function
+ * f will not be invoked.
+ * @description Checks that the supplied function f will not be invoked if
+ * the returned Iterable is not iterated over.
  * @author kaigorodov
  */
+library map_A02_t01;
 import "../../../Utils/expect.dart";
 
-bool invoked=false;
+bool invoked = false;
 
 f(var element) {
-  invoked=true;
+  invoked = true;
   return element;
 }
-  
-main() {
-  List a=new List();
+
+test(Iterable create([Iterable content])) {
+  Iterable a = create();
   a.map(f);
-  a.add(22);
+  a = create([22]);
   a.map(f);
-  a.add(11);
+  a = create([22, 11]);
   a.map(f);
-  a.add(11);
+  a = create([22, 11, 11]);
   a.map(f);
-  for (int k=-100; k<200; k++) {
-    a.add(k);
+  List l = new List();
+  for (int k = 1; k < 200; k++) {
+    l.add(k);
   }
   a.map(f);
   Expect.isFalse(invoked);

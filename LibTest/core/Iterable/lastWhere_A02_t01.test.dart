@@ -10,16 +10,19 @@
  * function is returned.
  * @author kaigorodov
  */
+library lastWhere_A02_t01;
+
 import "../../../Utils/expect.dart";
 
-var noneMatches=new Object();
+var noneMatches = new Object();
 
-void check(List a, var element) {
-  Expect.identical(noneMatches, a.lastWhere((var value)=>value==element, orElse: ()=>noneMatches));
+void check(Iterable a, var element) {
+  Expect.identical(noneMatches,
+      a.lastWhere((var value) => value == element, orElse: () => noneMatches));
 }
 
-main() {
-  List a = [42, 0, -1, 42, -1, 6031769, 0];
+test(Iterable create([Iterable content])) {
+  Iterable a = create([42, 0, -1, 42, -1, 6031769, 0]);
   check(a, 43);
   check(a, 2);
   check(a, -2);

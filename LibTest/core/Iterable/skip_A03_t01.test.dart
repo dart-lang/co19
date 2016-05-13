@@ -4,23 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skip(int n)
- * It is an error if n is negative.
+ * @assertion Iterable<E> skip(int count)
+ * The count must not be negative
  * @description checks that a RangeError is thrown if n is negative.
  * @author kaigorodov
  */
+library skip_A03_t01;
 import "../../../Utils/expect.dart";
 
-check(List a, int n) {
- Iterable res;
- try {
-    res=a.skip(n);
-    Expect.fail("RangeError expected when calling a.skip");
-  } on RangeError catch(ok) {}
+check(Iterable a, int n) {
+  Expect.throws(() {a.skip(n);}, (e) => e is RangeError);
 }
 
-main() {
-  check([1,2,-3,4], -1);
-  check(const[1,2,-5,-6, 100], -1);
-  check(const[null,2,-5,-6, 100], -1000);
+test(Iterable create([Iterable content])) {
+  check(create([1, 2, -3, 4]), -1);
+  check(create(const[1, 2, -5, -6, 100]), -1);
+  check(create(const[null, 2, -5, -6, 100]), -1000);
 }

@@ -6,25 +6,21 @@
 /**
  * @assertion abstract E lastWhere(bool test(E value), {E orElse()})
  * By default, when orElse is null, a StateError is thrown.
- * @description Checks that If none matches and orElse is null, a StateError is thrown.
- * function is returned.
+ * @description Checks that If none matches and orElse is null,
+ * a StateError is thrown.
  * @author kaigorodov
  */
+library lastWhere_A03_t01;
+
 import "../../../Utils/expect.dart";
 
-var noneMatches=new Object();
-
-void check(List a, var element) {
-  bool failed=false;
-  try {
-    a.lastWhere((var value)=>value==element);
-    failed=true;
-  } on StateError catch(ok) {}
-  Expect.isFalse(failed); 
+void check(Iterable a, var element) {
+  Expect.throws(() {a.lastWhere((var value) => value == element);},
+      (e) => e is StateError);
 }
 
-main() {
-  List a = [42, 0, -1, 42, -1, 6031769, 0];
+test(Iterable create([Iterable content])) {
+  Iterable a = create([42, 0, -1, 42, -1, 6031769, 0]);
   check(a, 43);
   check(a, 2);
   check(a, -2);

@@ -4,25 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skip(int n)
- * If this has fewer than n elements, then the resulting Iterable will be empty.
- * @description if this has fewer than n elements, then the resulting Iterable is empty.
+ * @assertion Iterable<E> skip(int count)
+ * If this has fewer than count elements, then the resulting Iterable is empty.
+ * @description if this has fewer than n elements, then the resulting Iterable
+ * is empty.
  * @author kaigorodov
  */
+library skip_A02_t01;
 import "../../../Utils/expect.dart";
 
-check(List a, int n) {
-  Iterable it=a.skip(n);
+check(Iterable a, int n) {
+  Iterable it = a.skip(n);
   Expect.equals(0, it.length);
 }
 
-main() {
-  check([], 1);
-  check([1,2,-3,4], 5);
-  check([11,2,-3,4], 200);
-  check([1,22,-3,4], 400000);
-  check(const[1,2,-5,-6, 100], 5);
-  check(const[1, -1, 2,-5,-6], 5);
-  check(const[0,0,1,2,-5,-6], 25);
-  check(const[0,0,1,2,-5,-6], 60000);
+test(Iterable create([Iterable content])) {
+  check(create([]), 1);
+  check(create([1, 2, -3, 4]), 5);
+  check(create([11, 2, -3, 4]), 200);
+  check(create([1, 22, -3, 4]), 400000);
+  check(create(const[1, 2, -5, -6, 100]), 5);
+  check(create(const[1, -1, 2, -5, -6]), 5);
+  check(create(const[0, 0, 1, 2, -5, -6]), 25);
+  check(create(const[0, 0, 1, 2, -5, -6]), 60000);
 }

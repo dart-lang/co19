@@ -4,23 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E reduce(E combine(E value, E element))
+ * @assertion E reduce(E combine(E value, E element))
  * Reduces a collection to a single value by iteratively combining elements of
  * the collection using the provided function.
  * @description Checks that the result is correct for simple functions.
  * @author kaigorodov
  */
+library reduce_A01_t01;
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(List a, combine, num expected) {
-  num actual=a.reduce(combine);
+check(Iterable a, combine, num expected) {
+  num actual = a.reduce(combine);
   Expect.equals(expected, actual);
-}	
+}
 
-main() {
-  check([1,2,-3], (value, element) => value+element, 0);
-  check([1,2,-3], (value, element) => value*element, -6);
-  check([0,2,-3], (value, element) => value*element, 0);
-  check(const[1,2,-5,-6], (value, element) => max(value,element), 2);
+test(Iterable create([Iterable content])) {
+  check(create([1, 2, -3]), (value, element) => value + element, 0);
+  check(create([1, 2, -3]), (value, element) => value * element, -6);
+  check(create([0, 2, -3]), (value, element) => value * element, 0);
+  check(create(const[1, 2 , -5, -6]), (value, element) => max(value, element), 2);
 }
