@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract List<E> toList({bool growable: true})
+ * @assertion List<E> toList({bool growable: true})
  * Creates a List containing the elements of this Iterable.
- * The elements will be in iteration order. The list is fixed-length if growable is false.
+ * The elements will be in iteration order. The list is fixed-length if growable
+ * is false.
  * @description Checks that proper list with correct element order is created.
  * @author kaigorodov
  */
+library toList_A01_t01;
 import "../../../Utils/expect.dart";
 
 void checkEquals(Iterable expected, List actual) {
@@ -24,22 +26,23 @@ void checkEquals(Iterable expected, List actual) {
   }
 }
 
-main() {
-  List l = new List();
+test(Iterable create([Iterable content])) {
+  Iterable l = create();
   List a = l.toList();
   Expect.equals(0, a.length);
   Expect.equals(0, l.length);
 
-  l.addAll(["1","2","3","4","5"]);
+  l = create([1, 2, 3, 4, 5]);
   a = l.toList();
   checkEquals(l, a);
 
-  List src = [null, [null], [], [1,2,3], [[null]]];
+  Iterable src = create([null, [null], [], [1, 2, 3], [[null]]]);
   a = src.toList();
   checkEquals(src, a);
 
-  src = new List(34567);
-  src[34566] = -111111111;
+  List lst = new List(34567);
+  lst[34566] = -111111111;
+  src = create(lst);
   a = src.toList();
   checkEquals(src, a);
 }

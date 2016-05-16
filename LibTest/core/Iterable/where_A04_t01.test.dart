@@ -1,38 +1,35 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E value))
- * Every new Iterator of the returned Iterable  will start iterating over the
- * elements of this.
- * @description Checks that every new iterator starts iterating over the
- * elements of this.
- * @author kaigorodov
+ * @assertion Iterable<E> where(bool f(E element))
+ * ...
+ * Iterating will not cache results, and thus iterating multiple times over the
+ * returned Iterable will invoke the supplied function test multiple times on
+ * the same element.
+ * @author sgrekhov@unipro.ru
  */
-library takeWhile_A03_t01;
+library where_A04_t01;
+
 import "../../../Utils/expect.dart"	;
 
 void check(Iterable a0, bool test0(var element)) {
-  var el;
-  bool tst(var element) {
-    bool res = test0(element);
-    if (res) {
-      el = element;
-    }
-    return res;
+  List copy = new List();
+  bool tst(var el) {
+    copy.add(el);
+    return test0(el);
   }
-  
-  Iterable itbl = a0.takeWhile(tst);
+
+  Iterable itbl = a0.where(tst);
   for (int k = 0; k < 5; k++) {
+    Expect.equals(0, copy.length);
     Iterator it = itbl.iterator;
-    int i = 0;
     while (it.moveNext()) {
-      Expect.equals(a0.elementAt(i), el);
-      Expect.equals(el, it.current);
-      i++;
-    }  
+    }
+    Expect.iterableEquals(a0, copy);
+    copy = [];
   }
 }
 

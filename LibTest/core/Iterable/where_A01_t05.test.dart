@@ -6,14 +6,10 @@
 /**
  * @assertion Iterable<E> where(bool f(E element))
  * Returns a lazy Iterable with all elements that satisfy the predicate f.
- * This method returns a view of the mapped elements. 
- * As long as the returned Iterable is not iterated over, the supplied function f will not be invoked. 
- * Iterating will not cache results, and thus iterating multiple times over the the returned Iterable 
- * will invoke the supplied function f multiple times on the same element.
- * @description Checks that predicate exception goes through to the caller when the result of this method
- * is iterated over and the target collection is not empty.
+ * @description Checks that predicate exception goes through to the caller when
+ * the result of this method is iterated over and the target collection is not
+ * empty.
  * @author varlax
- * @reviewer iefremov
  */
 library where_A01_t05;
  
@@ -26,17 +22,12 @@ check(Iterable a, bool predicate(var e), exc) {
     return predicate(e);
   });
   Iterator it = ret.iterator;
-  Expect.throws(
-    () {
-      while(it.moveNext()) {}
-    },
-    (e) {return identical(exc, e);}
-  );
+  Expect.throws(() {while(it.moveNext()) {}}, (e) => identical(exc, e));
   Expect.equals(1, actualCount);
 }
 
 test(Iterable create([Iterable content]), {bool isSet:false}) {
-  Iterable collection=create([1, 2, 3, 4, 5]);
+  Iterable collection = create([1, 2, 3, 4, 5]);
 
   bool allTrue(var e) {
     throw true;

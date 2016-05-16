@@ -1,47 +1,39 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion Iterable<E> where(bool f(E element))
  * Returns a lazy Iterable with all elements that satisfy the predicate f.
- * This method returns a view of the mapped elements. 
- * As long as the returned Iterable is not iterated over, the supplied function f will not be invoked. 
- * Iterating will not cache results, and thus iterating multiple times over the the returned Iterable 
- * will invoke the supplied function f multiple times on the same element.
- * @description Checks that the predicate method is called for all elements of the list as long as the resulting
- * iterable is iterated over to the end.
- * @author vasya
- * @reviewer iefremov
+ * @description Checks that the predicate method is called for all elements of
+ * the list as long as the resulting iterable is iterated over to the end.
+ * @author sgrekhov@unipro.ru
  */
 library where_A01_t02;
  
 import "../../../Utils/expect.dart";
 
-class A {
-  A(bool checked) { this.checked = checked;  }
-  bool checked;
-}
-
-test(Iterable create([Iterable content]), {bool isSet:false}) {
-
-  List<A> a = new List(100);
-  for(var i = 0; i < a.length; i++) {
-    a[i] = new A(false);
+check(Iterable a, bool f(var e)) {
+  List copy = new List();
+  bool tst(var e) {
+    copy.add(e);
+    return f(e);
   }
 
-  bool f(A e) { 
-    e.checked = true; 
-    return false; 
-  }
-
-  Iterable ret = create(a).where(f);
+  Iterable ret = a.where(tst);
   Iterator it = ret.iterator;
   while(it.moveNext()) {}
-  
+
+  int count = 0;
   Iterator ait = a.iterator;
   while(ait.moveNext()) {
-    Expect.isTrue(ait.current.checked);
+    Expect.equals(ait.current, copy.elementAt(count++));
   }
+}
+
+test(Iterable create([Iterable content])) {
+  check(create([1, 2, 3, 4, 5, 4, 3, 2, 1]), (e) => e > 1);
+  check(create([1, 2, 3, 4, 5, 4, 3, 2, 1]), (e) => e > 2);
+  check(create([1, 2, 3, 4, 5, 4, 3, 2, 1]), (e) => e < 0);
 }
