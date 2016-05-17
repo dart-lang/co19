@@ -14,7 +14,7 @@ import "dart:collection";
 import "compKeysWarnTests.lib.dart";
 
 Map create([Map content]) {
-  if (content==null) {
+  if (content == null) {
     return new HashMap();
   } else {
     return new HashMap.from(content);
