@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E lastWhere(bool test(E value), {E orElse()})
+ * @assertion E lastWhere(bool test(E value), {E orElse()})
  * Returns the last element that satisfies the given predicate f.
  * If none matches, the result of invoking the orElse function is returned.
  * By default, when orElse is null, a StateError is thrown.

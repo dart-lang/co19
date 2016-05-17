@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable list) {
     Expect.throws(() {
-      list.firstWhere((int value) => false);
+      list.firstWhere((var value) => false);
     }, (e) => e is StateError
   );
 }

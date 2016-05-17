@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionE lastWhere(bool test(E element), {E orElse()})
+ * @assertion E lastWhere(bool test(E element), {E orElse()})
  * Returns the last element that satisfies the given predicate test
  * @description Checks that the last element that satisfies the given predicate
  * test is returned
@@ -19,7 +19,7 @@ class C {
   C(this.val);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable create([Iterable content]), {bool isSet: false}) {
   C c1 = new C(42);
   C c2 = new C(42);
 
@@ -30,8 +30,14 @@ test(Iterable create([Iterable content])) {
     }
     return false;
   }, orElse: () => null);
-  if (found != null) {
-    Expect.identical(c2, found);
-    Expect.notEquals(c1, found);
+  if (!isSet) {
+    if (found != null) {
+      Expect.identical(c2, found);
+      Expect.notEquals(c1, found);
+    }
+  } else {
+    // Set may be unordered so the last element that satisfies the test is
+    // unpredictable. Just test that something is returned
+    Expect.isNotNull(found);
   }
 }

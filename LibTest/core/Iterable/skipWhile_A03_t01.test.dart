@@ -31,7 +31,7 @@ void check(Iterable a0, bool test0(var element)) {
     while (it.moveNext()) {
       all.add(it.current);
     }  
-    Expect.listEquals(a0, all);
+    Expect.iterableEquals(a0, all);
   }
 }
 

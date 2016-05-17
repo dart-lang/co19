@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E lastWhere(bool test(E value), {E orElse()})
+ * @assertion E lastWhere(bool test(E value), {E orElse()})
  * If none matches, the result of invoking the orElse function is returned.
  * @description Checks that If none matches, the result of invoking the orElse
  * function is returned.

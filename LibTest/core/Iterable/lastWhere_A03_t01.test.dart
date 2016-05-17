@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract E lastWhere(bool test(E value), {E orElse()})
+ * @assertion E lastWhere(bool test(E value), {E orElse()})
  * By default, when orElse is null, a StateError is thrown.
  * @description Checks that If none matches and orElse is null,
  * a StateError is thrown.

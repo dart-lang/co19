@@ -17,7 +17,7 @@ library any_A01_t05;
 import "../../../Utils/expect.dart";
 
 //Checks that [some] calls [tst] a [count] number of times
-check(List a, bool tst(var e), int count) {
+check(Iterable a, bool tst(var e), int count) {
   int actualCount = 0;
   a.any((var e) {
     actualCount++;

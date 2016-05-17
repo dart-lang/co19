@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable a, int n) {
   Iterable it = a.skip(n);
-  Expect.equals(a.length - n, it.length);
+  Expect.equals(a.length - n < 0 ? 0 : a.length - n, it.length);
   int k = 0;
   for (var el in it) {
     Expect.equals(a.elementAt(n + k++), el);

@@ -18,11 +18,21 @@ library elementAt_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
-  List b = [5, 4, 3, 2, 1, 0];
+test(Iterable create([Iterable content]), {bool isSet: false}) {
+  List b = [5, 4, 3, 2, 1, 0, 6];
   Iterable a = create(b);
-
-  for (int i = 0; i < a.length; i++) {
-    Expect.equals(b[i], a.elementAt(i));
+  if (isSet) {
+    // just check that elementAt(i) returns different elements for different i
+    for (int i = 0; i < a.length; i++) {
+      for (int j = 0; j < a.length; j++) {
+        if (i != j) {
+          Expect.notEquals(a.elementAt(i), a.elementAt(j));
+        }
+      }
+    }
+  } else {
+    for (int i = 0; i < a.length; i++) {
+      Expect.equals(b[i], a.elementAt(i));
+    }
   }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,26 +9,38 @@
  * Iterates through elements and returns the first to satsify test.
  * If no element satisfies test, the result of invoking the orElse function
  * is returned. If orElse is omitted, it defaults to throwing a StateError.
- * @description Checks that the first element that satisfies the test
- * is returned.
- * @author kaigorodov
+ * @description Checks that the first element that satisfies the given predicate
+ * test is returned
+ * @author sgrekhov@unipro.ru
  */
-library firstWhere_A01_t01;
+library firstWhere_A04_t01;
+
 import "../../../Utils/expect.dart";
 
-check(Iterable a, test(value), var expected) {
-  var actual = a.firstWhere(test);
-  Expect.equals(expected, actual);
+class C {
+  int val;
+  C(this.val);
 }
 
 test(Iterable create([Iterable content]), {bool isSet: false}) {
+  C c1 = new C(42);
+  C c2 = new C(42);
+
+  Iterable a = create([c1, c2]);
+  C found = a.firstWhere((var value) {
+    if (value is C) {
+      return value.val == 42;
+    }
+    return false;
+  }, orElse: () => null);
   if (isSet) {
     // Set may be unordered so the first element that satisfies the test is
-    // unpredictable. Test the case where the only element satisfies
-    check(create([1, 2, -3, 4]), (value) => value > 2, 4);
-    check(create([1, 2, -7, -5]), (value) => value < -5, -7);
+    // unpredictable. Just test that something is returned
+    Expect.isNotNull(found);
   } else {
-    check(create([1, 2, -3, 4]), (value) => value > 1, 2);
-    check(create([1, 2, -5, -6]), (value) => value < 0, -5);
+    if (found != null) {
+      Expect.identical(c1, found);
+      Expect.notEquals(c2, found);
+    }
   }
 }

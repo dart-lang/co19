@@ -6,14 +6,14 @@
 /**
  * @assertion Iterable<E> take(int count)
  * The count must not be negative.
- * @description Checks that a RangeError is thrown if n is negative.
+ * @description Checks that an error is thrown if n is negative.
  * @author kaigorodov
  */
 library take_A02_t01;
 import "../../../Utils/expect.dart";
 
 check(Iterable a, int n) {
-  Expect.throws(() {a.take(n);}, (e) => e is RangeError);
+  Expect.throws(() {a.take(n);});
 }
 
 test(Iterable create([Iterable content])) {
