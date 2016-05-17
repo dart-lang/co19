@@ -12,7 +12,6 @@
  * @description Checks that if f returns non-Future, iteration continues
  * immediately. Future f() returns new Object();
  *
- * @issue 26462
  * @author ngl@unipro.ru
  */
 import "../../../Utils/async_utils.dart";
@@ -49,7 +48,7 @@ main() {
     if (isCheckedMode()) {
       Expect.fail("Should not be here");
     } else {
-      Expect.equals(5, num);
+      Expect.equals(3, num);
     }
     asyncEnd();
   })
