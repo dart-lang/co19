@@ -10,16 +10,16 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "allTests.lib.dart";
+import "allTests.lib.dart" as libSet;
 
 Iterable create([Iterable content]) {
-  HashSet res = new HashSet();
-  if (content!=null) {
-    res.addAll(content);
+  if (content == null) {
+    return new HashSet();
+  } else {
+    return new HashSet.from(content);
   }
-  return res;
-}  
+}
 
 main() {
-  test(create);  
+  libSet.test(create);
 }
