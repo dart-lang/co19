@@ -14,10 +14,10 @@ import "dart:collection";
 
 void check (Iterable list) {
   HasNextIterator hnit = new HasNextIterator(list.iterator);
-  Iterator it=list.iterator;
+  Iterator it = list.iterator;
   for (;;) {
-    bool hNext=hnit.hasNext;
-    bool mNext=it.moveNext();
+    bool hNext = hnit.hasNext;
+    bool mNext = it.moveNext();
     Expect.equals(hNext, mNext);
     if (!mNext) {
       break;
@@ -28,7 +28,7 @@ void check (Iterable list) {
      
 main() {
   check([]);
-  check([1,2,3,4,0,9,-1]);
-  check(new Iterable.generate(0, (int index)=>index*5));
-  check(new Iterable.generate(100, (int index)=>index*5));
+  check([1, 2, 3, 4, 0, 9, -1]);
+  check(new Iterable.generate(0, (int index) => index * 5));
+  check(new Iterable.generate(100, (int index) => index * 5));
 }
