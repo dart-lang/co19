@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a LinkedHashMap<K,V> that contains all key value pairs of other.
+ * @assertion Creates a LinkedHashMap<K,V> that contains all key value pairs of
+ * other.
  * @description Checks that created hash map contains all elements of [other].
  * Both empty and non-empty argument maps are tested.
  * @author msyabro

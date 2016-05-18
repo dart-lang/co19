@@ -13,8 +13,7 @@ import "dart:collection";
 import "../HashMap/allTests.lib.dart";
 
 Map create([Map content]) {
-  LinkedHashSet res = new LinkedHashSet();
-  if (content==null) {
+  if (content == null) {
     return new LinkedHashMap();
   } else {
     return new LinkedHashMap.from(content);
