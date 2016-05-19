@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Stream.eventTransformed(Stream source,
+ * @assertion Stream.eventTransformed(Stream source,
  *   EventSink mapSink(EventSink<T> sink))
  * Creates a stream where all events of an existing stream are piped through
  * a sink-transformation.
@@ -30,14 +30,14 @@ class MySink implements EventSink<int> {
   void add(int i) {
     if (i.isOdd) {
       _sink.add(i);
-      _sink.add(i*2);
+      _sink.add(i * 2);
     }
   }
   void addError(e, [st]) => _sink.addError(e, st);
   void close() => _sink.close();
 }
 
-var input = [1,2,3,4,5];
+var input = [1, 2, 3, 4, 5];
 
 main() {
   var s = new Stream.fromIterable(input).map((x) {throw x;});
@@ -45,7 +45,7 @@ main() {
   var values = [];
 
   asyncStart();
-  s2.listen((_){
+  s2.listen((_) {
     Expect.fail('unexpected onData event');
   }, onError:(e) {
     values.add(e);

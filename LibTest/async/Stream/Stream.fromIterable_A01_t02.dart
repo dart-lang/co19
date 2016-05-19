@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Stream.fromIterable(Iterable<T> data)
+ * @assertion Stream.fromIterable(Iterable<T> data)
  * Creates a single-subscription stream that gets its data from data.
  * @description Checks that created stream returns all the data from Iterable.
  * @author kaigorodov
@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable<int> data) {
   Iterator<int> it = data.iterator;
-  Stream s=new Stream.fromIterable(data);
+  Stream s = new Stream.fromIterable(data);
 
   asyncStart();
 
@@ -33,6 +33,6 @@ check(Iterable<int> data) {
 
 main() {
   check([]);
-  check([1,2,3,null]);
-  check(new Iterable.generate(10, (int index)=>index*2));
+  check([1, 2, 3, null]);
+  check(new Iterable.generate(10, (int index) => index * 2));
 }

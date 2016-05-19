@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Stream.fromFuture(Future<T> future)
- * When the future completes, the stream will fire one event, either data or error,
- * and then close with a done-event.
- * @description Checks that if the future completes with error, the stream will fire one error event,
- * and then close with a done-event.
+ * @assertion Stream.fromFuture(Future<T> future)
+ * When the future completes, the stream will fire one event, either data or
+ * error, and then close with a done-event.
+ * @description Checks that if the future completes with error, the stream will
+ * fire one error event, and then close with a done-event.
  * @author kaigorodov
  */
 
@@ -19,8 +19,8 @@ import "../../../Utils/expect.dart";
 var error = new Error();
 
 check(Future f) {
-  bool seen=false;
-  Stream s=new Stream.fromFuture(f);
+  bool seen = false;
+  Stream s = new Stream.fromFuture(f);
 
   asyncStart();
 
@@ -29,7 +29,7 @@ check(Future f) {
   }, onError: (e) {
     Expect.equals(false, seen, "onError");
     Expect.equals(error, e);
-    seen=true;
+    seen = true;
   }, onDone: () {
     Expect.equals(true, seen, "onDone");
     asyncEnd();
@@ -38,12 +38,12 @@ check(Future f) {
 
 main() {
   // using immediate sync future
-  void throwError(){throw error;}
+  void throwError() {throw error;}
   check(new Future.sync(throwError));
-  
+
   // using immediate future
   check(new Future(throwError));
-  
+
   // using completable future
   Completer completer = new Completer();
   check(completer.future);

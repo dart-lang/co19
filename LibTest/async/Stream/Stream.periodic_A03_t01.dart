@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Stream.periodic(Duration period, [T computation(int computationCount)])
- * The argument to this callback is an integer that starts with 0 and is incremented for every event.
- * @description Checks that the argument to this callback is an integer that starts with 0
- * and is incremented for every event.
+ * @assertion Stream.periodic(Duration period,
+ *     [T computation(int computationCount)])
+ * The argument to this callback is an integer that starts with 0 and is
+ * incremented for every event.
+ * @description Checks that the argument to this callback is an integer that
+ * starts with 0 and is incremented for every event.
  * @author kaigorodov
  */
 import "dart:async";
@@ -17,23 +19,24 @@ import "../../../Utils/expect.dart";
 const maxCount=5;
 
 check(int periodMs) {
-  String id="s$periodMs"; 
-  Duration period=durationMs(periodMs);
+  String id = "s$periodMs";
+  Duration period = durationMs(periodMs);
   StreamSubscription<int> subs;
-  int count=0;
+  int count = 0;
   asyncStart();
-  Stream s=new Stream.periodic(period, (computationCount) {
-    Expect.equals(count, computationCount, "periodic($id): count=$count, computationCount=$computationCount");
-    if (count>maxCount) {
+  Stream s = new Stream.periodic(period, (computationCount) {
+    Expect.equals(count, computationCount,
+        "periodic($id): count=$count, computationCount=$computationCount");
+    if (count > maxCount) {
       Expect.fail("stream works after cancellation");
     }
     count++;
-    if (count==maxCount) {
+    if (count == maxCount) {
       subs.cancel();
       asyncEnd();
     }
   });
-  subs=s.listen((data){});
+  subs = s.listen((data) {});
 }
 
 main() {

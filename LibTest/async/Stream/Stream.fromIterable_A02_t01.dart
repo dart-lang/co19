@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Stream.fromIterable(Iterable<T> data)
+ * @assertion Stream.fromIterable(Iterable<T> data)
  * If iterating data throws an error, the stream ends immediately with that
  * error. No done event will be sent (iteration is not complete), but no
  * further data events will be generated either, since iteration cannot
@@ -29,13 +29,13 @@ f(i) {
 }
 
 main() {
-  var it=new Iterable.generate(10, (i) => f(i));
-  Stream s=new Stream.fromIterable(it);
+  var it = new Iterable.generate(10, (i) => f(i));
+  Stream s = new Stream.fromIterable(it);
 
   asyncStart();
 
   s.listen((x) {
-    Expect.isTrue(x<5, 'unexpected onData event');
+    Expect.isTrue(x < 5, 'unexpected onData event');
   }, onError: (e) {
     Expect.equals(5, e);
     asyncEnd();

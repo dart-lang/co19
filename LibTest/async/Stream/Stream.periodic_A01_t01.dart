@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Stream.periodic(Duration period, [T computation(int computationCount)])
+ * @assertion Stream.periodic(Duration period,
+ *     [T computation(int computationCount)])
  * Creates a stream that repeatedly emits events at period intervals.
  * If computation is omitted the event values will all be null.
  * @description Checks that created stream emits events at period intervals.
@@ -17,26 +18,26 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(int periodMs) {
-  Duration period=durationMs(periodMs);
-  const maxCount=5;
-  int count=0;
+  Duration period = durationMs(periodMs);
+  const maxCount = 5;
+  int count = 0;
 
-  Stopwatch sw=new Stopwatch();
+  Stopwatch sw = new Stopwatch();
   sw.start();
-  
+
   asyncStart();
-  
-  Stream s=new Stream.periodic(period);
+
+  Stream s = new Stream.periodic(period);
 
   var subs = s.listen(null);
   subs.onData((int event) {
     count++;
     Expect.isNull(event, "onData");
-    Duration expected=period*count;
-    Duration actual=sw.elapsed;
-    Expect.isTrue(expected<=actual, "expected=$expected, actual=$actual");
+    Duration expected = period*count;
+    Duration actual = sw.elapsed;
+    Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
     //print('expected=$expected actual=$actual');
-    if (count>=maxCount) {
+    if (count >= maxCount) {
       subs.cancel();
       asyncEnd();
     }
