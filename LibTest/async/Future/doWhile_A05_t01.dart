@@ -35,11 +35,11 @@ main() {
     futures[k] = completers[k].future;
   }
 
-  Future ff() {   //  print("-- $num");
+  Future ff() {
     if (num == 2) {
       num++;
       // refurn not completed future
-      return futures[2];//c.future;
+      return futures[2];
     }
     if (num < N) {
       completers[num].complete(true);
@@ -57,11 +57,10 @@ main() {
 
   asyncMultiStart(2);
   f.then((fValue) {
-  //  print("++ +$num");//print(f);
     Expect.equals(4, num);
     asyncEnd();
   })
-  .catchError((e) {//print("+++ $e");
+  .catchError((e) {
     Expect.fail("Should not be here: error $e");
     asyncEnd();
   });
@@ -70,8 +69,7 @@ main() {
   Future f1 = futures[2].timeout(new Duration(milliseconds:1),
       onTimeout: ontimeout);
 
- // asyncStart();
-  f1.then((fValue) { // print("f1.then $fValue");
+  f1.then((fValue) {
     Expect.equals(null, fValue);
     Expect.equals(3, num);
     // complete not commpleted future with true
