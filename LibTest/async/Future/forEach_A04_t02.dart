@@ -58,7 +58,7 @@ main() {
   f1.then((fValue) {
     Expect.equals(null, fValue);
     Expect.equals(2, num);
-    // complete not commpleted future with true
+    // complete not completed future with true
     c.complete();
     asyncEnd();
   });
