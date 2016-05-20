@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Future<T> single
+ * @assertion Future<T> single
  * Returns the single element.
  * If this is empty or has more than one element throws a StateError.
- * @description Checks that a StateError is thrown if this is empty or has more than one element.
+ * @description Checks that a StateError is thrown if this is empty or has more
+ * than one element.
  * @author kaigorodov
  */
 
@@ -18,10 +19,10 @@ import "../../../Utils/expect.dart";
 void check(Stream s) {
   asyncStart();
   s.single.then(
-    (value){
+    (value) {
       Expect.fail("nonexpected: $value");
     },
-    onError:(error){
+    onError: (error) {
       Expect.isTrue(error is StateError);
       asyncEnd();
     }
@@ -30,7 +31,7 @@ void check(Stream s) {
 
 main() {
   check(new Stream.fromIterable([]));
-  check(new Stream.fromIterable([1,2]));
-  check(new Stream.fromIterable(new Iterable.generate(0, (int index)=>null)));
-  check(new Stream.fromIterable(new Iterable.generate(2, (int index)=>null)));
+  check(new Stream.fromIterable([1, 2]));
+  check(new Stream.fromIterable(new Iterable.generate(0, (int index) => null)));
+  check(new Stream.fromIterable(new Iterable.generate(2, (int index) => null)));
 }
