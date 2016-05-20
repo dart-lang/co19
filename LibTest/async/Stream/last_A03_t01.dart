@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Future<T> last
+ * @assertion Future<T> last
  * If an error event occurs before the first data event, the resulting future
  * is completed with that error.
  * @description Checks that if error event occurs before the first data

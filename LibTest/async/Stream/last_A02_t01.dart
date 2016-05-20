@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Future<T> last
+ * @assertion Future<T> last
  * If this stream is empty (a done event occurs before the first data event),
  * the resulting future completes with a StateError.
  * @description Checks that future completes with a StateError when this
@@ -19,10 +19,10 @@ import "../../../Utils/expect.dart";
 void check(Stream s) {
   asyncStart();
   s.last.then(
-    (value){
+    (value) {
       Expect.fail("empty stream returned $value");
     },
-    onError:(error){
+    onError: (error) {
       Expect.isTrue(error is StateError);
       asyncEnd();
     }
@@ -31,5 +31,5 @@ void check(Stream s) {
 
 main() {
   check(new Stream.fromIterable([]));
-  check(new Stream.fromIterable(new Iterable.generate(0, (int index)=>1)));
+  check(new Stream.fromIterable(new Iterable.generate(0, (int index) => 1)));
 }
