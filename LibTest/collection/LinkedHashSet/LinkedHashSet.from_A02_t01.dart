@@ -12,9 +12,5 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  Expect.throws(() {
-      new LinkedHashSet.from(null);
-    },
-    (e)=> e is Error
-  );
+  Expect.throws(() {new LinkedHashSet.from(null);}, (e) => e is Error);
 }

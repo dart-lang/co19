@@ -14,7 +14,7 @@ import "../HashSet/allTests.lib.dart";
 
 Iterable create([Iterable content]) {
   LinkedHashSet res = new LinkedHashSet();
-  if (content!=null) {
+  if (content != null) {
     res.addAll(content);
   }
   return res;

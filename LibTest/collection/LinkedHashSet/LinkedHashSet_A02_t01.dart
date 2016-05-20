@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A LinkedHashSet is a hash-table based Set implementation.
- * The LinkedHashSet also keep track of the order that elements were inserted in,
- * and iteration happens in first-to-last insertion order.
+ * @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
+ * bool isValidKey(potentialKey)})
+ * Create an insertion-ordered hash set using the provided equals and hashCode.
  * @description Checks that LinkedHashSet preserves insertion order.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
