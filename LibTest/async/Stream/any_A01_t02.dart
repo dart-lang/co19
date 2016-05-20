@@ -17,7 +17,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var count=0;
+  var count = 0;
   asyncStart();
   new Stream.fromIterable(new Iterable.generate(100, (_) => ++count))
     .any((x) => x % 10 == 0)

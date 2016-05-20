@@ -10,15 +10,15 @@
  * which was reported by the stream.
  * @author kaigorodov
  */
- 
+
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(var expectedError) {
   Completer completer = new Completer();
-  Stream s=new Stream.fromFuture(completer.future);
-  Future<bool> f2=s.any((v)=>true);
+  Stream s = new Stream.fromFuture(completer.future);
+  Future<bool> f2 = s.any((v) => true);
   asyncStart();
   f2.then(
     (data) {

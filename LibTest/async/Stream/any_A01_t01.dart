@@ -16,18 +16,20 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(Iterable<int> data, bool test(int element), bool expected) {
-  Stream s=new Stream.fromIterable(data);
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  s.any(test).then((bool actual){
+  s.any(test).then((bool actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([], (int element)=>true, false);
-  check([1,2,3], (int element)=>element==null, false);
-  check([1,2,3,null], (int element)=>element==null, true);
-  check(new Iterable.generate(0, (int index)=>index*2), (int element)=>true, false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, true);
+  check([], (int element) => true, false);
+  check([1, 2, 3], (int element) => element == null, false);
+  check([1, 2, 3, null], (int element) => element == null, true);
+  check(new Iterable.generate(0, (int index) => index * 2),
+      (int element) => true, false);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int element) => element == 30, true);
 }
