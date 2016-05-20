@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool isBroadcast
+ * @assertion bool isBroadcast
  * Reports whether this stream is a broadcast stream.
  * @description Checks that default implementation returns false.
  * @author kaigorodov
@@ -15,15 +15,15 @@ import "../../../Utils/expect.dart";
 
 class MyStream<T> extends Stream<T> {
   StreamSubscription<T> listen(void onData(T event),
-                   {void onError(error), void onDone(), bool cancelOnError}) 
+                   {void onError(error), void onDone(), bool cancelOnError})
   {
-    return null; 
+    return null;
   }
 }
 
 main() {
-  Stream s=new MyStream();
-  
+  Stream s = new MyStream();
+
   Expect.isFalse(s.isBroadcast);
 }
 
