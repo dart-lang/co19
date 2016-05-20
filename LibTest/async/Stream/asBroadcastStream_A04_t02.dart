@@ -4,11 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> asBroadcastStream ({void onListen(StreamSubscription<T>
- *   subscription), void onCancel(StreamSubscription<T> subscription)})
+ * @assertion Stream<T> asBroadcastStream (
+ *   {void onListen(StreamSubscription<T> subscription),
+ *    void onCancel(StreamSubscription<T> subscription)})
+ * Returns a multi-subscription stream that produces the same events as this.
+ * If this stream is already a broadcast stream, it is returned unmodified.
+ *
  * If onCancel is provided, it is called in a similar way to onListen when
  * the returned stream stops having listener. If it later gets a new listener,
  * the onListen function is called again.
+ *
  * @description Checks that onCancel callback is called when broadcast stream
  * stops having listeners because they all cancel subscription.
  * @author ilya
@@ -18,7 +23,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  var s = new Stream.fromIterable([1,2,3]);
+  var s = new Stream.fromIterable([1, 2, 3]);
 
   asyncStart();
   var b = s.asBroadcastStream(onCancel: (subs) {

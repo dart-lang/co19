@@ -4,11 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> asBroadcastStream ({void onListen(StreamSubscription<T>
- *   subscription), void onCancel(StreamSubscription<T> subscription)})
+ * @assertion Stream<T> asBroadcastStream (
+ *   {void onListen(StreamSubscription<T> subscription),
+ *    void onCancel(StreamSubscription<T> subscription)})
+ * Returns a multi-subscription stream that produces the same events as this.
+ * If this stream is already a broadcast stream, it is returned unmodified.
+ *
  * If onCancel is provided, it is called in a similar way to onListen when
  * the returned stream stops having listener. If it later gets a new listener,
  * the onListen function is called again.
+ *
  * @description Checks that subscription to underlying stream can be paused in
  * onCancel callback when broadcast stream stops having listeners and resumed
  * again in onListen callback when new listeners appear.
@@ -33,7 +38,7 @@ main() {
 
   var b = s.asBroadcastStream(
       onListen: (subs) {
-        if (firstListen) 
+        if (firstListen)
           firstListen = false;
         else {
           Expect.isTrue(subs.isPaused);
@@ -55,7 +60,7 @@ main() {
 
   newSubscription(stream, n) {
     // get n elements and cancel
-    var count=0;
+    var count = 0;
     var subs = stream.listen(null);
     subs.onData((x) {
       // remove seen value from list
@@ -64,7 +69,7 @@ main() {
         subs.cancel();
     });
     subs.onDone(() {
-      streamOpen=false;
+      streamOpen = false;
     });
   }
 

@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> asBroadcastStream ({void onListen(StreamSubscription<T>
- *   subscription), void onCancel(StreamSubscription<T> subscription)})
+ * @assertion Stream<T> asBroadcastStream (
+ *   {void onListen(StreamSubscription<T> subscription),
+ *    void onCancel(StreamSubscription<T> subscription)})
+ * Returns a multi-subscription stream that produces the same events as this.
+ * If this stream is already a broadcast stream, it is returned unmodified.
+ *
  * If onListen is provided, it is called with a subscription-like object that
  * represents the underlying subscription to this stream. It is possible to
  * pause, resume or cancel the subscription during the call to onListen. It
  * is not possible to change the event handlers, including using
  * StreamSubscription.asFuture.
+ *
  * @description Checks that it is a runtime error to try to change event
  * handlers for underlying subscription.
  * @author ilya

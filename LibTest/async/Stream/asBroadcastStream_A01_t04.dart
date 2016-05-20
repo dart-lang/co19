@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> asBroadcastStream ({void onListen(StreamSubscription<T>
- *   subscription), void onCancel(StreamSubscription<T> subscription)})
+ * @assertion Stream<T> asBroadcastStream (
+ *   {void onListen(StreamSubscription<T> subscription),
+ *    void onCancel(StreamSubscription<T> subscription)})
  * Returns a multi-subscription stream that produces the same events as this.
- * If this stream is single-subscription, return a new stream that allows multiple subscribers.
- * It will subscribe to this stream when its first subscriber is added,
- * and will stay subscribed until this stream ends, or a callback cancels the subscription.
+ *
+ * The returned stream will subscribe to this stream when its first subscriber
+ * is added, and will stay subscribed until this stream ends, or a callback
+ * cancels the subscription.
+ *
  * @description Checks that if some subscriptions to broadcast stream cancel,
  * other still listen to completion.
  * @author ilya
@@ -24,17 +27,17 @@ const dataSize = 1000;
 
 multiListen(Stream s) {
 
-  for(int i=0; i<subscribersCount; ++i) {
+  for(int i = 0; i < subscribersCount; ++i) {
     asyncStart();
     if (i.isEven) {
       // listener that quits after half of data
-      var listening=true;
+      var listening = true;
       var quitter = s.listen(null);
       quitter.onData((data) {
         if (listening) {
-          if (data > dataSize/2) {
+          if (data > dataSize / 2) {
             quitter.cancel();
-            listening=false;
+            listening = false;
             asyncEnd();
           }
         } else {
@@ -43,8 +46,8 @@ multiListen(Stream s) {
       });
     } else {
       // listener that works to completion
-      int processed=0;
-      s.listen((data){++processed;}, onDone: () {
+      int processed = 0;
+      s.listen((data) {++processed;}, onDone: () {
         Expect.equals(dataSize, processed);
         asyncEnd();
       });
