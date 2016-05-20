@@ -8,7 +8,6 @@
  *   {void onListen(StreamSubscription<T> subscription),
  *    void onCancel(StreamSubscription<T> subscription)})
  * Returns a multi-subscription stream that produces the same events as this.
- * If this stream is already a broadcast stream, it is returned unmodified.
  *
  * If onListen is provided, it is called with a subscription-like object that
  * represents the underlying subscription to this stream. It is possible to
