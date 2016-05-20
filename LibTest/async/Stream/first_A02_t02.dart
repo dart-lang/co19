@@ -4,23 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Future<T> first
+ * @assertion Future<T> first
  * If this stream is empty (a done event occurs before the first data event),
  * the resulting future completes with a StateError.
  * Except for the type of the error, this method is equivalent to
  * this.elementAt(0).
- * @description Checks that for non-empty stream, this.first is equivalent to this.elementAt(0).
+ * @description Checks that for non-empty stream, this.first is equivalent to
+ * this.elementAt(0).
  * @author kaigorodov
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const VAL=123;
+const VAL = 123;
 
 void check(Stream s) {
   asyncStart();
-  s.elementAt(0).then((value){
+  s.elementAt(0).then((value) {
     Expect.equals(VAL, value);
     asyncEnd();
   });
@@ -29,18 +30,18 @@ void check(Stream s) {
 main() {
   check(new Stream.fromFuture(new Future.sync(() => VAL)));
   check(new Stream.fromFuture(new Future(() => VAL)));
-  
+
   // using completable future
   Completer completer = new Completer();
   check(new Stream.fromFuture(completer.future));
   completer.complete(VAL);
-  
+
   // using fromIterable
-  check(new Stream.fromIterable([VAL,2,3]));
-  check(new Stream.fromIterable(new Iterable.generate(1, (int index)=>VAL)));
-  
+  check(new Stream.fromIterable([VAL, 2, 3]));
+  check(new Stream.fromIterable(new Iterable.generate(1, (int index) => VAL)));
+
   // using periodic
-  Stream s=new Stream.periodic(durationMs(0), (computationCount)=>VAL);
+  Stream s = new Stream.periodic(durationMs(0), (computationCount) => VAL);
   check(s);
-  
+
 }
