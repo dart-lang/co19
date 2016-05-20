@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Future<bool> isEmpty
+ * @assertion Future<bool> isEmpty
  * Reports whether this stream contains any elements.
- * @description Checks that the method returns whether this stream contains any elements.
+ * @description Checks that the method returns whether this stream contains any
+ * elements.
  * @author kaigorodov
  */
 
@@ -24,7 +25,7 @@ check(Iterable<int> data, bool expected) {
 
 main() {
   check([], true);
-  check([1,2,3,null], false);
-  check(new Iterable.generate(0, (int index)=>1), true);
-  check(new Iterable.generate(10, (int index)=>1), false);
+  check([1, 2, 3, null], false);
+  check(new Iterable.generate(0, (int index) => 1), true);
+  check(new Iterable.generate(10, (int index) => 1), false);
 }
