@@ -17,8 +17,8 @@ import "../../../Utils/expect.dart";
 
 check(var expectedError) {
   Completer completer = new Completer();
-  Stream s=new Stream.fromFuture(completer.future);
-  Future<bool> f2=s.every((v)=>true);
+  Stream s = new Stream.fromFuture(completer.future);
+  Future<bool> f2 = s.every((v) => true);
   asyncStart();
   f2.then(
     (data) {

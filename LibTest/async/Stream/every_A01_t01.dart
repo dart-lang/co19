@@ -16,23 +16,30 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(Iterable<int> data, bool test(int element), bool expected) {
-  Stream s=new Stream.fromIterable(data);
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  s.every(test).then((bool actual){
+  s.every(test).then((bool actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([], (int element)=>true, true);
-  check([1,2,3], (int element)=>element!=null, true);
-  check([1,2,3,null], (int element)=>element==null, false);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>false, true);
-  check(new Iterable.generate(10, (int index)=>index), (int element)=>false, false);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>true, true);
-  check(new Iterable.generate(2, (int index)=>index), (int element)=>true, true);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element!=30, false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element>=0, true);
+  check([], (int element) => true, true);
+  check([1, 2, 3], (int element) => element != null, true);
+  check([1, 2, 3, null], (int element) => element == null, false);
+  check(new Iterable.generate(0, (int index) => index),
+      (int element) => false, true);
+  check(new Iterable.generate(10, (int index) => index),
+      (int element) => false, false);
+  check(new Iterable.generate(0, (int index) => index),
+      (int element) => true, true);
+  check(new Iterable.generate(2, (int index) => index),
+      (int element) => true, true);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int element) => element == 30, false);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int element) => element != 30, false);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int element) => element >= 0, true);
 }
