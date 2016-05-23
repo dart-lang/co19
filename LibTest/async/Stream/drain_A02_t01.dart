@@ -15,11 +15,11 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(Stream s) {
-  const expected=-11;
-  Future f=s.drain(expected);
+  const expected = -11;
+  Future f = s.drain(expected);
   asyncStart();
   f.then(
-    (value){
+    (value) {
       Expect.equals(expected, value);
       asyncEnd();
     }
@@ -28,5 +28,6 @@ void check(Stream s) {
 
 main() {
   check(new Stream.fromIterable([]));
-  check(new Stream.fromIterable(new Iterable.generate(10, (int index)=>index)));
+  check(new Stream.fromIterable(new Iterable.generate(10,
+      (int index) => index)));
 }

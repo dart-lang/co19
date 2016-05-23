@@ -6,7 +6,8 @@
 /**
  * @assertion Future drain([futureValue])
  * In case of a done event the future completes with the given futureValue.
- * @description Checks that the future completes with null if futureValue is omitted.
+ * @description Checks that the future completes with null if futureValue is
+ * omitted.
  * @author kaigorodov
  */
 
@@ -15,10 +16,10 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(Stream s) {
-  Future f=s.drain();
+  Future f = s.drain();
   asyncStart();
   f.then(
-    (value){
+    (value) {
       Expect.equals(null, value);
       asyncEnd();
     }
@@ -27,5 +28,6 @@ void check(Stream s) {
 
 main() {
   check(new Stream.fromIterable([]));
-  check(new Stream.fromIterable(new Iterable.generate(10, (int index)=>index)));
+  check(new Stream.fromIterable(new Iterable.generate(10,
+      (int index) => index)));
 }
