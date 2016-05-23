@@ -18,11 +18,11 @@ import "../../../Utils/expect.dart";
 
 void checkError(Stream s, int index, var expected) {
   asyncStart();
-  s.elementAt(index).then((actual){
+  s.elementAt(index).then((actual) {
       Expect.fail("unexpected onValue call");
     },
     onError: (error) {
-      var message=(error as ArgumentError).message;
+      var message = (error as ArgumentError).message;
       Expect.equals(index, message);
       asyncEnd();
     }
@@ -30,9 +30,9 @@ void checkError(Stream s, int index, var expected) {
 }
 
 main() {
-  for (int k=0; k<10; k++) {
-    Iterable it=new Iterable.generate(10,
-     (int index)=>index==k?throw new ArgumentError(index):k
+  for (int k = 0; k < 10; k++) {
+    Iterable it = new Iterable.generate(10,
+     (int index) => index == k ? throw new ArgumentError(index) : k
     );
     checkError(new Stream.fromIterable(it), k, k);
   }
