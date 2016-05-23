@@ -6,8 +6,8 @@
 /**
  * @assertion Future fold(initialValue, combine(previous, T element))
  * Reduces a sequence of values by repeatedly applying combine.
- * @description Checks that if the stream contains no elements, the combine method
- * is not called and the future returns initialValue.
+ * @description Checks that if the stream contains no elements, the combine
+ * method is not called and the future returns initialValue.
  * @note undocumented
  * @author kaigorodov
  */
@@ -16,11 +16,12 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Iterable data, initialValue, combine(previous, var element), var expected) {
-  Stream s=new Stream.fromIterable(data);
+void check(Iterable data, initialValue, combine(previous, var element),
+           var expected) {
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.fold(initialValue, combine);
-  f.then((var actual){
+  Future f = s.fold(initialValue, combine);
+  f.then((var actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });

@@ -14,17 +14,18 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Iterable data, initialValue, combine(previous, var element), var expected) {
-  Stream s=new Stream.fromIterable(data);
+void check(Iterable data, initialValue, combine(previous, var element),
+           var expected) {
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.fold(initialValue, combine);
-  f.then((int actual){
+  Future f = s.fold(initialValue, combine);
+  f.then((int actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([1,2,3,4], 0, (int previous, int element)=>previous+element, 10);
-  check([1,2,3,4], 1, (int previous, int element)=>previous*element, 24);
+  check([1, 2, 3, 4], 0, (int previous, int element) => previous + element, 10);
+  check([1, 2, 3, 4], 1, (int previous, int element) => previous * element, 24);
 }
