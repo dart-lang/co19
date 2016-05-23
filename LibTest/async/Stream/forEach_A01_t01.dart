@@ -6,8 +6,10 @@
 /**
  * @assertion Future forEach(void action(T element))
  * Executes action on each data event of the stream.
- * Completes the returned Future when all events of the stream have been processed.
- * @description Checks that all actions on each data event of the stream are executed.
+ * Completes the returned Future when all events of the stream have been
+ * processed.
+ * @description Checks that all actions on each data event of the stream are
+ * executed.
  * @author kaigorodov
  */
 
@@ -16,13 +18,13 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List data) {
-  Stream s=new Stream.fromIterable(data);
-  List sink=new List();
+  Stream s = new Stream.fromIterable(data);
+  List sink = new List();
   asyncStart();
-  Future f=s.forEach((var element){
+  Future f = s.forEach((var element) {
     sink.add(element);
   });
-  f.then((bool actual){
+  f.then((bool actual) {
     Expect.listEquals(data, sink);
     asyncEnd();
   });
@@ -30,6 +32,6 @@ void check(List data) {
 
 main() {
   check([]);
-  check([1,2,3,4]);
-  check([null,"2",-3,4.0, []]);
+  check([1, 2, 3, 4]);
+  check([null, "2", -3, 4.0, []]);
 }
