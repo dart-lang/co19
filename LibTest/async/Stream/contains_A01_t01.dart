@@ -16,8 +16,8 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(List l, var match, bool expected) {
-  Stream s=new Stream.fromIterable(l);
-  Future<bool> fu=s.contains(match);
+  Stream s = new Stream.fromIterable(l);
+  Future<bool> fu = s.contains(match);
   asyncStart();
   fu.then((actual){
     Expect.equals(expected, actual);
@@ -27,9 +27,9 @@ check(List l, var match, bool expected) {
 
 main() {
   check([], null, false);
-  check([1,2,[]], null, false);
-  check([1,2,null,[]], null, true);
-  check([1,2,[]], 4, false);
-  check([1,2,null,[]], 2, true);
+  check([1, 2, []], null, false);
+  check([1, 2 ,null, []], null, true);
+  check([1, 2, []], 4, false);
+  check([1, 2, null, []], 2, true);
 }
 
