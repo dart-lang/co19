@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<dynamic> firstWhere(bool test(T element), {Object defaultValue()})
- * If an error occurs, or if this stream ends without finding a match and with no defaultValue function
- * provided, the future will receive an error.
- * @description Checks that if an error occurs, the future will receive that error.
+ * @assertion Future firstWhere(bool test(T element), {Object defaultValue()})
+ * If an error occurs, or if this stream ends without finding a match and with
+ * no defaultValue function provided, the future will receive an error.
+ * @description Checks that if an error occurs, the future will receive that
+ * error.
  * @author kaigorodov
  */
 
@@ -17,8 +18,8 @@ import "../../../Utils/expect.dart";
 
 check(var expectedError) {
   Completer completer = new Completer();
-  Stream s=new Stream.fromFuture(completer.future);
-  Future f=s.firstWhere((v){throw expectedError;});
+  Stream s = new Stream.fromFuture(completer.future);
+  Future f = s.firstWhere((v) {throw expectedError;});
   asyncStart();
   f.then(
     (data) {
