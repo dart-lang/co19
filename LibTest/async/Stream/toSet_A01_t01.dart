@@ -15,10 +15,10 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List data) {
-  Stream s=new Stream.fromIterable(data);
-  Future f=s.toSet();
+  Stream s = new Stream.fromIterable(data);
+  Future f = s.toSet();
   asyncStart();
-  f.then((Set value){
+  f.then((Set value) {
       Expect.setEquals(data, value);
       asyncEnd();
     });
@@ -26,9 +26,9 @@ void check(List data) {
 
 main() {
   check([]);
-  check([-1,-2,-3,1,2,3-1,-2,-3]);
-  check([1,2,3]);
-  check([[],[[]],[[[]]]]);
-  check(["1",2,null]);
+  check([-1, -2, -3, 1, 2, 3, -1, -2, -3]);
+  check([1, 2, 3]);
+  check([[], [[]], [[[]]]]);
+  check(["1", 2, null]);
 }
 
