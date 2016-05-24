@@ -6,9 +6,10 @@
 /**
  * @assertion Stream<T> where(bool test(T event))
  * Creates a new stream from this stream that discards some data events.
- * The new stream sends the same error and done events as this stream, but it only
- * sends the data events that satisfy the test. 
- * @description Checks that the new stream sends the same error and done events as this stream.
+ * The new stream sends the same error and done events as this stream, but it
+ * only sends the data events that satisfy the test.
+ * @description Checks that the new stream sends the same error and done events
+ * as this stream.
  * @author kaigorodov
  */
 
@@ -18,17 +19,15 @@ import "../../../Utils/expect.dart";
 
 void check(Iterable data, bool test(event)) {
   Stream s = new Stream.fromIterable(data)
-    .map( (x) => x%2==0?x:throw new ArgumentError(x) )
+    .map((x) => x % 2 == 0 ? x : throw new ArgumentError(x))
     .asBroadcastStream();
-  List err1=new List();
-  List err2=new List();
 
-  Sync2 sync=new Sync2((err1, err2) {
+  Sync2 sync = new Sync2((err1, err2) {
     Expect.listEquals(err1, err2);
   });
 
   asyncStart();
-  s.listen((int value){},
+  s.listen((int value) {},
     onError: (error) {
       sync.put1(error);
     },
@@ -37,7 +36,7 @@ void check(Iterable data, bool test(event)) {
     }
   );
   asyncStart();
-  s.where(test).listen((int value){},
+  s.where(test).listen((int value) {},
     onError: (error) {
       sync.put1(error);
     },
@@ -48,7 +47,7 @@ void check(Iterable data, bool test(event)) {
 }
 
 main() {
-  check(new Iterable.generate(10, (int index)=>index),
-    (event)=>true
+  check(new Iterable.generate(10, (int index) => index),
+    (event) => true
   );
 }
