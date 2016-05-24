@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Future pipe(StreamConsumer<T> streamConsumer)
- * Binds this stream as the input of the provided StreamConsumer. 
+ * Pipe the events of this stream into streamConsumer.
  * @description Checks that this stream is piped through streamConsumer
  * @author ilya
  * @node future completion value is not documented
@@ -24,11 +24,11 @@ main() {
     values.add(x);
   });
 
-  var s = new Stream.fromIterable([1,2,3]);
+  var s = new Stream.fromIterable([1, 2, 3]);
 
   asyncStart();
   s.pipe(c.sink).then((x) {
-    Expect.listEquals([1,2,3], values);
+    Expect.listEquals([1, 2, 3], values);
     asyncEnd();
   });
 }
