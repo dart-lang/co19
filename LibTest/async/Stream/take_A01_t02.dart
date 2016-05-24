@@ -10,7 +10,7 @@
  * to the returned stream, and ends with a done event.
  * If this stream produces fewer than count values before it's done,
  * so will the returned stream.
- * @description Checks that all error events are returned. Checks that 
+ * @description Checks that all error events are returned. Checks that
  * the resulting stream ends with a done event.
  * @author kaigorodov
  */
@@ -20,17 +20,17 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(int eventCount, int takeCount) {
-  Iterable it=new Iterable.generate(eventCount, (int index)=>index);
+  Iterable it = new Iterable.generate(eventCount, (int index) => index);
   Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
-  Stream t=s.take(takeCount);
-  int seenCount=0;
+  Stream t = s.take(takeCount);
+  int seenCount = 0;
   asyncStart();
-  t.listen((value){
+  t.listen((value) {
       Expect.fail("datum not expected");
     },
     onError: (error) {
       Expect.isTrue(error is ArgumentError, error.toString());
-      var message=(error as ArgumentError).message;
+      var message = (error as ArgumentError).message;
       Expect.equals(seenCount, message);
       seenCount++;
     },
@@ -42,10 +42,10 @@ void check(int eventCount, int takeCount) {
 }
 
 main() {
-  check(0,0);
-  check(0,1);
-  check(1,0);
-  check(1,1);
-  check(2,3);
+  check(0, 0);
+  check(0, 1);
+  check(1, 0);
+  check(1, 1);
+  check(2, 3);
 }
 

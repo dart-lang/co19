@@ -19,32 +19,32 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List data, int count) {
-  Stream s=new Stream.fromIterable(data);
-  Stream t=s.take(count);
-  int seen=0;
+  Stream s = new Stream.fromIterable(data);
+  Stream t = s.take(count);
+  int seen = 0;
   asyncStart();
-  t.listen((value){
-      Expect.isTrue(seen<count, "seen=$seen, count=$count");
+  t.listen((value) {
+      Expect.isTrue(seen < count, "seen=$seen, count=$count");
       Expect.equals(data[seen], value);
       seen++;
     },
-    onDone: (){
+    onDone: () {
       asyncEnd();
     }
   );
 }
 
 main() {
-  check([],0);
-  check([],1);
-  check([],10);
+  check([], 0);
+  check([], 1);
+  check([], 10);
   check([null], 0);
   check([null], 1);
   check([null], 2);
-  check([1,2,3], 0);
-  check([1,2,3], 1);
-  check([1,2,3], 2);
-  check([1,2,3], 12);
-  check([[],[[]],[[[]]]], 2);
+  check([1, 2, 3], 0);
+  check([1, 2, 3], 1);
+  check([1, 2, 3], 2);
+  check([1, 2, 3], 12);
+  check([[], [[]], [[[]]]], 2);
 }
 
