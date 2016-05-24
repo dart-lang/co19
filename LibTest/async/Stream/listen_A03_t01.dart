@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract StreamSubscription<T> listen(void onData(T event),
+ * @assertion StreamSubscription<T> listen(void onData(T event),
  *   {Function onError, void onDone(), bool cancelOnError})
- * On errors from this stream, the onError handler is given a object describing the error.
- * @description Checks that the onError handler is given a object describing the error.
+ * On errors from this stream, the onError handler is given a object describing
+ * the error.
+ * @description Checks that the onError handler is given a object describing the
+ * error.
  * @author kaigorodov
  */
 
@@ -16,22 +18,22 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List data) {
-  Stream s1=new Stream.fromIterable(data);
+  Stream s1 = new Stream.fromIterable(data);
 
   // make a Stream with only error events
-  Stream s2=s1.where((var event){
+  Stream s2 = s1.where((var event) {
        throw new ArgumentError(event);
-    }); 
+    });
 
-  List sink=new List();
+  List sink = new List();
   asyncStart();
   s2.listen((var event) {
       Expect.fail("unexpected call to onData($event)");
     },
-    onError:(Object error) {
+    onError: (Object error) {
        sink.add((error as ArgumentError).message);
     },
-    onDone:() {
+    onDone: () {
       Expect.listEquals(data, sink);
       asyncEnd();
     }
@@ -40,6 +42,6 @@ void check(List data) {
 
 main() {
   check([]);
-  check([1,2,3,4]);
-  check([null,"2",-3,4.0, []]);
+  check([1, 2, 3, 4]);
+  check([null, "2", -3, 4.0, []]);
 }
