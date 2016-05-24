@@ -19,10 +19,10 @@ import "../../../Utils/expect.dart";
 
 main() {
   var error = new Error();
-  var iter = [1,2,3,4,5];
+  var iter = [1, 2, 3, 4, 5];
 
   var s = new Stream.fromIterable(iter).map((event) {
-    if (event==3)
+    if (event == 3)
       throw error;
     else
       return event;
