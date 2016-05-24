@@ -6,8 +6,8 @@
 /**
  * @assertion Future<T> reduce(T combine(T previous, T element))
  * Reduces a sequence of values by repeatedly applying combine.
- * @description Checks that if the stream contains no elements, the combine method
- * is not called and the future returns an error.
+ * @description Checks that if the stream contains no elements, the combine
+ * method is not called and the future returns an error.
  * @note undocumented
  * @author kaigorodov
  */
@@ -17,13 +17,13 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(Iterable data, combine(previous, var element)) {
-  Stream s=new Stream.fromIterable(data);
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.reduce(combine);
-    f.then((value){
+  Future f = s.reduce(combine);
+    f.then((value) {
       Expect.fail("unexpected call to onValue($value)");
     },
-    onError: (Object error){
+    onError: (Object error) {
       asyncEnd();
     }
   );

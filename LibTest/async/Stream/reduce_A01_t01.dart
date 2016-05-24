@@ -15,16 +15,16 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(Iterable data, combine(previous, var element), var expected) {
-  Stream s=new Stream.fromIterable(data);
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.reduce(combine);
-  f.then((int actual){
+  Future f = s.reduce(combine);
+  f.then((int actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([1,2,3,4], (int previous, int element)=>previous+element, 10);
-  check([1,2,3,4], (int previous, int element)=>previous*element, 24);
+  check([1, 2, 3, 4], (int previous, int element) => previous + element, 10);
+  check([1, 2, 3, 4], (int previous, int element) => previous * element, 24);
 }
