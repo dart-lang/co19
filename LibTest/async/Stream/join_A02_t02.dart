@@ -18,7 +18,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var iter = [1,2,3];
+  var iter = [1, 2, 3];
   var s = new Stream.fromIterable(iter).asBroadcastStream();
 
   asyncStart();
@@ -28,7 +28,7 @@ main() {
   });
 
   asyncStart();
-  s.listen((_){}, onDone:() {
+  s.listen((_) {}, onDone:() {
     asyncEnd();
   });
 }

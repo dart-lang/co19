@@ -16,7 +16,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var iter = [1,null,false,true,'string',#symbol,(x)=>x++];
+  var iter = [1, null, false, true, 'string', #symbol, (x) => x++];
   iter.add(iter); // add self reference
   var s = new Stream.fromIterable(iter);
 
