@@ -7,7 +7,8 @@
  * @assertion Stream transform(StreamTransformer<T, dynamic> streamTransformer)
  * Chains this stream as the input of the provided StreamTransformer.
  * Returns the result of streamTransformer.bind itself.
- * @description Checks that the new stream sends the same error and done events as this stream.
+ * @description Checks that the new stream sends the same error and done events
+ * as this stream.
  * @author kaigorodov
  */
 
@@ -25,13 +26,10 @@ StreamTransformer<int, int> createMyTransformer()  {
 
 void check(Iterable data) {
   Stream s = new Stream.fromIterable(data)
-    .map( (x) => x%2==0?x:throw new ArgumentError(x) ).asBroadcastStream();
-  Stream s2=s.transform(createMyTransformer());
-  
-  List err1=new List();
-  List err2=new List();
+    .map((x) => x % 2 == 0 ? x : throw new ArgumentError(x)).asBroadcastStream();
+  Stream s2 = s.transform(createMyTransformer());
 
-  Sync2 sync=new Sync2((err1, err2) {
+  Sync2 sync = new Sync2((err1, err2) {
     Expect.listEquals(err1, err2);
   });
 
@@ -56,6 +54,6 @@ void check(Iterable data) {
 }
 
 main() {
-  check(new Iterable.generate(10, (int index)=>index));
+  check(new Iterable.generate(10, (int index) => index));
 }
 
