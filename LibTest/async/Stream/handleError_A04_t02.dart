@@ -38,5 +38,5 @@ main() {
 
   asyncStart();
 
-  s2.listen((_){});
+  s2.listen((_) {});
 }

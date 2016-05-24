@@ -29,5 +29,5 @@ main() {
     Expect.identical(error, e);
     Expect.isNull(st);
     asyncEnd();
-  }).listen((_){});
+  }).listen((_) {});
 }
