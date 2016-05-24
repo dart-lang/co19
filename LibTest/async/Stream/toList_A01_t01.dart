@@ -6,7 +6,8 @@
 /**
  * @assertion Future<List<T>> toList()
  * Collects the data of this stream in a List.
- * @description Checks that returned list contains all elements of the stream in the same order.
+ * @description Checks that returned list contains all elements of the stream in
+ * the same order.
  * @author kaigorodov
  */
 
@@ -15,20 +16,20 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List data) {
-  Stream s=new Stream.fromIterable(data);
-  Future f=s.toList();
+  Stream s = new Stream.fromIterable(data);
+  Future f = s.toList();
   asyncStart();
-  f.then((value){
+  f.then((value) {
       Expect.listEquals(data, value);
       asyncEnd();
-    });
+  });
 }
 
 main() {
   check([]);
-  check([-1,-2,-3,1,2,3-1,-2,-3]);
-  check([1,2,3]);
-  check([[],[[]],[[[]]]]);
-  check(["1",2,null]);
+  check([-1, -2, -3, 1, 2, 3, -1, -2, -3]);
+  check([1, 2, 3]);
+  check([[], [[]], [[[]]]]);
+  check(["1", 2, null]);
 }
 
