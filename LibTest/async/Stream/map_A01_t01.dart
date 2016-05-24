@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream map(convert(T event))
+ * @assertion Stream map(dynamic convert(T event))
  * Creates a new stream that converts each element of this stream to a new value
  * using the convert function.
  * @description Checks that each element of this stream is processed.
@@ -16,22 +16,22 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List data) {
-  Stream s1=new Stream.fromIterable(data);
-  List sink=new List();
+  Stream s1 = new Stream.fromIterable(data);
+  List sink = new List();
   asyncStart();
-  Stream s2=s1.map((var event)=>event);
-  s2.listen((var event){
+  Stream s2 = s1.map((var event) => event);
+  s2.listen((var event) {
       sink.add(event);
     },
-    onDone:(){
+    onDone: () {
       Expect.listEquals(data, sink);
       asyncEnd();
     }
-  ); 
+  );
 }
 
 main() {
   check([]);
-  check([1,2,3,4]);
-  check([null,"2",-3,4.0, []]);
+  check([1, 2, 3, 4]);
+  check([null, "2", -3, 4.0, []]);
 }
