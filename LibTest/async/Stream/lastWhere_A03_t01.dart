@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<dynamic> lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
  * Finds the last element in this stream matching test.
  * As firstWhere, except that the last matching element is found.
  * That means that the result cannot be provided before this stream is done.
- * @description Checks that if an error occurs, the future will receive that error.
+ * @description Checks that if an error occurs, the future will receive that
+ * error.
  * @author kaigorodov
  */
 
@@ -18,8 +19,8 @@ import "../../../Utils/expect.dart";
 
 check(var expectedError) {
   Completer completer = new Completer();
-  Stream s=new Stream.fromFuture(completer.future);
-  Future f=s.lastWhere((v){throw expectedError;});
+  Stream s = new Stream.fromFuture(completer.future);
+  Future f = s.lastWhere((v) {throw expectedError;});
   asyncStart();
   f.then(
     (data) {
