@@ -10,9 +10,8 @@
  * tests which consume much memory 
  * @author kaigorodov
  */
-import "dart:collection";
 import "../../core/List/hugeListTests.lib.dart";
-import "ListBase_class_A01_t01.dart";
+import "ListBase.lib.dart";
 
 main() {
   test(create);  

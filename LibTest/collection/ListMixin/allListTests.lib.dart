@@ -9,7 +9,7 @@
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
-import "dart:collection";
+
 import "../../core/List/allListTests.lib.dart" as allListTests;
 
 test(List create([int length])) {
