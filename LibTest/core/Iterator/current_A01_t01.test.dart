@@ -15,10 +15,10 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content]), {bool isSet:false}) {
 
-  void checkNext(List a) {
-    Iterator it = create(a).iterator;
+  void checkNext(Iterable a) {
+    Iterator it = a.iterator;
     if (isSet) {
-      Set set=new Set.from(a);
+      Set set = new Set.from(a);
       while (it.moveNext()) {
         Expect.isTrue(set.contains(it.current));
         set.remove(it.current);
@@ -27,23 +27,18 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
     } else {
       var i = 0;
       while (it.moveNext()) {
-        Expect.identical(it.current, a[i]);
-        ++i;
+        Expect.identical(it.current, a.elementAt(i++));
       }
     }
   }
 
-  checkNext([null,0,"1",false]);
-  checkNext(const [null,0,"1",false]);
+  checkNext(create([null, 0, 1]));
+  checkNext(create(const [null, 0, 1]));
 
   List a = new List(17495);
-  for (var i=0; i < a.length; i++) {
+  for (var i = 0; i < a.length; i++) {
     a[i] = a.length - i;
   }
-  checkNext(a);
-
-  List l = new List();
-  l.addAll(["0","1","2","3","4","5",6,7,8,9,null]);
-  a = new List.from(l);
-  checkNext(a);
+  checkNext(create(a));
+  checkNext(create([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null]));
 }
