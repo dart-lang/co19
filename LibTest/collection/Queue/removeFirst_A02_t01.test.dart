@@ -8,7 +8,6 @@
  * Throws an StateError exception if this queue is empty.
  * @description Checks that exception is thrown if this queue is empty.
  * @author msyabro
- * @reviewer varlax
  */
 library removeFirst_A02_t01;
 
@@ -18,19 +17,11 @@ import "dart:collection";
 test(Queue create([Iterable content])) {
   Queue queue = create();
   
-  Expect.throws(() {
-    queue.removeFirst();
-  },
-  (e)=> e is StateError
-  );
+  Expect.throws(() {queue.removeFirst();}, (e) => e is StateError);
   
   queue.addLast(1);
   queue.addLast(2);
   queue.clear();
 
-  Expect.throws(() {
-    queue.removeFirst();
-  },
-  (e)=> e is StateError
-  );
+  Expect.throws(() {queue.removeFirst();}, (e) => e is StateError);
 }

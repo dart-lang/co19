@@ -11,11 +11,9 @@
  */
 import "dart:collection";
 import "../Queue/allTests.lib.dart" as allQueueTests;
-import "removeWhere_A01_t01.test.dart" as removeWhere_A01_t01;
-import "retainWhere_A01_t01.test.dart" as retainWhere_A01_t01;
 
 ListQueue create([Iterable content]) {
-  if (content==null) {
+  if (content == null) {
     return new ListQueue();
   } else {
     return new ListQueue.from(content);
@@ -24,6 +22,4 @@ ListQueue create([Iterable content]) {
 
 main() {
   allQueueTests.test(create);
-  removeWhere_A01_t01.test(create);
-  retainWhere_A01_t01.test(create);
 }
