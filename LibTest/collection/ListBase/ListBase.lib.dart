@@ -15,10 +15,10 @@
 library list_base_lib;
 import "dart:collection";
 
-class MyList<E> extends ListBase<E> {
+class ListBaseImpl<E> extends ListBase<E> {
   List<E> _list;
   
-  MyList([int length]): _list = (length == null ? new List() : new List(length));
+  ListBaseImpl([int length]): _list = (length == null ? new List() : new List(length));
   
   E operator [](int index) => _list[index];
 
@@ -34,6 +34,6 @@ class MyList<E> extends ListBase<E> {
 }
 
 List create([int length]) {
-  return new MyList(length);
+  return new ListBaseImpl(length);
 }
 
