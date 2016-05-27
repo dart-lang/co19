@@ -14,7 +14,7 @@
  * clear
  * @author sgrekhov@unipro.ru
  */
-library map_base_lib;
+library map_mixin_lib;
 import "dart:collection";
 
 class MapMixinImpl<K, V> extends Object with MapMixin<K, V> {
