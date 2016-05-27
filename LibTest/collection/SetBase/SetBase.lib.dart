@@ -44,4 +44,3 @@ SetBase create([Iterable content]) {
     return new SetBaseImpl.from(content);
   }
 }
-
