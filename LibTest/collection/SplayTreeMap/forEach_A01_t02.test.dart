@@ -9,12 +9,9 @@
  * @description Checks that something is thrown when the argument is null or
  * has a type that is incompatible with the required function type.
  * @static-warning
- * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t02;
 
-import "../../../Utils/dynamic_check.dart";
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {

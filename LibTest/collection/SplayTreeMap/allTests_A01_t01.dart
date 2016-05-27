@@ -12,9 +12,10 @@
 import "dart:collection";
 import "../../core/Map/compKeysTests.lib.dart" as compKeysTests;
 import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
+import "../../core/Map/compKeysWarnTests.lib.dart" as compKeysWarnTests;
 
 Map create([Map content]) {
-  if (content==null) {
+  if (content == null) {
     return new SplayTreeMap();
   } else {
     return new SplayTreeMap.from(content);
@@ -22,6 +23,7 @@ Map create([Map content]) {
 }  
 
 main() {
-  compKeysTests.test(create);  
-  nonCompKeysTests.test(create);  
+  compKeysTests.test(create);
+  nonCompKeysTests.test(create);
+  compKeysWarnTests.test(create);
 }

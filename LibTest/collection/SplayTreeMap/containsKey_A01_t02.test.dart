@@ -7,8 +7,6 @@
  * @assertion Returns whether this map contains the given [key].
  * @description Checks that null key is not allowed
  * @author msyabro
- * @reviewer varlax
- * @reviewer rodionov
  */
 library containsKey_A01_t02;
 

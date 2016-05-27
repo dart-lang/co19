@@ -15,6 +15,6 @@ import "../../../Utils/expect.dart";
 test(Map create([Map content])) {
   Map<String, Object> map = create();
   Expect.throws(() {
-    map[null]="value";
+    map[null] = "value";
   });
 }

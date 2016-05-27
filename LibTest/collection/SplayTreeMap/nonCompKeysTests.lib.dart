@@ -12,12 +12,14 @@ library nonCompKeysTests;
 
 import "addAll_A01_t02.test.dart" as addAll_A01_t02;
 import "containsKey_A01_t02.test.dart" as containsKey_A01_t02;
+import "forEach_A01_t02.test.dart" as forEach_A01_t02;
 import "operator_subscript_A01_t02.test.dart" as operator_subscript_A01_t02;
 import "operator_subscripted_assignment_A01_t02.test.dart" as operator_subscripted_assignment_A01_t02;
 
 test(Map create([Map content])) {
   addAll_A01_t02.test(create);
   containsKey_A01_t02.test(create);
+  forEach_A01_t02.test(create);
   operator_subscript_A01_t02.test(create);
   operator_subscripted_assignment_A01_t02.test(create);
 }
