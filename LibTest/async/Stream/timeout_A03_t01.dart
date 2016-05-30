@@ -11,7 +11,7 @@
  * If onTimeout is omitted, a timeout will just put a TimeoutException into the
  * error channel of the returned stream.
  *
- * @description Check that if nTimeout is omitted, a timeout will just put a
+ * @description Check that if onTimeout is omitted, a timeout will just put a
  * TimeoutException into the error channel of the returned stream.
  * @author ngl@unipro.ru
  */

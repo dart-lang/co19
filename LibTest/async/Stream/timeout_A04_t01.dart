@@ -11,8 +11,13 @@
  * Whenever more than timeLimit passes between two events from this stream, the
  * onTimeout function is called.
  *
+ * The onTimeout function is called with one argument: an EventSink that allows
+ * putting events into the returned stream. This EventSink is only valid during
+ * the call to onTimeout.
+ *
  * @description Check that if more than timeLimit passes between two events
- * from this stream, the onTimeout function is called.
+ * from this stream, the onTimeout function is called with one argument: an
+ * EventSink that allows putting events into the returned stream.
  * @author ngl@unipro.ru
  */
 
@@ -20,16 +25,17 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-List<Completer> cl = [new Completer(), new Completer()];
-List<int> cv = [1, 2];
+List<Completer> cl = [new Completer(), new Completer(), new Completer()];
+List<int> cv = [1, 2, 3];
 int i = 0;
 
 ontimeout(EventSink sink) {
-  cl[1].complete(cv[1]);
+  sink.add(cv[1]);
 }
 
 main() {
-  Stream s1 = new Stream.fromIterable([cl[0].future, cl[1].future]);
+  Stream s1 = new Stream.fromIterable(
+      [cl[0].future, cl[1].future, cl[2].future]);
   Stream s2 = s1.asyncMap((var event) => event);
   Stream s3 = s2.timeout(new Duration(microseconds: 1),
       onTimeout: ontimeout);
@@ -38,12 +44,15 @@ main() {
   s3.listen((var event) {
     Expect.isTrue(i < 2);
     Expect.equals(cv[i++], event);
+    if (i == 2) {
+      asyncEnd();
+    }
   }, onError: (error) {
     Expect.fail("onError($error) called unexpectedly");
   }, onDone: () {
-    Expect.isFalse(i < 2);
-    asyncEnd();
+    Expect.fail("Listen was ended on timeout");
   });
 
   cl[0].complete(cv[0]);
+  cl[2].complete(cv[2]);
 }
