@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016, the Dart project authors.  Please see the AUTHORS
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
  * file for details. All rights reserved. Use of this source code is governed
  * by a BSD-style license that can be found in the LICENSE file.
  */
@@ -17,52 +17,34 @@
  * the initial message contains a SendPort so that the spawner and spawnee can
  * communicate with each other.
  *
- * @description Checks that sending multiple messages works fine.
- * @author iefremov
+ * @description Checks that the function spawns the isolate that executes the
+ * specified static method
+ *
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-final int MSG_NUM = 100;
+var expectedMessage="message";
 
-iMain(SendPort replyPort) {
-  var receivePort = new ReceivePort();
+var receivePort = new ReceivePort();
 
-  replyPort.send(receivePort.sendPort);
+void receiveHandler(var message) {
+  Expect.equals(expectedMessage, message);
+  receivePort.close();
+  asyncEnd();
+}
 
-  receivePort.listen((message) {
-    replyPort.send(message-1);
-    if(message == 0) {
-      receivePort.close();
-    }
-  });
+class Server {
+  static void serve(SendPort replyPort) {
+    replyPort.send(expectedMessage);
+  }
 }
 
 main() {
-  var receivePort = new ReceivePort();
-  var requestPort;
-
-  void receiveHandler(var message) {
-    if (message is SendPort) {
-      requestPort=message;
-      asyncStart();
-      requestPort.send(MSG_NUM);
-    } else if (message is int) {
-      if (message==0) {
-        receivePort.close();
-      } else {
-        asyncStart();
-        requestPort.send(message);
-      }
-    } else {
-      Expect.fail("unexpected message type: ${message.runtimeType}");
-    }
-    asyncEnd();
-  }
-
   asyncStart();
-  Isolate.spawn(iMain, receivePort.sendPort);
+  Isolate.spawn(Server.serve, receivePort.sendPort);
   receivePort.listen(receiveHandler);
 }

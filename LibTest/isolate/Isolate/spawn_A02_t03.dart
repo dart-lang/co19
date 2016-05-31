@@ -16,53 +16,32 @@
  *    The entry-point function is invoked with the initial message. Usually
  * the initial message contains a SendPort so that the spawner and spawnee can
  * communicate with each other.
+ *  ...
+ *    Returns a future that will complete with an Isolate instance if
+ * the spawning succeeded. It will complete with an error otherwise.
  *
- * @description Checks that sending multiple messages works fine.
- * @author iefremov
+ * @description Checks that if entryPoint is instance method, then returned
+ * Future instance completes with error
+ *
+ * @author a.semenov@unipro.ru
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-final int MSG_NUM = 100;
-
-iMain(SendPort replyPort) {
-  var receivePort = new ReceivePort();
-
-  replyPort.send(receivePort.sendPort);
-
-  receivePort.listen((message) {
-    replyPort.send(message-1);
-    if(message == 0) {
-      receivePort.close();
-    }
-  });
+class A {
+  entryPoint(message) { }
 }
 
 main() {
-  var receivePort = new ReceivePort();
-  var requestPort;
-
-  void receiveHandler(var message) {
-    if (message is SendPort) {
-      requestPort=message;
-      asyncStart();
-      requestPort.send(MSG_NUM);
-    } else if (message is int) {
-      if (message==0) {
-        receivePort.close();
-      } else {
-        asyncStart();
-        requestPort.send(message);
-      }
-    } else {
-      Expect.fail("unexpected message type: ${message.runtimeType}");
-    }
-    asyncEnd();
-  }
-
   asyncStart();
-  Isolate.spawn(iMain, receivePort.sendPort);
-  receivePort.listen(receiveHandler);
+  Isolate.spawn(new A().entryPoint, "hello").then(
+    (v) {
+      Expect.fail("Isolate.spawn(new A().entryPoint, 'hello') is expected to fail");
+    },
+    onError: (e) {
+//      print("Error: $e");
+      asyncEnd();
+    }
+  );
 }
