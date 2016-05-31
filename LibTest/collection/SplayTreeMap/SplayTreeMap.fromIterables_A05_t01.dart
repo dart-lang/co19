@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion SplayTreeMap.fromIterable(Iterable iterable,
- * {K key(element), V value(element), int compare(K key1, K key2),
- * bool isValidKey(potentialKey)})
+ * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
+ * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
  * @description Checks that if isValidKey function specified, then it called
  * before compare call
  * @author sgrekhov@unipro.ru
@@ -39,9 +38,10 @@ bool isValidKey(potentialKey) {
 main() {
   C c1 = new C(1);
   C c2 = new C(2);
-  Iterable source = [c1, c2];
-  SplayTreeMap map = new SplayTreeMap.fromIterable(source, compare: compare,
-      isValidKey: isValidKey);
+  Iterable keys = [c1, c2];
+  Iterable values = [1, 2];
+  SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare,
+      isValidKey);
 
   startTesting = true;
   isValidKeyCalled = false;
