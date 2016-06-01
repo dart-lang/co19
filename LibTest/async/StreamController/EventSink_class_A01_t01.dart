@@ -11,7 +11,7 @@
  */
 
 import "dart:async";
-import "../StreamSink/inherated_tests_streamcontroller.lib.dart"
+import "../StreamSink/inherited_tests_streamcontroller.lib.dart"
         as allTests_EventSink;
 
 StreamController create() {

@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion EventSync abstract class
+ * @assertion EventSync and StreamConsumer are abstract classes
  *
- * @description Checks that all members of EventSync are implemented.
+ * @description Run all tests of EventSynk and StreamConsumer.
  * @author ngl@unipro.ru
  */
-library inherated_tests_streamcontroller;
+library inherited_tests_streamcontroller;
 import "dart:async";
 
 import "../EventSink/all_tests.lib.dart" as allTest_EventSink;
