@@ -18,5 +18,5 @@ main() {
   Expect.equals(2 & (8 >> 2) & 3, 2 & 8 >> 2 & 3);
   Expect.notEquals((2 & 8) >> (2 & 3), 2 & 8 >> 2 & 3);
   Expect.notEquals(((2 & 8) >> 2) & 3, 2 & 8 >> 2 & 3);
-  Expect.notEquals(2 & (8 >> (2 & 3)), 2 & 8 >> 2 & 3);
+  Expect.notEquals(23 & (12 >> (2 & 1)), 23 & 12 >> 2 & 1);
 }
