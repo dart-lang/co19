@@ -21,6 +21,7 @@ class C {
 }
 main() {
   C c = new C();
-  int e = 1;
-  Expect.equals(c * (++e), c * ++e);
+  int e1 = 1;
+  int e2 = 1;
+  Expect.equals(c * (++e1), c * ++e2);
 }
