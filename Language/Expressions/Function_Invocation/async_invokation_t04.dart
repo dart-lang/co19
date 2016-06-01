@@ -32,7 +32,7 @@ main() {
   test().then((_) {
     DateTime now = new DateTime.now();
     Expect.isNotNull(executionFinishedTime);
-    Expect.isTrue(now.isAfter(executionFinishedTime));
+    Expect.isTrue(!executionFinishedTime.isAfter(now));
     asyncEnd();
   });
 }
