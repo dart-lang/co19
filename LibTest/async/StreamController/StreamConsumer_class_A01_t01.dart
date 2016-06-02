@@ -4,21 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion EventSink()
+ * @assertion StreamConsumer()
  *
- * @description Checks class EventSink.
+ * @description Checks class StreamConsumer.
  * @author ngl@unipro.ru
  */
 
 import "dart:async";
 import "../StreamSink/inherited_tests_streamcontroller.lib.dart"
-        as allTests_EventSink;
+        as allTests_StreamConsumer;
 
 StreamController create() {
   return new StreamController();
 }
 
 main() {
-  allTests_EventSink.test(create);
+  allTests_StreamConsumer.test(create);
 }
 

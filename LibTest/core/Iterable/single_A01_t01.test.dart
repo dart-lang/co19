@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 test(Iterable create([Iterable content])) {
   void check(List content) {
     Iterable a = create(content);
-    if (content.length == 1) {
+    if (a.length == 1) {
       Expect.equals(a.elementAt(0), a.single);
     } else {
       Expect.throws(() {a.single;}, (e) => e is StateError);

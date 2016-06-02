@@ -4,16 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion EventSync abstract class
+ * @assertion StreamConsumer()
  *
- * @description Checks that all members of EventSync are implemented.
+ * @description Checks that an istance of StreamConsumer may be created.
  * @author ngl@unipro.ru
  */
-library allTests_A01_t01;
+library StreamConsumer_A01_t01;
 import "dart:async";
+import "../../../Utils/expect.dart";
 
-import "../EventSink/allTests.lib.dart" as allTest_EventSink;
+test(StreamConsumer create()) {
+  StreamConsumer sc = create();
 
-test(EventSink create()) {
-  allTest_EventSink.test(create);
+  Expect.isTrue(sc is StreamConsumer);
 }
+

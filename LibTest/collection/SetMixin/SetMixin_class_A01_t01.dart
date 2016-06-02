@@ -11,7 +11,7 @@
  */
 import "dart:collection";
 import "SetMixin.lib.dart";
-import "allTests.lib.dart" as setTests;
+import "inherited_tests.lib.dart" as set_tests;
 
 SetMixin create([Iterable content]) {
   if (content == null) {
@@ -22,5 +22,5 @@ SetMixin create([Iterable content]) {
 }
 
 main() {
-  setTests.test(create);
+  set_tests.test(create);
 }

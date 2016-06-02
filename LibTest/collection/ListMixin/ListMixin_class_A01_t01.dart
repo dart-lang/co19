@@ -9,8 +9,8 @@
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
-import "ListMixin.lib.dart";
-import "allListTests.lib.dart";
+import "listmixin_lib.dart";
+import "inherited_tests.lib.dart";
 
 main() {
   test(create);  

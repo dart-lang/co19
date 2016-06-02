@@ -9,9 +9,10 @@
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
+library inherited_tests_listmixin;
 
-import "../../core/List/allListTests.lib.dart" as allListTests;
+import "../../core/List/allListTests.lib.dart" as all_list_tests;
 
 test(List create([int length])) {
-  allListTests.test(create);  
+  all_list_tests.test(create);
 }

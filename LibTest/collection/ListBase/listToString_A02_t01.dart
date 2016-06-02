@@ -12,7 +12,7 @@
  * separates results by ", " and wraps in "[" and "]"
  * @author sgrekhov@unipro.ru
  */
-import "ListBase.lib.dart";
+import "listbase.lib.dart";
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

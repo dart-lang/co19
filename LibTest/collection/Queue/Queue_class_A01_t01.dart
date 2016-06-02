@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "allTests.lib.dart";
+import "all_tests.lib.dart";
 
 Queue create([Iterable content]) {
   if (content==null) {

@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion IterableBase<E> abstract class 
- * Implements Iterable<E>
+ * @assertion IterableMixin<E> abstract class
+ * This Iterable mixin implements all Iterable members except iterator.
  * @description Checks that all members of [Iterable] are implemented.
- * @author kaigorodov
+ * @author sgrekhov@unipro.ru
  */
-library allTests_A01_t01;
+library inherited_tests_iterablemixin;
 
-import "../../core/Iterable/allTests.lib.dart" as libIterator;
+import "../../core/Iterable/allTests.lib.dart" as iterator_tests;
 
 test(Iterable create([Iterable content]), {bool isSet:false}) {
-  libIterator.test(create, isSet:isSet);  
+  iterator_tests.test(create, isSet:isSet);
 }

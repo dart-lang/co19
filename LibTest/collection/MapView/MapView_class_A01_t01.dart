@@ -10,7 +10,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
-import "allTests.lib.dart" as mapTests;
+import "inherited_tests.lib.dart" as mapTests;
 
 MapView create([Map content]) {
   if (content == null) {

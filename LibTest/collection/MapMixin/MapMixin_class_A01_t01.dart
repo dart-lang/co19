@@ -10,8 +10,8 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
-import "MapMixin.lib.dart";
-import "allTests.lib.dart" as mapTests;
+import "mapmixin.lib.dart";
+import "inherited_tests.lib.dart" as map_tests;
 
 MapMixin create([Map content]) {
   if (content == null) {
@@ -22,5 +22,5 @@ MapMixin create([Map content]) {
 }
 
 main() {
-  mapTests.test(create);
+  map_tests.test(create);
 }

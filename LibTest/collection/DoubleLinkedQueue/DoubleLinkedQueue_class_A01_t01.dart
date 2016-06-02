@@ -7,10 +7,11 @@
  * @assertion Queue<E> abstract class 
  * Implements Queue<E>
  * @description Checks that all members of [Queue] are implemented.
+ * @issue 26587
  * @author kaigorodov
  */
 import "dart:collection";
-import "../Queue/allTests.lib.dart";
+import "../Queue/all_tests.lib.dart";
 
 Iterable create([Iterable content]) {
   DoubleLinkedQueue res = new DoubleLinkedQueue();

@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract class SetMixin<K, V>
- * Mixin implementation of Set.
+ * @assertion abstract class SetBase<E>
+ * Base implementation of Set.
  * @description Checks that all members of [Set] are implemented.
  * @author sgrekhov@unipro.ru
  */
-library allTests_A01_t01;
+library inherited_tests_setbase;
 
-import "../../core/Set/allTests.lib.dart" as setTests;
+import "../../core/Set/allTests.lib.dart" as set_tests;
 
-test(Set create([Iterable content])) {
-  setTests.test(create);
+test(Set create([Set content])) {
+  set_tests.test(create);
 }

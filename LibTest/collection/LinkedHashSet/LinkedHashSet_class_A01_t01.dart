@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "../HashSet/allTests.lib.dart";
+import "../HashSet/inherited_tests.lib.dart";
 
 Iterable create([Iterable content]) {
   LinkedHashSet res = new LinkedHashSet();
