@@ -14,7 +14,9 @@ library inherited_tests_splaytreeset;
 
 import "dart:collection";
 import "../SetMixin/inherited_tests.lib.dart" as set_mixin_tests;
+import "../IterableMixin/inherited_tests.lib.dart" as iterable_mixin_tests;
 
 test(Set create([Set content])) {
   set_mixin_tests.test(create);
+  iterable_mixin_tests.test(create, isSet: true);
 }
