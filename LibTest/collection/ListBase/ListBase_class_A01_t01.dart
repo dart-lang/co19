@@ -12,7 +12,7 @@
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
-import "ListBase.lib.dart";
+import "listbase.lib.dart";
 import "../ListMixin/inherited_tests.lib.dart";
 
 main() {

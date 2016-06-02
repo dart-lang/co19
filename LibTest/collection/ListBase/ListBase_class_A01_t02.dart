@@ -11,7 +11,7 @@
  * @author kaigorodov
  */
 import "../../core/List/hugeListTests.lib.dart";
-import "ListBase.lib.dart";
+import "listbase.lib.dart";
 
 main() {
   test(create);  
