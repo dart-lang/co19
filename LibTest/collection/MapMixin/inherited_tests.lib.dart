@@ -9,7 +9,7 @@
  * @description Checks that all members of [Map] are implemented.
  * @author sgrekhov@unipro.ru
  */
-library allTests_A01_t01;
+library inherited_tests_mapmixin;
 
 import "../../core/Map/compKeysTests.lib.dart" as compKeysTests;
 import "../../core/Map/nonCompKeysTests.lib.dart" as nonCompKeysTests;

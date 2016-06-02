@@ -10,8 +10,8 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
-import "MapBase.lib.dart";
-import "allTests.lib.dart" as mapTests;
+import "mapbase.lib.dart";
+import "inherited_tests.lib.dart" as map_tests;
 
 MapBase create([Map content]) {
   if (content == null) {
@@ -22,5 +22,5 @@ MapBase create([Map content]) {
 }
 
 main() {
-  mapTests.test(create);
+  map_tests.test(create);
 }

@@ -13,7 +13,7 @@
  * @author kaigorodov
  */
 import "ListBase.lib.dart";
-import "../ListMixin/allListTests.lib.dart";
+import "../ListMixin/inherited_tests.lib.dart";
 
 main() {
   test(create);  

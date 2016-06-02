@@ -11,7 +11,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
-import "allTests.lib.dart" as allTests;
+import "inherited_tests.lib.dart" as allTests;
 
 class MyIterable extends Object with IterableMixin {
   List _content;

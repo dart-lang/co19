@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "../HashMap/allTests.lib.dart";
+import "../HashMap/inherited_tests.lib.dart";
 
 Map create([Map content]) {
   if (content == null) {

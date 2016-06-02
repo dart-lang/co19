@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "allTests.lib.dart" as libSet;
+import "inherited_tests.lib.dart" as libSet;
 
 Iterable create([Iterable content]) {
   if (content == null) {

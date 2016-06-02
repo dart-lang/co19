@@ -11,7 +11,7 @@
  * @author kaigorodov
  */
 import "../../core/List/hugeListTests.lib.dart";
-import "ListMixin.lib.dart";
+import "listmixin_lib.dart";
 
 main() {
   test(create);  

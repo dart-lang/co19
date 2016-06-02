@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "../../collection/IterableBase/allTests.lib.dart";
+import "../../collection/IterableBase/inherited_tests.lib.dart";
 
 Iterable create([Iterable content]) {
   Set res = new Set();

@@ -9,10 +9,10 @@
  * @description Checks that all members of [Set] are implemented.
  * @author kaigorodov
  */
-library allTests_A01_t01;
+library inherited_tests_hashset;
 
-import "../../core/Set/allTests.lib.dart" as libSet;
+import "../../core/Set/allTests.lib.dart" as set_tests;
 
 test(Iterable create([Iterable content])) {
-  libSet.test(create);  
+  set_tests.test(create);
 }

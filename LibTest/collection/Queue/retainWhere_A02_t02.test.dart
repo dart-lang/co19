@@ -9,6 +9,7 @@
  * The test function must not throw or modify the queue.
  * @description Checks that if test function modifies the queue the exception is
  * thrown and operation stops
+ * @issue 26587
  * @author sgrekhov@unipro.ru
  */
 library retainWhere_A02_t02;
