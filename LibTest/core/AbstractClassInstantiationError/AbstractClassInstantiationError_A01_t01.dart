@@ -6,7 +6,8 @@
 /**
  * @assertion AbstractClassInstantiationError(String _className)
  * Creates a new Object instance.
- * @description Checks that this constructor executes without error for various strings and null.
+ * @description Checks that this constructor executes without error for various
+ * strings and null.
  * @author kaigorodov
  */
 

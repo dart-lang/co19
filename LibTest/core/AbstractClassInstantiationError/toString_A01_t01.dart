@@ -6,7 +6,8 @@
 /**
  * @assertion String toString()
  * Returns a string representation of this object.
- * @description Checks that this method causes no error and the result is not null and is indeed a String.
+ * @description Checks that this method causes no error and the result is not
+ * null and is indeed a String.
  * @author rodionov
  * @reviewer pagolubev
  */
