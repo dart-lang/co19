@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Stream<T> stream
+ * @assertion Stream<T> stream
  * The stream that this controller is controlling.
  * @description Checks the property value is of type Stream.
  * @author kaigorodov
@@ -14,7 +14,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller=new StreamController();
-  Stream stream=controller.stream;
+  StreamController controller = new StreamController();
+  Stream stream = controller.stream;
   Expect.isTrue(stream is Stream);
 }
