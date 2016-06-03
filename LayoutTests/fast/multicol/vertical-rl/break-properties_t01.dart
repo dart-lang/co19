@@ -22,17 +22,18 @@ const String htmlEL2 = r'''
 <div style="width: 100px; height: 630px; -webkit-columns:6; -webkit-column-gap:5px; columns:6; column-gap:5px; column-fill:auto;">
     <div class="taller box"></div>
     <div class="taller box"></div>
-    <div id="break-before" class="shorter box" style="-webkit-column-break-before: always;"></div>
+    <div id="break-before" class="shorter box" style="-webkit-column-break-before: always; background-color:red"></div>
     <div class="shorter box" style="-webkit-column-break-after: always;"></div>
-    <div id="after-break" class="shorter box"></div>
+    <div id="after-break" class="shorter box" style=" background-color:green"></div>
     <div id="no-break" class="shorter box" style="-webkit-column-break-inside: avoid;"></div>
 </div>
 ''';
 
 void testBoxPosition(id, expectedLeft, expectedTop) {
     var rect = document.getElementById(id).getBoundingClientRect();
-    shouldBe(rect.left.round(), expectedLeft, "left");
-    shouldBe(rect.top.round(), expectedTop, "top");
+    var bodyRect = document.body.getBoundingClientRect();
+    shouldBe(rect.left.round() - bodyRect.left.round(), expectedLeft, "left");
+    shouldBe(rect.top.round() - bodyRect.top.round(), expectedTop, "top");
 }
 
 void main() {
@@ -40,7 +41,7 @@ void main() {
     document.body.attributes["style"]="-webkit-writing-mode:vertical-rl; width:800px;";
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    testBoxPosition("break-before", 748, 220);
-    testBoxPosition("after-break", 748, 431);
+    testBoxPosition("break-before", 740, 212);
+    testBoxPosition("after-break", 740, 423);
     checkTestFailures();
 }
