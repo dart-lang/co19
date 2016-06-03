@@ -39,10 +39,14 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   run() {
-    var testWidth = getComputedStyle(document.getElementById("testContainer"), null).getPropertyValue("width");
-    var referenceWidth = getComputedStyle(document.getElementById("reference"), null).getPropertyValue("width");
+    String testWidth = getComputedStyle(document.getElementById("testContainer"), null).getPropertyValue("width");
+    String referenceWidth = getComputedStyle(document.getElementById("reference"), null).getPropertyValue("width");
     // allow 1px error
-    shouldBeApprox(testWidth, referenceWidth, 1);
+    testWidth = testWidth.replaceAll("px", "");
+    referenceWidth = referenceWidth.replaceAll("px", "");
+    int test = double.parse(testWidth).round();
+    int reference = double.parse(referenceWidth).round();
+    shouldBeApprox(test, reference, 1);
     asyncEnd();
   }
 
