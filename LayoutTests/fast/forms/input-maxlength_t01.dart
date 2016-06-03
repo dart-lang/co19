@@ -33,7 +33,8 @@ main() {
     shouldBe(input.value.length, length);
   }
 
-  //var stringLengthsToTest = [0, 5, 100, 101, 200, 524287, 524288, 524289, 530000];
+  // Chrome limit for input values length is 512K (524288). So don't check values
+  // longer than 512K
   var stringLengthsToTest = [0, 5, 100, 101, 200, 524287, 524288];
   var maxLengthsToTest = ["-1", "100", "524288", "600000"];
 

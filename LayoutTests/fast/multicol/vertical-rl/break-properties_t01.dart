@@ -37,7 +37,6 @@ void testBoxPosition(id, expectedLeft, expectedTop) {
 }
 
 void main() {
-//  <html style="-webkit-writing-mode:horizontal-tb">
     document.body.attributes["style"]="-webkit-writing-mode:vertical-rl; width:800px;";
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
