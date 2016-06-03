@@ -57,14 +57,13 @@
  * the imported library became accessed in the current library with specified
  * prefix. If a call loadLibrary fails nothing happens, and one again has the
  * option to call loadLibrary again.
+ * @static-warning
  * @author ngl@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "static_type_lib.dart" deferred as p;
-
-onLoad(loadSucceeded) =>
-    loadSucceeded ? test_loaded() : test_deferred();
+import "static_types_lib.dart" deferred as q;   /// static type warning
 
 test_loaded() {
   try {
@@ -94,35 +93,19 @@ test_loaded() {
   }
 }
 
-test_deferred() {
-  try {
-    p.someFunc();
-    Expect.fail("Should not be here");
-  } catch (e) {
-  }
-  try {
-    p.someGetter;
-    Expect.fail("Should not be here");
-  } catch (e) {
-  }
-  try {
-    p.someSetter = 1;
-    Expect.fail("Should not be here");
-  } catch (e) {
-  }
-  try {
-    p.Func;
-    Expect.fail("Should not be here");
-  } catch (e) {
-  }
-  try {
-    Expect.isTrue(p.loadLibrary() is Future);
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
-}
 
+main()  {
+  p.loadLibrary().then((v) {
+    test_loaded();
+  },
+  onError: (e) {
+    Expect.fail("Library should be loaded");
+  });
+  q.loadLibrary().then((v) {
+    Expect.fail("Library should not be loaded");
+  },
+  onError: (e) {
+    Expect.throws(() => q.x);
+  });
 
-main() async{
-  await p.loadLibrary().then(onLoad);
 }
