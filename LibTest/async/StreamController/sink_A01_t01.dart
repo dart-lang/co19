@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final StreamSink<T> sink
+ * @assertion StreamSink<T> sink
  * Returns a view of this object that only exposes the StreamSink interface.
- * @static-warning
+ *
  * @description Checks that only the StreamSink interface is exposed.
  * @static-warning
  * @author kaigorodov
@@ -16,16 +16,21 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller=new StreamController();
-  StreamSink sink=controller.sink;
+  StreamController controller = new StreamController();
+  StreamSink sink = controller.sink;
   Expect.isTrue(sink is StreamSink);
-  
+
+  sink.done;
+  sink.hashCode;
+  sink.runtimeType;
+
   sink.add(1);
   sink.addError(1);
+  sink.toString();
   sink.close();
 
-  Expect.throws((){var v=sink.hasListener;});
-  Expect.throws((){var v=sink.isClosed;});
-  Expect.throws((){var v=sink.isPaused;});
-  Expect.throws((){var v=sink.stream;});
+  Expect.throws(() {var v = sink.hasListener;});
+  Expect.throws(() {var v = sink.isClosed;});
+  Expect.throws(() {var v = sink.isPaused;});
+  Expect.throws(() {var v = sink.stream;});
 }
