@@ -4,8 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future close()
- * Close the StreamSink. It'll return the done Future.
+ * @assertion Future close()
+ * Tells the stream sink that no further streams will be added.
+ *
+ * Returns a future which is completed when the stream sink has shut down.
+ *
  * @description Checks that returned value is a Future.
  * @author ilya
  */
