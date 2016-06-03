@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void add(T event)
- * Create a data event
+ * @assertion void add(T event)
+ * Send a data event to a stream.
  * @description Checks that a data event is created.
  * @author kaigorodov
  */
@@ -15,8 +15,8 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller=new StreamController();
-  var value0=12345;
+  StreamController controller = new StreamController();
+  var value0 = 12345;
   controller.add(value0);
   asyncStart();
   controller.stream.listen((value1) {
