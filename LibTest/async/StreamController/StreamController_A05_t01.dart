@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory StreamController({void onListen(), void onPause(),
- *                  void onResume(), void onCancel(), bool sync: false})
+ * @assertion StreamController({void onListen(), void onPause(),
+ *                  void onResume(), dynamic onCancel(), bool sync: false})
  * onResume is called when the stream resumed.
- * @description Checks that the onResume function is called when the stream resumed.
+ * @description Checks that the onResume function is called when the stream
+ * resumed.
  * @author kaigorodov
  */
 
@@ -16,16 +17,16 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  bool onResumeCalled=false;
+  bool onResumeCalled = false;
   asyncStart();
-  StreamController controller=new StreamController(
-    onResume: (){
-      onResumeCalled=true;
+  StreamController controller = new StreamController(
+    onResume: () {
+      onResumeCalled = true;
       asyncEnd();
     }
   );
 
-  StreamSubscription subs=controller.stream.listen((event){});
+  StreamSubscription subs = controller.stream.listen((event) {});
   controller.add(1);
 
   subs.pause();

@@ -4,10 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory StreamController.broadcast({void onListen(), void onCancel(), bool sync: false})
- * Each listener is handled independently, and if they pause, only the pausing listener is affected.
+ * @assertion StreamController.broadcast({void onListen(), void onCancel(),
+ *                                       bool sync: false})
+ * Each listener is handled independently, and if one pauses, only the pausing
+ * listener is affected.
  * A paused listener will buffer events internally until unpaused or canceled.
- * @description checks that if a listener is paused, only that listener is affected.
+ *
+ * @description Checks that if a listener is paused, only that listener is
+ * affected.
  * Checks that paused listener will buffer events internally.
  */
 
@@ -16,14 +20,14 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller=new StreamController.broadcast();
-  Stream stream=controller.stream;
-  
-  bool event1seen=false;
-  StreamSubscription sub1=stream.listen((event){event1seen=true;});
+  StreamController controller = new StreamController.broadcast();
+  Stream stream = controller.stream;
+
+  bool event1seen = false;
+  StreamSubscription sub1 = stream.listen((event) {event1seen = true;});
   sub1.pause();
-  bool event2seen=false;
-  StreamSubscription sub2=stream.listen((event){event2seen=true;});
+  bool event2seen = false;
+  StreamSubscription sub2 = stream.listen((event) {event2seen = true;});
 
   controller.add(1);
 

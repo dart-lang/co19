@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory StreamController({void onListen(), void onPause(),
- *                  void onResume(), void onCancel(), bool sync: false})
- * The controller will buffer all incoming events until the subscriber is registered.
- * @description Checks that the controller will buffer all incoming events until the subscriber is registered.
+ * @assertion StreamController({void onListen(), void onPause(),
+ *                  void onResume(), dynamic onCancel(), bool sync: false})
+ * The controller buffers all incoming events until a subscriber is registered,
+ * but this feature should only be used in rare circumstances.
+ *
+ * @description Checks that the controller will buffer all incoming events
+ * until the subscriber is registered.
  * @author kaigorodov
  */
 
@@ -16,29 +19,29 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(List source) {
-  StreamController controller=new StreamController();
-  Stream s=controller.stream;
-  List sink=new List();
-  
-  for(var element in source) {
+  StreamController controller = new StreamController();
+  Stream s = controller.stream;
+  List sink = new List();
+
+  for (var element in source) {
     controller.add(element);
   }
   Expect.isTrue(sink.isEmpty);
 
   asyncStart();
-  s.listen((var event){
+  s.listen((var event) {
       sink.add(event);
     }
-  ).onDone((){
+  ).onDone(() {
       Expect.listEquals(source, sink);
       asyncEnd();
-  }); 
-  
+  });
+
   controller.close();
 }
 
 main() {
   check([]);
   check([null, null, null, null]);
-  check([1,2,3,4,5,6,7,8,9,0]);
+  check([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 }

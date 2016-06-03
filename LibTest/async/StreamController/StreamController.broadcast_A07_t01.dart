@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory StreamController.broadcast({void onListen(), void onCancel(), bool sync: false})
+ * @assertion StreamController.broadcast({void onListen(), void onCancel(),
+ *                                       bool sync: false})
  * The onListen callback is called when the first listener is subscribed,
  * and the onCancel is called when there are no longer any active listeners.
- * @description Checks that the onListen function is called when the stream receives its listener.
+ *
+ * @description Checks that the onListen function is called when the stream
+ * receives its listener.
  * @author kaigorodov
  */
 
@@ -16,17 +19,17 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  bool onListenCalled=false;
+  bool onListenCalled = false;
   asyncStart();
-  StreamController controller=new StreamController.broadcast(
-    onListen: (){
-      onListenCalled=true;
+  StreamController controller = new StreamController.broadcast(
+    onListen: () {
+      onListenCalled = true;
       asyncEnd();
     }
   );
 
   Expect.isFalse(onListenCalled);
-  StreamSubscription subs=controller.stream.listen((event){});
+  StreamSubscription subs = controller.stream.listen((event) {});
   Expect.isTrue(onListenCalled);
 }
 

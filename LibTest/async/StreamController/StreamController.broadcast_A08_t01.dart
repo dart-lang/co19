@@ -4,10 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory StreamController.broadcast({void onListen(), void onCancel(), bool sync: false})
- * If a listener is added again later, after the onCancel was called, the onListen will be called again.
- * @description Checks that if a listener is added again later, after the onCancel was called,
- * the onListen will be called again.
+ * @assertion StreamController.broadcast({void onListen(), void onCancel(),
+ *                                       bool sync: false})
+ * If a listener is added again later, after the onCancel was called, the
+ * onListen will be called again.
+ *
+ * @description Checks that if a listener is added again later, after the
+ * onCancel was called, the onListen will be called again.
  * @author kaigorodov
  */
 
@@ -16,31 +19,31 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  bool onListenCalled=false;
-  bool onCancelCalled=false;
+  bool onListenCalled = false;
+  bool onCancelCalled = false;
   asyncMultiStart(4);
 
-  StreamController controller=new StreamController.broadcast(
-    onListen: (){
-      onListenCalled=true;
+  StreamController controller = new StreamController.broadcast(
+    onListen: () {
+      onListenCalled = true;
       asyncEnd();
     },
-    onCancel: (){
-      onCancelCalled=true;
+    onCancel: () {
+      onCancelCalled = true;
       asyncEnd();
     }
   );
-  Stream stream=controller.stream;
+  Stream stream = controller.stream;
 
   Expect.isFalse(onListenCalled);
-  StreamSubscription subs=stream.listen((event){});
+  StreamSubscription subs = stream.listen((event){});
   Expect.isTrue(onListenCalled);
-  
+
   subs.cancel();
   Expect.isTrue(onCancelCalled);
 
-  onListenCalled=false;
-  subs=stream.listen((event){});
+  onListenCalled = false;
+  subs=stream.listen((event) {});
   Expect.isTrue(onListenCalled);
 
   controller.close();
