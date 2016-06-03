@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future addStream(Stream<T> source,
- *                                      {bool cancelOnError: true})
+ * @assertion Future addStream(Stream<T> source, {bool cancelOnError: true})
  * Events must not be added directly to this controller using add, addError,
  * close or addStream, until the returned future is complete.
+ *
  * @description Checks that events can not be added until the returned future is
  * complete.
  * @author ilya
@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var c = new StreamController();
-  var iter = [1,2,3];
+  var iter = [1, 2, 3];
   var s = new Stream.fromIterable(iter);
 
   asyncStart();
@@ -27,7 +27,7 @@ main() {
     Expect.listEquals(iter, x);
     asyncEnd();
   });
-  
+
   asyncStart();
   c.addStream(s).then((_) {
     c.close();

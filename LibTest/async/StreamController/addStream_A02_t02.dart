@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future addStream(Stream<T> source,
- *                                      {bool cancelOnError: true})
+ * @assertion Future addStream(Stream<T> source, {bool cancelOnError: true})
  * Events must not be added directly to this controller using add, addError,
  * close or addStream, until the returned future is complete.
+ *
  * @description Checks that events can be added when the returned future is
  * complete.
  * @author ilya
@@ -40,12 +40,12 @@ listen(stream, expectedData, expectedErrors) {
 main() {
   var c = new StreamController();
 
-  listen(c.stream, [1,2,3,4,5,6,7], [0]);
+  listen(c.stream, [1, 2, 3, 4, 5, 6, 7], [0]);
 
   asyncStart();
-  c.addStream(new Stream.fromIterable([1,2,3])).then((_) {
+  c.addStream(new Stream.fromIterable([1, 2, 3])).then((_) {
     c.add(4);
-    c.addStream(new Stream.fromIterable([5,6,7])).then((_) {
+    c.addStream(new Stream.fromIterable([5, 6, 7])).then((_) {
       c.addError(0);
       c.close();
       asyncEnd();

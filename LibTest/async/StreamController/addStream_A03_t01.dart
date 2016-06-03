@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Future addStream(Stream<T> source,
- *                                      {bool cancelOnError: true})
- * If cancelOnError is true, only the first error on source is forwarded to 
+ * @assertion Future addStream(Stream<T> source, {bool cancelOnError: true})
+ * If cancelOnError is true, only the first error on source is forwarded to
  * the controller's stream, and the addStream ends after this.
  * If cancelOnError is false, all errors are forwarded and only a done event
  * will end the addStream.
+ *
  * @description Checks that if cancelOnError is true, addStream ends after the
  * first error. Also checks that default value of cancelOnError is true.
  * @author ilya
@@ -43,11 +43,11 @@ toDataErrorStream(stream) => stream.map((x) => x < 0 ? throw x : x);
 
 main() {
   var c = new StreamController();
-  var iter = [1,2,3,-1,-2,-3,4,5,6];
+  var iter = [1, 2, 3, -1, -2, -3, 4, 5, 6];
   var s1 = toDataErrorStream(new Stream.fromIterable(iter));
   var s2 = toDataErrorStream(new Stream.fromIterable(iter));
 
-  listen(c.stream, [1,2,3,1,2,3], [-1,-1]);
+  listen(c.stream, [1, 2, 3, 1, 2, 3], [-1, -1]);
 
   asyncStart();
   c.addStream(s1).then((_) {
