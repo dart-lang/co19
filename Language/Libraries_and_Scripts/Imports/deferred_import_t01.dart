@@ -67,21 +67,25 @@ main() {
     p.someFunc();
     Expect.fail("Should not be here");
   } catch (e) {
+    Expect.isTrue(e is NoSuchMethodError);
   }
   try {
     p.someGetter;
     Expect.fail("Should not be here");
   } catch (e) {
+    Expect.isTrue(e is NoSuchMethodError);
   }
   try {
     p.someSetter = 1;
     Expect.fail("Should not be here");
   } catch (e) {
+    Expect.isTrue(e is NoSuchMethodError);
   }
   try {
     p.Func;
     Expect.fail("Should not be here");
   } catch (e) {
+    Expect.isTrue(e is NoSuchMethodError);
   }
   try {
     Expect.isTrue(p.loadLibrary() is Future);
