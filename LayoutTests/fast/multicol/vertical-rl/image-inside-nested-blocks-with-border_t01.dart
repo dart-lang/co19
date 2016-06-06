@@ -23,28 +23,24 @@ const String width = "width", height = "height";
 
 Map floatOffset(float) {
     var parentRect = document.getElementById('tests').getBoundingClientRect();
-    Rect rect = float.getBoundingClientRect();
-    return { width: rect.left - parentRect.left, height: rect.top - parentRect.top  };
+    var rect = float.getBoundingClientRect();
+    return { width: rect.left.round() - parentRect.left.round(), height: rect.top.round() - parentRect.top.round()  };
 }
 
 List<List> tests = [
-    ["f1", 0, 300]
+    ["f1", 210, 300]
 ];
 
 void main() {
     document.body.attributes["style"]="-webkit-writing-mode: vertical-rl";
-    document.body.setInnerHtml(htmlEL2, treeSanitizer:new NullTreeSanitizer());
+    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var test;
-    var failures = 0;
     for  (List test in tests) {
         var float = document.getElementById(test[0]);
         Map result = floatOffset(float);
         float.style.color = "red";
-        shouldBe(result[width], test[1], "width"); 
-        shouldBe(result[height], test[2], "height"); 
+        shouldBe(result[width], test[1], "width");
+        shouldBe(result[height], test[2], "height");
         float.style.color = "green";
     }
-
-    checkTestFailures();
 }
