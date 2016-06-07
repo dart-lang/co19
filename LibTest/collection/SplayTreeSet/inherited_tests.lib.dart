@@ -7,7 +7,8 @@
  * @assertion class SplayTreeSet<E>
  * A Set of objects that can be ordered relative to each other.
  * Mixes-in IterableMixin<E> SetMixin<E>
- * @description Checks that all members of [SetMixin] are implemented.
+ * @description Checks that all members of [IterableMixin] and [SetMixin] are
+ * implemented.
  * @author sgrekhov@unipro.ru
  */
 library inherited_tests_splaytreeset;
