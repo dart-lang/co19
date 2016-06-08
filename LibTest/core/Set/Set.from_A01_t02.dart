@@ -6,9 +6,9 @@
 /**
  * @assertion Set.from(Iterable<E> other)
  * Creates a [Set] that contains all elements of [other].
- * @description Checks that this constructor works correctly with a custom Iterable implementation
+ * @description Checks that this constructor works correctly with a custom
+ * Iterable implementation
  * @author rodionov
- * @reviewer msyabro
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";

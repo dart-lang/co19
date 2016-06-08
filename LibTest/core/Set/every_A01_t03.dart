@@ -10,15 +10,20 @@
  * @description Checks that invoking every() doesn't change the set by itself.
  * @author msyabro
  */
+library every_A01_t03;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
+test(Set create([Set content])) {
   bool foo(int x) { return x > 0; }
-  Set<int> s = new Set<int>();
+  Set<int> s = create();
   s.addAll([-1, -3, -11]);
   Expect.isTrue(!s.every(foo));
 
   Expect.isTrue(s.length == 3);
   Expect.isTrue(s.containsAll([-1, -3, -11]));
+}
+
+main() {
+  test(create);
 }

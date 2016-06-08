@@ -6,15 +6,16 @@
 /**
  * @assertion  abstract void addAll(Iterable<E> elements)
  * Adds all of elements to this Set.
- * @description Adds some integers to the set and checks that all of the unique ones are actually added.
+ * @description Adds some integers to the set and checks that all of the unique
+ * ones are actually added.
  * @author pagolubev
- * @reviewer msyabro
  */
+library addAll_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set s = create();
 
   s.addAll([]);
   Expect.isTrue(s.length == 0);
@@ -25,4 +26,8 @@ main() {
   for(int i = 0; i < a.length; i++) {
     Expect.isTrue(s.contains(a[i]));
   }
+}
+
+main() {
+  test(create);
 }

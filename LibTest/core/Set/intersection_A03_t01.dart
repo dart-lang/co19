@@ -7,10 +7,15 @@
  * @assertion  abstract Set<E> intersection(Set<Object> other)
  * @description Checks that null elements don't cause any errors.
  * @author msyabro
- * @reviewer rodionov
  */
+library intersection_A03_t01;
+import "set.lib.dart";
+import "../../../Utils/expect.dart";
 
+test(Set create([Iterable content])) {
+  Expect.equals(0, create([1, 2, 3, 4]).intersection([null].toSet()).length);
+  Expect.equals(1, create([1, 2, 3, 4]).intersection([null, 1].toSet()).length);
+}
 main() {
-  new Set.from([1, 2, 3, 4]).intersection([null].toSet());
-  new Set.from([1, 2, 3, 4]).intersection([null, 1].toSet());
+  test(create);
 }

@@ -5,16 +5,17 @@
  */
 /**
  * @assertion void add(T value)
- * Adds [value] into the set. The method has no effect if [value] was already in the set.
+ * Adds [value] into the set. The method has no effect if [value] was already
+ * in the set.
  * @description Checks correctness of the set after rehashing (triggered by add()).
  * @author pagolubev
- * @reviewer msyabro
  */
+library add_A01_t04;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set s = create();
 
   s.addAll([-1, -3, -2, -5, -6]);
   Expect.isTrue(s.length == 5);
@@ -27,5 +28,8 @@ main() {
     Expect.isTrue(s.containsAll(a));
     Expect.isTrue(s.length == 6 + i);
   }
+}
 
+main() {
+  test(create);
 }

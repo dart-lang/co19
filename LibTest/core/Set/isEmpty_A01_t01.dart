@@ -8,13 +8,13 @@
  * Returns true if there is no element in the collection.
  * @description Checks that this method works as specified on simple sets.
  * @author pagolubev
- * @reviewer msyabro
  */
+library isEmpty_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   Expect.isTrue(s.isEmpty);
 
   int n = 20;
@@ -25,4 +25,8 @@ main() {
 
   s.clear();
   Expect.isTrue(s.isEmpty);
+}
+
+main() {
+  test(create);
 }

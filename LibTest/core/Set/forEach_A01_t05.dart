@@ -9,11 +9,12 @@
  * @description Checks that invoking forEach() doesn't change the set by itself.
  * @author msyabro
  */
+library forEach_A01_t05;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   s.addAll([1, 2, 3, 4, 5]);
 
   int i = 0;
@@ -23,4 +24,8 @@ main() {
 
   Expect.isTrue(s.containsAll([1,2,3,4,5]));
   Expect.isTrue(s.length == 5);
+}
+
+main() {
+  test(create);
 }

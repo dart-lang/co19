@@ -7,11 +7,9 @@
  * @assertion Throws Error if [other] is null
  * @description Checks that Error is thrown is the argument is null.
  * @author rodionov
- * @reviewer msyabro
  * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   try {

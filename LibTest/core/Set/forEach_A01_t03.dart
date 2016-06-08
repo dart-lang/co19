@@ -11,20 +11,20 @@
  * @needsreview Set behaviour when elements are modified while iterating
  * with forEach() is not specified. Currently element modification does
  * not change its position in the hash table.
- * @reviewer msyabro
  */
+library forEach_A01_t03;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 class A {
   A(this.x) {}
-  bool operator==(A other) { return x == other.x; }
+  bool operator ==(A other) { return x == other.x; }
   int get hashCode { return x; }
   int x;
 }
 
-
-main() {
-  Set<A> s = new Set<A>();
+test(Set create([Set content])) {
+  Set<A> s = create();
   s.addAll([new A(1), new A(-1)]);
 
   s.forEach((A a) {
@@ -34,4 +34,8 @@ main() {
   Expect.isTrue(s.length == 2);
   Expect.isFalse(s.contains(new A(1)));
   Expect.isFalse(s.contains(new A(-1)));
+}
+
+main() {
+  test(create);
 }

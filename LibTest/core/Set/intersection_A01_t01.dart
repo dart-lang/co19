@@ -11,30 +11,36 @@
  * set is not null. Element types tested include int, null and String.
  * @author kaigorodov
  */
+library intersection_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-void check(List expected, List l1, List l2) {
-  Expect.setEquals(new Set.from(expected), new Set.from(l1).intersection(new Set.from(l2)));
+void check(Set create([Iterable content]), List expected, List l1, List l2) {
+  Expect.setEquals(create(expected), create(l1).intersection(create(l2)));
+}
+
+test(Set create([Set content])) {
+  check(create, [2], [1, 2], [2, 3]);
+  check(create, [1, 2], [1, 2, 3, 4, 5, 1, 1, 1, 2, 2, 2], [1, 1, 2, 2]);
+
+  //Intersection with an empty set
+  check(create, [], [], [1, 2, 3, 4, 5]);
+  check(create, [], [1, 2, 3, 4], []);
+  check(create, [], [], []);
+
+  //One set fully contains another
+  check(create, [1, 2], [1, 2, 3, 4, 5, 6], [1, 2]);
+  check(create, [1, 2], [1, 2], [1, 2, 3, 4, 5, 6]);
+
+  //Intersection with itself
+  check(create, [1], [1], [1]);
+  check(create, [1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
+
+  //Not intersecting sets
+  check(create, [], ["foo"], ["fOo", "bar"]);
+  check(create, [], [1, 2, 3, 4, 5], [-1, -2, -3, -4, -5]);
 }
 
 main() {
-  check([2], [1, 2], [2, 3]);
-  check([1, 2], [1, 2, 3, 4, 5, 1, 1, 1, 2, 2, 2], [1, 1, 2, 2]);
-
-  //Intersection with an empty set
-  check([], [], [1, 2, 3, 4, 5]);
-  check([], [1, 2, 3, 4], []);
-  check([], [], []);
-
-  //One set fully contains another
-  check([1, 2], [1, 2, 3, 4, 5, 6], [1, 2]);
-  check([1, 2], [1, 2], [1, 2, 3, 4, 5, 6]);
-
-  //Intersection with itself
-  check([1], [1], [1]);
-  check([1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
-
-  //Not intersecting sets
-  check([], ["foo"], ["fOo", "bar"]);
-  check([], [1, 2, 3, 4, 5], [-1, -2, -3, -4, -5]);
+  test(create);
 }

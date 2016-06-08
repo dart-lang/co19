@@ -6,15 +6,16 @@
 /**
  * @assertion  abstract void removeAll(Iterable<Object> elements)
  * Removes each element of elements from this set.
- * @description Checks that removeAll() works as specified in various simple scenarios.
+ * @description Checks that removeAll() works as specified in various simple
+ * scenarios.
  * @author pagolubev
- * @reviewer msyabro
  */
+library removeAll_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
 
   s.removeAll([].toSet());
   Expect.isTrue(s.length == 0);
@@ -35,4 +36,8 @@ main() {
   Expect.isFalse(s.contains(19));
   Expect.isFalse(s.contains(8));
   Expect.isFalse(s.contains(2));
+}
+
+main() {
+  test(create);
 }

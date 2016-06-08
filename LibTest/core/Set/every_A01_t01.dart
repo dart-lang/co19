@@ -7,18 +7,18 @@
  * @assertion bool every(bool f(T element))
  * Returns true if every element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Checks that this method works as specified with a collection of integers
- * and a simple predicate (numerical comparison).
+ * @description Checks that this method works as specified with a collection of
+ * integers and a simple predicate (numerical comparison).
  * @author pagolubev
- * @reviewer msyabro
  */
+library every_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
+test(Set create([Set content])) {
   bool foo(int x) { return x > 0; }
 
-  Set<int> s = new Set<int>();
+  Set<int> s = create();
   Expect.isTrue(s.every(foo));
 
   s.addAll([1, 17, 5, 3, 11]);
@@ -33,4 +33,8 @@ main() {
 
   s.remove(-1);
   Expect.isTrue(s.every(foo));
+}
+
+main() {
+  test(create);
 }

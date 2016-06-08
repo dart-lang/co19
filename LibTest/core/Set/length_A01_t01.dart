@@ -6,15 +6,16 @@
 /**
  * @assertion int length
  * Returns the number of elements in the collection.
- * @description Checks that the value returned by length is correct in various scenarios.
+ * @description Checks that the value returned by length is correct in various
+ * scenarios.
  * @author pagolubev
- * @reviewer msyabro
  */
+library length_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   Expect.isTrue(s.length == 0);
 
   int n = 20;
@@ -26,4 +27,8 @@ main() {
 
   s.clear();
   Expect.isTrue(s.length == 0);
+}
+
+main() {
+  test(create);
 }

@@ -8,19 +8,20 @@
  * Returns a new set which is the intersection between this set and other.
  * @description Checks that new set is returned and [:this:] is not changed.
  * @author msyabro
- * @needsreview Separate into two different tests?
  */
+library intersection_A01_t03;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  Set s = new Set();
+test(Set create([Iterable content])) {
+  Set s = create();
   Set newSet = s.intersection([1, 2, 3].toSet());
   Expect.setEquals(s, [].toSet());
   if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 
-  s = new Set.from([1, 2 , 3]);
+  s = create([1, 2 , 3]);
   newSet = s.intersection([1, 2, 3].toSet());
   Expect.setEquals(s, [1, 2, 3].toSet());
   if(identical(newSet, s)) {
@@ -32,4 +33,8 @@ main() {
   if(identical(newSet, s)) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
+}
+
+main() {
+  test(create);
 }

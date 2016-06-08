@@ -4,14 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates an empty set
- * @description Checks that an empty set is created.
- * @author rodionov
+ * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
+library set_library;
 
-main() {
-  Set s = new Set();
-  Expect.isTrue(s is Set);
-  Expect.isTrue(s.isEmpty);
+Set create([Iterable content]) {
+  if (content == null) {
+    return new Set();
+  }
+  return new Set.from(content);
 }

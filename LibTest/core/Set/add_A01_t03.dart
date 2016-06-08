@@ -11,8 +11,9 @@
  * replace each other.
  * @author pagolubev
  * @reviewer msyabro
- * @reviewer rodionov
  */
+library add_A01_t03;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 class A {
@@ -22,9 +23,8 @@ class A {
   int x;
 }
 
-
-main() {
-  Set s = new Set();
+test(Set create([Set content])) {
+  Set s = create();
 
   int numValues = 19;
   for(int i = 0; i < numValues; i++) {
@@ -37,4 +37,8 @@ main() {
     Expect.isTrue(s.length == expectedSize);
     Expect.isTrue(s.contains(new A(i)));
   }
+}
+
+main() {
+  test(create);
 }

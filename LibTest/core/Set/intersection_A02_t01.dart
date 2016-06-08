@@ -9,23 +9,27 @@
  * @description Checks that either an Error is thrown or empty Set is returned
  * if the argument is null.
  * Both empty and non-empty Sets are tested.
- * @note see discussion to co19 issue #659
  * @author rodionov
- * @reviewer msyabro
  */
+library intersection_A02_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  check(new Set.from([]));
-  check(new Set.from([1, 2, 3]));
-}
-
-void check(Set s) {
-  var res=new Set.from([1]);
+void check(Set create([Iterable content]), Set s) {
+  var res = new Set.from([1]);
   try {
-    res=s.intersection(null);
+    res = s.intersection(null);
   } on Error catch(e) {
     return;
   }
   Expect.isTrue(res.isEmpty);
+}
+
+test(Set create([Iterable content])) {
+  check(create, create([]));
+  check(create, create([1, 2, 3]));
+}
+
+main() {
+  test(create);
 }

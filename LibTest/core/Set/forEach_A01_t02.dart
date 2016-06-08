@@ -6,22 +6,26 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Checks that forEach() can be invoked on an empty set without any errors.
+ * @description Checks that forEach() can be invoked on an empty set without any
+ * errors.
  * @author pagolubev
- * @reviewer msyabro
  */
+library forEach_A01_t02;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
 
   int i = 0;
   void foo(int x) {
     i++;
   }
-
   s.forEach(foo);
 
   Expect.isTrue(i == 0);
+}
+
+main() {
+  test(create);
 }

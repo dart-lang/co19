@@ -8,13 +8,21 @@
  * Adds all of elements to this Set.
  * @description Passes a list containing null to addAll(), expects no errors.
  * @author pagolubev
- * @reviewer msyabro
+ * @author sgrekhov@unipro.ru
  */
+library addAll_A01_t02;
+import "set.lib.dart";
+import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set s = create();
 
   s.addAll([null]);
+  Expect.equals(1, s.length);
   s.addAll([1, 2, null]);
+  Expect.equals(3, s.length);
+}
+
+main() {
+  test(create);
 }

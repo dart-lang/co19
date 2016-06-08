@@ -9,16 +9,21 @@
  * @description Passes a list containing null elements as argument, expects
  * no errors.
  * @author pagolubev
- * @reviewer msyabro
  */
+library containsAll_A01_t02;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   Expect.isFalse(s.containsAll([null]));
   Expect.isFalse(s.containsAll([1, 2, null]));
 
   s.addAll([1, 2]);
   Expect.isFalse(s.containsAll([null]));
   Expect.isFalse(s.containsAll([1, 2, null]));
+}
+
+main() {
+  test(create);
 }

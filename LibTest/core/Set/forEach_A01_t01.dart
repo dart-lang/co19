@@ -10,11 +10,12 @@
  * @author pagolubev
  * @reviewer msyabro
  */
+library forEach_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   s.addAll([1, 2, 3, 4, 5]);
 
   List<int> a = new List(s.length);
@@ -29,4 +30,8 @@ main() {
     Expect.isTrue(s.remove(a[j]));
   }
   Expect.isTrue(s.isEmpty);
+}
+
+main() {
+  test(create);
 }

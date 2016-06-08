@@ -6,23 +6,25 @@
 /**
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
- * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Checks that items with the same hash code are removed correctly by this method.
+ * Returns false otherwise. The method has no effect if [value] value was not in
+ * the set.
+ * @description Checks that items with the same hash code are removed correctly
+ * by this method.
  * @author pagolubev
- * @reviewer msyabro
  */
+library remove_A01_t03;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 class A {
   A(this.x) {}
-  bool operator==(A other) { return x == other.x; }
+  bool operator ==(A other) { return x == other.x; }
   int get hashCode { return -1; }
   int x;
 }
 
-
-main() {
-  Set<A> s = new Set<A>();
+test(Set create([Set content])) {
+  Set<A> s = create();
   s.addAll([new A(-3), new A(0), new A(7)]);
 
   Expect.isTrue(s.remove(new A(0)));
@@ -38,4 +40,8 @@ main() {
   Expect.isTrue(s.remove(new A(-3)));
   Expect.isTrue(s.length == 0);
   Expect.isFalse(s.contains(new A(-3)));
+}
+
+main() {
+  test(create);
 }

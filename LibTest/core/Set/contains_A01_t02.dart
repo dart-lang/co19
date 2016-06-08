@@ -8,14 +8,18 @@
  * Returns true if [value] is in the set.
  * @description Passes null as argument, expects no errors.
  * @author pagolubev
- * @reviewer msyabro
  */
+library contains_A01_t02;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   Expect.isFalse(s.contains(null));
   s.add(null);
   Expect.isTrue(s.contains(null));
+}
+
+main() {
+  test(create);
 }

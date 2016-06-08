@@ -9,8 +9,9 @@
  * @description Checks that hash code collisions do not prevent addition of different
  * objects (not equal with regards to == operator) to the set.
  * @author pagolubev
- * @reviewer msyabro
  */
+library addAll_A01_t03;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 class A {
@@ -20,13 +21,16 @@ class A {
   int x;
 }
 
-
-main() {
-  Set<A> s = new Set<A>();
+test(Set create([Set content])) {
+  Set<A> s = create();
   List a = [new A(7), new A(2), new A(-8), new A(2), new A(2)];
   s.addAll(a);
   Expect.isTrue(s.length == 3);
   Expect.isTrue(s.contains(new A(7)));
   Expect.isTrue(s.contains(new A(2)));
   Expect.isTrue(s.contains(new A(-8)));
+}
+
+main() {
+  test(create);
 }

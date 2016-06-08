@@ -6,16 +6,22 @@
 /**
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
- * Returns false otherwise. The method has no effect if [value] value was not in the set.
+ * Returns false otherwise. The method has no effect if [value] value was not in
+ * the set.
  * @description Passes null argument to remove(), expects no errors.
  * @author pagolubev
- * @reviewer msyabro
  */
+library remove_A01_t02;
+import "set.lib.dart";
+import "../../../Utils/expect.dart";
 
+test(Set create([Set content])) {
+  Set<int> s = create();
+  Expect.isFalse(s.remove(null));
+  s.addAll([1, 2]);
+  Expect.isFalse(s.remove(null));
+}
 
 main() {
-  Set<int> s = new Set<int>();
-  s.remove(null);
-  s.addAll([1, 2]);
-  s.remove(null);
+  test(create);
 }

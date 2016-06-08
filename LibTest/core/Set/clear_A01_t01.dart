@@ -8,13 +8,13 @@
  * Removes all elements of the collection.
  * @description Checks that clear() indeed removes all elements from the set.
  * @author pagolubev
- * @reviewer msyabro
  */
+library clear_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
 
   s.clear();
   Expect.isTrue(s.length == 0);
@@ -26,4 +26,8 @@ main() {
   s.addAll([1, -1, 3]);
   s.clear();
   Expect.isTrue(s.length == 0);
+}
+
+main() {
+  test(create);
 }

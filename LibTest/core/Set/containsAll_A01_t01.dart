@@ -6,16 +6,17 @@
 /**
  * @assertion bool containsAll(Collection<T> collection)
  * Returns true if this collection contains all the elements of [collection].
- * @description Checks that this method returns true if all element from the argument collection
- * were added to the set prior to that (and not removed since) and false otherwise.
+ * @description Checks that this method returns true if all element from the
+ * argument collection were added to the set prior to that (and not removed
+ * since) and false otherwise.
  * @author pagolubev
- * @reviewer msyabro
  */
+library containsAll_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
 
   Expect.isTrue(s.containsAll([]));
   Expect.isFalse(s.containsAll([5, 2]));
@@ -28,4 +29,8 @@ main() {
   Expect.isTrue(s.containsAll([-1, 3, 7]));
   Expect.isFalse(s.containsAll([1, 2]));
   Expect.isFalse(s.containsAll([-1, 3, 7, 1]));
+}
+
+main() {
+  test(create);
 }

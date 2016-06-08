@@ -6,25 +6,30 @@
 /**
  * @assertion void forEach(void f(T element))
  * Applies the function [f] to each element of the collection.
- * @description Checks that nested invocations of forEach() do not cause any errors.
+ * @description Checks that nested invocations of forEach() do not cause any
+ * errors.
  * @author pagolubev
- * @reviewer msyabro
  */
+library forEach_A01_t04;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   s.addAll([1, -3, 10, 17]);
 
-  Set<int> outer = new Set<int>();
+  Set<int> outer = create();
   s.forEach((int x) {
     outer.add(x);
-    Set<int> inner = new Set<int>();
+    Set<int> inner = create();
     s.forEach((int y) {
       inner.add(y);
     });
     Expect.isTrue(inner.containsAll(s));
   });
   Expect.isTrue(outer.containsAll(s));
+}
+
+main() {
+  test(create);
 }

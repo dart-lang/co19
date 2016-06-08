@@ -6,16 +6,16 @@
 /**
  * @assertion bool contains(T value)
  * Returns true if [value] is in the set.
- * @description Checks that this method returns true if an element was added to the set prior to that (and not removed since)
- * and false otherwise.
+ * @description Checks that this method returns true if an element was added to
+ * the set prior to that (and not removed since) and false otherwise.
  * @author pagolubev
- * @reviewer msyabro
  */
+library contains_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
 
   int firstValue  = 27;
   int numValues = 19;
@@ -24,4 +24,8 @@ main() {
     s.add(i);
     Expect.isTrue(s.contains(i));
   }
+}
+
+main() {
+  test(create);
 }

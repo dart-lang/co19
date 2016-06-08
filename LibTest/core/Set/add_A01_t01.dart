@@ -5,16 +5,18 @@
  */
 /**
  * @assertion void add(T value)
- * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Checks that the value is added to the set if it doesn't already contain an equal one.
+ * Adds [value] into the set. The method has no effect if [value] was already in
+ * the set.
+ * @description Checks that the value is added to the set if it doesn't already
+ * contain an equal one.
  * @author pagolubev
- * @reviewer msyabro
  */
+library add_A01_t01;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set s = create();
 
   int firstValue  = 27;
   int numValues = 19;
@@ -28,4 +30,8 @@ main() {
     Expect.isTrue(s.length == expectedSize);
     Expect.isTrue(s.contains(i));
   }
+}
+
+main() {
+  test(create);
 }

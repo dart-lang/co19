@@ -7,21 +7,22 @@
  * @assertion bool every(bool f(T element))
  * Returns true if every element of the collection satisfies the predicate [f].
  * Returns false otherwise.
- * @description Checks that nested invocations of every() on the same set do not cause any errors.
+ * @description Checks that nested invocations of every() on the same set do not
+ * cause any errors.
  * @author pagolubev
- * @reviewer msyabro
  */
+library every_A01_t02;
+import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-
-main() {
-  Set<int> s = new Set<int>();
+test(Set create([Set content])) {
+  Set<int> s = create();
   s.addAll([1, -3, 10, 17]);
 
-  Set<int> outer = new Set<int>();
+  Set<int> outer = create();
   s.every((int x) {
     outer.add(x);
-    Set<int> inner = new Set<int>();
+    Set<int> inner = create();
     s.every((int y) {
       inner.add(y);
       return true;
@@ -30,4 +31,8 @@ main() {
     return true;
   });
   Expect.isTrue(outer.containsAll(s));
+}
+
+main() {
+  test(create);
 }
