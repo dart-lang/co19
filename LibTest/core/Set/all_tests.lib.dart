@@ -94,15 +94,3 @@ test(Iterable create([Iterable content])) {
   retainAll_A01_t02.test(create);
   retainWhere_A01_t01.test(create);
 }
-
-/// REMOVE
-Set create([Iterable content]) {
-  if (content == null) {
-    return new Set();
-  }
-  return new Set.from(content);
-}
-
-main() {
-  test(create);
-}

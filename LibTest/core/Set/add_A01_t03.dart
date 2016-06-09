@@ -10,17 +10,19 @@
  * to == operator do not replace each other when added to the set but those that are equal
  * replace each other.
  * @author pagolubev
- * @reviewer msyabro
  */
 library add_A01_t03;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-class A {
-  A(this.x) {}
-  bool operator==(A other) { return x == other.x; }
-  int get hashCode { return -1; }
+class A implements Comparable {
   int x;
+
+  A(this.x);
+  bool operator ==(A other) => x == other.x;
+  int get hashCode => -1;
+  // to allow run this test for ordered sets we need A to be comparable
+  int compareTo(A other) => this.x - other.x;
 }
 
 test(Set create([Set content])) {

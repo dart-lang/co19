@@ -51,9 +51,9 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   a[9] = 9;
   check(a);
 
-  a = [null, 0, "0", false, -1];
+  a = [null, 0, 0, false, -1];
   check(a);
 
-  a = const [null, 0, "0", false, 100];
+  a = const [null, 0, 0, false, 100];
   check(a);
 }

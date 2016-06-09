@@ -42,15 +42,10 @@ test(Iterable create([Iterable content]), {bool isSet: false}) {
     a = create([head, 1]);
     Expect.isNotNull(a.first);
 
-    List b = new List(1000);
-    b[0] = head;
-    a = create(b);
-    Expect.isNotNull(a.first);
-
     a = create([-2, 0, 0, false, -1]);
     Expect.isNotNull(a.first);
 
-    a = create([0, null, 0, false]);
+    a = create([0, 0.5, 0, false]);
     Expect.isNotNull(a.first);
   }
 }

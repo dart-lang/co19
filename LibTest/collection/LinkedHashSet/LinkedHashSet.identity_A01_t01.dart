@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionLinkedHashSet.identity()
+ * @assertion LinkedHashSet.identity()
  * Creates an insertion-ordered identity-based set.
  * Effectively a shorthand for:
  * new LinkedHashSet(equals: identical, hashCode: identityHashCode)

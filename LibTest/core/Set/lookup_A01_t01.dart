@@ -20,7 +20,7 @@ test(Set create([Iterable content])) {
 
   Expect.equals(0, set.lookup(0));
   Expect.isNull(set.lookup(-2));
-  Expect.isNull(set.lookup("0"));
+  Expect.isNull(set.lookup(0.5));
 }
 
 main() {

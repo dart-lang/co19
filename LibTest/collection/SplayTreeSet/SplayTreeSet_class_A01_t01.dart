@@ -17,13 +17,19 @@ int compare(var key1, var key2) {
   if (key1 is Comparable && key2 is Comparable) {
     return key1.compareTo(key2);
   } else {
+    if (key1 != null && key2 == null) {
+      return 1;
+    }
+    if (key1 == null && key2 != null) {
+      return -1;
+    }
     return 0;
   }
 }
 
 SplayTreeSet create([Iterable content]) {
   if (content == null) {
-    return new SplayTreeSet();
+    return new SplayTreeSet(compare);
   } else {
     return new SplayTreeSet.from(content, compare);
   }

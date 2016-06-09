@@ -11,7 +11,7 @@
  */
 library inherited_tests_setmixin;
 
-import "../../core/Set/allTests.lib.dart" as set_tests;
+import "../../core/Set/all_tests.lib.dart" as set_tests;
 
 test(Set create([Iterable content])) {
   set_tests.test(create);
