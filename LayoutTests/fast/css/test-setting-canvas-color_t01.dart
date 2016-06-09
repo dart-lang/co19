@@ -12,6 +12,16 @@ import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
+bool isRedColor(String color) {
+  String s = color.toLowerCase().replaceAll(" ", "");
+  return s == "#f00" || s == "#ff0000" || s.startsWith("rgba(255,0,0");
+}
+
+bool isGreenColor(String color) {
+  String s = color.toLowerCase().replaceAll(" ", "");
+  return s == "#0f0" || s == "#00ff00" || s.startsWith("rgba(0,255,0");
+}
+
 main() {
   document.body.setInnerHtml('''
       <canvas id="canvas">
@@ -24,7 +34,7 @@ main() {
     ctx.fillStyle = "#f00";
     ctx.fillStyle = color;
     // Check that there is no red.
-    if (new RegExp(r'^#(?!(FF0000|ff0000|f00)$)').hasMatch(ctx.fillStyle))
+    if (!isRedColor(ctx.fillStyle))
       testPassed("Setting color to " + color + " was successfully set.");
     else
       testFailed("Setting color to " + color + " was not set but should!");
@@ -34,7 +44,7 @@ main() {
     ctx.fillStyle = "#0f0";
     ctx.fillStyle = color;
     // Check that the color is still green.
-    if (new RegExp(r'^#(00FF00|00ff00|0f0)$').hasMatch(ctx.fillStyle))
+    if (isGreenColor(ctx.fillStyle))
       testPassed("Setting color to " + color + " was not set (as expected).");
     else
       testFailed("Setting color to " + color + " was successfully set but should not!");
