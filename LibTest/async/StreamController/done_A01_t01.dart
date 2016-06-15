@@ -4,12 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Future done
- * The done Future completes with the same values as close, except for the
- * following case:
- * - The synchronous methods of EventSink were called, resulting in an error.
- * If there is no active future (like from an addStream call), the done future
- * will complete with that error
+ * @assertion Future done
+ * Return a future which is completed when the StreamSink is finished.
+ *
+ * If the StreamSink fails with an error, perhaps in response to adding events
+ * using add, addError or close, the done future will complete with that error.
+ *
+ * Otherwise, the returned future will complete when either:
+ *  - all events have been processed and the sink has been closed, or
+ *  - the sink has otherwise been stopped from handling more events (for
+ *    example by cancelling a stream subscription).
+ *
  * @description Checks that returned value is a Future.
  * @author ilya
  */
