@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,27 +15,30 @@
  * moveNext. Between a call to moveNext and when its returned future completes,
  * the value is unspecified.
  *
- * @description Checks that the property returns the current value of the stream.
- * @author kaigorodov
+ * @description Checks that the property current returns null before the first
+ * call to moveNext and after a call to moveNext completes with a false result.
+ * @author ngl@unipro.ru
  */
 
 import "dart:async";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(expected) {
-  StreamController controller = new StreamController();
-  StreamIterator streamIterator = new StreamIterator(controller.stream);
-  controller.add(expected);
-  streamIterator.moveNext().then((var value) {
-    Expect.isTrue(value);
-    Expect.equals(expected, streamIterator.current);
-  });
-  controller.close();
-}
-
 main() {
-  check(null);
-  check(12345);
-  check("expected");
-  check(["expected"]);
+  var c = new StreamController();
+  var si = new StreamIterator(c.stream);
+
+  c.add(1);
+  Expect.equals(null, si.current);
+
+  si.moveNext().then((var value) {
+    Expect.isTrue(value);
+    Expect.equals(1, si.current);
+    si.moveNext().then((var value) {
+      Expect.isFalse(value);
+      Expect.equals(null, si.current);
+    });
+  });
+
+  c.close();
 }

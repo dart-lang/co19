@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory StreamIterator(Stream<T> stream)
+ * @assertion StreamIterator(Stream<T> stream)
  * Create a StreamIterator on stream.
  * @description Checks that instance of StreamIterator is created.
  * @author kaigorodov
@@ -14,7 +14,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller=new StreamController();
-  StreamIterator streamIterator=new StreamIterator(controller.stream);
+  StreamController controller = new StreamController();
+  StreamIterator streamIterator = new StreamIterator(controller.stream);
   Expect.isTrue(streamIterator is StreamIterator);
 }
