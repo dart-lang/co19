@@ -30,33 +30,34 @@
  *     When present, the parameter args is set to the provided args list. When
  *  present, the parameter message is set to the initial message.
  *
- * @description Checks that method throws an exception if uri is null,
- * an integer or a List.
+ * @description Checks that if uri is List instance, then spawnUri throws an
+ * exception in checked mode or returned Future instance is completed with
+ * error.
  *
- * @description Checks that returned Future is completed with error if URI
- * points to a script that doesn't declare any top-level functions.
- *
- * @issue #15348
- * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
-import "dart:async";
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/dynamic_check.dart";
 
-void main() {
+main() {
   asyncStart();
-  Future future = Isolate.spawnUri(
-                            new Uri.file("spawnUri_A02_t02_bad_isolate.dart"),
-                            [],
-                            null
-                  );
-  future.then(
-    (_) {
-      Expect.fail("spawnUri(bad library) is expected to fail");
-    },
-    onError: (error) {
-      asyncEnd();
-    }
-  );
+  try {
+    Isolate.spawnUri([], ["hello"], "world").then(
+        (v) {
+          Expect.fail("Isolate.spawnUri([], ['hello'], 'world') should fail");
+        },
+        onError: (e) {
+          print("Future is completed with error: $e");
+          Expect.isFalse(isCheckedMode());
+          asyncEnd();
+        }
+    );
+  } catch (e) {
+    print("Caught an error: $e");
+    Expect.isTrue(isCheckedMode());
+    asyncEnd();
+  }
 }
+
