@@ -10,8 +10,9 @@
  * @description Checks that an instance creation expression of the form const
  * T.id(a1, ..., an), where T is an abstract class, produces a static warning.
  * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
 
 abstract class A {
@@ -19,7 +20,5 @@ abstract class A {
 }
 
 main() {
-  try {
-    const A.id(); /// static type warning - invoking a non-factory constructor of an abstract class, see "Instance creation|Const"
-  } catch (e) {}
+    const A.id(); /// static type warning
 }

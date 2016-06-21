@@ -12,12 +12,11 @@
  * a static warning.
  * @static-warning
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
   const A();
-  f(); /// static type warning - abstract member in a concrete class, see "Abstract instance members"
+  f(); /// static type warning
 }
 
 main() {
