@@ -31,34 +31,27 @@
  *  present, the parameter message is set to the initial message.
  *
  * @description Checks that the function spawns the isolate that executes the
- * main(args, message) function.
+ * main(args) function (i.e. only one argument).
  *
- * @author kaigorodov
+ * @issue #26738
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:isolate";
+import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "IsolateUtil.dart";
 
-var expectedMessage="spawnUri_A01_t01";
-
-var receivePort = new ReceivePort();
-
-void receiveHandler(var message) {
-  Expect.equals(expectedMessage, message);
-  receivePort.close();
-  asyncEnd();
-}
-
+// Due to issue #26738 it is necessary to keep initial isolate alive,
+// so the started isolate could proceed.
 void main(List args, SendPort replyPort) {
   asyncStart();
-  receivePort.listen(receiveHandler);
-  Isolate.spawnUri(
-            new Uri.file("spawnUri_A01_t01_isolate.dart"),
-            [expectedMessage],
-            receivePort.sendPort
-  );
-  if (replyPort!=null) {
-    replyPort.send(args[0]);
-  }
+  Future.wait([
+    Isolate.spawnUri(
+            new Uri.file("spawnUri_A01_t07_isolate.dart"),
+            ["hello", "world"],
+            null
+    ),
+    new Future.delayed(ONE_SECOND) // keep isolate alive
+  ]).then( (_) => true );
 }
