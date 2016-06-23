@@ -6,7 +6,9 @@
 /**
  * @assertion Returns an immutable hash code for this send port that is
  * consistent with the == operator.
+ *
  * @description Checks that [hashCode] is consistent with operator ==.
+ *
  * @author msyabro
  * @reviewer kaigorodov
  */

@@ -1,16 +1,19 @@
 /*
- * Copyright (c) 2011-2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
+ * Copyright (c) 2011-2016, the Dart project authors.  Please see the AUTHORS
+ * file for details. All rights reserved. Use of this source code is governed
+ * by a BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion  abstract void send(message)
- * Sends an asynchronous message to this send port.
- * The message is copied to the receiving isolate.
- * The content of message can be: primitive values (null, num, bool, double, String),
- * instances of SendPort, and lists and maps whose elements are any of these.
- * @description Checks that various maps could be sent properly.
- * @author kaigorodov
+ *    Sends an asynchronous message through this send port, to its corresponding
+ * ReceivePort.
+ *    The content of message can be: primitive values (null, num, bool, double,
+ * String), instances of SendPort, and lists and maps whose elements are any
+ * of these. List and maps are also allowed to be cyclic.
+ *
+ * @description Checks that various maps are sent properly.
+ *
+ *  @author kaigorodov
  */
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
@@ -26,7 +29,8 @@ void iMain(SendPort replyPort) {
 
 makeMaps() {
   var maps = [
-    const {}, const {"1:":1, "2":2, "3":3}, const {"1":const{}, "2":const{"1":const{}}},
+    const {}, const {"1:":1, "2":2, "3":3},
+    const {"1":const{}, "2":const{"1":const{}}},
     messagesMap, {"1":messagesMap}, {"1":{}, "2":{"3":messagesMap}},
     {"1" : messagesList}
   ];
