@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionfinalabstract void set handler(Function newHandler)
+ * @assertion void set handler=(Function newHandler)
  * Sets the handler that is invoked for every incoming message.
  * The handler is invoked in the root-zone (Zone.ROOT).
- * @description Checks that this handler is invoked in the root-zone.
+ *
+ * @description Checks that the handler is invoked in the root-zone.
+ *
  * @author kaigorodov
  */
 
@@ -19,6 +21,7 @@ import "../../../Utils/expect.dart";
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);
 
 void receiveHandler(var message) {
+  Expect.identical(Zone.ROOT, Zone.current);
   Expect.isNull(Zone.current.parent);
   receivePort.close();
   asyncEnd();
@@ -29,7 +32,7 @@ void iMain(SendPort replyPort) {
 }
 
 main() {
-  var sendPort=receivePort.sendPort;
+  var sendPort = receivePort.sendPort;
   Expect.isTrue(sendPort is SendPort);
   asyncStart();
   Isolate.spawn(iMain, sendPort);

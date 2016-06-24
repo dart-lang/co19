@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void close()
+ * @assertion void close()
  * Closes the port.
  * After a call to this method any incoming message is silently dropped.
+ *
  * @description Checks that after closing, messages are dropped silently.
+ *
  * @author kaigorodov
  * @author a.semenov@unipro.ru
  */

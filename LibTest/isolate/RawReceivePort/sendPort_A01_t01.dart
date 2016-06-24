@@ -4,9 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionfinal SendPort sendPort
+ * @assertion final SendPort sendPort
  * Returns a SendPort that sends to this raw receive port.
- * @description Checks that this getter returns functional SendPort
+ *
+ * @description Checks that the getter returns functional SendPort
+ *
  * @author kaigorodov
  */
 
