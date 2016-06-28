@@ -354,7 +354,7 @@ main() {
     }
     if (actual == expected ||
         (expected != wgl.FRAMEBUFFER_COMPLETE &&
-         actual == wgl.FRAMBUFFER_UNSUPPORTED)) {
+         actual == wgl.FRAMEBUFFER_UNSUPPORTED)) {
            testPassed(msg);
          } else {
            testFailed(msg);
