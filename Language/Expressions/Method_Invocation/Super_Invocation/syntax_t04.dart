@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionA super method invocation i has the form
+ * @assertion A super method invocation i has the form
  * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that arguments must be separated with comma.
  * @compile-error

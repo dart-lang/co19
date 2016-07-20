@@ -14,7 +14,7 @@
  * with two parameters is assigned to a variable of a function type with two
  * parameters that do not correspond to function literal parameters.
  * @static-warning
- * @ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
 import '../../../Utils/dynamic_check.dart';
 

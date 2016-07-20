@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionEvaluation of a top-level getter invocation i of the form m,
+ * @assertion Evaluation of a top-level getter invocation i of the form m,
  * where m is an identifier, proceeds as follows:
  * The getter function m is invoked. The value of i is the result returned by
  * the call to the getter function.

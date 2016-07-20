@@ -14,7 +14,7 @@
  * assigned to a function type variables with Future return type and
  * corresponding parameter types.
  * @static-clean
- * @ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
 import 'dart:async';
 

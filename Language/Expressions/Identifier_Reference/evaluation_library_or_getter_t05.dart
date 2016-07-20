@@ -14,7 +14,7 @@
  *   top-level setter, then e is equivalent to the getter invocation id.
  * @description Checks that reference to a top-level setter is evaluated to the
  * getter invocation.
- * @static-waning
+ * @static-warning
  * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';

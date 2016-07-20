@@ -14,7 +14,7 @@
  * assigned to function type variables with Iterable return type and
  * corresponding parameter types.
  * @static-clean
- * @ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
 
 typedef Iterable iterFunc();

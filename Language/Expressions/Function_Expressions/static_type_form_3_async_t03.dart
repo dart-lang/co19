@@ -14,7 +14,7 @@
  * with two parameters is assigned to a variable of a function type with the
  * same parameters and int return type.
  * @static-warning
- * @ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
 
 typedef int futureFunc(int p1, {int p2});

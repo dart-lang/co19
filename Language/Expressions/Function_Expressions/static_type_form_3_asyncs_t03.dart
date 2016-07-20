@@ -14,7 +14,7 @@
  * with two parameters is assigned to a variable of a function type with the
  * same parameters and Future return type.
  * @static-warning
- * @ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
 import 'dart:async';
 

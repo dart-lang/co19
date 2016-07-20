@@ -14,7 +14,7 @@
  * assigned to function type variables with Stream return type and
  * corresponding parameter types.
  * @static-clean
- * @ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
 import 'dart:async';
 
