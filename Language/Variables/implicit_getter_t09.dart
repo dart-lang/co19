@@ -11,11 +11,9 @@
  * whose invocation evaluates as described below.
  * @description Checks that the returned type of this implicit getter is the 
  * same as the static field's type, by attempting to assign the result of its 
- * invocation to a variable of incompatible type. Static warning expected.
- * @static-warning
+ * invocation to a variable of incompatible type. Compile error is expected.
+ * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../Utils/dynamic_check.dart";
 
@@ -24,7 +22,5 @@ class A {
 }
 
 main() {
-  checkTypeError(() {
-    bool a = A.a; /// static type warning 'int' is not assignable to 'bool'
-  });
+  bool a = A.a;
 }

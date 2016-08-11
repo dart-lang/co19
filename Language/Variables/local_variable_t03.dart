@@ -8,22 +8,17 @@
  * They do not induce getters and setters.  A local variable may only be
  * referenced at a source code location that is after its initializer, if any,
  * is complete, or a compile-time error occurs.
- * @description Checks that it is not a compile-error to reference the name of
+ * @description Checks that it is a compile-error to reference the name of
  * local variable before its declaration, but in outer scope.
- * @static-warning
+ * @compile-error
  * @author ilya
+ *  * @author a.semenov@unipro.ru
  */
 import "../../Utils/expect.dart";
  
 main() {
-  Expect.throws(() {
-    var v = w; // static type warning
-    {var w;}
-  });
-
-  Expect.throws(() {
-    i;         // static type warning
-
-    for (int i = 0; i < 10; ++i) {}
-  });
+  var v = w;
+  {
+    var w;
+  }
 }

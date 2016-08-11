@@ -9,13 +9,11 @@
  * always induces an implicit getter function with signature
  *   T get v
  * whose invocation evaluates as described below.
- * @description Checks that a static warning is produced when assigning result 
+ * @description Checks that a compile error is produced when assigning result
  * of T get v() invocation to a variable whose type may not be assigned to T. 
  * The variable declaration is of the form T v;.
- * @static-warning
+ * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -24,5 +22,5 @@ class A {
 
 main() {
   A a = new A();
-  bool b = a.v; /// static type warning 'int' is not assignable to 'bool'
+  bool b = a.v;
 }

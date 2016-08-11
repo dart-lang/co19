@@ -11,14 +11,13 @@
  * @description Checks that it is a compile-error if local variable is used
  * before its initializer.
  * @compile-error
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 main() {
   try {
-    var v = w; /// static type warning - unresolved identifier w
+    var v = w;
     var w;
   } catch (_) {}
 }

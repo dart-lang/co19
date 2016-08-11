@@ -8,14 +8,16 @@
  * They do not induce getters and setters.  A local variable may only be
  * referenced at a source code location that is after its initializer, if any,
  * is complete, or a compile-time error occurs.
- * @description Checks that it is not a compile-error to reference the name of
- * local variable in its initializer if this name refers to inner declaration in
- * an initializer.
+ * @description Checks that it is a compile-error to reference the name of
+ * local variable before its declaration, but in outer scope.
+ * @compile-error
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
-
+import "../../Utils/expect.dart";
+ 
 main() {
-  try {
-    var f = (f) => f;
-  } catch (_) {};
+    i;
+
+    for (int i = 0; i < 10; ++i) {}
 }
