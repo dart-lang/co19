@@ -8,11 +8,10 @@
  * to methods apply to abstract methods.
  * It is a static warning if a class C declares an instance method named n and
  * an accessible static member named n is declared in a superclass of C.
- * @description Checks that a static warning is produced when a class declares
+ * @description Checks that a compile error is produced when a class declares
  * an abstract method with the same name as a static method in its superclass.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class A {
@@ -20,7 +19,7 @@ class A {
 }
 
 abstract class B extends A {
-  f(); /// static type warning
+  f();
 }
 
 class C extends B {

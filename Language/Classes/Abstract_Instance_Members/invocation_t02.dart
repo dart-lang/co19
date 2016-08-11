@@ -8,13 +8,10 @@
  * invocation of noSuchMethod exactly as if the declaration did not exist,
  * unless a suitable member a is available in a superclass, in which case a is
  * invoked.
- * @description Checks that NoSuchMethodError is thrown when calling an
+ * @description Checks that it is a compile error when calling an
  * abstract method that is inherited from non-direct superclass.
- * @static-warning
+ * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,7 +21,7 @@ abstract class A {
 
 abstract class A1 extends A {}
 abstract class A2 extends A1 {}
-class C extends A2 { /// static type warning
+class C extends A2 {
 }
 
 main() {

@@ -8,13 +8,11 @@
  * to methods apply to abstract methods.
  * It is a static-warning if an instance method m1 overrides an instance member
  * m2 and m1 does not declare all the named parameters declared by m2.
- * @description Checks that a static warning is produced when the overriding
+ * @description Checks that a compile error is produced when the overriding
  * instance method has almost the same set of named parameters as the abstract
  * method being overriden, except for one that has a different name.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer iefremov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -23,14 +21,14 @@ abstract class A {
 }
 
 class C extends A {
-  f({var x, var yy, var z}) {} /// static warning
+  f({var x, var yy, var z}) {}
 }
 
 main() {
   C c = new C();
   A a = c;
 
-  Expect.throws(() => a.f(x: 1, y: 2, z: 3)); /// static warning
+  Expect.throws(() => a.f(x: 1, y: 2, z: 3));
 
   c.f(x: 1, yy: 2, z: 3);
 }

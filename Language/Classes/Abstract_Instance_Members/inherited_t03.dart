@@ -9,11 +9,10 @@
  *  - m overrides a concrete member, or
  *  - C has a noSuchMethod() method distinct from the one declared in class
  *    Object.
- * @description Checks that it is a static warning if an abstract getter is
+ * @description Checks that it is a compile error if an abstract getter is
  * declared in a concrete class.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class A {

@@ -13,7 +13,6 @@
  * instance method being overriden, but in a different order.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

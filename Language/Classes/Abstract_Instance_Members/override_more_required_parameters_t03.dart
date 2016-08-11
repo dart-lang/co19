@@ -8,13 +8,11 @@
  * to methods apply to abstract methods.
  * It is a static warning if an instance method m1 overrides an instance member
  * m2 and m1 has a greater number of required parameters than m2.
- * @description Checks that a static warning is produced when an abstract
+ * @description Checks that a compile error is produced when an abstract
  * method overrides another abstract method with the same name and a different
  * number of required parameters.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer iefremov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -23,7 +21,7 @@ abstract class A {
 }
 
 abstract class C extends A {
-  f(var x, var y); /// static warning
+  f(var x, var y);
 }
 
 class D extends C {
@@ -31,7 +29,7 @@ class D extends C {
 }
 
 main() {
-  Expect.throws(() => new D().f(2));  /// static type warning missing argument
+  Expect.throws(() => new D().f(2));
 
   new D().f(2, 2);
 }

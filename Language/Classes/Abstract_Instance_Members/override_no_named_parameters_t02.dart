@@ -13,8 +13,6 @@
  * method being overridden and neither have any required parameters.
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
- * @reviewer kaigorodov
  */
 
 abstract class A {
