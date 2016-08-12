@@ -13,12 +13,11 @@
  * constructor.
  * It is a compile-time error if a local variable v is final and v is not
  * initialized at its point of declaration.
- * @description Checks that a static warning occurs if a final instance
+ * @description Checks that a compile error occurs if a final instance
  * variable that has been initialized in declaration is also initialized in
  * a constructor.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  * @issue 12539
  */
 
@@ -29,7 +28,5 @@ class C {
 }
 
 main() {
-  try {
-    new C(1);
-  } catch (ok) {}
+  new C(1);
 }

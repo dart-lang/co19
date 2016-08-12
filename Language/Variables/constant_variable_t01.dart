@@ -7,18 +7,11 @@
  * @assertion A constant variable is a variable whose declaration includes the 
  * modifier const. A constant variable is always implicitly final.
  * @description Checks that, if a new value is assigned to a constant local 
- * variable after it was initialized at declaration, this will cause a static 
- * warning and a runtime error throwing at execution.
- * @static-warning
+ * variable after it is initialized at declaration, then compile error occurs.
+ * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-import "../../Utils/expect.dart";
-
 main() {
   const foo = "foo";
-  try {
-    foo = "bar"; /// static warning
-    Expect.fail("Runtime error expected");
-  } on Error catch (ok) {}
+  foo = "bar";
 }
