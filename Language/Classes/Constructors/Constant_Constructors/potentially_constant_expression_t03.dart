@@ -17,7 +17,6 @@
  * constructor's initializer list contains an instance creation expression.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {

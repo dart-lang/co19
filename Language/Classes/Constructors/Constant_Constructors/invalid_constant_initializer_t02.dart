@@ -13,7 +13,6 @@
  * mechanism is described in Classes.Constructors.Constant_Constructors.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {

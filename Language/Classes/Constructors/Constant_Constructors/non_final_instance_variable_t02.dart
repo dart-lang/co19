@@ -10,7 +10,6 @@
  * constant constructor inherits a non-final instance variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

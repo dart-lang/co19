@@ -12,7 +12,6 @@
  * formal parameters are missing.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {

@@ -12,7 +12,6 @@
  * end of constructor declaration is missing.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {

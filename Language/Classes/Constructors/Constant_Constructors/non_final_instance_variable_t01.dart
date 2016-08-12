@@ -10,7 +10,6 @@
  * constant constructor also declares a non-final instance variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {

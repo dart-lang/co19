@@ -10,7 +10,6 @@
  * ;
  * @description Checks various correct constant constructor signatures.
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A<T> {
