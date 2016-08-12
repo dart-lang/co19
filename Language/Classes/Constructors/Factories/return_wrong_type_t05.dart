@@ -9,7 +9,6 @@
  * @description Checks that returning an object of subtype of M
  * from factory constructor M does not produce an error.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 abstract class A {

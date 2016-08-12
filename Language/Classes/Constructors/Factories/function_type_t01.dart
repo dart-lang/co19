@@ -6,11 +6,11 @@
 /**
  * @assertion It is a static warning if the function type of k' is not a
  * subtype of the type of k.
- * @description Checks that static warning is produced if factory constructor
+ * @description Checks that a compile error is produced if factory constructor
  * redirects to a constructor whose type is not a subtype of factory
  * constructor function type. Checks the case when constructor parameter types
  * are not assignable.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 

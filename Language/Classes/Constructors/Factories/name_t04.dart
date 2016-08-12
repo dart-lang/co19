@@ -10,7 +10,6 @@
  * function type alias available in the same scope.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef foo();

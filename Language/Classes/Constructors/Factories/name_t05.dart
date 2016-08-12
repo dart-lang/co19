@@ -10,7 +10,6 @@
  * unrelated class available in the same scope.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class Z {}

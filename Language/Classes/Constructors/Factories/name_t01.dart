@@ -10,7 +10,6 @@
  * followed by a name that is not a constructor name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

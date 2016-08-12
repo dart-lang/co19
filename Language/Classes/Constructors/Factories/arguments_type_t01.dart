@@ -7,10 +7,10 @@
  * @assertion It is a static type warning if any of the type arguments to k'
  * are not subtypes of the bounds of the corresponding formal type parameters
  * of type.
- * @description Checks that static warning is produced if factory constructor
+ * @description Checks that a compile error is produced if factory constructor
  * type parameters are not subtypes of bounds of corresponding type parameters
  * of redirected class constructor.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 

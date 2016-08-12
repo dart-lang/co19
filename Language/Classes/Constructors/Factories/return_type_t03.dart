@@ -8,12 +8,11 @@
  * form factory M or the form factory M.id is M if M is not a generic type;
  * otherwise the return type is M <T1, …, Tn>, where T1, …, Tn are the type
  * parameters of the enclosing class.
- * @description Checks that a static warning is produced when assigning the
+ * @description Checks that a compile error is produced when assigning the
  * result of invoking factory constructor M.id to the variable whose type
  * is not assignable to M.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -21,5 +20,5 @@ class A {
 }
 
 main() {
-  int a = new A.bcd(); /// static type warning not assignable
+  int a = new A.bcd();
 }

@@ -9,9 +9,9 @@
  * with the actual arguments passed to k, and returns the result of k' as the
  * result of k. The resulting constructor call is governed by the same rules
  * as an instance creation expression using new.
- * @description Checks that dynamic error occurs when referenced type is not
+ * @description Checks that compile error occurs when referenced type is not
  * defined or refers to non class or non constructor.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 import "../../../../Utils/expect.dart";

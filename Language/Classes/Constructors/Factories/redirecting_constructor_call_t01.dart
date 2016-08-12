@@ -30,7 +30,7 @@ class C implements F {
 }
 
 main() {
-  var f = new F(1);
+  C f = new F(1);
   Expect.isTrue(f is C);
   Expect.equals(1, f.x);
 

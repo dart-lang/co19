@@ -8,9 +8,9 @@
  * accessible in the current scope; if type does denote such a class C it is
  * a static warning if the referenced constructor (be it type or type.id) is
  * not a constructor of C.
- * @description Checks that static warning is produced if referenced type in
- * redirecting constructor is a library function.
- * @static-warning
+ * @description Checks that a compile error is produced if referenced type in
+ * redirecting constructor is a function.
+ * @compile-error
  * @author ilya
  */
 

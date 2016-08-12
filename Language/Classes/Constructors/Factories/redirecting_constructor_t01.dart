@@ -14,7 +14,6 @@
  * @description Checks that correct declarations of redirecting factory
  * constructors do not cause errors.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

@@ -14,7 +14,6 @@
  * @static-clean
  * @note This test only makes sense in checked mode.
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S {}
