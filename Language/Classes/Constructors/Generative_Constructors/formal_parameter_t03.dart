@@ -13,7 +13,6 @@
  * static method of the immediately enclosing class.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

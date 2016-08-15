@@ -12,8 +12,6 @@
  * an initializing formal of k (field initializer uses this.name syntax).
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class C {

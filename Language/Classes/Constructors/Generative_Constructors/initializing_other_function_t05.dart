@@ -10,7 +10,6 @@
  * formal syntax is used by a static method.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {

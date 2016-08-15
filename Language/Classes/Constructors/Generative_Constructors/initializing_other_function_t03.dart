@@ -10,7 +10,6 @@
  * formal syntax is used by an instance method.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {

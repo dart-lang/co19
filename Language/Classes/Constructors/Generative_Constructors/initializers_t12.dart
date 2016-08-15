@@ -18,7 +18,6 @@
  * right-side expression in place of a field initializer.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

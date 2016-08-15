@@ -15,7 +15,6 @@
  * the same constructor it is a part of.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

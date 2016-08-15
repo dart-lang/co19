@@ -15,8 +15,6 @@
  * formals.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {

@@ -14,7 +14,6 @@
  * @description Checks that only one constructor redirect clause is allowed.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A {}

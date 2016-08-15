@@ -14,8 +14,6 @@
  * @description Checks that constructor specified in a redirect clause is
  * invoked.
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 import "../../../../Utils/expect.dart";
 

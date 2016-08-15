@@ -18,7 +18,6 @@
  * does not include the actual assignment in addition to the field identifier.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

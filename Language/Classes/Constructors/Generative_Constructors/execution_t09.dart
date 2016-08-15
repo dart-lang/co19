@@ -31,9 +31,7 @@
  * initialized using another variable).
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-
 
 class C {
   const C();

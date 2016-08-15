@@ -15,7 +15,6 @@
  * constructor references a method rather than another constructor.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 

@@ -11,7 +11,6 @@
  * an initializer for a constructor argument.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C  {

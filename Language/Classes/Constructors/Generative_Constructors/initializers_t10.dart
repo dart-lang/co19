@@ -18,7 +18,6 @@
  * initializer does not include the field identifier.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

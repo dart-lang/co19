@@ -11,9 +11,6 @@
  * an initializer for a global variable.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 var x;

@@ -30,7 +30,6 @@
  * initializers and 'this' reference as well as all instance fields are
  * accessible in the constructor body.
  * @author iefremov
- * @reviewer rodionov
  * @needsreview It seems to be impossible to verify the order initialized
  * variable declarations are processed because we can't invoke any methods
  * there which would help observe the exact sequence. Same about the

@@ -10,7 +10,6 @@
  * formal syntax is used by a factory constructor (as an optional parameter).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {

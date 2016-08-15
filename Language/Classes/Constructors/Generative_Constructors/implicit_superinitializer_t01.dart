@@ -10,8 +10,6 @@
  * @description Checks that super constructor is invoked if no superinitializer
  * is provided.
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

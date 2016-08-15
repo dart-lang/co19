@@ -28,9 +28,7 @@
  * argument list of the superinitializer of k.
  * @description Checks that 'this' can be freely used in the constructor body.
  * @author iefremov
- * @reviewer rodionov
  */
-
 
 g(var x) {
 

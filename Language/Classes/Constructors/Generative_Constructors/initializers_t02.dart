@@ -18,7 +18,6 @@
  * list terminates with a comma.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

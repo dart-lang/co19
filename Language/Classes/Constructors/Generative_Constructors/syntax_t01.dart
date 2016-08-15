@@ -9,8 +9,6 @@
  * ;
  * @description Checks valid constructor declarations.
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class C {

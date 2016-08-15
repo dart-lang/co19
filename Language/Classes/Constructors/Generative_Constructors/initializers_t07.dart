@@ -18,7 +18,6 @@
  * a named superconstructor call is empty.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S {

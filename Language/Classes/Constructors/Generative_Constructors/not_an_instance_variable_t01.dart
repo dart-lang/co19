@@ -11,9 +11,6 @@
  * an initializer for a superclass instance variable.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {

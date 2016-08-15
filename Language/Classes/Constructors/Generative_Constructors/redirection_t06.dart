@@ -15,8 +15,6 @@
  * superinitializer.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {}

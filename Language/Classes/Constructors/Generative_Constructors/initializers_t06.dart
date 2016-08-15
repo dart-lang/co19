@@ -18,7 +18,6 @@
  * superconstructor call does not include the constructor parameters in braces.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

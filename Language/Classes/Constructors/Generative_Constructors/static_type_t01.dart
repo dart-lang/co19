@@ -6,15 +6,14 @@
 /**
  * @assertion It is a static warning if the static type of id is not assignable
  * to Tid.
- * @description Checks that it is a static warning if the static type of id is
+ * @description Checks that it is a compile error if the static type of id is
  * not assignable to Tid.
- * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {
-  C(int this.id) {} /// static type warning
+  C(int this.id) {}
   String id;
 }
 

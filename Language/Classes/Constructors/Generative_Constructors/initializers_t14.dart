@@ -18,7 +18,6 @@
  * initializer references an instance method rather than a variable.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 typedef void Foo();

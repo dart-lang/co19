@@ -10,7 +10,6 @@
  * formal syntax is used by a setter.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

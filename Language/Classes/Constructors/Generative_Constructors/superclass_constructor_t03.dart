@@ -13,7 +13,6 @@
  * its subclass's initializer list.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S {}

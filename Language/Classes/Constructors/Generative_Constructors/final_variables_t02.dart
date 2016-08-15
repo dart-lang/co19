@@ -16,8 +16,6 @@
  * formal, or via an intializer in constructor's intializer list.
  * @static-clean
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class C {

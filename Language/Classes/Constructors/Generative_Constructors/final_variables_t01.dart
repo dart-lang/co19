@@ -15,8 +15,6 @@
  * not initialized in one of the specified ways.
  * @static-warning
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class C {

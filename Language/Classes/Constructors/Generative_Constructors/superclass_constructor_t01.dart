@@ -13,7 +13,6 @@
  * contains an implicit super() superinitializer.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S {

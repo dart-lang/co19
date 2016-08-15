@@ -12,7 +12,6 @@
  * (referenced by just the name).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

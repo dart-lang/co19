@@ -31,9 +31,7 @@
  * initialized instance variable.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-
 
 class C {
   C() : v = f {}

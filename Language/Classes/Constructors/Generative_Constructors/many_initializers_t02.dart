@@ -12,7 +12,6 @@
  * (referenced as this.name).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

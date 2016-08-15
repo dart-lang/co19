@@ -10,8 +10,6 @@
  * constructor includes two different superinitializers in its initializer list.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class A {

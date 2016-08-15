@@ -29,7 +29,6 @@
  * @description Checks that the order in which the initializers in a
  * constructor's initializer list are executed is correct.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

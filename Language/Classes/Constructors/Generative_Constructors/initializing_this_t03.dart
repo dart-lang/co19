@@ -11,12 +11,9 @@
  * introduced in the same position.
  * @description Checks that an initializing formal 'this.id' is accessible by
  * the name 'id' and has type int.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
-
-import "../../../../Utils/dynamic_check.dart";
 
 class C<T> {
   int id;
@@ -24,7 +21,5 @@ class C<T> {
 }
 
 main() {
-  checkTypeError(() {
-    var o = new C(id: "3"); /// static type warning
-  });
+  new C(id: "3");
 }

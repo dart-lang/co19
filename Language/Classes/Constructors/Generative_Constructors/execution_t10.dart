@@ -29,7 +29,6 @@
  * @description Checks that arguments of a redirecting constructor are
  * evaluated correctly.
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

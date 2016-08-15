@@ -30,7 +30,6 @@
  * body are executed in the correct order and before the body of this class's
  * constructor.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 
@@ -41,13 +40,13 @@ writeLog(var x) {
 }
 
 class C {
-  C(this.a, this.b) : y=writeLog("y"), x=writeLog("x") {
+  C(this.a, this.b) : y = writeLog("y"), x = writeLog("x") {
     writeLog("C");
     Expect.equals("a", a, "Instance variable must be already initialized!");
     Expect.equals("b", b, "Instance variable must be already initialized!");
   }
 
-  C.named(this.a, this.b) : y=writeLog("y"), x=writeLog("x") {
+  C.named(this.a, this.b) : y = writeLog("y"), x = writeLog("x") {
     writeLog("C.named");
     Expect.equals("a", a, "Instance variable must be already initialized!");
     Expect.equals("b", b, "Instance variable must be already initialized!");
@@ -63,11 +62,11 @@ class C {
 }
 
 class D extends C {
-  D() :  d4=writeLog("d4"), d3=writeLog("d3"), super("a", "b") {
+  D() :  d4 = writeLog("d4"), d3 = writeLog("d3"), super("a", "b") {
     writeLog("D");
   }
 
-  D.named() :  super.named("a", "b"), d4=writeLog("d4"), d3=writeLog("d3") {
+  D.named() :  d4 = writeLog("d4"), d3 = writeLog("d3"), super.named("a", "b") {
     writeLog("D.named");
   }
 

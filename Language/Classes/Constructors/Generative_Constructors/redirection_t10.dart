@@ -15,7 +15,6 @@
  * the initializer list.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 

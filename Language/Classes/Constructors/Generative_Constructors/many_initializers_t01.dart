@@ -11,8 +11,6 @@
  * initializers appear in an initializer list.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class C {

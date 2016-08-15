@@ -15,8 +15,6 @@
  * constructor redirection results in a compile error.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {

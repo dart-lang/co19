@@ -10,7 +10,6 @@
  * @description Checks that constructor name cannot contain 3 identifiers.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class C {

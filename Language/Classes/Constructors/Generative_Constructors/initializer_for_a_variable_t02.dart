@@ -12,7 +12,6 @@
  * an initializing formal of k (field initializer uses just the variable name).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

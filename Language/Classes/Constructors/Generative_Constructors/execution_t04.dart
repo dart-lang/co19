@@ -34,9 +34,7 @@
  * attempts to access this.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-
 
 class C {
   C() : v = f() {}

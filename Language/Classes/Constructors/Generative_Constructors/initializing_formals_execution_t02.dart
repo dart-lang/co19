@@ -10,10 +10,9 @@
  * assigned the value of the corresponding actual parameter, unless id is a
  * final variable that has already been initialized, in which case a runtime
  * error occurs.
- * @description Checks that runtime error occurs, not compile-error, if id
- * is final instance variable that has already been initialized.
- * are assigned correctly.
- * @static-warning
+ * @description Checks that a compile error occurs, if id is final instance
+ * variable that has already been initialized.
+ * @compile-error
  * @author ilya
  * @issue 13335
  */
@@ -26,5 +25,5 @@ class A {
 }
 
 main() {
-  Expect.throws(() => new A(1,2));
+  new A(1,2);
 }

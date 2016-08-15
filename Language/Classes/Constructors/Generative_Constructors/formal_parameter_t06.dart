@@ -13,7 +13,6 @@
  * variable of the superinterface.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 abstract class I {

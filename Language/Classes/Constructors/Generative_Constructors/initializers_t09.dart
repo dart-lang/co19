@@ -18,7 +18,6 @@
  * initializer does not include the right-side expression.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

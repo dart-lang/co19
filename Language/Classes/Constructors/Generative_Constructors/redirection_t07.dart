@@ -15,7 +15,6 @@
  * produces a compile error (Using a longer redirection chain).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
