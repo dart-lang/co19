@@ -9,7 +9,6 @@
  * @description Checks that it is possible to create an instance of the class
  * that doesn't declare any constructors.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

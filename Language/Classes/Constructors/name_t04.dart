@@ -12,7 +12,6 @@
  * coincides with the name of a static method declared in the same class.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

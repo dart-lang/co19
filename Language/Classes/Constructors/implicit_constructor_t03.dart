@@ -8,11 +8,9 @@
  * a default constructor C() : super() {}, unless C is class Object.
  * @description Checks that 'default' constructor is not generated if the class
  * declares a named constructor.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
 
 class C {
   var x;
@@ -20,8 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    new C(); /// static warning
-    Expect.fail("Should throw an NoSuchMethodError");
-  } on NoSuchMethodError catch (e) {}
+  new C();
 }

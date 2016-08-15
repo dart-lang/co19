@@ -12,7 +12,6 @@
  * coincides with the name of a method in the same class.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {
