@@ -12,8 +12,6 @@
  * an implicit getter and a static method with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

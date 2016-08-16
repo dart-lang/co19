@@ -12,8 +12,6 @@
  * an explicitly declared getter and a method with the same name.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {

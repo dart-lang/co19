@@ -12,8 +12,6 @@
  * is missing.
  * @author iefremov
  * @compile-error
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

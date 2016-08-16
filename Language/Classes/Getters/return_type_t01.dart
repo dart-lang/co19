@@ -11,8 +11,6 @@
  * tested getter. It means that the return type of the getter is dynamic.
  * @static-clean
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -22,18 +20,7 @@ class C {
 
 main() {
   C c = new C();
-  try {
-    c.foo.abyr = null;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    c.foo.abyr(1, 2, 3);
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    c.foo.abyrvalg = null;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {c.foo.abyr = null;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {c.foo.abyr(1, 2, 3);}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {c.foo.abyrvalg = null;}, (e) => e is NoSuchMethodError);
 }

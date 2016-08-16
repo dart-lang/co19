@@ -6,12 +6,10 @@
 /**
  * @assertion It is a static warning if a getter m1 overrides a getter m2 and 
  * the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced when the return type 
+ * @description Checks that a compile error is produced when the return type
  * of m1 is void and the return type of m2 is String.
- * @static-warning
+ * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -19,7 +17,7 @@ class A {
 }
 
 class C extends A {
-  void get foo { /// static type warning
+  void get foo {
   }
 }
 

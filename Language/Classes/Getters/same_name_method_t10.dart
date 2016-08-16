@@ -12,8 +12,6 @@
  * an explicitly declared static getter and a method with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

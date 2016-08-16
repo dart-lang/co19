@@ -13,8 +13,6 @@
  * inherited from a superclass.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {

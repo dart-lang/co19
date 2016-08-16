@@ -6,7 +6,7 @@
 /**
  * @assertion It is a static warning if a class declares a static getter named
  * v and also has a non-static setter named v =.
- * @description Checks that a static warning is arisen if a class has an
+ * @description Checks that a compile error is arisen if a class has an
  * implicitly declared static getter and an implicitlly declared instance
  * setter with the same name.
  * @issue 24534
@@ -16,7 +16,7 @@
 
 class C {
   static int v;
-  int v = 1;  /// static type warning
+  int v = 1;
 }
 
 main() {

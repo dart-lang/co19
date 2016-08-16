@@ -11,9 +11,6 @@
  * @description Checks that various valid getter declarations are parsed 
  * correctly.
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
- * @reviewer kaigorodov
  */
 
 abstract class A<U, V> {

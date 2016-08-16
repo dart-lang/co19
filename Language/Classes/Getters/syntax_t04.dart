@@ -12,7 +12,6 @@
  * declaration includes a non-empty formal parameter list.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

@@ -12,8 +12,6 @@
  * instance getter specifies a single formal parameter.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
