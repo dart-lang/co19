@@ -14,14 +14,14 @@
  * Any use of a malformed type gives rise to a static warning. A malformed type
  * is then interpreted as dynamic by the static type checker and the runtime
  * unless explicitly specified otherwise.
- * @description Checks that it is a static warning if a type is a parameterized
+ * @description Checks that it is a compile error if a type is a parameterized
  * type of the form C<int, String>, and C is malformed.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
 var C = null;
 
 main() {
-  C<int, String> c;  /// static type warning
+  C<int, String> c;
 }

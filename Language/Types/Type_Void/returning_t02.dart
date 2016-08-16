@@ -14,7 +14,6 @@
  * a type error in the latter case.
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
  */
 import "../../../Utils/dynamic_check.dart";
 

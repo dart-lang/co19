@@ -15,9 +15,9 @@
  * is then interpreted as dynamic by the static type checker and the runtime
  * unless explicitly specified otherwise.
  * @description Checks that type name imported from multiple import clauses
- * that refers to different type declarations gives rise to a static warning
+ * that refers to different type declarations causes to a compile error
  * when used in type annotation.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 
@@ -25,5 +25,5 @@ import "../somelib1.dart"; // class C {}
 import "../somelib2.dart"; // class C {}
 
 main() {
-  C c;  /// static type warning
+  C c;
 }

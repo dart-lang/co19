@@ -17,9 +17,7 @@
  * variable both in initializing formal and initializer list
  * (Classes/Constructors/Generative Constructors)
  * @compile-error
- * @static-warning
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

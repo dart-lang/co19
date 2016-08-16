@@ -10,10 +10,9 @@
  * parameter or assigning it to a variable will cause a warning unless the
  * variable/formal parameter has type dynamic.
  * @description Checks that using the result of a void method invocation in an
- * expression results in a static warning.
- * @static-warning
+ * expression results in a compile error.
+ * @compile-error
  * @author rodionov
- * @reviewer iefremov
  * @needsreview Assertion of this test cites non-normative text.
  * Possibly, this text in the spec should be normative?
  */
@@ -21,5 +20,5 @@
 void foo() {return;}
 
 main() {
-  bool b = (foo() == 1); /// static type warning
+  bool b = (foo() == 1);
 }
