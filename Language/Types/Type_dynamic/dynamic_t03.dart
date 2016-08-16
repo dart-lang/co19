@@ -13,7 +13,6 @@
  * various types does not produce any static type warnings.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
