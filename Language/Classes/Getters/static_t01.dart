@@ -11,7 +11,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 class C1 {
   int get g1 => 0;
@@ -23,9 +22,9 @@ class C2 extends C1 {
 }
 
 main() {
-  Expect.throws(() {C1.g1;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {C1.g2;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {C2.g1;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {C2.g2;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {C2.g3;}, (e) => e is NoSuchMethodError);
+  C1.g1; /// line1: compile-time error
+  C1.g2; /// line2: compile-time error
+  C2.g1; /// line3: compile-time error
+  C2.g2; /// line4: compile-time error
+  C2.g3; /// line5: compile-time error
 }
