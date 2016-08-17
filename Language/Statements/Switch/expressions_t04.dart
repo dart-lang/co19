@@ -27,11 +27,9 @@ class D {
 
 main() {
   var x = const C(0);
-  try {
-    switch (x) {
-      case const C(1):
-      case const C(2):
-      case const D(1):
-    }
-  } catch (e) {}
+  switch (x) {
+    case const C(1):
+    case const C(2):
+    case const D(1):
+  }
 }

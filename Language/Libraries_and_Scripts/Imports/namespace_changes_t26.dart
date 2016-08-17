@@ -68,7 +68,4 @@ import "syntax_lib.dart" as prefix;
 typedef prefix(int);
 
 main() {
-  try {
-    (int) {} is prefix;
-  } catch (ok) {}
-}
+  (int) {} is prefix;}

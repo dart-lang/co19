@@ -20,7 +20,4 @@ class C {
 }
 
 main() {
-  try {
-    print(C.method());
-  } catch (e) {}
-}
+  print(C.method());}

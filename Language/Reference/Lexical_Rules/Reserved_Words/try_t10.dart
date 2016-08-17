@@ -16,8 +16,4 @@
 library try;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
-}
+  int x = 1;}

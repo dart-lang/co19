@@ -10,7 +10,6 @@
  * It is a static warning if m < h or if m > n.
  * @description Checks that it is a static warning if the number of argument is
  * less than number of positional parameters of a static method.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -19,7 +18,5 @@ class C {
   static func(p1, p2, p3) {}
 }
 main() {
-  try {
-    C.func(1); /// static type warning
-  } catch (e) {}
+  C.func(1); /// 01: static type warning, runtime error
 }

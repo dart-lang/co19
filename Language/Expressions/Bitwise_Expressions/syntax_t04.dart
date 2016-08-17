@@ -31,8 +31,5 @@
  */
 
 main() {
-  try {
-    ^ true;
-  } catch (e) {}
-}
+  ^ true;}
 

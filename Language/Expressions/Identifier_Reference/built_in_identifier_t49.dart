@@ -15,8 +15,4 @@
 typedef int library();
 
 main() {
-  try {
-    null is library;
-  } catch (anything) {
-  }
-}
+  null is library;}

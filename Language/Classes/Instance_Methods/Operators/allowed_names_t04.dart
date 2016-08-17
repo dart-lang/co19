@@ -18,7 +18,4 @@ class C {
 }
 
 main() {
-  try {
-    var b = (new C() === new C());
-  } catch (x) {}
-}
+  var b = (new C() === new C());}

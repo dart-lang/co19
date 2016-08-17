@@ -15,7 +15,4 @@
  */
 
 main() {
-  try {
-    static void f() {}
-  } catch (x) {}
-}
+  static void f() {}}

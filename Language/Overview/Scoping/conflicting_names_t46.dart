@@ -23,7 +23,4 @@ class A {
 }
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
-}
+  new A();}

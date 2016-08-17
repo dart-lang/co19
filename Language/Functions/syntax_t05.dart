@@ -31,7 +31,4 @@
 int function1 {}
 
 main() {
-  try {
-    function1();
-  } catch (x) {}
-}
+  function1();}

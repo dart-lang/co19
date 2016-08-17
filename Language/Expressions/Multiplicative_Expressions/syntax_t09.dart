@@ -33,10 +33,7 @@ class S {
 
 class A extends S{
   test() {
-    try {
-      super ~/;
-    } catch (e) {}
-  }
+    super ~/;  }
 }
 
 main() {

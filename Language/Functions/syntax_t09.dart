@@ -29,9 +29,6 @@
  */
 
 main() {
-  try {
-    f();
-  } catch (x) {}
-}
+  f();}
 
 int f() => 1

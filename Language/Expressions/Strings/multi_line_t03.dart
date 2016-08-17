@@ -30,9 +30,7 @@
  */
 
 main() {
-  try {
-    '''
-    incorrect ''' string
-    ''';
-  } catch (e) {}
+  '''
+  incorrect ''' string
+  ''';
 }

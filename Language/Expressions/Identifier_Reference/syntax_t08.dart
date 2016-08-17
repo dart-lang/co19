@@ -50,7 +50,4 @@ class C {
 }
 
 main() {
-  try {
-  	Expect.isTrue(new C().x());
- } catch (e) {}
-}
+  Expect.isTrue(new C().x());}

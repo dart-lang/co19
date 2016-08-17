@@ -18,7 +18,4 @@ class Foo {}
 const Foo foo = new Foo();
 
 main() {
-  try {
-    Expect.isTrue(foo is Foo);
-  } catch (ok) {}
-}
+  Expect.isTrue(foo is Foo);}

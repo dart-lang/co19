@@ -15,8 +15,4 @@
 typedef int export();
 
 main() {
-  try {
-    null is export;
-  } catch (anything) {
-  }
-}
+  null is export;}

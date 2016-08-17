@@ -31,7 +31,4 @@
 f() => return 1;
 
 main() {
-  try {
-    f();
-  } catch (x) {}
-}
+  f();}

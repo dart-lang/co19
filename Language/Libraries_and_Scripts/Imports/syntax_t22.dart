@@ -30,7 +30,4 @@
 import "syntax_lib.dart", as prfx, show foo;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
-}
+  someVar = 0;}

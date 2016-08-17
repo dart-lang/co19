@@ -17,7 +17,4 @@
 void v = null;
 
 main() {
-  try {
-    print(v);
-  } catch (x) {}
-}
+  print(v);}

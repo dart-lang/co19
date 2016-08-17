@@ -15,9 +15,6 @@
  */
 
 main() {
-  try {
-    void with() {}
-    with();
-  } catch (anything) {
-  }
+  void with() {}
+  with();
 }

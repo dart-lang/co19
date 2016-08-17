@@ -26,9 +26,7 @@
  */
 
 main() {
-  try {
-    switch (null) {
-      case null:
-    }
-  } catch (e) {}
+  switch (null) {
+    case null:
+  }
 }

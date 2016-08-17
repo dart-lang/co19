@@ -17,7 +17,6 @@
  * libraries imported with empty prefixes introduce the same name to the
  * top-level scope of L (one of them via re-export) and L uses it in an
  * explicit type test.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -25,8 +24,5 @@ import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
 
 main() {
-  try {
-    1 is foo;
-  } catch (anything) {
-  }
+  1 is foo; /// 01: static type warning, runtime error
 }

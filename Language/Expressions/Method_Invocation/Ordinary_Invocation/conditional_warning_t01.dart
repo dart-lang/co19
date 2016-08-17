@@ -9,7 +9,6 @@
  * in the case of o?.m(a1, . . . , an, xn+1 : an+1, . . . , xn+k : an+k).
  * @description Check that if o.m() produces static type warning then o?.m()
  * produces the same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 
@@ -19,7 +18,5 @@ class C {
 
 main() {
   C c = new C();
-  try {
-    String x = c?.m(); /// static type warning
-  } catch (e) {}
+  String x = c?.m(); /// 01: static type warning, dynamic type error
 }

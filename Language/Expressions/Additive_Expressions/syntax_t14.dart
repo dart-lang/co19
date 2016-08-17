@@ -18,7 +18,6 @@
  * argument e2.
  * @description Checks that a type parameter can be used
  * as right operand in an additive expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -26,9 +25,7 @@
 
 class A <T> {
   test() {
-    try {
-      2 + T; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-    } catch (e) {}
+    2 + T; /// 01: static type warning, runtime error
   }
 }
 

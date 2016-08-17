@@ -43,7 +43,4 @@
  */
 
 main() {
-  try {
-  	var щ = 1;
- } catch (e) {}
-}
+  var щ = 1;}

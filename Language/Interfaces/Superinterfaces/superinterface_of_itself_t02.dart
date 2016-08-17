@@ -18,8 +18,5 @@ abstract class I<T> implements I<T> {}
 class A implements I {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
-}
+  new A();}
 

@@ -11,43 +11,11 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  bool b;
-  try {
-    b = false;
-    (const {})["1"] = 2;
-    b = true;
-  } catch (e) {}
-  if (b) Expect.fail("Exception is expected");
-
-  try {
-    b = false;
-    (const {"k1": 1}).remove("k1");
-    b = true;
-  } catch (e) {}
-  if (b) Expect.fail("Exception is expected");
-
-  try {
-    b = false;
-    (const {"k1": 1})["k1"] = 0;
-    b = true;
-  } catch (e) {}
-  if (b) Expect.fail("Exception is expected");
-
-  try {
-    b = false;
-    (const {"k1" : 1, "k2": false}).clear();
-    b = true;
-  } catch (e) {}
-  if (b) Expect.fail("Exception is expected");
-
-  try {
-    b = false;
-    (const {}).clear();
-    Expect.fail("Exception is expected");
-    b = true;
-  } catch (e) {}
-  if (b) Expect.fail("Exception is expected");
+    (const {})["1"] = 2; /// 01: runtime error
+    (const {"k1": 1}).remove("k1"); /// 02: runtime error
+    (const {"k1": 1})["k1"] = 0; /// 03: runtime error
+    (const {"k1" : 1, "k2": false}).clear(); /// 04: runtime error
+    (const {}).clear(); /// 05: runtime error
 }

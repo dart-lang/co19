@@ -15,7 +15,4 @@
  */
 
 main() {
-  try {
-    f(void) {};
-  } catch (x) {}
-}
+  f(void) {};}

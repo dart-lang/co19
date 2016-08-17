@@ -16,8 +16,4 @@
 class get {}
 
 main() {
-  try {
-    null is get;
-  } catch (anything) {
-  }
-}
+  null is get;}

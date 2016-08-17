@@ -36,7 +36,4 @@
  */
 
 main() {
-  try {
-    string";
-  } catch (e) {}
-}
+  string";}

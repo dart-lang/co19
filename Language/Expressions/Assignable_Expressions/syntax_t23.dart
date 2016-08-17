@@ -33,10 +33,7 @@
 
 class A {
   test() {
-    try {
-      this = new A();
-    } catch (e) {}
-  }
+    this = new A();  }
 }
 
 main() {

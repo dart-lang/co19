@@ -21,7 +21,6 @@
  * argument e2.
  * @description Checks that a type parameter name can be used as the left
  * operand of a multiplicative expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -29,9 +28,7 @@
 
 class A<T> {
   test() {
-    try {
-      T % 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-    } catch (e) {}
+    T % 1; /// 01: static type warning, runtime error
   }
 }
 

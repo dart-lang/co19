@@ -35,7 +35,4 @@ class C {}
 class D {}
 
 main() {
-  try {
-    new D();
-  } catch (e) {}
-}
+  new D();}

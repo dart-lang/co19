@@ -31,7 +31,4 @@
 
 main() {
   void function1 {}
-  try {
-    function1();
-  } catch (x) {}
-}
+  function1();}

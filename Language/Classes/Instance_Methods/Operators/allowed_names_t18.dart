@@ -17,8 +17,6 @@ class C {
 }
 
 main() {
-  try {
-    var b = (new C());
-    b++;
-  } catch (x) {}
+  var b = (new C());
+  b++;
 }

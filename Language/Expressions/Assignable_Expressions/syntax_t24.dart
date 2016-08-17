@@ -38,7 +38,4 @@ class A {
 
 main() {
   A a = new A();
-  try {
-    a.test() = 1;
-  } catch (e) {}
-}
+  a.test() = 1;}

@@ -22,7 +22,4 @@ class B extends A {
 }
 
 main() {
-  try {
-    var x = new B();
-  } catch (x) {}
-}
+  var x = new B();}

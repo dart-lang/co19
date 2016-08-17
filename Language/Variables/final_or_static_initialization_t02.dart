@@ -18,7 +18,4 @@ class C {
 }
 
 main() {
-  try {
-    print(C.v);
-  } catch (ok) {}
-}
+  print(C.v);}

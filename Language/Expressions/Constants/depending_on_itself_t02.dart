@@ -25,7 +25,4 @@ const a9 = a8;
 const a10 = a9;
 
 main() {
-  try {
-    print(a10);
-  } catch (x) {}
-}
+  print(a10);}

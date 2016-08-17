@@ -24,7 +24,4 @@ class G<T, T> {
 }
 
 main() {
-  try {
-    new G<int, String>();
-  } catch (x) {}
-}
+  new G<int, String>();}

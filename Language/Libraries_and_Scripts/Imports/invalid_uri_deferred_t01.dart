@@ -9,17 +9,12 @@
  * @description Checks that it is a static type warning if the URI in a
  * deferred import directive refers to a part declaration which is not a
  * library declaration.
- * @static-warning
  * @author ngl@unipro.ru
  */
 
 library my_lib;
-import "../../../Utils/expect.dart";
-import "invalid_uri_t01_part.dart" deferred as p; // static type warning
+import "invalid_uri_t01_part.dart" deferred as p; /// 01: static type warning
 
 main() {
-  try {
-    p.foo = 'abc';
-    Expect.fail("Should not be here");
-  } catch (e) {}
+  p.foo = 'abc'; /// 01: runtime error
 }

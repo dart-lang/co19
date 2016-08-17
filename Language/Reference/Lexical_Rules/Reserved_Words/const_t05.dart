@@ -15,8 +15,6 @@
  */
 
 main() {
-  try {
-    void const() {}
-    const();
-  } catch (x) {}
+  void const() {}
+  const();
 }

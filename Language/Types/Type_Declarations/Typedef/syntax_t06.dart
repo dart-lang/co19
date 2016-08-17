@@ -28,7 +28,4 @@ import '../../../../Utils/expect.dart';
 typedef F<T1; T2>();
 
 main() {
-  try {
-    Expect.isTrue(null is F);
-  } catch (x) {}
-}
+  Expect.isTrue(null is F);}

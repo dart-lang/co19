@@ -14,21 +14,19 @@
  */
 
 main() {
-  try {
-    switch (1) {
-      Label:
-      case 1:
-        break;
+  switch (1) {
+    Label:
+    case 1:
+      break;
 
-      case 2:
-        break;
+    case 2:
+      break;
 
-      case 3:
-        break;
+    case 3:
+      break;
 
-      Label:
-      default:
-        break;
-    }
-  } catch (x) {}
+    Label:
+    default:
+      break;
+  }
 }

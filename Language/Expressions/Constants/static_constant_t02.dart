@@ -22,7 +22,4 @@ final x = 1;
 const i1 = x;
 
 main() {
-  try {
-    print(i1);
-  } catch (x) {}
-}
+  print(i1);}

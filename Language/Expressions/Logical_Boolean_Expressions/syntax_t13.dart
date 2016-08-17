@@ -17,7 +17,6 @@
  * e2.
  * @description Checks that a reference to a type alias declaration can be used
  * as the second operand in a logical boolean expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +24,5 @@
 typedef int fun();
 
 main() {
-  try {
-    false && fun; /// static type warning - undefined operator or incompatible argument type
-  } catch (e) {}
+  false && fun; /// 01: static type warning
 }

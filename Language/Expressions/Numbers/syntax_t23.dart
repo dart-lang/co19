@@ -35,7 +35,4 @@
  */
 
 main() {
-  try {
-    var i = .;
-  } catch (e) {}
-}
+  var i = .;}

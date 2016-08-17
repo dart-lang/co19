@@ -24,8 +24,6 @@ abstract class I {}
 class A {}
 
 main() {
-  try {
-    '$I';
-    '$A';
-  } catch (e) {}
+  '$I';
+  '$A';
 }

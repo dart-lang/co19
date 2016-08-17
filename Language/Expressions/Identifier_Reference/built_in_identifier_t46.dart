@@ -15,8 +15,4 @@
 typedef int import();
 
 main() {
-  try {
-    null is import;
-  } catch (anything) {
-  }
-}
+  null is import;}

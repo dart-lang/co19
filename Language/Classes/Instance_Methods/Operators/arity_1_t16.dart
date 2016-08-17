@@ -19,7 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    bool b = new C()[0];
-  } catch (ex) {}
-}
+  bool b = new C()[0];}

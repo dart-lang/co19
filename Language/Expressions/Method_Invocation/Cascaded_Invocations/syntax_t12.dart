@@ -28,8 +28,5 @@ class C {
 
 main() {
   var c = new C();
-  try {
-    c..m1()..(c..m1())..m1();
-  } catch (e) {}
-}
+  c..m1()..(c..m1())..m1();}
 

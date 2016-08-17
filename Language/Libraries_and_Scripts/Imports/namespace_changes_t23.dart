@@ -69,8 +69,6 @@ import "syntax_lib.dart" as prefix;
 class prefix {}
 
 main() {
-  try {
-    new prefix();
-    Expect.equals(1, prefix.foo);
-  } catch (ok) {}
+  new prefix();
+  Expect.equals(1, prefix.foo);
 }

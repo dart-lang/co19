@@ -20,7 +20,4 @@ class C {
 }
 
 main() {
-  try {
-    (new C()).setter = null;
-  } catch (e) {}
-}
+  (new C()).setter = null;}

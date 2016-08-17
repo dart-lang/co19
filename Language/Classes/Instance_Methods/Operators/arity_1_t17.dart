@@ -20,8 +20,5 @@ class C {
 }
 
 main() {
-  try {
-    bool b = (new C() | new C());
-  } catch (ex) {}
-}
+  bool b = (new C() | new C());}
 

@@ -22,8 +22,6 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-    print(c.x);
-  } catch (x) {}
+  C c = new C();
+  print(c.x);
 }

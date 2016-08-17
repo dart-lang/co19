@@ -17,7 +17,4 @@
 void f(const int x) {}
 
 main () {
-  try {
-    f(1);
-  } catch (x) {}
-}
+  f(1);}

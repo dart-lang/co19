@@ -19,8 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    new C().while is int;
-  } catch (anything) {
-  }
-}
+  new C().while is int;}

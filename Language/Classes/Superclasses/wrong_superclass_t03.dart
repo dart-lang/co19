@@ -19,7 +19,4 @@ int foo;
 class A extends foo {}
 
 main() {
-  try {
-    A a = new A();
-  } catch (e) {}
-}
+  A a = new A();}

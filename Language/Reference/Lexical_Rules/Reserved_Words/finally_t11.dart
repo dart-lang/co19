@@ -17,8 +17,4 @@
 import "lib.dart" show finally;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
-}
+  int x = 1;}

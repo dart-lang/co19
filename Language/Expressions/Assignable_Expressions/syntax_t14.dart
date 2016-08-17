@@ -32,7 +32,4 @@
  */
 
 main() {
-  try {
-    do {} while (true) = null;
-  } catch (e) {}
-}
+  do {} while (true) = null;}

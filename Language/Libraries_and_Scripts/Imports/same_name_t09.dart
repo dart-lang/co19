@@ -16,7 +16,6 @@
  * @description Checks that it is a static type warning if two different
  * libraries introduce the same type name to the top level scope of L and L
  * uses it in a static getter invocation expression.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -25,7 +24,5 @@ import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
 
 main() {
-  try {
-    Bar.BAR;
-  } catch (anything) {}
+  Bar.BAR; /// 01: static type warning, runtime error
 }

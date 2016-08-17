@@ -15,8 +15,4 @@
 class as {}
 
 main() {
-  try {
-    null is as;
-  } catch (anything) {
-  }
-}
+  null is as;}

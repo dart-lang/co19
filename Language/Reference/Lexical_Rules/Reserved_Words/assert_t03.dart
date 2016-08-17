@@ -17,8 +17,4 @@
 typedef void assert();
 
 main() {
-  try {
-    null is assert;
-  } catch (anything) {
-  }
-}
+  null is assert;}

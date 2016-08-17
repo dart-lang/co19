@@ -31,7 +31,4 @@
 import "definition_syntax_t23_lib.dart";
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
-}
+  var someVar = 0;}

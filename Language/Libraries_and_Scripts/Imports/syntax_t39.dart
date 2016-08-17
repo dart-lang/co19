@@ -30,7 +30,4 @@
 import "syntax_lib.dart" show;
 
 main() {
-  try {
-    var x = foo;
-  } catch (ok) {}
-}
+  var x = foo;}

@@ -33,7 +33,4 @@ class G<A, B> {
 }
 
 main() {
-  try {
-    G<int double> g;
-  } catch (x) {}
-}
+  G<int double> g;}

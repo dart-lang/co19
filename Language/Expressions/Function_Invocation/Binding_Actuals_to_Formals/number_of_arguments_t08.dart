@@ -10,7 +10,6 @@
  * It is a static warning if m < h or if m > n.
  * @description Checks that it is a static warning if more actual arguments
  * than there're formal parameters are provided to a static method invocation.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -20,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    C.func(1, 2 ,3, 4); /// static type warning
-  } catch (e) {}
+  C.func(1, 2 ,3, 4); /// 01: static type warning, runtime error
 }

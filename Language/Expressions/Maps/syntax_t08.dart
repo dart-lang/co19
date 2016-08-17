@@ -22,7 +22,4 @@
  */
 
 main() {
-  try {
-    var x = {"key1": true, "key2":false;
-  } catch (e) {}
-}
+  var x = {"key1": true, "key2":false;}

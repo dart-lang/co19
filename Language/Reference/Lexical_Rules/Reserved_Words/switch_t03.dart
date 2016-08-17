@@ -17,8 +17,4 @@
 typedef void switch();
 
 main() {
-  try {
-    null is switch;
-  } catch (anything) {
-  }
-}
+  null is switch;}

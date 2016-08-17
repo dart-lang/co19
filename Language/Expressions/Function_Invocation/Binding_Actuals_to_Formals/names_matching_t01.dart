@@ -8,7 +8,6 @@
  * {pn+1, ..., pn+k} or a static warning occurs.
  * @description Checks that it is a static warning if names of an argument does
  * not match with any name of optional named parameters of a top-level function.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -16,7 +15,5 @@
 func({p1, p2, p3}) {}
 
 main() {
-  try {
-    func(1, 2, p: 3); /// static type warning
-  } catch (e) {}
+  func(1, 2, p: 3); /// 01: static type warning, runtime error
 }

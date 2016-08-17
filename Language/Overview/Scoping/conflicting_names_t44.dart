@@ -18,11 +18,9 @@
  */
 
 main() {
-  try {
-    switch (1) {
-      case 1:
-        var z;
-        var z;
-    }
-  } catch (x) {}
+  switch (1) {
+    case 1:
+      var z;
+      var z;
+  }
 }

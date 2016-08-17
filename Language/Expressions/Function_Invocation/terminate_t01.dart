@@ -28,6 +28,6 @@ void f() {
 main() {
   try {
     f();
-  } catch (e) {}
+  } on String {}
   Expect.isNull(x);
 }

@@ -38,7 +38,4 @@ func(var x()) {
 }
 
 main() {
-  try {
-    func(() {});
-  } catch (e) {}
-}
+  func(() {});}

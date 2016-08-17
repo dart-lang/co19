@@ -37,8 +37,6 @@
  */
 
 main() {
-  try {
-    r"str
-    ing";
-  } catch (e) {}
+  r"str
+  ing";
 }

@@ -20,8 +20,4 @@
 import "syntax_t01_lib.dart";
 
 main() {
-  try {
-    var x = foo;
-  } catch (anything) {
-  }
-}
+  var x = foo;}

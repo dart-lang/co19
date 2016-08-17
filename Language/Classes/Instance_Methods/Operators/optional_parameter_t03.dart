@@ -19,8 +19,6 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-    c[0] = null;
-  } catch (e) {}
+  C c = new C();
+  c[0] = null;
 }

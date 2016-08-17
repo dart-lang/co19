@@ -18,7 +18,4 @@
 func(p1, p2) => this;
 
 main() {
-  try {
-    func(1, 2);
-  } catch (e) {}
-}
+  func(1, 2);}

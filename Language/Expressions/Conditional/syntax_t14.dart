@@ -12,16 +12,13 @@
  * ;
  * @description Checks that a type parameter can be used as the condition in a
  * conditional expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {
-      T ? "" : ''; /// static type warning - first argument not assignable to boolean, see "Conditional"
-    } catch (e) {}
+    T ? "" : ''; /// 01: static type warning, dynamic type error
   }
 }
 

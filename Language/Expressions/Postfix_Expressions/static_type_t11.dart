@@ -9,7 +9,7 @@
  * a type literal, in which case it is equivalent to e1.v-- .
  * The static type of such an expression is the static type of e1.v.
  * @description Checks that static type of e1?.v-- is static type of e1.v
- * static-clean
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
 class C {
@@ -22,7 +22,7 @@ main() {
   int a1 = c1?.v--;
   try {
     int a2 = c1?.v2--;
-  } catch (e) {}
+  } on NoSuchMethodError {}
   C c2;
   int a3 = c2?.v--;
   int a4 = c2?.v2--;

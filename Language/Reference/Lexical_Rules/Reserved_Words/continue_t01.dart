@@ -17,8 +17,4 @@
 class continue { } // error
 
 main() {
-  try {
-    null is continue;
-  } catch (anything) {
-  }
-}
+  null is continue;}

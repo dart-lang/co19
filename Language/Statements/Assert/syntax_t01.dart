@@ -18,7 +18,4 @@
  */
 
 main() {
-  try {
-    assert (false)
-  } catch (x) {}
-}
+  assert (false)}

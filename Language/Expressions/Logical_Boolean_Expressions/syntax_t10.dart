@@ -17,7 +17,6 @@
  * e2.
  * @description Checks that a type can be used as the first operand in a logical
  * boolean expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +24,5 @@
 class A {}
 
 main() {
-  try {
-    A || true; /// static type warning - undefined operator or incompatible argument type
-  } catch (e) {}
+  A || true; /// 01: static type warning, dynamic type error
 }

@@ -17,8 +17,4 @@
 class with { } // error
 
 main() {
-  try {
-    null is with;
-  } catch (anything) {
-  }
-}
+  null is with;}

@@ -18,10 +18,8 @@
  */
 
 main() {
-  try {
-    {
-      void conflictingName() {};
-      conflictingName(p1) {};
-    }
-  } catch (e) {}
+  {
+    void conflictingName() {};
+    conflictingName(p1) {};
+  }
 }

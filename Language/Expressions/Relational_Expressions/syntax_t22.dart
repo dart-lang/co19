@@ -20,16 +20,13 @@
  * a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that a type parameter can be used as the first operand
  * in a relational expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 
 class A<T> {
   test() {
-    try{
-      T < 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-    } catch (e) {}
+    T < 1; /// 01: static type warning, runtime error
   }
 }
 

@@ -17,7 +17,4 @@
 class A<T> {}
 
 main() {
-  try {
-    A<void> a = null;
-  } catch (x) {}
-}
+  A<void> a = null;}

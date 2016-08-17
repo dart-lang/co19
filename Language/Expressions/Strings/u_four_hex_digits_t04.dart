@@ -17,7 +17,4 @@
  */
 
 main() {
-  try {
-    "empty \u{}";
-  } catch (e) {}
-}
+  "empty \u{}";}

@@ -17,7 +17,4 @@
 static var foo; // error
 
 main() {
-  try {
-    foo = 1;
-  } catch (ok) {}
-}
+  foo = 1;}

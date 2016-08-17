@@ -15,10 +15,8 @@
  */
 
 main() {
-  try {
-    null:
-    do {
-      break null;
-    } while (false);
-  } catch (x) {}
+  null:
+  do {
+    break null;
+  } while (false);
 }

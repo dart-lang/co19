@@ -9,8 +9,6 @@
  * abstract class but q is not a factory constructor.
  * @description Checks that an instance creation expression of the form const
  * T.id(a1, ..., an), where T is an abstract class, produces a static warning.
- * @static-warning
- * @compile-error
  * @author msyabro
  * @author sgrekhov@unipro.ru
  */
@@ -20,5 +18,5 @@ abstract class A {
 }
 
 main() {
-    const A.id(); /// static type warning
+    const A.id(); /// 01: static type warning, compile-time error
 }

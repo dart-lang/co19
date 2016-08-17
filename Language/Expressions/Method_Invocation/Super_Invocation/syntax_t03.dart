@@ -19,10 +19,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.f(1, name: null, 1);
-    } catch (e) {}
-  }
+    super.f(1, name: null, 1);  }
 }
 
 main() {

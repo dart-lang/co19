@@ -8,14 +8,10 @@
  * are also generated in the case of v ??= e.
  * @description Checks that if v = e causes warning then v ??= e produces the
  * same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 main() {
   double v = null;
   int e = 1;
-  try {
-    v ??= e;  /// static type warning
-  } catch (everything) {
-  }
+  v ??= e;  /// 01: static type warning, dynamic type error
 }

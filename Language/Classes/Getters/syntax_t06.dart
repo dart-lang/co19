@@ -22,7 +22,4 @@ class C {
 }
 
 main() {
-  try {
-    var x = C.getter;
-  } catch (e) {}
-}
+  var x = C.getter;}

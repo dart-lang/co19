@@ -16,7 +16,4 @@
 class C implements String {}
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
-}
+  new C();}

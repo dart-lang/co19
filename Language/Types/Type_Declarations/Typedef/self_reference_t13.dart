@@ -15,7 +15,4 @@
 typedef F<T> F<T>();
 
 main() {
-  try {
-    F<int> x;
-  } catch (e) {}
-}
+  F<int> x;}

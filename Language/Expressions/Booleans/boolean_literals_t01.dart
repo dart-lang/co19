@@ -19,7 +19,4 @@
  */
 
 main() {
-  try {
-    var true;
-  } catch (e) {}
-}
+  var true;}

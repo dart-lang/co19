@@ -15,7 +15,4 @@
 
 main() {
   var x;
-  try {
-    const {"$x": 1};
-  } catch (e) {}
-}
+  const {"$x": 1};}

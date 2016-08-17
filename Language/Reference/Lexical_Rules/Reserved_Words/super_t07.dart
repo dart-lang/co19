@@ -19,8 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    C.super();
-  } catch (anything) {
-  }
-}
+  C.super();}

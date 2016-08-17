@@ -19,7 +19,4 @@
 class A {}
 
 main() {
-  try {
-    true ? 1 : A;
-  } catch (e) {}
-}
+  true ? 1 : A;}

@@ -27,8 +27,5 @@ class C {
 
 main() {
   var a = 1;
-  try {
-    new C()..a++;
-  } catch (e) {}
-}
+  new C()..a++;}
 

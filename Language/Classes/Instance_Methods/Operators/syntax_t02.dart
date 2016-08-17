@@ -32,8 +32,6 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-    var x = c ~/ 'a';
-  } catch (x) {}
+  C c = new C();
+  var x = c ~/ 'a';
 }

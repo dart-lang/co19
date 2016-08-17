@@ -20,7 +20,4 @@ abstract class I {}
 class C implements I, C {}
 
 main () {
-  try {
-    C c = new C();
-  } catch (e) {}
-}
+  C c = new C();}

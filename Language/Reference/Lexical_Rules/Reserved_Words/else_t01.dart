@@ -17,8 +17,4 @@
 class else { } // error
 
 main() {
-  try {
-    null is else;
-  } catch (anything) {
-  }
-}
+  null is else;}

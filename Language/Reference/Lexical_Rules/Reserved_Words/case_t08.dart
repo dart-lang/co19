@@ -17,8 +17,4 @@
 void f(var case) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

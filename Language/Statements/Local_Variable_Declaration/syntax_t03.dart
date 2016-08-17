@@ -19,7 +19,4 @@
 class T {}
 
 main() {
-  try {
-    T id
-  } catch (ok) {}
-}
+  T id}

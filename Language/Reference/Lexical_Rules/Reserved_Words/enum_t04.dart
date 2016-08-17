@@ -18,8 +18,4 @@ class C {
 }
 
 main() {
-  try {
-    new C().enum is int;
-  } catch (anything) {
-  }
-}
+  new C().enum is int;}

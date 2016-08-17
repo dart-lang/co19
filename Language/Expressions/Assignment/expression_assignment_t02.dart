@@ -38,7 +38,7 @@ main() {
   C c2 = new C(2);
   try {
     (c1 + c2).v = e2();
-  } catch (e) {
+  } on Exception {
   }
   Expect.equals(1, c1. v);
   Expect.equals(0, count);

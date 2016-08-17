@@ -20,7 +20,4 @@
 typedef f(x, x);
 
 main() {
-  try {
-    f foo = (x, y) {};
-  } catch (x) {}
-}
+  f foo = (x, y) {};}

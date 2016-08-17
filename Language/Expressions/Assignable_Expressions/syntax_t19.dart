@@ -32,9 +32,7 @@
  */
 
 main() {
-  try {
-    for (;;) {
-      break = 1;
-    }
-  } catch (e) {}
+  for (;;) {
+    break = 1;
+  }
 }

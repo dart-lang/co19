@@ -16,7 +16,4 @@
 final int v;
 
 main() {
-  try {
-    print(v);
-  } catch (ok) {}
-}
+  print(v);}

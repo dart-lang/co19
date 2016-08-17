@@ -17,8 +17,4 @@
 typedef void this();
 
 main() {
-  try {
-    null is this;
-  } catch (anything) {
-  }
-}
+  null is this;}

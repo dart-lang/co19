@@ -17,8 +17,4 @@
 void f(var is) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

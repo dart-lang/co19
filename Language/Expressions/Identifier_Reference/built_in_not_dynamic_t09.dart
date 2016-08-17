@@ -14,7 +14,4 @@
  */
 
 main() {
-  try {
-    part foo;
-  } catch (x) {}
-}
+  part foo;}

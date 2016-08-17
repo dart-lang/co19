@@ -15,7 +15,4 @@ class A {}
 class C extends A with bool {}
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
-}
+  new C();}

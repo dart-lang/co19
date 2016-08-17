@@ -17,8 +17,4 @@
 void f(var while) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

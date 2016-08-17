@@ -15,8 +15,6 @@
  */
 
 main() {
-  try {
-    void extends() {}
-    extends();
-  } catch (x) {}
+  void extends() {}
+  extends();
 }

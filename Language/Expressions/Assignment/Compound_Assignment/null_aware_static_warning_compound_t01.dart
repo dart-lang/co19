@@ -8,7 +8,6 @@
  * e1.v op= e2 are also generated in the case of e1?.v op= e2.
  * @description Checks that if e1.v *= e causes warning then e1?.v *= e produces
  * the same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 class C {
@@ -20,8 +19,5 @@ class C {
 
 main() {
   C c = new C(1);
-  try {
-    c?.v *= "3.14";  /// static type warning
-  } catch (everything) {
-  }
+  c?.v *= "3.14";  /// 01: static type warning, runtime error
 }

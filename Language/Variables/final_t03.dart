@@ -29,7 +29,4 @@ class C {
 }
 
 main() {
-  try {
-    new C(1);
-  } catch (ok) {}
-}
+  new C(1);}

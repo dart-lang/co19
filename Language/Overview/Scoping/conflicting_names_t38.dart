@@ -18,7 +18,4 @@
  */
 
 main() {
-  try {
-    for (int i, i; i < 10; ++i) {}
-  } catch (x) {}
-}
+  for (int i, i; i < 10; ++i) {}}

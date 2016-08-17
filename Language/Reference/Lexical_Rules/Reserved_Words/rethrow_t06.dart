@@ -15,10 +15,8 @@
  */
 
 main() {
-  try {
-    rethrow:
-    do {
-      break rethrow;
-    } while (false);
-  } catch (x) {}
+  rethrow:
+  do {
+    break rethrow;
+  } while (false);
 }

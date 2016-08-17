@@ -17,8 +17,4 @@
 class const { } // error
 
 main() {
-  try {
-    null is const;
-  } catch (anything) {
-  }
-}
+  null is const;}

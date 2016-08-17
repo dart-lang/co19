@@ -21,7 +21,4 @@ final a = const A();
 const m = a.m;
 
 main() {
-  try {
-    print(m);
-  } catch (x) {}
-}
+  print(m);}

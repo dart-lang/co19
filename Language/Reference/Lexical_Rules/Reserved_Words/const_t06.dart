@@ -15,10 +15,8 @@
  */
 
 main() {
-  try {
-    const:
-    do {
-      break const;
-    } while (false);
-  } catch (x) {}
+  const:
+  do {
+    break const;
+  } while (false);
 }

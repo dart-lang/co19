@@ -9,10 +9,8 @@
  * also generated in the case of e1?.v = e2.
  * @description Checks that if e1.v = e2 produces ctatic warning then e1?.v = e2
  * produces the same warning too
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
 
 class C {
   int v;
@@ -21,8 +19,5 @@ class C {
 main() {
   double e = 3.14;
   C c = new C();
-  try {
-    c?.v = e; /// static type warning
-  } catch (everything) {
-  }
+  c?.v = e; /// 01: static type warning, dynamic type error
 }

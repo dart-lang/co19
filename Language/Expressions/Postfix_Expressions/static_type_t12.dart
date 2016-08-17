@@ -10,7 +10,7 @@
  * The static type of such an expression is the static type of e1.v.
  * @description Checks that static type of e1?.v-- is static type of e1.v. e1
  * is a type literal
- * static-clean
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
 class C {
@@ -22,5 +22,5 @@ main() {
   int a1 = C?.v--;
   try {
     int a2 = C?.v2--;
-  } catch (e) {}
+  } on NoSuchMethodError {}
 }

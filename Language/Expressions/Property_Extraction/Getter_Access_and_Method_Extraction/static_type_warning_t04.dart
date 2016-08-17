@@ -10,7 +10,6 @@
  * have a method or getter named m
  * @description Checks that it is a static type warning if T does not have a
  * setter (method named m=) named m.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -20,7 +19,5 @@ class C {
 
 main()  {
   C o = new C();
-  try {
-    o.v = 1; /// static type warning
-  } catch (e) {}
+  o.v = 1; /// 01: static type warning, runtime error
 }

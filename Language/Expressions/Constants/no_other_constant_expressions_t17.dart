@@ -15,7 +15,4 @@
 const m = null is Object;
 
 main() {
-  try {
-    print(m);
-  } catch (x) {}
-}
+  print(m);}

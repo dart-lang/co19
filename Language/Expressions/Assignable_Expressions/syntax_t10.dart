@@ -32,7 +32,4 @@
  */
 
 main() {
-  try {
-    {int x; x = 1;} = null;
-  } catch (e) {}
-}
+  {int x; x = 1;} = null;}

@@ -20,7 +20,4 @@ class C {
 }
 
 main() {
-  try {
-    var x = new C().getter;
-  } catch (e) {}
-}
+  var x = new C().getter;}

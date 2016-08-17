@@ -18,10 +18,8 @@
  */
 
 main() {
-  try {
-    {
-      var conflictingName = 1;
-      String conflictingName;
-    }
-  } catch (e) {}
+  {
+    var conflictingName = 1;
+    String conflictingName;
+  }
 }

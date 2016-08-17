@@ -19,7 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    C.f(1, name: null, 1);
-  } catch (e) {}
-}
+  C.f(1, name: null, 1);}

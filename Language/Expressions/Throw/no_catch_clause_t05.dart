@@ -20,7 +20,4 @@
  */
 
 main() {
-  try {
-    throw;
-  } catch (e) {}
-}
+  throw;}

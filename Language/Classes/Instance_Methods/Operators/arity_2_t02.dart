@@ -19,7 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    new C()[0] = new C();
-  } catch (ex) {}
-}
+  new C()[0] = new C();}

@@ -21,8 +21,5 @@ abstract class B implements A {}
 class C implements B {}
 
 main() {
-  try {
-    new B();
-  } catch (e) {}
-}
+  new B();}
 

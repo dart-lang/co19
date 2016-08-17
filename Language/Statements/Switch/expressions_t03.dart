@@ -19,12 +19,10 @@
 
 main() {
   var x=1;
-  try {
-    switch (x) {
-      case 1:
-        x = 1;
-      case 2.0:
-        x = 2;
-    }
-  } catch (e) {}
+  switch (x) {
+    case 1:
+      x = 1;
+    case 2.0:
+      x = 2;
+  }
 }

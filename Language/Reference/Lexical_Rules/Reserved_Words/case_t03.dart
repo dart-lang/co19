@@ -17,8 +17,4 @@
 typedef void case();
 
 main() {
-  try {
-    null is case;
-  } catch (anything) {
-  }
-}
+  null is case;}

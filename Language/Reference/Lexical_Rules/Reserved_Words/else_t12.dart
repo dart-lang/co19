@@ -16,8 +16,4 @@
 part "else_lib.dart";
 
 void main() {
-  try {
-    int x = 0;
-  } catch (anything) {
-  }
-}
+  int x = 0;}

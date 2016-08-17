@@ -17,8 +17,4 @@
 class switch { } // error
 
 main() {
-  try {
-    null is switch;
-  } catch (anything) {
-  }
-}
+  null is switch;}

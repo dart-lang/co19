@@ -23,7 +23,4 @@
  */
 
 main() {
-  try {
-    true && false &&;
-  } catch (e) {}
-}
+  true && false &&;}

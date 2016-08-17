@@ -19,7 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    var x = ~(new C());
-  } catch (e) {}
-}
+  var x = ~(new C());}

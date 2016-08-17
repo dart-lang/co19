@@ -19,7 +19,4 @@
  */
 
 main() {
-  try {
-    (int x) => 1 as (num x) => 2;
-  } catch (x) {}
-}
+  (int x) => 1 as (num x) => 2;}

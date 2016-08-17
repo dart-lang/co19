@@ -36,7 +36,4 @@
  */
 
 main() {
-  try {
-    const final var x = 1;
-  } catch (ok) {}
-}
+  const final var x = 1;}

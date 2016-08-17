@@ -19,9 +19,7 @@
 
 
 main() {
-  try
-    for ( ; ; ) {
-      break
-    }
-  } catch (x) {}
+  for ( ; ; ) {
+    break
+  }
 }

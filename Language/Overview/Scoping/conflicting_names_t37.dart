@@ -18,7 +18,4 @@
  */
 
 main() {
-  try {
-    int i, i;
-  } catch (x) {}
-}
+  int i, i;}

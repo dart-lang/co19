@@ -27,7 +27,4 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (ok) {}
-}
+  new C();}

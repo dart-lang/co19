@@ -22,5 +22,7 @@ f(x) => ((new C()).foo = x).asdf();
 main() {
   try {
     f(null);
-  } catch (e) {}
+  } on NoSuchMethodError {
+    // ok, because we call not existing method
+  }
 }

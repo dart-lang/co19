@@ -36,8 +36,5 @@
  */
 
 main() {
-  try {
-    r"stri
-g";
-  } catch (e) {}
-}
+  r"stri
+g";}

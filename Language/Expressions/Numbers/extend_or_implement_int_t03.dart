@@ -17,7 +17,4 @@ abstract class A extends int {}
 class B implements A {}
 
 main() {
-  try {
-    new B();
-  } catch (x) {}
-}
+  new B();}

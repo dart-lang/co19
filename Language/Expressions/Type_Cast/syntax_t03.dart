@@ -19,7 +19,4 @@
  */
 
 main() {
-  try {
-    1 as;
-  } catch (ok) {}
-}
+  1 as;}

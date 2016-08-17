@@ -14,7 +14,4 @@
  */
 
 main() {
-  try {
-    typedef foo;
-  } catch (x) {}
-}
+  typedef foo;}

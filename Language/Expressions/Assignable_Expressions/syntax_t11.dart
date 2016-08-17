@@ -32,7 +32,4 @@
  */
 
 main() {
-  try {
-    if (true) {} = 1;
-  } catch (e) {}
-}
+  if (true) {} = 1;}

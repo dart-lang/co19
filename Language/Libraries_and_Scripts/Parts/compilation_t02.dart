@@ -21,7 +21,4 @@ part "part_0.dart";
 part "part_0.dart";
 
 main() {
-  try {
-    foo is int;
-  } catch (e) {}
-}
+  foo is int;}

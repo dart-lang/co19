@@ -23,7 +23,4 @@ foo() => 1;
 const i1 = "${foo()}";
 
 main() {
-  try {
-    print(i1);
-  } catch (x) {}
-}
+  print(i1);}

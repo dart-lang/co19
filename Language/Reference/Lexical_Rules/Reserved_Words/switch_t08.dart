@@ -17,8 +17,4 @@
 void f(var switch) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

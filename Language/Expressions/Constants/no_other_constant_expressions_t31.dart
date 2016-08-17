@@ -16,7 +16,4 @@ var a = 1;
 const m = a--;
 
 main() {
-  try {
-    print(m);
-  } catch (x) {}
-}
+  print(m);}

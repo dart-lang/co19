@@ -18,7 +18,4 @@
 var x = this.a;
 
 main() {
-  try {
-    print(x);
-  } catch (e) {}
-}
+  print(x);}

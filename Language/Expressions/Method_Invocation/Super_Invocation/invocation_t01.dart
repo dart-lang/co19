@@ -16,7 +16,4 @@
  */
 
 main() {
-  try {
-    super.f();
-  } catch (e) {}
-}
+  super.f();}

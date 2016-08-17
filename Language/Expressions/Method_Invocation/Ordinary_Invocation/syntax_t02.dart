@@ -15,7 +15,4 @@
 
 main() {
   var o;
-  try {
-    o.f(name: null, 1);
-  } catch (e) {}
-}
+  o.f(name: null, 1);}

@@ -30,7 +30,4 @@
 import;
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
-}
+  var someVar = 0;}

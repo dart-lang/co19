@@ -10,16 +10,13 @@
  * not a constructor of C.
  * @description Checks that static warning is produced if referenced type in
  * redirecting constructor is an undefined id.
- * @static-warning
  * @author ilya
  */
 
 class F {
-  factory F() = C;
+  factory F() = C; /// 01: static type warning, runtime error
 }
 
 main() {
-  try {
-    new F();
-  } catch (e) {}
+  new F();
 }

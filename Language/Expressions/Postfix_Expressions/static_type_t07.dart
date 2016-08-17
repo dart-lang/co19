@@ -8,7 +8,7 @@
  * to executing (x){var r = x.v; x.v = r - 1; return r}(e1).
  * The static type of such an expression is the static type of e1.v.
  * @description Checks that static type of e1.v-- is static type of e1.v
- * static-clean
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
 class C {
@@ -21,5 +21,5 @@ main() {
   int a = c.v--;
   try {
     int a2 = c.v2--;
-  } catch (e) {}
+  } on NoSuchMethodError {}
 }

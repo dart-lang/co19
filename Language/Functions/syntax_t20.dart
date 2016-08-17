@@ -31,7 +31,4 @@
 f() => try {1+1;} catch (e) {};
 
 main() {
-  try {
-    f();
-  } catch (x) {}
-}
+  f();}

@@ -24,7 +24,4 @@
  */
 
 main() async {
-  try {
-    await for (var i in ) break;
-  } catch (x) {}
-}
+  await for (var i in ) break;}

@@ -18,9 +18,7 @@ class C {
 }
 
 main() {
-  try {
-    C c=new C();
-    c.foo();
+  C c=new C();
+  c.foo();
 //    c.foo=1;
-  } catch (anything) {}
 }

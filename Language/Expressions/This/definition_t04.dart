@@ -19,7 +19,4 @@ void this() {
 }
 
 main() {
-  try {
-    this();
-  } catch (e) {}
-}
+  this();}

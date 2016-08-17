@@ -17,7 +17,4 @@
 typedef foo();
 
 main() {
-  try {
-    const foo();
-  } catch (e) {}
-}
+  const foo();}
