@@ -10,8 +10,6 @@
  * operator []= specifies a single parameter.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

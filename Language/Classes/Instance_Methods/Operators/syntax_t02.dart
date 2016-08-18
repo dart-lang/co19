@@ -23,8 +23,6 @@
  * method name is used without the operator keyword.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

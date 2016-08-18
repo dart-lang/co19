@@ -10,7 +10,6 @@
  * operator [] specifies one optional named parameter.
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 class C {

@@ -11,7 +11,6 @@
  * required one.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {

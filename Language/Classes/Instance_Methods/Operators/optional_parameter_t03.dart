@@ -10,8 +10,6 @@
  * operator []= specifies one optional positional parameter.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

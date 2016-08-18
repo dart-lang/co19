@@ -11,7 +11,6 @@
  * operator [] specifies no parameters.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

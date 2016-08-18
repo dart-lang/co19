@@ -9,7 +9,6 @@
  * @description Checks that operator >>= cannot be defined in a user class.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C {
