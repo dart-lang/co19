@@ -6,14 +6,11 @@
 /**
  * @assertion It is a static warning if an instance method m1 overrides an
  * instance member m2 and m1 has fewer positional parameters than m2.
- * @description Checks that a static warning is produced if m1 has fewer 
+ * @description Checks that a compile error is produced if m1 has fewer
  * optional positional parameters than m2 (2 vs 3) and neither have any 
  * required parameters.
- * @static-warning
+ * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
- * @note renamed from 1_Instance_Methods_A02_t01.dart
  */
 
 class A {
@@ -21,7 +18,7 @@ class A {
 }
 
 class C extends A {
-  f([var x, var y]) {} /// static warning
+  f([var x, var y]) {}
 }
 
 main() {

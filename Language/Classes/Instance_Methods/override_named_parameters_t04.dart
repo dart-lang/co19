@@ -11,8 +11,6 @@
  * set of named parameters as m2 but in a different order.
  * @static-clean
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -27,4 +25,3 @@ main() {
   new A().f(x1:"Nothing", x2:"endures", y1:"but", y2:"change");
   new C().f(x1:"Nothing", x2:"endures", y1:"but", y2:"change");
 }
-

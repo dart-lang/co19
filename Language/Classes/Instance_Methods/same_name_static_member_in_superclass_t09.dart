@@ -7,18 +7,16 @@
  * @assertion It is a static warning if a class C declares an instance method
  * named n and an accessible static member named n is declared in a superclass 
  * of C.
- * @description Checks that a static warning is produced when a class declares 
+ * @description Checks that a compile-error is produced when a class declares
  * an instance method with the same name as a static method in its superclass.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 import "same_name_static_member_in_superclass_lib.dart";
 
 class C extends A {
-  f() { /// static type warning
+  f() {
   }
 }
 
