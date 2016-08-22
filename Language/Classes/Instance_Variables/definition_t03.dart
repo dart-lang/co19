@@ -9,7 +9,8 @@
  * static. The instance variables of a class C are those instance variables
  * declared by C and the instance variables inherited by C from its superclass.
  * @description Checks that class instance variables are those not declared as
- * static
+ * static. It's compile error to call static variables as instance ones
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -26,8 +27,6 @@ class C extends A {
 
 main() {
   C c = new C();
-  Expect.equals(1, c.v1);
-  Expect.equals(2, c.v2);
-  Expect.throws(() {c.s1;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {c.s2;}, (e) => e is NoSuchMethodError);
+  c.s1;
+  c.s2;
 }
