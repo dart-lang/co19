@@ -9,11 +9,10 @@
  * conflict with, override or be overridden by a getter or method.
  *
  * @description Checks that setter cannot be found by name without appending
- * string '=' to its name
- *
+ * string '=' to its name. Compile time error occurs otherwise
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class C {
   void set m(int val) {
@@ -22,5 +21,6 @@ class C {
 
 main() {
   C c = new C();
-  Expect.throws(() {c#m;}, (e) => e is NoSuchMethodError);
+  var x = c#m;
+  x(1);
 }

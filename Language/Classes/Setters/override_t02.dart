@@ -6,13 +6,11 @@
 /**
  * @assertion It is a static warning if a setter m1 overrides a setter
  * or method m2 and the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced when the argument
+ * @description Checks that a compile error is produced when the argument
  * types of these two setters are not mutually assignable even if one of the
  * setters is defined implicitly.
- * @static-warning
+ * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +18,7 @@ class A {
 }
 
 class C extends A {
-  void set foo(bool b) { /// static type warning
+  void set foo(bool b) {
   }
 }
 

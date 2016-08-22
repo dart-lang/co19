@@ -7,10 +7,10 @@
  * @assertion It is a static warning if a class C declares an instance setter
  * named v= and an accessible static member named v= or v is declared in a
  * superclass of C.
- * @description Checks that a static warning is arisen if a class has an
+ * @description Checks that a compile error is arisen if a class has an
  * implicitly declared instance setter and a static method with the same name
  * declared in a superclass.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -19,7 +19,7 @@ class A {
 }
 
 class C extends A {
-  int v;    /// static type warning
+  int v;
 }
 
 main() {

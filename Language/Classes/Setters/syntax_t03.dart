@@ -12,8 +12,6 @@
  * list is missing.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

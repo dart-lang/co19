@@ -14,7 +14,6 @@
  * String).
  * @static-warning
  * @author vasya
- * @reviewer rodionov
  */
 
 class C<T extends int, S extends String> {

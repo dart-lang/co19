@@ -8,9 +8,9 @@
  * to the identifier given in its signature. Hence, a setter name can never
  * conflict with, override or be overridden by a getter or method.
  *
- * @description Checks that static setter can be found by name by appending
+ * @description Checks that static setter can not be found by name by appending
  * string '=' to its name even if there are static method with the same name
- *
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -28,5 +28,4 @@ class C {
 main() {
   var x = C#m=;
   x(1);
-  Expect.equals(1, C.mValue);
 }

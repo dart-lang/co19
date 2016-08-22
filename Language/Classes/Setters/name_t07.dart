@@ -10,7 +10,6 @@
  * @description Checks that there is no compile-time error if a class has
  * an explicitly defined setter and an static method with the same name.
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C {

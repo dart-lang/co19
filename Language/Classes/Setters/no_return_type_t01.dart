@@ -10,7 +10,6 @@
  * method on the result of a setter and expecting no warnings.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {

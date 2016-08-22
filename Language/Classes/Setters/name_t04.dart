@@ -7,12 +7,11 @@
  * @assertion The name of a setter is obtained by appending the string ‘=’
  * to the identifier given in its signature. Hence, a setter name can never
  * conflict with, override or be overridden by a getter or method.
- * @description Checks that there is no compile-time error if a class has
+ * @description Checks that there is a compile-time error if a class has
  * an explicitly defined abstract setter inherited from a superclass and
  * an instance method with the same name.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 abstract class A {
@@ -24,9 +23,7 @@ abstract class C extends A {
     return new D();
   }
   C.c() {}
-  foo(value) {} // static warning (Classes/Instance methods):
-                // Class declares an instance method named n
-                // and has a setter named n=
+  foo(value) {}
 }
 
 class D extends C {

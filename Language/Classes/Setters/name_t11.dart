@@ -9,8 +9,8 @@
  * conflict with, override or be overridden by a getter or method.
  *
  * @description Checks that static setter can be found by name by
- * appending string '=' to its name
- *
+ * appending string '=' to its name. Compile time error occurs otherwise
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -25,5 +25,4 @@ class C {
 main() {
   var x = C#m=;
   x(1);
-  Expect.equals(1, C.mValue);
 }

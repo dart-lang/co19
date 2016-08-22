@@ -7,12 +7,11 @@
  * @assertion The name of a setter is obtained by appending the string ‘=’
  * to the identifier given in its signature. Hence, a setter name can never
  * conflict with, override or be overridden by a getter or method.
- * @description Checks that there is no compile-time error if a class has
+ * @description Checks that there is a compile-time error if a class has
  * an explicitly defined abstract setter and an instance method with the same
  * name.
- * @static-warning
+ * @compile-error
  * @author vasya
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,8 +23,5 @@ class C {
 main() {
   C c = new C();
   c.foo(1);
-  try {
-    c.foo = 1;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  c.foo = 1;
 }
