@@ -21,30 +21,21 @@
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/dynamic_check.dart";
 import "../../../Utils/expect.dart";
 
 f() {
-  if (isCheckedMode()) {
-    // in checked mode, registering incompatible callback is synchronious error,
+    // In checked mode, registering incompatible callback is synchronious error,
     // future ends up with no error handler that will lead to async exception
     // with error object equal to 1.
-    Expect.throws(() => new Future.error(1).catchError((x, y, z) {}));
-  } else {
-    // in production mode, callback is registered, and will throw
+    // In production mode, callback is registered, and will throw
     // asynchroniously upon execution.
-    new Future.error(1).catchError((x, y, z) {});
-  }
+    Expect.throws(() => new Future.error(1).catchError((x, y, z) {}));
 }
 
 main() {
   asyncStart();
   runZoned(f, onError: (e) {
-    if (isCheckedMode()) {
-      Expect.equals(1, e);
-    } else {
-      Expect.notEquals(1, e);
-    }
+    Expect.equals(1, e);
     asyncEnd();
   });
 }

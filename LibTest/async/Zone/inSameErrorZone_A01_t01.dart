@@ -19,8 +19,7 @@ import "../../../Utils/expect.dart";
 
 var count=0;
 
-newHandler() {
-  var id = ++count;
+HandleUncaughtErrorHandler newHandler() {
   return (Zone self, ZoneDelegate parent, Zone zone, e, st) {
     Expect.fail('shoud not be called');
   };

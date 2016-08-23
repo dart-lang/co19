@@ -36,7 +36,7 @@ check(int periodMs) {
       asyncEnd();
     }
   });
-  subs = s.listen((data) {});
+  subs = s.listen((data) {}) as  StreamSubscription<int>;
 }
 
 main() {
