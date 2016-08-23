@@ -13,8 +13,6 @@
  * @description Checks that a subclass inherits the instance members of its
  * superclass(es).
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

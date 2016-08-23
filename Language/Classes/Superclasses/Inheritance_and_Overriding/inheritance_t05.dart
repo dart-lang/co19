@@ -11,9 +11,8 @@
  * A class may override instance members that would otherwise have been
  * inherited from its superclass.
  * @description Checks that static members are not inherited.
- * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../../../Utils/expect.dart";
 
@@ -29,12 +28,8 @@ class C extends S {
 
 main() {
   var c = new C();
-  Expect.throws(() => c.v, /// static type warning
-   (e) => e is NoSuchMethodError);
-  Expect.throws(() => c.i, /// static type warning
-    (e) => e is NoSuchMethodError);
-  Expect.throws(() => c.method(), /// static type warning
-    (e) => e is NoSuchMethodError);
-  Expect.throws(() => c.iMethod(), /// static type warning
-    (e) => e is NoSuchMethodError);
+  c.v;
+  c.i;
+  c.method();
+  c.iMethod();
 }

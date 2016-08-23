@@ -13,8 +13,6 @@
  * @description Checks that an instance method can override another instance
  * method.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 
