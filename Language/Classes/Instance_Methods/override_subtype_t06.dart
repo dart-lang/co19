@@ -17,19 +17,18 @@ class Super {}
 class Sub extends Super {}
 
 class A {
-  int     f1(Super x, Super y, [Super a]) {}
-  int     f2(Super x, Super y, [Super a]) {}
-  int     f3(Super x, {Super a}) {}
+  num f1(Super x, Sub y, [Super a]) {}
+  int f2(Super x, Sub y, [Sub a]) {}
+  dynamic f3(Super x, {Sub a}) {}
 }
 
 class C extends A {
-  dynamic f1(Super x, [Sub a, Super b]) {}
-  int     f2(Super x, [Sub a, Super b, Whatever c]) {}
-  dynamic f3(Super x, {Sub a, Super b}) {}
+  int f1(Super x, [Super a, Super b]) {}
+  int f2(Super x, [Sub a, Super b, Whatever c]) {}
+  int f3(Super x, {Super a, Super b}) {}
 }
 
 main() {
   new A();
   new C();
 }
-

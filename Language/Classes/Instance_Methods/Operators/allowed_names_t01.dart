@@ -9,8 +9,6 @@
  * @description Checks that the listed operators may indeed be defined in a 
  * user class.
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 
@@ -41,8 +39,11 @@ class C {
     return value % other.value;
   }
 
-  operator ==(C other) {
-    return value == other.value;
+  operator ==(Object other) {
+    if (other is C) {
+      return value == other.value;
+    }
+    return false;
   }
 
   operator <(C other) {

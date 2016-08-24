@@ -22,8 +22,6 @@
  * @description Checks that it is a compile-time error if a class defines an
  * operator without a formal parameter list.
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  * @compile-error
  */
 

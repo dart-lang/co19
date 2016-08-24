@@ -10,6 +10,7 @@
  * @description Check that the instance setter, added to the Type object by
  * static setter declaration, is added to Type object of this class only
  * and not added to the Type of the ancestor
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -19,17 +20,17 @@ import "../../../Utils/expect.dart";
 abstract class A<V> {
   set s1(int value) => {};
   static set s2(int value) => {};
-  static int set s3(int value) {return 3;}
-  V set s4(V value) => {};
-  static set s5(V value) => {};
-  static V set s6(V value) {return null;}
+  static int set s3(int value) {return 3;} /// static type warning
+  V set s4(V value) => {}; /// static type warning
+  static set s5(V value) => {}; /// static type warning
+  static V set s6(V value) {return null;} /// static type warning
 }
 
 class C<V> extends A<V> {
   static int _s8;
-  static V set s6(V value) {return new V();}
-  static int set s7(int value) {return 7;}
-  static set s8(int value) => _s8 = value;
+  static V set s6(V value) {return new V();} /// static type warning
+  static int set s7(int value) {return 7;} /// static type warning
+  static set s8(int value) => _s8 = value; /// static type warning
 }
 
 main() {

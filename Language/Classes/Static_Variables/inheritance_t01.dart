@@ -10,10 +10,9 @@
  * declared by C.
  * @description Checks that superclass's static variables are unaccessible
  * via subclass's name.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 class S {
   static var foo;
@@ -23,7 +22,5 @@ class C extends S {
 }
 
 main() {
-  Expect.throws(() {
-    C.foo; /// static warning
-  }, (e) => e is NoSuchMethodError);
+  C.foo;
 }

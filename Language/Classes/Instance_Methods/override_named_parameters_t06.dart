@@ -12,8 +12,6 @@
  * m1 is not a direct subtype of the class declaring m2.
  * @static-clean
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -32,4 +30,3 @@ main() {
   new A().f(x:1, y:2);
   new C().f(x:2, y:1);
 }
-

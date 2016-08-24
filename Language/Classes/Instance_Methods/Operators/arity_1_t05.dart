@@ -11,8 +11,6 @@
  * operator >= specifies two parameters.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {

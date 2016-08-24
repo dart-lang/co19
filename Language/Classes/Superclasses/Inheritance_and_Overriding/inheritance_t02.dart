@@ -10,12 +10,10 @@
  * declaration in C or in at least one of S1...Sk.
  * A class may override instance members that would otherwise have been
  * inherited from its superclass.
- * @description Checks that it is a warning and not a compile error if you
- * have a static member named m in superclass and an instance member of the
- * same name.
- * @static-warning
+ * @description Checks that it is a compile error if you have a static member
+ * named m in superclass and an instance member of the same name.
+ * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class S {
@@ -26,10 +24,10 @@ class S {
 }
 
 class C extends S {
-  v() {} /// static type warning
-  i() {} /// static type warning
-  method() {} /// static type warning
-  iMethod() {} /// static type warning
+  v() {}
+  i() {}
+  method() {}
+  iMethod() {}
 }
 
 main() {

@@ -6,13 +6,11 @@
 /**
  * @assertion It is a static warning if an instance method m1 overrides an 
  * instance member m2 and the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced if m1 is not a subtype 
+ * @description Checks that a compile error is produced if m1 is not a subtype
  * of m2 because their respective required parameter types are not mutually 
  * assignable.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +18,7 @@ class A {
 }
 
 class C extends A {
-  foo(String x) { /// static type warning
+  foo(String x) {
     return x.toString();
   }
 }
@@ -29,4 +27,3 @@ main() {
   new A().foo(2);
   new C().foo("1");
 }
-

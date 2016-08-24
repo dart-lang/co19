@@ -10,8 +10,6 @@
  * int as its return type.
  * @static-warning
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {

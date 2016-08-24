@@ -10,11 +10,9 @@
  * The static methods of a class C are those static methods declared by C.
  * @description Checks that superclass's static methods are unaccessible
  * via subclass's name.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 class S {
   static void foo() {}
@@ -24,8 +22,5 @@ class C extends S {
 }
 
 main() {
-  Expect.throws(() {
-                    C.foo(); /// static warning
-                  },
-       (e) => e is NoSuchMethodError);
+  C.foo();
 }

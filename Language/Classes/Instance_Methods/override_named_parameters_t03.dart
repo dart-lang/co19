@@ -11,8 +11,6 @@
  * of named parameters as m2 but in a different order.
  * @static-clean
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {

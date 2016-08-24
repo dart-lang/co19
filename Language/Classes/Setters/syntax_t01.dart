@@ -11,9 +11,6 @@
  * @description Checks that various valid setter declarations do not cause any
  * errors.
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
- * @reviewer kaigorodov
  */
 
 abstract class A<U, V> {

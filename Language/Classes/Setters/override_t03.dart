@@ -10,38 +10,26 @@
  * a subtype of type of m2
  * @static-clean
  * @author ilya
- * @reviewer
  */
 
 class Super {}
 class Sub extends Super {}
 
 class A {
-  int      induced_setter1;
-  Super    induced_setter2;
-  Super    induced_setter3;
-  Sub      induced_setter4;
-
-  void set declared_setter1(int value) {}
-  void set declared_setter2(Super value) {}
-  void set declared_setter3(Super value) {}
-  void set declared_setter4(Sub value) {}
+  void set setter1(int value) {}
+  void set setter2(Super value) {}
+  void set setter3(dynamic value) {}
+  void set setter4(Sub value) {}
 }
 
 class C extends A {
-  dynamic  induced_setter1;
-  Super    induced_setter2;
-  Sub      induced_setter3;
-  Super    induced_setter4;
-
-  void set declared_setter1(dynamic value) {}
-  void set declared_setter2(Super value) {}
-  void set declared_setter3(Sub value) {}
-  void set declared_setter4(Super value) {}
+  void set setter1(num value) {}
+  void set setter2(Super value) {}
+  void set setter3(Sub value) {}
+  void set setter4(Super value) {}
 }
 
 main() {
   new A();
   new C();
 }
-

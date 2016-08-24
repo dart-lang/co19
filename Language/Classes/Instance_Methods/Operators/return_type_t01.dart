@@ -10,7 +10,6 @@
  * the user-declared operator []= is not void.
  * @static-warning
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

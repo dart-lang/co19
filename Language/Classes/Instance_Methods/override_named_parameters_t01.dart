@@ -7,13 +7,11 @@
  * @assertion It is a static warning if an instance method m1 overrides an 
  * instance member m2 and m1 does not declare all the named parameters declared 
  * by m2.
- * @description Checks that it is a static warning if an instance method m1
+ * @description Checks that it is a compile error if an instance method m1
  * overrides an instance member m2 and m1 does not declare all the named 
  * parameters declared by m2.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
- * @note renamed from 1_Instance_Methods_A07_t01.dart
  */
 
 class A {
@@ -21,7 +19,7 @@ class A {
 }
 
 class C extends A {
-  foo(var a, {x}) {} /// static warning
+  foo(var a, {x}) {}
 }
 
 main() {

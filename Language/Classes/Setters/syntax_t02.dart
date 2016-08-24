@@ -12,7 +12,6 @@
  * recognized as a function declaration named 'set', and no compile-time error 
  * is issued. 
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

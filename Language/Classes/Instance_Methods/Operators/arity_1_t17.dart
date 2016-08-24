@@ -11,8 +11,6 @@
  * operator | specifies two parameters.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

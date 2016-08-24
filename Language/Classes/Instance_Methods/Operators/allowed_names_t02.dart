@@ -9,8 +9,6 @@
  * @description Checks that operator != cannot be defined in a user class.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {

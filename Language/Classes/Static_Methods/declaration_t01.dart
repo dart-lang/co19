@@ -11,8 +11,6 @@
  * @description Checks that static methods cannot access instance fields.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {

@@ -10,17 +10,13 @@
  * of Sj for j in 1..k, that has the same name as m, such that m' is
  * accessible to L. Then m overrides m' if m' is not already overridden by a
  * member of at least one of S1 ... Sj-1 and neither m nor m' are fields.
- * @description Checks that a setter can override another setter.
- * @note (Classes/Setters) says that a setter cannot override a method so not
- * testing that.
+ * @description Checks that a setter can not override field.
+ * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
-import "../../../../Utils/expect.dart";
 
 class A {
-  var a = 2; // implicit setter
+  var a = 2;
 }
 
 class B extends A {
@@ -30,5 +26,4 @@ class B extends A {
 main() {
   A a = new B();
   a.a = 2;
-  Expect.equals(4 , a.a);
 }

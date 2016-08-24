@@ -10,8 +10,6 @@
  * operator ~ specifies one parameter.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
