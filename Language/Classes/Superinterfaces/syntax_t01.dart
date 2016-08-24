@@ -15,8 +15,6 @@
  * will also be an instance of those interfaces as well as any and all of its
  * superclasses' superinterfaces.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

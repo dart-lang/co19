@@ -14,13 +14,12 @@
  * clause of a class does not list any types.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class A implements {}
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

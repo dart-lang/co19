@@ -10,8 +10,6 @@
  * in the type list of a class's implements clause.
  * @author pagolubev
  * @compile-error
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 class A implements dynamic {}

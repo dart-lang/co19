@@ -12,7 +12,6 @@
  * included in its implements clause.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 abstract class I {}
@@ -21,6 +20,6 @@ class C implements I, C {}
 
 main () {
   try {
-    C c = new C();
+    new C();
   } catch (e) {}
 }

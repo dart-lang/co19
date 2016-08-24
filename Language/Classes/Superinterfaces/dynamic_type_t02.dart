@@ -10,7 +10,6 @@
  * in the type list of a class's implements clause.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 abstract class I {}

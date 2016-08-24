@@ -10,8 +10,6 @@
  * more than once in the implements clause.
  * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}

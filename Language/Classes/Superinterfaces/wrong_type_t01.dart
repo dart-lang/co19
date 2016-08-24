@@ -11,8 +11,6 @@
  * in a class's implements clause denotes an unavailable type.
  * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 class A implements Unavailable {}
