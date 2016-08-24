@@ -8,7 +8,6 @@
  * Checks whether every element of this iterable satisfies test.
  * Checks every element in iteration order, and returns false if any of them
  * make test return false, otherwise returns true.
- * @static-warning
  * @description Checks that something is thrown if the argument
  * is not a closure, doesn't implement a call() method with appropriate
  * signature or is null.
@@ -28,10 +27,5 @@ class A {
 test(Iterable create([Iterable content])) {
   Iterable a = create([1, 2, 3]);
 
-  Expect.throws(() => a.every(false)); /// static type warning not assignable
-  Expect.throws(() => a.every(1)); /// static type warning not assignable
-  Expect.throws(() => a.every("every")); /// static type warning not assignable
-  Expect.throws(() => a.every([1, 2, 3])); /// static type warning not assignable
-  Expect.throws(() => a.every(new A())); /// static type warning not assignable
   Expect.throws(() => a.every(null));
 }

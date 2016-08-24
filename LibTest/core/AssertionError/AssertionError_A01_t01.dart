@@ -13,13 +13,9 @@
  * @reviewer msyabro
  * @needsreview undocumented
  */
-import "../../../Utils/dynamic_check.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  if(!isCheckedMode()) {
-    return;
-  }
   try {
     assert(false);
     Expect.fail("AssertionError expected");

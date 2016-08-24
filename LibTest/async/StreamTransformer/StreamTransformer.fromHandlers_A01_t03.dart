@@ -27,7 +27,7 @@ main() {
   var stackTraces = [];
   var tr = new StreamTransformer.fromHandlers(handleError: (x, st, sink) {
     stackTraces.add(st);
-    sink.addError(x+10, st);
+    sink.addError((x as int)+10, st);
   });
   
   var data = 1;

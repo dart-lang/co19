@@ -23,7 +23,7 @@ check(int periodMs) {
     subs.cancel();
     Expect.equals(periodMs, data, "check($periodMs): data=$data");
     asyncEnd();
-  });
+  }) as StreamSubscription<int>;
 }
 
 main() {

@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 import "dart:async";
 
-List futures = [];
+List<Future<dynamic>> futures = [];
 int count=0;
 
 check(value) {

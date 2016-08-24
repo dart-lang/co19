@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 var count = 0;
 var stackTraces={};
 
-newHandler() {
+HandleUncaughtErrorHandler newHandler() {
   var id = ++count;
   return (Zone self, ZoneDelegate parent, Zone zone, e, st) {
     //print('Error handler #$id');

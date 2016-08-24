@@ -13,12 +13,7 @@
  */
 import "../../../Utils/expect.dart";
  
-import "../../../Utils/dynamic_check.dart";
-
 main() {
-  if(!isCheckedMode()) {
-    return;
-  }
   try {
     assert(1 == 2);
     Expect.fail("AssertionError expected");

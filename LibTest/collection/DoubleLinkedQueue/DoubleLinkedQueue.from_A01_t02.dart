@@ -14,9 +14,9 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 class CustomIterator<T> implements Iterator<T> {
-  CustomIterator(List list)
-  :_array = list, _length = list.length, _pos = -1 { }
-  
+  CustomIterator(List<T> list)
+      :_array = list, _length = list.length, _pos = -1 { }
+
   bool moveNext() {
     if(_pos + 1 < _length) {
       _pos++;
@@ -30,14 +30,14 @@ class CustomIterator<T> implements Iterator<T> {
     if (_pos < 0) {
       throw new StateError("No element selected yet, use moveNext()");
     }
-    
+
     if(_pos >= _length) {
       throw new StateError("Impossible: current position >= length.");
     }
-    
+
     return _array[_pos];
   }
-  
+
   final List<T> _array;
   final int _length;
   int _pos;
@@ -45,11 +45,11 @@ class CustomIterator<T> implements Iterator<T> {
 
 class IterableClass extends IterableBase {
   List internalArray;
-  
+
   IterableClass() {
     internalArray = [1, 2, 3];
   }
-  
+
   Iterator get iterator {
     return new CustomIterator(internalArray);
   }
