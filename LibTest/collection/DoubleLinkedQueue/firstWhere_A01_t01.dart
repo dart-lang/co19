@@ -12,9 +12,9 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-check(List list, test(value), int expected) {
+check(List list, bool test(value), int expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
-  int actual=list.firstWhere(test);
+  int actual=queue.firstWhere(test);
   Expect.equals(expected, actual);
 }
 
