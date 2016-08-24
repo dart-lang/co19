@@ -9,14 +9,12 @@
  * itself in its extends clause.
  * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 class A extends A {}
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

@@ -9,7 +9,6 @@
  * - S is a superclass of a class S0 and S0 is a superclass of C.
  * @description Checks that the superclass-subclass relationship is transitive.
  * @author rodionov
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
