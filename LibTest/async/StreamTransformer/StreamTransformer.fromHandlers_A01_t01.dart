@@ -23,7 +23,7 @@ main() {
   // odd numbers as data events, even numbers as error events
   s = s.map((x) => x.isOdd ? x : throw x);
 
-  var tr = new StreamTransformer.fromHandlers();
+  StreamTransformer<int, dynamic> tr = new StreamTransformer.fromHandlers();
   
   var data = 1;
   var error = 2;

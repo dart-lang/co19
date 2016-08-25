@@ -24,7 +24,7 @@ main() {
   // odd numbers as data events, even numbers as error events
   s = s.map((x) => x.isOdd ? x : throw x);
 
-  var tr = new StreamTransformer.fromHandlers(handleData: (x, sink) {
+  StreamTransformer<int, dynamic> tr = new StreamTransformer.fromHandlers(handleData: (x, sink) {
     sink.add(x+10);
   });
   
