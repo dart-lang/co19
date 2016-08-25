@@ -14,7 +14,6 @@
  * implements clause. Class body is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -22,6 +21,6 @@ class A implements I
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

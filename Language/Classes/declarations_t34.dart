@@ -38,7 +38,6 @@
  * that are valid according to this syntax do not cause any errors and such 
  * class can be instantiated. 
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class A {
@@ -92,7 +91,7 @@ abstract class Abstract {
   @B(1) funcWithNamedParams({p1: 1, p2: 2});
   @A() get val;
   @B(1) set val(var v);
-  @A() operator ==(Abstract other);
+  @A() operator ==(dynamic other);
 
   @B(1) var _val;
 }

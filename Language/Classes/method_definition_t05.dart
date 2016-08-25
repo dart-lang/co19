@@ -22,19 +22,17 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that there is no compile-time error if a setter
- * method definition in a concrete class does not include a body, and no
- * runtime error is thrown when that class is instantiated.
- * @static-warning
+ * @description Checks that there is a compile-time error if a setter
+ * method definition in a concrete class does not include a body
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
-class A { /// static type warning Abstract Instance Members: It is a static warning if an abstract member is declared or inherited in a concrete class.
+class A {
   set val(var v);
   var _val;
 }
 
 main() {
-  A a = new A();
+  new A();
 }

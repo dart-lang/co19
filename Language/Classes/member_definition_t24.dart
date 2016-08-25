@@ -39,7 +39,6 @@
  * of a class member definition.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class A {
@@ -48,6 +47,6 @@ class A {
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

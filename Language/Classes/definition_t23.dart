@@ -12,7 +12,7 @@
  * @description Checks that various class definitions that are valid according 
  * to 'metadata abstract? class mixinApplicationClass' syntax do not cause any 
  * errors and can be instantiated.
- * @author golovleva
+ * @author ngl@unipro.ru
  */
 
 @A() abstract class I1<T> = A1 with B1;

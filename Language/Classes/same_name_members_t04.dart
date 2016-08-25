@@ -10,7 +10,6 @@
  * a function and an abstract function of the same name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -20,6 +19,6 @@ class C {
 
 main() {
   try {
-    C c = new C();
+    new C();
   } catch (e) {}
 }

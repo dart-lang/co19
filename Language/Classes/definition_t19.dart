@@ -13,13 +13,12 @@
  * ends with an extra angle bracket in a class definition.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A<T1>> {}
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

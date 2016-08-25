@@ -26,7 +26,6 @@
  * method definition does not include a body.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {
@@ -35,6 +34,6 @@ class A {
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

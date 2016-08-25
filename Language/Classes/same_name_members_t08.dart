@@ -10,16 +10,15 @@
  * a variable and an abstract function of the same name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
   var f;
-  String f(int f); //abstract
+  String f(int f);
 }
 
 main() {
   try {
-    C c = new C();
+    new C();
   } catch (e) {}
 }

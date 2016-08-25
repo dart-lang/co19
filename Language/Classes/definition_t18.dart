@@ -13,13 +13,12 @@
  * separated with semicolon in a a class definition.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A<T1;T2> {}
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

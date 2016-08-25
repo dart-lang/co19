@@ -16,6 +16,5 @@ class A {
 }
 
 main() {
-  A a = new A();
-  int x = a.A;
+  new A().A;
 }

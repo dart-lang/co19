@@ -23,6 +23,6 @@ class C extends A with B1 B2 {}
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

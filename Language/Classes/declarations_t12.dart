@@ -38,7 +38,6 @@
  * variable declaration does not end with a semicolon.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {

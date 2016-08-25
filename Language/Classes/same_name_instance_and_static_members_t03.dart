@@ -10,7 +10,6 @@
  * instance method and declares a static field with the same name.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class A {
@@ -23,6 +22,6 @@ class B extends A {
 
 main() {
   try {
-    B a = new B();
+    new B();
   } catch (e) {}
 }
