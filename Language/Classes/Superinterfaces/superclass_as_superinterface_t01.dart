@@ -17,6 +17,6 @@ class C extends A implements A {}
 
 main () {
   try {
-    C c = new C();
+    new C();
   } catch (e) {}
 }

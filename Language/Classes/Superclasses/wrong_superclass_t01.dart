@@ -11,14 +11,12 @@
  * in a class's extends clause denotes an unavailable type.
  * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 class A extends Unavailable {}
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

@@ -12,8 +12,6 @@
  * extends clause and an instance of this class is also an instance of that
  * superclass.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -9,10 +9,10 @@
  * It is a static warning if the implicit interface of C includes an instance
  * member m of type F and C does not declare or inherit a corresponding
  * non-abstract instance member m of type F' such that F' <: F.
- * @description Checks that it is a static warning if a class does not declare
+ * @description Checks that it is a compile error if a class does not declare
  * nor inherit an instance method declared in the interface of non-abstract
  * class.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -20,7 +20,7 @@ class I {
   foo() {}
 }
 
-class C implements I { /// static type warning
+class C implements I {
 }
 
 main () {
