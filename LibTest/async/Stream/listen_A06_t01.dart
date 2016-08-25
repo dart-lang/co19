@@ -27,7 +27,7 @@ main() {
   s.listen((_) {}, onDone: () {asyncEnd();});
 
   asyncStart();
-  s = new Stream.fromFuture(new Future.value(1)).asBroadcastStream();
+  s = new Stream<int>.fromFuture(new Future.value(1)).asBroadcastStream();
   s.single.then((_) {});
   s.listen((_) {}, onDone: () {asyncEnd();});
 }

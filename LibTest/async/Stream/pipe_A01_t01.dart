@@ -27,7 +27,7 @@ main() {
   var s = new Stream.fromIterable([1, 2, 3]);
 
   asyncStart();
-  s.pipe(c.sink).then((x) {
+  s.pipe(c.sink as StreamConsumer<int>).then((x) {
     Expect.listEquals([1, 2, 3], values);
     asyncEnd();
   });

@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var s = new Stream.fromIterable([1]);
-  var tr = new StreamTransformer((_, __) {
+  StreamTransformer<int, dynamic> tr = new StreamTransformer((_, __) {
     var s2 = new Stream.fromIterable([2]);
     return s2.listen(null);
   });
