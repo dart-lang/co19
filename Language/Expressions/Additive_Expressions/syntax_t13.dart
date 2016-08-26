@@ -16,18 +16,16 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a type parameter can be used
- * as left operand in an additive expression without a compile error.
- * @static-warning
+ * @description Checks that a type parameter can not be used
+ * as left operand in an additive expression. It is a compile error.
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class A <T> {
   test() {
     try {
-      T - 1; /// static type warning - no such method/operator, see "Ordinary invocation"
+      T - 1;
     } catch (e) {}
   }
 }

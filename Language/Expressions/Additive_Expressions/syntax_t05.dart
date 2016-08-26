@@ -21,8 +21,6 @@
  * must have at least two operands.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {
