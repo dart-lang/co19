@@ -8,7 +8,6 @@
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
-import "dart:collection";
 import "allListTests.lib.dart";
 
 List create([int length=null]) {

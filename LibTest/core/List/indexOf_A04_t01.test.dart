@@ -30,10 +30,9 @@ test(List create([int length])) {
   a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
   check(a);
 
-  List<int> b = create(a.length);
+  List b = create(a.length);
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }
   check(b);
 }
-

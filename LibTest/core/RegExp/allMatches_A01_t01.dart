@@ -44,9 +44,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
   Expect.equals(expMatchesData.length, matches.length);
 
   Iterator<Match> it = matches.iterator;
-  int matchCnt = 0;
-  expMatchesData.forEach((List expMatch) {
-    matchCnt++;
+    expMatchesData.forEach((List expMatch) {
     it.moveNext();
     Match actMatch = it.current;
     

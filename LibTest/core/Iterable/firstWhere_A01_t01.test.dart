@@ -16,7 +16,7 @@
 library firstWhere_A01_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, test(value), var expected) {
+check(Iterable a, bool test(value), var expected) {
   var actual = a.firstWhere(test);
   Expect.equals(expected, actual);
 }
