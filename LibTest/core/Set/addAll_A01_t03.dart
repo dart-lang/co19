@@ -25,7 +25,7 @@ class A implements Comparable {
 }
 
 test(Set create([Set content])) {
-  Set<A> s = create();
+  Set s = create();
   List<A> a = [new A(7), new A(2), new A(-8), new A(2), new A(2)];
   s.addAll(a);
   Expect.isTrue(s.length == 3);

@@ -15,7 +15,7 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
   Expect.isTrue(s.length == 0);
 
   int n = 20;

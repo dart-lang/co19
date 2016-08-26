@@ -15,12 +15,12 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
 
   Expect.isTrue(!s.remove(0));
   Expect.isTrue(s.length == 0);
 
-  List<int> a = [-7, 5, 3, -22, 6, -1];
+  List a = [-7, 5, 3, -22, 6, -1];
   s.addAll(a);
 
   Expect.isTrue(!s.remove(0));

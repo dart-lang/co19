@@ -17,7 +17,7 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
 
   for(int i = 0; i < 1000; i++) {
     s.add(i);
