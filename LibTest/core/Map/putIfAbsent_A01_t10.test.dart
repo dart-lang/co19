@@ -18,7 +18,7 @@ library putIfAbsent_A01_t10;
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
 
   Object f() {
     throw "Exception!";

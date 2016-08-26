@@ -16,7 +16,7 @@ library operator_subscript_A01_t01;
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<int, Object> intMap = create();  
+  Map intMap = create();
   
   Expect.isTrue(intMap[1] == null);
   intMap[1] = 1;

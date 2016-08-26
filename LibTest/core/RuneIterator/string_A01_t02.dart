@@ -6,16 +6,13 @@
 /**
  * @assertion final String string
  * String being iterated.
- * @description Checks that [string] is final and can't be set.
+ * @description Checks that [string] is final and can't be set (causes compile
+ * error in strong mode).
+ * @compile-error
  * @author msyabro
  */
 
-import "../../../Utils/expect.dart";
-
 main() {
   var it = new RuneIterator('');
-  Expect.throws(() {
-      it.string = ' ';
-    }
-  );
+  it.string = ' ';
 }

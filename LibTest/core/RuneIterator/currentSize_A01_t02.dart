@@ -6,17 +6,14 @@
 /**
  * @assertion final int currentSize
  * The number of code units comprising the current rune.
- * @description Checks that [currentSize] is final and can't be set.
+ * @description Checks that [currentSize] is final and can't be set (causes
+ * compile error in strong mode).
+ * @compile-error
  * @author msyabro
  */
-
-import "../../../Utils/expect.dart";
 
 main() {
   var it = new RuneIterator('1234567890');
   it.moveNext();
-  try {
-    it.currentSize = 5;
-    Expect.fail('[currentSize] should be final');
-  } on NoSuchMethodError catch(ok) {}
+  it.currentSize = 5;
 }

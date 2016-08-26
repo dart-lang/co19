@@ -16,7 +16,7 @@ library containsValue_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> stringObjectMap = create();
+  Map stringObjectMap = create();
   Expect.isTrue(!stringObjectMap.containsValue(null));
   
   stringObjectMap["1"] = 1;

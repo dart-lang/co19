@@ -22,6 +22,6 @@ class A {
 }
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   map.putIfAbsent("1", A.f);
 }

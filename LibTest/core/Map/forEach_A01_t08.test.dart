@@ -15,7 +15,7 @@ library forEach_A01_t08;
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   
   map["1"] = 3;
   map["2"] = 5;

@@ -5,16 +5,13 @@
  */
 /**
  * @assertion final String string
- * @description Checks that [string] is final and can't be set.
+ * @description Checks that [string] is final and can't be set (causes compile
+ * error in strong mode).
+ * @compile-error
  * @author msyabro
  */
 
-import "../../../Utils/expect.dart";
-
 main() {
   var runes = new Runes('');
-  Expect.throws(() {
-      runes.string = ' ';
-    }
-  );
+  runes.string = ' ';
 }

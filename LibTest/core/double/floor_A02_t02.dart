@@ -10,7 +10,6 @@
  * infinity throws an UnsupportedError.
  * @author kaigorodov
  */
-import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(double arg) {

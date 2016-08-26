@@ -6,17 +6,13 @@
 /**
  * @assertion final int length
  * Returns the number of elements in this.
- * @description Checks that [length] is final and can't be set.
+ * @description Checks that [length] is final and can't be set (causes compile
+ * error in strong mode).
+ * @compile-error
  * @author msyabro
  */
 
-import "../../../Utils/expect.dart";
-
 main() {
   var runes = new Runes('');
-  try {
-    runes.length = 1;
-    Expect.fail('[length] should be final');
-  } on NoSuchMethodError catch (ok) {}
-
+  runes.length = 1;
 }

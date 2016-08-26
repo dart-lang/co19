@@ -18,6 +18,7 @@ import "../../../Utils/expect.dart";
 
 bool f(var value) {
   Expect.fail("test($value) called");
+  return false;
 }
 
 test(Iterable create([Iterable content])) {

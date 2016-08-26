@@ -26,7 +26,7 @@ test(Map create([Map content])) {
     values[i] = value;
   }
   
-  Map<int, Object> map = create();
+  Map map = create();
   map[0] = "3";
   map[1] = "5";
   map.forEach(f);
