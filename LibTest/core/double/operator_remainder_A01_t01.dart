@@ -14,9 +14,6 @@
  */
 import "../../../Utils/expect.dart";
 
-import "dart:math" as Math;
-
-
 main() {
   double x = 1.19, y = .2;
   Expect.equals( 0.1899999999999999, x % y );

@@ -6,16 +6,13 @@
 /**
  * @assertion final E single
  * Returns the single element in [this].
- * @description Checks that [last] is final and can't be set
+ * @description Checks that [last] is final and can't be set (causes compile
+ * error in strong mode)
+ * @compile-error
  * @author msyabro
  */
 
-import "../../../Utils/expect.dart";
-
 main() {
   var runes = new Runes('a');
-  try {
-    runes.single = 1;
-    Expect.fail("[single] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  runes.single = 1;
 }

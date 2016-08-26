@@ -13,7 +13,7 @@
 
 import "../../../Utils/expect.dart";
 
-void check(string, bool test (var element)) {
+void check(string, bool test (int element)) {
   var runes = new Runes(string);
   var res = runes.where(test);
 

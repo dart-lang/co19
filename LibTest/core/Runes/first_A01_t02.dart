@@ -6,23 +6,13 @@
 /**
  * @assertion final int first
  * Returns the first element.
- * @description Checks that [first] is final and can't be set.
+ * @description Checks that [first] is final and can't be set (throws compiler
+ * error in strong mode).
+ * @compile-error
  * @author msyabro
  */
 
-import "../../../Utils/expect.dart";
-
-check(string) {
-  var runes = new Runes(string);
-  try {
-    runes.first = 0;
-    Expect.fail("[first] should be final");
-  } on NoSuchMethodError catch(ok) {}
-}
-
-
 main() {
-  check("just a string");
-  check("\u{10000}\u{10001}\u{10002}\u{12345}");
-  check("\x00");
+  var runes = new Runes('test');
+  runes.first = 0;
 }

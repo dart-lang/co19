@@ -13,8 +13,6 @@
  * @author msyabro
  */
 
-import "../../../Utils/expect.dart";
-
 main() {
   var it = new RuneIterator('');
   it.moveNext();

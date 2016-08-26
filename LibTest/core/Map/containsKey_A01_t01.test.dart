@@ -15,7 +15,7 @@ library containsKey_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   
   Expect.isTrue(!map.containsKey(""));
   map["1"] = 1;

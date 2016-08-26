@@ -16,7 +16,6 @@
  * @author sgrekhov@unipro.ru
  */
 library expand_A02_t01;
-import "../../../Utils/expect.dart";
 
 void check(Iterable a) {
   a.expand((var element) {

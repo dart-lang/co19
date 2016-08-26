@@ -13,9 +13,9 @@
 import "../../../Utils/expect.dart";
 
 
-void check(List list) {
+void check(List<int> list) {
   try {
-    String str = new String.fromCharCodes(list);
+    new String.fromCharCodes(list);
     Expect.fail("ArgumentError is expected");
   } on ArgumentError catch(e) {}
 }

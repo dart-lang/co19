@@ -19,10 +19,10 @@ class A implements Comparable {
   int x;
 
   A(this.x);
-  bool operator ==(A other) => x == other.x;
+  bool operator ==(dynamic other) => x == other.x;
   int get hashCode => -1;
   // to allow run this test for ordered sets we need A to be comparable
-  int compareTo(A other) => this.x - other.x;
+  int compareTo(dynamic other) => this.x - other.x;
 }
 
 test(Set create([Set content])) {

@@ -11,7 +11,6 @@
  * @author pagolubev
  * @reviewer msyabro
  */
-import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(double expected, double argument) {

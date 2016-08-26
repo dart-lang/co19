@@ -13,7 +13,7 @@ library operator_subscript_A01_t03;
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   Object key="key";
   Expect.equals(null, map[key]);
   Expect.isFalse(map.containsKey(key));  
