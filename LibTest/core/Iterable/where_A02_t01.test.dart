@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
 
-  void check(Iterable source, f(element), Iterable expected) {
+  void check(Iterable source, bool f(element), Iterable expected) {
     Iterable ret = create(source).where(f);
     Iterator it = ret.iterator;
     while(it.moveNext()) {

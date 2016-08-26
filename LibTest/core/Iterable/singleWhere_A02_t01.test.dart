@@ -12,7 +12,7 @@
 library singleWhere_A02_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, f(value)) {
+check(Iterable a, bool f(value)) {
   Expect.throws(() {a.singleWhere(f);}, (e) => e is StateError);
 }
 

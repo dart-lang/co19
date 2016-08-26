@@ -11,9 +11,6 @@
  */
 library hugeListTests;
 
-import "sort_A01_t01.test.dart" as sort_A01_t01;
-import "sort_A01_t02.test.dart" as sort_A01_t02;
-import "sort_A01_t03.test.dart" as sort_A01_t03;
 import "sort_A01_t04.test.dart" as sort_A01_t04;
 import "sort_A01_t05.test.dart" as sort_A01_t05;
 import "sort_A01_t06.test.dart" as sort_A01_t06;

@@ -26,13 +26,6 @@ test(List create([int length])) {
     var map=a.asMap();
     Expect.isTrue(map is Map);
 
-    Expect.throws(() {
-        map["key"]="value"; 
-      }
-      ,(e)=>true
-      ,"modification did not fail"
-    );
-
     Expect.equals(a.length, map.length);
  
     int count=0;

@@ -14,7 +14,6 @@
 library operator_subscript_A03_t01;
 
 import "../../../Utils/expect.dart";
-import "../../../Utils/dynamic_check.dart";
 
 test(List create([int length])) {
 

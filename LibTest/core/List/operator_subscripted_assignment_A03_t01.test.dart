@@ -13,7 +13,6 @@
 library operator_subscripted_assignment_A03_t01;
 
 import "../../../Utils/expect.dart";
-import "../../../Utils/dynamic_check.dart";
 
 test(List create([int length])) {
   List a=create(1);

@@ -52,7 +52,7 @@ import "retainAll_A01_t01.dart" as retainAll_A01_t01;
 import "retainAll_A01_t02.dart" as retainAll_A01_t02;
 import "retainWhere_A01_t01.dart" as retainWhere_A01_t01;
 
-test(Iterable create([Iterable content])) {
+test(Set create([Iterable content])) {
   iterable_tests.test(create, isSet:true);
 
   add_A01_t01.test(create);

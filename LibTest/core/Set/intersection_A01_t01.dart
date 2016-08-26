@@ -19,7 +19,7 @@ void check(Set create([Iterable content]), List expected, List l1, List l2) {
   Expect.setEquals(create(expected), create(l1).intersection(create(l2)));
 }
 
-test(Set create([Set content])) {
+test(Set create([Iterable content])) {
   check(create, [2], [1, 2], [2, 3]);
   check(create, [1, 2], [1, 2, 3, 4, 5, 1, 1, 1, 2, 2, 2], [1, 1, 2, 2]);
 

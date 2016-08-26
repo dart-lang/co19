@@ -13,7 +13,7 @@
 library singleWhere_A01_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, f(value), int expected) {
+check(Iterable a, bool f(value), int expected) {
   var actual = a.singleWhere(f);
   Expect.equals(expected, actual);
 }
