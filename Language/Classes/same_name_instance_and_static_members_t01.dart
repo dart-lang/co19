@@ -10,7 +10,6 @@
  * instance method and declares a static member method with the same name.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class B {

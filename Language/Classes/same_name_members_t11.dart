@@ -10,17 +10,16 @@
  * a variable, function, and an abstract getter of the same name.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class C {
   var f = 0;
-  String get f; //abstract
+  String get f;
   String f(int f);
 }
 
 main() {
   try {
-    C c = new C();
+    new C();
   } catch (e) {}
 }

@@ -38,7 +38,6 @@
  * signature is declared final.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A {
@@ -47,6 +46,6 @@ class A {
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

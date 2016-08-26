@@ -26,7 +26,6 @@
  * valid according to this syntax do not cause any errors and such class can 
  * be instantiated. 
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -38,7 +37,7 @@ class A {
   @A() static fun() {}
   @B(1) get x {}
   @A() set x(var v) {}
-  @B(1) operator ==(A other) {}
+  @B(1) operator ==(dynamic other) {}
 
   @A() final _x;
 }

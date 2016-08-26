@@ -13,7 +13,6 @@
  * definition does not have a class identifier. Class body is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class {

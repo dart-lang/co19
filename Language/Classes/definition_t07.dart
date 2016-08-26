@@ -14,13 +14,12 @@
  * parameters. Class body is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A<T>
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

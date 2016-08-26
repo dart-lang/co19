@@ -14,7 +14,6 @@
  * same name provided both are instance members (abstract or not) or both are
  * static members.
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class A {

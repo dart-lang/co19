@@ -14,7 +14,6 @@
  * Class body is not empty.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class A (
@@ -23,6 +22,6 @@ class A (
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

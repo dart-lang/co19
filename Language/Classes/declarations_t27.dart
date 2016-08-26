@@ -44,7 +44,6 @@
  * is declared final.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A {

@@ -11,11 +11,10 @@
  * name.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class B {
-  int func(); //abstract
+  int func();
 }
 
 class A extends B {
@@ -24,6 +23,6 @@ class A extends B {
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

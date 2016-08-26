@@ -12,7 +12,6 @@
  * @description Checks that various class definitions that are valid according 
  * to this syntax do not cause any errors and can be instantiated.
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -50,5 +49,5 @@ main() {
   H h = new H();
   K k = new K();
   L l = new L();
-  P p=new P();
+  P p = new P();
 }

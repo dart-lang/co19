@@ -14,7 +14,6 @@
  * clause. Class body is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class S {}
@@ -22,6 +21,6 @@ class A extends S
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

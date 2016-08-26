@@ -10,7 +10,6 @@
  * non-abstract instance method and a static method with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -20,6 +19,6 @@ class A {
 
 main() {
   try {
-    A a = new A();
+    new A();
   } catch (e) {}
 }

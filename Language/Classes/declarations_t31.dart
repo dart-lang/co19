@@ -38,7 +38,6 @@
  * constructor is declared abstract.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

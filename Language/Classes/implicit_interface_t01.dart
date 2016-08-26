@@ -10,7 +10,6 @@
  * class name appears as type, that name denotes the interface of the class.
  * @description Checks that a class can be used as an interface.
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
