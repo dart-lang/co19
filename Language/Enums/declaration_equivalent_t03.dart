@@ -16,16 +16,15 @@
  * static const List<E> values = const <E>[id 0 . . . id n−1 ];
  * String toString() => { 0: ‘E.id 0 ’, . . ., n-1: ‘E.id n−1 ’}[index]
  * }
- * @description Checks that each member of an enum is constant
- * @static-warning
+ * @description Checks that each member of an enum is a constant
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../Utils/expect.dart";
 
 enum E {a, b, c}
 
 main() {
-  Expect.throws(() {E.a = E.b;});  // static warning here
-  Expect.throws(() {E.b = E.c;});  // static warning here
-  Expect.throws(() {E.c = E.a;});  // static warning here
+  E.a = E.b;
+  E.b = E.c;
+  E.c = E.a;
 }
