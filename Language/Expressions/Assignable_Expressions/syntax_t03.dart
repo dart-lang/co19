@@ -27,7 +27,6 @@
  * @description Checks that identifier can be used in the left hand side of
  * an assignment.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {

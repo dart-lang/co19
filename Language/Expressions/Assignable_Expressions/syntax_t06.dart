@@ -25,16 +25,16 @@
  *   on an expression e.
  * • An invocation of a getter or list access operator on super.
  * @description Checks that a reference to a class declaration
- * can be used in the left hand side of an assignment without a compile error.
- * @static-warning
+ * can not be used in the left hand side of an assignment without a compile
+ * error.
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {}
 
 main() {
   try {
-    A = 1; /// static type warning - incompatible types, see "Assignment" plus another unspecified warning
+    A = 1;
   } catch (e) {}
 }
