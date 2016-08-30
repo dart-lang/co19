@@ -55,15 +55,12 @@
  * @description Checks that if a library is load successfully, prefix is
  * mapped to a non-deferred prefix object, and top-level declarations from
  * the imported library became accessed in the current library with specified
- * prefix. If a call loadLibrary fails nothing happens, and one again has the
- * option to call loadLibrary again.
- * @static-warning
+ * prefix.
  * @author ngl@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "static_type_lib.dart" deferred as p;
-import "static_types_lib.dart" deferred as q;   /// static type warning
 
 test_loaded() {
   try {
@@ -101,11 +98,4 @@ main()  {
   onError: (e) {
     Expect.fail("Library should be loaded");
   });
-  q.loadLibrary().then((v) {
-    Expect.fail("Library should not be loaded");
-  },
-  onError: (e) {
-    Expect.throws(() => q.x);
-  });
-
 }
