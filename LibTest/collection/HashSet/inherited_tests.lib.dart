@@ -13,6 +13,6 @@ library inherited_tests_hashset;
 
 import "../../core/Set/all_tests.lib.dart" as set_tests;
 
-test(Iterable create([Iterable content])) {
+test(Set create([Set content])) {
   set_tests.test(create);
 }

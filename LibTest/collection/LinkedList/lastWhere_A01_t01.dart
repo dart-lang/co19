@@ -15,12 +15,12 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-void check(LinkedList a, var element) {
+void check(LinkedList<MyLinkedListEntry> a, int element) {
   Expect.equals(element, a.lastWhere((MyLinkedListEntry entry)=>entry.value==element).value);
 }
 
 main() {
-  LinkedList a = toLinkedList([42, 0, -1, 42, -1, 6031769, 0]);
+  LinkedList<MyLinkedListEntry> a = toLinkedList([42, 0, -1, 42, -1, 6031769, 0]);
   check(a, 42);
   check(a, 0);
   check(a, -1);

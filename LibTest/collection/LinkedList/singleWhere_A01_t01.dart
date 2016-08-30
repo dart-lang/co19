@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 check(List a0, test(value), int expected) {
-  LinkedList a=toLinkedList(a0);
+  LinkedList<MyLinkedListEntry<int>> a=toLinkedList(a0);
   bool test2(MyLinkedListEntry<int> value) =>
     test(value.value);
   int actual=a.singleWhere(test2).value;

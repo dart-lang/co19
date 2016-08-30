@@ -18,7 +18,6 @@ import "add_A01_t02.test.dart" as add_A01_t02;
 import "addAll_A01_t01.test.dart" as addAll_A01_t01;
 import "addAll_A01_t02.test.dart" as addAll_A01_t02;
 import "addAll_A02_t01.test.dart" as addAll_A02_t01;
-import "addAll_A03_t01.test.dart" as addAll_A03_t01;
 import "addFirst_A01_t01.test.dart" as addFirst_A01_t01;
 import "addFirst_A01_t02.test.dart" as addFirst_A01_t02;
 import "addLast_A01_t01.test.dart" as addLast_A01_t01;
@@ -42,7 +41,6 @@ test(Queue create([Iterable content]), {bool isSet:false}) {
   addAll_A01_t01.test(create);
   addAll_A01_t02.test(create);
   addAll_A02_t01.test(create);
-  addAll_A03_t01.test(create);
   addFirst_A01_t01.test(create);
   addFirst_A01_t02.test(create);
   addLast_A01_t01.test(create);

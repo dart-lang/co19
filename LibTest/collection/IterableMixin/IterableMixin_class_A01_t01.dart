@@ -7,7 +7,7 @@
  * @assertion IterableMixin<E> abstract class
  * This Iterable mixin implements all Iterable members except iterator.
  * All other methods are implemented in terms of iterator.
- * @static-warning
+ * @compile-error
  * @description Checks that Iterable.iterator is not implemented.
  * @author kaigorodov
  */

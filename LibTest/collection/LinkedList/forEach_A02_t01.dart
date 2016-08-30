@@ -13,7 +13,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-LinkedList list=toLinkedList([1,2]);
+LinkedList<MyLinkedListEntry> list=toLinkedList([1,2]);
 
 main() {
   Expect.throws(() => list.forEach(

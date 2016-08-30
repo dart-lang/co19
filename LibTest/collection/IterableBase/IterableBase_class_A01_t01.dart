@@ -5,8 +5,9 @@
  */
 /**
  * @assertion const IterableBase()
- * This class implements all methods of Iterable except Iterable.iterator in terms of iterator.
- * @static-warning
+ * This class implements all methods of Iterable except Iterable.iterator
+ * in terms of iterator.
+ * @compile-error
  * @description Checks that Iterable.iterator is not implemented.
  * @author kaigorodov
  */

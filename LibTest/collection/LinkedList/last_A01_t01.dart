@@ -14,7 +14,7 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.equals(0, a.length);
   a.add(new MyLinkedListEntry(null));
   Expect.equals(null, a.last.value);

@@ -9,7 +9,6 @@
  * @description Checks that method does not affect the previous content of the list
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
