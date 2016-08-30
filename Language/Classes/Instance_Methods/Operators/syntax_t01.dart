@@ -43,14 +43,11 @@ class C<T> {
 }
 
 main() {
-  try {
-    C c = new C();
+  C c = new C();
     var x = c + c;
     x = c - c;
     x = c[c];
     c[c] = c;
     -c;
     x = ~c;
-    x = c == c;
-  } catch (ok) {}
-}
+    x = c == c;}

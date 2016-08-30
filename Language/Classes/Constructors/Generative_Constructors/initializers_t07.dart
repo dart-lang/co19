@@ -29,7 +29,4 @@ class C extends S {
 }
 
 main() {
-  try {
-    new C();
-  } catch (x) {}
-}
+  new C();}

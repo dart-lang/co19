@@ -23,7 +23,4 @@
 main() {
   var $x = "dollar";
   var x = "dollar";
-  try {
-    '$$x';
-  } catch (e) {}
-}
+  '$$x';}

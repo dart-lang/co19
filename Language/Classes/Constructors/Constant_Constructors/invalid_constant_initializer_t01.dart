@@ -22,8 +22,5 @@ class A {
 }
 
 main() {
-  try {
-    DateTime d = new DateTime.now();
-    var a = const A(d.millisecond);
-  } catch (x) {}
-}
+  DateTime d = new DateTime.now();
+  var a = const A(d.millisecond);}

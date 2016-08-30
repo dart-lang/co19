@@ -23,8 +23,5 @@ class C {
 }
 
 main() {
-  try {
-    new C(1);
-  } catch (x) {}
-}
+  new C(1);}
 

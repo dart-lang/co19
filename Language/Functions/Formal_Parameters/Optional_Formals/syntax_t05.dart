@@ -23,7 +23,4 @@
 f([var x = var z]) {}
 
 main() {
-  try {
-    f();
-  } catch (x) {}
-}
+  f();}

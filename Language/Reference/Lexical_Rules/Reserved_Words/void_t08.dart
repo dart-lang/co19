@@ -17,8 +17,4 @@
 void f(var void) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

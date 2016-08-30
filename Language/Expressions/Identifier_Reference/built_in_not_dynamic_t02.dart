@@ -15,7 +15,4 @@
 
 
 main() {
-  try {
-    as foo;
-  } catch (x) {}
-}
+  as foo;}

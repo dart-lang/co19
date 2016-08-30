@@ -68,7 +68,4 @@
 import "namespace_changes_lib.dart" as PP;
 
 main() {
-  try {
-    new PP.P.B.spec().foo();
-  } catch (x) {}
-}
+  new PP.P.B.spec().foo();}

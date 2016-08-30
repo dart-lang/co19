@@ -15,7 +15,4 @@
  */
 
 main() {
-  try {
-    void v = null;
-  } catch (x) {}
-}
+  void v = null;}

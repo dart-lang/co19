@@ -21,7 +21,4 @@
 
 main() {
   var x = "dollar";
-  try {
-    '$' 'x';
-  } catch (e) {}
-}
+  '$' 'x';}

@@ -15,9 +15,6 @@
 
 main() {
   try {
-    try {
-      int x = 0;
-    } catch (enum) {}
-  } catch (anything) {
-  }
+    int x = 0;
+  } catch (enum) {}
 }

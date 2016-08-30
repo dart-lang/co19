@@ -32,7 +32,4 @@
  */
 
 main() {
-  try {
-    switch (1) {case 1: true; default: false;} = null;
-  } catch (e) {}
-}
+  switch (1) {case 1: true; default: false;} = null;}

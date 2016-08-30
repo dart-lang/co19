@@ -26,7 +26,4 @@ class C {
 }
 
 main() {
-  try {
-    var x = new C();
-  } catch (x) {}
-}
+  var x = new C();}

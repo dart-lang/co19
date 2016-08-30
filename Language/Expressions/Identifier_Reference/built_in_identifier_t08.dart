@@ -18,8 +18,4 @@ class dynamic {}
 class foo extends dynamic {}
 
 main() {
-  try {
-    null is foo;
-  } catch (anything) {
-  }
-}
+  null is foo;}

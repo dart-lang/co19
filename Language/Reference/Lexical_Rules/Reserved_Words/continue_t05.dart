@@ -15,8 +15,6 @@
  */
 
 main() {
-  try {
-    void continue() {}
-    continue();
-  } catch (x) {}
+  void continue() {}
+  continue();
 }

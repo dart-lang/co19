@@ -17,8 +17,4 @@
 typedef void default();
 
 main() {
-  try {
-    null is default;
-  } catch (anything) {
-  }
-}
+  null is default;}

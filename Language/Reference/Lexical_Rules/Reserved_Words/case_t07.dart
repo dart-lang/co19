@@ -19,8 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    C.case();
-  } catch (anything) {
-  }
-}
+  C.case();}

@@ -26,7 +26,4 @@ final constList = const [
 ];
 
 main() {
-  try {
-    constList is List;
-  } catch (x) {}
-}
+  constList is List;}

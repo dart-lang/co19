@@ -16,7 +16,6 @@
  * @description Checks that a static warning occurs if a final instance
  * variable that has been initialized in declaration is also initialized in
  * a constructor.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 12539
@@ -25,11 +24,9 @@
 class C {
   final v = 1;
   
-  C() : v = 2 {}
+  C() : v = 2 {} /// 01: static type warning, runtime error
 }
 
 main() {
-  try {
-    new C();
-  } catch (ok) {}
+  new C();
 }

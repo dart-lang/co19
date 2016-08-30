@@ -19,7 +19,4 @@ class this {
 }
 
 main() {
-  try {
-    new this();
-  } catch (e) {}
-}
+  new this();}

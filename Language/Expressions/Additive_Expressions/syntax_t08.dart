@@ -18,7 +18,6 @@
  * argument e2.
  * @description Checks that a reference to a class declaration can be used
  * as right operand in an additive expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -27,7 +26,5 @@
 class A {}
 
 main() {
-  try {
-    1 - A; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  1 - A; /// 01: static type warning, runtime error
 }

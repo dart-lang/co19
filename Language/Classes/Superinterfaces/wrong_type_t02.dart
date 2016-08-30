@@ -19,7 +19,4 @@ typedef void foo();
 class A implements foo {}
 
 main() {
-  try {
-    A a = new A();
-  } catch (e) {}
-}
+  A a = new A();}

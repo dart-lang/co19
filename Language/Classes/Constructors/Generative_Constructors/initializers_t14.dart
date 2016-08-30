@@ -30,8 +30,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (v) {}
-}
+  new C();}
 

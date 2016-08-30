@@ -21,7 +21,4 @@
  */
 
 main() {
-  try {
-    <String, int>{"key1": 1, "key2" : 2,,"key3":3};
-  } catch (e) {}
-}
+  <String, int>{"key1": 1, "key2" : 2,,"key3":3};}

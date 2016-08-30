@@ -15,11 +15,9 @@
  */
 
 main() {
-  try {
-    switch (1) {
-      case 0: false;
-              break;
-      case 1: true;
-    }
-  } catch (ok) {}
+  switch (1) {
+    case 0: false;
+            break;
+    case 1: true;
+  }
 }

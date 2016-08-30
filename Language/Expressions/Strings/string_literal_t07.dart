@@ -37,8 +37,6 @@
  */
 
 main() {
-  try {
-    'new\
-    line';
-  } catch (e) {}
+  'new\
+  line';
 }

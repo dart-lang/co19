@@ -10,13 +10,10 @@
  * It is a static warning if m < h or if m > n.
  * @description Checks that it is a static warning if the number of argument is
  * less than number of positional parameters of a function literal.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
 
 main() {
-  try {
-    (p1, p2, p3) {} (1); /// static type warning
-  } catch (e) {}
+  (p1, p2, p3) {} (1); /// 01: static type warning, runtime error
 }

@@ -31,7 +31,4 @@
 f() => switch (1 + 1) {case 1: false; case 2: true; default: false;};
 
 main() {
-  try {
-    f();
-  } catch (x) {}
-}
+  f();}

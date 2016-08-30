@@ -52,8 +52,6 @@ class A {
 }
 
 main() {
-  try {
-    A a = new A();
-    a.a();
-  } catch (e) {}
+  A a = new A();
+  a.a();
 }

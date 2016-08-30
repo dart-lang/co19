@@ -47,7 +47,4 @@ class A {
 }
 
 main() {
-  try {
-    A a = new A.B();
-  } catch (e) {}
-}
+  A a = new A.B();}

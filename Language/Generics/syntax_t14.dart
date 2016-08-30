@@ -23,7 +23,4 @@
 class C<T extend Function>{}
 
 main() {
-  try {
-    new C();
-  } catch (x) {}
-}
+  new C();}

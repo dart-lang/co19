@@ -15,10 +15,8 @@
  */
 
 main() {
-  try {
-    extends:
-    do {
-      break extends;
-    } while (false);
-  } catch (x) {}
+  extends:
+  do {
+    break extends;
+  } while (false);
 }

@@ -27,7 +27,4 @@ class A<T> {
 }
 
 main() {
-  try {
-    new A<int>().test();
-  } catch (e) {}
-}
+  new A<int>().test();}

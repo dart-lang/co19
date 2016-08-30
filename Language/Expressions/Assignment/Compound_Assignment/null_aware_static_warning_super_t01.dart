@@ -8,7 +8,6 @@
  * super.v = e are also generated in the case of super.v ??= e.
  * @description Checks that if super.v = e causes warning then super.v ??= e
  * produces the same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 class A {
@@ -17,10 +16,7 @@ class A {
 
 class C extends A {
   void test() {
-    try {
-      super.v ??= 3.14;  /// static type warning
-    } catch (everything) {
-    }
+    super.v ??= 3.14;  /// 01: static type warning, dynamic type error
   }
 }
 

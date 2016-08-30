@@ -20,8 +20,4 @@ library Parts_test_lib;
 part "part_9_lib.dart";
 
 main() {
-  try {
-    var x = foo;
-  } catch (anything) {
-  }
-}
+  var x = foo;}

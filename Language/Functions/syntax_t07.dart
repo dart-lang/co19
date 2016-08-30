@@ -29,9 +29,6 @@
  */
 
 main() {
-  try {
-    function();
-  } catch (x) {}
-}
+  function();}
 
 function() }

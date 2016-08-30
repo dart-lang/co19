@@ -17,7 +17,6 @@
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a type alias declaration can be
  * used as the second operand of a shift expression without a compile error.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -25,7 +24,5 @@
 typedef void proc();
 
 main() {
-  try {
-    2 >> proc; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  2 >> proc; /// 01: static type warning, runtime error
 }

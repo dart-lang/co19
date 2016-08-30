@@ -17,16 +17,13 @@
  * e2.
  * @description Checks that a type parameter can be used as the first operand
  * in a logical boolean expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {
-      T && false; /// static type warning - undefined operator or incompatible argument type
-    } catch (e) {}
+    T && false; /// 01: static type warning, dynamic type error
   }
 }
 

@@ -10,18 +10,15 @@
  * not a constructor of C.
  * @description Checks that static warning is produced if referenced type in
  * redirecting constructor is a library function.
- * @static-warning
  * @author ilya
  */
 
 function() {}
 
 class F {
-  factory F() = function;
+  factory F() = function; /// 01: static type warning, runtime error
 }
 
 main() {
-  try {
-    new F();
-  } catch (e) {}
+  new F();
 }

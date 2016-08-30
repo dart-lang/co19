@@ -17,8 +17,4 @@
 class in { } // error
 
 main() {
-  try {
-    null is in;
-  } catch (anything) {
-  }
-}
+  null is in;}

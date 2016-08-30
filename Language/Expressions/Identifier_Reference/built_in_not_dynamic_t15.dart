@@ -13,8 +13,5 @@
  */
 
 main() {
-  try {
-    external foo;
-  } catch (x) {}
-}
+  external foo;}
 

@@ -19,7 +19,4 @@
 class A<T1;T2> {}
 
 main() {
-  try {
-    A a = new A();
-  } catch (e) {}
-}
+  A a = new A();}

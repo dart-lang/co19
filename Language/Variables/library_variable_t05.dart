@@ -17,7 +17,4 @@
 static final int foo = 1; // error
 
 main() {
-  try {
-    print(foo);
-  } catch (ok) {}
-}
+  print(foo);}

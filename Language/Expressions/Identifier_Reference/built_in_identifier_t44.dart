@@ -15,8 +15,4 @@
 class import {}
 
 main() {
-  try {
-    null is import;
-  } catch (anything) {
-  }
-}
+  null is import;}

@@ -17,8 +17,6 @@
  */
 
 main() {
-  try {
-    var x;
-    Function f = () {x = f;};
-  } catch (x) {}
+  var x;
+  Function f = () {x = f;};
 }

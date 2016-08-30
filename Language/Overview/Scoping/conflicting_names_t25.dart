@@ -18,10 +18,8 @@
  */
 
 main() {
-  try {
-    {
-      var conflictingName = 1;
-      conflictingName(p1) {};
-    }
-  } catch (e) {}
+  {
+    var conflictingName = 1;
+    conflictingName(p1) {};
+  }
 }

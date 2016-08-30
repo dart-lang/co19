@@ -16,7 +16,4 @@ class A {}
 class C extends A with double {}
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
-}
+  new C();}

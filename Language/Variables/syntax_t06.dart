@@ -35,7 +35,4 @@
  */
 
 main() {
-  try {
-    final ;
-  } catch (ok) {}
-}
+  final ;}

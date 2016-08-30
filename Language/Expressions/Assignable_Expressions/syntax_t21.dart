@@ -34,7 +34,4 @@
 class A {}
 
 main() {
-  try {
-    new A() = null;
-  } catch (e) {}
-}
+  new A() = null;}

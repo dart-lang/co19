@@ -17,7 +17,4 @@
  */
 
 main() {
-  try {
-    'some text\umore text';
-  } catch (e) {}
-}
+  'some text\umore text';}

@@ -31,10 +31,7 @@ class S {
 
 class A {
   test() {
-    try {
-      super -;
-    } catch (e) {}
-  }
+    super -;  }
 }
 
 main() {

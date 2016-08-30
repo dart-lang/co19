@@ -17,8 +17,4 @@
 typedef void break();
 
 main() {
-  try {
-    null is break;
-  } catch (anything) {
-  }
-}
+  null is break;}

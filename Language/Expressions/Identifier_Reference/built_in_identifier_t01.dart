@@ -16,8 +16,4 @@
 class abstract {}
 
 main() {
-  try {
-    null is abstract;
-  } catch (anything) {
-  }
-}
+  null is abstract;}

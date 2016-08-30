@@ -16,8 +16,4 @@
 typedef int set();
 
 main() {
-  try {
-    null is set;
-  } catch (anything) {
-  }
-}
+  null is set;}

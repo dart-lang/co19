@@ -16,8 +16,4 @@
 void f(var enum) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

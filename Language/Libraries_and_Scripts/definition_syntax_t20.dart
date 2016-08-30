@@ -31,7 +31,4 @@
 import "definition_syntax_t20_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
-}
+  var someVar = 1;}

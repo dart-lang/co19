@@ -18,7 +18,6 @@
  * argument e2.
  * @description Checks that a reference to a class declaration can be used
  * as left operand in an additive expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -27,7 +26,5 @@
 class A {}
 
 main() {
-  try {
-    A + 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-  } catch (e) {}
+  A + 1; /// 01: static type warning, runtime error
 }

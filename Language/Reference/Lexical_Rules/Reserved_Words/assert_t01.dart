@@ -17,8 +17,4 @@
 class assert { } // error
 
 main() {
-  try {
-    null is assert;
-  } catch (anything) {
-  }
-}
+  null is assert;}

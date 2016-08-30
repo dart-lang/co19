@@ -18,8 +18,5 @@
  */
 
 main() {
-  try {
-    while () { }
-  } catch (x) {}
-}
+  while () { }}
 

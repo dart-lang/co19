@@ -18,7 +18,4 @@ import "library_name_t02_libA.dart";
 import "library_name_t02_libB.dart";
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
-}
+  var someVar = 0;}

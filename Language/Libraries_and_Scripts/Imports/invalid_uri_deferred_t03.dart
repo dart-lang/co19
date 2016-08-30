@@ -9,6 +9,7 @@
  * @description Checks that it is not a static type warning if the file pointed
  * to by a deferred import directive exists but does not contain a library
  * declaration.
+ * @static-clean
  * @author ngl@unipro.ru
  */
 
@@ -18,5 +19,5 @@ import "invalid_uri_t03_lib.dart" deferred as p;
 main() {
   try {
     p.foo();
-  } catch (e) {}
+  } on NoSuchMethodError {}
 }

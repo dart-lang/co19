@@ -17,8 +17,4 @@
 typedef void final();
 
 main() {
-  try {
-    null is final;
-  } catch (anything) {
-  }
-}
+  null is final;}

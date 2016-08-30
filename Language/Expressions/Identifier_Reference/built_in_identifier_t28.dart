@@ -16,8 +16,4 @@
 typedef int static();
 
 main() {
-  try {
-    null is static;
-  } catch (anything) {
-  }
-}
+  null is static;}

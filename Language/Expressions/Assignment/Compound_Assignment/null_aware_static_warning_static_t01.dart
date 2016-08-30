@@ -8,7 +8,6 @@
  * are also generated in the case of C.v ??= e.
  * @description Checks that if C.v = e causes warning then C.v ??= e produces
  * the same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 class C {
@@ -17,8 +16,5 @@ class C {
 
 main() {
   double e = 3.14;
-  try {
-    C.v ??= e;  /// static type warning
-  } catch (everything) {
-  }
+  C.v ??= e;  /// 01: static type warning, dynamic type error
 }

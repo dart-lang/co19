@@ -17,8 +17,4 @@
 void f(var rethrow) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

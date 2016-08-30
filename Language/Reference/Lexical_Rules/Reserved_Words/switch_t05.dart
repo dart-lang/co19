@@ -15,9 +15,6 @@
  */
 
 main() {
-  try {
-    void switch() {}
-    switch():
-  } catch (anything) {
-  }
+  void switch() {}
+  switch():
 }

@@ -19,11 +19,9 @@
  */
 
 main() {
-  try {
-    var i = 0;
-    L: do {
-      i++;
-    } while (i < 5);
-    continue L;
-  } catch (x) {}
+  var i = 0;
+  L: do {
+    i++;
+  } while (i < 5);
+  continue L;
 }

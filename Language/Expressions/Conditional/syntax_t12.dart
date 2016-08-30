@@ -12,7 +12,6 @@
  * ;
  * @description Checks that a reference to a type alias declaration can be
  * used as the condition in a conditional expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,7 +19,5 @@
 typedef int fun();
 
 main() {
-  try {
-    fun ? 1 : 2; /// static type warning - first argument not assignable to boolean, see "Conditional"
-  } catch (e) {}
+  fun ? 1 : 2; /// 01: static type warning, dynamic type error
 }

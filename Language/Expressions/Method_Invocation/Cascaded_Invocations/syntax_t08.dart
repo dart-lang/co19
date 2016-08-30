@@ -28,8 +28,5 @@ class C {
 
 main() {
   var o = new C();
-  try {
-    o..[1, 2, 3];
-  } catch (e) {}
-}
+  o..[1, 2, 3];}
 

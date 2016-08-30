@@ -17,8 +17,4 @@
 class rethrow { } // error
 
 main() {
-  try {
-    null is rethrow;
-  } catch (anything) {
-  }
-}
+  null is rethrow;}

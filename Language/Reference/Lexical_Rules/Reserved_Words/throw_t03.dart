@@ -17,8 +17,4 @@
 typedef void throw();
 
 main() {
-  try {
-    null is throw;
-  } catch (anything) {
-  }
-}
+  null is throw;}

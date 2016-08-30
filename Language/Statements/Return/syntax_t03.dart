@@ -23,7 +23,4 @@ foo() {
 }
 
 main() {
-  try {
-    foo();
-  } catch (x) {}
-}
+  foo();}

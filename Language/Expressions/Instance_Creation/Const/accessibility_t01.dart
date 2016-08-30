@@ -16,7 +16,4 @@
  */
 
 main() {
-  try {
-    const UnavailableType();
-  } catch (e) {}
-}
+  const UnavailableType();}

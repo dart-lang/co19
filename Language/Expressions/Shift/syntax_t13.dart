@@ -17,16 +17,13 @@
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that a type parameter can be used
  * as the first operand of a shift expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {
-      T << 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-    } catch (e) {}
+    T << 1; /// 01: static type warning, runtime error
   }
 }
 

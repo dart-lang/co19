@@ -15,7 +15,4 @@
 class A implements int {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
-}
+  new A();}

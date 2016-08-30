@@ -32,7 +32,4 @@
  */
 
 main() {
-  try {
-    assert (false) = null;
-  } catch (e) {}
-}
+  assert (false) = null;}

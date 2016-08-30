@@ -17,8 +17,4 @@
 void f(var break) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

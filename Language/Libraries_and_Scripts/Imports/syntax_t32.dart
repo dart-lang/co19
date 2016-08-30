@@ -30,7 +30,4 @@
 import "syntax_lib.dart" hide foo, фу;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
-}
+  someVar = 0;}

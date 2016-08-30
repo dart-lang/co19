@@ -20,12 +20,10 @@
 
 
 main() {
-  try {
-    L: try {
-      throw 1;
-    } catch (x) {
-      continue L;
-    } finally {
-    }
-  } catch (x) {}
+  L: try {
+    throw 1;
+  } catch (x) {
+    continue L;
+  } finally {
+  }
 }

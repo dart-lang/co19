@@ -24,7 +24,4 @@ class A<T
 class C<T extends Function>{}
 
 main() {
-  try {
-    new C();
-  } catch (x) {}
-}
+  new C();}

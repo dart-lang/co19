@@ -20,7 +20,4 @@ class A {
 }
 
 main() {
-  try {
-    var a = const A();
-  } catch (x) {}
-}
+  var a = const A();}

@@ -22,7 +22,4 @@ class A
 }
 
 main() {
-  try {
-    A a = new A();
-  } catch (e) {}
-}
+  A a = new A();}

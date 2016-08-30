@@ -7,7 +7,6 @@
  * @assertion The static type of the expression e1[e2] = e3 is the static
  * type of e3.
  * @description Checks that static type of e1[e2] = e3 is static type of e3.
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 
@@ -17,8 +16,5 @@ class C {
 
 main() {
   C c = new C();
-  try {
-    int i = (c[100] = 3.14);  /// static type warning
-  } catch (e) {
-  }
+  int i = (c[100] = 3.14);  /// 01: static type warning, dynamic type error
 }

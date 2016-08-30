@@ -9,8 +9,8 @@
  * also generated in the case of e1.v ??= e2
  * @description Checks that if e1.v = e causes warning then e1.v ??= e produces
  * the same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
+ * @issue 27125
  */
 class C {
   int v;
@@ -27,8 +27,5 @@ main() {
   C c2 = new C(2);
   double pi = 3.14;
   double e = 2.71;
-  try {
-    (c1 + c2).v ??= pi + e;  /// static type warning
-  } catch (everything) {
-  }
+  (c1 + c2).v ??= pi + e;  /// 01: static type warning
 }

@@ -11,7 +11,6 @@
  * the static type of v. The static type of the expression v = e is the static
  * type of e.
  * @description Checks that static type of v = e is static type of e.
- * @static-warning
  * @author ilya
  */
 
@@ -20,7 +19,5 @@ class D {}
 
 main() {
   var x;
-  try {
-    D y = (x = new C()); /// static warning C is not a subtype of D
-  } catch (e) {}
+  D y = (x = new C()); /// 01: static type warning, dynamic type error
 }

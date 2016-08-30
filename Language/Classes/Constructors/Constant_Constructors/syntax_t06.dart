@@ -21,7 +21,4 @@ class C {
 
 
 main() {
-  try {
-    new C.id();
-  } catch (x) {}
-}
+  new C.id();}

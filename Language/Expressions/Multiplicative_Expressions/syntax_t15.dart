@@ -21,7 +21,6 @@
  * argument e2.
  * @description Checks that reference to a function type alias name can be used
  * as the right operand of a multiplicative expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -30,7 +29,5 @@
 typedef int f();
 
 main() {
-  try {
-    1 / f; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  1 / f; /// 01: static type warning, runtime error
 }

@@ -22,7 +22,4 @@
 typedef int fun();
 
 main() {
-  try {
-    '$fun';
-  } catch (e) {}
-}
+  '$fun';}

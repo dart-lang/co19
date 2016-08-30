@@ -25,7 +25,4 @@ class C extends A {
 }
 
 main() {
-  try {
-    var z = new C();
-  } catch (x) {}
-}
+  var z = new C();}

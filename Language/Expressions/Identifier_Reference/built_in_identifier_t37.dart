@@ -16,8 +16,4 @@
 typedef int deferred();
 
 main() {
-  try {
-    null is deferred;
-  } catch (anything) {
-  }
-}
+  null is deferred;}

@@ -17,8 +17,4 @@
 class case { } // error
 
 main() {
-  try {
-    null is case;
-  } catch (anything) {
-  }
-}
+  null is case;}

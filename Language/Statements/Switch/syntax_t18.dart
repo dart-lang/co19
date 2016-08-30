@@ -33,7 +33,4 @@ foo(value) {
 }
 
 main() {
-  try {
-    foo(1);
-  } catch (x) {}
-}
+  foo(1);}

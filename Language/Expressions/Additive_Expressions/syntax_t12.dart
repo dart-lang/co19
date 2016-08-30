@@ -18,7 +18,6 @@
  * argument e2.
  * @description Checks that a function type alias name can be used
  * as right operand in an additive expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -27,7 +26,5 @@
 typedef f();
 
 main() {
-  try {
-    0.25 - f; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  0.25 - f; /// 01: static type warning, runtime error
 }

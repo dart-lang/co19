@@ -28,7 +28,4 @@ class Foo2 extends foo {
 }
 
 main() {
-  try {
-    new Foo2();
-  } catch (anything) {}
-}
+  new Foo2();}

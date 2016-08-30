@@ -29,8 +29,6 @@ class C {
 }
 
 main() async {
-  try {
-    C c = new C();
-    await for (c.i in new Stream.fromIterable([1,2])) break;
-  } catch (x) {}
+  C c = new C();
+  await for (c.i in new Stream.fromIterable([1,2])) break;
 }

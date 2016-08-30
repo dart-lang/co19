@@ -8,7 +8,6 @@
  * {pn+1, ..., pn+k} or a static warning occurs.
  * @description Checks that it is a static warning if names of an argument does
  * not match with any name of optional named parameters of an instance method.
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
@@ -18,7 +17,5 @@ class C {
 }
 
 main() {
-  try {
-    new C().func(1, 2, p: 3); /// static type warning
-  } catch (e) {}
+  new C().func(1, 2, p: 3); /// 01: static type warning, runtime error
 }

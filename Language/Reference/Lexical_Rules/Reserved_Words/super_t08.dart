@@ -17,8 +17,4 @@
 void f(var super) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
-}
+  f();}

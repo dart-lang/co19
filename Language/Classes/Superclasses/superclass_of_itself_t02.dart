@@ -18,7 +18,4 @@ class C extends B {}
 class D extends C {}
 
 main() {
-  try {
-    A a = new A();
-  } catch (e) {}
-}
+  A a = new A();}

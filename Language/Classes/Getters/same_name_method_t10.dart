@@ -22,7 +22,4 @@ class C {
 }
 
 main() {
-  try {
-    new C().foo();
-  } catch (e) {}
-}
+  new C().foo();}

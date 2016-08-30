@@ -9,7 +9,6 @@
  * method or getter named m.
  * @description Check that It is a static type warning if S does not have an
  * accessible instance method or getter named m.
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 
@@ -20,9 +19,7 @@ class C extends A {
   int get m => 2;
 
   void test() {
-    try {
-      var i = super.m; /// static type warning
-    } catch (e) {}
+    var i = super.m; /// 01: static type warning, runtime error
   }
 }
 

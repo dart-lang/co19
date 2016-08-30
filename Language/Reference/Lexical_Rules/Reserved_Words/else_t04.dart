@@ -19,8 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    new C().else is int;
-  } catch (anything) {
-  }
-}
+  new C().else is int;}

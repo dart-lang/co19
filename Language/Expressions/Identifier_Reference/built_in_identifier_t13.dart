@@ -16,8 +16,4 @@
 typedef int factory();
 
 main() {
-  try {
-    null is factory;
-  } catch (anything) {
-  }
-}
+  null is factory;}

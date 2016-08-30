@@ -9,7 +9,6 @@
  * also generated in the case of e1?.id.
  * @description Check that if e.id produces static type warning then e?.id
  * produces the same warning too
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 
@@ -19,7 +18,5 @@ class C {
 
 main() {
   C c = new C();
-  try {
-    String x = c?.m; /// static type warning
-  } catch (e) {}
+  String x = c?.m; /// 01: static type warning, dynamic type error
 }

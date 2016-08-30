@@ -22,7 +22,4 @@ abstract class I {}
 library Script_A01_t09;
 
 main() {
-  try {
-    new I();
-  } catch (e) {}
-}
+  new I();}

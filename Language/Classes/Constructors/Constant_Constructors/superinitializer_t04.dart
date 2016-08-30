@@ -8,8 +8,8 @@
  * in the initializer list of a constant constructor must specify a constant
  * constructor of the superclass of the immediately enclosing class or a
  * compile-time error occurs.
- * @description Checks that there is no a compile error if an explicit
- * superinitializer call is a call a const constructor
+ * @description Checks that there is no compile error if an explicit
+ * superinitializer call is a call to a const constructor
  * @author ngl@unipro.ru
  */
 
@@ -23,7 +23,5 @@ class A extends C {
 }
 
 main() {
-  try {
-    var a = const A();
-  } catch (x) {}
+  var a = const A();
 }

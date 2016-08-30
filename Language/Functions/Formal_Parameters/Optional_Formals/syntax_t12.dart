@@ -24,7 +24,4 @@ foo({const p: 1]) {
 }
 
 main() {
-  try {
-    foo();
-  } catch (x) {}
-}
+  foo();}

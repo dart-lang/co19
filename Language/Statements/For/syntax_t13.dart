@@ -29,8 +29,6 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-    for (c.i in new List(100)) break;
-  } catch (x) {}
+  C c = new C();
+  for (c.i in new List(100)) break;
 }

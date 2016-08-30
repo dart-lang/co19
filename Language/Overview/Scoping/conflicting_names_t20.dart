@@ -23,8 +23,6 @@ class C {
 }
 
 main() {
-  try {
-    var c = new C();
-    c.conflictingName;
-  } catch (e) {}
+  var c = new C();
+  c.conflictingName;
 }

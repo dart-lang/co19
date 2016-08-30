@@ -14,10 +14,8 @@
  */
 
 main() {
-  try {
-    enum:
-    do {
-      break enum;
-    } while (false);
-  } catch (x) {}
+  enum:
+  do {
+    break enum;
+  } while (false);
 }

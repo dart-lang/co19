@@ -16,8 +16,4 @@
 typedef int implements();
 
 main() {
-  try {
-    null is implements;
-  } catch (anything) {
-  }
-}
+  null is implements;}

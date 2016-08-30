@@ -24,7 +24,4 @@ class A {
 const i1 = x;
 
 main() {
-  try {
-    print(i1);
-  } catch (x) {}
-}
+  print(i1);}

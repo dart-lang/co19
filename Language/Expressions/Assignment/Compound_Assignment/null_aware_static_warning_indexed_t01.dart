@@ -8,7 +8,6 @@
  * e1[e2] = e3 are also generated in the case of e1[e2] ??= e3.
  * @description Checks that if e1[e2] = e3. causes warning then e1[e2] ??= e3
  * produces the same warning as well
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 class A {
@@ -28,8 +27,5 @@ main() {
   C c = new C();
   double pi = 3.14;
   double e = 2.71;
-  try {
-    c[1 + 2].v ??= pi + e;  /// static type warning
-  } catch (everything) {
-  }
+  c[1 + 2].v ??= pi + e;  /// 01: static type warning, dynamic type error
 }

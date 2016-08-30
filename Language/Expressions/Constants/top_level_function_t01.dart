@@ -20,7 +20,4 @@
 const a = () {};
 
 main() {
-  try {
-    print(a);
-  } catch (x) {}
-}
+  print(a);}

@@ -33,7 +33,4 @@
 
 main() {
   var id = 1;
-  try {
-    id++ = 1;
-  } catch (e) {}
-}
+  id++ = 1;}

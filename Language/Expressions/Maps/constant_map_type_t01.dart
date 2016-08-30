@@ -20,7 +20,4 @@ class C<T> {
 }
 
 main() {
-  try {
-    new C<int>().test();
-  } catch (e) {}
-}
+  new C<int>().test();}

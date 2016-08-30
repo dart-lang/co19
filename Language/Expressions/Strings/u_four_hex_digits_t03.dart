@@ -17,7 +17,4 @@
  */
 
 main() {
-  try {
-    "just \u";
-  } catch (e) {}
-}
+  "just \u";}

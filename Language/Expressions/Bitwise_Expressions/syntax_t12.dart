@@ -26,7 +26,6 @@
  * bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a class declaration can be used
  * as the first operand of a bitwise expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -34,8 +33,6 @@
 class A {}
 
 main() {
-  try {
-    A & 1; /// static type warning - invoking an undefined operator, see "Ordinary invocation"
-  } catch (e) {}
+  A & 1; /// 01: static type warning, runtime error
 }
 

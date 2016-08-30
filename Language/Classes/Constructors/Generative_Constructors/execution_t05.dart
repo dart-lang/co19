@@ -44,7 +44,4 @@ class C {
 }
 
 main() {
-  try {
-    var c = new C();
-  } catch (x) {}
-}
+  var c = new C();}

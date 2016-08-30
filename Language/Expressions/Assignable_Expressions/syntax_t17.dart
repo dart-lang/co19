@@ -32,7 +32,4 @@
  */
 
 main() {
-  try {
-    throw "something" = null;
-  } catch (e) {}
-}
+  throw "something" = null;}

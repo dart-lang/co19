@@ -19,7 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    (new C()).foo(null);
-  } catch (v) {}
-}
+  (new C()).foo(null);}

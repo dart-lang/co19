@@ -16,8 +16,4 @@ class A {}
 class C extends A with Null {}
 
 main() {
-  try {
-    new C();
-  } catch (e) {
-  }
-}
+  new C();}

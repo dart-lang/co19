@@ -16,7 +16,4 @@
  */
 
 main() {
-  try {
-    const UnavailableType.named();
-  } catch (e) {}
-}
+  const UnavailableType.named();}

@@ -18,11 +18,9 @@
  */
 
 main() {
-  try {
-    var i = 0;
-    L: do {
-      i++;
-    } while (false);
-    break L;
-  } catch (x) {}
+  var i = 0;
+  L: do {
+    i++;
+  } while (false);
+  break L;
 }

@@ -22,7 +22,4 @@ class B extends A {
 }
 
 main() {
-  try {
-    B a = new B();
-  } catch (e) {}
-}
+  B a = new B();}

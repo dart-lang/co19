@@ -22,7 +22,6 @@
  * @description Checks that reference to a function type alias name can't be
  * used as the left operand of a multiplicative expression without a compile
  * error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -31,7 +30,5 @@
 typedef int f();
 
 main() {
-  try {
-    f * 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-  } catch (e) {}
+  f * 1; /// 01: static type warning, runtime error
 }

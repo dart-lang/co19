@@ -18,7 +18,4 @@
 class A implements Unavailable {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
-}
+  new A();}

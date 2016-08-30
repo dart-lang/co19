@@ -10,19 +10,14 @@
  * declaration with name v nor setter declaration with name v = in the lexical
  * scope enclosing the assignment.
  * @description Checks that it is a static warning if an assignment of the form
- * v = e occurs inside a top level functionand and there is neither a local
+ * v = e occurs inside a top level function and and there is neither a local
  * variable declaration with name v nor setter declaration with name v = in the
  * lexical scope enclosing the assignment.
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 test() {
-  try {
-    v = 1; /// static type warning
-  } catch (e) {
-  }
+  v = 1; /// 01: static type warning, runtime error
 }
 
 main() {

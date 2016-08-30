@@ -23,7 +23,4 @@ typedef f(p1, p2);
 import "library1.dart";
 
 main() {
-  try {
-    f func = (p1, p2) {}
-  } catch (e) {}
-}
+  f func = (p1, p2) {}}

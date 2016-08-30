@@ -20,7 +20,4 @@ class C {
 
 
 main() {
-  try {
-    new C.c3();
-  } catch (x) {}
-}
+  new C.c3();}

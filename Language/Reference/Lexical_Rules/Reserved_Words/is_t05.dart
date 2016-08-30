@@ -15,8 +15,6 @@
  */
 
 main() {
-  try {
-    void is() {}
-    is();
-  } catch (x) {}
+  void is() {}
+  is();
 }

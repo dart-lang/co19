@@ -22,7 +22,4 @@ part "part_0.dart";
 var foo;
 
 main() {
-  try {
-    foo = 1;
-  } catch (e) {}
-}
+  foo = 1;}

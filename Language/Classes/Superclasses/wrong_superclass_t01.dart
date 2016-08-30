@@ -18,7 +18,4 @@
 class A extends Unavailable {}
 
 main() {
-  try {
-    A a = new A();
-  } catch (e) {}
-}
+  A a = new A();}

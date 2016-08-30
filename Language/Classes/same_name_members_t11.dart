@@ -20,7 +20,4 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-  } catch (e) {}
-}
+  C c = new C();}

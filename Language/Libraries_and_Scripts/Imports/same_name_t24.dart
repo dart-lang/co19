@@ -26,7 +26,5 @@ import "same_name_t20_p1_lib.dart";
 import "same_name_t20_p2_lib.dart";
 
 main() {
-  try {
-    1 as foo;
-  } catch (anything) {}
+  1 as foo; /// 01: runtime error
 }

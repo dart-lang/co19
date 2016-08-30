@@ -36,7 +36,4 @@
  */
 
 main() {
-  try {
-    r'invalid ' string';
-  } catch (e) {}
-}
+  r'invalid ' string';}

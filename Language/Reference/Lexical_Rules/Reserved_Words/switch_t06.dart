@@ -15,10 +15,8 @@
  */
 
 main() {
-  try {
-    switch:
-    do {
-      break switch;
-    } while (false);
-  } catch (x) {}
+  switch:
+  do {
+    break switch;
+  } while (false);
 }

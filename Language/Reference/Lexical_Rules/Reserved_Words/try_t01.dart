@@ -17,8 +17,4 @@
 class try { } // error
 
 main() {
-  try {
-    null is try;
-  } catch (anything) {
-  }
-}
+  null is try;}

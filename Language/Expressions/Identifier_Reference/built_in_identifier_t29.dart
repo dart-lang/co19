@@ -16,8 +16,4 @@
 class typedef {}
 
 main() {
-  try {
-    null is typedef;
-  } catch (anything) {
-  }
-}
+  null is typedef;}

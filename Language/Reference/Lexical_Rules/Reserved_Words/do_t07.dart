@@ -19,8 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    C.do();
-  } catch (anything) {
-  }
-}
+  C.do();}

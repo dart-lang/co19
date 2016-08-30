@@ -18,8 +18,4 @@
 import "reexport_lib.dart";
 
 main() {
-  try {
-    1 is foo;
-  } catch (anything) {
-  }
-}
+  1 is foo;}

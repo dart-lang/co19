@@ -27,8 +27,5 @@ class C {
 
 main() {
   var o = new C();
-  try {
-    o..null;
-  } catch (e) {}
-}
+  o..null;}
 

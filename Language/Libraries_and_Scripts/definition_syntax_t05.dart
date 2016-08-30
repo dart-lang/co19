@@ -32,7 +32,4 @@ import "definition_syntax_t05_lib.dart";
 library Libraries_and_Scripts_A04_t08;
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
-}
+  var someVar = 1;}

@@ -21,16 +21,14 @@
  */
 
 main() {
-  try {
-    var counter = 0;
-    L: while (counter < 7) {
-      counter++;
-      if (counter == 3) {
-        foo() {
-          continue L;
-        }
-        foo();
+  var counter = 0;
+  L: while (counter < 7) {
+    counter++;
+    if (counter == 3) {
+      foo() {
+        continue L;
       }
+      foo();
     }
-  } catch (x) {}
+  }
 }

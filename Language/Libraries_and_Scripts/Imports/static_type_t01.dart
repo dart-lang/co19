@@ -16,15 +16,12 @@
 import "static_type_lib.dart" deferred as p;
 
 main() {
-  try {
-    p.foo;
-    p.Func;
-    p.SomeClass;
-    p.someGetter;
-    p.someSetter = 0;
-    p.someVar;
-    p.someFunc();
-    p.loadLibrary();
-  } catch (e) {
-  }
+  p.foo;      /// 01: runtime error
+  p.Func;     /// 02: runtime error
+  p.SomeClass; /// 03: runtime error
+  p.someGetter; /// 04: runtime error
+  p.someSetter = 0; /// 05: runtime error
+  p.someVar; /// 06: runtime error
+  p.someFunc(); /// 07: runtime error
+  p.loadLibrary();
 }

@@ -17,16 +17,13 @@
  * e2.
  * @description Checks that a type parameter can be used as the second operand
  * in a logical boolean expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {
-      true || T; /// static type warning - undefined operator or incompatible argument type
-    } catch (e) {}
+    true || T; /// 01: static type warning
   }
 }
 

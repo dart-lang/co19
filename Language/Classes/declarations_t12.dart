@@ -46,7 +46,4 @@ class A {
 }
 
 main() {
-  try {
-    A.v;
-  } catch (e) {}
-}
+  A.v;}

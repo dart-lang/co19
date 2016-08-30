@@ -19,7 +19,4 @@ class C {
 }
 
 main() {
-  try {
-    var c = new C.name();
-  } catch (x) {}
-}
+  var c = new C.name();}

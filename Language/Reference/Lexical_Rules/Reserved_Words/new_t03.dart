@@ -17,8 +17,4 @@
 typedef void new();
 
 main() {
-  try {
-    null is new;
-  } catch (anything) {
-  }
-}
+  null is new;}

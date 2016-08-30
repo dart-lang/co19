@@ -17,8 +17,4 @@
 class var { } // error
 
 main() {
-  try {
-    null is var;
-  } catch (anything) {
-  }
-}
+  null is var;}

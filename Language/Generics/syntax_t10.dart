@@ -23,7 +23,4 @@
 class C<T, U<T>>{}
 
 main() {
-  try {
-    new C<int, int>();
-  } catch (x) {}
-}
+  new C<int, int>();}

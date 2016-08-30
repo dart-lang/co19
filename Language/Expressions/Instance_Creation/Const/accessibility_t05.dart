@@ -18,7 +18,4 @@
 final c = 1;
 
 main() {
-  try {
-    const c();
-  } catch (e) {}
-}
+  const c();}

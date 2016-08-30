@@ -15,8 +15,6 @@
  */
 
 main() {
-  try {
-    void case() {}
-    case();
-  } catch (x) {}
+  void case() {}
+  case();
 }

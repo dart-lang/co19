@@ -16,7 +16,6 @@
  * invocation of a logical boolean operator on an expression e1 with argument e2.
  * @description Checks that a type can be used as the second operand in a
  * logical boolean expression without a compile error.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -24,7 +23,5 @@
 class A {}
 
 main() {
-  try {
-    false && A; /// static type warning - undefined operator or incompatible argument type
-  } catch (e) {}
+  false && A; /// 01: static type warning
 }

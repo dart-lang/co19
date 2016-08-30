@@ -17,8 +17,6 @@
  */
 
 main() {
-  try {
-    var x;
-    var f = () {x = f;};
-  } catch (x) {}
+  var x;
+  var f = () {x = f;};
 }

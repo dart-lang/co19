@@ -15,14 +15,11 @@
  * @static-warning
  * @author ngl@unipro.ru
  */
-import '../../../Utils/expect.dart';
+import '../../../Utils/dynamic_check.dart';
 import '../lib.dart' deferred as lb;
 
 class B {}
 
 main() {
-  try {
-    new B() as lb.A;      /// static type warning
-    Expect.fail("dynamic error expected");
-  } catch (e) {}
+  checkDynamicError(() => new B() as lb.A );  /// static type warning
 }

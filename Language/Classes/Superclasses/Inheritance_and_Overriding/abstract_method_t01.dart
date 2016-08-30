@@ -18,11 +18,8 @@ abstract class A {
   foo();
 }
 
-class B extends A { /// static type warning
-}
+class B extends A { } /// 01: static type warning
 
 main() {
-  try {
-    (new B()).foo();
-  } catch (e) {}
+  (new B()).foo(); /// 01: runtime error
 }

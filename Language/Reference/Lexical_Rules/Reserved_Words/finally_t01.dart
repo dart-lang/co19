@@ -17,8 +17,4 @@
 class finally { } // error
 
 main() {
-  try {
-    null is finally;
-  } catch (anything) {
-  }
-}
+  null is finally;}
