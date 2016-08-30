@@ -13,22 +13,14 @@
  * @author sgrekhov@unipro.ru
  */
 class C {
-  int v;
-  C(int val) {
-    v = val;
-  }
-  C operator + (C c) {
-    return new C(v + c.v);
+  List<int> v;
+  C() {
+    v = new List<int>();
   }
 }
 
 main() {
-  C c1 = new C(1);
-  C c2 = new C(2);
-  double pi = 3.14;
-  double e = 2.71;
-  try {
-    (c1 + c2).v ??= pi + e;  /// static type warning
-  } catch (everything) {
-  }
+  C c = new C();
+  List l = new List();
+  c.v ??= l;  /// static type warning
 }

@@ -10,7 +10,6 @@
  * @description Checks that a compound assignment expression of the form
  * e1[e2] *= e3 is equivalent to ((a, i) => a[i] = a[i] * e3)(e1, e2).
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

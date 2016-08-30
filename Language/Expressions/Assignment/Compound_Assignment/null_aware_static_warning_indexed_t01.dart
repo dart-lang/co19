@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 class A {
-  int v;
+  List<int> v;
 }
 
 class C {
@@ -26,10 +26,6 @@ class C {
 
 main() {
   C c = new C();
-  double pi = 3.14;
-  double e = 2.71;
-  try {
-    c[1 + 2].v ??= pi + e;  /// static type warning
-  } catch (everything) {
-  }
+  List l = new List();
+  c[1].v ??= l;  /// static type warning
 }

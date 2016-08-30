@@ -9,7 +9,6 @@
  * @description Checks that an expression of the form v *= e is equivalent to
  * v = v * e.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

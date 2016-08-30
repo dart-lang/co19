@@ -19,17 +19,14 @@ class A {
 }
 
 class C extends A {
-  var v = null;
 
   void test() {
     var res1 = (super.v ??= 1);
     Expect.equals(1, super.v);
-    Expect.isNull(this.v);
     Expect.equals(1, res1);
 
     var res2 = (super.v ??= 2);
     Expect.equals(1, super.v);
-    Expect.isNull(this.v);
     Expect.equals(1, res2);
   }
 }
