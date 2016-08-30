@@ -25,16 +25,16 @@
  *   on an expression e.
  * • An invocation of a getter or list access operator on super.
  * @description Checks that a reference to a type defined with typedef
- * can be used in the left hand side of an assignment without a compile error.
- * @static-warning
+ * can not be used in the left hand side of an assignment without a compile
+ * error.
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 typedef f();
 
 main() {
   try {
-    f = null; /// static type warning - cannot assign to a type literal
+    f = null;
   } catch (e) {}
 }

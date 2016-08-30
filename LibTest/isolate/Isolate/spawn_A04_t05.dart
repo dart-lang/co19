@@ -11,7 +11,7 @@
  *
  * @description Check that with errorAreFatal set to false the isolate is
  * only suspended on any error. The isolate is passive.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -26,7 +26,8 @@ void entryPoint(List message) {
   receivePort.listen(
      (data) {
         sendPort.send(data);
-        sendPort.send(", "+1); // cause an error that should suspend the isolate
+        // An error that should suspend the isolate
+        sendPort.send(", "+1); /// static type warning
         sendPort.send("hello");
      }
   );
@@ -48,11 +49,11 @@ test() async {
   await for (var data in receivePort) {
     receivedData.add(data);
     Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
-    if (i<5) {
+    if (i < 5) {
       sendPort.send(i++);
     } else {
       receivePort.close();
-      Expect.listEquals([0,1,2,3,4], receivedData);
+      Expect.listEquals([0, 1, 2, 3, 4], receivedData);
       asyncEnd();
     }
   }

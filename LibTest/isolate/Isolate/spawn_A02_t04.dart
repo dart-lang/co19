@@ -23,7 +23,7 @@
  * @description Checks that if entryPoint is top level function with more
  * than one argument, then type error is arisen in checked mode or returned
  * Future instance completes with error otherwise
- *
+ * @static-warning
  * @issue #26588
  * @author a.semenov@unipro.ru
  */
@@ -39,7 +39,7 @@ entryPoint2Args(message1, message2) {
 main() {
   asyncStart();
   try {
-    Isolate.spawn(entryPoint2Args, "hello").then(
+    Isolate.spawn(entryPoint2Args, "hello").then( /// static type warning
         (v) {
           Expect.fail("Isolate.spawn(entryPoint2Args, 'hello') is expected to fail");
         },

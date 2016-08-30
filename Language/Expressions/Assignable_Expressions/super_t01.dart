@@ -9,7 +9,6 @@
  * @description Checks that an assignable expression of the form super.id is
  * evaluated as a getter invocation.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

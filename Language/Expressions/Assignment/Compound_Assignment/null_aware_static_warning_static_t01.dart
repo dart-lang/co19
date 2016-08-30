@@ -12,13 +12,10 @@
  * @author sgrekhov@unipro.ru
  */
 class C {
-  static int v = null;
+  static List<int> v = null;
 }
 
 main() {
-  double e = 3.14;
-  try {
-    C.v ??= e;  /// static type warning
-  } catch (everything) {
-  }
+  List l = new List();
+  C.v ??= l;  /// static type warning
 }

@@ -12,10 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 main() {
-  double v = null;
-  int e = 1;
-  try {
-    v ??= e;  /// static type warning
-  } catch (everything) {
-  }
+  List<int> v = null;
+  List l = new List();
+  v ??= l;  /// static type warning
 }

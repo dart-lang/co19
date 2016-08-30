@@ -11,7 +11,7 @@
  *
  * @description Check that with errorAreFatal set to false the isolate is
  * only suspended on first error. The isolate is active.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -28,7 +28,8 @@ void entryPoint(SendPort sendPort) {
       }
   );
   sendPort.send("hello");
-  sendPort.send(", "+1); // cause an error that should suspend the isolate
+  // An error that should stop the isolate
+  sendPort.send(", "+1); /// static type warning
   sendPort.send("world");
 }
 
@@ -42,7 +43,7 @@ test() async {
   await for (var data in receivePort) {
     receivedData.add(data);
     Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
-    if (data=="finish") {
+    if (data == "finish") {
       receivePort.close();
       Expect.listEquals(["hello","finish"], receivedData);
       asyncEnd();

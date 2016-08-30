@@ -9,7 +9,6 @@
  * @description Checks that an additive expression of the form super op e2 is
  * equivalent to the method invocation super.op(e2).
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

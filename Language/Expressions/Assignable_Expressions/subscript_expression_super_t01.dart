@@ -9,7 +9,6 @@
  * @description Checks that an assignable expression of the form super[e2] is
  * equivalent to the method invocation super.[](e2).
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

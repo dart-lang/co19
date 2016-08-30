@@ -23,7 +23,7 @@
  * @description Checks that if entryPoint is some integer value, then type error
  * is arisen in checked mode or returned Future instance completes with error
  * otherwise
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -34,7 +34,7 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   asyncStart();
   try {
-    Isolate.spawn(1, "hello").then(
+    Isolate.spawn(1, "hello").then( /// static type warning
         (v) {
           Expect.fail("1, 'hello') is expected to fail");
         },

@@ -22,8 +22,6 @@
  * Note that there is no unary plus operator in dart.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {

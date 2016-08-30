@@ -27,7 +27,6 @@
  * @description Checks that super with an unconditionalAssignableSelector
  * can be used in the left hand side of an assignment.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {

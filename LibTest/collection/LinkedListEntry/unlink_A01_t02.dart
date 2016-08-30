@@ -27,5 +27,5 @@ main() {
   Expect.isNull(entry1.list);
   Expect.isNull(entry1.next);
   Expect.isNull(entry1.previous);
-  Expect.identical(entry1, list.first);
+  Expect.identical(entry2, list.first);
 }

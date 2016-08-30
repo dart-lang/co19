@@ -9,7 +9,6 @@
  * @description Checks that an additive expression of the form e1 op e2 is
  * equivalent to the method invocation e1.op(e2).
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

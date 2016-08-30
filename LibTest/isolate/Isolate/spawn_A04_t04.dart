@@ -11,7 +11,7 @@
  *
  * @description Check that with errorAreFatal set to false the isolate is
  * only suspended on any error. The isolate is active.
- *
+ * @static-warning
  * @issue #26652
  * @author a.semenov@unipro.ru
  */
@@ -25,26 +25,30 @@ void entryPoint(SendPort sendPort) {
   new Future.delayed(ONE_SECOND).then(
      (_) {
         sendPort.send("second");
-        sendPort.send(", "+2); // cause an error that should suspend the isolate
+        // An error that should stop the isolate
+        sendPort.send(", "+2); /// static type warning
         sendPort.send("attempt");
      }
   );
   new Future.delayed(TWO_SECONDS).then(
      (_) {
         sendPort.send("third");
-        sendPort.send(", "+3); // cause an error that should suspend the isolate
+        // An error that should stop the isolate
+        sendPort.send(", "+3); /// static type warning
         sendPort.send("attempt");
      }
   );
   new Future.delayed(THREE_SECONDS).then(
      (_) {
         sendPort.send("finish");
-        sendPort.send(", "+4); // cause an error that should suspend the isolate
+        // An error that should stop the isolate
+        sendPort.send(", "+4); /// static type warning
         sendPort.send("attempt");
      }
   );
   sendPort.send("hello");
-  sendPort.send(", "+1); // cause an error that should suspend the isolate
+  // An error that should stop the isolate
+  sendPort.send(", "+1); /// static type warning
   sendPort.send("world");
 }
 
@@ -58,7 +62,7 @@ test() async {
   await for (var data in receivePort) {
     receivedData.add(data);
     Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
-    if (data=="finish") {
+    if (data == "finish") {
       receivePort.close();
       Expect.listEquals(["hello","second","third","finish"], receivedData);
       asyncEnd();

@@ -24,10 +24,10 @@
  * • An invocation (possibly conditional) of a getter or list access operator
  *   on an expression e.
  * • An invocation of a getter or list access operator on super.
- * @description Checks that a type parameter can be used in the left hand side
- * of an assignment without a compile error.
+ * @description Checks that a type parameter can not be used in the left hand
+ * side of an assignment without a compile error.
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A<T> {
@@ -35,7 +35,6 @@ class A<T> {
     try {
       T = null;
     } catch (e) {
-     //  print("e=$e");
     }
   }
 }

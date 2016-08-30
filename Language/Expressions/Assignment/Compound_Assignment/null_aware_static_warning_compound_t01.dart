@@ -6,22 +6,20 @@
 /**
  * @assertion Exactly the same static warnings that would be caused by
  * e1.v op= e2 are also generated in the case of e1?.v op= e2.
- * @description Checks that if e1.v *= e causes warning then e1?.v *= e produces
+ * @description Checks that if e1.v = e causes warning then e1?.v = e produces
  * the same warning as well
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
 class C {
-  int v;
-  C(int val) {
-    v = val;
+  List<int> v;
+  C() {
+    v = new List<int>();
   }
 }
 
 main() {
-  C c = new C(1);
-  try {
-    c?.v *= "3.14";  /// static type warning
-  } catch (everything) {
-  }
+  C c = new C();
+  List l = new List();
+  c?.v = l;  /// static type warning
 }

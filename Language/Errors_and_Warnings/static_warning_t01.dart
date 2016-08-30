@@ -9,18 +9,15 @@
  * @description Checks that static warning has no effect on execution
  * @static-warning
  * @author sgrekhov@unipro.ru
+ * @issue 27161
  */
 import '../../Utils/expect.dart';
 
-class A {
-  int m() => 0;
-}
-
-class C extends A {
-  int m(int v) => v; /// static type warning
-}
-
 main() {
-  C c = new C();
-  Expect.equals(1, c.m(1));
+  List l = new List();
+  List<int> li = new List<int>();
+
+  li = l; /// static type warning
+
+  Expect.isTrue(true);
 }

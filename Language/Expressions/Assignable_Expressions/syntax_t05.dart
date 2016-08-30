@@ -28,7 +28,6 @@
  * be used with assignableSelector in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
