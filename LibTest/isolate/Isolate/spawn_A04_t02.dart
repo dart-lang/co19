@@ -11,7 +11,7 @@
  *
  * @description Check that with errorAreFatal set to true the isolate is
  * terminated on first error. The isolate is passive.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -26,7 +26,8 @@ void entryPoint(List message) {
   receivePort.listen(
      (data) {
         sendPort.send(data);
-        sendPort.send(", "+1); // cause an error that should stop the isolate
+        // An error that should stop the isolate
+        sendPort.send(", "+1); /// static type warning
         sendPort.send("hello");
      }
   );

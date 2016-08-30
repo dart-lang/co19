@@ -12,7 +12,7 @@
  * @description Check that if onError parameter is supplied, the isolate
  * captures and sends all errors on given send port, errorAreFatal is false.
  * The isolate is passive.
- *
+ * @static-warning
  * @issue #26652
  * @author a.semenov@unipro.ru
  */
@@ -24,7 +24,7 @@ import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen( (_) => "a" + 1 );
+  receivePort.listen( (_) => "a" + 1 ); /// static type warning
   sendPort.send(receivePort.sendPort);
 }
 test() async {
@@ -41,14 +41,14 @@ test() async {
 
   int count = 0;
   await for (var error in errorPort) {
-//    print(error);
-    Expect.isTrue(count<5, "received unexpected data: $error");
+
+    Expect.isTrue(count < 5, "received unexpected data: $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);
     Expect.isTrue(error[0] is String);
     Expect.isTrue(error[1] is String);
     count++;
-    if (count==5) {
+    if (count == 5) {
       new Future.delayed(TWO_SECONDS, () => errorPort.close());
     } else {
       sendPort.send("test");

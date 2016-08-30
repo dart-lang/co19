@@ -11,7 +11,7 @@
  *
  * @description Check that if onExit parameter is supplied, the isolate sends
  * null value on given send port. The isolate is terminated with error.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(message) {
-  var x = "a" + 1;
+  var x = "a" + 1; /// static type warning
 }
 
 main() {

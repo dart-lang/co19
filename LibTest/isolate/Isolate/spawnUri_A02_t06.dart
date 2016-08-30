@@ -33,7 +33,7 @@
  * @description Checks that if uri is an integer, then spawnUri throws an
  * exception in checked mode or returned Future instance is completed with
  * error.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -44,7 +44,7 @@ import "../../../Utils/dynamic_check.dart";
 main() {
   asyncStart();
   try {
-    Isolate.spawnUri(1, ["hello"], "world").then(
+    Isolate.spawnUri(1, ["hello"], "world").then( /// static type warning
         (v) {
           Expect.fail("Isolate.spawnUri(1, ['hello'], 'world') should fail");
         },

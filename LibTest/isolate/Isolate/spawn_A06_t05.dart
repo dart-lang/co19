@@ -12,7 +12,7 @@
  * @description Check that if onError parameter is supplied, the isolate
  * captures and send only first error on given send port, errorAreFatal is true.
  * The isolate is active.
- *
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -22,10 +22,14 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(message) {
-  new Future.delayed(ONE_SECOND, () => "b" + 2 ); // second error
-  new Future.delayed(TWO_SECONDS, () => "c" + 3 ); // third error
-  new Future.delayed(THREE_SECONDS, () => "d" + 4 ); // fourth error
-  var x = "a" + 1; // first error
+  // second error
+  new Future.delayed(ONE_SECOND, () => "b" + 2 ); /// static type warning
+  // third error
+  new Future.delayed(TWO_SECONDS, () => "c" + 3 ); /// static type warning
+  // fourth error
+  new Future.delayed(THREE_SECONDS, () => "d" + 4 ); /// static type warning
+  // first error
+  var x = "a" + 1; /// static type warning
 }
 
 test() async {
@@ -39,7 +43,7 @@ test() async {
 
   int count = 0;
   await for (var error in errorPort) {
-//    print(error);
+
     Expect.equals(0, count, "received unexpected data $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);
@@ -50,7 +54,6 @@ test() async {
   }
   asyncEnd();
 }
-
 
 main() {
   asyncStart();
