@@ -23,7 +23,7 @@
  * @description Checks that if entryPoint is top level function without
  * arguments, then type error is arisen in checked mode or returned
  * Future instance completes with error otherwise
- *
+ * @static-warning
  * @issue #26588
  * @author a.semenov@unipro.ru
  */
@@ -39,7 +39,7 @@ entryPointNoArgs() {
 main() {
   asyncStart();
   try {
-    Isolate.spawn(entryPointNoArgs, "hello").then(
+    Isolate.spawn(entryPointNoArgs, "hello").then( /// static type warning
         (v) {
           Expect.fail("Isolate.spawn(entryPointNoArgs, 'hello') is expected to fail");
         },

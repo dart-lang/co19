@@ -12,7 +12,7 @@
  * @description Check that if onError parameter is supplied, the isolate
  * captures and sends all errors on given send port, errorAreFatal is false.
  * The isolate is active.
- *
+ * @static-warning
  * @issue #26652
  * @author a.semenov@unipro.ru
  */
@@ -23,11 +23,15 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(message) {
-  new Future.delayed(ONE_SECOND, () => "b" + 2 ); // second error
-  new Future.delayed(TWO_SECONDS, () => "c" + 3 ); // third error
-  new Future.delayed(THREE_SECONDS, () => "d" + 4 ); // fourth error
+  // second error
+  new Future.delayed(ONE_SECOND, () => "b" + 2 ); /// static type warning
+  // third error
+  new Future.delayed(TWO_SECONDS, () => "c" + 3 ); /// static type warning
+  // fourth error
+  new Future.delayed(THREE_SECONDS, () => "d" + 4 ); /// static type warning
 
-  var x = "a" + 1; // first error
+  // first error
+  var x = "a" + 1; /// static type warning
 }
 
 test() async {
@@ -40,14 +44,14 @@ test() async {
   );
   int count = 0;
   await for (var error in errorPort) {
-//    print(error);
-    Expect.isTrue(count<4, "received unexpected data: $error");
+
+    Expect.isTrue(count < 4, "received unexpected data: $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);
     Expect.isTrue(error[0] is String);
     Expect.isTrue(error[1] is String);
     count++;
-    if (count==4){
+    if (count == 4){
       new Future.delayed(TWO_SECONDS, () => errorPort.close());
     }
   }
