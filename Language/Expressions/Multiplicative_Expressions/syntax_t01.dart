@@ -21,7 +21,6 @@
  * argument e2.
  * @description  Checks that various expressions that fit into this grammar
  * don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -44,39 +43,39 @@ class A extends S {
 
   test() {
     //super
-    try {super * 1;} catch (ok) {}
-    try {super / true;} catch (ok) {}
-    try {super % new S();} catch (ok) {}
-    try {super ~/ [1][0]++;} catch (ok) {}
+    super * 1;
+    super / true;
+    super % new S();
+    super ~/ [1][0]++;
 
     // chaining
-    try {super * 1 / 2 % 3 ~/ 4 % 5 / 6 * 7;} catch (ok) {}
+    super * 1 / 2 % 3 ~/ 4 % 5 / 6 * 7; /// 01: runtime error
 
     //literals with selectors
-    try {null * "string"; } catch (e) {}
-    try {this.id * (true(1, 2).val / 1[1]); } catch (e) {} /// static type warnings galore
-    try {1(1, 2)[3] * (null(1, []).val / (1.x % {}["s"])); } catch (e) {}
-    try {"s" * (true / (2 % ([]() ~/ {}))); } catch (e) {}
+    null * "string"; /// 02: runtime error
+    this.id * (true(1, 2).val / 1[1]); /// 03: static type warning, runtime error
+    1(1, 2)[3] * (null(1, []).val / (1.x % {}["s"])); /// 04: static type warning, runtime error
+    "s" * (true / (2 % ([]() ~/ {}))); /// 05: static type warning, runtime error
 
     //constants
-    try {const [] * const [1];} catch (e) {}
-    try {const {} % const [];} catch (e) {}
-    try {const [1, 2, 3] / const {"1": 1} ~/ const S();} catch (e) {}
+    const [] * const [1]; /// 06: static type warning, runtime error
+    const {} % const []; /// 07: static type warning, runtime error
+    const [1, 2, 3] / const {"1": 1} ~/ const S(); /// 08: static type warning, runtime error
 
     //invocations
-    try {method() * topLevelFunction();} catch (e) {}
-    try {this.method()(1)(1, 2) / id[0]().x;} catch (e) {}
-    try {id % topLevelFunction().x;} catch (e) {}
-    try {method(this) ~/ id[1]();} catch (e) {}
+    method() * topLevelFunction(); /// 09: runtime error
+    this.method()(1)(1, 2) / id[0]().x; /// 10: runtime error
+    id % topLevelFunction().x; /// 11: runtime error
+    method(this) ~/ id[1](); /// 12: static type warning, runtime error
 
     //unary expressions
-    try {-this * ~this;} catch (e) {}
-    try {--id / id++;} catch (e) {}
-    try {~-id % !!false;} catch (e) {}
-    try {++1[1] ~/ ()=>2[0]--;} catch (e) {}
+    -this * ~this; /// 13: static type warning, runtime error
+    --id / id++; /// 14: runtime error
+    ~-id % !!false; /// 15: runtime error
+    ++1[1] ~/ ()=>2[0]--; /// 16: static type warning, runtime error
 
     //identifier and chaining
-    try {id * id / id % id ~/ id; } catch (e) {}
+    id * id / id % id ~/ id; /// 17: runtime error
   }
 
   var _id;

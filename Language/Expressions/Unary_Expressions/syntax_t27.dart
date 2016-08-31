@@ -31,7 +31,6 @@
  * unary operator on either super or an expression e.
  * @description Checks that expressions with a prefix operator which fit into
  * this production don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -48,61 +47,61 @@ class A extends S {
   test() {
     //prefixOperator postfixExpression
     -x--;
-    try {!x++;} catch (e) {}
+    !x++; /// 01: dynamic type error
     ~x--;
 
     //combination of prefix and increment operator
-    try {- --x;} catch (e) {}
-    try {!--x;} catch (e) {}
-    try {~--x;} catch (e) {}
-    try {-++x;} catch (e) {}
-    try {~++x;} catch (e) {}
+    - --x;
+    !--x; /// 02: dynamic type error
+    ~--x;
+    -++x;
+    ~++x;
 
     //prefixOperator postfixExpression>primary>identifier
     -x;
     ~x;
     ~~x;
-    try {!x;} catch (e) {}
-    try {!~x;} catch (e) {}
-    try {~!x;} catch (e) {} /// static type warnings galore
+    !x; /// 03: dynamic type error
+    !~x; /// 04: dynamic type error
+    ~!x; /// 05: static type warning, runtime error
 
     //prefix operators with literals
-    try {-1;} catch (e) {}
-    try {~2;} catch (e) {}
-    try {!3;} catch (e) {}
+    -1;
+    ~2;
+    !3; /// 06: static type warning, dynamic type error
 
-    try {-null;} catch (e) {}
-    try {~null;} catch (e) {}
-    try {!null;} catch (e) {}
+    -null; /// 07: runtime error
+    ~null; /// 08: runtime error
+    !null; /// 09: dynamic type error
 
-    try {-this;} catch (e) {}
-    try {~this;} catch (e) {}
-    try {!this;} catch (e) {}
+    -this;
+    ~this; /// 10: static type warning, runtime error
+    !this; /// 11: static type warning, dynamic type error
 
-    try {-true;} catch (e) {}
+    -true; /// 12: static type warning, runtime error
     !!false;
     !!!true;
     !!!!false;
     !!!!!!true;
-    try {~true;} catch (e) {}
+    ~true; /// 13: static type warning, runtime error
 
-    try {-[];} catch (e) {}
-    try {~{"1": 1};} catch (e) {}
-    try {!const [1];} catch (e) {}
+    -[]; /// 14: static type warning, runtime error
+    ~{"1": 1}; /// 15: static type warning, runtime error
+    !const [1]; /// 16: static type warning, dynamic type error
 
-    try {-"s";} catch (e) {}
-    try {~"t";} catch (e) {}
-    try {!"r";} catch (e) {}
+    -"s"; /// 17: static type warning, runtime error
+    ~"t"; /// 18: static type warning, runtime error
+    !"r"; /// 19: static type warning, dynamic type error
 
     //prefix operators with various expressions
-    try {-(){}[0];} catch (e) {}
-    try {! new S();} catch (e) {}
-    try {~(1 + 2);} catch (e) {}
+    -(){}[0]; /// 20: static type warning, runtime error
+    ! new S(); /// 21: static type warning, dynamic type error
+    ~(1 + 2);
 
     // super with selector
-    try {-super[0];} catch (ok) {}
-    try {~super.x;} catch (ok) {}
-    try {!super[0];} catch (ok) {}
+    -super[0];
+    ~super.x;
+    !super[0]; /// 22: dynamic type error
   }
 }
 

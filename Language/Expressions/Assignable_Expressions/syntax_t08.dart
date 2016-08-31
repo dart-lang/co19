@@ -32,11 +32,7 @@
 
 class A<T> {
   test() {
-    try {
-      T = null;
-    } catch (e) {
-     //  print("e=$e");
-    }
+    T = null; /// 01: runtime error
   }
 }
 

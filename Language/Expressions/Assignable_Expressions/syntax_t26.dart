@@ -26,13 +26,12 @@
  * • An invocation of a getter or list access operator on super.
  * @description Checks that expressions that fits into this grammar
  * can be used in the left hand side of an assignment.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 main() {
   //functionExpression
-  try { () {}[0] = null; } catch (e) {} /// static type warning - no such method/operator, see "Ordinary invocation"
-  try { () {}.x = null; } catch (e) {} /// static type warning - no such member (supposedly setter, see "Assignment")
+  () {}[0] = null;  /// 01: static type warning, runtime error
+  () {}.x = null;  /// 02: static type warning, runtime error
 }
