@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 class CustomIterator<T> implements Iterator<T> {
-  CustomIterator(List list)
+  CustomIterator(List<T> list)
   :_array = list, _length = list.length, _pos = -1 { }
   
   bool moveNext() {

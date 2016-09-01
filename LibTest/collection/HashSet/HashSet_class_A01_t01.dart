@@ -12,7 +12,7 @@
 import "dart:collection";
 import "inherited_tests.lib.dart" as libSet;
 
-Iterable create([Iterable content]) {
+Set create([Iterable content]) {
   if (content == null) {
     return new HashSet();
   } else {

@@ -18,7 +18,7 @@ import "LinkedList.lib.dart";
 bool isOne (MyLinkedListEntry element) => element.value==1;
 
 main() {
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   Expect.isFalse(list.any(isOne));
   list.add(new MyLinkedListEntry(2));
   Expect.isFalse(list.any(isOne));

@@ -10,12 +10,12 @@
  * @description Checks that the test method is not called when the skipWhile is executed.
  * @author kaigorodov
  */
-import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 bool test(var value) {
   Expect.fail("test($value) called");
+  return false;
 }
 
 void check(List a0) {

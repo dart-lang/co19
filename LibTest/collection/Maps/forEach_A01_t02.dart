@@ -5,14 +5,13 @@
  */
 /**
  * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Checks that something is thrown when the argument is null or
- * has a type that is incompatible with the required function type.
- * @static-warning
+ * @description Checks that something is thrown when the argument is null.
+ * Compiler error appears in strong mode if it has a type that is incompatible
+ * with the required function type.
  * @author msyabro
  * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
-import "../../../Utils/dynamic_check.dart";
 import "dart:collection";
 
 main() {
@@ -22,5 +21,4 @@ main() {
   map["2"] = 5;
   
   Expect.throws(() => Maps.forEach(map, null));
-  Expect.throws(() => Maps.forEach(map, 1)); /// static type warning
 }

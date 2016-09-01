@@ -11,16 +11,14 @@
  * @description checks that some error is thrown if n is negative.
  * @author kaigorodov
  */
-import "dart:math" as Math;
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 check(List a0, int n) {
   LinkedList<MyLinkedListEntry<int>> a=toLinkedList(a0);
-  Iterable res;
   Expect.throws(() {
-      res=a.take(n);
+      a.take(n);
     }
   );
 }

@@ -18,8 +18,7 @@ import "LinkedList.lib.dart";
 
 var noneMatches=new Object();
 
-void check(LinkedList a, var element) {
-  bool failed=false;
+void check(LinkedList<MyLinkedListEntry> a, var element) {
   Expect.throws(() {
       a.lastWhere((MyLinkedListEntry entry)=>entry.value==element);
     },

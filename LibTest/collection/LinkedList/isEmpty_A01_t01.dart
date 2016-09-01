@@ -11,7 +11,6 @@
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
-import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {

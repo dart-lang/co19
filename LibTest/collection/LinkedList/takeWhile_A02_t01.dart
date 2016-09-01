@@ -15,6 +15,7 @@ import "LinkedList.lib.dart";
 
 bool test(MyLinkedListEntry<int> entry) {
   Expect.fail("test(${entry.value}) called");
+  return false;
 }
 
 void check(List a0) {

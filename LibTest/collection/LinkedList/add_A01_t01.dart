@@ -6,8 +6,8 @@
 /**
  * @assertion void add(E entry)
  * Add entry to the end of the list.
- * @description Checks extendable lists, that [value] is added to the end of the list
- * and the length is extended by one.
+ * @description Checks extendable lists, that [value] is added to the end of the
+ * list and the length is extended by one.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -18,7 +18,7 @@ main() {
   LinkedList a = new LinkedList();
   for (var i = 0; i <= 314; i++) {
     a.add(new MyLinkedListEntry(i));
-    Expect.equals(i, a.elementAt(i).value);
+    Expect.equals(i, (a.elementAt(i) as MyLinkedListEntry).value);
     Expect.equals(i+1, a.length);
   }
 

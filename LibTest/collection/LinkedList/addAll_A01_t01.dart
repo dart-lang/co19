@@ -25,28 +25,28 @@ main() {
   }
   Expect.isFalse(ita.moveNext());
   
-  a = new LinkedList();
-  Set set = new Set();
+  a = new LinkedList<MyLinkedListEntry>();
+  Set<MyLinkedListEntry> set = new Set<MyLinkedListEntry>();
   set.addAll([1, 2, 3, 4, 5].map((var element)=>new MyLinkedListEntry(element)));
   a.addAll(set);
   contentEquals(set.map((MyLinkedListEntry entry)=>entry.value), a);
   
-  a = new LinkedList();
-  Queue list = new Queue();
+  a = new LinkedList<MyLinkedListEntry>();
+  Queue<MyLinkedListEntry> list = new Queue<MyLinkedListEntry>();
   list.addLast(new MyLinkedListEntry(1));
   list.addLast(new MyLinkedListEntry(2));
   a.addAll(list);
   contentEquals([1, 2], a);
   
-  a = new LinkedList();
+  a = new LinkedList<MyLinkedListEntry>();
   a.addAll([]);
   contentEquals([], a);
   
-  a = new LinkedList();
+  a = new LinkedList<MyLinkedListEntry>();
   a.addAll(new Queue());
   contentEquals([], a);
   
-  a = new LinkedList();
+  a = new LinkedList<MyLinkedListEntry>();
   a.addAll(new Set());
   contentEquals([], a);
 }

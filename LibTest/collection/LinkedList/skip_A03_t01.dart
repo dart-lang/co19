@@ -17,9 +17,8 @@ import "LinkedList.lib.dart";
 
 check(List a0, int n) {
   LinkedList<MyLinkedListEntry> a=toLinkedList(a0);
-  Iterable res;
   Expect.throws(() {
-      res=a.skip(n);
+      a.skip(n);
     },
     (e) => e is RangeError
   );

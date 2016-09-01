@@ -12,7 +12,6 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {

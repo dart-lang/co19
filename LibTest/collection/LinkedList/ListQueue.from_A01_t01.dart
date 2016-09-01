@@ -38,7 +38,6 @@ void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {
 main() {
   LinkedList<MyLinkedListEntry<int>> a0=toLinkedList([1,3,7,4,5,6,1]);
   check(a0, (int element)=>element==1);
-  return;
   check(a0, (int element)=>true);
   check(a0, (int element)=>false);
   check(a0, (int element)=>element>4);

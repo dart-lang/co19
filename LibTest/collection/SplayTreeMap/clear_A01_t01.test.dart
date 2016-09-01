@@ -13,7 +13,7 @@ library clear_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
 
   map.clear(); //Check that empty map can be cleared
   Expect.isTrue(map.length == 0);

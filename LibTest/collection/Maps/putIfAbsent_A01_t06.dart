@@ -18,10 +18,7 @@ import "dart:collection";
 
 
 main() {
-  Object putIfAbsent() {
-    return new Object();
-  }
-  
+
   Map<String, Object> map = new Map<String, Object>();
   
   Expect.throws(() {

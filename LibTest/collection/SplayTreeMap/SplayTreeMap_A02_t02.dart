@@ -24,8 +24,8 @@ class C implements Comparable {
   int value;
   C(this.value);
 
-  compareTo(C other) {
-    return this.value - other.value;
+  compareTo(Object other) {
+    return this.value - (other as C).value;
   }
 }
 
