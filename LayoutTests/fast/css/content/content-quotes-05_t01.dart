@@ -9,7 +9,6 @@
 import "dart:html";
 import "../../../testcommon.dart";
 import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -44,7 +43,12 @@ main() {
     document.body.setAttribute("class", "myQuotes");
     var testWidth = getComputedStyle(document.getElementById("testContainer"), null).getPropertyValue("width");
     var referenceWidth = getComputedStyle(document.getElementById("reference"), null).getPropertyValue("width");
-    shouldBe(testWidth, referenceWidth);
+    // allow 1px error
+    testWidth = testWidth.replaceAll("px", "");
+    referenceWidth = referenceWidth.replaceAll("px", "");
+    int test = double.parse(testWidth).round();
+    int reference = double.parse(referenceWidth).round();
+    shouldBeApprox(test, reference, 1);
     asyncEnd();
   }
 
