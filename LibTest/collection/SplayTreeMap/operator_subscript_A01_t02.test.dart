@@ -13,7 +13,7 @@ library operator_subscript_A01_t02;
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   Expect.throws(() {
     map[null] = "value";
   });

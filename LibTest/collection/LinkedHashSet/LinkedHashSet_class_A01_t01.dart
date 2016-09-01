@@ -12,7 +12,7 @@
 import "dart:collection";
 import "../HashSet/inherited_tests.lib.dart";
 
-Iterable create([Iterable content]) {
+Set create([Iterable content]) {
   LinkedHashSet res = new LinkedHashSet();
   if (content != null) {
     res.addAll(content);

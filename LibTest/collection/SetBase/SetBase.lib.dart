@@ -26,7 +26,7 @@ class SetBaseImpl<E> extends SetBase<E> {
 
   bool contains(Object element) => _set.contains(element);
 
-  E lookup(E element) => _set.lookup(element);
+  E lookup(Object element) => _set.lookup(element);
 
   bool remove(Object element) => _set.remove(element);
 

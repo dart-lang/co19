@@ -19,7 +19,7 @@ import "dart:collection";
 
 class C {
   int get hashCode => 1;
-  bool operator ==(C c) {
+  bool operator ==(Object c) {
     return true;
   }
 }
