@@ -42,8 +42,9 @@ test() async {
   List receivedData = [];
   await for (var data in receivePort) {
     receivedData.add(data);
-    Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
-    if (data == "finish") {
+    if (data=="hello") {
+      Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
+    } else if (data == "finish") {
       receivePort.close();
       Expect.listEquals(["hello","finish"], receivedData);
       asyncEnd();
