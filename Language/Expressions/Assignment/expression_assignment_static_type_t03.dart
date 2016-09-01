@@ -8,10 +8,9 @@
  * of e2
  * @description Checks that static type of the expression e1.v = e2 is the
  * static type of e2. Test the case when e1 an instance of some class
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
 
 class A {}
 
@@ -20,7 +19,5 @@ class C {
 }
 
 main() {
-  checkTypeError(() {
-    C y = (C.v = new A()); /// static type warning
-  });
+  C y = (C.v = new A());
 }

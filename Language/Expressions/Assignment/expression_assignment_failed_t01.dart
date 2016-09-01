@@ -22,7 +22,6 @@
  * argument if there is no setter for v in o1.
  * @static-warning
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

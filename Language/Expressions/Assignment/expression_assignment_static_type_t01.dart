@@ -8,7 +8,7 @@
  * of e2
  * @description Checks that static type of the expression e1.v = e2 is the
  * static type of e2. Test the case when e1 is a constant type literal
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 import '../../../Utils/dynamic_check.dart';
@@ -20,7 +20,5 @@ class C {
 }
 
 main() {
-  checkTypeError(() {
-    C y = (C.v = new D()); /// static type warning
-  });
+    C y = (C.v = new D());
 }
