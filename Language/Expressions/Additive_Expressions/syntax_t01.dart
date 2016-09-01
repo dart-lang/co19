@@ -18,7 +18,6 @@
  * argument e2.
  * @description Checks that various expressions fitted into this grammar don't
  * cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -41,41 +40,41 @@ class A extends S {
 
   test() {
     //super is a primary
-    try {super + 0;} catch (e) {}
-    try {super - super[0];} catch (e) {}
-    try {super + super.foo - [0][1][2][3]; } catch (e) {}
+    super + 0;
+    super - super[0];
+    super + super.foo - [0][1][2][3]; /// 01: runtime error
 
     // chaining
-    try {super + 0 - 1 + {} - null;} catch (e) {}
-    try {0 - 1 + {} - null;} catch (e) {} /// static type warnings galore
+     super + 0 - 1 + {} - null; /// 02: runtime error
+    0 - 1 + {} - null; /// 03: static type warning, runtime error
 
     // (...)
-    try {(this) + (1 ^ 0 & 4) - (1 <= 0);} catch (e) {}
+    (this) + (1 ^ 0 & 4) - (1 <= 0); /// 04: runtime error
 
     //literals with selectors
-    try {null + 5(); } catch (e) {}
-    try {true[0] + "x".x - [[[0]]].y; } catch (e) {}
+    null + 5(); /// 05: static type warning, runtime error
+    true[0] + "x".x - [[[0]]].y; /// 06: static type warning, runtime error
 
     //constants
-    try {const [] + const {};} catch (e) {}
-    try {const ["1", 2] - const S();} catch (e) {}
+    const [] + const {};  /// 07: static type warning, runtime error
+    const ["1", 2] - const S(); /// 08: static type warning, runtime error
 
     //invocations
-    try {method() + topLevelFunction();} catch (e) {}
-    try {this.method()(1)(1, 2) - id[0]().x;} catch (e) {}
+    method() + topLevelFunction(); /// 09: runtime error
+    this.method()(1)(1, 2) - id[0]().x; /// 10: runtime error
 
     //multiplicative expressions
-    try {true * false + id.id / []();} catch (e) {}
-    try {this[1] % null(1) - topLevelFunction()[0]++ ~/ {}()[0];} catch (e) {}
+    true * false + id.id / [](); /// 10: static type warning, runtime error
+    this[1] % null(1) - topLevelFunction()[0]++ ~/ {}()[0]; /// 10: static type warning, runtime error
 
     //unary expressions
-    try {-this + ~this;} catch (e) {}
-    try {--id - id++;} catch (e) {}
-    try {~-id + !!false;} catch (e) {}
-    try {++1[1] - ()=>2[0]--;} catch (e) {}
+    -this + ~this; /// 11: static type warning, runtime error
+    --id - id++;  /// 12: runtime error
+    ~-id + !!false;  /// 13: runtime error
+    ++1[1] - ()=>2[0]--;  /// 14: static type warning, runtime error
 
     //identifier
-    try {id + id - id;} catch (e) {}
+    id + id - id;  /// 15: runtime error
   }
 
   var _id;

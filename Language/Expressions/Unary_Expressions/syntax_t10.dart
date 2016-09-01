@@ -31,7 +31,6 @@
  * unary operator on either super or an expression e.
  * @description Checks that unary expressions of the form
  * [incrementOperator assignableExpression] don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -60,71 +59,71 @@ class A  extends S{
     //invocation of a method, getter or list access operator on an expression e.
 
     //thisExpression
-    try { --this[0]; } catch (e) {}
-    try { ++this.x;  } catch (e) {}
+    --this[0];
+    ++this.x;
 
     //functionExpression
-    try { ++() {} [0]; } catch (e) {} /// static type warnings galore
-    try { --() {}.x; } catch (e) {}
+    ++() {} [0]; /// 01: static type warning, runtime error
+    --() {}.x; /// 02: static type warning, runtime error
 
     //nullLiteral
-    try { --null["key"]; } catch (e) {}
-    try { ++null.x; } catch (e) {}
+    --null["key"]; /// 03: runtime error
+    ++null.x; /// 04: runtime error
 
     //booleanLiteral
-    try {++true[1];} catch (e) {}
-    try {--true.t;} catch (e) {}
+    ++true[1]; /// 05: static type warning, runtime error
+    --true.t; /// 06: static type warning, runtime error
 
     //numericLiteral
-    try {--1[1];} catch (e) {}
-    try {++1.num;} catch (e) {}
+    --1[1]; /// 07: static type warning, runtime error
+    ++1.num; /// 08: static type warning, runtime error
 
     //stringLiteral
-    try {++"s"["s"];} catch (e) {}
-    try {--"".c;} catch (e) {}
+    ++"s"["s"]; /// 09: static type warning, runtime error
+    --"".c; /// 10: static type warning, runtime error
 
     //mapLiteral
-    try { ++{"1" : 1, "2" : 2}["1"]; } catch (e) {}
-    try { --{"1" : 1, "2" : 2}.prop; } catch (e) {}
+    ++{"1" : 1, "2" : 2}["1"];
+    --{"1" : 1, "2" : 2}.prop; /// 11: static type warning, runtime error
 
     //listLiteral
-    try { ++[0, 1, 2, 3][1]; } catch (e) {}
-    try { --[].a; } catch (e) {}
+    ++[0, 1, 2, 3][1];
+    --[].a; /// 12: static type warning, runtime error
 
     //identifier
-    try { ++id["id"];} catch (e) {}
-    try { --id.id;} catch (e) {}
+    ++id["id"]; /// 13: runtime error
+    --id.id; /// 14: runtime error
 
     //newExpression
-    try { --new A()[0];} catch (e) {}
-    try { ++new A().x;} catch (e) {}
+    --new A()[0];
+    ++new A().x;
 
     //constantObjectExpression
-    try { --const [1, 2, 3][0];} catch (e) {}
-    try { ++const {"1":1}.x;} catch (e) {}
+    --const [1, 2, 3][0]; /// 15: runtime error
+    ++const {"1":1}.x; /// 16: static type warning, runtime error
 
     //functionInvocation
-    try { ++topLevelFunction()[0];} catch (e) {}
-    try { --topLevelFunction().x;} catch (e) {}
+    ++topLevelFunction()[0]; /// 17: static type warning, runtime error
+    --topLevelFunction().x; /// 18: static type warning, runtime error
 
     //methodInvocation
-    try { ++this.method()[1]; } catch (e) {}
-    try { --this.method().x; } catch (e) {}
+    ++this.method()[1]; /// 19: runtime error
+    --this.method().x; /// 20: runtime error
 
     //(...)
-    try { ++(id = 2)[0];} catch (e) {}
-    try { --(id += 1).x;} catch (e) {}
-    try { --(super.x)[0];} catch (e) {}
-    try { ++(true ? 1 : 2)[1];} catch (e) {}
-    try { --(true || false)[0];} catch (e) {}
-    try { ++(id & 1)[0];} catch (e) {}
-    try { ++(1 == 1)[0];} catch (e) {}
-    try { --(2 <= 3).x;} catch (e) {}
-    try { ++(1 << 1)[0];} catch (e) {}
-    try { ++(0 + 0)[0];} catch (e) {}
-    try { --(1 * 5)[4];} catch (e) {}
-    try { ++(id++)[0];} catch (e) {}
-    try { ++(1 is int)[0];} catch (e) {}
+    ++(id = 2)[0]; /// 21: static type warning, runtime error
+    --(id += 1).x; /// 22: runtime error
+    --(super.x)[0]; /// 23: runtime error
+    ++(true ? 1 : 2)[1]; /// 24: static type warning, runtime error
+    --(true || false)[0]; /// 25: static type warning, runtime error
+    ++(id & 1)[0]; /// 26: runtime error
+    ++(1 == 1)[0]; /// 27: static type warning, runtime error
+    --(2 <= 3).x; /// 28: static type warning, runtime error
+    ++(1 << 1)[0]; /// 29: static type warning, runtime error
+    ++(0 + 0)[0]; /// 30: static type warning, runtime error
+    --(1 * 5)[4]; /// 31: static type warning, runtime error
+    ++(id++)[0]; /// 32: runtime error
+    ++(1 is int)[0]; /// 33: static type warning, runtime error
 
   }
   var id;

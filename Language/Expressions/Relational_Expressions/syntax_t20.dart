@@ -20,7 +20,6 @@
  * a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a type alias declaration can be used
  * as the first operand in a relational expression without a compile error.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -28,7 +27,5 @@
 typedef void proc();
 
 main() {
-  try {
-    proc <= 1; /// static type warning - no such method/operator, see "Ordinary invocation"
-  } catch (e) {} // supposedly NSME
+  proc <= 1; /// 01: static type warning, runtime error
 }

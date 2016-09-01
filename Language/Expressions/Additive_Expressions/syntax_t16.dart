@@ -26,5 +26,5 @@
 
 main() {
   var foo;
-  try {1 + foo = 2;} catch (ok) {}
+  1 + foo = 2;
 }

@@ -12,7 +12,6 @@
  * ;
  * @description Checks that various expressions fitted into this grammar
  * don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -29,53 +28,53 @@ class A {
 
   test() {
     //literals
-    try { 1 ? "" : true;} catch (e) {} /// static type warnings galore
-    try { null ? [1, 2, 3] : {"1" : 2, "3" : 4};} catch (e) {}
+    1 ? "" : true; /// 01: static type warning, dynamic type error
+    null ? [1, 2, 3] : {"1" : 2, "3" : 4}; /// 02: dynamic type error
 
     //function expressions
-    try {() => 1 ? (int x) {return 1;} : () {};} catch (e) {}
+    () => 1 ? (int x) {return 1;} : () {}; /// 14: static type warning
 
     //constants and instance creation
-    try { const [] ? const S() : new S();} catch (e) {}
+    const [] ? const S() : new S(); /// 03: static type warning, dynamic type error
 
     //invocations
-    try { id ? topLevelFunction() : this.method();} catch (e) {}
+    id ? topLevelFunction() : this.method(); /// 04: dynamic type error
 
     //assignment
-    try {id = (2[0] = 2[1]) ? 3(3).x += 7 : id;} catch (e) {}
+    id = (2[0] = 2[1]) ? 3(3).x += 7 : id; /// 05: static type warning, runtime error
 
     //conditional
-    try { (1 ? 2 : 3) ? 4 ? 5 : 6 : 7 ? 8 : 9;} catch (e) {}
+    (1 ? 2 : 3) ? 4 ? 5 : 6 : 7 ? 8 : 9; /// 06: static type warning, dynamic type error
 
     //logical boolean expressions
-    try { (true || false) ? false && true : true || false;} catch (e) {}
+    (true || false) ? false && true : true || false;
 
     //bitwise expressions
-    try { (1 | 2) ? "" ^ [] : () {} & this;} catch (e) {}
+    (1 | 2) ? "" ^ [] : () {} & this;  /// 07: static type warning, runtime error
 
     //equality
-    try { (identical(1, 1)) ? !identical(1, 2) : 1 == 2;} catch (e) {}
+    (identical(1, 1)) ? !identical(1, 2) : 1 == 2;
 
     //relational expressions
-    try { (1 > 3) ? "2" < '7' : [1] >= [2];} catch (e) {}
+    (1 > 3) ? "2" < '7' : [1] >= [2]; /// 08: static type warning, runtime error
 
     //shift
-    try { (1 >> 1) ? true << false : false >> true;} catch (e) {}
+    (1 >> 1) ? true << false : false >> true; /// 09: static type warning, runtime error
 
     //additive expressions
-    try {(1e10 + -0.5) ? [] - [] : {} + {};} catch (e) {}
+    (1e10 + -0.5) ? [] - [] : {} + {}; /// 10: static type warning, runtime error
 
     //multiplicative expressions
-    try {(true*false) ? 7 / 8 : new A() % const S(); } catch (e) {}
+    (true*false) ? 7 / 8 : new A() % const S(); /// 11: static type warning, runtime error
 
     //unary expressions
-    try { id++ ? !!!false : -~-~-~true;} catch (e) {}
+    id++ ? !!!false : -~-~-~true; /// 12: static type warning, runtime error
 
     //type test
-    try {(true is bool) ? 1 is int : null is! Object;} catch (e) {}
+    (true is bool) ? 1 is int : null is! Object;
 
     //identifier
-    try {id ? id : id;} catch (e) {}
+    id ? id : id;  /// 13: dynamic type error
   }
 }
 

@@ -26,7 +26,6 @@
  * • An invocation of a getter or list access operator on super.
  * @description Checks that expressions that fits into this grammar
  * can be used in the left hand side of an assignment.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @note the test split into t01, t026, and t027
@@ -42,92 +41,92 @@ class A {
   method() {}
   test() {
     //thisExpression
-    try { this[0] = null; } catch (e) {} /// static type warnings galore
-    try { this.x = null;  } catch (e) {}
+    this[0] = null; /// 01: static type warning, runtime error
+    this.x = null; /// 02: static type warning, runtime error
 
     //nullLiteral
-    try { null["key"] = null; } catch (e) {}
-    try { null.x = null; } catch (e) {}
+    null["key"] = null; /// 03: runtime error
+    null.x = null; /// 04: runtime error
 
     //booleanLiteral
-    try {true[1] = null;} catch (e) {}
-    try {true.t = false;} catch (e) {}
+    true[1] = null; /// 05: static type warning, runtime error
+    true.t = false; /// 06: static type warning, runtime error
 
     //numericLiteral
-    try {1[1] = 1;} catch (e) {}
-    try {1.num = 0;} catch (e) {}
+    1[1] = 1; /// 07: static type warning, runtime error
+    1.num = 0; /// 08: static type warning, runtime error
 
     //stringLiteral
-    try { "s"["s"] = null;} catch (e) {}
-    try {"".c = "string";} catch (e) {}
+    "s"["s"] = null; /// 09: static type warning, runtime error
+    "".c = "string"; /// 10: static type warning, runtime error
 
     //listLiteral
-    try { [0, 1, 2, 3][1] = null; } catch (e) {}
-    try { [].a = null; } catch (e) {}
+    [0, 1, 2, 3][1] = null;
+    [].a = null; /// 11: static type warning, runtime error
 
     //identifier
-    try { id["id"] = 0;} catch (e) {}
-    try { id.id = null;} catch (e) {}
+    id["id"] = 0; /// 12: runtime error
+    id.id = null; /// 13: runtime error
 
     //newExpression
-    try { new A()[0] = null;} catch (e) {}
-    try { new A().x = null;} catch (e) {}
+    new A()[0] = null; /// 14: static type warning, runtime error
+    new A().x = null; /// 15: static type warning, runtime error
 
     //constantObjectExpression
-    try { const [1, 2, 3][0] = 1;} catch (e) {}
-    try { const S().x = null;} catch (e) {}
+    const [1, 2, 3][0] = 1; /// 16: runtime error
+    const S().x = null; /// 17: static type warning, runtime error
 
     //(functionInvocation)
-    try { (topLevelFunction())[0] = null;} catch (e) {}
-    try { (topLevelFunction()).x = null;} catch (e) {}
+    (topLevelFunction())[0] = null; /// 18: runtime error
+    (topLevelFunction()).x = null; /// 19: runtime error
 
     //(methodInvocation)
-    try { (this.method())[1] = null; } catch (e) {}
-    try { (this.method()).x = null; } catch (e) {}
+    (this.method())[1] = null; /// 20: runtime error
+    (this.method()).x = null; /// 21: runtime error
 
     //(assignmentExpression)
-    try { (id = 2)[0] = null;} catch (e) {}
-    try { (id += 1).x = null;} catch (e) {}
+    (id = 2)[0] = null; /// 22: static type warning, runtime error
+    (id += 1).x = null; /// 23: runtime error
 
     //(conditionalExpression)
-    try { (true ? 1 : 2)[1] = null;} catch (e) {}
-    try { (false ? "a" : "b").x = null;} catch (e) {}
+    (true ? 1 : 2)[1] = null; /// 24: static type warning, runtime error
+    (false ? "a" : "b").x = null; /// 25: static type warning, runtime error
 
     //(logicalBooleanExpression)
-    try { (true || false)[0] = false;} catch (e) {}
-    try { (false && true).x = true; } catch (e) {}
+    (true || false)[0] = false; /// 26: static type warning, runtime error
+    (false && true).x = true; /// 27: static type warning, runtime error
 
     //(bitwiseExpression)
-    try { (id & 1)[0] = 1;} catch (e) {}
-    try { (id ^ 1).x = 1;} catch (e) {}
+    (id & 1)[0] = 1; /// 28: runtime error
+    (id ^ 1).x = 1; /// 29: runtime error
 
     //(equalityExpression)
-    try { (1 == 1)[0] = null;} catch (e) {}
-    try { (identical(1, 1)).x = null;} catch (e) {}
+    (1 == 1)[0] = null; /// 30: static type warning, runtime error
+    (identical(1, 1)).x = null; /// 31: static type warning, runtime error
 
     //(relationalExpression)
-    try { (1 < 1)["a"] = 1;} catch (e) {}
-    try { (2 <= 3).x = "x";} catch (e) {}
+    (1 < 1)["a"] = 1; /// 32: static type warning, runtime error
+    (2 <= 3).x = "x"; /// 33: static type warning, runtime error
 
     //(shiftExpression)
-    try { (1 << 1)[0] = 1;} catch (e) {}
-    try { (1 >> 1).x = 1;} catch (e) {}
+    (1 << 1)[0] = 1; /// 34: static type warning, runtime error
+    (1 >> 1).x = 1; /// 35: static type warning, runtime error
 
     //(additiveExpression)
-    try { (0 + 0)[0] = 1;} catch (e) {}
-    try { (2 - 10).prop = null;} catch (e) {}
+    (0 + 0)[0] = 1; /// 36: static type warning, runtime error
+    (2 - 10).prop = null; /// 37: static type warning, runtime error
 
     //(multiplicativeExpression)
-    try { (1 * 5)[4] = 1;} catch (e) {}
-    try { (0 / 2).res = 1;} catch (e) {}
+    (1 * 5)[4] = 1; /// 38: static type warning, runtime error
+    (0 / 2).res = 1; /// 39: static type warning, runtime error
 
     //(unaryExpression)
-    try { (id++)[0] = 1;} catch (e) {}
-    try { (id--).x = 1;} catch (e) {}
+    (id++)[0] = 1; /// 40: runtime error
+    (id--).x = 1;  /// 41: runtime error
 
     //(isExpression)
-    try { (1 is int)[0] = null;} catch (e) {}
-    try { (1 is ! bool).id = 1;} catch (e) {}
+    (1 is int)[0] = null; /// 42: static type warning, runtime error
+    (1 is ! bool).id = 1; /// 43: static type warning, runtime error
 
   }
   var id;

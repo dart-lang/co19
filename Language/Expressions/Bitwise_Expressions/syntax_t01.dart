@@ -26,7 +26,6 @@
  * bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that various bitwise expression which are valid
  * according to this grammar don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -47,41 +46,42 @@ class A extends S {
   test() {
     //super
     super | this;
-    try {super ^ 1 | 3; } catch (e) {}
-    try {super & new Object() ^ true | 1; } catch (e) {}
+    super ^ 1 | 3;
+    super & new Object() ^ true | 1;
 
     //literals
-    try {1 & "1";} catch (e) {} /// static type warnings galore
-    try {false | null;} catch (e) {}
-    try {[1, 2, 3, 4] ^ {"1": 2, "3": 4};} catch (e) {}
+    1 & "1"; /// 01: static type warning, runtime error
+    false | null; /// 02: static type warning, runtime error
+    [1, 2, 3, 4] ^ {"1": 2, "3": 4}; /// 03: static type warning, runtime error
 
     //function expressions
-    try {() {} | () => {};} catch (e) {}
-    try {() {return null;} & (int x) => 7;} catch (e) {} // issue 1189
-    try {() => ({}) ^ () {};} catch (e) {}
+    () {} | () => {}; /// 04: static type warning, runtime error
+    // issue 1189
+    () {return null;} & (int x) => 7; /// 05: static type warning, runtime error
+    () => ({}) ^ () {}; /// 24: static type warning
 
     //constants and instance creation
-    try {const [] | [];} catch (e) {}
-    try {const {"a": 1} & {"a": 1};} catch (e) {}
-    try {const S() ^ new A();} catch (e) {}
+    const [] | []; /// 06: static type warning, runtime error
+    const {"a": 1} & {"a": 1}; /// 07: static type warning, runtime error
+    const S() ^ new A();
 
     //invocation
-    try {id ^ topLevelFunction();} catch (e) {}
-    try {method() & topLevelFunction();} catch (e) {}
-    try {method() | id;} catch (e) {}
+    id ^ topLevelFunction(); /// 08: runtime error
+    method() & topLevelFunction(); /// 09: runtime error
+    method() | id; /// 10: runtime error
 
     //shift
-    try {true * false;} catch (e) {}
-    try {1 + 3 & 0;} catch (e) {}
+    true * false; /// 11: static type warning, runtime error
+    1 + 3 & 0;
 
     //relational expression is a higher grammar rule since spec 0.61
     //so these are not bitwise exprs, but relational exprs containing bitwise
-    try {1 ^ 2 < true | false;} catch (e) {}
-    try {true & false <= id ^ 7;} catch (e) {}
+    1 ^ 2 < true | false; /// 12: static type warning, runtime error
+    true & false <= id ^ 7; /// 13: static type warning, runtime error
 
     //shift expressions
-    try {id << method() & {}() >> []();} catch (e) {}
-    try {1 << 2 ^ null >> null;} catch (e) {}
+    id << method() & {}() >> [](); /// 14: static type warning, runtime error
+    1 << 2 ^ null >> null; /// 15: runtime error
 
     // bitwise expressions
     1 | -1 | 1 | -1 | 1;
@@ -90,22 +90,22 @@ class A extends S {
     1 ^ -1 | 1 & -1 & 1 | -1 ^ 1 | -1 ^ 1;
 
     //additive expressions
-    try { 1 + 2 ^ 2;} catch (e) {}
-    try { 0 - 0 | null + null;} catch (e) {}
-    try { [] + {} & 0;} catch (e) {}
+     1 + 2 ^ 2;
+     0 - 0 | null + null; /// 16: runtime error
+     [] + {} & 0; /// 17: static type warning, runtime error
 
     //multiplicative expressions
-    try {true * false ^ id.id / []();} catch (e) {}
-    try {this[1] % null(1) & topLevelFunction()[0]++ ~/ {} ()[0];} catch (e) {}
-    try {0 ~/ 1 | 1 - -1;} catch (e) {}
+    true * false ^ id.id / [](); /// 18: static type warning, runtime error
+    this[1] % null(1) & topLevelFunction()[0]++ ~/ {} ()[0]; /// 19: static type warning, runtime error
+    0 ~/ 1 | 1 - -1;
 
     //unary expressions
-    try {-this & ~this;} catch (e) {}
-    try {--id | id++;} catch (e) {}
-    try {~-id ^ !!false;} catch (e) {}
+    -this & ~this; /// 20: static type warning, runtime error
+    --id | id++; /// 21: runtime error
+    ~-id ^ !!false; /// 22: runtime error
 
     //identifier
-    try { id ^ id | id & id;} catch (e) {}
+     id ^ id | id & id; /// 23: runtime error
   }
 }
 
