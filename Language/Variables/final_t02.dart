@@ -19,6 +19,7 @@
  * @author rodionov
  * @reviewer kaigorodov
  * @issue 12539
+ * @issue 27226
  */
 
 class C {
