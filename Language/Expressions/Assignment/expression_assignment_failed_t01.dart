@@ -20,7 +20,6 @@
  *  Object is invoked on o1
  * @description Checks that method noSuchMethod is invoked with the right
  * argument if there is no setter for v in o1.
- * @static-warning
  * @author msyabro
  */
 import '../../../Utils/expect.dart';
@@ -38,9 +37,9 @@ class C {
 }
 
 main() {
-  C c = new C();
+  dynamic c = new C();
   try {
-    c.setter = 1; /// static type warning
+    c.setter = 1;
     Expect.fail("TestException is expected");
   } on TestException catch (e) {}
 }

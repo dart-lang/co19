@@ -31,7 +31,7 @@ class C {
 }
 
 main() {
-  C c = new C();
+  dynamic c = new C();
   Expect.throws(() {
     c.v = 2;  /// static type warning
   }, (e) => e is NoSuchMethodError);
