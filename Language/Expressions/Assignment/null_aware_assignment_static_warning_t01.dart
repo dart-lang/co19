@@ -7,22 +7,18 @@
  * @assertion Let T be the static type of e1 and let y be a fresh variable of
  * type T. Exactly the same static warnings that would be caused by y.v = e2 are
  * also generated in the case of e1?.v = e2.
- * @description Checks that if e1.v = e2 produces ctatic warning then e1?.v = e2
+ * @description Checks that if e1.v = e2 produces static warning then e1?.v = e2
  * produces the same warning too
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
 
 class C {
-  int v;
+  List<int> v;
 }
 
 main() {
-  double e = 3.14;
+  List e = new List();
   C c = new C();
-  try {
-    c?.v = e; /// static type warning
-  } catch (everything) {
-  }
+  c?.v = e; /// static type warning
 }

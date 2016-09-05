@@ -8,7 +8,7 @@
  * The static type of a is the static type of e2
  * @description Checks that the static type of e1?.v = e2 is the static type
  * of e2
- * @static-warning
+ * @static-clean
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/dynamic_check.dart';
@@ -20,5 +20,5 @@ class C {
 main() {
   double e = 3.14;
   C c = new C();
-  checkTypeError(() {int x = c?.v = e;}); /// static type warning
+  checkTypeError(() {double x = c?.v = e;});
 }
