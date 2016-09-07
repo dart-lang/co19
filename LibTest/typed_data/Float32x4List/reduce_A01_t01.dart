@@ -20,16 +20,16 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list, expected) {
+check(List<Float32x4> list, expected) {
   var l = new Float32x4List.fromList(list);
   var res = l.reduce((prev, cur) => prev + cur);
   Expect.isTrue(equal(expected, res));
 }
 
-checkConst(list, expected) {
+checkConst(List<Float32x4> list, expected) {
   var l = new Float32x4List.fromList(list);
-  var res = l.reduce((prev, cur) => 1);
-  Expect.equals(expected, res);
+  var res = l.reduce((prev, cur) => new Float32x4(1.0, 0.0, 0.0, 0.0));
+  Expect.isTrue(equal(expected, res));
 }
 
 
@@ -37,5 +37,5 @@ main() {
   check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)], pack(55.0));
   check([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], pack(0.0));
 
-  checkConst([pack(1.0), pack(2.0), pack(3.0)], 1.0);
+  checkConst([pack(1.0), pack(2.0), pack(3.0)], new Float32x4(1.0, 0.0, 0.0, 0.0));
 }
