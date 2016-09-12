@@ -13,7 +13,6 @@
  * then the type of v is known to be T in e2.
  * @description Checks that if e1 does not show that v has any type T, then the
  * type of v is not known to be any promoted type in e2.
- * @static-warning
  * @author ilya
  */
 
@@ -25,7 +24,7 @@ class E extends C {
   f() {}
 }
 
-f(C x) {
+f(var x) {
   (x is D || x is E) ? x.f() : null;
 }
 
