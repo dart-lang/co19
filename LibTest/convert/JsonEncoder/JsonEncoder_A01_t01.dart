@@ -18,5 +18,5 @@ import "dart:convert";
 
 main() {
   JsonEncoder jenc=new JsonEncoder();
-  JsonEncoder jenc2=new JsonEncoder((Object nonSerializable)=>nonSerializable.toJson());
+  JsonEncoder jenc2=new JsonEncoder((dynamic nonSerializable)=>nonSerializable.toJson());
 }

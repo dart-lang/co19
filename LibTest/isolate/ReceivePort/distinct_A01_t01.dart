@@ -45,5 +45,4 @@ main() {
   check([1,2,2,3]);
   check([1,2,null,null]);
   check(new Iterable.generate(0, (int index)=>1));
-  check(new Iterable.generate(10, (int index)=>[0]));
 }

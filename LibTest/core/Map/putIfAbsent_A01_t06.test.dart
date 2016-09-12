@@ -20,11 +20,7 @@ import "../../../Utils/expect.dart";
 test(Map create([Map content])) {
   Map map = create();
 
-  Object putIfAbsent() {
-    return new Object();
-  }
-
-  Expect.throws(() {
+    Expect.throws(() {
     map.putIfAbsent("1", null);
   });
 

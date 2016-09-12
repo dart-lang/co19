@@ -29,9 +29,9 @@ void iMain(List data) {
 void main() {
   List cyclicList = [];
   cyclicList.add(cyclicList);
-  cyclicList[0].add(cyclicList);
+  (cyclicList[0] as List).add(cyclicList);
 
-  List cyclicList2 = [1, 2, 3, null];
+  List<Object> cyclicList2 = [1, 2, 3, null];
   cyclicList2.add(cyclicList);
   cyclicList2.add(cyclicList2);
 

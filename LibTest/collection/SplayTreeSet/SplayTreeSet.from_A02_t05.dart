@@ -20,7 +20,7 @@ int compare(String key1, String key2) {
 }
 
 main() {
-  SplayTreeSet set = new SplayTreeSet.from(["3", "2", "1", "4"], compare);
+  SplayTreeSet<Object> set = new SplayTreeSet.from(["3", "2", "1", "4"], compare);
   Expect.equals(4, set.length);
   Expect.equals("1", set.elementAt(0));
   Expect.equals("2", set.elementAt(1));

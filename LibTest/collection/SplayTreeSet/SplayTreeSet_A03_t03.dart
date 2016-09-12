@@ -20,7 +20,7 @@ class C implements Comparable {
   int value;
   C(this.value);
 
-  compareTo(C other) {
+  compareTo(dynamic other) {
     return this.value - other.value;
   }
 }

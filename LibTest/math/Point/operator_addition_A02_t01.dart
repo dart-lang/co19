@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(num x1, num y1, num x2, num y2) {
   Expect.throws((){
-    return new Point(x, y) + new Point(x2, y2);
+    Point p = new Point(x1, y1) + new Point(x2, y2);
   });
 }
 

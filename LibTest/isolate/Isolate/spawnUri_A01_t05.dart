@@ -60,7 +60,7 @@ void main0() {
   });
   Isolate.spawnUri(
       new Uri.file("spawnUri_A01_t05.dart"),
-      [n-1],
+      [(n-1).toString()],
       receivePort.sendPort
   );
 }

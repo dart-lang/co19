@@ -17,14 +17,14 @@ import "../../../Utils/expect.dart";
 import "dart:convert";
 
 List cyclist1() {
-  var res=[1,2,3];
+  List<Object> res=[1,2,3];
   res.add(res);
   return res;
 }
 
 List cyclist2() {
-  var res=[1,2,3];
-  var intlist=[4,5,6];
+  List<Object> res=[1,2,3];
+  List<Object> intlist=[4,5,6];
   intlist.add(res);
   res.add(intlist);
   return res;

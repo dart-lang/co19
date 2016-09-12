@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 void check(num x1, num y1, num n) {
   Expect.throws((){
-    return new Point(x, y) * n;
+    Point p = new Point(x1, y1) * n;
   });
 }
 

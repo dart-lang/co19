@@ -15,7 +15,6 @@
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-import "IsolateStream.dart" as IsolateStream;
 
 void check1(Iterable data, bool test(int element), var expected) {
   Stream s=new Stream.fromIterable(data);
