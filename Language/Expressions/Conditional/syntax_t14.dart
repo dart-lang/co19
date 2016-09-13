@@ -10,18 +10,16 @@
  *   ifNullExpression ('?' expressionWithoutCascade ':'
  * expressionWithoutCascade)?
  * ;
- * @description Checks that a type parameter can be used as the condition in a
- * conditional expression without a compile error.
- * @static-warning
+ * @description Checks that a type parameter can not be used as the condition
+ * in a conditional expression without a compile error.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {
-      T ? "" : ''; /// static type warning - first argument not assignable to boolean, see "Conditional"
-    } catch (e) {}
+    T ? "" : '';
   }
 }
 

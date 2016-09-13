@@ -8,16 +8,12 @@
  * of the static type of e2 and the static type of e3.
  * @description Checks that the static type of a conditional expression is
  * neither Object nor Dynamic.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
-import '../../../Utils/dynamic_check.dart';
-
 class A {}
 
 main() {
-  checkTypeError(() {
-    A a = (true ? 1 : 0.5);  /// static type warning
-  });
+  A a = (true ? 1 : 0.5);
 }

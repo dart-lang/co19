@@ -8,16 +8,14 @@
  * boolean, any construct that makes use of boolean conversion will cause a
  * dynamic type error in checked mode if the value to be converted is not a
  * boolean.
- * @description Checks that TypeError is thrown when trying to convert int to
- * bool.
+ * @description Checks that it is a compile error to convert int to bool.
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-import '../../../../Utils/dynamic_check.dart';
-
-var i = 1;
+int i = 1;
 
 main() {
-  checkTypeError( () => i ? '' : '  ');
+  i ? '' : '  ';
 }

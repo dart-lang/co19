@@ -26,7 +26,7 @@ class D extends C {
   f() => closure();
 }
 
-f(C x) {
+f(var x) {
   closure = () => x = new C();
 
   x is D ? [x.f(), x.f() /*throws*/] : null;
