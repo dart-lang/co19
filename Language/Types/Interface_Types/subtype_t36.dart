@@ -26,7 +26,7 @@
  * @description Checks that two generic types are not assignable even if just
  * one type argument is not assignable. Using complex function types as type
  * arguments.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -62,5 +62,5 @@ class Generic<G> {}
 Generic<typeParameter2> f() {}
 
 main() {
-  Generic<typeParameter1> g = f(); /// static type warning
+  Generic<typeParameter1> g = f();
 }

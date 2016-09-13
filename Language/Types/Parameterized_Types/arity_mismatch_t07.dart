@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,15 +11,22 @@
  * In short, any arity mismatch results in all type arguments being dropped,
  * and replaced with the correct number of type arguments, all set to dynamic.
  * Of course, a static warning will be issued.
- * @description Checks that if G is not a generic type, the type arguments
- * cause compile error
+ * @description Checks that if there is a mismatch in arguments number in
+ * generic type invocation, then compiler error occurs
  * @compile-error
- * @author sgrekhov@unipro.ru
+ * @author ilya
  */
 import "../../../Utils/expect.dart";
 
-class C {}
+class C<T1, T2> {
+  test() {
+    Expect.isTrue(1 is T1);
+    Expect.isTrue(1 is T2);
+    Expect.isTrue('foo' is T1);
+    Expect.isTrue('foo' is T2);
+  }
+}
 
 main() {
-  new C<int>();
+  new C<List, List, List>().test();
 }

@@ -21,5 +21,5 @@ import "../somelib1.dart" deferred as p1;
 class C1<T> {}
 
 main() {
-  p1.C o1;
+  C1<p1.C> o2;
 }

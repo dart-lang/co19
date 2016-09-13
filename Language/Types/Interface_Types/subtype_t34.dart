@@ -26,7 +26,7 @@
  * @description Checks that generic class C<A> is not assignable to C<B> where
  * C - generic, A and B are unrelated classes as such assignment doesn't meet
  * any of these conditions.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -40,5 +40,5 @@ class C<T> {}
 C<B> f() {}
 
 main() {
-  C<A> c = f(); /// static type warning
+  C<A> c = f();
 }

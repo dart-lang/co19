@@ -12,9 +12,8 @@
  * and replaced with the correct number of type arguments, all set to dynamic.
  * Of course, a static warning will be issued.
  * @description Checks that it if there is a mismatch in arguments number in
- * generic type invocation, then all type arguments being dropped, and
- * replaced with the correct number of type arguments, all set to dynamic
- * @static-warning
+ * generic type invocation, then compile error occurs
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -29,6 +28,5 @@ class C<T1 extends num, T2> {
 }
 
 main() {
-  new C<int>().test(); /// static type warning
-  new C<int, List, List>().test(); /// static type warning
+  new C<int>().test();
 }

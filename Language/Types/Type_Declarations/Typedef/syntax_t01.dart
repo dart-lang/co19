@@ -33,6 +33,5 @@ main() {
   _Foo foo = () {return;};
   _Bar bar = (int a, [bool b]) {return 0;};
   _Bar akbar = (int a, [bool b]) => 0;
-  _Baz baz = (_Bar b, [int i]) {};
 }
 

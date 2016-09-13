@@ -11,15 +11,22 @@
  * In short, any arity mismatch results in all type arguments being dropped,
  * and replaced with the correct number of type arguments, all set to dynamic.
  * Of course, a static warning will be issued.
- * @description Checks that if G is not a generic type, the type arguments
- * cause compile error
+ * @description Checks that it if there is a mismatch in arguments number in
+ * generic type invocation, then compile error occurs
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-class C {}
+class C<T1 extends num, T2> {
+  test() {
+    Expect.isTrue(1 is T1);
+    Expect.isTrue(1 is T2);
+    Expect.isTrue('foo' is T1);
+    Expect.isTrue('foo' is T2);
+  }
+}
 
 main() {
-  new C<int>();
+  new C<int, List, List>().test();
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,17 +10,16 @@
  * checked mode.
  * In checked mode, it is a dynamic type error if a deferred, malformed or
  * malbounded type is used in a subtype test.
- * @description Checks that a compile error occurs in checked mode when
- * malbounded type is used in a subtype test.
+ * @description Checks that a compile error occurs if deferred type is used
+ * in a implicit subtype test.
  * @compile-error
- * @author ilya
+ * @author ngl@unipro.ru
  */
 
-import "../../../Utils/dynamic_check.dart";
+import "../somelib1.dart" deferred as p;
 
-class C <T extends int> {}
+class A {}
 
 main() {
-  int is C<double>;
+  A a = new p.C();
 }
-
