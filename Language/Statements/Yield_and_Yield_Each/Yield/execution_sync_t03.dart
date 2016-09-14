@@ -23,8 +23,6 @@
  *
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
-import '../../../../Utils/async_utils.dart';
 import '../../../../Utils/expect.dart';
 
 Iterable<int> generator() sync* {
@@ -32,7 +30,7 @@ Iterable<int> generator() sync* {
 }
 
 main() {
-  Iterable iterable = generator();
+  Iterable<int> iterable = generator();
   Iterator<int> it = iterable.iterator;
   Expect.equals(true, it.moveNext());
 }
