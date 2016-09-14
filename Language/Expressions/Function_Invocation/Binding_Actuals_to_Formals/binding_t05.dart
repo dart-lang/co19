@@ -18,19 +18,16 @@
  * NoSuchMethodError is thrown. Then pi is bound to oi, i ∈ 1..m, and qj is
  * bound to om+j, j ∈ 1 1..l.
  * All remaining formal parameters of f are bound to their default values.
- * @description Checks that NoSuchMethodError is thrown if the number of actual
+ * @description Checks that it is a compile time error if the number of actual
  * parameters is more than the number of positional arguments specified in the
  * function declaration.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 func(p1, p2, [p3]) {}
 
 main() {
-  Expect.throws(() {
-    func(1, 2, 3, 4, 5); /// static type warning - too many arguments, see "Binding actuals to formals"
-  }, (e) => e is NoSuchMethodError);
+  func(1, 2, 3, 4, 5);
 }
