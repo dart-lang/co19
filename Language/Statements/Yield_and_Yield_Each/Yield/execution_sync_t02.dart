@@ -24,8 +24,6 @@
  *
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
-import '../../../../Utils/async_utils.dart';
 import '../../../../Utils/expect.dart';
 
 Iterable<int> generator(List log) sync* {
@@ -39,7 +37,7 @@ Iterable<int> generator(List log) sync* {
 
 main() {
   List log = [];
-  Iterable iterable = generator(log);
+  Iterable<int> iterable = generator(log);
   Iterator<int> it = iterable.iterator;
   while (it.moveNext()) {
     log.add(it.current);
