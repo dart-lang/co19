@@ -6,22 +6,18 @@
 /**
  * @assertion It is a static type warning if the type of e may not be assigned
  * to bool.
- * @description Checks that it is a static type warning if the type of e may not
+ * @description Checks that it is a compile error if the type of e may not
  * be assigned to bool.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/dynamic_check.dart';
-
 int f() {return 1;}
 
 main() {
-  checkTypeError(() {
-    while (f()) { /// static type warning
-      print("foo");
-      break;
-    }
-  });
+  while (f()) {
+    print("foo");
+    break;
+  }
 }
 
