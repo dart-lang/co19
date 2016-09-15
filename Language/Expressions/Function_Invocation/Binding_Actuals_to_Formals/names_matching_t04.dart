@@ -6,9 +6,9 @@
 /**
  * @assertion Furthermore, each qi, 1 <= i <= l, must be a member of the set
  * {pn+1, ..., pn+k} or a static warning occurs.
- * @description Checks that it is a static warning if names of an argument does
+ * @description Checks that it is a compile error if names of an argument does
  * not match with any name of optional named parameters of a static method.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
@@ -18,7 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    C.func(1, 2, p: 3); /// static type warning
-  } catch (e) {}
+  C.func(1, 2, p: 3);
 }

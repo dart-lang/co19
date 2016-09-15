@@ -14,14 +14,12 @@
  * NoSuchMethodError to be thrown.
  * . . .
  * @description Checks that undeclared identifier inside a top level function
- * causes a static warning and NoSuchMethodError.
- * @static-warning
+ * causes a compile time error
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
 
 main() {
-  try {
-    undeclared();
-  } on NoSuchMethodError catch (ok) {}
+  undeclared();
 }

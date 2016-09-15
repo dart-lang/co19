@@ -8,15 +8,13 @@
  * i ∈ 1..h+k and let Sq be the type of the named parameter q of f.
  * . . .
  * It is a static warning if m < h or if m > n.
- * @description Checks that it is a static warning if the number of argument is
+ * @description Checks that it is a compile error if the number of argument is
  * more than number of positional parameters of a function literal.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
 main() {
-  try {
-    (p1, p2, [p3]) {} (1, 2, 3, 4); /// static type warning
-  } catch (e) {}
+  (p1, p2, [p3]) {} (1, 2, 3, 4);
 }

@@ -11,7 +11,6 @@
  * equivalent to the ordinary method invocation ef.call(...) and that the result
  * in either case is the same as expected whether ef is a function literal
  * expression or some other kind of expression.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -28,14 +27,4 @@ main() {
 
   Expect.equals("call(1, foo)", c(1));
   Expect.equals("call(2, bar)", c(2, "bar"));
-
-  try {
-    c(); /// static type warning - incorrect number of arguments, see "Binding actuals to formals"
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    c(1, 2, 3); /// static type warning - incorrect number of arguments, see "Binding actuals to formals"
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
 }

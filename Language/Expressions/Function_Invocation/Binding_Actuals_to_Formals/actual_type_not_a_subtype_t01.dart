@@ -18,7 +18,7 @@ import '../../../../Utils/dynamic_check.dart';
 func(int p1, int p2, {int np1, int np2, int np3}) {}
 
 main() {
-  var thirdParam = true;
+  dynamic thirdParam = true;
   checkTypeError( () {
     func(1, 2, np1: 1, np2: 2, np3:thirdParam);
   });

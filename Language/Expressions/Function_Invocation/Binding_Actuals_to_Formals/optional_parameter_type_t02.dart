@@ -8,16 +8,15 @@
  * i ∈ 1..h+k and let Sq be the type of the named parameter q of f.
  * . . .
  * It is a static warning if Tm+j may not be assigned to Sqj, j ∈ 1..l.
- * @description Checks that it is a static warning if the type of an actual
+ * @description Checks that it is a compile error if the type of an actual
  * argument may not be assigned to the type of an optional parameter of a
  * function literal.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
-import '../../../../Utils/dynamic_check.dart';
-
 main() {
-  checkTypeError(() => ([int x]) {} ('')); /// static type warning
+  var f = () => ([int x]) {};
+  f('');
 }
