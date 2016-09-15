@@ -13,22 +13,16 @@
  * If i does not occur inside a top level or static function, i is equivalent to
  * this.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
  * @description Checks that if there is no declaration and i occurs inside
- * an instance method, i is equivalent to this.id().
- * @static-warning
+ * an instance method, i is equivalent to this.id()and hence leads to compile
+ * error.
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
-
-bool seen = false;
 
 class C {
   test() => undeclared();
-
-  noSuchMethod(Invocation im) { seen = true; }
 }
 
 main() {
   new C().test();
-
-  Expect.isTrue(seen);
 }

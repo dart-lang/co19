@@ -19,12 +19,10 @@
  * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
-
 class C {
-  static test() =>  undeclared();
+  static set test (_) => undeclared();
 }
 
 main() {
-  C.test();
+  C.test = 1;
 }

@@ -16,20 +16,13 @@
  * @description Checks that if there is no declaration and i occurs in top level
  * function (of any kind) or library variable initializer, evaluation of i
  * causes a NoSuchMethodError to be thrown.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
 
 test() =>  undeclared();
-get test2 => undeclared2();
-set test3 (_) => undeclared3();
-var test4 = undeclared4();
 
 main() {
-  Expect.throws(() => test(), (e) => e is NoSuchMethodError);
-  Expect.throws(() => test2, (e) => e is NoSuchMethodError);
-  Expect.throws(() => test3 = 1, (e) => e is NoSuchMethodError);
-  Expect.throws(() => test4, (e) => e is NoSuchMethodError);
+  test();
 }
 
