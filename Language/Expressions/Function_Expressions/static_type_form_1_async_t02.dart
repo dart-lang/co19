@@ -13,21 +13,18 @@
  * for all R, if T << Future<R> then S << R.
  * In any case where Ti, 1 <= i <= n + k, is not specified, it is considered
  * to have been specified as dynamic.
- * @description Checks that it is a static type warning if a function literal of
+ * @description Checks that it is a compile error if a function literal of
  * the form (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) async => e
  * with two parameters is assigned to a variable of a function type without
  * parameters.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro
  */
 import 'dart:async';
-import '../../../Utils/dynamic_check.dart';
 
 typedef Future<int> intFunc();
 
 main() {
   intFunc intf = () async => 2;
-  checkTypeError(
-      () {intf = (int p1, [int p2]) async => 1;} /// static type warning
-  );
+  intf = (int p1, [int p2]) async => 1;
 }

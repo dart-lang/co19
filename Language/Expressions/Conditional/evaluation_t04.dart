@@ -16,8 +16,6 @@
  */
 import '../../../Utils/expect.dart';
 
-import '../../../Utils/dynamic_check.dart';
-
 bool checkTrue(var e1) {
   return e1 ? true : false;
 }
@@ -30,9 +28,7 @@ main() {
   Expect.isTrue(checkTrue(true));
   Expect.isTrue(checkFalse(false));
 
-  if (!isCheckedMode()) {
-    Expect.isTrue(checkFalse(""));
-    Expect.isTrue(checkFalse(" "));
-    Expect.isTrue(checkFalse(1));
-  }
+  Expect.throws(() => checkFalse(""));
+  Expect.throws(() => checkFalse(" "));
+  Expect.throws(() => checkFalse(1));
 }

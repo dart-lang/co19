@@ -20,7 +20,7 @@ typedef func();
 typedef int func2(int x);
 
 main() {
-  var x = null;
+  dynamic x = null;
   try {
     String y = x.wakeUp(new DateTime(1, 1, 1, 1, 1, 1, 1));
     Expect.fail("NoSuchMethodError expected");

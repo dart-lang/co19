@@ -10,9 +10,9 @@
  * Note, that, in checked mode, it is a dynamic type error if a malbounded type
  * is used in a type test as specified in 19.2.
  * Any use of a malbounded type gives rise to a static warning.
- * @description Checks that it is a static warning if last type argument
+ * @description Checks that it is a compile error if last type argument
  * violates the bound.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
@@ -26,5 +26,5 @@ class F3 extends F2 {}
 class A<T extends String, S extends Object, F extends F2> {}
 
 main() {
-  A<String, List, F1> a; /// static type warning
+  A<String, List, F1> a;
 }

@@ -24,9 +24,9 @@
  * An interface type T may be assigned to a type S, written T <=> S, if either
  * T <: S or S <: T.
  * @description Checks that some class called A is not assignable to another,
- * completely unrelated, class B (static warning) as such assignment doesn't
+ * completely unrelated, class B (compile error) as such assignment doesn't
  * meet any of these conditions.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -38,5 +38,5 @@ class B {}
 A f() {}
 
 main() {
-  B b = f(); /// static type warning
+  B b = f();
 }

@@ -8,9 +8,9 @@
  * i ∈ 1..h+k and let Sq be the type of the named parameter q of f.
  * . . .
  * It is a static warning if m < h or if m > n.
- * @description Checks that it is a static warning if the number of argument is
+ * @description Checks that it is a compile error if the number of argument is
  * less than number of positional parameters of a static method.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
@@ -18,8 +18,7 @@
 class C {
   static func(p1, p2, p3) {}
 }
+
 main() {
-  try {
-    C.func(1); /// static type warning
-  } catch (e) {}
+  C.func(1);
 }

@@ -10,9 +10,9 @@
  * Note, that, in checked mode, it is a dynamic type error if a malbounded type
  * is used in a type test as specified in 19.2.
  * Any use of a malbounded type gives rise to a static warning.
- * @description Checks that it is dynamic type error if a malbounded type is
+ * @description Checks that it is compile error if a malbounded type is
  * used in a type test.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 import "../../../Utils/dynamic_check.dart";
@@ -20,5 +20,5 @@ import "../../../Utils/dynamic_check.dart";
 class C<T extends int> {}
 
 main() {
-  checkTypeError(() => 1 is C<String>); /// static type warning
+  1 is C<String>;
 }

@@ -6,7 +6,7 @@
 /**
  * @assertion A function type T may be assigned to a function type S, written
  * T ⇐⇒ S, iff T <: S.
- * @description Checks that a function type T may be assegned to a function type
+ * @description Checks that a function type T may be assigned to a function type
  * S, iff T <: S.
  * @static-warning
  * @author ngl@unipro.ru

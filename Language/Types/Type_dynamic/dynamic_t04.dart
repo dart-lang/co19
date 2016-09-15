@@ -19,7 +19,7 @@ typedef func();
 typedef int func2(int x);
 
 main() {
-  var x = null;
+  dynamic x = null;
   try {
     String y = x.thebullshour;
     Expect.fail("NoSuchMethodError expected");

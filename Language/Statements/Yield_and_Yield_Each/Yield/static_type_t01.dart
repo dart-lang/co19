@@ -11,17 +11,17 @@
  *  • the body of f is marked sync* and the type Iterable<T> may not be
  *  assigned to the declared return type of f.
  *
- * @description Check that static warning is issued, if the body of f is marked
+ * @description Check that compile error is issued, if the body of f is marked
  * sync* and the type Iterable<T> may not be assigned to the declared return
  * type of f.
  *
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
 Iterable<String> generator() sync* {
-  yield 1; /// static type warning
+  yield 1;
 }
 
 main() {

@@ -14,41 +14,32 @@
  * Any use of a malformed type gives rise to a static warning. A malformed type
  * is then interpreted as dynamic by the static type checker and the runtime
  * unless explicitly specified otherwise.
- * @description Checks that it is a dynamic type error if a malformed type is
+ * @description Checks that it is a compile error if a malformed type is
  * used in a subtype test.
- * @static-warning
  * @author kaigorodov
  */
-
-import "../../../Utils/dynamic_check.dart";
-import "../../../Utils/expect.dart";
 
 class C<T, U, V> {}
 class Bounded<T extends num> {}
 class BoundedInt<T extends int> {}
 
 main() {
-  Expect.throws(() => null is UnknownType); /// static type warning and run runtime error
+  null is UnknownType; /// 01: compile-time error
 
   // C<int, double, UnknownType> is not malformed, see
   // (Types/Parameterized Types)
   // UnknownType is treated as dynamic and parameterized type is
   // C<int,double,dynamic>
 
-  C<int, double, UnknownType> x = new C(); /// static type warning no such type
-  Expect.isFalse(null is C<int, double, UnknownType>); /// static type warning no such type
+  C<int, double, UnknownType> x = new C(); /// 02: compile-time error
+  null is C<int, double, UnknownType>; /// 03: compile-time error
 
-  checkTypeError( () {
-    Bounded<String> x2 = new Bounded(); /// static type warning malbounded
-  });
+  Bounded<String> x2 = new Bounded(); /// 04: compile-time error
 
-  checkTypeError( () {
-    BoundedInt<num> x3 = new BoundedInt(); /// static type warning malbounded
-  });
 
-  checkTypeError( () {
-    C<Bounded<String>, C, C> x4 = new C(); /// static type warning malbounded
-  });
+  BoundedInt<num> x3 = new BoundedInt(); /// 05: compile-time error
 
-  C<C<UnknownType, int, int>, C, C> x5 = new C(); /// static type warning no such type
+  C<Bounded<String>, C, C> x4 = new C(); /// 06: compile-time error
+
+  C<C<UnknownType, int, int>, C, C> x5 = new C(); /// 07: compile-time error
 }

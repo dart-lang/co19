@@ -35,7 +35,7 @@ typedef t10 t11();
 
 
 class Checker<T extends check_t> {
-  Checker(f) {
+  Checker(T f) {
     Expect.isTrue(f is check_t);
     //check assignability () -> S = () -> T
     check_t check1 = f;
