@@ -31,9 +31,6 @@ class A {
 
 
 main()  {
-  var a = new A();
-  try {
-    a.b(1);
-    Expect.fail("TestException is expected");
-  } on TestException catch (e) {}
+  dynamic a = new A();
+  Expect.throws(() {a.b(1);}, (e) => e is TestException);
 }
