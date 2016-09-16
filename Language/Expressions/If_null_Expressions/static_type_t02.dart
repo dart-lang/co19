@@ -8,25 +8,33 @@
  * equivalent ... The static type of e is least upper bound of the
  * static type of e1 and the static type of e2 .
  *
- * @description Check that static type of expression e1??e2 do not match with
- * static type int in assignment
+ * @description Check that static type of expression e1 ?? e2 is least upper
+ * bound of the static type of e1 and the static type of e2 .
  *
- * @static-warning
  * @author a.semenov@unipro.ru
+ * @author sgrekhov@unipro.ru
  *
  */
 import 'dart:collection';
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
 main() {
-  checkTypeError(() {int x = 1.0 ?? 2.0; return x;}); /// static type warning
-  checkTypeError(() {int x = null ?? 2.0; return x;}); /// static type warning
-  checkTypeError(() {int x = 'aaa' ?? 'bbb'; return x;}); /// static type warning
-  checkTypeError(() {int x = true ?? false; return x;}); /// static type warning
-  checkTypeError(() {
-    int x = new LinkedHashMap() ?? new SplayTreeMap(); /// static type warning
-    return x;
-  });
-  checkTypeError(() {int x = 'aaa' ?? null; return x;}); /// static type warning
+  var x1 = 1.0 ?? 2.0;
+  Expect.isTrue(x1 is double);
+
+  var x2 = null ?? 2.0;
+  Expect.isTrue(x2 is double);
+
+  var x3 = 'aaa' ?? 'bbb';
+  Expect.isTrue(x3 is String);
+
+  var x4 = true ?? false;
+  Expect.isTrue(x4 is bool);
+
+  var x5 = new LinkedHashMap() ?? new SplayTreeMap();
+  Expect.isTrue(x5 is LinkedHashMap);
+
+  var x6 = 'aaa' ?? null;
+  Expect.isTrue(x6 is String);
 }
 
