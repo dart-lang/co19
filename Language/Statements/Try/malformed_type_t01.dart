@@ -6,9 +6,8 @@
 /**
  * @assertion If T is a malformed type, then performing a match causes a run
  * time error. It is a static warning if T is a malformed type.
- * @description Checks that if T is malformed, but match has not been performed
- * then runtime error is not thrown. Also checks static warning.
- * @static-warning
+ * @description Checks that if T is malformed, compile error is raised.
+ * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -20,7 +19,7 @@ main() {
     throw "foo";
     Expect.fail("This code shouldn't be executed");
   } on String catch (ok) {
-  } on Unavailable catch (ex) { /// static type warning no such type
+  } on Unavailable catch (ex) {
     Expect.fail("This code shouldn't be executed");
   }
 }
