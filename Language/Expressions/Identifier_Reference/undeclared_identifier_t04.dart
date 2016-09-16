@@ -10,7 +10,6 @@
  * in the lexical scope enclosing the expression.
  * @description Checks that it is a static warning when an identifier expression
  * references an undeclared identifier within a static setter.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -18,8 +17,9 @@ import '../../../Utils/expect.dart';
 
 class A {
   static set bar(var x) {
+    dynamic o = "";
     try {
-      x == undeclared; /// static type warning
+      x == o.undeclared;
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch (ok) {}
   }
