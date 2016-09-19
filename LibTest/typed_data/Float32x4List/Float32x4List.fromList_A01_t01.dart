@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 pack(x, y, z, w) => new Float32x4(x,y,z,w);
 packV(v) => new Float32x4.splat(v);
 
-void check(list) {
+void check(List<Float32x4> list) {
   Float32x4List l = new Float32x4List.fromList(list);
   Expect.isTrue(l is Float32x4List);
 }

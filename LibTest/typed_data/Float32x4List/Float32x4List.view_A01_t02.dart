@@ -23,7 +23,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list, offset, length) {
+check(List<Float32x4> list, int offset, int length) {
   var tmp = new Float32x4List.fromList(list);
   var byteBuffer = tmp.buffer;
   var l = new Float32x4List.view(byteBuffer, offset, length);

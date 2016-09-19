@@ -21,37 +21,38 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-void check(list, bool test(var element)) {
+void check(List<Float32x4> list, bool test(Float32x4 element)) {
   var l = new Float32x4List.fromList(list);
-  var it0=l.iterator;
-  var res=l.takeWhile(test);
-  var it=res.iterator;
-  var skipCount=0;
+  var it0 = l.iterator;
+  var res = l.takeWhile(test);
+  var it = res.iterator;
+  var skipCount = 0;
 
 // check that the beginning of a0 is identical to a
-  var hasNext0=it0.moveNext();
-  var len=0;
+  var hasNext0 = it0.moveNext();
+  var len = 0;
   for (;;) {
-    bool hasNext=it.moveNext();
+    bool hasNext = it.moveNext();
     if (!hasNext) break;
     Expect.isTrue(test(it0.current));
     Expect.isTrue(equal(it0.current, it.current));
     len++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
   Expect.equals(len, res.length);
 
 // count the rest
   while (hasNext0) {
     skipCount++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
 
   Expect.equals(l.length, len+skipCount);
 }
 
 main() {
-  var a0=[pack(1.0),pack(3.0),pack(7.0),pack(4.0),pack(5.0),pack(6.0)];
+  List<Float32x4> a0 =
+    [pack(1.0),pack(3.0),pack(7.0),pack(4.0),pack(5.0),pack(6.0)];
   check(a0, (var element)=>element.x==1.0);
   check(a0, (var element)=>true);
   check(a0, (var element)=>false);

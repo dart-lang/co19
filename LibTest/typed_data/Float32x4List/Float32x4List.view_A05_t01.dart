@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-void check(array, offset) {
+void check(List<Float32x4> array, int offset) {
   var tmp = new Float32x4List.fromList(array);
   var byteBuffer = tmp.buffer;
   try {

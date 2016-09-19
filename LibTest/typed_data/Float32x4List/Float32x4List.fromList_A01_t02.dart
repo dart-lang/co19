@@ -22,7 +22,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-void check(list) {
+void check(List<Float32x4> list) {
   Float32x4List l = new Float32x4List.fromList(list);
   Expect.equals(l.length, list.length);
   //Expect.listEquals(list, l);

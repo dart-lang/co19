@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 
 pack(x, y, z, w) => new Float32x4(x,y,z,w);
 
-void check(list) {
-  var l = new Float32x4List.fromList(list);
+void check(List<Float32x4> list) {
+  dynamic l = new Float32x4List.fromList(list);
   try {
     l.buffer = new Float32x4List.fromList(list).buffer;
     Expect.fail("[buffer] should be final");

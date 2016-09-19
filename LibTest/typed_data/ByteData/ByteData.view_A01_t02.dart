@@ -14,13 +14,13 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, offset, length) {
+void check(List<int> array, int offset, int length) {
   var tmp = new Uint8List.fromList(array);
   var byteBuffer = tmp.buffer;
 
-  var l = new ByteData.view(byteBuffer, offset, length);
-  Expect.equals(length, l.length);
-  for(int i = 0; i < l.length; ++i) {
+  ByteData l = new ByteData.view(byteBuffer, offset, length);
+  Expect.equals(length, l.lengthInBytes);
+  for(int i = 0; i < l.lengthInBytes; ++i) {
     Expect.equals(tmp[offset ~/ Uint8List.BYTES_PER_ELEMENT + i], l.getUint8(i));
   }
 }

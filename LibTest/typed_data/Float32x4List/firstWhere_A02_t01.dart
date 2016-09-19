@@ -22,7 +22,7 @@ equal(obj1, obj2) {
 
 main() {
   var count = 0;
-  f () {
+  Float32x4 f () {
     count++;
     return pack(0.0);
   }

@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<double> list) {
   var l = new Float32List.fromList(list);
   var length = l.length;
   try {

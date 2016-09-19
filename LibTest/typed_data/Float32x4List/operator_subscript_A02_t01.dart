@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   try {
     l[-1];
@@ -37,7 +37,7 @@ check(list) {
 main() {
   check([]);
   check([pack(1.0)]);
-  var list = new List(255);
+  List<Float32x4> list = new List(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = pack(i*1.0);
   }

@@ -20,6 +20,6 @@ main() {
 
   for(int i= 0; i <= 10; ++i) {
     var l = new ByteData.view(byteBuffer, i, 10 - i) ;
-    Expect.equal(byteBuffer, l.buffer);
+    Expect.equals(byteBuffer, l.buffer);
   }
 }

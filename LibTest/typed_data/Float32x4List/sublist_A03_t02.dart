@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list, start, end) {
+check(List<Float32x4> list, dynamic start, dynamic end) {
   var l = new Float32x4List.fromList(list);
 
   Expect.throws( () {

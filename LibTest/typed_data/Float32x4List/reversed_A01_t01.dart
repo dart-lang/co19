@@ -20,7 +20,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var rev = l.reversed;
   for(int i = 0; i < list.length; ++i) {
@@ -33,7 +33,7 @@ main() {
   check([pack(1.0)]);
   check([pack(1.0), pack(2.0)]);
   check([pack(1.0), pack(2.0), pack(3.0)]);
-  var list = new List(1000);
+  var list = new List<Float32x4>(1000);
   for(int i = 0; i < 1000; ++i) {
     list[i] = pack(i*1.0);
   }

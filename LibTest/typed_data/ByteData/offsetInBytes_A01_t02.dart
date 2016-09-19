@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(count) {
-  var l = new ByteData(count);
+  dynamic l = new ByteData(count);
   try {
     l.offsetInBytes = 0;
     Expect.fail("[offsetInBytes] should be final");

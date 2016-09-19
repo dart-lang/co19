@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var n) {
+void check(List<double> list, int n) {
   var l = new Float32List.fromList(list);
   var res = l.take(n);
   Expect.equals(n, res.length);

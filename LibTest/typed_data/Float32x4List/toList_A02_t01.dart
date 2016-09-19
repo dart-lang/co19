@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var list = new Float32x4List(1);
-  var resList = list.toList(growable:false);
+  dynamic resList = list.toList(growable:false);
 
   try {
     resList.length = 10;

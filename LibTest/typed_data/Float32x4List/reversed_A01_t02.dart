@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list) {
-  var l = new Float32x4List.fromList(list);
+check(List<Float32x4> list) {
+  dynamic l = new Float32x4List.fromList(list);
   try {
     l.reversed = list;
     Expect.fail("[reversed] should be final");
@@ -24,7 +24,7 @@ check(list) {
 
 main() {
   check([]);
-  var list = new List(255);
+  var list = new List<Float32x4>(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = pack(i*1.0);
   }

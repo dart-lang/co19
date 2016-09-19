@@ -19,7 +19,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   for(int i = 0; i < list.length; ++i) {
     Expect.isTrue(equal(l.elementAt(i), l[i]));
@@ -29,7 +29,7 @@ check(list) {
 main() {
   check([]);
   check([pack(1.0)]);
-  var list = new List(255);
+  List<Float32x4> list = new List(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = pack(i*1.0);
   }

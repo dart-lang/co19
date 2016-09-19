@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 O() => new Float32x4.zero();
 
-void check(list) {
+void check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   Expect.equals(list.length * Float32x4List.BYTES_PER_ELEMENT, l.lengthInBytes);
 }

@@ -17,17 +17,17 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<double> list) {
   var l = new Float32List.fromList(list);
   var length = l.length;
   try {
-    l.replaceRange(0,1,[0]);
+    l.replaceRange(0,1,[0.0]);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError catch(ok) {};
   Expect.equals(length, l.length);
 
   try {
-    l.replaceRange(0,100,[0, 1, 2]);
+    l.replaceRange(0,100,[0.0, 1.0, 2.0]);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError catch(ok) {};
   Expect.equals(length, l.length);

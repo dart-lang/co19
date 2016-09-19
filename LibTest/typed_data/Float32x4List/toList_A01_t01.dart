@@ -29,7 +29,7 @@ listEquals(expected, actual) {
   }
 }
 
-void check(list, grow) {
+void check(List<Float32x4> list, bool grow) {
   var l = new Float32x4List.fromList(list);
   var res = l.toList(growable:grow);
 

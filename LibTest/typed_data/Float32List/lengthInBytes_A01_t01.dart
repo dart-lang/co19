@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list) {
+void check(List<double> list) {
   var l = new Float32List.fromList(list);
   Expect.equals(list.length * Float32List.BYTES_PER_ELEMENT, l.lengthInBytes);
 }

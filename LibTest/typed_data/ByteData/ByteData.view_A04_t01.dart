@@ -14,11 +14,11 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, length, firstElement, lastElement) {
+void check(List<int> array, int length, int firstElement, int lastElement) {
   var tmp = new Int8List.fromList(array);
   var byteBuffer = tmp.buffer;
   var l = new ByteData.view(byteBuffer);
-  Expect.equals(length, l.length);
+  Expect.equals(length, l.lengthInBytes);
   Expect.equals(firstElement, l.getInt8(0));
   Expect.equals(lastElement, l.getInt8(length - 1));
 }

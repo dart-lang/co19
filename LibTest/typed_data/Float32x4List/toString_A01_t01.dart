@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-void check(list) {
+void check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var res = l.toString();
   Expect.isTrue(res is String);

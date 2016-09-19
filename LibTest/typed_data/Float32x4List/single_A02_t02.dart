@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(array) {
+check(List<Float32x4> array) {
   var l = new Float32x4List.fromList(array);
   try {
     l.single;

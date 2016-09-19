@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list, separator, expectedString) {
+check(List<Float32x4> list, String separator, String expectedString) {
   var l = new Float32x4List.fromList(list);
   var s = l.join(separator);
   Expect.stringEquals(expectedString, s);

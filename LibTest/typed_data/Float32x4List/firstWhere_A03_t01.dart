@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 o() => new Float32x4.zero();
 
-check(list) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   try {
     l.firstWhere((e) => false);

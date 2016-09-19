@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 void check(int length) {
   var l = new ByteData(length);
   Expect.isTrue(l is ByteData);
-  Expect.equals(l.length, length);
+  Expect.equals(l.lengthInBytes, length);
 }
 
 main() {

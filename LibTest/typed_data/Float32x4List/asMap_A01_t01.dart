@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 pack(x, y, z, w) => new Float32x4(x,y,z,w);
 
-check(list) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var m = l.asMap();
   for(int key = 0; key < list.length; ++key) {

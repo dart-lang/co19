@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-void check(array, length) {
+void check(List<Float32x4> array, int length) {
   var l = new Float32x4List.fromList(array);
   try {
     l.length = 1;

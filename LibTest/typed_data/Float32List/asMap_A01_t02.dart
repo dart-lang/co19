@@ -14,12 +14,12 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<double> list) {
   var l = new Float32List.fromList(list);
   var m = l.asMap();
 
   Expect.throws( () {
-    m[0] = 0;
+    m[0] = 0.0;
   });
 }
 

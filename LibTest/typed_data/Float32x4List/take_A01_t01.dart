@@ -21,7 +21,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-void check(var list, var n) {
+void check(List<Float32x4> list, int n) {
   var l = new Float32x4List.fromList(list);
   var res = l.take(n);
   Expect.equals(n, res.length);

@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list, n) {
+check(List<Float32x4> list, int n) {
   var l = new Float32x4List.fromList(list);
   var res = l.skip(n);
   Expect.isTrue(res.isEmpty);

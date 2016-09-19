@@ -17,19 +17,19 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-checkInt(list, expected) {
+checkInt(List<Float32x4> list, int expected) {
   var l = new Float32x4List.fromList(list);
   var res = l.fold(0, (prev, cur) => prev + cur.x+ cur.y + cur.z + cur.w);
   Expect.equals(expected, res);
 }
 
-checkString(list, expected) {
+checkString(List<Float32x4> list, String expected) {
   var l = new Float32x4List.fromList(list);
   var res = l.fold("", (prev, cur) => "${prev}${cur.w + cur.z}");
   Expect.equals(expected, res);
 }
 
-checkConst(list, expected) {
+checkConst(List<Float32x4> list, int expected) {
   var l = new Float32x4List.fromList(list);
   var res = l.fold(0, (prev, cur) => 1);
   Expect.equals(expected, res);
@@ -39,8 +39,8 @@ checkConst(list, expected) {
 main() {
   checkInt([], 0);
   checkInt([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-    pack(7.0), pack(8.0), pack(9.0), pack(10.0)], 220.0);
-  checkInt([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], 0.0);
+    pack(7.0), pack(8.0), pack(9.0), pack(10.0)], 220);
+  checkInt([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], 0);
 
   checkString([], "");
   checkString([pack(1.0)], "2.0");

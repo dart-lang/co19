@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, length) {
+void check(List<double> array, int length) {
   var l = new Float32List.fromList(array);
   Expect.equals(length, l.length);
 }

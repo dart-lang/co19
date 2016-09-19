@@ -27,7 +27,7 @@ listEquals(expected, actual) {
   }
 }
 
-void check(var list, var expected) {
+void check(List<Float32x4> list, List expected) {
   var actual = new Float32x4List.fromList(list);
   int c(var a, var b) {
     return a.x < b.x ? -1 : (a.x == b.x ? 0 : 1);

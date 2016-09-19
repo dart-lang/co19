@@ -17,9 +17,9 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list, element) {
-  var l = new Float32x4List.fromList(list);
-  var length = l.length;
+check(List<Float32x4> list, int element) {
+  Float32x4List l = new Float32x4List.fromList(list);
+  int length = l.length;
   try {
     l.remove(element);
     Expect.fail("This operation should not be supported");

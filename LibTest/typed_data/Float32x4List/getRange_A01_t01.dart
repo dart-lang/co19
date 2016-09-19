@@ -21,7 +21,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list, start, end) {
+check(List<Float32x4> list, int start, int end) {
   var l = new Float32x4List.fromList(list);
   var res = l.getRange(start, end);
   var it = res.iterator;

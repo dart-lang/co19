@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Float32List.fromList([]);
   try {
-    l.reduce((prev, cur) => 0);
+    l.reduce((prev, cur) => 0.0);
     Expect.fail("StateError is expected");
   } on StateError catch(ok) {}
 }

@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<double> list) {
   var l = new Float32List.fromList(list);
   for(int i = 0; i < list.length; ++i) {
     Expect.identical(l.elementAt(i), l[i]);
@@ -22,7 +22,7 @@ check(list) {
 main() {
   check([]);
   check([1.0]);
-  var list = new List(255);
+  var list = new List<double>(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = i*1.0;
   }

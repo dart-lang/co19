@@ -19,7 +19,8 @@ pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;
-  test(e) {
+
+  bool test(Float32x4 e) {
     ++count;
     return e.x < 3.0;
   }

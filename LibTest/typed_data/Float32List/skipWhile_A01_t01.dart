@@ -14,12 +14,12 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, bool test(var element)) {
+void check(List<double> list, bool test(double element)) {
   var l = new Float32List.fromList(list);
-  var it0=l.iterator;
-  var res=l.skipWhile(test);
-  var it=res.iterator;
-  var skipCount=0;
+  var it0 = l.iterator;
+  var res = l.skipWhile(test);
+  var it = res.iterator;
+  var skipCount = 0;
 
 // skip manually
   var hasNext0;

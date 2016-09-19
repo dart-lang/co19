@@ -19,11 +19,11 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-void check(array) {
+void check(List<Float32x4> array) {
   var l = new Float32x4List.fromList(array);
   Expect.isTrue(equal(array[l.length - 1], l.last));
 }
-void checkClear(length) {
+void checkClear(int length) {
   var l = new Float32x4List(length);
   Expect.isTrue(equal(pack(0.0), l.last));
 }

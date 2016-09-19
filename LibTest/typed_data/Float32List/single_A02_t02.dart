@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(array) {
+check(List<double> array) {
   var l = new Float32List.fromList(array);
   try {
     l.single;

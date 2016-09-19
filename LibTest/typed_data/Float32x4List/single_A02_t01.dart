@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float32x4List.fromList([]);
+  dynamic l = new Float32x4List.fromList([]);
   try {
     l.single;
     Expect.fail("StateError is expected");

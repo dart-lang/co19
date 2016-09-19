@@ -14,15 +14,15 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-void check(array) {
-  var l = new Float32x4List.fromList(array);
+void check(List<Float32x4> array) {
+  dynamic l = new Float32x4List.fromList(array);
   try {
     l.first = 0;
     Expect.fail("[first] should be final");
   } on NoSuchMethodError catch(ok) {}
 }
-void checkClear(length) {
-  var l = new Float32x4List(length);
+void checkClear(int length) {
+  dynamic l = new Float32x4List(length);
   try {
     l.first = 0;
     Expect.fail("[first] should be final");

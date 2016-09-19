@@ -15,25 +15,25 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-checkDouble(list, expected) {
+checkDouble(List<double> list, double expected) {
   var l = new Float32List.fromList(list);
   var res = l.fold(0.0, (prev, cur) => prev + cur);
   Expect.equals(expected, res);
 }
 
-checkInt(list, expected) {
+checkInt(List<double> list, int expected) {
   var l = new Float32List.fromList(list);
   var res = l.fold(0, (prev, cur) => prev + cur);
   Expect.equals(expected, res);
 }
 
-checkString(list, expected) {
+checkString(List<double> list, String expected) {
   var l = new Float32List.fromList(list);
   var res = l.fold("", (prev, cur) => "${prev}${cur}");
   Expect.equals(expected, res);
 }
 
-checkConst(list, expected) {
+checkConst(List<double> list, int expected) {
   var l = new Float32List.fromList(list);
   var res = l.fold(0, (prev, cur) => 1);
   Expect.equals(expected, res);
@@ -46,8 +46,8 @@ main() {
   checkDouble([10.0, -1.0, -2.0, -3.0, -4.0], 0.0);
 
   checkInt([], 0);
-  checkInt([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 55.0);
-  checkInt([10.0, -1.0, -2.0, -3.0, -4.0], 0.0);
+  checkInt([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 55);
+  checkInt([10.0, -1.0, -2.0, -3.0, -4.0], 0);
 
   checkString([], "");
   checkString([1.0], "1.0");

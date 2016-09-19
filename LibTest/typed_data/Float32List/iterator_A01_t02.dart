@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float32List.fromList([0.0]);
+  dynamic l = new Float32List.fromList([0.0]);
   try {
     l.iterator = l.iterator;
     Expect.fail("[iterator] should be final");

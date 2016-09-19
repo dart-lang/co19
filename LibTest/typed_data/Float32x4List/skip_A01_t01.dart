@@ -20,7 +20,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list, n) {
+check(List<Float32x4> list, int n) {
   var l = new Float32x4List.fromList(list);
   var res = l.skip(n);
   Expect.equals(l.length - n, res.length);

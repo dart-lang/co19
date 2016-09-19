@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(count) {
-  var buffer = new Int8List(count).buffer;
+  dynamic buffer = new Int8List(count).buffer;
   try {
     buffer.lengthInBytes = 0;
     Expect.fail("[lengthInBytes] should be final");

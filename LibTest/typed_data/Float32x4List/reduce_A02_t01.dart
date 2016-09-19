@@ -13,11 +13,12 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
+pack(v) => new Float32x4.splat(v);
 
 main() {
-  var l = new Float32x4List.fromList([]);
+  Float32x4List l = new Float32x4List.fromList([]);
   try {
-    l.reduce((prev, cur) => 0);
+    l.reduce((prev, cur) => pack(0.0));
     Expect.fail("StateError is expected");
   } on StateError catch(ok) {}
 }

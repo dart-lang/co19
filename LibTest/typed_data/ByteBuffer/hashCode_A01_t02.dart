@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  var list = new Int8List(10);
+  dynamic list = new Int8List(10);
   var buffer = list.buffer;
   try {
     buffer.hashCode = 1;

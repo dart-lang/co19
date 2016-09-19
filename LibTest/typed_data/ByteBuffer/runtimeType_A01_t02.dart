@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Int8List(0).buffer;
+  dynamic obj = new Int8List(0).buffer;
   try {
     obj.runtimeType = null;
     Expect.fail("[runtimeType] should be final");

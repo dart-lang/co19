@@ -20,7 +20,7 @@ equal(obj1, obj2) {
 }
 
 
-void checkNext(list) {
+void checkNext(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var it = l.iterator;
   var i = 0;
@@ -33,7 +33,7 @@ main() {
   checkNext([pack(1.0)]);
   checkNext([pack(1.0), pack(2.0), pack(3.0)]);
 
-  var a = new List(255);
+  var a = new List<Float32x4>(255);
   for (var i=0; i < a.length; i++) {
     a[i] = pack((a.length - i)*1.0);
   }

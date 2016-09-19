@@ -20,15 +20,15 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-check(list, expected) {
+check(List<Float32x4> list, expected) {
   var l = new Float32x4List.fromList(list);
   var res = l.reduce((prev, cur) => prev + cur);
   Expect.isTrue(equal(expected, res));
 }
 
-checkConst(list, expected) {
-  var l = new Float32x4List.fromList(list);
-  var res = l.reduce((prev, cur) => 1);
+checkConst(List<Float32x4> list, dynamic expected) {
+  List<Float32x4> l = new Float32x4List.fromList(list);
+  dynamic res = l.reduce((prev, cur) => pack(1.0));
   Expect.equals(expected, res);
 }
 

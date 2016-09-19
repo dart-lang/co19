@@ -17,8 +17,8 @@ import "../../../Utils/expect.dart";
 
 pack(v) => new Float32x4.splat(v);
 
-check(list) {
-  var l = new Float32x4List.fromList(list);
+check(List<Float32x4> list) {
+  Float32x4List l = new Float32x4List.fromList(list);
   var length = l.length;
   try {
     l.removeLast();

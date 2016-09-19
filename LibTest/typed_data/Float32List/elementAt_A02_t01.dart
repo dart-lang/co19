@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(length) {
+check(int length) {
   var l = new Float32List(length);
   try {
     l.elementAt(length + 1);

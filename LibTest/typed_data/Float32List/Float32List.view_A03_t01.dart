@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, offset, numberOfElements, lastElement) {
+void check(List<double> array, int offset, int numberOfElements, int lastElement) {
   var tmp = new Float32List.fromList(array);
   var byteBuffer = tmp.buffer;
   var l = new Float32List.view(byteBuffer, offset);

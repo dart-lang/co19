@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, start, end) {
+check(List<double> list, int start, int end) {
   var l = new Float32List.fromList(list);
   var res = l.getRange(start, end);
   var it = res.iterator;
