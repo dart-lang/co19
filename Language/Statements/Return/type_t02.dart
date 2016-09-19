@@ -18,7 +18,6 @@
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/dynamic_check.dart';
 
 abstract class I {}
 class S implements I {}
@@ -26,10 +25,10 @@ class C extends S {}
 
 S foo() {  return new C(); }
 I foo2() { return new C(); }
-C bar() {  return new S(); }
+C bar() {  return new C(); }
 
 main() {
   foo();
   foo2();
-  checkTypeError(() => bar());
+  bar();
 }

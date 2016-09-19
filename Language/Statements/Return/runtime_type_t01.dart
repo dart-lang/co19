@@ -10,10 +10,11 @@
  *    • Otherwise, it is a dynamic type error if o is not null and the runtime
  * type of o is not a subtype of the actual return type of f.
  *
- * @description Checks that in checked mode, it is a dynamic type error if o is
- * not null and the runtime type of o is not a subtype of the actual return type
+ * @description Checks that compile error is raised if o is not null and
+ * the runtime type of o is not a subtype of the actual return type
  * of the immediately enclosing function.
  *
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -25,7 +26,5 @@ var r = 'a';
 int foo() { return r; }
 
 main() {
-  checkTypeError(() {
-      foo();
-  });
+  foo();
 }
