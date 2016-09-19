@@ -12,7 +12,6 @@
  * @description Check that stream subscriptions, associated with
  * asynchronous for loops, are cancelled in innermost first order, when f is
  * terminated by return. f is asynchronous generator.
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

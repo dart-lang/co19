@@ -13,18 +13,16 @@
  * method, getter, or setter) or variable initializer, evaluation of i causes a
  * NoSuchMethodError to be thrown.
  * . . .
- * @description Checks that if there is no declaration and i occurs in static
- * function (of any kind), or static variable initializer, evaluation of i
+ * @description Checks that if there is no declaration and i occurs in top level
+ * function (of any kind) or library variable initializer, evaluation of i
  * causes a NoSuchMethodError to be thrown.
  * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
 
-class C {
-  static test() =>  undeclared();
-}
+get test => undeclared();
 
 main() {
-  C.test();
+  test;
 }
+

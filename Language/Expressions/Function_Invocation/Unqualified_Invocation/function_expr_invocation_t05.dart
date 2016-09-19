@@ -26,12 +26,12 @@ var f = (p1) {
 
 class A {
   test() {
-    var m = f;
+    dynamic m = f;
     Expect.equals(100, m(null));
 
     m = 1;
     try {
-      m(1, 2, 3); // no warning, static type of m is dynamic (<=> Function)
+      m(1, 2, 3);
       Expect.fail("NoSuchMethodError expected");
     } on NoSuchMethodError catch (ok) {}
   }

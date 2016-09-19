@@ -9,16 +9,14 @@
  * @note no longer in spec:
  *   Let Ti be the static type of ai, i from 1 to n + k. It is a static warning
  * if F is not a supertype of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
- * @description Checks that it is a static type warning if F is not a supertype
+ * @description Checks that it is a compile error if F is not a supertype
  * of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/dynamic_check.dart';
 
 main() {
-  checkTypeError(() {
-    (int p1, int p2) {}("", ""); /// static type warning
-  });
+  var f = (int p1, int p2) {};
+  f("", "");
 }

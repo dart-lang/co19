@@ -12,7 +12,6 @@
  * @description Check that stream subscription, associated with asynchronous
  * for loop, is cancelled, when f is terminated by throwing an exception. f is
  * asynchronous generator.
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
