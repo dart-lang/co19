@@ -30,7 +30,7 @@
 main() {
   void func() {}
   void f(void func()) {f(func);}
-  ff(var fp) => f(fp);
+  ff(void fp()) => f(fp);
 
   int funktion(args) {f(func); func();}
 

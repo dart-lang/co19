@@ -6,17 +6,14 @@
 /**
  * @assertion  It is a compile-time error to reference a local function
  * before its declaration.
- * @description Checks that it is not a compile-error to reference a name of
+ * @description Checks that it is a compile-error to reference a name of
  * local function in function expression invocation before its declaration,
  * but in outer scope.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() {
-    func(); // static warning
-    {void func() {}}
-  });
+  func();
+  {void func() {}}
 }
