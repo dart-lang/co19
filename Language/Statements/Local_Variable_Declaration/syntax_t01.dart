@@ -25,9 +25,7 @@ main() {
   T id;
   id = new C();
 
-  checkTypeError(() {
-    id = new S();
-  });
+  id = new T();
 
   bool id1;
   id1 = false;

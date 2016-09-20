@@ -17,16 +17,14 @@
 
 import '../../../Utils/dynamic_check.dart';
 
-class S {}
-class T extends S {}
-class C extends T {}
+class T {}
+class S extends T {}
+class C extends S {}
 
 main() {
   T id = new T();
 
-  checkTypeError(() {
-    id = new S();
-  });
+  id = new S();
   id = new C();
 
   bool id1 = false;

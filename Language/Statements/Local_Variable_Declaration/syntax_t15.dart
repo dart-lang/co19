@@ -20,7 +20,7 @@ import '../../../Utils/expect.dart';
 class C {}
 
 main() {
-  var id = 0;
+  var id = null;
   Expect.isTrue(id is dynamic);
   id = false;
   id = "";
