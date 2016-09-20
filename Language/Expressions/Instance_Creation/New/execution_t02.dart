@@ -35,7 +35,7 @@ class A<T, U, V> {
 }
 
 class B <T extends A> {
-  T t;
+  A t;
   B(): t = new A() {
     Expect.isNotNull(t);
     Expect.isTrue(t is A);

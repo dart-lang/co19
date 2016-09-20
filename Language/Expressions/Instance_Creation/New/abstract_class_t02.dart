@@ -7,8 +7,8 @@
  * @assertion It is a static warning if q is a constructor of an abstract class
  * and q is not a factory constructor.
  * @description Checks that invoking a non-factory constructor in an abstract
- * class produces a static warning.
- * @static-warning
+ * class produces a compile error.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -18,7 +18,5 @@ abstract class C {
 }
 
 main() {
-  try {
-    new C.id(); /// static type warning - invoking a non-factory constructor of an abstract class, see "Instance creation|New"
-  } catch (e) {}
+  new C.id();
 }

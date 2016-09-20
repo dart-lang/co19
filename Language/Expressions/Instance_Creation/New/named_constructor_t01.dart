@@ -9,19 +9,15 @@
  * • If e of the form new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k)
  *   it is a static warning if T.id is not the name of a constructor declared
  *   by the type T.
- * @description Checks that it is a static warning if the type being
+ * @description Checks that it is a compile error if the type being
  * instantiated does not declare a named constructor T.id.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 class C {}
 
 main() {
-  Expect.throws(
-    () {new C.namedConstructor();}, /// static warning - unavailable named constructor, see "Instance creation|New"
-    (e) => e is NoSuchMethodError
-  );
+  new C.namedConstructor();
 }

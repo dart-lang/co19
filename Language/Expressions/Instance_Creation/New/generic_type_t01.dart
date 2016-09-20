@@ -13,10 +13,10 @@
  *   • If T is a parameterized type then let Vi = Ui for i ∈ 1..m.
  * If R is a generic with l != m type parameters then for i ∈ 1..l, let
  * Vi = dynamic. In any other case, let Vi = Ui for i ∈ 1..m.
- * @description Checks that it is not a compile-time error if S is not a
+ * @description Checks that it is a compile-time error if S is not a
  * generic type but was provided with type arguments in instance creation
  * expression.
- * @static-warning
+ * @compile-error
  * @author msyabro
  */
 

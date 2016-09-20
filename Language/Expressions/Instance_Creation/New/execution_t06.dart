@@ -41,7 +41,7 @@ class S {
 }
 
 class C extends S {
-  C.name(p1): super(new A().logAndAdd1(2)), y = f(p1) {
+  C.name(p1):  y = f(p1), super(new A().logAndAdd1(2)) {
     evalOrder.write(6);
   }
   var y;

@@ -45,7 +45,7 @@ class B <T extends A> {
     Expect.isTrue(t is A);
   }
 
-  T t;
+  A t;
 }
 
 class C<T, U> {

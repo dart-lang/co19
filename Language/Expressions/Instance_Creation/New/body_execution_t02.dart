@@ -25,7 +25,7 @@ abstract class I1<T, U, V> {
   }
 }
 
-class A<T, U, V> implements I1 {
+class A<T, U, V> implements I1<T, U, V> {
   A() {
     T x = p1;
     U y = p2;
@@ -39,9 +39,8 @@ abstract class I2 <T extends A> {
   }
 }
 
-class B <T extends A> implements I2 {
+class B <T extends A> implements I2<T> {
   B() {
-    T t = new A();
   }
 }
 

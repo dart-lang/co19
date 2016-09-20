@@ -35,7 +35,7 @@ class B extends A {
     log("3");
   }
 
-  B.b2() : super(), v = log("1") {
+  B.b2() : v = log("1"), super() {
     log("3");
   }
 }

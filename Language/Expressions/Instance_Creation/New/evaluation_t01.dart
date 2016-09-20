@@ -17,9 +17,9 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description  Checks that AbstractClassInstantiationError is thrown if q is
- * a non-factory constructor of an abstract class.
- * @static-warning
+ * @description  Checks that it is a compile error if q is a non-factory
+ * constructor of an abstract class.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -30,8 +30,5 @@ abstract class C {
 }
 
 main() {
-  try {
-    new C();
-    Expect.fail("Should throw AbstractClassInstantiationError");
-  } on AbstractClassInstantiationError catch (e) {}
+  new C();
 }

@@ -35,8 +35,8 @@ main() {
   Expect.equals(2, o.y);
   Expect.equals(3, o.z);
 
-  o = new D.name();
-  Expect.equals("x", o.x);
-  Expect.equals("y", o.y);
-  Expect.equals("z", o.z);
+  var d = new D.name();
+  Expect.equals("x", d.x);
+  Expect.equals("y", d.y);
+  Expect.equals("z", d.z);
 }
