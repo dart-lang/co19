@@ -17,11 +17,10 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description  Checks that dynamic error occurs if T is type variable.
- * @static-warning
+ * @description  Checks that compile error occurs if T is type variable.
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
 
 class C<T> {
    test() => new T();
@@ -29,6 +28,5 @@ class C<T> {
 
 main() {
   var c = new C<String>();
-
-  Expect.throws(() => c.test());
+  c.test();
 }

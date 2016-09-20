@@ -7,15 +7,14 @@
  * @assertion Let e be a new expression of the form
  * new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
  * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @description Checks that it is dynamic error if T is a type alias.
- * @static-warning
+ * @description Checks that it is compile error if T is a type alias.
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
-import '../../../../Utils/expect.dart';
 
 typedef int f(int x, int y);
 
 main() {
-  Expect.throws(() => new f());
+  new f();
 }

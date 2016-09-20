@@ -11,11 +11,11 @@
  * Otherwise, it is a static type warning if T may not be assigned to the
  * declared return type of f.
  *
- * @description Checks that a static type warning occurs if the type of e may
+ * @description Checks that compile error occurs if the type of e may
  * not be assigned to the declared return type of the immediately enclosing
  * function.
  *
- * @static-warning
+ * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
@@ -23,9 +23,9 @@
 import '../../../Utils/dynamic_check.dart';
 
 int foo() {
-  return "0";  /// static type warning
+  return "0";
 }
 
 main() {
-  checkTypeError(() => foo());
+  foo();
 }

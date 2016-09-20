@@ -17,12 +17,11 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description  Checks that in checked mode, dynamic error occurs if indirect
- * superclass of T is malbounded type.
- * @static-warning
+ * @description  Checks that compile error occurs if indirect superclass of T
+ * is malbounded type.
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/dynamic_check.dart';
 
 class C<T extends int> {}
 class D extends C<String> {}
@@ -30,5 +29,5 @@ class E extends D {}
 class F extends E {}
 
 main() {
-  checkTypeError(() => new F());
+  new F();
 }

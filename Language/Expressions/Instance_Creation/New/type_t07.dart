@@ -7,12 +7,11 @@
  * @assertion Let e be a new expression of the form
  * new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
  * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @description Checks that it is a dynamic error if T is a type variable.
- * @static-warning
+ * @description Checks that it is a compile error if T is a type variable.
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
-import '../../../../Utils/expect.dart';
 
 class C<T> {
   test() {
@@ -21,5 +20,5 @@ class C<T> {
 }
 
 main() {
-  Expect.throws(() => new C<Object>().test());
+  new C<Object>().test();
 }

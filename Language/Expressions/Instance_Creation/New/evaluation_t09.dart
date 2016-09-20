@@ -17,22 +17,17 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description Checks that a NoSuchMethodError is thrown if the actual
- * constructor lacks a named parameter used in the new expression.
- * @static-warning
+ * @description Checks that it is a compile error if the actual constructor
+ * lacks a named parameter used in the new expression.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 class C {
    C({var y: 1}) {}
 }
 
-test() {
-  return new C(x: 1);
-}
-
 main() {
-  Expect.throws(test, (e) => e is NoSuchMethodError);
+  new C(x: 1);
 }

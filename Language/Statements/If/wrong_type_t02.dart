@@ -6,22 +6,16 @@
 /**
  * @description Checks that it is a static type warning if the expression
  * cannot be assigned to bool.
- * @description Checks that it is a static type warning if the expression
+ * @description Checks that it is compile error if the expression
  * cannot be assigned to bool.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
-
-import '../../../Utils/dynamic_check.dart';
 
 main() {
   var i;
-  checkTypeError(() {
-    if ("true") { /// static type warning
-      i = 1;
-    }
-  });
-  Expect.isNull(i);
+  if ("true") {
+    i = 1;
+  }
 }

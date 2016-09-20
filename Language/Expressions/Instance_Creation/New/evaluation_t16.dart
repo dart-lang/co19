@@ -17,15 +17,13 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description  Checks that in checked mode, dynamic error occurs if T is
- * malbounded.
- * @static-warning
+ * @description  Checks that compile error occurs if T is malbounded.
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/dynamic_check.dart';
 
 class C<T extends int> {}
 
 main() {
-  checkTypeError(() => new C<String>());
+  new C<String>();
 }

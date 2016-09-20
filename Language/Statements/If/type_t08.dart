@@ -14,10 +14,9 @@
  * @description Checks that if b shows that v has type T, v is not potentially
  * mutated in s1, but potentially mutated within a closure, then the type of v
  * is not known to be T in s1.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 var closure;
 
@@ -26,15 +25,15 @@ class D extends C {
   f() => closure();
 }
 
-f(C x) {
+test(C x) {
   closure = () => x = new C();
 
   if (x is D) {
     x.f();
-    x.f(); // throws
+    x.f();
   }
 }
 
 main() {
-  Expect.throws(() => f(new D()));
+  test(new D());
 }

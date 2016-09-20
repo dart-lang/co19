@@ -10,18 +10,13 @@
  *   ;
  * @description Checks that the variable 'var id;' declared in a block is not
  * available in a scope that encloses this block.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import '../../../Utils/expect.dart';
-
 main() {
-  try {
-    {
-      var id;
-    }
-    id = null; /// static type warning
-    Expect.fail("NoSuchMethodError expected when calling undefined setter.");
-  } on NoSuchMethodError catch (ex) {}
+  {
+    var id;
+  }
+  id = null;
 }

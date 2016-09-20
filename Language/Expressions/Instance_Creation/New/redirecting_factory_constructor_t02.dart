@@ -8,10 +8,10 @@
  * T(p1, ..., pn+k ) = c; or of the form T.id(p1, ..., pn+k ) = c; then the
  * result of the evaluation of e is equivalent to evaluating the expression
  * [V1, ..., Vm/T1, ..., Tm ](new c(a1, ..., an, xn+1: an+1, ..., xn+k: an+k)).
- * @description Checks that it is a dynamic type error if a type argument of a
+ * @description Checks that it is a compile error if a type argument of a
  * redirecting factory constructor invocation is not a subtype of the
  * corresponding type parameter bound of class C.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -19,7 +19,7 @@
 import '../../../../Utils/dynamic_check.dart';
 
 class R<T extends num> {
-  factory R.fc() = C;
+  factory R.fc() = C<T>;
 }
 
 class C<T extends num> implements R<T> {
@@ -27,7 +27,5 @@ class C<T extends num> implements R<T> {
 }
 
 main() {
-  checkTypeError( () {
-    new R<String>.fc(); /// static type warning - incompatible type arguments, see "Instance creation"
-  });
+  new R<String>.fc();
 }

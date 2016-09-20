@@ -10,7 +10,7 @@
  * ;
  * @description Checks that if a constructor is invoked without new (or const)
  * keyword, it is considered as a (malformed) method invocation.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
@@ -20,7 +20,5 @@ class A {
 }
 
 main() {
-  try {
-    A();
-  } on NoSuchMethodError catch (e) {}
+  A();
 }
