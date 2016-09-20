@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float64List(0);
-  var res = 0;
+  double res = 0.0;
   l.forEach( (e) {
     res += e;
   });

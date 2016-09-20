@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var n) {
+void check(List<double> list, int n) {
   var l = new Float64List.fromList(list);
 
   Expect.throws( () {

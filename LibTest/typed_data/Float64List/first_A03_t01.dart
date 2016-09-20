@@ -12,11 +12,11 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<double> array) {
   var l = new Float64List.fromList(array);
   Expect.equals(l.elementAt(0), l.first);
 }
-void checkClear(length) {
+void checkClear(int length) {
   var l = new Float64List(length);
   Expect.equals(l.elementAt(0), l.first);
 }

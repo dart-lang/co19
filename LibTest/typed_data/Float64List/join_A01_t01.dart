@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, separator, expectedString) {
+check(List<double> list, String separator, String expectedString) {
   var l = new Float64List.fromList(list);
   var s = l.join(separator);
   Expect.stringEquals(expectedString, s);

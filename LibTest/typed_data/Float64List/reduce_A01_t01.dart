@@ -13,15 +13,15 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, expected) {
+check(List<double> list, double expected) {
   var l = new Float64List.fromList(list);
   var res = l.reduce((prev, cur) => prev + cur);
   Expect.equals(expected, res);
 }
 
-checkConst(list, expected) {
-  var l = new Float64List.fromList(list);
-  var res = l.reduce((prev, cur) => 1);
+checkConst(List<double> list, double expected) {
+  Float64List l = new Float64List.fromList(list);
+  var res = l.reduce((prev, cur) => 1.0);
   Expect.equals(expected, res);
 }
 

@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  var list = new Float64List(0);
+  dynamic list = new Float64List(0);
   try {
     list.hashCode = 1;
     Expect.fail("[hashCode] should be final");

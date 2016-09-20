@@ -12,17 +12,17 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Float64List.fromList(array);
+void check(List<double> array) {
+  dynamic l = new Float64List.fromList(array);
   try {
-    l.last = 0;
+    l.last = 0.0;
     Expect.fail("[last] should be final");
   } on NoSuchMethodError catch(ok) {}
 }
 void checkClear(length) {
-  var l = new Float64List(length);
+  dynamic l = new Float64List(length);
   try {
-    l.last = 0;
+    l.last = 0.0;
     Expect.fail("[last] should be final");
   } on NoSuchMethodError catch(ok) {}
 }

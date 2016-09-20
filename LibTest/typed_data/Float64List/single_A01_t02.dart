@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float64List.fromList([0.0]);
+  dynamic l = new Float64List.fromList([0.0]);
   try {
     l.single = 1;
     Expect.fail("[single] should be final");
