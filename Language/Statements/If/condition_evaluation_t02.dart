@@ -9,20 +9,18 @@
  * First, the expression b is evaluated to an object o. Then, o is subjected to
  * boolean conversion, producing an object r.
  * @description Checks that it an AssertionError (see  Boolean conversion)
- * is thrown in checked mode if the expression evaluates to null.
+ * is thrown if the expression evaluates to null.
  * @author kaigorodov
  * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/dynamic_check.dart';
 
 main() {
   var i = null;
-  bool err = false;
   try {
     if (i) {i = "hello";}
+    Expect.fail("AssertionError is expected");
   } on AssertionError catch (e) {
-    err = true;
+    // ok
   }
-  Expect.isTrue(err == isCheckedMode(), "AssertionError expected ONLY in checked mode");
 }
