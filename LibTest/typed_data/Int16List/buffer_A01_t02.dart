@@ -12,8 +12,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Int16List.fromList(array);
+void check(List<int> array) {
+  dynamic l = new Int16List.fromList(array);
   try {
     l.buffer = new Int16List.fromList(array).buffer;
     Expect.fail("[buffer] should be final");

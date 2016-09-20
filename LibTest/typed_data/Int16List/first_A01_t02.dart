@@ -12,15 +12,15 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Int16List.fromList(array);
+void check(List<int> array) {
+  dynamic l = new Int16List.fromList(array);
   try {
     l.first = 0;
     Expect.fail("[first] should be final");
   } on NoSuchMethodError catch(ok) {}
 }
 void checkClear(length) {
-  var l = new Int16List(length);
+  dynamic l = new Int16List(length);
   try {
     l.first = 0;
     Expect.fail("[first] should be final");

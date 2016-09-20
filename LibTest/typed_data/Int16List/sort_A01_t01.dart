@@ -13,9 +13,9 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var expected) {
+void check(List<int> list, List<int> expected) {
   var actual = new Int16List.fromList(list);
-  int c(var a, var b) {
+  int c(int a, int b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
   actual.sort(c);

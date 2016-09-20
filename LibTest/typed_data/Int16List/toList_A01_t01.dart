@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, grow) {
+void check(List<int> list, bool grow) {
   var l = new Int16List.fromList(list);
   var res = l.toList(growable:grow);
 

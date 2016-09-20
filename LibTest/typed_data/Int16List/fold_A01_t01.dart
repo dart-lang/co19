@@ -15,19 +15,19 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-checkInt(list, expected) {
+checkInt(List<int> list, int expected) {
   var l = new Int16List.fromList(list);
   var res = l.fold(0, (prev, cur) => prev + cur);
   Expect.equals(expected, res);
 }
 
-checkString(list, expected) {
+checkString(List<int> list, String expected) {
   var l = new Int16List.fromList(list);
   var res = l.fold("", (prev, cur) => "${prev}${cur}");
   Expect.equals(expected, res);
 }
 
-checkConst(list, expected) {
+checkConst(List<int> list, int expected) {
   var l = new Int16List.fromList(list);
   var res = l.fold(0, (prev, cur) => 1);
   Expect.equals(expected, res);
