@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Int8List l = new Int8List.fromList(array);
   Expect.isTrue(l is Int8List);
 }

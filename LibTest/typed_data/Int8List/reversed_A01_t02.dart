@@ -12,8 +12,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
-  var l = new Int8List.fromList(list);
+check(List<int> list) {
+  dynamic l = new Int8List.fromList(list);
   try {
     l.reversed = list;
     Expect.fail("[reversed] should be final");
@@ -22,7 +22,7 @@ check(list) {
 
 main() {
   check([]);
-  var list = new List(255);
+  var list = new List<int>(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = i;
   }
