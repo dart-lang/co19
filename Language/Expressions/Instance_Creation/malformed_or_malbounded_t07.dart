@@ -11,20 +11,17 @@
  * const T.id(a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ),
  * const T (a1 , . . . , an , xn+1 : an+1 , . . . , xn+k : an+k ) is malformed
  * or malbounded.
- * @description Checks that it is a static warning if type arguments to a
+ * @description Checks that it is a compile error if type arguments to a
  * constructor of a generic type G invoked by a new expression are not subtypes
  * of the bounds of the corresponding formal type parameters of G.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
-import '../../../Utils/dynamic_check.dart';
 
 class G<T extends num, S extends String> {
 }
 
 main() {
-  checkTypeError(() {
-    var o = new G<double, double>(); /// static type warning
-  });
+  new G<double, double>();
 }
