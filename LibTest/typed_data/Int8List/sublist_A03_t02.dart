@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, start, end) {
+check(List<int> list, int start, int end) {
   var l = new Int8List.fromList(list);
 
   Expect.throws( () {

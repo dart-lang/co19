@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<double> array) {
   Float64List l = new Float64List.fromList(array);
   Expect.isTrue(l is Float64List);
 }

@@ -17,9 +17,9 @@ main() {
   var count = 0;
   f () {
     count++;
-    return 1;
+    return 1.0;
   }
-  var l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 9.0]);
+  Float64List l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 9.0]);
   var res = l.firstWhere( (element) => false, orElse: f);
   Expect.equals(1, count);
   Expect.equals(1.0, res);

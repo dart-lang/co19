@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, bool test(var element)) {
+void check(List<int> list, bool test(int element)) {
   var l = new Int8List.fromList(list);
   var it0=l.iterator;
   var res=l.skipWhile(test);

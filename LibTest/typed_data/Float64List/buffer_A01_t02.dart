@@ -12,8 +12,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Float64List.fromList(array);
+void check(List<double> array) {
+  dynamic l = new Float64List.fromList(array);
   try {
     l.buffer = new Float64List.fromList(array).buffer;
     Expect.fail("[buffer] should be final");

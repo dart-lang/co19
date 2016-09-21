@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<double> list) {
   var l = new Float64List.fromList(list);
   try {
     l[-1];
@@ -35,7 +35,7 @@ check(list) {
 main() {
   check([]);
   check([1.0]);
-  var list = new List(255);
+  var list = new List<double>(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = i*1.0;
   }

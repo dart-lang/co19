@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int16List.fromList(list);
   var rev = l.reversed;
   for(int i = 0; i < list.length; ++i) {
@@ -26,7 +26,7 @@ main() {
   check([1]);
   check([1, 2]);
   check([1, 2, 3]);
-  var list = new List(255);
+  var list = new List<int>(255);
   for(int i = 0; i < 255; ++i) {
     list[i] = i;
   }
