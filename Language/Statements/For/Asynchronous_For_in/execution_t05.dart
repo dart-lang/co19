@@ -25,14 +25,14 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 import '../../../../Utils/async_utils.dart';
 
-Future test1() async {
-  await for (var i in new Object()) {
+Future test2() async {
+  await for (int i in [1, 2, 3]) {
   }
 }
 
 main() {
   asyncStart();
-  test1().then(
+  test2().then(
           (value) => Expect.fail("Compile error is expected"),
           onError: (error) => asyncEnd()
           // TODO verify that error is a compile error

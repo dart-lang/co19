@@ -16,20 +16,16 @@
  * 3. The statement [v'/v]s is executed.
  * 4. Let v'' be a fresh variable. v'' is bound to the value of v'.
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
- * @description Checks that it is a compile error if c is not of type bool.
- * @compile-error
- * @author vasya
- * @reviewer rodionov
+ * @description Checks that assertion error is raised if c is null.
+ * @author rodionov
  * @reviewer iefremov
  */
 
 import '../../../../Utils/dynamic_check.dart';
 
 main() {
-  checkTypeError( () {
-    for ( int i = 0;
-      ++i ;
-    ) {
+  checkAssertionError( () {
+    for ( var i = 0; null; i++) {
       break;
     }
   });
