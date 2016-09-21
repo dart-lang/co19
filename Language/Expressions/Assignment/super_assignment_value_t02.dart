@@ -14,13 +14,13 @@
  * lookup has failed or succeeded.
  * @description Checks that the value of an assignment expression is o
  * even if setter lookup failed.
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
 var expected = const Symbol("v=");
 
+@proxy
 class A {
   noSuchMethod(Invocation im) {
     if (expected != im.memberName) {
@@ -31,10 +31,10 @@ class A {
 
 class C extends A {
   test() {
-    Expect.equals(1, super.v = 1);  /// static type warning
-    Expect.equals(2, super.v = 2);  /// static type warning
-    Expect.equals("12", super.v = "1" "2"); /// static type warning
-    Expect.equals(true, super.v = 1 < 2);   /// static type warning
+    Expect.equals(1, super.v = 1);
+    Expect.equals(2, super.v = 2);
+    Expect.equals("12", super.v = "1" "2");
+    Expect.equals(true, super.v = 1 < 2);
   }
 }
 

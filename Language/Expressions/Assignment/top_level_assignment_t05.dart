@@ -13,8 +13,8 @@
  * invoked with its formal parameter bound to o. The value of the assignment
  * expression is o.
  * @description Checks that if d is top level getter, then the setter v= is
- * invoked with and this causes noSuchMethodError
- * @static-warning
+ * invoked with and this causes compile error
+ * @compile error
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -22,5 +22,5 @@ import '../../../Utils/expect.dart';
 int get v => 0;
 
 main() {
-  Expect.throws(() {v = 1;}, (e) => e is NoSuchMethodError); /// static type warning
+  v = 1;
 }

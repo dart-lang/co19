@@ -23,7 +23,7 @@ class C {
   }
   int v;
 
-  C operator + (C val) {
+  C operator +(C val) {
     throw new Exception();
     return new C(0);
   }

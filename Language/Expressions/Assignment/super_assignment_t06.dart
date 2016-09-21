@@ -24,6 +24,7 @@ int e() {
   return evaluationCount++;
 }
 
+@proxy
 class A {
 }
 

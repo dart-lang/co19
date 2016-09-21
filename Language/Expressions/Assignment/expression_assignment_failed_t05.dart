@@ -21,7 +21,6 @@
  * @description Checks that if class has no noSuchMethod then  the
  * implementation of noSuchMethod() in class Object is invoked and this produces
  * NoSuchMethodError
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -33,6 +32,6 @@ class C {
 main() {
   dynamic c = new C();
   Expect.throws(() {
-    c.v = 2;  /// static type warning
+    c.v = 2;
   }, (e) => e is NoSuchMethodError);
 }
