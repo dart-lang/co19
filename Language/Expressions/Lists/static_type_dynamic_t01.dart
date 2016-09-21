@@ -8,14 +8,12 @@
  * the form [e1...en] is List<dynamic>.
  * @description Checks that static type of list literal with omitted type
  * argument is indeed List<dynamic> by assigning it to declared variable of
- * type List<E> where E is an arbitrary type. No static warnings expected.
+ * type List<dynamic>. No static warnings expected.
  * @static-clean
  * @author ilya
  */
 
-class E {}
-
 main() {
-  List<E> x = [0, true, String];
-  List<E> y = const [0, true, String];
+  List x = [0, true, String];
+  List y = const [0, true, String];
 }
