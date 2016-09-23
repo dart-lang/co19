@@ -18,7 +18,11 @@
 import '../../../../Utils/expect.dart';
 
 class S {
-  var field = -1;
+  var _val = -1;
+  get field => _val;
+  set field(x) {
+    _val = x;
+  }
 }
 
 class C extends S {

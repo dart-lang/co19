@@ -11,16 +11,16 @@
  * has a superclass S, then the result of the lookup is the result of looking
  * up getter (respectively setter) m in S with respect to L. Otherwise, we say
  * that the lookup has failed.
- * @description Checks that aa implicit getter can be looked up dynamically.
- * @static-warning
+ * @description Checks that an implicit getter can be looked up dynamically.
  * @author msyabro, sgrekhov@unipro.ru
  * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
+@proxy
 class A {
   test() {
-    Expect.equals(1, a); /// static type warning
+    Expect.equals(1, a);
   }
 }
 
