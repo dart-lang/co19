@@ -23,14 +23,8 @@
  * @reviewer iefremov
  */
 
-import '../../../../Utils/dynamic_check.dart';
-
 main() {
-  checkTypeError( () {
-    for ( int i = 0;
-      ++i ;
-    ) {
-      break;
-    }
-  });
+  for ( int i = 0; ++i;  ) {
+    break;
+  }
 }
