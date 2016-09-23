@@ -18,24 +18,23 @@
  * @description Checks that if v is local variable or formal parameter, either
  * e1 or e2 shows that v has type T, but v is mutated in a closure, then b does
  * not show that v has any promoted type. Formal parameter case.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
 
 class C {}
+
 class D extends C {
   f() {}
 }
 
 skyIsBlue(_) => true;
 
-f(C x) {
+f(var x) {
   closure () => x = new C();
 
   x is D && skyIsBlue(closure()) ? x.f() : null;
 }
-
 
 main() {
   Expect.throws(() => f(new D()));

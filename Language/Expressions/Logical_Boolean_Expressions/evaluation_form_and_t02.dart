@@ -11,12 +11,16 @@
  * boolean conversion producing an object r, which is the value of b.
  * @description Checks that the second operand is not evaluated if the first
  * operand evaluates to false.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
+bool f() {
+  Expect.fail("This operand should not be evaluated");
+  return true;
+}
+
 main() {
-  false && (Expect.fail("This operand should not be evaluated")); /// static type warning
+  false && f();
 }

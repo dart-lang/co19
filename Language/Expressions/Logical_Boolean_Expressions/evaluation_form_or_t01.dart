@@ -16,8 +16,8 @@
  */
 import '../../../Utils/expect.dart';
 
-int counterF=0;
-int counterT=0;
+int counterF = 0;
+int counterT = 0;
 
 bool getFalse() {
   counterF++;
@@ -36,8 +36,8 @@ main() {
   Expect.isFalse(false || false);
 
   Expect.isTrue(getTrue() || getTrue());
-  Expect.isTrue(counterT==1);
+  Expect.equals(1, counterT);
   Expect.isTrue(getFalse() || getTrue());
-  Expect.isTrue(counterF==1);
-  Expect.isTrue(counterT==2);
+  Expect.equals(1, counterF);
+  Expect.equals(2, counterT);
 }
