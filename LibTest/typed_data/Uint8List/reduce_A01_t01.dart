@@ -13,13 +13,13 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, expected) {
+check(List<int> list, int expected) {
   var l = new Uint8List.fromList(list);
   var res = l.reduce((prev, cur) => prev + cur);
   Expect.equals(expected, res);
 }
 
-checkConst(list, expected) {
+checkConst(List<int> list, int expected) {
   var l = new Uint8List.fromList(list);
   var res = l.reduce((prev, cur) => 1);
   Expect.equals(expected, res);

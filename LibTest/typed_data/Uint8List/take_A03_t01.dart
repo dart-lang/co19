@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var n) {
+void check(List<int> list, int n) {
   var l = new Uint8List.fromList(list);
 
   Expect.throws( () {

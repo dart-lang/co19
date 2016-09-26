@@ -12,8 +12,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list) {
-  var l = new Uint8List.fromList(list);
+void check(List<int> list) {
+  dynamic l = new Uint8List.fromList(list);
   try {
     l.lengthInBytes = 0;
     Expect.fail("[lengthInBytes] should be final");
