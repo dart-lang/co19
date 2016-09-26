@@ -21,30 +21,28 @@
  *   values as {xn+1: on+1, ..., xn+k: on+k}.
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
- * @description Checks that noSuchMethod() is invoked if the method and getter
- * lookup has failed.
- * @author msyabro
+ * @description Checks that when m is a getter, then invocation of the form
+ * C.m() is equivalent to the expression C.m(...), which in turn is
+ * equivalent to C.m.call(...). It's a compile error if there are any parameters
+ * mismatch
+ * @compile-error
+ * @author rodionov
  * @reviewer kaigorodov
  */
-import '../../../../Utils/expect.dart';
 
-class TestException {
-  const TestException();
+class Foo {
+  const Foo();
+
+  call(x, [y = "foo"]) {
+    return "call($x, $y)";
+  }
 }
 
 class C {
-  var te = const TestException();
-  noSuchMethod(var im) {
-    throw te;
-  }
+  static Foo m = const Foo();
 }
 
-main()  {
-  dynamic o = new C();
-  try {
-    o.nonExistingMethod();
-    Expect.fail("Exception is expected");
-  } on TestException catch (e) {
-    Expect.equals(o.te, e);
-  }
+main() {
+  C.m();
+  C.m(1, 2, 3);
 }

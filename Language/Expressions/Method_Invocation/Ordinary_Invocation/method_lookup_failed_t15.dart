@@ -22,13 +22,12 @@
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks static invocations when class C inherits an instance
- * getter named m instead of declaring a static method. Default method
- * noSuchMethod() is invoked. It throws NoSuchMethodError.
- * @static-warning
+ * getter named m instead of declaring a static method. This causes a compile
+ * error
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../../Utils/expect.dart";
 
 class S {
   get m => () {};
@@ -38,8 +37,5 @@ class C extends S {
 }
 
 main() {
-  try {
-    C.m(); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
+  C.m();
 }

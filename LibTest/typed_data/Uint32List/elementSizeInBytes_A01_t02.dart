@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Uint32List(0);
+  dynamic l = new Uint32List(0);
   try {
     l.elementSizeInBytes = 2;
     Expect.fail("[elementSizeInBytes] should be final");

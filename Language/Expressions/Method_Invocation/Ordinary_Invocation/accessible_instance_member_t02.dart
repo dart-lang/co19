@@ -23,23 +23,10 @@
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 import '../lib.dart';
 
-//library code
-
-// library lib;
-//
-// class C {
-//   _func() {}
-// }
-
 main() {
   C o = new C();
-  Expect.throws(() {
-    o._func(); /// static type warning
-  }
-  , (e) => e is NoSuchMethodError
-  );
+  o._func();
 }
