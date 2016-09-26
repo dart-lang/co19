@@ -36,6 +36,7 @@ class S {
   static func(int v) {}
 }
 
+@proxy
 class C extends S {}
 
 int count = 0;
@@ -46,9 +47,6 @@ int incCount() {
 }
 
 main()  {
-  try {
-    C.func(incCount()); /// static type warning - see "Static invocation"
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {C.func(incCount());}, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 }

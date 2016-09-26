@@ -33,15 +33,10 @@ import "../../../../Utils/expect.dart";
 class S {
   static func() {}
 }
-
+@proxy
 class C extends S {}
 
 main()  {
-  try {
-    NonExistentClass.func(); /// static type warning - undefined name
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
-
   try {
     C.func(); /// static type warning
     Expect.fail("NoSuchMethodError expected.");

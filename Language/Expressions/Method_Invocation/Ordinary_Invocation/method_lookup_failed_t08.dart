@@ -22,16 +22,13 @@
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks static invocations when C does not denote a class in
- * the current scope. Default method noSuchMethod() is invoked. It throws
- * NoSuchMethodError.
- * @static-warning
+ * the current scope. This causes a compile error
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
 
 main() {
-  try {
-    C.func(); /// static type warning
-  } on NoSuchMethodError catch (e) {}
+  C.func();
 }

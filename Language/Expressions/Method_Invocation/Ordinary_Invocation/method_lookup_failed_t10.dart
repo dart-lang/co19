@@ -24,7 +24,6 @@
  * @description Checks static invocations when class C does not declare
  * a static method m even though its superclass does. Default method
  * noSuchMethod() is invoked. It throws NoSuchMethodError.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -35,11 +34,9 @@ class S {
   static m() {}
 }
 
+@proxy
 class C extends S {}
 
 main() {
-  try {
-    C.m(); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() {C.m();}, (e) => e is NoSuchMethodError);
 }

@@ -9,21 +9,17 @@
  * If T.m exists, it is a static type warning if the type F of T.m may not be
  * assigned to a function type.
  * @description Checks static invocations, when T denotes a class C declared
- * in the current scope. It is a static type warning if the type of C.m can not
+ * in the current scope. It is a compile error if the type of C.m can not
  * be assigned to a function type.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import "../../../../Utils/expect.dart";
 
 class C {
   static int m;
 }
 
 main() {
-  try {
-    C.m(); /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
+  C.m();
 }
