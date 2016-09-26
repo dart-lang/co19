@@ -22,19 +22,15 @@
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks static invocations when class C does not declare any
- * members named m.
- * @static-warning
+ * members named m. This causes a compile error
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
-import "../../../../Utils/expect.dart";
 
 class C {}
 
 main() {
-  try {
-    C.m(); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
+  C.m();
 }

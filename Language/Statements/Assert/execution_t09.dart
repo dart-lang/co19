@@ -18,19 +18,9 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
-
 import '../../../Utils/dynamic_check.dart';
 
 main() {
-  if (isCheckedMode()) {
-    bool flag = false;
-    try {
-      assert (false);
-      throw "This code shouldn't be executed";
-    } on AssertionError catch (ae) {
-      flag = true;
-    }
-    Expect.isTrue(flag, "assert(false) must throw an AssertionError!");
-  }
+  // TODO check if assert is effective
+  checkAssertionError(() { assert (false); });
 }

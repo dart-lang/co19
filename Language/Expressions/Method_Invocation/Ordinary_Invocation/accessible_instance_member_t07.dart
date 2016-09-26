@@ -17,21 +17,22 @@
  *   subclass of Function that fails to implement call will also provoke a
  *   warning, as this exemption is limited to type Function, and does not apply
  *   to its subtypes.
- * @description Checks that there is a static warning if T is a local function
+ * @description Checks that there is no static warning if T is a local function
  * and m is a method call. Local function is in instance method of a class
  * that extends class Function and doesn't implement method call.
- * @static-warning
  * @author ngl@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
-class A extends Function {  /// static type warning
+class A extends Function {
   test() {
     locfunc(int i) {
       return i + 3;
     }
     Expect.equals(5, locfunc.call(2));
   }
+
+  call() {}
 }
 
 main() {

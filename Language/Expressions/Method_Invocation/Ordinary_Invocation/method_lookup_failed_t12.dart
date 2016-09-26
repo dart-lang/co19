@@ -22,22 +22,17 @@
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks static invocations when interface C does not declare
- * a static method or getter m. Default method noSuchMethod() is invoked.
- * It throws NoSuchMethodError.
- * @static-warning
+ * a static method or getter m. This causes a compile error
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
-import "../../../../Utils/expect.dart";
 
 abstract class C {
   void m() {}
 }
 
 main() {
-  try {
-    C.m(); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
+  C.m();
 }

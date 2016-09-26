@@ -6,8 +6,7 @@
 /**
  * @assertion An unconditional ordinary method invocation i has the form
  * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
- * @description Checks that argument list should not end with comma.
- * @compile-error
+ * @description Checks that argument list may have comma on the end.
  * @author msyabro
  * @reviewer kaigorodov
  */

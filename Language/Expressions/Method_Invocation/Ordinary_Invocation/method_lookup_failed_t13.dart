@@ -34,6 +34,7 @@ class S {
   m() {}
 }
 
+@proxy
 class C extends S {
 }
 

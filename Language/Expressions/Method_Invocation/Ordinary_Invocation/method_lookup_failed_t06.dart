@@ -53,7 +53,7 @@ class D {
 }
 
 main()  {
-  var classWithoutMethod = new A();
+  dynamic classWithoutMethod = new A();
   Expect.equals("v", classWithoutMethod.m());
 
   classWithoutMethod = new B();
