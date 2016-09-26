@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   var l = new Uint64List.fromList(array);
   Expect.equals(array[l.length - 1], l.last);
 }

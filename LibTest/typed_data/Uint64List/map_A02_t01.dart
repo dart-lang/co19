@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   bool invoked = false;
-  f(e) {
+  int f(int e) {
     invoked = true;;
     return e;
   }

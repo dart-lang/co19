@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(array) {
+check(List<int> array) {
   var l = new Uint64List.fromList(array);
   try {
     l.single;

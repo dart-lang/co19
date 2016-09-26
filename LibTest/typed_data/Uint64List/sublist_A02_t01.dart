@@ -13,11 +13,11 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var start) {
+void check(List<int> list, int start) {
   var l = new Uint64List.fromList(list);
   var res = l.sublist(start);
 
-  for(int i = start; i<l.length; ++i) {
+  for(int i = start; i < l.length; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }

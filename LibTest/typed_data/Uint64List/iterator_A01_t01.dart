@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void checkIterator(list) {
+void checkIterator(List<int> list) {
   var l = new Uint64List.fromList(list);
   var it = l.iterator;
   var i = 0;
@@ -27,7 +27,7 @@ main() {
   checkIterator([]);
   checkIterator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-  var a = new List(255);
+  var a = new List<int>(255);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }
