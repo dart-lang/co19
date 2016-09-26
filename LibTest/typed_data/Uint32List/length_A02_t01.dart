@@ -14,8 +14,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, length) {
-  var l = new Uint32List.fromList(array);
+void check(List<int> array, int length) {
+  dynamic l = new Uint32List.fromList(array);
   try {
     l.length = 1;
     Expect.fail("This operation should not be supported");

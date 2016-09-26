@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Uint32List.fromList(list);
   Expect.throws( () {
     l.getRange(-1, list.length);
