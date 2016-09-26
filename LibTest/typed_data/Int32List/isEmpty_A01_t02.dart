@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Int32List(0);
+  dynamic l = new Int32List(0);
 
   try {
     l.isEmpty = false;

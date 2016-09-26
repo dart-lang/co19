@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Int32List l = new Int32List.fromList(array);
   Expect.isTrue(l is Int32List);
 }

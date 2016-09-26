@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, uniqueNum) {
+void check(List<int> list, int uniqueNum) {
   var l = new Int32List.fromList(list);
   var res = l.toSet();
 
