@@ -33,7 +33,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  dynamic c = new C();
   try {
     c..sm();
     Expect.fail("NoSuchMethodError expected.");
