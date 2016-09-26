@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, expectedString) {
+check(List<int> list, String expectedString) {
   var l = new Int64List.fromList(list);
   var s = l.join();
   Expect.stringEquals(expectedString, s);

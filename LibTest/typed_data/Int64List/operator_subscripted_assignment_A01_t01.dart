@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int64List(list.length);
   for(int i = 0; i < list.length; ++i) {
     l[i] = list.elementAt(i);

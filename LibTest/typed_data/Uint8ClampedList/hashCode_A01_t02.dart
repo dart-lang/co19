@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  var list = new Uint8ClampedList(0);
+  dynamic list = new Uint8ClampedList(0);
   try {
     list.hashCode = 1;
     Expect.fail("[hashCode] should be final");

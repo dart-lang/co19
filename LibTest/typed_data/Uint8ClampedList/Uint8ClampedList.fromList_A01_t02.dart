@@ -14,13 +14,13 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Uint8ClampedList l = new Uint8ClampedList.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(array, l);
 }
 
-void checkTruncation(array, expected) {
+void checkTruncation(List<int> array, List<int> expected) {
   Uint8ClampedList l = new Uint8ClampedList.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(expected, l);

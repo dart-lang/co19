@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, length) {
+void check(List<int> array, int length) {
   var l = new Uint8ClampedList.fromList(array);
   try {
     l.length = 1;

@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Int32x4(0, 0, 0, 0);
+  dynamic obj = new Int32x4(0, 0, 0, 0);
   try {
     obj.y = 1;
     Expect.fail("[y] should be final");

@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Uint8List.fromList(list);
 
   var res = l.expand( (element) => [element*2]);

@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Int32x4.bool(false, false, false, false);
+  dynamic obj = new Int32x4.bool(false, false, false, false);
   try {
     obj.flagX = true;
     Expect.fail("[flagX] should be final");

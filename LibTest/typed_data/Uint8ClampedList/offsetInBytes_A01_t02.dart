@@ -12,8 +12,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Uint8ClampedList.fromList(array);
+void check(List<int> array) {
+  dynamic l = new Uint8ClampedList.fromList(array);
   try {
     l.offsetInBytes = 0;
     Expect.fail("[offsetInBytes] should be final");

@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, n) {
+check(List<int> list, int n) {
   var l = new Uint8ClampedList.fromList(list);
   var res = l.skip(n);
   Expect.equals(l.length - n, res.length);

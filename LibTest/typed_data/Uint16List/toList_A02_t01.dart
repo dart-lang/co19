@@ -15,8 +15,8 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var list = new Uint16List.fromList([0]);
-  var resList = list.toList(growable:false);
+  Uint16List list = new Uint16List.fromList([0]);
+  dynamic resList = list.toList(growable:false);
 
   try {
     resList.length = 10;
