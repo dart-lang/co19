@@ -13,7 +13,7 @@
  * we say that the assertion failed. If r is true, we say that the assertion
  * succeeded. If the assertion succeeded, execution of the assert statement is
  * complete. If the assertion failed, an AssertionError is thrown.
- * @description Checks that a dynamic type error occurs if the conditional
+ * @description Checks that a assertion error occurs if the conditional
  * expression e evaluates to null.
  * @author rodionov
  * @reviewer iefremov
@@ -22,11 +22,8 @@
 import '../../../Utils/dynamic_check.dart';
 
 main() {
-  if (isCheckedMode()) {
-    checkDynamicError(() {
-      assert (null);
-    });
-  } else {
-    assert (null);
-  }
+  // TODO replace assertion error with null pointer error
+  checkAssertionError(() {
+    assert(null);
+  });
 }

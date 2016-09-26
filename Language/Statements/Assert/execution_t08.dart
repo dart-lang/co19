@@ -20,8 +20,6 @@
  */
 import '../../../Utils/expect.dart';
 
-import '../../../Utils/dynamic_check.dart';
-
 bool t() {return true;}
 bool f() {return false;}
 
@@ -30,9 +28,8 @@ bool check() {flag = true; return flag;}
 
 main() {
   assert (check());
-  if (isCheckedMode()) {
-    Expect.isTrue(flag);
-  }
+  Expect.isTrue(flag); // TODO check if assert is effective
+
   assert (true);
   assert (true ? true : true);
   assert ((1 > 0 ? true && true : true || false));

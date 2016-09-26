@@ -14,19 +14,15 @@
  * succeeded. If the assertion succeeded, execution of the assert statement is
  * complete. If the assertion failed, an AssertionError is thrown.
  * @description Checks that a compile error occurs if the conditional
- * expression e evaluates to a function that returns a function that returns a
- * value of type bool.
+ * expression e evaluates to a function that returns a Dynamic type value.
  * @compile-error
- * @author rodionov
+ * @author vasya
+ * @reviewer rodionov
  * @reviewer iefremov
  */
 
-typedef bool boolfunc();
-
-boolfunc foo() {
-  return (() => true);
-}
+bar() {return 1;}
 
 main() {
-  assert (foo);
+  assert (bar);
 }
