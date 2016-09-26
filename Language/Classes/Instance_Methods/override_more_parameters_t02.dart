@@ -9,7 +9,7 @@
  * m2.
  * @description Checks that a compile error is produced if m2 has no parameters
  * and m1 has a single required parameter.
- * @static-warning
+ * @compile-error
  * @author iefremov
  */
 

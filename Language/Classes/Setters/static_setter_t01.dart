@@ -11,7 +11,6 @@
  * Also checks it is a compile error to declare more than one entity with the
  * same name in the same scope.
  * @compile-error
- * @static-warning
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
