@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  f(e) {
+  int f(int e) {
     count++;
     return e;
   }

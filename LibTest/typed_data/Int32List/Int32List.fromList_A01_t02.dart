@@ -15,7 +15,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 import "../toInt32.lib.dart";
 
-void check(array) {
+void check(List<int> array) {
   Int32List l = new Int32List.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(array.map(toInt32).toList(), l);

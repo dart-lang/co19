@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int32List.fromList(list);
   try {
     l[-1] = 1;
