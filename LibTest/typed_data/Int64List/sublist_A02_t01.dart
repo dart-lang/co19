@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var start) {
+void check(List<int> list, int start) {
   var l = new Int64List.fromList(list);
   var res = l.sublist(start);
 

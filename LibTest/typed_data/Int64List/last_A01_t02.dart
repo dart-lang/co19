@@ -12,15 +12,15 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Int64List.fromList(array);
+void check(List<int> array) {
+  dynamic l = new Int64List.fromList(array);
   try {
     l.last = 0;
     Expect.fail("[last] should be final");
   } on NoSuchMethodError catch(ok) {}
 }
 void checkClear(length) {
-  var l = new Int64List(length);
+  dynamic l = new Int64List(length);
   try {
     l.last = 0;
     Expect.fail("[last] should be final");

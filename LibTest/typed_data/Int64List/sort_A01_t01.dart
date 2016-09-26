@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var expected) {
+void check(List<int> list, List<int> expected) {
   var actual = new Int64List.fromList(list);
   int c(var a, var b) {
     return a < b ? -1 : (a == b ? 0 : 1);

@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, bool test (var element)) {
+void check(List<int> list, bool test (int element)) {
   var l = new Int64List.fromList(list);
   var res = l.where(test);
 
