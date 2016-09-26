@@ -6,31 +6,17 @@
 /**
  * @assertion It is a static type warning if the type of e may not be assigned
  * to either bool or () -> bool.
- * @description Checks that it is a static type warning if the type of e is
+ * @description Checks that it is a compile error if the type of e is
  * (Dynamic) -> bool.
- * @static-warning
+ * @compile-error
  * @issue 26002
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
-
-import '../../../Utils/dynamic_check.dart';
-
 bool foo(x) {
   return false;
 }
 
-
 main() {
-  try {
-    assert (foo); /// static type warning
-    if (isCheckedMode()) {
-      Expect.fail("NoSuchMethodError expected");
-    }
-  } on NoSuchMethodError catch (e) {
-    if (!isCheckedMode()) {
-      Expect.fail("Unexpected error: $e");
-    }
-  }
+  assert (foo);
 }

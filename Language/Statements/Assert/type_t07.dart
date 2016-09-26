@@ -6,13 +6,13 @@
 /**
  * @assertion It is a static type warning if the type of e may not be assigned
  * to either bool or () -> bool.
- * @description Checks that it is a static type warning if the static type
+ * @description Checks that it is a compile error if the static type
  * of e is Function (conditional expression).
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
 
 main() {
-  assert (true ? (() => true) : ((var x) => 1));  /// static type warning
+  assert (true ? (() => true) : ((var x) => 1));
 }
