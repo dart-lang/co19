@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Uint16List l = new Uint16List.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(array, l);

@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(array, offset, length) {
+check(List<int> array, int offset, int length) {
   var tmp = new Uint16List.fromList(array);
   var byteBuffer = tmp.buffer;
   var l = new Uint16List.view(byteBuffer, offset, length);

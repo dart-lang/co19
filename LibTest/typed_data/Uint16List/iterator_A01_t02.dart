@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Uint16List.fromList([0]);
+  dynamic l = new Uint16List.fromList([0]);
   try {
     l.iterator = l.iterator;
     Expect.fail("[iterator] should be final");

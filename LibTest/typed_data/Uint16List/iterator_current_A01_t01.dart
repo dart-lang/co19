@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void checkNext(list) {
+void checkNext(List<int> list) {
   var l = new Uint16List.fromList(list);
   var it = l.iterator;
   var i = 0;
@@ -25,7 +25,7 @@ main() {
   checkNext([1]);
   checkNext([1, 2, 3]);
 
-  var a = new List(255);
+  var a = new List<int>(255);
   for (var i=0; i < a.length; i++) {
     a[i] = a.length - i;
   }
