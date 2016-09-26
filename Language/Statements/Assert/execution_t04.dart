@@ -13,17 +13,13 @@
  * we say that the assertion failed. If r is true, we say that the assertion
  * succeeded. If the assertion succeeded, execution of the assert statement is
  * complete. If the assertion failed, an AssertionError is thrown.
- * @description Checks that a dynamic type error occurs if the conditional
+ * @description Checks that a compile error occurs if the conditional
  * expression e is a list literal.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 main() {
-  checkTypeError(() {
-    assert ([true, false]); /// static type warning
-  });
+  assert ([true, false]);
 }

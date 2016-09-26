@@ -13,27 +13,16 @@
  * we say that the assertion failed. If r is true, we say that the assertion
  * succeeded. If the assertion succeeded, execution of the assert statement is
  * complete. If the assertion failed, an AssertionError is thrown.
- * @description Checks that a dynamic type error occurs if the conditional
- * expression e evaluates to a function that returns a String or a Dynamic type
- * value.
- * @static-warning
+ * @description Checks that a compile error occurs if the conditional
+ * expression e evaluates to a function that returns a String value.
+ * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 String foo() { return "foo"; }
 
-bar() {return 1;}
-
 main() {
-  checkTypeError(() {
-    assert (foo); /// static type warning
-  });
-
-  checkTypeError(() {
-    assert (bar);
-  });
+  assert (foo);
 }
