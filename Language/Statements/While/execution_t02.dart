@@ -16,11 +16,14 @@
  * @reviewer rodionov
  * @reviewer iefremov
  */
+import '../../../Utils/expect.dart';
+
 main() {
   try {
     while (null) {
       break;
     }
+    Expect.fail("AssertionError is expected");
   } on AssertionError {
     // ok
   }

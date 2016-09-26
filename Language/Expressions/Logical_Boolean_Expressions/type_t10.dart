@@ -17,17 +17,18 @@
  * then the type of v is known to be T in e2.
  * @description Checks that if v is not a local variable or formal parameter,
  * then b does not show that v has any promoted type. Static variable case.
- * @static-warning
  * @author ilya
  */
 
 class C {}
+
 class D extends C {
   f() {}
 }
 
 class A {
-  static C x = new D();
+  static var x = new D();
+
   static test () {
     x is D && x is D ? x.f() : null;
   }

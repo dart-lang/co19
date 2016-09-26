@@ -82,7 +82,7 @@ main() {
   new C().test; //property extraction
 
   //postfix expressions
-  var i = 1;
+  int i = 1;
   i--;
   i++;
 
@@ -135,12 +135,13 @@ main() {
 
   //compound assignment
   i *=  i;
-  i /=  i;
+  double d = 1.0;
+  d /=  i;
   i ~/= i;
   i %=  i;
   i +=  i;
   i -=  i;
-  var j = 2;
+  int j = 2;
   j <<= 1;
   j >>= 2;
   j &=  42;

@@ -14,19 +14,18 @@
  * dart:core.
  * It is a static type warning if the static type of e may not be assigned to
  * the static type of the formal parameter of the setter v =.
- * @description Checks that it is a static type warning if Sstatic does not have
- * an accessible instance setter named v =
- * @static-warning
+ * @description Checks that it is a compile error if Sstatic does not have an
+ * accessible instance setter named v =
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class A {
 }
 
 class C extends A {
   test() {
-    Expect.throws(() {super.v = 1;}, (e) => e is NoSuchMethodError); /// static type warning
+    super.v = 1;
   }
 }
 

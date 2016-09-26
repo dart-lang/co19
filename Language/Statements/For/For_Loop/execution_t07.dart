@@ -16,22 +16,15 @@
  * 3. The statement [v'/v]s is executed.
  * 4. Let v'' be a fresh variable. v'' is bound to the value of v'.
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
- * @description Checks that it is a dynamic type error if c is not of type bool
- * in checked mode.
- * @static-warning
+ * @description Checks that it is a compile error if c is not of type bool.
+ * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
 
-import '../../../../Utils/dynamic_check.dart';
-
 main() {
-  checkTypeError( () {
-    for ( int i = 0;
-      ++i ; /// static type warning 'num' is not assignable to 'bool'
-    ) {
-      break;
-    }
-  });
+  for ( int i = 0; ++i;  ) {
+    break;
+  }
 }

@@ -25,7 +25,7 @@ class C extends A {
 }
 
 main() {
-  C c = new C();
+  dynamic c = new C();
   Expect.equals(1, c.m());
   Expect.throws(() {c.s();}, (e) => e is NoSuchMethodError);
 }

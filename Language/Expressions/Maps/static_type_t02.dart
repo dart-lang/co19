@@ -7,19 +7,13 @@
  * @assertion The static type of a map literal of the form
  * const <K, V>{k1: e1...kn: en} or the form <K, V>{k1: e1...kn: en} is
  * Map<K, V>.
- * @description Checks that a static warning occurs when assigning a constant
+ * @description Checks that a compile error occurs when assigning a constant
  * map literal to an int variable.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 main() {
-  int i;
-  checkTypeError(
-    () =>
-      i = const <String, String> {} /// static type warning
-  );
+  int i = const <String, String> {};
 }

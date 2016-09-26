@@ -14,7 +14,7 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  var l = const[1, 2, 3, 4, 5, 5 + 1, 5 + 2, 9 - 1, 9, 2 * 5];
+  List l = const[1, 2, 3, 4, 5, 5 + 1, 5 + 2, 9 - 1, 9, 2 * 5];
   for (int i = 0; i < 10; i++) {
     Expect.equals(i + 1, l[i]);
   }

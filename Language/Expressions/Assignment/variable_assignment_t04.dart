@@ -12,13 +12,12 @@
  * an object o. Then, the variable v is bound to o unless v is final or const,
  * in which case a dynamic error occurs. If no error occurs, the value of the
  * assignment expression is o.
- * @description Checks that if v is final then dynamic error occurs
- * @static-warning
+ * @description Checks that if v is final then compile error occurs
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
   final int v = 0;
-  checkDynamicError(() {v = 1;}); /// static type warning
+  v = 1;
 }

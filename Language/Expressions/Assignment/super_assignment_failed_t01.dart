@@ -22,13 +22,13 @@
  *  in class Object is invoked on this
  * @description Checks that method noSuchMethod is invoked with the right
  * argument if there is no setter for v in Sdynamic.
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
 class TestException {}
 
+@proxy
 class A {
   noSuchMethod(Invocation im) {
     Expect.isTrue(im.isSetter);
@@ -41,7 +41,7 @@ class A {
 
 class C extends A {
   test() {
-    Expect.throws(() {super.v = 1;}, (e) => e is TestException); /// static type warning
+    Expect.throws(() {super.v = 1;}, (e) => e is TestException);
   }
 }
 

@@ -12,8 +12,6 @@
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/dynamic_check.dart';
-
 main() {
   while (1+2) {
     print("foo");

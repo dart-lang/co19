@@ -9,20 +9,17 @@
  * setter) or variable initializer and there is neither a local variable
  * declaration with name v nor setter declaration with name v = in the lexical
  * scope enclosing the assignment.
- * @description Checks that it is a static warning if an assignment of the form
+ * @description Checks that it is a compile error if an assignment of the form
  * v = e occurs inside a static setter and and there is neither a local
  * variable declaration with name v nor setter declaration with name v = in the
  * lexical scope enclosing the assignment.
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class C {
   static set test(val) {
-    try {
-      v = 1; /// static type warning
-    } catch (e) {}
+    v = 1;
   }
 }
 

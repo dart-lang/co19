@@ -18,19 +18,19 @@
  * @description Checks that if v is local variable or formal parameter,
  * e1 shows that v has type T, but v is mutated in e1,
  * then the type of v is not known to be T in e2. Local variable case.
- * @static-warning
  * @author ilya
  */
 
 class C {}
+
 class D extends C {
   f() {}
 }
 
 skyIsBlue(_) => true;
 
-f(C y) {
-  C x = y;
+f(var y) {
+  var x = y;
   (skyIsBlue([x = new C()]) && x is D) && x.f() == null;
 }
 

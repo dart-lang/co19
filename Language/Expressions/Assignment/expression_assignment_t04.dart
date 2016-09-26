@@ -19,7 +19,7 @@
 import '../../../Utils/expect.dart';
 
 class C {
-  C operator + (C val) {
+  C operator +(C val) {
     return new C();
   }
 }

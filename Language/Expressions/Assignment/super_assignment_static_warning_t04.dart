@@ -14,13 +14,12 @@
  * dart:core.
  * It is a static type warning if the static type of e may not be assigned to
  * the static type of the formal parameter of the setter v =.
- * @description Checks that it is a static type warning if the static type of e
+ * @description Checks that it is a compile error if the static type of e
  * may not be assigned to the static type of the formal parameter of the
  * setter v=
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class A {
   int v;
@@ -28,10 +27,7 @@ class A {
 
 class C extends A {
   test() {
-    try {
-      super.v = ""; /// static type warning
-    } catch (e) {
-    }
+    super.v = "";
   }
 }
 

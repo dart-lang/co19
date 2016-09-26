@@ -12,13 +12,12 @@
  * type of e.
  * @description Check that The static type of the expression v = e is the static
  * type of e
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
-  var v;
+  dynamic v;
   double e = 3.14;
-  checkTypeError(() {int x = v = e;}); /// static type warning
+  int x = v = e;
 }

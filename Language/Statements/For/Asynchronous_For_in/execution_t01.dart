@@ -16,9 +16,9 @@
  *  an exception, then f is completed with that exception. Otherwise, when
  *  all events in the stream o have been processed, f is completed with null.
  *
- * @description Check that a dynamic error occurs if o is not an instance
+ * @description Check that a compile error occurs if o is not an instance
  * of a class that implements Stream
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -30,18 +30,11 @@ Future test1() async {
   }
 }
 
-Future test2() async {
-  await for (int i in [1, 2, 3]) { /// static type warning
-  }
-}
-
 main() {
   asyncStart();
   test1().then(
-          (value) => Expect.fail("Dynamic error is expected"),
-          onError: (error) => true // need this just to intercept expected error
-  ).then((value) => test2().then(
-          (value) => Expect.fail("Dynamic error is expected"),
+          (value) => Expect.fail("Compile error is expected"),
           onError: (error) => asyncEnd()
-  ));
+          // TODO verify that error is a compile error
+  );
 }

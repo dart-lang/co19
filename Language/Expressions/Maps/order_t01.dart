@@ -8,7 +8,6 @@
  * of the maps always happens in the order the keys appeared in the source
  * code.
  * @description Checks that a map literal is ordered.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -34,10 +33,10 @@ main() {
   //repeating keys
   orderKeys = "";
   orderValues = "";
-  m = {"5": 5, "2": 2, "3": 3, "4": 4, "5": 1}; /// static type warning
+  m = {"5": 5, "2": 2, "3": 3, "4": 4};
   m.forEach(func);
   Expect.equals("5234", orderKeys);
-  Expect.equals("1234", orderValues);
+  Expect.equals("5234", orderValues);
 
   //constant map
   orderKeys = "";

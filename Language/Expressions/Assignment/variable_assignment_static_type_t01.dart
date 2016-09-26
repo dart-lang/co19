@@ -10,15 +10,14 @@
  * It is a static type warning if the static type of e may not be assigned to
  * the static type of v. The static type of the expression v = e is the static
  * type of e.
- * @description Check that it is a static type warning if the static type of e
+ * @description Check that it is a compile error if the static type of e
  * may not be assigned to the static type of v
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
   int v;
   double e = 3.14;
-  checkTypeError(() {v = e;}); ///static type warning
+  v = e;
 }

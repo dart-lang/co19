@@ -34,7 +34,7 @@ bar2() {
 }
 
 main() {
-  var e = 1 + 6 / 3 * 12;
+  dynamic e = 1 + 6 / 3 * 12;
   Expect.equals(25, e);
 
   e = true || false;

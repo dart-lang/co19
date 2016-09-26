@@ -13,9 +13,9 @@
  *    constant identical to the constant @proxy defined in dart:core. Or
  *  • T is Type, e1 is a constant type literal and the class corresponding to e1
  *    has a static setter named v =.
- * @description Checks that it is a static warning if e1 does not have a
+ * @description Checks that it is a compile error if e1 does not have a
  * setter named v.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  * @author sgrekhov@unipro.ru
  */
@@ -25,7 +25,5 @@ class C {
 }
 
 main() {
-  Expect.throws(() {
-    new C().v = 1; /// static type warning
-  }, (e) => e is NoSuchMethodError);
+  new C().v = 1;
 }
