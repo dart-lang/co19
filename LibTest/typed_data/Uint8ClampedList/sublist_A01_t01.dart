@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var start, var end) {
+void check(List<int> list, int start, int end) {
   var l = new Uint8ClampedList.fromList(list);
   var res = l.sublist(start, end);
 
