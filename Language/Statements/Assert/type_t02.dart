@@ -6,18 +6,15 @@
 /**
  * @assertion It is a static type warning if the type of e may not be assigned
  * to either bool or () -> bool.
- * @description Checks that there is no static type warning if the type of e is
+ * @description Checks that it is a compile error if the type of e is
  * () -> Dynamic.
- * @static-clean
+ * @compile-error
+ * @issue #27426
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/dynamic_check.dart';
-
-foo() {return 1;}
+dynamic foo() {return 1;}
 
 main() {
-  checkTypeError(() {
-    assert (foo);
-  });
+  assert (foo);
 }
