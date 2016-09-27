@@ -21,7 +21,7 @@ main() {
   IFrameElement x=new IFrameElement();
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
       treeSanitizer: new NullTreeSanitizer());
-  var div = f.firstChild;
+  DivElement div = f.firstChild;
 
   Expect.mapEquals({'foo':'foo'}, div.attributes);
 

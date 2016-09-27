@@ -17,7 +17,7 @@ import "../testcommon.dart";
 main() {
   var x = new Element.html('<svg><iframe xlink:href="1" xlink:custom="2"></iframe></svg>',
       treeSanitizer: new NullTreeSanitizer());
-  var y = x.firstChild;
+  Element y = x.firstChild;
 
   y.setAttributeNS(XlinkNamespace, 'href', 'foo');
   Expect.equals('foo', y.getAttributeNS(XlinkNamespace, 'href'),

@@ -14,7 +14,7 @@ import "../testcommon.dart";
 
 main() {
   var tag = 'foobar';
-  var x = new Element.html('<$tag></$tag>',
+  Element x = new Element.html('<$tag></$tag>',
       treeSanitizer: new NullTreeSanitizer());
 
   Expect.equals(tag.toUpperCase(), x.tagName);

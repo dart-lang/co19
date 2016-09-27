@@ -18,7 +18,7 @@ main() {
          </iframe>
          </div>''',
       treeSanitizer: new NullTreeSanitizer());
-  var x = document.body.getElementsByClassName('ief')[0];
+  Element x = document.body.getElementsByClassName('ief')[0];
 
   x.style.color='red';
   x.style.direction='rtl';

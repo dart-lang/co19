@@ -10,7 +10,6 @@
  * the live document.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 class IFrameElement1 extends IFrameElement {

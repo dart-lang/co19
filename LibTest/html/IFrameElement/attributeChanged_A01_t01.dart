@@ -12,7 +12,6 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-import "../testcommon.dart";
 
 class MyIFrameElement extends IFrameElement {
   MyIFrameElement() : super.created();
@@ -27,9 +26,9 @@ class MyIFrameElement extends IFrameElement {
 }
 
 main() {
-  IFrameElement x=new MyIFrameElement();
+  IFrameElement x = new MyIFrameElement();
   x.attributes['foo'] = 'old-val';
-  document.body.add(x);
+  document.body.append(x);
 
   asyncStart();
   x.attributes['foo'] = 'new-val';

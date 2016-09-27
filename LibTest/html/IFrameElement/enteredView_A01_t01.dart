@@ -10,10 +10,11 @@
  * into the live document.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 class MyIFrameElement extends IFrameElement {
+  MyIFrameElement() : super.created();
+
   enteredView() {
     super.enteredView();
     asyncEnd();

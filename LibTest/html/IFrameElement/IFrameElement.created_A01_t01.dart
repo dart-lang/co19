@@ -10,7 +10,6 @@
  * @description Checks that this constructor can be called only by subclasses
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 class MyIFrameElement extends IFrameElement {

@@ -11,7 +11,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
   IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');

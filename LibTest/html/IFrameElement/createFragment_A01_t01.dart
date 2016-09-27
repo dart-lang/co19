@@ -17,9 +17,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>');
-  var div = f.firstChild;
+  DivElement div = f.firstChild;
 
   Expect.mapEquals({}, div.attributes);
 
