@@ -16,14 +16,14 @@ import "../../../Utils/expect.dart";
 const myButton="myButton";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.appendHtml('<span><div></div><button class="$myButton></button></span>');
-  var ch=x.lastChild;
+  Element ch=x.lastChild;
   print("lastChild=ch.runtimeType:$ch");
   
   List<Node> z = ch.getElementsByClassName(myButton);
 
   var y=z[0].parent;
-print("z=$z y=$y");
+  print("z=$z y=$y");
   Expect.equals(y, z);
 }

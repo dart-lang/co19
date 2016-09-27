@@ -17,8 +17,6 @@
  *  "Specified element is not a transitive offset parent of this element"
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../testcommon.dart";
 
 void check(int a, int b, String m) {

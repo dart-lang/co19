@@ -22,7 +22,7 @@ main() {
 
   asyncMultiStart(n);
 
-  genHandler() => (e) {
+  EventListener genHandler() => (e) {
     Expect.equals(type, e.type);
     Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
     asyncEnd();

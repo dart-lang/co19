@@ -9,7 +9,6 @@
  * @description Checks that focus event happens when focus() is called.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {

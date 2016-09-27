@@ -9,7 +9,6 @@
  * @description Checks that click event happens when click() is called.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {

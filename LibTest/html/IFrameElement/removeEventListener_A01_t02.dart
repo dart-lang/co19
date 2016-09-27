@@ -15,17 +15,17 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   var body = document.body;
   body.append(x);
 
-  var handler1 = (e) {
+  EventListener handler1 = (e) {
     Expect.equals(type, e.type);
     asyncEnd();
   };
   
   var seen = false;
-  var handler2;
+  EventListener handler2;
   handler2 = (e) {
     if (seen)
       Expect.fail('should be run once');
