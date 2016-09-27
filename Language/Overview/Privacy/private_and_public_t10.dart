@@ -12,20 +12,14 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is 
  * public.
- * @description Checks that trying to access a private static method that 
- * is not accessible to the current script results in a static warning and a 
- * NoSuchMethodError.
- * @static-warning
+ * @description Checks that access to private static method that
+ * is not accessible to the current script results in a compile error
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
-
 import "../lib.dart";
 
 main() {
-  try {
-    ClassWithPrivateMembers._staticfun(); /// static warning not accessible
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError {}
+  ClassWithPrivateMembers._staticfun();
 }

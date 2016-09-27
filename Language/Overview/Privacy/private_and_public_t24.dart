@@ -12,14 +12,16 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is 
  * public.
- * @description Checks that a private class declaration is inaccessible outside
- * the library.
+ * @description Checks that access to private instance class members
+ * from a script that imports the library where the class is declared result 
+ * in a compile error
  * @compile-error
- * @author msyabro
- * @reviewer iefremov
+ * @author iefremov
+ * @reviewer rodionov
  */
 import "../lib.dart";
 
 main() {
-  new _InaccessibleClass();
+  var c = new ClassWithPrivateMembers();
+  print(c._getter);
 }

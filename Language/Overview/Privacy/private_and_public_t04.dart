@@ -14,17 +14,12 @@
  * public.
  * @description Checks that a private variable declaration is inaccessible 
  * outside the library.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "../lib.dart" as lib;
 
 main() {
-  try {
-    lib._inaccessibleVariable = 1; /// static type warning
-    Expect.fail("NoSuchMethodError expected when undefined getter invoked");
-  } on NoSuchMethodError {}
+  lib._inaccessibleVariable = 1;
 }

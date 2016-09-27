@@ -12,20 +12,14 @@
  * otherwise it is public.
  * A declaration m is accessible to library L if m is declared in L or if m is 
  * public.
- * @description Checks that an appropriate error (and warning) is produced 
- * when trying to access a private factory constructor that is not accessible 
- * to the current script.
- * @static-warning
+ * @description Checks that a compile error is produced due to access to
+ * a private factory constructor that is not accessible to the current script.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
-
 import "../lib.dart";
 
 main() {
-  try {
-    new ClassWithPrivateMembers._named2(); /// static warning not accessible
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError {}
+  new ClassWithPrivateMembers._named2();
 }

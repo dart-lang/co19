@@ -7,21 +7,20 @@
  * @assertion If a declaration d named n is in the namespace induced by a 
  * scope S, then d hides any declaration named n that is available in the 
  * lexically enclosing scope of S.
- * @description Checks that it is a static warning and a dynamic error when a 
- * type parameter hides a class name declared in an enclosing scope.
- * @static-warning
+ * @description Checks that it is a compile error if a type parameter hides
+ * a class name declared in an enclosing scope.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
 
 class C {}
 class G<C> {
   G() {
-    new C(); /// static warning
+    new C();
   }
 }
 
 main() {
-  Expect.throws(() => new G());
+  new G();
 }

@@ -15,7 +15,6 @@
  * @description Checks that various private class members are perfectly
  * accessible inside the library where the class is declared even when
  * accessed via a subclass instance.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -39,7 +38,8 @@ abstract class _A {
 }
 
 abstract class B extends _A {}
-class C extends B { /// static type warning Concrete class has unimplemented member
+class C extends B {
+  _abstractfun() {}
 }
 
 main() {

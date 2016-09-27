@@ -14,17 +14,13 @@
  * public.
  * @description Checks that a private type declared with typedef is 
  * inaccessible outside the library.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "../lib.dart" as lib;
 
 main() {
-  Expect.throws(() {
-      (p) {} is lib._inaccessibleFuncType; /// static type warning
-  }, (e) => e is TypeError);
+  (p) {} is lib._inaccessibleFuncType;
 }
