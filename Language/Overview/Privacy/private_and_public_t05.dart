@@ -14,7 +14,7 @@
  * public.
  * @description Checks that a private function is inaccessible outside the 
  * library.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
@@ -24,10 +24,7 @@ import "../lib.dart" as lib;
 
 class C {
   void test() {
-    try {
-      lib._inaccessibleFunction(); /// static type warning
-      Expect.fail("NoSuchMethodError expected when undefined function invoked");
-    } on NoSuchMethodError {}
+    lib._inaccessibleFunction();
   }
 }
 

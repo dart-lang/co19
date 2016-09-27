@@ -23,18 +23,18 @@
  * returned after f is executed.
  * @description Checks that it's a compile error if a form super.m() has a
  * parameters mismatch listed above with the enclosing class's instance method.
- * Test less positional parameters
+ * Test named parameters
  * @compile-error
- * @author ilya
+ * @author sgrekhov@unipro.ru
  */
 
 class S {
-  positional(x, y, [u, v]) {}
+  named(x, y, {foo, bar}) {}
 }
 
 class C extends S {
   test() {
-    super.positional(1);
+    super.named(1);
   }
 }
 

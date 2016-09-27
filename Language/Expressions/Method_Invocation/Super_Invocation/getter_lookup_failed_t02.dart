@@ -17,12 +17,13 @@
  * evaluating i.
  * @description Checks the result of invocation if the method noSuchMethod()
  * invoked.
- * @static-warning
+ * @issue 25540
  * @author msyabro
  * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
+@proxy
 class S1 {
   noSuchMethod(Invocation im) {
     return "v";
@@ -31,10 +32,11 @@ class S1 {
 
 class A extends S1 {
   test() {
-    Expect.equals("v", super.m()); /// static type warning
+    Expect.equals("v", super.m());
   }
 }
 
+@proxy
 class S2 {
   noSuchMethod(Invocation im) {
     return true;
@@ -43,10 +45,11 @@ class S2 {
 
 class B extends S2 {
   test() {
-    Expect.equals(true, super.m()); /// static type warning
+    Expect.equals(true, super.m());
   }
 }
 
+@proxy
 class S3 {
   noSuchMethod(Invocation im) {
     return 1;
@@ -55,10 +58,11 @@ class S3 {
 
 class C extends S3 {
   test() {
-    Expect.equals(1, super.m()); /// static type warning
+    Expect.equals(1, super.m());
   }
 }
 
+@proxy
 class S4 {
   noSuchMethod(Invocation im) {
     return null;
@@ -67,7 +71,7 @@ class S4 {
 
 class D extends S4 {
   test() {
-    Expect.equals(null, super.m()); /// static type warning
+    Expect.equals(null, super.m());
   }
 }
 

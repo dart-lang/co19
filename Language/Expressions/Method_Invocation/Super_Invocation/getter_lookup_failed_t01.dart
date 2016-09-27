@@ -18,7 +18,7 @@
  * @description Checks that noSuchMethod is invoked if there're no members,
  * instance or static, with the required name in the invoking class's
  * superclass.
- * @static-warning
+ * @issue 25540
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -26,6 +26,7 @@ import '../../../../Utils/expect.dart';
 
 class TestException {}
 
+@proxy
 class S {
   noSuchMethod(Invocation im) {
     throw new TestException();
@@ -35,7 +36,7 @@ class S {
 class A extends S {
   test() {
     try {
-      super.nonExistingMethod(); /// static type warning
+      super.nonExistingMethod();
       Expect.fail("Exception is expected");
     } on TestException catch (e) {}
   }

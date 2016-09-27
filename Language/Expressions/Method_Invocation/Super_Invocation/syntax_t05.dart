@@ -6,8 +6,7 @@
 /**
  * @assertion A super method invocation i has the form
  * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @description Checks that argument list should not end with comma.
- * @compile-error
+ * @description Checks that argument list may end with comma.
  * @reviewer kaigorodov
  * @author msyabro
  */
@@ -18,9 +17,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.f(1, 2, 3, );
-    } catch (e) {}
+    super.f(1, 2, 3, );
   }
 }
 

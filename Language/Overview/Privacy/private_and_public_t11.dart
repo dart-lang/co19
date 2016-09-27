@@ -14,7 +14,6 @@
  * public.
  * @description Checks that various private class members are perfectly 
  * accessible to a subclass that is declared in the same script.
- * @static-warning
  * @author iefremov
  * @reviewer kaigorodov
  */
@@ -37,7 +36,9 @@ abstract class _A {
   void set _setter(x) {throw 1;}
 }
 
-class B extends _A { /// static type warning Concrete class has unimplemented member
+class B extends _A {
+  _abstractfun() {}
+
   test() {
     Expect.equals(54, super._var);
     Expect.equals(54, _var);
@@ -49,10 +50,7 @@ class B extends _A { /// static type warning Concrete class has unimplemented me
     Expect.equals(42, _fun());
     Expect.equals(54, _A._staticfun());
 
-    try {
-      _abstractfun();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ok) {}
+    _abstractfun();
     try {
       super._abstractfun();
       Expect.fail("NoSuchMethodError expected.");

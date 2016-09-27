@@ -8,19 +8,15 @@
  * scope S, then d hides any declaration named n that is available in the 
  * lexically enclosing scope of S.
  * @description Checks that a hidden class name can't be used as a type. 
- * An error should be thrown as this class is not defined.
- * @static-warning
+ * A compile error is expected.
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  * @needsreview dart issue #21092
  */
-import "../../../Utils/expect.dart";
-
 class C {}
 
 main() {
   var C = 1;
-  Expect.throws(() {
-    new C(); /// static type warning
-  }, (e) => e is Error);
+  new C();
 }

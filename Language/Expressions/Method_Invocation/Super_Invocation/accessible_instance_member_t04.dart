@@ -13,6 +13,7 @@
  * does not have an instance member named m but its superinterface is
  * annotated with @proxy.
  * @static-clean
+ * @issue 25540
  * @author kaigorodov
  */
 import '../../../../Utils/expect.dart';

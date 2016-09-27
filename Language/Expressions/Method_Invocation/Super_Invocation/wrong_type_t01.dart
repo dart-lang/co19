@@ -8,13 +8,12 @@
  * ...
  * If Sstatic.m exists, it is a static type warning if the type F of
  * Sstatic.m may not be assigned to a function type.
- * @description Checks that it is a static type warning if S.m can not be
+ * @description Checks that it is a compile error if S.m can not be
  * assigned to a function type.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
-import '../../../../Utils/expect.dart';
 
 class S {
   int m;
@@ -22,10 +21,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.m(); /// static type warning
-      Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch (e) {}
+    super.m();
   }
 }
 
