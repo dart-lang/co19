@@ -18,7 +18,7 @@ var n = 1;
 void check(Node x) {
   var type = 'click';
 
-  genHandler() => (e) {
+  EventListener genHandler() => (e) {
     Expect.equals(type, e.type);
     asyncEnd();
   };

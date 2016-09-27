@@ -12,7 +12,7 @@
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
-void check(WindowBase nw, int dx, int dy) {
+void check(Window nw, int dx, int dy) {
   int x=nw.screenLeft;
   int y=nw.screenTop;
   nw.moveBy(dx, dy);
@@ -21,7 +21,7 @@ void check(WindowBase nw, int dx, int dy) {
 }
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  Window nw=window.open("about:blank", "_blank");
   try {
     check(nw,0,0);
     check(nw,1,0);

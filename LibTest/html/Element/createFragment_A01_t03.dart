@@ -21,7 +21,7 @@ main() {
   var x = document.body;
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
       treeSanitizer: new NullTreeSanitizer());
-  var div = f.firstChild;
+  DivElement div = f.firstChild as DivElement;
 
   Expect.mapEquals({'foo':'foo'}, div.attributes);
 

@@ -9,7 +9,6 @@
  * @description Checks that this property is present.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
 
 main() {
   bool supportsRegister=document.supportsRegister;

@@ -17,7 +17,8 @@ main() {
   var x = new Element.html('<svg><foo xlink:href="1" xlink:custom="2"></foo></svg>',
       treeSanitizer: new NullTreeSanitizer());
   document.body.append(x);
+  AnchorElement y = x.firstChild;
 
-  Expect.equals('1', x.firstChild.getAttributeNS(XlinkNamespace, 'href'));
-  Expect.equals('2', x.firstChild.getAttributeNS(XlinkNamespace, 'custom'));
+  Expect.equals('1', y.getAttributeNS(XlinkNamespace, 'href'));
+  Expect.equals('2', y.getAttributeNS(XlinkNamespace, 'custom'));
 }

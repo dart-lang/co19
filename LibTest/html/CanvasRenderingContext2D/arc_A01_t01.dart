@@ -10,8 +10,6 @@
  * @description Checks that listener for standard event can be added
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   CanvasElement canvas = new CanvasElement();

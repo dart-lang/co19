@@ -15,7 +15,7 @@ import "../../../UtilsHtml/expect.dart";
 const eventType='keydown';
 
 void check(Node x) {
-  x.onKeyDown.listen((KeyboardEvent e) {
+  (x as Element).onKeyDown.listen((KeyboardEvent e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
   });

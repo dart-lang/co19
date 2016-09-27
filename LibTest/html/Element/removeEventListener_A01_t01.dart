@@ -18,13 +18,13 @@ main() {
   var x = new ButtonElement();
   document.body.append(x);
 
-  var handler1 = (e) {
+  EventListener handler1 = (e) {
     Expect.equals(type, e.type);
     asyncEnd();
   };
   
   var seen = false;
-  var handler2;
+  EventListener handler2;
   handler2 = (e) {
     if (seen)
       Expect.fail('should be run once');

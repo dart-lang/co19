@@ -15,7 +15,7 @@ import "dart:math";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  Window nw=window.open("about:blank", "_blank");
   int nx=-100, ny=-100;
   try {
     print("from ${nw.screenLeft}:${nw.screenTop} to $nx, $ny");

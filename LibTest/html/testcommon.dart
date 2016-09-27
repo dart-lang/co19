@@ -7,7 +7,6 @@
 library test_common;
 
 import 'dart:html';
-import "../../Utils/async_utils.dart";
 
 var Html5Elements = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
         'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br',

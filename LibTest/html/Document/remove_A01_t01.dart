@@ -10,7 +10,6 @@
  * @needsreview #16675
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 
 main() {
   document.remove();

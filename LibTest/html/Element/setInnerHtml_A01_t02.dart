@@ -16,7 +16,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
   var x = document.body;
@@ -25,7 +24,7 @@ main() {
       //..allowHtml5()
       ..allowElement('bar', attributes: ["id"])
       ..allowElement('div', attributes: ["foo"]));
-  var div = x.firstChild;
+  DivElement div = x.firstChild;
 
   Expect.mapEquals({'foo':'foo'}, div.attributes);
 

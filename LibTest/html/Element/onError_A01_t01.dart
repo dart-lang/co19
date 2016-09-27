@@ -14,11 +14,11 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'error';
-  var x = document.body;
+  HtmlElement x = document.body;
   x.innerHtml ='<img src="IntentionallyMissingFile.png">';
 
   asyncStart();
-  x.firstChild.onError.listen((e) {
+  (x.firstChild as ImageElement).onError.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

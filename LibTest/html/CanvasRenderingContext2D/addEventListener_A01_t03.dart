@@ -24,11 +24,6 @@ void check(Node x) {
     asyncEnd();
   });
 
-  x.onClick.listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-  
   x.on[type].listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
@@ -46,7 +41,7 @@ main() {
     document,
     new DocumentFragment(),
   ];
-//  asyncMultiStart(targets.length);
+  //  asyncMultiStart(targets.length);
   for (Node x in targets) {
     check(x);
   }

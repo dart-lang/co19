@@ -17,7 +17,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
-  var x = new ButtonElement();
+  ButtonElement x = new ButtonElement();
   document.body.append(x);
 
   var n = 10;
@@ -25,7 +25,7 @@ main() {
 
   asyncStart();
 
-  genHandler() => (e) {
+  EventListener genHandler() => (e) {
     Expect.equals(0, numCalled++);
     e.stopImmediatePropagation();
     asyncEnd();

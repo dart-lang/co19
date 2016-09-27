@@ -9,7 +9,6 @@
  * @description Checks expected values.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check(Node x) {

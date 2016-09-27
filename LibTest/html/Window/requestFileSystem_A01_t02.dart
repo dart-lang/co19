@@ -20,7 +20,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase nw=window;
+  Window nw=window;
 
   asyncStart();
   nw.requestFileSystem(10).then((FileSystem fs) {

@@ -15,14 +15,14 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
-  var x = new ButtonElement();
+  ButtonElement x = new ButtonElement();
   document.body.append(x);
 
   var n = 10;
 
   asyncMultiStart(n);
 
-  genHandler() => (e) {
+  EventListener genHandler() => (e) {
     Expect.equals(type, e.type);
     Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
     asyncEnd();

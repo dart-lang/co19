@@ -19,7 +19,7 @@ main() {
     '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
 
   asyncStart();
-  x.firstChild.onLoad.listen((e) {
+  (x.firstChild as IFrameElement).onLoad.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

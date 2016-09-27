@@ -11,7 +11,7 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-void check(Node x) {
+void check(dynamic x) {
   Expect.throws(() => x.childNodes=[]);
 }
 

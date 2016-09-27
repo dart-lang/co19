@@ -17,8 +17,8 @@ void check(Node x) {
   x.append(y);
   x.append(z);
   List<Node> nodes=x.nodes;
-  Expect.isTrue(nodes.contain(y));
-  Expect.isTrue(nodes.contain(z));
+  Expect.isTrue(nodes.contains(y));
+  Expect.isTrue(nodes.contains(z));
 }
 
 main() {

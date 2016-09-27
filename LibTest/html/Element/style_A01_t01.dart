@@ -9,14 +9,13 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../testcommon.dart";
 
 main() {
   document.body.setInnerHtml(
       '<div style="color: red; direction: rtl">Foo</div>',
       treeSanitizer: new NullTreeSanitizer());
-  var x = document.body.firstChild;
+  DivElement x = document.body.firstChild;
 
   Expect.equals('red', x.style.color, 'color');
   Expect.equals('rtl', x.style.direction, 'direction');

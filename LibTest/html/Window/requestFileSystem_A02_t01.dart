@@ -19,7 +19,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  Window nw=window.open("about:blank", "_blank");
   asyncCompleted.then((n) {
     nw.close();
   });

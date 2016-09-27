@@ -12,13 +12,13 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 void check(Node x) {
-  var y = new Comment("Comment");
+  Comment y = new Comment("Comment");
   x.append(y);
   Expect.equals(y, x.lastChild);
 
-  y = new Text('text');
-  x.append(y);
-  Expect.equals(y, x.lastChild);
+  Text z = new Text('text');
+  x.append(z);
+  Expect.equals(z, x.lastChild);
 }
 
 main() {

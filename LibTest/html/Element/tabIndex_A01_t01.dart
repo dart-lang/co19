@@ -12,9 +12,9 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<div tabindex="1"><p tabindex="2"></p></div>',
+  Element x = new Element.html('<div tabindex="1"><p tabindex="2"></p></div>',
       treeSanitizer: new NullTreeSanitizer());
 
   Expect.equals(1, x.tabIndex);
-  Expect.equals(2, x.firstChild.tabIndex);
+  Expect.equals(2, (x.firstChild as Element).tabIndex);
 }

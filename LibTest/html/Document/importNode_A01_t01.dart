@@ -16,7 +16,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var myButton="myButton";
-  Document d2=document.implementation.createHtmlDocument("Another Document");
+  HtmlDocument d2=document.implementation.createHtmlDocument("Another Document");
   var x = new Element.html('<button id="$myButton"></button>');
   d2.body.append(x);
   Expect.equals(d2, x.ownerDocument, "x.ownerDocument");
@@ -26,4 +26,3 @@ main() {
   Expect.equals(x, d2.getElementById(myButton), "d2.getElementById 2");
   Expect.equals(document, x2.ownerDocument, "x2.ownerDocument");
 }
-

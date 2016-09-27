@@ -11,7 +11,6 @@
  * @description Checks the state of request at variuos moments of time.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

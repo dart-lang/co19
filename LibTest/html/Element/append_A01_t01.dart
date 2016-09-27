@@ -13,11 +13,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<span></span>');
-  var y = new DivElement();
+  DivElement y = new DivElement();
   x.append(y);
   Expect.equals(y, x.lastChild);
 
-  y = new Text('text');
-  x.append(y);
-  Expect.equals(y, x.lastChild);
+  Text z = new Text('text');
+  x.append(z);
+  Expect.equals(z, x.lastChild);
 }

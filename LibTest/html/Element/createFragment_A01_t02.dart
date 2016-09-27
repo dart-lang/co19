@@ -23,7 +23,7 @@ main() {
       //..allowHtml5()
       ..allowElement('bar', attributes: ["id"])
       ..allowElement('div', attributes: ["foo"]));
-  var div = f.firstChild;
+  DivElement div = f.firstChild as DivElement;
 
   Expect.mapEquals({'foo':'foo'}, div.attributes);
 

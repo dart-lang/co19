@@ -20,7 +20,7 @@ main() {
                            '</div>',
       treeSanitizer: new NullTreeSanitizer());
 
-  var y = x.clone(false);
+  Element y = x.clone(false);
   Expect.mapEquals({'id':'id1', 'foo':'foo1'}, y.attributes, 'shallow copy');
 
   y = x.clone(true);

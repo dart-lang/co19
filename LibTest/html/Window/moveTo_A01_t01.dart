@@ -14,7 +14,7 @@ import "dart:html";
 import "dart:math";
 import "../../../UtilsHtml/expect.dart";
 
-void check(WindowBase nw, int nx, int ny) {
+void check(Window nw, int nx, int ny) {
   print("from ${nw.screenLeft}:${nw.screenTop} to $nx, $ny");
   nw.moveTo(new Point(nx, ny));
   print("after moveTo: ${nw.screenLeft}:${nw.screenTop}");
@@ -23,7 +23,7 @@ void check(WindowBase nw, int nx, int ny) {
 }
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  Window nw=window.open("about:blank", "_blank");
   
   try {
     check(nw,0,0);

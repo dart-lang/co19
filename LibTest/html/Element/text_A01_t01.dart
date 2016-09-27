@@ -12,7 +12,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
   document.body.innerHtml = '<div></div>';

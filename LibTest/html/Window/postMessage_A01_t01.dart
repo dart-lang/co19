@@ -18,7 +18,7 @@ main() {
   asyncStart();
   window.addEventListener("message", (Event event) {
     print("ev=$event");
-    Expect.equals(text, event.data);
+    Expect.equals(text, (event as MessageEvent).data);
     asyncEnd();
   });
   
