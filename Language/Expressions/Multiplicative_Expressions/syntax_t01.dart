@@ -54,32 +54,19 @@ class A extends S {
 
     //literals with selectors
     try {null * "string"; } catch (e) {}
-    try {this.id * (true(1, 2).val / 1[1]); } catch (e) {} /// static type warnings galore
-    try {1(1, 2)[3] * (null(1, []).val / (1.x % {}["s"])); } catch (e) {}
-    try {"s" * (true / (2 % ([]() ~/ {}))); } catch (e) {}
-
-    //constants
-    try {const [] * const [1];} catch (e) {}
-    try {const {} % const [];} catch (e) {}
-    try {const [1, 2, 3] / const {"1": 1} ~/ const S();} catch (e) {}
 
     //invocations
     try {method() * topLevelFunction();} catch (e) {}
     try {this.method()(1)(1, 2) / id[0]().x;} catch (e) {}
     try {id % topLevelFunction().x;} catch (e) {}
-    try {method(this) ~/ id[1]();} catch (e) {}
 
     //unary expressions
-    try {-this * ~this;} catch (e) {}
     try {--id / id++;} catch (e) {}
     try {~-id % !!false;} catch (e) {}
-    try {++1[1] ~/ ()=>2[0]--;} catch (e) {}
 
     //identifier and chaining
     try {id * id / id % id ~/ id; } catch (e) {}
   }
-
-  var _id;
 }
 
 main() {
