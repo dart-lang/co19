@@ -5,16 +5,13 @@
  */
 /**
  * @assertion The static type of a literal double is double.
- * @description Checks that a static warning is produced when assigning a
- * double literal to a typed int variable.
- * @static-warning
+ * @description Checks that it is a compile error to assign a double literal
+ * to a typed int variable.
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
-  checkTypeError(() {
-    int d = 1.1;  /// static type warning
-  });
+  int d = 1.1;
 }
