@@ -18,7 +18,7 @@
 import '../../../../Utils/expect.dart';
 
 class A {
-  String className = "A";
+  String get className => "A";
   bool executed = false;
   int get m {
     this.executed = true;
@@ -28,7 +28,7 @@ class A {
 }
 
 class C extends A {
-  String className = "C";
+  String get className => "C";
   int get m => 2;
 
   void test() {

@@ -7,18 +7,17 @@
  * @assertion Let Sstatic be the superclass of the immediately enclosing class.
  * It is a static type warning if Sstatic does not have an accessible instance
  * method or getter named m.
- * @description Checks that it is a static warning if the class of super in
+ * @description Checks that it is a compile errorif the class of super in
  * a super.m invocation does not have a getter named m.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
 
 class S {}
 
 class C extends S {
   C() {
-    Expect.throws(() => super.foo); /// static type warning
+    super.foo;
   }
 }
 
