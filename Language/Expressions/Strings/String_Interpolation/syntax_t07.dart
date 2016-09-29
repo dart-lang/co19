@@ -12,17 +12,13 @@
  *   '$' IDENTIFIER_NO_DOLLAR |
  *   '$' '{' expression '}'
  * ;
- * @description Checks that it is a runtime error if the identifier used in a
+ * @description Checks that it is a compile error if the identifier used in a
  * string interpolation construct is not declared in the current scope.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 main() {
-  try {
-    "${nonExistingVariable}"; /// static type warning - see "Identifier reference"
-    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
-  } on NoSuchMethodError catch (ex) {}
+  "${nonExistingVariable}";
 }
