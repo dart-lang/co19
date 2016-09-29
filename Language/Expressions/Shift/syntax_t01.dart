@@ -41,14 +41,7 @@ class A extends S {
     super << (super >> []);
 
     //literal with selector is a postfix expr. is an additive expr.
-    try {1()[0] << "string".string;} catch (e) {} /// static type warnings galore
-    try {true >> {"key1": 0, "key2": 1};} catch (e) {}
     try {null >> false;} catch (e) {}
-
-    //constant literal is a primary is an additive expr.
-    try {const [] >> const {};} catch (e) {}
-    try {const ["1", 2] << const S();} catch (e) {}
-    try {const [] >> 1;} catch (e) {}
 
     //invocation is a postfix expr. is an additive expr.
     try {method() >> topLevelFunction();} catch (e) {}
@@ -58,25 +51,14 @@ class A extends S {
     //additive expressions
     try { 1 + 2 << 2;} catch (e) {}
     try { 0 - 0 >> null + null;} catch (e) {}
-    try { [] + {} >> 0;} catch (e) {}
-
-    //multiplicative expressions
-    try {true * false << id.id / []();} catch (e) {}
-    try {this[1] % null(1) >> topLevelFunction()[0]++ ~/ {}()[0];} catch (e) {}
-    try {2 * 3 >> 0/0;} catch (e) {}
 
     //unary expressions
-    try {-this >> ~this;} catch (e) {}
     try {--id << id++;} catch (e) {}
     try {~-id << !!false;} catch (e) {}
-    try {++1[1] >> ()=>2[0]--;} catch (e) {}
 
     //function expression is a primary is an additive expr.
     try { ()=>0 >> 1; } catch (e) {}
-    try { (var x) {} << 0.5; } catch (e) {}
-    try { () {return 0.5;} >> () => 1; } catch (e) {}
   }
-  var _id;
 }
 
 main() {

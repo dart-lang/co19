@@ -15,9 +15,9 @@
  * ;
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a class declaration can be used
+ * @description Checks that a reference to a class declaration cannot be used
  * as the second operand of a shift expression without a compile error.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -25,7 +25,5 @@
 class A {}
 
 main() {
-  try {
-    1 >> A; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  1 >> A;
 }
