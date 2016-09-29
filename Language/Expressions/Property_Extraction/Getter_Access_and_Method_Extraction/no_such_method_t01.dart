@@ -13,7 +13,7 @@
  * Then the method noSuchMethod() is looked up in o and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
  * @description Check that if getter lookup failed and object has
- * noSuchMethod() then this method called with Invocation as agrument
+ * noSuchMethod() then this method called with Invocation as argument
  * with properties set to the values listed in the assertion
  * @issue 24331
  * @author sgrekhov@unipro.ru
@@ -35,7 +35,7 @@ class C {
 }
 
 main() {
-  C o = new C();
+  dynamic o = new C();
   o.someGetter;
   Expect.isTrue(o.called);
 }

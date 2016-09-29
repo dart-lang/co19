@@ -8,21 +8,17 @@
  * as follows: ...
  * Let T be the static type of e. It is a static type warning if T does not
  * have a method or getter named m
- * @description Checks that it is a static type warning if C does not declare,
+ * @description Checks that it is a compile error if C does not declare,
  * explicitly or implicitly, a getter with the appropriate name and that such
  * code results in a NoSuchMethodError.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 class C {
 }
 
 main()  {
-  try {
-    C.getter; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  C.getter;
 }
