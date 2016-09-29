@@ -18,9 +18,9 @@
  * ;
  * A relational expression is either a bitwise expression, or an invocation of
  * a relational operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a class declaration can be used
+ * @description Checks that a reference to a class declaration cannot be used
  * as the second operand in a relational expression without a compile error.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -28,7 +28,5 @@
 class A {}
 
 main() {
-  try {
-    3 > A; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  3 > A;
 }
