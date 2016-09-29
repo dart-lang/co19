@@ -19,8 +19,8 @@ class C {
 }
 
 main() {
-  C c1 = new C();
-  C c2 = null;
+  dynamic c1 = new C();
+  dynamic c2 = null;
   Expect.throws(() {c1?.id;}, (e) => e is NoSuchMethodError); /// static type warning
   Expect.isNull(c2?.id);
 }

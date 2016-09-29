@@ -14,12 +14,10 @@
  */
 
 class C {
-  int get m => 1;
+  List get m => new List();
 }
 
 main() {
   C c = new C();
-  try {
-    String x = c?.m; /// static type warning
-  } catch (e) {}
+  List<int> x = c?.m; /// static type warning
 }
