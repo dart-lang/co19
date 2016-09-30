@@ -14,15 +14,18 @@
 import "../../../Utils/expect.dart";
 
 class A {
-  int x = 0;
+  int _xa = 0;
+  int get x => _xa;
 }
 
 class M1 {
-  int x = 1;
+  int _xm1 = 1;
+  int get x => _xm1;
 }
 
 class M2 {
-  int x = 2;
+  int _xm2 = 2;
+  int get x => _xm2;
 }
 
 class B1 = A with M1;

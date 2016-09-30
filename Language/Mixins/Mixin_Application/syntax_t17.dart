@@ -31,7 +31,7 @@ class S {
 }
 
 class M {
-  var m;
+  int get m => 1;
 }
 
 class C extends S with M, M, M {
@@ -40,6 +40,7 @@ class C extends S with M, M, M {
 
 main() {
   C c = new C();
-  c.m = 1;
   Expect.equals(1, c.m);
 }
+
+
