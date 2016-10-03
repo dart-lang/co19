@@ -6,23 +6,17 @@
 /**
  * @assertion The static type of this is the interface of the immediately
  * enclosing class.
- * @description Checks that the static type of 'this' is not assignment
- * compatible with another class.
- * @static-warning
+ * @description Checks that the static type of 'this' is the interface of the
+ * immediately enclosing class.
  * @author kaigorodov
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
-class A {
-}
-
-class B {
-  A func() {return this;}
+class C {
+   func() {return this;}
 }
 
 main() {
-  checkTypeError(() {
-    A a = new B().func(); /// static type warning
-  });
+   Expect.isTrue(new C().func() is C);
 }
