@@ -11,20 +11,15 @@
  * expression evaluates to v.
  * Otherwise, if v is null, the cast expression evaluates to v.
  * In all other cases, a CastError is thrown.
- * @description Checks that if T is a parameterized type of the form
- * G<T1,...,Tn>, G is not generic type and Ti are malformed, then T is not
- * malformed (see Types/Parameterized Types) and CastError is thrown,
- * not TypeError.
- * @static-warning
+ * @description Checks that if T is not a parametrized type then cast of the
+ * form G<T1,...,Tn>, G is not generic type and Ti are malformed is a compile
+ * error
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 class G {}
 
 main() {
-  // G<Foo,Bar> is G<dynamic,dynamic> is G, not malformed
-  Expect.throws(() => [] as G<Foo,Bar>, (e) => e is CastError);
-
   new G() as G<Foo,Bar>;
 }

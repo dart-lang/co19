@@ -12,16 +12,12 @@
  * Otherwise, if v is null, the cast expression evaluates to v.
  * In all other cases, a CastError is thrown.
  * @description Checks that if T is a parameterized type of the form
- * G<T1,...,Tn> and G is malformed, then T is malformed, and TypeError is
- * thrown, not CastError.
- * @static-warning
+ * G<T1,...,Tn> and G is unknown type, then it is a compile error
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() {
-    1 as Unknown<int, bool>;
-  }, (e) => e is TypeError); /// static type warning
+  1 as Unknown<int, bool>;
 }
