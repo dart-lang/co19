@@ -11,19 +11,14 @@
  * is-expression evaluates to true.
  * Otherwise it evaluates to false.
  * @description Checks that if T is parameterized type and G is generic type
- * which has more then n type parameters, then T is not malformed
- * (see Types/Parameterized Types).
- * @static-warning
+ * which has more then n type parameters, then it is a compile error
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
 
 class G<T, U, V> {}
 
 main() {
-  // G<int,bool> is G<dynamic,dynamic,dynamic>, not malformed
-
-  Expect.isFalse(1 is G<int, bool>);      /// static type warning
-  Expect.isTrue(new G() is G<int, bool>); /// static type warning
+  new G() is G<int, bool>;
 }

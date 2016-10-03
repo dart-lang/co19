@@ -12,14 +12,18 @@
  * @static-warning
  * @author ilya
  */
+import '../../../Utils/expect.dart';
 
 class C {}
-class D extends C { f() {} }
+
+class D extends C {
+  f() {}
+}
 
 class S {
   C x;
   test() {
-    x is D ? x.f() : null;
+    Expect.isFalse(x is D);
   }
 }
 
