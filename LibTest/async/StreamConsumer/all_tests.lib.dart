@@ -21,6 +21,7 @@ import "equality_operator_A01_t01.test.dart" as equality_operator_A01_t01;
 import "addStream_A01_t01.test.dart" as addStream_A01_t01;
 import "addStream_A02_t01.test.dart" as addStream_A02_t01;
 import "close_A01_t01.test.dart" as close_A01_t01;
+import "noSuchMethodError_A01_t01.test.dart" as noSuchMethodError_A01_t01;
 import "toString_A01_t01.test.dart" as toString_A01_t01;
 
 test(StreamConsumer create()) {
@@ -31,5 +32,6 @@ test(StreamConsumer create()) {
   addStream_A01_t01.test(create);
   addStream_A02_t01.test(create);
   close_A01_t01.test(create);
+  noSuchMethodError_A01_t01.test(create);
   toString_A01_t01.test(create);
 }

@@ -20,6 +20,7 @@ import "equality_operator_A01_t01.test.dart" as equality_operator_A01_t01;
 import "add_A01_t01.test.dart" as add_A01_t01;
 import "addError_A01_t01.test.dart" as addError_A01_t01;
 import "close_A01_t01.test.dart" as close_A01_t01;
+import "noSuchMethodError_A01_t01.test.dart" as noSuchMethodError_A01_t01;
 import "toString_A01_t01.test.dart" as toString_A01_t01;
 
 test(EventSink create()) {
@@ -30,5 +31,6 @@ test(EventSink create()) {
   add_A01_t01.test(create);
   addError_A01_t01.test(create);
   close_A01_t01.test(create);
+  noSuchMethodError_A01_t01.test(create);
   toString_A01_t01.test(create);
 }
