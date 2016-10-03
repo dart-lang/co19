@@ -5,20 +5,24 @@
  */
 /**
  * @assertion It is a static warning if the declared return type of a function
- * marked sync* may not be assigned to Iterable. It is a static warning if
- * the declared return type of a function marked async* may not be assigned
- * to Stream.
+ * marked async may not be assigned to Future.
  *
- * @description Check that it is a compile error, if the declared
- * return type of synchronous generator function may not be assigned
- * to Iterable.
+ * @description Check that it is no compile time error, if the declared
+ * return type of asynchronous function may be assigned to Future.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
+import 'dart:async';
 
-void h() sync* { }
+dynamic a() async {
+  return 'a';
+}
+
+Future b() async {
+  return 'b';
+}
 
 main() {
-  h();
+  a();
+  b();
 }

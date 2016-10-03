@@ -9,16 +9,18 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that it is a compile error, if the declared
- * return type of synchronous generator function may not be assigned
- * to Iterable.
+ * @description Check that it is no compile error, if the declared
+ * return type of a function marked async* may be assigned to Stream.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
+import 'dart:async';
 
-void h() sync* { }
+dynamic a() async* { }
+
+Stream b() async* { }
 
 main() {
-  h();
+  a();
+  b();
 }

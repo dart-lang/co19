@@ -9,16 +9,18 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that it is a compile error, if the declared
- * return type of synchronous generator function may not be assigned
+ * @description Check that it is no compile error, if the declared
+ * return type of synchronous generator function may be assigned
  * to Iterable.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
 
-void h() sync* { }
+dynamic a() sync* { }
+
+Iterable b() sync* { }
 
 main() {
-  h();
+  a();
+  b();
 }

@@ -10,15 +10,14 @@
  * to Stream.
  *
  * @description Check that it is a compile error, if the declared
- * return type of synchronous generator function may not be assigned
- * to Iterable.
+ * return type of a function marked async* may not be assigned to Stream.
  *
  * @compile-error
  * @author a.semenov@unipro.ru
  */
 
-void h() sync* { }
+int f() async* { }
 
 main() {
-  h();
+  f();
 }

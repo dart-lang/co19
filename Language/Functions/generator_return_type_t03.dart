@@ -9,16 +9,23 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that it is a compile error, if the declared
- * return type of synchronous generator function may not be assigned
+ * @description Check that it is no compile error, if the declared
+ * return type of synchronous generator function may be assigned
  * to Iterable.
  *
- * @compile-error
+ * @issue 27468
  * @author a.semenov@unipro.ru
  */
 
-void h() sync* { }
+class TestItearble<E> extends Iterable<E> {
+
+  @override
+  Iterator<E> get iterator => null;
+}
+
+TestItearble c() sync* { }
 
 main() {
-  h();
+  Iterable i = new TestItearble();
+  c();
 }
