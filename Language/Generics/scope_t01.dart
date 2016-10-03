@@ -10,6 +10,7 @@
  * (if these exist) and in the body of G.
  * @description Checks that type parameters are in scope in the type parameters
  * bounds.
+ * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -18,7 +19,7 @@ class A<T, U extends T>
 {
   T t;
   A(U u) {
-     u = t;
+     u = t; // static type warning
   }
 }
 

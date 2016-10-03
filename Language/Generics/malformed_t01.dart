@@ -6,20 +6,19 @@
 /**
  * @assertion A type parameter is considered to be a malformed type when
  * referenced by a static member.
- * @description Checks that runtime error is thrown if type parameter is used
+ * @description Checks that compile error occurs if type parameter is used
  * in a type test in static context.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
  */
-import "../../Utils/expect.dart";
 
 class C<T> {
   static bool f() {
-    return null is T; // static warning here: type variable in static context
+    return null is T;
   }
 }
 
 main() {
-  Expect.throws(() => C.f());
+  C.f();
 }

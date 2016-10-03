@@ -6,21 +6,19 @@
 /**
  * @assertion It is a static type warning if a type variable is supertype of
  * its upper bound.
- * @description Checks that a warning is produced.
- * @static-warning
+ * @description Checks that it is a compile error if a type variable is
+ * supertype of its upper bound.
+ * @compile-error
  * @author pagolubev
  * @reviewer kaigorodov
  */
 
-import "../../Utils/dynamic_check.dart";
-
 class A {}
+
 class B extends A {}
 
 class G<T extends B> {}
 
 main() {
-  checkTypeError(() {
-    new G<A>(); /// static type warning
-  });
+  new G<A>();
 }
