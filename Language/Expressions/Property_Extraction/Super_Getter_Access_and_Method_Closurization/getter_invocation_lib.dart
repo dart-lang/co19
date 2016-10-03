@@ -7,7 +7,7 @@ library getter_invocation_lib;
 import '../../../../Utils/expect.dart';
 
 class A {
-  String className = "A";
+  String get className => "A";
   bool executed = false;
   int get m {
     this.executed = true;

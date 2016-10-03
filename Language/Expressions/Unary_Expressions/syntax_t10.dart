@@ -31,7 +31,6 @@
  * unary operator on either super or an expression e.
  * @description Checks that unary expressions of the form
  * [incrementOperator assignableExpression] don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -63,33 +62,15 @@ class A  extends S{
     try { --this[0]; } catch (e) {}
     try { ++this.x;  } catch (e) {}
 
-    //functionExpression
-    try { ++() {} [0]; } catch (e) {} /// static type warnings galore
-    try { --() {}.x; } catch (e) {}
-
     //nullLiteral
     try { --null["key"]; } catch (e) {}
     try { ++null.x; } catch (e) {}
 
-    //booleanLiteral
-    try {++true[1];} catch (e) {}
-    try {--true.t;} catch (e) {}
-
-    //numericLiteral
-    try {--1[1];} catch (e) {}
-    try {++1.num;} catch (e) {}
-
-    //stringLiteral
-    try {++"s"["s"];} catch (e) {}
-    try {--"".c;} catch (e) {}
-
     //mapLiteral
     try { ++{"1" : 1, "2" : 2}["1"]; } catch (e) {}
-    try { --{"1" : 1, "2" : 2}.prop; } catch (e) {}
 
     //listLiteral
     try { ++[0, 1, 2, 3][1]; } catch (e) {}
-    try { --[].a; } catch (e) {}
 
     //identifier
     try { ++id["id"];} catch (e) {}
@@ -101,30 +82,16 @@ class A  extends S{
 
     //constantObjectExpression
     try { --const [1, 2, 3][0];} catch (e) {}
-    try { ++const {"1":1}.x;} catch (e) {}
-
-    //functionInvocation
-    try { ++topLevelFunction()[0];} catch (e) {}
-    try { --topLevelFunction().x;} catch (e) {}
 
     //methodInvocation
     try { ++this.method()[1]; } catch (e) {}
     try { --this.method().x; } catch (e) {}
 
     //(...)
-    try { ++(id = 2)[0];} catch (e) {}
     try { --(id += 1).x;} catch (e) {}
     try { --(super.x)[0];} catch (e) {}
-    try { ++(true ? 1 : 2)[1];} catch (e) {}
-    try { --(true || false)[0];} catch (e) {}
     try { ++(id & 1)[0];} catch (e) {}
-    try { ++(1 == 1)[0];} catch (e) {}
-    try { --(2 <= 3).x;} catch (e) {}
-    try { ++(1 << 1)[0];} catch (e) {}
-    try { ++(0 + 0)[0];} catch (e) {}
-    try { --(1 * 5)[4];} catch (e) {}
     try { ++(id++)[0];} catch (e) {}
-    try { ++(1 is int)[0];} catch (e) {}
 
   }
   var id;

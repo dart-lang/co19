@@ -8,16 +8,15 @@
  * as follows: ...
  * Let T be the static type of e. It is a static type warning if T does not
  * have a method or getter named m
- * @description Check that it is a static type warning if type T
+ * @description Check that it is a compile error if type T
  * does not have a static method or getter named m
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class C {
 }
 
 main() {
-  Expect.throws(() { C.m; }); /// static type warning
+  C.m;
 }

@@ -23,6 +23,6 @@ class C {
 }
 
 main() {
-  var o = new C();
+  dynamic o = new C();
   Expect.throws(() {o.runtimeType.s;}, (e) => e is NoSuchMethodError);
 }

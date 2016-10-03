@@ -15,9 +15,9 @@
  * ;
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a type alias declaration can be
+ * @description Checks that a reference to a type alias declaration cannot be
  * used as the second operand of a shift expression without a compile error.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -25,7 +25,5 @@
 typedef void proc();
 
 main() {
-  try {
-    2 >> proc; /// static type warning - incompatible argument type, see "Binding actuals to formals"
-  } catch (e) {}
+  2 >> proc;
 }

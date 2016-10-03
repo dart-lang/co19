@@ -7,9 +7,9 @@
  * @assertion Let Sstatic be the superclass of the immediately enclosing class.
  * It is a static type warning if Sstatic does not have an accessible instance
  * method or getter named m.
- * @description Check that It is a static type warning if S does not have an
+ * @description Check that It is a compile error if S does not have an
  * accessible instance method or getter named m.
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
@@ -20,9 +20,7 @@ class C extends A {
   int get m => 2;
 
   void test() {
-    try {
-      var i = super.m; /// static type warning
-    } catch (e) {}
+    var i = super.m;
   }
 }
 

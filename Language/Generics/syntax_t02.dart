@@ -22,7 +22,7 @@ abstract class I{}
 
 class C1<T> {}
 class C2<$, $$, $$$> {}
-class C3<T extends C1<T>, S extends I, V extends Function> {}
+class C3<T extends C1, S extends I, V extends Function> {}
 class C4<T extends C3<U, S, V>, U extends C1<U>, V extends Function,
          S extends I> {}
 class C5<T extends C1<List<List<List<List>>>>> {}
@@ -33,7 +33,7 @@ class C7<T extends C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7
 main() {
   new C1<int>();
   new C2<int, int, int>();
-  new C3<C1<C1>, I, Function>();
+  new C3<C1<int>, I, Function>();
   new C4();
   new C5();
   new C6();

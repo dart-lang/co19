@@ -19,7 +19,7 @@ import '../../../../Utils/expect.dart';
 import 'getter_invocation_lib.dart';
 
 class C extends A {
-  String className = "C";
+  String get className => "C";
   int get m => 2;
 
   void test() {

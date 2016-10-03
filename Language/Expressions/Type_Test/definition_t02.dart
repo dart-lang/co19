@@ -9,7 +9,6 @@
  * type S of the expression v and both T != dynamic and S != dynamic.
  * @description Checks that if T is dynamic, is-expression does not show that
  * v has type dynamic. Local variable case.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
@@ -18,10 +17,9 @@ class C {}
 
 f(C y) {
   C x = y;
-  x is dynamic ? x.unknown() : null; // static warning, would be no warning
-                                     // if x was known to have type dynamic
+  Expect.isTrue(x is dynamic);
 }
 
 main() {
-  Expect.throws(() => f(new C()));
+  f(new C());
 }

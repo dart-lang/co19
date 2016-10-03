@@ -11,17 +11,13 @@
  * is-expression evaluates to true.
  * Otherwise it evaluates to false.
  * @description Checks that if T is parameterized type and G is not generic
- * type, then T is not malformed (see Types/Parameterized Types).
- * @static-warning
+ * type, then it is a compile error
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 class G {}
 
 main() {
-  // G<bool> is G, not malformed
-
-  Expect.isFalse(1 is G<bool>);      /// static type warning
-  Expect.isTrue(new G() is G<bool>); /// static type warning
+  new G() is G<bool>;
 }

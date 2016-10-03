@@ -18,8 +18,11 @@ import "../../../Utils/expect.dart";
 class C {
   final x;
   const C(this.x);
-  bool operator ==(C other) {
-    return this.x != other.x;
+  bool operator ==(Object other) {
+    if (other is C) {
+      return this.x != other.x;
+    }
+    return true;
   }
 }
 

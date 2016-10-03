@@ -44,15 +44,15 @@ class D {
 }
 
 main()  {
-  var classWithGetter = new A();
-  Expect.equals("v", classWithGetter.v);
+  dynamic classWithGetter1 = new A();
+  Expect.equals("v", classWithGetter1.v);
 
-  classWithGetter = new B();
-  Expect.equals(true, classWithGetter.v);
+  dynamic classWithGetter2 = new B();
+  Expect.equals(true, classWithGetter2.v);
 
-  classWithGetter = new C();
-  Expect.equals(1, classWithGetter.v);
+  dynamic classWithGetter3 = new C();
+  Expect.equals(1, classWithGetter3.v);
 
-  classWithGetter = new D();
-  Expect.equals(null, classWithGetter.v);
+  dynamic classWithGetter4 = new D();
+  Expect.equals(null, classWithGetter4.v);
 }

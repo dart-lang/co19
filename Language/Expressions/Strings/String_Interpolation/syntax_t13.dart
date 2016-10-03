@@ -16,17 +16,13 @@
  * entire substring from the '$' character to the first non-identifier or '$'
  * character is used, even if there're shorter matches for lexically visible
  * identifiers.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
 main() {
-  var fo = "bar", foo = "foo";
-  try {
-    "$fooo"; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {
-  }
+  var fo = "bar", foo = "foo123";
+  Expect.equals(foo, "$foo");
 }

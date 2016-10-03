@@ -11,18 +11,14 @@
  * expression evaluates to v.
  * Otherwise, if v is null, the cast expression evaluates to v.
  * In all other cases, a CastError is thrown.
- * @description Checks that if T is deferred type, then a dynamic error occurs.
- * @static-warning
+ * @description Checks that if T is deferred type, then a compile error occurs.
+ * @compile-error
  * @author ngl@unipro.ru
  */
-import '../../../Utils/expect.dart';
 import '../lib.dart' deferred as lb;
 
 class B {}
 
 main() {
-  try {
-    new B() as lb.A;      /// static type warning
-    Expect.fail("dynamic error expected");
-  } catch (e) {}
+  new B() as lb.A;
 }

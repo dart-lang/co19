@@ -10,13 +10,11 @@
  * Otherwise, if the interface of the class of v is a subtype of T, the
  * is-expression evaluates to true.
  * Otherwise it evaluates to false.
- * @description Checks that null is Undeclared causes dynamic error.
- * @static-warning
+ * @description Checks that null is Undeclared causes compile error.
  * @author msyabro
  * @reviewer kaigorodov
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() => null is Undeclared); /// static type warning
+  null is Undeclared;
 }

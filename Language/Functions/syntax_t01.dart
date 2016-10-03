@@ -18,10 +18,7 @@
  * block:
  *   '{' statements '}'
  * ;
- *
  * @description Checks different variants of functions
- *
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -44,11 +41,11 @@ class A {
 
   String _s;
   set s(String str) {str = _s; _s = str;}
-  Object get s {A a = new Object(); return 5;}
+  Object get s {Object a = new Object(); return 5;}
 }
 
 main() {
   f(g(h())) {}
-  int func([int x = null, int y = null, int z = null]) {f(f(x()));} /// static type warning int not a function type
+  int func([int x = null, int y = null, int z = null]) => 3;
   int foo(Object x, var y) => func(1, 2, 3);
 }

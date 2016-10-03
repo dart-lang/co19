@@ -9,17 +9,20 @@
  * type S of the expression v and both T != dynamic and S != dynamic.
  * @description Checks that if v is a class static variable, is-expression does
  * not show that v has type T.
- * @static-warning
  * @author ilya
  */
+import '../../../Utils/expect.dart';
 
 class C {}
-class D extends C { f() {} }
+
+class D extends C {
+  f() {}
+}
 
 class S {
   static C x;
   static test() {
-    x is D ? x.f() : null;
+    Expect.isFalse(x is D);
   }
 }
 

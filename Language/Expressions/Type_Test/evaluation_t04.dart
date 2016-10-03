@@ -10,14 +10,13 @@
  * Otherwise, if the interface of the class of v is a subtype of T, the
  * is-expression evaluates to true.
  * Otherwise it evaluates to false.
- * @description Checks that if T is parameterized type and G is malformed, then
- * T is malformed and dynamic error occurs.
- * @static-warning
+ * @description Checks that if T is parameterized type and G is unknown, then
+ * compile error occurs
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() => 1 is G<int, bool>); /// static type warning
+  1 is G<int, bool>;
 }

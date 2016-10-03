@@ -66,49 +66,18 @@ class A  extends S {
     try { this[0]--;} catch (e) {}
     try { this.x++;} catch (e) {}
 
-    //functionExpression
-    try { () {} [0]; } catch (e) {} /// static type warnings galore
-    try { () {}.x; } catch (e) {}
-    try { () {} [0]++; } catch (e) {}
-    try { () {}.x--; } catch (e) {}
-    try { () {}.x; } catch (e) {}
-    try { () {}.x--; } catch (e) {}
-
     //nullLiteral
     try { null["key"]; } catch (e) {}
     try { null.x; } catch (e) {}
     try { null["key"]--; } catch (e) {}
     try { null.x++; } catch (e) {}
 
-    //booleanLiteral
-    try {true[1];} catch (e) {}
-    try {true.t;} catch (e) {}
-    try {true[1]++;} catch (e) {}
-    try {true.t--;} catch (e) {}
-
-    //numericLiteral
-    try {1[1];} catch (e) {}
-    try {1.num;} catch (e) {}
-    try {1[1]--;} catch (e) {}
-    try {1.num++;} catch (e) {}
-
-    //stringLiteral
-    try { "s"["s"];} catch (e) {}
-    try {"".c;} catch (e) {}
-    try { "s"["s"]++;} catch (e) {}
-    try {"".c--;} catch (e) {}
-
     //mapLiteral
     try { true ? {"1" : 1, "2" : 2}["1"]++ : null; } catch (e) {}
-    try { true ? {"1" : 1, "2" : 2}.prop-- : null; } catch (e) {}
-    try { const {"1":1}.x;} catch (e) {}
-    try { const {"1":1}.x++;} catch (e) {}
 
     //listLiteral
     try { [0, 1, 2, 3][1]; } catch (e) {}
-    try { [].a; } catch (e) {}
     try { [0, 1, 2, 3][1]++; } catch (e) {}
-    try { [].a--; } catch (e) {}
     try { const [1, 2, 3][0];} catch (e) {}
     try { const [1, 2, 3][0]--;} catch (e) {}
 
@@ -123,18 +92,6 @@ class A  extends S {
     try { new A().x;} catch (e) {}
     try { new A()[0]--;} catch (e) {}
     try { new A().x++;} catch (e) {}
-
-    //constObjectExpression
-    try { const C()[0]++;} catch (e) {}
-    try { const C().v++;} catch (e) {}
-    try { const C.c2()[0]++;} catch (e) {}
-    try { const C.c2().v++;} catch (e) {}
-
-    //(...) is a primary
-    try { (topLevelFunction())[0];} catch (e) {}
-    // (...)[...] or (...).v is an assignable expression
-    try { (topLevelFunction())[0]++;} catch (e) {}
-    try { (topLevelFunction()).x--;} catch (e) {}
   }
 }
 
