@@ -13,19 +13,15 @@
  *   normalFormalParameter (':' expression)?
  * ;
  * @description Checks that reassigning a final optional parameter inside the
- * function produces a static warning and a NoSuchMethodError.
- * @static-warning
+ * function produces a compile error
+ * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
  * @reviewer rodionov
  */
-import "../../../../Utils/expect.dart";
 
 foo([final p = 1]) {
-  try {
-    p = 1; /// static warning cannot assign value to final variable
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  p = 1;
 }
 
 main() {

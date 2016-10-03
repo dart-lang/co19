@@ -13,17 +13,13 @@
  * the formal parameter scope of f.
  * @description Checks that function scope are enclosed in the scope where it's
  * declared and not the one where it's invoked.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 f() {
-  try {
-    var x = foo; /// static type warning call to unresolved getter 'foo'
-    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
-  } on NoSuchMethodError catch (ex) {}
+  var x = foo;
 }
 
 main () {
