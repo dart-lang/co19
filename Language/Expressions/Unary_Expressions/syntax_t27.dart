@@ -31,7 +31,6 @@
  * unary operator on either super or an expression e.
  * @description Checks that expressions with a prefix operator which fit into
  * this production don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -48,12 +47,10 @@ class A extends S {
   test() {
     //prefixOperator postfixExpression
     -x--;
-    try {!x++;} catch (e) {}
     ~x--;
 
     //combination of prefix and increment operator
     try {- --x;} catch (e) {}
-    try {!--x;} catch (e) {}
     try {~--x;} catch (e) {}
     try {-++x;} catch (e) {}
     try {~++x;} catch (e) {}
@@ -62,41 +59,23 @@ class A extends S {
     -x;
     ~x;
     ~~x;
-    try {!x;} catch (e) {}
-    try {!~x;} catch (e) {}
-    try {~!x;} catch (e) {} /// static type warnings galore
 
     //prefix operators with literals
     try {-1;} catch (e) {}
     try {~2;} catch (e) {}
-    try {!3;} catch (e) {}
 
     try {-null;} catch (e) {}
     try {~null;} catch (e) {}
     try {!null;} catch (e) {}
 
     try {-this;} catch (e) {}
-    try {~this;} catch (e) {}
-    try {!this;} catch (e) {}
 
-    try {-true;} catch (e) {}
     !!false;
     !!!true;
     !!!!false;
     !!!!!!true;
-    try {~true;} catch (e) {}
-
-    try {-[];} catch (e) {}
-    try {~{"1": 1};} catch (e) {}
-    try {!const [1];} catch (e) {}
-
-    try {-"s";} catch (e) {}
-    try {~"t";} catch (e) {}
-    try {!"r";} catch (e) {}
 
     //prefix operators with various expressions
-    try {-(){}[0];} catch (e) {}
-    try {! new S();} catch (e) {}
     try {~(1 + 2);} catch (e) {}
 
     // super with selector
