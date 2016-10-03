@@ -6,13 +6,23 @@
 /**
  * @assertion final int last
  * Returns the last element.
- * @description Checks that [last] is final and can't be set (causes compile
- * error in strong mode).
- * @compile-error
+ * @description Checks that [last] is final and can't be set.
  * @author msyabro
  */
 
+import "../../../Utils/expect.dart";
+
+check(string) {
+  dynamic runes = new Runes(string);
+  try {
+    runes.last = 0;
+    Expect.fail("[last] should be final");
+  } on NoSuchMethodError catch(ok) {}
+}
+
+
 main() {
-  var runes = new Runes('test');
-  runes.last = 0;
+  check("just a string");
+  check("\u{10000}\u{10001}\u{10002}\u{12345}");
+  check("\x00");
 }

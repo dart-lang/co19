@@ -8,7 +8,6 @@
  */
 library spawnUri_A01_t07_isolate;
 
-import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 void main(List<String> args) {

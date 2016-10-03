@@ -10,23 +10,27 @@
  * call isolate.resume(isolate.pauseCapability).
  *
  * @description Check that paused parameter with value true cause isolate to
- * start up in a paused state, i.e. isolate does not respond to events.
+ * start up in a paused state, i.e. isolate entry function is not executed
  *
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:io";
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 
-void entryPoint(message) {
-  exit(1); // only executed if isolate is not paused
+void entryPoint(SendPort sendPort) {
+  sendPort.send("hello"); // should not be executed
 }
 
 test() async {
-  await Isolate.spawn(entryPoint, "hello", paused: true);
-  await new Future.delayed(new Duration(seconds:1));
+  bool testPassed = true;
+  ReceivePort receivePort = new ReceivePort();
+  receivePort.listen((_) => testPassed = false);
+  await Isolate.spawn(entryPoint, receivePort.sendPort, paused: true);
+  await new Future.delayed(new Duration(seconds:2));
+  if (testPassed){
   asyncEnd();
+}
 }
 
 main() {

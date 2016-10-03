@@ -6,13 +6,17 @@
 /**
  * @assertion final bool isNotEmpty
  * Returns true if there is at least one element in this collection.
- * @description Checks that [isNotEmpty] is final and can't be set (causes
- * compile error in strong mode).
- * @compile-error
+ * @description Checks that [isNotEmpty] is final and can't be set.
  * @author msyabro
  */
 
+import "../../../Utils/expect.dart";
+
 main() {
-  var runes = new Runes('');
+  dynamic runes = new Runes('');
+
+  try {
   runes.isNotEmpty = false;
+    Expect.fail("[isNotEmpty] should be final");
+  } on NoSuchMethodError catch(ok) {}
 }
