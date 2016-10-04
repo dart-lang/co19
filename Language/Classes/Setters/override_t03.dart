@@ -18,14 +18,14 @@ class Sub extends Super {}
 class A {
   void set setter1(int value) {}
   void set setter2(Super value) {}
-  void set setter3(dynamic value) {}
+  void set setter3(Sub value) {}
   void set setter4(Sub value) {}
 }
 
 class C extends A {
   void set setter1(num value) {}
   void set setter2(Super value) {}
-  void set setter3(Sub value) {}
+  void set setter3(dynamic value) {}
   void set setter4(Super value) {}
 }
 
