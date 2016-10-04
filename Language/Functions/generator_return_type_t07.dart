@@ -11,20 +11,12 @@
  *
  * @description Check that it is no compile error, if the declared
  * return type of a function marked async* may be assigned to Stream.
- *
- * @issue 27468
+ * @static-clean
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
 
-class TestStream<T> extends Stream<T> {
-
-  @override
-  StreamSubscription<T> listen(void onData(T event),
-      {Function onError, void onDone(), bool cancelOnError}) => null;
-}
-
-TestStream c() async* { }
+Stream c() async* { }
 
 main() {
   c();

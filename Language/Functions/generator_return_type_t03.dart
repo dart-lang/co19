@@ -12,20 +12,12 @@
  * @description Check that it is no compile error, if the declared
  * return type of synchronous generator function may be assigned
  * to Iterable.
- *
- * @issue 27468
+ * @static-clean
  * @author a.semenov@unipro.ru
  */
 
-class TestItearble<E> extends Iterable<E> {
-
-  @override
-  Iterator<E> get iterator => null;
-}
-
-TestItearble c() sync* { }
+Iterable c() sync* { }
 
 main() {
-  Iterable i = new TestItearble();
   c();
 }
