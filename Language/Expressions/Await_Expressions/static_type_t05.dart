@@ -22,8 +22,8 @@
  * @author a.semenov@unipro.ru
  */
 
-static_int(int x) => x;
+static_bool(bool x) => x;
 
 main() {
-  var f = () async => static_int(await true);
+    var f = () async => static_bool(await 1);
 }

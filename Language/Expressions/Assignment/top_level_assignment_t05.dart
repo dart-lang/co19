@@ -14,10 +14,9 @@
  * expression is o.
  * @description Checks that if d is top level getter, then the setter v= is
  * invoked with and this causes compile error
- * @compile error
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 int get v => 0;
 

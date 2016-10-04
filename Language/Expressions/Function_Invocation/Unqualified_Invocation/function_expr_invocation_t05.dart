@@ -14,12 +14,13 @@
  * . . .
  * @description Checks that if fid is a library variable, hence induced library
  * getter, then i is interpreted as a function expression invocation.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
-var f = (p1) {
+var f = (p1) {  /// static type warning
   Expect.equals(null, p1);
   return 100;
 };

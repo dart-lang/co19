@@ -13,7 +13,6 @@
  * parameter bound to o and this bound to this.
  * @description Checks that expression e is evaluated even if super.v=
  * assignment failed
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -32,7 +31,7 @@ class C extends A {
   var v = 1;
 
   test() {
-    Expect.throws(() {super.v = e();}, (e) => e is NoSuchMethodError); /// static type warning
+    Expect.throws(() {super.v = e();}, (e) => e is NoSuchMethodError);
     Expect.equals(1, evaluationCount);
   }
 }

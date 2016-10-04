@@ -16,9 +16,9 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a function type alias name can not be used
+ * @description Checks that a function type alias name cannot be used
  * as right operand in an additive expression. It is a compile error.
- * @static-warning
+ * @compile-error
  * @author msyabro
  */
 
