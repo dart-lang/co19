@@ -58,7 +58,6 @@
  *
  * @description Checks that double reexport also works (no show/hide combinators
  * are used).
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -66,17 +65,19 @@ import "../../../Utils/expect.dart";
 
 import "namespace_changes_lib_reexport2.dart";
 
+class JJ extends J {
+  get value => 1;
+  set value(x) {}
+  foo() {}
+}
+
 main() {
   Expect.equals("A_FOO", aFoo);
   Expect.equals('aFunc', aFunc());
   aTypeAlias ff = (bool b, String s) {};
 
   A a = new A();
-  try {
-    J j = new J(); /// static type warning
-    Expect.fail("AbstractClassInstantiationError expected");
-  } on AbstractClassInstantiationError catch (e) {
-  }
+  J j = new JJ();
 
   Expect.equals("1_Imports_A02_lib.bar", a.bar);
   Expect.equals('J.FOO', J.FOO);

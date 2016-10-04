@@ -12,10 +12,11 @@
  * the automatic import.
  * @description Checks that explicit import of dart:core preempt automatic
  * import.
+ * @compile-error
  * @author ilya
  */
 import 'dart:core' as core;
 
 main() {
-  core.List;
+  List;
 }
