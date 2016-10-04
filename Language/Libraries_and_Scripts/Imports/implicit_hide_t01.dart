@@ -13,9 +13,8 @@
  *
  * @description Checks that if N is referenced by L and N would be introduced
  * by implicit import of 'dart:core' and library whose URI does not begin with
- * 'dart:', then N from dart:core is hidden. Also checks that static warning is
- * issued.
- * @static-warning
+ * 'dart:', then compile error is issued
+ * @compile-error
  * @author ilya
  */
 import "../../../Utils/expect.dart";

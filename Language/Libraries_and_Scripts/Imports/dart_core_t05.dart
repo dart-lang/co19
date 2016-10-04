@@ -14,8 +14,8 @@
  * import.
  * @author ilya
  */
-import 'dart:core' as core;
+import 'dart:core' show List;
 
 main() {
-  core.List;
+  List;
 }

@@ -15,17 +15,14 @@
  * imports but never referred to.
  * @description Checks that it if N is introduced into L by several imports
  * that denote different declarations and N is referenced as a type, then it is
- * treated as malformed.
- * @static-warning
+ * a compile error
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
-
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
 
 main() {
-  // foo is malformed, then TypeError is thrown, not CastError
-  Expect.throws(() => 1 as foo, (e) => e is TypeError); // static warning
+  1 as foo;
 }

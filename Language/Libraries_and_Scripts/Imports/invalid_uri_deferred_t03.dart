@@ -11,12 +11,10 @@
  * declaration.
  * @author ngl@unipro.ru
  */
-
-import "../../../Utils/expect.dart";
 import "invalid_uri_t03_lib.dart" deferred as p;
 
 main() {
   try {
     p.foo();
-  } catch (e) {}
+  } on NoSuchMethodError { }
 }

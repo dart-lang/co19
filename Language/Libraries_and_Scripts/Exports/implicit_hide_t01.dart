@@ -10,11 +10,9 @@
  * originating in a system library:
  * • The export of L1 is implicitly extended by a hide N clause.
  * • A static warning is issued.
- * @description Checks that if N is referenced by L and N would be introduced
- * into exported namespace of L by an export from 'dart:core' and library
- * whose URI does not begin with 'dart:', then N from the later library is
- * exported. Also checks that static warning is issued.
- * @static-warning
+ * @description Checks that implicit hiding of SDK library classes is
+ * prohibited.
+ * @compile-error
  * @author ilya
  */
 import "../../../Utils/expect.dart";

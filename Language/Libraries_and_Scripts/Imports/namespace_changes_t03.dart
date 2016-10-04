@@ -59,17 +59,12 @@
  * @description Checks that names imported into library B (which, in turn, is
  * imported into library A) are not visible in A if B does not explicitly
  * re-export A, with or without the prefix used to import A into B.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib.dart";
 
 main() {
-  try {
-    identical(cFoo, 'C_FOO'); /// static type warning cannot resolve
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  identical(cFoo, 'C_FOO');
 }

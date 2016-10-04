@@ -23,14 +23,12 @@
  * @description Checks that it is not an error if the arguments of show/hide
  * combinators include identifiers named 'hide' and 'show' and that filtering
  * of the imported names is done correctly.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
-import "syntax_lib.dart" show hide, show;
+import "syntax_lib.dart" show hide hide show;
 
 main() {
-  Expect.equals(hide, "hide");
-  Expect.equals(show, "show");
+  print(show); // compile error, because show is hidden
 }

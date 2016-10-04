@@ -28,7 +28,6 @@
  * that declare the same names assigned to different values, but their exported
  * namespaces are filtered using show and hide combinators to avoide name
  * conflict.
- * @static-warning
  * @note Most of this is already covered by 1_Imports_A02* tests.
  * @author rodionov
  * @reviewer kaigorodov
@@ -42,9 +41,4 @@ main() {
   Expect.equals(2, bar); // from lib3
   Expect.equals(true, boo); // from lib2
   Expect.equals("static2", C.SF); // from lib3
-
-  try {
-    var x = badaboo; /// static type warning 'shown' by both exports, but isn't declared in either, so it's undefined
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
 }

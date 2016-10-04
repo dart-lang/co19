@@ -8,15 +8,16 @@
  * within a library L can only be accessed by code within L. Any attempt to
  * access a private member declaration from outside L will cause a method,
  * getter or setter lookup failure.
- * @description Checks that an attempt to access a private top level variable
- * from outside library L in a top-level function context results in a
- * compile error.
+ * @description Checks that an attempt to access a private instance member from
+ * outside L results in compile error.
  * @compile-error
  * @author vasya
  * @reviewer msyabro
+ * @reviewer rodionov
  */
-import "private_access_t04_lib.dart" as lib;
+import "private_access_t01_lib.dart" as lib;
 
 main() {
-  lib._topLevelDeclaration;
+  lib.C c = new lib.C();
+  c._bar;
 }

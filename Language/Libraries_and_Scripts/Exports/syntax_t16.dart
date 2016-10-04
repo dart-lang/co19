@@ -13,13 +13,12 @@
  * @description Checks that it is not an error when the identifiers used with
  * show/hide combinators are also named 'hide' and 'show', and that filtering
  * the export namespace is done correctly.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "syntax_t02_lib.dart";
 
 main() {
-  Expect.equals(hide, "hide");
+  var x = foo; // foo is hidden, so expecting compile error
 }

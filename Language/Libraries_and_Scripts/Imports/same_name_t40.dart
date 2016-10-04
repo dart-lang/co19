@@ -13,19 +13,16 @@
  * • If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more
  * imports but never referred to.
- * @description Checks that it is a compile error if two different libraries
- * introduce the same name (one of them via re-export) to the top level scope
- * of L and L uses it as a type parameter.
- * @compile-error
- * @author rodionov
- * @reviewer kaigorodov
+ * @description Checks that if N is introduced into L by several imports
+ * that denote different declarations and N is referenced as a type with prefix,
+ * then it is ok.
+ * @author kaigorodov
+ * @reviewer rodionov
  */
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
-
-class Foo2<T extends foo> {
-}
+import "same_name_t11_p2_lib.dart" as P2;
 
 main() {
-  new Foo2<int>();
+  1 is P2.foo;
 }

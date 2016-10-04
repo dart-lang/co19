@@ -59,17 +59,12 @@
  * @description Checks that names provided as arguments to a 'show' combinator
  * but not declared in the library being imported (or re-exported by it), are
  * undefined.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib.dart" show aFoo, A, anUndefinedName;
 
 main() {
-  try {
-    print(anUndefinedName); /// static type warning cannot resolve
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  print(anUndefinedName);
 }

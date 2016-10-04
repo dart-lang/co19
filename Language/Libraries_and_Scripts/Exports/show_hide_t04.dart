@@ -23,19 +23,15 @@
  * d is added to the exported namespace of L unless a top-level declaration
  * with the name k exists in L.
  *
- * @description Checks that the combined effect of show and hide combinators in
- * an export declaration is calculated as specified.
+ * @description Checks that referencing exported but undefined name cause
+ * compile error
+ * @compile-error
  * @note Most of this is already covered by 1_Imports_A02* tests.
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "show_hide_t02_lib.dart";
 
 main() {
-  Expect.equals(1, foo()); // from lib2/lib22
-  Expect.equals(2, bar); // from lib3/lib33
-  Expect.equals(true, boo); // from lib2/lib22
-  Expect.equals("static2", C.SF); // from lib3/lib33
+  var x = badaboo;
 }
