@@ -12,6 +12,7 @@
  * with all sorts of arguments and assigning the results to local variables of
  * various types does not produce any static type warnings.
  * @static-clean
+ * @issue #27495
  * @author iefremov
  */
 import "../../../Utils/expect.dart";
@@ -24,20 +25,20 @@ main() {
   try {
     String y = x.wakeUp(new DateTime(1, 1, 1, 1, 1, 1, 1));
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError {}
 
   try {
     int i = x.writeConformanceTest(13.6, "Type_Dynamic_A03_t01");
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError {}
 
   try {
     func f = x.eatPatty();
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError {}
 
   try {
     func2 f2 = x.goSleep(new Duration(), true, secretFlag: true);
     Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError {}
 }
