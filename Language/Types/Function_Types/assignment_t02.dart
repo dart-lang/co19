@@ -8,25 +8,16 @@
  * T ⇐⇒ S, iff T <: S.
  * @description Checks that a function type T may be assigned to a function type
  * S, iff T <: S.
+ * @compile-error
  * @author ngl@unipro.ru
  */
-import "../../../Utils/expect.dart";
-
 class A {}
 class B extends A {}
-class C extends B {}
 
 class X {}
 
-typedef C t1(C c);
+typedef B t1(B b);
 
 main() {
-  t1 x1a = (A x) {};
-  t1 x1b = (B x) {};
-  t1 x1c = (C x) {};
-
-  Expect.isTrue((A x) {} is t1);
-  Expect.isTrue((B x) {} is t1);
-  Expect.isTrue((C x) {} is t1);
-  Expect.isFalse((X x) {} is t1);
+  t1 x1x = (X x) {};
 }
