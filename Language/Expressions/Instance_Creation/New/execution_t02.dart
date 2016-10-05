@@ -10,6 +10,7 @@
  * The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly when evaluating
  * the initializer list.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -25,7 +26,7 @@ class A<T, U, V> {
   T x;
   U y;
   V z;
-  A(): x = p1, y = p2, z = p3 {
+  A(): x = p1, y = p2, z = p3 { /// static type warning
     Expect.equals(1, x);
     Expect.equals("", y);
     Expect.isNotNull(z);
@@ -45,7 +46,7 @@ class B <T extends A> {
 class C<T, U> {
   T a;
   U b;
-  C.name(): a = p1, b = p3 {
+  C.name(): a = p1, b = p3 { /// static type warning
     Expect.equals(p1, a);
     Expect.identical(p3, b);
     Expect.isNotNull(b);

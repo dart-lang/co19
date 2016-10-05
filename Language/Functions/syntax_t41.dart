@@ -20,7 +20,7 @@
  * ;
  *
  * @description Checks different valid variants of asynchronous methods
- *
+ * @issue 27494
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

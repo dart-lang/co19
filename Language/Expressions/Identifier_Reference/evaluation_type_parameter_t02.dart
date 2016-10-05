@@ -18,6 +18,7 @@
  * expression in a return statement refers to a type parameter inside a static
  * method.
  * @compile-error
+ * @issue 27491
  * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';

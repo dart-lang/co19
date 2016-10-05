@@ -11,6 +11,7 @@
  * is-expression evaluates to true.
  * Otherwise it evaluates to false.
  * @description Checks that null is Undeclared causes compile error.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */

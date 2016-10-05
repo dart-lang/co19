@@ -21,7 +21,6 @@
  * argument e2.
  * @description  Checks that various expressions that fit into this grammar
  * don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov

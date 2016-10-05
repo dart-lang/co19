@@ -10,6 +10,7 @@
  * @description Checks that it is a compile-time error if the type argument
  * of a constant list literal includes a type variable.
  * @compile-error
+ * @issue 27492
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -21,7 +22,5 @@ class C<T> {
 }
 
 main() {
-  try {
-    new C().test();
-  } catch (e) {}
+  new C().test();
 }

@@ -24,7 +24,6 @@
  * @description Checks that a NoSuchMethodError is thrown if C does not
  * denote a class in the current scope, or if C does not declare a static
  * method or getter with the required name.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -37,13 +36,6 @@ class S {
 class C extends S {}
 
 main()  {
-  try {
-    C.func(); /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var x = C.getter; /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {C.func();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {C.getter;}, (e) => e is NoSuchMethodError);
 }

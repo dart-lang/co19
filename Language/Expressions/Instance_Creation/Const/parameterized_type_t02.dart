@@ -12,6 +12,7 @@
  * @description Checks that it is a compile-time error if T
  * includes any type parameters as a type argument.
  * @compile-error
+ * @issue 27492
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -27,7 +28,5 @@ class A<T> {
 }
 
 main() {
-  try {
-    new A<int>().test();
-  } catch (e) {}
+  new A<int>().test();
 }

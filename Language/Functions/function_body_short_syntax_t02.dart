@@ -10,7 +10,7 @@
  *
  * @description Checks that the function body of the form async => e is
  * equivalent to a body of the form async {return e;}.
- *
+ * @issue 27494
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

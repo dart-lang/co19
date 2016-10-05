@@ -35,11 +35,10 @@ class E extends D {
 skyIsBlue(_) => true;
 
 f(D y) {
-  var x = y;
+  dynamic x = y;
 
-  (x is D || x is E) && (x is D && skyIsBlue(x=new C())) ? x.f() : null;
+  (x is D || x is E) && (x is D && skyIsBlue(x = new C())) ? x.f() : null;
 }
-
 
 main() {
   Expect.throws(() => f(new E()));

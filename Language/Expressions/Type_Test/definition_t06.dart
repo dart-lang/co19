@@ -9,7 +9,6 @@
  * type S of the expression v and both T != dynamic and S != dynamic.
  * @description Checks that if v is an instance variable, is-expression does
  * not show that v has type T.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
