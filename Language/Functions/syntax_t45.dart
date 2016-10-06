@@ -36,7 +36,7 @@ class A {
     yield 1;
   }
 
-  a3() async* {
+  Stream a3() async* {
     yield 2;
   }
 }
@@ -50,7 +50,7 @@ class B {
     yield s.length;
   }
 
-  b3(z) async* {
+  Stream b3(z) async* {
     yield z;
   }
 }
