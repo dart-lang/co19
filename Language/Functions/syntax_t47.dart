@@ -19,45 +19,18 @@
  *   '{' statements '}'
  * ;
  *
- * @description Checks different valid variants of asynchronous
- * generator functions
- * @author a.semenov@unipro.ru
+ * @description Checks that it is a compile error if there is async function
+ * with no return type specified among Future.wait() values
+ * @compile-error
+ * @author sgrekhov@unipro.ru
  */
 import 'dart:async';
-import '../../Utils/async_utils.dart';
 
-Stream<int> a1() async* {
-  yield 1;
+f() async => 1;
+
+test() async {
+  await Future.wait([f()]);
 }
-
-Stream a2() async* {
-  yield 1;
-}
-
-Stream a3() async* {
-  yield 2;
-}
-
-Stream<String> b1(int x) async* {
-  yield 'a' + new String.fromCharCode(x);
-}
-
-Stream b2(String s) async* {
-  yield s.length;
-}
-
-Stream b3(z) async* {
-  yield z;
-}
-
 main() {
-  asyncStart();
-  Future.wait([
-    a1().first, a2().first, a3().first,
-    b1(70).first, b2('hello').first, b3(b3).first
-  ]).then(
-      (_) {
-        asyncEnd();
-      }
-  );
+  test();
 }

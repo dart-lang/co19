@@ -21,7 +21,6 @@
  *
  * @description Checks different valid variants of static asynchronous
  * generator methods
- * @issue 27494
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -36,7 +35,7 @@ class A {
     yield 1;
   }
 
-  static a3() async* {
+  static Stream<int> a3() async* {
     yield 2;
   }
 }
@@ -50,7 +49,7 @@ class B {
     yield s.length;
   }
 
-  static b3(z) async* {
+  static Stream b3(z) async* {
     yield z;
   }
 }
