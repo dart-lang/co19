@@ -21,17 +21,18 @@
  * invocation of m, at which point execution of s continues at 3.
  * 5. The current call to moveNext() returns true.
  *
- * @description Check that compile error occurs if the class of o does not
+ * @description Check that dynamic error occurs if the class of o does not
  * implement Iterable.
- * @compile-error
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import '../../../../Utils/dynamic_check.dart';
 
 Iterable<int> generator() sync* {
-  yield* 1;
+  dynamic a = 1;
+  yield* a; /// static type warning
 }
 
 main() {
-  generator().first;
+  checkDynamicError(() => generator().first);
 }
