@@ -10,6 +10,7 @@
  * default value for p.
  * @description Checks that it is a compile error if overridden and overriding
  * methods have different default values for their optional parameter.
+ * @issue 27476
  * @compile-error
  * @author msyabro
  */

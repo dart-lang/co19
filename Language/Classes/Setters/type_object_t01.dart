@@ -25,7 +25,7 @@ class C {
 
 main() {
   C c = new C();
-  Type t = c.runtimeType;
+  dynamic t = c.runtimeType;
 
   Expect.throws(() {t.s1 = 1;}, (e) => e is NoSuchMethodError);
 

@@ -31,7 +31,7 @@ class C extends A {
 
 main() {
   C c = new C();
-  Type t = c.runtimeType;
+  dynamic t = c.runtimeType;
 
   Expect.throws(() {var x = t.a1();}, (e) => e is NoSuchMethodError);
   Expect.throws(() {var x = t.a2();}, (e) => e is NoSuchMethodError);
