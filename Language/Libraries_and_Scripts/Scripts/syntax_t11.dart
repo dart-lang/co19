@@ -13,7 +13,6 @@
  * ;
  * @description Checks that a script is parsed without errors
  * if all allowed directives are present and in the correct order.
- * @static-warning
  * @author vasya
  * @reviewer rodionov
  * @reviewer msyabro
@@ -29,8 +28,7 @@ import 'library2.dart';
 
 export "library2.dart";
 
-part "../Parts/part_0.dart";  /// static type warning
-part "../Parts/part_3.dart";  /// static type warning
+part "library6.dart";
 
 main() {
 }
