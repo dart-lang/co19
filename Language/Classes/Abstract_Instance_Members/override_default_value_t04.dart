@@ -13,6 +13,7 @@
  * @description Checks that it is a compile error if an instance method
  * overrides an abstract method and does not explicitly specify a default value
  * for its optional parameter while the abstract method does.
+ * @issue 27476
  * @compile-error
  * @author msyabro
  */

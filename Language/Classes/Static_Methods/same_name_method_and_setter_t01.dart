@@ -8,7 +8,6 @@
  * named n and has a setter named n =
  * @description Check that static warning is produced if class declares a
  * static method and has setter with the same name
- * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 23749
  */

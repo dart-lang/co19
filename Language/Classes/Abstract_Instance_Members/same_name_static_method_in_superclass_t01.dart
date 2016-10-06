@@ -11,6 +11,7 @@
  * @description Checks that a compile error is produced when a class declares
  * an abstract or concrete method with the same name as a static variable in
  * its superclass.
+ * @issue 27476
  * @compile-error
  * @author rodionov
  */

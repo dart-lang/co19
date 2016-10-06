@@ -11,6 +11,7 @@
  * @description Checks that it is a compile error if overridden method
  * explicitly specifies a default non-null value for its optional parameter and 
  * overriding method does not.
+ * @issue 27476
  * @compile-error
  * @author msyabro
  */
