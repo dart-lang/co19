@@ -9,9 +9,8 @@
  * const T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
  * If T is a parameterized type, it is a compile-time error if T includes
  * a type variable among its type arguments.
- * @description Checks that it is a compile-time error if T
- * includes any type parameters as a type argument.
- * @compile-error
+ * @description Checks that it is no error if T includes any type parameters as
+ * a type argument.
  * @issue 27492
  * @author msyabro
  * @reviewer rodionov
