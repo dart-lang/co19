@@ -10,13 +10,11 @@
  * variable is not initialized in its declaration. 
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
+ * @issue #27510
  */
 
 final int v;
 
 main() {
-  try {
-    print(v);
-  } catch (ok) {}
+  print(v);
 }
