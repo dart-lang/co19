@@ -9,6 +9,7 @@
  * the direct superinterfaces of M
  * @description Checks that it is no static warning if M has implicit
  * superinterfaces and C does implement them
+ * @issue 26409
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
