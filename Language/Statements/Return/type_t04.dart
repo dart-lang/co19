@@ -27,7 +27,7 @@ class C extends S {}
 Future<S> foo() async {  return new C(); }
 Future<I> foo2() async { return new C(); }
 Future<C> bar() async {  return new S(); }
-bar2() async { return new C(); }
+Future bar2() async { return new C(); }
 
 main() {
   asyncStart();

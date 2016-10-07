@@ -23,6 +23,7 @@
  * tively, Mk).
  * @description Test that mixin can be derived from a class whose superclass is
  * not an Object and has all of its explicitly defined getters
+ * @issue 26409
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

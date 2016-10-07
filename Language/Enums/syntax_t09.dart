@@ -9,9 +9,9 @@
  *  enumType:
  *  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
  *  ;
- * @description Checks that it is compile-time error if enum has more then one
+ * @description Checks that it is no compile error if enum has more then one
  * comma in the end of member list.
- * @compile-error
+ * @static-clean
  * @author ngl@unipro.ru
  */
 import "../../Utils/expect.dart";

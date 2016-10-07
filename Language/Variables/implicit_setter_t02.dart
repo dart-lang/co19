@@ -22,22 +22,27 @@ import "../../Utils/expect.dart";
 class A {
   static var a;
   static var b = 1;
+  static var c;
+  static var d;
+  static var e = "xxx";
+  static var f = null;
+
 }
 
 main() {
   A.a = 1;
   Expect.equals(1, A.a);
-  A.a = "foo";
-  Expect.equals("foo", A.a);
+  A.c = "foo";
+  Expect.equals("foo", A.c);
   List foo = new List<Map<String, int>>();
-  A.a = foo;
-  Expect.equals(foo, A.a);
+  A.d = foo;
+  Expect.equals(foo, A.d);
 
   A.b = -1;
   Expect.equals(-1, A.b);
-  A.b = "bar";
-  Expect.equals("bar", A.b);
+  A.e = "bar";
+  Expect.equals("bar", A.e);
   Map bar = new Map<String, int>();
-  A.b = bar;
-  Expect.equals(bar, A.b);
+  A.f = bar;
+  Expect.equals(bar, A.f);
 }

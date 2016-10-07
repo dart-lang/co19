@@ -16,7 +16,6 @@
  * entire substring from the '$' character to the first non-identifier or '$'
  * character is used, even if there're shorter matches for lexically visible
  * identifiers.
- * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */

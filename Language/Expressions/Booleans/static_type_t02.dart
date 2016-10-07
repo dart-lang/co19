@@ -5,16 +5,13 @@
  */
 /**
  * @assertion The static type of a boolean literal is bool.
- * @description Checks that a static warning is produced when assigning a
+ * @description Checks that a compile error is produced when assigning a
  * boolean literal to a typed int variable.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
-  checkTypeError(() {
-    int i = true; /// static type warning
-  });
+  int i = true;
 }

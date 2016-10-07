@@ -14,24 +14,25 @@
 import "../../../Utils/expect.dart";
 
 class A {
-  int x;
+  int x1 = 1;
 
   testA() {
-    Expect.equals(1, this.x);
+    Expect.equals(1, this.x1);
   }
 }
 
 class M {
-  int x = 1;
+  int x2 = 2;
 
   testM() {
-    Expect.equals(1, this.x);
+    Expect.equals(2, this.x2);
   }
 }
 
 class C extends A with M {
   test() {
-    Expect.equals(1, x);
+    Expect.equals(1, x1);
+    Expect.equals(2, x2);
     testM();
     testA();
   }

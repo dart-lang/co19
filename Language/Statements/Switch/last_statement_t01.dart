@@ -6,20 +6,18 @@
 /**
  * @assertion It is a static warning if the last statement of the statement
  * sequence sk is not a break, continue, return or throw statement.
- * @description Checks that it is a static warning if the last statement of the
+ * @description Checks that it is a compile error if the last statement of the
  * statement sequence of a case clause is not a break, continue, return or throw
  * statement.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
 main() {
-  try {
-    switch (1) {
-      case 0: false; /// static warning
-      case 1: true;
-              break;
-    }
-  } catch (ok) {}
+  switch (1) {
+    case 0: false;
+    case 1: true;
+            break;
+  }
 }

@@ -10,6 +10,7 @@
  * an accessible static member named n is declared in a superclass of C.
  * @description Checks that a compile error is produced when a class declares
  * an abstract method with the same name as a static method in its superclass.
+ * @issue 27476
  * @compile-error
  * @author rodionov
  */

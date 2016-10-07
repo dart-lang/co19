@@ -6,16 +6,15 @@
 /**
  * @assertion It is a static warning if the referenced part declaration p names
  * a library other than the current library as the library to which p belongs.
- * @description Checks that it is a static warning if the referenced part nemes
- * another library, but not a compile-time error and all definitions from such
- * part are available without errors.
- * @static-warning
+ * @description Checks that it is a compile error if the referenced part names
+ * another library.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
 library Parts_test_lib_not;
 import "../../../Utils/expect.dart";
-part "part_3.dart";       /// static type warning
+part "part_3.dart";
 
 main() {
   new A();

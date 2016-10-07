@@ -20,37 +20,24 @@
  * such h exists, let h = n + 1. The sequence of statements sh is then executed.
  * If execution reaches the point after sh then a runtime error occurs, unless
  * h = n + 1.
- * @description Checks that falling through produces a runtime error, unless
- * the current clause is an empty case clause or the default clause.
- * @static-warning
+ * @description Checks that falling through produces no errors, if  the current
+ * clause is an empty case clause or the default clause.
  * @author msyabro
  * @reviewer rodionov
  * @issue 7537
  */
 import '../../../Utils/expect.dart';
 
-test(value) {
-  var result;
-
-  switch (value) {
-    case 1:  result = 1;
-             break;
-    case 2:  result = 2; /// static warning - case fall-through, see "Switch"
-    case 3:  result = 3; /// static warning - case fall-through, see "Switch"
-    default: result = 4;
-  }
-  return result;
-}
-
 testEmptyCases(value) {
   var result;
 
   switch (value) {
     case 1:
-    case 2: result = 1; /// static warning - case fall-through, see "Switch"
+    case 2: result = 1;
+      break;
     case 3:
     case 4: result = 2;
-            break;
+      break;
     case 5:
     case 6:
     default:
@@ -60,17 +47,9 @@ testEmptyCases(value) {
 }
 
 main() {
-  Expect.equals(1, test(1));
-  Expect.equals(4, test(100));
-  Expect.equals(4, test(null));
-
-  Expect.throws(() {test(2);});
-  Expect.throws(() {test(3);});
-
   Expect.equals(null, testEmptyCases(5));
   Expect.equals(null, testEmptyCases(6));
   Expect.equals(2, testEmptyCases(3));
-
-  Expect.throws(() {testEmptyCases(1);});
-  Expect.throws(() {testEmptyCases(2);});
+  Expect.equals(1, testEmptyCases(1));
+  Expect.equals(1, testEmptyCases(2));
 }

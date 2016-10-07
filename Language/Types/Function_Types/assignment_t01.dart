@@ -8,10 +8,8 @@
  * T ⇐⇒ S, iff T <: S.
  * @description Checks that a function type T may be assigned to a function type
  * S, iff T <: S.
- * @static-warning
  * @author ngl@unipro.ru
  */
-import "../../../Utils/dynamic_check.dart";
 import "../../../Utils/expect.dart";
 
 class A {}
@@ -20,16 +18,12 @@ class C extends B {}
 
 class X {}
 
-typedef B t1(B b);
+typedef C t1(C c);
 
 main() {
   t1 x1a = (A x) {};
   t1 x1b = (B x) {};
   t1 x1c = (C x) {};
-
-  checkTypeError( () {
-    t1 x1x = (X x) {};    /// static type warning
-  });
 
   Expect.isTrue((A x) {} is t1);
   Expect.isTrue((B x) {} is t1);

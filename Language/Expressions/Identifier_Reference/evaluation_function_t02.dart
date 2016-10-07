@@ -23,8 +23,8 @@ import '../lib.dart' as lib;
 
 main() {
   localFunc() {return 2;}
-  var e = localFunc;
-  Expect.equals(2, e());
-  e = lib.f;
-  Expect.equals(1, e());
+  var e1 = localFunc;
+  Expect.equals(2, e1());
+  var e2 = lib.f;
+  Expect.equals(1, e2());
 }

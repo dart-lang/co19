@@ -24,18 +24,16 @@
  * ;
  * A bitwise expression is either an shift expression, or an invocation of a
  * bitwise operator on either super or an expression e1, with argument e2.
- * @description Checks that a type variable can be used as the first operand
+ * @description Checks that a type variable cannot be used as the first operand
  * of a bitwise expression without a compile error.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
 
 class A<T> {
   test() {
-    try {
-      T & 1; /// static type warning - invoking an undefined operator, see "Ordinary invocation"
-    } catch (e) {}
+    T & 1;
   }
 }
 

@@ -21,21 +21,21 @@ abstract class A<V> {
   set s1(int value) => {};
   static set s2(int value) => {};
   static int set s3(int value) {return 3;} /// static type warning
-  V set s4(V value) => {}; /// static type warning
-  static set s5(V value) => {}; /// static type warning
-  static V set s6(V value) {return null;} /// static type warning
+  V set s4(V value) {} /// static type warning
+  static set s5(value) {}
+  static String set s6(value) {return null;} /// static type warning
 }
 
 class C<V> extends A<V> {
   static int _s8;
-  static V set s6(V value) {return new V();} /// static type warning
+  static String set s6(value) {return "";} /// static type warning
   static int set s7(int value) {return 7;} /// static type warning
-  static set s8(int value) => _s8 = value; /// static type warning
+  static set s8(int value) => _s8 = value;
 }
 
 main() {
   C c = new C<String>();
-  Type t = c.runtimeType;
+  dynamic t = c.runtimeType;
 
   Expect.throws(() {t.s1 = 1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {t.s2 = 1;}, (e) => e is NoSuchMethodError);

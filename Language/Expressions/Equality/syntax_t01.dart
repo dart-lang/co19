@@ -17,7 +17,6 @@
  * an equality operator on either super or an expression e1, with argument e2.
  * @description Checks that various equality expression which are valid
  * according to this grammar don't cause compile-time errors.
- * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -55,10 +54,6 @@ class A extends S {
     id == topLevelFunction();
     method() != id;
 
-    //relational expressions
-    try {1 < 2 == true > false;} catch (e) {} /// static type warnings galore
-    try {true >= false == id > 7;} catch (e) {}
-
     //shift expressions
     try {1 >> -1 != () {};} catch (e) {}
     try {1 << 2 != null >> null;} catch (e) {}
@@ -68,11 +63,9 @@ class A extends S {
     try { 0 - 0 != null + null;} catch (e) {}
 
     //multiplicative expressions
-    try {true * false == id.id / []();} catch (e) {}
     try {0 ~/ 1 != 1 - -1;} catch (e) {}
 
     //unary expressions
-    try {-this == ~this;} catch (e) {}
     try {~-id != !!false;} catch (e) {}
   }
 }

@@ -12,12 +12,11 @@
  * the automatic import.
  * @description Checks that explicit import of dart:core preempt automatic
  * import.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import "../../../Utils/expect.dart";
 import 'dart:core' hide List;
 
 main() {
-  Expect.throws(() => List);  /// static type warning
+  List; // List is hidden
 }

@@ -25,7 +25,6 @@
  *
  * @description Checks that the combined effect of show and hide combinators in
  * an export declaration is calculated as specified.
- * @static-warning
  * @note Most of this is already covered by 1_Imports_A02* tests.
  * @author rodionov
  * @reviewer kaigorodov
@@ -39,9 +38,4 @@ main() {
   Expect.equals(2, bar); // from lib3/lib33
   Expect.equals(true, boo); // from lib2/lib22
   Expect.equals("static2", C.SF); // from lib3/lib33
-
-  try {
-    var x = badaboo; /// static type warning 'shown' by both exports, but isn't declared in either, so it's undefined
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
 }

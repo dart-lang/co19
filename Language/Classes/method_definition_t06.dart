@@ -24,6 +24,7 @@
  * ;
  * @description Checks that there is a compile-time error if an operator
  * method definition in a concrete class does not include a body
+ * @issue 27508
  * @compile-error
  * @author msyabro
  */

@@ -10,7 +10,7 @@
  * variable is not initialized in its declaration. 
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
+ * @issue #27510
  */
 
 class C {
@@ -18,7 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    print(C.v);
-  } catch (ok) {}
+  print(C.v);
 }

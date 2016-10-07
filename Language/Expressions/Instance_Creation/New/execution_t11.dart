@@ -10,6 +10,7 @@
  * The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly when evaluating
  * the initializer list of a redirected constructor.
+ * @static-warning
  * @author msyabro
  * @reviewer rodionov
  */
@@ -24,7 +25,7 @@ var p3;
 class A<T, U, V> {
   A() : this.redirected();
 
-  A.redirected(): x = p1, y = p2, z = p3 {
+  A.redirected(): x = p1, y = p2, z = p3 { /// static type warning
     Expect.equals(1, x);
     Expect.equals("", y);
     Expect.isNotNull(z);
@@ -51,7 +52,7 @@ class B <T extends A> {
 class C<T, U> {
   C.name() : this.redirected();
 
-  C.redirected(): a = p1, b = p3 {
+  C.redirected(): a = p1, b = p3 { /// static type warning
     Expect.equals(p1, a);
     Expect.identical(p3, b);
     Expect.isNotNull(b);

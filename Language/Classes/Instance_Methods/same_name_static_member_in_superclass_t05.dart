@@ -10,6 +10,7 @@
  * @description Checks that a compile error is produced when a class declares
  * an instance method with the same name as a static method in its superclass 
  * even if it's not a direct one.
+ * @issue 27476
  * @compile-error
  * @author iefremov
  */

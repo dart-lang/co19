@@ -26,7 +26,7 @@ import '../../../../Utils/async_utils.dart';
 
 final ERROR = new Exception();
 
-test1() async {
+Future test1() async {
   var processedValues = [];
   try {
     await for (var i in new Stream.fromIterable([1, 2])) {
@@ -40,7 +40,7 @@ test1() async {
   Expect.listEquals([1], processedValues);
 }
 
-test2() async {
+Future test2() async {
   var processedValues = [];
   try {
     await for (int i in new Stream.empty()) {

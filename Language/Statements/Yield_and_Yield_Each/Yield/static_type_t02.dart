@@ -11,27 +11,19 @@
  *  • the body of f is marked sync* and the type Iterable<T> may not be
  *  assigned to the declared return type of f.
  *
- * @description Check that static warning is issued, if the body of f is marked
+ * @description Check that it is a compile error, if the body of f is marked
  * async* and the type Stream<T> may not be assigned to the declared return
  * type of f.
  *
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../../../Utils/expect.dart';
-import '../../../../Utils/async_utils.dart';
 
 Stream<String> generator() async* {
-  yield 1; /// static type warning
+  yield 1;
 }
 
 main() {
-  asyncStart();
-  generator().first.then(
-      (v) {
-        Expect.equals(1, v);
-        asyncEnd();
-      }
-  );
+  generator();
 }

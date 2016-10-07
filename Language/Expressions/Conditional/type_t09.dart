@@ -15,7 +15,6 @@
  * mutated in e2 or within a closure, v is captured by closure in e2, but v is
  * potentially mutated elsewhere in its scope, then the type of v is not known
  * to be T in e2.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';

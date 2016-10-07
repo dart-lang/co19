@@ -10,11 +10,11 @@
  * warning if T may not be assigned to Iterable. If f is asynchronous it is
  * a static type warning if T may not be assigned to Stream.
  *
- * @description Check that static warning is issued, if the body of f is marked
+ * @description Check that compile error is issued, if the body of f is marked
  * async* and the type T may not be assigned to the declared return
  * type of f.
  *
- * @static-warning
+ * @compile-error
  * @issue #25634
  * @author a.semenov@unipro.ru
  */
@@ -23,7 +23,7 @@ import '../../../../Utils/async_utils.dart';
 import '../../../../Utils/expect.dart';
 
 Stream<String> generator() async* {
-  yield* 1; /// static type warning
+  yield* 1;
 }
 
 main() {

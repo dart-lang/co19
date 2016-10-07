@@ -24,7 +24,6 @@
  * the bindings that resulted from the evaluation of the argument list, and
  * with this bound to vo. The value of i is the value returned after f is
  * executed.
- * @static-warning
  * @description Checks that the argument list is evaluated before a
  * NoSuchMethodError is thrown.
  * @author rodionov

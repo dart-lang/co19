@@ -20,7 +20,6 @@
  * ;
  *
  * @description Checks different valid variants of asynchronous methods
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -32,7 +31,7 @@ class A {
 
   Future a2() async => 0;
 
-  a3() async => 1;
+  Future<int> a3() async => 1;
 }
 
 // f() { statements }
@@ -45,7 +44,7 @@ class B {
     return 2;
   }
 
-  b3() async {
+  Future<int> b3() async {
     return 3;
   }
 }
@@ -55,7 +54,7 @@ class C {
 
   Future c2(String y) async => y.length;
 
-  c3(z) async => z;
+  Future c3(z) async => z;
 }
 
 // f(arg) { statements }
@@ -68,7 +67,7 @@ class D {
     return y.length;
   }
 
-  d3(z) async {
+  Future d3(z) async {
     return z;
   }
 }

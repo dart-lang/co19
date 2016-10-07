@@ -21,29 +21,27 @@
  * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, Mk).
- * @description Check that if two members have the same name then mixin type
- * overrides superclass type
+ * @description Check that if two members have the same name then it is a
+ * compile error
+ * @issue 26409
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class A {
   int a;
 }
 
 class S extends A {
-  String a; /// static type warning
+  String a;
 }
 
 class M extends A {
   int a;
 }
 
-class C extends S with M { /// static type warning
+class C extends S with M {
 }
 
 main() {
-  C c = new C();
-  c.a = 1;
-  Expect.equals(1, c.a);
+  new C();
 }

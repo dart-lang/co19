@@ -6,9 +6,9 @@
 /**
  * @assertion It is a compile time error if the type argument of a
  * constant map literal includes a type parameter.
- * @description Checks that it is a compile-error if if the type argument of a
+ * @description Checks that it is no error if if the type argument of a
  * constant map literal includes a type variable.
- * @compile-error
+ * @issue 27492
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,7 +20,5 @@ class C<T> {
 }
 
 main() {
-  try {
-    new C<int>().test();
-  } catch (e) {}
+  new C<int>().test();
 }

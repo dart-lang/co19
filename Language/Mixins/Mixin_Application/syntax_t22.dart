@@ -23,6 +23,7 @@
  * tively, Mk).
  * @description Check that if mixin has superclass other than object then
  * super calls are allowed in its declared members
+ * @issue 26409
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

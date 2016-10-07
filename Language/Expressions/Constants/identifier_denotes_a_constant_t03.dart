@@ -14,6 +14,7 @@
  * @description Checks that an identifier expression that denotes a type
  * parameter cannot be used as const initializer.
  * @compile-error
+ * @issue 27477
  * @author rodionov
  * @reviewer kaigorodov
  */

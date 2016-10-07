@@ -13,21 +13,17 @@
  * • If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more
  * imports but never referred to.
- * @description Checks that it if N is introduced into L by several imports
- * that denote different declarations and N is referenced as a type, then it is
- * treated as malformed.
- * @static-warning
+ * @description Checks that if N is introduced into L by several imports
+ * that denote different declarations and N is referenced as a type,
+ * then a compile error is issued
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
-
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
 import "same_name_t11_p2_lib.dart" as P2;
 
 main() {
-  Expect.throws(() => 1 is foo); // static warning
-
-  1 is P2.foo;
+  1 is foo;
 }

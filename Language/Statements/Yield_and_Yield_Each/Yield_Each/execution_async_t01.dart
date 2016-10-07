@@ -31,7 +31,8 @@ import '../../../../Utils/expect.dart';
 import '../../../../Utils/async_utils.dart';
 
 Stream<int> generator() async* {
-  yield* 'a'; /// static type warning
+  dynamic a = 'a';
+  yield* a; /// static type warning
 }
 
 main() {

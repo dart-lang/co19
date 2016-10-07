@@ -25,6 +25,7 @@
  * super calls are allowed in its declared members and if both S and
  * superclass of M have member with the same name m, then the one from S is
  * called
+ * @issue 26409
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

@@ -19,9 +19,9 @@
  * all i ∈ 1..k, or a static type warning occurs.
  * @description Checks that if all inherited members with the same name are
  * methods and their static types are not identical, but there is no method
- * such that its type is subtype of types of all other methods, then a static
- * warning issued
- * @static-warning
+ * such that its type is subtype of types of all other methods, then a compile
+ * error occurs
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 

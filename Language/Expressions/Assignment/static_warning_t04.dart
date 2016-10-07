@@ -13,7 +13,7 @@
  * v = e occurs inside a static getter and and there is neither a local
  * variable declaration with name v nor setter declaration with name v = in the
  * lexical scope enclosing the assignment.
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 

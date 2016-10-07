@@ -10,9 +10,7 @@
  * its superinterfaces.
  * Expects a NoSuchMethodError when trying to access a superinterface's static
  * member S via a subinterface, as specified in (Expressions/Getter Invocation)
- * @static-warning
  * @author sgrekhov@unipro.ru
- * @issue 13677
  */
 import '../../../../Utils/expect.dart';
 
@@ -24,6 +22,7 @@ abstract class S2 implements S {
   static dynamic get bar => 2;
 }
 
+@proxy
 abstract class I implements S2 {
 }
 

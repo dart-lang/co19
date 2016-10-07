@@ -17,9 +17,9 @@
  *   subclass of Function that fails to implement call will also provoke a
  *   warning, as this exemption is limited to type Function, and does not apply
  *   to its subtypes.
- * @description Checks that it is a static type warning if member m exists in
+ * @description Checks that it is a compile error if member m exists in
  * T but is inaccessible.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */

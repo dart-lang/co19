@@ -9,6 +9,7 @@
  * superclass of A is not a subtype of Sstatic.
  * @description Checks that it is no static warning if superclass of A is
  * subtype of Sstatic
+ * @issue 26409
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
