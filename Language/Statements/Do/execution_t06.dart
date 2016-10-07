@@ -11,7 +11,6 @@
  * object r. If r is false, execution of the do statement is complete. If r is
  * true, then the do statement is re-executed recursively.
  * @description Check that AssertionError is thrown if e evaluates to null
- * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
