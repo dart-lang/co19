@@ -13,24 +13,24 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 void check(Window nw, int dx, int dy) {
-  int x=nw.screenLeft;
-  int y=nw.screenTop;
+  int x = nw.screenLeft;
+  int y = nw.screenTop;
   nw.moveBy(dx, dy);
-  Expect.equals(x+dx, nw.screenLeft);
-  Expect.equals(y+dy, nw.screenTop);
+  Expect.equals(x + dx, nw.screenLeft);
+  Expect.equals(y + dy, nw.screenTop);
 }
 
 main() {
-  Window nw=window.open("about:blank", "_blank");
+  Window nw = window.open("about:blank", "_blank");
   try {
-    check(nw,0,0);
-    check(nw,1,0);
-    check(nw,0,1);
-    check(nw,1,1);
-    check(nw,-1,0);
-    check(nw,0,-1);
-    check(nw,-1,-1);
-    check(nw,100,100);
+    check(nw, 0, 0);
+    check(nw, 1, 0);
+    check(nw, 0, 1);
+    check(nw, 1, 1);
+    check(nw, -1, 0);
+    check(nw, 0, -1);
+    check(nw, -1, -1);
+    check(nw, 100, 100);
   } finally {
     nw.close();
   }

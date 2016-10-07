@@ -6,21 +6,20 @@
 /**
  * @assertion  abstract void forEach(void f(K key, V value))
  * Applies f to each {key, value} pair of the map.
- * @description Checks that something is thrown when the argument is null
- * (compiler error appears if it has a type that is incompatible with the
- * required function type, so no need to check this case for strong mode).
+ * @description Checks that something is thrown when the argument is null or
+ * has a type that is incompatible with the required function type.
  * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t02;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map map = create();
-  
+  dynamic map = create();
+
   map["1"] = 3;
   map["2"] = 5;
   
   Expect.throws(() => map.forEach(null));
+  Expect.throws(() => map.forEach(1));
 }

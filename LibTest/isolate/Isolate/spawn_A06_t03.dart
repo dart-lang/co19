@@ -31,7 +31,7 @@ void entryPoint(message) {
   new Future.delayed(THREE_SECONDS, () => "d" + i4 );
 
   // first error
-  var x = "a" + i1; /// static type warning
+  var x = "a" + i1;
 }
 
 test() async {

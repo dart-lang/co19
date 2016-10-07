@@ -7,7 +7,6 @@
  * @assertion Associates the [key] with the given [value].
  * @description Checks that the specified pair is inserted into the map.
  * @author msyabro
- * @reviewer varlax
  */
 library operator_subscripted_assignment_A01_t01;
  

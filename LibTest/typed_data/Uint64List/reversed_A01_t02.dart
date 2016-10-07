@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(List<int> list) {
-  var l = new Uint64List.fromList(list);
+  dynamic l = new Uint64List.fromList(list);
   try {
     l.reversed = list;
     Expect.fail("[reversed] should be final");

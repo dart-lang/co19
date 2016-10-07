@@ -41,7 +41,7 @@ import "../../../Utils/async_utils.dart";
 void main0() {
   var receivePort = new ReceivePort();
   SendPort sendPort;
-  int n=10;
+  int n = 10;
   
   asyncStart();
   receivePort.listen((var message) {
@@ -50,7 +50,7 @@ void main0() {
     } else {
       Expect.equals(n, message);
     }
-    if (n>0) {
+    if (n > 0) {
       n--;
       sendPort.send(n);
     } else {
@@ -60,20 +60,20 @@ void main0() {
   });
   Isolate.spawnUri(
       new Uri.file("spawnUri_A01_t05.dart"),
-      [(n-1).toString()],
+      [(n - 1).toString()],
       receivePort.sendPort
   );
 }
 
 void main(List args, SendPort replyPort) {
-  if (replyPort==null) {
+  if (replyPort == null) {
     main0();
     return;
   } 
   var receivePort = new ReceivePort();
   receivePort.listen((var message) {
     replyPort.send(message);
-    if (message==0) {
+    if (message == 0) {
       receivePort.close();
     }
   });

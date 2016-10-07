@@ -6,7 +6,8 @@
 /**
  * @assertion   abstract Map<int, E> asMap()
  * Returns an unmodifiable Map view of this.
- * The map uses the indices of this list as keys and the corresponding objects as values.
+ * The map uses the indices of this list as keys and the corresponding objects
+ * as values.
  * @description Checks that the method returns Map.
  * Checks that the returned Map is unmodifiable.
  * Checks that the returned Map has the indices of this list as keys.
@@ -23,8 +24,15 @@ test(List create([int length])) {
     List a=create(a0.length);
     Expect.equals(a0.length, a.length);
     a.setRange(0, a0.length, a0);
-    var map=a.asMap();
+    dynamic map=a.asMap();
     Expect.isTrue(map is Map);
+
+    Expect.throws(() {
+        map["key"]="value";
+      }
+      ,(e)=>true
+      ,"modification did not fail"
+    );
 
     Expect.equals(a.length, map.length);
  

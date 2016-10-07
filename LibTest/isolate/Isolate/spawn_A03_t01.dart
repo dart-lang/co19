@@ -29,8 +29,8 @@ test() async {
   await Isolate.spawn(entryPoint, receivePort.sendPort, paused: true);
   await new Future.delayed(new Duration(seconds:2));
   if (testPassed){
-  asyncEnd();
-}
+    asyncEnd();
+  }
 }
 
 main() {

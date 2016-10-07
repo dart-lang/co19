@@ -6,9 +6,9 @@
 /**
  * @assertion abstract void removeRange(int start, int end)
  * An error occurs if start.. end is not a valid range for this.
- * @description Checks that exception is thrown if start or end is not of type int.
+ * @description Checks that exception is thrown if start or end is not of type
+ * int.
  * @author vasya
- * @reviewer varlax
  */
 library removeRange_A03_t03;
 
@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
 
-  void check(List l, int start, int end) {
+  void check(dynamic start, dynamic end) {
     var l = create();
     Expect.throws(() {
         l.removeRange(start, end);
@@ -24,15 +24,8 @@ test(List create([int length])) {
       (e) => e is RangeError
     );
  }
-  check(new List(),null,1);
-  check(new List(),0,null);
-  check(new List(),0,null);
-
-  check(new List.from([]),null,1);
-  check(new List.from([]),0,null);
-  check(new List.from([]),0,null);
-
-  check([],null,1);
-  check([],0,null);
-  check([],0,null);
+  check(null, 1);
+  check(0, null);
+  check(0, "1");
+  check(0.0, 1);
 }

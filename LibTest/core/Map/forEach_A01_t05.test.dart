@@ -8,7 +8,6 @@
  * Applies f to each {key, value} pair of the map.
  * @description Tries to pass function that returns something.
  * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t05;
 

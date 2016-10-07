@@ -26,11 +26,11 @@ main() {
   Window nw=window.open("about:blank", "_blank");
   
   try {
-    check(nw,0,0);
-    check(nw,1,0);
-    check(nw,0,1);
-    check(nw,1,1);
-    check(nw,100,100);
+    check(nw, 0, 0);
+    check(nw, 1, 0);
+    check(nw, 0, 1);
+    check(nw, 1, 1);
+    check(nw, 100, 100);
   } finally {
     nw.close();
   }

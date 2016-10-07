@@ -22,7 +22,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   var s = new Stream.fromIterable([1]);
-  StreamTransformer<int, dynamic> tr = new StreamTransformer((stream, cancelOnError) {
+  StreamTransformer<int, dynamic> tr =
+      new StreamTransformer((stream, cancelOnError) {
     Expect.fail('unexpected call to transformer');
   });
   s.transform(tr);

@@ -24,7 +24,8 @@ void check(List<int> array, int length, int firstElement, int lastElement) {
 }
 
 main() {
-  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 18, 0, 17);
+  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 18, 0,
+      17);
   check([0], 1, 0, 0);
   check([100, 50], 2, 100, 50);
 }

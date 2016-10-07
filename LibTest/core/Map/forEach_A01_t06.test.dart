@@ -8,7 +8,6 @@
  * Applies f to each {key, value} pair of the map.
  * @description Checks that keys and values can be changed in [f].
  * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t06;
 

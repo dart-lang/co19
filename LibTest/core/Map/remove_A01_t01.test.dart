@@ -9,7 +9,6 @@
  * Returns the value for key in the map or null if key is not in the map.
  * @description Checks that the specified key is removed and mapped value is returned (if any).
  * @author msyabro
- * @reviewer varlax
  */
 library remove_A01_t01;
 

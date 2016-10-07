@@ -8,7 +8,6 @@
  * The number of {key, value} pairs in the map.
  * @description Checks that in length stored correct size of the map.
  * @author msyabro
- * @reviewer varlax
  */
 library length_A01_t01;
  

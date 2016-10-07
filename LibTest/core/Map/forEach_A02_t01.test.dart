@@ -10,7 +10,6 @@
  * expects a ConcurrentModificationError every time regardless of whether or not
  * it is the current key that's being removed.
  * @author msyabro
- * @reviewer rodionov
  * @needsreview Doesn't specify the exact error, which operation throws it and whether
  * or not add/remove can finish successfully before the error. 
  */

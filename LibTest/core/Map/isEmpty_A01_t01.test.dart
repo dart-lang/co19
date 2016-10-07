@@ -8,7 +8,6 @@
  * Returns true if there is no {key, value} pair in the map.
  * @description Check that true is returned only if the map is empty.
  * @author msyabro
- * @reviewer varlax
  */
 library isEmpty_A01_t01;
 

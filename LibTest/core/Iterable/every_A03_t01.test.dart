@@ -12,9 +12,6 @@
  * is not a closure, doesn't implement a call() method with appropriate
  * signature or is null.
  * @author vasya
- * @reviewer iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 library every_A03_t01;
 
@@ -25,7 +22,18 @@ class A {
 }
 
 test(Iterable create([Iterable content])) {
-  Iterable a = create([1, 2, 3]);
+  dynamic a = create([1, 2, 3]);
+  dynamic x1 = false;
+  dynamic x2 = 1;
+  dynamic x3 = "every";
+  dynamic x4 = [1, 2, 3];
+  dynamic x5 = new A();
+  dynamic x6 = null;
 
-  Expect.throws(() => a.every(null));
+  Expect.throws(() => a.every(x1));
+  Expect.throws(() => a.every(x2));
+  Expect.throws(() => a.every(x3));
+  Expect.throws(() => a.every(x4));
+  Expect.throws(() => a.every(x5));
+  Expect.throws(() => a.every(x6));
 }

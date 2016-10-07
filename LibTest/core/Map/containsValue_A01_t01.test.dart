@@ -9,7 +9,6 @@
  * @description Checks that the method returns true if this map contains a mapping
  * for the specified key.
  * @author msyabro
- * @reviewer varlax
  */
 library containsValue_A01_t01;
 

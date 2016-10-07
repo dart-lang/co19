@@ -16,7 +16,7 @@ test(Map create([Map content])) {
   Map map = create();
   Expect.equals(null, map[null]);
   Expect.isFalse(map.containsKey(null));  
-  map[null]=null;
+  map[null] = null;
   Expect.equals(null, map[null]);
   Expect.isTrue(map.containsKey(null));  
 }

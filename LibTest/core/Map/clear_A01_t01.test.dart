@@ -7,7 +7,6 @@
  * @assertion Removes all pairs from the map.
  * @description Checks that all of the mappings from this map are removed.
  * @author msyabro
- * @reviewer varlax
  */
 library clear_A01_t01;
 

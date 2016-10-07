@@ -12,8 +12,8 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  Window nw=window.open("about:blank", "_blank");
-  Document doc=nw.document;
+  Window nw = window.open("about:blank", "_blank");
+  Document doc = nw.document;
   Expect.equals(nw, doc.window);
   nw.close();
 }

@@ -22,7 +22,8 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var s = new Stream.fromIterable([1]);
-  StreamTransformer<int, dynamic> tr = new StreamTransformer((stream, cancelOnError) {
+  StreamTransformer<int, dynamic> tr =
+      new StreamTransformer((stream, cancelOnError) {
     asyncEnd();
     return stream.listen(null);
   });

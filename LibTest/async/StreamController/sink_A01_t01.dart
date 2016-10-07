@@ -8,7 +8,6 @@
  * Returns a view of this object that only exposes the StreamSink interface.
  *
  * @description Checks that only the StreamSink interface is exposed.
- * @static-warning
  * @author kaigorodov
  */
 

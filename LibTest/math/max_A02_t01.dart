@@ -9,7 +9,6 @@
  * @description Checks that if one of the arguments is NaN,
  * the result is also NaN.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../Utils/expect.dart";
 

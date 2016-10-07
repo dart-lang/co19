@@ -8,8 +8,6 @@
  * Applies f to each {key, value} pair of the map.
  * @description Checks that all mappings are iterated exactly once.
  * @author varlax
- * @reviewer varlax
- * @reviewer msyabro
  */
 library forEach_A01_t01;
 

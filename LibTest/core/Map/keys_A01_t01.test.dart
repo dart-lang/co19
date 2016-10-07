@@ -8,7 +8,6 @@
  * The keys of this.
  * @description Checks that an Iterable containing all keys is returned.
  * @author msyabro
- * @reviewer varlax
  */
 library keys_A01_t01;
  

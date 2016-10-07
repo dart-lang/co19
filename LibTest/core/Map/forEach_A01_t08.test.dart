@@ -8,7 +8,6 @@
  * Applies f to each {key, value} pair of the map.
  * @description Nested forEach.
  * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t08;
 

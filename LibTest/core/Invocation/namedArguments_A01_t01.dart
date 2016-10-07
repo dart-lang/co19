@@ -16,7 +16,6 @@ import "../../../Utils/expect.dart";
 
 Map expect;
 
-@proxy
 class D {
   method(x, y, z) {}
   get getOnly {}

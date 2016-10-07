@@ -5,14 +5,19 @@
  */
 /**
  * @assertion final int current
- * The rune (integer Unicode code point) starting at the current position in the string.
- * @description Checks that [current] is final and can't be set (causes compile
- * error in strong mode).
- * @compile-error
+ * The rune (integer Unicode code point) starting at the current position in the
+ * string.
+ * @description Checks that [current] is final and can't be set.
  * @author msyabro
  */
 
+import "../../../Utils/expect.dart";
+
 main() {
-  var it = new RuneIterator('a');
+  dynamic it = new RuneIterator('a');
+
+  try {
   it.current = 1;
+    Expect.fail('[current] should be final');
+  } on NoSuchMethodError catch(ok) {}
 }

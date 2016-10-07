@@ -18,12 +18,12 @@ const myButton="myButton";
 main() {
   IFrameElement x = new IFrameElement();
   x.appendHtml('<span><div></div><button class="$myButton></button></span>');
-  Element ch=x.lastChild;
+  Element ch = x.lastChild;
   print("lastChild=ch.runtimeType:$ch");
   
   List<Node> z = ch.getElementsByClassName(myButton);
 
-  var y=z[0].parent;
+  var y = z[0].parent;
   print("z=$z y=$y");
   Expect.equals(y, z);
 }

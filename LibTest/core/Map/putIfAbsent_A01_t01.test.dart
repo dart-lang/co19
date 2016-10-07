@@ -11,7 +11,6 @@
  * @description Checks that the new mapping added only if the key is not present
  * in the map. Checks the returned value.
  * @author msyabro
- * @reviewer varlax
  */
 library putIfAbsent_A01_t01;
 

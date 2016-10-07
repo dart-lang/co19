@@ -11,7 +11,6 @@
  * @description Tries to pass null as [ifAbsent] and checks that
  * an exception or error is thrown.
  * @author msyabro
- * @reviewer varlax
  */
 library putIfAbsent_A01_t06;
 

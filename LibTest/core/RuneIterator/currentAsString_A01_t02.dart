@@ -6,13 +6,17 @@
 /**
  * @assertion final String currentAsString
  * A string containing the current rune.
- * @description Checks that [currentAsString] is final and can't be set (causes
- * compile error in strong mode).
- * @compile-error
+ * @description Checks that [currentAsString] is final and can't be set.
  * @author msyabro
  */
 
+import "../../../Utils/expect.dart";
+
 main() {
-  var it = new RuneIterator('a');
-  it.currentAsString = '1';
+  dynamic it = new RuneIterator('a');
+
+  try {
+    it.currentAsString = '1';
+    Expect.fail('[currentAsString] should be final');
+  } on NoSuchMethodError catch(ok) {}
 }

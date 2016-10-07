@@ -9,7 +9,6 @@
  * @description Checks that the method returns the value to which the specified key is
  * mapped, or null if this map contains no mapping for the key.
  * @author msyabro
- * @reviewer varlax
  */
 library operator_subscript_A01_t01;
  

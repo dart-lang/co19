@@ -8,7 +8,6 @@
  * Returns true if there is at least one {key, value} pair in the map.
  * @description Check that true is returned only if the map is not empty.
  * @author msyabro
- * @reviewer varlax
  */
 library isNotEmpty_A01_t01;
 

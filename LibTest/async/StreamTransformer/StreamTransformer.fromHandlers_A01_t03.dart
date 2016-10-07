@@ -25,7 +25,8 @@ main() {
   s = s.map((x) => x.isOdd ? x : throw x);
 
   var stackTraces = [];
-  StreamTransformer<int, dynamic> tr = new StreamTransformer.fromHandlers(handleError: (x, st, sink) {
+  StreamTransformer<int, dynamic> tr =
+      new StreamTransformer.fromHandlers(handleError: (x, st, sink) {
     stackTraces.add(st);
     sink.addError((x as int)+10, st);
   });

@@ -10,7 +10,6 @@
  * Each key must be unique. Null values are supported, but null keys are not.
  * @description Checks that null values are supported.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 

@@ -8,7 +8,6 @@
  * Returns an Iterator that iterates over this Iterable object.
  * @description Checks that [iterator] is final and can't be set (causes compile
  * error in strong mode.
- * @compile-error
  * @description Checks that [iterator] is final and can't be set.
  * @author msyabro
  */

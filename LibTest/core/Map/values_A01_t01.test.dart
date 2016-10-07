@@ -8,7 +8,6 @@
  * The values of this.
  * @description Checks that an Iterable with all values is returned.
  * @author msyabro
- * @reviewer varlax
  */
 library values_A01_t01;
 

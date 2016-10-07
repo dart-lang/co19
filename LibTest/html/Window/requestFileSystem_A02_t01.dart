@@ -4,13 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<FileSystem> requestFileSystem(int size, {bool persistent: false})
+ * @assertion Future<FileSystem> requestFileSystem(int size, {bool persistent:
+ * false})
  * Access a sandboxed file system of the specified size. If persistent is true,
- * the application will request permission from the user to create lasting storage.
- * This storage cannot be freed without the user's permission.
- * Returns a Future whose value stores a reference to the sandboxed file system for use.
- * Because the file system is sandboxed, applications cannot access file systems created
- * in other web pages.
+ * the application will request permission from the user to create lasting
+ * storage. This storage cannot be freed without the user's permission.
+ * Returns a Future whose value stores a reference to the sandboxed file system
+ * for use.
+ * Because the file system is sandboxed, applications cannot access file systems
+ * created in other web pages.
  * @description Checks that FileSystem is not accessible outside its web-page.
  * todo is it in other page?
  */
@@ -19,7 +21,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  Window nw=window.open("about:blank", "_blank");
+  Window nw = window.open("about:blank", "_blank");
   asyncCompleted.then((n) {
     nw.close();
   });

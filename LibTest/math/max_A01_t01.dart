@@ -8,7 +8,6 @@
  * Returns the larger of two numbers.
  * @description Checks set of values.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../Utils/expect.dart";
 

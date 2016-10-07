@@ -8,24 +8,21 @@
  * If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] to the value returned by [ifAbsent].
  * Returns the value in the map.
- * @description Checks that anything thrown by the argument function
- * breaks operation and is passed through to the caller.
- * @author varlax
+ * @description Checks that if [key] is already associated to a value,
+ * [ifAbsent] is not called and its incorrect value is not detected.
+ * @author msyabro
+ * @needsreview undocumented
  */
-library putIfAbsent_A01_t10;
+library putIfAbsent_A01_t07;
 
-import "../../../Utils/expect.dart";
+import "../../../Utils/dynamic_check.dart";
 
 test(Map create([Map content])) {
-  Map map = create();
+  dynamic<String, Object> map = create();
 
-  Object f() {
-    throw "Exception!";
-  }
+  map["1"] = 1;
   
-  Expect.throws(() {
-    map.putIfAbsent("1", f);
+  checkTypeError(() {
+    map.putIfAbsent("1", 1);
   });
-
-  Expect.isTrue(map.isEmpty);
 }
