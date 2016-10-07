@@ -25,7 +25,7 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 import '../../../../Utils/async_utils.dart';
 
-test1() async {
+Future test1() async {
   var processedValues = [];
   await for (var i in new Stream.fromIterable([1, 2, 3])) {
     processedValues.add(i);
@@ -33,7 +33,7 @@ test1() async {
   Expect.listEquals([1, 2, 3], processedValues);
 }
 
-test2() async {
+Future test2() async {
   var processedValues = [];
   await for (var i in new Stream.fromIterable(['a', 'b' ,'c'])) {
     processedValues.add(i);
@@ -41,7 +41,7 @@ test2() async {
   Expect.listEquals(['a', 'b', 'c'], processedValues);
 }
 
-test3() async {
+Future test3() async {
   var processedValues = [];
   await for (var i in new Stream.empty()) {
     processedValues.add(i);
