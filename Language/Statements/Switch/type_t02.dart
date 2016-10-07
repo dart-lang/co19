@@ -8,14 +8,14 @@
  * the type of ek.
  * @description Checks that a compile error is produced if the type of the
  * switch expression's value cannot be assigned to any of the case expression
- * types.
+ * types. Test the case when there is a default clause
  * @compile-error
- * @author vasya
+ * @author sgrekhov@unipro.ru
  */
 
 main() {
   switch (false) {
-    case 0:
-    case 1:
+    case 0: break;
+    default:
   }
 }

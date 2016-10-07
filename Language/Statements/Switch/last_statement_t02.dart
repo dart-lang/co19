@@ -6,7 +6,7 @@
 /**
  * @assertion It is a static warning if the last statement of the statement
  * sequence sk is not a break, continue, return or throw statement.
- * @description Checks that it is a static warning if the last statement of the
+ * @description Checks that it is no compile error if the last statement of the
  * statement sequence of the last case clause is not a break, continue, return
  * or throw statement.
  * @author msyabro
@@ -15,11 +15,9 @@
  */
 
 main() {
-  try {
-    switch (1) {
-      case 0: false;
-              break;
-      case 1: true;
-    }
-  } catch (ok) {}
+  switch (1) {
+    case 0: false;
+            break;
+    case 1: true;
+  }
 }

@@ -20,36 +20,26 @@
  * such h exists, let h = n + 1. The sequence of statements sh is then executed.
  * If execution reaches the point after sh then a runtime error occurs, unless
  * h = n + 1.
- * @description Checks that falling through produces no errors, if  the current
- * clause is an empty case clause or the default clause.
- * @author msyabro
- * @reviewer rodionov
+ * @description Checks that falling through produces a compile error, if
+ * the current clause is not empty case clause and not the default clause.
+ * @compile-error
+ * @author sgrekhov@unipro.ru
  * @issue 7537
  */
-import '../../../Utils/expect.dart';
 
-testEmptyCases(value) {
+test(value) {
   var result;
 
   switch (value) {
-    case 1:
-    case 2: result = 1;
-      break;
-    case 3:
-    case 4: result = 2;
-      break;
-    case 5:
-    case 6:
-    default:
+    case 1:  result = 1;
+             break;
+    case 2:  result = 2;
+    case 3:  result = 3;
+    default: result = 4;
   }
-
   return result;
 }
 
 main() {
-  Expect.equals(null, testEmptyCases(5));
-  Expect.equals(null, testEmptyCases(6));
-  Expect.equals(2, testEmptyCases(3));
-  Expect.equals(1, testEmptyCases(1));
-  Expect.equals(1, testEmptyCases(2));
+  test(1);
 }

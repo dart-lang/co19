@@ -26,28 +26,20 @@
  * does not exist, then if there is a default clause it is executed by
  * executing sn+1.
  * @description Checks that if the value of expression e is not an instance of
- * the same type as the constants of case clauses, it is a runtime error in
- * checked mode only.
- * @static-warning
+ * the same type as the constants of case clauses, then it is a compile error
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 main() {
-  checkTypeError(() {
-      switch (1) {
-        case '1': break; /// static type warning
-        case '2': break; /// static type warning
-        default:
-      }
-  });
+   switch (1) {
+     case '1': break;
+     case '2': break;
+     default:
+   }
 
-  checkTypeError(() {
-    switch ('abc') {
-      case 1: break; /// static type warning
-    }
-  });
-
+  switch ('abc') {
+    case 1: break;
+  }
 }

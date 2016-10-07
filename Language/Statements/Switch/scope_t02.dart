@@ -9,19 +9,15 @@
  * clause’s statement list.
  * @description Checks that the scope of a case clause ends immediately after
  * the case clause’s statement list.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  try {
-    switch (2) {
-      case 1: var x = 2;
-              break;
-      case 2: x++; /// static type warning x isn't declared in this scope
-    }
-    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
-  } on NoSuchMethodError catch (ex) {}
+  switch (2) {
+    case 1: var x = 2;
+            break;
+    case 2: x++; /// x isn't declared in this scope
+  }
 }
