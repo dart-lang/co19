@@ -25,39 +25,27 @@
  * T <: S or S <: T.
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where
  * T is a type parameter and S is a type parameter bound (T and S are complex
- * generics). Checks their mutual assignability (no static type warnings) as
+ * generics). Checks their assignability (no static type warnings) as
  * well.
  * @issue 27556
  * @static-clean
- * @author iefremov
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
 
-class I<A, B, T> {}
-class J<A, B, T> extends I<A, B, T> {}
+class I<T> {}
+class J<T> extends I<T> {}
 class K extends J {}
 class C implements K {}
 
-typedef J f(I<K, List<Map<int, double>>, int> i, [List<Map> j]);
-typedef K f_1(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
-typedef C f_2(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
+typedef J f(J<K> i);
+typedef K f_1(I<J> i);
+typedef C f_2(J<J> i);
 
-class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
-  Checker_I() {}
-
-  Checker_I<I<f, num, List<Map<num, Map>>>> _() {}
-
-  check() {
-    Checker_I<I<f, num, List<Map<num, Map>>>> i1 = new Checker_I<T>();
-    Checker_I<T> i2 = _();
-  }
+class Checker_I<T extends I<f>> implements I {
 }
 
 main() {
-  new Checker_I().check();
-  new Checker_I<I<f, num, List<Map<num, Map>>>>().check();
-  new Checker_I<I<f_1, int, List<Map<int, Map<int, int>>>>>().check();
-  new Checker_I<I<f_2, int, List<Map<int, Map<int, int>>>>>().check();
-  new Checker_I<J<f_1, int, List<Map<int, Map<int, int>>>>>().check();
-  new Checker_I<J<f_2, int, List<Map<int, Map<int, int>>>>>().check();
+  new Checker_I<I<f>>();
+  new Checker_I<I<f_1>>();
+  new Checker_I<I<f_2>>();
 }
