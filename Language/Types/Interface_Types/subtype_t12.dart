@@ -24,15 +24,13 @@
  * An interface type T may be assigned to a type S, written T <=> S, if either
  * T <: S or S <: T.
  * @description Checks that a function type t1 is assignable (no static
- * warnings) to a function type t2 if t1 <: t2 or t1 :> t2 where t1 and t2 are
+ * warnings) to a function type t2 only if t1 <: t2 where t1 and t2 are
  * quite complex: non-dynamic return type plus a bunch of formal and optional
  * parameters. Subtypes of a function type described according to
  * (Types/Function Types).
  * @author iefremov
  * @reviewer rodionov
  */
-
-import "../../../Utils/dynamic_check.dart";
 
 class A {}
 class A1 {}
@@ -42,8 +40,8 @@ class C implements B {}
 class D implements C {}
 
 typedef B func(Object o);
-typedef B f1(int i, B b, Map<int, num> m, var x,
-             [var ox, B ob, List<num> ol, bool obool]);
+typedef A f1(int i, D d, Map<int, num> m, var x,
+             [var ox, D od, List<num> ol, bool obool]);
 
 //fewer optional parameters
 typedef B f1_1(int i, B b, Map<int, num> m, var x,
@@ -53,9 +51,9 @@ typedef B f1_3(int i, B b, Map<int, num> m, var x, [var ox]);
 typedef B f1_4(int i, B b, Map<int, num> m, var x);
 
 B f01(int i, B b, Map<int, num> m, var x,
-      [var ox, D ob, List<num> ol, bool obool]) {}
-D f02(int i, D b, Map<int, int> m, func x,
-      [func ox, D ob, List<int> ol, bool obool]) {}
+      [var ox, B ob, List<num> ol, bool obool]) {}
+D f02(int i, D b, Map<num, num> m, func x,
+      [func ox, D ob, List<Object> ol, bool obool]) {}
 C f03(num i, A b, Map<Object, Object> m, var x,
       [var ox, A2 ob, List ol, Object obool]) {}
 A f04(num i, A b, Map<Object, Object> m, var x,
@@ -64,11 +62,6 @@ A f05(num i, A b, Map<Object, Object> m, var x,
       [var ox, A2 ob, List ol, Object obool, var more1]) {}
 A f06(num i, A b, Map<Object, Object> m, var x,
       [var ox, A2 ob, List ol, Object obool, var more1, int more2]) {}
-
-C f11(num i, A b, Map<Object, Object> m, var x) {}
-C f12(num i, A b, Map<Object, Object> m, var x, [var ox]) {}
-C f13(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob]) {}
-C f14(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol]) {}
 
 B f21(int i, B b, Map<int, num> m, var x,
       [var ox, B ob, List<num> ol, bool obool]) {}
@@ -87,20 +80,6 @@ main() {
   fvar = f04;
   fvar = f05;
   fvar = f06;
-
-  //functions on the right are supertypes of f1
-  checkTypeError(() {
-    fvar = f11;
-  });
-  checkTypeError(() {
-    fvar = f12;
-  });
-  checkTypeError(() {
-    fvar = f13;
-  });
-  checkTypeError(() {
-    fvar = f14;
-  });
 
   //function on the right is a subtype of f1_*
   f1_1 fvar_1 = f21;

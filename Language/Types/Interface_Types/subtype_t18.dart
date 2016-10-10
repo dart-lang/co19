@@ -43,7 +43,6 @@ class Checker_I<T extends I> implements I {
   check() {
     Expect.isTrue(new Checker_I<T>() is Checker_I<I>);
     Checker_I<I> c1 = new Checker_I<T>();
-    Checker_I<T> c2 = () {}();
   }
 }
 
