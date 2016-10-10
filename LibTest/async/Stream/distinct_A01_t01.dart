@@ -7,7 +7,7 @@
  * @assertion Stream<T> distinct([bool equals(T previous, T next)])
  * Skips data events if they are equal to the previous data event.
  * The returned stream provides the same events as this stream, except that it
- * never provides two consequtive data events that are equal.
+ * never provides two consecutive data events that are equal.
  * Equality is determined by the provided equals method. If that is omitted,
  * the '==' operator on the last provided data element is used.
  * @description Checks that if parameter is omitted, returned stream does not
@@ -19,7 +19,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(Iterable<int> data) {
+check(Iterable data) {
   Stream s = new Stream.fromIterable(data);
   Stream d = s.distinct();
   bool first = true;
@@ -44,5 +44,5 @@ main() {
   check([1, 2, 2, 3]);
   check([1, 2, null, null]);
   check(new Iterable.generate(0, (int index) => 1));
-  check(new Iterable.generate(10, (int index) => [0] as int));
+  check(new Iterable.generate(10, (int index) => [0]));
 }

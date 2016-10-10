@@ -24,10 +24,14 @@ const N = 5;
 main() {
   int num = 0;
 
-  dynamic ff() {
+  dynamic getObject() {
+    return new Object();
+  }
+
+  Future ff() {
     if (num == 2) {
       num++;
-      return new Object();
+      return getObject();
     }
     Completer c = new Completer();
     if (num < N) {
@@ -45,10 +49,8 @@ main() {
   asyncStart();
   f.then((fValue) {
     Expect.fail("Should not be here");
-    Expect.equals(3, num);
     asyncEnd();
-  })
-  .catchError((e) {
+  }).catchError((e) {
     Expect.isTrue(e is TypeError);
     Expect.equals(3, num);
     asyncEnd();

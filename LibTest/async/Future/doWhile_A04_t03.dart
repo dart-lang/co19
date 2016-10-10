@@ -25,10 +25,14 @@ main() {
 
   int num = 0;
 
-  dynamic ff() {
+  dynamic getTrue() {
+    return true;
+  }
+
+  Future ff() {
     if (num == 2) {
       num++;
-      return true; /// static type warning
+      return getTrue();
     }
     Completer c = new Completer();
     if (num < N) {
