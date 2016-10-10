@@ -40,8 +40,8 @@ void assert_false(var actual, [String diag]) {
   Expect.isFalse(actual, diag);
 }
 
-void assert_throws(String expectedExceptionName, var function, [String diag]) {
-  Expect.throws(function, (e)=>e.toString().contains(expectedExceptionName), diag);
+void assert_throws(String expectedExceptionName, void f(), [String diag]) {
+  Expect.throws(f, (e)=>e.toString().contains(expectedExceptionName), diag);
 }
 
 void assert_array_equals(var actual, var expected, [String diag]) {
