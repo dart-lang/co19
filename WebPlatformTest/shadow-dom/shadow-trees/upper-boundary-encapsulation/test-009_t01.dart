@@ -45,7 +45,7 @@ main() {
   };
 
   setup() {
-    var ctx = new DynObject();
+    dynamic ctx = new DynObject();
 
     ctx.d = newHtmlDocument();
     setupBlock(ctx, 'd', ctx.d.body);

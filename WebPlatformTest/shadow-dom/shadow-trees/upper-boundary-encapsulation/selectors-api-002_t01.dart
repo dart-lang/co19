@@ -16,7 +16,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -27,7 +26,7 @@ main() {
   //   |                    +-- <p class="test-class" id="test-id">
   //   |
   //   +-- <p class="test-class" id="test-id">
-  createTestDocument() {
+  DynObject createTestDocument() {
     var doc = document.implementation.createHtmlDocument('Test');
     var pHost = doc.createElement('p');
     pHost.className = 'test-class';
@@ -47,9 +46,9 @@ main() {
   }
 
   test(() {
-    var documentObject = createTestDocument();
-    var shadowRoot = documentObject.shadowRoot;
-    var pShadow = documentObject.pShadow;
+    dynamic documentObject = createTestDocument();
+    dynamic shadowRoot = documentObject.shadowRoot;
+    dynamic pShadow = documentObject.pShadow;
     assert_equals(shadowRoot.querySelector('p'), pShadow);
     assert_equals(shadowRoot.querySelector('.test-class'), pShadow);
     assert_equals(shadowRoot.querySelector('#test-id'), pShadow);
@@ -64,9 +63,9 @@ main() {
   }
 
   test(() {
-    var documentObject = createTestDocument();
-    var shadowRoot = documentObject.shadowRoot;
-    var pShadow = documentObject.pShadow;
+    dynamic documentObject = createTestDocument();
+    dynamic shadowRoot = documentObject.shadowRoot;
+    dynamic pShadow = documentObject.pShadow;
     assert_singleton_node_list(shadowRoot.querySelectorAll('p'), pShadow);
     assert_singleton_node_list(shadowRoot.querySelectorAll('.test-class'),
       pShadow);

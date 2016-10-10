@@ -16,7 +16,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -27,7 +26,7 @@ main() {
   //   |                    +-- <p class="test-class" id="test-id">
   //   |
   //   +-- <p class="test-class" id="test-id">
-  createTestDocument() {
+  DynObject createTestDocument() {
     var doc = document.implementation.createHtmlDocument('Test');
     var pHost = doc.createElement('p');
     pHost.className = 'test-class';
@@ -46,9 +45,9 @@ main() {
   }
 
   test(() {
-    var documentObject = createTestDocument();
-    var doc = documentObject.doc;
-    var pHost = documentObject.pHost;
+    dynamic documentObject = createTestDocument();
+    dynamic doc = documentObject.doc;
+    dynamic pHost = documentObject.pHost;
     assert_equals(doc.querySelector('p'), pHost);
     assert_equals(doc.querySelector('.test-class'), pHost);
     assert_equals(doc.querySelector('#test-id'), pHost);
@@ -63,9 +62,9 @@ main() {
   }
 
   test(() {
-    var documentObject = createTestDocument();
-    var doc = documentObject.doc;
-    var pHost = documentObject.pHost;
+    dynamic documentObject = createTestDocument();
+    dynamic doc = documentObject.doc;
+    dynamic pHost = documentObject.pHost;
     assert_singleton_node_list(doc.querySelectorAll('p'), pHost);
     assert_singleton_node_list(doc.querySelectorAll('.test-class'), pHost);
     assert_singleton_node_list(doc.querySelectorAll('#test-id'), pHost);
