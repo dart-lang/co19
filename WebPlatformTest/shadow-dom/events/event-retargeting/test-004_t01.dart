@@ -14,7 +14,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -185,7 +184,7 @@ main() {
     //see at http://www.w3.org/TR/shadow-dom/#event-retargeting-example
 
     //For #player relative target is #player
-    d.querySelector('#player').addEventListener('click', (event) {
+    d.querySelector('#player').addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'player',
         'Wrong related target');
@@ -314,7 +313,7 @@ main() {
     //see at http://www.w3.org/TR/shadow-dom/#event-retargeting-example
 
     //For #player relative target is #player
-    d.querySelector('#player').addEventListener('click', (event) {
+    d.querySelector('#player').addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'player',
         'Wrong related target');
