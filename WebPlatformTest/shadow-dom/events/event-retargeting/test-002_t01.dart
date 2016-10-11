@@ -15,7 +15,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -35,7 +34,7 @@ main() {
 
   asyncStart();
 
-  d.body.addEventListener('click', (event) {
+  d.body.addEventListener('click', (dynamic event) {
     assert_equals(event.target.tagName, 'UL', 'Information about event target crossing ' +
       'the shadow boundaries should be adjusted for document nodes distributed' +
       'among insertion points');

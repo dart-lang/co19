@@ -16,7 +16,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -99,11 +98,11 @@ main() {
 
     //For #volume-slider relative target #volume-slider
     roots.playerShadowRoot.querySelector('#volume-slider')
-    .addEventListener('click', (event) {
+    .addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'volume-slider',
         'Wrong target');
-      assert_true(event.currentTarget.getAttribute('id'), 'volume-slider',
+      assert_equals(event.currentTarget.getAttribute('id'), 'volume-slider',
         'Wrong currentTarget');
       asyncEnd();
     }, false);
@@ -131,11 +130,11 @@ main() {
 
     //For #volume-slider-container relative target #volume-slider
     roots.playerShadowRoot.querySelector('#volume-slider-container')
-    .addEventListener('click', (event) {
+    .addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'volume-slider',
         'Wrong target');
-      assert_true(event.currentTarget.getAttribute('id'), 'volume-slider',
+      assert_equals(event.currentTarget.getAttribute('id'), 'volume-slider',
         'Wrong currentTarget');
       asyncEnd();
     }, false);
@@ -162,11 +161,11 @@ main() {
 
     //For #controls relative target #volume-slider
     roots.playerShadowRoot.querySelector('#controls')
-    .addEventListener('click', (event) {
+    .addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'volume-slider',
         'Wrong target');
-      assert_true(event.currentTarget.getAttribute('id'), 'volume-slider',
+      assert_equals(event.currentTarget.getAttribute('id'), 'volume-slider',
         'Wrong currentTarget');
       asyncEnd();
     }, false);
@@ -193,11 +192,11 @@ main() {
     //see at http://www.w3.org/TR/shadow-dom/#event-retargeting-example
 
     //For #player-shadow-root relative target #volume-slider
-    roots.playerShadowRoot.addEventListener('click', (event) {
+    roots.playerShadowRoot.addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'volume-slider',
         'Wrong target');
-      assert_true(event.currentTarget.getAttribute('id'), 'volume-slider',
+      assert_equals(event.currentTarget.getAttribute('id'), 'volume-slider',
         'Wrong currentTarget');
       asyncEnd();
     }, false);
@@ -223,11 +222,11 @@ main() {
     //see at http://www.w3.org/TR/shadow-dom/#event-retargeting-example
 
     //For #player relative target #player
-    d.querySelector('#player').addEventListener('click', (event) {
+    d.querySelector('#player').addEventListener('click', (dynamic event) {
       invoked = true;
       assert_equals(event.target.getAttribute('id'), 'player',
         'Wrong target');
-      assert_true(event.currentTarget.getAttribute('id'), 'player',
+      assert_equals(event.currentTarget.getAttribute('id'), 'player',
         'Wrong currentTarget');
       asyncEnd();
     }, false);

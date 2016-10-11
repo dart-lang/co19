@@ -18,7 +18,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -53,12 +52,12 @@ main() {
 
     inp2.focus();
 
-    s.addEventListener('DOMFocusIn', (event) {
+    s.addEventListener('DOMFocusIn', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadoe tree: Wrong target');
       asyncEnd();
     }, false);
 
-    d.body.addEventListener('DOMFocusIn', (event) {
+    d.body.addEventListener('DOMFocusIn', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'host', 'Outside shadow tree: Wrong target');
       asyncEnd();
     }, false);
