@@ -52,7 +52,7 @@ void main() {
     var ExpectPhases = [1,1,1,1,1,1,1,2,2];
     var ActualPhases = [];
          
-    function TestEvent(evt)   {
+    TestEvent(evt)   {
         ActualResult.add(evt.currentTarget);         
         ActualPhases.add(evt.eventPhase);          
     }

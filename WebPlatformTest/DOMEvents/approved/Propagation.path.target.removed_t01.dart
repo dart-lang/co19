@@ -40,7 +40,7 @@ void main() {
     document.body.append(el);
     var EVENT = "foo";    
     var TARGET = document.getElementById("target");
-    var PARENT = document.getElementById("parent"); 
+    var PARENT = document.getElementById("parent");
     var TBODY = document.getElementById("table-body");
     var TABLE = document.getElementById("table");
     var BODY = document.body;
@@ -49,18 +49,18 @@ void main() {
     var ExpectResult = new List.from(CurrentTargets);
     ExpectResult.addAll([TARGET, PARENT, TBODY, TABLE, BODY, HTML, document, window]);
     var ActualResult = [];
-    var ExpectPhases = [1,1,1,1,1,1,1,2,2,3,3,3,3,3,3,3];
+    var ExpectPhases = [1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3];
     var ActualPhases = [];
 
     void TestEvent(evt)  {   
-        if (document.getElementById("target")) {
-            PARENT.removeChild(evt.target);
+        if (document.getElementById("target") != null) {
+            PARENT.childNodes.remove(evt.target);
         }
         ActualResult.add(evt.currentTarget);         
         ActualPhases.add(evt.eventPhase);                  
     }
 
-    for (var i=0; i < CurrentTargets.length; i++)  {
+    for (var i = 0; i < CurrentTargets.length; i++)  {
         CurrentTargets[i].addEventListener(EVENT, TestEvent, true);
         CurrentTargets[i].addEventListener(EVENT, TestEvent, false);
     }

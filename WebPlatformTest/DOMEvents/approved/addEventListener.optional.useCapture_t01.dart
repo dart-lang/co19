@@ -48,11 +48,10 @@ void main() {
    var CurrentTargets = [TARGET, PARENT, TBODY, TABLE, BODY, HTML, document, window];
    var ExpectResult = CurrentTargets;
    var ActualResult = [];
-   var ExpectPhases = [2,3,3,3,3,3,3,3];
+   var ExpectPhases = [2, 3, 3, 3, 3, 3, 3, 3];
    var ActualPhases = [];
    
    void TestEvent(evt, i)  {
-print ("TestEvent: evt=$evt");
        ActualResult.add(evt.currentTarget);         
        ActualPhases.add(evt.eventPhase);
    }
@@ -60,9 +59,9 @@ print ("TestEvent: evt=$evt");
    var EventHandlers = [ (evt){ TestEvent(evt, 0); }, (evt){ TestEvent(evt, 1); } ];
 
 
-   for (var i=0; i < CurrentTargets.length; i++)  {
-      var currentTarget = CurrentTargets[i];
-      for (var j=0; i < EventHandlers.length; i++)  {    
+   for (var i = 0; i < CurrentTargets.length; i++)  {
+      dynamic currentTarget = CurrentTargets[i];
+      for (var j = 0; i < EventHandlers.length; i++)  {
          currentTarget.addEventListener(EVENT, EventHandlers[j]);
       }
    }
@@ -70,9 +69,9 @@ print ("TestEvent: evt=$evt");
       
    TARGET.dispatchEvent(evt);
        
-   for (var i=0; i < CurrentTargets.length; i++) {
-      var currentTarget = CurrentTargets[i];
-      for (var j=0; i < EventHandlers.length; i++)  {    
+   for (var i = 0; i < CurrentTargets.length; i++) {
+      dynamic currentTarget = CurrentTargets[i];
+      for (var j = 0; i < EventHandlers.length; i++)  {
          currentTarget.removeEventListener(EVENT, EventHandlers[j]);
       }
    }
