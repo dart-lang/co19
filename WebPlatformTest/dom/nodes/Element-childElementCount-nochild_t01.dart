@@ -23,7 +23,7 @@ void main() {
   var body=document.body;
   var el=body.createFragment(""""
 <p id="parentEl" style="font-weight:bold;">Test.</p>
-  """);"
+  """);
   body.append(el);
 
 test(() {

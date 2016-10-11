@@ -22,48 +22,40 @@ import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
 void checkDoc(title, expectedtitle, normalizedtitle) {
-  test(() {
-    var doc = document.implementation.createHTMLDocument(title);
-    assert_equals(doc.doctype.name, "html")
-    assert_equals(doc.doctype.publicId, "")
-    assert_equals(doc.doctype.systemId, "")
-    assert_equals(doc.documentElement.localName, "html")
-    assert_equals(doc.documentElement.firstChild.localName, "head")
-    if (title !== undefined) {
-      assert_equals(doc.documentElement.firstChild.childNodes.length, 1)
-      assert_equals(doc.documentElement.firstChild.firstChild.localName, "title")
-      assert_equals(doc.documentElement.firstChild.firstChild.firstChild.data,
-                    expectedtitle)
-    } else {
-      assert_equals(doc.documentElement.firstChild.childNodes.length, 0)
-    }
-    assert_equals(doc.documentElement.lastChild.localName, "body")
-    assert_equals(doc.documentElement.lastChild.childNodes.length, 0)
-  })
+  var doc = document.implementation.createHtmlDocument(title);
+  assert_equals(doc.documentElement.localName, "html");
+  Element firstChild = doc.documentElement.firstChild as Element;
+  assert_equals(firstChild.localName, "head");
+  if (title != null) {
+    assert_equals(firstChild.childNodes.length, 1);
+    assert_equals((firstChild.firstChild as Element).localName, "title");
+    assert_equals(firstChild.firstChild.firstChild.text,
+                  expectedtitle);
+  } else {
+    assert_equals(doc.documentElement.firstChild.childNodes.length, 0);
+  }
+  assert_equals((doc.documentElement.lastChild as Element).localName, "body");
+  assert_equals(doc.documentElement.lastChild.childNodes.length, 0);
 }
 
 void main() {
 
-checkDoc("", "", "")
-checkDoc(null, "null", "null")
-checkDoc(undefined, "", "")
-checkDoc("foo  bar baz", "foo  bar baz", "foo bar baz")
-checkDoc("foo\t\tbar baz", "foo\t\tbar baz", "foo bar baz")
-checkDoc("foo\n\nbar baz", "foo\n\nbar baz", "foo bar baz")
-checkDoc("foo\f\fbar baz", "foo\f\fbar baz", "foo bar baz")
-checkDoc("foo\r\rbar baz", "foo\r\rbar baz", "foo bar baz")
+  checkDoc("", "", "");
+  checkDoc(null, "null", "null");
+  checkDoc(null, "", "");
+  checkDoc("foo  bar baz", "foo  bar baz", "foo bar baz");
+  checkDoc("foo\t\tbar baz", "foo\t\tbar baz", "foo bar baz");
+  checkDoc("foo\n\nbar baz", "foo\n\nbar baz", "foo bar baz");
+  checkDoc("foo\f\fbar baz", "foo\f\fbar baz", "foo bar baz");
+  checkDoc("foo\r\rbar baz", "foo\r\rbar baz", "foo bar baz");
 
-test(() {
-  var doc = document.implementation.createHTMLDocument();
-    assert_equals(doc.doctype.name, "html")
-    assert_equals(doc.doctype.publicId, "")
-    assert_equals(doc.doctype.systemId, "")
-    assert_equals(doc.documentElement.localName, "html")
-    assert_equals(doc.documentElement.firstChild.localName, "head")
-    assert_equals(doc.documentElement.firstChild.childNodes.length, 0)
-    assert_equals(doc.documentElement.lastChild.localName, "body")
-    assert_equals(doc.documentElement.lastChild.childNodes.length, 0)
-}, "Missing title argument");
 
-checkTestFailures();
+  var doc = document.implementation.createHtmlDocument("");
+  assert_equals(doc.documentElement.localName, "html");
+  assert_equals((doc.documentElement.firstChild as Element).localName, "head");
+  assert_equals(doc.documentElement.firstChild.childNodes.length, 0);
+  assert_equals((doc.documentElement.lastChild as Element).localName, "body");
+  assert_equals(doc.documentElement.lastChild.childNodes.length, 0);
+
+  checkTestFailures();
 }

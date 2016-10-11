@@ -61,7 +61,7 @@ void main() {
   tests.forEach((t) {
     var qualifiedName = t[0], publicId = t[1], systemId = t[2], expected = t[3];
     test(() {
-      if (expected!=null) {
+      if (expected != null) {
         assert_throws(expected, () {
           document.implementation.createDocumentType(qualifiedName, publicId, systemId);
         });
@@ -70,7 +70,7 @@ void main() {
         doTest(doc, qualifiedName, publicId, systemId);
       }
     }, "createDocumentType($qualifiedName, $publicId, $systemId) should " +
-       (expected ? "throw " + expected : "work"));
+       (expected != null ? "throw " + expected : "work"));
   });
 
 checkTestFailures();
