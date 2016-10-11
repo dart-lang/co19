@@ -15,7 +15,6 @@
  */
 
 import 'dart:html';
-import "../../../../../Utils/expect.dart";
 import '../../../testcommon.dart';
 
 main() {
@@ -36,7 +35,7 @@ main() {
 
     var s = createSR(widget);
 
-    var thumb = d.createElement('span');
+    dynamic thumb = d.createElement('span');
     thumb.innerHtml = 'This is a pseudo-element';
 
     thumb.pseudo = 'x-thumb';
