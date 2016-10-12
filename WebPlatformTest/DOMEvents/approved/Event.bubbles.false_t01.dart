@@ -49,7 +49,7 @@ void main() {
     var ExpectResult = new List.from(CurrentTargets);
     ExpectResult.add(TARGET);
     var ActualResult = [];
-    var ExpectPhases = [1,1,1,1,1,1,1,2,2];
+    var ExpectPhases = [1, 1, 1, 1, 1, 1, 1, 2, 2];
     var ActualPhases = [];
          
     TestEvent(evt)   {
@@ -57,12 +57,12 @@ void main() {
         ActualPhases.add(evt.eventPhase);          
     }
     
-    for (var i=0; i < CurrentTargets.length; i++)  {
+    for (var i = 0; i < CurrentTargets.length; i++)  {
        CurrentTargets[i].addEventListener(EVENT, TestEvent, true);
        CurrentTargets[i].addEventListener(EVENT, TestEvent, false);
     }
        
-    Event evt = new Event(EVENT, canBubble:false, cancelable:true);
+    Event evt = new Event(EVENT, canBubble: false, cancelable: true);
     TARGET.dispatchEvent(evt);
 
     assert_array_equals(ActualResult, ExpectResult, "ActualResult");

@@ -47,7 +47,7 @@ test(() {
   testDoc(document, "text/html");
 }, "Created element's namespace in current document");
 test(() {
-  testDoc(document.implementation.createHTMLDocument(""), "text/html");
+  testDoc(document.implementation.createHtmlDocument(""), "text/html");
 }, "Created element's namespace in created HTML document");
 test(() {
   testDoc(document.implementation.createDocument(null, "", null),
@@ -100,15 +100,15 @@ var tests = [
 asyncMultiStart(tests.length);
 tests.forEach((testName) {
   testExtensions.forEach((ext, mtype) {
-    var iframe = document.createElement("iframe");
+    var iframe = document.createElement("iframe") as IFrameElement;
     iframe.src = "Document-createElement-namespace-tests/$testName.$ext";
 //    var t = async_test("Created element's namespace in $testName.$ext);
     iframe.onLoad.forEach((el) {
-      testDoc(iframe.contentDocument, mtype);
-      document.body.removeChild(iframe);
+      testDoc((iframe.contentWindow as Window).document, mtype);
+      document.body.childNodes.remove(iframe);
       asyncEnd();
     });
-    document.body.appendChild(iframe);
+    document.body.append(iframe);
   });
 });
 

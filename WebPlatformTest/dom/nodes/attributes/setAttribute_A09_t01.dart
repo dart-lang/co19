@@ -25,6 +25,6 @@ void main() {
   var newOne = document.createElement("newElement");
   newOne.setAttribute("newdomestic", "Yes");
   docFragment.append(newOne);
-  var domesticNode = docFragment.firstChild;
+  var domesticNode = docFragment.firstChild as Element;
   assert_equals(domesticNode.getAttribute("newdomestic"), "Yes");
 }

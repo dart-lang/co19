@@ -22,8 +22,8 @@ import "../../Utils/expectWeb.dart";
 
 void main() {
 
-IFrameElement iframe=new Element.html("<iframe>some text</iframe>");
-var frameDoc = iframe.firstChild.ownerDocument;
+IFrameElement iframe = new Element.html("<iframe>some text</iframe>");
+HtmlDocument frameDoc = iframe.firstChild.ownerDocument as HtmlDocument;
 
 // TODO: Exhaustive tests
  testLeaf(node, desc) {

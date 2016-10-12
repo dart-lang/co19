@@ -21,5 +21,6 @@ import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
 void main() {
-  assert_throws("Invalid class", () { document.body.append({'a':'b'}); });
+  dynamic node = {'a':'b'};
+  assert_throws("Invalid class", () { document.body.append(node); });
 }
