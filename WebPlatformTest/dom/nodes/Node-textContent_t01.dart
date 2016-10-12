@@ -98,14 +98,16 @@ test(() {
 
 // Any other node:
 documents.forEach((argument) {
-  var doc = argument[0], creator = argument[1];
+  Document doc = argument[0];
+  var creator = argument[1];
   test(() {
     assert_equals(doc.text, null);
   }, "For Documents created by " + creator + ", textContent should be null");
 });
 
 doctypes.forEach((argument) {
-  var doctype = argument[0], creator = argument[1];
+  dynamic doctype = argument[0];
+  var creator = argument[1];
   test(() {
     assert_equals(doctype.text, null);
   }, "For DocumentType created by " + creator + ", textContent should be null");
@@ -232,7 +234,8 @@ test(() {
 
 // Any other node:
 documents.forEach((argument) {
-  var doc = argument[0], creator = argument[1];
+  Document doc = argument[0];
+  var creator = argument[1];
   test(() {
     var root = doc.documentElement;
     doc.text = "a";

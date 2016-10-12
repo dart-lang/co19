@@ -29,14 +29,13 @@ void main() {
 
 void testNullHandling(node) {
   test(() {
-    assert_false(node==null);
+    assert_false(node == null);
   }, "testNullHandling");
 }
 
 [
   document.createElement("foo"),
   new Text("foo"),
-//  document.createProcessingInstruction("foo", "bar"),
   new Comment("foo"),
   document,
   document.implementation.createDocumentType("html", "", ""),
@@ -50,7 +49,7 @@ test(() {
   var b = document.createElement("foo");
   b.setAttribute("b", "baz");
   b.setAttribute("a", "bar");
-  assert_true(a==b);
+  assert_true(a == b);
 }, "isEqualNode should return true when the attributes are in a different order");
 
 test(() {
@@ -58,7 +57,7 @@ test(() {
   a.setAttributeNS("ns", "x:a", "bar");
   var b = document.createElement("foo");
   b.setAttributeNS("ns", "y:a", "bar");
-  assert_true(a==b);
+  assert_true(a == b);
 }, "isEqualNode should return true when the attributes have different prefixes");
 
 /*
@@ -79,18 +78,17 @@ var wait = 2;;
 */
 
 test(() {
-  IFrameElement subset1=document.getElementById("subset1");
-  IFrameElement subset2=document.getElementById("subset2");
+  IFrameElement subset1 = document.getElementById("subset1");
+  IFrameElement subset2 = document.getElementById("subset2");
 
-  Future f1=subset1.onLoad.drain();
-  Future f2=subset1.onLoad.drain();
+  Future f1 = subset1.onLoad.drain();
+  Future f2 = subset1.onLoad.drain();
 
   asyncStart();
   Future.wait([f1, f2]).then((v) {
-      var doc1 = subset1.contentDocument;
-      var doc2 = subset2.contentDocument;
-//      assert_true(doc1.doctype.isEqualNode(doc2.doctype), "doc1.doctype.isEqualNode(doc2.doctype)");
-      assert_true(doc1==doc2, "doc1.isEqualNode(doc2)");
+      var doc1 = (subset1.contentWindow as Window).document;
+      var doc2 = (subset2.contentWindow as Window).document;
+      assert_true(doc1 == doc2, "doc1.isEqualNode(doc2)");
       asyncEnd();
     },
     onError: (e) {

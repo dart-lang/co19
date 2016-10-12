@@ -29,7 +29,7 @@ void main() {
 );
   document.body.append(div);
 
-void testLeafNode(nodeName, void createNodeFunction() ) {
+void testLeafNode(nodeName, Node createNodeFunction() ) {
   test(() {
     var node = createNodeFunction();
     assert_throws("HierarchyRequestError", () { node.insertBefore(null, null); });
