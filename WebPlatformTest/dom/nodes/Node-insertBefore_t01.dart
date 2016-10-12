@@ -20,7 +20,7 @@ import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
 void main() {
-  Element div=new Element.html("""
+  Element div = new Element.html("""
 <div id="test">
   <input type="button" id="testbutton"/>
   <a id="link">Link text</a>
@@ -47,18 +47,8 @@ void testLeafNode(nodeName, Node createNodeFunction() ) {
   }, "Calling insertBefore an a leaf node " + nodeName + " must throw HierarchyRequestError.");
 }
 
-/*  Causes Snap!
-test(() {
-  // WebIDL.
-  assert_throws("NotFoundError", () { document.body.insertBefore(null, null); });
-  assert_throws("NotFoundError", () { document.body.insertBefore(null, document.body.firstChild); });
-  assert_throws("NotFoundError", () { document.body.insertBefore({'a':'b'}, document.body.firstChild); });
-}, "Calling insertBefore with a non-Node first argument must throw TypeError.");
-*/
-//testLeafNode("DocumentType",  () { return document.doctype; } );
 testLeafNode("Text",  () { return new Text("Foo"); });
 testLeafNode("Comment",  () { return new Comment("Foo"); });
-//testLeafNode("ProcessingInstruction",  () { return new ProcessingInstruction("foo", "bar"); });
 
 test(() {
   // Step 2.
@@ -147,15 +137,10 @@ test(() {
   // The context node has an element child.
   var doc = document.implementation.createHtmlDocument("title");
   var comment = doc.append(new Comment("foo"));
- // assert_array_equals(doc.childNodes, [doc.doctype, doc.documentElement, comment]);
 
   var df = doc.createDocumentFragment();
   df.append(doc.createElement("a"));
-  /*
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(df, doc.doctype);
-  }); 
-  */
+
   assert_throws("HierarchyRequestError", () {
     doc.insertBefore(df, doc.documentElement);
   });
@@ -167,51 +152,15 @@ test(() {
   });
 }, "If the context node is a document, inserting a DocumentFragment with an element"
 " if there already is an element child should throw a HierarchyRequestError.");
-/*
-test(() {
-  // /child/ is a doctype.
-  var doc = document.implementation.createHtmlDocument("title");
-  var comment = doc.insertBefore(new Comment("foo"), doc.firstChild);
-  doc.documentElement.remove();
-  assert_array_equals(doc.childNodes, [comment, doc.doctype]);
-
-  var df = doc.createDocumentFragment();
-  df.append(doc.createElement("a"));
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(df, doc.doctype);
-  });
-}, "If the context node is a document and a doctype is following the reference child,"
-" inserting a DocumentFragment with an element should throw a HierarchyRequestError.");
-
-test(() {
-  // /child/ is not null and a doctype is following /child/.
-  var doc = document.implementation.createHtmlDocument("title");
-  var comment = doc.insertBefore(new Comment("foo"), doc.firstChild);
-  doc.documentElement.remove();
-  assert_array_equals(doc.childNodes, [comment, doc.doctype]);
-
-  var df = doc.createDocumentFragment();
-  df.append(doc.createElement("a"));
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(df, comment);
-  });
-}, "If the context node is a document, inserting a DocumentFragment with an element before"
-" the doctype should throw a HierarchyRequestError.");
-*/
 
 // Step 4.3.
 test(() {
   // The context node has an element child.
   var doc = document.implementation.createHtmlDocument("title");
   var comment = doc.append(new Comment("foo"));
-//  assert_array_equals(doc.childNodes, [doc.doctype, doc.documentElement, comment]);
 
   var a = doc.createElement("a");
-  /*
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(a, doc.doctype);
-  });
-  */
+
   assert_throws("HierarchyRequestError", () {
     doc.insertBefore(a, doc.documentElement);
   });
@@ -224,27 +173,11 @@ test(() {
 }, "If the context node is a document, inserting an element if there already is an element"
 " child should throw a HierarchyRequestError.");
 
-/*
-test(() {
-  // /child/ is a doctype.
-  var doc = document.implementation.createHtmlDocument("title");
-  var comment = doc.insertBefore(new Comment("foo"), doc.firstChild);
-  doc.documentElement.remove();
-  assert_array_equals(doc.childNodes, [comment, doc.doctype]);
-
-  var a = doc.createElement("a");
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(a, doc.doctype);
-  });
-}, "If the context node is a document, inserting an element before the doctype should throw a HierarchyRequestError.");
-*/
-
 test(() {
   // /child/ is not null and a doctype is following /child/.
   var doc = document.implementation.createHtmlDocument("title");
   var comment = doc.insertBefore(new Comment("foo"), doc.firstChild);
   doc.documentElement.remove();
-//  assert_array_equals(doc.childNodes, [comment, doc.doctype]);
 
   var a = doc.createElement("a");
   assert_throws("HierarchyRequestError", () {
@@ -252,54 +185,6 @@ test(() {
   });
 }, "If the context node is a document and a doctype is following the reference child,"
 " inserting an element should throw a HierarchyRequestError.");
-
-/*
-// Step 4.4.
-test(() {
-  var doc = document.implementation.createHtmlDocument("title");
-  var comment = doc.insertBefore(new Comment("foo"), doc.firstChild);
-  assert_array_equals(doc.childNodes, [comment, doc.doctype, doc.documentElement]);
-
-  var doctype = document.implementation.createDocumentType("html", "", "");
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(doctype, comment);
-  });
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(doctype, doc.doctype);
-  });
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(doctype, doc.documentElement);
-  });
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(doctype, null);
-  });
-}, "If the context node is a document, inserting a doctype if there already is a doctype child"
-" should throw a HierarchyRequestError.");
-
-test(() {
-  var doc = document.implementation.createHtmlDocument("title");
-  var comment = doc.append(new Comment("foo"));
-  doc.doctype.remove();
-  assert_array_equals(doc.childNodes, [doc.documentElement, comment]);
-
-  var doctype = document.implementation.createDocumentType("html", "", "");
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(doctype, comment);
-  });
-}, "If the context node is a document, inserting a doctype after the document element should throw a HierarchyRequestError.");
-
-test(() {
-  var doc = document.implementation.createHtmlDocument("title");
-  var comment = doc.append(new Comment("foo"));
-  doc.doctype.remove();
-  assert_array_equals(doc.childNodes, [doc.documentElement, comment]);
-
-  var doctype = document.implementation.createDocumentType("html", "", "");
-  assert_throws("HierarchyRequestError", () {
-    doc.insertBefore(doctype, null);
-  });
-}, "If the context node is a document with and element child, appending a doctype should throw a HierarchyRequestError.");
-*/
 
 
 // Step 5.
@@ -314,15 +199,6 @@ test(() {
   assert_throws("HierarchyRequestError", () {
     df.insertBefore(doc, null);
   });
-/*
-  var doctype = document.implementation.createDocumentType("html", "", "");
-  assert_throws("HierarchyRequestError", () {
-    df.insertBefore(doctype, a);
-  });
-  assert_throws("HierarchyRequestError", () {
-    df.insertBefore(doctype, null);
-  });
-  */
 }, "If the context node is a DocumentFragment, inserting a document or a doctype should throw a HierarchyRequestError.");
 
 test(() {
@@ -336,15 +212,6 @@ test(() {
   assert_throws("HierarchyRequestError", () {
     el.insertBefore(doc, null);
   });
-/*
-  var doctype = document.implementation.createDocumentType("html", "", "");
-  assert_throws("HierarchyRequestError", () {
-    el.insertBefore(doctype, a);
-  });
-  assert_throws("HierarchyRequestError", () {
-    el.insertBefore(doctype, null);
-  });
-  */
 }, "If the context node is an element, inserting a document or a doctype should throw a HierarchyRequestError.");
 
 // Step 7.
