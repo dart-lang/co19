@@ -19,92 +19,92 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-      var table = document.createElement("table");
-      var row = document.createElement("tr");
+      Node table = document.createElement("table");
+      Node row = document.createElement("tr");
       table.append(row);
       document.body.append(table);
-print("row.rowIndex=${row.rowIndex}");
+//      print("row.rowIndex=${row.rowIndex}");
 
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElement("div"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "div tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElement("thead"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, 0);
+      assert_equals((row as TableRowElement).rowIndex, 0);
     }, "thead tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElement("tbody"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, 0);
+      assert_equals((row as TableRowElement).rowIndex, 0);
     }, "tbody tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElement("tfoot"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, 0);
+      assert_equals((row as TableRowElement).rowIndex, 0);
     }, "tfoot tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, 0);
+      assert_equals((row as TableRowElement).rowIndex, 0);
     }, "table tr");
     
     test(() {
-      var row = document.createElementNS("", "table")
+      Node row = document.createElementNS("", "table")
                         .append(document.createElement("thead"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS thead tr");
     
     test(() {
-      var row = document.createElementNS("", "table")
+      Node row = document.createElementNS("", "table")
                         .append(document.createElement("tbody"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS tbody tr");
     
     test(() {
-      var row = document.createElementNS("", "table")
+      Node row = document.createElementNS("", "table")
                         .append(document.createElement("tfoot"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS tfoot tr");
     
     test(() {
-      var row = document.createElementNS("", "table")
+      Node row = document.createElementNS("", "table")
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElementNS("", "thead"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS.thead tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElementNS("", "tbody"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS.tbody tr");
     
     test(() {
-      var row = document.createElement("table")
+      Node row = document.createElement("table")
                         .append(document.createElementNS("", "tfoot"))
                         .append(document.createElement("tr"));
-      assert_equals(row.rowIndex, -1);
+      assert_equals((row as TableRowElement).rowIndex, -1);
     }, "NS.tfoot tr");
   
     checkTestFailures();
