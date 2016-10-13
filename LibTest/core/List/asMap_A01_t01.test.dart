@@ -21,14 +21,14 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   void check(List a0) {
-    List a=create(a0.length);
+    List a = create(a0.length);
     Expect.equals(a0.length, a.length);
     a.setRange(0, a0.length, a0);
-    dynamic map=a.asMap();
+    dynamic map = a.asMap();
     Expect.isTrue(map is Map);
 
     Expect.throws(() {
-        map["key"]="value";
+        map["key"] = "value";
       }
       ,(e)=>true
       ,"modification did not fail"
@@ -36,20 +36,20 @@ test(List create([int length])) {
 
     Expect.equals(a.length, map.length);
  
-    int count=0;
+    int count = 0;
     map.forEach((key, value){
        Expect.equals(a[key], map[key]);
        count++;
     });
     Expect.equals(a.length, count);
   
-    for (int key=0; key<a.length; key++) {
+    for (int key = 0; key < a.length; key++) {
       Expect.isTrue(map.containsKey(key));
       Expect.equals(a[key], map[key]);
     }
   }
 
-  List a=new List();
+  List a = new List();
   check(a);
   a.add(2);
   check(a);

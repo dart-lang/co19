@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  bool test(double e) {
+  bool test(e) {
     ++count;
     return true;
   }

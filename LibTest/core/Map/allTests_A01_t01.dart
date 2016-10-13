@@ -9,6 +9,7 @@
  * @author kaigorodov
  */
 import "compKeysTests.lib.dart" as compKeysTests;
+import "compKeysWarnTests.lib.dart" as compKeysWarnTests;
 import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
 
 Map create([Map content]) {
@@ -20,6 +21,7 @@ Map create([Map content]) {
 }  
 
 main() {
-  compKeysTests.test(create);  
+  compKeysTests.test(create);
+  compKeysWarnTests.test(create);
   nonCompKeysTests.test(create);  
 }

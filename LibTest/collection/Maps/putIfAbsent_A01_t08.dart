@@ -9,12 +9,11 @@
  * updates the map by mapping [key] the value returned by [ifAbsent].
  * Returns the value in the map.
  * @description Checks that isAbsent is indeed called before putting the new key 
- * in the map if it's not already associated to a value, resulting in a NoSuchMethodError
- * (Type error in checked mode) or NoSuchMethodError if the argument is null or can't
- * be called like a function (according to general language rules).
+ * in the map if it's not already associated to a value, resulting in a
+ * NoSuchMethodError (Type error in checked mode) or NoSuchMethodError if the
+ * argument is null or can't be called like a function (according to general
+ * language rules).
  * @author msyabro
- * @reviewer varlax
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -22,7 +21,7 @@ import "dart:collection";
 main() {
   Map<String, Object> map = new Map<String, Object>();
   dynamic i1 = "1";
-  dynamic i2 = null;
+  dynamic i2 = 1;
       
   Expect.throws(() {
       Maps.putIfAbsent(map, i1, i2);

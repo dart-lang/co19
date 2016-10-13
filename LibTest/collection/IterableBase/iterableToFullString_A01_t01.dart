@@ -22,7 +22,7 @@ import "dart:collection";
 
 main() {
   String expected = "";
-  List<int> l = new List<int>();
+  List l = new List<int>();
   for (int i = -100; i <= 100; i++) {
     l.add(i);
     expected += i.toString();

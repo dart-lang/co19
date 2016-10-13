@@ -15,13 +15,13 @@ import "dart:collection";
 import "inherited_tests.lib.dart" as allTests;
 
 class MyIterable extends IterableBase {
-  List<int> _content;
+  List _content;
 
-  MyIterable(): _content = new List<int>();
+  MyIterable(): _content = new List();
 
-  MyIterable.from(Iterable content): _content = new List<int>.from(content);
+  MyIterable.from(Iterable content): _content = new List.from(content);
 
-  Iterator<int> get iterator {
+  Iterator get iterator {
     return _content.iterator;
   }
 }

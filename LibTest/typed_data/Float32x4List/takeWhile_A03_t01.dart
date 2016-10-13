@@ -19,12 +19,13 @@ pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;
-  bool test(Float32x4 e) {
+  bool test(e) {
     ++count;
     return e.x < 3.0;
   }
 
-  List<Float32x4> list = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
+  Float32x4List list = new Float32x4List.fromList(
+      [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
   var res = list.takeWhile(test);
   Expect.equals(0, count);
   res.elementAt(0);

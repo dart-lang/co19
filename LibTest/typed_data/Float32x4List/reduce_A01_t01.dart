@@ -26,16 +26,17 @@ check(List<Float32x4> list, expected) {
   Expect.isTrue(equal(expected, res));
 }
 
-checkConst(List<Float32x4> list, dynamic expected) {
-  List<Float32x4> l = new Float32x4List.fromList(list);
-  dynamic res = l.reduce((prev, cur) => pack(1.0));
-  Expect.equals(expected, res);
+checkConst(List<Float32x4> list, expected) {
+  Float32x4List l = new Float32x4List.fromList(list);
+  var res = l.reduce((prev, cur) => pack(1.0));
+  Expect.isTrue(equal(expected, res));
 }
 
 
 main() {
-  check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)], pack(55.0));
+  check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
+         pack(7.0), pack(8.0), pack(9.0), pack(10.0)], pack(55.0));
   check([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], pack(0.0));
 
-  checkConst([pack(1.0), pack(2.0), pack(3.0)], 1.0);
+  checkConst([pack(1.0), pack(2.0), pack(3.0)], pack(1.0));
 }

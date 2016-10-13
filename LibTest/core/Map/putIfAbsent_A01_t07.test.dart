@@ -11,18 +11,17 @@
  * @description Checks that if [key] is already associated to a value,
  * [ifAbsent] is not called and its incorrect value is not detected.
  * @author msyabro
- * @needsreview undocumented
  */
 library putIfAbsent_A01_t07;
 
-import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  dynamic<String, Object> map = create();
-
+  Map map = create();
   map["1"] = 1;
-  
-  checkTypeError(() {
-    map.putIfAbsent("1", 1);
+
+  map.putIfAbsent("1", () {
+    Expect.fail("");
+    return 0;
   });
 }

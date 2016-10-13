@@ -16,28 +16,28 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> list, bool test(double element)) {
   var l = new Float32List.fromList(list);
-  var it0=l.iterator;
-  var res=l.takeWhile(test);
-  var it=res.iterator;
-  var skipCount=0;
+  var it0 = l.iterator;
+  var res = l.takeWhile(test);
+  var it = res.iterator;
+  var skipCount = 0;
 
 // check that the beginning of a0 is identical to a
-  var hasNext0=it0.moveNext();
-  var len=0;
+  var hasNext0 = it0.moveNext();
+  var len = 0;
   for (;;) {
-    bool hasNext=it.moveNext();
+    bool hasNext = it.moveNext();
     if (!hasNext) break;
     Expect.isTrue(test(it0.current));
     Expect.equals(it0.current, it.current);
     len++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
   Expect.equals(len, res.length);
 
 // count the rest
   while (hasNext0) {
     skipCount++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
 
   Expect.equals(l.length, len+skipCount);

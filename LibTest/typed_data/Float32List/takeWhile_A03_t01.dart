@@ -16,14 +16,14 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var count = 0;
+  int count = 0;
 
-  bool test(double e) {
+  bool test(var e) {
     ++count;
     return e < 3.0;
   }
 
-  var list = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0]);
+  Float32List list = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0]);
   var res = list.takeWhile(test);
   Expect.equals(0, count);
   res.elementAt(0);
