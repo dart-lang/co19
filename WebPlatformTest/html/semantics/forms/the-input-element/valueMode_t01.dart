@@ -53,8 +53,8 @@ void main() {
   
   for (var i = 0; i < types.length; i++) {
     test(() {
-      var input = document.createElement("input"),
-          expected;
+      var input = document.createElement("input") as InputElement;
+      var expected;
       input.type = types[i][type];
       input.value = "foo";
       switch(types[i][mode]) {
@@ -72,8 +72,8 @@ void main() {
     }, "value IDL attribute of input type " + types[i][type] + " without value attribute");
 
     test(() {
-      var input = document.createElement("input"),
-          expected;
+      var input = document.createElement("input") as InputElement;
+      var expected;
       input.type = types[i][type];
       input.setAttribute("value", "bar");
       input.value = "foo";

@@ -35,7 +35,7 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  var input = document.createElement("input");
+  var input = document.createElement("input") as InputElement;
   input.id = "input_not_in_doc";
   input.value = "foobar";
 
@@ -48,9 +48,9 @@ void main() {
     document.getElementById("display_none"),
     document.getElementById("textarea"),
     input,
-  ];
+  ] as List<InputElement>;
 
-  elements.forEach((element) {
+  elements.forEach((InputElement element) {
     var q = false;
 
     test(() {
@@ -119,24 +119,16 @@ void main() {
       });
     }, element.id + " setRangeText with 3rd argument greater than 2nd argument throws an IndexSizeError exception");
 
-    test((){
-      assert_throws("NoSuchMethodError", () {
-        element.setRangeText();
-      });
-    }, element.id + " setRangeText without argument throws a type error");
-
-//    element.onselect = t.step_func_done((e) {
     element.onSelect.forEach((e) {
       test(() {
         assert_true(q, "event should be queued");
-        assert_true(e.isTrusted, "event is trusted");
         assert_false(e.bubbles, "event bubbles");
         assert_false(e.cancelable, "event is not cancelable");
       }, element.id + " setRangeText fires a select event");
     });
     
     element.setRangeText("foobar2", start:0, end:6);
-    q=true;
+    q = true;
   });
 
   checkTestFailures();

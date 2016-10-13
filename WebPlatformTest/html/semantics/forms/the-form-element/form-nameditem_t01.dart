@@ -117,41 +117,39 @@ void main() {
   document.body.appendHtml(htmlEL);
 
 test(() {
-  var form = document.getElementsByTagName("form")[0];
-  var item;
-  Expect.throws(()=>form.item, (e)=> e is NoSuchMethodError);
+  dynamic form = document.getElementsByTagName("form")[0];
+  Expect.throws(() => form.item, (e) => e is NoSuchMethodError);
 }, "Forms should not have an item method");
 
 test(() {
-  var form = document.getElementsByTagName("form")[0];
-  Expect.throws(()=>form.namedItem, (e)=> e is NoSuchMethodError);
+  dynamic form = document.getElementsByTagName("form")[0];
+  Expect.throws(()=> form.namedItem, (e) => e is NoSuchMethodError);
 }, "Forms should not have a namedItem method");
 
 test(() {
-  var form = document.getElementsByTagName("form")[0];
-  var button = document.getElementsByTagName("input")[0];
+  var button = document.getElementsByTagName("input")[0] as ButtonElement;
   assert_equals(button.type, "button");
   assert_equals(button.name, "button");
 }, "Name for a single element should work");
 
 test(() {
-  var form = document.getElementsByTagName("form")[5];
+  var form = document.getElementsByTagName("form")[5] as Element;
   assert_equals(form.id, "a");
 
-  var input = document.getElementsByName("b")[0];
+  var input = document.getElementsByName("b")[0] as Element;
   assert_equals(input.localName, "input");
   assert_equals(input.getAttribute("form"), "a");
 }, "The form attribute should be taken into account for named getters (single element)");
 
 test(() {
-  var form = document.getElementsByTagName("form")[6];
+  var form = document.getElementsByTagName("form")[6] as Element;
   assert_equals(form.id, "c");
 
-  var input1 = document.getElementsByName("d")[0];
+  var input1 = document.getElementsByName("d")[0] as Element;
   assert_equals(input1.localName, "input");
   assert_equals(input1.getAttribute("form"), "c");
 
-  var input2 = document.getElementsByName("d")[1];
+  var input2 = document.getElementsByName("d")[1] as Element;
   assert_equals(input2.localName, "input");
   assert_equals(input2.getAttribute("form"), "c");
 

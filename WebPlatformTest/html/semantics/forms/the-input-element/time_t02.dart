@@ -19,47 +19,47 @@
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
-const String value='value';
-const String attributes='attributes';
-const String expected='expected';
-const String testname='testname';
-const String min='min';
-const String max='max';
+const String VALUE = 'value';
+const String ATTRIBUTES = 'attributes';
+const String EXPECTED = 'expected';
+const String TESTNAME = 'testname';
+const String MIN = 'min';
+const String MAX = 'max';
 
 void main() {
   var times = [
-    {value: "", expected: "", testname: "empty value"},
-    {value: "00:00", expected: "00:00", testname: "Valid value: value should be 00:00"},
-    {value: "00:00:00", expected: "00:00:00", testname: "Valid value: value should be 00:00:00"},
-    {value: "00:00:00.0", expected: "00:00:00.0", testname: "Valid value: value should be 00:00:00.0"},
-    {value: "00:00:00.00", expected: "00:00:00.00", testname: "Valid value: value should be 00:00:00.00"},
-    {value: "00:00:00.000", expected: "00:00:00.000", testname: "Valid value: value should be 00:00:00.000"},
-    {value: "00:00:00.0000", expected: "", testname: "Invalid value: fraction should have one, two or three ASCII digits. Value should be empty"},
-    {value: "0:00:00.000", expected: "", testname: "Invalid value: hour should have two ASCII digits. Value should be empty"},
-    {value: "00:0:00.000", expected: "", testname: "Invalid value: minutes should have two ASCII digits. Value should be empty"},
-    {value: "00:00:0.000", expected: "", testname: "Invalid value: seconds should have two ASCII digits. Value should be empty"},
-    {value: "24:00:00.000", expected: "", testname: "Invalid value: hour > 23. Value should be empty"},
-    {value: "00:60:00.000", expected: "", testname: "Invalid value: minute > 59. Value should be empty"},
-    {value: "00:00:60.000", expected: "", testname: "Invalid value: second > 59. Value should be empty"},
-    {value: "12:00:00.001", attributes: { min: "12:00:00.000" }, expected: "12:00:00.001", testname: "Value >= min attribute"},
-    {value: "12:00:00.000", attributes: { min: "12:00:00.001" }, expected: "12:00:00.001", testname: "Value < min attribute"},
-    {value: "12:00:00.000", attributes: { max: "12:00:00.001" }, expected: "12:00:00.000", testname: "Value <= max attribute"},
-    {value: "12:00:00.001", attributes: { max: "12:00:00.000" }, expected: "12:00:00.000", testname: "Value > max attribute"}
+    {VALUE: "", EXPECTED: "", TESTNAME: "empty value"},
+    {VALUE: "00:00", EXPECTED: "00:00", TESTNAME: "Valid value: value should be 00:00"},
+    {VALUE: "00:00:00", EXPECTED: "00:00:00", TESTNAME: "Valid value: value should be 00:00:00"},
+    {VALUE: "00:00:00.0", EXPECTED: "00:00:00.0", TESTNAME: "Valid value: value should be 00:00:00.0"},
+    {VALUE: "00:00:00.00", EXPECTED: "00:00:00.00", TESTNAME: "Valid value: value should be 00:00:00.00"},
+    {VALUE: "00:00:00.000", EXPECTED: "00:00:00.000", TESTNAME: "Valid value: value should be 00:00:00.000"},
+    {VALUE: "00:00:00.0000", EXPECTED: "", TESTNAME: "Invalid value: fraction should have one, two or three ASCII digits. Value should be empty"},
+    {VALUE: "0:00:00.000", EXPECTED: "", TESTNAME: "Invalid value: hour should have two ASCII digits. Value should be empty"},
+    {VALUE: "00:0:00.000", EXPECTED: "", TESTNAME: "Invalid value: minutes should have two ASCII digits. Value should be empty"},
+    {VALUE: "00:00:0.000", EXPECTED: "", TESTNAME: "Invalid value: seconds should have two ASCII digits. Value should be empty"},
+    {VALUE: "24:00:00.000", EXPECTED: "", TESTNAME: "Invalid value: hour > 23. Value should be empty"},
+    {VALUE: "00:60:00.000", EXPECTED: "", TESTNAME: "Invalid value: minute > 59. Value should be empty"},
+    {VALUE: "00:00:60.000", EXPECTED: "", TESTNAME: "Invalid value: second > 59. Value should be empty"},
+    {VALUE: "12:00:00.001", ATTRIBUTES: { MIN: "12:00:00.000" }, EXPECTED: "12:00:00.001", TESTNAME: "Value >= min attribute"},
+    {VALUE: "12:00:00.000", ATTRIBUTES: { MIN: "12:00:00.001" }, EXPECTED: "12:00:00.001", TESTNAME: "Value < min attribute"},
+    {VALUE: "12:00:00.000", ATTRIBUTES: { MAX: "12:00:00.001" }, EXPECTED: "12:00:00.000", TESTNAME: "Value <= max attribute"},
+    {VALUE: "12:00:00.001", ATTRIBUTES: { MAX: "12:00:00.000" }, EXPECTED: "12:00:00.000", TESTNAME: "Value > max attribute"}
   ];
   for (var i = 0; i < times.length; i++) {
     var w = times[i];
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = "time";
-      input.value = w[value];
-      var attrs = w[attributes];
+      input.value = w[VALUE];
+      var attrs = w[ATTRIBUTES] as Map<String, String>;
       if (attrs != null) {
         for (var attrName in attrs.keys) {
-          input.setAttribute(attrName, w[attributes][attrName]);
+          input.setAttribute(attrName, attrs[attrName]);
         }
       }
-      assert_equals(input.value, w[expected]);
-    }, w[testname]);
+      assert_equals(input.value, w[EXPECTED]);
+    }, w[TESTNAME]);
   }
 
   checkTestFailures();

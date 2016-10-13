@@ -33,7 +33,7 @@ const String htmlEL='''
 void main() {
   document.body.appendHtml(htmlEL);
 
-  var checkbox_default = document.getElementById('checkbox_default'),
+  InputElement checkbox_default = document.getElementById('checkbox_default'),
       checkbox_checked = document.getElementById('checkbox_checked'),
       checkbox_indeterminate = document.getElementById('checkbox_indeterminate'),
       checkbox_default_value = document.getElementById('checkbox_default_value');

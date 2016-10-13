@@ -18,7 +18,7 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-    var el = document.createElement("textarea");
+    var el = document.createElement("textarea") as TextAreaElement;
     assert_equals(el.selectionStart, 0);
     assert_equals(el.selectionEnd, 0);
     el.selectionStart = 1;

@@ -66,7 +66,7 @@ void main() {
   var keywords = [ "name", "honorific-prefix", "given-name", "additional-name", "family-name", "honorific-suffix", "nickname", "organization-title", "organization", "street-address", "address-line1", "address-line2", "address-line3", "locality", "region", "country", "country-name", "postal-code", "cc-name", "cc-given-name", "cc-additional-name", "cc-family-name", "cc-number", "cc-exp", "cc-exp-month", "cc-exp-year", "cc-csc", "cc-type", "language", "bday", "bday-day", "bday-month", "bday-year", "sex", "url", "photo", "tel", "tel-country-code", "tel-national", "tel-area-code", "tel-local", "tel-local-prefix", "tel-local-suffix", "tel-extension", "email", "impp" ];
   keywords.forEach((keyword) {
     test((){
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.setAttribute("autocomplete", keyword);
       assert_equals(input.autocomplete, keyword);
     }, keyword + " is an allowed autocomplete field name");
