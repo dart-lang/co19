@@ -51,7 +51,7 @@ IFrameElement iframe = document.getElementById("a");
 test(() {
   iframe.onLoad.drain().then((v) {
     var doc = (iframe.contentWindow as Window).document;
-    iframe.parentNode.childNodes.remove(iframe);
+    iframe.remove();
     assert_equals(doc.firstChild.parentNode, doc);
     asyncEnd();
   },

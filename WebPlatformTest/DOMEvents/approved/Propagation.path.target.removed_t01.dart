@@ -54,7 +54,7 @@ void main() {
 
     void TestEvent(evt)  {   
         if (document.getElementById("target") != null) {
-            PARENT.childNodes.remove(evt.target);
+            evt.target.remove();
         }
         ActualResult.add(evt.currentTarget);         
         ActualPhases.add(evt.eventPhase);                  

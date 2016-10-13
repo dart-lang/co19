@@ -105,7 +105,7 @@ tests.forEach((testName) {
 //    var t = async_test("Created element's namespace in $testName.$ext);
     iframe.onLoad.forEach((el) {
       testDoc((iframe.contentWindow as Window).document, mtype);
-      document.body.childNodes.remove(iframe);
+      iframe.remove();
       asyncEnd();
     });
     document.body.append(iframe);
