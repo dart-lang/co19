@@ -59,54 +59,54 @@ void main() {
     }, "Children of tfoot");
     
     test(() {
-      var table = document.createElement("table");
-      var orphan1 = table.append(document.createElement("tr"));
-      orphan1.id = "orphan1";
-      var foot1 = table.append(document.createElement("tfoot"));
-      var orphan2 = table.append(document.createElement("tr"));
-      orphan2.id = "orphan2";
-      var foot2 = table.append(document.createElement("tfoot"));
-      var orphan3 = table.append(document.createElement("tr"));
-      orphan3.id = "orphan3";
-      var body1 = table.append(document.createElement("tbody"));
-      var orphan4 = table.append(document.createElement("tr"));
-      orphan4.id = "orphan4";
-      var body2 = table.append(document.createElement("tbody"));
-      var orphan5 = table.append(document.createElement("tr"));
-      orphan5.id = "orphan5";
-      var head1 = table.append(document.createElement("thead"));
-      var orphan6 = table.append(document.createElement("tr"));
-      orphan6.id = "orphan6";
-      var head2 = table.append(document.createElement("thead"));
-      var orphan7 = table.append(document.createElement("tr"));
-      orphan7.id = "orphan7";
-    
-      var foot1row1 = foot1.append(document.createElement("tr"));
-      foot1row1.id = "foot1row1";
-      var foot1row2 = foot1.append(document.createElement("tr"));
-      foot1row2.id = "foot1row2";
-      var foot2row1 = foot2.append(document.createElement("tr"));
-      foot2row1.id = "foot2row1";
-      var foot2row2 = foot2.append(document.createElement("tr"));
-      foot2row2.id = "foot2row2";
-    
-      var body1row1 = body1.append(document.createElement("tr"));
-      body1row1.id = "body1row1";
-      var body1row2 = body1.append(document.createElement("tr"));
-      body1row2.id = "body1row2";
-      var body2row1 = body2.append(document.createElement("tr"));
-      body2row1.id = "body2row1";
-      var body2row2 = body2.append(document.createElement("tr"));
-      body2row2.id = "body2row2";
-    
-      var head1row1 = head1.append(document.createElement("tr"));
-      head1row1.id = "head1row1";
-      var head1row2 = head1.append(document.createElement("tr"));
-      head1row2.id = "head1row2";
-      var head2row1 = head2.append(document.createElement("tr"));
-      head2row1.id = "head2row1";
-      var head2row2 = head2.append(document.createElement("tr"));
-      head2row2.id = "head2row2";
+      Element table = document.createElement("table");
+      Node orphan1 = table.append(document.createElement("tr"));
+      (orphan1 as Element).id = "orphan1";
+      Node foot1 = table.append(document.createElement("tfoot"));
+      Node orphan2 = table.append(document.createElement("tr"));
+      (orphan2 as Element).id = "orphan2";
+      Node foot2 = table.append(document.createElement("tfoot"));
+      Node orphan3 = table.append(document.createElement("tr"));
+      (orphan3 as Element).id = "orphan3";
+      Node body1 = table.append(document.createElement("tbody"));
+      Node orphan4 = table.append(document.createElement("tr"));
+      (orphan4 as Element).id = "orphan4";
+      Node body2 = table.append(document.createElement("tbody"));
+      Node orphan5 = table.append(document.createElement("tr"));
+      (orphan5 as Element).id = "orphan5";
+      Node head1 = table.append(document.createElement("thead"));
+      Node orphan6 = table.append(document.createElement("tr"));
+      (orphan6 as Element).id = "orphan6";
+      Node head2 = table.append(document.createElement("thead"));
+      Node orphan7 = table.append(document.createElement("tr"));
+      (orphan7 as Element).id = "orphan7";
+
+      Node foot1row1 = foot1.append(document.createElement("tr"));
+      (foot1row1 as Element).id = "foot1row1";
+      Node foot1row2 = foot1.append(document.createElement("tr"));
+      (foot1row2 as Element).id = "foot1row2";
+      Node foot2row1 = foot2.append(document.createElement("tr"));
+      (foot2row1 as Element).id = "foot2row1";
+      Node foot2row2 = foot2.append(document.createElement("tr"));
+      (foot2row2 as Element).id = "foot2row2";
+
+      Node body1row1 = body1.append(document.createElement("tr"));
+      (body1row1 as Element).id = "body1row1";
+      Node body1row2 = body1.append(document.createElement("tr"));
+      (body1row2 as Element).id = "body1row2";
+      Node body2row1 = body2.append(document.createElement("tr"));
+      (body2row1 as Element).id = "body2row1";
+      Node body2row2 = body2.append(document.createElement("tr"));
+      (body2row2 as Element).id = "body2row2";
+
+      Node head1row1 = head1.append(document.createElement("tr"));
+      (head1row1 as Element).id = "head1row1";
+      Node head1row2 = head1.append(document.createElement("tr"));
+      (head1row2 as Element).id = "head1row2";
+      Node head2row1 = head2.append(document.createElement("tr"));
+      (head2row1 as Element).id = "head2row1";
+      Node head2row2 = head2.append(document.createElement("tr"));
+      (head2row2 as Element).id = "head2row2";
     
       // These elements should not end up in any collection.
       table.append(document.createElement("div"))
@@ -121,9 +121,10 @@ void main() {
       foot1.append(document.createElementNS("http://example.com/test", "tr"));
       body1.append(document.createElementNS("http://example.com/test", "tr"));
       head1.append(document.createElementNS("http://example.com/test", "tr"));
-    
-      assert_true(table.rows is List<TableRowElement>, "table.rows should be a List<TableRowElement>, but is ${table.rows.runtimeType}");
-      Expect.listEquals(table.rows, [
+
+      assert_true(table is TableElement, "table should be a TableElement, but is ${table.runtimeType}");
+      assert_true((table as TableElement).rows is List<TableRowElement>, "table.rows should be a List<TableRowElement>, but is ${(table as TableElement).rows.runtimeType}");
+      Expect.listEquals((table as TableElement).rows, [
         // thead
         head1row1,
         head1row2,
@@ -150,7 +151,7 @@ void main() {
         foot2row2
       ]);
     
-      var ids = [
+      List<String> ids = [
         "orphan1",
         "orphan2",
         "orphan3",
@@ -171,16 +172,24 @@ void main() {
         "head2row1",
         "head2row2"
       ];
-      ids.forEach((id) {
-        assert_true(table.rows.contains(id), "contains($id) 1");
-        assert_equals(table.rows[id].id, id);
+
+      Map<String,TableElement> rows = new Map.fromIterable((table as TableElement).rows,
+                                                        key: (TableElement te) => te.id,
+                                                        value: (TableElement te) => te);
+
+      ids.forEach((String id) {
+        assert_true(rows.containsKey(id), "contains($id) 1");
+        assert_equals(rows[id].id, id);
       });
-      while (table.firstChild) {
-        table.removeChild(table.firstChild);
+      while (table.firstChild!=null) {
+        table.firstChild.remove();
       }
+      rows = new Map.fromIterable((table as TableElement).rows,
+                                key: (TableElement te) => te.id,
+                                value: (TableElement te) => te);
       ids.forEach((id) {
-        assert_true(table.rows.contains(id), "contains($id) 2");
-        assert_equals(table.rows[id], null, "null");
+        assert_false(rows.containsKey(id), "contains($id) 2");
+        assert_equals(rows[id], null, "null");
       });
     }, "Complicated case");
   
