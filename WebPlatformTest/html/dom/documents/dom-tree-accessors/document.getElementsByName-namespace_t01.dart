@@ -34,7 +34,7 @@ void main() {
 //  var ps = document.getElementById("test").getElementsByTagName("p");
   var ps = document.querySelector("#test").querySelector("p");
   assert_equals(document.getElementsByName("math").length, 1);
-  assert_equals(document.getElementsByName("math")[0], ps[0]);
+  assert_equals(document.getElementsByName("math")[0], ps.childNodes[0]);
   assert_equals(document.getElementsByName("svg").length, 1);
-  assert_equals(document.getElementsByName("svg")[0], ps[1]);
+  assert_equals(document.getElementsByName("svg")[0], ps.childNodes[1]);
 }

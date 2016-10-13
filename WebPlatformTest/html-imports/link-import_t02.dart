@@ -22,7 +22,7 @@ const String resources = '${testSuiteRoot}/html-imports/resources';
 void main() {
     
       var retries = 50;
-      var linkToBeInserted = document.createElement("link");
+      LinkElement linkToBeInserted = document.createElement("link") as LinkElement;
       linkToBeInserted.setAttribute("rel", "import");
       linkToBeInserted.setAttribute("href", "$resources/another.html");
       void checkAndDoneOncePassed() {

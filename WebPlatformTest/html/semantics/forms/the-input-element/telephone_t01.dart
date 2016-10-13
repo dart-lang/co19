@@ -31,7 +31,7 @@ const String htmlEL='''
 void main() {
   document.body.appendHtml(htmlEL);
 
-  var element = document.getElementById('novalue');
+  var element = document.getElementById('novalue') as InputElement;
   
   test((){
   	assert_equals(element.type, 'tel');

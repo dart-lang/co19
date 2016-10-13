@@ -30,11 +30,11 @@ const String htmlEL = r'''
 void main() {
   document.body.appendHtml(htmlEL);
 
-  var table = document.getElementById("test").queryAll("table")[0];
+  Element table = document.getElementById("test").querySelector("table");
   assert_throws("IndexSizeError", () {
-    table.insertRow(-2);
+    (table as TableElement).insertRow(-2);
   });
   assert_throws("IndexSizeError", () {
-    table.insertRow(2);
+    (table as TableElement).insertRow(2);
   });
 }

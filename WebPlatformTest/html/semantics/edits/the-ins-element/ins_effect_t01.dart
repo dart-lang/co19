@@ -23,11 +23,10 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  var element = document.getElementsByTagName('ins')[0];
+  var element = document.getElementsByTagName('ins')[0] as Element;
   var textDecoration = element.getComputedStyle().textDecorationLine;
-  if (textDecoration==null || textDecoration == "") {
+  if (textDecoration == null || textDecoration == "") {
     textDecoration = element.getComputedStyle().textDecoration;
   }
-  print("textDecoration=$textDecoration");
   Expect.isTrue(textDecoration.contains('underline'));
 }

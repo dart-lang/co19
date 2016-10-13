@@ -16,7 +16,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -26,7 +25,7 @@ main() {
     var nodeIterator = new NodeIterator(doc.documentElement,
       NodeFilter.SHOW_ELEMENT);
     var node;
-    while (node = nodeIterator.nextNode()) {
+    while ((node = nodeIterator.nextNode())!=null) {
       var shadowRoot = node.createShadowRoot();
       assert_equals(shadowRoot.ownerDocument, doc);
     }
@@ -84,7 +83,7 @@ main() {
   var nodeIterator = new NodeIterator(shadowRoot.getElementById('root'),
     0xFFFFFFFF);
   var node;
-  while (node = nodeIterator.nextNode()) {
+  while ((node = nodeIterator.nextNode())!=null) {
     assert_equals(node.ownerDocument, doc1);
   }
   }, 'All children nodes of a shadow root get a valid ownerDocument when ' +

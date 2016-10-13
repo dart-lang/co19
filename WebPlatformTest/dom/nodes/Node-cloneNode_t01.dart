@@ -25,7 +25,7 @@ void main() {
   el.append(document.createElement("bar"));
   el.setAttribute("a", "b");
   el.setAttribute("c", "d");
-  var c = el.clone(false);
+  var c = el.clone(false) as Element;
   assert_true(c.attributes != el.attributes);
   assert_false(identical(c.attributes, el.attributes));
   assert_equals(c.attributes.length, el.attributes.length);

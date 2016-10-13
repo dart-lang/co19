@@ -21,7 +21,7 @@ void main() {
 
 void checkDoc(title, expectedtitle, normalizedtitle) {
   test(() {
-    var doc = document.implementation.createHTMLDocument(title);
+    var doc = document.implementation.createHtmlDocument(title);
     assert_equals(doc.title, normalizedtitle);
   }
   ,"expectedtitle=$expectedtitle"
@@ -37,7 +37,7 @@ checkDoc("foo\f\fbar baz", "foo\f\fbar baz", "foo bar baz");
 checkDoc("foo\r\rbar baz", "foo\r\rbar baz", "foo bar baz");
 
 test(() {
-  var doc = document.implementation.createHTMLDocument();
+  var doc = document.implementation.createHtmlDocument("");
   assert_equals(doc.title, "");
 }, "Missing title argument");
 

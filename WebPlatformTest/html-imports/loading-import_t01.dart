@@ -29,8 +29,8 @@ void main() {
     document.body.appendHtml(htmlEL);
 
     test(() {
-      var linkImport1 = document.getElementById("linkImport1");
-      var linkImport2 = document.getElementById("linkImport2");
+      LinkElement linkImport1 = document.getElementById("linkImport1") as LinkElement;
+      LinkElement linkImport2 = document.getElementById("linkImport2") as LinkElement;
       assert_equals(linkImport1.import, linkImport2.import);
       assert_true(linkImport1.import != null, "is null");
     }, 
@@ -38,7 +38,7 @@ void main() {
     );
     
     test(() {
-      var link = document.getElementById("linkToTypicalHtml");
+      LinkElement link = document.getElementById("linkToTypicalHtml") as LinkElement;
       assert_equals(link.import.querySelector("p2").parentNode, 
                     link.import.querySelector("parent"));
     }, 
@@ -46,9 +46,9 @@ void main() {
     );
     
     test(() {
-      var parent = document.getElementById("linkIncludingSubImport");
-      var child = parent.import.querySelector("link").imports;
-      assert_equals(child.title, "Hello");
+      LinkElement parent = document.getElementById("linkIncludingSubImport") as LinkElement;
+      var child = (parent.import.querySelector("link") as LinkElement).import as HtmlDocument;
+      assert_equals(child.head.title, "Hello");
     }, 
     "Check on sub-imports. Sub-improts should be loaded as usual imports."
     );

@@ -27,22 +27,22 @@ const String htmlEL = r'''
 void main() {
   document.body.appendHtml(htmlEL);
  
-  var HTML = "http://www.w3.org/1999/xhtml";
+  String HTML = "http://www.w3.org/1999/xhtml";
 
-  var table = document.getElementById("test").queryAll("table")[0];
+  Element table = document.getElementById("test").querySelector("table");
   test(() {
     assert_equals(table.childNodes.length, 0);
-    assert_equals(table.rows.length, 0);
+    assert_equals((table as TableElement).rows.length, 0);
   }, "table should start out empty");
 
-  var tr;
+  TableRowElement tr;
   test(() {
-    tr = table.insertRow(0);
+    tr = (table as TableElement).insertRow(0);
     assert_equals(tr.localName, "tr");
     assert_equals(tr.namespaceUri, HTML);
   }, "insertRow should insert a tr element");
 
-  var tbody = tr.parentNode;
+  Element tbody = tr.parentNode as Element;
   test(() {
     assert_equals(tbody.localName, "tbody");
     assert_equals(tbody.namespaceUri, HTML);

@@ -34,7 +34,7 @@ const String htmlEL='''
 void main() {
   document.body.appendHtml(htmlEL);
 var isSubmitted = false;
-var buttons = document.getElementsByTagName("input");
+List<ButtonElement> buttons = document.getElementsByTagName("input");
 
 test(() {
   assert_equals(buttons[0].value, "", "It must be the empty string");

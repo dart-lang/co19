@@ -45,17 +45,17 @@ void main() {
   document.body.appendHtml(htmlEL);
 
 test(() {
-  var img = document.getElementsByTagName("img")[0];
+  var img = document.getElementsByTagName("img")[0] as Element;
   assert_equals(img.attributes["name"], "test1");
 
-  var test1=document.getElementsByName("test1")[0];
+  var test1 = document.getElementsByName("test1")[0];
   assert_equals(test1, img);
 }, "If there is one img, it should be returned (name)");
 
 test(() {
-  var img1 = document.getElementsByTagName("img")[1];
+  var img1 = document.getElementsByTagName("img")[1] as Element;
   assert_equals(img1.attributes["name"], "test2");
-  var img2 = document.getElementsByTagName("img")[2];
+  var img2 = document.getElementsByTagName("img")[2] as Element;
   assert_equals(img2.attributes["name"], "test2");
 
   var collection = document.getElementsByName("test2");
@@ -63,25 +63,25 @@ test(() {
 }, "If there are two imgs, a collection should be returned. (name)");
 
 test(() {
-  var img = document.getElementsByTagName("img")[3];
+  var img = document.getElementsByTagName("img")[3] as Element;
   assert_equals(img.id, "test3");
 
   Expect.equals(0, document.getElementsByName("test3").length, '"test3" in document should be false');
 }, "If there is one img, it should not be returned (id)");
 
 test(() {
-  var img1 = document.getElementsByTagName("img")[4];
+  var img1 = document.getElementsByTagName("img")[4] as Element;
   assert_equals(img1.id, "test4");
-  var img2 = document.getElementsByTagName("img")[5];
+  var img2 = document.getElementsByTagName("img")[5] as Element;
   assert_equals(img2.id, "test4");
 
   Expect.equals(0, document.getElementsByName("test4").length, '"test4" in document should be false');
 }, "If there are two imgs, nothing should be returned. (id)");
 
 test(() {
-  var img1 = document.getElementsByTagName("img")[6];
+  var img1 = document.getElementsByTagName("img")[6] as Element;
   assert_equals(img1.attributes["name"], "test5");
-  var img2 = document.getElementsByTagName("img")[7];
+  var img2 = document.getElementsByTagName("img")[7] as Element;
   assert_equals(img2.id, "test5");
 
   var test5 = document.getElementsByName("test5")[0];
@@ -89,9 +89,9 @@ test(() {
 }, "If there are two imgs, the one with a name should be returned. (name and id)");
 
 test(() {
-  var img1 = document.getElementsByTagName("img")[8];
+  var img1 = document.getElementsByTagName("img")[8] as Element;
   assert_equals(img1.id, "test6");
-  var img2 = document.getElementsByTagName("img")[9];
+  var img2 = document.getElementsByTagName("img")[9] as Element;
   assert_equals(img2.attributes["name"], "test6");
 
   var test6 = document.getElementsByName("test6")[0];
@@ -99,7 +99,7 @@ test(() {
 }, "If there are two imgs, the one with a name should be returned. (id and name)");
 
 test(() {
-  var img = document.getElementsByTagName("img")[10];
+  var img = document.getElementsByTagName("img")[10] as Element;
   assert_equals(img.id, "test7");
 
   var test7 = document.getElementById("test7");
@@ -107,7 +107,7 @@ test(() {
 }, "A name should affect getting an img by id");
 
 test(() {
-  var img = document.getElementsByTagName("img")[11];
+  var img = document.getElementsByTagName("img")[11] as Element;
   assert_equals(img.attributes["name"], "test8");
 
   var test8 = document.getElementsByName("test8")[0];

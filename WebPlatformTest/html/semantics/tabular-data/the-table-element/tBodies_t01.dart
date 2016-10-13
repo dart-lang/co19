@@ -34,20 +34,20 @@ void main() {
     '  </body>' +
     '</html>';
 
-  var parser = new DomParser();
-  var doc = parser.parseFromString(text, "text/xml");
+  DomParser parser = new DomParser();
+  Document doc = parser.parseFromString(text, "text/xml");
 
   // import <table>
-  var table = doc.documentElement.queryAll('table')[0];
-  var mytable = document.body.append(document.importNode(table, true));
+  Element table = doc.documentElement.querySelector('table');
+  Node mytable = document.body.append(document.importNode(table, true));
 
-  assert_equals(mytable.tBodies.length, 1);
-  var tbody = document.createElement('tbody');
+  assert_equals((mytable as TableElement).tBodies.length, 1);
+  Element tbody = document.createElement('tbody');
   mytable.append(tbody);
-  var tr = tbody.insertRow(-1);
+  TableRowElement tr = (tbody as TableElement).insertRow(-1);
   tr.insertCell(-1).append(new Text('Cell 5'));
   tr.insertCell(-1).append(new Text('Cell 6'));
-  assert_equals(mytable.tBodies.length, 2);
-  assert_equals(mytable.rows.length, 3);
+  assert_equals((mytable as TableElement).tBodies.length, 2);
+  assert_equals((mytable as TableElement).rows.length, 3);
   assert_equals(tr.rowIndex, 2);
 }

@@ -15,7 +15,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -38,7 +37,7 @@ main() {
 
     asyncStart();
 
-    div2.addEventListener('click', (event) {
+    div2.addEventListener('click', (dynamic event) {
       assert_equals(event.target.tagName, 'INPUT', 'Information about target of the event that ' +
         'doesn\'t cross the shadow boundaries should not be adjusted');
       asyncEnd();
@@ -66,7 +65,7 @@ main() {
 
     asyncStart();
 
-    div.addEventListener('click', (event) {
+    div.addEventListener('click', (dynamic event) {
       assert_equals(event.target.tagName, 'DIV', 'Information about event target crossing ' +
         'the shadow boundaries should be adjusted');
       asyncEnd();

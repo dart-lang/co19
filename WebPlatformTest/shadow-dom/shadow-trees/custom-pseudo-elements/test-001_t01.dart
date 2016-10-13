@@ -34,7 +34,7 @@ main() {
 
   var s = createSR(widget);
 
-  var thumb = d.createElement('span');
+  dynamic thumb = d.createElement('span');
   thumb.setInnerHtml('This is a pseudo-element',
       treeSanitizer: new NullTreeSanitizer());
   //FIXME test works if prefixed version of API used.

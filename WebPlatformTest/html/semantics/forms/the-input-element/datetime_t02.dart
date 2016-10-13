@@ -53,11 +53,11 @@ void main() {
   
   for (Map w in datetime) {
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = "datetime";
       input.value = w[value];
-      Map attrs=w[attributes]; 
-      if (attrs!=null) {
+      Map attrs = w[attributes];
+      if (attrs != null) {
         for (var attrName in attrs.keys) {
           input.attributes[attrName] = attrs[attrName];
         }

@@ -18,54 +18,54 @@
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
-const String value='value';
-const String expectedValue='expectedValue';
-const String min='min';
-const String max='max';
-const String high='high';
-const String low='low';
-const String optimum='optimum';
-const String expectedMin='expectedMin';
-const String expectedMax='expectedMax';
-const String expectedLow='expectedLow';
-const String expectedHigh='expectedHigh';
-const String expectedOptimum='expectedOptimum';
-const String testname='testname';
+const String VALUE = 'value';
+const String EXPECTED_VALUE = 'expectedValue';
+const String MIN = 'min';
+const String MAX = 'max';
+const String HIGH = 'high';
+const String LOW = 'low';
+const String OPTIMUM = 'optimum';
+const String EXPECTED_MIN = 'expectedMin';
+const String EXPECTED_MAX = 'expectedMax';
+const String EXPECTED_LOW = 'expectedLow';
+const String EXPECTED_HIGH = 'expectedHigh';
+const String EXPECTED_OPTIMUM = 'expectedOptimum';
+const String TESTNAME = 'testname';
 
 void main() {
 
   var meters = [
-    {value: 0, expectedValue: 0, expectedMin: 0, expectedMax: 1.0, expectedLow: 0, expectedHigh: 1.0, expectedOptimum: 0.5, testname: "Default values"},
-    {value: 3, expectedValue: 3, min: -10.1, expectedMin: -10.1, max: 10.1, expectedMax: 10.1, low: -9.1, expectedLow: -9.1, high: 9.1, expectedHigh: 9.1, optimum: 3, expectedOptimum: 3, testname: "Setting values to min, max, low, high and optimum"},
+    {VALUE: 0, EXPECTED_VALUE: 0, EXPECTED_MIN: 0, EXPECTED_MAX: 1.0, EXPECTED_LOW: 0, EXPECTED_HIGH: 1.0, EXPECTED_OPTIMUM: 0.5, TESTNAME: "Default values"},
+    {VALUE: 3, EXPECTED_VALUE: 3, MIN: -10.1, EXPECTED_MIN: -10.1, MAX: 10.1, EXPECTED_MAX: 10.1, LOW: -9.1, EXPECTED_LOW: -9.1, HIGH: 9.1, EXPECTED_HIGH: 9.1, OPTIMUM: 3, EXPECTED_OPTIMUM: 3, TESTNAME: "Setting values to min, max, low, high and optimum"},
 //    {value: "foobar", expectedValue: 0, min: "foobar", expectedMin: 0, max: "foobar", expectedMax: 1.0, low: "foobar", expectedLow: 0, high: "foobar", expectedHigh: 1.0, optimum: "foobar", expectedOptimum: 0.5, testname: "Invalid floating-point number values"},
-    {value: 0, expectedValue: 0, min: 0, expectedMin: 0, max: -1.0, expectedMax: 0, expectedLow: 0, expectedHigh: 0, expectedOptimum: 0, testname: "max < min"},
-    {value: 0, expectedValue: 10, min: 10, expectedMin: 10, max: 20, expectedMax: 20, expectedLow: 10, expectedHigh: 20, expectedOptimum: 15, testname: "value < min"},
-    {value: 30, expectedValue: 20, min: 10, expectedMin: 10, max: 20, expectedMax: 20, expectedLow: 10, expectedHigh: 20, expectedOptimum: 15, testname: "value > max"},
-    {value: 15, expectedValue: 15, min: 10, expectedMin: 10, max: 20, expectedMax: 20, low: 5, expectedLow: 10, expectedHigh: 20, expectedOptimum: 15, testname: "low < min"},
-    {value: 15, expectedValue: 15, min: 10, expectedMin: 10, max: 20, expectedMax: 20, low: 25, expectedLow: 20, expectedHigh: 20, expectedOptimum: 15, testname: "low > max"},
-    {value: 15, expectedValue: 15, min: 10, expectedMin: 10, max: 20, expectedMax: 20, low: 12, expectedLow: 12, high: 10, expectedHigh: 12, expectedOptimum: 15, testname: "high < low"},
-    {value: 15, expectedValue: 15, min: 10, expectedMin: 10, max: 20, expectedMax: 20, low: 10, expectedLow: 10, high: 22, expectedHigh: 20, expectedOptimum: 15, testname: "high > max"},
-    {value: 15, expectedValue: 15, min: 10, expectedMin: 10, max: 20, expectedMax: 20, expectedLow: 10, expectedHigh: 20, optimum: 9, expectedOptimum: 10, testname: "optimum < min"},
-    {value: 15, expectedValue: 15, min: 10, expectedMin: 10, max: 20, expectedMax: 20, expectedLow: 10, expectedHigh: 20, optimum: 21, expectedOptimum: 20, testname: "optimum > max"}
+    {VALUE: 0, EXPECTED_VALUE: 0, MIN: 0, EXPECTED_MIN: 0, MAX: -1.0, EXPECTED_MAX: 0, EXPECTED_LOW: 0, EXPECTED_HIGH: 0, EXPECTED_OPTIMUM: 0, TESTNAME: "max < min"},
+    {VALUE: 0, EXPECTED_VALUE: 10, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, EXPECTED_LOW: 10, EXPECTED_HIGH: 20, EXPECTED_OPTIMUM: 15, TESTNAME: "value < min"},
+    {VALUE: 30, EXPECTED_VALUE: 20, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, EXPECTED_LOW: 10, EXPECTED_HIGH: 20, EXPECTED_OPTIMUM: 15, TESTNAME: "value > max"},
+    {VALUE: 15, EXPECTED_VALUE: 15, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, LOW: 5, EXPECTED_LOW: 10, EXPECTED_HIGH: 20, EXPECTED_OPTIMUM: 15, TESTNAME: "low < min"},
+    {VALUE: 15, EXPECTED_VALUE: 15, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, LOW: 25, EXPECTED_LOW: 20, EXPECTED_HIGH: 20, EXPECTED_OPTIMUM: 15, TESTNAME: "low > max"},
+    {VALUE: 15, EXPECTED_VALUE: 15, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, LOW: 12, EXPECTED_LOW: 12, HIGH: 10, EXPECTED_HIGH: 12, EXPECTED_OPTIMUM: 15, TESTNAME: "high < low"},
+    {VALUE: 15, EXPECTED_VALUE: 15, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, LOW: 10, EXPECTED_LOW: 10, HIGH: 22, EXPECTED_HIGH: 20, EXPECTED_OPTIMUM: 15, TESTNAME: "high > max"},
+    {VALUE: 15, EXPECTED_VALUE: 15, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, EXPECTED_LOW: 10, EXPECTED_HIGH: 20, OPTIMUM: 9, EXPECTED_OPTIMUM: 10, TESTNAME: "optimum < min"},
+    {VALUE: 15, EXPECTED_VALUE: 15, MIN: 10, EXPECTED_MIN: 10, MAX: 20, EXPECTED_MAX: 20, EXPECTED_LOW: 10, EXPECTED_HIGH: 20, OPTIMUM: 21, EXPECTED_OPTIMUM: 20, TESTNAME: "optimum > max"}
   ];
   
   for (var i = 0; i < meters.length; i++) {
     var m = meters[i];
     test(() {
-      var meter = document.createElement("meter");
-      meter.value = m[value];
-      if (m[min]!=null) meter.min= m[min];
-      if (m[max]!=null) meter.max = m[max];
-      if (m[low]!=null) meter.low = m[low];
-      if (m[high]) meter.high = m[high];
-      if (m[optimum]) meter.optimum = m[optimum];
-      assert_equals(meter.value, m[expectedValue], "meter value");
-      assert_equals(meter.min, m[expectedMin], "min value");
-      assert_equals(meter.max, m[expectedMax], "max value");
-      assert_equals(meter.low, m[expectedLow], "low value");
-      assert_equals(meter.high, m[expectedHigh], "high value");
-      assert_equals(meter.optimum, m[expectedOptimum], "optimum value");
-    }, m[testname]);
+      var meter = document.createElement("meter") as MeterElement;
+      meter.value = m[VALUE];
+      if (m[MIN] != null) meter.min= m[MIN];
+      if (m[MAX] != null) meter.max = m[MAX];
+      if (m[LOW] != null) meter.low = m[LOW];
+      if (m[HIGH]) meter.high = m[HIGH];
+      if (m[OPTIMUM]) meter.optimum = m[OPTIMUM];
+      assert_equals(meter.value, m[EXPECTED_VALUE], "meter value");
+      assert_equals(meter.min, m[EXPECTED_MIN], "min value");
+      assert_equals(meter.max, m[EXPECTED_MAX], "max value");
+      assert_equals(meter.low, m[EXPECTED_LOW], "low value");
+      assert_equals(meter.high, m[EXPECTED_HIGH], "high value");
+      assert_equals(meter.optimum, m[EXPECTED_OPTIMUM], "optimum value");
+    }, m[TESTNAME]);
   }
 
   checkTestFailures();

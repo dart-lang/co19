@@ -40,8 +40,8 @@ void assert_false(var actual, [String diag]) {
   Expect.isFalse(actual, diag);
 }
 
-void assert_throws(String expectedExceptionName, var function, [String diag]) {
-  Expect.throws(function, (e)=>e.toString().contains(expectedExceptionName), diag);
+void assert_throws(String expectedExceptionName, void f(), [String diag]) {
+  Expect.throws(f, (e) => e.toString().contains(expectedExceptionName), diag);
 }
 
 void assert_array_equals(var actual, var expected, [String diag]) {
@@ -49,19 +49,19 @@ void assert_array_equals(var actual, var expected, [String diag]) {
 }
 
 void assert_class_string(var object, String expected, [String diag]) {
-  String actual=object.runtimeType.toString();
+  String actual = object.runtimeType.toString();
   if (expected == actual) return;
   String msg = (diag == null) ? "" : ", '$diag'";
   _fail("assert_class_string(expected: <$expected>, actual: <$actual>$msg) fails.");
 }
 
-void assert_in_array(List actual, var expected, String description) {
+void assert_in_array(var actual, List expected, String description) {
    Expect.isTrue(expected.indexOf(actual) != -1, description);
 }
 
-int passcnt=0;
-int failcnt=0;
-String failures="";
+int passcnt = 0;
+int failcnt = 0;
+String failures = "";
 
 void test(void func(), String name, [properties]) {
   try {
@@ -69,13 +69,13 @@ void test(void func(), String name, [properties]) {
     passcnt++;
   } catch (exc) {
     failcnt++;
-    failures="$failures\nTest failed: $name\n$exc\n";
+    failures = "$failures\nTest failed: $name\n$exc\n";
   }
 }
 
 void checkTestFailures() {
   print("tests passed: $passcnt; failed: $failcnt");
-  if (failcnt==0) return;
+  if (failcnt == 0) return;
   _fail(failures);
 }
 
@@ -95,7 +95,7 @@ Duration durationMs(delay) {
   return delay == null? Duration.ZERO : ONE_MS * delay;
 }
 
-Future runLater(void action(), [int delay=0]) {
+Future runLater(void action(), [int delay = 0]) {
   asyncStart();
   return new Future.delayed(durationMs(delay), (){
     action();
@@ -135,14 +135,14 @@ void  asyncStart() {
 
 void  asyncMultiStart(int delta) {
 //  print("asyncMultiStart $delta");
-  _asyncCounter+=delta;
+  _asyncCounter += delta;
 }
 
 void  asyncEnd() {
 //  print("asyncEnd");
-  Expect.isFalse(_asyncCounter==0, "asyncEnd: _asyncCounter==0");
+  Expect.isFalse(_asyncCounter == 0, "asyncEnd: _asyncCounter==0");
   _asyncCounter--;
-  if (_asyncCounter==0) {
+  if (_asyncCounter == 0) {
     print("unittest-suite-success");
     _completer.complete(null);
   }

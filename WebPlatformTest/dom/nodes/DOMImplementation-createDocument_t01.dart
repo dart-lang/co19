@@ -14,7 +14,7 @@
  * <link rel=help href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#dom-domimplementation-createdocument">
  *
  * @assertion DOMImplementation.createDocument(namespace, qualifiedName, doctype)
- *
+ * @static-warning
  * @description 
  * @needsreview what is dart's equivalent of Document.doctype?
  * @note dartium crashes with "Aw, Snap!"
@@ -148,46 +148,49 @@ var tests = [
   ];
 
 void main() {
-
   tests.forEach((t) {
-    var namespace = t[0], qualifiedName = t[1], doctype = t[2], expected = t[3];
-//    test(() {
-      if (expected != null) {
-        assert_throws(expected, () {
-          document.implementation.createDocument(namespace, qualifiedName, doctype);
-         });
+    String namespace = t[0], qualifiedName = t[1], doctype = t[2], expected = t[3];
+
+    print("Now tested");print(namespace);print(qualifiedName);print(expected);
+
+    if (expected != null) {
+      assert_throws(expected, () {
+        document.implementation.createDocument(namespace, qualifiedName,
+            document.implementation.createDocumentType(doctype, "", ""));
+       });
+    } else {
+      var doc = document.implementation.createDocument(namespace, qualifiedName,
+          document.implementation.createDocumentType(doctype, "", ""));
+      assert_equals(doc.nodeType, Node.DOCUMENT_NODE);
+      var omitRootElement = qualifiedName == null || qualifiedName == "";
+      if (omitRootElement) {
+        assert_equals(doc.documentElement, null);
       } else {
-        var doc = document.implementation.createDocument(namespace, qualifiedName, doctype);
-        assert_equals(doc.nodeType, Node.DOCUMENT_NODE);
-        var omitRootElement = qualifiedName == null || String(qualifiedName) == "";
-        if (omitRootElement) {
-          assert_equals(doc.documentElement, null);
+        var element = doc.documentElement;
+        assert_not_equals(element, null);
+        assert_equals(element.nodeType, Node.ELEMENT_NODE);
+        assert_equals(element.ownerDocument, doc);
+        String qualified = qualifiedName;
+        List<String> names = [];
+        if (qualified.indexOf(":") >= 0) {
+          names = qualified.split(":");
         } else {
-          var element = doc.documentElement;
-          assert_not_equals(element, null);
-          assert_equals(element.nodeType, Node.ELEMENT_NODE);
-          assert_equals(element.ownerDocument, doc);
-          var qualified = String(qualifiedName), names = [];
-          if (qualified.indexOf(":") >= 0) {
-            names = qualified.split(":", 2);
-          } else {
-            names = [null, qualified];
-          }
-          assert_equals(element.prefix, names[0]);
-          assert_equals(element.localName, names[1]);
-          assert_equals(element.namespaceURI, namespace);
+          names = [null, qualified];
         }
-        /* -- what is dart's equivalent of Document.doctype?
-        if (doctype==null) {
-          assert_equals(doc.doctype, null);
-        } else {
-          assert_equals(doc.doctype, doctype);
-          assert_equals(doc.doctype.ownerDocument, doc);
-        }
-        */
-        assert_equals(doc.childNodes.length, !omitRootElement + !!doctype);
+        assert_equals(element.getAttribute("prefix"), names[0]);
+        assert_equals(element.localName, names[1]);
+        assert_equals(element.getAttribute("namespaceURI"), namespace);
       }
-//    }, 'createDocument("$namespace", "$qualifiedName", "$doctype")=="$expected"');
+      /* -- what is dart's equivalent of Document.doctype?
+      if (doctype==null) {
+        assert_equals(doc.doctype, null);
+      } else {
+        assert_equals(doc.doctype, doctype);
+        assert_equals(doc.doctype.ownerDocument, doc);
+      }
+
+      assert_equals(doc.childNodes.length, !omitRootElement + !!doctype);*/
+    }
   });
 
   checkTestFailures();

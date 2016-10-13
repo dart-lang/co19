@@ -62,7 +62,7 @@ test( () {
 }, "The elements must return an HtmlCollection object");
 
 test( () {
-  var fs_inner = document.getElementById("fs_inner");
+  var fs_inner = document.getElementById("fs_inner") as FieldSetElement;
   var txt_inner = document.getElementsByName("txt_inner").first;
   var cb = document.getElementsByName("cb").first;
   var txt = document.getElementsByName("txt").first;

@@ -30,19 +30,19 @@ const String htmlEL = r'''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  var d = document.getElementById("test")
+  Node d = document.getElementById("test")
                 .append(document.createElement("a"));
-  d.href = "d";
+  (d as AnchorElement).href = "d";
   d.append(new Text("a "));
   d.append(new Text("b "));
   d.append(new Text("c "));
-  var list = document.getElementById("test")
-                     .queryAll("a");
+  ElementList<Element> list = document.getElementById("test")
+                     .querySelectorAll("a");
   for (var i = 0, il = list.length; i < il; ++i) {
     test(() {
       list[i].text = "x";
       assert_equals(list[i].text, "x");
-      assert_equals(list[i].firstChild.data, "x");
+      assert_equals((list[i].firstChild as Text).data, "x");
       assert_equals(list[i].childNodes.length, 1);
     }, "Test for anchor $i");
   }

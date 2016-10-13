@@ -17,12 +17,6 @@
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
-/*
-<style>
-  #display_none {display:none;}
-</style>
-*/
-
 const String htmlEL='''
 <div id="hide" style="display: block">
   <input id="a" type="text" value="abcde">
@@ -33,7 +27,7 @@ const String htmlEL='''
 void main() {
   document.body.appendHtml(htmlEL);
 
-  var input = document.getElementById("a");
+  var input = document.getElementById("a") as InputElement;
 
   test(() {
     input.setSelectionRange(0,1);
@@ -88,7 +82,7 @@ void main() {
     assert_equals(input.selectionDirection, "none", "if the argument is omitted");
   },'input direction of setSelectionRange(0,1)');
 
-  var textarea = document.getElementById("b");
+  var textarea = document.getElementById("b") as TextAreaElement;
 
   test(() {
     textarea.setSelectionRange(0,1);

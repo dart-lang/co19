@@ -41,8 +41,8 @@ const String resolved='resolved';
 
 void main() {
   document.body.appendHtml(htmlEL);
-//        "use strict";
-        var location=window.location;
+
+        var location = window.location;
         
         var testURLs = [
                 {actual: "", resolved: ""}, 
@@ -62,7 +62,8 @@ void main() {
                 {actual: "  \u0020\u0009\u000A http://w3c-test.org/  \u000C 	\u000D   ", resolved: "http://w3c-test.org/"} // with combo unicode spaces
                 ];
 
-        var testElement = {}, testQuotes = [];
+        var testElement = null;
+        List<QuoteElement> testQuotes = [];
 
         void setup() {
             testQuotes = document.getElementsByTagName("blockquote");

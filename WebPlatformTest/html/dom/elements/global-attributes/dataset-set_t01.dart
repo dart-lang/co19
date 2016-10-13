@@ -18,7 +18,7 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-      void testSet(prop, expected) {
+      bool testSet(prop, expected) {
         var d = document.createElement("div");
         d.dataset[prop] = "value";
         return d.getAttribute(expected) == "value";

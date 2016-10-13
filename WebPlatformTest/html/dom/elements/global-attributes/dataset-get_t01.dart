@@ -18,7 +18,7 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-      void testGet(attr, expected) {
+      bool testGet(attr, expected) {
         var d = document.createElement("div");
         d.setAttribute(attr, "value");
         return d.dataset[expected] == "value";
@@ -43,16 +43,16 @@ void main() {
       test(() { assert_true(testGet('data-to-string', 'toString')); },
         "Getting element.dataset['toString'] should return the value of element.getAttribute('data-to-string')'");
 
-      void matchesNothingInDataset(attr)
+      bool matchesNothingInDataset(attr)
       {
         var d = document.createElement("div");
         d.setAttribute(attr, "value");
 
-        if (!d.dataset)
+        if (d.dataset == null)
           return false;
 
         var count = 0;
-        for (var item in d.dataset)
+        for (var item in d.dataset.keys)
           count++;
         return count == 0;
       }

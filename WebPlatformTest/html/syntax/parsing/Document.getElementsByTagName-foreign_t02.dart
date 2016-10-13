@@ -33,17 +33,17 @@ void main() {
     test(() {
       var fonts=document.getElementsByTagName("FONT");
       assert_equals(fonts.length, 1);
-      var font0=fonts[0];
+      dynamic font0=fonts[0];
       assert_equals(font0.namespaceUri, HTML);
     }, "Upper-case font");
     
     test(() {
       var fonts=document.getElementsByTagName("font");
       assert_equals(fonts.length, 2);
-      var font0=fonts[0];
+      dynamic font0=fonts[0];
       assert_equals(font0.namespaceUri, HTML);
-      var font1=fonts[1];
-      assert_equals(font0.namespaceUri, SVG);
+      dynamic font1=fonts[1];
+      assert_equals(font1.namespaceUri, SVG);
     }, "Lower-case font");
 
     checkTestFailures();

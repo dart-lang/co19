@@ -45,9 +45,8 @@ void main() {
   document.body.appendHtml(htmlEL);
 
 test(() {
-  var applet = document.getElementsByTagName("applet")[0];
-// print("applen is ${applet.runtimeType}");
-  var name=applet.attributes["name"];
+  var applet = document.getElementsByTagName("applet")[0] as Element;
+  var name = applet.attributes["name"];
   assert_equals(name, "test1");
 
   var test1 = document.getElementsByName("test1")[0];
@@ -55,11 +54,11 @@ test(() {
 }, "If there is one applet, it should be returned (name)");
 
 test(() {
-  var applet1 = document.getElementsByTagName("applet")[1];
-  var name1=applet1.attributes["name"];
+  var applet1 = document.getElementsByTagName("applet")[1] as Element;
+  var name1 = applet1.attributes["name"];
   assert_equals(name1, "test2");
-  var applet2 = document.getElementsByTagName("applet")[2];
-  var name2=applet2.attributes["name"];
+  var applet2 = document.getElementsByTagName("applet")[2] as Element;
+  var name2 = applet2.attributes["name"];
   assert_equals(name2, "test2");
 
   var collection = document.getElementsByName("test2");
@@ -67,39 +66,39 @@ test(() {
 }, "If there are two applets, a collection should be returned. (name)");
 
 test(() {
-  var applet = document.getElementsByTagName("applet")[3];
+  var applet = document.getElementsByTagName("applet")[3] as Element;
   assert_equals(applet.id, "test3");
 
   var test3 = document.getElementById("test3");
-  var name=applet.attributes["name"];
+  var name = applet.attributes["name"];
   assert_equals(name, null);
 }, "If there is one applet, it should be returned (id)");
 
 test(() {
-  var applet1 = document.getElementsByTagName("applet")[4];
+  var applet1 = document.getElementsByTagName("applet")[4] as Element;
   assert_equals(applet1.id, "test4");
-  var applet2 = document.getElementsByTagName("applet")[5];
+  var applet2 = document.getElementsByTagName("applet")[5] as Element;
   assert_equals(applet2.id, "test4");
 }, "If there are two applets, a collection should be returned. (id)");
 
 test(() {
-  var applet1 = document.getElementsByTagName("applet")[6];
-  var name1=applet1.attributes["name"];
+  var applet1 = document.getElementsByTagName("applet")[6] as Element;
+  var name1 = applet1.attributes["name"];
   assert_equals(name1, "test5");
-  var applet2 = document.getElementsByTagName("applet")[7];
+  var applet2 = document.getElementsByTagName("applet")[7] as Element;
   assert_equals(applet2.id, "test5");
 }, "If there are two applets, a collection should be returned. (name and id)");
 
 test(() {
-  var applet1 = document.getElementsByTagName("applet")[8];
+  var applet1 = document.getElementsByTagName("applet")[8] as Element;
   assert_equals(applet1.id, "test6");
-  var applet2 = document.getElementsByTagName("applet")[9];
-  var name2=applet2.attributes["name"];
+  var applet2 = document.getElementsByTagName("applet")[9] as Element;
+  var name2 = applet2.attributes["name"];
   assert_equals(name2, "test6");
 }, "If there are two applets, a collection should be returned. (id and name)");
 
 test(() {
-  var applet = document.getElementsByTagName("applet")[10];
+  var applet = document.getElementsByTagName("applet")[10] as Element;
   assert_equals(applet.id, "test7");
 
   var test7 = document.getElementById("test7");
@@ -107,8 +106,8 @@ test(() {
 }, "A name shouldn't affect getting an applet by id");
 
 test(() {
-  var applet = document.getElementsByTagName("applet")[11];
-  var name=applet.attributes["name"];
+  var applet = document.getElementsByTagName("applet")[11] as Element;
+  var name = applet.attributes["name"];
   assert_equals(name, "test8");
 
   var test8 = document.getElementsByName("test8")[0];

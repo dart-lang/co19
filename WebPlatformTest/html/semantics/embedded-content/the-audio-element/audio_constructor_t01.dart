@@ -20,10 +20,6 @@ import "../../../../Utils/expectWeb.dart";
 
 void main() {
 
-  var throwingObject = () {
-    throw Error();
-  };
-
   var src="$testSuiteRoot/media/sound_5.mp3";
   
   var tests = [
@@ -47,11 +43,5 @@ void main() {
     }, description);
   });
 
-test(() {
-  assert_throws("NoSuchMethodError", () {
-    new AudioElement("", throwingObject);
-  });
-}, "Extra argument");
-  
    checkTestFailures();
 }

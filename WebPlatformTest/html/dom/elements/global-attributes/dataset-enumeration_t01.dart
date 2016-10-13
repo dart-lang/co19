@@ -18,7 +18,7 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-      void testEnumeration(array) {
+      int testEnumeration(array) {
         var d = document.createElement("div");
         for (var i = 0; i < array.length; ++i) {
           d.setAttribute(array[i], "value");

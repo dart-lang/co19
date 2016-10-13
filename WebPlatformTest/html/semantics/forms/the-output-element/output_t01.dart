@@ -25,7 +25,7 @@ const String htmlEL='''
 void main() {
     document.body.appendHtml(htmlEL);
 
-    var output = document.getElementById("output");
+    var output = document.getElementById("output") as OutputElement;
     assert_equals(output.type, "output", "type must return the string 'output'");
     assert_equals(output.text, "", "text is empty");
     assert_equals(output.value, "", "value should be empty");

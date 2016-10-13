@@ -18,7 +18,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -79,7 +78,7 @@ main() {
     }, false);
 
 
-    d.body.addEventListener('DOMFocusOut', (event) {
+    d.body.addEventListener('DOMFocusOut', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'inp1', 'Outside shadow tree: ' +
         'Event for nodes, distributed ' +
         'agains insertion points shouldn\'t be retargeted');

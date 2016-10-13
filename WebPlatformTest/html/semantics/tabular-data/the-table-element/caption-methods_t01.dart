@@ -47,24 +47,24 @@ void main() {
     document.body.appendHtml(htmlEL);
     
 	test( () {
-		var table1 = document.getElementById('table1');
-		var testCaption = table1.createCaption();
-		var table1FirstCaption = table1.caption;
+    TableElement table1 = document.getElementById('table1') as TableElement;
+    TableCaptionElement testCaption = table1.createCaption();
+    TableCaptionElement table1FirstCaption = table1.caption;
 		assert_equals(testCaption, table1FirstCaption);
 	}, "createCaption method returns the first caption element child of the table");
 	
 	test( () {
-		var table2 = document.getElementById('table2');
-		var test2Caption = table2.createCaption(); 
-		var table2FirstNode = table2.firstChild;
-		assert_true(test2Caption is  TableCaptionElement);
+    TableElement table2 = document.getElementById('table2') as TableElement;
+    dynamic test2Caption = table2.createCaption();
+		Node table2FirstNode = table2.firstChild;
+		assert_true(test2Caption is TableCaptionElement);
 		assert_equals(table2FirstNode, test2Caption);
 	}, "createCaption method creates a new caption and inserts it as the first node of the table element");
 	
 	test( () {
-		var table3 = document.getElementById('table3');
+    TableElement table3 = document.getElementById('table3') as TableElement;
 		assert_equals(table3.caption.text, "caption 3");
-		table3.deleteCaption();
+    table3.deleteCaption();
 		assert_equals(table3.caption, null);
 	}, "deleteCaption method removes the first caption element child of the table element");
   

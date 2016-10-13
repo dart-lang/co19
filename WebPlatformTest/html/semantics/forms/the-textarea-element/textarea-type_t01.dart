@@ -26,8 +26,6 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  assert_equals(document.getElementById("test")
-                        .queryAll("textarea")[0].type,
-                "textarea",
-                "Textarea's type attribute should return 'textarea'");
+  assert_equals(document.getElementById("test").querySelectorAll("textarea")[0].tagName,
+    "textarea", "Textarea's type attribute should return 'textarea'");
 }

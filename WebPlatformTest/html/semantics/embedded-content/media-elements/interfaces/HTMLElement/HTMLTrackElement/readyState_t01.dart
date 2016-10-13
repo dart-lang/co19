@@ -18,6 +18,6 @@ import 'dart:html';
 import "../../../../../../../Utils/expectWeb.dart";
 
 void main() {
-    var track = document.createElement('track');
+    var track = document.createElement('track') as TrackElement;
     assert_equals(track.readyState, 0);
 }

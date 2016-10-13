@@ -18,7 +18,6 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -51,12 +50,12 @@ main() {
 
     asyncMultiStart(2);
 
-    s.addEventListener('DOMFocusOut', (event) {
+    s.addEventListener('DOMFocusOut', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadow tree: Wrong target');
       asyncEnd();
     }, false);
 
-    d.body.addEventListener('DOMFocusOut', (event) {
+    d.body.addEventListener('DOMFocusOut', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'host', 'Inside shadow tree: Wrong target');
       asyncEnd();
     }, false);
