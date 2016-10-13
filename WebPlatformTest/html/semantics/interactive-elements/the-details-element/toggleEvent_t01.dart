@@ -43,12 +43,11 @@ void main() {
   document.body.appendHtml(htmlEL);
 
   void testEvent(evt) {
-//    assert_true(evt.isTrusted, "event is trusted");
     assert_false(evt.bubbles, "event doesn't bubble");
     assert_false(evt.cancelable, "event is not cancelable");
   }
 
-  var details1 = document.getElementById('details1');
+  var details1 = document.getElementById('details1') as DetailsElement;
   asyncStart();
   details1.on["toggle"].listen((evt) {
     test((){
@@ -59,7 +58,7 @@ void main() {
   }); 
   details1.open = true; // opens details1
   
-  var details2 = document.getElementById('details2');
+  var details2 = document.getElementById('details2') as DetailsElement;
   asyncStart();
   details1.on["toggle"].listen((evt) {
     test((){
@@ -70,7 +69,7 @@ void main() {
   }); 
   details2.open = false; // closes details2
   
-  var details3 = document.getElementById('details3');
+  var details3 = document.getElementById('details3') as DetailsElement;
   asyncStart();
   details1.on["toggle"].listen((evt) {
     test((){
@@ -81,7 +80,7 @@ void main() {
   }); 
   details3.open = true; // opens details3
   
-  var details4 = document.getElementById('details4');
+  var details4 = document.getElementById('details4') as DetailsElement;
   asyncStart();
   details1.on["toggle"].listen((evt) {
     test((){
