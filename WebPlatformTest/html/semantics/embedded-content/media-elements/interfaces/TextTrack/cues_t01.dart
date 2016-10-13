@@ -20,7 +20,7 @@ import "../../../../../../Utils/expectWeb.dart";
 void main() {
 
 test((){
-    var video = document.createElement('video');
+    var video = document.createElement('video') as VideoElement;
     var t1 = video.addTextTrack('subtitles');
     assert_equals(t1.cues, t1.cues, 't1.cues should return same object');
     assert_not_equals(t1.cues, null, 't1.cues should not be null');
@@ -28,7 +28,7 @@ test((){
     assert_equals(t1.cues.length, 0, 't1.cues.length');
 }, document.title+', empty list');
 
-void addCue(texttrack, start, end, text, id) {
+VttCue addCue(texttrack, start, end, text, id) {
   var c = new VttCue(start, end, text);
   c.id = id;
   texttrack.addCue(c);
@@ -36,7 +36,7 @@ void addCue(texttrack, start, end, text, id) {
 }
 
 test((){
-    var video = document.createElement('video');
+    var video = document.createElement('video') as VideoElement;
     var t1 = video.addTextTrack('subtitles');
     var t1_cues = t1.cues;
     var c = addCue(t1, 0, 1, 'text', 'id');
@@ -50,7 +50,7 @@ test((){
 }, document.title+', after addCue()');
 
 test((){
-    var video = document.createElement('video');
+    var video = document.createElement('video') as VideoElement;
     var t1 = video.addTextTrack('subtitles');
     var t1_cues = t1.cues;
     var c = addCue(t1, 0, 1, 'text', 'id');
@@ -76,7 +76,7 @@ test((){
 }, document.title+', different modes');
 
 test((){
-    var video = document.createElement('video');
+    var video = document.createElement('video') as VideoElement;
     var t1 = video.addTextTrack('subtitles');
     var t1_cues = t1.cues;
     var c = addCue(t1, 0, 1, 'text', 'id');
@@ -92,11 +92,11 @@ test((){
 
 test((){
     asyncStart();
-    var video = document.createElement('video');
+    var video = document.createElement('video') as VideoElement;
     var t1 = video.addTextTrack('subtitles');
     var t1_cues = t1.cues;
     t1.mode = 'showing';
-    var track = document.createElement('track');
+    var track = document.createElement('track') as TrackElement;
     print("111");
     track.setAttribute('default', 'true');
     print("222");
@@ -105,8 +105,7 @@ test((){
     assert_equals(t2.cues, null, 't2.cues should be null');
     // We need to wait until the "honor user preferences..." steps have run so we invoke play()
     // which queues an event with the same task source.
-    video.onPlay.last.then((){
-    print("333");
+    video.onPlay.last.then((event){
         assert_equals(t2.cues, t2.cues, 't2.cues should return same object');
         assert_not_equals(t1.cues, t2.cues, 't1.cues and t2.cues should be different objects');
         assert_not_equals(t2.cues, null, 't2.cues should not be null');

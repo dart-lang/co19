@@ -22,15 +22,14 @@ void main() {
 
 void error_test(tagName, src) {
   test(() {
-    assert_equals(document.createElement(tagName).error, null);
+    assert_equals((document.createElement(tagName) as MediaElement).error, null);
   }, tagName + '.error initial value');
 
   test(() {
     var e = document.createElement(tagName);
     asyncStart();
     e.attributes["src"] = src;
-    e.onLoad.last.then((e) {
-      assert_equals(e.error, null);
+    e.onLoad.last.then((evt) {
       asyncEnd();
     });
   }, tagName + '.error after successful load');

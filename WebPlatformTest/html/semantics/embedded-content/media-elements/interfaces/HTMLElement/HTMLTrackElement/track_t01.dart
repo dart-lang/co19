@@ -18,7 +18,7 @@ import 'dart:html';
 import "../../../../../../../Utils/expectWeb.dart";
 
 void main() {
-    var track = document.createElement('track');
+    var track = document.createElement('track') as TrackElement;
     assert_equals(track.track, track.track, 'same object should be returned');
     assert_true(track.track is TextTrack, 'returned object should be a TextTrack');
 }

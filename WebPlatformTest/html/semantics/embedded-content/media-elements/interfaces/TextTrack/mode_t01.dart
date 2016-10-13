@@ -20,7 +20,7 @@ import "../../../../../../Utils/expectWeb.dart";
 void main() {
 
 test((){
-    TrackElement track = document.createElement('track');
+    TrackElement track = document.createElement('track') as TrackElement;
     assert_equals(track.track.mode, 'disabled', 'initial');
     track.track.mode = '1';
     assert_equals(track.track.mode, '1', '1');
@@ -40,8 +40,6 @@ test((){
     assert_equals(track.track.mode, 'showing', '"disabled "');
     track.track.mode = ' disabled';
     assert_equals(track.track.mode, 'showing', '" disabled"');
-    track.track.mode = {};
-    assert_equals(track.track.mode, 'showing', '{}');
     track.track.mode = 'HIDDEN';
     assert_equals(track.track.mode, 'showing', '"HIDDEN"');
     track.track.mode = 'h\u0130dden'; // dotted uppercase i
@@ -51,7 +49,7 @@ test((){
 }, document.title+', wrong value');
 
 test(() {
-    var track = document.createElement('track');
+    var track = document.createElement('track') as TrackElement;
     assert_equals(track.track.mode, 'disabled', 'initial');
     track.track.mode = 'disabled'; // no-op
     assert_equals(track.track.mode, 'disabled', 'disabled (1)');
@@ -63,8 +61,6 @@ test(() {
     assert_equals(track.track.mode, 'showing', 'showing (1)');
     track.track.mode = 'showing'; // no-op
     assert_equals(track.track.mode, 'showing', 'showing (2)');
-//    track.track.mode = {toString:() { return 'disabled'; }};
-//    assert_equals(track.track.mode, 'disabled', '{toString:...}');
 }, document.title+', correct value');
 
    checkTestFailures();
