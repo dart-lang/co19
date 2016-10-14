@@ -12,7 +12,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-    var oProc = new XsltProcessor();
+    XsltProcessor oProc = new XsltProcessor();
 
     var oStylesheet = new DomParser().parseFromString(
     r'<?xml version="1.0" encoding="UTF-8"?>' +
@@ -26,11 +26,11 @@ main() {
     '</xsl:stylesheet>', 'text/xml');
 
     oProc.importStylesheet(oStylesheet);
-    var oResult = new DomParser().parseFromString('<root />', 'text/xml');
+    Document document = new DomParser().parseFromString('<root />', 'text/xml');
 
     oProc.setParameter('', 'text', 'Hello World!');
 
-    oResult = oProc.transformToFragment(oStylesheet, oResult);
+    DocumentFragment oResult = oProc.transformToFragment(oStylesheet, document);
 
     Expect.equals(Node.DOCUMENT_FRAGMENT_NODE, oResult.nodeType, 'should of type DOCUMENT_FRAGMENT_NODE(11)');
 // was:    Expect.equals('Hello World!', oProc.getParameter(null, 'text') ... see dart issue #20223
