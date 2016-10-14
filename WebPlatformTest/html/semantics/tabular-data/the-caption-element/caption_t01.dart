@@ -40,14 +40,14 @@ void main() {
   document.body.appendHtml(htmlEL);
 
   test((){
-    TableElement table1=document.getElementById('table1');
+    TableElement table1 = document.getElementById('table1') as TableElement;
     assert_equals(table1.caption.innerHtml, "first caption");
   }, "first caption element child of the first table element");
 
   test((){
-    var caption = document.createElement("caption");
+    var caption = document.createElement("caption") as TableCaptionElement;
     caption.innerHtml = "new caption";
-    var table = document.getElementById('table1');
+    var table = document.getElementById('table1') as TableElement;
     table.caption = caption;
 
     assert_equals(caption.parentNode, table);
@@ -60,19 +60,19 @@ void main() {
   }, "setting caption on a table");
 
   test((){
-    TableElement table2=document.getElementById('table2');
+    TableElement table2 = document.getElementById('table2') as TableElement;
     assert_equals(table2.caption, null);
   }, "caption IDL attribute is null");
 
   test((){
-    var table = document.getElementById('table3');
-    var caption = document.createElement("caption");
+    var table = document.getElementById('table3') as TableElement;
+    var caption = document.createElement("caption") as TableCaptionElement;
     table.rows[0].append(caption);
     assert_equals(table.caption, null);
   }, "caption of the third table element should be null");
 
   test((){
-    TableElement table4=document.getElementById('table4');
+    TableElement table4 = document.getElementById('table4') as TableElement;
     assert_not_equals(table4.caption, null);
 
     table4.caption.remove();
