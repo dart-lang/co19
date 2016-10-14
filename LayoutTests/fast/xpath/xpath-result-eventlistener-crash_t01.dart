@@ -26,9 +26,9 @@ void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
 
     // Fill the heap with event listeners...
-    var a = [];
+    List<EventListener> a = [];
     for (var i = 0; i < 10000; ++i)
-        a.add(() { });
+        a.add((Event e) { });
 
     // ...followed by a DOM node wrapper
     var div = document.getElementById("div");

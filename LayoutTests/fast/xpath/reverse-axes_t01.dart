@@ -25,16 +25,16 @@ const String htmlEL = r'''
 
 void main() {
     document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    XPathEvaluator evaluator = new XPathEvaluator();
 
     void testId(String expr, String id, String expected) {
-       var res=evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-       shouldBe(res.id, expected, expr);
+       Node res = evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+       shouldBe((res as Element).id, expected, expr);
     }
     
     void testTag(String expr, String id, String expected) {
-       var res=evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-       shouldBe(res.tagName, expected, expr);
+       Node res=evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+       shouldBe((res as Element).tagName, expected, expr);
     }
     
     testId('preceding-sibling::*[1]', 'd3', 'd2');
