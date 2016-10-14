@@ -12,7 +12,7 @@ import "../xpath-test-pre.dart";
 
 void main() {
 {
-var doc = (new DomParser()).parseFromString(r'''
+Document doc = (new DomParser()).parseFromString(r'''
     <doc>
         <para id="1" />
         <div id="2" />
@@ -20,14 +20,14 @@ var doc = (new DomParser()).parseFromString(r'''
    </doc>''',
     'application/xml');
 test(doc, doc.documentElement, 'child::para', [doc.getElementsByTagName("para")[0], doc.getElementsByTagName("para")[1]]);
-test(doc, doc.documentElement, 'child::*', [doc.documentElement.firstChild, doc.documentElement.firstChild.nextElementSibling, doc.documentElement.lastChild]);
+test(doc, doc.documentElement, 'child::*', doc.documentElement.children);
 }
 {
 var doc = (new DomParser()).parseFromString(r'''
     <doc>This is <i>some</i> text.</doc>''',
     'application/xml');
 test(doc, doc.documentElement, 'child::text()', [doc.documentElement.firstChild, doc.documentElement.lastChild]);
-test(doc, doc.documentElement, 'child::node()', [doc.documentElement.firstChild, doc.documentElement.firstChild.nextElementSibling, doc.documentElement.lastChild]);
+test(doc, doc.documentElement, 'child::node()', doc.documentElement.children);
 }
 {
 var doc = (new DomParser()).parseFromString(r'''
