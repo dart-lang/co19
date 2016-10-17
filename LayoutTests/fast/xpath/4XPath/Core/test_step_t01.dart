@@ -13,7 +13,7 @@ import "test.dart";
 
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
-    var result;
+    XPathResult result;
     
     result = evaluator.evaluate("ancestor::*", CHILD1, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     checkSnapshot("ancestor::*", result, [ROOT]);
