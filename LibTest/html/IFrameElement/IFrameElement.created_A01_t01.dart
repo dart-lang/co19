@@ -19,7 +19,7 @@ class MyIFrameElement extends IFrameElement {
 main() {
   var ife;
   Expect.throws((){
-    ife=new IFrameElement.created();
+    ife = new IFrameElement.created();
   });
 
   var tag = 'my-iframe';

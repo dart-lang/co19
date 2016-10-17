@@ -14,12 +14,12 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'load';
-  var x = document.body;
+  dynamic x = document.body;
   x.innerHtml =
     '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
 
   asyncStart();
-  (x.firstChild as IFrameElement).onLoad.listen((e) {
+  x.firstChild.onLoad.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });

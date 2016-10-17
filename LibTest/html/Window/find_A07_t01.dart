@@ -19,10 +19,10 @@ main() {
   var text = 'textext';
   var text2find = 'text';
   document.body.append(new Text(text));
-  bool res=window.find(text2find, false, false, false, false, false, false);
+  bool res = window.find(text2find, false, false, false, false, false, false);
 //  res=window.find(text2find, false, false, true, false, false, false);
   Expect.isTrue(res, "text2find not found");
   
-  res=window.find(text2find, false, false, false, false, false, false);
+  res = window.find(text2find, false, false, false, false, false, false);
   Expect.isFalse(res, "text2find found");
 }

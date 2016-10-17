@@ -6,15 +6,17 @@
 /**
  * @assertion ShadowRoot createShadowRoot()
  * Creates a new shadow root for this shadow host.
- * from W3C: The nodeType attribute of a ShadowRoot instance must return DOCUMENT_FRAGMENT_NODE.
- * Accordingly, the nodeName attribute of a ShadowRoot instance must return "#document-fragment".
+ * from W3C: The nodeType attribute of a ShadowRoot instance must return
+ * OCUMENT_FRAGMENT_NODE.
+ * Accordingly, the nodeName attribute of a ShadowRoot instance must return
+ * "#document-fragment".
  * @description Checks that a correct ShadowRoot is returned.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   print("before");
   ShadowRoot r = x.createShadowRoot();
   print("after");

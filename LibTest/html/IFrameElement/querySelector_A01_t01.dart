@@ -31,7 +31,7 @@ main() {
   document.body.append(e);
   print("e=${e.runtimeType} ${e.toString()}");  
 
-  var star=e.query('*');
+  var star = e.query('*');
   print("star=${star.runtimeType} ${star.toString()}");  
 
   Expect.isTrue(e.querySelector('*') is SpanElement, 'Universal selector');

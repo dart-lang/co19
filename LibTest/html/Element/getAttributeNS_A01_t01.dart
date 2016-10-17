@@ -14,7 +14,8 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<svg><foo xlink:href="1" xlink:custom="2"></foo></svg>',
+  var x = new Element.html(
+      '<svg><foo xlink:href="1" xlink:custom="2"></foo></svg>',
       treeSanitizer: new NullTreeSanitizer());
   document.body.append(x);
   AnchorElement y = x.firstChild;

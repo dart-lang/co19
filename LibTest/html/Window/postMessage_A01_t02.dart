@@ -15,7 +15,7 @@ import "../../../UtilsHtml/expect.dart";
 const text="Hi there!";
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  WindowBase nw = window.open("about:blank", "_blank");
   Expect.isTrue(nw is WindowBase);
   asyncStart();
   nw.addEventListener("message", (Event event) {

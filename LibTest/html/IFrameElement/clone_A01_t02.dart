@@ -14,7 +14,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.append(new Element.html('<div><pre></pre>text</div>'));
   var y = x.clone(true);
 

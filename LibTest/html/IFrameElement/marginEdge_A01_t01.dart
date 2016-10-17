@@ -22,8 +22,8 @@ main() {
   var x = new Element.html('<iframe>Text</iframe>');
   document.body.append(x);
 
-  var width=x.marginEdge.width;
-  var height=x.marginEdge.height;
+  var width = x.marginEdge.width;
+  var height = x.marginEdge.height;
   Expect.isTrue(width > 0, 'width 1');
   Expect.isTrue(height > 0, 'height 1');
 

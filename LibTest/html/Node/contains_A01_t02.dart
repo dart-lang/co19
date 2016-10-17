@@ -11,12 +11,13 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-void check(Node x) {
-  x.append(new Element.html('<div><pre><button></button></pre><span></span></div>'));
+void check(dynamic x) {
+  x.append(
+      new Element.html('<div><pre><button></button></pre><span></span></div>'));
 
-  var pre = (x as Element).querySelector('pre');
-  var button = (x as Element).querySelector('button');
-  var span = (x as Element).querySelector('span');
+  var pre = x.querySelector('pre');
+  var button = x.querySelector('button');
+  var span = x.querySelector('span');
 
   Expect.isTrue(x.contains(pre), 'pre');
   Expect.isTrue(x.contains(button), 'button');

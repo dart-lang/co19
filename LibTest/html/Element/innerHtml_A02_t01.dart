@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<div></div>');
   x.innerHtml = '<button foo="bar"></button>';
-  DivElement y = x.firstChild as DivElement;
+  dynamic y = x.firstChild;
   Expect.mapEquals({}, y.attributes);
 
   x.innerHtml = '<unknown></unknown><div></div>';

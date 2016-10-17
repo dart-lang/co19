@@ -14,13 +14,13 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
-  HttpRequestUpload upload=request.upload;
-  bool first=true;
+  HttpRequestUpload upload = request.upload;
+  bool first = true;
   request.open('GET', "test.dart");
   asyncStart();
   upload.onLoadStart.listen((event){
       Expect.isTrue(first);
-      first=false;
+      first = false;
       asyncEnd();
     });
   request.send();

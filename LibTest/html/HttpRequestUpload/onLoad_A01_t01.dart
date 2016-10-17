@@ -16,7 +16,7 @@ main() {
   HttpRequest request = new HttpRequest();
   request.open('GET', "test.dart");
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
-  HttpRequestUpload upload=request.upload;
+  HttpRequestUpload upload = request.upload;
   asyncStart();
   upload.onLoad.listen((event){
       switch(request.readyState) {

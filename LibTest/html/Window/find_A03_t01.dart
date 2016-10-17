@@ -19,8 +19,8 @@ import "../../../UtilsHtml/expect.dart";
 main() {
   var text = 'text';
   document.body.append(new Text(text));
-  bool res1=window.find(text, false, false, false, false, false, false);
-  bool res2=window.find(text, false, true, false, false, false, false);
+  bool res1 = window.find(text, false, false, false, false, false, false);
+  bool res2 = window.find(text, false, true, false, false, false, false);
   print("res1=$res1 res2=$res2");
 
   Expect.isTrue(res1, "text not found");

@@ -14,7 +14,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   asyncStart();
-  Future<HttpRequest> f=HttpRequest.request("test.dart");
+  Future<HttpRequest> f = HttpRequest.request("test.dart");
   f.then((HttpRequest r){
       Expect.equals("200 OK", r.statusText);
       asyncEnd();

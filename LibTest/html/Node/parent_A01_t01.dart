@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 void check(Node x) {
   Expect.equals(null, x.parent);
   
-  var body=document.body;
+  var body = document.body;
   body.append(x);
   Expect.equals(body, x.parent);
 }

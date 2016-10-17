@@ -14,8 +14,8 @@ import "../../../UtilsHtml/expect.dart";
 
 const eventType='keydown';
 
-void check(Node x) {
-  (x as Element).onKeyDown.listen((KeyboardEvent e) {
+void check(dynamic x) {
+  x.onKeyDown.listen((KeyboardEvent e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
   });
@@ -23,7 +23,7 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     document,
   ];

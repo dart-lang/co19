@@ -18,7 +18,7 @@ const myButton="myButton";
 main() {
   IFrameElement x = new IFrameElement();
   x.appendHtml('<span><div></div><button class="$myButton></button></span>');
-  Element ch = x.lastChild;
+  dynamic ch = x.lastChild;
   print("lastChild=ch.runtimeType:$ch");
   
   List<Node> z = ch.getElementsByClassName(myButton);

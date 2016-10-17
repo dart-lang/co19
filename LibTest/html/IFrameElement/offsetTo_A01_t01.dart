@@ -21,7 +21,7 @@ import "../testcommon.dart";
 
 void check(int a, int b, String m) {
 // Expect.equals(a, b, m);
-   if (a==b) {
+   if (a == b) {
      print("$m: ok");
    } else {
      print("$m: $a expected $b actual");

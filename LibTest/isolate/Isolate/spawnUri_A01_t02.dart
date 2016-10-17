@@ -65,7 +65,7 @@ class Connection {
 }
 
 main() {
-  for (int k=0; k<3; k++) {
+  for (int k = 0; k < 3; k++) {
     Connection conn = new Connection(k);
     conn.start();
   }

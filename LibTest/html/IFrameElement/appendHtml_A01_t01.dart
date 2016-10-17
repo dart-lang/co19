@@ -14,11 +14,11 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.appendHtml('text');
   Expect.isTrue(x.firstChild is Text, 'append to empty children list');
 
-  x=new IFrameElement();
+  x = new IFrameElement();
   x.appendHtml('<div><div>');
   x.appendHtml('<!--comment-->text');
   document.body.append(x);

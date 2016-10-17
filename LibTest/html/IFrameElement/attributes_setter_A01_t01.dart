@@ -18,10 +18,10 @@ main() {
   Expect.equals('id', x.id);
   Expect.equals(null, x.className);
   
-  Map<String, String>  attributes=new Map<String, String>();
+  Map<String, String>  attributes = new Map<String, String>();
   attributes['id'] = 'foo';
   attributes['class'] = 'bar';
-  x.attributes=attributes;
+  x.attributes = attributes;
   
   Expect.equals('foo', x.id);
   Expect.equals('bar', x.className);

@@ -11,7 +11,6 @@
  * The name cannot contain a semi-colon (';').
  * The name cannot contain any capital letters.
  * @description Checks disallowed cases.
- * @needsreview
  */
 import "dart:html";
 import "../../../Utils/expect.dart";

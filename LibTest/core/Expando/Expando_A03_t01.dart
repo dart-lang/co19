@@ -5,8 +5,10 @@
  */
 /**
  * @assertion T operator [](Object object)
- * Gets the value of this Expando's property on the given object. If the object hasn't been expanded, the method returns null.
- * @description Checks that this operator returns null for a freshly expanded object(s).
+ * Gets the value of this Expando's property on the given object. If the object
+ * hasn't been expanded, the method returns null.
+ * @description Checks that this operator returns null for a freshly expanded
+ * object(s).
  * @author rodionov
  */
 import "../../../Utils/expect.dart";

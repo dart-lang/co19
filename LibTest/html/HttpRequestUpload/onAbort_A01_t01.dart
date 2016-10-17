@@ -14,7 +14,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  HttpRequestUpload upload=request.upload;
+  HttpRequestUpload upload = request.upload;
   request.open('GET', "test.dart");
   upload.onAbort.listen((event){
       UtilsHtml.show("request.onAbort.listen: $event");

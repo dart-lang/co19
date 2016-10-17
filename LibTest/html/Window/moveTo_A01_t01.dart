@@ -23,7 +23,7 @@ void check(Window nw, int nx, int ny) {
 }
 
 main() {
-  Window nw=window.open("about:blank", "_blank");
+  Window nw = window.open("about:blank", "_blank");
   
   try {
     check(nw, 0, 0);

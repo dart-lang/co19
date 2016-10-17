@@ -18,8 +18,8 @@ import "../../../Utils/expect.dart";
 void check(List a0, bool test(var element)) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
   queue.removeWhere(test);
-  int k=0;
-  for (int k0=0; k0<a0.length; k0++) {
+  int k = 0;
+  for (int k0 = 0; k0 < a0.length; k0++) {
     if (!test(a0[k0])) {
       Expect.identical(a0[k0], queue.elementAt(k), "k0=$k0, k=$k");
       k++;

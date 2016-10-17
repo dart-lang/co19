@@ -16,7 +16,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
-  HttpRequestUpload upload=request.upload;
+  HttpRequestUpload upload = request.upload;
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
   upload.onError.listen((event){

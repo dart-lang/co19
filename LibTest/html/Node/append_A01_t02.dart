@@ -12,9 +12,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  Node x=new DocumentFragment();
+  Node x = new DocumentFragment();
   document.body.append(x);
-print("last=${document.body.lastChild.runtimeType}");
-print("parent=${x.parentNode}");
+  print("last=${document.body.lastChild.runtimeType}");
+  print("parent=${x.parentNode}");
   Expect.equals(document.body, x.parentNode, "after append $x");
 }
