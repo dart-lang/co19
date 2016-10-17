@@ -76,7 +76,7 @@ void test(void func(), String testName, [properties]) {
   }
 }
 
-void shouldThrow(func(), [check, reason]) {
+void shouldThrow(void func(), [bool check(exception), reason]) {
     test((){
        Expect.throws(func, check, reason);
     }, reason);

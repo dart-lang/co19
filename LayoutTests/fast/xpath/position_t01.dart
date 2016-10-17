@@ -14,15 +14,15 @@ import "xpath-test-pre.dart";
 void main() {
     XPathEvaluator evaluator=new XPathEvaluator();
 
-var ROOT = document.createElement('div');
-ROOT.innerHtml = '<p>a</p><div><span id="21"></span><span id="22"></span><span id="23"></span></div>';
-var CHILD1 = ROOT.firstChild;
-var CHILD1TEXT = CHILD1.firstChild;
-var CHILD2 = ROOT.lastChild;
-var CHILD21 = CHILD2.firstChild;
-var CHILD22 = CHILD21.nextElementSibling;
-var CHILD23 = CHILD22.nextElementSibling;
-var result;
+    Element ROOT = document.createElement('div');
+    ROOT.innerHtml = '<p>a</p><div><span id="21"></span><span id="22"></span><span id="23"></span></div>';
+    Node CHILD1 = ROOT.firstChild;
+    Node CHILD1TEXT = CHILD1.firstChild;
+    Node CHILD2 = ROOT.lastChild;
+    Node CHILD21 = CHILD2.firstChild;
+    Element CHILD22 = (CHILD21 as Element).nextElementSibling;
+    Element CHILD23 = CHILD22.nextElementSibling;
+    XPathResult result;
 
     result = evaluator.evaluate(".//*", ROOT, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     checkSnapshot(".//*", result, [CHILD1, CHILD2, CHILD21, CHILD22, CHILD23]);
