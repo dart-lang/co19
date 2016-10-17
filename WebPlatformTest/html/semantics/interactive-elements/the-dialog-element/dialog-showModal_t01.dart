@@ -56,25 +56,19 @@ const String htmlEL = r'''
 
 void main() {
   document.body.appendHtml(htmlEL);
-  var d1 = document.getElementById('d1'),
-      d2 = document.getElementById('d2'),
-      d3 = document.getElementById('d3'),
-      d4 = document.getElementById('d4'),
-      d5 = document.getElementById('d5'),
-      d6 = document.getElementById('d6'),
-      d7 = document.getElementById('d7'),
-      d8 = document.getElementById('d8'),
-      b0 = document.getElementById('b0'),
-      b3 = document.getElementById('b3'),
-      b4 = document.getElementById('b4'),
-      b5 = document.getElementById('b5');
+  DialogElement d1 = document.getElementById('d1') as DialogElement;
+  DialogElement d2 = document.getElementById('d2') as DialogElement;
+  DialogElement d3 = document.getElementById('d3') as DialogElement;
+  DialogElement d4 = document.getElementById('d4') as DialogElement;
+  DialogElement d5 = document.getElementById('d5') as DialogElement;
+  DialogElement d6 = document.getElementById('d6') as DialogElement;
+  DialogElement d7 = document.getElementById('d7') as DialogElement;
+  DialogElement d8 = document.getElementById('d8') as DialogElement;
 
   test((){
     assert_false(d1.open);
-    assert_false(b0.commandDisabled);
     d1.showModal();
     assert_true(d1.open);
-    assert_true(b0.commandDisabled);
     assert_equals(document.activeElement, d1.firstChild);
   }, "d1");
 
@@ -85,7 +79,7 @@ void main() {
   }, "showModal() on a <dialog> that already has an open attribute throws an InvalidStateError exception");
 
   test((){
-    var d = document.createElement("dialog");
+    var d = document.createElement("dialog") as DialogElement;
     assert_throws("INVALID_STATE_ERR", () {
       d.showModal();
     });
@@ -93,20 +87,14 @@ void main() {
 
   test((){
     assert_false(d3.open);
-    assert_false(b3.commandDisabled);
     assert_false(d4.open);
-    assert_false(b4.commandDisabled);
     assert_false(d5.open);
-    assert_false(b5.commandDisabled);
     d3.showModal();
     d4.showModal();
     d5.showModal();
     assert_true(d3.open);
-    assert_true(b3.commandDisabled);
     assert_true(d4.open);
-    assert_true(b4.commandDisabled);
     assert_true(d5.open);
-    assert_false(b5.commandDisabled);
   }, "when opening multiple dialogs, only the newest one is non-inert");
 
   test((){
@@ -130,14 +118,14 @@ void main() {
     assert_equals(document.activeElement, document.getElementById("i82"));
   }, "opening dialog with multiple focusable children, one having the autofocus attribute");
   
-  d1.close();
-  d2.close();
-  d3.close();
-  d4.close();
-  d5.close();
-  d6.close();
-  d7.close();
-  d8.close();
+  d1.close("");
+  d2.close("");
+  d3.close("");
+  d4.close("");
+  d5.close("");
+  d6.close("");
+  d7.close("");
+  d8.close("");
 
   checkTestFailures();
 }

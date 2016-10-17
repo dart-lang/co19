@@ -121,25 +121,25 @@ void main() {
     test(doc, doc.documentElement, '//*[@id="2.2"]/ancestor-or-self::*', [ROOT, CHAPTER2, SECTION22]);
     
     XPathEvaluator evaluator=new XPathEvaluator();
-    var nodeCount = evaluator.evaluate("count(//*)", doc.documentElement, null, XPathResult.ANY_TYPE, null).numberValue;
+    num nodeCount = evaluator.evaluate("count(//*)", doc.documentElement, null, XPathResult.ANY_TYPE, null).numberValue;
     shouldBe(nodeCount, 16);
-    var allNodes = evaluator.evaluate("//*", doc.documentElement, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-    var allNodesSet = [];
+    XPathResult allNodes = evaluator.evaluate("//*", doc.documentElement, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    List<Node> allNodesSet = [];
     for (int i = 0; i < allNodes.snapshotLength; ++i) {
         allNodesSet.add(allNodes.snapshotItem(i));
     }
     for (int i = 0; i < allNodes.snapshotLength; ++i) {
-        var node = allNodes.snapshotItem(i);
-        var resultNodes = [];
-        var axes = ['ancestor','descendant','following','preceding','self'];
-        for (var axis in axes) {
-            var res = evaluator.evaluate("$axis::*", node, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-            var n;
+        Node node = allNodes.snapshotItem(i);
+        List<Node> resultNodes = [];
+        List<String> axes = ['ancestor','descendant','following','preceding','self'];
+        for (String axis in axes) {
+            XPathResult res = evaluator.evaluate("$axis::*", node, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+            Node n;
             for (n = res.iterateNext(); n!=null; n = res.iterateNext()) {
                 resultNodes.add(n);
             }
         }
-        checkArraysAreEqual(resultNodes, allNodesSet, node.getAttribute("id"));
+        checkArraysAreEqual(resultNodes, allNodesSet, (node as Element).getAttribute("id"));
     }
 
     checkTestFailures();    

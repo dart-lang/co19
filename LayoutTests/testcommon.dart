@@ -86,7 +86,7 @@ shouldBeTrue(actual) => Expect.isTrue(actual, reason);
 shouldBeFalse(actual) => Expect.isFalse(actual, reason);
 shouldBeNull(actual) => Expect.isNull(actual, reason);
 shouldBeNonNull(actual) => Expect.isNotNull(actual, reason);
-shouldThrow(func(), [check]) => Expect.throws(func, check, reason);
+shouldThrow(func(), [bool check(e)]) => Expect.throws(func, check, reason);
 shouldNotThrow(func()) {
   try {
     func();
@@ -194,7 +194,6 @@ gc() {
   gcRec(n, i) {
     if (n < 1)
       return {};
-    var temp = {i: "ab" + (i + (i / 100000)).toString()};
     gcRec(n-1, i);
   }
   for (var i = 0; i < 1000; i++)

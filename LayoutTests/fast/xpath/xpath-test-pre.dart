@@ -67,17 +67,17 @@ void test(doc, context, String expr, expected, [nsResolver]) {
                 if (result.numberValue == expected)
                     testPassed(expr);
                 else
-                    testFailed(expr, "expected " + expected + ", actual " + result.numberValue);
+                    testFailed(expr, "expected $expected actual ${result.numberValue}");
             } else if (expected is String) {
                 if (result.stringValue == expected)
                     testPassed(expr);
                 else
-                    testFailed(expr, "expected '" + expected + "', actual '" + result.stringValue + "'");
+                    testFailed(expr, "expected '$expected', actual '${result.stringValue}'");
             } else if (expected is bool) {
                 if (result.booleanValue == expected)
                     testPassed(expr);
                 else
-                    testFailed(expr, "expected '" + expected + "', actual '" + result.booleanValue + "'");
+                    testFailed(expr, "expected '$expected', actual '${result.booleanValue}'");
             }
         }
         testPassed(expr);
