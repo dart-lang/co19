@@ -23,7 +23,7 @@
 import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
-var tests = [
+dynamic tests = [
     /* Arrays with four elements:
      *   the namespace argument
      *   the qualifiedName argument

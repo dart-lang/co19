@@ -16,7 +16,6 @@
 
 import 'dart:html';
 import "../../../Utils/expect.dart";
-import '../testcommon.dart';
 
 class Foo extends HtmlElement {
   Foo.created() : super.created();
@@ -25,7 +24,8 @@ class Foo extends HtmlElement {
 void testName(name) {
   Expect.throws(() {
     document.register(name, Foo);
-  }, null, 'Exception expected when register custom element with reserved name $name');
+  }, null,
+      'Exception expected when register custom element with reserved name $name');
 }
 
 main() {

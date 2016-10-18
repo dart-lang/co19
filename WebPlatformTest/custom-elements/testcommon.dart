@@ -12,7 +12,6 @@
 
 library test_common;
 
-import 'dart:html';
 export 'custom.dart';
 
 var HTML5_ELEMENTS = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
