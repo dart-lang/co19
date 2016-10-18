@@ -13,8 +13,6 @@
  * @assertion Template element can be a descendant of the body element
  */
 
-import 'dart:html';
-import "../../../Utils/expect.dart";
 import '../testcommon.dart';
 
 templateIsAChild(element) {

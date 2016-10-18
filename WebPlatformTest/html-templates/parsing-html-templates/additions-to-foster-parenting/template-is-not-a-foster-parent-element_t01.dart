@@ -14,8 +14,6 @@
  * rules of foster parenting should be applied
  */
 
-import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main () {

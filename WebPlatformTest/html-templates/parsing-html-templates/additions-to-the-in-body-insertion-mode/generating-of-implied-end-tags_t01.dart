@@ -14,8 +14,6 @@
  * end tags should be generated
  */
 
-import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -30,9 +28,12 @@ main() {
 
   assert_not_equals(template, null, 'Template element must be parsed');
 
-  assert_equals(doc.querySelector('#tbl'), null, 'Table element should not be available');
-  assert_equals(doc.querySelector('#tr'), null, 'TR element should not be available');
-  assert_equals(doc.querySelector('#td'), null, 'TD element should not be available');
+  assert_equals(doc.querySelector('#tbl'), null,
+      'Table element should not be available');
+  assert_equals(doc.querySelector('#tr'), null,
+      'TR element should not be available');
+  assert_equals(doc.querySelector('#td'), null,
+      'TD element should not be available');
 
   assert_not_equals(template.content.querySelector('#tbl'), null,
     'Template should contain table element');
@@ -49,13 +50,15 @@ main() {
     var doc = newHTMLDocument();
 
     //No end </div> tag. Should be added implicitly
-    doc.body.innerHtml = '<template id="tpl"><div id="dv">Div content</template>';
+    doc.body.innerHtml =
+      '<template id="tpl"><div id="dv">Div content</template>';
 
     var template = doc.querySelector('#tpl');
 
     assert_not_equals(template, null, 'Template element must be parsed');
 
-    assert_equals(doc.querySelector('#dv'), null, 'DIV element should not be available');
+    assert_equals(doc.querySelector('#dv'), null,
+        'DIV element should not be available');
 
     assert_not_equals(template.content.querySelector('#dv'), null,
       'Template should contain DIV element');
@@ -67,13 +70,15 @@ main() {
     var doc = newHTMLDocument();
 
     //No end </div> tag. Should be added implicitly after text content
-    doc.body.innerHtml = '<template id="tpl">Template text<div id="dv">Div content</template>';
+    doc.body.innerHtml =
+      '<template id="tpl">Template text<div id="dv">Div content</template>';
 
     var template = doc.querySelector('#tpl');
 
     assert_not_equals(template, null, 'Template element must be parsed');
 
-    assert_equals(doc.querySelector('#dv'), null, 'DIV element should not be available');
+    assert_equals(doc.querySelector('#dv'), null,
+        'DIV element should not be available');
 
     var div = template.content.querySelector('#dv');
 
@@ -87,7 +92,8 @@ main() {
     var doc = newHTMLDocument();
 
     // Wrong end tag. Correct end tag must be added implicitly, wrong one ignored
-    doc.body.innerHtml = '<template id="tpl"><div id="dv">Div content</span></template>';
+    doc.body.innerHtml =
+      '<template id="tpl"><div id="dv">Div content</span></template>';
 
     var template = doc.querySelector('#tpl');
 
@@ -96,7 +102,8 @@ main() {
     assert_equals(template.content.childNodes.length, 1,
       'Wrong number of template\'s children');
 
-    assert_equals(doc.querySelector('#dv'), null, 'DIV element should not be available');
+    assert_equals(doc.querySelector('#dv'), null,
+        'DIV element should not be available');
 
     assert_not_equals(template.content.querySelector('#dv'), null,
       'Template should contain DIV element');

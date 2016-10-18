@@ -14,8 +14,6 @@
  * if the current node is template
  */
 
-import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 doTest([doc, tagToTest, templateInnerHTML, id, tagName, bodiesNum, footerIsNull,
