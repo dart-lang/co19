@@ -31,10 +31,10 @@ Document DOM = (new DomParser()).parseFromString(
     '<?no-data ?>',
     'application/xml');
 
-var ROOT = DOM.documentElement;
+Element ROOT = DOM.documentElement;
 
-var PI = ((){
-  var res=DOM.firstChild;
+Node PI = ((){
+  Node res=DOM.firstChild;
   while (res.nodeType != Node.PROCESSING_INSTRUCTION_NODE) {
     res = res.nextNode;
     if (res==null) {
@@ -43,9 +43,9 @@ var PI = ((){
   }
   return res;
   })();
-var PI2 = DOM.lastChild;
-var COMMENT = ((){
-  var res=ROOT.firstChild;
+Node PI2 = DOM.lastChild;
+Node COMMENT = ((){
+  Node res=ROOT.firstChild;
   while (res.nodeType != Node.COMMENT_NODE && res.nodeType != Node.TEXT_NODE) {
     res = res.nextNode;
     if (res==null) {
@@ -55,17 +55,17 @@ var COMMENT = ((){
   return res;
   })();
 
-var CHILD1 = DOM.getElementsByTagName("CHILD1")[0];
-var ATTR1 = CHILD1.getAttribute("attr1");
-var ATTR31 = CHILD1.getAttribute("attr31");
-var CHILD2 = DOM.getElementsByTagName("CHILD2")[0];
-var ATTR2 = CHILD2.getAttribute("attr1");
-var IDATTR2 = CHILD2.getAttribute('CODE');
+Element CHILD1 = DOM.getElementsByTagName("CHILD1")[0] as Element;
+String ATTR1 = CHILD1.getAttribute("attr1");
+String ATTR31 = CHILD1.getAttribute("attr31");
+Element CHILD2 = DOM.getElementsByTagName("CHILD2")[0] as Element;
+String ATTR2 = CHILD2.getAttribute("attr1");
+String IDATTR2 = CHILD2.getAttribute('CODE');
 /* CHILD3 = DOM.getElementsByTagName("CHILD3")[0];
 if (!CHILD3)
     CHILD3 = DOM.getElementsByTagName("foo:CHILD3")[0];
 */
-var CHILD3 = ((){
+Node CHILD3 = ((){
     var childs3 = DOM.getElementsByTagName("CHILD3");
     if (childs3.length!=0) {
        return childs3[0];
@@ -74,7 +74,7 @@ var CHILD3 = ((){
   })();
 
 var text = CHILD1.lastChild;
-var LANG = DOM.getElementsByTagName("lang")[0];
+Element LANG = DOM.getElementsByTagName("lang")[0] as Element;
 var NONASCIIQNAME = DOM.getElementsByTagName("f\xf6\xf8")[0];
 
 var CHILDREN = [CHILD1, CHILD2, CHILD3, LANG];

@@ -16,10 +16,10 @@ void main() {
     var root = doc.createElement("div");
     root.append(doc.createElement("span"));
     root.append(doc.createElement("p"));
-    
-    var result = evaluator.evaluate(".//*", root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+
+    XPathResult result = evaluator.evaluate(".//*", root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
     shouldBe(result.invalidIteratorState, false);
-    shouldBe(result.iterateNext().tagName, 'span');
+    shouldBe((result.iterateNext() as Element).tagName, 'span');
     
     doc.documentElement.setAttribute("foo", "bar");
     
