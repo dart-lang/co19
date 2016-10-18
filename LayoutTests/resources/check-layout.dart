@@ -206,7 +206,7 @@ bool checkLayout(selectorList, [outputContainer]) {
     checkedLayout |= checkExpectedValues(node.parentNode, failures);
     checkedLayout |= checkSubtreeExpectedValues(node, failures);
 
-    var container = node.parentNode.className == 'container' ? node.parentNode : node;
+    Node container = (node.parentNode as Element).className == 'container' ? node.parentNode : node;
 
     var pre = document.createElement('pre');
     if (failures.length > 0) {
@@ -214,7 +214,7 @@ bool checkLayout(selectorList, [outputContainer]) {
       result = false;
     }
     pre.append(new Text(failures.length > 0
-        ? "FAIL:\n" + failures.join('\n') + '\n\n' + container.outerHtml
+        ? "FAIL:\n" + failures.join('\n') + '\n\n' + (container as Element).outerHtml
         : "PASS"));
 
     var referenceNode = container;

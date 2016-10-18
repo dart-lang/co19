@@ -3,10 +3,10 @@ import "dart:html";
 import "../../../testharness.dart";
 
 // Start the bidding at 42 for no particular reason.
-var lastID = 42;
+int lastID = 42;
 
 String canonicalize(String url) {
-  var id = ++lastID;
+  int id = ++lastID;
   document.body.appendHtml("<a id='$id' href='$url'></a>", treeSanitizer: new NullTreeSanitizer());
   Element elem = document.getElementById(id.toString());
   String res = (elem as AnchorElement).href;
@@ -16,9 +16,8 @@ String canonicalize(String url) {
 
 void setBaseURL(url) {
     // Remove any existing base elements.
-    var existingBase = document.getElementsByTagName('base');
-    while (existingBase.length) {
-        var element = existingBase[0];
+    List<Node> existingBase = document.getElementsByTagName('base');
+    for (Node element in existingBase) {
         element.remove();
     }
 
@@ -26,11 +25,11 @@ void setBaseURL(url) {
     document.body.appendHtml('<base href="$url">', treeSanitizer: new NullTreeSanitizer());
 }
 
-List segments(String url) {
-  var id = ++lastID;
-  String idstr=id.toString();
+List<String> segments(String url) {
+  int id = ++lastID;
+  String idstr = id.toString();
   document.body.appendHtml("<a id='$idstr' href='$url'></a>", treeSanitizer: new NullTreeSanitizer());
-  var elmt = document.getElementById(idstr);
+  AnchorElement elmt = document.getElementById(idstr) as AnchorElement;
   return [
     elmt.protocol,
     elmt.hostname,
