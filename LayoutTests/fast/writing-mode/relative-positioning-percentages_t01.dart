@@ -28,9 +28,9 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var test = document.getElementById("test");
-    var rect = test.getBoundingClientRect();
-    var parentRect = test.parentNode.getBoundingClientRect();
+    Element test = document.getElementById("test");
+    Rectangle rect = test.getBoundingClientRect();
+    Rectangle parentRect = (test.parentNode as Element).getBoundingClientRect();
     Expect.equals(52, rect.top - parentRect.top);
     print("test passed");
 }

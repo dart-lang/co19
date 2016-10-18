@@ -26,9 +26,9 @@ const String htmlEL = r'''
 ''';
 
 void test(id, x, y) {
-    var container = document.getElementById(id);
-    var range = document.caretRangeFromPoint(container.offsetLeft + x, container.offsetTop + y);
-    Expect.equals("target", range.startContainer.className);
+    Element container = document.getElementById(id);
+    Range range = document.caretRangeFromPoint(container.offsetLeft + x, container.offsetTop + y);
+    Expect.equals("target", (range.startContainer as Element).className);
 }
 
 void main() {
