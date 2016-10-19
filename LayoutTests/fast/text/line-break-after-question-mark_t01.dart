@@ -10,12 +10,12 @@
 import "../../testharness.dart";
 
 void main() {
-    var div = document.body.append(document.createElement("div"));
+    DivElement div = document.body.append(document.createElement("div")) as DivElement;
     div.style.width = "1px";
     div.style.fontFamily = "Ahem";
     div.style.fontSize = "25px";
     
-    var unallowedBreaks = [0x21, 0x22, 0x27, 0x29, 0x2c, 0x2e, 0x2f, 0x3a, 0x3b, 0x3f, 0x5d, 0x7d];
+    List<int> unallowedBreaks = [0x21, 0x22, 0x27, 0x29, 0x2c, 0x2e, 0x2f, 0x3a, 0x3b, 0x3f, 0x5d, 0x7d];
     
     bool allowsBreakBefore(i) {
         div.text = "A?" + new String.fromCharCode(i);

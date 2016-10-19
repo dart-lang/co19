@@ -20,11 +20,11 @@ const String htmlEL2 = r'''
 ''';
 
 void runTest(e) {
-    var range = document.createRange();
-    var divs = document.getElementsByClassName("zh-CN-div");
-    var pass = true;
-    for (var j = 0; j < divs.length; ++j) {
-        var div = divs[j];
+    Range range = document.createRange();
+    List<Node> divs = document.getElementsByClassName("zh-CN-div");
+    bool pass = true;
+    for (int j = 0; j < divs.length; ++j) {
+        DivElement div = divs[j] as DivElement;
         var length = div.text.length;
         var title = div.title.split(' ');
         for (var i = 0; i < length; ++i) {

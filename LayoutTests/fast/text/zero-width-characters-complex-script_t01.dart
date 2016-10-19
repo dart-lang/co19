@@ -19,13 +19,13 @@ The WebKit text system ensures this in a way that's independent of the fonts ins
 
 int testChar(a, b, ch) {
     // Strings a and b selected here do not have any 'interaction' between them.
-    var span = document.getElementById("characters");
-    span.firstChild.data = a + b;
-    var abWidth = span.offsetWidth;
-    span.firstChild.data = a;
-    var aWidth = span.offsetWidth;
-    span.firstChild.data = a + new String.fromCharCode(ch) + b;
-    var abWithChWidth = span.offsetWidth;
+    Element span = document.getElementById("characters");
+    (span.firstChild as Text).data = a + b;
+    int abWidth = span.offsetWidth;
+    (span.firstChild as Text).data = a;
+    int aWidth = span.offsetWidth;
+    (span.firstChild as Text).data = a + new String.fromCharCode(ch) + b;
+    int abWithChWidth = span.offsetWidth;
 
     if (abWithChWidth > abWidth)
         return 1;
@@ -36,11 +36,11 @@ int testChar(a, b, ch) {
 
 int testWithZeroWidthSpace(String a, String b) {
     int failedCount=0;
-    for (var i = 1; i < 32; ++i)
+    for (int i = 1; i < 32; ++i)
         if (i != 9 && i != 10 && i != 13)
             failedCount += testChar(a, b, i);
 
-    for (var i = 0x7F; i < 0xA0; ++i)
+    for (int i = 0x7F; i < 0xA0; ++i)
         failedCount += testChar(a, b, i);
     failedCount += testChar(a, b, 0xAD);
 

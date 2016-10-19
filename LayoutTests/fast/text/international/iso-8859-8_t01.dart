@@ -62,14 +62,14 @@ void checkClientRect(test, index, offset, dir, char) {
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var tests = document.getElementsByClassName('test');
-    for (var i = 0; i < tests.length; ++i) {
+    List<Node> tests = document.getElementsByClassName('test');
+    for (int i = 0; i < tests.length; ++i) {
         checkClientRect(tests[i], i, -1, "ltr", " ");
 
-        tests[i].style.direction = "rtl";
+        (tests[i] as DivElement).style.direction = "rtl";
         checkClientRect(tests[i], i, 10000, "rtl", " ");
 
-        tests[i].style.display = "none";
+        (tests[i] as DivElement).style.display = "none";
     }
     checkTestFailures();
 }
