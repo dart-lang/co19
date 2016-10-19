@@ -5,6 +5,7 @@
  */
 /**
  * @description Test how animation methods react to too few arguments
+ * @compile-error
  */
 import "dart:html";
 import "../../testcommon.dart";
