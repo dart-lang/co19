@@ -17,16 +17,16 @@ const String htmlEL1 = r'''
 const String htmlEL2 = r'''
 ''';
 
-Element computeCSSTableOffsetWidth(extraTableStyle) {
+int computeCSSTableOffsetWidth(extraTableStyle) {
     Element table = computeCSSTable(extraTableStyle);
-    var propertyValue = table.offsetWidth;
+    int propertyValue = table.offsetWidth;
     table.remove();
     return propertyValue;
 }
 
-Element computeCSSTableOffsetHeight(extraTableStyle) {
+int computeCSSTableOffsetHeight(extraTableStyle) {
     Element table = computeCSSTable(extraTableStyle);
-    var propertyValue = table.offsetHeight;
+    int propertyValue = table.offsetHeight;
     table.remove();
     return propertyValue;
 }
