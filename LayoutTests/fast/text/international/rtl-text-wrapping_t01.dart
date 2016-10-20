@@ -47,14 +47,14 @@ const String htmlEL2 = r'''
 ''';
 
 void testSection(id) {
-    var el = document.getElementById(id);
-    var testElements = el.queryAll('div');
-    var referenceHeight = el.getElementsByClassName('reference')[0].
+    Element el = document.getElementById(id);
+    ElementList<Element> testElements = el.querySelectorAll('div');
+    int referenceHeight = (el.getElementsByClassName('reference')[0] as Element).
         getBoundingClientRect().height;
 
     for (var i = 0; i < testElements.length; i++) {
-        var el = testElements[i];
-        var height = el.getBoundingClientRect().height;
+        Element el = testElements[i];
+        int height = el.getBoundingClientRect().height;
         shouldBe(height, referenceHeight, "$id[$i]");
     }
 }

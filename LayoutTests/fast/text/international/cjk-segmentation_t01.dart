@@ -28,7 +28,7 @@ void runTest(e) {
     var divs = document.getElementsByClassName("zh-CN-div");
     var pass = true;
     for (var j = 0; j < divs.length; ++j) {
-        var div = divs[j];
+        DivElement div = divs[j] as DivElement;
         var length = div.text.length;
         var title = div.title.split(' ');
         for (var i = 0; i < length; ++i) {

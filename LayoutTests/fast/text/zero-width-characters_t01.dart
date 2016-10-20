@@ -22,8 +22,8 @@ The WebKit text system ensures this in a way that's independent of the fonts ins
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var testString = "";
-    for (var i = 0; i < 32; ++i) // >
+    String testString = "";
+    for (int i = 0; i < 32; ++i) // >
         if (i != 9 && i != 10 && i != 13) // ;
             testString += new String.fromCharCode(i);
     testString += new String.fromCharCode(0x200B);
@@ -33,14 +33,14 @@ void main() {
     testString += new String.fromCharCode(0x200F);
     testString += new String.fromCharCode(0xFEFF);
     testString += new String.fromCharCode(0xFFFC);
-    var span = document.getElementById("characters");
-    var abWidth = span.offsetWidth;
-    span.firstChild.data = "a";
-    var aWidth = span.offsetWidth;
-    span.firstChild.data = "a" + testString + "b";
-    var abWithCharactersWidth = span.offsetWidth;
+    Element span = document.getElementById("characters");
+    int abWidth = span.offsetWidth;
+    (span.firstChild as Text).data = "a";
+    int aWidth = span.offsetWidth;
+    (span.firstChild as Text).data = "a" + testString + "b";
+    int abWithCharactersWidth = span.offsetWidth;
 
-    var testArea = document.getElementById("testArea");
+    Element testArea = document.getElementById("testArea");
     testArea.remove();
 
     Expect.isFalse(abWithCharactersWidth > abWidth,
