@@ -8,9 +8,7 @@
  * crash and should return a null pattern.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = getContext2d("canvas");
+  dynamic canvas = getContext2d("canvas");
   var pattern = canvas.createPatternFromImage(new ImageElement(), "repeat");
   shouldBeNull(pattern);
 }

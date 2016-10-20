@@ -6,13 +6,10 @@
 /** 
  * @description Test rgba() color parsing results
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
    parse(rgba) {
     ctx.globalCompositeOperation = 'copy';

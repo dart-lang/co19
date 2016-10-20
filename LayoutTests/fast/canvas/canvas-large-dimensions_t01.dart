@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("c");
+  dynamic canvas = document.getElementById("c");
   var x, y, w=1, h=1;
 
   testHeight(canvas, height) {

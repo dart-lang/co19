@@ -7,12 +7,10 @@
  * @description Test the behavior of closePath on a path with a single point
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   document.body.append(ctx.canvas);
 

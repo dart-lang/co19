@@ -9,7 +9,6 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var ctx;
@@ -19,7 +18,7 @@ main() {
     shouldBeList(data, [r,g,b,a]);
   }
 
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   document.body.append(canvas);
   canvas.width = 100;
   canvas.height = 100;

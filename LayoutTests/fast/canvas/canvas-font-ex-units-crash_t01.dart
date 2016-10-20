@@ -6,13 +6,10 @@
 /** 
  * @description Test that setting a font with size in 'ex' units doesn't crash.
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.font = "5ex sans-serif";
 

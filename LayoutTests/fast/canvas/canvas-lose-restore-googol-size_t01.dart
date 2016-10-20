@@ -52,15 +52,13 @@ main() {
     asyncEnd();
   }
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   canvas.addEventListener('contextlost', contextLost);
   canvas.addEventListener('contextrestored', contextRestored);
   ctx = canvas.getContext('2d');
   lostEventHasFired = false;
   verifyContextLost(false);
 
-  var googol = Math.pow(10,100);
-  //var bigValue = googol;
   var bigValue = Math.pow(10,8);
   canvas.width = bigValue;
   canvas.height = bigValue;

@@ -8,9 +8,7 @@
  * source/destination of a HTMLCanvasElement
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +19,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas2 = document.createElement('canvas');
+  dynamic canvas2 = document.createElement('canvas');
   canvas2.width = 100;
   canvas2.height = 100;
   var ctx2 = canvas2.getContext('2d');
@@ -30,7 +28,7 @@ main() {
   ctx2.fillStyle = '#0f0';
   ctx2.fillRect(0, 50, 100, 50);
 
-  var canvas = getContext2d("canvas");
+  dynamic canvas = getContext2d("canvas");
   canvas.drawImageScaledFromSource(canvas2, 100, 50, -50, 50, 0, 0, 50, 50);
   canvas.drawImageScaledFromSource(canvas2, 100, 100, -50, -50, 0, 100, 50, -50);
   canvas.drawImageScaledFromSource(canvas2, 0, 100, 100, -50, 100, 100, -50, -50);

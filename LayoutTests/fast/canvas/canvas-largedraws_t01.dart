@@ -8,18 +8,16 @@
  */
 import "dart:html";
 import "dart:math" as Math;
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   newCanvasContext() {
-    var canvas = document.createElement("canvas");
+    dynamic canvas = document.createElement("canvas");
     canvas.width = 100;
     canvas.height = 100;
     return canvas.getContext("2d");
   }
 
-  var ctx = newCanvasContext();
+  dynamic ctx = newCanvasContext();
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);
   ctx.moveTo(10500000000, 10500000000);
@@ -28,7 +26,7 @@ main() {
   ctx.fill();
   ctx.getImageData(50, 25, 1, 1);
 
-  ctx = newCanvasContext();
+  dynamic = newCanvasContext();
   ctx.fillStyle = '#0f0';
   ctx.scale(4500000000, 4500000000);
   ctx.moveTo(0, 0.5);
@@ -36,7 +34,7 @@ main() {
   ctx.stroke();
   ctx.getImageData(50, 25, 1, 1);
 
-  ctx = newCanvasContext();
+  dynamic = newCanvasContext();
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);
   ctx.scale(2, -4500000000);

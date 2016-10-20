@@ -18,7 +18,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var c = document.getElementById("c");
+  dynamic c = document.getElementById("c");
 
   resize() {
     c.width  =  5000;

@@ -6,10 +6,7 @@
 /** 
  * @description This test checks invalid colors on gradients.
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var gradient = createContext2d("canvas").createLinearGradient(0, 0, 150, 0);

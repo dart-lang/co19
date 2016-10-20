@@ -6,13 +6,10 @@
 /** 
  * @description Series of tests to ensure correct behaviour of canvas.setTransform()
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   debug("Reset the CTM to the initial matrix");
   ctx.beginPath();

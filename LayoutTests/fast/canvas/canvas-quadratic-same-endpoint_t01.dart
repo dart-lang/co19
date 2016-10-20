@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,8 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("canvas");
-  var data;
+  dynamic ctx = getContext2d("canvas");
 
   shouldBeYellow(x,y)
   {

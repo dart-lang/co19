@@ -11,8 +11,9 @@ import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 
-var blendModes = ["source-over", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn",
-    "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"];
+var blendModes = ["source-over", "multiply", "screen", "overlay", "darken",
+    "lighten", "color-dodge", "color-burn", "hard-light", "soft-light",
+    "difference", "exclusion", "hue", "saturation", "color", "luminosity"];
 
 // Helper functions for separate blend mode
 
@@ -59,7 +60,7 @@ initHelpers() {
       return separateBlendFunctions['screen'](s, 2 * b - 1);
     },
     'softLight': (b, s) {
-      var c = 0;
+      double c = 0.0;
       if(b <= 0.25)
         c = ((16 * b - 12) * b + 4) * b;
       else
@@ -82,7 +83,8 @@ initHelpers() {
 applyBlendMode(b, s, blendFunc) {
   var resultedColor = [0, 0, 0, 255];
   for (var i = 0; i < 3; ++i)
-    resultedColor[i] = 255 * (s[3] * (1 - b[3]) * s[i] + b[3] * s[3] * blendFunc(b[i], s[i]) + (1 - s[3]) * b[3] * b[i]);
+    resultedColor[i] = 255 * (s[3] * (1 - b[3]) * s[i] + b[3] * s[3] *
+        blendFunc(b[i], s[i]) + (1 - s[3]) * b[3] * b[i]);
   return resultedColor;
 }
 
@@ -167,12 +169,14 @@ var nonSeparateBlendFunctions = {
   'hue': (b, s) {
     var bCopy = [b[0], b[1], b[2]];
     var sCopy = [s[0], s[1], s[2]];
-    return setLuminosity(setSaturation(sCopy, saturation(bCopy)), luminosity(bCopy));
+    return setLuminosity(
+        setSaturation(sCopy, saturation(bCopy)), luminosity(bCopy));
   },
   'saturation': (b, s) {
     var bCopy = [b[0], b[1], b[2]];
     var sCopy = [s[0], s[1], s[2]];
-    return setLuminosity(setSaturation(bCopy, saturation(sCopy)), luminosity(bCopy));
+    return setLuminosity(
+        setSaturation(bCopy, saturation(sCopy)), luminosity(bCopy));
   },
   'color': (b, s) {
     var bCopy = [b[0], b[1], b[2]];
@@ -239,7 +243,7 @@ drawSourceColorRectOverShadow(context) {
 }
 
 drawColorImageInContext(color, context, callback) {
-  var cvs = document.createElement("canvas");
+  dynamic cvs = document.createElement("canvas");
   var ctx = cvs.getContext("2d");
   drawColorInContext(color, ctx);
   var imageURL = cvs.toDataUrl();
@@ -263,7 +267,7 @@ drawSourceColorImageInContext(context, callback) {
 }
 
 drawColorPatternInContext(color, context, callback) {
-  var cvs = document.createElement("canvas");
+  dynamic cvs = document.createElement("canvas");
   var ctx = cvs.getContext("2d");
   drawColorInContext(color, ctx);
   var imageURL = cvs.toDataUrl();
@@ -308,16 +312,22 @@ drawSourceColorGradientInContext(context) {
 blendColors(backdrop, source, blendModeIndex) {
   if (blendModeIndex < separateBlendmodes.length)
     return separateBlendColors(backdrop, source, blendModeIndex);
-  return nonSeparateBlendColors(backdrop, source, blendModeIndex - separateBlendmodes.length);
+  return nonSeparateBlendColors(backdrop, source,
+      blendModeIndex - separateBlendmodes.length);
 }
 
 separateBlendColors(backdrop, source, blendModeIndex) {
-  return applyBlendMode(backdrop, source, separateBlendFunctions[separateBlendmodes[blendModeIndex]]);
+  return applyBlendMode(backdrop, source,
+      separateBlendFunctions[separateBlendmodes[blendModeIndex]]);
 }
 
 nonSeparateBlendColors(backdrop, source, blendModeIndex) {
-  var expectedColor = nonSeparateBlendFunctions[nonSeparateBlendModes[blendModeIndex]](backdrop, source);
+  var expectedColor = nonSeparateBlendFunctions[
+      nonSeparateBlendModes[blendModeIndex]](backdrop, source);
   for (var i = 0; i < 3; ++i)
-    expectedColor[i] = source[3] * (1 - backdrop[3]) * source[i] + source[3] * backdrop[3] * expectedColor[i] + (1 - source[3]) * backdrop[3] * backdrop[i];
-  return [round(255 * expectedColor[0]), round(255 * expectedColor[1]), round(255 * expectedColor[2]), 255];
+    expectedColor[i] = source[3] * (1 - backdrop[3]) * source[i] + source[3] *
+        backdrop[3] * expectedColor[i] + (1 - source[3]) * backdrop[3] *
+        backdrop[i];
+  return [round(255 * expectedColor[0]), round(255 * expectedColor[1]),
+      round(255 * expectedColor[2]), 255];
 }

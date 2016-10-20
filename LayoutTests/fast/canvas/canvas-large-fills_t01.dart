@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("c");
+  dynamic canvas = document.getElementById("c");
   var ctx = canvas.getContext("2d");
 
   clearContextToGreen() {
@@ -27,17 +26,17 @@ main() {
   }
 
   var testData = [
-  {'compositeMode': 'source-over', 'expected': [0, 0, 255]},
-  {'compositeMode': 'source-in', 'expected': [0, 0, 255]},
-  {'compositeMode': 'source-out', 'expected': [0, 0, 0]},
-  {'compositeMode': 'source-atop', 'expected': [0, 0, 255]},
-  {'compositeMode': 'destination-over', 'expected': [0, 255, 0]},
-  {'compositeMode': 'destination-in', 'expected': [0, 255, 0]},
-  {'compositeMode': 'destination-out', 'expected': [0, 0, 0]},
-  {'compositeMode': 'destination-atop', 'expected': [0, 255, 0]},
-  {'compositeMode': 'lighter', 'expected': [0, 255, 255]},
-  {'compositeMode': 'copy', 'expected': [0, 0, 255]},
-  {'compositeMode': 'xor', 'expected': [0, 0, 0]},
+      {'compositeMode': 'source-over', 'expected': [0, 0, 255]},
+      {'compositeMode': 'source-in', 'expected': [0, 0, 255]},
+      {'compositeMode': 'source-out', 'expected': [0, 0, 0]},
+      {'compositeMode': 'source-atop', 'expected': [0, 0, 255]},
+      {'compositeMode': 'destination-over', 'expected': [0, 255, 0]},
+      {'compositeMode': 'destination-in', 'expected': [0, 255, 0]},
+      {'compositeMode': 'destination-out', 'expected': [0, 0, 0]},
+      {'compositeMode': 'destination-atop', 'expected': [0, 255, 0]},
+      {'compositeMode': 'lighter', 'expected': [0, 255, 255]},
+      {'compositeMode': 'copy', 'expected': [0, 0, 255]},
+      {'compositeMode': 'xor', 'expected': [0, 0, 0]},
   ];
 
   toHexString(number) {

@@ -8,12 +8,10 @@
  * text when maxWidth is invalid.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
   var canvasWidth = 100;
   var canvasHeight = 50;

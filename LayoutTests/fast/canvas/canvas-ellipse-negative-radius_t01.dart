@@ -7,12 +7,10 @@
  * @description Tests CanvasPathMethods ellipse with negative radii.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   var ctx = canvas.getContext('2d');
 
   shouldNotThrow(() => ctx.ellipse(10, 10, 10, 5, 0, 0, 1, false));
@@ -23,5 +21,6 @@ main() {
   shouldThrow(() => ctx.ellipse(10, 10, 0, -1.5, 0, 0, 1, false));
   shouldThrow(() => ctx.ellipse(10, 10, -2, -5, 0, 0, 1, false));
 
-  // FIXME: When this is exposed on Path as well as CanvasRenderingContext2D, add tests for Path as well.
+  // FIXME: When this is exposed on Path as well as CanvasRenderingContext2D,
+  // add tests for Path as well.
 }

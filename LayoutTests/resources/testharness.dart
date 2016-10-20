@@ -1,7 +1,6 @@
 
 library testharness;
 
-import 'dart:html';
 import '../../Utils/expect.dart';
 
 test(testFunc(), testName) {

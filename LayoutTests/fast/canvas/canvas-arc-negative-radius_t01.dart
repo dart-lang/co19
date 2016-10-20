@@ -7,11 +7,10 @@
  * @description Tests CanvasPathMethods arc and arcTo with negative radii.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   var ctx = canvas.getContext('2d');
 
   shouldNotThrow(() => ctx.arc(10, 10, 5, 0, 1, false));
@@ -23,7 +22,7 @@ main() {
   shouldThrow(() => ctx.arcTo(10, 10, 20, 20, -5));
 
   //var path = new Path2D();
-  var path = new Path();
+  var path = new Path2D();
 
   shouldNotThrow(() => path.arc(10, 10, 5, 0, 1, false));
   shouldNotThrow(() => path.arc(10, 10, 0, 0, 1, false));

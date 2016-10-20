@@ -8,7 +8,6 @@
  * modes.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "resources/canvas-composite-image-common.dart";

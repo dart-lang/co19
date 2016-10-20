@@ -10,12 +10,11 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBeAround(a, b) => shouldBeApprox(a, b, 15);
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '600');
   canvas.setAttribute('height', '1100');

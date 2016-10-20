@@ -10,9 +10,7 @@
  * green box.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   pixelValueAt(context, x, y) {
@@ -27,7 +25,7 @@ main() {
     shouldBeList(pixel, expectedPixel);
   }
 
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.height = 100;
   canvas.width = 500;
   canvas.style.height = "100";

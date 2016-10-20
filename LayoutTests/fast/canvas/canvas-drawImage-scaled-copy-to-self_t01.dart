@@ -9,12 +9,10 @@
  * crbug.com/330711
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.width = 10;
   canvas.height = 10;
   var ctx = canvas.getContext('2d');

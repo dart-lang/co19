@@ -7,9 +7,7 @@
  * @description Test passes if DRT doesn't crash.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +15,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var can = document.querySelector("#can");
+  dynamic can = document.querySelector("#can");
   var ctx = can.getContext("2d");
   ctx.fillStyle = "green";
   ctx.fillRect(0, 0, 300, 300);

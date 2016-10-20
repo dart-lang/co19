@@ -7,12 +7,10 @@
  * @description Test of various canvas graphics context calls for setting colors.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   var context = canvas.getContext('2d');
 
   clear()

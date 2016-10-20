@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var context;
@@ -32,7 +31,7 @@ main() {
   }
 
   createCanvasImage(width, height, colour) {
-    var c = document.createElement("canvas");
+    dynamic c = document.createElement("canvas");
     c.width = width;
     c.height = height;
     var context = c.getContext("2d");
@@ -44,7 +43,7 @@ main() {
   var green1x1 = createCanvasImage(1, 1, "green");
   var green100x50 = createCanvasImage(100, 50, "green");
 
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.width = 100;
   canvas.height = 50;
   context = canvas.getContext("2d");

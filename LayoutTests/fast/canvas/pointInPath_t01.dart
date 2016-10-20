@@ -7,9 +7,7 @@
  * @description Series of tests for Canvas.isPointInPath
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +15,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("canvas");
+  dynamic ctx = getContext2d("canvas");
   ctx.save();
   debug("Rectangle at (0,0) 20x20");
   ctx.rect(0, 0, 20, 20);

@@ -8,9 +8,7 @@
  * using fillText() regardless of blur amount.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,7 +17,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   CanvasElement canvas = document.query('canvas');
-  var ctx = canvas.getContext('2d');
+  dynamic ctx = canvas.getContext('2d');
   ctx.font = 'bold 128px sans-serif';
   ctx.shadowColor = 'red';
   ctx.shadowOffsetY = 100;

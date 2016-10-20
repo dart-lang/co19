@@ -15,8 +15,8 @@ main() {
       <canvas id="test" width="100" height="100"></canvas><br />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("test");
-  var context = canvas.getContext("2d");
+  dynamic canvas = document.getElementById("test");
+  dynamic context = canvas.getContext("2d");
   context.fillStyle = '#f00';
   context.fillRect(0, 0, canvas.width, canvas.height);
   //try {

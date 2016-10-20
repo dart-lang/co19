@@ -14,7 +14,7 @@ main() {
       <canvas id="canvas" width=600 height=300>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById('canvas');
+  dynamic canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
   var Infinity = double.INFINITY;

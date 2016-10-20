@@ -7,13 +7,10 @@
  * @description Test the handling of negative sourceRect offset in
  * getImageData().
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.fillStyle = 'red';
   ctx.fillRect(0, 0, 100, 100);

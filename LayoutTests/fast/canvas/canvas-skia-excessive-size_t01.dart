@@ -8,9 +8,7 @@
  * creation of an excessively large canvas.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,11 +21,11 @@ main() {
 
   test()
   {
-    var canvas = document.getElementById("bigCanvas");
+    dynamic canvas = document.getElementById("bigCanvas");
     var width = canvas.width;
     // We need to perform a context fetch to force allocation of
     // canvas resources.
-    if (canvas.getContext != null) {
+    if (canvas.getContext() != null) {
       var ctx = canvas.getContext("2d");
       shouldBeNonNull(ctx);
     }

@@ -8,7 +8,6 @@
  * blend modes when drawing an image on top of another.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "canvas-blending-helpers.dart";
@@ -20,7 +19,8 @@ main() {
   }
 
   checkBlendModeResult(i, context, sigma) {
-    var expectedColor = blendColors([129 / 255, 1, 129 / 255, 1], [1, 129 / 255, 129 / 255, 1], i);
+    var expectedColor = blendColors(
+        [129 / 255, 1, 129 / 255, 1], [1, 129 / 255, 129 / 255, 1], i);
     var ac = actualColor(0, 0);
     shouldBeCloseTo(ac[0], expectedColor[0], sigma);
     shouldBeCloseTo(ac[1], expectedColor[1], sigma);
@@ -50,8 +50,7 @@ main() {
   }
 
   runTest() {
-    var canvas = document.createElement("canvas");
-    var sigma = 5;
+    dynamic canvas = document.createElement("canvas");
     canvas.width = 10;
     canvas.height = 10;
     context = canvas.getContext("2d");

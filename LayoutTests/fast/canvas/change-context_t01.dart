@@ -7,18 +7,15 @@
  * @description This test ensures that changing the context does not crash.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <canvas id="canvas"></canvas><br />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var ctx1 = canvas.getContext("2d");
-  var ctx2 = canvas.getContext("");
   ctx1.save();
 
   canvas.remove();

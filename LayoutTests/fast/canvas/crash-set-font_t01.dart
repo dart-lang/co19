@@ -15,7 +15,7 @@ main() {
   document.body.setInnerHtml('''
       <canvas id="canvas"></canvas>
       ''', treeSanitizer: new NullTreeSanitizer());
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var oContext2d = canvas.getContext("2d");
 
   oContext2d.font = "small-caps .0ex G";

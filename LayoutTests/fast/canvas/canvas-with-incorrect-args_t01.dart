@@ -8,9 +8,7 @@
  * methods when given 0, Infinity, or NaN as parameters.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 var NaN = double.NAN;
 var Infinity = double.INFINITY;
@@ -25,7 +23,7 @@ main() {
       <pre id="console"></pre>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("test");
+  dynamic canvas = document.getElementById("test");
   var context = canvas.getContext("2d");
   context.fillStyle = '#f00';
   context.fillRect(0, 0, canvas.width, canvas.height);
@@ -474,7 +472,7 @@ main() {
   }
   context.closePath();
 
-  var canvas2 = document.createElement('canvas');
+  dynamic canvas2 = document.createElement('canvas');
   canvas2.width = 0;
   canvas2.height = 0;
   try {

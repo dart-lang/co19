@@ -19,9 +19,9 @@ main() {
 
   // This is a regression test for bug https://bugs.webkit.org/show_bug.cgi?id=89018
 
-  var dstCanvas = document.getElementById("destination");
+  dynamic dstCanvas = document.getElementById("destination");
   var dstCtx = dstCanvas.getContext('2d');
-  var srcCanvas = document.getElementById("source");
+  dynamic srcCanvas = document.getElementById("source");
   var srcCtx = srcCanvas.getContext('2d');
 
   draw()

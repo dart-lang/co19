@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 var pass = testPassed;
 var fail = testFailed;
@@ -18,7 +17,7 @@ setFillColor(ctx,r,g,b,a) =>
   ctx.setFillColorRgb(round(r*255), round(g*255), round(b*255), a);
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.width = 200;
   canvas.height = 200;
   var context = canvas.getContext("2d");

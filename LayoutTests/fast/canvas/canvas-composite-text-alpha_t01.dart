@@ -8,7 +8,6 @@
  * on text
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 
@@ -324,12 +323,11 @@ main() {
       tableElement.append(trMessageElement);
 
       for (var column = 0; column < inputColors.length; column++) {
-        var test = '$type-$column';
         var inputColor = inputColors[column];
         var expectedColor = expectedColors[row][column];
 
         // Create canvas element for actual color.
-        var actualCanvasElement = document.createElement("canvas");
+        dynamic actualCanvasElement = document.createElement("canvas");
         actualCanvasElement.setAttribute("width", "25");
         actualCanvasElement.setAttribute("height", "25");
         var tdElement = document.createElement("td");
@@ -337,7 +335,7 @@ main() {
         trCanvasElement.append(tdElement);
 
         // Create canvas element for expected color.
-        var expectedCanvasElement = document.createElement("canvas");
+        dynamic expectedCanvasElement = document.createElement("canvas");
         expectedCanvasElement.setAttribute("width", "25");
         expectedCanvasElement.setAttribute("height", "25");
         tdElement = document.createElement("td");
@@ -351,7 +349,7 @@ main() {
         tdElement.append(messageElement);
         trMessageElement.append(tdElement);
 
-        var ctx = expectedCanvasElement.getContext("2d");
+        dynamic ctx = expectedCanvasElement.getContext("2d");
         ctx.lineWidth = 3;
         // Draw expected image.
         ctx.globalCompositeOperation = "copy";
@@ -412,7 +410,7 @@ main() {
         }
 
         // Dump colors into text area for debugging purpose.
-        var debugText = document.getElementById("debug");
+        dynamic debugText = document.getElementById("debug");
         img = ctx.getImageData(0, 0, 1, 1).data;
         debugText.value += img.join(",") + "\n";
         img = ctx.getImageData(12, 12, 1, 1).data;

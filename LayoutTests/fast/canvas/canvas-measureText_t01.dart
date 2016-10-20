@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("test");
+  dynamic canvas = document.getElementById("test");
   var context = canvas.getContext("2d");
   for (var x = 0; x < 100; x++) {
     context.restore();

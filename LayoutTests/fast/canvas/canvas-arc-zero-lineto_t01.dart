@@ -17,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("canvas");
+  dynamic ctx = getContext2d("canvas");
   ctx.lineWidth = 4;
 
   shouldBeBlackPixel(x,y)

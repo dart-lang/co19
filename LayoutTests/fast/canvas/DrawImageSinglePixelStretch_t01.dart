@@ -21,7 +21,8 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var image, ctx;
+  var image;
+  dynamic ctx;
 
   areEqual(a, b) {
     return a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3];
@@ -68,7 +69,7 @@ main() {
   }
 
   init () {
-    var canvas = document.getElementById("c");
+    dynamic canvas = document.getElementById("c");
     canvas.width = 200;
     canvas.height = 50;
     ctx = canvas.getContext('2d');

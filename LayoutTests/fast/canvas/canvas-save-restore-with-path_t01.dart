@@ -10,7 +10,6 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var context;
@@ -33,7 +32,7 @@ main() {
     shouldBeList(getPixel(x, y), colour);
   }
 
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.width = 100;
   canvas.height = 100;
 

@@ -9,13 +9,13 @@
  * @note no Window.createImageBitmap (yet?)
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
-  var myImage, bitmap, ctx;
+  var myImage, bitmap;
+  dynamic ctx;
 
   drawBitmap(imageBitmap) {
     bitmap = imageBitmap;

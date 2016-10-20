@@ -7,12 +7,10 @@
  * @description Series of tests to ensure that context.font is consistent.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
   var fontNames = ["bold 13px Arial",
       "italic 13px Arial",

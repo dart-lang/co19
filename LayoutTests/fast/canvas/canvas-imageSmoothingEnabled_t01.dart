@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   debug("Test that the default value is true.");
   shouldBe(ctx.imageSmoothingEnabled, true);
@@ -26,7 +25,7 @@ main() {
   ctx.restore();
   shouldBe(ctx.imageSmoothingEnabled, false);
 
-  var image = document.createElement('canvas');
+  dynamic image = document.createElement('canvas');
   image.width = 2;
   image.height = 1;
 
@@ -49,7 +48,7 @@ main() {
 
 
   debug("New canvas element created.");
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   canvas.width = 4;
   canvas.height = 1;
   ctx = canvas.getContext('2d');

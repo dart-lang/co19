@@ -9,13 +9,12 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas2 = document.createElement('canvas');
+  dynamic canvas2 = document.createElement('canvas');
   canvas2.width = 100;
   canvas2.height = 100;
-  var ctx2 = canvas2.getContext('2d');
+  dynamic ctx2 = canvas2.getContext('2d');
   ctx2.fillStyle = '#0f0';
   ctx2.fillRect(0, 0, 50, 50);
   ctx2.fillRect(50, 50, 50, 50);
@@ -23,7 +22,7 @@ main() {
   ctx2.fillRect(50, 0, 50, 50);
   ctx2.fillRect(0, 50, 50, 50);
 
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.save();
   ctx.transform(2, 0, 0, 2, 0, 0);

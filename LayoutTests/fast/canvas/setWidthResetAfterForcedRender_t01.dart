@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "../../resources/run-after-display.dart";
@@ -27,7 +26,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   repaintTest() {
-    var canvas = document.getElementById('c1');
+    dynamic canvas = document.getElementById('c1');
     var offset = document.body.offsetLeft; // Forces layout
     canvas.width = canvas.width; // Should wipe canvas clean
     asyncEnd();
@@ -37,7 +36,7 @@ main() {
 
   asyncStart();
 
-  var canvas = document.getElementById('c1');
+  dynamic canvas = document.getElementById('c1');
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);

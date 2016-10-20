@@ -7,12 +7,10 @@
  * @description Test that invalid canvas getContext() requests return null.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
 
   shouldBe(canvas.getContext(''), null);
   shouldBe(canvas.getContext('2d#'), null);

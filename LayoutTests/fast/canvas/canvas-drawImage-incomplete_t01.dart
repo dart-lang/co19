@@ -8,12 +8,10 @@
  * video
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = 'red';
   ctx.fillRect(0,0,150,150);

@@ -23,7 +23,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   draw(w, h) {
-    var canvas = document.getElementById("canvas");
+    dynamic canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("4d");
     shouldBeNull(ctx);
   }

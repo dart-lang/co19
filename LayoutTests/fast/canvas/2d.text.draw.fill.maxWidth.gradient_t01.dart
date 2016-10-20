@@ -59,7 +59,7 @@ main() {
     asyncEnd();
   }
 
-  var canvas = document.getElementById('c');
+  CanvasElement canvas = document.getElementById('c');
   ctx = canvas.getContext("2d");
   ctx.font = "100px Ahem";
 

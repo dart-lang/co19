@@ -7,13 +7,10 @@
  * @description Series of tests to ensure correct behavior of
  * canvas.fillRect().
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   // Fill rect with height = width = 0.
   debug("Test canvas.fillRect() with height = width = 0.");

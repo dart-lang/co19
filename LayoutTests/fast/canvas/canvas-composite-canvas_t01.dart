@@ -8,7 +8,6 @@
  * modes.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "resources/canvas-composite-image-common.dart";
@@ -59,8 +58,8 @@ main() {
   }
 
   setupTest() {
-    var imageElement = document.getElementById('image');
-    var canvas = document.getElementById('source-canvas');
+    dynamic imageElement = document.getElementById('image');
+    dynamic canvas = document.getElementById('source-canvas');
     canvas.width = imageElement.width;
     canvas.height = imageElement.height;
     var context = canvas.getContext('2d');

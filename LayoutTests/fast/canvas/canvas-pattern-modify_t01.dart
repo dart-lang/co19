@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // Based on http://philip.html5.org/tests/canvas/suite/tests/2d.pattern.modify.canvas1.html
@@ -33,7 +32,7 @@ main() {
   }
 
   createCanvasImage(width, height, colour) {
-    var c = document.createElement("canvas");
+    dynamic c = document.createElement("canvas");
     c.width = width;
     c.height = height;
     var context = c.getContext("2d");
@@ -42,7 +41,7 @@ main() {
     return c;
   }
 
-  var canvas = createCanvasImage(100, 50, '#fff');
+  dynamic canvas = createCanvasImage(100, 50, '#fff');
   var ctx = canvas.getContext('2d');
 
   var patternCanvas = createCanvasImage(100, 50, '#0f0');

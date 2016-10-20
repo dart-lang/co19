@@ -8,9 +8,7 @@
  * curves with coincident endpoints
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,7 +17,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var ctx = getContext2d("canvas");
-  var data;
 
   shouldBeYellow(x,y)
   {

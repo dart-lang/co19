@@ -55,7 +55,7 @@ main() {
   }
 
 
-  var canvas = document.getElementById('c');
+  dynamic canvas = document.getElementById('c');
   ctx = canvas.getContext("2d");
   ctx.font = "200px Ahem";
 

@@ -7,20 +7,15 @@
  * @description Series of tests to ensure correct behaviour of calling canvas
  * methods with illegal arguments (Infintiy and NaN)
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 var NaN = double.NAN;
 var Inf = double.INFINITY;
 var NegInf = double.NEGATIVE_INFINITY;
 
 main() {
-  var ctx;
-
   debug("Test scale.");
-  ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.scale(NaN, 1);
   ctx.fillStyle = 'green';

@@ -7,12 +7,10 @@
  * @description Series of tests to ensure that no gradient is drawn without
  * path
  */
-import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.fillStyle = 'green';
   ctx.fillRect(0, 0, 100, 100);

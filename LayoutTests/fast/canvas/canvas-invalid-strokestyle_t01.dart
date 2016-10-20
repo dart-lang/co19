@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("canvas");
+  dynamic ctx = getContext2d("canvas");
   ctx.strokeStyle = 'rgb(0, 255, 0)';
   ctx.strokeStyle = 'nonsense';
   ctx.lineWidth = 200;

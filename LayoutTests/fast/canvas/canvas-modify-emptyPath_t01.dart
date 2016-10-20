@@ -9,10 +9,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   canvas.width=300;
   canvas.height=300;
   var ctx = canvas.getContext('2d');
