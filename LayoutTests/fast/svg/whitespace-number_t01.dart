@@ -26,9 +26,9 @@ const String htmlEL2 = r'''
 ''';
 
 // test length values
-var EPSILON = Math.pow(2, -24); // float epsilon
-var whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
-var garbage = [ "a", "e", "foo", ")90" ];
+double EPSILON = Math.pow(2, -24); // float epsilon
+List<String> whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
+List<String> garbage = [ "a", "e", "foo", ")90" ];
 
 void main() {
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
@@ -38,7 +38,7 @@ void main() {
 		 0, // expected default value
 		 whitespace,
 		 [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
-		 [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+		 [ double.NAN.toString(), double.INFINITY.toString(), double.NEGATIVE_INFINITY.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
 		 [ "" ], // valid units
          garbage,
 		 (elm, value) { assert_approx_equals(elm.gradientOffset.baseVal, double.parse(value), EPSILON); },
@@ -50,7 +50,7 @@ void main() {
 		 0, // expected default value
 		 whitespace,
 		 [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
-		 [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+		 [ double.NAN.toString(), double.INFINITY.toString(), double.NEGATIVE_INFINITY.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
 		 [ "%" ], // valid units
 		 garbage,
 		 (elm, value) {
