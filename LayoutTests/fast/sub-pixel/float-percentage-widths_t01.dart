@@ -31,13 +31,13 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var children = document.getElementsByClassName('child');
-    var firstChildTop = children[0].getBoundingClientRect().top;
-    var lastChildTop = children[2].getBoundingClientRect().top;
+    List<Node> children = document.getElementsByClassName('child');
+    var firstChildTop = (children[0] as Element).getBoundingClientRect().top;
+    var lastChildTop = (children[2] as Element).getBoundingClientRect().top;
     if (firstChildTop == lastChildTop)
         testPassed('All boxes are on the same line.');
     else
-        shouldBe(children[0].getBoundingClientRect().top, children[2].getBoundingClientRect().top);
+        shouldBe(firstChildTop, lastChildTop);
 
     checkTestFailures();
 }

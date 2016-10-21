@@ -35,19 +35,19 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var testElement = document.getElementById('test');
-    var consoleElement = document.getElementById('console');
+    Element testElement = document.getElementById('test');
+//    Element consoleElement = document.getElementById('console');
 
     void init() {
         testElement.innerHtml = '';
-        for (var i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
             testElement.append(document.createElement('div'));
     }
 
-    void test(zoom) {
+    void test(int zoom) {
         testElement.style.zoom = '$zoom%';
 
-        var lastElementBottom = testElement.lastChild.getBoundingClientRect().bottom;
+        var lastElementBottom = (testElement.lastChild as Element).getBoundingClientRect().bottom;
         var containerBottom = testElement.getBoundingClientRect().bottom;
 
         var tolerance = (1 / (zoom / 100)).ceil();
