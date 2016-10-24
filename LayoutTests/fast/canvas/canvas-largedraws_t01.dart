@@ -26,7 +26,7 @@ main() {
   ctx.fill();
   ctx.getImageData(50, 25, 1, 1);
 
-  dynamic = newCanvasContext();
+  ctx = newCanvasContext();
   ctx.fillStyle = '#0f0';
   ctx.scale(4500000000, 4500000000);
   ctx.moveTo(0, 0.5);
@@ -34,7 +34,7 @@ main() {
   ctx.stroke();
   ctx.getImageData(50, 25, 1, 1);
 
-  dynamic = newCanvasContext();
+  ctx = newCanvasContext();
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);
   ctx.scale(2, -4500000000);

@@ -17,7 +17,7 @@ main() {
   document.body
     .appendHtml('<canvas id="webgl-canvas" width="32px" height="32px"></canvas>');
 
-  var canvas;
+  dynamic canvas;
   var context;
 
   draw() {

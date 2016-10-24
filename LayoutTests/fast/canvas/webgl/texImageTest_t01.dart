@@ -11,8 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,7 +20,7 @@ main() {
   var context = create3DContext();
   var image = document.createElement("img");
   var video = document.createElement("video");
-  var canvas2d = document.createElement("canvas");
+  dynamic canvas2d = document.createElement("canvas");
   var context2d = canvas2d.getContext("2d");
   var imageData = context2d.createImageData(64, 64);
   var array = new Uint8List.fromList([ 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 255 ]);

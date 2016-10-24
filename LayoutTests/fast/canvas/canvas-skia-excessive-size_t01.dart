@@ -25,7 +25,7 @@ main() {
     var width = canvas.width;
     // We need to perform a context fetch to force allocation of
     // canvas resources.
-    if (canvas.getContext() != null) {
+    if (canvas.getContext("2d") != null) {
       var ctx = canvas.getContext("2d");
       shouldBeNonNull(ctx);
     }

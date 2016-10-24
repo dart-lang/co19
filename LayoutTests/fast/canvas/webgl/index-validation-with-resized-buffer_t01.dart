@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -43,10 +40,12 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
-  float32list(list) => new Float32List.fromList(toFloatList(list));
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
+  float32list(List list) => new Float32List.fromList(toFloatList(list));
 
-  var gl = initWebGL("example", "vs", "fs", ["vPosition", "vColor"], [0, 0, 0, 1], 1);
+  var gl = initWebGL("example", "vs", "fs", ["vPosition", "vColor"],
+      [0, 0, 0, 1], 1);
   var program = gl.getParameter(wgl.CURRENT_PROGRAM);
   glErrorShouldBe(gl, wgl.NO_ERROR, "after initialization");
 
@@ -86,7 +85,8 @@ main() {
       0, 255, 0, 255,
       0, 255, 0, 255]), wgl.STATIC_DRAW);
   gl.vertexAttribPointer(1, 4, wgl.UNSIGNED_BYTE, false, 0, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after texture coordinate / color redefinition");
+  glErrorShouldBe(gl, wgl.NO_ERROR,
+      "after texture coordinate / color redefinition");
 
   var numQuads = 2;
   var indices = new Uint8List(numQuads * 6);

@@ -10,15 +10,13 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
 import "../../../../Utils/async_utils.dart";
 
 main() {
-  var canvas;
+  dynamic canvas;
   var gl;
   var shouldGenerateGLError;
-  var extensionName;
   var extension;
 
   var buffer;
@@ -32,7 +30,7 @@ main() {
   var arrayBufferView;
   var image;
   var video;
-  var canvas2d;
+  dynamic canvas2d;
   var ctx2d;
   var imageData;
   var float32array;

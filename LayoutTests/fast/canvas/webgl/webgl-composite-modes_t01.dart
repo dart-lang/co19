@@ -16,9 +16,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -107,7 +105,7 @@ main() {
       'preserveDrawingBuffer': (i % 4) >= 2,
       'antialias': (i % 2) == 1
     };
-    var can = document.createElement('canvas');
+    dynamic can = document.createElement('canvas');
     can.width = can.height = 100;
     can.style.position = "absolute";
     can.style.left = "${10 + (i % 4) * 120}px";

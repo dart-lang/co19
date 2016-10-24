@@ -8,12 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -27,14 +23,10 @@ main() {
   var programB = loadStandardProgram(contextB);
   var shaderA = loadStandardVertexShader(contextA);
   var shaderB = loadStandardVertexShader(contextB);
-  var textureA = contextA.createTexture();
   var textureB = contextB.createTexture();
-  var frameBufferA = contextA.createFramebuffer();
   var frameBufferB = contextB.createFramebuffer();
-  var renderBufferA = contextA.createRenderbuffer();
   var renderBufferB = contextB.createRenderbuffer();
   var locationA = contextA.getUniformLocation(programA, 'u_modelViewProjMatrix');
-  var locationB = contextB.getUniformLocation(programB, 'u_modelViewProjMatrix');
 
   shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.compileShader(shaderB));
   shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.linkProgram(programB));

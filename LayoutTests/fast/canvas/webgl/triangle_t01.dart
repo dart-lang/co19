@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -38,7 +35,8 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   fail(x,y, buf, shouldBe)

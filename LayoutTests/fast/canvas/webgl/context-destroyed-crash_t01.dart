@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "../../../../Utils/async_utils.dart";
@@ -21,7 +20,7 @@ main() {
     asyncEnd();
   }
 
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   var context = create3DContext(canvas);
   extension = context.getExtension("WEBGL_lose_context");
 

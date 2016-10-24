@@ -21,7 +21,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
 
@@ -129,7 +129,7 @@ main() {
     {'format': wgl.RGB,  'type': wgl.UNSIGNED_SHORT_5_6_5,   'counts': [ 32,  64,  32,   1]},
     {'format': wgl.RGBA, 'type': wgl.UNSIGNED_SHORT_5_5_5_1, 'counts': [ 32,  32,  32,   2]}];
     for (var qq = 0; qq < quantInfo.length; ++qq) {
-      var info = quantInfo[qq];
+      dynamic info = quantInfo[qq];
       gl.texImage2D(
           wgl.TEXTURE_2D, 0, info['format'], info['format'], info['type'],
           imgs['$root/resources/gray-ramp-256.png']);
@@ -192,7 +192,7 @@ main() {
     for (var ii = 0; ii < 2; ++ii) {
       gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 1, 1, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, null);
       if (ii == 0) {
-        var canvas2d = document.createElement("canvas");
+        dynamic canvas2d = document.createElement("canvas");
         canvas2d.width = 256;
         canvas2d.height = 1;
         var ctx = canvas2d.getContext("2d");
@@ -235,7 +235,7 @@ main() {
     }
 
     debug("check canvas pixels are UN pre-multiplied");
-    var canvas2d = document.createElement("canvas");
+    dynamic canvas2d = document.createElement("canvas");
     canvas2d.width = 1;
     canvas2d.height = 1;
     var ctx = canvas2d.getContext("2d");

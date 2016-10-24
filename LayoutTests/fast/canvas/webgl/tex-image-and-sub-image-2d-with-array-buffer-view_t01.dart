@@ -11,10 +11,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -27,9 +24,6 @@ main() {
 
   // These two declarations need to be global for "shouldBe" to see them
   var buf = null;
-  var idx = 0;
-  var pixel = [0, 0, 0, 1];
-  var correctColor = null;
 
   generateRGBAData(type, unpackAlignment)
   {
@@ -37,7 +31,7 @@ main() {
       [ 255,   0,   0, 255,
         0,   255,   0,   0 ];
     switch (type) {
-      case wgl.UNSIGNED_BYTE: {
+      case wgl.UNSIGNED_BYTE:
         var rowWidth = max([unpackAlignment, 4]);
         var data = new Uint8List(2 * rowWidth);
         for (var y = 0; y < 2; ++y) {
@@ -47,8 +41,7 @@ main() {
           }
         }
         return data;
-      }
-      case wgl.UNSIGNED_SHORT_4_4_4_4: {
+      case wgl.UNSIGNED_SHORT_4_4_4_4:
         var rowWidth = max([unpackAlignment, 2]) ~/ 2;
         var data = new Uint16List(2 * rowWidth);
         for (var y = 0; y < 2; ++y) {
@@ -59,8 +52,7 @@ main() {
               | (sourceData[4 * y + 3] >> 4));
         }
         return data;
-      }
-      case wgl.UNSIGNED_SHORT_5_5_5_1: {
+      case wgl.UNSIGNED_SHORT_5_5_5_1:
         var rowWidth = max([unpackAlignment, 2]) ~/ 2;
         var data = new Uint16List(2 * rowWidth);
         for (var y = 0; y < 2; ++y) {
@@ -71,7 +63,6 @@ main() {
               | (sourceData[4 * y + 3] >> 7));
         }
         return data;
-      }
     }
   }
 

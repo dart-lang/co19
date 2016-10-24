@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
@@ -57,7 +56,6 @@ main() {
   ctx = canvas2d.getContext("2d");
 
   var program = wtu.setupTexturedQuad(gl);
-  var bufferObjects = wtu.setupUnitQuad(gl);
 
   var texture = gl.createTexture();
   gl.bindTexture(wgl.TEXTURE_2D, texture);

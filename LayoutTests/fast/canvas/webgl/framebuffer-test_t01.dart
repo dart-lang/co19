@@ -20,7 +20,7 @@ main() {
 
   debug("Canvas.getContext");
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var gl = create3DContext(canvas);
   if (gl == null) {
     testFailed("context does not exist");

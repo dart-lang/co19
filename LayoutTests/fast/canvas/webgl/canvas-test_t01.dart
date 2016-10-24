@@ -9,10 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
 import "../../../../Utils/async_utils.dart";
 
 runAfterDisplay(callback) {
@@ -34,8 +32,8 @@ main() {
 
   debug("Canvas.getContext");
 
-  var canvas = document.getElementById("canvas");
-  var canvas2d = document.getElementById("canvas2d");
+  dynamic canvas = document.getElementById("canvas");
+  dynamic canvas2d = document.getElementById("canvas2d");
   var ctx2d = canvas2d.getContext("2d");
   var gl = create3DContext(canvas);
   if (gl == null) {

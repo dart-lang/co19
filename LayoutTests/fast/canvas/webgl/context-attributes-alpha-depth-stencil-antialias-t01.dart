@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -53,7 +51,7 @@ main() {
 
   getWebGL(canvasWidth, canvasHeight, contextAttribs, clearColor, clearDepth, clearStencil)
   {
-    var canvas = document.createElement("canvas");
+    dynamic canvas = document.createElement("canvas");
     if (canvas == null)
       return null;
     canvas.width = canvasWidth;

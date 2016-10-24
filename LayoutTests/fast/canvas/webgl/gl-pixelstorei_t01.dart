@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -39,7 +36,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   fail(x,y, name, buf, shouldBe) {
-    var i = (y*50+x) * 4;
     var reason = "pixel in $name at ($x,$y)is ${buf.sublist(0,4)}, should be $shouldBe";
     testFailed(reason);
   }
@@ -48,7 +44,7 @@ main() {
     testPassed("drawing is correct in " + name);
   }
 
-  var gl;
+  dynamic gl;
 
   init() {
     debug("There should be 5 red triangles on 5 black squares above");
@@ -111,7 +107,7 @@ main() {
     var table = [1, 2, 4, 8];
     for (var ii = 0; ii < table.length; ++ii) {
       gl.pixelStorei(wgl.PACK_ALIGNMENT, table[ii]);
-      CanvasElement canvas = document.getElementById("2d0$ii");
+      dynamic canvas = document.getElementById("2d0$ii");
       ctx2d = canvas.getContext("2d");
       ctx2d.globalCompositeOperation = 'copy';
       ctx2d.drawImage(canvas3d, 0, 0);

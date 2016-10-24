@@ -1,18 +1,14 @@
 
 library tex_image_and_sub_image_2d_with_svg_image;
 
-import 'dart:html';
 import 'dart:svg' as svg;
 import 'dart:web_gl' as wgl;
-import 'webgl-test.dart';
 import 'webgl-test-utils.dart' as wtu;
-import "../../../../../Utils/async_utils.dart";
 import "../../../../testcommon.dart";
 
 generateTest(pixelFormat, pixelType, pathToTestRoot, prologue) {
   var gl = null;
   var textureLoc = null;
-  var imgCanvas;
   var red = [255, 0, 0];
   var green = [0, 255, 0];
 

@@ -9,13 +9,12 @@
 import "dart:html";
 import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as WebGLTestUtils;
 import "../../../../Utils/async_utils.dart";
 
 main() {
   var evt;
-  var canvas;
+  dynamic canvas;
   var context;
   var extension;
 

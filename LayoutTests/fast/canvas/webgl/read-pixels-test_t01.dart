@@ -12,7 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
 import "../../../../Utils/async_utils.dart";
 
 main() {
@@ -21,7 +20,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = create3DContext(canvas);
   var actual;
   var expected;
@@ -29,11 +28,12 @@ main() {
   var height = 2;
   var continueTestFunc;
 
-  continueTestAfterContextRestored() {
+  EventListener continueTestAfterContextRestored(Event event) {
     gl = create3DContext(canvas);
     var func = continueTestFunc;
     continueTestFunc = () { testFailed("should not be here"); };
     func();
+    return null;
   }
 
   continueTestPart2() {

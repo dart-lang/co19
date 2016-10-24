@@ -11,10 +11,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -70,7 +66,7 @@ main() {
     return true;
   }
 
-  var canvas = document.getElementById("testbed");
+  dynamic canvas = document.getElementById("testbed");
   var gl = canvas.getContext("experimental-webgl");
   if (gl != null) {
     runTest(gl, canvas.width, canvas.height);

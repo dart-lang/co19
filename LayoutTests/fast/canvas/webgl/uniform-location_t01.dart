@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -22,14 +20,11 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var contextA = create3DContext();
-  var contextB = create3DContext();
   var programA1 = loadStandardProgram(contextA);
   var programA2 = loadStandardProgram(contextA);
-  var programB = loadStandardProgram(contextB);
   var programS = loadProgram(contextA, "$root/resources/structUniformShader.vert", "$root/resources/fragmentShader.frag");
   var programV = loadProgram(contextA, "$root/resources/floatUniformShader.vert", "$root/resources/noopUniformShader.frag");
   var locationA = contextA.getUniformLocation(programA1, 'u_modelViewProjMatrix');
-  var locationB = contextB.getUniformLocation(programB, 'u_modelViewProjMatrix');
   var locationSx = contextA.getUniformLocation(programS, "u_struct.x");
   var locationArray0 = contextA.getUniformLocation(programS, "u_array[0]");
   var locationArray1 = contextA.getUniformLocation(programS, "u_array[1]");

@@ -41,7 +41,7 @@ generateTest(pixelFormat, pixelType, prologue) {
       gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, videoElement);
     }
 
-    var c = document.createElement("canvas");
+    dynamic c = document.createElement("canvas");
     c.width = 16;
     c.height = 16;
     c.style.border = "1px solid black";
@@ -92,7 +92,7 @@ generateTest(pixelFormat, pixelType, prologue) {
 
     textureLoc = gl.getUniformLocation(program, "tex");
 
-    var video = document.getElementById("vid");
+    dynamic video = document.getElementById("vid");
     video.addEventListener(
         "playing", (_) {
           runTest(video);

@@ -73,7 +73,7 @@ generateTest(pixelFormat, pixelType, pathToTestRoot, prologue) {
   runTest2(image) {
     runTestOnImage(image);
 
-    var newImage = document.createElement("img");
+    dynamic newImage = document.createElement("img");
     newImage.onLoad.listen((_) {
       runTest3(newImage);
     });

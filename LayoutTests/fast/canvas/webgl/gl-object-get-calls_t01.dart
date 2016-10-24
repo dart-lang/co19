@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -22,7 +20,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var gl;
+  dynamic gl;
 
   sizeInBytes(type) {
     switch (type) {
@@ -116,7 +114,6 @@ main() {
   // the implementation is allowed to change it.
   shouldBeNonZero(gl.getRenderbufferParameter(wgl.RENDERBUFFER, wgl.RENDERBUFFER_INTERNAL_FORMAT));
   shouldBeNonZero(gl.getRenderbufferParameter(wgl.RENDERBUFFER, wgl.RENDERBUFFER_DEPTH_SIZE));
-  var colorbuffer = gl.createRenderbuffer();
   glErrorShouldBe(gl, wgl.NO_ERROR);
   gl.bindRenderbuffer(wgl.RENDERBUFFER, renderbuffer);
   glErrorShouldBe(gl, wgl.NO_ERROR);

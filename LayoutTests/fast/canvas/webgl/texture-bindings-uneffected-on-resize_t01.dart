@@ -9,11 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,8 +18,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var err;
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
 

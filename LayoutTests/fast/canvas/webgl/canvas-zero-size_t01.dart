@@ -12,10 +12,9 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   var gl = wtu.create3DContext(canvas);
   canvas.width = 0;
   canvas.height = 0;

@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -37,7 +34,8 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var gl = initWebGL("example", "vshader", "fshader", [ "g_Position" ], [ 0, 0, 1, 1 ], 1);
+  var gl = initWebGL("example", "vshader", "fshader", ["g_Position"],
+      [0, 0, 1, 1], 1);
   var program = gl.getParameter(wgl.CURRENT_PROGRAM);
 
   var vertices = new Float32List.fromList([
@@ -68,13 +66,14 @@ main() {
       buf[1] != 0 ||
       buf[2] != 0 ||
       buf[3] != 255) {
-        testFailed("Pixel at (2, 2) should have been (255, 0, 0, 255), was $buf");
+        testFailed(
+            "Pixel at (2, 2) should have been (255, 0, 0, 255), was $buf");
         passed = false;
       }
 
   if (passed) {
     // Now resize the canvas
-    var canvas = document.getElementById("example");
+    dynamic canvas = document.getElementById("example");
     canvas.width = 8;
     canvas.height = 8;
     // Do another render
@@ -85,12 +84,12 @@ main() {
     // have been filled.
     var buf = new Uint8List(1 * 1 * 4);
     gl.readPixels(6, 6, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
-    var passed = true;
     if (buf[0] != 0 ||
         buf[1] != 0 ||
         buf[2] != 255 ||
         buf[3] != 255) {
-          testFailed("Pixel at (6, 6) should have been (0, 0, 255, 255), was $buf");
+          testFailed(
+              "Pixel at (6, 6) should have been (0, 0, 255, 255), was $buf");
           passed = false;
         }
   }

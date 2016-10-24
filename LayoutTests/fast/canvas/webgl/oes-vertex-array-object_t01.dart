@@ -13,8 +13,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 class _State {
   var vao;
@@ -44,7 +42,7 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var gl = create3DContext(canvas);
   var ext = null;
   var vao = null;

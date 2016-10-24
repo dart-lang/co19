@@ -13,7 +13,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -42,12 +41,8 @@ main() {
 
   var canvas = document.getElementById("canvas");
   var gl = wtu.create3DContext(canvas, {'antialias': false});
-  var program = wtu.setupTexturedQuad(gl);
   var ext = null;
-  var vao = null;
   var tex;
-  var name;
-  var supportedFormats;
 
   runSupportedTest(extensionEnabled) {
     var name = wtu.getSupportedExtensionWithKnownPrefixes(gl, "WEBGL_depth_texture");
@@ -101,7 +96,7 @@ main() {
     var res = 8;
 
     // make canvas for testing.
-    var canvas2 = document.createElement("canvas");
+    dynamic canvas2 = document.createElement("canvas");
     canvas2.width = res;
     canvas2.height = res;
     var ctx = canvas2.getContext("2d");

@@ -35,8 +35,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 class _Color {
   var name;
@@ -93,8 +91,7 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas;
-  canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
 
   var gl = wtu.create3DContext(canvas);
   wtu.setupUnitQuad(gl, 0, 1);
@@ -157,7 +154,6 @@ main() {
   }
 
   fillLevel(target, level, size, color) {
-    var numPixels = size * size;
     var halfPixelRow = new Uint8List(size * 2);
     for (var jj = 0; jj < size~/2; ++jj) {
       var off = jj * 4;

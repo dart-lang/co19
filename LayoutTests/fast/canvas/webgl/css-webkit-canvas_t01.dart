@@ -10,9 +10,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl;
@@ -78,7 +75,7 @@ main() {
 
   initialize()
   {
-    var canvas = document.getElementById("canvas");
+    dynamic canvas = document.getElementById("canvas");
     gl = canvas.getContext("experimental-webgl");
 
     var vertexShader = getVertexShader();

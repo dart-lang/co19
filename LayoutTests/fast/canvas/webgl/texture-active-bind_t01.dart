@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -46,15 +44,17 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   init()
   {
-    var canvas2d = document.getElementById("canvas2d");
+    dynamic canvas2d = document.getElementById("canvas2d");
     var ctx2d = canvas2d.getContext("2d");
 
-    var gl = initWebGL("example", "vshader", "fshader", [ "vPosition", "texCoord0"],
+    var gl = initWebGL("example", "vshader", "fshader",
+        ["vPosition", "texCoord0"],
         [ 0, 0, 0, 1 ], 1);
     var program = gl.getParameter(wgl.CURRENT_PROGRAM);
 
@@ -105,7 +105,8 @@ main() {
         "rgba(" + c.join(",") + ")";
       ctx2d.fillRect(0, 0, 1, 1);
       gl.activeTexture(wgl.TEXTURE0 + ii);
-      gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, canvas2d);
+      gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE,
+          canvas2d);
     }
     shouldBe(gl.getError(), wgl.NO_ERROR);
 

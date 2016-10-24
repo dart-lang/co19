@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -47,16 +44,17 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   init()
   {
-    debug("Checks that a texture that is not -texture-complete- does not draw if"+
+    debug("Checks that a texture that is not -texture-complete- does not draw if" +
         " filtering needs mips");
     debug("");
 
-    var canvas2d = document.getElementById("canvas2d");
+    dynamic canvas2d = document.getElementById("canvas2d");
     var ctx2d = canvas2d.getContext("2d");
     ctx2d.fillStyle = "rgba(0,192,128,255)";
     ctx2d.fillRect(0, 0, 16, 16);

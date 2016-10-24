@@ -11,9 +11,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl, maxSize;
@@ -81,7 +79,7 @@ main() {
     for (var yy = 0; yy < gl.drawingBufferHeight; ++yy) {
       for (var xx = 0; xx < gl.drawingBufferWidth; ++xx) {
         var info = colors[yy % 2][xx % 2];
-        var color = info['color'];
+        dynamic color = info['color'];
         var offset = (yy * gl.drawingBufferWidth + xx) * 4;
         for (var jj = 0; jj < 4; ++jj) {
           if (pixels[offset + jj] != color[jj]) {
@@ -100,8 +98,6 @@ main() {
     deviceToClipSpace(value, range) {
       return value / range * 2 - 1;
     }
-
-    var program = wtu.setupColorQuad(gl);
 
     // draw a small green square in the top right corner.
     var deviceX1 = gl.drawingBufferWidth - 4;
@@ -149,7 +145,7 @@ main() {
     debug("Checking drawingBufferWidth/drawingBufferHeight");
 
     // Make a fresh canvas.
-    var canvas = document.createElement("canvas");
+    dynamic canvas = document.createElement("canvas");
     canvas.width = desiredWidth;
     canvas.height = desiredHeight;
 

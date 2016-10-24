@@ -11,7 +11,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
 import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
@@ -53,7 +52,7 @@ main() {
 
   init()
   {
-    var canvas = document.getElementById("example");
+    dynamic canvas = document.getElementById("example");
     gl = wtu.create3DContext(canvas);
     var program = wtu.setupTexturedQuad(gl);
     gl.clearColor(0.5,0.5,0.5,1);

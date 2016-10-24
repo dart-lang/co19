@@ -23,7 +23,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   debug("This test isn't appropriate to include in the WebGL conformance suite, since the browser's behavior when applying a color profile can't be guaranteed.");
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
 

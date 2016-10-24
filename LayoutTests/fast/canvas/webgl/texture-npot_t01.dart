@@ -8,12 +8,9 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -43,7 +40,7 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
 
@@ -129,7 +126,7 @@ main() {
   tex = gl.createTexture();
 
   fillCubeTexture(gl, tex, width, height, color, [opt_level=0]) {
-    var canvas = document.createElement('canvas');
+    dynamic canvas = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
     var ctx2d = canvas.getContext('2d');

@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -101,10 +98,6 @@ main() {
     gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
 
     debug('Draw a point of size 2 and verify it fills the appropriate region.');
-
-    var pointSizeRange = gl.getParameter(wgl.ALIASED_POINT_SIZE_RANGE);
-    //if (pointSizeRange < 2.0)
-    //  return true;
 
     gl.uniform1f(locPointSize, 2.0);
     gl.drawArrays(wgl.POINTS, 0, vertices.length ~/ 3);

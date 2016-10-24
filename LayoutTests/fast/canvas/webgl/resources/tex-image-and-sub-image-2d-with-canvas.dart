@@ -76,7 +76,7 @@ generateTest(pixelFormat, pixelType, prologue) {
     gl.clearColor(0,0,0,1);
     gl.clearDepth(1);
 
-    var testCanvas = document.createElement('canvas');
+    dynamic testCanvas = document.createElement('canvas');
     testCanvas.width = 1;
     testCanvas.height = 2;
     var ctx = testCanvas.getContext("2d");

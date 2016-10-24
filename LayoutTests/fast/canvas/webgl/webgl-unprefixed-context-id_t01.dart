@@ -8,14 +8,13 @@
  * with the 'webgl' context ID
  */
 import "dart:html";
-import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 
 main() {
   document.body
     .appendHtml('<canvas id="c"></canvas>');
 
-  var c = document.getElementById("c");
+  dynamic c = document.getElementById("c");
   var gl = c.getContext("webgl");
   if (gl == null)
     testFailed("context does not exist");

@@ -18,7 +18,7 @@ main() {
   document.body
     .appendHtml('<canvas id="webgl-canvas" width="32px" height="32px"></canvas>');
 
-  var canvas;
+  dynamic canvas;
   var context;
 
   draw() {
@@ -36,7 +36,6 @@ main() {
   context = create3DContext(canvas);
 
   var program = wtu.setupTexturedQuad(context);
-  var bufferObjects = wtu.setupUnitQuad(context);
   var texture = wtu.createColoredTexture(context, 1, 1, [0, 0, 255, 255]);
 
   context.uniform1i(context.getUniformLocation(program, "tex"), 0);

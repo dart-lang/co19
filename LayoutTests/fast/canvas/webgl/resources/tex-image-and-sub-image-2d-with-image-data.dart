@@ -95,7 +95,7 @@ generateTest(pixelFormat, pixelType, prologue) {
 
     textureLoc = gl.getUniformLocation(program, "tex");
 
-    var canvas2d = document.getElementById("texcanvas");
+    dynamic canvas2d = document.getElementById("texcanvas");
     var context2d = canvas2d.getContext("2d");
     imageData = context2d.createImageData(1, 2);
     var data = imageData.data;

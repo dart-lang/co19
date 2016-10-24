@@ -8,11 +8,9 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
 import "../../../../Utils/async_utils.dart";
 
 class _Test {
@@ -93,7 +91,6 @@ main() {
   var g_count = 0;
   var gl;
   var canvas;
-  var premultipledAlpha;
 
   doNextTest() {
     if (g_count < tests.length) {
@@ -161,7 +158,7 @@ main() {
                setTimeout(doNextTest, 0);
              } else {
                // Load string into the texture
-               var input = document.createElement("img");
+               dynamic input = document.createElement("img");
                input.onLoad.listen(loadTexture);
                input.src = imageUrl;
              }

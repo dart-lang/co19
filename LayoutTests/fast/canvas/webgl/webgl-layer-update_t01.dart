@@ -35,7 +35,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var can = document.createElement('canvas');
+  dynamic can = document.createElement('canvas');
   can.width = can.height = 100;
   can.style.position = "absolute";
   can.style.left = "40px";

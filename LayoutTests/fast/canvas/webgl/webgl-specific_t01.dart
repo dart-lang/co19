@@ -6,13 +6,10 @@
 /** 
  * @description Tests the a few differences between WebGL and GLES2
  */
-import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl = wtu.create3DContext();
@@ -65,13 +62,7 @@ main() {
   shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.stencilFuncSeparate(wgl.FRONT, wgl.ALWAYS, 1, 1));
   shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.drawArrays(wgl.TRIANGLES, 0, 0));
 
-  debug("Verify that *LENGTH are undefined");
-  shouldThrow(() => wgl.INFO_LOG_LENGTH);
-  shouldThrow(() => wgl.SHADER_SOURCE_LENGTH);
-  shouldThrow(() => wgl.ACTIVE_UNIFORM_MAX_LENGTH);
-  shouldThrow(() => wgl.ACTIVE_ATTRIB_MAX_LENGTH);
-
-  debug("Verify that UNPACK_COLORSPACE_CONVERSION_WEBGL is supported");
+   debug("Verify that UNPACK_COLORSPACE_CONVERSION_WEBGL is supported");
   shouldBe(gl.getParameter(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL), wgl.BROWSER_DEFAULT_WEBGL);
   gl.pixelStorei(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.NONE);
   shouldBe(gl.getParameter(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL), wgl.NONE);

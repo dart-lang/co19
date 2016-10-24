@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -48,7 +46,6 @@ main() {
   shouldBeNonNull(gl);
 
   fail(x,y, buf, shouldBe) {
-    var i = (y*50+x) * 4;
     var reason = "pixel at ($x,$y) is ${buf.sublist(0,4)}, should be $shouldBe";
     testFailed(reason);
   }
@@ -127,8 +124,6 @@ main() {
     assertMsg(gl.getAttribLocation(program, "vColor") == colorLocation,
         "location of vColor should be $colorLocation");
 
-    var ploc = gl.getAttribLocation(program, "vPosition");
-    var cloc = gl.getAttribLocation(program, "vColor");
     gl.bindBuffer(wgl.ARRAY_BUFFER, positions);
     gl.enableVertexAttribArray(positionLocation);
     gl.vertexAttribPointer(positionLocation, 3, wgl.FLOAT, false, 0, 0);
@@ -166,7 +161,6 @@ main() {
       success = success && checkPixel(i, 0, 0, 0, 0, 255);
 
     // Line 15 should be red for at least 10 rgba pixels starting 20 pixels in
-    var offset = (15 * 50 + 20) * 4;
     for (var i = 0; i < 10; ++i)
       success = success && checkPixel(20 + i, 15, r, g, b, a);
 

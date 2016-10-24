@@ -12,8 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -332,7 +330,7 @@ main() {
   debug("");
   debug("Checking CopyTex{Sub}Image2D: copy from WebGL internal framebuffer");
 
-  testCases =
+  var testCases1 =
     [ {'contextAlpha': true,
       'internalFormat': wgl.RGBA,
       'subImage': false,
@@ -350,6 +348,6 @@ main() {
     'subImage': true,
     'expectedError': wgl.INVALID_OPERATION} ];
 
-  for (var ii = 0; ii < testCases.length; ++ii)
-    testCopyFromInternalFBO(testCases[ii]);
+  for (var ii = 0; ii < testCases1.length; ++ii)
+    testCopyFromInternalFBO(testCases1[ii]);
 }

@@ -12,7 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -141,7 +140,7 @@ main() {
         var firstRb = gl.createRenderbuffer();
         var secondRb;
 
-        debug("test: ${wtu.glEnumToString(gl, test['firstFormat'])} vs ${wtu.glEnumToString(gl, test['secondFormat'])} with ${jj ? 'unbind' : 'delete'}");
+        debug("test: ${wtu.glEnumToString(gl, test['firstFormat'])} vs ${wtu.glEnumToString(gl, test['secondFormat'])} with ${jj == 0 ? 'unbind' : 'delete'}");
 
         gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
         // attach texture as color
@@ -156,7 +155,6 @@ main() {
 
         if (gl.checkFramebufferStatus(wgl.FRAMEBUFFER) == wgl.FRAMEBUFFER_COMPLETE) {
           gl.enable(wgl.DEPTH_TEST);
-          var program = wtu.setupColorQuad(gl);
           // Test it works
           wtu.drawUByteColorQuad(gl, [0, 255, 0, 255]);
           wtu.drawUByteColorQuad(gl, [255, 0, 0, 255]);  // should not draw since DEPTH_FUNC == LESS
@@ -379,7 +377,6 @@ main() {
       glErrorShouldBe(gl, wgl.INVALID_FRAMEBUFFER_OPERATION, "clear with incomplete framebuffer");
     }
     debug("Test drawing or reading from an incomplete framebuffer");
-    var program = wtu.setupTexturedQuad(gl);
     var tex = gl.createTexture();
     wtu.fillTexture(gl, tex, 1, 1, [0,255,0,255]);
 

@@ -160,7 +160,6 @@ setupSimpleTextureFragmentShader(gl) {
  * @param {!Array.<number>} opt_locations The locations for the attribs.
  */
 setupProgram(gl, shaders, [opt_attribs, opt_locations]) {
-  var realShaders = [];
   var program = gl.createProgram();
   for (var ii = 0; ii < shaders.length; ++ii) {
     var shader = shaders[ii];
@@ -315,7 +314,7 @@ setupQuad(gl, gridRes, [opt_positionLocation=0, opt_flipOddTriangles=false]) {
     for (var xx = 0; xx <= gridRes; ++xx) {
       positions[poffset + 0] = -1 + 2 * xx / gridRes;
       positions[poffset + 1] = -1 + 2 * yy / gridRes;
-      positions[poffset + 2] = 0;
+      positions[poffset + 2] = 0.0;
 
       poffset += 3;
     }
@@ -411,8 +410,9 @@ ubyteToFloat(c) {
  *        1.
  */
 drawFloatColorQuad(gl, color) {
+
   if (color is! Float32List) {
-    color = new Float32List.fromList(color);
+    color = new Float32List.fromList(color as List<double>);
   }
   var program = gl.getParameter(wgl.CURRENT_PROGRAM);
   var colorLocation = gl.getUniformLocation(program, "u_color");
@@ -770,7 +770,7 @@ loadShaderFromFile(gl, file, type, [opt_errorCallback]) {
 loadShaderFromScript(gl, scriptId, [opt_shaderType, opt_errorCallback]) {
   var shaderSource = "";
   var shaderType;
-  var shaderScript = document.getElementById(scriptId);
+  dynamic shaderScript = document.getElementById(scriptId);
   if (shaderScript == null) {
     throw("*** Error: unknown script element" + scriptId);
   }
@@ -783,7 +783,6 @@ loadShaderFromScript(gl, scriptId, [opt_shaderType, opt_errorCallback]) {
       shaderType = wgl.FRAGMENT_SHADER;
     } else if (shaderType != gl.VERTEX_SHADER && shaderType != gl.FRAGMENT_SHADER) {
       throw("*** Error: unknown shader type");
-      return null;
     }
   }
 
@@ -865,7 +864,7 @@ loadStandardFragmentShader(gl) {
  *     with loaded image.
  */
 loadImageAsync(url, callback) {
-  var img = document.createElement('img');
+  dynamic img = document.createElement('img');
   img.onLoad.listen((_) {
     callback(img);
   });
@@ -950,7 +949,7 @@ var requestAnimFrame = window.requestAnimationFrame;
 var cancelAnimFrame = window.cancelAnimationFrame;
 
 waitFrames(frames, callback) {
-  var countDown;
+  FrameRequestCallback countDown;
   countDown = (_) {
     if (frames == 0) {
       callback();

@@ -269,7 +269,7 @@ loadShader(ctx, shaderId, shaderType, [isFile=false])
   if (isFile)
     shaderSource = getShaderSource(shaderId);
   else {
-    var shaderScript = document.getElementById(shaderId);
+    dynamic shaderScript = document.getElementById(shaderId);
     if (shaderScript == null) {
       shaderSource = shaderId;
     } else {

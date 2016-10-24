@@ -10,8 +10,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-//import "resources/webgl-test-utils.dart" as wtu;
 import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
@@ -34,7 +32,7 @@ main() {
     var width = 3900;
     var height = 3900;
 
-    var canvas = document.getElementById('canvas');
+    dynamic canvas = document.getElementById('canvas');
     var gl = canvas.getContext('webgl');
 
     gl.pixelStorei(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.NONE);

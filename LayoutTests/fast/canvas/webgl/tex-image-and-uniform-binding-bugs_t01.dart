@@ -11,8 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -27,7 +25,7 @@ main() {
   shouldBe(gl.getError(), wgl.NO_ERROR);
   shouldBeNull(gl.uniform4fv(fval4Loc, new Float32List.fromList([0.1, 0.2, 0.4, 1.0])));
 
-  var tmpcanvas = document.createElement("canvas");
+  dynamic tmpcanvas = document.createElement("canvas");
   tmpcanvas.width = 2;
   tmpcanvas.height = 2;
   var texture = gl.createTexture();

@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -63,18 +60,20 @@ main() {
     }
   }
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   init()
   {
     // Set up a canvas to get image data from
-    var canvas2d = document.getElementById("texcanvas");
+    dynamic canvas2d = document.getElementById("texcanvas");
     var context2d = canvas2d.getContext("2d");
     context2d.fillStyle = 'red';
     context2d.fillRect(0,0,64,64);
 
-    gl = initWebGL("example", "vshader", "fshader", [ "vPosition", "vTexCoord0"], [ 1, 0, 1, 1 ], 100);
+    gl = initWebGL("example", "vshader", "fshader",
+        [ "vPosition", "vTexCoord0"], [ 1, 0, 1, 1 ], 100);
     var program = gl.getParameter(wgl.CURRENT_PROGRAM);
     gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
 
@@ -95,7 +94,8 @@ main() {
         1, 1,
         0, 0]);
     var g_texCoordOffset = vertices.lengthInBytes;
-    gl.bufferData(wgl.ARRAY_BUFFER, g_texCoordOffset + texCoords.lengthInBytes, wgl.STATIC_DRAW);
+    gl.bufferData(wgl.ARRAY_BUFFER, g_texCoordOffset + texCoords.lengthInBytes,
+        wgl.STATIC_DRAW);
     gl.bufferSubData(wgl.ARRAY_BUFFER, 0, vertices);
     gl.bufferSubData(wgl.ARRAY_BUFFER, g_texCoordOffset, texCoords);
 
@@ -107,7 +107,8 @@ main() {
     // Create a texture from the canvas's image data
     var tex = gl.createTexture();
     gl.bindTexture(wgl.TEXTURE_2D, tex);
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, context2d.getImageData(0, 0, 64, 64));
+    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE,
+        context2d.getImageData(0, 0, 64, 64));
     gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
     gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
     gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);

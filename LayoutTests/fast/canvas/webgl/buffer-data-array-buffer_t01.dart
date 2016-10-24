@@ -8,13 +8,10 @@
  * Regression test for https://bugs.webkit.org/show_bug.cgi?id=41884 :
  * Implement bufferData and bufferSubData with ArrayBuffer as input
  */
-import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl = create3DContext();
@@ -36,7 +33,8 @@ main() {
   gl.bufferData(wgl.ARRAY_BUFFER, -10, wgl.STATIC_DRAW);
   glErrorShouldBe(gl, wgl.INVALID_VALUE);
 
-  // This should not crash, but the selection of the overload is ambiguous per Web IDL.
+  // This should not crash, but the selection of the overload is ambiguous per
+  // Web IDL.
   gl.bufferData(wgl.ARRAY_BUFFER, null, wgl.STATIC_DRAW);
   gl.getError();
 
