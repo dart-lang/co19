@@ -28,9 +28,9 @@ const String htmlEL2 = r'''
 var svg = document.querySelector("svg");
 
 // test length values
-var EPSILON = Math.pow(2, -24); // float epsilon
-var whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
-var validunits = [ "", "em", "ex", "px", "in", "cm", "mm", "pt", "pc", "%" ];
+double EPSILON = Math.pow(2, -24); // float epsilon
+List<String>  whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
+List<String>  validunits = [ "", "em", "ex", "px", "in", "cm", "mm", "pt", "pc", "%" ];
 
 // This test was split out from whitespace-length.html because the trybots were too slow.
 
@@ -43,7 +43,7 @@ void main() {
 		 0, // expected default value
 		 whitespace,
 		 [], // valid
-		 [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+		 [ double.NAN.toString(), double.INFINITY.toString(), double.NEGATIVE_INFINITY.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
 		 validunits,
 		 [], // garbage
 		 (elm, value) { assert_approx_equals(elm.x.baseVal.valueInSpecifiedUnits, double.parse(value), EPSILON); },

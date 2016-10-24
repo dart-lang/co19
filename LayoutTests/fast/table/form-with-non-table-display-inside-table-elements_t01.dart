@@ -77,8 +77,8 @@ This results in the creation of an unexpected renderer for the form element.''')
     String diag='Expected: The tables should contain only one row of width 150px and one column of height 20px.';
 
     for(var i = 1; i <=3; i++) {
-        var container = document.getElementById('case$i');
-        var clonedTable = container.querySelector("TABLE").clone(true);
+        Element container = document.getElementById('case$i');
+        TableElement clonedTable = container.querySelector("TABLE").clone(true) as TableElement;
         clonedTable.style.display = 'table';
         container.append(clonedTable);
         shouldBe(clonedTable.getBoundingClientRect().width, 150, diag);

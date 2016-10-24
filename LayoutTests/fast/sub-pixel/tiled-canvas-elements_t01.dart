@@ -33,11 +33,11 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var expected = 0;
-    var elements = document.getElementsByTagName('canvas');
+    int expected = 0;
+    List<Node> elements = document.getElementsByTagName('canvas');
     print("elements=$elements");
-    for (var i = 0; i<elements.length; i++) {
-        var rect = elements[i].getBoundingClientRect();
+    for (int i = 0; i<elements.length; i++) {
+        Rectangle rect = (elements[i] as Element).getBoundingClientRect();
         shouldBe(rect.left.round(), expected.round(), "i=$i");
         expected += rect.width;
     }

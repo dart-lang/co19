@@ -34,7 +34,7 @@ const String htmlEL2 = r'''
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var links = document.getElementsByTagName('a');
-    var expectedWidth = links[1].offsetWidth;
-    Expect.approxEquals(links[0].offsetWidth, links[1].offsetWidth, 5);
+    List<Node> links = document.getElementsByTagName('a');
+    var expectedWidth = (links[1] as Element).offsetWidth;
+    Expect.approxEquals((links[0] as Element).offsetWidth, (links[1] as Element).offsetWidth, 5);
 }

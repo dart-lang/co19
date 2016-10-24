@@ -12,15 +12,15 @@ import "../../testharness.dart";
 
 void main() {
     
-    var yellow = "rgb(255, 255, 0)";
-    var orange = "rgb(255, 165, 0)";
-    var red = "rgb(255, 0, 0)";
+    String yellow = "rgb(255, 255, 0)";
+//    String orange = "rgb(255, 165, 0)";
+    String red = "rgb(255, 0, 0)";
     
-    var table = document.createElement("table");
+    TableElement table = document.createElement("table") as TableElement;
     table.setAttribute("style", "border-color: $yellow");
-    var row = table.insertRow(-1);
+    TableRowElement row = table.insertRow(-1);
     row.setAttribute("style", "border-color: orange");
-    var cell = row.insertCell(-1);
+    TableCellElement cell = row.insertCell(-1);
     cell.setAttribute("style", "border-color: $red");
     
     document.body.append(table);

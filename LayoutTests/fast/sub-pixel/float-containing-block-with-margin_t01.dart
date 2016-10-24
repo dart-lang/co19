@@ -30,9 +30,9 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var elements = document.getElementsByTagName('li');
-    num getItemHeight(i) {
-        return elements[i].getBoundingClientRect().top;
+    List<Node> elements = document.getElementsByTagName('li');
+    num getItemHeight(int i) {
+        return (elements[i] as Element).getBoundingClientRect().top;
     }
 
     shouldBe(getItemHeight(1), getItemHeight(0), 'getItemHeight(1)');
