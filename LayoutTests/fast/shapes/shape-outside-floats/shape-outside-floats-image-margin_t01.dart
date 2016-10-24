@@ -8,8 +8,8 @@
  * @description
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../../testharness.dart";
+import "../../../testcommon.dart" as TestCommon;
 
 const String htmlEL1 = r'''
 <style>
@@ -48,7 +48,7 @@ Rectangle imageShapeRect(elementId) {
 
 void runTest(e) {
     shouldBe(imageShapeRect('a').top, 0);
-    shouldBeCloseTo(imageShapeRect('a').left, 292, 1);
+    TestCommon.shouldBeCloseTo(imageShapeRect('a').left, 292, 1);
 
     shouldBe(imageShapeRect('b').top, 50);
     shouldBe(imageShapeRect('b').left, 300);
@@ -57,7 +57,7 @@ void runTest(e) {
     shouldBe(imageShapeRect('c').left, 300);
 
     shouldBe(imageShapeRect('d').top, 125);
-    shouldBeCloseTo(imageShapeRect('d').left, 292, 1);
+    TestCommon.shouldBeCloseTo(imageShapeRect('d').left, 292, 1);
 
     shouldBe(imageShapeRect('e').top, 150);
     shouldBe(imageShapeRect('e').left, 0);

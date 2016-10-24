@@ -11,6 +11,7 @@ import "dart:html";
 import "dart:math" as Math;
 import "../../../testharness.dart";
 import "../resources/subpixel-utils.dart" as SubPixelLayout;
+import "../../../testcommon.dart" as TestCommon;
 
 const String htmlEL1 = r'''
 <style>
@@ -82,22 +83,22 @@ void main() {
     var quiet = true; // PASS output depends on SubPixelLayout.isEnabled()
 
     shouldBe(elementRect('l1').top, 0);
-    shouldBeCloseTo(elementRect('l1').left, marginLeftXIntercept(1), 1);
+    TestCommon.shouldBeCloseTo(elementRect('l1').left, marginLeftXIntercept(1), 1);
 
     shouldBe(elementRect('l2').top, 20);
-    shouldBeCloseTo(elementRect('l2').left, marginLeftXIntercept(2), 1);
+    TestCommon.shouldBeCloseTo(elementRect('l2').left, marginLeftXIntercept(2), 1);
 
     shouldBe(elementRect('l3').top, 40);
-    shouldBeCloseTo(elementRect('l3').left, marginLeftXIntercept(3), 1);
+    TestCommon.shouldBeCloseTo(elementRect('l3').left, marginLeftXIntercept(3), 1);
 
     shouldBe(elementRect('l4').top, 80);
-    shouldBeCloseTo(elementRect('l4').left, marginLeftXIntercept(3), 1);
+    TestCommon.shouldBeCloseTo(elementRect('l4').left, marginLeftXIntercept(3), 1);
 
     shouldBe(elementRect('l5').top, 100);
-    shouldBeCloseTo(elementRect('l5').left, marginLeftXIntercept(2), 1);
+    TestCommon.shouldBeCloseTo(elementRect('l5').left, marginLeftXIntercept(2), 1);
 
     shouldBe(elementRect('l6').top, 120);
-    shouldBeCloseTo(elementRect('l6').left, marginLeftXIntercept(1), 1);
+    TestCommon.shouldBeCloseTo(elementRect('l6').left, marginLeftXIntercept(1), 1);
 
     checkTestFailures();
 }
