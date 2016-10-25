@@ -22,9 +22,9 @@ void main() {
     var errorsSeen = 0;
     var exceptionMessage;
     asyncStart();
-    window.addEventListener('message', (e) {
+    window.addEventListener('message', (Event e) {
         errorsSeen++;
-        exceptionMessage = e.data;
+        exceptionMessage =  (e as dynamic).data;
 //        print("exceptionMessage=$exceptionMessage;");
         if (errorsSeen == 1) {
             Expect.equals("Failed to read the 'localStorage' property from 'Window': Storage is disabled inside 'data:' URLs.", exceptionMessage);
