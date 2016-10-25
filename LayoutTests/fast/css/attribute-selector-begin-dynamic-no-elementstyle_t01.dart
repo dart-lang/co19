@@ -30,7 +30,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   change() {
-    var element = document.getElementsByTagName('div')[0];
+    dynamic element = document.getElementsByTagName('div')[0];
     element.attributes['test'] = '0XYZ';
     asyncEnd();
   }

@@ -8,9 +8,7 @@
  * rdar://problem/5379090 REGRESSION: Cannot set cookies for local files
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBe(document.cookie.indexOf('ppkcookie1=testcookie'), -1);

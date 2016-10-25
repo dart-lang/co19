@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,6 +16,5 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var style = getComputedStyle(document.getElementById("test"), "");
-  var result = document.getElementById("result");
   shouldBe(style.top, "-1px");
 }

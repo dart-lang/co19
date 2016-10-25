@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
 main() {
   document.head.id = "head";
 
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
       <style>
       * {background-image:inherit;}
       </style>

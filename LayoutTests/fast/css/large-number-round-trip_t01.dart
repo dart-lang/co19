@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -25,8 +23,6 @@ main() {
       <div id="box">
       ''', treeSanitizer: new NullTreeSanitizer());
     
-  var output = [];
-
   test(value) {
     debug('$value');
     var box = document.getElementById('box');
@@ -39,9 +35,6 @@ main() {
     box.style.left = "0px";
     box.style.left = leftValue;
     var newLeftValue = getComputedStyle(box, null).left;
-
-    var results = document.getElementById('results');
-    var result;
 
     shouldBe(newLeftValue, leftValue);
   }

@@ -8,12 +8,10 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   // do not indent
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
 <style>
 /*
   === Warning ===
@@ -26,7 +24,8 @@ main() {
 #a { background-color: green; }
 #b { b\61 C\06bG\0052o\00075n\000064-col\6Fr: green; }
 #c { b\61	c\6b
-g\72o\75n\64
+g\72o\75
+n\64
 -color:green }
 #d { background-colo\0000072: green; /* Invalid: too many hex characters. */}
 #e { b\61ckground-color: green; /* Invalid: \0b is not a newline character. */}

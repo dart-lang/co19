@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -45,7 +44,7 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var spans = document.getElementsByTagName("span");
+  dynamic spans = document.getElementsByTagName("span");
   for (var i = spans.length - 1; i >= 0; i--)
     spans[i].classes.add('inlineBlock');
 

@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -33,7 +31,6 @@ main() {
   var SELECTOR_TEST_PROPERTIES = ' { height: 1px; -webkit-appearance: none; }';
 
   // convenience constants
-  var MATCH = true;
   var NO_MATCH = false;
 
   log(msg, success)

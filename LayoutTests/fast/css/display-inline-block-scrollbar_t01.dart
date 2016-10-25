@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/check-layout.dart";
 
 main() {
@@ -60,7 +59,6 @@ main() {
   document.getElementById('container').style.width = '110%';
   document.getElementById('margin').style.left = '200px';
   document.getElementById('container').style.width = '100%';
-  var forceLayout = document.body.offsetTop;
   document.getElementById('margin').style.left = '12px';
   checkLayout('#scrollable', document.getElementById('output'));
 }

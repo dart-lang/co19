@@ -15,7 +15,7 @@ main() {
       <pre id='console'></pre>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var style = document.createElement('style');
+  dynamic style = document.createElement('style');
   document.head.append(style);
 
   test(text) {

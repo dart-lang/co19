@@ -49,7 +49,7 @@ main() {
       testFailed("Setting display to none on focus FAILED." + " (expected 'none', got '" + displayMode + "')");
 
     var elementsToHide = document.getElementsByClassName('box');
-    for (var element, i = 0; element = elementsToHide[i]; i++)
+    for (var element, i = 0; element == elementsToHide[i]; i++)
       element.style.visibility = "hidden";
 
     asyncEnd();

@@ -40,7 +40,7 @@ main() {
     shouldBeLikeString(languageOfNode('x'), "auto");
     shouldBeLikeString(languageOfNode('y'), "ar");
 
-    var meta = document.createElement("meta");
+    dynamic meta = document.createElement("meta");
     meta.httpEquiv = "content-language";
     meta.content = "ja";
     document.getElementById("head").append(meta);

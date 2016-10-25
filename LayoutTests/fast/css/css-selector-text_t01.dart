@@ -13,7 +13,7 @@ main() {
   document.head.id = "head";
 
   parseThenSerializeRule(rule) {
-    var styleElement = document.getElementById("style");
+    dynamic styleElement = document.getElementById("style");
     var head = document.getElementById("head");
     if (styleElement != null)
       styleElement.remove();

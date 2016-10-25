@@ -9,10 +9,9 @@
 import "dart:html";
 import "../../../testcommon.dart";
 import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
       <style>
       .x:after { content:counter(c, asterisks) ""; counter-increment:c 1550; }
       </style>

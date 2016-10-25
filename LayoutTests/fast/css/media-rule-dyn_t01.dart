@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -24,11 +22,12 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   runTest() {
-    var styleSheet = (document.getElementById('style1') as StyleElement).sheet;
+    dynamic styleSheet =
+        (document.getElementById('style1') as StyleElement).sheet;
     var mediaRule = styleSheet.cssRules[0];
 
     try {
-      var index = mediaRule.insertRule("p {color: red; }", 0);
+      mediaRule.insertRule("p {color: red; }", 0);
       if (mediaRule.cssRules.length == 2) {
         mediaRule.deleteRule(0);
         if (mediaRule.cssRules.length == 1)

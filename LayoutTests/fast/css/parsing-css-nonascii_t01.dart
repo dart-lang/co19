@@ -8,12 +8,10 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   // do not indent
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
 <style>
 /*
   === Warning ===

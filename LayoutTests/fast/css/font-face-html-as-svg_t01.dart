@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -31,7 +30,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   addCss() {
-    var cssNode = document.createElement('style');
+    dynamic cssNode = document.createElement('style');
     cssNode.type = 'text/css';
     var head = document.getElementsByTagName('head')[0];
     head.append(cssNode);

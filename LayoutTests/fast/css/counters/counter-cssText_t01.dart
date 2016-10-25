@@ -10,7 +10,7 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 main() {
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
       <style>
       body {
           counter-reset: section;

@@ -7,7 +7,6 @@
  * @description This test passes if it does not CRASH.
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   document.body.setAttribute("style",

@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /** 
- * @description Test for Bug: 105836 - computed value of float on positioned elements.
+ * @description Test for Bug: 105836 - computed value of float on positioned
+ * elements.
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''

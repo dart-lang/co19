@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -46,7 +44,6 @@ main() {
   var outer = document.getElementById('outer');
   var inner = document.getElementById('inner');
   var outer2 = document.getElementById('outer2');
-  var outer3 = document.getElementById('outer3');
 
   // Style recalc should happen on "inner" and "outer", but not "inner2" or "mid".
   outer.offsetTop;

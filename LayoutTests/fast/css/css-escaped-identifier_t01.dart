@@ -8,9 +8,7 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/testharness.dart";
-import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -30,7 +28,7 @@ main() {
   document.body.setInnerHtml('''<!-- Intentionally left empty -->''', treeSanitizer: new NullTreeSanitizer());
 
   test(() {
-    var styleElm = document.getElementsByTagName("style")[index];
+    dynamic styleElm = document.getElementsByTagName("style")[index];
     assert_not_equals(styleElm, null, "Style element exists");
     var stylesheet = styleElm.sheet;
     assert_not_equals(stylesheet, null, "style.sheet exists");

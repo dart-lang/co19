@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -36,7 +34,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var e = document.getElementById('cell1');
-  var table = document.getElementById('table');
   var computedStyle = getComputedStyle(e, null);
 
   shouldBe(computedStyle.getPropertyValue('height'), '200px');

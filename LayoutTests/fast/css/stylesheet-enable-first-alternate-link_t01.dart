@@ -25,9 +25,9 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
   
-  var red = document.getElementsByTagName("link")[index];
+  dynamic red = document.getElementsByTagName("link")[index];
   red.disabled = true;
-  var green = document.getElementsByTagName("link")[index+1];
+  dynamic green = document.getElementsByTagName("link")[index+1];
   green.disabled = true;
   green.disabled = false;
 

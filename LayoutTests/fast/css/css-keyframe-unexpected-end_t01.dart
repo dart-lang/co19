@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
@@ -24,6 +23,6 @@ main() {
   document.head.append(style);
 
   CssStyleSheet ss = document.styleSheets[index];
-  var rule = ss.cssRules[0];
-  shouldBe(rule.cssRules.length, 2);
+  var rule = ss.cssRules;
+  shouldBe(rule.length, 2);
 }

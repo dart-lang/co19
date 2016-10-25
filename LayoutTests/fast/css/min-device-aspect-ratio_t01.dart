@@ -37,7 +37,7 @@ main() {
   doTest()
   {
     var headElement = document.head;
-    var linkElement = document.createElement("link");
+    dynamic linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     var width;
     var height;

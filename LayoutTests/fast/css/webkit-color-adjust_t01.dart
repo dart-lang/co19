@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setAttribute("style", "white-space: pre-wrap;");
@@ -18,8 +16,6 @@ main() {
       <div id="economy" style="-webkit-print-color-adjust:economy;"></div>
       <div id="exact" style="-webkit-print-color-adjust:exact;"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
-
-  var output = [];
 
   test(id, expected) {
     //var adjust = getComputedStyle(document.getElementById(id)).webkitPrintColorAdjust;

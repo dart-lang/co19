@@ -29,7 +29,7 @@ main() {
   window.onLoad.listen((_) {
     var testDiv = document.querySelector('div#test');
     shouldBeEqualToString(getComputedStyle(testDiv).backgroundColor, 'rgb(255, 0, 0)');
-    var disabledLink = document.querySelector('link[disabled]');
+    dynamic disabledLink = document.querySelector('link[disabled]');
     shouldBeTrue(disabledLink.disabled);
     asyncEnd();
   });

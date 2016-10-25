@@ -9,7 +9,6 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
@@ -27,7 +26,7 @@ main() {
 
   test(_){
     CssStyleSheet ss =  document.styleSheets[index];
-    var e = ss.cssRules[0];
+    dynamic e = ss.cssRules[0];
     e.cssRules.item(0).parentStyleSheet.removeRule(0);
     e.name = 'bar';
     document.getElementById('console').innerHtml = "PASS";

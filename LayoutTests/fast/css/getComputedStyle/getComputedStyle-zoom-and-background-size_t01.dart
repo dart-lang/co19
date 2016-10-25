@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -175,8 +173,7 @@ main() {
       zoomedAndHidden    = document.getElementById("zoomed_and_hidden"),
       tbody              = document.getElementById("results_body"),
       tbodyHidden        = document.getElementById("results_hidden_body"),
-      overallPass        = true,
-      computed;
+      overallPass        = true;
 
   var testProperties = (testElement, resultBody) {
     // Apply properties

@@ -9,10 +9,9 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
       <style>
           .circle {
               display: inline-block;
@@ -78,7 +77,7 @@ main() {
   // Force a layout so that changing the classname below causes an animation.
   document.body.offsetHeight;
 
-  var elements = document.getElementsByClassName('circle');
+  dynamic elements = document.getElementsByClassName('circle');
   for (var el in elements) {
     el.style.color = el.dataset['from'];
   }

@@ -8,11 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
       <style id="style">
           test { font-weight: bold !important; font-variant: small-caps !important; font-style: italic !important; }
       </style>

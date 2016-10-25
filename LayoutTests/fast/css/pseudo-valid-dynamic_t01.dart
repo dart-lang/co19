@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -29,11 +27,13 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var s1 = (document.getElementById('sty') as StyleElement).sheet;
+  dynamic s1 = (document.getElementById('sty') as StyleElement).sheet;
   s1.insertRule(':valid { background: lime; }', s1.cssRules.length);
 
   var v = document.getElementsByTagName("input");
 
-  shouldBe(getComputedStyle(v[0], null).getPropertyValue('background-color'), 'rgb(0, 255, 0)');
-  shouldBe(getComputedStyle(v[1], null).getPropertyValue('background-color'), 'rgb(0, 0, 255)');
+  shouldBe(getComputedStyle(v[0], null).getPropertyValue('background-color'),
+      'rgb(0, 255, 0)');
+  shouldBe(getComputedStyle(v[1], null).getPropertyValue('background-color'),
+      'rgb(0, 0, 255)');
 }

@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var styles = new DocumentFragment.html('''
@@ -32,5 +30,6 @@ main() {
 
   var v = document.getElementsByName("victim");
   for (var i = 0; i < v.length; i++)
-    shouldBe(getComputedStyle(v[i], null).getPropertyValue('background-color'), 'rgb(0, 255, 0)');
+    shouldBe(getComputedStyle(v[i], null).getPropertyValue('background-color'),
+        'rgb(0, 255, 0)');
 }

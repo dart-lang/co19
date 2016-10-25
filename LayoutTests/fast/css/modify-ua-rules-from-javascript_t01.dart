@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,7 +18,7 @@ main() {
 
   test()
   {
-    var cssRulesList = window.getMatchedCssRules(document.body, "");
+    dynamic cssRulesList = window.getMatchedCssRules(document.body, "");
     if (cssRulesList != null) 
     {
       var styleToChange = cssRulesList[0].style;

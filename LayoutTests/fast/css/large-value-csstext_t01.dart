@@ -8,11 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
         <style type="text/css" media="screen">
             #box {
                 border-top-left-radius:  99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999%;

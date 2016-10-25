@@ -10,7 +10,6 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
