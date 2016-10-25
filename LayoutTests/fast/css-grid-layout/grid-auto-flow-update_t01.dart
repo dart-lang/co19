@@ -36,7 +36,7 @@ main() {
 
   testGrid(flow, positionAndSize)
   {
-    var gridElement = document.getElementsByClassName("grid")[0];
+    dynamic gridElement = document.getElementsByClassName("grid")[0];
     gridElement.style.gridAutoFlow = flow;
     var gridItem = document.getElementById("autoItem");
     gridItem.setAttribute("data-offset-x", positionAndSize['offsetX']);

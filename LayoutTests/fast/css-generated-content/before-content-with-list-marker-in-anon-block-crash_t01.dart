@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var style = new Element.html('''
+  dynamic style = new Element.html('''
       <style>
       .c9::before { float: right; content: counter(section); }
       .c9 { display: list-item; }

@@ -10,7 +10,6 @@ import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "../../resources/check-layout.dart";
-import "pwd.dart";
 
 main() {
   var f = new DocumentFragment.html('''

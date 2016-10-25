@@ -22,7 +22,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  CssStyleSheet ss = document.styleSheets[index];
-  var rule = ss.cssRules;
-  shouldBe(rule.length, 2);
+  dynamic ss = document.styleSheets[index];
+  var rule = ss.cssRules[0];
+  shouldBe(rule.cssRules.length, 2);
 }

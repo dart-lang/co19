@@ -9,7 +9,6 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
-import "../../resources/check-layout.dart";
 import "pwd.dart";
 
 main() {
@@ -22,7 +21,7 @@ main() {
 
   asyncStart();
   window.onLoad.listen((_) {
-    var grid = document.getElementsByClassName("grid")[0];
+    dynamic grid = document.getElementsByClassName("grid")[0];
     grid.offsetTop;
     grid.innerHtml = "PASS";
     asyncEnd();
