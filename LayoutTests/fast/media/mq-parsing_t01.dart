@@ -50,8 +50,8 @@ void printOut(expect, res) {
 }
 
 void runTests(e) {
-    var rules = document.styleSheets[document.styleSheets.length-1].cssRules;
-    var mediaList = rules.item(0).media;
+    List<CssRule> rules = (document.styleSheets[document.styleSheets.length-1] as CssStyleSheet).cssRules;
+    MediaList mediaList = (rules[0] as CssMediaRule).media;
 
     printOut("screen", mediaList.mediaText);
 

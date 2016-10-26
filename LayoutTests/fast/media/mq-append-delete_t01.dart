@@ -21,8 +21,8 @@ const String htmlEL2 = r'''
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
-    var rules = document.styleSheets[document.styleSheets.length-1].cssRules;
-    var mediaList = rules[0].media;
+    List<CssRule> rules = (document.styleSheets[document.styleSheets.length-1] as CssStyleSheet).cssRules;
+    MediaList mediaList = (rules[0] as CssMediaRule).media;
 
     // - appendMedium()
 

@@ -27,18 +27,18 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2);
 
-    var rules = document.styleSheets[document.styleSheets.length-1].cssRules;
+    List<CssRule> rules = (document.styleSheets[document.styleSheets.length-1] as CssStyleSheet).cssRules;
 
     test((){
-      assert_equals(rules[0].media.mediaText, "not all");
+      assert_equals((rules[0] as CssMediaRule).media.mediaText, "not all");
     }, "(color-index: 0.0) is invalid");
 
     test((){
-      assert_equals(rules[1].media.mediaText, "not all");
+      assert_equals((rules[1] as CssMediaRule).media.mediaText, "not all");
     }, "(color-index: -1) is invalid");
 
     test((){
-      assert_equals(rules[2].media.mediaText, "not all");
+      assert_equals((rules[2] as CssMediaRule).media.mediaText, "not all");
     }, "(color-index: 2.1) is invalid");
 
     checkTestFailures();

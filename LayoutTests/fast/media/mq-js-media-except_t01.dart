@@ -28,7 +28,8 @@ const String htmlEL2 = r'''
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     Expect.throws(() {
-        document.styleSheets[document.styleSheets.length-1].cssRules[0].media.deleteMedium("all and (");
+        ((document.styleSheets[document.styleSheets.length-1]  as CssStyleSheet).cssRules[0] as CssMediaRule)
+            .media.deleteMedium("all and (");
     },
     (e)=>e is DomException && e.name=="NotFoundError"
     );
