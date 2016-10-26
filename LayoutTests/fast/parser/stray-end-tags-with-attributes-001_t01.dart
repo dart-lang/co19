@@ -25,8 +25,8 @@ There should be a green square and no red below: </p class=fail>
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var elm = document.getElementsByTagName("p")[0];
+    Node elm = document.getElementsByTagName("p")[0];
     Expect.isNotNull(elm);
-    Expect.notEquals("fail", elm.className);
+    Expect.notEquals("fail", (elm as Element).className);
     document.body.appendHtml("PASS");
 }
