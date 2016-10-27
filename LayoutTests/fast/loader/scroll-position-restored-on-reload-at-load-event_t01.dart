@@ -31,7 +31,7 @@ void init(evt) {
     } else {
         window.scrollTo(1000, 2000);
         window.name = "second/load";
-        runLater((){location.reload(true);}, 0);
+        runLater((){window.location.reload();}, 0);
     }
 }
 
