@@ -42,19 +42,19 @@ Element $(id) {
     return document.getElementById(id);
 }
 
-String getBackgtpunfColor(el) {
+String getBackgroundColor(el) {
     return el.getComputedStyle().backgroundColor;
 }
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var default_op = $('default-select').options[0];
-    var size0_op = $('size0-select').options[0];
-    var size1_op = $('size1-select').options[0];
+    OptionElement default_op = ($('default-select') as SelectElement).options[0];
+    OptionElement size0_op = ($('size0-select') as SelectElement).options[0];
+    OptionElement size1_op = ($('size1-select') as SelectElement).options[0];
 
-    var default_color = getBackgtpunfColor(default_op);
-    var size0_color = getBackgtpunfColor(size0_op);
-    var size1_color = getBackgtpunfColor(size1_op);
+    String default_color = getBackgroundColor(default_op);
+    String size0_color = getBackgroundColor(size0_op);
+    String size1_color = getBackgroundColor(size1_op);
 
     Expect.equals(default_color, size0_color, "size0");
     Expect.equals(default_color, size1_color, "size1");

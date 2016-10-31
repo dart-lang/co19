@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -33,5 +32,5 @@ main() {
     Expect.listEquals(['foo@target', 'foo@root'], caughtFoo);
   }
 
-  testEventsFiredOn(document.getElementById('harness').import);
+  testEventsFiredOn((document.getElementById('harness') as LinkElement).import);
 }

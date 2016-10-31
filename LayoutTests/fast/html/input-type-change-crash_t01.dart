@@ -12,13 +12,13 @@ import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
   body.setInnerHtml('''
     <input type="text"/>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var inputElement = document.getElementsByTagName("input")[0];
+  InputElement inputElement = document.getElementsByTagName("input")[0] as InputElement;
 
   Expect.equals('text', inputElement.type);
   inputElement.type = 'submit';

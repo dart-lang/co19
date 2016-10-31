@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 main() {
   var testParent = document.createElement('div');
@@ -27,10 +26,10 @@ main() {
   //debug('&lt;header> can be nested inside &lt;header> or &lt;footer>:');
   testParent.innerHtml = '<header id="header2">Test that <header id="header3">a header element</header> can be nested inside another header element.</header>';
   var header3 = document.getElementById('header3');
-  Expect.equals("header2", header3.parentNode.id);
+  Expect.equals("header2", (header3.parentNode as Element).id);
   testParent.innerHtml = '<footer id="footer1">Test that <header id="header5">a header element</header> can be nested inside a footer element.</footer>';
   var header5 = document.getElementById('header5');
-  Expect.equals("footer1", header5.parentNode.id);
+  Expect.equals("footer1", (header5.parentNode as Element).id);
 
   //debug('Residual style:');
   testParent.innerHtml = '<b><header id="header4">This text should be bold.</header> <span id="span1">This is also bold.</span></b>';
