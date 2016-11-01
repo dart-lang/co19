@@ -11,10 +11,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -48,6 +45,7 @@ main() {
         }
         return data;
       }
+      break;
       case wgl.UNSIGNED_SHORT_4_4_4_4: {
         var rowWidth = max([unpackAlignment, 2]) ~/ 2;
         var data = new Uint16List(2 * rowWidth);
@@ -60,6 +58,7 @@ main() {
         }
         return data;
       }
+      break;
       case wgl.UNSIGNED_SHORT_5_5_5_1: {
         var rowWidth = max([unpackAlignment, 2]) ~/ 2;
         var data = new Uint16List(2 * rowWidth);
