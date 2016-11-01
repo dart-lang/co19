@@ -26,6 +26,9 @@ void entryPoint(SendPort sendPort) {
 main() {
   asyncStart();
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen((_) => asyncEnd());
+  receivePort.listen((_) {
+    asyncEnd();
+    receivePort.close();
+  });
   Isolate.spawn(entryPoint, receivePort.sendPort, paused: false);
 }
