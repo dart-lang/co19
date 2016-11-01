@@ -5,13 +5,12 @@
  */
 /**
  * @description This test checks validity.patternMismatch.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var f = new DocumentFragment.html('''
+  DocumentFragment f = new DocumentFragment.html('''
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(f);

@@ -9,20 +9,19 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var i = document.createElement('input');
+  InputElement i = document.createElement('input') as InputElement;
   i.type = 'email';
 
-  emailCheck(value, expectedValue, expectedMismatch, [multiple=false]) {
+  void emailCheck(String value, String expectedValue, bool expectedMismatch, [bool multiple = false]) {
     i.value = value;
     i.multiple = multiple;
-    var mismatch = i.validity.typeMismatch;
-    var mismatchPass = mismatch == expectedMismatch;
-    var sanitizePass = i.value == expectedValue;
-    var mismatchResult = '"' + value + '" is a ' + (mismatch ? 'invalid' : 'valid') + ' email address' + (multiple ? ' list. ' : '. ');
-    var sanitizeResult = 'It was sanitized to "' + i.value + '"' + (sanitizePass ? '.' : ', but should be sanitized to "' + expectedValue + '"');
+    bool mismatch = i.validity.typeMismatch;
+    bool mismatchPass = mismatch == expectedMismatch;
+    bool sanitizePass = i.value == expectedValue;
+    String mismatchResult = '"${value}" is a ' + (mismatch ? 'invalid' : 'valid') + ' email address' + (multiple ? ' list. ' : '. ');
+    var sanitizeResult = 'It was sanitized to "${i.value}"' + (sanitizePass ? '.' : ', but should be sanitized to "' + expectedValue + '"');
     var result = mismatchResult;
     if (value != expectedValue || !sanitizePass)
       result += sanitizeResult;
@@ -33,9 +32,9 @@ main() {
       testFailed(result);
   }
 
-  var expectValid = false;
-  var expectInvalid = true;
-  var multiple = true;
+  bool expectValid = false;
+  bool expectInvalid = true;
+  bool multiple = true;
 
   debug("Valid single addresses when 'multiple' attribute is not set.");
   emailCheck("something@something.com", "something@something.com", expectValid);

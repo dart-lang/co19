@@ -5,7 +5,6 @@
  */
 /**
  * @description This test checks validity.customError.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";

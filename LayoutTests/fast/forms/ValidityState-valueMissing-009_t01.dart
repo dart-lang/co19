@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,8 +22,8 @@ main() {
       <input name="victim" type="number" required />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var v = document.getElementsByName("victim");
+  List<Node> v = document.getElementsByName("victim");
 
   for (var i = 0; i < v.length; i++)
-    shouldBeTrue(v[i].validity.valueMissing);
+    shouldBeTrue((v[i] as InputElement).validity.valueMissing);
 }
