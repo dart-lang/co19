@@ -5,13 +5,11 @@
  */
 /**
  * @description
+ * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "package:unittest/unittest.dart";
 
 main() {
-  test("location missing arguments", () {
-      shouldThrow(() => window.location.replace());
-    });
+  shouldThrow(() => window.location.replace()); /// static type warning
 }

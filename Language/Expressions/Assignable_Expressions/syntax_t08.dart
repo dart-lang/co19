@@ -32,7 +32,7 @@
 
 class A<T> {
   test() {
-    T = null; /// 01: runtime error
+    T = null; /// 01: runtime error, static type warning
   }
 }
 
