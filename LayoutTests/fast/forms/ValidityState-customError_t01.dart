@@ -52,14 +52,14 @@ main() {
       <input    name="many-changes" id="input-submit-many-changes" type="submit" />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  customErrorFor(id) {
-    return document.getElementById(id).validity.customError;
+  bool customErrorFor(String id) {
+    return (document.getElementById(id) as InputElementBase).validity.customError;
   }
 
   debug('Set some value for customError.');
-  var v = document.getElementsByName("set");
-  for (var i = 0; i < v.length; i++)
-    v[i].setCustomValidity("Custom validation message");
+  List<Node> v = document.getElementsByName("set");
+  for (int i = 0; i < v.length; i++)
+    (v[i] as dynamic).setCustomValidity("Custom validation message");
   shouldBeFalse(customErrorFor("fieldset-set"));
   shouldBeTrue(customErrorFor("button-set"));
   shouldBeFalse(customErrorFor("button-button-set"));
@@ -72,10 +72,10 @@ main() {
   debug('');
   debug('Set some value for customError, and clear it.');
   v = document.getElementsByName("set-and-empty");
-  for (var i = 0; i < v.length; i++)
-    v[i].setCustomValidity("Custom validation message");
-  for (var i = 0; i < v.length; i++)
-    v[i].setCustomValidity("");
+  for (int i = 0; i < v.length; i++)
+    (v[i] as dynamic).setCustomValidity("Custom validation message");
+  for (int i = 0; i < v.length; i++)
+    (v[i] as dynamic).setCustomValidity("");
   shouldBeFalse(customErrorFor("fieldset-set-and-empty"));
   shouldBeFalse(customErrorFor("button-set-and-empty"));
   shouldBeFalse(customErrorFor("button-button-set-and-empty"));
@@ -100,16 +100,16 @@ main() {
   debug('Many changes for customError:');
   debug('Set some value, and set with no arguments.');
   v = document.getElementsByName("many-changes");
-  for (var i = 0; i < v.length; i++) {
-    v[i].setCustomValidity("Custom string");
+  for (int i = 0; i < v.length; i++) {
+    (v[i] as dynamic).setCustomValidity("Custom string");
     try {
-      v[i].setCustomValidity();
+      (v[i] as dynamic).setCustomValidity();
       testFailed("setCustomValidity() did not throw");
     } catch(err) {
       testPassed("setCustomValidity() EXPECTEDLY threw $err");
     }
     //v[i].setCustomValidity(undefined);
-    v[i].setCustomValidity(null);
+    (v[i] as dynamic).setCustomValidity(null);
   }
   shouldBeFalse(customErrorFor("fieldset-many-changes"));
   shouldBeTrue(customErrorFor("button-many-changes"));
@@ -121,8 +121,8 @@ main() {
   shouldBeTrue(customErrorFor("input-submit-many-changes"));
 
   debug('Set null.');
-  for (var i = 0; i < v.length; i++)
-    v[i].setCustomValidity(null);
+  for (int i = 0; i < v.length; i++)
+    (v[i] as dynamic).setCustomValidity(null);
   shouldBeFalse(customErrorFor("fieldset-many-changes"));
   shouldBeTrue(customErrorFor("button-many-changes"));
   shouldBeFalse(customErrorFor("button-button-many-changes"));

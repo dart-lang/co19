@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,11 +20,11 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var o = document.getElementById('theOption');
+  OptionElement o = document.getElementById('theOption') as OptionElement;
   document.getElementById('logOne').text = o.selected.toString();
   shouldBe(o.selected, true);
 
-  SelectElement s = document.getElementById('theSelect');
+  SelectElement s = document.getElementById('theSelect') as SelectElement;
   document.getElementById('logTwo').text = s.selectedIndex.toString();
   shouldBe(s.selectedIndex, 0);
 

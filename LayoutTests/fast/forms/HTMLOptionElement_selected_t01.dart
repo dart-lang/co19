@@ -27,9 +27,9 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   runTest(_) {
-    var theOption = document.getElementById('theOption');
+    OptionElement theOption = document.getElementById('theOption') as OptionElement;
     shouldBe(theOption.selected, true);
-    shouldBe(theOption.parentNode.selectedIndex, 0);
+    shouldBe((theOption.parentNode as SelectElement).selectedIndex, 0);
     shouldBe(theOption.selected, true);
     asyncEnd();
   }

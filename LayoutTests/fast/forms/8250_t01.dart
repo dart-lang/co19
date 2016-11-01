@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +20,7 @@ main() {
       <input id="test" type="text">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var e = document.getElementById("test");
+  InputElement e = document.getElementById("test") as InputElement;
   e.focus();
   e.setSelectionRange(0, 0);
 
