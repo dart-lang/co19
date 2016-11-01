@@ -12,9 +12,8 @@
  * defaultNamedParameter:
  *   normalFormalParameter (':' expression)?
  * ;
- * @description Checks that it is a compile-time error when the the '='
- * character is used in an optional named parameter declaration.
- * @compile-error
+ * @description Checks that it is no error when the the '=' character is used in
+ * an optional named parameter declaration.
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -24,4 +23,5 @@ foo({var a: 1, var b = 2}) {
 }
 
 main() {
-  foo();}
+  foo();
+}
