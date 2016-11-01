@@ -14,14 +14,16 @@
  * ;
  * @description Checks that it is no error when the the '=' character is used in
  * an optional named parameter declaration.
+ * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
+ * @author sgrekhov@unipro.ru
  */
+import "../../../../Utils/expect.dart";
 
 foo({var a: 1, var b = 2}) {
-  return a;
+  return b;
 }
 
 main() {
-  foo();
+  Expect.equals(2, foo());
 }
