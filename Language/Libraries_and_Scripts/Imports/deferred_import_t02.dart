@@ -57,7 +57,6 @@
  * the imported library became accessed in the current library with specified
  * prefix. If a call loadLibrary fails nothing happens, and one again has the
  * option to call loadLibrary again.
- * @static-warning
  * @author ngl@unipro.ru
  */
 import "dart:async";
