@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -15,7 +14,7 @@ main() {
     '<meta id="test" name="foo" scheme="bar" http-equiv="content-type" content="text/html; charset=UTF-8">',
     treeSanitizer: new NullTreeSanitizer()));
 
-  var metaTag = document.getElementById("test");
+  MetaElement metaTag = document.getElementById("test");
   shouldBeTrue(metaTag is MetaElement);
   shouldBe(metaTag.name, "foo");
   //shouldBe(metaTag.scheme, "bar");

@@ -11,10 +11,10 @@ import "../../testcommon.dart";
 
 main() {
   // NodeList is not a Node, so document.body can't be set to one.
-  var nodelist = document.getElementsByName('sillypants');
+  dynamic nodelist = document.getElementsByName('sillypants');
   shouldThrow(() => document.body = nodelist);
 
   // NodeList is also not an HTMLTableSectionElement.
-  var table = document.createElement('table');
+  dynamic table = document.createElement('table');
   shouldThrow(() => table.tHead = nodelist);
 }

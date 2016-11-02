@@ -8,7 +8,6 @@
  * OK if not crashed.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

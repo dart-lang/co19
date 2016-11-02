@@ -8,7 +8,6 @@
  * updates the new node created by Text::splitText.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -17,7 +16,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var parent = document.getElementById('parent1');
-  var target = parent.firstChild;
+  Text target = parent.firstChild;
 
   handleInsertion(_) {
     document.removeEventListener('DOMNodeInserted', handleInsertion);

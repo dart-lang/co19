@@ -14,7 +14,7 @@ import "../../../testcommon.dart";
 import "pwd.dart";
 
 main() {
-  var s0 = new ScriptElement();
+  ScriptElement s0 = new ScriptElement();
   s0.async = false;
   s0.src = "$root/../../../resources/js-test.js";
   document.body.append(s0);

@@ -7,11 +7,10 @@
  * @description Test setting valid and invalid properties of HTMLProgressElement.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var p = document.createElement('progress');
+  ProgressElement p = document.createElement('progress');
 
   debug("Test values before properties were set");
   shouldBe(p.value, 0);

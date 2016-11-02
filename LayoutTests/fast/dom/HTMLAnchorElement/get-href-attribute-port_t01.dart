@@ -7,11 +7,10 @@
  * @description Test getting the port attribute of the URL in HTMLAnchorElement.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var a = document.createElement('a');
+  AnchorElement a = document.createElement('a');
 
   debug("Default port is empty");
   shouldBe(a.port, '');

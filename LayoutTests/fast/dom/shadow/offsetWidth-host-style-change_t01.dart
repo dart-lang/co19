@@ -17,7 +17,7 @@ main() {
 
   var host = document.getElementById('host');
   var shadowRoot = host.createShadowRoot();
-  var div = shadowRoot.append(document.createElement('div'));
+  DivElement div = shadowRoot.append(document.createElement('div'));
   div.style.width = '100px';
   shouldBe(div.offsetWidth, 100);
   host.style.display = 'none';

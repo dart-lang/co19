@@ -9,7 +9,6 @@
  * bottom
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -47,7 +46,7 @@ main() {
 
   showAndTest(id) {
     debug('showing ' + id);
-    var dialog = document.getElementById(id);
+    DialogElement dialog = document.getElementById(id);
     dialog.show();
     shouldBe(dialog.offsetTop, expectedTop(dialog));
   }

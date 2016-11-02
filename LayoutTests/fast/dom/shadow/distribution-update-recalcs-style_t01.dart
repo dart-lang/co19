@@ -25,18 +25,13 @@ main() {
     return document.getElementById(id).getComputedStyle().color;
   }
 
-  log(message) {
-    var console = document.getElementById('console');
-    console.innerHtml += message + '\n';
-  }
-
   var sr = document.getElementById("host").createShadowRoot();
   sr.innerHtml = '<style>div { color: blue }</style><div><content id="contentId" select="#div-child"></content></div>';
 
   shouldBe(getColorProperty("div-child"), "rgb(0, 0, 255)");
   shouldBe(getColorProperty("span-child"), "rgb(255, 0, 0)");
 
-  sr.getElementById("contentId").select = "#span-child";
+  (sr.getElementById("contentId") as ContentElement).select = "#span-child";
   shouldBe(getColorProperty("div-child"), "rgb(255, 0, 0)");
   shouldBe(getColorProperty("span-child"), "rgb(0, 0, 255)");
 }

@@ -8,7 +8,6 @@
  * "inert", e.g. script does not run.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -22,7 +21,8 @@ main() {
 
   shouldBeNull(document.body.querySelector('div'));
 
-  var templateContent = document.querySelector('template').content;
+  var templateContent =
+      (document.querySelector('template') as TemplateElement).content;
   document.body.append(templateContent);
 
   shouldBeNonNull(document.body.querySelector('div'));

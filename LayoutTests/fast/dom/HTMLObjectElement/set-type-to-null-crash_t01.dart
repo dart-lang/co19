@@ -7,7 +7,6 @@
  * @description The test should not crash.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
@@ -19,7 +18,7 @@ main() {
   asyncStart();
 
   window.onLoad.listen((_) {
-    document.getElementById('crash').type = null;
+    (document.getElementById('crash') as ObjectElement).type = null;
     asyncEnd();
   });
 }

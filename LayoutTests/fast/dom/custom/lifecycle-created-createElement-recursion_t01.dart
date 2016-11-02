@@ -8,7 +8,6 @@
  * @note test causes stack overflow which is considered as "crash" anyway
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 class Foo extends HtmlElement {

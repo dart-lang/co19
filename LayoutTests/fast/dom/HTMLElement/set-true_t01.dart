@@ -8,7 +8,6 @@
  * inherit, element.contentEditable returns "true" and the element is editable.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

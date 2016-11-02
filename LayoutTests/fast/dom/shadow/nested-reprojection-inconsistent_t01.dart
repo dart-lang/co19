@@ -25,21 +25,21 @@ main() {
   var div1 = shadowRoot11.firstChild;
   var shadow1 = shadowRoot11.lastChild;
 
-  var shadowRoot12 = host1.createShadowRoot();
+  ShadowRoot shadowRoot12 = host1.createShadowRoot();
   shadowRoot12.innerHtml = '<div><shadow><content></content></shadow></div>';
-  var host2 = shadowRoot12.firstChild;
+  DivElement host2 = shadowRoot12.firstChild;
 
-  var shadowRoot21 = host2.createShadowRoot();
+  ShadowRoot shadowRoot21 = host2.createShadowRoot();
   shadowRoot21.innerHtml = '<content></content>';
 
-  var shadowRoot22 = host2.createShadowRoot();
+  ShadowRoot shadowRoot22 = host2.createShadowRoot();
   shadowRoot22.innerHtml = '<div><shadow><content></content></shadow></div>';
-  var host3 = shadowRoot22.firstChild;
+  DivElement host3 = shadowRoot22.firstChild;
 
-  var shadowRoot31 = host3.createShadowRoot();
+  ShadowRoot shadowRoot31 = host3.createShadowRoot();
   shadowRoot31.innerHtml = '<content></content>';
 
-  var content = shadowRoot31.firstChild;
+  ContentElement content = shadowRoot31.firstChild;
 
   asyncStart();
   setTimeout(() {

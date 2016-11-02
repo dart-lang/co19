@@ -7,7 +7,6 @@
  * @description Tests the htmlFor attribute and its properties.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

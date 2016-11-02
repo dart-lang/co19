@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -20,8 +19,8 @@ main() {
     <div id="console"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var selectElement = document.getElementsByTagName('select')[0];
-  var optionElements = document.getElementsByTagName('option');
+  SelectElement selectElement = document.getElementsByTagName('select')[0];
+  List optionElements = document.getElementsByTagName('option');
 
   selectElement.selectedIndex = 0;
   shouldBe(selectElement.selectedIndex, 0);

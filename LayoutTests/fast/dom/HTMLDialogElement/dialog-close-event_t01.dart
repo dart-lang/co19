@@ -7,8 +7,6 @@
  * @description Test that dialog receives a close event upon closing.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -21,7 +19,7 @@ main() {
   });
 
   var closedCount = 0;
-  var dialog = document.querySelector('dialog');
+  DialogElement dialog = document.querySelector('dialog');
   dialog.addEventListener('close', (event) {
     closedCount++;
     //var self = this;

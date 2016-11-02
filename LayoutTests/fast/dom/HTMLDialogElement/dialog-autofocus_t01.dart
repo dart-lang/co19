@@ -7,7 +7,6 @@
  * @description Tests autofocus when a modal dialog is opened.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -30,13 +29,13 @@ main() {
   debug('Initial active element');
   shouldBe(document.activeElement, document.getElementById("outer-button"));
 
-  var dialog = document.getElementById('dialog');
+  DialogElement dialog = document.getElementById('dialog');
   dialog.showModal();
 
-  var autofocusButton = document.getElementById('autofocus-button');
+  ButtonElement autofocusButton = document.getElementById('autofocus-button');
   shouldBe(document.activeElement, autofocusButton);
 
-  var anotherButton = document.getElementById('another-button');
+  ButtonElement anotherButton = document.getElementById('another-button');
   anotherButton.focus();
   shouldBe(document.activeElement, anotherButton);
 

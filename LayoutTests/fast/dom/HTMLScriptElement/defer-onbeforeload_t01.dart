@@ -14,7 +14,7 @@ import "../../../testcommon.dart";
 import "pwd.dart";
 
 main() {
-  var s0 = new ScriptElement();
+  ScriptElement s0 = new ScriptElement();
   s0.async = false;
   s0.src = "$root/../../../resources/js-test.js";
   document.body.append(s0);
@@ -34,7 +34,7 @@ main() {
     });
     document.body.append(s1);
 
-    var s2 = new ScriptElement();
+    ScriptElement s2 = new ScriptElement();
     s2.defer = true;
     s2.src = "$root/resources/defer.js";
     s2.addEventListener('onbeforeload', (_) {
@@ -43,7 +43,7 @@ main() {
     });
     document.body.append(s2);
 
-    var s3 = new ScriptElement();
+    ScriptElement s3 = new ScriptElement();
     s3.src = "$root/resources/external.js";
     s3.addEventListener('onbeforeload', (_) {
       debug('onbeforeload external');

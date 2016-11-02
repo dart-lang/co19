@@ -8,12 +8,11 @@
  * subject to updates to the document base URI.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var a = document.createElement('a');
-  var base = document.createElement('base');
+  AnchorElement a = document.createElement('a');
+  BaseElement base = document.createElement('base');
   document.head.append(base);
 
   debug("Search attribute, update document base URI without attribute having been set");

@@ -8,11 +8,10 @@
  * path for IDs in almost strict mode.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = new DomParser().parseFromString('''
+  HtmlDocument doc = new DomParser().parseFromString('''
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     ''', 'text/html');
 

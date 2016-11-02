@@ -8,8 +8,6 @@
  * removing nodes 'out of order'
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -33,9 +31,9 @@ main() {
   shouldBe(mutations.length, 2);
   shouldBe(mutations[0].addedNodes.length, 1);
   shouldBe(mutations[0].removedNodes.length, 0);
-  shouldBe(mutations[0].addedNodes[0].tagName, 'B');
+  shouldBe((mutations[0].addedNodes[0] as Element).tagName, 'B');
   shouldBe(mutations[1].addedNodes.length, 1);
   shouldBe(mutations[1].removedNodes.length, 1);
-  shouldBe(mutations[1].removedNodes[0].tagName, 'B');
-  shouldBe(mutations[1].addedNodes[0].tagName, 'I');
+  shouldBe((mutations[1].removedNodes[0] as Element).tagName, 'B');
+  shouldBe((mutations[1].addedNodes[0] as Element).tagName, 'I');
 }

@@ -8,7 +8,6 @@
  * elements that are in the same processing queue.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "../../../resources/testharness.dart";

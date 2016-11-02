@@ -8,16 +8,15 @@
  * on a Text node.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var element = document.createElement('div');
-  var a = element.append(new Text('a'));
+  DivElement element = document.createElement('div');
+  Text a = element.append(new Text('a'));
   shouldBeNull(a.nextElementSibling);
   var b = element.append(document.createElement('b'));
   shouldBe(a.nextElementSibling, b);
-  var c = element.insertBefore(new Comment('c'), b);
+  element.insertBefore(new Comment('c'), b);
   shouldBe(a.nextElementSibling, b);
 }
 

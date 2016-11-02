@@ -8,7 +8,6 @@
  * for a hidden input field are the same.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,8 +15,8 @@ main() {
     <form id="frm"><input type="hidden" id="tf" value="Original value"></form>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var frm = document.getElementById("frm");
-  var tf = document.getElementById('tf');
+  FormElement frm = document.getElementById("frm");
+  InputElement tf = document.getElementById('tf');
   tf.setAttribute('value', 'Almost Original Value');
   tf.value = "New value";
   debug('Markup');

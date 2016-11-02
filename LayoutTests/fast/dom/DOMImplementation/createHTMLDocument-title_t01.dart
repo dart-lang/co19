@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   var result = document.implementation.createHtmlDocument('foo</title>').title;

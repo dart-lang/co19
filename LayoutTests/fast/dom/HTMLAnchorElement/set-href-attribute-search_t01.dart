@@ -7,11 +7,10 @@
  * @description Test setting the search attribute of the URL in HTMLAnchorElement.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var a = document.createElement('a');
+  AnchorElement a = document.createElement('a');
 
   debug("Set search without '?'");
   a.href = "https://www.mydomain.com/path/?key=value";

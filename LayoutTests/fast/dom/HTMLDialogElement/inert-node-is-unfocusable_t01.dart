@@ -9,7 +9,6 @@
  * focusable.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -51,10 +50,10 @@ main() {
       testTree(childNodes[i], expectFocus);
   }
 
-  var bottomDialog = document.getElementById('bottom-dialog');
+  DialogElement bottomDialog = document.getElementById('bottom-dialog');
   bottomDialog.showModal();
 
-  var topDialog = document.getElementById('top-dialog');
+  DialogElement topDialog = document.getElementById('top-dialog');
   topDialog.showModal();
 
   testFocus(document.body, true);

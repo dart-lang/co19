@@ -8,7 +8,6 @@
  * updates nodes in a Range during Range::insertNode.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

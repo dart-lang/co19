@@ -7,7 +7,6 @@
  * @description Test insertAdjacentHtml exceptions to make sure they match HTML5
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

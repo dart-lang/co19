@@ -7,10 +7,7 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var index = document.styleSheets.length; // skip existing style sheets
@@ -32,7 +29,7 @@ main() {
 
   var ruleList = window.getMatchedCssRules(document.body, '');
 
-  document.styleSheets[index].cssRules[0].deleteRule(0);
+  (document.styleSheets[index] as CssStyleSheet).deleteRule(0);
   style.remove();
 
   gc();

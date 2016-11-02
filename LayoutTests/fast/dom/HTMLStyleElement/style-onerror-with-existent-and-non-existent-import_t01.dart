@@ -8,7 +8,6 @@
  * element whose @import style sheet failed to load.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "../HTMLLinkElement/resources/link-load-utilities.dart";
@@ -19,7 +18,7 @@ main() {
     <h1 id="test"><!-- Test element --></h1>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var style = new Element.html('''
+  StyleElement style = new Element.html('''
     <style>
     @import "$root/../HTMLLinkElement/resources/stylesheet.css";
     @import "IntentionallyMissingFile.css";

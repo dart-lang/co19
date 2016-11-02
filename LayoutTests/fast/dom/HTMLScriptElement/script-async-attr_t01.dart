@@ -9,8 +9,6 @@
  * @note Inverted first assert, since script created scripts default to async=true
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -33,13 +31,13 @@ main() {
   isAsync(id)
   {
     debug(id);
-    return document.getElementById(id).async;
+    return (document.getElementById(id) as ScriptElement).async;
   }
 
   isDynamicallyInsertedScriptAsync(async)
   {
     var id = "s${nextScriptID++}";
-    var script = document.createElement("script");
+    ScriptElement script = document.createElement("script");
     script.id = id;
     script.src = "$root/resources/script-load.js";
     if (async != null)

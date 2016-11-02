@@ -10,7 +10,10 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var text = new Text("abcdefg");
+  test(new Text("abcdefg"));
+}
+
+test(dynamic text) {
   shouldBeEqualToString(text.data, "abcdefg");
 
   // Text splitText(unsigned long offset)

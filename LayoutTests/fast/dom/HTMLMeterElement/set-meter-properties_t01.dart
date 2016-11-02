@@ -7,11 +7,10 @@
  * @description Test setting valid and invalid properties of HTMLMeterElement.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var m = document.createElement('meter');
+  MeterElement m = document.createElement('meter');
 
   debug("Test values before properties were set");
   shouldBe(m.min, 0);

@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
@@ -24,7 +23,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-    var script = document.createElement("script");
+    ScriptElement script = document.createElement("script");
     script.src = "data:text/javascript,debug('FAIL');";
     document.head.append(script);
     script.src = "";

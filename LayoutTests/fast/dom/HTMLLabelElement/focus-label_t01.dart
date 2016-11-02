@@ -8,7 +8,6 @@
  * when clicking on a label.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

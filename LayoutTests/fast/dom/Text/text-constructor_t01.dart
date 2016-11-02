@@ -7,7 +7,6 @@
  * @description This tests that Text is constructable.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

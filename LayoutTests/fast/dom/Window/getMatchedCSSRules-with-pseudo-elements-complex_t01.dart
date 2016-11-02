@@ -8,10 +8,7 @@
  * modes of SelectorChecker miss some complex selectors with pseudo elements
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -98,7 +95,7 @@ main() {
   ];
 
   tests.forEach((curTest) {
-    var msg = document.createElement('div');
+    document.createElement('div');
     var element = document.querySelector("#" + curTest['elementId']);
 
     var mainMessage;

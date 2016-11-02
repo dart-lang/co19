@@ -20,13 +20,13 @@ main() {
       </html>
       ''', 'text/xml');
 
-  var e = doc.getElementById('test');
+  Element e = doc.getElementById('test');
   e.setInnerHtml('<b>Success!</b><foo:bar></foo:bar>',
       treeSanitizer: new NullTreeSanitizer());
 
   debug('firstChild');
-  shouldBe(e.firstChild.namespaceUri, 'http://www.w3.org/1999/xhtml');
+  shouldBe((e.firstChild as Element).namespaceUri, 'http://www.w3.org/1999/xhtml');
 
   debug('lastChild');
-  shouldBe(e.lastChild.namespaceUri, 'http://www.example.com/foo');
+  shouldBe((e.lastChild as Element).namespaceUri, 'http://www.example.com/foo');
 }

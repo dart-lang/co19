@@ -8,12 +8,14 @@
  * appropriately
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var observer = new MutationObserver((mutations, observer) { });
+  var observer = new MutationObserver((mutations, observer) {});
+  test(observer);
+}
+
+test(dynamic observer) {
   shouldThrow(() => observer.observe());
   shouldThrow(() => observer.observe(null));
   shouldThrow(() => observer.observe(document.body));

@@ -19,7 +19,7 @@ shouldComputedColorOfElementBeEqualToRGBString(element, expectedColor)
 
 createLinkElementWithStylesheet(stylesheetURL)
 {
-  var link = document.createElement("link");
+  LinkElement link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = stylesheetURL;
   return link;

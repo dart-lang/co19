@@ -7,10 +7,7 @@
  * @description getMatchedCssRules with invalid Psuedo Elements
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -51,7 +48,7 @@ main() {
       window.getMatchedCssRules(document.querySelector('div'), '::first-letter')[0].cssText,
       expectedResult2);
 
-  var div = document.body.querySelector('div');
+  //var div = document.body.querySelector('div');
   //shouldBe(div.getComputedStyle('::first-letter').getPropertyValue('color'),
   //    'rgb(255, 0, 0)');
 }

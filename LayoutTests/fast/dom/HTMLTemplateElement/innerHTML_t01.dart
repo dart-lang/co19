@@ -8,7 +8,6 @@
  * innerHtml and its children are ignored.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -21,10 +20,10 @@ main() {
 
   firstElementChild(node) => node.childNodes.firstWhere((x) => x is Element);
 
-  var template = document.getElementById('template');
+  TemplateElement template = document.getElementById('template');
   template.append(document.createElement('span'))
     .text = 'should not serialize';
-  var innerTemplate = firstElementChild(template.content.firstChild);
+  TemplateElement innerTemplate = firstElementChild(template.content.firstChild);
   innerTemplate.append(document.createElement('span'))
     .text = 'should not serialize either';
 

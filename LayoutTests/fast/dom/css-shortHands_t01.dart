@@ -10,7 +10,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var style = new Element.html('''
+  StyleElement style = new Element.html('''
     <style>
     div { margin: 1px; }
     div { margin: 1px 2px; }
@@ -30,7 +30,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var styleSheet = style.sheet;
+  CssStyleSheet styleSheet = style.sheet;
 
   var expected = [
     '1px',
@@ -48,7 +48,7 @@ main() {
   ];
 
   for (var i = 0; i < styleSheet.cssRules.length; i++) {
-    var rule = styleSheet.cssRules[i];
+    CssStyleRule rule = styleSheet.cssRules[i];
     var prop = null;
     if (i < 4) prop = "margin";
     else if (i >= 4 && i < 8) prop = "padding";

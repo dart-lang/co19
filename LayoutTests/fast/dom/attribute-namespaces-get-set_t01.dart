@@ -12,20 +12,15 @@ import "../../testcommon.dart";
 main() {
   var src = '<root xmlns:foo="http://www.example.com" attr="test2" foo:attr="test" />';
   var doc = (new DomParser()).parseFromString(src, 'text/xml');
-  var docElem = doc.documentElement;
+  Element docElem = doc.documentElement;
 
   // Test getAttribute
   shouldBe(docElem.getAttribute('foo:attr'), "test");
   shouldBe(docElem.getAttribute('attr'), "test2");
   shouldBe(docElem.getAttribute('bar:attr'), null);
 
-  // Test hasAttribute
-  shouldBe(docElem.hasAttribute('foo:attr'), true);
-  shouldBe(docElem.hasAttribute('attr'), true);
-  shouldBe(docElem.hasAttribute('bar:attr'), false);
-
   // Test getAttribute
-  shouldBe(docElem.getAttribute('foo:attr').value, "test");
+  shouldBe(docElem.getAttribute('foo:attr'), "test");
   shouldBe(docElem.getAttribute('bar:attr'), null);
 
   // Test setAttribute

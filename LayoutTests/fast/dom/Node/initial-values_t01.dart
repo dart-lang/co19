@@ -7,7 +7,6 @@
  * @description Test creation of each type of Node and check intial values
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

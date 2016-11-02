@@ -8,7 +8,6 @@
  * with forms outside the template
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -20,14 +19,16 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   debug('Form in document, input inside template:');
-  var form = document.querySelector('form');
-  var input = document.querySelector('#one').content.querySelector('input');
+  FormElement form = document.querySelector('form');
+  TemplateElement template = document.querySelector('#one');
+  InputElement input = template.content.querySelector('input');
   shouldBe(form.length, 0);
   shouldBeNull(input.form);
 
+  template = document.querySelector('#two');
   debug('Form in template, input in sub-template:');
-  form = document.querySelector('#two').content.querySelector('form');
-  input = document.querySelector('#two').content.querySelector('template').content.querySelector('input');
+  form = template.querySelector('form');
+  input = template.content.querySelector('input');
   shouldBe(form.length, 0);
   shouldBeNull(input.form);
 }

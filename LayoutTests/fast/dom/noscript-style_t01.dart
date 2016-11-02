@@ -21,6 +21,6 @@ main() {
       <noscript>abc</noscript>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var noscript = document.getElementsByTagName('noscript')[0];
+  Element noscript = document.getElementsByTagName('noscript')[0];
   shouldBe(noscript.offsetWidth, 0);
 }

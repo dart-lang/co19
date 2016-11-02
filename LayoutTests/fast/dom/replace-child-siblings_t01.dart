@@ -20,6 +20,6 @@ main() {
   var obj = document.getElementById('child1');
   var parent = document.getElementById('parent');
   var nextobj = document.getElementById('child2');
-  var replaced = nextobj.replaceWith(obj);
+  nextobj.replaceWith(obj);
   shouldBe(parent.children.length, 1);
 }

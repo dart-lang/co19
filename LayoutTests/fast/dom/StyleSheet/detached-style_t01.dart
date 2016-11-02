@@ -8,7 +8,6 @@
  * when in document.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
@@ -17,12 +16,12 @@ main() {
   // test framework defines its own style sheets, save the count
   var index = document.styleSheets.length;
 
-  var link = new Element.html('''
+  LinkElement link = new Element.html('''
 <link rel="stylesheet" href="$root/resources/detached-style.css" type="text/css" media="screen">
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(link);
 
-  var style = new Element.html('''
+  StyleElement style = new Element.html('''
     <style>* { }</style>
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
@@ -36,7 +35,7 @@ main() {
   asyncStart();
   window.onLoad.listen((_) {
     debug("Testing &lt;link>...");
-    var sheet = document.styleSheets[index];
+    CssStyleSheet sheet = document.styleSheets[index];
     var head = document.getElementsByTagName("head")[0];
 
     shouldBe(sheet.ownerNode, link);

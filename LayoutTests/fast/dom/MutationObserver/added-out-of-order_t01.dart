@@ -8,7 +8,6 @@
  * adding nodes 'out of order'
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -28,7 +27,7 @@ main() {
   observer.observe(sandbox, childList: true);
   sandbox.text = 'hello world';
 
-  var mutations = observer.takeRecords();
+  List mutations = observer.takeRecords();
   shouldBe(mutations.length, 3);
   shouldBe(mutations[0].addedNodes.length, 0);
   shouldBe(mutations[0].removedNodes.length, 1);

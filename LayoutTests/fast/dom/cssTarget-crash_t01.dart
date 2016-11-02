@@ -25,7 +25,7 @@ main() {
       asyncEnd();
       return;
     }
-    var form = document.body.querySelector('form');
+    FormElement form = document.body.querySelector('form');
     form.submit();
     var x = new Random().nextDouble();
     setTimeout(doIt, 10);

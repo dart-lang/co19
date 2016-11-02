@@ -12,7 +12,7 @@ import "../../testcommon.dart";
 
 main() {
   var elem = document.createElementNS('http://www.example.org', 'test:p');
-  var importedNode = document.importNode(elem, true);
+  Element importedNode = document.importNode(elem, true);
 
   //shouldBe(importedNode.prefix, 'test'); // no such in dart
   shouldBe(importedNode.localName, 'p');

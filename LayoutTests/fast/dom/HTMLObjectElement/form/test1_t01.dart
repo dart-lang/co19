@@ -10,8 +10,6 @@
  * which is not inside of a form
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
-import "../../../../../Utils/async_utils.dart";
 import "../../../../testcommon.dart";
 
 main() {
@@ -25,10 +23,11 @@ main() {
     </object>
     ''', treeSanitizer: new NullTreeSanitizer());
             
-  var objectInsideForm = document.getElementById("objectInsideForm");
-  var objectNotInsideForm = document.getElementById("objectNotInsideForm");
+  ObjectElement objectInsideForm = document.getElementById("objectInsideForm");
+  ObjectElement objectNotInsideForm =
+      document.getElementById("objectNotInsideForm");
 
-  var form = document.getElementById("form");
+  FormElement form = document.getElementById("form");
 
   shouldBe(objectInsideForm.form, form);
   shouldBeNull(objectNotInsideForm.form);

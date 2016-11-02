@@ -7,11 +7,10 @@
  * @description Test setting the hostname attribute of the URL in HTMLAnchorElement.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var a = document.createElement('a');
+  AnchorElement a = document.createElement('a');
 
   debug("Basic test");
   a.href = "https://www.mydomain.com:8080/path/";

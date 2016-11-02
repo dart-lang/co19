@@ -8,7 +8,6 @@
  * on ebay at the time the test was written.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,10 +15,10 @@ main() {
     <p><table><tr id="row"></tr></table></p>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-    var tr = document.getElementById('row');
+  TableRowElement tr = document.getElementById('row');
     tr.insertCell(0).innerHtml = "<td>cell inside table inside cell 0</td>";
     tr.insertCell(1).innerHtml = "<td>cell inside table inside cell 1</td>";
 
-    var cells = tr.queryAll('td');
+    List cells = tr.queryAll('td');
     shouldBe(cells.length, 2);
 }

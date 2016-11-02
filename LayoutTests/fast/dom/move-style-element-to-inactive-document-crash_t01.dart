@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   var style = document.createElement("style");

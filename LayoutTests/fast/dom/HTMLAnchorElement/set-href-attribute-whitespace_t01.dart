@@ -8,11 +8,10 @@
  * URL with leading and trailing whitespace.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var a = document.createElement('a');
+  AnchorElement a = document.createElement('a');
 
   debug("Set href that starts with a space");
   a.href = " https://www.mydomain.com/path/testurl.html?key=value";

@@ -16,7 +16,7 @@ main() {
       <input id="textInput" startval="" style="">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var elem = document.getElementById("textInput");
+  InputElement elem = document.getElementById("textInput");
 
   shouldBe(elem.value, '');
 

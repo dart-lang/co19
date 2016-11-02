@@ -8,7 +8,6 @@
  * last value set.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,7 +15,7 @@ main() {
     <dialog id="test-dialog"></dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var dialog = document.getElementById('test-dialog');
+  DialogElement dialog = document.getElementById('test-dialog');
   shouldBe(dialog.returnValue, '');
 
   dialog.returnValue = 'Setting value directly';

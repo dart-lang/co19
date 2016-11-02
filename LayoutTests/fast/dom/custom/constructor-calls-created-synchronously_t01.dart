@@ -8,9 +8,7 @@
  * synchronously.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
-//import "../../../resources/testharness.dart";
 
 class A extends HtmlElement {
   static const tag = 'x-a';

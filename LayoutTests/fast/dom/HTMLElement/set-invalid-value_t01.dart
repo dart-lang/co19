@@ -8,7 +8,6 @@
  * exception (code: 12) must be raised.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

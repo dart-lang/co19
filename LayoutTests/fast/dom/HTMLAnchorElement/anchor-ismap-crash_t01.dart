@@ -7,7 +7,6 @@
  * @description Test passed if not crashed
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -15,5 +14,5 @@ main() {
     <a href="javascript:">foo<img ismap style="content:'bar'; display:block;"></a>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.getElementsByTagName('img')[0].click();
+  (document.getElementsByTagName('img')[0] as Element).click();
 }

@@ -8,7 +8,6 @@
  * element.contentEditable returns "false" and the element is NOT editable.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

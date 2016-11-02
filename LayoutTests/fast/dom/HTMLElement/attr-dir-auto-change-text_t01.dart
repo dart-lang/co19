@@ -8,7 +8,6 @@
  * dir=auto set, has the text of its first child changed.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

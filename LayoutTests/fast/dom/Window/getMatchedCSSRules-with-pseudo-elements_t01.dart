@@ -7,10 +7,7 @@
  * @description Test for getMatchedCssRules for Psuedo Elements
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -30,7 +27,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var element = document.getElementById('div1');
-  var pseudoRules = window.getMatchedCssRules(element, "after");
+  List pseudoRules = window.getMatchedCssRules(element, "after");
   var selectorText = "#div1::after";
 
   shouldBe(pseudoRules[0].selectorText, selectorText);

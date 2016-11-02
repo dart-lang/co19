@@ -10,7 +10,7 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = new DomParser().parseFromString('''
+  HtmlDocument doc = new DomParser().parseFromString('''
 <html class="a A">
  <body class="a a">
  </body>

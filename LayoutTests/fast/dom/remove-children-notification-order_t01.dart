@@ -19,7 +19,7 @@ main() {
       </p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var target = document.getElementById("target");
+  SelectElement target = document.getElementById("target");
   target.append(document.createElement("link"));
   target.offsetTop;
 

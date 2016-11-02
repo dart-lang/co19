@@ -7,9 +7,7 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -24,8 +22,8 @@ main() {
   sandbox.append(host);
 
   debug("Testing &lt;style>...");
-  var sheet = shadowRoot.styleSheets[0];
-  var style = shadowRoot.querySelector('style');
+  CssStyleSheet sheet = shadowRoot.styleSheets[0];
+  StyleElement style = shadowRoot.querySelector('style');
 
   shouldBe(sheet.ownerNode, style);
   shouldBe(style.sheet == sheet, true);

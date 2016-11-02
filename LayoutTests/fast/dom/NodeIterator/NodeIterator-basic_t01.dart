@@ -7,8 +7,6 @@
  * @description This test checks the basic functionality of NodeIterator.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-//import "../../../testcommon.dart";
 import "../../../resources/testharness.dart";
 
 

@@ -34,7 +34,7 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var clientRects = document.getElementById("testElement").getClientRects();
+  dynamic clientRects = document.getElementById("testElement").getClientRects();
 
   Expect.equals(3, clientRects.length);
   Expect.notEquals(null, clientRects.item(0));

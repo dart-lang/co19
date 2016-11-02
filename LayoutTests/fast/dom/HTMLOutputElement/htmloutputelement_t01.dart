@@ -7,7 +7,6 @@
  * @description Tests for content attributes of the output element.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -19,9 +18,9 @@ main() {
     <output id="output3" for=" for-target1 for-target2 "></output>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var output1 = document.getElementById('output1');
-  var output2 = document.getElementById('output2');
-  var output3 = document.getElementById('output3');
+  OutputElement output1 = document.getElementById('output1');
+  OutputElement output2 = document.getElementById('output2');
+  OutputElement output3 = document.getElementById('output3');
 
   shouldBeEqualToString(output1.type, 'output');
   shouldBeEqualToString(output1.name, 'output1');

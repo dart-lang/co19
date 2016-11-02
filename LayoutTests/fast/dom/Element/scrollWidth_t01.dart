@@ -72,12 +72,12 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  function log(message)
+  log(message)
   {
     document.getElementById("console").append(new Text(message + "\n"));
   }
 
-  function testDiv(div)
+  testDiv(div)
   {
     var childStyle = div.querySelector('div').style;
     var cssText = childStyle.cssText;

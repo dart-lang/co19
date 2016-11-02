@@ -9,7 +9,6 @@
  * stale object and lead to a crash.
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   var otherDocument = document.implementation.createHtmlDocument('');

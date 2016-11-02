@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -23,7 +22,7 @@ main() {
   range.selectNode(em);
   var strong = document.createElement('strong');
   range.surroundContents(strong);
-  var markup = document.getElementsByTagName("p")[1].innerHtml;
+  var markup = (document.getElementsByTagName("p")[1] as HtmlElement).innerHtml;
 
   shouldBe(markup, 'Hello, <strong><em>Range</em></strong> world!');
 }

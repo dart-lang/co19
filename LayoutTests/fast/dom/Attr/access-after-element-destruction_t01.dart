@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   var element = document.createElement("p");

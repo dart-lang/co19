@@ -7,7 +7,6 @@
  * @description Test HTMLTemplateElement content ownerDocument
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -17,7 +16,7 @@ main() {
     <template id="template3"><svg></svg></template>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var template = document.getElementById('template');
+  TemplateElement template = document.getElementById('template');
   shouldBe(template.ownerDocument, document);
 
   //var content = template.content;
@@ -30,16 +29,16 @@ main() {
   shouldNotBe(document, templateContentOwnerDocument);
   shouldBe(template.content.firstChild.ownerDocument, templateContentOwnerDocument);
 
-  var innerTemplate = template.content.firstChild.firstChild;
+  TemplateElement innerTemplate = template.content.firstChild.firstChild;
   shouldBe(innerTemplate.ownerDocument, templateContentOwnerDocument);
   shouldBe(innerTemplate.content.ownerDocument, templateContentOwnerDocument);
   shouldBeTrue(innerTemplate.ownerDocument is HtmlDocument);
 
-  var template2 = document.getElementById('template2');
+  TemplateElement template2 = document.getElementById('template2');
   shouldBe(template2.ownerDocument, document);
   shouldBe(template2.content.ownerDocument, templateContentOwnerDocument);
 
-  var template3 = document.getElementById('template3');
+  TemplateElement template3 = document.getElementById('template3');
   shouldBe(template3.ownerDocument, document);
   shouldBe(template3.content.ownerDocument, templateContentOwnerDocument);
   shouldBe(template3.content.firstChild.ownerDocument, templateContentOwnerDocument);

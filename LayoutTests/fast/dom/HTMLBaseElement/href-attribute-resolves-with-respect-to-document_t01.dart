@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -20,9 +19,11 @@ main() {
     return length >= 0 && string.indexOf(substring, length) == length;
   }
 
-  var base = document.querySelector('base');
-  shouldBeTrue(endsWith(document.querySelector('base').href, 'foo/bar/'));
-  shouldBeFalse(endsWith(document.querySelector('base').href, 'foo/bar/foo/bar/'));
+  BaseElement base = document.querySelector('base');
+  shouldBeTrue(endsWith((document.querySelector('base') as BaseElement).href,
+      'foo/bar/'));
+  shouldBeFalse(endsWith((document.querySelector('base') as BaseElement).href,
+      'foo/bar/foo/bar/'));
   
   //base.href = null;
   //shouldBeTrue(endsWith(document.querySelector('base').href, '/null'));
@@ -31,12 +32,16 @@ main() {
 
   // Make sure that we don't use the creator document as the base.
   var documentWithoutAView = document.implementation.createHtmlDocument('');
-  base = documentWithoutAView.head.append(documentWithoutAView.createElement('base'));
+  base = documentWithoutAView.head.append(
+      documentWithoutAView.createElement('base'));
   base.setAttribute('href', 'foo/bar/');
-  shouldBeEqualToString(documentWithoutAView.querySelector('base').href, '');
+  shouldBeEqualToString(
+      (documentWithoutAView.querySelector('base') as BaseElement).href, '');
 
   base.setAttribute('href', 'http://webkit.org/');
-  shouldBeEqualToString(documentWithoutAView.querySelector('base').href, 'http://webkit.org/');
+  shouldBeEqualToString(
+      (documentWithoutAView.querySelector('base') as BaseElement).href,
+      'http://webkit.org/');
 
   // Make sure that we don't use the opener document as the base.
   //var newWindow = window.open('about:blank', '');

@@ -7,7 +7,6 @@
  * @description This tests that a dialog's containing block is the initial containing block.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -53,7 +52,7 @@ main() {
 
   debug('test1');
   window.scroll(1000, 1000);
-  var dialog = document.getElementById('dialog');
+  DialogElement dialog = document.getElementById('dialog');
   dialog.showModal();
   checkPosition(dialog);
 

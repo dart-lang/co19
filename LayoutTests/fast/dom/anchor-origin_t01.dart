@@ -28,14 +28,14 @@ main() {
   ];
 
   for (var i = 0; i < cases.length; ++i) {
-    var a = document.createElement('a');
+    AnchorElement a = document.createElement('a');
     a.href = cases[i];
     a.text = 'Link';
     document.body.append(a);
     document.body.append(document.createElement('br'));
   }
 
-  var elmts = document.getElementsByTagName('a');
+  List elmts = document.getElementsByTagName('a');
   for (var i = 0; i < elmts.length; ++i) {
     shouldBe(elmts[i].origin, expected[i]);
   }

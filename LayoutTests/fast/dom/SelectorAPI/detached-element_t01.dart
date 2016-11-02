@@ -9,7 +9,6 @@
  * in a document yet.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

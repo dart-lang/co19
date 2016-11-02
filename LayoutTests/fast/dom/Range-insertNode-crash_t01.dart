@@ -11,7 +11,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var r = document.createRange();
+  dynamic r = document.createRange();
   try {
     r.insertNode(r);
   } catch(e) {

@@ -27,14 +27,14 @@ main() {
   $(id) { return document.getElementById(id); }
 
   var middle = $('sample').offsetTop + $('sample').offsetHeight / 2;
-  var left = $('sample').offsetLeft;
-  var numberOfChars = $('sample').firstChild.firstChild.length;
-  var charWidth = $('sample').firstChild.offsetWidth / numberOfChars;
-  var x = left;
+  var numberOfChars = ($('sample').firstChild.firstChild as Text).length;
+  double charWidth =
+      ($('sample').firstChild as Element).offsetWidth / numberOfChars;
+  double x = $('sample').offsetLeft.toDouble();
 
   for (var i = 0; i < numberOfChars; ++i) {
     var range = document.caretRangeFromPoint((x + 3).round(), middle.round());
     Expect.equals(i, range.startOffset);
-    x += charWidth;
+    x = x + charWidth;
   }
 }

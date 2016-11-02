@@ -26,17 +26,24 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   debug(r"javascript: function argument containing a backslash (\) should not be converted to a slash (/)");
-  shouldBe(document.getElementById("1").pathname, r"alert('to be\\not')");
+  shouldBe((document.getElementById("1") as AnchorElement).pathname,
+      r"alert('to be\\not')");
   debug(r"http: base should convert a \ to a /");
-  shouldBe(document.getElementById("2").href, "http://apple.com/support");
+  shouldBe((document.getElementById("2") as AnchorElement).href,
+      "http://apple.com/support");
   debug(r"https: base should also convert a \ to a /");
-  shouldBe(document.getElementById("3").href, "https://login.apple.com/support/");
+  shouldBe((document.getElementById("3") as AnchorElement).href,
+      "https://login.apple.com/support/");
   debug(r"file: base should convert a \ to a /");
-  shouldBe(document.getElementById("4").href, "file:///Users/");
+  shouldBe((document.getElementById("4") as AnchorElement).href,
+      "file:///Users/");
   debug(r"any other valid base except javascript: should convert a \ to a /");
-  shouldBe(document.getElementById("5").href, "ftp://apple.com/support/");
+  shouldBe((document.getElementById("5") as AnchorElement).href,
+      "ftp://apple.com/support/");
   debug(r"query strings should be left alone:");
-  shouldBe(document.getElementById("6").href, r"http://apple.com/support?path=\\myshare\myfolder\myfile\");
+  shouldBe((document.getElementById("6") as AnchorElement).href,
+      r"http://apple.com/support?path=\\myshare\myfolder\myfile\");
   debug("anchors should be left alone as well:");
-  shouldBe(document.getElementById("7").href, r"http://apple.com/support#path=\\myshare\myfolder\myfile\");
+  shouldBe((document.getElementById("7") as AnchorElement).href,
+      r"http://apple.com/support#path=\\myshare\myfolder\myfile\");
 }

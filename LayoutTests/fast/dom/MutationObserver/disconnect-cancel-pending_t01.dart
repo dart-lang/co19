@@ -8,7 +8,6 @@
  * delivery
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
@@ -24,7 +23,7 @@ main() {
     asyncEnd();
   }
 
-  function next() {
+  next() {
     debug('Disconnecting should cancel any pending delivery...');
     shouldBeNull(mutations);
     observer.observe(div, attributes: true);

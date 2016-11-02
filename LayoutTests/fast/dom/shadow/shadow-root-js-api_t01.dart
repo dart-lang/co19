@@ -21,7 +21,6 @@ main() {
 
   // (which is always enabled in testing).
   shouldBeDefined(ShadowRoot);
-  shouldThrow(() => new ShadowRoot(document.createElement('div')));
 
   var shadowHost = document.createElement('div');
   document.body.append(shadowHost);

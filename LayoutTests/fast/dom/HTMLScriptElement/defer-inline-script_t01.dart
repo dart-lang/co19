@@ -7,7 +7,6 @@
  * @description Checks that inline scripts are not deferred.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -24,12 +23,12 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.body.append(script0);
 
-  var script1 = new Element.html('''
+  ScriptElement script1 = new Element.html('''
     <script src="data:text/javascript,log('PASS');" defer></script>
     ''', treeSanitizer: new NullTreeSanitizer());
   document.body.append(script1);
 
-  var script2 = new Element.html('''
+  ScriptElement script2 = new Element.html('''
   <script defer>
     log('FAIL');
   </script>

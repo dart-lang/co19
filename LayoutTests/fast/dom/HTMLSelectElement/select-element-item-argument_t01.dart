@@ -8,7 +8,6 @@
  * validated.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -21,7 +20,7 @@ main() {
     </select>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var select = document.getElementById('target');
+  dynamic select = document.getElementById('target');
   shouldBeTrue(select is SelectElement);
 
   shouldBeEqualToString(select.item(0).value, "a");

@@ -44,7 +44,6 @@ main() {
   }
 
   var element = document.getElementById('test');
-  var text = element.firstChild;
 
   var rect = element.getBoundingClientRect();
 

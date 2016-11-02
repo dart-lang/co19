@@ -13,7 +13,7 @@ main() {
   document.documentElement.className = "a";
   document.body.className = "a";
 
-  var elms = document.getElementsByClassName("a");
+  List elms = document.getElementsByClassName("a");
   elms[1].className = "";
   shouldBeList(elms, [document.documentElement]);
 }

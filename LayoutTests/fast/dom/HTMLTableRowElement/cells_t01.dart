@@ -8,14 +8,13 @@
  * cases where there is unusual nesting.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   checkCellNesting(tag)
   {
     debug('checkCellNesting $tag');
-    var row = document.createElement("tr");
+    TableRowElement row = document.createElement("tr");
     var container = document.createElement(tag);
     var cell = document.createElement("td");
     row.append(container);
@@ -26,7 +25,7 @@ main() {
   checkHeaderCellNesting(tag)
   {
     debug('checkHeaderCellNesting $tag');
-    var row = document.createElement("tr");
+    TableRowElement row = document.createElement("tr");
     var container = document.createElement(tag);
     var cell = document.createElement("th");
     row.append(container);

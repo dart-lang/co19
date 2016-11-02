@@ -7,10 +7,9 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var target = document.createElement("link");
+  LinkElement target = document.createElement("link");
   shouldBeNull(target.sheet);
 }

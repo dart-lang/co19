@@ -8,11 +8,10 @@
  * verify that the messages are reasonably helpful.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var tr = document.createElement('tr');
+  TableRowElement tr = document.createElement('tr');
 
   shouldThrow(() => tr.insertCell(-2));
   shouldThrow(() => tr.insertCell(1));
