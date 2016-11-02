@@ -5,14 +5,12 @@
  */
 /**
  * @description This test checks validity.patternMismatch.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var f = new DocumentFragment.html('''
+  DocumentFragment f = new DocumentFragment.html('''
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(f);
@@ -84,8 +82,8 @@ main() {
 /><input id="disabled" pattern="[0-9][A-Z]{3}" value="00AA" disabled /></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  patternMismatchFor(id) {
-    return document.getElementById(id).validity.patternMismatch;
+  bool patternMismatchFor(String id) {
+    return (document.getElementById(id) as InputElementBase).validity.patternMismatch;
   }
 
   shouldBeFalse(patternMismatchFor("simple"));

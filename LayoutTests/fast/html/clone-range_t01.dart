@@ -13,14 +13,14 @@ import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
   body.setInnerHtml('''
       <input type="range" id="sheep" style="display: block; width: 100px;">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var sheep = document.querySelector('#sheep');
-  var dolly = sheep.clone(false);
+  Element sheep = document.querySelector('#sheep');
+  Element dolly = sheep.clone(false) as Element;
   
   sheep.insertAdjacentElement('afterEnd', dolly);
 
@@ -28,5 +28,5 @@ main() {
   // symptom of a broken clone.
   Expect.equals(sheep.clientHeight, dolly.clientHeight);
 
-  dolly.value = '0';
+  (dolly as InputElement).value = '0';
 }

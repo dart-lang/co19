@@ -34,16 +34,16 @@ void main() {
         [ "@media tv, all or (nothing) {}", "tv, not all", "Media query error #8" ],
         [ "@media tv, all and (color) tv {}", "tv, not all", "Media query error #9" ]
     ];
-    var cdataNode = document.getElementById("sheet").firstChild;
-    for (var i=0; i < tests.length; i++) {
+    CharacterData cdataNode = document.getElementById("sheet").firstChild as CharacterData;
+    for (int i=0; i < tests.length; i++) {
         cdataNode.data = tests[i][0];
         String result;
-        List cssRules=(document.styleSheets[0] as CssStyleSheet).cssRules;
+        List<CssRule> cssRules = (document.styleSheets[0] as CssStyleSheet).cssRules;
         test((){
             Expect.isTrue(cssRules.length > 0, "cssRules.length==0");
-            vat tp=cssRules[0].type;
+            int tp = cssRules[0].type;
             Expect.equals(4, tp,  "cssRule.type=$tp");
-            var mediaText=cssRules[0].media.mediaText;
+            String mediaText = (cssRules[0] as CssMediaRule).media.mediaText;
             Expect.equals(tests[i][1], mediaText,  "cssRule.media.mediaText=$mediaText");
         }, tests[i][2]);
     }

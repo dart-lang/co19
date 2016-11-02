@@ -11,16 +11,16 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var pc;
-var stream;
-var stream2;
+RtcPeerConnection pc;
+MediaStream stream;
+MediaStream stream2;
 
 void error(NavigatorUserMediaError e) {
     Expect.fail('Stream generation failed:"${e.constraintName}"');
     asyncEnd();
 }
 
-void getUserMedia(callback, {audio: false, video: false}) {
+void getUserMedia(void callback(MediaStream s), {audio: false, video: false}) {
     try {
         window.navigator.getUserMedia(audio:audio, video:video).then(callback, onError:error);
     } catch (e) {
@@ -45,28 +45,28 @@ void onAddStream(event) {
     Expect.equals(stream, pc.getStreamById(stream.id));
     Expect.equals(null, pc.getStreamById(stream2.id));
 
-    pc.onnegotiationneeded = onErroneousNegotiationNeeded;
+    pc.onNegotiationNeeded = onErroneousNegotiationNeeded;
     pc.addStream(stream);
     Expect.equals(1, pc.getLocalStreams().length);
     pc.removeStream(stream2);
     Expect.equals(1, pc.getLocalStreams().length);
 
-    pc.onnegotiationneeded = onRemoveStream;
+    pc.onNegotiationNeeded = onRemoveStream;
     pc.removeStream(stream);
 }
 
-void gotStream2(s) {
+void gotStream2(MediaStream s) {
     print('Got another stream.');
     stream2 = s;
 
     Expect.notEquals(stream.id, stream2.id);
 
-    pc = new webkitRTCPeerConnection(null, null);
-    pc.onnegotiationneeded = onAddStream;
+    pc = new RtcPeerConnection(null, null);
+    pc.onNegotiationNeeded = onAddStream;
     pc.addStream(stream);
 }
 
-void gotStream1(s) {
+void gotStream1(MediaStream s) {
     print('Got a stream.');
     stream = s;
 

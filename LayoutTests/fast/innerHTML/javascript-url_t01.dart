@@ -19,23 +19,23 @@ main() {
  javascript:test(&37;3C!--D--&37;3E)'>link</a></div>
 ''', treeSanitizer: new NullTreeSanitizer());
 
-  var r = document.getElementById('jsurltest');
+  Element r = document.getElementById('jsurltest');
 
   r.setInnerHtml(r.innerHtml.replaceAll('&amp;37;3C!--D--&amp;37;3E', '123'),
       treeSanitizer: new NullTreeSanitizer());
 
   Expect.isTrue(r.innerHtml.indexOf('javascript:test(123)') > -1, 'Test point 1');
 
-  r.firstChild.setAttribute('href', 'javascript:test("text<")');
+  (r.firstChild as Element).setAttribute('href', 'javascript:test("text<")');
   Expect.isTrue(r.innerHtml.indexOf('javascript:test("text<")') > -1, 'Test point 2');
 
-  r.firstChild.setAttribute('href', "javascript:test('text>')");
+  (r.firstChild as Element).setAttribute('href', "javascript:test('text>')");
   Expect.isTrue(r.innerHtml.indexOf("javascript:test('text>')") > -1, 'Test point 3');
 
   var testString = '''javascript:test('text&',"test2&")''';
-  r.firstChild.setAttribute('href', testString);
+  (r.firstChild as Element).setAttribute('href', testString);
   Expect.isTrue(r.innerHtml.indexOf('''javascript:test('text&amp;',&quot;test2&amp;&quot;)''') > -1, 'Test point 4');
-  
-  r.firstChild.setAttribute('href', 'http://www.google.fi/search?q=scarlett johansson&meta=&btnG=Google-haku');
+
+  (r.firstChild as Element).setAttribute('href', 'http://www.google.fi/search?q=scarlett johansson&meta=&btnG=Google-haku');
 }
 

@@ -11,9 +11,9 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var navigator=window.navigator;
+Navigator navigator=window.navigator;
 
-void error() {
+void error(dynamic arg) {
     Expect.fail('Error callback called.');
 }
 
@@ -65,7 +65,7 @@ void gotStream1(stream) {
     print("callback: gotStream1");
     Expect.equals(1, stream.getAudioTracks().length);
     Expect.equals(0, stream.getVideoTracks().length);
-    navigator.webkitGetUserMedia(video:true)
+    navigator.getUserMedia(video:true)
     .then(gotStream2, onError:error);
 }
 

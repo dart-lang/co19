@@ -29,14 +29,14 @@ main() {
 
   test()
   {
-    var items = [ "email", "password", "tel", "text" , "url" ];
+    List<String> items = [ "email", "password", "tel", "text" , "url" ];
 
-    var result = "";
-    var success = true;
-    for (var i = 0; i < items.length; ++i)
+    String result = "";
+    bool success = true;
+    for (int i = 0; i < items.length; ++i)
     {
-      var expectedTypeName = items[i];
-      var actualTypeName = document.getElementById(expectedTypeName).type;
+      String expectedTypeName = items[i];
+      String actualTypeName = (document.getElementById(expectedTypeName) as InputElement).type;
       success = (actualTypeName == expectedTypeName);
       if (!success)
         result += "Expected: \"" + expectedTypeName + "\" for \"" + actualTypeName + "\"<br>";

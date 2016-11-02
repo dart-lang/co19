@@ -25,17 +25,17 @@ main() {
     </details>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  clickOn(id)
+  clickOn(String id)
   {
-    var control = document.getElementById(id);
-    var x = control.offsetLeft;
-    var y = control.offsetTop;
-    var delta = 5;
-    var elem = document.elementFromPoint(x + delta, y + delta);
+    Element control = document.getElementById(id);
+    int x = control.offsetLeft;
+    int y = control.offsetTop;
+    int delta = 5;
+    Element elem = document.elementFromPoint(x + delta, y + delta);
     elem.click();
   }
 
-  var details = document.getElementById("d");
+  DetailsElement details = document.getElementById("d") as DetailsElement;
   Expect.isFalse(details.open);
   clickOn("buttonControl");
   Expect.isFalse(details.open);

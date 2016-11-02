@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 main() {
   getStyleValue(id, propertyName) {
@@ -41,10 +40,10 @@ main() {
   //debug('&lt;figure> can be nested inside &lt;figure> or &lt;footer>:');
   testParent.innerHtml = '<figure id="figure2">Test that <figure id="figure3">a figure element</figure> can be nested inside another figure element.</figure>';
   var figure3 = document.getElementById('figure3');
-  Expect.equals("figure2", figure3.parentNode.id);
+  Expect.equals("figure2", (figure3.parentNode as Element).id);
   testParent.innerHtml = '<footer id="footer1">Test that <figure id="figure5">a figure element</figure> can be nested inside a footer element.</footer>';
   var figure5 = document.getElementById('figure5');
-  Expect.equals("footer1", figure5.parentNode.id);
+  Expect.equals("footer1", (figure5.parentNode as Element).id);
 
   //debug('Residual style:');
   testParent.innerHtml = '<b><figure id="figure4">This text should be bold.</figure> <span id="span1">This is also bold.</span></b>';

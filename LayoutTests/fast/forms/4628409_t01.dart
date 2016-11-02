@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,7 +15,7 @@ main() {
       <textarea id="textarea" rows="1"></textarea>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var e = document.getElementById("textarea");
+  TextAreaElement e = document.getElementById("textarea") as TextAreaElement;
   e.setSelectionRange(0, 0);
   e.rows = 0;
   document.execCommand("InsertText", false, "x");

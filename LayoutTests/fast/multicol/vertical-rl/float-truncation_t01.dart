@@ -82,13 +82,13 @@ const String htmlEL2 = r'''
 
 const String width = "width", height = "height";
 
-Map floatOffset(float) {
+Map floatOffset(Element float) {
     Range range = document.createRange();
     range.setStart(float, 0);
     range.setEnd(float, 0);
     range.expand("word");
-    Rect rect = range.getBoundingClientRect();
-    Rect parentRect = float.parentNode.getBoundingClientRect();
+    Rectangle rect = range.getBoundingClientRect();
+    Rectangle parentRect = (float.parentNode as Element).getBoundingClientRect();
     return { width: rect.left - parentRect.left, height: rect.top - parentRect.top  };
 }
 
@@ -109,7 +109,7 @@ void main() {
     var test;
     var failures = 0;
     for  (List test in tests) {
-        var float = document.getElementById(test[0]);
+        Element float = document.getElementById(test[0]);
         Map result = floatOffset(float);
         float.style.color = "red";
         shouldBe(result[width], test[1], "width"); 

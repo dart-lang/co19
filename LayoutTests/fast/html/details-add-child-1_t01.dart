@@ -10,19 +10,19 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
-var createNewElement = (tag, id, text) {
-    var result = document.createElement(tag);
+Element createNewElement(String tag, String id, String text) {
+    Element result = document.createElement(tag);
     result.setAttribute('id', id);
     result.setInnerHtml(text, treeSanitizer: new NullTreeSanitizer());
     return result;
-};
+}
   
-getWeight(x) {
+String getWeight(Element x) {
   return x.getComputedStyle().getPropertyValue('font-weight');
 }
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
   body.setInnerHtml('''
     <details id="detail" open>

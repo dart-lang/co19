@@ -11,7 +11,7 @@ import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
   body.setInnerHtml('''
     <span>Content:</span>
@@ -25,7 +25,7 @@ main() {
     <div id="testArea"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var n = document.getElementsByTagName("emptyCustomTag")[0];
+  Node n = document.getElementsByTagName("emptyCustomTag")[0];
   n.parentNode.insertBefore(
     document.createElementNS("http://webkit.org/test", "anotherEmptyCustomTag"),
     n.nextNode);
@@ -33,6 +33,6 @@ main() {
   document.getElementById("content").firstChild.text = document.body.innerHtml;
 
   Expect.equals('<anotherEmptyCustomTag></anotherEmptyCustomTag>',
-    n.nextElementSibling.outerHtml);
+  (n as Element).nextElementSibling.outerHtml);
 }
 

@@ -18,11 +18,11 @@ const String htmlEL2 = r'''
 ''';
 
 void runTest(e) {
-    var image = document.getElementById("image");
+    Element image = document.getElementById("image");
     Expect.isNotNull(image, "image");
-    var parent = image.parentNode;
+    Node parent = image.parentNode;
     Expect.isNotNull(parent, "parent");
-    Expect.equals("MAP", parent.tagName);
+    Expect.equals("MAP", (parent as Element).tagName);
     document.getElementById("result").innerHtml = "TEST PASSED";
 }
 

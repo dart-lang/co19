@@ -25,8 +25,8 @@ There should be a green square and no red below: </br class=fail><div></div>
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var elm = document.getElementsByTagName("br")[0];
+    Node elm = document.getElementsByTagName("br")[0];
     Expect.isNotNull(elm);
-    Expect.notEquals("fail", elm.className);
+    Expect.notEquals("fail", (elm as Element).className);
     document.body.appendHtml("PASS");
 }

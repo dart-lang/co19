@@ -32,9 +32,9 @@ const String htmlEL2 = r'''
 </p>
 ''';
 
-void applyClass(items, className) {
+void applyClass(List<Node> items, className) {
     for (int i = items.length - 1; i >= 0; i--) {
-        items[i].classes.add(className);
+        (items[i] as Element).classes.add(className);
     }
 }
 
@@ -43,9 +43,9 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.offsetTop;
-    var divs = document.getElementsByTagName("div");
-    var spans = document.getElementsByTagName("span");
+    List<Node> divs = document.getElementsByTagName("div");
+    List<Node> spans = document.getElementsByTagName("span");
     applyClass(spans, "absolute");
     applyClass(divs, "inlineBlock");
-    Expect.equals(divs[0].offsetTop, divs[2].offsetTop);
+    Expect.equals((divs[0] as Element).offsetTop, (divs[2] as Element).offsetTop);
 }

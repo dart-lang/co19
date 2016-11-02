@@ -30,7 +30,7 @@ main() {
   testParent.setInnerHtml('<main id="main2">Test that <main id="main3">an main element</main> can be nested inside another.</main>',
       treeSanitizer: new NullTreeSanitizer());
   var main3 = document.getElementById('main3');
-  Expect.equals("main2", main3.parentNode.id);
+  Expect.equals("main2", (main3.parentNode as Element).id);
 
   //debug('Residual style:');
   testParent.setInnerHtml('<b><main id="main4">This text should be bold.</main> <span id="span1">This is also bold.</span></b>',

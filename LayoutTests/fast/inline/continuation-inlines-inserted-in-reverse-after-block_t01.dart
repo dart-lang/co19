@@ -22,8 +22,8 @@ void main() {
     description('You should see two lines, both with 1,2,3.');
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var container = document.getElementById('container');
-    var div = container.append(document.createElement('div'));
+    Element container = document.getElementById('container');
+    DivElement div = container.append(document.createElement('div')) as DivElement;
     Element last;
 
     Element insert(tagName, [id])

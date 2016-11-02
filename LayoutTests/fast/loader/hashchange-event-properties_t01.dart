@@ -11,8 +11,8 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void hashOf(String url) {
-    var hashIndex = url.lastIndexOf('#');
+String hashOf(String url) {
+    int hashIndex = url.lastIndexOf('#');
     return hashIndex != -1 ? url.substring(hashIndex) : '[none]';
 }
 
@@ -37,6 +37,8 @@ void onhashchange(event) {
             break;
         case '#state2':
             Expect.isTrue(goingForward, 'should always be going forward at #state2');
+            asyncEnd();
+            break;
         case '[none]':
             asyncEnd();
             break;

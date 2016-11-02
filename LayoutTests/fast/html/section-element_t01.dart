@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 main() {
   var testParent = document.createElement('div');
@@ -27,7 +26,7 @@ main() {
   //debug('&lt;section> can be nested inside &lt;section>:');
   testParent.innerHtml = '<section id="section2">Test that <section id="section3">a section element</section> can be nested inside another.</section>';
   var section3 = document.getElementById('section3');
-  Expect.equals("section2", section3.parentNode.id);
+  Expect.equals("section2", (section3.parentNode as Element).id);
 
   //debug('Residual style:');
   testParent.innerHtml = '<b><section id="section4">This text should be bold.</section> <span id="span1">This is also bold.</span></b>';

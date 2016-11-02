@@ -11,9 +11,9 @@ import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
-  var style = new Element.html('''
+  Element style = new Element.html('''
       <style>
         body {
             margin: 0px;
@@ -51,9 +51,9 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
 
-  clickElement (element) {
-    var detail = document.getElementById("details$element");
-    var old = detail.open;
+  clickElement (int element) {
+    DetailsElement detail = document.getElementById("details$element") as DetailsElement;
+    bool old = detail.open;
 
     detail.click();
 
