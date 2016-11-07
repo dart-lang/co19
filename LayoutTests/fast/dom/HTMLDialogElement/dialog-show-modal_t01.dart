@@ -7,7 +7,6 @@
  * @description Tests that showModal() performs the steps specified in the HTML spec. bug 97425
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -15,7 +14,7 @@ main() {
     <dialog id="mydialog">It's my dialog.</dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var dialog = document.getElementById('mydialog');
+  DialogElement dialog = document.getElementById('mydialog');
   var computedStyle = dialog.getComputedStyle();
   shouldBeEqualToString(computedStyle.getPropertyValue('display'), "none");
 

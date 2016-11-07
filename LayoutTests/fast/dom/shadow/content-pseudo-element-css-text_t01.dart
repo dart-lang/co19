@@ -20,8 +20,10 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(0).cssText, ".foo::content div .bar::before { display: block; }");
-  shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(1).cssText, "::content { display: block; }");
-  shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(2).cssText, "div content::content div content::content div.green { color: green; }");
-  shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(3).cssText, "*::content * { color: blue; }");
+  CssStyleSheet sheet = (document.getElementById('style1') as StyleElement).sheet;
+
+  shouldBeEqualToString(sheet.cssRules[0].cssText, ".foo::content div .bar::before { display: block; }");
+  shouldBeEqualToString(sheet.cssRules[1].cssText, "::content { display: block; }");
+  shouldBeEqualToString(sheet.cssRules[2].cssText, "div content::content div content::content div.green { color: green; }");
+  shouldBeEqualToString(sheet.cssRules[3].cssText, "*::content * { color: blue; }");
 }

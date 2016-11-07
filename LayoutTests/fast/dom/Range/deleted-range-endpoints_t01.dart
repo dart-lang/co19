@@ -8,7 +8,6 @@
  * examples from DOM Range spec).
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -75,7 +74,7 @@ main() {
   range.deleteContents();
   log(treeAsString(foo) + ". Final range (" + range.startContainer.nodeName + ", " + range.startOffset.toString() + ") - (" + range.endContainer.nodeName + ", " + range.endOffset.toString() + ")");
 
-  var result = document.getElementById('console').childNodes;
+  List result = document.getElementById('console').childNodes;
   debug('test0');
   shouldBe(result[0].data, '<FOO> [A, CD]. Final range (FOO, 1) - (FOO, 1)');
   shouldBe(result[1].data, '<FOO> [A, <MOO> [B], E]. Final range (FOO, 2) - (FOO, 2)');

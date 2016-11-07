@@ -7,13 +7,12 @@
  * @description HTMLTableElement cellpadding attribute test
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   cellPaddingAttributeEffect(value)
   {
-    var table = document.createElement("table");
+    TableElement table = document.createElement("table");
     table.setAttribute("cellpadding", value);
     var cell = document.createElement("td");
     table.append(cell);

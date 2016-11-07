@@ -7,7 +7,6 @@
  * @description Tests for the validation APIs of output elements.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

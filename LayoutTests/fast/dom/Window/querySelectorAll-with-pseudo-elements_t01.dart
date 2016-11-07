@@ -8,10 +8,7 @@
  * return any matched elements when querying for pseudo-element selectors.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''

@@ -8,7 +8,6 @@
  * and the element is NOT editable if its nearest ancestor is NOT.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

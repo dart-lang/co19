@@ -7,7 +7,6 @@
  * @description Tests that execCommand undo doesn't hork custom elements
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -25,13 +24,11 @@ main() {
   shouldBeEqualToString(window.btoa("abcde"), 'YWJjZGU=');
   shouldBeEqualToString(window.btoa("abcdef"), 'YWJjZGVm');
 
-  shouldThrow(() => window.btoa());
   shouldBeEqualToString(window.btoa(""), '');
   shouldBeEqualToString(window.btoa("éé"), '6ek=');
   shouldBeEqualToString(window.btoa("\u0080\u0081"), 'gIE=');
   shouldThrow(() => window.btoa("тест"));
 
-  shouldThrow(() => window.atob());
   shouldBeEqualToString(window.atob(""), '');
 
   // HTML space characters in input.

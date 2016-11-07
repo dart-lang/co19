@@ -6,12 +6,14 @@
 /**
  * @description 
  * This page preloads 2 images in an onLoad function.
- * The image object.src is expected to be the full path to the image, relative to the document base.
- * To match WinIE (but not FireFox), we resolve the image path in the getter, rather than the setter, allowing for pages to change the Document base URL via javascript and have object.src reflect said change.
+ * The image object.src is expected to be the full path to the image, relative
+ * to the document base.
+ * To match WinIE (but not FireFox), we resolve the image path in the getter,
+ * rather than the setter, allowing for pages to change the Document base URL
+ * via javascript and have object.src reflect said change.
  */
 import "dart:html";
 import "dart:async";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
@@ -27,12 +29,12 @@ main() {
     <div style="font-size:small" id="after"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var grey = document.getElementById("grey");
+  ImageElement grey = document.getElementById("grey");
   var foo = document.getElementById("foo");
 
   asyncStart();
   grey.onError.first.then((_) {
-    var img = new Element.html('<img width="129" height="35">');
+    ImageElement img = new Element.html('<img width="129" height="35">');
 
     img.src = "test.jpg";
     grey.src = img.src;

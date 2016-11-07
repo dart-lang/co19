@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -24,7 +23,7 @@ main() {
     <div id="test">Filler Text</div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-    var testDiv = document.getElementById("test");
+    ProgressElement testDiv = document.getElementById("test");
     shouldBe(testDiv.getComputedStyle().getPropertyValue("color"),
         "rgb(0, 128, 0)");
 }

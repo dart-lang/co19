@@ -17,7 +17,7 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var contentSimplest = document.getElementById("content-simplest");
+  ContentElement contentSimplest = document.getElementById("content-simplest");
   shouldBe(contentSimplest.select, '');
   contentSimplest.setAttribute("select", "foo");
   shouldBe(contentSimplest.select, 'foo');

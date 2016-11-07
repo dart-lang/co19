@@ -9,8 +9,6 @@
  * at the time of insertion.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -20,7 +18,7 @@ main() {
     <h1 id=test2>I should be red</h1>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var base = document.createElement('base');
+  LinkElement base = document.createElement('base');
   base.href = '$root/resources/';
 
   var link1 = document.createElement('link');

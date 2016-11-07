@@ -8,7 +8,6 @@
  * the only text you can select is inside the dialog.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -17,7 +16,7 @@ main() {
     <dialog>I'm selectable.</dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var dialog = document.querySelector('dialog');
+  DialogElement dialog = document.querySelector('dialog');
   dialog.showModal();
   document.execCommand('SelectAll', false, '');
   shouldBeEqualToString(window.getSelection().toString(), "I'm selectable.");

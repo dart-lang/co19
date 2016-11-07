@@ -21,14 +21,16 @@ main() {
 
   var base = document.createElement('base');
   base.setAttribute('href', 'http://www.example.com/');
-  var anchorInShadow = document.createElement('a');
+  AnchorElement anchorInShadow = document.createElement('a');
   anchorInShadow.setAttribute('href', '/');
 
   shadowRoot.append(base);
   shadowRoot.append(anchorInShadow);
 
-  var anchorInHostChildren = document.getElementById('anchor-in-host-children');
-  var anchorOutsideOfShadow = document.getElementById('anchor-outside-of-shadow');
+  AnchorElement anchorInHostChildren =
+      document.getElementById('anchor-in-host-children');
+  AnchorElement anchorOutsideOfShadow =
+      document.getElementById('anchor-outside-of-shadow');
 
   shouldBe(anchorInShadow.href.indexOf("http://www.example.com"), -1);
   shouldBe(anchorInHostChildren.href.indexOf("http://www.example.com"), -1);

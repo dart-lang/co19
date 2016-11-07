@@ -17,7 +17,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  shouldBeEqualToString(
-      document.getElementById('style1').sheet.cssRules.item(0).cssText,
+  CssStyleSheet sheet = (document.getElementById('style1') as StyleElement).sheet;
+  shouldBeEqualToString(sheet.cssRules[0].cssText,
       ".foo::content > div .bar::before { display: block; }");
 }

@@ -8,7 +8,6 @@
  * template contents when parsed as xhtml.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -23,7 +22,7 @@ main() {
         <span>This tests that content within template is lifted to the template contents when parsed as xhtml.</span>
         ''', 'text/xml');
 
-  var template = doc.querySelector("template");
+  TemplateElement template = doc.querySelector("template");
   shouldBeTrue(template.content.childNodes.length > template.childNodes.length);
 
   var text = new XmlSerializer().serializeToString(template);

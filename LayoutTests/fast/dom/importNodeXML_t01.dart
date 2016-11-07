@@ -30,9 +30,9 @@ main() {
 </html>
       ''', 'text/xml');
 
-  var imported = doc.getElementById('container')
+  Element imported = doc.getElementById('container')
     .insertBefore(doc.importNode(doc.getElementById('original'), true), doc.getElementById('cloneTitle'));
-  var cloned = doc.getElementById('container')
+  Element cloned = doc.getElementById('container')
     .append(doc.getElementById('original').clone(true));
 
   shouldBe(imported.getAttribute('style'), 'background: #7F7FFF; padding: 3px');

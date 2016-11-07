@@ -7,7 +7,6 @@
  * @description Tests positioning of non-anchored dialogs.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -58,7 +57,7 @@ main() {
     dialog.close('');
   }
 
-  var dialog = document.getElementById('mydialog');
+  DialogElement dialog = document.getElementById('mydialog');
 
   debug('Dialog should be centered in the viewport.');
   showAndTestDialog(dialog, () { checkCentered(dialog); });

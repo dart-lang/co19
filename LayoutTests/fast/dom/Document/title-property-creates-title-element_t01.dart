@@ -10,11 +10,10 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   var parser = new DomParser();
-  var doc = parser.parseFromString('<!DOCTYPE html><head></head><body></body>',
+  HtmlDocument doc = parser.parseFromString('<!DOCTYPE html><head></head><body></body>',
       'text/html');
   Expect.equals(0, doc.getElementsByTagName('title').length);
   doc.title = 'Document title';

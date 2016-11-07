@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,8 +17,8 @@ main() {
       <textarea name="victim" readonly required></textarea>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var v = document.getElementsByName("victim");
+  List<Node> v = document.getElementsByName("victim");
 
-  shouldBeFalse(v[0].validity.valueMissing);
-  shouldBeFalse(v[1].validity.valueMissing);
+  shouldBeFalse((v[0] as InputElementBase).validity.valueMissing);
+  shouldBeFalse((v[1] as InputElementBase).validity.valueMissing);
 }

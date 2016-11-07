@@ -10,7 +10,6 @@
  * @needsreview it's unclear whether marked tests should throw
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

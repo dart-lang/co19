@@ -8,7 +8,6 @@
  * fragment before inserting the children.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
@@ -21,10 +20,6 @@ main() {
     fragment.append(document.createElement('i'));
     observer.observe(fragment, childList: true);
     return fragment;
-  }
-
-  createObservedDiv() {
-    return div;
   }
 
   callback(_mutations, observer) {

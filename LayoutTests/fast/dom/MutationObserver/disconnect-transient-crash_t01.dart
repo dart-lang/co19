@@ -7,9 +7,6 @@
  * @description Test passes if it does not crash
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
-import "../../../testcommon.dart";
 
 main() {
   var div = document.createElement('div');

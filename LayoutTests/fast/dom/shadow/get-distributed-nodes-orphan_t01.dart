@@ -19,7 +19,7 @@ main() {
   var shadowRoot = host.createShadowRoot();
   var child = document.createElement('div');
   var rootChild = document.createElement('div');
-  var content = document.createElement('content');
+  ContentElement content = document.createElement('content');
 
   host.append(child);
   rootChild.append(content);
@@ -35,7 +35,7 @@ main() {
   debug('Reprojection case');
   shadowRoot.append(rootChild);
   var shadowRoot2 = rootChild.createShadowRoot();
-  var content2 = document.createElement('content');
+  ContentElement content2 = document.createElement('content');
   var rootChildChild = document.createElement('div');
   shadowRoot2.append(content2);
   rootChild.append(rootChildChild);

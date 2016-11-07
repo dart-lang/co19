@@ -10,7 +10,6 @@
  * not have the attribute dir=auto.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

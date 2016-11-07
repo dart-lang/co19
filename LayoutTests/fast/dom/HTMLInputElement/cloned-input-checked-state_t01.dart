@@ -10,7 +10,6 @@
  * was test was checking for.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -21,14 +20,14 @@ main() {
   var fragment = document.createDocumentFragment();
   fragment.append(div.firstChild);
 
-  var clonedInput = fragment.clone(true).clone(true).lastChild;
+  InputElement clonedInput = fragment.clone(true).clone(true).lastChild;
   shouldBeTrue(clonedInput.checked
       && clonedInput.getAttribute("checked") == "checked");
 
   debug('Test 2');
   div = document.createElement("div");
   div.innerHtml = "<input type='radio' name='radiotest' checked='checked'/>";
-  div.firstChild.checked = false;
+  (div.firstChild as InputElement).checked = false;
 
   fragment = document.createDocumentFragment();
   fragment.append(div.firstChild);
@@ -40,7 +39,7 @@ main() {
   debug('Test 3');
   div = document.createElement("div");
   div.innerHtml = "<input type='radio' name='radiotest'/>";
-  div.firstChild.checked = true;
+  (div.firstChild as InputElement).checked = true;
 
   fragment = document.createDocumentFragment();
   fragment.append(div.firstChild);

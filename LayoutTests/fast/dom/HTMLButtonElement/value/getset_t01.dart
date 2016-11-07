@@ -16,7 +16,7 @@ main() {
     <input type=button id='button' value='Fail'></input>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var but = document.getElementById('button');
+  ButtonElement but = document.getElementById('button');
   but.value = 'Success';
   Expect.equals('Success', but.value);
 }

@@ -8,7 +8,6 @@
  * @needsreview
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
@@ -21,8 +20,8 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.body.id = 'body';
 
-  var willBeRemoved = document.getElementById('willBeRemoved');
-  var willBeDisabled = document.getElementById('willBeDisabled');
+  InputElement willBeRemoved = document.getElementById('willBeRemoved');
+  InputElement willBeDisabled = document.getElementById('willBeDisabled');
 
   document.addEventListener("DOMFocusOut", (_) {
     willBeRemoved.remove();

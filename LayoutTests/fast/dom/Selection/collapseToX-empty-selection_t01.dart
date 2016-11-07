@@ -8,7 +8,6 @@
  * INVALID_STATE_ERR if no selection is made.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

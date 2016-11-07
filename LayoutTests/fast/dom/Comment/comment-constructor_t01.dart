@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   Expect.equals("one", new Comment("one").data);

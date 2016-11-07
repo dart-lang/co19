@@ -8,7 +8,6 @@
  * through createElement().
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 class Foo extends HtmlElement {

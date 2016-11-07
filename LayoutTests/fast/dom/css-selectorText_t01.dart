@@ -10,7 +10,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var style = new Element.html(r'''
+  StyleElement style = new Element.html(r'''
     <style>
     * { margin: 2px; }
     div { margin: 2px; }
@@ -81,7 +81,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var styleSheet = style.sheet;
+  CssStyleSheet styleSheet = style.sheet;
 
   var expected = [
     '*',
@@ -150,7 +150,7 @@ main() {
     ];
 
   for (var i = 0; i < styleSheet.cssRules.length; i++) {
-    var rule = styleSheet.cssRules[i];
+    CssStyleRule rule = styleSheet.cssRules[i];
     String actual = rule.selectorText;
 
     // Different browsers may return 1n or n. So replace 1n by n

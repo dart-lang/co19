@@ -14,7 +14,11 @@ _shouldThrow(func(), name) =>
   shouldThrow(func, (e) => e is DomException && e.name == name);
 
 main() {
-  var text = new Text("abcd");
+  dynamic text = new Text("abcd");
+  test(text);
+}
+
+test(dynamic text) {
   shouldBeEqualToString(text.data, "abcd");
 
   // appendData()

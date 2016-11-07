@@ -7,7 +7,6 @@
  * @description This test passes if it doesn't crash (or ASSERT).
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   var f = document.createDocumentFragment();

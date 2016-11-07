@@ -18,8 +18,8 @@ main() {
   head.append(style);
 
   var styleSheetList = document.styleSheets;
-  var styleSheet = styleSheetList[styleSheetList.length-1];
-  var mediaRule = styleSheet.cssRules[0];
+  CssStyleSheet styleSheet = styleSheetList[styleSheetList.length-1];
+  CssMediaRule mediaRule = styleSheet.cssRules[0];
   var childRule = mediaRule.cssRules[0];
 
   shouldBe(childRule.parentRule, mediaRule);

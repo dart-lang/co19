@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +16,7 @@ main() {
 
   test()
   {
-    var table = document.getElementById('table');
+    TableElement table = document.getElementById('table');
     table.offsetHeight; // Trigger layout.
     table.createCaption(); // Add a caption and mark the table as needing layout.
     table.style.cssText = ''; // Remove the absolute positioning.

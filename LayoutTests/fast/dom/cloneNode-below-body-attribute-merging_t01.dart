@@ -8,7 +8,6 @@
  * DOMSubtreeModified event doesn't crash.
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   document.body.id = "some_random_id_so_body_creates_attribute_data";

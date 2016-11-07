@@ -11,7 +11,6 @@
  *  The test passed if it did not throw.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

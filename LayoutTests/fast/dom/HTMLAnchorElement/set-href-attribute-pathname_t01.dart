@@ -7,11 +7,10 @@
  * @description Test setting the pathname attribute of the URL in HTMLAnchorElement.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var a = document.createElement('a');
+  AnchorElement a = document.createElement('a');
 
   debug("Set pathname that starts with slash");
   a.href = "https://www.mydomain.com/path/testurl.html?key=value";

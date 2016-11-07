@@ -8,7 +8,6 @@
  * inserted HTML Style element whose @import style sheet failed to load.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "../HTMLLinkElement/resources/link-load-utilities.dart";

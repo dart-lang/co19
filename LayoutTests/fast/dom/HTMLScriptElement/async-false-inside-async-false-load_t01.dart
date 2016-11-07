@@ -8,13 +8,12 @@
  * async=false script doesn't mess anything up.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
 main() {
-  var s0 = new ScriptElement();
+  ScriptElement s0 = new ScriptElement();
   s0.async = false;
   s0.src = "$root/../../../resources/js-test.js";
   document.head.append(s0);
@@ -28,7 +27,7 @@ main() {
 
     startJSTest();
 
-    var first_script = document.createElement("script");
+    ScriptElement first_script = document.createElement("script");
     first_script.async = false;
     first_script.src = "$root/resources/async-false.js";
     document.getElementsByTagName("head")[0].append(first_script);

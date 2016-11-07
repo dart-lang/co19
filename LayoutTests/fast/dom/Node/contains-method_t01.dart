@@ -7,7 +7,6 @@
  * @description This test checks behavior of Node.contains
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

@@ -8,7 +8,6 @@
  * would fail if the range started in a text node.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

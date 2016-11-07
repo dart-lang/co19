@@ -8,13 +8,12 @@
  * @needsreview What is dart analog for js's document.URL?
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 //FIXME
 getOriginalBase(doc) {
   //return doc.URL.replace(/[^/]*$/, "");
-  var a = doc.createElement('a');
+  AnchorElement a = doc.createElement('a');
   a.href = 'file';
   var ret = a.href.replaceFirst(new RegExp(r'[^/]*$'), '');
   a.remove();
@@ -33,14 +32,14 @@ main() {
     return "http://originalbase.com/" + url.substring(originalBase.length);
   }
 
-  var anchor = document.createElement('a');
+  AnchorElement anchor = document.createElement('a');
   anchor.href = "file";
 
   document.body.append(anchor);
 
   shouldBe(clean(anchor.href), 'http://originalbase.com/file');
 
-  var base = document.createElement('base');
+  BaseElement base = document.createElement('base');
 
   base.href = "http://domain.com/base/";
   document.head.append(base);
@@ -55,10 +54,10 @@ main() {
 
   base.href = "http://domain.com/base/";
 
-  var base2 = document.createElement('base');
+  BaseElement base2 = document.createElement('base');
   base2.href = "http://domain.com/base2/";
 
-  var base3 = document.createElement('base');
+  BaseElement base3 = document.createElement('base');
   base3.href = "http://domain.com/base3/";
 
   document.head.append(base);

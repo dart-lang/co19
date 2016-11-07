@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
-  var doc = document.implementation.createDocument('', 'root', null);
+  dynamic doc = document.implementation.createDocument('', 'root', null);
   Expect.isTrue(doc.clone(false) is Document);
   Expect.equals('root', doc.clone(true).documentElement.localName);
 }

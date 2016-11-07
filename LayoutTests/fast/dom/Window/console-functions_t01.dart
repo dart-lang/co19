@@ -8,8 +8,6 @@
  * @note check messages somehow?
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   window.console.log("console.log() called.");

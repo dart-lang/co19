@@ -7,7 +7,6 @@
  * @description This tests parsing invalid XHTML content in innerHtml.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {

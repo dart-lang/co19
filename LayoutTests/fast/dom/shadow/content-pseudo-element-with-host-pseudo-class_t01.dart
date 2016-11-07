@@ -37,7 +37,7 @@ main() {
 
   var host = document.querySelector('#host');
   var root = host.createShadowRoot();
-  var template = document.querySelector('#tmpl');
+  TemplateElement template = document.querySelector('#tmpl');
   root.append(template.content);
 
   shouldBe(document.querySelector("#host > .content").getComputedStyle().color,

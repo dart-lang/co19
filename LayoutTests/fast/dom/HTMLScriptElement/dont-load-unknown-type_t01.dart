@@ -13,7 +13,7 @@ import "../../../testcommon.dart";
 import "pwd.dart";
 
 main() {
-  var s0 = new ScriptElement();
+  ScriptElement s0 = new ScriptElement();
   s0.async = false;
   s0.src = "$root/../../../resources/js-test.js";
   document.head.append(s0);
@@ -32,7 +32,7 @@ main() {
     }, false);
     document.head.append(bogus_script);
 
-    var fake = new ScriptElement();
+    ScriptElement fake = new ScriptElement();
     bogus_script.type = "fake";
     bogus_script.src = "$root/shouldnotexecute.js";
     document.head.append(fake);

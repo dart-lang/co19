@@ -8,7 +8,6 @@
  * immediately.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -18,7 +17,6 @@ main() {
 
   var range = document.createRange();
   var node = document.getElementById("test");
-  var count = 0;
   range.selectNodeContents(node);
   range.createContextualFragment("""
     <script>

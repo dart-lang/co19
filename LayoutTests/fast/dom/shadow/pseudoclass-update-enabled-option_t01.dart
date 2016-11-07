@@ -37,8 +37,8 @@ main() {
   shadowRoot1.innerHtml = '<content select=":enabled">';
   shadowRoot2.innerHtml = '<content select=":enabled">';
 
-  var content1 = shadowRoot1.querySelector('content');
-  var content2 = shadowRoot2.querySelector('content');
+  ContentElement content1 = shadowRoot1.querySelector('content');
+  ContentElement content2 = shadowRoot2.querySelector('content');
 
   asyncStart();
   setTimeout(() {
@@ -47,11 +47,11 @@ main() {
     option2.setAttribute('disabled', 'true');
     option4.attributes.remove('disabled');
 
-    var nodes1 = content1.getDistributedNodes();
+    List nodes1 = content1.getDistributedNodes();
     shouldBe(nodes1.length, 1);
     shouldBe(nodes1[0].innerHtml, "option 1");
 
-    var nodes2 = content2.getDistributedNodes();
+    List nodes2 = content2.getDistributedNodes();
     shouldBe(nodes2.length, 1);
     shouldBe(nodes2[0].innerHtml, "option 4");
 

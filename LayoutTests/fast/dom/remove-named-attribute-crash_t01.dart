@@ -14,5 +14,5 @@ main() {
       <button disabled>PASS</button>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.getElementsByTagName('button')[0].disabled = false;
+  (document.getElementsByTagName('button')[0] as ButtonElement).disabled = false;
 }

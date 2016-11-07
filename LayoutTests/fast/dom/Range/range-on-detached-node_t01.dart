@@ -7,7 +7,6 @@
  * @description Range on detached node should not throw exception.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

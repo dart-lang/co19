@@ -7,7 +7,6 @@
  * @description Tests submitting a dialog on a close event triggered by a previous submission.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
@@ -23,7 +22,7 @@ main() {
 
   testHello()
   {
-    var dialog = document.querySelector('dialog');
+    DialogElement dialog = document.querySelector('dialog');
     dialog.show();
     dialog.addEventListener('close', (_) {
       shouldBeFalse(dialog.open);
@@ -35,7 +34,7 @@ main() {
 
   testGoodbye()
   {
-    var dialog = document.querySelector('dialog');
+    DialogElement dialog = document.querySelector('dialog');
     dialog.show();
     listener (_) {
       dialog.removeEventListener('close', listener);

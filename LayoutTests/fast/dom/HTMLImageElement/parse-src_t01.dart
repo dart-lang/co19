@@ -8,7 +8,6 @@
  * of a URL attribute such as 'src', leading whitespace is ignored
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 

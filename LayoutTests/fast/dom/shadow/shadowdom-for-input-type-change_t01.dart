@@ -22,7 +22,7 @@ main() {
     <input type="email">
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input1 = document.querySelector('input');
+  InputElement input1 = document.querySelector('input');
   var initialWidth = input1.offsetWidth;
   shouldNotBe(initialWidth, 0);
 

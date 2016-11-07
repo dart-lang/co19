@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -48,12 +47,12 @@ main() {
 
   passes = assertThrows(() {
     // should throw TypeError
-    document.getElementById("container").insertAdjacentText();
+    (document.getElementById("container") as dynamic).insertAdjacentText();
   }) && passes;
 
   passes = assertThrows(() {
     // should throw TypeError
-    document.getElementById("container").insertAdjacentText("afterBegin");
+    (document.getElementById("container") as dynamic).insertAdjacentText("afterBegin");
   }) && passes;
 
   if (passes) {

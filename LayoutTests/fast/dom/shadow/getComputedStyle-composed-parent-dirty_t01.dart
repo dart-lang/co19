@@ -18,7 +18,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var root = document.getElementById("host").createShadowRoot();
-  var wrapper = root.append(document.createElement("div"));
+  DivElement wrapper = root.append(document.createElement("div"));
   wrapper.append(document.createElement("content"));
   wrapper.offsetTop;
   wrapper.style.color = 'red';

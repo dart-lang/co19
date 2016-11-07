@@ -8,7 +8,6 @@
  * an object tag does not create a new subframe, causing an assert.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 

@@ -10,7 +10,6 @@
  * which is not inside of a form
  */
 import "dart:html";
-import "../../../../../Utils/expect.dart";
 import "../../../../testcommon.dart";
 
 main() {
@@ -24,10 +23,11 @@ main() {
     </label>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var labelInsideForm = document.getElementById("labelInsideForm");
-  var labelNotInsideForm = document.getElementById("labelNotInsideForm");
+  LabelElement labelInsideForm = document.getElementById("labelInsideForm");
+  LabelElement labelNotInsideForm =
+    document.getElementById("labelNotInsideForm");
 
-  bar form = document.getElementById("form");
+  FormElement form = document.getElementById("form");
 
   debug('test inside');
   shouldBe(labelInsideForm.form, form);

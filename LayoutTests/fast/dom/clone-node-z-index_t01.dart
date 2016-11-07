@@ -27,7 +27,7 @@ main() {
   var oldEl = document.getElementById('layer');
   oldEl.style.left = '50px';
 
-  var newEl = oldEl.clone(true);
+  DivElement newEl = oldEl.clone(true);
   var container = oldEl.parentNode;
   oldEl.remove();
   container.append(newEl);

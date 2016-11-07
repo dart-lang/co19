@@ -18,7 +18,7 @@ main() {
   asyncStart();
 
   window.onLoad.listen((_) {
-    var element = document.body.append(document.createElement("a"));
+    Element element = document.body.append(document.createElement("a"));
 
     element.setAttributeNS("namespace", "id", "foo");
     element.setAttribute("id", "bar");

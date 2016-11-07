@@ -17,7 +17,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var testLink = document.getElementById("testLink");
-  var htmlCollection = document.getElementsByTagName("a");
+  dynamic htmlCollection = document.getElementsByTagName("a");
   shouldBe(htmlCollection.length, 1);
   shouldBe(htmlCollection.namedItem('testLink'), testLink);
   shouldThrow(() => htmlCollection.namedItem());

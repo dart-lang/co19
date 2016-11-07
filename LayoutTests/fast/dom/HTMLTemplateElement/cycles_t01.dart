@@ -7,11 +7,10 @@
  * @description Test that cycles are not allowed in template content
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var template = document.createElement('template');
+  TemplateElement template = document.createElement('template');
   shouldThrow(() => template.content.append(template));
   var outerDiv = document.createElement('div');
   outerDiv.append(template);

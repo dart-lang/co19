@@ -7,12 +7,11 @@
  * @description A Test for sending a reset event to output elements.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var form = document.createElement('form');
-  var output = document.createElement('output');
+  FormElement form = document.createElement('form');
+  OutputElement output = document.createElement('output');
   output.defaultValue = 'defaultValue';
   form.append(output);
 

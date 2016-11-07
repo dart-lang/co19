@@ -8,13 +8,12 @@
  * document when creating elements
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
 main() {
-  var template = document.createElement('template');
+  TemplateElement template = document.createElement('template');
   var div = document.createElement('div');
   var attemptedLoad = false;
 
@@ -25,10 +24,11 @@ main() {
   asyncStart();
 
   template.innerHtml = '<img src="$root/../resources/abe.jpg">';
-  template.content.firstChild.onLoad.listen((_) => attemptedLoad = true);
+  (template.content.firstChild as Element).onLoad.listen(
+      (_) => attemptedLoad = true);
   document.body.append(template);
 
   div.innerHtml = '<img src="$root/../resources/abe.png">';
-  div.firstChild.onLoad.listen(finish);
+  (div.firstChild as Element).onLoad.listen(finish);
   document.body.append(div);
 }

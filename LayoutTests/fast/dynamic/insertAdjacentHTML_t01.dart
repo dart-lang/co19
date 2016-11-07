@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -51,11 +50,11 @@ main() {
   }) && passes;
   passes = assertThrows(() {
     // Should throw TypeError
-    document.getElementById("container").insertAdjacentHtml();
+    (document.getElementById("container") as dynamic).insertAdjacentHtml();
   }) && passes;
   passes = assertThrows(() {
     // Should throw TypeError
-    document.getElementById("container").insertAdjacentHtml("beforeBegin");
+    (document.getElementById("container") as dynamic).insertAdjacentHtml("beforeBegin");
   }) && passes;
 
   if (passes) {

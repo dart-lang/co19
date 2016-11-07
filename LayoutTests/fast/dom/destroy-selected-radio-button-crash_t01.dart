@@ -20,5 +20,5 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   document.getElementById('container').innerHtml = '';
-  document.getElementById('radio').checked = true;
+  (document.getElementById('radio') as RadioButtonInputElement).checked = true;
 }

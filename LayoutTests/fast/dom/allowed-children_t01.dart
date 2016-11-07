@@ -33,7 +33,7 @@ main() {
   for (var c in cases) {
     var doc = document.implementation.createDocument("", "", null);
     var doc2 = (new DomParser()).parseFromString(c['markup'], "text/xml");
-    var u = doc.importNode(doc2.childNodes[0], true);
+    Element u = doc.importNode(doc2.childNodes[0], true);
     shouldBe(u.tagName, c['tagName']);
     doc.append(u);
     shouldBe((new XmlSerializer()).serializeToString(doc),

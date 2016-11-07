@@ -9,19 +9,18 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
 
-  checkNotOverflow(value, max, disabled) {
+  void checkNotOverflow(String value, String max, bool disabled) {
     input.value = value;
     input.max = max;
     input.disabled = disabled;
-    var overflow = input.validity.rangeOverflow;
-    var resultText = 'The value "' + input.value + '" ' +
+    bool overflow = input.validity.rangeOverflow;
+    String resultText = 'The value "${input.value}"'+
       (overflow ? 'overflows' : 'doesn\'t overflow') +
-      ' the maximum value "' + input.max + '"' + (disabled ? ' when disabled.' : '.');
+      ' the maximum value "${input.max}"' + (disabled ? ' when disabled.' : '.');
     if (overflow)
       testFailed(resultText);
     else

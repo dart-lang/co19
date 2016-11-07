@@ -31,6 +31,7 @@ test() async {
   if (testPassed){
     asyncEnd();
   }
+  receivePort.close();
 }
 
 main() {

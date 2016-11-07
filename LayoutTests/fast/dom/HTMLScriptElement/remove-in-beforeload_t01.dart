@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
@@ -27,7 +26,7 @@ main() {
     asyncStart();
     window.onLoad.first.then((_) {
       asyncStart();
-      var s = document.createElement("script");
+      ScriptElement s = document.createElement("script");
       s.addEventListener("beforeload", (_) {
         s.remove();
         testPassed("");

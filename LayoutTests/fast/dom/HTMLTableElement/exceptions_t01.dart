@@ -7,11 +7,10 @@
  * @description This test should trigger exceptions on HTMLTableElement
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var t = document.createElement('table');
+  TableElement t = document.createElement('table');
 
   shouldThrow(() => t.insertRow(-2));
   shouldThrow(() => t.insertRow(1));

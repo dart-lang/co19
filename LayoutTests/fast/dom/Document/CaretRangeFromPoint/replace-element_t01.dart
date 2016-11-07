@@ -44,10 +44,8 @@ main() {
     }
   }
 
-  var element = document.getElementById('test');
   var image = document.getElementById('image');
 
-  var rect = element.getBoundingClientRect();
   var imageRect = image.getBoundingClientRect();
 
   test("Testing left of the image",

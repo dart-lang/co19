@@ -7,7 +7,6 @@
  * @description Tests for assigning the value attribute to output elements.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

@@ -8,7 +8,6 @@
  * attribute does not affect its element type.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 class X extends SpanElement {

@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 import "../../../resources/check-layout.dart";
 
@@ -52,8 +51,8 @@ main() {
     <dialog id="right-dialog" class="green-box" data-offset-x="200" data-offset-y="100"></dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.getElementById('middle-dialog').showModal();
-  var rightDialog = document.getElementById('right-dialog');
+  (document.getElementById('middle-dialog') as DialogElement).showModal();
+  DialogElement rightDialog = document.getElementById('right-dialog');
   rightDialog.showModal();
   rightDialog.style.position = 'absolute';
 

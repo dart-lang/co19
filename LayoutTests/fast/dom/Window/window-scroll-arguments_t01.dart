@@ -9,18 +9,12 @@
  * throws an exception.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
     <div style="height: 1000px; width: 1000px; border: 1px solid black;">This box should force the window to have a scrollable area to test.</div>
     ''', treeSanitizer: new NullTreeSanitizer());
-
-  var resetX;
-  var resetY;
 
   var x = 25;
   var y = 50;
@@ -28,8 +22,6 @@ main() {
   reset()
   {
     window.scrollTo(0,0);
-    resetX = window.scrollX;
-    resetY = window.scrollY;
   }
 
   reset();
@@ -54,7 +46,7 @@ main() {
   debug("Testing - scrollTo with an invalid ScrollOptions argument");
   shouldThrow(() => window.scrollTo(x, y, { 'behavior': "" }));
   shouldThrow(() => window.scrollTo(x, y, { 'behavior': "abcd" }));
-  shouldThrow(() => window.scrollTo(x, y, 200, "text"));
+  shouldThrow(() => (window as dynamic).scrollTo(x, y, 200, "text"));
 
   // scroll /////////////////////////
   debug('window.scroll Tests');
@@ -76,7 +68,7 @@ main() {
   debug("Testing - scroll with an invalid ScrollOptions argument");
   shouldThrow(() => window.scroll(x, y, { 'behavior': "" }));
   shouldThrow(() => window.scroll(x, y, { 'behavior': "abcd" }));
-  shouldThrow(() => window.scroll(x, y, 200, "text"));
+  shouldThrow(() => (window as dynamic).scroll(x, y, 200, "text"));
 
   // scrollBy /////////////////////////
   debug('window.scrollBy Tests');
@@ -98,5 +90,5 @@ main() {
   debug("Testing - scrollBy with an invalid ScrollOptions argument");
   shouldThrow(() => window.scrollBy(x, y, { 'behavior': "" }));
   shouldThrow(() => window.scrollBy(x, y, { 'behavior': "abcd" }));
-  shouldThrow(() => window.scrollBy(x, y, 200, "text"));
+  shouldThrow(() => (window as dynamic).scrollBy(x, y, 200, "text"));
 }

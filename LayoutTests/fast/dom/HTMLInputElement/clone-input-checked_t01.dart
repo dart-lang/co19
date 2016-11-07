@@ -8,7 +8,6 @@
  * still be checked till the clone is inserted into the dom tree.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -18,8 +17,8 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var oldEl = document.getElementById('radio');
-  var newEl = oldEl.clone(true);
+  InputElement oldEl = document.getElementById('radio');
+  InputElement newEl = oldEl.clone(true);
 
   debug('test 1');
   shouldBe(oldEl.checked, true);

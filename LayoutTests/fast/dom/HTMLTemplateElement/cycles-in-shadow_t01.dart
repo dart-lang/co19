@@ -8,7 +8,6 @@
  * shadow roots
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -19,8 +18,8 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var outerDiv = document.getElementById('container');
-  var template = document.querySelector('template');
-  var div = template.content.firstChild;
+  TemplateElement template = document.querySelector('template');
+  DivElement div = template.content.firstChild;
   var shadowRoot = div.createShadowRoot();
   var shadowDiv = shadowRoot.append(document.createElement('div'));
   shouldThrow(() => shadowDiv.append(outerDiv));

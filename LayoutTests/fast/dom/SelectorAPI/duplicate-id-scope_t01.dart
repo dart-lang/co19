@@ -7,7 +7,6 @@
  * @description Test that CSS selector queries on duplicate Ids respect scope.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

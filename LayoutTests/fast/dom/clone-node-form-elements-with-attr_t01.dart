@@ -27,35 +27,35 @@ main() {
     c.innerHtml += (str + "<br>");
   }
 
-  var input1 = document.getElementById('input1');
+  InputElement input1 = document.getElementById('input1');
   input1.value = 'Test';
 
-  var input1clone = input1.clone(true);
+  InputElement input1clone = input1.clone(true);
   if (input1clone.value != input1.value) {
     debug('FAILURE: input1clone.value was "' + input1clone.value + '", expected "' + input1.value + '"');
     debug('FAIL');
     return;
   }
 
-  var input1imported = document.importNode(input1, true);
+  InputElement input1imported = document.importNode(input1, true);
   if (input1imported.value != input1.value) {
     debug('FAILURE: input1imported.value was "' + input1imported.value + '", expected "' + input1.value + '"');
     debug('FAIL');
     return;
   }
 
-  var input2 = document.getElementById('input2');
+  CheckboxInputElement input2 = document.getElementById('input2');
   input2.checked = true;
-  var input2clone = input2.clone(true);
+  CheckboxInputElement input2clone = input2.clone(true);
   if (input2clone.checked != input2.checked) {
-    debug('FAILURE: input2clone.checked was "' + input2clone.checked + '", expected "' + input2.checked + '"');
+    debug('FAILURE: input2clone.checked was "' + input2clone.checked.toString() + '", expected "' + input2.checked.toString() + '"');
     debug('FAIL');
     return;
   }
 
-  var input2imported = document.importNode(input2, true);
+  InputElement input2imported = document.importNode(input2, true);
   if (input2imported.checked != input2.checked) {
-    debug('FAILURE: input2imported.checked was "' + input2imported.checked + '", expected "' + input2.checked + '"');
+    debug('FAILURE: input2imported.checked was "' + input2imported.checked.toString() + '", expected "' + input2.checked.toString() + '"');
     debug('FAIL');
     return;
   }

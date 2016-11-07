@@ -7,7 +7,6 @@
  * @description Tests that we can create instances of Range using new
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

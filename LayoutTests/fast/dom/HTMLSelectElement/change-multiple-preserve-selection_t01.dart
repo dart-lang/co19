@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -40,7 +39,7 @@ main() {
     <div id="console"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var selectElement;
+  SelectElement selectElement;
 
   // <select multiple="true"> should not have a selection by default.
   selectElement = document.getElementsByTagName('select')[0];

@@ -45,11 +45,10 @@ main() {
     var measureLeft = measure.offsetLeft;
 
     // Invalidate measure and force a full layout.
-    var child = measure.firstChild;
+    Element child = measure.firstChild;
     child.remove();
     document.body.clientHeight;
     measure.append(child);
-    var forceLayout = document.body.clientHeight;
 
     var childOffsetTop = child.offsetTop;
 

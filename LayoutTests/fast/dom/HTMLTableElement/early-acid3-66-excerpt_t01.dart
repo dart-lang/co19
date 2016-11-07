@@ -8,11 +8,10 @@
  * creation of rows
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var table = document.createElement('table');
+  TableElement table = document.createElement('table');
 
   var rows = [
     document.createElement('tr'),    // 0: ends up first child of the tfoot

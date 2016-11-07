@@ -6,11 +6,9 @@
 /**
  * @description This test checks validity.valueMissing with some values or
  * options with some values selected.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -60,8 +58,8 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  valueMissingFor(id) {
-    return document.getElementById(id).validity.valueMissing;
+  bool valueMissingFor(String id) {
+    return (document.getElementById(id) as InputElementBase).validity.valueMissing;
   }
 
   shouldBeFalse(valueMissingFor("input"));

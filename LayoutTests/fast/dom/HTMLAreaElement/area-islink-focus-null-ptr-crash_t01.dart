@@ -9,7 +9,6 @@
  * https://bugs.webkit.org/show_bug.cgi?id=54877
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -17,7 +16,7 @@ main() {
     <div id="log">FAIL</div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var oArea = document.createElement('area');
+  AreaElement oArea = document.createElement('area');
   oArea.href = '0';
   oArea.focus();
 

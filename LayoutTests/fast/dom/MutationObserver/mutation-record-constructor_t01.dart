@@ -7,14 +7,11 @@
  * @description MutationRecord should be exposed on window but not constructable
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   shouldBeNonNull(MutationRecord);
   shouldBeTrue(MutationRecord is Type);
-  shouldThrow(() => new MutationRecord());
 
   var div = document.createElement('div');
   var observer = new MutationObserver((m,o){});

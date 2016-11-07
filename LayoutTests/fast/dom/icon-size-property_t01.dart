@@ -16,7 +16,7 @@ main() {
     <link id="empty-sizes" rel="icon" sizes="" type="image/x-icon" href="http://test.com/oldfavicon.ico"/>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var icon = document.getElementById("rel-icon");
+  LinkElement icon = document.getElementById("rel-icon");
 
   shouldEvaluateTo(icon.sizes.length, 2);
   shouldBeEqualToString(icon.sizes.value, "23x47 19x42");

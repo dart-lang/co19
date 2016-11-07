@@ -7,9 +7,7 @@
  * @description This tests indexing outside the range of the media list object.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var styleElement  = document.createElement('style');

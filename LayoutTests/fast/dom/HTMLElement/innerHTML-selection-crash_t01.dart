@@ -8,7 +8,6 @@
  * selection endpoint is inside a text field's shadow DOM tree.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

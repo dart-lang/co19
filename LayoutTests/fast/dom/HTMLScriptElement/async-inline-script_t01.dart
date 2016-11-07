@@ -7,7 +7,6 @@
  * @description Checks that inline scripts are not async.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

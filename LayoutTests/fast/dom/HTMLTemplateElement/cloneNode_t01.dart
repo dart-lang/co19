@@ -8,7 +8,6 @@
  * element is cloned
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,16 +15,16 @@ main() {
     <template id="template"><span>Contents</span></template>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var template = document.getElementById('template');
+  TemplateElement template = document.getElementById('template');
   var div = template.append(document.createElement('div'));
 
   shouldBe(template.content.childNodes.length, 1);
-  var clone = template.clone(true);
+  TemplateElement clone = template.clone(true);
   shouldBe(clone.content.childNodes.length, 1);
   shouldBe(clone.outerHtml, template.outerHtml);
   shouldNotBe(clone.content.firstChild, template.content.firstChild);
   shouldNotBe(clone.content, template.content);
-  shouldBe(clone.firstChild.tagName, "DIV");
+  shouldBe((clone.firstChild as SpanElement).tagName, "DIV");
   shouldNotBe(clone.firstChild, div);
 }
 

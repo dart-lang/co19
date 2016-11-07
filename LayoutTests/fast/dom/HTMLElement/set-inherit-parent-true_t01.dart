@@ -8,7 +8,6 @@
  * be removed and element.contentEditable should return "inherit".
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

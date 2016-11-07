@@ -10,7 +10,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   document.body.append(input);
 
   debug('No maxlength and no value');

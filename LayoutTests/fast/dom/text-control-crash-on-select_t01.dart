@@ -29,19 +29,19 @@ main() {
   testSettingSelection(tagName) {
     var id = tagName + '1';
     $(id).style.display = "none";
-    $(id).select();
+    ($(id) as InputElement).select();
 
     id = tagName + '2';
     $(id).style.display = "none";
-    $(id).setSelectionRange(1, 2);
+    ($(id) as InputElement).setSelectionRange(1, 2);
 
     id = tagName + '3';
     $(id).style.display = "none";
-    $(id).selectionStart = 2;
+    ($(id) as InputElement).selectionStart = 2;
 
     id = tagName + '4';
     $(id).style.display = "none";
-    $(id).selectionEnd = 1;
+    ($(id) as InputElement).selectionEnd = 1;
   }
 
   testSettingSelection('textarea');

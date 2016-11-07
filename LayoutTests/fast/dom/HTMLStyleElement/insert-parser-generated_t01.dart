@@ -8,7 +8,6 @@
  * the parser applies its stylesheet.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -25,7 +24,7 @@ main() {
     <div id="green"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var style = document.getElementById("style");
+  StyleElement style = document.getElementById("style");
   var head = style.parentNode;
   style.remove();
   head.append(style);

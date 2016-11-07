@@ -8,14 +8,13 @@
  * where there is unusual nesting.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   checkNoBodyRowNesting(tag)
   {
     debug('checkNoBodyRowNesting $tag');
-    var table = document.createElement("table");
+    TableElement table = document.createElement("table");
     var container = document.createElement(tag);
     var row = document.createElement("tr");
     table.append(container);
@@ -26,7 +25,7 @@ main() {
   checkRowNesting(tag)
   {
     debug('checkRowNesting $tag');
-    var table = document.createElement("table");
+    TableElement table = document.createElement("table");
     var body = document.createElement("tbody");
     var container = document.createElement(tag);
     var row = document.createElement("tr");

@@ -7,7 +7,6 @@
  * @descriptionThis test checks mutation of the DOM and how it affects Ranges 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

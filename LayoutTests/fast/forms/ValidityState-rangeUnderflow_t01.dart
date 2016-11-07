@@ -9,12 +9,11 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
 
-  checkNotUnderflow(value, min, disabled) {
+  void checkNotUnderflow(String value, String min, bool disabled) {
     input.value = value;
     input.min = min;
     input.disabled = disabled;

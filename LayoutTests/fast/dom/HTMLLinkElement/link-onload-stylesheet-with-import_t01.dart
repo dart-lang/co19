@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "resources/link-load-utilities.dart";
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
