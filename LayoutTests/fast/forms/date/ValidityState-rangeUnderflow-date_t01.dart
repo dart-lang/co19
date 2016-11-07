@@ -9,17 +9,16 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
 
-  checkUnderflow(value, min, [disabled=false]) {
+  void checkUnderflow(String value, String min, [bool disabled=false]) {
     input.value = value;
     input.min = min;
     input.disabled = disabled;
-    var underflow = input.validity.rangeUnderflow;
-    var resultText = 'The value "' + input.value + '" ' +
+    bool underflow = input.validity.rangeUnderflow;
+    String resultText = 'The value "' + input.value + '" ' +
       (underflow ? 'undeflows' : 'doesn\'t underflow') +
       ' the minimum value "' + input.min + '"' + (disabled ? ' when disabled.' : '.');
     if (underflow)
@@ -28,12 +27,12 @@ main() {
       testFailed(resultText);
   }
 
-  checkNotUnderflow(value, min, [disabled=false, sanitized=false]) {
+  void checkNotUnderflow(String value, String min, [bool disabled=false, bool sanitized=false]) {
     input.value = value;
     input.min = min;
     input.disabled = disabled;
-    var underflow = input.validity.rangeUnderflow;
-    var resultText = 'The value "' + input.value + '" ' +
+    bool underflow = input.validity.rangeUnderflow;
+    String resultText = 'The value "' + input.value + '" ' +
       (sanitized ? 'sanitized from "' + value + '" ' : '') +
       (underflow ? 'underflows' : 'doesn\'t underflow') +
       ' the minimum value "' + input.min + '"' + (disabled ? ' when disabled.' : '.');
@@ -43,7 +42,7 @@ main() {
       testPassed(resultText);
   }
 
-  checkSanitizedValueNotUnderflow(value, max, [disabled=false]) {
+  void checkSanitizedValueNotUnderflow(String value, String max, [bool disabled=false]) {
     // For date types, invalid values are sanitized to "".
     checkNotUnderflow(value, max, disabled, true);
   }

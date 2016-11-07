@@ -9,13 +9,12 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var i = document.createElement('input');
+  InputElement i = document.createElement('input') as InputElement;
   i.type = 'date';
 
-  check(value, [disabled=false]) {
+  void check(String value, [bool disabled=false]) {
     i.value = value;
     i.disabled = disabled;
 
@@ -23,7 +22,7 @@ main() {
       testFailed('"' + value + '" had typeMismatch. This should not happen with sanitization.');
   }
 
-  shouldBeValid(value) {
+  void shouldBeValid(String value) {
     check(value);
     if ((value == '' && i.value == '') || (value != '' && i.value != ""))
       testPassed('"' + value + '" is a correct valid date string.');
@@ -31,7 +30,7 @@ main() {
       testFailed('"' + value + '" is a valid date string that failed to be set on the input.');
   }
 
-  shouldBeInvalid(value, [disabled=false]) {
+  void shouldBeInvalid(String value, [bool disabled=false]) {
     check(value, disabled);
     if (i.value == '')
       testPassed('"' + value + '" is an invalid date string and was sanitized' + (disabled ? ' while disabled' : '') + '.');
