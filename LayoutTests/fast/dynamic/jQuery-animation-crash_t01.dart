@@ -46,7 +46,7 @@ main() {
     var elem = document.getElementById('i');
     elem.style.setProperty('display', 'block');
 
-    var val, props = { 'position': "absolute", 'visibility': "hidden", 'display':"block" }; 
+    var val, props = { 'position': "absolute", 'visibility': "hidden", 'display':"block" };
     getWH() {
       val = elem.offsetHeight;
     }
