@@ -24,7 +24,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var button = document.body.querySelector('button');
+  ButtonElement button = document.body.querySelector('button') as ButtonElement;
   button.onClick.listen((_) {
     button.disabled = true;
   });
