@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBe(KeyboardEvent.DOM_KEY_LOCATION_STANDARD, 0x00);

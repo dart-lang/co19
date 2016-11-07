@@ -31,7 +31,7 @@ main() {
       asyncEnd();
     });
 
-    var script = document.createElement("script");
+    ScriptElement script = document.createElement("script");
     script.src = "file:///GregTheBunny.js";
     div.append(script);
 

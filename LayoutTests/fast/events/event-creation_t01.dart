@@ -12,7 +12,6 @@ import "dart:svg" as svg;
 import "dart:web_audio" as audio;
 import "dart:web_gl" as webgl;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // AnimationEvent
@@ -77,8 +76,8 @@ main() {
   //shouldBeTrue(new Event.eventType('MutationEvents', '') is Event);
 
   // OverflowEvent
-  shouldBeTrue(new Event.eventType('OverflowEvent', '') is OverflowEvent);
-  shouldBeTrue(new Event.eventType('OverflowEvent', '') is Event);
+  //shouldBeTrue(new Event.eventType('OverflowEvent', '') is OverflowEvent);
+  //shouldBeTrue(new Event.eventType('OverflowEvent', '') is Event);
 
   // PageTransitionEvent
   shouldBeTrue(new Event.eventType('PageTransitionEvent', '') is PageTransitionEvent);

@@ -28,7 +28,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var scrollable = document.getElementById('scrollable');
-  var output = document.getElementById('output');
   var inside = document.getElementById('inside');
 
   var msgs = [];

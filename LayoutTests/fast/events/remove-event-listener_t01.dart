@@ -7,8 +7,6 @@
  * @description Removes a non-existing event listener
  */
 import "dart:html";
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // following code should leak the function and window/document objects.

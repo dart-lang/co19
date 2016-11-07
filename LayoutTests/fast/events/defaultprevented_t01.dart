@@ -15,7 +15,7 @@ main() {
       <form method=POST></form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var form = document.body.querySelector('form');
+  FormElement form = document.body.querySelector('form');
 
   form.onReset.listen((event) {
     event.preventDefault();

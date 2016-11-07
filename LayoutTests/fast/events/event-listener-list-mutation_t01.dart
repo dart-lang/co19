@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   TestMutation(remover, removee, result)
@@ -20,7 +19,7 @@ main() {
     var eventType = "click";
     document.body.append(node);
 
-    var listeners;
+    List<EventListener> listeners;
 
     mutateList(me)
     {
@@ -30,9 +29,9 @@ main() {
     }
 
     listeners = [
-      (_) { mutateList(0); },
-      (_) { mutateList(1); },
-      (_) { mutateList(2); }
+          (_) { mutateList(0); },
+          (_) { mutateList(1); },
+          (_) { mutateList(2); }
     ];
 
     listeners.forEach((listener) { node.addEventListener(eventType, listener, false); });

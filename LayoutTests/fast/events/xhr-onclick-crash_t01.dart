@@ -7,7 +7,6 @@
  * @description This test passes if it doesn't crash.
  */
 import "dart:html";
-import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 

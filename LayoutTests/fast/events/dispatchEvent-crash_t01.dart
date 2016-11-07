@@ -9,8 +9,6 @@
  * dispatchEvent(null)).  It passes if it does not crash.
  */
 import "dart:html";
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // FIXME: this should also test WorkerContext and MessagePort.
@@ -22,7 +20,7 @@ main() {
     document.body
   ];
 
-  for (var eventTarget in eventTargets) {
+  for (dynamic eventTarget in eventTargets) {
     try {
       eventTarget.dispatchEvent(null);
     } catch(e) {

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,8 +19,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var evt = new KeyboardEvent("keydown", canBubble:true, cancelable:true, view:window,
-      keyLocation:0, ctrlKey:false, altKey:false, shiftKey:false, metaKey:false,
-      altGraphKey:false);
+      keyLocation:0, ctrlKey:false, altKey:false, shiftKey:false, metaKey:false);
   var elt = document.getElementById("1");
   elt.focus();
   elt.dispatchEvent(evt);

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,10 +20,10 @@ main() {
       <p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var checkbox1 = document.getElementById("checkbox1");
+  CheckboxInputElement checkbox1 = document.getElementById("checkbox1");
   checkbox1.onClick.listen((event) => event.stopPropagation());
   checkbox1.click();
-  var checkbox2 = document.getElementById("checkbox2");
+  CheckboxInputElement checkbox2 = document.getElementById("checkbox2");
   checkbox2.onClick.listen((event) => event.preventDefault()); 
   checkbox2.click();
 

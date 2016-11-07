@@ -27,7 +27,7 @@ main() {
 
   test() {
     (() {
-      var img = document.createElement('img');
+      ImageElement img = document.createElement('img');
       img.onLoad.listen((_) {
         testFailed('FAIL');
         finishTesting();

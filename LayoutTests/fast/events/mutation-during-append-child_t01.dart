@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,7 +21,7 @@ main() {
   var child = document.getElementById('child');
   var newparent = document.getElementById('newparent');
 
-  var listener;
+  EventListener listener;
   listener = (_) {
     document.removeEventListener("DOMNodeRemoved", listener, false);
     child.append(newparent);

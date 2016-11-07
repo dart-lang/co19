@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -32,7 +31,7 @@ main() {
   shouldBeTrue(handlerOnDivWasCalled);
   shouldBeTrue(range.startOffset == 1 && range.endOffset == 1);
 
-  var input = document.body.querySelector('input');
+  InputElement input = document.body.querySelector('input');
   input.onSelectStart.listen((event) => event.preventDefault());
   input.focus();
   input.selectionStart = 1;

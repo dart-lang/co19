@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var subdocument = document.implementation.createDocument('http://www.w3.org/1999/xhtml', 'html', null);

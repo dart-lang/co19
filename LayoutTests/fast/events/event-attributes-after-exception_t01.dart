@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 _shouldBe(aDescription, a, b)
 {
@@ -17,7 +16,7 @@ _shouldBe(aDescription, a, b)
 }
 
 main() {
-  var event = new Event.eventType('MouseEvent', '');
+  MouseEvent event = new Event.eventType('MouseEvent', '');
 
   try {
     document.body.dispatchEvent(event);

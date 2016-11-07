@@ -218,7 +218,6 @@ th { height: 30px; }
 
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var q;
   var data = {};
 
   /*
@@ -237,7 +236,7 @@ th { height: 30px; }
   }
 
   dispatchEvent(clientX, clientY, expectedElementID, expectedOffsetX, expectedOffsetY) {
-    var e = new MouseEvent("click", canBubble: true, cancelable: true,
+    MouseEvent e = new MouseEvent("click", canBubble: true, cancelable: true,
         view: window, detail: 1,
         screenX: 1, screenY: 1,
         clientX: clientX, clientY: clientY,
