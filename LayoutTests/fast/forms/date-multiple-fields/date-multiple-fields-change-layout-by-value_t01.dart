@@ -8,21 +8,20 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var testInput = document.createElement('input');
+  InputElement testInput = document.createElement('input') as InputElement;
   testInput.type = 'date';
   testInput.max = '9999-12-31';
   document.body.append(testInput);
-  var widthOfEmptyValue = testInput.offsetWidth;
+  int widthOfEmptyValue = testInput.offsetWidth;
 
   testInput.value = '10000-01-01';
-  var widthOfOverflowValue = testInput.offsetWidth;
+  int widthOfOverflowValue = testInput.offsetWidth;
   shouldBeTrue(widthOfEmptyValue < widthOfOverflowValue);
 
   testInput.value = '2012-10-05';
-  var widthOfValidValue = testInput.offsetWidth;
+  int widthOfValidValue = testInput.offsetWidth;
   shouldBe(widthOfEmptyValue, widthOfValidValue);
 
   testInput.remove();
