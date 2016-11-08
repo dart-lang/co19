@@ -76,7 +76,7 @@ main() {
   add("<label for='legendId' id='test11'><input id='inputId11'></label><legend id='legendId'></legend>");
   label = document.getElementById('test11');
   shouldBe(label.htmlFor, 'legendId');
-  shouldBe(label, null);
+  shouldBe(label.control, null);
 
   debug("Test label with 'for' attribute which is not a labelable form control - optgroup");
   add("<label for='optgroupId' id='test12'><input id='inputId12'></label><optgroup id='optgroupId'></optgroup>");
@@ -87,7 +87,7 @@ main() {
   debug("Test label with 'for' attribute which is not a labelable form control - option");
   add("<label for='optionId' id='test13'><input id='inputId13'></label><option id='optionId'></option>");
   label = document.getElementById('test13');
-  shouldBe(label, 'optionId');
+  shouldBe(label.htmlFor, 'optionId');
   shouldBe(label.control, null);
 }
 

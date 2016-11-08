@@ -45,7 +45,7 @@ main() {
     ];
 
   for (var i = 0; i < n; ++i) {
-    Location a = links[i] as Location;
+    AnchorElement a = links[i] as AnchorElement;
     Expect.equals(expected[i][0], a.hostname, 'hostname #$i');
     Expect.equals(expected[i][1], a.host, 'host #$i');
   }

@@ -21,7 +21,8 @@ main() {
     asyncEnd();
   }
 
-  HtmlElement element = document.body.append(document.createElementNS("foo", "bar"));
+  HtmlElement element =
+      document.body.append(document.createElementNS("foo", "bar"));
   element.id = "bar";
   element.setAttribute("id", "bar");
   element.remove();

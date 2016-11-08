@@ -24,7 +24,7 @@ main() {
   shouldBe(clone.outerHtml, template.outerHtml);
   shouldNotBe(clone.content.firstChild, template.content.firstChild);
   shouldNotBe(clone.content, template.content);
-  shouldBe((clone.firstChild as SpanElement).tagName, "DIV");
+  shouldBe((clone.firstChild as DivElement).tagName, "DIV");
   shouldNotBe(clone.firstChild, div);
 }
 

@@ -25,9 +25,10 @@ main() {
   shouldBe(form.length, 0);
   shouldBeNull(input.form);
 
-  template = document.querySelector('#two');
   debug('Form in template, input in sub-template:');
-  form = template.querySelector('form');
+  template = document.querySelector('#two');
+  form = template.content.querySelector('form');
+  template = template.content.querySelector('template');
   input = template.content.querySelector('input');
   shouldBe(form.length, 0);
   shouldBeNull(input.form);

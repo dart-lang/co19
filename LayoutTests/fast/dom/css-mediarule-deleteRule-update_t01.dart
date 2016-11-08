@@ -25,8 +25,10 @@ main() {
     <p id="test">This line should be green.</p>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  CssStyleSheet styleSheet = (document.getElementById('style1') as StyleElement).sheet;
-  styleSheet.deleteRule(0);
+  CssStyleSheet styleSheet =
+      (document.getElementById('style1') as StyleElement).sheet;
+  CssMediaRule mediaRule = styleSheet.cssRules[0];
+  mediaRule.deleteRule(0);
 
   asyncStart();
   window.onLoad.first.then((_) {

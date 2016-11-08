@@ -24,7 +24,7 @@ main() {
   var expected = 'SUCCESS';
 
   debug('Test 1');
-  shouldBe((foo.firstChild as Text).data, expected);
+  shouldBe((foo.firstChild as ProcessingInstruction).data, expected);
 
   doc = (new DomParser()).parseFromString(docString, "application/xml");
   foo = doc.getElementsByTagName("foo")[0];
@@ -35,8 +35,8 @@ main() {
   range.deleteContents();
 
   debug('Test 2');
-  shouldBe((foo.firstChild as Text).data +
-      (foo.firstChild.nextNode as Text).data, expected);
+  shouldBe((foo.firstChild as ProcessingInstruction).data +
+      (foo.firstChild.nextNode as ProcessingInstruction).data, expected);
 
   doc = (new DomParser()).parseFromString(docString, "application/xml");
   foo = doc.getElementsByTagName("foo")[0];
@@ -44,15 +44,15 @@ main() {
   range = doc.createRange();
   range.setStart(foo, 0);
   range.setEnd(foo.firstChild, 2);
-  var data1 = (range.cloneContents().firstChild as Text).data;
+  var data1 = (range.cloneContents().firstChild as ProcessingInstruction).data;
 
   range.setStart(foo.firstChild, 2);
   range.setEnd(foo.firstChild, 4);
-  var data2 = (range.cloneContents().firstChild as Text).data;
+  var data2 = (range.cloneContents().firstChild as ProcessingInstruction).data;
 
   range.setStart(foo.firstChild.nextNode, 13);
   range.setEnd(foo, 2);
-  var data3 = (range.cloneContents().firstChild as Text).data;
+  var data3 = (range.cloneContents().firstChild as ProcessingInstruction).data;
 
   debug('Test 3');
   shouldBe(data1 + data2 + data3, expected);
