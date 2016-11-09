@@ -9,17 +9,16 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
 
-  checkOverflow(value, max, [disabled=false]) {
+  void checkOverflow(String value, String max, [bool disabled=false]) {
     input.value = value;
     input.max = max;
     input.disabled = disabled;
-    var overflow = input.validity.rangeOverflow;
-    var resultText = 'The value "' + input.value + '" ' +
+    bool overflow = input.validity.rangeOverflow;
+    String resultText = 'The value "' + input.value + '" ' +
       (overflow ? 'overflows' : 'doesn\'t overflow') +
       ' the maximum value "' + input.max + '"' + (disabled ? ' when disabled.' : '.');
     if (overflow)
@@ -28,12 +27,12 @@ main() {
       testFailed(resultText);
   }
 
-  checkNotOverflow(value, max, [disabled=false, sanitized=false]) {
+  void checkNotOverflow(String value, String max, [bool disabled=false, bool sanitized=false]) {
     input.value = value;
     input.max = max;
     input.disabled = disabled;
-    var overflow = input.validity.rangeOverflow;
-    var resultText = 'The value "' + input.value + '" ' +
+    bool overflow = input.validity.rangeOverflow;
+    String resultText = 'The value "' + input.value + '" ' +
       (sanitized ? 'sanitized from "' + value + '" ' : '') +
       (overflow ? 'overflows' : 'doesn\'t overflow') +
       ' the maximum value "' + input.max + '"' + (disabled ? ' when disabled.' : '.');
@@ -43,7 +42,7 @@ main() {
       testPassed(resultText);
   }
 
-  checkSanitizedValueNotOverflow(value, max, [disabled=false]) {
+  void checkSanitizedValueNotOverflow(String value, String max, [bool disabled=false]) {
     // For date types, invalid values are sanitized to "".
     checkNotOverflow(value, max, disabled, true);
   }
