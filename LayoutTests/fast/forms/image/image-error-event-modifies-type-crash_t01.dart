@@ -17,9 +17,9 @@ main() {
       </input>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var inputNode = document.getElementById('imageInput');
+  InputElement inputNode = document.getElementById('imageInput') as InputElement;
 
-  eventhandler(_) {
+  void eventhandler(_) {
     inputNode.type = "";
     setTimeout(asyncEnd, 10);
   }
