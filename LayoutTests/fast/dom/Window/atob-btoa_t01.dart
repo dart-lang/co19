@@ -24,11 +24,13 @@ main() {
   shouldBeEqualToString(window.btoa("abcde"), 'YWJjZGU=');
   shouldBeEqualToString(window.btoa("abcdef"), 'YWJjZGVm');
 
+  shouldThrow(() => (window as dynamic).btoa());
   shouldBeEqualToString(window.btoa(""), '');
   shouldBeEqualToString(window.btoa("éé"), '6ek=');
   shouldBeEqualToString(window.btoa("\u0080\u0081"), 'gIE=');
   shouldThrow(() => window.btoa("тест"));
 
+  shouldThrow(() => (window as dynamic).atob());
   shouldBeEqualToString(window.atob(""), '');
 
   // HTML space characters in input.

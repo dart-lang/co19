@@ -5,15 +5,11 @@
  */
 /**
  * @description Checks that MessageEvent() is working
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  shouldThrow(() => new MessageEvent("message", canBubble:true, cancelable:true,
-    data:"ff", origin:"*", lastEventId:'43', source:window, messagePorts:{'x':1}));
-      
   var newEvent = new MessageEvent("message", canBubble:true, cancelable:true,
     data:"ff", origin:"*", lastEventId:'43', source:window, messagePorts:null);
   shouldBeTrue(newEvent is MessageEvent);

@@ -23,7 +23,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   window.onLoad.listen((_) {
-    ImageElement nick=document.getElementById('nick');
+    ImageElement nick = document.getElementById('nick');
     shouldBe(nick.naturalWidth, 320);
     shouldBe(nick.naturalHeight, 240);
     asyncEnd();

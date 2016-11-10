@@ -20,10 +20,15 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  CssStyleSheet sheet = (document.getElementById('style1') as StyleElement).sheet;
+  CssStyleSheet sheet =
+      (document.getElementById('style1') as StyleElement).sheet;
 
-  shouldBeEqualToString(sheet.cssRules[0].cssText, ".foo::content div .bar::before { display: block; }");
-  shouldBeEqualToString(sheet.cssRules[1].cssText, "::content { display: block; }");
-  shouldBeEqualToString(sheet.cssRules[2].cssText, "div content::content div content::content div.green { color: green; }");
-  shouldBeEqualToString(sheet.cssRules[3].cssText, "*::content * { color: blue; }");
+  shouldBeEqualToString(sheet.cssRules[0].cssText,
+      ".foo::content div .bar::before { display: block; }");
+  shouldBeEqualToString(sheet.cssRules[1].cssText,
+      "::content { display: block; }");
+  shouldBeEqualToString(sheet.cssRules[2].cssText,
+      "div content::content div content::content div.green { color: green; }");
+  shouldBeEqualToString(sheet.cssRules[3].cssText,
+      "*::content * { color: blue; }");
 }

@@ -5,7 +5,6 @@
  */
 /**
  * @description 
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
