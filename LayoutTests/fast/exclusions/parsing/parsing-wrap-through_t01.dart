@@ -6,8 +6,6 @@
 /**
  * @description Test parsing of the CSS wrap-through property.
  */
-import "dart:html";
-import "../../../testcommon.dart";
 import "parsing-test-utils.dart";
 
 main() {
