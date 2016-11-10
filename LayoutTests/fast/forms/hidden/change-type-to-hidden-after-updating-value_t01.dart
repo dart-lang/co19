@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <input type="text" id="input1">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  InputElement input = document.getElementById('input1');
+  InputElement input = document.getElementById('input1') as InputElement;
 
   input.value = 'value';
   input.type = 'hidden';
