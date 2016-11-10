@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var container = document.createElement('div');
+  DivElement container = document.createElement('div') as DivElement;
   document.body.append(container);
 
   container.setInnerHtml('<form id=formElement> <fieldset id="fs">' +
@@ -48,34 +47,34 @@ main() {
       '</fieldset> </form>',
   treeSanitizer: new NullTreeSanitizer());
 
-  var owner = document.getElementById('fs');
+  FieldSetElement owner = document.getElementById('fs') as FieldSetElement;
 
   shouldBe(owner.elements.length, 23);
-  shouldBe(owner.elements[0].id, "button1");
-  shouldBe(owner.elements[1].id, "fieldset1");
-  shouldBe(owner.elements[2].id, "inputhidden");
-  shouldBe(owner.elements[3].id, "inputtext");
-  shouldBe(owner.elements[4].id, "inputsearch");
-  shouldBe(owner.elements[5].id, "inputurl");
-  shouldBe(owner.elements[6].id, "inputemail");
-  shouldBe(owner.elements[7].id, "inputpassword");
-  shouldBe(owner.elements[8].id, "inputdate");
-  shouldBe(owner.elements[9].id, "inputnumber");
-  shouldBe(owner.elements[10].id, "inputrange");
-  shouldBe(owner.elements[11].id, "inputcolor");
-  shouldBe(owner.elements[12].id, "inputcheckbox");
-  shouldBe(owner.elements[13].id, "inputradio");
-  shouldBe(owner.elements[14].id, "inputfile");
-  shouldBe(owner.elements[15].id, "inputsubmit");
-  shouldBe(owner.elements[16].id, "inputreset");
-  shouldBe(owner.elements[17].id, "inputbutton");
-  shouldBe(owner.elements[18].id, "keygen1");
-  shouldBe(owner.elements[19].id, "object1");
-  shouldBe(owner.elements[20].id, "output1");
-  shouldBe(owner.elements[21].id, "select1");
-  shouldBe(owner.elements[22].id, "textarea1");
+  shouldBe((owner.elements[0] as Element).id, "button1");
+  shouldBe((owner.elements[1] as Element).id, "fieldset1");
+  shouldBe((owner.elements[2] as Element).id, "inputhidden");
+  shouldBe((owner.elements[3] as Element).id, "inputtext");
+  shouldBe((owner.elements[4] as Element).id, "inputsearch");
+  shouldBe((owner.elements[5] as Element).id, "inputurl");
+  shouldBe((owner.elements[6] as Element).id, "inputemail");
+  shouldBe((owner.elements[7] as Element).id, "inputpassword");
+  shouldBe((owner.elements[8] as Element).id, "inputdate");
+  shouldBe((owner.elements[9] as Element).id, "inputnumber");
+  shouldBe((owner.elements[10] as Element).id, "inputrange");
+  shouldBe((owner.elements[11] as Element).id, "inputcolor");
+  shouldBe((owner.elements[12] as Element).id, "inputcheckbox");
+  shouldBe((owner.elements[13] as Element).id, "inputradio");
+  shouldBe((owner.elements[14] as Element).id, "inputfile");
+  shouldBe((owner.elements[15] as Element).id, "inputsubmit");
+  shouldBe((owner.elements[16] as Element).id, "inputreset");
+  shouldBe((owner.elements[17] as Element).id, "inputbutton");
+  shouldBe((owner.elements[18] as Element).id, "keygen1");
+  shouldBe((owner.elements[19] as Element).id, "object1");
+  shouldBe((owner.elements[20] as Element).id, "output1");
+  shouldBe((owner.elements[21] as Element).id, "select1");
+  shouldBe((owner.elements[22] as Element).id, "textarea1");
 
-  var newElement = document.createElement("input");
+  Element newElement = document.createElement("input");
   newElement.setAttribute("type", "text");
   newElement.setAttribute("value", "new element");
   newElement.setAttribute("id", "inputcommon");
