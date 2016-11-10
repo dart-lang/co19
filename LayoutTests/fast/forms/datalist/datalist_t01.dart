@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,7 +21,7 @@ main() {
       </datalist>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var datalist = document.getElementById('dl1');
+  DataListElement datalist = document.getElementById('dl1') as DataListElement;
   // An option element with empty value is not included.
   shouldBe(datalist.options.length, 4);
 

@@ -12,10 +12,10 @@ import "../../../testcommon.dart";
 import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   document.body.append(input);
 
-  check(value, expected) {
+  void check(String value, String expected) {
     input.type = value;
     if (input.type == expected)
       testPassed('input.type for "' + value + '" is correctly "' + input.type + '".');

@@ -5,11 +5,9 @@
  */
 /**
  * @description Test for the list attribute.
- * @static-warning
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -61,7 +59,7 @@ main() {
       </datalist>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input = document.getElementById('i1');
+  InputElement input = document.getElementById('i1') as InputElement;
   shouldBeNull(input.list);
 
   input = document.getElementById('i2');
@@ -70,31 +68,31 @@ main() {
   input = document.getElementById('i3');
   shouldBeNull(input.list);
 
-  var datalist = document.getElementById('i4').list;
+  Element datalist = (document.getElementById('i4') as InputElement).list ;
   shouldBe(datalist.className, "former");
 
-  shouldBe(document.getElementById("text").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("search").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("url").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("telephone").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("email").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("datetime").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("date").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("month").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("week").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("time").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("datetime-local").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("number").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("range").list, document.getElementById("dl1"));
-  shouldBe(document.getElementById("color").list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("text") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("search") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("url") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("telephone") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("email") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("datetime") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("date") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("month") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("week") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("time") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("datetime-local") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("number") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("range") as InputElement).list, document.getElementById("dl1"));
+  shouldBe((document.getElementById("color") as InputElement).list, document.getElementById("dl1"));
 
-  shouldBeNull(document.getElementById("hidden").list);
-  shouldBeNull(document.getElementById("password").list);
-  shouldBeNull(document.getElementById("checkbox").list);
-  shouldBeNull(document.getElementById("radio").list);
-  shouldBeNull(document.getElementById("file").list);
-  shouldBeNull(document.getElementById("submit").list);
-  shouldBeNull(document.getElementById("image").list);
-  shouldBeNull(document.getElementById("reset").list);
-  shouldBeNull(document.getElementById("button").list);
+  shouldBeNull((document.getElementById("hidden") as InputElement).list);
+  shouldBeNull((document.getElementById("password") as InputElement).list);
+  shouldBeNull((document.getElementById("checkbox") as InputElement).list);
+  shouldBeNull((document.getElementById("radio") as InputElement).list);
+  shouldBeNull((document.getElementById("file") as InputElement).list);
+  shouldBeNull((document.getElementById("submit") as InputElement).list);
+  shouldBeNull((document.getElementById("image") as InputElement).list);
+  shouldBeNull((document.getElementById("reset") as InputElement).list);
+  shouldBeNull((document.getElementById("button") as InputElement).list);
 }

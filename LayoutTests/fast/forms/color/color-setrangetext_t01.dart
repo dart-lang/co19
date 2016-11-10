@@ -6,9 +6,6 @@
 /**
  * @description Test setRangeText() method is not available in color inputs.
  */
-import "dart:html";
-import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 import "../resources/common-setrangetext.dart";
 
 main() {

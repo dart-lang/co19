@@ -8,15 +8,14 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var parent = document.createElement('div');
   document.body.append(parent);
   parent.innerHtml = '<input type=date id=date maxlength=1 pattern=x>';
-  var input = document.getElementById('date');
+  InputElement input = document.getElementById('date') as InputElement;
 
-  testIt(value, min, max, [step='']) {
+  String testIt(String value, String min, String max, [String step='']) {
     input.setAttribute("max", max);
     input.setAttribute("min", min);
     input.setAttribute("step", step);
