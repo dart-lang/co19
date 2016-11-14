@@ -16,8 +16,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  var target = document.getElementById('target');
-  target.onClick.listen((_) => target.disabled = true);
+  DivElement target = document.getElementById('target');
   target.focus();
   shouldBe(document.activeElement, target);
   debug('Remove tabindex.');

@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -24,7 +23,7 @@ main() {
     if (done)
       return;
     done = true;
-    var beingRemoved = event.target;
+    DivElement beingRemoved = event.target;
     beingRemoved.remove();
   }, true);
 

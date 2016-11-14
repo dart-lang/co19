@@ -230,11 +230,6 @@ th { height: 30px; }
   });
   */
 
-  log(s) {
-    var resultsDiv = document.getElementById('results');
-    resultsDiv.innerHtml += s + '<br>';
-  }
-
   dispatchEvent(clientX, clientY, expectedElementID, expectedOffsetX, expectedOffsetY) {
     MouseEvent e = new MouseEvent("click", canBubble: true, cancelable: true,
         view: window, detail: 1,
@@ -247,7 +242,7 @@ th { height: 30px; }
     d.expectedOffsetX = expectedOffsetX;
     d.expectedOffsetY = expectedOffsetY;
     data[e] = d;
-    var target = document.elementFromPoint(e.clientX, e.clientY);
+    var target = document.elementFromPoint(e.client.x, e.client.y);
     target.dispatchEvent(e);   
   }
 
