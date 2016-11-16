@@ -26,13 +26,14 @@ testSlicing(start, end, expectedResult, blob, doneCallback)
         sliced = blob.slice(start, end);
     }
     reader.onLoadEnd.listen((event) {
-        var error = event.target.error;
+        FileReader target = event.target;
+        var error = target.error;
         if (error != null) {
             testFailed("File read error $message $error");
             doneCallback();
             return;
         }
-        shouldBeEqualToString(event.target.result, expectedResult);
+        shouldBeEqualToString(target.result, expectedResult);
         doneCallback();
     });
     debug(blobClass + " " + message);

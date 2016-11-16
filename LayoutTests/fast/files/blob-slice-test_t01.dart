@@ -7,8 +7,6 @@
  * @description Test Blob.slice().
  */
 import "dart:html";
-import "dart:typed_data";
-import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 import "resources/blob-slice-common.dart";
 

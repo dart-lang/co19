@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "resources/file-writer-utils.dart";
 
 class MethodSet {
@@ -33,9 +32,6 @@ class MethodSet {
 main() {
   document.body.appendHtml('<div id="console"></div>');
 
-  var sawWriteStart;
-  var sawAbort;
-  var sawWriteEnd;
   var writer;
   var expectedLength;
   var truncateLength;

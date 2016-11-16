@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "resources/file-writer-utils.dart";
 
 main() {

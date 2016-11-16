@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "dart:typed_data";
 import "../../testcommon.dart";
 import "../../../Utils/async_utils.dart";
 
@@ -24,7 +23,8 @@ main() {
     reader.onLoad.listen((_) => testFailed("Received load event"));
     reader.onLoadEnd.listen((_) => testFailed("Received loadend event"));
     reader.onAbort.listen((_) => testFailed("Received abort event"));
-    reader.onError.listen((event) => testFailed("Received error event: ${event.target.error}"));
+    reader.onError.listen((event) => testFailed(
+        "Received error event: ${(event.target as FileReader).error}"));
 
     reader.abort();
   }

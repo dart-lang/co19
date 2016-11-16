@@ -6,23 +6,23 @@
 /**
  * @description This test tries calling various FileAPI functions with too few
  * arguments.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <input type="file">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var reader = new FileReader();
+  testThrow(new FileReader());
 
+  dynamic fileInput = document.querySelector('input');
+  shouldThrow(() => fileInput.files.item());
+}
+
+testThrow(dynamic reader) {
   shouldThrow(() => reader.readAsArrayBuffer());
   shouldThrow(() => reader.readAsText());
   shouldThrow(() => reader.readAsDataUrl());
-
-  var fileInput = document.querySelector('input');
-  shouldThrow(() => fileInput.files.item());
 }

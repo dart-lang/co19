@@ -7,9 +7,7 @@
  * @description Test the Blob.close() method, basic functionality.
  */
 import "dart:html";
-import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var blobContents = ['hello'];

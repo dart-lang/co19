@@ -28,7 +28,6 @@ main() {
 
   var blob;
   var blobURL1;
-  var blobURL2;
   var img;
   var worker;
   var blobURLs = [];

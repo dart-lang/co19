@@ -8,9 +8,7 @@
  * and result in a truncated slice being returned.
  */
 import "dart:html";
-import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var text = '';

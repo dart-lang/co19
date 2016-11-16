@@ -50,10 +50,10 @@ verifyFileLength(fileEntry, length, onSuccess)
 // Helper  used with verifyFileContents.
 verifyByteRangeIsZeroesHelper(file, start, length, onSuccess)
 {
-  var fileReader = new FileReader();
+  FileReader fileReader = new FileReader();
   fileReader.onError.listen(onError);
   fileReader.onLoad.listen((_) {
-    var result = fileReader.result;
+    dynamic result = fileReader.result;
     for (var i = 0; i < length; i++)
       _assert(result[i] == 0);
     onSuccess();
