@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description 
+ * @description
  */
 import "dart:html";
 import "../../testcommon.dart";
@@ -36,11 +36,11 @@ main() {
   runTest() {
     asyncStart();
 
-    var div = document.getElementById('container');
+    DivElement div = document.getElementById('container');
 
     div.onScroll.listen(divScrolled);
     window.onScroll.listen(windowScrolled);
-    div.scrollByLines(1);
+    div.scrollTo(1,1);
   }
 
   runTest();
