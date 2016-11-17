@@ -10,7 +10,6 @@
  * resulting in an object i. The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly.
  * @author msyabro
- * @static-warning
  * @reviewer rodionov
  */
 
@@ -28,9 +27,9 @@ abstract class I1<T, U, V> {
 
 class A<T, U, V> implements I1<T, U, V> {
   A() {
-    T x = p1; /// static type warning
-    U y = p2; /// static type warning
-    V z = p3; /// static type warning
+    T x = p1;
+    U y = p2;
+    V z = p3;
   }
 }
 
@@ -53,8 +52,8 @@ abstract class I3<T, U> {
 
 class C<T, U> implements I3<T, U> {
   C.name() {
-    T a = p1; /// static type warning
-    U b = p3; /// static type warning
+    T a = p1;
+    U b = p3;
   }
 }
 

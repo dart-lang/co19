@@ -25,7 +25,6 @@
  * T <: S or S <: T.
  * @description Checks that function type T is a subtype of itself and
  * T is assignable to itself.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -72,7 +71,7 @@ class Checker<T> {
   }
 
   check2(dynamic x) {
-    T t = x; /// static type warning
+    T t = x;
   }
 }
 
