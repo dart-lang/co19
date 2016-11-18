@@ -26,13 +26,12 @@
  * namedFormalParameters:
  *  `{'defaultNamedParameter(`,' defaultNamedParameter)*`}'
  * ;
- * @description Checks that the named parameter list cannot end with a comma.
- * @compile-error
+ * @description Checks that the named parameter list may end with a comma.
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 void f({var p1, }) {}
 
 main () {
-  f(1);}
+  f(1);
+}

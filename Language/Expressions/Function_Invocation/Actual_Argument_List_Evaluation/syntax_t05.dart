@@ -17,9 +17,8 @@
  * namedArgument:
  *   label expression
  * ;
- * @description Checks that it is a compile-time error when the argument list
+ * @description Checks that it is no compile-time error when the argument list
  * in a function invocation expression ends with a comma.
- * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
@@ -27,4 +26,5 @@
 func(p1, p2) {}
 
 main() {
-  func(1, 2, );}
+  func(1, 2, );
+}

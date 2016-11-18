@@ -26,14 +26,13 @@
  * namedFormalParameters:
  *  `{'defaultNamedParameter(`,' defaultNamedParameter)*`}'
  * ;
- * @description Checks that the optional positional parameter list cannot end
+ * @description Checks that the optional positional parameter list may end
  * with a comma.
- * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f([var p1, ]) {}
 
 main () {
-  f(1);}
+  f(1);
+}
