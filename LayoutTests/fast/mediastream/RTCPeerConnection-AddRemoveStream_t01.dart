@@ -45,13 +45,13 @@ void onAddStream(event) {
     Expect.equals(stream, pc.getStreamById(stream.id));
     Expect.equals(null, pc.getStreamById(stream2.id));
 
-    pc.onNegotiationNeeded = onErroneousNegotiationNeeded;
+    //pc.onNegotiationNeeded = onErroneousNegotiationNeeded;
     pc.addStream(stream);
     Expect.equals(1, pc.getLocalStreams().length);
     pc.removeStream(stream2);
     Expect.equals(1, pc.getLocalStreams().length);
 
-    pc.onNegotiationNeeded = onRemoveStream;
+    //pc.onNegotiationNeeded = onRemoveStream;
     pc.removeStream(stream);
 }
 
@@ -62,7 +62,7 @@ void gotStream2(MediaStream s) {
     Expect.notEquals(stream.id, stream2.id);
 
     pc = new RtcPeerConnection(null, null);
-    pc.onNegotiationNeeded = onAddStream;
+    //pc.onNegotiationNeeded = onAddStream;
     pc.addStream(stream);
 }
 

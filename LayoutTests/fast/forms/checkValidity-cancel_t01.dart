@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var parent = document.createElement('div');
   document.body.append(parent);
   parent.innerHtml = '<form><input name=i required></form>';
-  var form = parent.firstChild;
-  var input = form.firstChild;
+  FormElement form = parent.firstChild as FormElement;
+  InputElement input = form.firstChild as InputElement;
 
   debug('"invalid" event is not canceled.');
   var invalidFired  = false;

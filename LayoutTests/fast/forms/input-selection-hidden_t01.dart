@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,8 +18,8 @@ main() {
       </p>
       ''', treeSanitizer: new NullTreeSanitizer());
     
-  test () {
-    var tf = document.getElementById('tf');
+  void test () {
+    InputElement tf = document.getElementById('tf') as InputElement;
 
     tf.setSelectionRange(3, 12);
     shouldBe(tf.selectionStart, 3);

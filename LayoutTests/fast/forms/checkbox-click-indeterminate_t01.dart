@@ -9,10 +9,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var cb = document.createElement("input");
+  InputElement cb = document.createElement("input") as InputElement;
   document.body.append(cb);
   cb.type = "checkbox";
 

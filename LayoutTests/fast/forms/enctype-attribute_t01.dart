@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +16,7 @@ main() {
       <form id=f1></form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var form1 = document.getElementById('f1');
+  FormElement form1 = document.getElementById('f1') as FormElement;
 
   debug('Missing value default:');
   shouldBe(form1.enctype, "application/x-www-form-urlencoded");

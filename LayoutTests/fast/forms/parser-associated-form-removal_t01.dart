@@ -28,17 +28,17 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   debug('Removing a form from the document while leaving its associated element in...');
-  var input = document.body.querySelector("input");
-  document.body.queryAll('form')[0].remove();
+  InputElement input = document.body.querySelector("input") as InputElement;
+  document.body.querySelectorAll('form')[0].remove();
   shouldBeNull(input.form);
 
   debug('');
   debug('Removing a form and its associated element...');
-  var table2 = document.getElementById('table2');
+  TableElement table2 = document.getElementById('table2') as TableElement;
   table2.remove();
-  shouldBeNonNull(table2.querySelector("input").form);
+  shouldBeNonNull((table2.querySelector("input") as InputElement).form);
 
   debug('...and then removing the form.');
   table2.querySelector('form').remove();
-  shouldBeNull(table2.querySelector("input").form);
+  shouldBeNull((table2.querySelector("input") as InputElement).form);
 }

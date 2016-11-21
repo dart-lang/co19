@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,12 +17,12 @@ main() {
       <div><input id="test" title="1" type="text" value="FAIL"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var test = document.getElementById('test');
+  InputElement test = document.getElementById('test') as InputElement;
   test.value = 'PA';
 
-  var x = test.offsetLeft; // Force layout
+  int x = test.offsetLeft; // Force layout
 
-  var clone = test.clone(true);
+  InputElement clone = test.clone(true) as InputElement;
   test.parentNode.append(clone);
   test.value = '';
 

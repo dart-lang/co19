@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,7 +15,7 @@ main() {
 <p>If the test passes, you will see a value of "success" below.</p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var e = document.createElement("textarea");
+  TextAreaElement e = document.createElement("textarea") as TextAreaElement;
   e.value = "success";
   document.getElementsByTagName("body")[0].append(e);
   shouldBe(e.value, "success");

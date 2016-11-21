@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,6 +15,6 @@ main() {
       <input name="victim" pattern="something" />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var v = document.getElementsByName("victim");
-  shouldBe(v[0].pattern, "something");
+  List<Node> v = document.getElementsByName("victim");
+  shouldBe((v[0] as InputElement).pattern, "something");
 }

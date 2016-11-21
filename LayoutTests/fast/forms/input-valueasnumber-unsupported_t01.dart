@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   input.type = 'range';
   document.body.append(input);
 
-  checkValueAsNumber(type) {
+  checkValueAsNumber(String type) {
     debug('Check for type=' + type);
     input.type = type;
     // Not allowed to set the value of file to anything except empty string.

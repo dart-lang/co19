@@ -9,14 +9,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <select id="theSelect"></select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var sel = document.getElementById('theSelect');
+  SelectElement sel = document.getElementById('theSelect') as SelectElement;
   shouldBe(sel.length, 0);
   sel.length = 20000;
   shouldBe(sel.length, 10000);

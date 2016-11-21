@@ -10,7 +10,7 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 main() {
-  var input = document.createElement("input");
+  InputElement input = document.createElement("input") as InputElement;
 
   shouldBe(input.capture, false);
   shouldBe(input.attributes.containsKey('capture'), false);

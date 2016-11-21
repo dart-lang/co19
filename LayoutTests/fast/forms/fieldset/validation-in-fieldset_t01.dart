@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +20,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   debug('A form control in initially disabled fieldset:');
-  var control1 = document.getElementById("i1");
+  InputElement control1 = document.getElementById("i1") as InputElement;
   shouldBeFalse(control1.willValidate);
   debug('Then, enables the fieldset:');
   FieldSetElement fieldset1 = document.getElementById("f1");
@@ -29,7 +28,7 @@ main() {
   shouldBeTrue(control1.willValidate);
 
   debug('A form control in initially enabled fieldset:');
-  var control2 = document.getElementById("i2");
+  InputElement control2 = document.getElementById("i2") as InputElement;
   FieldSetElement fieldset2 = document.getElementById("f2");
   shouldBeTrue(control2.willValidate);
   debug('Then, disables fieldset:');

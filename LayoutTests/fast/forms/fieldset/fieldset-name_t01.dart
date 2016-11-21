@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <fieldset id="fs1" name="a"></fieldset>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var fs1 = document.getElementById('fs1');
+  FieldSetElement fs1 = document.getElementById('fs1') as FieldSetElement;
 
   debug("Read from HTML");
   shouldBe(fs1.name, "a");

@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var el = document.createElement("input");
+  InputElement el = document.createElement("input") as InputElement;
   el.setAttribute("type", "checkbox");
   shouldBe(el.value, "on");
   el.setAttribute("value", "foo");

@@ -95,7 +95,7 @@ main() {
 
   // This passes device coordinate vertices in to make sure gl.viewport is not being mucked with.
   checkQuad(gl) {
-    deviceToClipSpace(value, range) {
+    double deviceToClipSpace(value, range) {
       return value / range * 2 - 1;
     }
 

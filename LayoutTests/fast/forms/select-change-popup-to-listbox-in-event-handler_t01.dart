@@ -20,7 +20,7 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var select = document.getElementById("select");
+  SelectElement select = document.getElementById("select") as SelectElement;
 
   select.onFocus.listen((_) {
     select.size = 10;
@@ -29,9 +29,9 @@ main() {
 
 
   sendClick(_) {
-    var rect = select.getBoundingClientRect();
+    Rectangle rect = select.getBoundingClientRect();
 
-    var evt = new MouseEvent("mousedown", canBubble: true, cancelable: true,
+    MouseEvent evt = new MouseEvent("mousedown", canBubble: true, cancelable: true,
         view: window, detail: 0,
         screenX: 0, screenY: 0,
         clientX: round(rect.top) + 4, clientY: round(rect.left) + 4,

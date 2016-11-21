@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,11 +15,11 @@ main() {
       <pre id="console"></pre>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   input.setAttribute('dirName', "Hello");
   shouldBeEqualToString(input.dirName, "Hello");
 
-  var textArea = document.createElement('textarea');
+  TextAreaElement textArea = document.createElement('textarea') as TextAreaElement;
   textArea.setAttribute('dirName', "Hello");
   shouldBeEqualToString(textArea.dirName, "Hello");
 }

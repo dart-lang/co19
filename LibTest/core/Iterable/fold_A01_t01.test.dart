@@ -25,15 +25,15 @@ library fold_A01_t01;
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(Iterable a, var init, combine, num expected) {
-  num actual = a.fold(init, combine) as num;
+check(Iterable a, num init, combine, num expected) {
+  num actual = a.fold(init, combine);
   Expect.equals(expected, actual);
 }
 
 test(Iterable create([Iterable content])) {
-  check(create([1, 2, -3]), 0, (num value, num element) => value + element, 0);
-  check(create([1, 2, -3]), 1, (num value, num element) => value * element, -6);
-  check(create([0, 2, -3]), 1, (num value, num element) => value * element, 0);
+  check(create([1, 2, -3]), 0, (value, element) => value + element, 0);
+  check(create([1, 2, -3]), 1, (value, element) => value * element, -6);
+  check(create([0, 2, -3]), 1, (value, element) => value * element, 0);
   check(create([1, 2, -5, -6]), -1000,
-      (num value, num element) => max(value, element), 2);
+      (num value, num element) => max(value,element), 2);
 }

@@ -7,11 +7,9 @@
  * @description This test checks if checkValidity() returns correctly a false
  * (meaning error) result on invalid elements, and returns a true result on a
  * blank but valid elements. Blank but non-placeholder label options are valid.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -34,8 +32,8 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  checkValidityFor(id) {
-    return document.getElementById(id).checkValidity();
+  bool checkValidityFor(String id) {
+    return (document.getElementById(id) as dynamic).checkValidity();
   }
 
   shouldBeFalse(checkValidityFor("input-empty"));

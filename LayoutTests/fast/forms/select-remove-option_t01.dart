@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,9 +18,9 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var zipselect = document.getElementById("theSelect");
-  var before = zipselect.options.length;
+  SelectElement zipselect = document.getElementById("theSelect") as SelectElement;
+  int before = zipselect.options.length;
   zipselect.options[0].remove();
-  var after = zipselect.options.length;
+  int after = zipselect.options.length;
   shouldBeTrue(before > after);
 }

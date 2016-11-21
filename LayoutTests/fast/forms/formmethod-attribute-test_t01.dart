@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,34 +22,34 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var form1 = document.getElementById('f1');
+  FormElement form1 = document.getElementById('f1') as FormElement;
 
   debug('Missing value');
-  var ip1 = document.getElementById('ip1');
+  InputElement ip1 = document.getElementById('ip1') as InputElement;
   shouldBeEqualToString(ip1.formMethod, "");
   shouldBeNull(ip1.getAttribute('formmethod'));
   debug('');
 
   debug('Empty value');
-  var ip2 = document.getElementById('ip2');
+  InputElement ip2 = document.getElementById('ip2') as InputElement;
   shouldBeEqualToString(ip2.formMethod, "get");
   shouldBeEqualToString(ip2.getAttribute('formmethod'), "");
   debug('');
 
   debug('Post value');
-  var ip3 = document.getElementById('ip3');
+  InputElement ip3 = document.getElementById('ip3') as InputElement;
   shouldBeEqualToString(ip3.formMethod, "post");
   shouldBeEqualToString(ip3.getAttribute('formmethod'), "post");
   debug('');
 
   debug('Get value');
-  var ip4 = document.getElementById('ip4');
+  InputElement ip4 = document.getElementById('ip4') as InputElement;
   shouldBeEqualToString(ip4.formMethod, "get");
   shouldBeEqualToString(ip4.getAttribute('formmethod'), "get");
   debug('');
 
   debug('Invalid value');
-  var ip5 = document.getElementById('ip5');
+  InputElement ip5 = document.getElementById('ip5') as InputElement;
   shouldBeEqualToString(ip5.formMethod, "get");
   shouldBeEqualToString(ip5.getAttribute('formmethod'), "foo");
 }

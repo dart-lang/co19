@@ -23,8 +23,8 @@ check(List list, combine, num expected) {
 }	
 
 main() {
-  check([1,2,-3], (num value, num element) => value + element, 0);
-  check([1,2,-3], (num value, num element) => value * element, -6);
-  check([0,2,-3], (num value, num element) => value * element, 0);
-  check(const[1,2,-5,-6], (num value, num  element) => max(value,element), 2);
+  check([1,2,-3], (value, element) => value + element, 0);
+  check([1,2,-3], (value, element) => value * element, -6);
+  check([0,2,-3], (value, element) => value * element, 0);
+  check(const[1,2,-5,-6], (num value, num element) => max(value, element), 2);
 }

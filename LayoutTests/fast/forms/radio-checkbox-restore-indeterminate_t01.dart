@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -28,9 +27,9 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  dispatchEvent(target, eventType, offsetX, offsetY) {
-    var targetRect = target.getBoundingClientRect();
-    var ev = new MouseEvent(eventType, canBubble: true, cancelable: true,
+  dispatchEvent(InputElement target, String eventType, int offsetX, int offsetY) {
+    Rectangle targetRect = target.getBoundingClientRect();
+    MouseEvent ev = new MouseEvent(eventType, canBubble: true, cancelable: true,
         view: window, detail: 1,
         screenX: 1, screenY: 1,
         clientX: round(targetRect.left) + offsetX, clientY: round(targetRect.top) + offsetY,
@@ -39,19 +38,19 @@ main() {
     target.dispatchEvent(ev);
   }
 
-  defaultPreventingHandler(e) {
+  defaultPreventingHandler(Event e) {
     e.preventDefault();
   }
 
   runTests() {
-    var radio1 = document.getElementById("radio1");
-    var radio2 = document.getElementById("radio2");
+    InputElement radio1 = document.getElementById("radio1") as InputElement;
+    InputElement radio2 = document.getElementById("radio2") as InputElement;
 
-    var radio3 = document.getElementById("radio3");
-    var radio4 = document.getElementById("radio4");
+    InputElement radio3 = document.getElementById("radio3") as InputElement;
+    InputElement radio4 = document.getElementById("radio4") as InputElement;
 
-    var check1 = document.getElementById("check1");
-    var check2 = document.getElementById("check2");
+    InputElement check1 = document.getElementById("check1") as InputElement;
+    InputElement check2 = document.getElementById("check2") as InputElement;
 
     radio1.checked = true;
 

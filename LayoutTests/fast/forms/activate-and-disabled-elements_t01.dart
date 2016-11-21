@@ -29,7 +29,7 @@ main() {
   var onsubmitCalled;
 
   FormElement form = document.body.querySelector('form');
-  form.onSubmit.listen((_) {onsubmitCalled = true; return false;});
+  form.onSubmit.listen((_) {onsubmitCalled = true;});
 
   runTest(_) {
     var button = document.getElementById('button');

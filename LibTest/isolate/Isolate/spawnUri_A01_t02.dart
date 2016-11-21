@@ -40,11 +40,11 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 class Connection {
-  var expectedMessage;
+  String expectedMessage;
   var receivePort = new ReceivePort();
 
   Connection(int n) {
-    expectedMessage="spawnUri_A01_t01:$n";
+    expectedMessage = "spawnUri_A01_t01:$n";
     receivePort.listen(receiveHandler);
   }
   

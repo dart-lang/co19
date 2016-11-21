@@ -6,11 +6,9 @@
 /**
  * @description This test checks the form attribute of the form-associated
  * elements.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var container = document.createElement('div');
@@ -29,16 +27,16 @@ main() {
     '<textarea name=victim form=owner />',
     treeSanitizer: new NullTreeSanitizer());
 
-  var owner = document.getElementById('owner');
-  shouldBe(document.getElementsByTagName("button")[0].form, owner);
-  shouldBe(document.getElementsByTagName("fieldset")[0].form, owner);
-  shouldBe(document.getElementsByTagName("input")[0].form, owner);
-  shouldBe(document.getElementsByTagName("keygen")[0].form, owner);
-  shouldBe(document.getElementsByTagName("label")[0].form, owner);
-  shouldBe(document.getElementsByTagName("object")[0].form, owner);
-  shouldBe(document.getElementsByTagName("output")[0].form, owner);
-  shouldBe(document.getElementsByTagName("select")[0].form, owner);
-  shouldBe(document.getElementsByTagName("textarea")[0].form, owner);
+  FormElement owner = document.getElementById('owner') as FormElement;
+  shouldBe((document.getElementsByTagName("button")[0] as ButtonElement).form, owner);
+  shouldBe((document.getElementsByTagName("fieldset")[0] as FieldSetElement).form, owner);
+  shouldBe((document.getElementsByTagName("input")[0] as InputElement).form, owner);
+  shouldBe((document.getElementsByTagName("keygen")[0] as KeygenElement).form, owner);
+  shouldBe((document.getElementsByTagName("label")[0] as LabelElement).form, owner);
+  shouldBe((document.getElementsByTagName("object")[0] as ObjectElement).form, owner);
+  shouldBe((document.getElementsByTagName("output")[0] as OutputElement).form, owner);
+  shouldBe((document.getElementsByTagName("select")[0] as SelectElement).form, owner);
+  shouldBe((document.getElementsByTagName("textarea")[0] as TextAreaElement).form, owner);
 
   debug('');
   debug('- Ensures that the form attribute points the form owner even if the element is within another form element.');
@@ -48,9 +46,9 @@ main() {
     '    <label id=labelElement name=victim form=owner />' +
     '</form>',
     treeSanitizer: new NullTreeSanitizer());
-  owner = document.getElementById('owner');
-  var inputElement = document.getElementById('inputElement');
-  var labelElement = document.getElementById('labelElement');
+  owner = document.getElementById('owner') as FormElement;
+  InputElement inputElement = document.getElementById('inputElement') as InputElement;
+  LabelElement labelElement = document.getElementById('labelElement') as LabelElement;
   shouldBe(inputElement.form, owner);
   shouldBe(labelElement.form, owner);
 
@@ -66,12 +64,12 @@ main() {
     '</form>',
     treeSanitizer: new NullTreeSanitizer());
   owner = document.getElementById('owner');
-  var inputElement1 = document.getElementById('inputElement1');
-  var inputElement2 = document.getElementById('inputElement2');
-  var inputElement3 = document.getElementById('inputElement3');
-  var labelElement1 = document.getElementById('labelElement1');
-  var labelElement2 = document.getElementById('labelElement2');
-  var labelElement3 = document.getElementById('labelElement3');
+  InputElement inputElement1 = document.getElementById('inputElement1') as InputElement;
+  InputElement inputElement2 = document.getElementById('inputElement2') as InputElement;
+  InputElement inputElement3 = document.getElementById('inputElement3') as InputElement;
+  LabelElement labelElement1 = document.getElementById('labelElement1') as LabelElement;
+  LabelElement labelElement2 = document.getElementById('labelElement2') as LabelElement;
+  LabelElement labelElement3 = document.getElementById('labelElement3') as LabelElement;
   shouldBe(inputElement1.form, owner);
   shouldBe(inputElement2.form, owner);
   shouldBe(inputElement3.form, owner);
@@ -115,8 +113,8 @@ main() {
     '<label id=labelElement name=victim form=form1 />' +
     '<object id=objectElement name=victim form=form1></object>',
     treeSanitizer: new NullTreeSanitizer());
-  var form1 = document.getElementById('form1');
-  var form2 = document.getElementById('form2');
+  FormElement form1 = document.getElementById('form1') as FormElement;
+  FormElement form2 = document.getElementById('form2') as FormElement;
   inputElement = document.getElementById('inputElement');
   shouldBe(inputElement.form, form1);
   inputElement.attributes['form'] = 'form2';
@@ -129,7 +127,7 @@ main() {
   shouldBe(labelElement.form, form2);
 
   // HTMLObjectElement has its own implementation of formAttr processing and so needs its own test.
-  var objectElement = document.getElementById('objectElement');
+  ObjectElement objectElement = document.getElementById('objectElement') as ObjectElement;
   shouldBe(objectElement.form, form1);
   objectElement.attributes['form'] = 'form2';
   shouldBe(objectElement.form, form2);
@@ -194,11 +192,11 @@ main() {
     '<form id=secondOwner><optgroup><option id=secondOption></option></optgroup></form>' +
     '<form id=thirdOwner><select><optgroup><option id=thirdOption></option></optgroup></select></form>',
     treeSanitizer: new NullTreeSanitizer());
-  var option1 = document.getElementById('firstOption');
+  OptionElement option1 = document.getElementById('firstOption') as OptionElement;
   shouldBe(option1.form, null);
-  var option2 = document.getElementById('secondOption');
+  OptionElement option2 = document.getElementById('secondOption') as OptionElement;
   shouldBe(option2.form, null);
   owner = document.getElementById('thirdOwner');
-  var option3 = document.getElementById('thirdOption');
+  OptionElement option3 = document.getElementById('thirdOption') as OptionElement;
   shouldBe(option3.form, owner);
 }

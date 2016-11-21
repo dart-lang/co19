@@ -11,7 +11,7 @@
  * @needsreview undocumented
  */
 
-sym ([String s = '']) => new Symbol(s);
+Symbol sym ([String s = '']) => new Symbol(s);
 
 main() {
   new NoSuchMethodError(null, sym(), null, null);

@@ -9,14 +9,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <input type="text" id="sp" style="-khtml-appearance:textfield" maxlength=5 value="123456"></input>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input = document.getElementById('sp');
+  InputElement input = document.getElementById('sp') as InputElement;
 
   if (input.value != "12345") {
     testPassed('Maxlength shouldn\'t work for default value.');

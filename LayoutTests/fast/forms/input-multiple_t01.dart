@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,14 +17,14 @@ main() {
       <pre id="console"></pre>
       ''', treeSanitizer: new NullTreeSanitizer());
         
-  check(testNum, expected, actual) {
+  void check(int testNum, expected, actual) {
     debug("Test $testNum");
     shouldBe(expected, actual);
   }
 
-  test() {
-    var up1 = document.getElementById("up1");
-    var up2 = document.getElementById("up2");
+  void test() {
+    InputElement up1 = document.getElementById("up1") as InputElement;
+    InputElement up2 = document.getElementById("up2") as InputElement;
 
     check(1, up1.multiple, true);
     check(2, up2.multiple, false);

@@ -9,10 +9,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
 
   debug('Ordinary values for input:');
   input.type = "submit";
@@ -56,7 +55,7 @@ main() {
   shouldBeEqualToString(input.formTarget, 'nta');
 
 
-  var button = document.createElement('button');
+  ButtonElement button = document.createElement('button') as ButtonElement;
   debug('');
   debug('Ordinary values for button:');
   button.type = "submit";

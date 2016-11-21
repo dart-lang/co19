@@ -14,7 +14,6 @@
  */
 import "../../../Utils/expect.dart";
 
-//typedef bool checkFn(exception);
 typedef void test();
 
 
@@ -24,9 +23,9 @@ main() {
 
   Expect.throws(t, (e){return identical(e, err);});
   
-  err = "hello";
-  Expect.throws(t, (e){return identical(e, err);});
+  var err2 = "hello";
+  Expect.throws(t, (e){return identical(e, err2);});
 
-  err = new Object();
-  Expect.throws(t, (e){return identical(e, err);});
+  var err3 = new Object();
+  Expect.throws(t, (e){return identical(e, err3);});
 }

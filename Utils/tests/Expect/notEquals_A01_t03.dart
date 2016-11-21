@@ -35,26 +35,26 @@ class C {
 main() {
   B b = new B();
   Expect.identical(b.checked, null);
-  var a = new A();
-  Expect.notEquals(b, a);
-  Expect.identical(b.checked, a);
+  var a1 = new A();
+  Expect.notEquals(b, a1);
+  Expect.identical(b.checked, a1);
 
-  a = new C();
-  Expect.notEquals(b, a);
-  Expect.identical(b.checked, a);
+  var a2 = new C();
+  Expect.notEquals(b, a2);
+  Expect.identical(b.checked, a2);
 
-  a = new B();
+  var a3 = new B();
   try {
-    Expect.notEquals(b, a);
+    Expect.notEquals(b, a3);
     throw new Exception("ExpectException expected");
-  } on ExpectException catch(ok) {
+  } on ExpectException {
   }
-  Expect.identical(b.checked, a);
+  Expect.identical(b.checked, a3);
 
   Expect.notEquals(new C(), new A());
 
   try {
     Expect.notEquals(new A(), new C());
     throw new Exception("ExpectException expected");
-  } on ExpectException catch(ok) {}
+  } on ExpectException {}
 }

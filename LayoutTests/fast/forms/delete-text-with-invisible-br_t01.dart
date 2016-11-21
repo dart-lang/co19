@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var f = new DocumentFragment.html('''
@@ -27,7 +26,7 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var test = document.getElementById('test');
+  InputElement test = document.getElementById('test') as InputElement;
   test.focus();
   document.execCommand('InsertText', false, 'abc');
   document.execCommand('Delete', false, null);

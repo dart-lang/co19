@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -33,7 +32,7 @@ main() {
 </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ta = document.getElementById('ta');
+  TextAreaElement ta = document.getElementById('ta') as TextAreaElement;
   ta.focus();
   shouldBe(ta.selectionStart, 0);
   shouldBe(ta.selectionEnd, 0);

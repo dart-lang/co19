@@ -217,7 +217,7 @@ floor(x) => x.floor();
 ceil(x) => x.ceil();
 round(x) => x.round();
 
-getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
+CssStyleDeclaration getComputedStyle(Element x, [String pseudoElement]) => x.getComputedStyle(pseudoElement);
 
 getContext2d(id) {
   CanvasElement canvas = document.getElementById(id);

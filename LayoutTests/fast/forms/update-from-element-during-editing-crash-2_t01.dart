@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,7 +18,7 @@ div + * {}
 </textarea></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var textarea = document.body.querySelector('textarea');
+  TextAreaElement textarea = document.body.querySelector('textarea') as TextAreaElement;
 
   textarea.focus();
   textarea.selectionStart = 1;

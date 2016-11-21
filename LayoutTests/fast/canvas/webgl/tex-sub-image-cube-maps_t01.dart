@@ -262,7 +262,7 @@ main() {
     return dst;
   };
 
-  testSize(size) {
+  testSize(num size) {
     debug("");
     debug("testing size: $size");
     var canvasSize = Math.max(size ~/ 4, 2);

@@ -38,8 +38,8 @@ main() {
   document.body.append(parent);
 
   // Determine the item height.
-  var sl1 = document.getElementById('sl1');
-  var sl2 = document.getElementById('sl2');
+  SelectElement sl1 = document.getElementById('sl1') as SelectElement;
+  SelectElement sl2 = document.getElementById('sl2') as SelectElement;
   var itemHeight = floor(sl1.offsetHeight / sl1.size);
   sl1.attributes.remove('size');
   var height = itemHeight * 9 + 9;
@@ -61,9 +61,9 @@ main() {
     sl.dispatchEvent(event);
   }
 
-  selectionPattern(selectId) {
-    var select = document.getElementById(selectId);
-    var result = "";
+  String selectionPattern(String selectId) {
+    SelectElement select = document.getElementById(selectId) as SelectElement;
+    String result = "";
     for (var i = 0; i < select.options.length; i++)
       result += select.options[i].selected ? '1' : '0';
     return result;

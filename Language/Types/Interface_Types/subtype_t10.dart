@@ -24,7 +24,6 @@
  * An interface type T may be assigned to a type S, written T <=> S, if either
  * T <: S or S <: T.
  * @description Checks that an interface type may be assigned to its supertype.
- * @static-warning
  * @author iefremov
  * @reviewer rodionov
  */
@@ -44,7 +43,7 @@ class Checker<S> {
 
   check(dynamic t) {
     Expect.isTrue(t is S);
-    S ss = t; /// static type warning
+    S ss = t;
   }
 }
 

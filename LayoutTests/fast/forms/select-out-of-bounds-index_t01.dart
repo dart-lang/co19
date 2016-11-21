@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +20,7 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var sl = document.getElementById('sl');
+  SelectElement sl = document.getElementById('sl') as SelectElement;
   sl.selectedIndex = 1;
   sl.selectedIndex = 2;
   sl.selectedIndex = 0;

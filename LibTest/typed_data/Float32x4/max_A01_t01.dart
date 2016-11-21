@@ -15,7 +15,7 @@ import "dart:typed_data";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(val1, val2) {
+check(Float32x4 val1, Float32x4 val2) {
   var res = val1.max(val2);
   Expect.equals(max(val1.x,val2.x), res.x);
   Expect.equals(max(val1.y,val2.y), res.y);

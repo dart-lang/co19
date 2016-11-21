@@ -29,15 +29,15 @@ If the text says "No callback" then something else is broken :)
 <iframe name=inner id=inner style="display: none" src="about:blank"></iframe>
 ''';
 
-int count=0;
+int count = 0;
 
 void onload_callback(e) {
-    var inner = document.getElementById("inner");
-    var old_hash = inner.location.hash;
-    inner.location.hash = "hash-ref";
+    var inner = document.getElementById("inner") as IFrameElement;
+    var old_hash = (inner.contentWindow.location as Location).hash;
+    (inner.contentWindow.location as Location).hash = "hash-ref";
     var c = document.getElementById("content");
     count++;
-    if (count==1) {
+    if (count == 1) {
         c.innerHtml = "PASS";
         asyncEnd();
     } else if (count >= 2) {

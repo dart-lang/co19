@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,8 +20,8 @@ default
 </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var form = document.getElementById('form');
-  var textarea = document.getElementById('textarea');
+  FormElement form = document.getElementById('form') as FormElement;
+  TextAreaElement textarea = document.getElementById('textarea') as TextAreaElement;
 
   // Dirty by execCommand(), then setDefaultValue().
   textarea.focus();

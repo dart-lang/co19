@@ -5,11 +5,9 @@
  */
 /**
  * @description required attribute set
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,11 +21,11 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  requiredFor(id) {
-    return document.getElementById(id).required;
+  bool requiredFor(String id) {
+    return (document.getElementById(id) as dynamic).required;
   }
 
-  var v = document.getElementsByName("victim");
+  List<Node> v = document.getElementsByName("victim");
 
   debug("Before set:");
   shouldBeFalse(requiredFor("input"));
@@ -35,9 +33,9 @@ main() {
   shouldBeFalse(requiredFor("select"));
   debug("");
 
-  v[0].required = true;
-  v[1].required = true;
-  v[2].required = true;
+  (v[0] as dynamic).required = true;
+  (v[1] as dynamic).required = true;
+  (v[2] as dynamic).required = true;
 
   debug("After set:");
   shouldBeTrue(requiredFor("input"));

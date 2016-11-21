@@ -16,7 +16,7 @@ main() {
       <input name="victim" />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var v = document.getElementsByName("victim");
-  v[0].pattern = "something";
-  shouldBe(v[0].pattern, "something");
+  List<Node> v = document.getElementsByName("victim");
+  (v[0] as InputElement).pattern = "something";
+  shouldBe((v[0] as InputElement).pattern, "something");
 }

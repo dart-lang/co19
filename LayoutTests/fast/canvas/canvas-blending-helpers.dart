@@ -37,18 +37,18 @@ initHelpers() {
     'overlay': (b, s) {
       return separateBlendFunctions['hardLight'](b, s);
     },
-    'darken': (b, s) {
+    'darken': (num b, num s) {
       return Math.min(b, s);
     },
-    'lighten': (b, s) {
+    'lighten': (num b, num s) {
       return Math.max(b, s);
     },
-    'colorDodge': (b, s) {
+    'colorDodge': (num b, num s) {
       if(b == 1)
         return 1;
       return Math.min(1, s / (1 - b));
     },
-    'colorBurn': (b, s) {
+    'colorBurn': (num b, num s) {
       if(s == 0)
         return 0;
       return 1 - Math.min(1, (1 - b) / s);

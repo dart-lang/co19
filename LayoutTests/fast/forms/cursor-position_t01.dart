@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,9 +22,9 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var elt = document.getElementById("text");
-  var txt = "this is\ra test\rof cursor";
-  var txt2 = "this is\na test\nof cursor!";
+  TextAreaElement elt = document.getElementById("text") as TextAreaElement;
+  String txt = "this is\ra test\rof cursor";
+  String txt2 = "this is\na test\nof cursor!";
 
   // test getCursorPosition...
   elt.value = txt;

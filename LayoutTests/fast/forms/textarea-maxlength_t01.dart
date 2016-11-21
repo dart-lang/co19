@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var textArea = document.createElement('textarea');
+  TextAreaElement textArea = document.createElement('textarea') as TextAreaElement;
   document.body.append(textArea);
 
   // No maxlength attribute

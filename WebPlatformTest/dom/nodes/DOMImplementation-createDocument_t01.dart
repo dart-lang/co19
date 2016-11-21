@@ -14,7 +14,6 @@
  * <link rel=help href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#dom-domimplementation-createdocument">
  *
  * @assertion DOMImplementation.createDocument(namespace, qualifiedName, doctype)
- * @static-warning
  * @description 
  * @needsreview what is dart's equivalent of Document.doctype?
  * @note dartium crashes with "Aw, Snap!"
