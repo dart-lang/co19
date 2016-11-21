@@ -19,7 +19,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(int eventCount, int takeCount) {
+void check(int eventCount, int takeCount, int expectedErrorCount) {
   Iterable it = new Iterable.generate(eventCount, (int index) => index);
   Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
   Stream t = s.take(takeCount);
@@ -35,17 +35,18 @@ void check(int eventCount, int takeCount) {
       seenCount++;
     },
     onDone: () {
-      Expect.equals(eventCount, seenCount);
+      Expect.equals(expectedErrorCount, seenCount);
       asyncEnd();
     }
   );
 }
 
 main() {
-  check(0, 0);
-  check(0, 1);
-  check(1, 0);
-  check(1, 1);
-  check(2, 3);
+  check(0, 0, 0);
+  check(0, 1, 0);
+  check(1, 0, 0); // see issue https://github.com/dart-lang/co19/issues/81 for details
+  check(1, 1, 1);
+  check(2, 3, 2);
+  check(3, 2, 3);
 }
 
