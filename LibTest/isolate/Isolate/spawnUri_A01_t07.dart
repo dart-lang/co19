@@ -52,6 +52,6 @@ void main(List args, SendPort replyPort) {
             ["hello", "world"],
             null
     ),
-    new Future.delayed(ONE_SECOND) // keep isolate alive
+    new Future.delayed(TWO_SECONDS) // keep isolate alive
   ]).then( (_) => true );
 }
