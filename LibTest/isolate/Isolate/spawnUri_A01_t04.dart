@@ -39,7 +39,7 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 void main(List args, SendPort replyPort) {
-  var n = args.length==0 ? 10 : args[0];
+  var n = args.length == 0 ? 10 : args[0];
   var receivePort = new ReceivePort();
   void reply() {
       if (replyPort!=null) {
@@ -47,17 +47,17 @@ void main(List args, SendPort replyPort) {
       }
   }
   
-  if (n>0) {
+  if (n > 0) {
     asyncStart();
     receivePort.listen((var message) {
       receivePort.close();
-      Expect.equals(n-1, message);
+      Expect.equals(n - 1, message);
       reply();
       asyncEnd();
     });
     Isolate.spawnUri(
         new Uri.file("spawnUri_A01_t04.dart"),
-        [n-1],
+        [(n - 1).toString()],
         receivePort.sendPort
     );
   } else {

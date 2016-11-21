@@ -17,15 +17,17 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-check(List a0, var init, combine, num expected) {
+check(List a0, num init, combine, num expected) {
   LinkedList<MyLinkedListEntry> a = toLinkedList(a0);
-  num actual=a.fold(init, (previousValue, MyLinkedListEntry entry)=>combine(previousValue, entry.value));
+  num actual = a.fold(init, (previousValue, MyLinkedListEntry entry) =>
+      combine(previousValue, entry.value));
   Expect.equals(expected, actual);
 }	
 
 main() {
-  check([1,2,-3], 0, (value, element) => value+element, 0);
-  check([1,2,-3], 1, (value, element) => value*element, -6);
-  check([0,2,-3], 1, (value, element) => value*element, 0);
-  check(const[1,2,-5,-6], -1000, (value, element) => max(value,element), 2);
+  check([1,2,-3], 0, (value, element) => value + element, 0);
+  check([1,2,-3], 1, (value, element) => value * element, -6);
+  check([0,2,-3], 1, (value, element) => value * element, 0);
+  check(const[1,2,-5,-6], -1000,
+      (num value, num element) => max(value,element), 2);
 }

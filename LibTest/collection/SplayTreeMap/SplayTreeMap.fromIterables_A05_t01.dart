@@ -38,7 +38,7 @@ bool isValidKey(potentialKey) {
 main() {
   C c1 = new C(1);
   C c2 = new C(2);
-  Iterable keys = [c1, c2];
+  Iterable<C> keys = [c1, c2];
   Iterable values = [1, 2];
   SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare,
       isValidKey);

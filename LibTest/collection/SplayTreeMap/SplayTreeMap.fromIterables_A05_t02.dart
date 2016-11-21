@@ -29,7 +29,7 @@ main() {
   C c2 = new C(2);
   C c3 = new C(3);
 
-  Iterable keys = [c1, c2, c3];
+  Iterable<C> keys = [c1, c2, c3];
   Iterable values = [1, 2, 3];
   SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare,
       isValidKey);

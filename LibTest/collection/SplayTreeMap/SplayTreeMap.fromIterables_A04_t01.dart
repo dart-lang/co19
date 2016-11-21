@@ -28,7 +28,7 @@ int compare(C key1, C key2) {
 main() {
   C c1 = new C(2);
   C c2 = new C(2);
-  Iterable keys = [new C(1), c1, c2];
+  Iterable<C> keys = [new C(1), c1, c2];
   Iterable values = [1, 2, 3];
   SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare);
 
