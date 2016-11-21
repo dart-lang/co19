@@ -14,7 +14,7 @@ main() {
   document.body.append(form);
 
   // An input element with a pattern set and a mismatched value
-  var patternInput = document.createElement("input");
+  InputElement patternInput = document.createElement("input") as InputElement;
   patternInput.name = "patternInput";
   patternInput.pattern = "lorem ipsum";
   patternInput.value = "lorem";
@@ -22,28 +22,28 @@ main() {
   debug("input patternMismatch: " + patternInput.validationMessage);
 
   // A required input with an empty value
-  var requiredInput = document.createElement("input");
+  InputElement requiredInput = document.createElement("input") as InputElement;
   requiredInput.name = "requiredInput";
   requiredInput.required = true;
   form.append(requiredInput);
   debug("input valueMissing: " + requiredInput.validationMessage);
 
   // A required textarea with an empty value
-  var requiredTextArea = document.createElement("textarea");
+  TextAreaElement requiredTextArea = document.createElement("textarea") as TextAreaElement;
   requiredTextArea.name = "requiredTextArea";
   requiredTextArea.required = true;
   form.append(requiredTextArea);
   debug("textarea valueMissing: " + requiredTextArea.validationMessage);
 
   // A required select with an empty value
-  var requiredSelect = document.createElement("select");
+  SelectElement requiredSelect = document.createElement("select") as SelectElement;
   requiredSelect.name = "requiredSelect";
   requiredSelect.required = true;
   form.append(requiredSelect);
   debug("select valueMissing: " + requiredSelect.validationMessage);
 
   // A type=email input for the "type mismatch" flag
-  var emailInput = document.createElement("input");
+  InputElement emailInput = document.createElement("input") as InputElement;
   emailInput.name = "emailInput";
   emailInput.type = "email";
   form.append(emailInput);
@@ -76,7 +76,7 @@ main() {
   emailInput.value = "foo@example.com,bar@..example.com";
   debug("input typeMismatch for " + emailInput.value + ": " + emailInput.validationMessage);
 
-  var numberInput = document.createElement("input");
+  InputElement numberInput = document.createElement("input") as InputElement;
   numberInput.type = "number";
   form.append(numberInput);
   numberInput.focus();
@@ -101,7 +101,7 @@ main() {
   debug("input stepMismatch: " + numberInput.validationMessage);
 
   debug("tooLong:");
-  var inputWithMax = document.createElement("input");
+  InputElement inputWithMax = document.createElement("input") as InputElement;
   inputWithMax.maxLength = 3;
   inputWithMax.value = "abcdef";
   document.body.append(inputWithMax);
@@ -123,7 +123,7 @@ main() {
   inputWithMax.lang = "ar-eg";
   debug("input tooLong: " + inputWithMax.validationMessage);
 
-  var textarea = document.createElement("textarea");
+  TextAreaElement textarea = document.createElement("textarea") as TextAreaElement;
   document.body.append(textarea);
   textarea.focus();
   document.execCommand("inserttext", false, "a\nbc");
@@ -131,42 +131,42 @@ main() {
   debug("textarea tooLong: " + textarea.validationMessage);
 
   // A button can't be valited and, thus, has a blank validationMessage
-  var but = document.createElement("button");
+  ButtonElement but = document.createElement("button") as ButtonElement;
   but.name = "button";
   form.append(but);
   shouldBe(but.validationMessage, '');
 
   // An input control with no name, so it can't be validated (willValidate = false)
-  var anoninput = document.createElement("input");
+  InputElement anoninput = document.createElement("input") as InputElement;
   form.append(anoninput);
   shouldBe(anoninput.validationMessage, '');
 
   // Fieldsets can't be validated
-  var happyFieldset = document.createElement("fieldset");
+  FieldSetElement happyFieldset = document.createElement("fieldset") as FieldSetElement;
   happyFieldset.name = "fieldset";
   form.append(happyFieldset);
   shouldBe(happyFieldset.validationMessage, '');
 
   // Select controls can't be validated too
-  var happySelect = document.createElement("select");
+  SelectElement happySelect = document.createElement("select") as SelectElement;
   happySelect.name = "select";
   form.append(happySelect);
   shouldBe(happySelect.validationMessage, '');
 
   // Output elements can't be validated
-  var happyOutput = document.createElement("output");
+  OutputElement happyOutput = document.createElement("output") as OutputElement;
   happySelect.name = "output";
   form.append(happyOutput);
   shouldBe(happyOutput.validationMessage, '');
 
   // Object elements can't be validated
-  var happyObject = document.createElement("object");
+  ObjectElement happyObject = document.createElement("object") as ObjectElement;
   happySelect.name = "object";
   form.append(happyObject);
   shouldBe(happyObject.validationMessage, '');
 
   // Keygen controls can't be validated
-  var happyKeygen = document.createElement("keygen");
+  KeygenElement happyKeygen = document.createElement("keygen") as KeygenElement;
   happySelect.name = "keygen";
   form.append(happyKeygen);
   shouldBe(happyKeygen.validationMessage, '');

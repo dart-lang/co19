@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -41,10 +40,10 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var selects = document.body.queryAll('select');
-  shouldBe(selects[0].namedItem('name1').innerHtml, "2");
-  shouldBe(selects[1].namedItem('name1').innerHtml, "1");
-  shouldBe(selects[2].namedItem('name1').innerHtml, "1");
-  shouldBe(selects[3].namedItem('name1').innerHtml, "1");
-  shouldBeNull(selects[4].namedItem('name1'));
+  ElementList<Element> selects = document.body.querySelectorAll('select');
+  shouldBe((selects[0] as SelectElement).namedItem('name1').innerHtml, "2");
+  shouldBe((selects[1] as SelectElement).namedItem('name1').innerHtml, "1");
+  shouldBe((selects[2] as SelectElement).namedItem('name1').innerHtml, "1");
+  shouldBe((selects[3] as SelectElement).namedItem('name1').innerHtml, "1");
+  shouldBeNull((selects[4] as SelectElement).namedItem('name1'));
 }

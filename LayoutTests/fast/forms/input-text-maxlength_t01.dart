@@ -5,11 +5,9 @@
  */
 /**
  * @description
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -27,18 +25,18 @@ main() {
       <input type="text" id="g" size="5" value="12x&#x305;&#x332;45">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  domValueOf(id) {
-    return document.getElementById(id).value;
+  String domValueOf(String id) {
+    return (document.getElementById(id) as InputElement).value;
   }
 
-  visibleValueOf(id) {
-    var el = document.getElementById(id);
-    el.focus();
-    document.execCommand('SelectAll', false, '');
-    return window.getSelection().toString(); //FIXME
-  }
+//  visibleValueOf(id) {
+//    var el = document.getElementById(id);
+//    el.focus();
+//    document.execCommand('SelectAll', false, '');
+//    return window.getSelection().toString(); //FIXME
+//  }
 
-  var fancyX = "x" + new String.fromCharCode(0x305) + new String.fromCharCode(0x332);
+  String fancyX = "x" + new String.fromCharCode(0x305) + new String.fromCharCode(0x332);
 
   debug('maxlength and value that violates it, maxlength first');
   shouldBe(domValueOf("input1"), "12345");
@@ -54,7 +52,7 @@ main() {
   //shouldBe(visibleValueOf("input2"), "12345");
 
   debug('set value property that violates maxlength');
-  document.getElementById("e").value = '12345';
+  (document.getElementById("e") as InputElement).value = '12345';
   shouldBe(domValueOf("e"), "12345");
   //shouldBe(visibleValueOf("e"), "12345");
 
@@ -64,7 +62,7 @@ main() {
   //shouldBe(visibleValueOf("d"), "12345");
 
   debug('set maxLength property that is smaller than initial value');
-  document.getElementById("c").maxLength = 4;
+  (document.getElementById("c") as InputElement).maxLength = 4;
   shouldBe(domValueOf("c"), "12345");
   //shouldBe(visibleValueOf("c"), "12345");
 
@@ -82,7 +80,7 @@ main() {
   //shouldBe(visibleValueOf("j"), "12" + fancyX + "45");
 
   debug('set value property that violates maxlength');
-  document.getElementById("i").value = '12' + fancyX + '45';
+  (document.getElementById("i") as InputElement).value = '12' + fancyX + '45';
   shouldBe(domValueOf("i"), "12" + fancyX + "45");
   //shouldBe(visibleValueOf("i"), "12" + fancyX + "45");
 
@@ -92,7 +90,7 @@ main() {
   //shouldBe(visibleValueOf("h"), "12" + fancyX + "45");
 
   debug('set maxLength property that is smaller than initial value');
-  document.getElementById("g").maxLength = 4;
+  (document.getElementById("g") as InputElement).maxLength = 4;
   shouldBe(domValueOf("g"), "12" + fancyX + "45");
   //shouldBe(visibleValueOf("g"), "12" + fancyX + "45");
 }

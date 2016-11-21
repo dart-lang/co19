@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,8 +19,8 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   test() {
-    var form = document.getElementById('form');
-    var field = document.getElementById('field');
+    FormElement form = document.getElementById('form') as FormElement;
+    InputElement field = document.getElementById('field') as InputElement;
 
     shouldBeNull(form.getAttribute('autocomplete'));
     shouldBeNull(field.getAttribute('autocomplete'));

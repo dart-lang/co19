@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var wrapper = document.createElement('div');
@@ -21,9 +20,9 @@ main() {
     '<option id="d">d</option>' +
     '</select>';
 
-  var sel = document.getElementById('theSelect');
+  SelectElement sel = document.getElementById('theSelect') as SelectElement;
 
-  var firstRemove = true;
+  bool firstRemove = true;
   onRemove(e) {
     if (firstRemove) {
       // remove listener temporarily to avoid lots of nesting

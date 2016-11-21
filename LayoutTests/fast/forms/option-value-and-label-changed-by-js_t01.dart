@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,25 +19,25 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var o1 = document.getElementById('o1');
+  OptionElement o1 = document.getElementById('o1') as OptionElement;
   o1.label = "newLabel";
   o1.value = "newValue";
   shouldBe(o1.value, "newValue");
   shouldBe(o1.label, "newLabel");
 
-  var o2 = document.getElementById('o2');
+  OptionElement o2 = document.getElementById('o2') as OptionElement;
   o2.label = "newLabel";
   o2.value = "newValue";
   shouldBe(o2.value, "newValue");
   shouldBe(o2.label, "newLabel");
 
-  var o3 = document.getElementById('o3');
+  OptionElement o3 = document.getElementById('o3') as OptionElement;
   o3.label = "newLabel";
   o3.value = "newValue";
   shouldBe(o3.value, "newValue");
   shouldBe(o3.label, "newLabel");
 
-  var o4 = document.getElementById('o4');
+  OptionElement o4 = document.getElementById('o4') as OptionElement;
   o4.label = "newLabel";
   o4.value = "newValue";
   shouldBe(o4.value, "newValue");

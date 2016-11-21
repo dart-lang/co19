@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,16 +17,16 @@ main() {
 
   StringBuffer testString = new StringBuffer();
 
-  attempt(length, expected) {
+  void attempt(int length, int expected) {
     debug("Attempting to insert $length characters.");
 
     if (testString.length > length)
       testString.clear();
 
-    for (var i = testString.length; i < length; ++i)
+    for (int i = testString.length; i < length; ++i)
       testString.write(i % 10);
 
-    var input = document.getElementById("input");
+    InputElement input = document.getElementById("input") as InputElement;
     input.value = testString.toString();
 
     shouldBe(input.value.length, expected);

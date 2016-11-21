@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +16,7 @@ main() {
       <textarea id="B"></textarea>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  id(x) => document.getElementById(x);
+  TextAreaElement id(x) => document.getElementById(x) as TextAreaElement;
 
   id('A').selectionStart = 0;
   id('B').style.display = "none";

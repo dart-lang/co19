@@ -9,10 +9,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var f = document.createElement("form");
+  FormElement f = document.createElement("form") as FormElement;
 
   shouldBe(f.attributes.containsKey('noValidate'), false);
   shouldBe(f.getAttribute('noValidate'), null);
@@ -24,7 +23,7 @@ main() {
   shouldBe(f.getAttribute('noValidate'), '');
   shouldBe(f.noValidate, true);
 
-  var f2 = document.createElement("form");
+  FormElement f2 = document.createElement("form") as FormElement;
   f2.noValidate = f.noValidate;
 
   f.noValidate = false;

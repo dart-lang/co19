@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,7 +15,7 @@ main() {
       <textarea rows=5 id="test">xx</textarea>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var e = document.getElementById("test");
+  TextAreaElement e = document.getElementById("test") as TextAreaElement;
   e.setSelectionRange(1, 1);
   document.execCommand("InsertHTML", false, 
       "(There should be one 'x' before and after this sentence.)");

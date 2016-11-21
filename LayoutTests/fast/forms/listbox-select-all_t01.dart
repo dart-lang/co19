@@ -21,7 +21,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   test() {
-    var sl = document.getElementById('sl');
+    SelectElement sl = document.getElementById('sl') as SelectElement;
     sl.focus();
     document.execCommand("SelectAll", false, '');
     debug('Test 1');

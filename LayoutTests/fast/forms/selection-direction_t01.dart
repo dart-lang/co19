@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -98,5 +97,5 @@ main() {
 
   var tests = document.getElementById('tests');
   tests.style.display = 'none';
-  dummy.parentNode.style.display = 'none';
+  (dummy.parentNode as Element).style.display = 'none';
 }

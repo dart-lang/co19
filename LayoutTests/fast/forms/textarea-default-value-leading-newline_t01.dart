@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,7 +21,7 @@ main() {
       <p><ol id="console"></ol></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var elt = document.getElementById("text");
+  TextAreaElement elt = document.getElementById("text") as TextAreaElement;
   elt.defaultValue = "\ntesting";
   shouldBe(elt.defaultValue, "\ntesting");
   elt.defaultValue = "\n\ntesting";

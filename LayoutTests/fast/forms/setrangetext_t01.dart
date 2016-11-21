@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "resources/common-setrangetext.dart";
 
 main() {
@@ -20,7 +19,7 @@ main() {
 
   debug("<hr>");
   debug("Check that setRangeText() on disconnected elements doesn't crash and has proper values.");
-  var element = document.createElement("input");
+  InputElement element = document.createElement("input") as InputElement;
   element.value = '0123456789';
   element.setRangeText('ABC', start:0, end:0, selectionMode:'select');
   //shouldBeEqualToString(element.value, "ABC0123456789");

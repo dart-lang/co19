@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement("input");
+  InputElement input = document.createElement("input") as InputElement;
 
   shouldBeEqualToString(input.placeholder, '');
 

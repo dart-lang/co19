@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,6 +21,6 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var f = document.getElementById("sad_form");
+  FormElement f = document.getElementById("sad_form") as FormElement;
   shouldBe(f.checkValidity(), false);
 }

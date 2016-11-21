@@ -8,15 +8,14 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var b = document.createElement('button');
+  dynamic b = document.createElement('button');
   shouldThrow(() => b.setCustomValidity());
-  var fs = document.createElement('fieldset');
+  dynamic fs = document.createElement('fieldset');
   shouldThrow(() => fs.setCustomValidity());
-  var i = document.createElement('input');
+  dynamic i = document.createElement('input');
   shouldThrow(() => i.setCustomValidity());
-  var k = document.createElement('keygen');
+  dynamic k = document.createElement('keygen');
   shouldThrow(() => k.setCustomValidity());
 }

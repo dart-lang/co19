@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import 'dart:math' as Math;
 import "../../testcommon.dart";
 
 main() {
@@ -19,15 +18,15 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   StringBuffer testString = new StringBuffer();
-  var input = document.getElementById("input");
+  InputElement input = document.getElementById("input") as InputElement;
 
-  attempt(length) {
+  void attempt(int length) {
     debug("Attempting to insert $length characters with maxLength = ${input.getAttribute("maxlength")}.");
 
     if (testString.length > length)
       testString.clear();
 
-    for (var i = testString.length; i < length; ++i)
+    for (int i = testString.length; i < length; ++i)
       testString.write(i % 10);
     input.value = testString.toString();
     shouldBe(input.value.length, length);
@@ -35,13 +34,13 @@ main() {
 
   // Chrome limit for input values length is 512K (524288). So don't check values
   // longer than 512K
-  var stringLengthsToTest = [0, 5, 100, 101, 200, 524287, 524288];
-  var maxLengthsToTest = ["-1", "100", "524288", "600000"];
+  List<int> stringLengthsToTest = [0, 5, 100, 101, 200, 524287, 524288];
+  List<String> maxLengthsToTest = ["-1", "100", "524288", "600000"];
 
-  for (var i = 0; i < stringLengthsToTest.length; ++i) {
-    var stringLength = stringLengthsToTest[i];
-    for (var j = 0; j < maxLengthsToTest.length; ++j) {
-      var maxLength = maxLengthsToTest[j];
+  for (int i = 0; i < stringLengthsToTest.length; ++i) {
+    int stringLength = stringLengthsToTest[i];
+    for (int j = 0; j < maxLengthsToTest.length; ++j) {
+      String maxLength = maxLengthsToTest[j];
       input.setAttribute("maxLength", maxLength);
       attempt(stringLength);
     }

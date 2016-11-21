@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,9 +21,9 @@ main() {
   _shouldThrow(func())
     => shouldThrow(func, (e) => e is DomException && e.name == DomException.INVALID_STATE);
 
-  var tests = document.getElementById('tests');
+  Element tests = document.getElementById('tests');
   for (var i = 0; i < tests.children.length; i++) {
-    var test = tests.children[i];
+    InputElement test = tests.children[i] as InputElement;
     test.focus();
 
     _shouldThrow(() => test.selectionStart);

@@ -5,14 +5,12 @@
  */
 /**
  * @description Various tests for .willValidate property
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var parent = document.createElement('div');
+  DivElement parent = document.createElement('div') as DivElement;
   document.body.append(parent);
 
   debug('Existence of .willValidate');
@@ -27,14 +25,14 @@ main() {
     + '<keygen name="victim">'
     + '</form>',
     treeSanitizer: new NullTreeSanitizer());
-  var controls = document.getElementsByName('victim');
-  for (var i = 0; i < controls.length; i++)
-    shouldBeTrue(controls[i].willValidate is bool);
+  List<Node> controls = document.getElementsByName('victim');
+  for (int i = 0; i < controls.length; i++)
+    shouldBeTrue((controls[i] as dynamic).willValidate is bool);
 
   debug('');
   debug('Form association');
   parent.innerHtml = '<input name="test">';
-  var input = document.getElementsByTagName("input")[0];
+  InputElement input = document.getElementsByTagName("input")[0] as InputElement;
   shouldBeTrue(input.willValidate);
   parent.innerHtml = '<form><input name="test"></form>';
   input = document.getElementsByTagName("input")[0];
@@ -74,25 +72,25 @@ main() {
   debug('');
   debug('Fieldset element');
   parent.innerHtml = '<form><fieldset><p>Fieldset test</p></fieldtset></form>';
-  shouldBeFalse(document.getElementsByTagName("fieldset")[0].willValidate);
+  shouldBeFalse((document.getElementsByTagName("fieldset")[0] as FieldSetElement).willValidate);
 
   debug('');
   debug('Textarea element');
   parent.innerHtml = '<form><textarea name="text"></textarea></form>';
-  shouldBeTrue(document.getElementsByTagName("textarea")[0].willValidate);
+  shouldBeTrue((document.getElementsByTagName("textarea")[0] as TextAreaElement).willValidate);
 
   debug('');
   debug('Output element');
   parent.innerHtml = '<form><output></output></form>';
-  shouldBeFalse(document.getElementsByTagName("output")[0].willValidate);
+  shouldBeFalse((document.getElementsByTagName("output")[0] as OutputElement).willValidate);
 
   debug('');
   debug('Object element');
   parent.setInnerHtml('<form><object></object></form>', treeSanitizer: new NullTreeSanitizer());
-  shouldBeFalse(document.getElementsByTagName("object")[0].willValidate);
+  shouldBeFalse((document.getElementsByTagName("object")[0] as ObjectElement).willValidate);
 
   debug('');
   debug('Keygen element');
   parent.setInnerHtml('<form><keygen></form>',treeSanitizer: new NullTreeSanitizer());
-  shouldBeFalse(document.getElementsByTagName("keygen")[0].willValidate);
+  shouldBeFalse((document.getElementsByTagName("keygen")[0] as KeygenElement).willValidate);
 }

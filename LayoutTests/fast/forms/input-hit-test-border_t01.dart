@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +17,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   runTest() {
-    var input = document.getElementById('tf');
+    InputElement input = document.getElementById('tf') as InputElement;
 
     var borderElement = document.elementFromPoint(18, 34);  // in border
     var paddingElement = document.elementFromPoint(25, 41);  // in padding
@@ -26,8 +25,8 @@ main() {
     shouldBeTrue(borderElement == input && paddingElement == input);
   }
 
-  window.addEventListener('click', (e) {
-    window.console.log('page x ${e.page.x} + page y ${e.page.y}');
+  window.addEventListener('click', (Event e) {
+    window.console.log('page x ${(e as MouseEvent).page.x} + page y ${(e as MouseEvent).page.y}');
   }, false);
 
   runTest();

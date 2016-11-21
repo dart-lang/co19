@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,7 +22,7 @@ This tests that we don't scroll back to the top when leaving a textarea
 </textarea>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ta = document.getElementById('ta');
+  TextAreaElement ta = document.getElementById('ta') as TextAreaElement;
 
   // Send caret to bottom of textarea
   ta.focus();

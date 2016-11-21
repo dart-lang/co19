@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,11 +21,11 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var form = document.getElementById('form');
-  var inputShouldHaveForm = document.getElementById('input1');
-  var inputShouldNotHaveForm = document.getElementById('input2');
-  var labelShouldHaveForm = document.getElementById('label1');
-  var labelShouldNotHaveForm = document.getElementById('label2');
+  FormElement form = document.getElementById('form') as FormElement;
+  InputElement inputShouldHaveForm = document.getElementById('input1') as InputElement;
+  InputElement inputShouldNotHaveForm = document.getElementById('input2') as InputElement;
+  LabelElement labelShouldHaveForm = document.getElementById('label1') as LabelElement;
+  LabelElement labelShouldNotHaveForm = document.getElementById('label2') as LabelElement;
 
   shouldBe(inputShouldHaveForm.form, form);
   shouldBeNull(inputShouldNotHaveForm.form);

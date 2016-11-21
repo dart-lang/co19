@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var container = document.createElement("p");
+  ParagraphElement container = document.createElement("p") as ParagraphElement;
   document.body.append(container);
 
   container.append(new Text("Some text: "));
@@ -31,7 +30,7 @@ main() {
 
   debug("\nAdd an input element.\n");
 
-  var input = document.createElement("input");
+  InputElement input = document.createElement("input") as InputElement;
   container.append(input);
   input.value = "text";
   input.focus();
@@ -56,7 +55,7 @@ main() {
 
   debug("\nAdd a textarea element.\n");
 
-  var textarea = document.createElement("textarea");
+  TextAreaElement textarea = document.createElement("textarea") as TextAreaElement;
   container.append(textarea);
   textarea.value = "text";
   textarea.focus();

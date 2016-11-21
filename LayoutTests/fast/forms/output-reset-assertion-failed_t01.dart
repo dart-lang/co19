@@ -9,11 +9,10 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   debug('- A test in the value is set twice.');
-  var output = document.createElement('output');
+  OutputElement output = document.createElement('output') as OutputElement;
   document.body.append(output);
   output.value = '';
   output.value = '';
@@ -31,7 +30,7 @@ main() {
 
   debug('');
   debug('- A test in reset events occur twice when there is no default value.');
-  var form = document.createElement('form');
+  FormElement form = document.createElement('form') as FormElement;
   document.body.append(form);
   output = document.createElement('output');
   form.append(output);

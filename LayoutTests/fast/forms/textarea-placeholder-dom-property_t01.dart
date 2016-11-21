@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var textarea = document.createElement('textarea');
+  TextAreaElement textarea = document.createElement('textarea') as TextAreaElement;
 
   shouldBeEqualToString(textarea.placeholder, '');
 

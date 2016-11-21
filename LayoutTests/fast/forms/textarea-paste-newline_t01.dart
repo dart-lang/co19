@@ -8,23 +8,22 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <p><textarea id="ta"></textarea></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ta = document.getElementById("ta");
+  TextAreaElement ta = document.getElementById("ta") as TextAreaElement;
   ta.value = "abc\n";
   ta.focus();
   ta.setSelectionRange(0, 4);
   document.execCommand("cut", false, '');
   document.execCommand("paste", false, '');
-  var result1 = ta.value;
+  String result1 = ta.value;
   ta.setSelectionRange(0, 0);
   document.execCommand("paste", false, '');
-  var result2 = ta.value;
+  String result2 = ta.value;
 
   shouldBe(result1, "abc\n");
   shouldBe(result2, "abc\nabc\n");

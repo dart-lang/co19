@@ -17,7 +17,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   test(_) {
-    var inputElement = document.getElementById("inputElement");
+    InputElement inputElement = document.getElementById("inputElement") as InputElement;
     shouldBe(inputElement.width, 50);
     shouldBe(inputElement.height, 50);
     asyncEnd();

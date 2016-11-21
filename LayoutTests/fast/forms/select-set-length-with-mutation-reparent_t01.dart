@@ -9,19 +9,18 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var sel = document.createElement('select');
+  SelectElement sel = document.createElement('select') as SelectElement;
   document.body.append(sel);
-  var otherSel = document.createElement('select');
+  SelectElement otherSel = document.createElement('select') as SelectElement;
   document.body.append(otherSel);
 
-  onRemove(e) {
-    if (e.target.nextNode != null) {
+  onRemove(Event e) {
+    if ((e.target as Node).nextNode != null) {
       // remove listener temporarily to avoid lots of nesting
       sel.removeEventListener('DOMNodeRemoved', onRemove, false);
-      var n = e.target.nextNode;
+      Node n = (e.target as Node).nextNode;
       n.remove();
       otherSel.append(n);
       sel.addEventListener('DOMNodeRemoved', onRemove, false);
