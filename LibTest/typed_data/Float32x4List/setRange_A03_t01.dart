@@ -14,29 +14,30 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var l = new Float32x4List(10);
 
   Expect.throws( () {
-    l.setRange(10, 1, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-      pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
+    l.setRange(10, 1, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+        pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
   });
 
   Expect.throws( () {
-    l.setRange(-1, 1, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-      pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
+    l.setRange(-1, 1, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+        pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
   });
 
   Expect.throws( () {
-    l.setRange(1, 100, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-      pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
+    l.setRange(1, 100, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+        pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
   });
 
   Expect.throws( () {
-    l.setRange(-2147483648, 2147483647, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-      pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
+    l.setRange(-2147483648, 2147483647, [pack(1.0), pack(2.0), pack(3.0),
+        pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0),
+        pack(10.0)]);
   });
 
 }

@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var l = new Float32x4List.fromList([]);
@@ -23,13 +23,15 @@ main() {
     Expect.fail("StateError is expected");
   } on StateError catch(ok) {}
 
-  l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
+  l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0),
+      pack(5.0)]);
   try {
     l.singleWhere( (e) => e == 0);
     Expect.fail("StateError is expected");
   } on StateError catch(ok) {}
 
-  l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
+  l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0),
+      pack(5.0)]);
   try {
     l.singleWhere( (e) => false);
     Expect.fail("StateError is expected");

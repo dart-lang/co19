@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -26,7 +26,8 @@ main() {
     count++;
     return pack(0.0);
   }
-  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(9.0)]);
+  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
+      pack(4.0), pack(5.0), pack(6.0), pack(9.0)]);
   var res = l.firstWhere( (element) => false, orElse: f);
   Expect.equals(1, count);
   Expect.isTrue(equal(pack(.0), res));

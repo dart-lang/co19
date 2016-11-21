@@ -23,7 +23,7 @@ main() {
   Expect.isFalse(l.contains(new Object()));
   Expect.isFalse(l.contains([]));
 
-  var element = pack(0.0, 1.0, 2.0, 3.0);
+  Float32x4 element = pack(0.0, 1.0, 2.0, 3.0);
   l = new Float32x4List.fromList([element]);
   Expect.isFalse(l.contains(pack(.0,.0,.0,.0)));
   Expect.isFalse(l.contains(0.0));
@@ -32,9 +32,9 @@ main() {
   Expect.isFalse(l.contains([]));
   Expect.isFalse(l.contains(element));
 
-  var e1 = pack(1.0, 0.12, 2.25, -1e-1);
-  var e2 = pack(2.4e24, -3.01, 3e32, 0.12e-12);
-  var e3 = pack(-0.001, 8.12e-2, -2.11, 0.234);
+  Float32x4 e1 = pack(1.0, 0.12, 2.25, -1e-1);
+  Float32x4 e2 = pack(2.4e24, -3.01, 3e32, 0.12e-12);
+  Float32x4 e3 = pack(-0.001, 8.12e-2, -2.11, 0.234);
   l = new Float32x4List.fromList([e1, e2, e3]);
   Expect.isFalse(l.contains(pack(.0,.0,.0,.0)));
   Expect.isFalse(l.contains(pack(1.0, 0.12, 2.25, -1e-1)));

@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 pred(element) => element.greaterThan(pack(.0,.0,5.0,.0)).flagZ;
 
-pack(x, y, z, w) => new Float32x4(x,y,z,w);
+Float32x4 pack(x, y, z, w) => new Float32x4(x,y,z,w);
 
 main() {
   var l;

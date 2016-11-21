@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-O() => new Float32x4.zero();
+Float32x4 O() => new Float32x4.zero();
 
 void check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
@@ -22,9 +22,15 @@ void check(List<Float32x4> list) {
 main() {
   check([]);
   check([O()]);
-  check([O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O()]);
+  check([O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+         O(), O(), O(), O(), O(), O(), O(), O(), O(), O()]);
 }

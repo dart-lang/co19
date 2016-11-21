@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;
@@ -24,7 +24,8 @@ main() {
     return e;
   }
 
-  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
+  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
+      pack(4.0), pack(5.0)]);
   var res = l.map(f);
 
   res.elementAt(0);

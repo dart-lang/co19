@@ -14,7 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -33,9 +33,14 @@ void check(List<Float32x4> list, dynamic start, dynamic end) {
 main() {
   check([], 0, 0);
   check([pack(1.0)], 0, 1);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 0, 10);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 0, 0);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 0, 1);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 9, 10);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 4, 7);
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 0, 10);
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 0, 0);
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 0, 1);
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 9, 10);
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 4, 7);
 }

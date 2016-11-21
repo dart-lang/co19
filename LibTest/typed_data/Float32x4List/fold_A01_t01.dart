@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 checkInt(List<Float32x4> list, int expected) {
   var l = new Float32x4List.fromList(list);
@@ -39,12 +39,13 @@ checkConst(List<Float32x4> list, int expected) {
 main() {
   checkInt([], 0);
   checkInt([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-    pack(7.0), pack(8.0), pack(9.0), pack(10.0)], 220);
+      pack(7.0), pack(8.0), pack(9.0), pack(10.0)], 220);
   checkInt([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], 0);
 
   checkString([], "");
   checkString([pack(1.0)], "2.0");
-  checkString([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)], "2.04.06.08.010.0");
+  checkString([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)],
+      "2.04.06.08.010.0");
 
   checkConst([], 0);
   checkConst([pack(1.0), pack(2.0), pack(3.0)], 1);

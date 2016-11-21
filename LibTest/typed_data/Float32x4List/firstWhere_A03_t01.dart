@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-o() => new Float32x4.zero();
+Float32x4 o() => new Float32x4.zero();
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);

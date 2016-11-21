@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -36,7 +36,8 @@ main() {
   check([], 100);
   check([pack(1.0)], 5);
 
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 11);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 1000000);
-
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 11);
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+      pack(6.0), pack(7.0), pack(8.0), pack(9.0)], 1000000);
 }

@@ -19,13 +19,14 @@ import "../../../Utils/expect.dart";
 
 check(List list, var init, combine, num expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
-  num actual=queue.fold(init, combine);
+  num actual = queue.fold(init, combine) as num;
   Expect.equals(expected, actual);
 }	
 
 main() {
-  check([1,2,-3], 0, (value, element) => value+element, 0);
-  check([1,2,-3], 1, (value, element) => value*element, -6);
-  check([0,2,-3], 1, (value, element) => value*element, 0);
-  check(const[1,2,-5,-6], -1000, (value, element) => max(value,element), 2);
+  check([1,2,-3], 0, (num value, num element) => value + element, 0);
+  check([1,2,-3], 1, (num value, num element) => value * element, -6);
+  check([0,2,-3], 1, (num value, num element) => value * element, 0);
+  check(const[1,2,-5,-6], -1000,
+      (num value, num element) => max(value,element), 2);
 }

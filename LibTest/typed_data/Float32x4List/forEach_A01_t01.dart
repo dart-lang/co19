@@ -6,13 +6,14 @@
 /**
  * @assertion void forEach(void action(E element))
  * Applies the function [f] to each element of this collection.
- * @description Checks that the function [f] is called for each element of the list.
+ * @description Checks that the function [f] is called for each element of the
+ * list.
  * @author msyabro
  */
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -28,7 +29,7 @@ main() {
   Expect.isTrue(equal(pack(.0), res));
 
   l = new Float32x4List.fromList([pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-    pack(1.0), pack(1.0) ,pack(1.0), pack(1.0), pack(1.0), pack(1.0)]);
+     pack(1.0), pack(1.0) ,pack(1.0), pack(1.0), pack(1.0), pack(1.0)]);
   l.forEach( (e) {
     res += e;
   });

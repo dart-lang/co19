@@ -6,13 +6,14 @@
 /**
  * @assertion final bool isNotEmpty
  * Returns true if there is at least one element in this collection.
- * @description Checks that this method returns true iff [this] has at least one element.
+ * @description Checks that this method returns true iff [this] has at least one
+ * element.
  * @author msyabro
  */
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var l;

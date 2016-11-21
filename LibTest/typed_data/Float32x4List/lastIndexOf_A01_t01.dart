@@ -14,10 +14,11 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
-  var l = new Float32x4List.fromList([pack(-1.0), pack(0.0), pack(0.0), pack(-1.0), pack(2.0)]);
+  var l = new Float32x4List.fromList([pack(-1.0), pack(0.0), pack(0.0),
+      pack(-1.0), pack(2.0)]);
   Expect.equals(-1, l.lastIndexOf(pack(5.0), 4));
   Expect.equals(-1, l.lastIndexOf(pack(5.0), 0));
   Expect.equals(-1, l.lastIndexOf(pack(0.0), 0));

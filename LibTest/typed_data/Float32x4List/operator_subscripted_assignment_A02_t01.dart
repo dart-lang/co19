@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
@@ -37,7 +37,8 @@ check(List<Float32x4> list) {
 main() {
   check([]);
   check([pack(1.0)]);
-  check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0),
-         pack(8.0), pack(9.0), pack(10.0),pack(11.0), pack(12.0), pack(13.0), pack(14.0),
-         pack(15.0), pack(16.0), pack(17.0), pack(18.0), pack(19.0), pack(20.0)]);
+  check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
+         pack(7.0), pack(8.0), pack(9.0), pack(10.0),pack(11.0), pack(12.0),
+         pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0), pack(18.0),
+         pack(19.0), pack(20.0)]);
 }

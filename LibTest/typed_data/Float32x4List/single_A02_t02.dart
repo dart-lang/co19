@@ -13,7 +13,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> array) {
   var l = new Float32x4List.fromList(array);
@@ -25,9 +25,12 @@ check(List<Float32x4> array) {
 
 main() {
   check([pack(1.0), pack(2.0)]);
-  check([pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0)]);
+  check([pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+         pack(1.0), pack(1.0), pack(1.0)]);
 }

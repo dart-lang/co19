@@ -15,8 +15,8 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(length) {
-  var l = new Float32x4List(length);
+check(int length) {
+  Float32x4List l = new Float32x4List(length);
   try {
     l.clear();
     Expect.fail("This operation should not be supported");

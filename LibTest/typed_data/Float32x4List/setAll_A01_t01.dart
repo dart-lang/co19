@@ -15,7 +15,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -33,18 +33,23 @@ main() {
   var l = new Float32x4List(10);
 
   l.setAll(9, [pack(1.0)]);
-  listEquals([pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0), pack(.0),pack(1.0)], l);
+  listEquals([pack(.0),pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+      pack(.0), pack(.0), pack(.0), pack(1.0)], l);
 
   l.setAll(2, [pack(2.0), pack(2.0), pack(2.0), pack(2.0)]);
-  listEquals([pack(.0),pack(.0),pack(2.0),pack(2.0),pack(2.0),pack(2.0),pack(.0),pack(.0),pack(.0),pack(1.0)], l);
+  listEquals([pack(.0), pack(.0), pack(2.0), pack(2.0), pack(2.0), pack(2.0),
+      pack(.0), pack(.0), pack(.0), pack(1.0)], l);
 
   l.setAll(0, [pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0)]);
-  listEquals([pack(3.0),pack(3.0),pack(3.0),pack(3.0),pack(3.0),pack(2.0),pack(.0),pack(.0),pack(.0),pack(1.0)], l);
+  listEquals([pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(2.0),
+      pack(.0), pack(.0), pack(.0), pack(1.0)], l);
 
-  l.setAll(0, [pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)]);
-  listEquals([pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)], l);
+  l.setAll(0, [pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
+      pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)]);
+  listEquals([pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
+      pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)], l);
 
   l.setAll(0, []);
-  listEquals([pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)], l);
+  listEquals([pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
+      pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)], l);
 }
-
