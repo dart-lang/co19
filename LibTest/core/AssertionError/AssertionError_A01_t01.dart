@@ -7,11 +7,10 @@
  * @assertion AssertionError class
  * Error thrown by the runtime system when an assert statement fails.
  * Implements Error
- * @description Checks that when an assert statement fails, an AssertionError is thrown.
+ * @description Checks that when an assert statement fails, an AssertionError is
+ * thrown.
  * Checks that AssertionError implements Error.
  * @author rodionov
- * @reviewer msyabro
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
