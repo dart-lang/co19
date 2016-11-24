@@ -4,18 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion new ArgumentError([message])
- * The message describes the erroneous argument. 
+ * @assertion ArgumentError.notNull([String name])
+ * Create an argument error for a null argument that must not be null.
  * @description Checks that this constructor executes without error for various
  * strings and null.
- * @author kaigorodov
+ * @author sgrekhov@unipro.ru
  */
 
 import "../../../Utils/expect.dart";
  
-void check(var message) {
-  ArgumentError err = new ArgumentError(message);
-  Expect.equals(message, err.message);
+void check(var name) {
+  ArgumentError err = new ArgumentError.notNull(name);
+  Expect.equals(name, err.name);
+  Expect.equals("Must not be null", err.message);
 }
 
 main() {
