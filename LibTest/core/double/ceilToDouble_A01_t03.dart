@@ -7,10 +7,9 @@
  * @assertion abstract double ceilToDouble()
  * Returns the least integer value no smaller than this.
  * The result is a double.
- * @description Checks that [:ceilToDouble():] called on a positive or negative zero
- * returns the same value.
+ * @description Checks that [:ceilToDouble():] called on a positive or negative
+ * zero returns the same value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

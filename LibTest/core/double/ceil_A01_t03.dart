@@ -9,7 +9,6 @@
  * @description Checks that [:ceil():] called on a positive or negative zero
  * returns zero.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

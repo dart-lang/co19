@@ -8,7 +8,6 @@
  * Returns the least integer no smaller than this.
  * @description Checks that positive values less then one are rounded to one.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

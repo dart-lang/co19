@@ -7,10 +7,8 @@
  * @assertion double abs()
  * @description Checks that if the value is negative, its negation is returned.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(double arg) {
   Expect.isTrue(arg < 0);

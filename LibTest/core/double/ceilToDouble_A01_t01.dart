@@ -9,7 +9,6 @@
  * The result is a double.
  * @description Checks that positive values less than one are rounded to one.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

@@ -9,7 +9,6 @@
  * The result is a double.
  * @description Checks [:ceilToDouble():] on a bunch of adjacent values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

@@ -7,7 +7,6 @@
  * @assertion double abs()
  * @description Checks that if value is not negative, the same value is returned.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
