@@ -28,7 +28,7 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
       (data) {
-        Expect.isFalse(paused, "Isolate should be in paused state");
+        Expect.isFalse(paused, "Isolate should not be in paused state");
         Expect.equals("response", data);
         asyncEnd();
         receivePort.close();
