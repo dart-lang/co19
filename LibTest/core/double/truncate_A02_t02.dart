@@ -11,18 +11,8 @@
  */
 import "../../../Utils/expect.dart";
 
-int check(double d) {
-  int res;
-  try {
-      res=d.truncate();
-      Expect.fail("UnsupportedError expected");
-  } on UnsupportedError catch (ok) {
-  }
-  return res;
-}
-
 main() {
-  double inf = 1 / 0;
-  check(inf);
-  check(-inf);
+  Expect.throws(() {double.INFINITY.truncate();}, (e) => e is UnsupportedError);
+  Expect.throws(() {double.NEGATIVE_INFINITY.truncate();},
+      (e) => e is UnsupportedError);
 }

@@ -7,12 +7,10 @@
  * @assertion double operator %(num other)
  * @description Checks that if the divisor is zero the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
-final inf = 1 / 0;
+final inf = double.INFINITY;
 
 final List values = const [
    .0,
@@ -41,7 +39,7 @@ final List values = const [
 ];
 
 checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
+  var msg = 'Expected: NaN, actual: $d';
   Expect.isTrue(d.isNaN, msg);
 }
 

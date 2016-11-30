@@ -9,15 +9,11 @@
  * negative infinity the result is positive infinity. If 'this' is negative
  * infinity and 'other' is positive infinity the result is negative infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
-final double positive_infinity = 1 / 0;
-final double negative_infinity = -1 / 0;
-
 main() {  
-  Expect.equals(positive_infinity, positive_infinity - negative_infinity);
-  Expect.equals(negative_infinity, negative_infinity - positive_infinity);
+  Expect.equals(double.INFINITY, double.INFINITY - double.NEGATIVE_INFINITY);
+  Expect.equals(double.NEGATIVE_INFINITY,
+      double.NEGATIVE_INFINITY - double.INFINITY);
 }

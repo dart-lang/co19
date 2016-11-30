@@ -8,12 +8,10 @@
  * Returns the integer obtained by discarding any fractional digits from this.
  * @description Checks truncation of NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  double nan = 0 / 0;
-  Expect.isTrue(nan.truncateToDouble().isNaN);
-  Expect.isTrue((-nan).truncateToDouble().isNaN);
+  Expect.isTrue(double.NAN.truncateToDouble().isNaN);
+  Expect.isTrue((-double.NAN).truncateToDouble().isNaN);
 }

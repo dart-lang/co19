@@ -7,7 +7,6 @@
  * @assertion double operator %(num other)
  * @description Checks that if the dividend is infinite the result is a NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -42,7 +41,7 @@ class Constants {
 }
 
 checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
+  var msg = 'Expected: NaN, actual: $d';
   Expect.isTrue(d.isNaN, msg);
 }
 

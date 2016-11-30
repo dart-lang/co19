@@ -8,7 +8,6 @@
  * @description Checks [:unary-():] on a NaN.
  * @author pagolubev
  * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

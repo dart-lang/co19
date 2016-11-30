@@ -7,10 +7,8 @@
  * @assertion bool isNaN
  * @description Checks that 0 / 0 is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.isTrue((0/0).isNaN);

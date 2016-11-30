@@ -7,10 +7,8 @@
  * @assertion bool isNegative
  * @description Checks [:isNegative:] on double special values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.isFalse(.0.isNegative);

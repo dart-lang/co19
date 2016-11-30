@@ -7,10 +7,8 @@
  * @assertion int operator ~/(num other)
  * @description Checks that if both operands are zero the result is an error.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.throws(() {

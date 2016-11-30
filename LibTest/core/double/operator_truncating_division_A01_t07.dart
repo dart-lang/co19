@@ -7,7 +7,6 @@
  * @assertion int operator ~/(num other)
  * @description Performs returned value checks on a bunch of values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

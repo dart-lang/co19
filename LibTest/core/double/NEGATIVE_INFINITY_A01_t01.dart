@@ -7,10 +7,8 @@
  * @assertion double NEGATIVE_INFINITY
  * @description Checks that double.NEGATIVE_INFINITY equals -double.INFINITY.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.equals(-double.INFINITY, double.NEGATIVE_INFINITY);

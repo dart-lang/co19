@@ -7,7 +7,6 @@
  * @assertion double remainder(num other)
  * @description Checks that if 'other' is zero the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

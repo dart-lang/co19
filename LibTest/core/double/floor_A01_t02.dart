@@ -8,7 +8,6 @@
  * Returns the greatest integer no greater than this.
  * @description Checks [:floor():] on a bunch of adjacent values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

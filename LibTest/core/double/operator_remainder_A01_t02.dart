@@ -7,7 +7,6 @@
  * @assertion double operator %(num other)
  * @description Checks that if one of the operands is a NaN the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

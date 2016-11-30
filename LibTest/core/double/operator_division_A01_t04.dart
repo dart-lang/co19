@@ -7,22 +7,17 @@
  * @assertion double operator /(num other)
  * @description Checks that if both operands are infinite the result is a NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
-final double positiveInf = 1 / 0;
-final double negativeInf = -1 / 0;
-
 checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
+  var msg = 'Expected: NaN, actual: $d';
   Expect.isTrue(d.isNaN, msg);
 }
 
 main() {
-  checkNaN(positiveInf / positiveInf);
-  checkNaN(positiveInf / negativeInf);
-  checkNaN(negativeInf / positiveInf);
-  checkNaN(negativeInf / negativeInf);
+  checkNaN(double.INFINITY / double.INFINITY);
+  checkNaN(double.INFINITY / double.NEGATIVE_INFINITY);
+  checkNaN(double.NEGATIVE_INFINITY / double.INFINITY);
+  checkNaN(double.NEGATIVE_INFINITY / double.NEGATIVE_INFINITY);
 }

@@ -9,7 +9,6 @@
  * less than -MAX_DOUBLE operator returns POSITIVE_INFINITY or NEGATIVE_INFINITY
  * respectively.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

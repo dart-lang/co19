@@ -6,7 +6,8 @@
 /**
  * @assertion double operator /(num other)
  * @description Checks that if the actual result is greater than MAX_DOUBLE or
- * less than -MAX_DOUBLE the operator returns POSITIVE_INFINITY or NEGATIVE_INFINITY
+ * less than -MAX_DOUBLE the operator returns POSITIVE_INFINITY or
+ * NEGATIVE_INFINITY
  * @author msyabro
  */
 import "../../../Utils/expect.dart";

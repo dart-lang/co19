@@ -6,29 +6,41 @@
 /**
  * @assertion double operator /(num other)
  * @description Checks that if 'this' is an infinite double and 'other' is
- * a finite nonzero double the result is infinity. The result sign is positive if
- * operands have the same sign, negative otherwise.
+ * a finite nonzero double the result is infinity. The result sign is positive
+ * if operands have the same sign, negative otherwise.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 final List values = const [
-   4.9406564584124654e-324, 2.2250738585072014e-308, .7, .9999999999999999, 1.0, 1.0000000000000002,
-   10.0, 99.0, 99.99999999999999, 100.0, 100.00000000000001, 101.0, 6031769.5, 4.2949672959999995E9,
-   4.294967296E9, 4.294967296000001E9, 4.5035996273704955E15, 4.503599627370496E15, 4.503599627370497E15,
-   3.273390607896142E150, 1.7976931348623157e308
+   4.9406564584124654e-324,
+   2.2250738585072014e-308,
+   .7,
+   .9999999999999999,
+   1.0,
+   1.0000000000000002,
+   10.0,
+   99.0,
+   99.99999999999999,
+   100.0,
+   100.00000000000001,
+   101.0,
+   6031769.5,
+   4.2949672959999995E9,
+   4.294967296E9,
+   4.294967296000001E9,
+   4.5035996273704955E15,
+   4.503599627370496E15,
+   4.503599627370497E15,
+   3.273390607896142E150,
+   1.7976931348623157e308
 ];
-
-final double positiveInf = 1 / 0;
-final double negativeInf = -1 / 0;
 
 main() {
   values.forEach((d) {
-    Expect.equals(positiveInf, positiveInf / d);
-    Expect.equals(negativeInf, negativeInf / d);
-    Expect.equals(negativeInf, positiveInf / (-d));
-    Expect.equals(positiveInf, negativeInf / (-d));
+    Expect.equals(double.INFINITY, double.INFINITY / d);
+    Expect.equals(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY / d);
+    Expect.equals(double.NEGATIVE_INFINITY, double.INFINITY / (-d));
+    Expect.equals(double.INFINITY, double.NEGATIVE_INFINITY / (-d));
   });
 }

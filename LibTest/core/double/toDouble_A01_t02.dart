@@ -7,7 +7,6 @@
  * @assertion double toDouble()
  * @description Checks [:toDouble():] on special values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

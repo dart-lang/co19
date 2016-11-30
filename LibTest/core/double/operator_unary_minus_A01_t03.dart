@@ -7,8 +7,6 @@
  * @assertion double operator unary-()
  * @description Checks [:unary-():] on a infinity.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

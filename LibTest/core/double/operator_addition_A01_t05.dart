@@ -10,8 +10,6 @@
  * adjacent doubles it's rounded to the value which significand ends in an
  * even digit.
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Need to cite original ieee standard.
  */
 import "../../../Utils/expect.dart";
 

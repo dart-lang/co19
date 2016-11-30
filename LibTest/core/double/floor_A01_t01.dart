@@ -8,7 +8,6 @@
  * Returns the greatest integer no greater than this.
  * @description Checks that positive values less than one are rounded to zero.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

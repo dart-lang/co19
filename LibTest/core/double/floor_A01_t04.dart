@@ -9,7 +9,6 @@
  * @description Checks that if the value is already equal to a mathematical
  * integer, then the result is the same as the value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

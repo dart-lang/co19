@@ -9,8 +9,6 @@
  * of the operands signs (chooses positive one from two possible remainder values).
  * Values were calculated in java using operator % and Math.IEEERemainder().
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Undocumented. That's not IEEE specified behavior.
  */
 import "../../../Utils/expect.dart";
 

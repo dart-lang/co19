@@ -10,7 +10,6 @@
  * (3.5).round() == 4 and (-3.5).round() == -4.
  * @description Checks the method on a bunch of values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
