@@ -5,12 +5,11 @@
  */
 /**
  * @assertion double abs()
- * @description Checks that if the value is infinite, the result is positive infinity.
+ * @description Checks that if the value is infinite, the result is positive
+ * infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   double inf = 1 / 0;

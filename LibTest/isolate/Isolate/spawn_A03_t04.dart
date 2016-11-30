@@ -36,7 +36,7 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
       (data) {
-        Expect.isFalse(paused, "Isolate should be in paused state");
+        Expect.isFalse(paused, "Isolate should not be in paused state");
         if (data is SendPort) {
           data.send("hello");
         } else {

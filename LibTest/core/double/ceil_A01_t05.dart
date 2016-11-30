@@ -9,7 +9,6 @@
  * @description Checks that if [:ceil():] is called on a value less than zero
  * but greater than -1.0,then the result is zero.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

@@ -13,10 +13,7 @@
 import "../../../Utils/expect.dart";
 
 check(double arg) {
-  Expect.throws(() {
-    arg.ceil();
-  },
-  (e)=>e is UnsupportedError
+  Expect.throws(() {arg.ceil();}, (e) => e is UnsupportedError
   );
 }
 
