@@ -11,7 +11,7 @@
  *
  * @description Check that if onError parameter is supplied, the isolate
  * captures and send only first error on given send port, errorAreFatal is true.
- * The isolate is passive.
+ * The isolate is active.
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
@@ -20,38 +20,26 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-void entryPoint(SendPort sendPort) {
-  ReceivePort receivePort = new ReceivePort();
-  dynamic i = 1;
-  receivePort.listen((_) => "a" + i);
-  sendPort.send(receivePort.sendPort);
-}
 test() async {
-  ReceivePort receivePort = new ReceivePort();
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawn(
-      entryPoint,
-      receivePort.sendPort,
+  Isolate.spawnUri(
+      new Uri.file("spawnUri_A07_t05_isolate.dart"),
+      null, // args
+      null, // message
       errorsAreFatal:true,
       onError:errorPort.sendPort
   );
-  SendPort sendPort = await receivePort.first;
-  sendPort.send("test0");
-  sendPort.send("test1");
-  sendPort.send("test2");
-  sendPort.send("test3");
 
   int count = 0;
   await for (var error in errorPort) {
 
-    Expect.equals(0, count, "received unexpected data: $error");
+    Expect.equals(0, count, "received unexpected data $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);
     Expect.isTrue(error[0] is String);
     Expect.isTrue(error[1] is String);
     count++;
-    sendPort.send("test4");
-    new Future.delayed(TWO_SECONDS, () => errorPort.close());
+    new Future.delayed(THREE_SECONDS, () => errorPort.close());
   }
   asyncEnd();
 }

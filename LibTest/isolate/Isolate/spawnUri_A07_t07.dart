@@ -20,18 +20,13 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-void entryPoint(SendPort sendPort) {
-  ReceivePort receivePort = new ReceivePort();
-  dynamic i = 1;
-  receivePort.listen((_) => "a" + i);
-  sendPort.send(receivePort.sendPort);
-}
 test() async {
   ReceivePort receivePort = new ReceivePort();
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawn(
-      entryPoint,
-      receivePort.sendPort,
+  Isolate.spawnUri(
+      new Uri.file("spawnUri_A07_t07_isolate.dart"),
+      null, // args
+      receivePort.sendPort, // message
       errorsAreFatal:true,
       onError:errorPort.sendPort
   );
