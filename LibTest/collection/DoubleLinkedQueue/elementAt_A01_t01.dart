@@ -6,7 +6,7 @@
 /**
  * @assertion E elementAt(int index)
  * Returns the indexth element.
- * @description Checks that the method returns the indexth element of the queue.
+ * @description Checks that the method returns the index'th element of the queue.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

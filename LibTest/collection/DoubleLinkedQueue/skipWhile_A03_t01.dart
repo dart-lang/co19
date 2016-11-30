@@ -5,9 +5,10 @@
  */
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
- * Every new Iterator of the returned Iterable iterates over all elements of this.
- * @description Checks that for every new iterator, all elements either are tested
- * and satisfy the test, or are returned by the iterator .
+ * Every new Iterator of the returned Iterable iterates over all elements of
+ * this.
+ * @description Checks that for every new iterator, all elements either are
+ * tested and satisfy the test, or are returned by the iterator .
  * @author kaigorodov
  */
 
@@ -26,9 +27,9 @@ void check(List a0, bool test0(var element)) {
   }
   Iterable itbl=queue.skipWhile(test);
   
-  for (int k=0; k<5; k++) {
-    all=[];
-    Iterator it=itbl.iterator;
+  for (int k = 0; k < 5; k++) {
+    all = [];
+    Iterator it = itbl.iterator;
     while (it.moveNext()) {
       all.add(it.current);
     }  
@@ -37,11 +38,11 @@ void check(List a0, bool test0(var element)) {
 }
 
 main() {
-  List a0=[1,3,7,4,5,6];
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  List a0=[1, 3, 7, 4, 5, 6];
+  check(a0, (var element) => element == 1);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4);
+  check(a0, (var element) => element < 4);
+  check(a0, (var element) => element == 4);
 }

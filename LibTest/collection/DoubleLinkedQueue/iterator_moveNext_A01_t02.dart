@@ -5,14 +5,15 @@
  */
 /**
  * @assertion Returns whether the [Iterator] has elements left.
- * @description Checks that [Iterator] has no elements left when the list is cleared.
+ * @description Checks that [Iterator] has no elements left when the list is
+ * cleared.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  DoubleLinkedQueue list = new DoubleLinkedQueue.from([0,1,2,3,4,5]);
+  DoubleLinkedQueue list = new DoubleLinkedQueue.from([0, 1, 2, 3, 4, 5]);
   list.clear();
   Iterator it = list.iterator;
   Expect.isFalse(it.moveNext());

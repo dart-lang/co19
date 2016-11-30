@@ -5,7 +5,8 @@
  */
 /**
  * @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
- * @description Checks that forEach() iterates over each element of the queue.
+ * @description Checks that forEachEntry() iterates over each element of the
+ * queue.
  * @author kaigorodov
  */
 

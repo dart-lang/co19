@@ -5,8 +5,9 @@
  */
 /**
  * @assertion final E first
- * If this is empty throws a StateError.
- * @description Checks that a StateError is thrown.
+ * Throws a StateError if this is empty. Otherwise returns the first element in
+ * the iteration order, equivalent to this.elementAt(0).
+ * @description Checks that a StateError is thrown if queue is empty.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

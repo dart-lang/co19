@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws an StateError exception if this queue is empty.
+ * @assertion The queue must not be empty when this method is called.
  * @description Checks that exception is thrown if the list is empty.
  * @author kaigorodov
  */

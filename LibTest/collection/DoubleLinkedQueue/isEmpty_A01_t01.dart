@@ -26,6 +26,7 @@ main() {
   Expect.isFalse(list.isEmpty);
   
   list.removeFirst();
+  Expect.isFalse(list.isEmpty);
   list.removeFirst();
   Expect.isTrue(list.isEmpty);
   Expect.isTrue(list.isEmpty);

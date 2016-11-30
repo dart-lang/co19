@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionfactory DoubleLinkedQueue.from(Iterable<E> other)
- * Creates a queue with the elements of other.
- * The order in the queue will be the order provided by the iterator of other.
- * @description Checks that created list contains all elements of [other] collection.
+ * @assertionfactory DoubleLinkedQueue.from(Iterable elements)
+ * Creates a double-linked queue containing all elements.
+ * The element order in the queue is as if the elements were added using
+ * addLast in the order provided by elements.iterator.
+ * @description Checks that created list contains all elements of [elements]
+ * collection.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

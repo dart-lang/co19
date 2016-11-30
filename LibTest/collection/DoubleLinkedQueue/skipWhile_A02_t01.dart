@@ -6,7 +6,8 @@
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
  * The filtering happens lazily.
- * @description Checks that the test method is not called when the skipWhile is executed.
+ * @description Checks that the test method is not called when the skipWhile is
+ * executed.
  * @author kaigorodov
  */
 
@@ -19,10 +20,11 @@ DoubleLinkedQueue fromList(List list) {
 
 bool test(int value) {
   Expect.fail("test($value) called");
+  return false;
 }
 
 main() {
   fromList([]).skipWhile(test);
   fromList([1]).skipWhile(test);
-  fromList([1,3,7,4,5,6]).skipWhile(test);
+  fromList([1, 3, 7, 4, 5, 6]).skipWhile(test);
 }

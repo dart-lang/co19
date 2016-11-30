@@ -14,11 +14,11 @@ import "../../../Utils/expect.dart";
 
 check(List list, bool test(value), int expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
-  int actual=queue.firstWhere(test);
+  int actual = queue.firstWhere(test);
   Expect.equals(expected, actual);
 }
 
 main() {
-  check([1,2,-3,4], (value)=>value>1, 2);
-  check(const[1,2,-5,-6], (value)=>value<0, -5);
+  check([1, 2, -3, 4], (value) => value > 1, 2);
+  check(const[1, 2, -5, -6], (value) => value < 0, -5);
 }

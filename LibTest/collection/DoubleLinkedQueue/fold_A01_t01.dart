@@ -7,8 +7,8 @@
  * @assertion dynamic fold(initialValue, combine(previousValue, E element))
  * Reduces a collection to a single value by iteratively combining each element
  * of the collection with an existing value using the provided function.
- * Use initialValue as the initial value, and the function combine to create
- * a new value from the previous one and an element.
+ * Uses initialValue as the initial value, then iterates through the elements
+ * and updates the value with each element using the combine function
  * @description Checks that the result is correct for simple functions.
  * @author kaigorodov
  */
@@ -24,9 +24,9 @@ check(List list, num init, combine, num expected) {
 }	
 
 main() {
-  check([1,2,-3], 0, (value, element) => value + element, 0);
-  check([1,2,-3], 1, (value, element) => value * element, -6);
-  check([0,2,-3], 1, (value, element) => value * element, 0);
-  check(const[1,2,-5,-6], -1000, (num value,
-      num element) => max(value, element), 2);
+  check([1, 2, -3], 0, (value, element) => value + element, 0);
+  check([1, 2, -3], 1, (value, element) => value * element, -6);
+  check([0, 2, -3], 1, (value, element) => value * element, 0);
+  check(const[1, 2, -5, -6], -1000,
+      (num value, num element) => max(value, element), 2);
 }

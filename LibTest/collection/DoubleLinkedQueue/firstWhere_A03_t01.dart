@@ -6,7 +6,8 @@
 /**
  * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
  * By default, when orElse is null, a StateError is thrown.
- * @description Checks that a StateError is thrown when orElse is null and none matches.
+ * @description Checks that a StateError is thrown when orElse is null and none
+ * matches.
  * @author kaigorodov
  */
 
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-    queue.firstWhere((int value)=>false);
+    queue.firstWhere((int value) => false);
     },
     (e)=> e is StateError
   );
@@ -27,5 +28,5 @@ main() {
   check([]);
   check(const[]);
   check(new List.from([]));
-  check([1,2,3]);
+  check([1, 2, 3]);
 }

@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Returns whether the [Iterator] has elements left.
- * @description Checks that true is returned only if [Iterator] has some elements left.
+ * @description Checks that true is returned only if [Iterator] has some
+ * elements left.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -24,7 +25,7 @@ main() {
     list.add(i);
   }
   it = list.iterator;
-  for (var i=0; i < list.length; i++) {
+  for (var i = 0; i < list.length; i++) {
     Expect.isTrue(it.moveNext());
   }
   Expect.isFalse(it.moveNext());

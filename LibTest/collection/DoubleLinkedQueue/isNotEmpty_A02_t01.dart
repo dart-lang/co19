@@ -1,33 +1,26 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion final bool isNotEmpty
- * Returns true if there is at least one element in this collection.
+ * May be computed by checking if iterator.moveNext() returns true.
  * @description Checks that method returns true only if queue is not empty.
- * @author kaigorodov
+ * @author iarkh
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
   DoubleLinkedQueue list = new DoubleLinkedQueue();
-  
-  Expect.isFalse(list.isNotEmpty);
-  
+  Expect.equals(list.isNotEmpty, list.iterator.moveNext());
   list.addLast(1);
-  Expect.isTrue(list.isNotEmpty);
-  Expect.isTrue(list.isNotEmpty);
-  Expect.isTrue(list.isNotEmpty);
-
+  Expect.equals(list.isNotEmpty, list.iterator.moveNext());
   list.addFirst(1);
-  Expect.isTrue(list.isNotEmpty);
-  
+  Expect.equals(list.isNotEmpty, list.iterator.moveNext());
   list.removeFirst();
-  Expect.isTrue(list.isNotEmpty);
+  Expect.equals(list.isNotEmpty, list.iterator.moveNext());
   list.removeFirst();
-  Expect.isFalse(list.isNotEmpty);
-  Expect.isFalse(list.isNotEmpty);
+  Expect.equals(list.isNotEmpty, list.iterator.moveNext());
 }

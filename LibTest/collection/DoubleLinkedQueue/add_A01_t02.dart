@@ -6,7 +6,8 @@
 /**
  * @assertion void add(E value)
  * Adds [value] at the end of the queue.
- * @description Checks that method does not affect the previous elements of the queue
+ * @description Checks that method does not affect the previous elements of the
+ * queue
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -22,7 +23,7 @@ check(List expected, DoubleLinkedQueue actual) {
  
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
-  check([],queue);
+  check([], queue);
   queue.add(null);
   check([null], queue);
   queue.add(0);

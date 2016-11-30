@@ -7,7 +7,8 @@
  * @assertion E elementAt(int index)
  * Returns the indexth element.
  * If this has fewer than index elements throws a RangeError.
- * @description Checks that a RangeError is thrown if this has fewer than index elements.
+ * @description Checks that a RangeError is thrown if this has fewer than index
+ * elements.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

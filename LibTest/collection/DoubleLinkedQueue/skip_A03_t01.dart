@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract Iterable<E> skip(int n)
- * It is an error if n is negative.
- * @description checks that a RangeError is thrown if n is negative.
+ * @assertion abstract Iterable<E> skip(int count)
+ * The count must not be negative.
+ * @description checks that a RangeError is thrown if count is negative.
  * @author kaigorodov
  */
 
@@ -17,14 +17,14 @@ check(List a, int n) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
   Iterable res;
   Expect.throws(() {
-      res=queue.skip(n);
+      res = queue.skip(n);
     },
-    (e)=> e is RangeError
+    (e) => e is RangeError
   );
 }
 
 main() {
-  check([1,2,-3,4], -1);
-  check(const[1,2,-5,-6, 100], -1);
-  check(const[null,2,-5,-6, 100], -1000);
+  check([1, 2, -3, 4], -1);
+  check(const[1, 2, -5,-6, 100], -1);
+  check(const[null , 2, -5, -6, 100], -1000);
 }

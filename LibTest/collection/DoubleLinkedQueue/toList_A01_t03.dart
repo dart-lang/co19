@@ -6,8 +6,10 @@
 /**
  * @assertion List<E> toList({bool growable: true})
  * Creates a List containing the elements of this Iterable.
- * The elements will be in iteration order. The list is fixed-length if growable is false.
- * @description Checks that the list created with growable==false cannot change it's size.
+ * The elements will be in iteration order. The list is fixed-length if growable
+ * is false.
+ * @description Checks that the list created with growable == false cannot
+ * change its size.
  * @author kaigorodov
  */
 
@@ -41,11 +43,13 @@ check(List l) {
 
 main() {
   check(new DoubleLinkedQueue().toList(growable:false));
-  DoubleLinkedQueue src = new DoubleLinkedQueue.from([null, [null], [], [1,2,3], [[null]]]);
+  DoubleLinkedQueue src = new DoubleLinkedQueue.from(
+      [null, [null], [], [1,2,3], [[null]]]);
   check(src.toList(growable:false));
   if (failures.isEmpty) return;
-  StringBuffer sb=new StringBuffer();
-  sb.write("following operations do not cause UnsupportedError on fixed-sized list:\n");
+  StringBuffer sb = new StringBuffer();
+  sb.write(
+      "following operations do not cause UnsupportedError on fixed-sized list:\n");
   sb.writeAll(failures, ", ");
   Expect.fail(sb.toString());
 }

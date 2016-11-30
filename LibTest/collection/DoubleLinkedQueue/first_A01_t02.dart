@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool iterator
- * @description Checks that iterator is read-only property and cannot be changed
+ * @assertion final E first
+ * @description Checks that E is final and cannot be changed
  * @author iarkh
  */
-
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
   dynamic queue = new DoubleLinkedQueue();
+  queue.add(1);
+  queue.add(2);
   Expect.throws(() {
-    queue.iterator = null;
-  },
-      (e)=> e is NoSuchMethodError
+      queue.first = 1;
+    },
+    (e)=> e is NoSuchMethodError
   );
 }

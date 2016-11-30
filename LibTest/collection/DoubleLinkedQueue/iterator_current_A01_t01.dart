@@ -13,7 +13,6 @@ import "dart:collection";
 
 void checkNext(DoubleLinkedQueue q) {
   Iterator it = q.iterator;
-  var i = 0;
   q.forEach((var element) {
     Expect.isTrue(it.moveNext());
     Expect.equals(element, it.current);
@@ -22,15 +21,16 @@ void checkNext(DoubleLinkedQueue q) {
 }
 
 main() {
-  DoubleLinkedQueue q1 = new DoubleLinkedQueue.from([null,0,"1",false]);
+  DoubleLinkedQueue q1 = new DoubleLinkedQueue.from([null, 0, "1", false]);
   checkNext(q1);
 
   DoubleLinkedQueue q2 = new DoubleLinkedQueue();
-  for (var i=0; i < 100; i++) {
+  for (var i = 0; i < 100; i++) {
     q2.add( -i);
   }
   checkNext(q2);
 
-  DoubleLinkedQueue q3 = new DoubleLinkedQueue.from(["0","1","2","3","4","5",6,7,8,9,null]);
-  checkNext(q2);
+  DoubleLinkedQueue q3 = new DoubleLinkedQueue.from(
+      ["0", "1", "2", "3", "4", "5", 6, 7, 8, 9, null]);
+  checkNext(q3);
 }

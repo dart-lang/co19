@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void forEach(void f(E element))
- * Applies the function f to each element of this collection.
+ * Applies the function f to each element of this collection in iteration order.
  * @description Checks forEach() on empty list.
  * @author kaigorodov
  */

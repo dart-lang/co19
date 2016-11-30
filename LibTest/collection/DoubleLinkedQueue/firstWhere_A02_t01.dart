@@ -6,8 +6,8 @@
 /**
  * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
  * If none matches, the result of invoking the orElse function is returned.
- * @description Checks that the result of invoking the orElse function is returned
- * when none matches.
+ * @description Checks that the result of invoking the orElse function is
+ * returned when none matches.
  * @author kaigorodov
  */
 
@@ -19,9 +19,11 @@ class TestException {}
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-      queue.firstWhere((int value)=>false, orElse: (){throw new TestException();});
+      queue.firstWhere((int value) => false, orElse: () {
+        throw new TestException();
+      });
     },
-    (e)=> e is TestException
+    (e) => e is TestException
   );
 }
 
@@ -30,5 +32,5 @@ main() {
   check([]);
   check(const[]);
   check(new List.from([]));
-  check([1,2,3]);
+  check([1, 2, 3]);
 }

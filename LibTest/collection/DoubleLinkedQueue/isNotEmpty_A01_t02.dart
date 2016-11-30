@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool iterator
- * @description Checks that iterator is read-only property and cannot be changed
+ * @assertion final bool isNotEmpty
+ * Returns true if there is at least one element in this collection.
+ * @description Checks that isNotEmpty is read-only property and cannot be
+ * changed.
  * @author iarkh
  */
 
@@ -15,7 +17,7 @@ import "dart:collection";
 main() {
   dynamic queue = new DoubleLinkedQueue();
   Expect.throws(() {
-    queue.iterator = null;
+    queue.isNotEmpty = 1;
   },
       (e)=> e is NoSuchMethodError
   );

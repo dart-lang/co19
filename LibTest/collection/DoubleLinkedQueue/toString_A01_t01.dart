@@ -6,8 +6,8 @@
 /**
  * @assertion String toString()
  * Returns a string representation of this object.
- * @description Checks that string representation of this queue contains representation
- * of its elements.
+ * @description Checks that string representation of this queue contains
+ * representation of its elements.
  * @author kaigorodov
  */
 
@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 void check(List elements) {
   DoubleLinkedQueue q = new DoubleLinkedQueue.from(elements);
-  String rep=q.toString();
+  String rep = q.toString();
   
   for (var element in elements) {
     Expect.isTrue(rep.contains(element.toString()));
@@ -24,6 +24,6 @@ void check(List elements) {
 }
 
 main() {
-  check([1,"2","345", "rfq"]);
-  check([null, [null], [], [1,2,3], [[null]]]);
+  check([1, "2", "345", "rfq"]);
+  check([null, [null], [], [1, 2, 3], [[null]]]);
 }

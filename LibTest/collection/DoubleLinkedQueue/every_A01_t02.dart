@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool every(bool f(E element))
- * Returns true if every elements of this collection satisify the predicate test.
+ * Returns true if every elements of this collection satisfy the predicate test.
  * Returns false otherwise.
  * @description Checks that every() on empty list returns true.
  * @author kaigorodov

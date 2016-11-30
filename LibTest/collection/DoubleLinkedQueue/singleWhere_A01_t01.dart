@@ -6,7 +6,9 @@
 /**
  * @assertion abstract E singleWhere(bool test(E value))
  * Returns the single element that satisfies [test].
- * @description Checks that the single element that satisfies the given predicate [test]
+ * Checks all elements to see if test(element) returns true.
+ * @description Checks that the single element that satisfies the given
+ * predicate [test]
  * is returned.
  * @author kaigorodov
  */
@@ -16,11 +18,11 @@ import "../../../Utils/expect.dart";
 
 check(List a, bool test(value), int expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
-  int actual=queue.singleWhere(test) as int;
+  int actual = queue.singleWhere(test) as int;
   Expect.equals(expected, actual);
 }
 
 main() {
-  check([1,2,-3,0], (value)=>value>1, 2);
-  check(const[1,2,-5,-6], (value)=>value==1, 1);
+  check([1, 2, -3, 0], (value) => value>1, 2);
+  check(const[1, 2, -5, -6], (value) => value == 1, 1);
 }

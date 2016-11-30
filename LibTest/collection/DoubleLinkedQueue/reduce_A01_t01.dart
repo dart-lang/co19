@@ -7,6 +7,10 @@
  * @assertion abstract E reduce(E combine(E value, E element))
  * Reduces a collection to a single value by iteratively combining elements of
  * the collection using the provided function.
+ * The iterable must have at least one element. If it has only one element, that
+ * element is returned.
+ * Otherwise this method starts with the first element from the iterator, and
+ * then combines it with the remaining elements in iteration order.
  * @description Checks that the result is correct for simple functions.
  * @author kaigorodov
  */
@@ -23,8 +27,12 @@ check(List list, combine, num expected) {
 }	
 
 main() {
-  check([1,2,-3], (value, element) => value + element, 0);
-  check([1,2,-3], (value, element) => value * element, -6);
-  check([0,2,-3], (value, element) => value * element, 0);
-  check(const[1,2,-5,-6], (num value, num element) => max(value, element), 2);
+  check([1, 2, -3], (value, element) => value + element, 0);
+  check([1], (value, element) => value + element, 1);
+  check([1, 2, -3], (value, element) => value * element, -6);
+  check([8], (value, element) => value * element, 8);
+  check([0, 2, -3], (value, element) => value * element, 0);
+  check([-3], (value, element) => value * element, -3);
+  check(const[1, 2, -5, -6],
+      (num value, num element) => max(value, element), 2);
 }

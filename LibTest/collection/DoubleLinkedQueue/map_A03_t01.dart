@@ -5,10 +5,12 @@
  */
 /**
  * @assertion abstract Iterable map(f(E element))
- * The transformed elements will not be cached. Iterating multiple times over the the
- * returned Iterable will invoke the supplied function f multiple times on the same element.
- * @description Checks that iterating multiple times over the the
- * returned Iterable will invoke the supplied function f multiple times on the same element.
+ * The transformed elements will not be cached. Iterating multiple times over
+ * the returned Iterable will invoke the supplied function f multiple times on
+ * the same element.
+ * @description Checks that iterating multiple times over the the returned
+ * Iterable will invoke the supplied function f multiple times on the same
+ * element.
  * @author kaigorodov
  */
 
@@ -24,21 +26,21 @@ int f(int element) {
   
 void checkResult(DoubleLinkedQueue<int> queue, int expected) {
   int count=0;
-  Iterable<int> mapIter=queue.map(f);
+  Iterable<int> mapIter = queue.map(f);
   for (int el in mapIter) {
     count++;
   }
   Expect.equals(queue.length, count);
-  for (int k=0; k<200; k++) {
+  for (int k = 0; k < 200; k++) {
     Expect.equals(expected, visited[k]);
   }
 }
 
 main() {
   DoubleLinkedQueue<int> queue = new DoubleLinkedQueue<int>();
-  for (int k=0; k<200; k++) {
+  for (int k = 0; k < 200; k++) {
     queue.add(k);
-    visited[k]=0;
+    visited[k] = 0;
   }
   checkResult(queue, 1);
   checkResult(queue, 2);
