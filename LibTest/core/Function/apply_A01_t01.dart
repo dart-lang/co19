@@ -4,11 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic apply(Function function, List positionalArguments, [Map<Symbol, dynamic> namedArguments])
+ * @assertion dynamic apply(Function function, List positionalArguments,
+ * [Map<Symbol, dynamic> namedArguments])
  * Dynamically call function with the specified arguments.
- * Acts the same as calling function with positional arguments corresponding to the elements of positionalArguments 
- * and named arguments corresponding to the elements of namedArguments.
- * @description Checks that invoking a Function object via Function.apply produces expected results.
+ * Acts the same as calling function with positional arguments corresponding
+ * to the elements of positionalArguments and named arguments corresponding
+ * to the elements of namedArguments.
+ * @description Checks that invoking a Function object via Function.apply
+ * produces expected results.
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
@@ -30,7 +33,6 @@ main() {
   Expect.equals("1122", Function.apply(new B(), [11, 22], null));
   
   Map<Symbol, dynamic> namedArgs = new Map();
-//  namedArgs[const Symbol("x2")] = "x3";
   namedArgs[const Symbol("y2")] = 22;
   Expect.equals("x1y1x222", Function.apply(foo, ["x1", "y1"], namedArgs));
 

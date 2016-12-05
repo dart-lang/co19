@@ -7,10 +7,8 @@
  * @assertion bool isNaN
  * @description Checks the method on special values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check_not_nan(double d) {
   Expect.isFalse(d.isNaN);

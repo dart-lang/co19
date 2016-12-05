@@ -7,7 +7,6 @@
  * @assertion double INFINITY
  * @description Checks that double.INFINITY equals 1 / 0.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

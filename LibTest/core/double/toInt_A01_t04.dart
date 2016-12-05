@@ -5,27 +5,13 @@
  */
 /**
  * @assertion int toInt()
- * @description Checks that [:toInt():] throws an error or exception when called on infinity.
+ * @description Checks that [:toInt():] throws an error or exception when called
+ * on infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  double inf = 1 / 0;
-  bool fail = false;
-
-  try {
-    inf.toInt();
-    fail = true;
-  } catch(e) {}
-  Expect.isFalse(fail, "Error or exception expected");
-
-  fail = false;
-  try {
-    (-inf).toInt();
-    fail = true;
-  } catch(e) {}
-  Expect.isFalse(fail, "Error or exception expected");
+  Expect.throws(() {double.INFINITY.toInt();});
+  Expect.throws(() {double.NEGATIVE_INFINITY.toInt();});
 }

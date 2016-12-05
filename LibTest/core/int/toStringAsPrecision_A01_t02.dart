@@ -5,22 +5,23 @@
  */
 /**
  * @assertion String toStringAsPrecision(int precision)
- * Converts a number into string using a precision notation.
- * @description Tries to pass an argument that is out of allowed range, expects an exception.
+ * Converts this to a double and returns a string representation with exactly
+ * precision significant digits.
+ * The parameter precision must be an integer satisfying: 1 <= precision <= 21.
+ * @description Tries to pass an argument that is out of allowed range, expects
+ * an exception.
  * @author msyabro
- * @reviewer rodionov
- * @neeedsreview Allowed range undocumented
  */
 import "../../../Utils/expect.dart";
 
 main() {
   check(0, -1);
-  check(0, -0x8000000000000000);
-  check(0, 0x8000000000000000);
+  check(1, 22);
+  check(2, 0);
+  check(3, -0x8000000000000000);
+  check(4, 0x8000000000000000);
 }
 
 void check(int x, int digits) {
-  Expect.throws(() {
-    x.toStringAsPrecision(digits);
-  });
+  Expect.throws(() {x.toStringAsPrecision(digits);});
 }

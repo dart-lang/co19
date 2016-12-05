@@ -7,7 +7,6 @@
  * @assertion bool operator >=(num other)
  * @description Checks operator >= when 'other' is of type int.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

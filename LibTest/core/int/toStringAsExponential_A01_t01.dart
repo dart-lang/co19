@@ -5,11 +5,21 @@
  */
 /**
  * @assertion String toStringAsExponential([int fractionDigits]) 
- * Converts this to a string in decimal exponential notation with fractionDigits digits after the decimal point.
- * @description Checks that this method returns correct value when fractionDigits is specified.
+ * Returns an exponential string-representation of this.
+ *
+ * Converts this to a double before computing the string representation.
+ *
+ * If fractionDigits is given then it must be an integer satisfying:
+ * 0 <= fractionDigits <= 20. In this case the string contains exactly
+ * fractionDigits after the decimal point. Otherwise, without the parameter,
+ * the returned string uses the shortest number of digits that accurately
+ * represent this.
+ *
+ * If fractionDigits equals 0 then the decimal point is omitted
+ * @description Checks that this method returns correct value when
+ * fractionDigits is specified.
  * @author vasya
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -46,7 +56,6 @@ main() {
   Expect.equals("-1e+8", (-123456789).toStringAsExponential(0));
   Expect.equals("-1.2345678900e+8", (-123456789).toStringAsExponential(10));
 
-  // derived from Java's "%.#e" formatting of float 0.0
   Expect.equals("0e+0", 0.toStringAsExponential(0));
   Expect.equals("0.0e+0", 0.toStringAsExponential(1));
   Expect.equals("0.00e+0", 0.toStringAsExponential(2));

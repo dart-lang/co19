@@ -10,7 +10,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   Expect.isFalse(double.NEGATIVE_INFINITY is int);
   Expect.isTrue(double.NEGATIVE_INFINITY is double);

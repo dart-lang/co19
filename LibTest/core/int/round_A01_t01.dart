@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Rounds x to the nearest int.
+ * @assertion int round()
+ * Returns this
  * @description Checks that this function returns correct value
  * (expected to return this integer).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

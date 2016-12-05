@@ -7,7 +7,6 @@
  * @assertion Holds the number of seconds in a day.
  * @description Checks that the value of this property is correct.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

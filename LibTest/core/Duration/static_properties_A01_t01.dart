@@ -25,10 +25,8 @@
  * @author kaigorodov
  */
 
-var sum;
-
 main() {
-  sum=Duration.HOURS_PER_DAY
+  Duration.HOURS_PER_DAY
    + Duration.HOURS_PER_DAY
    + Duration.MICROSECONDS_PER_DAY
    + Duration.MICROSECONDS_PER_HOUR

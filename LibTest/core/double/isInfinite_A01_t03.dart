@@ -11,7 +11,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 check(double d) {
   Expect.isTrue(d.isInfinite);
 }

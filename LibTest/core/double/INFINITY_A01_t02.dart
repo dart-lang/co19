@@ -7,10 +7,8 @@
  * @assertion double INFINITY
  * @description Checks INFINITY is equal to INFINITY using equality operator
  * @author hlodvig
- * @needsreview
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.isTrue(double.INFINITY == double.INFINITY);

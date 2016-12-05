@@ -5,7 +5,8 @@
  */
 /**
  * @assertion double operator *(num other)
- * @description Checks that if the magnitude is too small to represent, the result is then a zero.
+ * @description Checks that if the magnitude is too small to represent, the
+ * result is then a zero.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";

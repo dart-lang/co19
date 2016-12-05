@@ -7,10 +7,8 @@
  * @assertion String toStringAsFixed(int fractionDigits)
  * @description Checks return value for .0 and -.0.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(String expected, int digits) {
   Expect.equals(expected, .0.toStringAsFixed(digits));

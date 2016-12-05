@@ -8,15 +8,12 @@
  * @description Checks that for a NaN the method returns 'NaN' regardless
  * of the 'fractionDigits' value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 
 main() {
-  double nan = 0 / 0;
-
   for(int i = 0; i < 10; i++) {
-    Expect.equals('NaN', nan.toStringAsFixed(i));
+    Expect.equals('NaN', double.NAN.toStringAsFixed(i));
   }
 }

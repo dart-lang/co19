@@ -5,10 +5,9 @@
  */
 /**
  * @assertion Double is contagious.
- * @description Checks that arithmetic operations (except those that specify int as return type)
- * on a double and an int yield double.
+ * @description Checks that arithmetic operations (except those that specify int
+ * as return type) on a double and an int yield double.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

@@ -1,4 +1,3 @@
-import "../../../Utils/expect.dart";
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -9,8 +8,8 @@ import "../../../Utils/expect.dart";
  * If fractionDigits is given then it must be an integer satisfying: 0 <= fractionDigits <= 20.
  * @description Checks that an exception is thrown when [fractionDigit] is out of range.
  * @author msyabro
- * @reviewer rodionov
  */
+import "../../../Utils/expect.dart";
 
 main() {
   check(0.0, -1);
@@ -20,11 +19,5 @@ main() {
 }
 
 void check(double x, int digits) {
-  bool fail = false;
-  try {
-    print(x.toStringAsExponential(digits));
-    fail = true;
-  } catch(e) {}
-
-  Expect.isFalse(fail, "Some exception is expected");
+  Expect.throws(() {x.toStringAsExponential(digits);});
 }

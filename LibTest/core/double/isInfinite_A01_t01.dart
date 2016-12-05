@@ -7,13 +7,14 @@
  * @assertion bool isInfinite
  * @description Checks that 1/0 and -1/0 are infinite.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  double inf = 1/0;
+  double inf = 1 / 0;
   Expect.isTrue(inf.isInfinite);
   Expect.isTrue((-inf).isInfinite);
+
+  Expect.isTrue((double.INFINITY).isInfinite);
+  Expect.isTrue((double.NEGATIVE_INFINITY).isInfinite);
 }

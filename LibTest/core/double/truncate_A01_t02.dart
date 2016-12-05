@@ -8,10 +8,8 @@
  * Returns the integer obtained by discarding any fractional digits from this.
  * @description Checks truncation of special values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(int expected, double argument) {
   Expect.equals(expected, argument.truncate());

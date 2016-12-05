@@ -10,7 +10,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   Expect.isFalse((double.NAN == double.NAN));
   Expect.isTrue((double.NAN != double.NAN));

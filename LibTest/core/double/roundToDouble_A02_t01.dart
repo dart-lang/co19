@@ -9,7 +9,6 @@
  * @description Checks that [:roundToDouble():] on NaN returns NaN.
  * @needsreview #16102
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

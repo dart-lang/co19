@@ -7,7 +7,6 @@
  * @assertion const FallThroughError()
  * @description Checks that this constructor causes no error
  * @author rodionov
- * @needsreview Undocumented
  */
  
 main() {

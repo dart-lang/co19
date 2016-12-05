@@ -8,8 +8,6 @@
  * Returns the int value represented by this object.
  * @description Checks that this method returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -30,7 +28,5 @@ main() {
 }
 
 void check(int x) {
-  int res = x.toInt();
-  Expect.isTrue(res is int);
-  Expect.equals(x, res);
+  Expect.equals(x, x.toInt());
 }

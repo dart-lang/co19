@@ -39,15 +39,8 @@ final List values = const [
    0/0
 ];
 
-check(double val) {
-  try {
-    val % null;
-    Expect.fail("Error is expected");
-  } on Error catch(e){}
-}
-
 main()  {
   values.forEach((double val) {
-    check(val);
+    Expect.throws(() {val % null;}, (e) => e is Error);
   });
 }

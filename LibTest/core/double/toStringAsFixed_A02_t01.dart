@@ -8,7 +8,6 @@
  * The parameter fractionDigits must be an integer satisfying: 0 <= fractionDigits <= 20.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
- * @needsreview Exact error/exception unspecified
  */
 import "../../../Utils/expect.dart";
 

@@ -6,13 +6,11 @@
 /**
  * @assertion double toDouble()
  * Returns the double value represented by this object.
- * @description Checks that this method returns correct value (rounded to the nearest finite double
- * for very large integers).
+ * @description Checks that this method returns correct value (rounded to the
+ * nearest finite double for very large integers).
  * @author vasya
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 main() {
@@ -38,7 +36,5 @@ main() {
 }
 
 void check(int x, double ex) {
-  double d = x.toDouble();
-  Expect.isTrue(d is double);
-  Expect.equals(ex, d);
+  Expect.equals(ex, x.toDouble());
 }

@@ -7,7 +7,6 @@
  * @assertion int toInt()
  * @description Checks [:toInt():] on special values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

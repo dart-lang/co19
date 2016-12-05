@@ -7,10 +7,8 @@
  * @assertion bool isNegative
  * @description Checks bunch of values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   double start = 0.1;

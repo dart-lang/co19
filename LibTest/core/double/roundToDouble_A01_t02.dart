@@ -11,7 +11,6 @@
  * @description Checks that [:round():] on a positive or negative zeros
  * returns the same value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

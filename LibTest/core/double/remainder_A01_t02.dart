@@ -7,12 +7,11 @@
  * @assertion double remainder(num other)
  * @description Checks that if either 'this' or 'other' is a NaN the result is a NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 
-final nan = 0 / 0;
+final nan = double.NAN;
 
 final List values = const [
    .0,
@@ -42,7 +41,7 @@ final List values = const [
 ];
 
 checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
+  var msg = 'Expected: NaN, actual: $d';
   Expect.isTrue(d.isNaN, msg);
 }
 

@@ -5,9 +5,9 @@
  */
 /**
  * @assertion double toDouble()
- * @description Checks that [:toDouble():] returns the exact value on bunch of values.
+ * @description Checks that [:toDouble():] returns the exact value on bunch of
+ * values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

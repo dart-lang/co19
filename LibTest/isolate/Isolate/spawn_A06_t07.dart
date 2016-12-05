@@ -9,7 +9,7 @@
  * addOnExitListener and addErrorListener were called with the corresponding
  * parameter and was processed before the isolate starts running.
  *
- * @description heck that if onError parameter is supplied, the isolate
+ * @description Check that if onError parameter is supplied, the isolate
  * captures and send only first error on given send port, errorAreFatal is true.
  * The isolate is passive.
  * @author a.semenov@unipro.ru

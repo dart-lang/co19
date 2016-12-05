@@ -7,14 +7,12 @@
  * @assertion double remainder(num other)
  * @description Checks that if 'this' is infinite the result is a NaN.
  * @author pagolubev
- * @reviewer msyabro
- * @needsewview Undocumented.
  */
 import "../../../Utils/expect.dart";
 
 
 class Constants {
-  static const INF = 1 / 0;
+  static const INF = double.INFINITY;
 
   static const List VALUES = const [
      .0,
@@ -44,7 +42,7 @@ class Constants {
 }
 
 checkNaN(d) {
-  var msg = 'expected: NaN, actual: $d';
+  var msg = 'Expected: NaN, actual: $d';
   Expect.isTrue(d.isNaN, msg);
 }
 

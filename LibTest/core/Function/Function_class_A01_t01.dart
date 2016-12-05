@@ -6,8 +6,8 @@
 /**
  * @assertion A function value, or an instance of a class with a "call" method, 
  * is a subtype of a function type, and as such, a subtype of Function.
- * @description Checks that function values and instances of classes with call(...) methods
- * are indeed subtypes of Function.
+ * @description Checks that function values and instances of classes with
+ * call(...) methods are indeed subtypes of Function.
  * @author rodionov
  */
 import "../../../Utils/expect.dart";

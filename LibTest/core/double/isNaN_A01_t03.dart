@@ -7,10 +7,8 @@
  * @assertion bool isNaN
  * @description Checks that some operations with NaN results to NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check_nan(double d) {
   Expect.isTrue(d.isNaN);

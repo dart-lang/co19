@@ -1,4 +1,3 @@
-import "../../../Utils/expect.dart";
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -9,9 +8,8 @@ import "../../../Utils/expect.dart";
  * @description Checks that if [fractionDigits] is [:null:]
  * a string representation has as much digital places as a number literal.
  * @author msyabro
- * @needsreview undocumented
  */
-
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('0e+0', .0.toStringAsExponential(null));

@@ -5,10 +5,9 @@
  */
 /**
  * @assertion double remainder(num other)
- * @description Checks that remainder value sign follows the sign of the dividend.
+ * @description Checks that remainder value sign follows the sign of the
+ * dividend.
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Undocumented.
  */
 import "../../../Utils/expect.dart";
 

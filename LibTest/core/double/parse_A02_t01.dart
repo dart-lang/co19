@@ -6,10 +6,9 @@
 /**
  * @assertion double parse(String source)
  * Throws a FormatException if source is not a valid double literal. 
- * @description Checks that exception is thrown if [source] can not be converted to double.
+ * @description Checks that exception is thrown if [source] can not be converted
+ * to double.
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview issue 1929
  */
 import "../../../Utils/expect.dart";
 

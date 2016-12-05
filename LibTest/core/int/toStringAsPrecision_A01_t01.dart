@@ -5,12 +5,11 @@
  */
 /**
  * @assertion String toStringAsPrecision(int precision)
- * Converts a number into string using a precision notation.
+ * Converts this to a double and returns a string representation with exactly
+ * precision significant digits.
+ * The parameter precision must be an integer satisfying: 1 <= precision <= 21.
  * @description Checks that this method returns correct value.
  * @author vasya
- * @author msyabro
- * @reviewer pagolubev
- * @needsreview Unimplemented and undocumented
  */
 import "../../../Utils/expect.dart";
 
