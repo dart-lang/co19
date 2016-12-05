@@ -5,7 +5,8 @@
  */
 /**
  * @assertion append(E e) → void
- * @description Checks that append() appends element to this one
+ * Appends the given [e] as entry just after this entry.
+ * @description Checks that [append()] appends element to this queue
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

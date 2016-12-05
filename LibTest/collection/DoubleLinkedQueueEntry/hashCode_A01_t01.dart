@@ -5,8 +5,8 @@
  */
 /**
  * @assertion hashCode → int
- *  Get a hash code for this object.…
- *  read-only, inherited
+ * Get a hash code for this object.…
+ * read-only, inherited
  * @description Checks that hashCode is different for different elements
  * @author sgrekhov@unipro.ru
  */

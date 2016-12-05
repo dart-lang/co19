@@ -6,6 +6,7 @@
 /**
  * @assertion element → E
  * read / write
+ * The element in the queue.
  * @description Checks that element property is read/write
  * @author sgrekhov@unipro.ru
  */

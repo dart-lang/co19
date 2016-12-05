@@ -5,7 +5,7 @@
  */
 /**
  * @assertion remove() → E
- * @description Checks that append() appends element to this one
+ * @description Checks that remove() removes element
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
