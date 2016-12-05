@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * Returns an Iterable that provides all but the first count elements.
+ * Returns an [Iterable] that provides all but the first [count] elements.
  * When the returned iterable is iterated, it starts iterating over this, first
- * skipping past the initial count elements.
+ * skipping past the initial [count] elements.
  * After that, the remaining elements are iterated in the same order as in this
  * iterable.
  * @description checks that an Iterable that skips the first n elements is

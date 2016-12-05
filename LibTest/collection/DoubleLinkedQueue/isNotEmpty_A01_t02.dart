@@ -16,9 +16,5 @@ import "dart:collection";
 
 main() {
   dynamic queue = new DoubleLinkedQueue();
-  Expect.throws(() {
-    queue.isNotEmpty = 1;
-  },
-      (e)=> e is NoSuchMethodError
-  );
+  Expect.throws(() { queue.isNotEmpty = 1; }, (e) => e is NoSuchMethodError);
 }

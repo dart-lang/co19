@@ -5,8 +5,8 @@
  */
 /**
  * @assertion final bool isNotEmpty
- * Returns true if there is at least one element in this collection.
- * @description Checks that method returns true only if queue is not empty.
+ * Returns [true] if there is at least one element in this collection.
+ * @description Checks that method returns [true] only if queue is not empty.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

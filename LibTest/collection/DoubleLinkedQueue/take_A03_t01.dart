@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> take(int n)
- * The returned Iterable may contain fewer than count elements, if this contains
- * fewer than count elements.
- * @description Checks that an Iterable that contains the first n elements is
- * returned.
+ * @assertion Iterable<E> take(int count)
+ * The returned [Iterable] may contain fewer than [count] elements, if this
+ * contains fewer than [count] elements.
+ * @description Checks that if an [Iterable] contains less elements than
+ * [count], all the elements are returned.
  * @author iarkh
  */
 

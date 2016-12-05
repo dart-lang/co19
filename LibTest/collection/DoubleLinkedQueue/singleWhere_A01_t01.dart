@@ -6,7 +6,7 @@
 /**
  * @assertion abstract E singleWhere(bool test(E value))
  * Returns the single element that satisfies [test].
- * Checks all elements to see if test(element) returns true.
+ * Checks all elements to see if [test(element)] returns [true].
  * @description Checks that the single element that satisfies the given
  * predicate [test]
  * is returned.
@@ -23,6 +23,6 @@ check(List a, bool test(value), int expected) {
 }
 
 main() {
-  check([1, 2, -3, 0], (value) => value>1, 2);
+  check([1, 2, -3, 0], (value) => value > 1, 2);
   check(const[1, 2, -5, -6], (value) => value == 1, 1);
 }

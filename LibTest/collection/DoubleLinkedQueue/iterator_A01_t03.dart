@@ -6,7 +6,7 @@
 /**
  * @assertion final _DoubleLinkedQueueIterator<E> iterator
  * Returns an Iterator that iterates over this Iterable object.
- * @description Checks that [Iterator] iterates over all elements of the list.
+ * @description Checks that [Iterator] iterates over all elements from the list.
  * @author iarkh
  */
 import "../../../Utils/expect.dart";
@@ -23,10 +23,10 @@ void checkIterator(DoubleLinkedQueue list) {
 
 main() {
   checkIterator(new DoubleLinkedQueue());
-  checkIterator(new DoubleLinkedQueue.from([null,0,"1", false,[]]));
+  checkIterator(new DoubleLinkedQueue.from([null, 0, "1", false, []]));
 
   List a = new List(36547);
-  for (var i=0; i < a.length; i++) {
+  for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }
   checkIterator(new DoubleLinkedQueue.from(a));

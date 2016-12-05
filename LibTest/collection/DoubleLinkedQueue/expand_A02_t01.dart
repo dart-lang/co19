@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Iterable expand(Iterable f(E element))
- * The returned Iterable is lazy, and calls f for each element of this every
+ * The returned [Iterable] is lazy, and calls [f] for each element of this every
  * time it's iterated.
  * @description Checks that the returned calls f for each element of this
  * every time it's iterated.

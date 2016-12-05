@@ -5,7 +5,7 @@
  */
 /**
  * @assertion E elementAt(int index)
- * Returns the indexth element.
+ * Returns the [index]th element.
  * @description Checks that the method returns the index'th element of the queue.
  * @author kaigorodov
  */

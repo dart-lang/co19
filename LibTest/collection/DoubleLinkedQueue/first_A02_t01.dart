@@ -16,19 +16,11 @@ import "dart:collection";
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
-  Expect.throws(() {
-      queue.first;
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.first; }, (e) => e is StateError);
   
   queue.addFirst(1);
   queue.addFirst(2);
   queue.clear();
   
-  Expect.throws(() {
-      queue.first;
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.first; }, (e) => e is StateError);
 }

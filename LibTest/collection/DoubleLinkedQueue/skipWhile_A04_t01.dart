@@ -6,10 +6,10 @@
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
  * The returned iterable provides elements by iterating this iterable, but
- * skipping over all initial elements where test(element) returns true. If all
- * elements satisfy test the resulting iterable is empty, otherwise it iterates
- * the remaining elements in their original order, starting with the first
- * element for which test(element) returns false.
+ * skipping over all initial elements where [test(element)] returns true. If all
+ * elements satisfy [test] the resulting iterable is empty, otherwise it
+ * iterates the remaining elements in their original order, starting with the
+ * first element for which [test(element)] returns false.
  * @description Checks that once an element does not satisfy the test,
  * the iterator stops testing and uses every element unconditionally.
  * @author kaigorodov

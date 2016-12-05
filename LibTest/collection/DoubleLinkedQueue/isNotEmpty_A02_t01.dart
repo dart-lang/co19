@@ -5,7 +5,7 @@
  */
 /**
  * @assertion final bool isNotEmpty
- * May be computed by checking if iterator.moveNext() returns true.
+ * May be computed by checking if [iterator.moveNext()] returns [true].
  * @description Checks that method returns true only if queue is not empty.
  * @author iarkh
  */

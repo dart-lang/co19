@@ -15,9 +15,5 @@ main() {
   dynamic queue = new DoubleLinkedQueue();
   queue.add(1);
   queue.add(2);
-  Expect.throws(() {
-      queue.first = 1;
-    },
-    (e)=> e is NoSuchMethodError
-  );
+  Expect.throws(() { queue.first = 1; }, (e) => e is NoSuchMethodError);
 }

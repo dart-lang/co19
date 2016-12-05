@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> take(int n)
- * Returns a lazy iterable of the count first elements of this iterable.
- * @description checks that an Iterable that contains the first n elements is
- * returned.
+ * @assertion Iterable<E> take(int count)
+ * Returns a lazy iterable of the [count] first elements of this iterable.
+ * @description checks that [Iterable] that contains the first [count] elements
+ * is returned.
  * @author kaigorodov
  */
 

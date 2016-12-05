@@ -5,7 +5,7 @@
  */
 /**
  * @assertion  @assertion final E single
- * @description Checks that length is read-only property and cannot be changed
+ * @description Checks that single is read-only property and cannot be changed
  * @author iarkh
  */
 
@@ -14,8 +14,5 @@ import "dart:collection";
 
 main() {
   dynamic queue = new DoubleLinkedQueue();
-  Expect.throws(() {
-      queue.single = false;
-    }, (e)=> e is NoSuchMethodError
-  );
+  Expect.throws(() { queue.single = false; }, (e) => e is NoSuchMethodError);
 }

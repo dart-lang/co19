@@ -5,16 +5,9 @@
  */
 /**
  * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * Returns the last element that satisfies the given predicate test.
- * An iterable that can access its elements directly may check its elements in
- * any order (for example a list starts by checking the last element and then
- * moves towards the start of the list). The default implementation iterates
- * elements in iteration order, checks test(element) for each, and finally
- * returns that last one that matched.
- * If no element satisfies test, the result of invoking the orElse function is
- * returned. If orElse is omitted, it defaults to throwing a StateError.
- * @description Checks that a StateError is thrown when orElse is null and none
- * matches.
+ * If [orElse] is omitted, it defaults to throwing a [StateError].
+ * @description Checks that [StateError] is thrown when [orElse] is null and
+ * none matches.
  * @author kaigorodov
  */
 
@@ -23,11 +16,8 @@ import "../../../Utils/expect.dart";
 
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
-  Expect.throws(() {
-    queue.lastWhere((int value) => false);
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.lastWhere((int value) => false); },
+    (e) => e is StateError);
 }
 
 main() {

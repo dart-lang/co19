@@ -6,8 +6,8 @@
 /**
  * @assertion abstract Iterable<E> takeWhile(bool test(E value))
  * The elements can be computed by stepping through iterator until an element is
- * found where test(element) is false. At that point, the returned iterable
- * stops (its moveNext() returns false).
+ * found where [test(element)] is [false]. At that point, the returned iterable
+ * stops (its [moveNext()] returns [false]).
  * @author kaigorodov
  */
 

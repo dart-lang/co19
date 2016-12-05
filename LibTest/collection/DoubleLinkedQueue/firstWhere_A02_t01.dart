@@ -5,7 +5,7 @@
  */
 /**
  * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
- * If none matches, the result of invoking the orElse function is returned.
+ * If none matches, the result of invoking the [orElse] function is returned.
  * @description Checks that the result of invoking the orElse function is
  * returned when none matches.
  * @author kaigorodov

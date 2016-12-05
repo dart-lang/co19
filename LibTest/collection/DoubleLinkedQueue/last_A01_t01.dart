@@ -6,7 +6,6 @@
 /**
  * @assertion final E last
  * Returns the last element.
- * If this is empty throws a StateError.
  * @description Checks that method returns the last element.
  * @author kaigorodov
 */

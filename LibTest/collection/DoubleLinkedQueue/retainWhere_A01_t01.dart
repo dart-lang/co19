@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void retainWhere(bool test(E element))
- * Removes all elements not matched by test from the queue.
+ * Removes all elements not matched by [test] from the queue.
  * @description Checks that all elements that satisfy test are left, and
  * elements that does not are removed.
  * @author kaigorodov
@@ -28,7 +28,7 @@ void check(List a0, bool test(var element)) {
 }
 
 main() {
-  List a0=[1, 3, 3, 4, 5, 6];
+  List a0 = [1, 3, 3, 4, 5, 6];
   check(a0, (var element) => true);
   check(a0, (var element) => false);
   check(a0, (var element) => element > 4);

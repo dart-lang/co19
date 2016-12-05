@@ -5,9 +5,8 @@
  */
 /**
  * @assertion List<E> toList({bool growable: true})
- * Creates a List containing the elements of this Iterable.
- * The elements will be in iteration order. The list is fixed-length if
- * growable is false.
+ * Creates a [List] containing the elements of this [Iterable].
+ * The elements will be in iteration order.
  * @description Checks that proper list with correct element order is created.
  * @author kaigorodov
  */

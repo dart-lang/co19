@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Iterable expand(Iterable f(E element))
- * The resulting Iterable runs through the elements returned by f for each
+ * Expands each element of this [Iterable] into zero or more elements.
+ * The resulting [Iterable] runs through the elements returned by [f] for each
  * element of this, in order.
  * @description Checks that the resulting Iterable runs through the elements
  * returned by f for each element of this, in order.

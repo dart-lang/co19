@@ -5,10 +5,10 @@
  */
 /**
  * @assertion String join([String separator = ""])
- * Converts each element to a String and concatenates the strings.
- * Iterates through elements of this iterable, converts each one to a String by
- * calling Object.toString, and then concatenates the strings, with the
- * separator string interleaved between the elements.
+ * Converts each element to a [String] and concatenates the strings.
+ * Iterates through elements of this iterable, converts each one to a [String]
+ * by calling [Object.toString], and then concatenates the strings, with the
+ * [separator] string interleaved between the elements.
  * @description Checks that the method result equals to the specified result.
  * @author kaigorodov
  */

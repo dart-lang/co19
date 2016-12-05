@@ -6,8 +6,8 @@
 /**
  * @assertion Iterable<E> takeWhile(bool test(E value))
  * The filtering happens lazily.
- * @description Checks that the test method is not called when the skipWhile is
- * executed.
+ * @description Checks that the test method is not called when the [skipWhile]
+ * is executed.
  * @author kaigorodov
  */
 

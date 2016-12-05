@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> take(int n)
- * Returns a lazy iterable of the count first elements of this iterable.
- * @description Checks that The filtering happens lazily, i.e. that the test
- * method is not called when the take is executed.
+ * @assertion Iterable<E> take(int count)
+ * Returns a lazy iterable of the [count] first elements of this iterable.
+ * @description Checks that the filtering happens lazily, i.e. that [test]
+ * method is not called when [take] is executed.
  * @author iarkh
  */
 

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void removeWhere(bool test(E element))
- * Removes all elements matched by test from the queue.
+ * Removes all elements matched by [test] from the queue.
  * @description Checks that all elements that satisfy test are removed, and
  * elements that does not are left.
  * @author kaigorodov

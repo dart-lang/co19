@@ -5,9 +5,11 @@
  */
 /**
  * @assertion bool every(bool f(E element))
- * Returns true if every elements of this collection satisfy the predicate test.
- * Returns false otherwise.
- * @description Checks that the method returns correct value for various predicates.
+ * Checks whether every element of this iterable satisfies [test].
+ * Checks every element in iteration order, and returns [false] if any of them
+ * make [test] return [false], otherwise returns [true].
+ * @description Checks that the method returns correct value for various
+ * predicates.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

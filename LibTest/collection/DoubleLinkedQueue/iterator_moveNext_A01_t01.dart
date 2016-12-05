@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns whether the [Iterator] has elements left.
- * @description Checks that true is returned only if [Iterator] has some
+ * @description Checks that [true] is returned only if [Iterator] has some
  * elements left.
  * @author kaigorodov
  */

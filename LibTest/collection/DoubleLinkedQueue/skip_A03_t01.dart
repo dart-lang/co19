@@ -16,11 +16,7 @@ import "../../../Utils/expect.dart";
 check(List a, int n) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
   Iterable res;
-  Expect.throws(() {
-      res = queue.skip(n);
-    },
-    (e) => e is RangeError
-  );
+  Expect.throws(() { res = queue.skip(n);}, (e) => e is RangeError);
 }
 
 main() {

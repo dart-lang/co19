@@ -5,7 +5,7 @@
  */
 /**
  * @assertion The queue must not be empty when this method is called.
- * @description Checks that exception is thrown if the list is empty.
+ * @description Checks that exception is thrown if the queue is empty.
  * @author kaigorodov
  */
 
@@ -14,19 +14,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
-  Expect.throws(() {
-    queue.removeLast();
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.removeLast(); }, (e) => e is StateError);
   
   queue.addLast(1);
   queue.addLast(2);
   queue.clear();
 
-  Expect.throws(() {
-    queue.removeLast();
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.removeLast(); }, (e) => e is StateError);
 }

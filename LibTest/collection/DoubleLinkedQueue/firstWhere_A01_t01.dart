@@ -5,7 +5,7 @@
  */
 /**
  * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
- * Returns the first element that satisfies the given predicate test.
+ * Returns the first element that satisfies the given predicate [test].
  * @description Checks that the method returns the first element of the queue.
  * @author kaigorodov
  */

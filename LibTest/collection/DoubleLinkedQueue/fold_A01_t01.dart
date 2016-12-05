@@ -7,8 +7,8 @@
  * @assertion dynamic fold(initialValue, combine(previousValue, E element))
  * Reduces a collection to a single value by iteratively combining each element
  * of the collection with an existing value using the provided function.
- * Uses initialValue as the initial value, then iterates through the elements
- * and updates the value with each element using the combine function
+ * Uses [initialValue] as the initial value, then iterates through the elements
+ * and updates the value with each element using the [combine] function
  * @description Checks that the result is correct for simple functions.
  * @author kaigorodov
  */

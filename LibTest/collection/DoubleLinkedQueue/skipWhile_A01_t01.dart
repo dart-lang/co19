@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
- * Returns an Iterable that skips leading elements while test is satisfied.
- * @description Checks that all first elements that satisfy test are removed,
+ * Returns an [Iterable] that skips leading elements while [test] is satisfied.
+ * @description Checks that all first elements that satisfy [test] are removed,
  * and elements after are retained.
  * @author kaigorodov
  */

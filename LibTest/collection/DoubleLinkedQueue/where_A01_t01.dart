@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Iterable<E> where(bool f(E element))
- * Returns a new lazy Iterable with all elements that satisfy the predicate
- * test.
+ * Returns a new lazy [Iterable] with all elements that satisfy the predicate
+ * [test].
  * The matching elements have the same order in the returned iterable as they
- * have in iterator.
+ * have in [iterator].
  * This method returns a view of the mapped elements.
  * @description Checks that all first elements that satisfy [test] are retained,
  * and elements that do not, are skipped.
@@ -32,7 +32,7 @@ void check(DoubleLinkedQueue queue, bool test(var element)) {
 }
 
 main() {
-  DoubleLinkedQueue queue = new DoubleLinkedQueue.from([1,3,7,4,5,6]);
+  DoubleLinkedQueue queue = new DoubleLinkedQueue.from([1, 3, 7, 4, 5, 6]);
   check(queue, (var element) => element == 1);
   check(queue, (var element) => true);
   check(queue, (var element) => false);

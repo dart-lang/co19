@@ -5,10 +5,11 @@
  */
 /**
  * @assertion Set<E> toSet()
- * Creates a [Set] containing the elements of this [Iterable].  ...
- * The order of the elements in the set is not guaranteed to be the same as for
- * the iterable.
- * @description Checks that proper [Set] is created.
+ * The set may contain fewer elements than the iterable, if the iterable
+ * contains an element more than once, or it contains one or more elements that
+ * are equal. The order of the elements in the set is not guaranteed to be the
+ * same as for the iterable.
+ * @description Checks that proper Set is created.
  * @author kaigorodov
  */
 

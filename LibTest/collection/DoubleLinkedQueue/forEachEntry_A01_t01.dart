@@ -23,7 +23,7 @@ main() {
   List a = new List(100);
   
   queue.forEachEntry((var entry) {
-    var element=entry.element;
+    var element = entry.element;
     a[element] = element;
   });
   

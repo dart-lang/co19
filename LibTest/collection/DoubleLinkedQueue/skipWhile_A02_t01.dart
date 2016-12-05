@@ -6,7 +6,7 @@
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
  * The filtering happens lazily.
- * @description Checks that the test method is not called when the skipWhile is
+ * @description Checks that the [test] method is not called when [skipWhile] is
  * executed.
  * @author kaigorodov
  */

@@ -5,9 +5,10 @@
  */
 /**
  * @assertion abstract Iterable<E> skip(int count)
- * If this has fewer than n elements, then the resulting Iterable will be empty.
- * @description if this has fewer than n elements, then the resulting Iterable
- * is empty.
+ * If this has fewer than [count] elements, then the resulting [Iterable] will
+ * be empty.
+ * @description if this has fewer than [count] elements, then the resulting
+ * [Iterable] is empty.
  * @author kaigorodov
  */
 
