@@ -5,26 +5,20 @@
  */
 /**
  * @assertion String toStringAsExponential([int fractionDigits]) 
- * Without the parameter the returned string uses the shortest number of digits that accurately represent this.
- * @description Checks that this method returns correct value when fractionDigits is not specified.
+ * Without the parameter the returned string uses the shortest number of digits
+ * that accurately represent this.
+ * @description Checks that this method returns correct value when
+ * fractionDigits is not specified.
  * @author vasya
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
 main() {
-
   Expect.equals("1e+2", 100.toStringAsExponential());
-  
   Expect.equals("-1e+2", (-100).toStringAsExponential());
-
   Expect.equals("1.23456789e+8", 123456789.toStringAsExponential());
-
   Expect.equals("-1.23456789e+8", (-123456789).toStringAsExponential());
-
-  // derived from Java's "%.#e" formatting of float 0.0
   Expect.equals("0e+0", 0.toStringAsExponential());
-  
   Expect.equals("1e+0", 1.toStringAsExponential());
 }

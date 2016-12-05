@@ -5,11 +5,11 @@
  */
 /**
  * @assertion String toRadixString(int radix)
- * Converts a number into radix string.
- * @description Checks that using a radix that is outside of the allowed radix range results in an exception.
+ * ...
+ * The radix argument must be an integer in the range 2 to 36.
+ * @description Checks that radix argument must be an integer
+ * in the range 2 to 36.
  * @author msyabro
- * @reviewer rodionov
- * @needsreview Allowed range undocumented
  */
 import "../../../Utils/expect.dart";
 
@@ -17,13 +17,18 @@ main() {
   check(0, -1);
   check(0, 0);
   check(0, 1);
-//  check(0, 17);
+  check(0, 37);
   check(0, 0x80000000);
   check(0, -0x80000000);
+
+  check(1, -1);
+  check(2, 0);
+  check(3, 1);
+  check(4, 37);
+  check(5, 0x80000000);
+  check(6, -0x80000000);
 }
 
 void check(int i, int r) {
-  Expect.throws(() {
-    i.toRadixString(r);
-  });
+  Expect.throws(() {i.toRadixString(r);});
 }

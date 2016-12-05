@@ -5,13 +5,13 @@
  */
 /**
  * @assertion num remainder(num other)
- * Returns remainder left by division.
- * @description Checks that this method returns correct value for integer arguments.
+ * Returns the remainder of the truncating division of this by other.
+ *
+ * The result r of this operation satisfies: this == (this ~/ other) * other + r.
+ * As a consequence the remainder r has the same sign as the divider this.
+ * @description Checks that this method returns correct value for integer
+ * arguments.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
- * @needsreview Undocumented
- * seems to work the same way as JS's operator%: the sign of remainder is the same as dividend's
  */
 import "../../../Utils/expect.dart";
 

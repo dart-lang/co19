@@ -4,19 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion   abstract double floorToDouble()
+ * @assertion double roundToDouble()
  * Returns this.toDouble().
  * @description Checks that this method same value as this.toDouble();
- * for very large integers).
  * @author vasya
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 void check(int x) {
-  Expect.equals(x.toDouble(), x.floorToDouble());
+  Expect.equals(x.toDouble(), x.roundToDouble());
 }
 
 main() {

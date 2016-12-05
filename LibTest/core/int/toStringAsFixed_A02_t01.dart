@@ -5,25 +5,22 @@
  */
 /**
  * @assertion String toStringAsFixed(int fractionDigits)
- * The parameter fractionDigits must be an integer satisfying: 0 <= fractionDigits <= 20.
- * @description Tries to pass an argument that is out of allowed range, expects an exception.
+ * ...
+ * The parameter fractionDigits must be an integer satisfying:
+ * 0 <= fractionDigits <= 20.
+ * @description Tries to pass an argument that is out of allowed range, expects
+ * an exception.
  * @author msyabro
- * @reviewer rodionov
- * @neeedsreview Exact error/exception unspecified
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  check(0, -1);
-  check(0, -0x8000000000000000);
-  check(0, 0x8000000000000000);
+  check(1, -1);
+  check(2, 21);
+  check(3, -0x8000000000000000);
+  check(4, 0x8000000000000000);
 }
 
 void check(int x, int digits) {
-  bool fail = false;
-  try {
-    x.toStringAsFixed(digits);
-    fail = true;
-  } catch(e) {}
-  Expect.isFalse(fail, "Exception expected");
+  Expect.throws(() {x.toStringAsFixed(digits);});
 }

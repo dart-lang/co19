@@ -6,10 +6,8 @@
 /**
  * @assertion int truncate()
  * Truncates the value of int.
- * @description Checks that this function returns correct value.
+ * @description Checks that this method returns this value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
