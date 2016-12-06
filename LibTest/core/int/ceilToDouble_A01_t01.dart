@@ -9,7 +9,6 @@
  * @description Checks that this method same value as this.toDouble();
  * for very large integers).
  * @author vasya
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

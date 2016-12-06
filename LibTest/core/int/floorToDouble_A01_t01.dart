@@ -7,12 +7,9 @@
  * @assertion   abstract double roundToDouble()
  * Returns this.toDouble().
  * @description Checks that this method same value as this.toDouble();
- * for very large integers).
  * @author vasya
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 void check(int x) {

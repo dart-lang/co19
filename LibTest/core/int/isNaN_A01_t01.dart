@@ -5,11 +5,10 @@
  */
 /**
  * @assertion Returns true if the value represented by this int object is a NaN.
- * @description Checks that this method returns correct value (which is false for any integer
- * this type's value range does not include NaNs).
+ * @description Checks that this method returns correct value (which is false
+ * for any integer this type's value range does not include NaNs).
  * @author vasya
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns x, rounded downwards to the nearest int.
- * @description Checks that the method returns correct value. For integers, it
- *              should be the same as input value.
+ * @assertion int floor()
+ * Returns this.
+ * @description Checks that this method returns this.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

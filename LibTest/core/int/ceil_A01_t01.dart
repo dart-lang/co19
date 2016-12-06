@@ -6,10 +6,8 @@
 /**
  * @assertion Returns x, rounded upwards to the nearest integer.
  * @description Checks that the method returns correct value. For integers, it
- *              should be the same as input value.
+ * should be the same as input value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
