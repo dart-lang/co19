@@ -5,15 +5,12 @@
  */
 /**
  * @assertion num operator -(num other)
- * This operator implements arithmetic substraction operation.
+ * This operator implements arithmetic subtraction operation.
  * @description Checks that this operator returns correct value for both integer 
  * and double arguments (including special values).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 main() {
@@ -24,9 +21,12 @@ main() {
   Expect.equals(-4294967297, -4294967296 - 1);
   Expect.equals(9223372036854775806, 9223372036854775807 - 1);
   Expect.equals(-9223372036854775809, -9223372036854775808 - 1);
-  Expect.equals(-18446744073709551617, -9223372036854775808 - 9223372036854775809);
-  Expect.equals(18446744073709551617, 9223372036854775808 - -9223372036854775809);
-  Expect.equals(-10000000000000000000000000, 18446744073709551616 - 10000018446744073709551616);
+  Expect.equals(-18446744073709551617,
+      -9223372036854775808 - 9223372036854775809);
+  Expect.equals(18446744073709551617,
+      9223372036854775808 - -9223372036854775809);
+  Expect.equals(-10000000000000000000000000,
+      18446744073709551616 - 10000018446744073709551616);
 
   final double MIN_DOUBLE = Math.pow(2.0, -1074);
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 

@@ -10,9 +10,6 @@
  * @description Checks that this operator returns correct value for integer
  *              arguments (including 0).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
- * @needsreview modulo operatio is not specified (issue 493).
  */
 import "../../../Utils/expect.dart";
 

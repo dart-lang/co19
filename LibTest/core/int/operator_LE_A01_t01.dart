@@ -7,11 +7,8 @@
  * @assertion Relational operator <=.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 main() {

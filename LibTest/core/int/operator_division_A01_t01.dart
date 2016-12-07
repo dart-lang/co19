@@ -4,16 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion This operator implements the arithmetic division operation.
+ * @assertion double operator /(num other)
+ * This operator implements the arithmetic division operation.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @needsreview 2^80 / 2^50 should give accurate result, but due to the 
- * fact that result of division is double it doesn't
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
- 
 import "dart:math" as Math;
 
 // the gap between this double and the next

@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion This operator implements the arithmetic division operation.
- * @description Checks that division by zero yields correct results (infinities and NaN).
+ * @assertion double operator /(num other)
+ * This operator implements the arithmetic division operation.
+ * @description Checks that division by zero yields correct results (infinities
+ * and NaN).
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

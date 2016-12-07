@@ -4,14 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Relational operator <.
+ * @assertion bool operator <(num other)
+ * Relational operator <.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 main() {
