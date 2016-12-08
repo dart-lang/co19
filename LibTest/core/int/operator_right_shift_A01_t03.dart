@@ -6,17 +6,13 @@
 /**
  * @assertion int operator >>(int shiftAmount)
  * This operator implements bit-wise right-shift operation.
- * @description Uses a negative number as argument.
+ * ...
+ * It is an error if shiftAmount is negative.
+ * @description Check that it is an error if shiftAmount is negative.
  * @author vasya
- * @reviewer msyabro
- * @needsreview undocumented
- * @needsreview issue 1137
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
-    int val = 100 >> (-1);
-    Expect.fail("ArgumentError expected for negative argument!");
-  } on ArgumentError catch(ok){}
+  Expect.throws(() {100 >> (-1);}, (e) => e is ArgumentError);
 }

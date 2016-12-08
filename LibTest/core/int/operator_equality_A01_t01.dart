@@ -27,7 +27,7 @@
  * of operator==. Using NaN in, e.g., a HashSet will fail to work. The behavior
  * is the standard IEEE-754 equality of doubles.
  *
- * If you can avoid NaN values, the remaining doubles do have a proper eqality
+ * If you can avoid NaN values, the remaining doubles do have a proper equality
  * relation, and can be used safely.
  *
  * Use compareTo for a comparison that distinguishes zero and minus zero, and
@@ -38,15 +38,15 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(0, 0);
-  Expect.equals(2, 2);
-  Expect.equals(2147483648, 2147483648);
-  Expect.equals(-2147483647, -2147483647);
-  Expect.equals(4294967296, 4294967296);
-  Expect.equals(-4294967295, -4294967295);
-  Expect.equals(10000018446744073709551616, 10000018446744073709551616);
+  Expect.isTrue(0 == 0);
+  Expect.isTrue(2 == 2);
+  Expect.isTrue(2147483648 == 2147483648);
+  Expect.isTrue(-2147483647 == -2147483647);
+  Expect.isTrue(4294967296 == 4294967296);
+  Expect.isTrue(-4294967295 == -4294967295);
+  Expect.isTrue(10000018446744073709551616 == 10000018446744073709551616);
 
   int x = 1;
   int y = 1;
-  Expect.equals(x, y);
+  Expect.isTrue(x == y);
 }
