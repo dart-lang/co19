@@ -8,7 +8,8 @@
  * Returns the single element in this.
  * If this is empty or has more than one element throws a StateError.
  * @description Checks that the single element is returned.
- * Checks that StateError is thrown if this list is empty or has more than one element
+ * Checks that StateError is thrown if this list is empty or has more than one
+ * element
  * @author kaigorodov
  */
 library single_A01_t01;

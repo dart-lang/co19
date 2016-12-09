@@ -10,7 +10,6 @@
  * test return true, otherwise returns false.
  * @description Checks that exception thrown in [test] breaks the iteration.
  * @author msyabro
- * @reviewer varlax
  */
 library any_A02_t01;
  

@@ -28,13 +28,18 @@
  * @description Checks the returned [Iterator] properties and methods
  * list.
  * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
  */
 library iterator_A01_t01;
  
 import "../Iterator/allTests.lib.dart" as libIterator;
 
+var createFunc;
+
+Iterator createIterator([Iterable content]) {
+  return createFunc(content).iterator;
+}
+
 test(Iterable create([Iterable content]), {bool isSet: false}) {
-  libIterator.test(create, isSet: isSet);
+  createFunc = create;
+  libIterator.test(createIterator, isSet: isSet);
 }

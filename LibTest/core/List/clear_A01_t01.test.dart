@@ -8,8 +8,6 @@
  * Removes all objects from this list; the length of the list becomes zero.
  * @description Checks that the length of the list becomes zero.
  * @author vasya
- * @reviewer msyabro 
- * @reviewer varlax
  */
 library clear_A01_t01;
 
@@ -18,8 +16,8 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   void check(List a0) {
-    List a=create();
-    a.length=a0.length;
+    List a = create();
+    a.length = a0.length;
     a.setRange(0, a0.length, a0);
     Expect.equals(a0.length, a.length);
     a.clear();
@@ -44,9 +42,9 @@ test(List create([int length])) {
   }
   Expect.isTrue(a.length == 96756);
 
-  a = new List.from([[],[null],[1,2,3,4],["one", "two", "three", "four"]]);
+  a = new List.from([[], [null], [1,2,3,4], ["one", "two", "three", "four"]]);
   check(a);
 
-  a = [[],[null],[1,2,3,4],["one", "two", "three", "four"]];
+  a = [[], [null], [1,2,3,4], ["one", "two", "three", "four"]];
   check(a);
 }

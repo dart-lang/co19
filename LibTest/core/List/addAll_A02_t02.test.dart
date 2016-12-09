@@ -15,16 +15,6 @@ library addAll_A02_t02;
 import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
-
-  Expect.throws(() {
-      create(1).add(null);
-    },
-    (e)=> e is UnsupportedError
-  );
-
-  Expect.throws(() {
-      create(100).add(null);
-    },
-    (e)=> e is UnsupportedError
-  );
+  Expect.throws(() {create(1).add(null);}, (e) => e is UnsupportedError);
+  Expect.throws(() {create(100).add(null);}, (e) => e is UnsupportedError);
 }

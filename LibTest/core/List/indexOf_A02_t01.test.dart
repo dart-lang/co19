@@ -13,8 +13,6 @@
  * @description Checks that [startIndex] can be out of bounds.
  * @author iefremov
  * @author varlax
- * @reviewer msyabro
- * @reviewer varlax
  */
 library indexOf_A02_t01;
 
@@ -56,7 +54,5 @@ test(List create([int length])) {
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }
-
   check(b);
 }
-

@@ -12,7 +12,6 @@
  * until the first false result.
  * @author vasya
  * @author msyabro
- * @reviewer varlax
  */
 library every_A01_t02;
 

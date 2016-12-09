@@ -13,8 +13,6 @@
  * @description Checks that [startIndex] can be out of bounds
  * @author iefremov
  * @author varlax
- * @reviewer msyabro
- * @reviewer varlax
  */
 library lastIndexOf_A03_t01;
 

@@ -8,7 +8,6 @@
  * Applies the function f to each element of this collection in iteration order.
  * @description Checks that no exception is thrown if the list is empty.
  * @author iefremov
- * @reviewer pagolubev
  */
 library forEach_A01_t02;
 

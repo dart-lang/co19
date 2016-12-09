@@ -13,15 +13,19 @@ library allListTests;
 import "add_A01_t01.test.dart" as add_A01_t01;
 import "add_A01_t02.test.dart" as add_A01_t02;
 import "add_A02_t01.test.dart" as add_A02_t01;
+
 import "addAll_A01_t01.test.dart" as addAll_A01_t01;
 import "addAll_A01_t02.test.dart" as addAll_A01_t02;
 import "addAll_A02_t01.test.dart" as addAll_A02_t01;
 import "addAll_A02_t02.test.dart" as addAll_A02_t02;
+
 import "asMap_A01_t01.test.dart" as asMap_A01_t01;
 import "asMap_A02_t01.test.dart" as asMap_A02_t01;
+
 import "clear_A01_t01.test.dart" as clear_A01_t01;
 
 import "clear_A02_t01.test.dart" as clear_A02_t01;
+
 import "fillRange_A01_t01.test.dart" as fillRange_A01_t01;
 import "fillRange_A02_t01.test.dart" as fillRange_A02_t01;
 
@@ -31,15 +35,20 @@ import "getRange_A01_t02.test.dart" as getRange_A01_t02;
 import "getRange_A02_t01.test.dart" as getRange_A02_t01;
 import "getRange_A03_t01.test.dart" as getRange_A03_t01;
 
-import "insert_A01_t01.test.dart" as insert_A01_t01;
-import "insert_A02_t01.test.dart" as insert_A02_t01;
-import "insertAll_A01_t01.test.dart" as insertAll_A01_t01;
-import "insertAll_A02_t01.test.dart" as insertAll_A02_t01;
 import "indexOf_A01_t01.test.dart" as indexOf_A01_t01;
 import "indexOf_A02_t01.test.dart" as indexOf_A02_t01;
 import "indexOf_A03_t01.test.dart" as indexOf_A03_t01;
 import "indexOf_A04_t01.test.dart" as indexOf_A04_t01;
 import "indexOf_A05_t01.test.dart" as indexOf_A05_t01;
+
+import "insert_A01_t01.test.dart" as insert_A01_t01;
+import "insert_A02_t01.test.dart" as insert_A02_t01;
+
+import "insertAll_A01_t01.test.dart" as insertAll_A01_t01;
+import "insertAll_A02_t01.test.dart" as insertAll_A02_t01;
+
+import "iterator_current_A01_t01.test.dart" as iterator_current_A01_t01;
+import "iterator_moveNext_A01_t01.test.dart" as iterator_moveNext_A01_t01;
 
 import "length_A01_t01.test.dart" as length_A01_t01;
 import "length_A02_t01.test.dart" as length_A02_t01;
@@ -108,6 +117,8 @@ test(List create([int length])) {
   insert_A02_t01.test(create);
   insertAll_A01_t01.test(create);
   insertAll_A02_t01.test(create);
+  iterator_current_A01_t01.test(create);
+  iterator_moveNext_A01_t01.test(create);
   indexOf_A01_t01.test(create);
   indexOf_A02_t01.test(create);
   indexOf_A03_t01.test(create);

@@ -10,8 +10,6 @@
  * Throws an UnsupportedError if the list is not extendable.
  * @description Checks that the length can be changed if list is growable.
  * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
  */
 library length_A01_t01;
 

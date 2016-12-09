@@ -19,7 +19,7 @@ bool f(int value) {
 }
 
 test(Iterable create([Iterable content])) {
-  [].skipWhile(f);
-  [1].skipWhile(f);
-  [1,3,7,4,5,6].skipWhile(f);
+  create([]).skipWhile(f);
+  create([1]).skipWhile(f);
+  create([1,3,7,4,5,6]).skipWhile(f);
 }

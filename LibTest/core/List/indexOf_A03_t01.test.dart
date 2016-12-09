@@ -8,8 +8,6 @@
  * Returns -1 if given element is not found. 
  * @description Checks that -1 is returned, if the element is not present.
  * @author iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 library indexOf_A03_t01;
 
@@ -33,6 +31,5 @@ test(List create([int length])) {
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }
-
   check(b);
 }

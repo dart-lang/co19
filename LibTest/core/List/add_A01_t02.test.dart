@@ -6,7 +6,8 @@
 /**
  * @assertion abstract void add(E value)
  * Adds [value] at the end of the list, extending the length by one.
- * @description Checks that method does not affect the existing content of the list
+ * @description Checks that method does not affect the existing content of the
+ * list
  * @author kaigorodov
  */
 library add_A01_t02;

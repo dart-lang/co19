@@ -6,16 +6,18 @@
 /**
  * @assertion abstract bool moveNext()
  * Returns whether the [Iterator] has elements left.
- * @description Checks that true is returned only if the [Iterator] has elements left.
+ * @description Checks that true is returned only if the [Iterator] has elements
+ * left.
  * @author kaigorodov
  */
+library iterator_moveNext_A01_t01;
+
 import "../../../Utils/expect.dart";
 
-main() {
-  List a = new List();
-  a.length = 25476;
+test(List create([int length])) {
+  List a = create(25476);
   Iterator it = a.iterator;
-  for (var i=0; i < a.length; i++) {
+  for (var i = 0; i < a.length; i++) {
     Expect.isTrue(it.moveNext());
   }
   Expect.isFalse(it.moveNext());

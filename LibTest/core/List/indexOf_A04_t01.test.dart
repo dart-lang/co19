@@ -5,9 +5,9 @@
  */
 /**
  * @assertion abstract int indexOf(E element, [int start = 0])
- * @description Checks that if [start] is not specified, searches the entire list.
+ * @description Checks that if [start] is not specified, searches the entire
+ * list.
  * @author varlax
- * @reviewer iefremov
  */
 library indexOf_A04_t01;
 
