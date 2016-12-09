@@ -8,7 +8,6 @@
  * @description Checks that created hash map contains all elements of [other].
  * Both empty and non-empty argument maps are tested.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
