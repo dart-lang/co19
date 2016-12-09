@@ -7,11 +7,8 @@
  * @assertion Relational operator >.
  * @description Checks that operation returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 main() {
@@ -36,10 +33,12 @@ main() {
   Expect.isFalse(0 > 0.0);
   Expect.isFalse(0 > -0.0);
   Expect.isTrue(0 > double.NEGATIVE_INFINITY);
-  Expect.isTrue((-0x8000000000000000000000000000000000000000000) > double.NEGATIVE_INFINITY);
+  Expect.isTrue((-0x8000000000000000000000000000000000000000000) >
+      double.NEGATIVE_INFINITY);
   Expect.isFalse(0 > double.NAN);
   Expect.isFalse(0 > double.INFINITY);
-  Expect.isFalse(0x8000000000000000000000000000000000000000000 > double.INFINITY);
+  Expect.isFalse(0x8000000000000000000000000000000000000000000 >
+      double.INFINITY);
   Expect.isFalse(0 > MIN_DOUBLE);
   Expect.isTrue(0 > NEG_MIN_DOUBLE);
 }

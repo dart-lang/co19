@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion This operator implements a bit-wise XOR operation.
+ * @assertion int operator ^(int other)
+ * This operator implements a bit-wise XOR operation.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -43,7 +42,5 @@ main() {
   
   Expect.equals(-2, 1 ^ (-1));
   Expect.equals(-0x10000000000000001, (-1) ^ 0x010000000000000000); // 1 << 64
-  // TODO: add more checks when it's clear how larger integers are represented in binary
-  //Expect.equals(0x7fffffffffffffffff, (-1) ^ 0x800000000000000000); // 1 << 71
 }
 

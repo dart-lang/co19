@@ -5,10 +5,9 @@
  */
 /**
  * @assertion int extends num and type num implements Comparable interface.
- * @description Checks that the compareTo method works with other number types (double).
+ * @description Checks that the compareTo method works with other number types
+ * (double).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

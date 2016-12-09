@@ -7,15 +7,12 @@
  * @assertion The unary '-' operator. 
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
-List<int> v;
-
 main() {
-  v=[0, 1, 10, 2147483647, 4294967295, 9223372036854775807, 147808829414345923316083210206383297601];
+  List<int> v = [0, 1, 10, 2147483647, 4294967295, 9223372036854775807,
+    147808829414345923316083210206383297601];
   Expect.equals(0, -v[0]);
   Expect.equals(0, -(-v[0]));
   Expect.equals(-1, -v[1]);
@@ -26,7 +23,7 @@ main() {
   Expect.equals(-9223372036854775807, -(v[5]));
   Expect.equals(9223372036854775807, -(-(v[5])));
   Expect.equals(-147808829414345923316083210206383297601, -(v[6]));
-  // -(-x) = x
+
   for(int i = 0; i <= 1000; i++) {
     int num = 1 << i;
     Expect.equals(num, -(-num));

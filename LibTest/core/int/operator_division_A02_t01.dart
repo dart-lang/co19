@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The result of division is always a double.
+ * @assertion double operator /(num other)
+ * The result of division is always a double.
  * @description Checks that the result of division is always a double
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 

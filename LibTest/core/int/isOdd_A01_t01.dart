@@ -7,8 +7,6 @@
  * @assertion Returns true if the number represented by this int object is odd.
  * @description Checks that this method returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

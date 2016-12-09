@@ -7,8 +7,6 @@
  * @assertion Returns the absolute value of int.
  * @description Checks that the method returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

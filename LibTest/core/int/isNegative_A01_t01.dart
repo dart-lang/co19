@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if the value represented by this int object is negative.
+ * @assertion Returns true if the value represented by this int object is
+ * negative.
  * @description Checks that this method returns correct value.
  * @author vasya
  * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion This operator implements a bit-wise AND operation.
+ * @assertion int operator &(int other)
+ * This operator implements a bit-wise AND operation.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

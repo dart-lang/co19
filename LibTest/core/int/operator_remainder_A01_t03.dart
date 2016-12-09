@@ -10,9 +10,6 @@
  * @description Checks that passing a zero as argument
  * results in IntegerDivisionByZeroException
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
- * @needsreview Undocumented
  */
 import "../../../Utils/expect.dart";
 
@@ -23,8 +20,5 @@ main() {
 }
   
 void check(int x, num z) {
-  try {
-    x % z;
-    Expect.fail("IntegerDivisionByZeroException is expected");
-  } on IntegerDivisionByZeroException catch(e) {}
+  Expect.throws(() {x % z;}, (e) => e is IntegerDivisionByZeroException);
 }
