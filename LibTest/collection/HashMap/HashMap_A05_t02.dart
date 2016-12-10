@@ -11,8 +11,7 @@
  * supplied.
  * This function is called before calling [equals] or [hashCode] with an
  * argument that may not be a [K] instance, and if the call returns [false], the
- * key is assumed to not be in the set. The [isValidKey] function defaults to
- * just testing if the object is a [K] instance.
+ * key is assumed to not be in the set.
  * @description Checks that when performing [], [remove] or [containsKey],
  * [isValidKey] is called before [equals] and [hashCode] functions, and if
  * [isValidKey] return [false], equals and [hashCode] are not called at all.

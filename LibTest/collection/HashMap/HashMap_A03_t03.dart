@@ -9,8 +9,8 @@
  * If [equals] is provided, it is used to compare the keys in the table with new
  * keys. Similar, if [hashCode] is provided, it is used to produce a hash
  * value for keys in order to place them in the hash table.
- * @description This test checks equals method which always returns false: it
- * means that it should be impossible to add an element to the map.
+ * @description This test checks [equals] method which always returns [false]:
+ * it means that it should be impossible to add an element to the map.
  * @author iarkh
  */
 import "../../../Utils/expect.dart";

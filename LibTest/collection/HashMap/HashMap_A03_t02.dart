@@ -9,7 +9,7 @@
  * If [equals] is provided, it is used to compare the keys in the table with new
  * keys. Similar, if [hashCode] is provided, it is used to produce a hash
  * value for keys in order to place them in the hash table.
- * @description This test checks equals method which always returns true: it
+ * @description This test checks [equals] method which always returns [true]: it
  * means that only zero or one element can be in the map.
  * @author iarkh
  */

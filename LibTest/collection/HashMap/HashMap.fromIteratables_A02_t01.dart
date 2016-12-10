@@ -5,12 +5,8 @@
  */
 /**
  * @assertion HashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
- * Creates a HashMap associating the given keys to values.
- * This constructor iterates over keys and values and maps each element of keys
- * to the corresponding element of values.
- * If keys contains the same object multiple times, the last occurrence
+ * If [keys] contains the same object multiple times, the last occurrence
  * overwrites the previous value.
- * It is an error if the two Iterables don't have the same length.
  * @description Checks that if keys contains the same object several times then
  * the last occurrence overrides the previous value
  * @author sgrekhov@unipro.ru

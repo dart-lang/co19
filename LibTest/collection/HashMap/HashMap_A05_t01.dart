@@ -6,12 +6,13 @@
 /**
  * @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
  * bool isValidKey(potentialKey) })
- * If using methods like operator[], remove and containsKey together with a
- * custom equality and hashcode, an extra isValidKey function can be supplied.
- * This function is called before calling equals or hashCode with an argument
- * that may not be a K instance, and if the call returns false, the key is
- * assumed to not be in the set. The isValidKey function defaults to just
- * testing if the object is a K instance.
+ * If using methods like [operator[]], [remove] and [containsKey] together with
+ * a custom equality and hashcode, an extra [isValidKey] function can be
+ * supplied.
+ * This function is called before calling [equals] or [hashCode] with an
+ * argument that may not be a [K] instance, and if the call returns [false], the
+ * key is assumed to not be in the set. The [isValidKey] function defaults to
+ * just testing if the object is a [K] instance.
  * @description Checks that if [isValidKey] function is provided, result map
  * contains only keys for which [isValidKey] returns [true]
  * @author iarkh
@@ -33,7 +34,7 @@ check(HashMap map, Map expected, List unexistent) {
 main() {
   HashMap map = new HashMap(
       equals: (Object key1, Object key2) => true,
-      hashCode: (dynamic e) => e,
+      hashCode: (e) => e,
       isValidKey: (Object key) => key is int && key > 0);
 
   map.addAll({0 : 0, 1 : 0, 2 : 12, -3 : 0, -4 : 0});

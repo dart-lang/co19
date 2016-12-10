@@ -17,7 +17,7 @@ import "dart:collection";
 
 class C {
   int get hashCode => 1;
-  operator ==(dynamic c) {
+  operator == (dynamic c) {
     return true;
   }
 }

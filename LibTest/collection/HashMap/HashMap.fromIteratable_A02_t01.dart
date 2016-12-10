@@ -6,13 +6,8 @@
 /**
  * @assertion
  * HashMap.fromIterable(Iterable iterable, {K key(element), V value(element)})
- * Creates a HashMap where the keys and values are computed from the iterable.
  * For each element of the iterable this constructor computes a key/value pair,
  * by applying key and value respectively.
- * The keys of the key/value pairs do not need to be unique. The last occurrence
- * of a key will simply overwrite any previous value.
- * If no values are specified for key and value the default is the identity
- * function.
  * @description Checks that created hash map contains all elements of the
  * iteratable with key/values according functions specified
  * @author sgrekhov@unipro.ru
@@ -30,7 +25,8 @@ main() {
   queue.add('c');
   queue.add(null);
 
-  HashMap map = new HashMap.fromIterable(queue, key: (el) => 'key' + el.toString(),
+  HashMap map = new HashMap.fromIterable(
+      queue, key: (el) => 'key' + el.toString(),
       value: (el) => 'val' + el.toString());
   Expect.equals(queue.length, map.length);
   queue.forEach((el) {
