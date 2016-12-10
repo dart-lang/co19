@@ -11,8 +11,6 @@
  * @description Check that true is returned only if every element of the list
  * satisfies the predicate [f].
  * @author vasya
- * @reviewer iefremov
- * @reviewer varlax
  */
 library every_A01_t01;
 

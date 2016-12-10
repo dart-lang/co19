@@ -7,10 +7,9 @@
  * @assertion abstract void addAll(Iterable<E> iterable)
  * Appends all elements of the iterable to the end of this list.
  * Extends the length of the list by the number of elements in iterable.
- * @description Checks that method does not affect the previous content of the list
+ * @description Checks that method does not affect the previous content of the
+ * list
  * @author vasya
- * @reviewer iefremov
- * @reviewer msyabro
  */
 library addAll_A01_t02;
 
@@ -19,7 +18,7 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
   List a = create();
   Expect.isTrue(a.length == 0);
-  List b = ["1","2","3"];
+  List b = ["1", "2", "3"];
   a.addAll(b);
   Expect.listEquals(["1", "2", "3"], a);
 

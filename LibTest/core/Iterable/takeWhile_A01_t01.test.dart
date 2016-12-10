@@ -6,8 +6,8 @@
 /**
  * @assertion Iterable<E> takeWhile(bool test(E value))
  * Returns a lazy iterable of the leading elements satisfying test
- * @description Checks that all first elements that satisfy test are retained, and
- * elements after that, are skipped.
+ * @description Checks that all first elements that satisfy test are retained,
+ * and elements after that, are skipped.
  * @author kaigorodov
  */
 library takeWhile_A01_t01;

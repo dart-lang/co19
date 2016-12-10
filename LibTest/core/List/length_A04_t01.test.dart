@@ -15,15 +15,7 @@ import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
   List a = create(0);
-  Expect.throws(() {
-      a.length = 1;
-    },
-    (e)=>e is UnsupportedError
-  );
+  Expect.throws(() {a.length = 1;}, (e) => e is UnsupportedError);
   a = create(100);
-  Expect.throws(() {
-      a.length = 1;
-    },
-    (e)=>e is UnsupportedError
-  );
+  Expect.throws(() {a.length = 1;}, (e) => e is UnsupportedError);
 }

@@ -5,9 +5,10 @@
  */
 /**
  * @assertion final bool isGetter
- * Whether the invocation was a getter call. If so, both types of arguments is empty.
- * @description Checks that isGetter returns false for setters and instance method
- * invocations.
+ * Whether the invocation was a getter call. If so, both types of arguments is
+ * empty.
+ * @description Checks that isGetter returns false for setters and instance
+ * method invocations.
  * @author ilya
  */
 import "../../../Utils/expect.dart";

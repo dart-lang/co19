@@ -14,19 +14,7 @@ library length_A06_t01;
 import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
-  Expect.throws(() {
-      create().length = null;
-    },
-    (e)=>e is Error
-  );
-  Expect.throws(() {
-      create(0).length = null;
-    },
-    (e)=>e is Error
-  );
-  Expect.throws(() {
-      create(1).length = null;
-    },
-    (e)=>e is Error
-  );
+  Expect.throws(() {create().length = null;}, (e) => e is Error);
+  Expect.throws(() {create(0).length = null;}, (e) => e is Error);
+  Expect.throws(() {create(1).length = null;}, (e) => e is Error);
 }

@@ -9,7 +9,6 @@
  * Returns false otherwise.
  * @description Checks that this method works as specified.
  * @author pagolubev
- * @reviewer msyabro
  */
 library allTests_A01_t01;
 

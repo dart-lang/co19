@@ -7,10 +7,11 @@
  * @assertion factory List.from(Iterable other, {bool growable: true})
  * Creates an list with the elements of other.
  * The order in the list will be the order provided by the iterator of other.
- * The returned list is growable if growable is true, otherwise it's a fixed length list.
- * @description Checks that the list created with growable==true can change it's size.
+ * The returned list is growable if growable is true, otherwise it's a fixed
+ * length list.
+ * @description Checks that the list created with growable==true can change it's
+ * size.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -40,11 +41,11 @@ main() {
   check(new List.from(q));
 
   List l = new List();
-  l.addAll(["1","2","3","4","5"]);
+  l.addAll(["1", "2", "3", "4", "5"]);
   List a = new List.from(l, growable:true);
   check(a);
 
-  List src = [null, [null], [], [1,2,3], [[null]]];
+  List src = [null, [null], [], [1, 2, 3], [[null]]];
   a = new List.from(src);
   check(a);
 

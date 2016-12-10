@@ -6,7 +6,8 @@
 /**
  * @assertion final bool isSetter
  * Whether the invocation was a setter call.
- * If so, arguments has exactly one positonal argument, and namedArguments is empty.
+ * If so, arguments has exactly one positonal argument, and namedArguments is
+ * empty.
  * @description Checks that isSetter returns true for setters invocations and
  * arguments are as expected.
  * @author ilya

@@ -7,10 +7,9 @@
  * @assertion abstract void addAll(Iterable<E> iterable)
  * Appends all elements of the iterable to the end of this list.
  * Extends the length of the list by the number of elements in iterable.
- * @description Checks that all elements of the [collection] are added to the end of list.
+ * @description Checks that all elements of the [collection] are added to the
+ * end of list.
  * @author vasya
- * @reviewer iefremov
- * @reviewer msyabro
  */
 library addAll_A01_t01;
 

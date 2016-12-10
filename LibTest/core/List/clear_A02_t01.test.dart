@@ -15,11 +15,7 @@ library clear_A02_t01;
 import "../../../Utils/expect.dart";
 
 void check(List a) {
-  Expect.throws(() {
-      a.clear();
-    },
-    (e)=> e is UnsupportedError
-  );
+  Expect.throws(() {a.clear();}, (e) => e is UnsupportedError);
 }
 
 test(List create([int length])) {

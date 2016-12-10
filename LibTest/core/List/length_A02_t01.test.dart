@@ -5,12 +5,11 @@
  */
 /**
  * @assertion  abstract void set length(int newLength)
- * If [newLength] is greater than the current [length], entries are initialized to [null].
+ * If [newLength] is greater than the current [length], entries are initialized
+ * to [null].
  * @description Checks that entries are initialized to [null] 
  * if [newLength] is greater than the current [length].
  * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
  */
 library length_A02_t01;
 
@@ -35,7 +34,7 @@ test(List create([int length])) {
   assertIsNull(a, 35674);
 
   a = create();
-  a.addAll([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]);
+  a.addAll([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
   var len = a.length;
   a.length = 1000;
   assertIsNull(a,len);

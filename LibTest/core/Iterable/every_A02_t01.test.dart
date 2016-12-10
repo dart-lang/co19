@@ -10,9 +10,6 @@
  * make test return false, otherwise returns true.
  * @description Checks that method always returns true on an empty list.
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer msyabro
- * @reviewer varlax
  */
 library every_A02_t01;
 

@@ -30,3 +30,59 @@ Future ping(Isolate isolate, payload, [Duration timeout]) async {
   }
   return result;
 }
+
+/**
+ * Utility class, that helps to spawn isolates, which sole purpose is
+ * to generate errors.
+ */
+class ErrorServer {
+
+  static const String _STOP = "!stop";
+
+  Isolate isolate;
+  SendPort sendPort;
+  ErrorServer(this.isolate, this.sendPort);
+
+  static Future<ErrorServer> spawn({
+                                bool paused: false,
+                                bool errorsAreFatal,
+                                SendPort onExit,
+                                SendPort onError
+                              }) async {
+
+    ReceivePort receivePort = new ReceivePort();
+    Isolate isolate = await Isolate.spawn(
+        isolateEntryPoint,
+        receivePort.sendPort,
+        paused:paused,
+        errorsAreFatal:errorsAreFatal,
+        onExit:onExit,
+        onError:onError
+    );
+    SendPort sendPort = await receivePort.first;
+    return new ErrorServer(isolate, sendPort);
+  }
+
+  static void isolateEntryPoint(SendPort sendPort) {
+    ReceivePort receivePort = new ReceivePort();
+    int i = 0;
+    receivePort.listen(
+        (x) {
+          if (x==_STOP){
+            receivePort.close();
+          } else {
+            throw i++;
+          }
+        }
+    );
+    sendPort.send(receivePort.sendPort);
+  }
+
+  void stop() {
+    sendPort.send(_STOP);
+  }
+
+  void generateError() {
+    sendPort.send("error");
+  }
+}

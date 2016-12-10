@@ -16,20 +16,15 @@ library insert_A02_t01;
 import "../../../Utils/expect.dart";
 
 void check(List a, int index, var element) {
-  bool failed=false;
-  try {
-    a.insert(index, element);
-    failed=true;
-  } on Error catch(ok) {}
-  Expect.isFalse(failed, "an error expected");
+  Expect.throws(() {a.insert(index, element);});
 }
 
 test(List create([int length])) {
-  List a0=[1,3,3,4,5,6];
+  List a0 = [1, 3, 3, 4, 5, 6];
   List a = create();
   a.insertAll(0, a0);
   check(a0, -1, -1);
   check(a0, -1000, -2);
-  check(a0, a0.length+1, -3);
-  check(a0, a0.length*1000, -4);
+  check(a0, a0.length + 1, -3);
+  check(a0, a0.length * 1000, -4);
 }

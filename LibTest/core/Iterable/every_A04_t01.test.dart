@@ -10,7 +10,6 @@
  * make test return false, otherwise returns true.
  * @description Checks that predicate exception goes through to the caller
  * @author varlax
- * @reviewer iefremov
  */
 library every_A04_t01;
 

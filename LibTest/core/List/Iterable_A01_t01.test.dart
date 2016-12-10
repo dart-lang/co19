@@ -12,7 +12,7 @@
 import "../../core/Iterable/allTests.lib.dart";
 
 Iterable create([Iterable content]) {
-  if (content==null) {
+  if (content == null) {
     return new List();
   } else {
     return new List.from(content);

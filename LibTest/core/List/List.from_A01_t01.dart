@@ -10,8 +10,6 @@
  * The returned list is growable if growable is true, otherwise it's a fixed length list.
  * @description Checks that proper list with correct element order is created.
  * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 

@@ -17,21 +17,17 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   check(content, arg) {
-    List list=create();
+    List list = create();
     list.addAll(content);
-    Expect.throws(() {
-        list.getRange(0, arg);
-      },
-      (e)=> e is ArgumentError
-    );
+    Expect.throws(() {list.getRange(0, arg);}, (e) => e is ArgumentError);
   }
 
   check(new List(1), -1);
-  check(new List(1), -(1<<65));
+  check(new List(1), -(1 << 65));
   check([1], -1);
-  check([1], -(1<<65));
+  check([1], -(1 << 65));
   check(const [1], -1);
-  check(const [1], -(1<<65));
+  check(const [1], -(1 << 65));
   check(new List(), -1);
-  check(new List(), -(1<<65));
+  check(new List(), -(1 << 65));
 }

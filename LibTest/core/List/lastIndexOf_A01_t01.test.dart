@@ -9,10 +9,9 @@
  * Searches the list backwards from index start to 0.
  * The first time an element e is encountered so that e == element,
  * the index of e is returned.
- * @description Checks that the correct index is returned, if the element is present in the list.
+ * @description Checks that the correct index is returned, if the element is
+ * present in the list.
  * @author iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 library lastIndexOf_A01_t01;
 

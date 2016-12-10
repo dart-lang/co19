@@ -15,22 +15,11 @@ library fillRange_A02_t01;
 import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
-  List a=create();
-
+  List a = create();
   a.fillRange(0, 0);
-
-  Expect.throws(() {
-      a.fillRange(0, 1);
-    },
-    (e)=> e is RangeError
-  );
+  Expect.throws(() {a.fillRange(0, 1);}, (e) => e is RangeError);
   
   a.add(1);
   a.fillRange(0, 1, 2);
-  
-  Expect.throws(() {
-      a.fillRange(1, 2);
-    },
-    (e)=> e is RangeError
-  );
+  Expect.throws(() {a.fillRange(1, 2);}, (e) => e is RangeError);
 }
