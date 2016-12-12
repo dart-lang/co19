@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionfactory List.generate(int length, E generator(int index), {bool growable: true})
+ * @assertionfactory List.generate(int length, E generator(int index),
+ * {bool growable: true})
  * Generate a List of values.
- * Creates a list with length positions and fills them by values created by calling generator
- * for each index in the range 0 .. [length]-1 in increasing order.
+ * Creates a list with length positions and fills them by values created by
+ * calling generator for each index in the range 0 .. [length]-1 in increasing
+ * order.
  * The created length's length is fixed unless growable is true.
- * @description Checks that the list created with growable==false cannot change it's size.
+ * @description Checks that the list created with growable==false cannot change
+ * it's size.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -50,12 +53,13 @@ check(List l) {
 main() {
   check(new List.generate(0, gengen([]), growable:false));
   
-  List src = [null, [null], [], [1,2,3], [[null]]];
+  List src = [null, [null], [], [1 ,2, 3], [[null]]];
   List a = new List.generate(src.length, gengen(src), growable:false);
   check(a);
   
   if (failures.isEmpty) return;
-  StringBuffer sb=new StringBuffer("following operations do not cause UnsupportedError on fixed-sized list:\n");
+  StringBuffer sb = new StringBuffer("following operations do not cause "
+      + "UnsupportedError on fixed-sized list:\n");
   sb.writeAll(failures, ", ");
   Expect.fail(sb.toString());
 }

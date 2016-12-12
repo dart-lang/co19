@@ -18,11 +18,7 @@ test(List create([int length])) {
 
   void check(dynamic start, dynamic end) {
     var l = create();
-    Expect.throws(() {
-        l.removeRange(start, end);
-      },
-      (e) => e is RangeError
-    );
+    Expect.throws(() {l.removeRange(start, end);});
  }
   check(null, 1);
   check(0, null);

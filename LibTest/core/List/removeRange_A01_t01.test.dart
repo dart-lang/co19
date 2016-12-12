@@ -8,14 +8,13 @@
  * Removes the elements in the range start to end exclusive.
  * @description Checks valid removals.
  * @author vasya
- * @reviewer varlax
  */
 library removeRange_A01_t01;
 
 import "../../../Utils/expect.dart";
 
 check(a) {
-  var b = [0,1,2,3,4,5,6,7,8,9];
+  var b = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   a.addAll(b);
   Expect.equals(b.length, a.length);
   a.removeRange(5, 10);

@@ -18,11 +18,11 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   void check(List a0, bool test(var element)) {
-    List a=create();
+    List a = create();
     a.addAll(a0);
     a.removeWhere(test);
-    int k=0;
-    for (int k0=0; k0<a0.length; k0++) {
+    int k = 0;
+    for (int k0 = 0; k0 < a0.length; k0++) {
       if (!test(a0[k0])) {
         Expect.identical(a0[k0], a[k], "k0=$k0, k=$k");
         k++;
@@ -31,10 +31,10 @@ test(List create([int length])) {
     Expect.equals(a.length, k, "a.length=${a.length} k=$k");
   }
 
-  List a0=[1,3,3,4,5,6];
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  List a0 = [1, 3, 3, 4, 5, 6];
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4);
+  check(a0, (var element) => element < 4);
+  check(a0, (var element) => element == 4);
 }

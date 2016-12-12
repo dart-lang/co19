@@ -9,19 +9,13 @@
  * @description Checks that [UnsupportedError] exception is thrown
  * if the length of the list cannot be changed.
  * @author vasya
- * @reviewer msyabro
- * @reviewer varlax
  */
 library removeLast_A02_t01;
 
 import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
-  List a =create(1);
+  List a = create(1);
   a[0] = 0;
-  Expect.throws(() {
-    a.removeLast();
-    },
-    (e) => e is UnsupportedError
-  );
+  Expect.throws(() {a.removeLast();}, (e) => e is UnsupportedError);
 }

@@ -8,9 +8,9 @@
  * Sorts the list according to the order specified by the compare function.
  * The compare function must act as a Comparator.
  * The default List implementations use Comparable.compare if compare is omitted.
- * @description Checks sorting of some permutations of integer arrays with unique elements.
+ * @description Checks sorting of some permutations of integer arrays with
+ * unique elements.
  * @author iefremov
- * @reviewer pagolubev
  */
 library sort_A01_t02;
 
@@ -46,8 +46,7 @@ test(List create([int length])) {
     void permute(int n) {
       if (n == 1) {
         check();
-      }
-      else {
+      } else {
         for (int i = 0; i < n; i++) {
           permute(n-1);
           if (n % 2 == 1) {

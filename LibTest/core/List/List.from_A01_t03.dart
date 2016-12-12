@@ -42,7 +42,7 @@ check(List l) {
 
 main() {
   check(new List.from([], growable:false));
-  List src = [null, [null], [], [1,2,3], [[null]]];
+  List src = [null, [null], [], [1, 2, 3], [[null]]];
   List a = new List.from(src, growable:false);
   check(a);
   if (failures.isEmpty) return;

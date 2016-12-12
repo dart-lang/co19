@@ -6,7 +6,8 @@
 /**
  * @assertion factory List([int length])
  * Creates a list of the given length.
- * The list is a fixed-length list if length is provided, and an empty growable list if length is omitted.
+ * The list is a fixed-length list if length is provided, and an empty growable
+ * list if length is omitted.
  * @description Checks that created list is not resizable if length is provided.
  * @author kaigorodov
  */
@@ -41,8 +42,9 @@ main() {
   check(new List<String>(0));
   check(new List(10));
   if (failures.isEmpty) return;
-  StringBuffer sb=new StringBuffer();
-  sb.write("following operations do not cause UnsupportedError on fixed-sized list:\n");
+  StringBuffer sb = new StringBuffer();
+  sb.write("Following operations do not cause UnsupportedError on "
+      + "fixed-sized list:\n");
   sb.writeAll(failures, ", ");
   Expect.fail(sb.toString());
 }

@@ -4,13 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws [ArgumentError] if the [length] is not a non-negative integer.
+ * @assertion Throws [ArgumentError] if the [length] is a negative integer.
  * @description Checks that ArgumentError is thrown as expected.
  * @author vasya
- * @reviewer iefremov
- * @reviewer msyabro
- * @reviewer varlax
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 

@@ -21,7 +21,7 @@ void check(List<String> lst, int length, String fill) {
 
 main() {
   int length = 100;
-  String fill="Phil";
+  String fill = "Phil";
   List<String> a = new List.filled(length, fill);
   check(a, length, fill);
 }

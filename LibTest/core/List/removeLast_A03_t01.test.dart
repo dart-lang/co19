@@ -7,7 +7,6 @@
  * @assertion abstract E removeLast()
  * Throws RangeError if the list is empty.
  * @description Checks that exception is thrown.
- * @note undocumented
  * @author kaigorodov
  */
 library removeLast_A03_t01;
@@ -16,9 +15,5 @@ import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
   List a = create();
-  Expect.throws(() {
-      a.removeLast();
-    },
-    (e) => e is RangeError
-  );
+  Expect.throws(() {a.removeLast();}, (e) => e is RangeError);
 }

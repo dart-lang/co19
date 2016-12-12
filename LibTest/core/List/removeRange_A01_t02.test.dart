@@ -8,7 +8,6 @@
  * Removes the elements in the range start to end exclusive.
  * @description Checks that list is not changed if [start]==[end].
  * @author vasya
- * @reviewer varlax
  */
 library removeRange_A01_t02;
 

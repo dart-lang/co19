@@ -10,7 +10,6 @@
  * The default List implementations use Comparable.compare if compare is omitted.
  * @description Checks sorting of short integer arrays with repeated elements.
  * @author iefremov
- * @reviewer pagolubev
  */
 library sort_A01_t03;
 
