@@ -66,9 +66,11 @@ class ErrorServer {
   static void isolateEntryPoint(SendPort sendPort) {
     ReceivePort receivePort = new ReceivePort();
     int i = 0;
-    receivePort.listen(
+    StreamSubscription ss;
+    ss = receivePort.listen(
         (x) {
           if (x==_STOP){
+            ss.cancel();
             receivePort.close();
           } else {
             throw i++;
@@ -78,8 +80,16 @@ class ErrorServer {
     sendPort.send(receivePort.sendPort);
   }
 
-  void stop() {
+  void requestStop() {
     sendPort.send(_STOP);
+  }
+
+  Future stop() {
+    ReceivePort exitPort = new ReceivePort();
+    isolate.addOnExitListener(exitPort.sendPort);
+    Future result = exitPort.first; // subscribe first
+    requestStop();
+    return result;
   }
 
   void generateError() {
