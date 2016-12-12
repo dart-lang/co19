@@ -20,45 +20,24 @@
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-
-void entryPoint(SendPort sendPort) {
-  ReceivePort receivePort = new ReceivePort();
-  dynamic i = 1;
-  receivePort.listen(
-    (x) {
-      if (x == "!stop") {
-        receivePort.close();
-      } else {
-        var z = "a" + i++; // intentional error
-      }
-    }
-  );
-  sendPort.send(receivePort.sendPort);
-}
-
+import "IsolateUtil.dart";
 
 test() async {
-  ReceivePort receivePort = new ReceivePort();
-  ReceivePort onExitPort = new ReceivePort();
-  Isolate isolate = await Isolate.spawn(
-                                    entryPoint,
-                                    receivePort.sendPort,
-                                    errorsAreFatal:false,
-                                    onExit: onExitPort.sendPort);
-  SendPort sendPort = await receivePort.first;
-  // subscribe to isolate errors
+  // setup
+  ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
   List receivedErrors = [];
-  StreamSubscription ss1 = isolate.errors.listen(
+  StreamSubscription ss1 = server.isolate.errors.listen(
     (data) { receivedErrors.add(data); },
     onError: (e) { receivedErrors.add(e); }
   );
   // produce errors
-  for (String s in ["hello", "world", ":-)", "!stop"]) {
-    sendPort.send(s);
+  for (int i=0; i<3; i++) {
+    server.generateError();
   }
   // clean up
-  await onExitPort.first;
+  await server.stop();
   ss1.cancel();
+  // check results
   Expect.equals(3, receivedErrors.length);
   asyncEnd();
 }
