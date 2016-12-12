@@ -76,11 +76,19 @@ import "removeWhere_A01_t01.test.dart" as removeWhere_A01_t01;
 import "replaceRange_A01_t01.test.dart" as replaceRange_A01_t01;
 import "replaceRange_A01_t02.test.dart" as replaceRange_A01_t02;
 import "retainWhere_A01_t01.test.dart" as retainWhere_A01_t01;
+import "setAll_A01_t01.test.dart" as setAll_A01_t01;
+import "setAll_A02_t01.test.dart" as setAll_A02_t01;
+import "setAll_A03_t01.test.dart" as setAll_A03_t01;
+import "setAll_A04_t01.test.dart" as setAll_A04_t01;
+import "setAll_A05_t01.test.dart" as setAll_A05_t01;
 import "reversed_A01_t01.test.dart" as reversed_A01_t01;
 import "setRange_A01_t01.test.dart" as setRange_A01_t01;
 import "setRange_A01_t02.test.dart" as setRange_A01_t02;
 import "setRange_A02_t01.test.dart" as setRange_A02_t01;
 import "setRange_A02_t02.test.dart" as setRange_A02_t02;
+import "shuffle_A01_t01.test.dart" as shuffle_A01_t01;
+import "shuffle_A01_t02.test.dart" as shuffle_A01_t02;
+import "shuffle_A01_t03.test.dart" as shuffle_A01_t03;
 import "sort_A01_t01.test.dart" as sort_A01_t01;
 import "sort_A01_t02.test.dart" as sort_A01_t02;
 import "sort_A01_t03.test.dart" as sort_A01_t03;
@@ -89,6 +97,12 @@ import "sort_A01_t04.test.dart" as sort_A01_t04;
 import "sort_A01_t05.test.dart" as sort_A01_t05;
 import "sort_A01_t06.test.dart" as sort_A01_t06;
 */
+
+import "sublist_A01_t01.test.dart" as sublist_A01_t01;
+import "sublist_A02_t01.test.dart" as sublist_A02_t01;
+import "sublist_A03_t01.test.dart" as sublist_A03_t01;
+
+import "../../core/Iterable/allTests.lib.dart" as iterableTests;
 
 test(List create([int length])) {
   add_A01_t01.test(create);
@@ -159,16 +173,39 @@ test(List create([int length])) {
   replaceRange_A01_t02.test(create);
   retainWhere_A01_t01.test(create);
   reversed_A01_t01.test(create);
+  setAll_A01_t01.test(create);
+  setAll_A02_t01.test(create);
+  setAll_A03_t01.test(create);
+  setAll_A04_t01.test(create);
+  setAll_A05_t01.test(create);
   setRange_A01_t01.test(create);
   setRange_A01_t02.test(create);
   setRange_A02_t01.test(create);
   setRange_A02_t02.test(create);
-  sort_A01_t01.test(create);  
-  sort_A01_t02.test(create);  
+  shuffle_A01_t01.test(create);
+  shuffle_A01_t02.test(create);
+  shuffle_A01_t03.test(create);
+  sort_A01_t01.test(create);
+  sort_A01_t02.test(create);
   sort_A01_t03.test(create);
   /* consume too much memory, moved to separate test List_class_A01_t02.dart
   sort_A01_t04.test(create);  
   sort_A01_t05.test(create);  
   sort_A01_t06.test(create);
-  */  
+  */
+  sublist_A01_t01.test(create);
+  sublist_A02_t01.test(create);
+  sublist_A03_t01.test(create);
+
+  // Run tests for methods inherited from Iterable
+  Iterable createIterable([Iterable content]) {
+    if (content == null) {
+      return create();
+    } else {
+      List l = create();
+      l.addAll(content);
+      return l;
+    }
+  }
+  iterableTests.test(createIterable);
 }
