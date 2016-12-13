@@ -11,7 +11,6 @@
  * @description Checks that it's possible to pass a static function as
  * the second argument.
  * @author msyabro
- * @needsreview undocumented
  */
 library putIfAbsent_A01_t09;
 

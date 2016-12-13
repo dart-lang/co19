@@ -29,6 +29,6 @@ test(Map create([Map content])) {
   map[1] = "5";
   map.forEach(f);
   
-  Expect.isTrue(keys[0]==1 && keys[1]==1);
-  Expect.isTrue(values[0]=="3" && values[1]=="5");    
+  Expect.isTrue(keys[0] == 1 && keys[1] == 1);
+  Expect.isTrue(values[0] == "3" && values[1] == "5");
 }

@@ -19,9 +19,6 @@ import "../../../Utils/expect.dart";
 test(Map create([Map content])) {
   Map map = create();
 
-    Expect.throws(() {
-    map.putIfAbsent("1", null);
-  });
-
+  Expect.throws(() {map.putIfAbsent("1", null);});
   Expect.isFalse(map.containsKey("1"));
 }

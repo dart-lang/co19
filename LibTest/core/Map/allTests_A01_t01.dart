@@ -13,7 +13,7 @@ import "compKeysWarnTests.lib.dart" as compKeysWarnTests;
 import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
 
 Map create([Map content]) {
-  if (content==null) {
+  if (content == null) {
     return new Map();
   } else {
     return new Map.from(content);

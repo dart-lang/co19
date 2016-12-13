@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the value for the given [key] or null if [key] is not in the map.
+ * @assertion Returns the value for the given [key] or null if [key] is not in
+ * the map.
  * @description Checks that null values are supported.
  * @author kaigorodov
  */
@@ -14,10 +15,10 @@ import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
   Map map = create();
-  Object key="key";
+  Object key = "key";
   Expect.equals(null, map[key]);
   Expect.isFalse(map.containsKey(key));  
-  map[key]=null;
+  map[key] = null;
   Expect.equals(null, map[key]);
   Expect.isTrue(map.containsKey(key));  
 }
