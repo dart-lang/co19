@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final String str
- * The string on which this matcher was computed. 
+ * @assertion String input
+ * The string on which this match was computed.
  * @description Checks that this property holds the correct string.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,8 @@ main() {
 }
   
 void check(String pattern, String str, bool multiLine, bool caseSensitive) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Iterable<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

@@ -7,8 +7,6 @@
  * @assertion Throws RangeError if [group] is out of bounds
  * @description Check that exception is thrown.
  * @author rodionov
- * @needsreview undocumnted
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
