@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented 
+ * @assertion String toString()
+ * Returns a string representation of this object.
  * @description Checks that this method executes without errors.
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
  
 main() {
