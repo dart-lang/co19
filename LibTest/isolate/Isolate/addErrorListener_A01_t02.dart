@@ -7,17 +7,20 @@
  * @assertion void addErrorListener(
  *                      SendPort port
  *            )
- * ...
- * Listening using the same port more than once does nothing. It will only
- * get each error once.
+ * Requests that uncaught errors of the isolate are sent back to port.
  *
- * @description Check that listening using the same port more than once only
- * get each error once
+ * The errors are sent back as two elements lists. The first element is
+ * a String representation of the error, usually created by calling toString
+ * on the error. The second element is a String representation of
+ * an accompanying stack trace, or null if no stack trace was provided.
+ * To convert this back to a StackTrace object, use StackTrace.fromString.
+ *
+ * @description Check that StackTrace.fromString() accepts a String
+ * representation of an accompanying stack trace
  *
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
@@ -26,8 +29,6 @@ test() async {
   ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
 
   ReceivePort errorPort = new ReceivePort();
-  server.isolate.addErrorListener(errorPort.sendPort);
-  server.isolate.addErrorListener(errorPort.sendPort);
   server.isolate.addErrorListener(errorPort.sendPort);
 
   int count = 0;
@@ -38,17 +39,18 @@ test() async {
     Expect.equals(2, error.length);
     Expect.isTrue(error[0] is String);
     Expect.isTrue(error[1] is String);
-    Expect.equals(count.toString(), error[0]);
+    if (error[1]!=null){
+      Expect.isNotNull(new StackTrace.fromString(error[1]));
+    }
     count++;
 
     if (count == 5) {
-      server.requestStop();
-      // wait for any unexpected events on errorPort
-      new Future.delayed(TWO_SECONDS, () => errorPort.close());
-    } else {
-      server.generateError();
+      break;
     }
+    server.generateError();
   }
+  await server.stop();
+  errorPort.close();
   asyncEnd();
 }
 
