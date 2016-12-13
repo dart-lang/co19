@@ -8,13 +8,13 @@
  *                    SendPort responsePort, {
  *                    Object response
  *            })
- *    Asks the isolate to send response on responsePort when it terminates.
- *    The isolate will send a response message on responsePort as the last
- * thing before it terminates. It will run no further code after the message
- * has been sent.
+ * ...
+ *   Adding the same port more than once will only cause it to receive one
+ * message, using the last response value that was added.
  *
- * @description Check that isolate sends given response value on responsePort,
- * when it terminates with error.
+ * @description Check that isolate sends single event on responsePort,
+ * which is supplied several times to addOnExitListener() of the same isolate.
+ * Always the same value for parameter response is specified.
  *
  * @author a.semenov@unipro.ru
  */
@@ -25,16 +25,21 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 Future test(Object value) async {
-  ErrorServer server = await ErrorServer.spawn(errorsAreFatal:true);
+  ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
   ReceivePort onExit = new ReceivePort();
+  List events = [];
   onExit.listen(
     (data) {
-      onExit.close();
-      Expect.equals(value, data);
+      events.add(data);
     }
   );
   server.isolate.addOnExitListener(onExit.sendPort, response:value);
-  server.generateError();
+  server.isolate.addOnExitListener(onExit.sendPort, response:value);
+  server.isolate.addOnExitListener(onExit.sendPort, response:value);
+  server.requestStop();
+  await new Future.delayed(TWO_SECONDS); // wait for duplicate events
+  onExit.close();
+  Expect.listEquals([value], events);
 }
 
 main() {
