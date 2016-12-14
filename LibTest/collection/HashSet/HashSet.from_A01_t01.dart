@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion interface HashSet<E> 
- * HashSet.from(Iterable<E> other)
- * Creates a [Set] that contains all elements of [other].
- * @description Checks that created hash set contains all elements of [other].
+ * @assertion interface HashSet.from(Iterable elements)
+ * Create a hash set containing all [elements].
+ * @description Checks that created hash set contains all elements of [elements].
  * Both empty and non-empty argument collections are tested.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

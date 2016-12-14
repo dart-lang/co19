@@ -27,12 +27,19 @@ main() {
 
     Map map = {0 : 0, null : "null", aString : null, anObject : -3,
         anError : "error", aMap : 6, aList : 1};
+
+    List notIdentical = [2, -5, "null", "str" + "ing", "string", new Object(),
+        new Error(), {0 : 1}, {}, [], [1, 2, 3]];
+
     HashMap hashmap = new HashMap.identity();
     hashmap.addAll(map);
     map.forEach((key, value) {
       Expect.isTrue(hashmap.containsKey(key));
       Expect.equals(value, hashmap[key]);
     });
+
+    notIdentical.forEach((element) =>
+        Expect.isFalse(hashmap.containsKey(element)));
   }
 
 }
