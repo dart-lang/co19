@@ -51,13 +51,13 @@ main() {
   ];
   Random random = new Random();
   Future.wait([
-    test(values..shuffle(random)),
-    test(values..shuffle(random)),
-    test(values..shuffle(random)),
-    test(values..shuffle(random)),
-    test(values..shuffle(random)),
-    test(values..shuffle(random)),
-    test(values..shuffle(random)),
-    test(values..shuffle(random))
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random))),
+    test(new List.from(values..shuffle(random)))
   ]).then((_) => asyncEnd());
 }
