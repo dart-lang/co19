@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionfactory List.generate(int length, E generator(int index), {bool growable: true})
+ * @assertionfactory List.generate(int length, E generator(int index),
+ * {bool growable: true})
  * Generate a List of values.
- * Creates a list with length positions and fills them by values created by calling generator
- * for each index in the range 0 .. [length]-1 in increasing order.
+ * Creates a list with length positions and fills them by values created by
+ * calling generator for each index in the range 0 .. [length]-1 in increasing
+ * order.
  * The created length's length is fixed unless growable is true.
  * @description Checks that proper list with correct element order is created.
  * @author kaigorodov
@@ -51,11 +53,11 @@ main() {
   Expect.equals(0, a.length);
   Expect.equals(0, l.length);
 
-  l.addAll(["1","2","3","4","5"]);
+  l.addAll(["1", "2", "3", "4", "5"]);
   a = new List.generate(l.length, gengen(l));
   checkEquals(l, a);
 
-  List src = [null, [null], [], [1,2,3], [[null]]];
+  List src = [null, [null], [], [1, 2, 3], [[null]]];
   a = new List.generate(src.length, gengen(src));
   checkEquals(src, a);
 

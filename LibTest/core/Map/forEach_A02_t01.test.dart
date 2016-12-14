@@ -6,12 +6,10 @@
 /**
  * @assertion  abstract void forEach(void f(K key, V value))
  * It is an error to add or remove keys from the map during iteration.
- * @description Tries to remove or add entries in [f] while iterating over the map,
- * expects a ConcurrentModificationError every time regardless of whether or not
- * it is the current key that's being removed.
+ * @description Tries to remove or add entries in [f] while iterating over the
+ * map, expects a ConcurrentModificationError every time regardless of whether
+ * or not it is the current key that's being removed.
  * @author msyabro
- * @needsreview Doesn't specify the exact error, which operation throws it and whether
- * or not add/remove can finish successfully before the error. 
  */
 library forEach_A02_t01;
 
@@ -27,23 +25,20 @@ test(Map create([Map content])) {
       map.forEach((String key, Object value) {
         map["3"] = key;
       });
-    },
-    (e)=> e is ConcurrentModificationError
+    }, (e)=> e is ConcurrentModificationError
   );
   
   Expect.throws(() {
       map.forEach((String key, Object value) {
         map.remove("2");
       });
-    },
-    (e)=> e is ConcurrentModificationError
+    }, (e)=> e is ConcurrentModificationError
   );
   Expect.throws(() {
       map.forEach((String key, Object value) {
         map.remove(key);
       });
-    },
-    (e)=> e is ConcurrentModificationError
+    }, (e)=> e is ConcurrentModificationError
   );
   
   map["1"] = 1;
@@ -52,7 +47,6 @@ test(Map create([Map content])) {
       map.forEach((String key, Object value) {
         map.clear();
       });
-    },
-    (e)=> e is ConcurrentModificationError
+    }, (e)=> e is ConcurrentModificationError
   );
 }

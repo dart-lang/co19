@@ -7,7 +7,6 @@
  * @assertion Returns the index in the string where the match starts.
  * @description Checks that method returns correct value.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

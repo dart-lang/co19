@@ -42,7 +42,7 @@ test() async {
     count++;
 
     if (count == 5) {
-      server.stop();
+      server.requestStop();
       // wait for any unexpected events on errorPort
       new Future.delayed(TWO_SECONDS, () => errorPort.close());
     } else {

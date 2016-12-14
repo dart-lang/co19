@@ -9,22 +9,16 @@
  * @description Checks that an [RangeError] is thrown
  * if [start] or [end] are out of range.
  * @author vasya
- * @reviewer varlax
  */
 library removeRange_A03_t02;
 
 import "../../../Utils/expect.dart";
 
 checkList(l, start, end) {
-  Expect.throws(() {
-      l.removeRange(start, end);
-    },
-    (e) => e is RangeError
-  );
+  Expect.throws(() {l.removeRange(start, end);}, (e) => e is RangeError);
 }
 
 test(List create([int length])) {
-  var a = create();
 
   void check(int listSize, int start, int end) {
     List l = create();
@@ -32,8 +26,8 @@ test(List create([int length])) {
     checkList(l, start, end);
   }
 
-  check(0,0,1);
-  check(1,1,2);
-  check(100,99,101);
+  check(0, 0, 1);
+  check(1, 1, 2);
+  check(100, 99, 101);
   check(799, 0, 800);
 }

@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Returns the index in the string after the last character of the
- *            match.
- * @description Checks that method returns correct value for various regular expressions
+ * match.
+ * @description Checks that method returns correct value for various regular
+ * expressions
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

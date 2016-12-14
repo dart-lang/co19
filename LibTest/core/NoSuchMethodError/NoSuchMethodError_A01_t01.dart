@@ -5,10 +5,9 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this constructor executes without error for various sets of arguments (including null).
+ * @description Checks that this constructor executes without error for various
+ * sets of arguments (including null).
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 
 Symbol sym ([String s = '']) => new Symbol(s);

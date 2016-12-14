@@ -14,7 +14,6 @@
  * argument is null or can't be called like a function (according to general
  * language rules).
  * @author msyabro
- * @needsreview undocumented
  */
 library putIfAbsent_A01_t08;
 
@@ -23,16 +22,8 @@ import "../../../Utils/expect.dart";
 test(Map create([Map content])) {
   dynamic map = create();
 
-  Expect.throws(() {
-      map.putIfAbsent("1", 1);
-    },
-    (e)=>(e is TypeError),
-    "Type error expected in checked mode"
-  );
+  Expect.throws(() {map.putIfAbsent("1", 1);});
       
-    Expect.throws(() {
-    map.putIfAbsent("1", null);
-  });
-  
+  Expect.throws(() {map.putIfAbsent("1", null);});
   Expect.isFalse(map.containsKey("1"));
 }

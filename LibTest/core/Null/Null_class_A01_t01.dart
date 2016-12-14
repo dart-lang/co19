@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Null class
- * The reserved word null denotes an object that is the sole instance of this class.
+ * The reserved word null denotes an object that is the sole instance of this
+ * class.
  * @description Checks that null is indeed an instance of class Null.
  * @author rodionov
  */

@@ -8,8 +8,6 @@
  * Returns the element at the given index in the list.
  * @description Checks fixed size arrays.
  * @author iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 library operator_subscript_A01_t01;
 
@@ -17,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
   List from(List content) {
-    List res=create(content.length);
+    List res = create(content.length);
     res.setRange(0, content.length, content);
     return res;
   }
@@ -33,7 +31,7 @@ test(List create([int length])) {
   Expect.identical(from([1, null, 3])[1], null);
   Expect.identical(from([1, 2, null])[2], null);
   
-  a = const [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+  a = const [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   List ls = new List<int>(a.length);
   for (int i in a) {
     Expect.identical(a[i], i);
@@ -41,6 +39,6 @@ test(List create([int length])) {
   }
   for(int i = 0; i < a.length; ++i) {
     Expect.identical(ls[i], i);
-    Expect.identical(ls[a.length-1-i], a.length-1-i);
+    Expect.identical(ls[a.length - 1 - i], a.length - 1 - i);
   }
 }

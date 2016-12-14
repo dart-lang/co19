@@ -9,8 +9,6 @@
  * @description Checks that ArgumentError is thrown as expected.
  * @author vasya
  * @reviewer iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 

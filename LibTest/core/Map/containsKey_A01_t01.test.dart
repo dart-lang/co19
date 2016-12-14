@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Returns whether this map contains the given [key].
- * @description Check that the method returns true if this map contains a mapping
- * for the specified key.
+ * @description Check that the method returns true if this map contains a
+ * mapping for the specified key.
  * @author msyabro
  */
 library containsKey_A01_t01;

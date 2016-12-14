@@ -6,8 +6,8 @@
 /**
  * @assertion  abstract bool containsValue(Object value)
  * Returns true if this map contains the given value.
- * @description Checks that the method returns true if this map contains a mapping
- * for the specified key.
+ * @description Checks that the method returns true if this map contains a
+ * mapping for the specified key.
  * @author msyabro
  */
 library containsValue_A01_t01;

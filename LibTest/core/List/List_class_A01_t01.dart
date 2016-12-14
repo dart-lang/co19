@@ -10,8 +10,8 @@
  */
 import "allListTests.lib.dart";
 
-List create([int length=null]) {
-  if (length==null) {
+List create([int length = null]) {
+  if (length == null) {
     return new List();
   } else {
     return new List(length);

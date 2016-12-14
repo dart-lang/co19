@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns the value for the given [key] or null if [key] is not in the map.
+ * @assertion Returns the value for the given [key] or null if [key] is not in
+ * the map.
  * @description Checks that null keys and values are supported.
  * @author kaigorodov
  */

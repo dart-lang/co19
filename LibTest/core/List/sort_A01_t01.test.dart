@@ -10,7 +10,6 @@
  * The default List implementations use Comparable.compare if compare is omitted.
  * @description Sort empty list without comparator
  * @author iefremov
- * @reviewer msyabro
  */
 library sort_A01_t01;
 

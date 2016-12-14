@@ -19,21 +19,21 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   check(List a0, int index) {
-    List a=create();
+    List a = create();
     a.addAll(a0);
-    var r=a.removeAt(index);
+    var r = a.removeAt(index);
     Expect.equals(a0[index], r);
-    Expect.equals(a0.length-1, a.length);
-    for (int k=0; k<index; k++) {
+    Expect.equals(a0.length - 1, a.length);
+    for (int k = 0; k < index; k++) {
       Expect.identical(a0[k], a[k]);
     }
-    for (int k=index; k<a.length; k++) {
-      Expect.identical(a0[k+1], a[k]);
+    for (int k = index; k < a.length; k++) {
+      Expect.identical(a0[k + 1], a[k]);
     }
   }
 
-  List a0=[1,3,3,4,5,6];
-  check(a0, a0.length-1);
+  List a0 = [1, 3, 3, 4, 5, 6];
+  check(a0, a0.length - 1);
   check(a0, 0);
   check(a0, 3);
 }
