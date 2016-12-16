@@ -13,9 +13,9 @@
  */
 
 import "../../../Utils/expect.dart";
- 
-main() {
+
+test(ArgumentError create([value, String name, message])) {
   var name = "some name";
-  ArgumentError err = new ArgumentError.notNull(name);
+  ArgumentError err = create(null, name);
   Expect.equals(name, err.name);
 }

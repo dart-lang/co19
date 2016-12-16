@@ -12,9 +12,9 @@
  */
 
 import "../../../Utils/expect.dart";
- 
-main() {
-  var message = "some message";
-  ArgumentError err = new ArgumentError.value(null, null, message);
-  Expect.equals(message, err.message);
+
+test(ArgumentError create([value, String name, message])) {
+  var msg = "some message";
+  ArgumentError err = create(null, null, msg);
+  Expect.equals(msg, err.message);
 }
