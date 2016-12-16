@@ -5,11 +5,10 @@
  */
 /**
  * @assertion Returns an ordered collection of matches of the regular expression
- *            in [str]. The order in the collection is the order of the matches
- *            found in [str].
+ * in [str]. The order in the collection is the order of the matches found
+ * in [str].
  * @description Checks that all matches are returned in correct order
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
  
@@ -34,9 +33,12 @@ main() {
   
 // expMatchesData is a list of matchData
 // matchData is a list of the form [int, int, String, String*], where the ints
-// correspond to start/end indices of the match, and the strings - to group values
-void check(String pattern, String str, bool multiLine, bool ignoreCase, List expMatchesData) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+// correspond to start/end indices of the match, and the strings - to group
+// values
+void check(String pattern, String str, bool multiLine, bool ignoreCase,
+    List expMatchesData) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   Iterable<Match> matches = re.allMatches(str);
   if(0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -61,14 +63,17 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase, List exp
       String expMatchStr = expMatch[i + 2];
       
       if(expMatchStr != actMatchStr) {
-        Expect.fail("Group $i incorrect: '$expMatchStr' expected instead of '$actMatchStr'");
+        Expect.fail("Group $i incorrect: '$expMatchStr' expected instead "
+            + "of '$actMatchStr'");
       }
     }
   });
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void checkNeg(String pattern, String str, {bool multiLine: false,
+bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   Iterable<Match> matches = re.allMatches(str);
   Expect.equals(0, matches.length);
 }

@@ -7,7 +7,6 @@
  * @assertion final String pattern
  * The pattern of this regular expression. 
  * @description Checks that this property holds the correct string.
- * @reviewer pagolubev
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
@@ -25,6 +24,7 @@ main() {
 }
 
 void check(String pattern, String str, bool multiLine, bool caseSensitive) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Expect.stringEquals(pattern, re.pattern);
 }

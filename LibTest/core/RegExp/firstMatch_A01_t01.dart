@@ -8,7 +8,6 @@
  *            string [str].
  * @description Checks that the returned Match is correctly initialized.
  * @author rodionov
- * @reviewer msyabro
  * @note Issue 1290
  */
 import "../../../Utils/expect.dart";
@@ -36,7 +35,8 @@ main() {
         [0, 5, "robot"]);
 }
 
-void check(String pattern, String str, bool multiLine, bool ignoreCase, List groupData) {
+void check(String pattern, String str, bool multiLine, bool ignoreCase,
+    List groupData) {
   RegExp re = new RegExp(
       pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Match fm = re.firstMatch(str);

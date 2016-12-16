@@ -7,9 +7,6 @@
  * @assertion Constructs a regular expression.
  * @description Checks that null flags arguments can be used.
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
- * @needsreview undocumented. Do we need this test?
  */
 import "../../../Utils/expect.dart";
 

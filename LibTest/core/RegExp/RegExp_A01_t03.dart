@@ -9,19 +9,11 @@
  *              FormatException.
  * @3rdparty sputnik-v1:S15.10.1_A1_T1.js-S15.10.1_A1_T16.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
- * @needsreview undocumented behavior. Exception is unspecified.
  */
 import "../../../Utils/expect.dart";
 
-
 void check(String pattern) {
-  try {
-    RegExp re = new RegExp(pattern);
-    Expect.fail("FormatException expected");
-  } on FormatException catch(ok) {
-  }
+  Expect.throws(() {new RegExp(pattern);}, (e) => e is FormatException);
 }
 
 main() {
