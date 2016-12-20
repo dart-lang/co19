@@ -24,7 +24,6 @@ main() {
   Object anObject = new Object();
   Error anError = new Error();
   Map aMap = {0 : 1};
-  Map amap1 = {0 : 1};
   List aList = [1, 2, 3];
 
   List list = [0, null, aString, anObject, anError, aMap, aList];

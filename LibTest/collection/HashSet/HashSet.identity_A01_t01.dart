@@ -24,7 +24,8 @@ class C {
 
 main() {
   HashSet<C> set1 = new HashSet<C>.identity();
-  HashSet<C> set2 = new HashSet<C>(equals: identical, hashCode: identityHashCode);
+  HashSet<C> set2 = new HashSet<C>(
+      equals: identical, hashCode: identityHashCode);
   HashSet<C> set3 = new HashSet<C>();
 
   C val1 = new C();
