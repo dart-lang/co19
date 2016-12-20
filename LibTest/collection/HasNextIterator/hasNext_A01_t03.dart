@@ -5,17 +5,13 @@
  */
 /**
  * @assertion bool hasNext
- * @description Checks that [hasNext] returns [true] if iterator has next
- * element to iterate
+ * @description Checks that [hasNext] throws error if iterator is [null]
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  HasNextIterator i1 = new HasNextIterator([1].iterator);
-  Expect.isTrue(i1.hasNext);
-
-  HasNextIterator i2 = new HasNextIterator([0, 1].iterator);
-  Expect.isTrue(i2.hasNext);
+  HasNextIterator i1 = new HasNextIterator(null);
+  Expect.throws(() {i1.hasNext;});
 }

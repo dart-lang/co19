@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The HasNextIterator class wraps an Iterator and provides methods
- * to iterate over an object using hasNext and next.
+ * @assertion The [HasNextIterator] class wraps an [Iterator] and provides
+ * methods to iterate over an object using [hasNext] and [next].
  * @description Checks that created object works as specified.
  * @author kaigorodov
  */
