@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 15.10.2.10: The production CharacterEscape :: t evaluates by returning the character \u0009
+ * @assertion 15.10.2.10: The production CharacterEscape :: t evaluates by
+ * returning the character \u0009
  * @description Checks that \t evaluates to \u0009.
  * @3rdparty sputnik-v1:S15.10.2.10_A1.1_T1.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

@@ -10,7 +10,6 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A2_T1.js-S15.10.2.7_A2_T4.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -21,7 +20,8 @@ main() {
   checkNeg(r"b{8}", "aaabbbbcccddeeeefffff");
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

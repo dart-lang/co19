@@ -22,8 +22,6 @@
  *              errors.
  * @3rdparty sputnik-v1:S15.10.2.11_A1_T4.js - S15.10.2.11_A1_T9.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

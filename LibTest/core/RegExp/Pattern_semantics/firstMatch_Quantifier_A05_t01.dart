@@ -10,7 +10,6 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A6_T1.js-S15.10.2.7_A6_T6.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -27,7 +26,8 @@ main() {
   check(r"(a{1,2})\1{1,}", "aaaaaaaaa", 0, ["aaaaaaaa", "aa"]);
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

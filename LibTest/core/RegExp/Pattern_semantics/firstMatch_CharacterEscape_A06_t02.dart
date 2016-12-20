@@ -21,8 +21,6 @@
  *              unsupported control letters (using ranges between and around the
  *              supported ones).
  * @author rodionov
- * @needsreview
- * @reviewer msyabro
  * @note Issue 1293
  */
 import "../../../../Utils/expect.dart";

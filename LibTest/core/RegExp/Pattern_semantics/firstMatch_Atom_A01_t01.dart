@@ -17,8 +17,6 @@
  * @description Checks that this syntax works as specified.
  * @3rdparty sputnik-v1:S15.10.2.8_A1_T1.js-S15.10.2.8_A1_T5.js
  * @author rodionov
- * @needsreview Undocumented behavior of the regular expression with an error
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -26,14 +24,17 @@ import "../../../../Utils/expect.dart";
 main() {
   check(r"(?=(a+))", "baaabac", 1, ["", "aaa"]);
   check(r"(?=(a+))a*b\1", "baaabac", 3, ["aba", "a"]);
-  check(r"[Jj]ava([Ss]cript)?(?=\:)", "just Javascript: the way 0f jedi", 5, ["Javascript", "script"]);
-  check(r"[Jj]ava([Ss]cript)?(?=\:)", "taste of java: the cookbook", 9, ["java", null]);
+  check(r"[Jj]ava([Ss]cript)?(?=\:)", "just Javascript: the way 0f jedi", 5,
+      ["Javascript", "script"]);
+  check(r"[Jj]ava([Ss]cript)?(?=\:)", "taste of java: the cookbook", 9,
+      ["java", null]);
   checkNeg(r"[Jj]ava([Ss]cript)?(?=\:)", "rhino is JavaScript engine");
   checkNeg(r"a(?=b)a", "aba");
   checkNeg(r"(?=a)b\1", "aabb");
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

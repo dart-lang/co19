@@ -23,9 +23,6 @@
  *              entire regexp causes an error.
  * @3rdparty sputnik-v1:S15.10.2.11_A1_T2.js,S15.10.2.11_A1_T3.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
- * @needsreview undocumented
  */
 import "../../../../Utils/expect.dart";
  
@@ -41,13 +38,6 @@ main() {
 
 void checkNeg(String pattern, [String testStr = ""]) {
   bool fail = false;
-  //try {
-    RegExp re = new RegExp(pattern);
-    Expect.equals(null, re.firstMatch(testStr));
-    //re.firstMatch(testStr);
-    //fail = true;
-  /*} catch(ok) { } // FIXME
-  if(fail) {
-    Expect.fail("Some exception expected");
-  }*/
+  RegExp re = new RegExp(pattern);
+  Expect.equals(null, re.firstMatch(testStr));
 }

@@ -10,7 +10,8 @@
  *            <li>Evaluate the first ClassAtom to obtain a CharSet A. </li>
  *            <li>Evaluate the second ClassAtom to obtain a CharSet B.</li>
  *            <li>Evaluate ClassRanges to obtain a CharSet C. </li>
- *            <li>Call CharacterRange(A, B) and let D be the resulting CharSet.</li>
+ *            <li>Call CharacterRange(A, B) and let D be the resulting CharSet.
+ *            </li>
  *            <li>Return the union of CharSets D and C.</li>
  *            </ol>
  *            <br/> The abstract operation CharacterRange takes two CharSet
@@ -34,11 +35,10 @@
  *            errors. Using a backreference inside a ClassAtom causes an error.
  * @description Checks that using such ClassAtoms for a range specification that
  *              the CU value of the beginning limit is greater than that of the
- *              end limit while CharacterClass contains another atoms causes an error.
+ *              end limit while CharacterClass contains another atoms causes an
+ *              error.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
  * @author rodionov
- * @needsreview undocumented behavior on error
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -86,7 +86,7 @@ void checkNeg(String pattern, [String testStr = ""]) {
     RegExp re = new RegExp(pattern);
     re.firstMatch(testStr);
     fail = true;
-  } catch(ok) { } // FIXME
+  } catch(ok) { }
   if(fail) {
     Expect.fail("Some exception expected");
   }

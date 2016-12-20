@@ -23,7 +23,6 @@
  *              described.
  * @3rdparty sputnik-v1:S15.10.2.13_A2_T1.js-S15.10.2.13_A2_T8.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

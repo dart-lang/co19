@@ -12,7 +12,6 @@
  * @description Checks that the infinite loops are indeed avoided (no stack
  *              overflow or other errors occur).
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

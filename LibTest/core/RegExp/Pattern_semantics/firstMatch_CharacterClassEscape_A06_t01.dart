@@ -11,7 +11,6 @@
  *              (tested vs all characters from the basic plane)
  * @3rdparty sputnik-v1:S15.10.2.12_A4_T1.js-S15.10.2.12_A4_T5.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

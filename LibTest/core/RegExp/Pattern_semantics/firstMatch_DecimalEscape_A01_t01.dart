@@ -21,11 +21,8 @@
  * @description Checks that \0 indeed evaluates to the NUL character.
  * @3rdparty sputnik-v1:S15.10.2.11_A1_T1.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
- 
 
 main() {
   RegExp re = new RegExp(r"\0");

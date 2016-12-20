@@ -10,8 +10,6 @@
  * @description Checks that \D works as described.
  * @3rdparty sputnik-v1:S15.10.2.12_A6_T1.js-S15.10.2.12_A6_T3.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
