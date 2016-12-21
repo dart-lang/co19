@@ -5,10 +5,10 @@
  */
 /**
  * @assertion const IterableBase()
- * This class implements all methods of Iterable except Iterable.iterator
+ * This class implements all methods of [Iterable] except [Iterable.iterator]
  * in terms of iterator.
- * @description Checks that this class implements all methods of Iterable
- * except Iterable.iterator
+ * @description Checks that this class implements all methods of [Iterable]
+ * except [Iterable.iterator]
  * @author kaigorodov
  */
 import "dart:collection";

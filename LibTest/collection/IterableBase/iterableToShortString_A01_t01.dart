@@ -6,16 +6,15 @@
 /**
  * @assertion String iterableToShortString(Iterable iterable,
  * [String leftDelimiter = '(', String rightDelimiter = ')'])
- * Convert an Iterable to a string like IterableBase.toString.
- * Allows using other delimiters than '(' and ')'.
- * @description Checks that IterableBase.iterableToShortString() wraps the
- * result in leftDelimiter and rightDelimiter
- * @author sgrekhov@unipro.ru
+ * Convert an [Iterable] to a string like [IterableBase.toString].
+ * @description Checks that [IterableBase.iterableToShortString()] converts an
+ * [iterable] to correct string and uses "(" and ")" as default delimiters.
+ * @author iarkh
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  Expect.equals("[1, 2, 3, -1}",
-      IterableBase.iterableToShortString([1, 2, 3, -1], "[", "}"));
+  Expect.equals("(1, 2, 3, -1)",
+      IterableBase.iterableToShortString([1, 2, 3, -1]));
 }
