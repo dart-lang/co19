@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion 15.10.2.7: The production QuantifierPrefix :: {DecimalDigits, DecimalDigits}
- *            evaluates by returning MVs of the first and second DecimalDigits, respectively.
+ * @assertion 15.10.2.7: The production QuantifierPrefix :: {DecimalDigits,
+ *            DecimalDigits}
+ *            evaluates by returning MVs of the first and second DecimalDigits,
+ *            respectively.
  * @description Checks that this quantifier is applied correctly in various
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A1_T1.js-S15.10.2.7_A1_T12.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -28,10 +29,12 @@ main() {
   check(r"b{0,93}c", "aaabbbbcccddeeeefffff", 3, ["bbbbc"]);
   check(r"bx{0,93}c", "aaabbbbcccddeeeefffff", 6, ["bc"]);
   check(r".{0,93}", "weirwerdf", 0, ["weirwerdf"]);
-  check(r"((12){2,3}).?.?(\1{0,3})", "12121212121212", 0, ["12121212121212", "121212", "12", "121212"]);
+  check(r"((12){2,3}).?.?(\1{0,3})", "12121212121212", 0, ["12121212121212",
+  "121212", "12", "121212"]);
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

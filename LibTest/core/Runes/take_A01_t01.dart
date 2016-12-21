@@ -10,7 +10,6 @@
  * the length [n] and contains first [n] elements from [this].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string, n) {

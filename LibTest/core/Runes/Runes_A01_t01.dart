@@ -8,14 +8,12 @@
  * @description Checks that an instance of Runes is created.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {
   var runes = new Runes(string);
   Expect.isTrue(runes is Runes);
 }
-
 
 main() {
   check("");

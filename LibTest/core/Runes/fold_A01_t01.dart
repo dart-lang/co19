@@ -12,7 +12,6 @@
  * @description Checks that the returned value is correct.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 checkInt(string, expected) {

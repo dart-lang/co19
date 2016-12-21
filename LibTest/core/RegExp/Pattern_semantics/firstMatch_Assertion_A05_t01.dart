@@ -10,7 +10,6 @@
  * @description Checks that the assertion is true.
  * @3rdparty sputnik-v1:S15.10.2.6_A5_T1.js-S15.10.2.6_A5_T2.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

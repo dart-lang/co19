@@ -10,7 +10,6 @@
  * elements of [this].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string, uniqueNum) {
@@ -27,5 +26,6 @@ main() {
   check('', 0);
   check('a', 1);
   check('aaaaaa', 1);
-  check('aaaaaaaaaabbbbbbbbbcccccccccddddddddeeeeeeeeefffffffffgggggggggghhhhhhhhhhiiiiiiiiiijjjjjjjjjj', 10);
+  check('aaaaaaaaaabbbbbbbbbcccccccccddddddddeeeeeeeeefffffffffgggggggggg' +
+      'hhhhhhhhhhiiiiiiiiiijjjjjjjjjj', 10);
 }

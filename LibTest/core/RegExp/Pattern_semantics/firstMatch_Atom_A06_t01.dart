@@ -25,16 +25,18 @@ import "../../../../Utils/expect.dart";
  
 
 main() {
-  check(r"[a-z]+", "ABC def ghi", ignoreCase: true, matchPos: 0, expectedGroups: ["ABC"]);
+  check(r"[a-z]+", "ABC def ghi", ignoreCase: true, matchPos: 0,
+      expectedGroups: ["ABC"]);
   check(r"[a-z]+", "ABC def ghi", matchPos: 4, expectedGroups: ["def"]);
   checkNeg(r"[A-Z]+", "ß", ignoreCase: true);
   checkNeg(r"[A-Z]+", "\u0131", ignoreCase: true);
   checkNeg(r"[A-Z]+", "\u017F", ignoreCase: true);
 }
 
-void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false,
-    int matchPos: -1, List<String> expectedGroups: null}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void check(String pattern, String str, {bool multiLine: false,
+    bool ignoreCase: false, int matchPos: -1, List<String> expectedGroups: null}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
@@ -55,8 +57,10 @@ void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: 
   }
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void checkNeg(String pattern, String str, {bool multiLine: false,
+    bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

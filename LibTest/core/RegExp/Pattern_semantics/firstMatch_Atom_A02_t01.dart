@@ -16,13 +16,13 @@
  * @description Checks that this syntax works as specified.
  * @3rdparty sputnik-v1:S15.10.2.8_A2_T1.js-S15.10.2.8_A2_T11.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
 
 main() {
-  check(r"Java(?!Script)([A-Z]\w*)", "using of JavaBeans technology", 9, ["JavaBeans", "Beans"]);
+  check(r"Java(?!Script)([A-Z]\w*)", "using of JavaBeans technology", 9,
+      ["JavaBeans", "Beans"]);
   checkNeg(r"Java(?!Script)([A-Z]\w*)", "using of Java language");
   checkNeg(r"Java(?!Script)([A-Z]\w*)", "I\"m a JavaScripter");
   check(r"Java(?!Script)([A-Z]\w*)", "JavaScr oops ipt ", 0, ["JavaScr", "Scr"]);
@@ -33,10 +33,12 @@ main() {
   check(r"(?!a|b)|c", "bc", 1, [""]);
   check(r"(?!a|b)|c", "d", 0, [""]);
   
-  check(r"(.*?)a(?!(a+)b\2c)\2(.*)", "baaabaac", 0, ["baaabaac", "ba", null, "abaac"]);
+  check(r"(.*?)a(?!(a+)b\2c)\2(.*)", "baaabaac", 0, ["baaabaac", "ba", null,
+    "abaac"]);
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

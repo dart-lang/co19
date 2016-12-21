@@ -6,8 +6,8 @@
 /**
  * @assertion  abstract void addAll(Iterable<E> elements)
  * Adds all of elements to this Set.
- * @description Checks that hash code collisions do not prevent addition of different
- * objects (not equal with regards to == operator) to the set.
+ * @description Checks that hash code collisions do not prevent addition of
+ * different objects (not equal with regards to == operator) to the set.
  * @author pagolubev
  */
 library addAll_A01_t03;

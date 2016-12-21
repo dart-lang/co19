@@ -6,10 +6,10 @@
 /**
  * @assertion 15.10.2.8: To inhibit the capturing behaviour of parentheses, use
  *            the form (?: Disjunction ) instead.
- * @description Checks that the contents of parentheses are not captured when using (?:) syntax.
+ * @description Checks that the contents of parentheses are not captured when
+ * using (?:) syntax.
  * @3rdparty sputnik-v1:S15.10.2.8_A3_T1.js-S15.10.2.8_A3_T33.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -27,7 +27,8 @@ main() {
   check(ptrn.toString(), "hello", 0, ["hello"]);
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

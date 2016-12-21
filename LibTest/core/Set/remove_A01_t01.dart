@@ -6,8 +6,10 @@
 /**
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
- * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Checks that remove() works as specified in various simple scenarios.
+ * Returns false otherwise. The method has no effect if [value] value was not in
+ * the set.
+ * @description Checks that remove() works as specified in various simple
+ * scenarios.
  * @author pagolubev
  */
 library remove_A01_t01;

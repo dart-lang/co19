@@ -8,7 +8,6 @@
  * It is an error if [index] is negative or greater than number of code units.
  * @description Checks that it is an error if [index] is negative or
  * greater than the length of [string].
- * @note undocumented
  * @author msyabro
  */
 

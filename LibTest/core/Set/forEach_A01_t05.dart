@@ -22,7 +22,7 @@ test(Set create([Set content])) {
     i++;
   });
 
-  Expect.isTrue(s.containsAll([1,2,3,4,5]));
+  Expect.isTrue(s.containsAll([1, 2, 3, 4, 5]));
   Expect.isTrue(s.length == 5);
 }
 

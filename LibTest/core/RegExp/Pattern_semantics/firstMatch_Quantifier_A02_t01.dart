@@ -10,7 +10,6 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A3_T1.js-S15.10.2.7_A3_T14.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -32,7 +31,8 @@ main() {
   check("b*b+", "abbbbbbbc", 1, ["bbbbbbb"]);
 }
 
-void check(String pattern, String str, [int matchPos = -1, List<String> expectedGroups = null]) {
+void check(String pattern, String str, [int matchPos = -1,
+    List<String> expectedGroups = null]) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

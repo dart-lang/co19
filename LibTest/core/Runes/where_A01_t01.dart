@@ -10,7 +10,6 @@
  * from [this] that satisfy [test], and all other elements are skipped.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string, bool test (int element)) {

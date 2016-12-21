@@ -12,9 +12,6 @@
  *              ~`!@#$%^&*()-+={[}]|\\:;'<,>./?"
  * @3rdparty sputnik-v1:S15.10.2.10_A5.1_T1.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
- * @needsreview
  */
 import "../../../../Utils/expect.dart";
  

@@ -14,22 +14,22 @@
  * @description Checks that backreferences work as specified.
  * @3rdparty sputnik-v1:S15.10.2.9_A1_T1.js-S15.10.2.9_A1_T5.js
  * @author rodionov
- * @needsreview What should happen in case of an error in the regular expression?
- *            Should the exception be thrown or should the result be set to null?
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
 
 main() {
   check(r"\b(\w+) \1\b", "do you listen the the band", 14, ["the the", "the"]);
-  check(r"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x01u00FFu00FFx04x04x23", 6, ["x01x01", "x01", null]);
-  check(r"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x05u00FFu00FFx04x04x23", 12, ["u00FFu00FF", "u00FF", "FF"]);
+  check(r"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x01u00FFu00FFx04x04x23", 6,
+      ["x01x01", "x01", null]);
+  check(r"([xu]\d{2}([A-H]{2})?)\1", "x09x12x01x05u00FFu00FFx04x04x23", 12,
+      ["u00FFu00FF", "u00FF", "FF"]);
   check(r"(a*)b\1+", "baaac", 0, ["b", ""]);
-  checkNeg(r"(a*)b\2", "aaaaaaaaab"); //??
+  checkNeg(r"(a*)b\2", "aaaaaaaaab");
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if (null == fm) {

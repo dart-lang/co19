@@ -9,7 +9,6 @@
  * @description Checks that a [StateError] is thrown if [this] is empty.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

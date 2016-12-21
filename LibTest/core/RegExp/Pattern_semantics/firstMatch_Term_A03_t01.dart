@@ -15,8 +15,10 @@ import "../../../../Utils/expect.dart";
  
 
 main() {
-  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", ["zaacbbbcac", "z", "ac", "a", null, "c"]);
-  check("(z)((a+)?(b+)?(c))*", "zaacbbbc", ["zaacbbbc", "z", "bbbc", null, "bbb", "c"]);
+  check("(z)((a+)?(b+)?(c))*", "zaacbbbcac", ["zaacbbbcac", "z", "ac", "a",
+    null, "c"]);
+  check("(z)((a+)?(b+)?(c))*", "zaacbbbc", ["zaacbbbc", "z", "bbbc", null,
+    "bbb", "c"]);
 }
 
 void check(String pattern, String str,  List<String> expectedGroups) {

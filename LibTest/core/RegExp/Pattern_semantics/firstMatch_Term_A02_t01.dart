@@ -18,7 +18,6 @@
  * @description Checks that matches are ordered according to this rule.
  * @3rdparty sputnik-v1:S15.10.2.5_A1_T3.js-S15.10.2.5_A1_T2.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -34,11 +33,6 @@ main() {
 void check(String pattern, String str, List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
-  /*print("\nPattern: \"$pattern\"\n" +
-      "String: \"$str\"\n" + 
-      "Flags: \"$flags\"\n" + 
-      "Exp. groups: \"$expectedGroups\"");
-  print("group count: " + fm.groupCount);*/
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }

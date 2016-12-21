@@ -18,7 +18,6 @@
  * @description Checks that the ^ assertion is interpreted correctly.
  * @3rdparty sputnik-v1:S15.10.2.6_A2_T1.js-S15.10.2.6_A2_T10.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -37,16 +36,20 @@ main() {
   check(r"^\^+", "^^^x");
 }
 
-void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void check(String pattern, String str, {bool multiLine: false,
+    bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void checkNeg(String pattern, String str, {bool multiLine: false,
+    bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   if(null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }

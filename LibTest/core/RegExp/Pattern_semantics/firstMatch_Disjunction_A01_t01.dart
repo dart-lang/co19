@@ -15,15 +15,12 @@
  *            are exhausted, the right Disjunction is tried instead of the left
  *            Alternative. Any capturing parentheses inside a portion of the
  *            pattern skipped by | produce undefined values instead of Strings.
- * @description Checks that a valid disjunction pattern works as described and that the captured groups have correct values.
+ * @description Checks that a valid disjunction pattern works as described and
+ * that the captured groups have correct values.
  * @3rdparty sputnik-v1:S15.10.2.3_A1_T1.js-S15.10.2.3_A1_T17.js
  * @author rodionov
- * @note We're assuming JS's undefined values are translated to nulls in Dart.
- * @needsreview
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
- 
 
 main() {
   check("a|ab", "abc");
@@ -33,33 +30,42 @@ main() {
   checkNeg("ab|cd|ef", "AEKFCD");
   check("11111|111", "1111111111111111");
   check("xyz|...", "abc");
-  check("(ab|cd)+|ef",                  "AEKFCD",       ignoreCase:true,  expectedGroups:["CD", "CD"]);
-  check("(ab|cd)+|ef",                  "AEKFCDab",     ignoreCase:true,  expectedGroups:["CDab", "ab"]);
-  check("(ab|cd)+|ef",                  "AEKeFCDab",    ignoreCase:true,  expectedGroups:["eF", null]);
-  check("(.)..|abc",                    "abc",          expectedGroups:["abc", "a"]);
-  check(".+: gr(a|e)y",                 "color: grey",  expectedGroups:["color: grey", "e"]);
-  check("(Rob)|(Bob)|(Robert)|(Bobby)", "Hi Bob",       expectedGroups:["Bob", null, "Bob", null, null]);
-  check("()|",                          "",             expectedGroups:["", ""]);
-  check("|()",                          "",             expectedGroups:["", null]);
-  check("((a)|(ab))((c)|(bc))",         "abc",          expectedGroups:["abc", "a", "a", null, "bc", null, "bc"]);
-  check("((a)|(b))c",                   "aebc",         expectedGroups:["bc", "b", null, "b"]);
+  check("(ab|cd)+|ef", "AEKFCD",
+      ignoreCase: true, expectedGroups: ["CD", "CD"]);
+  check("(ab|cd)+|ef", "AEKFCDab",
+      ignoreCase: true, expectedGroups: ["CDab", "ab"]);
+  check("(ab|cd)+|ef", "AEKeFCDab",
+      ignoreCase: true, expectedGroups: ["eF", null]);
+  check("(.)..|abc", "abc", expectedGroups: ["abc", "a"]);
+  check(".+: gr(a|e)y", "color: grey", expectedGroups: ["color: grey", "e"]);
+  check("(Rob)|(Bob)|(Robert)|(Bobby)", "Hi Bob",
+      expectedGroups: ["Bob", null, "Bob", null, null]);
+  check("()|", "", expectedGroups: ["", ""]);
+  check("|()", "", expectedGroups: ["", null]);
+  check("((a)|(ab))((c)|(bc))", "abc",
+      expectedGroups: ["abc", "a", "a", null, "bc", null, "bc"]);
+  check("((a)|(b))c", "aebc", expectedGroups: ["bc", "b", null, "b"]);
 }
 
-void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false,
+void check(String pattern, String str,
+    {bool multiLine: false,
+    bool ignoreCase: false,
     List<String> expectedGroups: null}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+  RegExp re =
+      new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Match fm = re.firstMatch(str);
-  if(null == fm) {
+  if (null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");
   }
-  if(null != expectedGroups) {
+  if (null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
-    
-    for(int i = 0; i <= fm.groupCount; i++) {
+
+    for (int i = 0; i <= fm.groupCount; i++) {
       String expGr = expectedGroups[i];
       String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
+      if (expGr != actGr) {
+        Expect.fail(
+            "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
       }
     }
   }
@@ -67,7 +73,7 @@ void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: 
 
 void checkNeg(String pattern, String str) {
   RegExp re = new RegExp(pattern);
-  if(null != re.firstMatch(str)) {
+  if (null != re.firstMatch(str)) {
     Expect.fail("\"$pattern\" ~ \"$str\"");
   }
 }

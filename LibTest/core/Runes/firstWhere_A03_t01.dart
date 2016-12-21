@@ -9,7 +9,6 @@
  * @description Checks that a [StateError] is thrown.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {

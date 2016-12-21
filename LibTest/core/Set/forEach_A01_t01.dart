@@ -8,7 +8,6 @@
  * Applies the function [f] to each element of the collection.
  * @description Checks that forEach() browses every element of the set.
  * @author pagolubev
- * @reviewer msyabro
  */
 library forEach_A01_t01;
 import "set.lib.dart";

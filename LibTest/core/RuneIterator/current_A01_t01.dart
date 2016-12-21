@@ -5,7 +5,8 @@
  */
 /**
  * @assertion final int current
- * The rune (integer Unicode code point) starting at the current position in the string.
+ * The rune (integer Unicode code point) starting at the current position in the
+ * string.
  * @description Checks that the current element of the iterator is returned.
  * @author msyabro
  */

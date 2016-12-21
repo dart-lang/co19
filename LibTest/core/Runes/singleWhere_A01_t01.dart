@@ -10,7 +10,6 @@
  * is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -22,4 +21,3 @@ main() {
   res = runes.singleWhere( (e) => e < 0x61 );
   Expect.equals(0x42, res);
 }
-

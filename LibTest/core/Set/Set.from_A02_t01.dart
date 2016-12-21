@@ -7,13 +7,9 @@
  * @assertion Throws Error if [other] is null
  * @description Checks that Error is thrown is the argument is null.
  * @author rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
-    new Set.from(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() {new Set.from(null);});
 }

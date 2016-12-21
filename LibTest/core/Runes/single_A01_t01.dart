@@ -9,14 +9,12 @@
  * @description Checks that the single element of [this] is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, expected) {
   var runes = new Runes(string);
   Expect.equals(expected, runes.single);
 }
-
 
 main() {
   check("j", 0x6a);

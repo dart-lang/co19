@@ -21,8 +21,6 @@
  *              the specified characters.
  * @3rdparty sputnik-v1:S15.10.2.10_A2.1_T1.js, S15.10.2.10_A2.1_T2.js
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  

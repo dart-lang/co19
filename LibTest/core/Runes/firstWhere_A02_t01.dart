@@ -10,7 +10,6 @@
  * its result is returned if no element matches [test].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

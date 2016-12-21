@@ -34,7 +34,6 @@
  *            errors. Using a backreference inside a ClassAtom causes an error.
  * @description Checks that NonEmptyClassRanges work correctly.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
- * @reviewer pagolubev
  * @author msyabro
  */
 import "../../../../Utils/expect.dart";
