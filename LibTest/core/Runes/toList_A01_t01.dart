@@ -11,7 +11,6 @@
  * elements of [this] in the same order.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string, grow, expected) {
@@ -26,5 +25,6 @@ main() {
   check('', false, []);
   check('\x00', true, [0]);
   check('word', false, [119, 111, 114, 100]);
-  check('just a string', true, [106, 117, 115, 116, 32, 97, 32, 115, 116, 114, 105, 110, 103]);
+  check('just a string', true, [106, 117, 115, 116, 32, 97, 32, 115, 116, 114,
+    105, 110, 103]);
 }

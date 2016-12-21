@@ -16,8 +16,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic runes = new Runes('');
-  try {
-  runes.iterator = runes.iterator;
-    Expect.fail("[iterator] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  Expect.throws(() {runes.iterator = runes.iterator;},
+      (e) => e is NoSuchMethodError);
 }

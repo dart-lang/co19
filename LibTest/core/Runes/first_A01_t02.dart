@@ -9,7 +9,6 @@
  * @description Checks that [first] is final and can't be set.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {

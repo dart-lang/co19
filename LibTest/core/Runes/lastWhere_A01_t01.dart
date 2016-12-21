@@ -15,18 +15,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   var runes = new Runes('\x01\x02\x03\x04\x05\x06\x09');
-  var res = runes.lastWhere(
-    (element) => element == 1
-  );
+  var res = runes.lastWhere((element) => element == 1);
   Expect.equals(1, res);
 
-  res = runes.lastWhere(
-          (element) => element > 6
-  );
+  res = runes.lastWhere((element) => element > 6);
   Expect.equals(9, res);
 
-  res = runes.lastWhere(
-          (element) => element > 1
-  );
+  res = runes.lastWhere((element) => element > 1);
   Expect.equals(9, res);
 }

@@ -6,7 +6,8 @@
 /**
  * @assertion final RuneIterator iterator
  * Returns an Iterator that iterates over this Iterable object.
- * @description Checks that this method returns true iff [this] has at least one element.
+ * @description Checks that this method returns true iff [this] has at least one
+ * element.
  * @author msyabro
  */
 
@@ -25,5 +26,6 @@ void checkIterator(string, expected) {
 main() {
   checkIterator('', []);
   checkIterator('\x00\x01\x02\x03\u{10000}', [0, 1, 2, 3, 0x10000]);
-  checkIterator('just a string', [0x6a, 0x75, 0x73, 0x74, 0x20, 0x61, 0x20, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67]);
+  checkIterator('just a string', [0x6a, 0x75, 0x73, 0x74, 0x20, 0x61, 0x20,
+    0x73, 0x74, 0x72, 0x69, 0x6e, 0x67]);
 }

@@ -8,13 +8,9 @@
  * @description Checks that [string] is final and can't be set.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   dynamic runes = new Runes('');
-  Expect.throws(() {
-      runes.string = ' ';
-    }
-  );
+  Expect.throws(() {runes.string = ' ';});
 }

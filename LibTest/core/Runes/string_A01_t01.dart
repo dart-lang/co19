@@ -9,7 +9,6 @@
  * @note undocumented
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {

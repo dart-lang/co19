@@ -9,7 +9,6 @@
  * @description Checks that the first element is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, expected) {

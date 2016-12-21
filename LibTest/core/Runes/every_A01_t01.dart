@@ -11,7 +11,6 @@
  * of the list satisfies the predicate [f].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 pred(element) => element > 5;

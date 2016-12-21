@@ -10,15 +10,11 @@
  * has more than one element.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {
   var runes = new Runes(string);
-  try {
-    runes.single;
-    Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  Expect.throws(() {runes.single;}, (e) => e is StateError);
 }
 
 main() {

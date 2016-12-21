@@ -9,14 +9,12 @@
  * @description Checks that the last element is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, expected) {
   var runes = new Runes(string);
   Expect.equals(expected, runes.last);
 }
-
 
 main() {
   check("just a string", 0x67);

@@ -10,7 +10,6 @@
  * if [growable] is true.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

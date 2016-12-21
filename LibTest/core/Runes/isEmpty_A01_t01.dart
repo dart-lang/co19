@@ -9,7 +9,6 @@
  * @description Checks that this method returns true iff [this] has no elements.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

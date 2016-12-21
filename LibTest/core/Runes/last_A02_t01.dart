@@ -9,13 +9,9 @@
  * @description Checks that a [StateError] is thrown if [this] is empty.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   var runes = new Runes('');
-  try {
-    runes.last;
-    Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  Expect.throws(() {runes.last;}, (e) => e is StateError);
 }

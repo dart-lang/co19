@@ -11,7 +11,6 @@
  * elements satisfies the predicate f, false otherwise.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 pred(element) => element > 5;
