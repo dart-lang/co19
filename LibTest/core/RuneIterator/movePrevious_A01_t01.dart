@@ -5,7 +5,8 @@
  */
 /**
  * @assertion bool movePrevious()
- * Move back to the previous element.Returns true and updates [current] if successful.
+ * Move back to the previous element.Returns true and updates [current] if
+ * successful.
  * @description Checks that true is returned and [current] is updated correctly.
  * @author msyabro
  */
