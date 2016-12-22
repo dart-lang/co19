@@ -7,15 +7,20 @@
  * @assertion StackTrace stackTrace
  * @description Checks that this property is not null if error is thrown
  * @author sgrekhov@unipro.ru
+ * @issue 28179
  */
 import "../../../Utils/expect.dart";
 
+f() {
+  f();
+}
+
 main() {
-  Error e = new Error();
+  Error e = new StackOverflowError();
   Expect.isNull(e.stackTrace);
   try {
-    throw e;
-  } on Error catch (er) {
+    f();
+  } on StackOverflowError catch (er) {
     Expect.isNotNull(e.stackTrace);
   }
 }
