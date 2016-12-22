@@ -20,8 +20,8 @@ Duration THREE_SECONDS = new Duration(seconds:3);
  */
 Future ping(Isolate isolate, payload, [Duration timeout]) async {
   ReceivePort pingPort = new ReceivePort();
-  isolate.ping(pingPort.sendPort, response:payload);
   Future result = pingPort.first;
+  isolate.ping(pingPort.sendPort, response:payload);
   if (timeout!=null){
     result = result.timeout(timeout, onTimeout: () {
       pingPort.close();
