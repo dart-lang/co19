@@ -22,7 +22,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-test(Object value) async {
+Future test(Object value) async {
   ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
   ReceivePort onExit = new ReceivePort();
   List events = [];

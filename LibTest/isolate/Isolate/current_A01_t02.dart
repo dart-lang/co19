@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 entryPoint(message){
-  Expect.isNull(Isolate.current);
+  Expect.isNotNull(Isolate.current);
 }
 
 test() async {

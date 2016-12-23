@@ -14,6 +14,7 @@
  * @description Check that if response cannot be sent to the isolate, then
  * the request is ignored.
  *
+ * @issue #28094
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
