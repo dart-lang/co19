@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,14 +14,18 @@
  * succeeded. If the assertion succeeded, execution of the assert statement is
  * complete. If the assertion failed, an AssertionError is thrown.
  * @description Checks that a assertion error occurs if the conditional
- * expression e evaluates to null.
- * @author rodionov
+ * expression e evaluates to false and has correct message.
+ * @author sgrekhov@unipro.ru
  */
 
 import '../../../Utils/dynamic_check.dart';
 
 main() {
-  checkAssertionError(() {
-    assert(null);
-  });
+  checkAssertionError(() {assert(null);});
+  checkAssertionError(() {assert(false, "Some message");}, "Some message");
+  checkAssertionError(() {assert(false, 123);}, 123);
+  checkAssertionError(() {assert(false, 3.14);}, 3.14);
+
+  var o = new Object();
+  checkAssertionError(() {assert(false, o);}, o);
 }

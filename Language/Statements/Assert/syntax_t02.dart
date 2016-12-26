@@ -13,9 +13,8 @@
  * surrounding the assert expression are missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  assert false ;}
+    assert false ;
+}

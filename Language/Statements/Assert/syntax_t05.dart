@@ -13,8 +13,8 @@
  * expression and the parentheses are omitted in an assert statement.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  assert;}
+  assert;
+}
