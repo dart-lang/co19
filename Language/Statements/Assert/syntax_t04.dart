@@ -9,16 +9,12 @@
  * assertStatement:
  *   assert '(' conditionalExpression ')' ';'
  * ;
- * @description Checks that it is a compile-time error when there's an
- * expression list (comma-delimited) in place of the assert expression.
+ * @description Checks that it is a compile-time error when there are more than
+ * two arguments in the assert statement
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    assert (true, false);
-  } catch (x) {}
+  assert(true, "", "");
 }
