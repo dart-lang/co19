@@ -4,11 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
+ * @assertion const StackOverflowError()
  * @description Checks that this constructor executes without error.
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
  
 main() {

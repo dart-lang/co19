@@ -13,12 +13,8 @@
  * does not end with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    assert (false)
-  } catch (x) {}
+  assert (false)
 }

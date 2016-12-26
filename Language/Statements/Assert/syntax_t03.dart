@@ -13,12 +13,8 @@
  * expression is empty.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
     assert ();
-  } catch (x) {}
 }

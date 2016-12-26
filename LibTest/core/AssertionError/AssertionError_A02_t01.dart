@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion AssertionError()
+ * @assertion AssertionError([message])
  * @description Checks that AssertionError() constructor can be called without
  * any issues
  * @author sgrekhov@unipro.ru
@@ -12,5 +12,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  new AssertionError();
+  AssertionError e = new AssertionError();
+  Expect.isNull(e.message);
 }

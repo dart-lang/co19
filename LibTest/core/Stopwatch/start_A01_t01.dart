@@ -11,7 +11,7 @@
  * without resetting the elapsed count.
  * If the [Stopwatch] is currently running, then calling start does nothing.
  * @description Checks that calling this method on a stopwatch that wasn't
- *              previously running starts it, causing the elapsed count to increase.
+ * previously running starts it, causing the elapsed count to increase.
  * @author kaigorodov
  */
 import "dart:async";
@@ -19,21 +19,19 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Duration delay=durationMs(50);
+Duration delay = durationMs(50);
 Stopwatch sw = new Stopwatch();
 int e0;
 
 main() {
-  print("Freq: ${sw.frequency}Hz");
   sw.start();
   e0 = sw.elapsedTicks;
   asyncStart();
-  new Timer(delay,proc1);
+  new Timer(delay, proc1);
 }
 
 void proc1() {
   int e1 = sw.elapsedTicks;
-  print("Elapsed: $e1");
   Expect.isTrue(e1 > e0);
   asyncEnd();
 }

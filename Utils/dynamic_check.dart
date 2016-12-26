@@ -5,9 +5,14 @@ checkTypeError(f()) {
   Expect.throws(f, (e) => e is TypeError, "Type error should be thrown");
 }
 
-checkAssertionError(f()) {
-  Expect.throws(f, (e) => e is AssertionError, "Assertion error should be " +
-      "thrown");
+checkAssertionError(f(), [message]) {
+  Expect.throws(f, (e) {
+    if (e is AssertionError) {
+      Expect.equals(message, e.message);
+      return true;
+    }
+    return false;
+  }, "Assertion error should be thrown");
 }
 
 /**

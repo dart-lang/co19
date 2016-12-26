@@ -18,10 +18,10 @@ Duration THREE_SECONDS = new Duration(seconds:3);
  * specified and response is not received during the timeout interval, then
  * value "timeout" is returned.
  */
-Future ping(Isolate isolate, payload, [Duration timeout]) async {
+Future ping(Isolate isolate, payload, [Duration timeout]) {
   ReceivePort pingPort = new ReceivePort();
-  isolate.ping(pingPort.sendPort, response:payload);
   Future result = pingPort.first;
+  isolate.ping(pingPort.sendPort, response:payload);
   if (timeout!=null){
     result = result.timeout(timeout, onTimeout: () {
       pingPort.close();

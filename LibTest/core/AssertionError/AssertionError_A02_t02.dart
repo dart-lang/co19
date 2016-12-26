@@ -4,18 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion StackTrace stackTrace
- * @description Checks that this property is not null if error is thrown
+ * @assertion AssertionError([message)
+ * @description Checks that AssertionError([message) constructor can be called
+ * without any issues with [message] argument specified
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Error e = new Error();
-  Expect.isNull(e.stackTrace);
-  try {
-    throw e;
-  } on Error catch (er) {
-    Expect.isNotNull(e.stackTrace);
-  }
+  AssertionError e = new AssertionError("Some message");
+  Expect.equals("Some message", e.message);
 }
