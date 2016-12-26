@@ -5,7 +5,7 @@
  */
 /**
  * @assertion IterableMixin<E> abstract class
- * This Iterable mixin implements all Iterable members except iterator.
+ * This [Iterable] mixin implements all [Iterable] members except [iterator].
  * @description Checks that all members of [Iterable] are implemented.
  * @author sgrekhov@unipro.ru
  */
