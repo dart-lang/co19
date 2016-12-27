@@ -8,9 +8,9 @@
  * Returns whether this string contains a match of other.
  * If startIndex is provided, only matches at or after that index are considered.
  * It is an error if startIndex is negative or greater than length.
- * @description Checks that it is an error if startIndex is negative or greater than length.
+ * @description Checks that it is an error if startIndex is negative or greater
+ * than length.
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -18,25 +18,19 @@ main() {
   String str = "String with <pattern>";
   RegExp pattern = new RegExp("<.*?>", multiLine: false, caseSensitive: true);
 
-  try {
+  Expect.throws(() {
     str.contains(pattern, -1);
-    Expect.fail("RangeError expected!");
-  } on RangeError catch(ok){}
+  }, (e) => e is RangeError);
 
-  try {
+  Expect.throws(() {
     str.contains(pattern, 0x7fffffff);
-    Expect.fail("RangeError expected!");
-  } on RangeError catch(ok){}
+  }, (e) => e is RangeError);
 
-  try {
+  Expect.throws(() {
     str.contains(pattern, 0x80000000);
-    Expect.fail("RangeError expected!");
-  } on RangeError catch(ok){}
+  }, (e) => e is RangeError);
 
-  try {
-    str.contains(pattern, str.length+1);
-    Expect.fail("RangeError expected!");
-  } on RangeError catch(ok){}
-
+  Expect.throws(() {
+    str.contains(pattern, str.length + 1);
+  }, (e) => e is RangeError);
 }
-

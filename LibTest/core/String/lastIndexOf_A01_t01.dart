@@ -9,7 +9,6 @@
  * searching backward starting at start.
  * @description Checks that the correct index is returned
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

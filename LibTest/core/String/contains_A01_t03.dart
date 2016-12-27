@@ -10,7 +10,6 @@
  * It is an error if startIndex is negative or greater than length.
  * @description Checks that empty regexp matches everything.
  * @author iefremov
- * @needsreview Issue 1289
  */
 import "../../../Utils/expect.dart";
 

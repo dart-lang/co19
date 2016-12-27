@@ -7,7 +7,6 @@
  * @assertion Returns whether this string is empty.
  * @description Checks that this method works correctly
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -6,11 +6,9 @@
 /**
  * @assertion Returns whether this string starts with [other].
  * @description Checks basic cases
- * @reviewer pagolubev
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   String str = "String";

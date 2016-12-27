@@ -5,11 +5,10 @@
  */
 /**
  * @assertion Returns a new string where the first occurrence of [from] in this
- *            string is replaced with [to].
+ * string is replaced with [to].
  * @description Checks that this function replace only the first pattern
- *              occurrence and does it correctly
+ * occurrence and does it correctly
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,7 +23,8 @@ main() {
 
   Expect.isTrue("<>".replaceFirst(pattern, "") == "");
 
-  Expect.isTrue("There are no patterns".replaceFirst(pattern, "") == "There are no patterns");
+  Expect.isTrue("There are no patterns".replaceFirst(pattern, "") ==
+      "There are no patterns");
 
   Expect.isTrue("<Nested <patterns>>".replaceFirst(pattern, "") == ">");
 }

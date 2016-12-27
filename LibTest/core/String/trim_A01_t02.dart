@@ -10,7 +10,6 @@
  * @description Checks that if the string does not have leading or trailing
  *              whitespaces, then it is returned instead of a new string.
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

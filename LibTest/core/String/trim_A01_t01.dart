@@ -8,11 +8,10 @@
  *            this string have been removed, or returns this string if it does
  *            not have leading and trailing whitespaces.
  * @note whitespace is defined in spec chapter 13.1.2
- * @description Checks that all kinds of whitespace characters are removed by this method
+ * @description Checks that all kinds of whitespace characters are removed by
+ * this method
  * @author msyabro
  * @reviewer rodionov
- * @needsreview There seems to be a mistake in the whitespace definition, update
- *              this when it is resolved
  */
 import "../../../Utils/expect.dart";
 

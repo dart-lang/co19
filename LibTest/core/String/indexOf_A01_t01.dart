@@ -5,10 +5,10 @@
  */
 /**
  * @assertion  abstract int indexOf(Pattern pattern, [int start])
- * Returns the first position of a match of pattern in this string, starting at start.
+ * Returns the first position of a match of pattern in this string, starting at
+ * start.
  * @description Checks that the correct index is returned
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

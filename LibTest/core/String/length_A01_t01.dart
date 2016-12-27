@@ -7,7 +7,6 @@
  * @assertion The length of the string.
  * @description Checks that this field contains a correct value
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

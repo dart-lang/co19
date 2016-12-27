@@ -5,10 +5,9 @@
  */
 /**
  * @assertion This method compares each individual scalar character codes of the
- *            strings.
+ * strings.
  * @description Checks that operator == is case sensitive
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
