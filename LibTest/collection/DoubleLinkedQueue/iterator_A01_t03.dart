@@ -7,7 +7,7 @@
  * @assertion final _DoubleLinkedQueueIterator<E> iterator
  * Returns an Iterator that iterates over this Iterable object.
  * @description Checks that [Iterator] iterates over all elements from the list.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

@@ -9,7 +9,7 @@
  * Convert an [Iterable] to a string like [IterableBase.toString].
  * @description Checks that [IterableBase.iterableToShortString()] converts an
  * [iterable] to correct string and uses "(" and ")" as default delimiters.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

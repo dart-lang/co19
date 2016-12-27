@@ -7,7 +7,7 @@
  * @assertion bool single
  * @description Checks that [single] returns [true] if there is one element in
  * the iterable and [false] otherwise.
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

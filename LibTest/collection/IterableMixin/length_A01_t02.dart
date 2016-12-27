@@ -7,7 +7,7 @@
  * @assertion int length
  * @description Checks that [length] returns a number of the elements in the
  * iterator.
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

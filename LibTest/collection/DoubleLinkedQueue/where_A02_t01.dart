@@ -8,7 +8,7 @@
  * As long as the returned [Iterable] is not iterated over, the supplied
  * function [test] will not be invoked.
  * @description Checks that filtering happens lazily.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";

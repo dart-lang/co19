@@ -7,7 +7,7 @@
  * @assertion abstract E reduce(E combine(E value, E element))
  * The iterable must have at least one element.
  * @description Checks that error state exception is thrown if queue is empty.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";

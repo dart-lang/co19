@@ -10,7 +10,7 @@
  * Create a hash set using the provided [equals] as equality.
  * @description Checks that it's impossible to add an element which is already
  * equal to another element in the set.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

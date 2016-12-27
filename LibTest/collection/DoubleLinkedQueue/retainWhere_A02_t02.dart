@@ -8,7 +8,7 @@
  * The [test] function must not throw or modify the queue.
  * @description Checks case when test function removes some element from the
  * queue
- * @author iarkh
+ * @author iarkh@unipro.ru
  * @issue 27920
  */
 

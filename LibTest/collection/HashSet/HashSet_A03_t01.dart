@@ -15,7 +15,7 @@
  * @description Checks that default [HashSet] implementation can contain
  * elements of different types including [null], and [Object.equals],
  * [Object.hashCode] functions are used for the comparison.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

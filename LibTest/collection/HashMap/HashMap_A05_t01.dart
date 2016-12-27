@@ -15,7 +15,7 @@
  * just testing if the object is a [K] instance.
  * @description Checks that if [isValidKey] function is provided, result map
  * contains only keys for which [isValidKey] returns [true]
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

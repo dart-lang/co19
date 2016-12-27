@@ -11,7 +11,7 @@
  * as the map isn't changed.
  * @description Checks that iteration order does not change if map is not
  * changed.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

@@ -6,7 +6,7 @@
 /**
  * @assertion  @assertion final E single
  * @description Checks that single is read-only property and cannot be changed
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

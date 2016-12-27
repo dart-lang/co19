@@ -7,7 +7,7 @@
  * @assertion void retainWhere(bool test(E element))
  * The [test] function must not throw or modify the queue.
  * @description Checks case when [test] function calls [removeWhere]
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";

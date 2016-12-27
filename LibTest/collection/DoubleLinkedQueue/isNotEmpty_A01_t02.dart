@@ -8,7 +8,7 @@
  * Returns true if there is at least one element in this collection.
  * @description Checks that isNotEmpty is read-only property and cannot be
  * changed.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

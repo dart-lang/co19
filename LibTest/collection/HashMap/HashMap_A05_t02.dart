@@ -15,7 +15,7 @@
  * @description Checks that when performing [], [remove] or [containsKey],
  * [isValidKey] is called before [equals] and [hashCode] functions, and if
  * [isValidKey] return [false], equals and [hashCode] are not called at all.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

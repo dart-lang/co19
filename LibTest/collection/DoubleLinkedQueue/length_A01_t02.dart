@@ -6,7 +6,7 @@
 /**
  * @assertion final int length
  * @description Checks that length is read-only property and cannot be changed
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

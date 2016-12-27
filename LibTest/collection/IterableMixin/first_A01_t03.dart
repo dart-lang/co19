@@ -6,7 +6,7 @@
 /**
  * @assertion E first
  * @description Checks that [first] throws exception if [Iterator] is empty.
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

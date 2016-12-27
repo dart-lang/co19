@@ -14,8 +14,8 @@
  * contains.
  * @description Checks that if [isValidKey] returns [false] given key is assumed
  * not to be in the set and so [equals] and [hashCode] methods are not called.
- * @author iarkh
-  */
+ * @author iarkh@unipro.ru
+ */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

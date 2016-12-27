@@ -12,7 +12,7 @@
  * Set<SubType> subSet =
  *     new HashSet<SubType>.from(superSet.where((e) => e is SubType));
  * @description Checks that provided down-cast example works as expected
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

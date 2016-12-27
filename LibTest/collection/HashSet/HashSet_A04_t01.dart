@@ -12,7 +12,7 @@
  * @description Checks that default [isValidKey] function checks if the object
  * is a [K] instance. This means that equals and hashCode functions will not be
  * called for instances of unsupported types.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

@@ -10,7 +10,7 @@
  * ends up converting [iterable] to a string again.
  * @description Checks that IterableBase.iterableToShortString() replaces the
  * circular references with '[...]' substrings.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
