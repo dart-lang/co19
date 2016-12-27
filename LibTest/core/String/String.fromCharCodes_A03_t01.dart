@@ -7,15 +7,10 @@
  * @assertion Throws Error if [charCodes] is null.
  * @description Checks that an Error is thrown when the argument is null.
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
 
 main() {
-  try {
-    String str = new String.fromCharCodes(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() {new String.fromCharCodes(null);}, (e) => e is Error);
 }

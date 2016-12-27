@@ -5,15 +5,12 @@
  */
 /**
  * @assertion Throws RangeError if [startIndex] or [endIndex] is
- *            out of bounds.
+ * out of bounds.
  * @description Checks that the correct exception is thrown when the arguments
- *              are out of bounds or in incorrect order.
+ * are out of bounds or in incorrect order.
  * @author msyabro
- * @reviewer rodionov
- * @needsreview Undocumented
  */
 import "../../../Utils/expect.dart";
- 
 
 main() {
   String string = "stringWithSubstring";
@@ -28,8 +25,5 @@ main() {
 }
 
 void check(String str, int start, int end) {
-  try {
-    str.substring(start, end);
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(e) {}
+  Expect.throws(() {str.substring(start, end);}, (e) => e is RangeError);
 }

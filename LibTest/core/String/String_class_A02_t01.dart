@@ -8,12 +8,9 @@
  *    - if all characters of the String are 8 bits code points, the
  *      String is a list of bytes.
  * @description Checks that String can be stored in UTF-16
- * @reviewer pagolubev
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
-
-//TODO this belongs to LangGuideTest suite, if we're keeping it
 
 main() {
   String str = "a"; //UTF-8;

@@ -5,12 +5,11 @@
  */
 /**
  * @assertion Returns whether this string starts with [other].
- * @description Checks degenerate cases: empty strings, non-empty but equal strings
+ * @description Checks degenerate cases: empty strings, non-empty but equal
+ * strings
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   String str = "";

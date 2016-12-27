@@ -8,10 +8,8 @@
  * Returns -1 if other could not be found.
  * @description Checks that -1 is returned when appropriate
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.isTrue("sss".lastIndexOf("a", 1) == -1);

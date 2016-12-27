@@ -8,15 +8,9 @@
  * Passing null in place of a pattern results in Error
  * @description Tries to pass null as [other] and expects an Error
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
- 
 
 main() {
-  try {
-    "string".contains(null, 0);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() {"string".contains(null, 0);});
 }

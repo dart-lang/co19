@@ -8,14 +8,9 @@
  * Throws ArgumentError if [index] is null
  * @description Tries to pass null as argument and expects an ArgumentError
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
-    "string".codeUnitAt(null);
-    Expect.fail("ArgumentError is expected");
-  } on ArgumentError catch(e) {}
+  Expect.throws(() {"string".codeUnitAt(null);}, (e) => e is ArgumentError);
 }

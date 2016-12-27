@@ -7,7 +7,6 @@
  * @assertion Gets the character (as [String]) at the given [index].
  * @description Checks some trivial cases
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

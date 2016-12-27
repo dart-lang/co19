@@ -9,7 +9,6 @@
  *            this otherwise.
  * @description Checks basic cases (latin alphabet)
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

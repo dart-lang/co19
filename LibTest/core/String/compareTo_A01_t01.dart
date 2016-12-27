@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion returns -1 if the string is lexicographically less then [other], 1 if it is greater
- *            than [other] and 0 if the strings are equal
+ * @assertion returns -1 if the string is lexicographically less then [other],
+ * 1 if it is greater than [other] and 0 if the strings are equal
  * @description Checks that this method returns the correct value
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

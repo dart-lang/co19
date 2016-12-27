@@ -7,15 +7,9 @@
  * @assertion Passing null as argument results in Error
  * @description Tries to pass null as argument and expects an Error
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  try {
-    "1111".split(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() {"1111".split(null);}, (e) => e is Error);
 }

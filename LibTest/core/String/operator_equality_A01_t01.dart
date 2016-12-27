@@ -7,7 +7,6 @@
  * @assertion Returns whether the two strings are equal.
  * @description Checks that this operator works correctly
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -12,10 +12,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws((){
-    "string".indexOf("s", -1);
-  }, (e) => e is Error);
-  Expect.throws((){
-    "a".indexOf("a", 2);
-  }, (e) => e is Error);
+  Expect.throws((){"string".indexOf("s", -1);}, (e) => e is Error);
+  Expect.throws((){"a".indexOf("a", 2);}, (e) => e is Error);
 }

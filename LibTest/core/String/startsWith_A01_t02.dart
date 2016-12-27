@@ -7,10 +7,8 @@
  * @assertion Returns whether this string starts with [other].
  * @description Checks that this method is case sensitive
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   String str = "String";

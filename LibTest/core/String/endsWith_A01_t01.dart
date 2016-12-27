@@ -7,10 +7,8 @@
  * @assertion Returns whether this string ends with [other].
  * @description Checks degenerate cases (empty and equal strings)
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   String str = "";

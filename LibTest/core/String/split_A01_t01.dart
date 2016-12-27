@@ -5,11 +5,9 @@
  */
 /**
  * @assertion Splits the string around matches of [pattern]. Returns a list of
- *            substrings.
+ * substrings.
  * @description Checks the length of resulting list
  * @author msyabro
- * @reviewer rodionov
- * @needsreview
  */
 import "../../../Utils/expect.dart";
 
@@ -19,7 +17,8 @@ main() {
   
   Expect.equals(4, "10011".split("1").length);
 
-  Expect.equals(6, "1, 2, 3, 4, 5".split(new RegExp("\\d", multiLine: false, caseSensitive: true)).length); // empty tokens are included
+  Expect.equals(6, "1, 2, 3, 4, 5".split(new RegExp("\\d", multiLine: false,
+      caseSensitive: true)).length); // empty tokens are included
   
   Expect.equals(1, "12345".split(",").length);
   
