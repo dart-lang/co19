@@ -12,7 +12,7 @@
  * is a [K] instance. This means that [equals] and [hashCode] functions are
  * never called when trying to call [containsKey] or [remove] for unsupported
  * keys.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

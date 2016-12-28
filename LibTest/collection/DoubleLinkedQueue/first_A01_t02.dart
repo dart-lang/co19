@@ -6,7 +6,7 @@
 /**
  * @assertion final E first
  * @description Checks that E is final and cannot be changed
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

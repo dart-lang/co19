@@ -6,7 +6,7 @@
 /**
  * @assertion HasNextIterator(Iterator<E> _iterator)
  * @description Checks that constructor creates an [HasNextIterator] object.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

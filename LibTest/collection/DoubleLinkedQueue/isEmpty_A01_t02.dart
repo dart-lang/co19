@@ -6,7 +6,7 @@
 /**
  * @assertion final bool isEmpty
  * @description Checks that isEmpty is read-only property and cannot be changed
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

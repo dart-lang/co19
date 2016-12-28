@@ -6,7 +6,7 @@
 /**
  * @assertion final bool iterator
  * @description Checks that iterator is read-only property and cannot be changed
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

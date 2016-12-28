@@ -13,7 +13,7 @@
  *     new HashSet<SubType>.from(superSet.where((e) => e is SubType));
  * @description Checks that HashSet.from throws TypeError if [elements]
  * contains element of incompatible type
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";

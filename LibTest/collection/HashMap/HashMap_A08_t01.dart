@@ -12,7 +12,7 @@
  * directly using [HashMap.identity].
  * @description Checks that default [isValidKey] function accepts all the keys
  * if [equals] and [hashCode] functions are not provided for [HashMap.identity].
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

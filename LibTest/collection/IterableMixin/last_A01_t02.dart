@@ -6,7 +6,7 @@
 /**
  * @assertion E last
  * @description Checks that [last] returns a last element
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

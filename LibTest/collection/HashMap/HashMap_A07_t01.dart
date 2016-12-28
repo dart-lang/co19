@@ -11,7 +11,7 @@
  * operations are assumed to work on all objects.
  * @description Checks that default [isValidKey] function accepts all the keys
  * if [equals] and [hashCode] functions are not provided.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion bool isNotEmpty
  * @description Checks that [isNotEmpty] is a getter and can not be changed
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -36,5 +36,5 @@ class MyIterable extends Object with IterableMixin {
 main() {
   dynamic iterable = new MyIterable();
   Expect.throws(()
-    { iterable.isNotEmpty = true; }, (e)=> e is NoSuchMethodError);
+    { iterable.isNotEmpty = true; }, (e) => e is NoSuchMethodError);
 }

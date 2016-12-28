@@ -7,7 +7,7 @@
  * @assertion bool isNotEmpty
  * @description Checks that [isNotEmpty] returns [false] if [Iterator] is empty
  * or [true] otherwise.
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

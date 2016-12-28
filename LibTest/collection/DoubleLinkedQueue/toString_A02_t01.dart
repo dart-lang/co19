@@ -11,7 +11,7 @@
  * @description Checks that string representation of this queue contains
  * representation of its last two elements if total element number is less than
  * hundred.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";

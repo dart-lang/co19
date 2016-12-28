@@ -8,7 +8,7 @@
  * Remove a single instance of [value] from the queue.
  * @description Checks that only single instance of value gets removed from the
  * queue and it does not affect another elements
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";

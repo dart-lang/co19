@@ -6,7 +6,7 @@
 /**
  * @assertion int length
  * @description Checks that [length] is a getter and can not be changed
- * @author irina.arkhipets@gmail.com
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -35,5 +35,5 @@ class MyIterable extends Object with IterableMixin {
 
 main() {
   dynamic iterable = new MyIterable();
-  Expect.throws(() { iterable.length = 24; }, (e)=> e is NoSuchMethodError);
+  Expect.throws(() { iterable.length = 24; }, (e) => e is NoSuchMethodError);
 }

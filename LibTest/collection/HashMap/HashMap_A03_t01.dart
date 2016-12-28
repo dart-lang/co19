@@ -11,7 +11,7 @@
  * value for keys in order to place them in the hash table.
  * @description This test checks division-to-3-reminder hash code: in this case
  * there are only three hashes in the map: 0, 1 and 2.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

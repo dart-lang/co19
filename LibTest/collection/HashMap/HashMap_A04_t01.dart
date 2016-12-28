@@ -12,7 +12,7 @@
  * @description Checks that if equals and hashCode methods are not provided,
  * [Object.operator==] and [Object.hashCode] are used when adding or updating
  * elements of [HashMap]
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

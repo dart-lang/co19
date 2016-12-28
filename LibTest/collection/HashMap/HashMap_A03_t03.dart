@@ -11,7 +11,7 @@
  * value for keys in order to place them in the hash table.
  * @description This test checks [equals] method which always returns [false]:
  * it means that it should be impossible to add an element to the map.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

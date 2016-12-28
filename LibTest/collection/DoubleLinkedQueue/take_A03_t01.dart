@@ -9,7 +9,7 @@
  * contains fewer than [count] elements.
  * @description Checks that if an [Iterable] contains less elements than
  * [count], all the elements are returned.
- * @author iarkh
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";
