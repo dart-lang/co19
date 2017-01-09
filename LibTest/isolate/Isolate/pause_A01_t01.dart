@@ -13,13 +13,12 @@
  * response to, e.g., timers or receive-port messages. When the isolate is
  * resumed, it handles the already enqueued events.
  *
- * @description Check that pause() does not stop isolate to execute code.
+ * @description Check that pause() does not stop the isolate to execute code.
  *
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "dart:math";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 // indefinitely running isolate
@@ -44,7 +43,7 @@ test() async {
   isolate.pause();
   // check that messages are received from paused isolate
   int count = 0;
-  await for (var message in receivePort){
+  await for (var _ in receivePort){
     if (count++==1000000){
       break;
     }

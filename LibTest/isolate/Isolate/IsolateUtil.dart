@@ -127,7 +127,6 @@ class EchoServer {
 
   static void isolateEntryPoint(List<SendPort> sendPort) {
     ReceivePort receivePort = new ReceivePort();
-    int i = 0;
     StreamSubscription ss;
     ss = receivePort.listen(
         (x) {
@@ -152,6 +151,14 @@ class EchoServer {
     isolate.addOnExitListener(exitPort.sendPort);
     Future result = exitPort.first; // subscribe first
     requestStop();
+    return result;
+  }
+
+  Future kill({int priority: Isolate.BEFORE_NEXT_EVENT}) {
+    ReceivePort exitPort = new ReceivePort();
+    isolate.addOnExitListener(exitPort.sendPort);
+    Future result = exitPort.first; // subscribe first
+    isolate.kill(priority:priority);
     return result;
   }
 

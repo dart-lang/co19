@@ -13,45 +13,32 @@
  * response to, e.g., timers or receive-port messages. When the isolate is
  * resumed, it handles the already enqueued events.
  *
- * @description Check that pause() with given capability does not stop the
- * isolate to execute code.
+ * @description Check that isolate does not process events after pause() call.
  *
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:math";
+import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-
-// indefinitely running isolate
-entryPoint(SendPort sendPort){
-  Random random = new Random();
-  int s = 0;
-  while (true){
-    s = -s + random.nextInt(100);
-    sendPort.send(s);
-  }
-}
+import "IsolateUtil.dart";
 
 test() async {
   ReceivePort receivePort = new ReceivePort();
-  ReceivePort onExit = new ReceivePort();
-  Isolate isolate = await Isolate.spawn(
-      entryPoint,
-      receivePort.sendPort, // message
-      onExit:onExit.sendPort,
-      errorsAreFatal:true
-  );
-  isolate.pause(new Capability());
-  // check that messages are received from paused isolate
-  int count = 0;
-  await for (var _ in receivePort){
-    if (count++==1000000){
-      break;
-    }
-  }
-  // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
-  await onExit.first;
+  Future<List> receivedDataFuture = receivePort.toList();
+  EchoServer server = await EchoServer.spawn(receivePort.sendPort);
+  server.send("hello");
+  await new Future.delayed(new Duration(milliseconds:100));
+  server.isolate.pause();
+  server.send("paused");
+  server.send("server");
+  await new Future.delayed(new Duration(milliseconds:200));
+// clean up & check
+  await server.kill(priority:Isolate.IMMEDIATE);
+  receivePort.close();
+  // first message hello may be blocked by pause call
+  List receivedData = await receivedDataFuture;
+  Expect.isTrue(receivedData.length==0 ||
+    (receivedData.length==1 && "hello"==receivedData[0]));
   asyncEnd();
 }
 
