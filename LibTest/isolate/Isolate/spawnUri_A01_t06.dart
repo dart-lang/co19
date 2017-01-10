@@ -40,18 +40,19 @@
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "IsolateUtil.dart";
 
 // Due to issue #26738 it is necessary to keep initial isolate alive,
 // so the started isolate could proceed.
 void main(List args, SendPort replyPort) {
   asyncStart();
+  ReceivePort onExit = new ReceivePort();
   Future.wait([
     Isolate.spawnUri(
             new Uri.file("spawnUri_A01_t06_isolate.dart"),
             [],
-            null
+            null,
+            onExit:onExit.sendPort
     ),
-    new Future.delayed(ONE_SECOND) // keep isolate alive
+    onExit.first // keep isolate alive
   ]).then( (_) => true );
 }
