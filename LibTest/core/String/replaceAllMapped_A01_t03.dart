@@ -9,16 +9,18 @@
  * Returns a new string in which the non-overlapping substrings that match from
  * (the ones iterated by from.allMatches(thisString)) are replaced by the result
  * of calling replace on the corresponding Match object.
- * @description Checks that this method replaces all matched substrings
+ * @description Checks that this method replaces all matched substrings. Test
+ * that RegEx can be used as from pattern
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals("0230", "1231".replaceAllMapped("1", (m) => "0"));
-  Expect.equals("031", "1231".replaceAllMapped("12", (m) => "0"));
-  Expect.equals("101", "1231".replaceAllMapped("23", (m) => "0"));
-  Expect.equals("12031", "12\w31".replaceAllMapped("\w", (m) => "0"));
-  Expect.equals("12031", r"12\w31".replaceAllMapped(r"\w", (m) => "0"));
-  Expect.equals("01231", "[:alpha:]1231".replaceAllMapped("[:alpha:]", (m) => "0"));
+  Expect.equals("0230", "1231".replaceAllMapped(new RegExp("1"), (m) => "0"));
+  Expect.equals("12031", "12\w31".replaceAllMapped(new RegExp("\w"),
+      (m) => "0"));
+  Expect.equals(r"00\000", r"12\w31".replaceAllMapped(new RegExp(r"\w"),
+      (m) => "0"));
+  Expect.equals("abc-1231", "abc 1231".replaceAllMapped(new RegExp("\\s"),
+      (m) => "-"));
 }
