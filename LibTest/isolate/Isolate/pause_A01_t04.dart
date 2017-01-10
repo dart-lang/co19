@@ -55,7 +55,6 @@ test() async {
   await onExit.first;
   receivePort.close();
   Expect.isFalse(additionalData);
-  receivePort.close();
   asyncEnd();
 }
 

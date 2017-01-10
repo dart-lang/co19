@@ -13,8 +13,8 @@
  * response to, e.g., timers or receive-port messages. When the isolate is
  * resumed, it handles the already enqueued events.
  *
- * @description Check that isolate does not handle timer events after pause()
- * call.
+ * @description Check that paused isolate enqueue timer events and handles
+ * them after resume. Parameter resumeCapability is specified.
  *
  * @author a.semenov@unipro.ru
  */
@@ -24,23 +24,26 @@ import "../../../Utils/async_utils.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
-  new Future.delayed(ONE_SECOND, () { sendPort.send("from timer 1"); });
-  new Future.delayed(TWO_SECONDS, () { sendPort.send("from timer 2"); });
-  sendPort.send("activated");
+  new Future.delayed(ONE_SECOND, () { sendPort.send("timer 1"); });
+  new Future.delayed(TWO_SECONDS, () { sendPort.send("timer 2"); });
+  new Future.delayed(new Duration(milliseconds:100),
+      () {
+        sendPort.send("activated");
+      }
+  );
 }
 
 test() async {
-  bool additionalData = false;
   Isolate isolate;
+  List receivedData = [];
+  Capability resumeCapability = new Capability();
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
     (data){
       if ("activated"==data) {
-        isolate.pause();
-      } else {
-        print(data);
-        additionalData = true;
+        isolate.pause(resumeCapability);
       }
+      receivedData.add(data);
     }
   );
   ReceivePort onExit = new ReceivePort();
@@ -51,10 +54,10 @@ test() async {
                               );
   await new Future.delayed(THREE_SECONDS);
 // clean up & check
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.resume(resumeCapability);
   await onExit.first;
   receivePort.close();
-  Expect.isFalse(additionalData);
+  Expect.listEquals(["activated", "timer 1", "timer 2"], receivedData);
   asyncEnd();
 }
 
