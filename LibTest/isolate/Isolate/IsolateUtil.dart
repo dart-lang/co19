@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  *
@@ -94,5 +94,75 @@ class ErrorServer {
 
   void generateError() {
     sendPort.send("error");
+  }
+}
+
+class EchoServer {
+
+  static const String _STOP = "!stop";
+
+  Isolate isolate;
+  SendPort sendPort;
+  EchoServer(this.isolate, this.sendPort);
+
+  static Future<EchoServer> spawn(SendPort dataSendPort, {
+                                   bool paused: false,
+                                   bool errorsAreFatal,
+                                   SendPort onExit,
+                                   SendPort onError
+                                   }) async {
+
+    ReceivePort receivePort = new ReceivePort();
+    Isolate isolate = await Isolate.spawn(
+        isolateEntryPoint,
+        [receivePort.sendPort, dataSendPort],
+        paused:paused,
+        errorsAreFatal:errorsAreFatal,
+        onExit:onExit,
+        onError:onError
+    );
+    SendPort sendPort = await receivePort.first;
+    return new EchoServer(isolate, sendPort);
+  }
+
+  static void isolateEntryPoint(List<SendPort> sendPort) {
+    ReceivePort receivePort = new ReceivePort();
+    StreamSubscription ss;
+    ss = receivePort.listen(
+        (x) {
+//          print(x);
+          if (x==_STOP){
+            ss.cancel();
+            receivePort.close();
+          } else {
+            sendPort[1].send(x);
+          }
+        }
+    );
+    sendPort[0].send(receivePort.sendPort);
+  }
+
+  void requestStop() {
+    sendPort.send(_STOP);
+  }
+
+  Future stop() {
+    ReceivePort exitPort = new ReceivePort();
+    isolate.addOnExitListener(exitPort.sendPort);
+    Future result = exitPort.first; // subscribe first
+    requestStop();
+    return result;
+  }
+
+  Future kill({int priority: Isolate.BEFORE_NEXT_EVENT}) {
+    ReceivePort exitPort = new ReceivePort();
+    isolate.addOnExitListener(exitPort.sendPort);
+    Future result = exitPort.first; // subscribe first
+    isolate.kill(priority:priority);
+    return result;
+  }
+
+  void send(message){
+    sendPort.send(message);
   }
 }

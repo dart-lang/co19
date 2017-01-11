@@ -8,7 +8,6 @@
  * Match this pattern against the start of string.
  * ...
  * @description Checks that if str is null then exception is thrown
- * in the range 0 .. string.length.
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
