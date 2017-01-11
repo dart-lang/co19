@@ -4,15 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
- * @description Checks that this constructor executes without error with various arguments.
- * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
+ * @assertion UnsupportedError(String message)
+ * @description Checks that this constructor executes without error with various
+ * arguments.
+ * @author rodionov, sgrekhov@unipro.ru
  */
- 
+import "../../../Utils/expect.dart";
+
 main() {
-  new UnsupportedError(null);
-  new UnsupportedError("");
-  new UnsupportedError("11");
+  UnsupportedError ue = new UnsupportedError(null);
+  Expect.isNull(ue.message);
+
+  ue = new UnsupportedError("");
+  Expect.equals("", ue.message);
+
+  ue = new UnsupportedError("11");
+  Expect.equals("11", ue.message);
 }
