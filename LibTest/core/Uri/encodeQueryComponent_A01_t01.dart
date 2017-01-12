@@ -12,9 +12,7 @@
  * @description Checks that space, unreserved characters, basic and extended
  * unicode characters are correctly encoded
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

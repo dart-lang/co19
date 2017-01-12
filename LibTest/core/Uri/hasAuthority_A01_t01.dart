@@ -6,18 +6,17 @@
 /**
  * @assertion final bool hasAuthority
  * Returns whether the URI has an authority component.
- * @description Checks expected hasAuthority settings
+ * @description Checks that this property returns true if the URI has an
+ * authority component
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   var x = new Uri(userInfo: 'user:pass', host: 'foo', port:123);
   Expect.isTrue(x.hasAuthority);
   
-  x = new Uri(port:123);
+  x = new Uri(port: 123);
   Expect.isTrue(x.hasAuthority);
   
   x = new Uri(userInfo: 'root');
@@ -25,5 +24,7 @@ main() {
 
   x = Uri.parse('foo:bar');
   Expect.isFalse(x.hasAuthority);
-}
 
+  x = Uri.parse('foo://bar');
+  Expect.isTrue(x.hasAuthority);
+}

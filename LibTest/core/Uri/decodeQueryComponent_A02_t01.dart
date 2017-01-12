@@ -13,7 +13,6 @@
  * @description Checks that decodeQueryComponent provided with Ascii [encoding]
  * leaves Ascii strings untouched and throws on unsupported codes.
  * @author ilya
- * @reviewer
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";

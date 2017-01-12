@@ -12,9 +12,7 @@
  * @description Compare library result with manually encoded string on
  * characters from Unicode Basic Multilingual Plane
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 
