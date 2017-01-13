@@ -10,9 +10,7 @@
  * It is an error if the scheme is not "http" or "https".
  * @description Checks expected origin values
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -24,4 +22,3 @@ main() {
   
   Expect.throws(() => Uri.parse('asdf://host').origin); // not http or https
 }
-

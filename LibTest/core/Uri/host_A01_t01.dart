@@ -11,7 +11,6 @@
  * If the host is an IP version 6 address, the surrounding [ and ] is removed.
  * @description Checks expected host settings
  * @author ilya
- * @reviewer
  */
 
 import "../../../Utils/expect.dart";
