@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
- * @description Checks forEachEntry() on empty list.
+ * @description Checks [forEachEntry()] on empty list.
  * @author kaigorodov
  */
 
