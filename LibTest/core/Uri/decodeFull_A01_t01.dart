@@ -9,9 +9,7 @@
  * @description Checks expected results on basic and extended
  * unicode characters on manually and library encoded strings.
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

@@ -9,10 +9,8 @@
  * This is a constant-time operation.
  * @description Checks that a correct value is returned
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.equals(0, new StringBuffer().length);

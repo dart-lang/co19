@@ -8,10 +8,8 @@
  * Returns the contents of buffer as a concatenated string.
  * @description Checks that this method returns a correct String
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   StringBuffer sb = new StringBuffer();

@@ -11,9 +11,7 @@
  * the characters -_.!~*'() are percent-encoded.
  * @description Checks that basic and extended unicode characters are encoded
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

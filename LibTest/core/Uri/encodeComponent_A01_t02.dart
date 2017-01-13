@@ -12,9 +12,7 @@
  * @description Checks that unlisted characters from Unicode Basic
  * Multilingual Plane are percent-encoded.
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 String canBeNotEncoded = "0123456789"

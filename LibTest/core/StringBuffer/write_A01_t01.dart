@@ -8,10 +8,8 @@
  * Adds the contents of obj, converted to a string, to the buffer.
  * @description Checks that the String argument is appended to the buffer
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   StringBuffer sb = new StringBuffer();
