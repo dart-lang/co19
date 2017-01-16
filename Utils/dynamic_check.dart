@@ -1,18 +1,46 @@
 library dynamic_check;
 import "expect.dart";
 
-checkTypeError(f()) {
-  Expect.throws(f, (e) => e is TypeError, "Type error should be thrown");
+isCheckedMode() {
+  try {
+    var i = 1;
+    String s = i;
+    return false;
+  } on TypeError {
+    return true;
+  }
 }
 
-checkAssertionError(f(), [message]) {
-  Expect.throws(f, (e) {
-    if (e is AssertionError) {
-      Expect.equals(message, e.message);
-      return true;
+checkTypeError(f()) {
+  if(isCheckedMode()) {
+    try {
+      f();
+      Expect.fail("Type error expected in checking mode");
+    } on TypeError {
     }
-    return false;
-  }, "Assertion error should be thrown");
+  } else {
+    try {
+      f();
+    } on TypeError catch(bad) {
+      Expect.fail("Unexpected type error in scripting mode: $bad");
+    }
+  }
+}
+
+checkAssertionError(f()) {
+  if(isCheckedMode()) {
+    try {
+      f();
+      Expect.fail("Assertion error expected in checking mode");
+    } on AssertionError {
+    }
+  } else {
+    try {
+      f();
+    } on AssertionError catch(bad) {
+      Expect.fail("Unexpected assertion error in scripting mode: $bad");
+    }
+  }
 }
 
 /**
