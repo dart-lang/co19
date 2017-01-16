@@ -27,13 +27,15 @@ checkTypeError(f()) {
   }
 }
 
-checkAssertionError(f()) {
+checkAssertionError(f(), [message]) {
   if(isCheckedMode()) {
-    try {
-      f();
-      Expect.fail("Assertion error expected in checking mode");
-    } on AssertionError {
-    }
+    Expect.throws(f, (e) {
+      if (e is AssertionError) {
+        Expect.equals(message, e.message);
+        return true;
+      }
+      return false;
+    }, "Assertion error should be thrown");
   } else {
     try {
       f();
