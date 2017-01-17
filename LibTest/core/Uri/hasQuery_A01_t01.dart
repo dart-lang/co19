@@ -43,9 +43,4 @@ main() {
 
   uri = Uri.parse("http://www.dartlang.org:123/a/index.dart?a=1#mark");
   Expect.isTrue(uri.hasQuery);
-
-  uri = new Uri(path: "//");
-  print(uri.toString()); // prints ////
-  print(uri.hasAuthority); // prints false
-  print(uri.path); // prints //
 }

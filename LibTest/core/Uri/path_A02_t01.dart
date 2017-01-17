@@ -4,18 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final String path
+ * @assertion String path
  * Returns the path component.
+ * The returned path is encoded. To get direct access to the decoded path use
+ * pathSegments.
  * Returns the empty string if there is no path component.
  * @description Checks empty path settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('', Uri.parse('http://').path);
   Expect.equals('', new Uri(host: 'host').path);
 }
-
