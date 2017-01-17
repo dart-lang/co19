@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -12,19 +12,28 @@
  * iterable.
  * @description checks that an [Iterable] that skips the first n elements is
  * returned.
- * @author kaigorodov
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-check(List a, int n) {
-  DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
-  Iterable it = queue.skip(n);
-  Expect.equals(queue.length - n, it.length);
+class MyIterable<int> extends Object with IterableMixin {
+  List _content;
+  MyIterable(List list): _content = list;
+
+  Iterator get iterator {
+    return _content.iterator;
+  }
+}
+
+check(List list, int n) {
+  IterableMixin iterable = new MyIterable(list);
+  Iterable result = iterable.skip(n);
+  Expect.equals(iterable.length - n, result.length);
   int k = 0;
-  for (var el in it) {
-    Expect.equals(queue.elementAt(n + k), el);
+  for (var el in result) {
+    Expect.equals(iterable.elementAt(n + k), el);
     k++;
   }      
 }

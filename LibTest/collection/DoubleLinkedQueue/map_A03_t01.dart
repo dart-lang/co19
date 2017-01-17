@@ -6,10 +6,10 @@
 /**
  * @assertion abstract Iterable map(f(E element))
  * The transformed elements will not be cached. Iterating multiple times over
- * the returned Iterable will invoke the supplied function f multiple times on
- * the same element.
+ * the returned [Iterable] will invoke the supplied function [f] multiple times
+ * on the same element.
  * @description Checks that iterating multiple times over the the returned
- * Iterable will invoke the supplied function f multiple times on the same
+ * [Iterable] will invoke the supplied function [f] multiple times on the same
  * element.
  * @author kaigorodov
  */
@@ -25,7 +25,7 @@ int f(int element) {
 }
   
 void checkResult(DoubleLinkedQueue<int> queue, int expected) {
-  int count=0;
+  int count = 0;
   Iterable<int> mapIter = queue.map(f);
   for (int el in mapIter) {
     count++;
