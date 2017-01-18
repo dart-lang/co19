@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,15 +9,24 @@
  * matching element, a [StateError] is thrown.
  * @description Checks that a [StateError] is thrown if more than one element
  * matches.
- * @author kaigorodov
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
+class MyIterable<int> extends Object with IterableMixin {
+  List _content;
+  MyIterable(List list): _content = list;
+
+  Iterator get iterator {
+    return _content.iterator;
+  }
+}
+
 check(List a, bool test(value)) {
-  DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
-  Expect.throws(() { queue.singleWhere(test); }, (e) => e is StateError);
+  IterableMixin iterable = new MyIterable(a);
+  Expect.throws(() { iterable.singleWhere(test); }, (e) => e is StateError);
 }
 
 main() {
