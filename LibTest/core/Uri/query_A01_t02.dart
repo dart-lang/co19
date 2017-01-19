@@ -10,12 +10,9 @@
  * Returns the empty string if there is no query component.
  * @description Checks empty query setting
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('', Uri.parse('../a/b').query);
 }
-

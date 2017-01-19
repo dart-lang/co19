@@ -13,9 +13,7 @@
  * @description Checks that UnsupportedError is thrown on queryParameters
  * modification attempt
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -23,4 +21,3 @@ main() {
     Uri.parse('http://host/path').queryParameters['foo'] = null;
   }, (e) => e is UnsupportedError);
 }
-

@@ -12,9 +12,7 @@
  * UnsupportedError on any calls that would mutate it.
  * @description Checks that keys and values are decoded
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -24,4 +22,3 @@ main() {
   Expect.mapEquals(map, new Uri(query: q).queryParameters);
   Expect.mapEquals(map, Uri.parse('http://host/path?$q').queryParameters);
 }
-
