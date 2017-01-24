@@ -9,13 +9,13 @@
  * Returns the empty string if there is no scheme component.
  * @description Checks empty and non empty scheme settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('https', new Uri.https('host', 'path').scheme);
-  Expect.equals('', Uri.parse('../path').scheme);
-}
+  Expect.equals('http', Uri.parse('http://host/path').scheme);
 
+  Expect.equals('', Uri.parse('../path').scheme);
+  Expect.equals('', Uri.parse('www.host/path').scheme);
+}

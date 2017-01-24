@@ -10,13 +10,10 @@
  * component.
  * @description Checks empty and non empty userInfo settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('user:pass', Uri.parse('asdf://user:pass@host').userInfo);
   Expect.equals('', Uri.parse('/a/b').userInfo);
 }
-
