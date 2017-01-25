@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E value))
- * The filtering happens lazily.
- * @description Checks that the test method is not called when the [skipWhile]
- * is executed.
+ * @assertion List<E> toList({bool growable: true})
+ * The list is fixed-length if [growable] is [false].
+ * @description Checks that the list created with [growable == true] can change
+ * its size.
  * @author iarkh@unipro.ru
  */
 
@@ -23,13 +23,16 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-bool test(int value) {
-  Expect.fail("test($value) called");
-  return true;
+void check(List l) {
+  int len = l.length;
+  l.add(null);
+  Expect.equals(len + 1, l.length);
+
+  l.clear();
+  Expect.equals(0, l.length);
 }
 
 main() {
-  new MyIterable([]).takeWhile(test);
-  new MyIterable([1]).takeWhile(test);
-  new MyIterable([1, 3, 7, 4, 5, 6]).takeWhile(test);
+  IterableMixin iterable = new MyIterable([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  check(iterable.toList());
 }

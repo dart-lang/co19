@@ -1,54 +1,60 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion Iterable<E> takeWhile(bool test(E value))
- * Returns a lazy iterable of the leading elements satisfying [test].
+ * Returns a lazy iterable of the leading elements satisfying [test]...
+ * The elements can be computed by stepping through iterator until an element is
+ * found where [test(element)] is [false]. At that point, the returned iterable
+ * stops (its [moveNext()] returns [false]).
  * @description Checks that all first elements that satisfy [test] are retained,
  * and elements after are skipped.
- * @author kaigorodov
+ * @author iarkh@unipro.ru
  */
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, bool test(var element)) {
-  DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
-  Iterator it0 = a0.iterator;
-  Iterable a = queue.takeWhile(test);
-  Iterator it = a.iterator;
-  
-  // check that the beginning of a0 is identical to a
-  bool hasNext0 = it0.moveNext();
-  int len = 0;
-  for (;;) {
-    bool hasNext = it.moveNext();
-    if (!hasNext) break;
-    Expect.isTrue(test(it0.current));
-    Expect.equals(it0.current, it.current);
-    len++;
-    hasNext0 = it0.moveNext();
-  }
-  Expect.equals(a.length, len);
+class MyIterable<int> extends Object with IterableMixin {
+  List _content;
+  MyIterable(List list): _content = list;
 
-  // count the rest
-  int skipCount = 0;
-  while (hasNext0) {
-    skipCount++;
-    hasNext0 = it0.moveNext();
+  Iterator get iterator {
+    return _content.iterator;
+  }
+}
+
+void check(List list, bool test(var element)) {
+  IterableMixin iterable = new MyIterable(list);
+  Iterator it = list.iterator;
+  Iterable res = iterable.takeWhile(test);
+  Iterator it_res = res.iterator;
+
+  while(it_res.moveNext()) {
+    it.moveNext();
+    Expect.isTrue(test(it_res.current));
+    Expect.isTrue(test(it.current));
+    Expect.equals(it_res.current, it.current);
   }
 
-  Expect.equals(a0.length, len + skipCount);
+  if(it.moveNext()) {
+    Expect.isFalse(test(it.current));
+  }
+
 }
 
 main() {
-  List a0 = [1, 3, 7, 4, 5, 6];
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  List list = [1, 3, 7, 4, 5, 6, 3, 4, 1];
+  check(list, (var element) => element == 1);
+  check(list, (var element) => true);
+  check(list, (var element) => false);
+  check(list, (var element) => element > 4);
+  check(list, (var element) => element < 4);
+  check(list, (var element) => element == 4);
+  check(list, (var element) => element < 0);
+  check(list, (var element) => element > 10);
+  check([], (var element) => true);
+  check([], (var element) => false);
 }
