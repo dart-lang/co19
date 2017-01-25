@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,13 +10,15 @@
  * and value in the returned map has been decoded. If there is no query the
  * empty map is returned. The returned map is unmodifiable and will throw
  * UnsupportedError on any calls that would mutate it.
- * @description Checks the case with an empty map
- * @author ilya
+ * @description Checks that keys and values are decoded properly
+ * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.mapEquals({}, new Uri.http('host', 'path').queryParameters);
-  Expect.mapEquals({}, new Uri().queryParameters);
-  Expect.mapEquals({}, Uri.parse('http://host/path').queryParameters);
+  var q = 'a=b&c=%D1%84&d+=+d+&x=%26';
+  var map = {'a': 'b', 'c': 'ф', 'd ': ' d ', 'x': '\u0026'};
+  Expect.mapEquals(map, new Uri.http('host', 'path', map).queryParameters);
+  Expect.mapEquals(map, new Uri(query: q).queryParameters);
+  Expect.mapEquals(map, Uri.parse('http://host/path?$q').queryParameters);
 }

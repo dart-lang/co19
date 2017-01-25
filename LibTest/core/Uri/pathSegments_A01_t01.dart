@@ -23,4 +23,7 @@ main() {
 
   x = new Uri(path: '/some path1/another path2');
   Expect.listEquals(['some path1', 'another path2'], x.pathSegments);
+
+  x = new Uri(path: '/a/b/c/d/');
+  Expect.listEquals(['a', 'b', 'c', 'd', ''], x.pathSegments);
 }
