@@ -30,7 +30,7 @@ main() {
   List res = [];
   List original = [1, 3, 9, 4, 16, -24, 6, 6, 6];
   MyIterable iterable = new MyIterable(original);
-  List duplicated = iterable.expand((int element) {
+  Iterable duplicated = iterable.expand((int element) {
     res.add(element);
     return [element, -element];
   });

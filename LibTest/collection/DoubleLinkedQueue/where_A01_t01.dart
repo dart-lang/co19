@@ -10,8 +10,8 @@
  * The matching elements have the same order in the returned iterable as they
  * have in [iterator].
  * This method returns a view of the mapped elements.
- * @description Checks that all first elements that satisfy [test] are retained,
- * and elements that do not, are skipped.
+ * @description Checks that all elements that satisfy [test] are retained, and
+ * elements that do not, are skipped.
  * @author kaigorodov
  */
 

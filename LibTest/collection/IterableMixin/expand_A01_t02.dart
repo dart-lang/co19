@@ -5,7 +5,7 @@
  */
 /**
  * @assertion   Iterable expand(Iterable f(E element))
- * Expands each element of this [Iterable[ into zero or more elements.
+ * Expands each element of this [Iterable] into zero or more elements.
  * @description Checks that empty [Iterable] cannot be expanded.
  * @author iarkh@unipro.ru
  */
@@ -23,6 +23,6 @@ class MyIterable extends Object with IterableMixin {
 
 main() {
   MyIterable empty = new MyIterable([]);
-  List processed = empty.expand((pair) => [12345]);
+  Iterable processed = empty.expand((pair) => [12345]);
   Expect.isTrue(processed.isEmpty);
 }
