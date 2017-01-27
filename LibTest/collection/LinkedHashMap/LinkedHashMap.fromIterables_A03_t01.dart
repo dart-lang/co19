@@ -6,8 +6,8 @@
 /**
  * @assertion LinkedHashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
  * ...
- * It is an error if the two Iterables don't have the same length.
- * @description Checks that it is an error if the two Iterables don't have
+ * It is an error if the two [Iterables] don't have the same length.
+ * @description Checks that it is an error if the two [Iterables] don't have
  * the same length.
  * @author sgrekhov@unipro.ru
  */

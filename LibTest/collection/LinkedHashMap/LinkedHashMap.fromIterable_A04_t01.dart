@@ -7,7 +7,7 @@
  * @assertion LinkedHashMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element)})
  * ...
- * If no values are specified for key and value the default is the identity
+ * If no values are specified for [key] and [value] the default is the identity
  * function
  * @description Checks that if no values are specified for key and value the
  * default is the identity function

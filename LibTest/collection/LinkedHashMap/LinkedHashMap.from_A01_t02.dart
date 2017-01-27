@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws Error if [other] is null
- * @description Checks that Error is thrown if the argument is null.
+ * @assertion  LinkedHashMap.from(Map other)
+ * Creates a [LinkedHashMap<K,V>] that contains all key value pairs of [other].
+ * @description Checks that [Error] is thrown if the argument is [null].
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -16,6 +16,6 @@ main() {
   Expect.throws(() {
       new LinkedHashMap.from(null);
     },
-    (e)=> e is Error
+    (e) => e is Error
   );
 }

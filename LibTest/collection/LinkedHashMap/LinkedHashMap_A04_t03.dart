@@ -7,14 +7,14 @@
  * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
  * bool isValidKey(potentialKey)})
  * ...
- * If using methods like operator[], remove and containsKey together with a
- * custom equality and hashcode, an extra isValidKey function can be supplied.
- * This function is called before calling equals or hashCode with an argument
- * that may not be a K instance, and if the call returns false, the key is
- * assumed to not be in the set. The isValidKey function defaults to just
- * testing if the object is a K instance.
- * @description Checks that isValidKey is not ignored if equals and hashCode are
- * not specified
+ * If using methods like operator [], [remove] and [containsKey] together with a
+ * custom equality and hashcode, an extra [isValidKey] function can be supplied.
+ * This function is called before calling [equals] or [hashCode] with an
+ * argument that may not be a [K] instance, and if the call returns [false], the
+ * key is assumed to not be in the set. The [isValidKey] function defaults to
+ * just testing if the object is a [K] instance.
+ * @description Checks that [isValidKey] is not ignored if [equals] and
+ * [hashCode] are not specified
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
