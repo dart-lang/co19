@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion LinkedHashSet<E> class 
- * Implements Set<E>
+ * @assertion LinkedHashSet<E> class implements Set<E>
+ * A [LinkedHashSet] is a hash-table based [Set] implementation.
  * @description Checks that all members of [Set] are implemented.
  * @author kaigorodov
  */

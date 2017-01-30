@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory LinkedHashSet.from(Iterable<E> iterable)
- * Create a linked hash set containing all elements
- * Creates a linked hash set as by new LinkedHashSet<E>() and adds each element
- * of elements to this set in the order they are iterated.
+ * @assertion factory LinkedHashSet.from(Iterable elements)
+ * Create a linked hash set containing all [elements]
+ * Creates a linked hash set as by [new LinkedHashSet<E>()] and adds each
+ * element of [elements] to this set in the order they are iterated.
  * @description Checks that created hash set contains all elements of [iterable].
  * @author kaigorodov
  */
