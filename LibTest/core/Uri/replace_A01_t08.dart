@@ -19,15 +19,10 @@
  *
  * This method takes the same parameters as the new Uri constructor, and they
  * have the same meaning.
- *
- * At most one of path and pathSegments must be provided. Likewise, at most one
- * of query and queryParameters must be provided.
- *
+ * ...
  * Each part that is not provided will default to the corresponding value from
  * this Uri instead.
- *
- * This method is different from Uri.resolve which overrides in a hierarchical
- * manner, and can instead replace each part of a Uri individually.
+ * ...
  * @description Check that this method returns a new Uri based on this one, but
  * with some parts replaced. Test queryParameters
  * @author sgrekhov@unipro.ru

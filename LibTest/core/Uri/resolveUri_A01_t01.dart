@@ -8,9 +8,7 @@
  * Resolve reference as an URI relative to this.
  * @description Checks expected resolved URIs
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -20,4 +18,3 @@ main() {
   Expect.equals(Uri.parse('http://host/c'), x.resolveUri(Uri.parse('/c')));
   Expect.equals(Uri.parse('http://host/c'), x.resolveUri(Uri.parse('../c')));
 }
-

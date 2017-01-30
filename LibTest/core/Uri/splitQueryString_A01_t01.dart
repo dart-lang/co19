@@ -13,9 +13,7 @@
  * value are mapped to the empty string.
  * @description Checks cases of encoded and not encoded keys and values
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 enc(x) => Uri.encodeComponent(x);
