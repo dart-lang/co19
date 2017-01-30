@@ -6,9 +6,10 @@
 /**
  * @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
  * bool isValidKey(potentialKey)})
- * Create an insertion-ordered hash set using the provided equals and hashCode.
- * @description Checks that LinkedHashSet preserves insertion order if addAll is
- * used to add elements to the map.
+ * Create an insertion-ordered hash set using the provided [equals] and
+ * [hashCode].
+ * @description Checks that [LinkedHashSet] preserves insertion order if
+ * [addAll] is used to add elements to the map.
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
