@@ -6,7 +6,7 @@
 /**
  * @assertion void insertAfter(E entry)
  * ...
- * This entry must be in a linked list when this method is called. The entry
+ * This entry must be in a linked list when this method is called. The [entry]
  * must not be in a linked list.
  * @description Checks that the entry inserted must not be in any linked list
  * @author sgrekhov@unipro.ru
