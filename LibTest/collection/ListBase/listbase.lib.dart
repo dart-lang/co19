@@ -18,7 +18,8 @@ import "dart:collection";
 class ListBaseImpl<E> extends ListBase<E> {
   List<E> _list;
   
-  ListBaseImpl([int length]): _list = (length == null ? new List() : new List(length));
+  ListBaseImpl([int length]):
+        _list = (length == null ? new List() : new List(length));
   
   E operator [](int index) => _list[index];
 

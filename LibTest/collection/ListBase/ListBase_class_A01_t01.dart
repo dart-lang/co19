@@ -7,8 +7,8 @@
  * @assertion ListBase<E> class
  * Implements ListMixin<E>
  * Abstract implementation of a list.
- * All operations are defined in terms of length, operator[], operator[]= and length=,
- * which need to be implemented.
+ * All operations are defined in terms of length, operator[], operator[]= and
+ * length=, which need to be implemented.
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
