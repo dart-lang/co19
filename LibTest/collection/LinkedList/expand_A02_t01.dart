@@ -5,10 +5,9 @@
  */
 /**
  * @assertionIterable expand(Iterable f(E element))
- * Expands each element of this Iterable into zero or more elements.
- * The resulting Iterable runs through the elements returned by f for each element of this, in order.
- * The returned Iterable is lazy, and calls f for each element of this every time it's iterated.
- * @description Checks that the returned Iterable is lazy.
+ * The returned [Iterable] is lazy, and calls [f] for each element of this every
+ * time it's iterated.
+ * @description Checks that the returned [Iterable] is lazy.
  * @author kaigorodov
  */
 import "dart:collection";
@@ -22,7 +21,7 @@ void check(List a0) {
 }
 
 main() {
-  List a=new List();
+  List a = new List();
   check(a);
   a.add(2);
   check(a);

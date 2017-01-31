@@ -5,15 +5,15 @@
  */
 /**
  * @assertion void forEach(void action(E entry))
- * It's an error if action modify the list.
- * @description Checks that it's an error if action modify the list.
+ * It's an error if [action[ modify the linked list.
+ * @description Checks that it's an error if [action] modifies the list.
  * @author kaigorodov
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-LinkedList<MyLinkedListEntry> list=toLinkedList([1,2]);
+LinkedList<MyLinkedListEntry> list = toLinkedList([1, 2]);
 
 main() {
   Expect.throws(() => list.forEach(
@@ -21,11 +21,10 @@ main() {
       list.remove(entry);
     }
   ));
-//  print("isEmpty=${list.isEmpty}");
+
   Expect.throws(() => list.forEach(
     (MyLinkedListEntry entry) {
       entry.unlink();
     }
   ));
-//  print("isEmpty=${list.isEmpty}");
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void addFirst(E entry)
- * Add entry to the beginning of the list.
+ * Add [entry] to the beginning of the list.
  * @description Checks that method does not affect other content of the list
  * @author kaigorodov
  */

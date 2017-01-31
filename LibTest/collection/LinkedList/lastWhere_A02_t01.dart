@@ -5,10 +5,9 @@
  */
 /**
  * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * Returns the last element that satisfies the given predicate test.
- * If none matches, the result of invoking the orElse function is returned.
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that If none matches, the result of invoking the orElse
+ * If no element satisfies [test], the result of invoking the [orElse] function
+ * is returned.
+ * @description Checks that if none matches, the result of invoking the [orElse]
  * function is returned.
  * @author kaigorodov
  */

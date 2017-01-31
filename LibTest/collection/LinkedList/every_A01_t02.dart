@@ -5,9 +5,10 @@
  */
 /**
  * @assertion bool every(bool f(E element))
- * Returns true if every elements of this collection satisify the predicate f.
- * Returns false otherwise.
- * @description Checks that the predicate method is called for each element until the first false result.
+ * Checks every element in iteration order, and returns [false] if any of them
+ * make [test] return [false], otherwise returns [true].
+ * @description Checks that the predicate method is called for each element
+ * until the first [false] result.
  * @author kaigorodov
  */
 import "dart:collection";
@@ -24,14 +25,14 @@ check(LinkedList<MyLinkedListEntry> a, bool predicate(var e), int count) {
   Expect.equals(count, actualCount);
 }
 
-bool allTrue(var e)=>true;
+bool allTrue(var e) => true;
 
-bool allFalse(var e)=>false;
+bool allFalse(var e) => false;
 
-bool lessThan3(var e)=> e<3;
+bool lessThan3(var e) => e < 3;
   
 main() {
-  LinkedList<MyLinkedListEntry> a = toLinkedList([1,2,3,4,5]);
+  LinkedList<MyLinkedListEntry> a = toLinkedList([1, 2, 3, 4, 5]);
   check(a, allTrue, 5);
   check(a, allFalse, 1);
   check(a, lessThan3, 3);

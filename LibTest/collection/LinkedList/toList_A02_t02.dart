@@ -5,17 +5,17 @@
  */
 /**
  * @assertion List<E> toList({bool growable: true})
- * Creates a List containing the elements of this Iterable.
- * The elements are in iteration order. The list is fixed-length if growable is false.
- * @description Checks that the list created with growable==false cannot change it's size.
+ * The list is fixed-length if [growable] is [false].
+ * @description Checks that the list created with [growable == false] cannot
+ * change its size.
  * @author kaigorodov
  */
 import "LinkedList.lib.dart";
 
-List<String> failures=new List<String>();
+List<String> failures = new List<String>();
  
 void check(List a0) {
-  List<MyLinkedListEntry> l=toLinkedList(a0).toList(growable:false);
+  List<MyLinkedListEntry> l = toLinkedList(a0).toList(growable:false);
   try {
     l.clear();
     failures.add("clear");
@@ -36,6 +36,6 @@ void check(List a0) {
 
 main() {
   check([]);
-  check(["1","2","3","4","5"]);
-  check([null, [null], [], [1,2,3], [[null]]]);
+  check(["1", "2", "3", "4", "5"]);
+  check([null, [null], [], [1, 2, 3], [[null]]]);
 }

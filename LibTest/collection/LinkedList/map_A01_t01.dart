@@ -5,8 +5,10 @@
  */
 /**
  * @assertion Iterable map(f(E element))
- * Returns a lazy Iterable where each element e of this is replaced by the result of f(e).
- * @description Checks that the resulting Iterable contains all the results of f(e).
+ * Returns a new lazy [Iterable] with elements that are created by calling [f]
+ * on each [element] of this [Iterable] in iteration order.
+ * @description Checks that the resulting [Iterable] contains all the results of
+ * [f(element)].
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -14,22 +16,22 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 int f (MyLinkedListEntry<int> entry) {
-  return entry.value+2;
+  return entry.value + 2;
 }
   
 void checkResult(List<int> a) {
   LinkedList<MyLinkedListEntry<int>> llist = toLinkedList(a);
-  int count=0;
-  Iterable<int> mapIter=llist.map(f);
+  int count = 0;
+  Iterable<int> mapIter = llist.map(f);
   for (int el in mapIter) {
-    Expect.equals(a[count]+2, el);
+    Expect.equals(a[count] + 2, el);
     count++;
   }
   Expect.equals(a.length, count);
 }
 
 main() {
-  List<int> a=new List<int>();
+  List<int> a = new List<int>();
   checkResult(a);
   a.add(22);
   checkResult(a);
@@ -37,7 +39,7 @@ main() {
   checkResult(a);
   a.add(11);
   checkResult(a);
-  for (int k=-100; k<200; k++) {
+  for (int k = -100; k < 200; k++) {
     a.add(k);
   }
   checkResult(a);

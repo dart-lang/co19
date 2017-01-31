@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void forEach(void action(E entry))
- * Call action with each entry in the list.
+ * Call [action] with each entry in the list.
  * @description Checks that no exception is thrown if the list is empty.
  * @author kaigorodov
  */

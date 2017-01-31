@@ -6,9 +6,7 @@
 /**
  * @assertion final E single
  * Returns the single element in this.
- * If this is empty or has more than one element throws a StateError.
  * @description Checks that the single element is returned.
- * Checks that StateError is thrown if this list is empty or has more than one element
  * @author kaigorodov
  */
 import "dart:collection";
@@ -18,15 +16,11 @@ import "LinkedList.lib.dart";
 var v;
 
 void check(List a0) {
-  LinkedList a=toLinkedList(a0);
-  if (a.length==1) {
+  LinkedList a = toLinkedList(a0);
+  if (a.length == 1) {
     Expect.equals(a.first, a.single);
   } else {
-    Expect.throws(() {
-        var v=a.single;
-      },
-      (e) => e is StateError
-    );
+    Expect.throws(() { a.single; }, (e) => e is StateError);
   }
 }
 

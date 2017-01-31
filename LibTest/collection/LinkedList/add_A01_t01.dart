@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void add(E entry)
- * Add entry to the end of the list.
+ * Add [entry] to the end of the list.
  * @description Checks extendable lists, that [value] is added to the end of the
  * list and the length is extended by one.
  * @author kaigorodov
@@ -19,7 +19,7 @@ main() {
   for (var i = 0; i <= 314; i++) {
     a.add(new MyLinkedListEntry(i));
     Expect.equals(i, (a.elementAt(i) as MyLinkedListEntry).value);
-    Expect.equals(i+1, a.length);
+    Expect.equals(i + 1, a.length);
   }
 
   LinkedList<MyLinkedListEntry<int>> b = toLinkedList(const<int>[]);
@@ -28,6 +28,6 @@ main() {
   for (var i = 1; i <= 3142; i++) {
     b.add(new MyLinkedListEntry(i));
     Expect.equals(i, b.elementAt(i).value);
-    Expect.equals(i+1, b.length);
+    Expect.equals(i + 1, b.length);
   }
 }

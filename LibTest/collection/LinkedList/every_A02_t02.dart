@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If this collection is empty, returns true.
- * @needsreview not documented
+ * @assertion bool every(bool f(E element))
  * @description Checks that [f] is not called if list is empty
  * @author kaigorodov
  */
@@ -23,11 +22,11 @@ check(LinkedList<MyLinkedListEntry> a, bool predicate(var e)) {
   Expect.equals(0, actualCount);
 }
 
-bool allTrue(var e)=>true;
+bool allTrue(var e) => true;
 
-bool allFalse(var e)=>false;
+bool allFalse(var e) => false;
 
-bool lessThan3(var e)=> e<3;
+bool lessThan3(var e) => e < 3;
   
 main() {
   LinkedList<MyLinkedListEntry> a = new  LinkedList<MyLinkedListEntry>();

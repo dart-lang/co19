@@ -5,8 +5,9 @@
  */
 /**
  * @assertion void forEach(void action(E entry))
- * Call action with each entry in the list.
- * @description Checks that the function [action] is called for each element of the list.
+ * Call [action] with each entry in the list.
+ * @description Checks that the function [action] is called for each element of
+ * the list.
  * @author kaigorodov
  */
 import "dart:collection";
@@ -14,8 +15,8 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 class A {
-  A(bool checked) { this.checked = checked; }
   bool checked;
+  A(bool checked) { this.checked = checked; }
 }
 
 main() {
@@ -25,7 +26,7 @@ main() {
   }
 
   LinkedList<MyLinkedListEntry<A>> llist = toLinkedList(a);
-  void f(MyLinkedListEntry<A> e) { e.value.checked = true;} 
+  void f(MyLinkedListEntry<A> e) { e.value.checked = true; }
   llist.forEach(f);
 
   for (int i = 0; i < a.length; i++) {

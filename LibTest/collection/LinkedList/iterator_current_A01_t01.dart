@@ -14,7 +14,7 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 void checkNext(List a0) {
-  LinkedList a=toLinkedList(a0);
+  LinkedList a = toLinkedList(a0);
   Iterator<MyLinkedListEntry> it = a.iterator;
   var i = 0;
   while (it.moveNext()) {
@@ -25,17 +25,17 @@ void checkNext(List a0) {
 }
 
 main() {
-  checkNext([null,0,"1",false]);
-  checkNext(const [null,0,"1",false]);
+  checkNext([null, 0, "1", false]);
+  checkNext(const [null, 0, "1", false]);
 
   List a = new List(17495);
-  for (var i=0; i < a.length; i++) {
+  for (var i = 0; i < a.length; i++) {
     a[i] = a.length - i;
   }
   checkNext(a);
 
   List l = new List();
-  l.addAll(["0","1","2","3","4","5",6,7,8,9,null]);
+  l.addAll(["0", "1", "2", "3", "4", "5", 6, 7, 8, 9, null]);
   a = new List.from(l);
   checkNext(a);
 }

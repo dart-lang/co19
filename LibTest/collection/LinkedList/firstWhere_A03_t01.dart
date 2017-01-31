@@ -5,8 +5,9 @@
  */
 /**
  * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that a StateError is thrown when orElse is null and none matches.
+ * If [orElse] is omitted, it defaults to throwing a [StateError].
+ * @description Checks that a [StateError] is thrown when [orElse] is [null] and
+ * none matches.
  * @author kaigorodov
  */
 import "dart:collection";
@@ -16,9 +17,9 @@ import "LinkedList.lib.dart";
 check(List list0) {
   LinkedList<MyLinkedListEntry> list = toLinkedList(list0);
     Expect.throws(() {
-      list.firstWhere((MyLinkedListEntry entry)=>false);
+      list.firstWhere((MyLinkedListEntry entry) => false);
     },
-    (e)=> e is StateError
+    (e) => e is StateError
   );
 }
 
@@ -27,5 +28,5 @@ main() {
   check([]);
   check(const[]);
   check(new List.from([]));
-  check([1,2,3]);
+  check([1, 2, 3]);
 }

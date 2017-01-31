@@ -5,11 +5,9 @@
  */
 /**
  * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * Returns the last element that satisfies the given predicate test.
- * If none matches, the result of invoking the orElse function is returned.
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that If none matches and orElse is null, a StateError is thrown.
- * function is returned.
+ * If [orElse] is omitted, it defaults to throwing a [StateError].
+ * @description Checks that if none matches and [orElse] is [null], a
+ * [StateError] is thrown.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -20,7 +18,7 @@ var noneMatches=new Object();
 
 void check(LinkedList<MyLinkedListEntry> a, var element) {
   Expect.throws(() {
-      a.lastWhere((MyLinkedListEntry entry)=>entry.value==element);
+      a.lastWhere((MyLinkedListEntry entry) => entry.value == element);
     },
     (e)=> e is StateError
   );

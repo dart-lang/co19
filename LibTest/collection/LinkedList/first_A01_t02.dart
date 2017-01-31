@@ -6,8 +6,6 @@
 /**
  * @assertion final E first
  * Returns the first element.
- * If this is empty throws a StateError.
- * Otherwise this method is equivalent to this.elementAt(0).
  * @description Checks that the first element of the list is returned.
  * @author kaigorodov
  */

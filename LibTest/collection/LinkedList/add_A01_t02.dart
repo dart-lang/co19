@@ -5,8 +5,9 @@
  */
 /**
  * @assertion void add(E entry)
- * Add entry to the end of the list.
- * @description Checks that method does not affect the existing content of the list
+ * Add [entry] to the end of the list.
+ * @description Checks that method does not affect the existing content of the
+ * list
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
