@@ -15,9 +15,7 @@
  * server and a UNC path is returned.
  * @description Checks the case with UNC path for Windows semantics
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

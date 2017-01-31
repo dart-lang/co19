@@ -13,9 +13,7 @@
  * value are mapped to the empty string.
  * @description Check cases with empty query and no value
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
