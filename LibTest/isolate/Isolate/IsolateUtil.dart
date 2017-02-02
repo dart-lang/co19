@@ -32,16 +32,53 @@ Future ping(Isolate isolate, payload, [Duration timeout]) {
 }
 
 /**
- * Utility class, that helps to spawn isolates, which sole purpose is
- * to generate errors.
+ * Basement for Echo and Error servers
  */
-class ErrorServer {
+abstract class Server {
 
   static const String _STOP = "!stop";
 
   Isolate isolate;
   SendPort sendPort;
-  ErrorServer(this.isolate, this.sendPort);
+
+  Server(Isolate isolate, SendPort sendPort) {
+    this.isolate = isolate;
+    this.sendPort = sendPort;
+  }
+
+  void requestStop() {
+    sendPort.send(_STOP);
+  }
+
+  Future stop() {
+    ReceivePort exitPort = new ReceivePort();
+    isolate.addOnExitListener(exitPort.sendPort);
+    Future result = exitPort.first; // subscribe first
+    requestStop();
+    return result;
+  }
+
+  Future kill({int priority: Isolate.BEFORE_NEXT_EVENT}) {
+    ReceivePort exitPort = new ReceivePort();
+    isolate.addOnExitListener(exitPort.sendPort);
+    Future result = exitPort.first; // subscribe first
+    isolate.kill(priority:priority);
+    return result;
+  }
+
+  void send(message){
+    sendPort.send(message);
+  }
+}
+
+
+/**
+ * Utility class, that helps to spawn isolates, which sole purpose is
+ * to generate errors.
+ */
+class ErrorServer extends Server {
+
+  ErrorServer(Isolate isolate, SendPort sendPort): super(isolate, sendPort);
 
   static Future<ErrorServer> spawn({
                                 bool paused: false,
@@ -69,7 +106,7 @@ class ErrorServer {
     StreamSubscription ss;
     ss = receivePort.listen(
         (x) {
-          if (x==_STOP){
+          if (x==Server._STOP){
             ss.cancel();
             receivePort.close();
           } else {
@@ -80,30 +117,19 @@ class ErrorServer {
     sendPort.send(receivePort.sendPort);
   }
 
-  void requestStop() {
-    sendPort.send(_STOP);
-  }
-
-  Future stop() {
-    ReceivePort exitPort = new ReceivePort();
-    isolate.addOnExitListener(exitPort.sendPort);
-    Future result = exitPort.first; // subscribe first
-    requestStop();
-    return result;
-  }
-
   void generateError() {
     sendPort.send("error");
   }
 }
 
-class EchoServer {
+/**
+ * Utility class, that helps to spawn isolates, which sole purpose is
+ * to send back the received data
+ */
+class EchoServer extends Server {
 
-  static const String _STOP = "!stop";
+  EchoServer(Isolate isolate, SendPort sendPort): super(isolate, sendPort);
 
-  Isolate isolate;
-  SendPort sendPort;
-  EchoServer(this.isolate, this.sendPort);
 
   static Future<EchoServer> spawn(SendPort dataSendPort, {
                                    bool paused: false,
@@ -129,40 +155,30 @@ class EchoServer {
     ReceivePort receivePort = new ReceivePort();
     StreamSubscription ss;
     ss = receivePort.listen(
-        (x) {
-//          print(x);
-          if (x==_STOP){
-            ss.cancel();
-            receivePort.close();
-          } else {
-            sendPort[1].send(x);
-          }
+        (dynamic x) {
+            if (x == Server._STOP) {
+              ss.cancel();
+              receivePort.close();
+            } else if ((x is List) && (x.length == 2) && (x[0] is SendPort)) {
+              x[0].send(x[1]);
+            } else {
+              sendPort[1].send(x);
+            }
         }
     );
     sendPort[0].send(receivePort.sendPort);
   }
 
-  void requestStop() {
-    sendPort.send(_STOP);
-  }
-
-  Future stop() {
-    ReceivePort exitPort = new ReceivePort();
-    isolate.addOnExitListener(exitPort.sendPort);
-    Future result = exitPort.first; // subscribe first
-    requestStop();
+  Future<Object> ping(Object message, [Duration timeout, Object timeoutResponse]) {
+    ReceivePort receivePort = new ReceivePort();
+    Future<Object> result = receivePort.first;
+    sendPort.send([receivePort.sendPort, message]);
+    if (timeout!=null){
+      result = result.timeout(timeout, onTimeout: () {
+        receivePort.close();
+        return timeoutResponse;
+      });
+    }
     return result;
-  }
-
-  Future kill({int priority: Isolate.BEFORE_NEXT_EVENT}) {
-    ReceivePort exitPort = new ReceivePort();
-    isolate.addOnExitListener(exitPort.sendPort);
-    Future result = exitPort.first; // subscribe first
-    isolate.kill(priority:priority);
-    return result;
-  }
-
-  void send(message){
-    sendPort.send(message);
   }
 }
