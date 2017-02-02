@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a [Queue] that contains all elements of
- * [other].
- * @description Checks constructor with custom Iterable.
+ * @assertion Queue.from(Iterable elements)
+ * Creates a queue containing all elements.
+ * The element order in the queue is as if the elements were added using
+ * [addLast] in the order provided by [elements.iterator].
+ * @description Checks constructor with custom [Iterable].
  * @author msyabro
- * @reviewer varlax
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -69,6 +69,6 @@ main() {
   check(list, [1, 2, 3]);
 
   IterableClass copy = new IterableClass();
-  copy.internalArray = [null,null,"sdsd",copy];
-  check(new Queue.from(copy), [null,null,"sdsd",copy]);
+  copy.internalArray = [null, null, "sdsd", copy];
+  check(new Queue.from(copy), [null, null, "sdsd", copy]);
 }

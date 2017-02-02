@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the end of the queue.
+ * @assertion void addLast(E value)
+ * Adds [value] at the end of the queue.
  * @description Checks that [value] is added to the end of the queue.
  * @author msyabro
- * @reviewer varlax
  */
 library addLast_A01_t01;
 
@@ -20,6 +20,6 @@ test(Queue create([Iterable content])) {
   for (var i = 0; i <= 10000; i++) {
     queue.addLast(i);
     Expect.equals(i, queue.last);
-    Expect.equals(i+1, queue.length);
+    Expect.equals(i + 1, queue.length);
   }
 }

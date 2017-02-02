@@ -4,9 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory ListListQueue.from(Iterable<E> source)
- * Create a queue initially containing the elements of [source].
- * @description Checks constructor with a custom Iterable.
+ * @assertion factory ListQueue.from(Iterable elements)
+ * Create a [ListQueue] containing all [elements].
+ * The elements are added to the queue, as by [addLast], in the order given by
+ * [elements.iterator].
+ * @description Checks constructor with a custom [Iterable].
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -67,6 +69,6 @@ main() {
   check(list, [1, 2, 3]);
 
   IterableClass copy = new IterableClass();
-  copy.internalArray = [null,null,"sdsd",copy];
-  check(new ListQueue.from(copy), [null,null,"sdsd",copy]);
+  copy.internalArray = [null, null, "sdsd", copy];
+  check(new ListQueue.from(copy), [null, null, "sdsd", copy]);
 }

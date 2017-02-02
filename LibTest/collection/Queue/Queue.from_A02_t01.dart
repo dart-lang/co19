@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws Error if [other] is null
+ * @assertion Queue.from(Iterable elements)
  * @description Checks that exception is thrown
  * @author msyabro
- * @reviewer varlax
  * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";

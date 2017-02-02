@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Fails gracefully if supplied with an argument of a wrong type.
+ * @assertion void addAll(Iterable<E> iterable)
+ * Fails gracefully if supplied with an argument of a wrong type.
  * @description Tries to pass various wrong parameters to the method.
  * @author iefremov
  */

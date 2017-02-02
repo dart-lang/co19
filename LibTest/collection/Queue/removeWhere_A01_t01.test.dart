@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void removeWhere(bool test(E element))
- * Remove all elements matched by test.
- * @description Checks that all elements that satisfy test are removed, and
+ * @assertion  void removeWhere(bool test(E element))
+ * Removes all elements matched by [test] from the queue.
+ * @description Checks that all elements that satisfy [test] are removed, and
  * elements that does not are left.
  * @author sgrekhov@unipro.ru
  */

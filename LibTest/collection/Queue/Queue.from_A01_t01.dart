@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a [Queue] that contains all elements of
- * [other].
- * @description Checks that created list contains all elements of [other] collection.
+ * @assertion Queue.from(Iterable elements)
+ * Creates a queue containing all elements.
+ * The element order in the queue is as if the elements were added using
+ * [addLast] in the order provided by [elements.iterator].
+ * @description Checks that created list contains all elements of [elements] in
+ * the same order.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
