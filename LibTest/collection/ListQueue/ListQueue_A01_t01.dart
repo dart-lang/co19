@@ -6,7 +6,8 @@
 /**
  * @assertion new ListQueue([int initialCapacity])
  * Create an empty queue.
- * If initialCapacity is given, prepare the queue for at least that many elements.
+ * If [initialCapacity] is given, prepare the queue for at least that many
+ * elements.
  * @description Checks that empty queue is created.
  * @author kaigorodov
  */

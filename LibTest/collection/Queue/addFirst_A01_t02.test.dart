@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the beginning of the queue.
+ * @assertion  void addFirst(E value)
+ * Adds [value] at the beginning of the queue.
  * @description Checks that method does not affect other content of the queue
  * @author msyabro
- * @reviewer varlax
  */
 library addFirst_A01_t02;
 

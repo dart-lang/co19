@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void retainWhere(bool test(E element))
- * Removes all elements not matched by test from the queue.
- * @description Checks that all elements that satisfy test are left, and
+ * Removes all elements not matched by [test] from the queue.
+ * @description Checks that all elements that satisfy [test] are left, and
  * elements that do not are removed.
  * @author sgrekhov@unipro.ru
  */

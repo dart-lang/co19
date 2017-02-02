@@ -23,6 +23,7 @@ import "addFirst_A01_t01.test.dart" as addFirst_A01_t01;
 import "addFirst_A01_t02.test.dart" as addFirst_A01_t02;
 import "addLast_A01_t01.test.dart" as addLast_A01_t01;
 import "addLast_A01_t02.test.dart" as addLast_A01_t02;
+import "clear_A01_t01.test.dart" as clear_A01_t01;
 import "remove_A01_t01.test.dart" as remove_A01_t01;
 import "removeFirst_A01_t01.test.dart" as removeFirst_A01_t01;
 import "removeFirst_A02_t01.test.dart" as removeFirst_A02_t01;
@@ -35,8 +36,8 @@ import "retainWhere_A01_t01.test.dart" as retainWhere_A01_t01;
 import "retainWhere_A02_t01.test.dart" as retainWhere_A02_t01;
 import "retainWhere_A02_t02.test.dart" as retainWhere_A02_t02;
 
-test(Queue create([Iterable content]), {bool isSet:false}) {
-  libIterable.test(create, isSet:false);
+test(Queue create([Iterable content]), {bool isSet : false}) {
+  libIterable.test(create, isSet : false);
   add_A01_t01.test(create);
   add_A01_t02.test(create);
   addAll_A01_t01.test(create);
@@ -47,6 +48,7 @@ test(Queue create([Iterable content]), {bool isSet:false}) {
   addFirst_A01_t02.test(create);
   addLast_A01_t01.test(create);
   addLast_A01_t02.test(create);
+  clear_A01_t01. test(create);
   remove_A01_t01.test(create);
   removeFirst_A01_t01.test(create);
   removeFirst_A02_t01.test(create);

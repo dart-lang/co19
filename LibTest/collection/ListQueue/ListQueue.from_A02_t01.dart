@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory ListQueue.from(Iterable<E> source)
- * Throws Error if [source] is null
- * @description Checks that an Error is thrown.
+ * @assertion factory ListQueue.from(Iterable elements)
+ * Throws [Error] if [source] is [null]
+ * @description Checks that an [Error] is thrown.
  * @author kaigorodov
  * @needsreview undocumented
  */
@@ -16,7 +16,6 @@ import "dart:collection";
 main() {
   Expect.throws(() {
       ListQueue<int> list = new ListQueue.from(null);
-    },
-    (e)=> e is Error
+    }, (e) => e is Error
   );
 }

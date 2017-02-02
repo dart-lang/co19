@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the end of the queue.
+ * @assertion void addLast(E value)
+ * Adds [value] at the end of the queue.
  * @description Checks that method does not affect other elements of the queue
  * @author msyabro
- * @reviewer varlax
  */
 library addLast_A01_t02;
 

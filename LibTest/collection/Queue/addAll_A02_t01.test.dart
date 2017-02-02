@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws Error if argument is null.
- * @description Tries to call the method with null parameter.
+ * @assertion void addAll(Iterable<E> iterable)
+ * Throws [Error] if argument is [null].
+ * @description Tries to call the method with [null] parameter.
  * @author msyabro
- * @reviewer varlax
  */
 library addAll_A02_t01;
  
@@ -16,10 +16,5 @@ import "dart:collection";
 
 test(Queue create([Iterable content])) {
   Queue queue = create();
-
-  Expect.throws(() {
-    queue.addAll(null);
-  },
-  (e)=> e is Error
-  );
+  Expect.throws(() { queue.addAll(null); }, (e) => e is Error);
 }

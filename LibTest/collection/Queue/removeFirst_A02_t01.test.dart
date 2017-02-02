@@ -5,7 +5,7 @@
  */
 /**
  * @assertion  abstract E removeFirst()
- * Throws an StateError exception if this queue is empty.
+ * The queue must not be empty when this method is called.
  * @description Checks that exception is thrown if this queue is empty.
  * @author msyabro
  */
@@ -17,11 +17,11 @@ import "dart:collection";
 test(Queue create([Iterable content])) {
   Queue queue = create();
   
-  Expect.throws(() {queue.removeFirst();}, (e) => e is StateError);
+  Expect.throws(() { queue.removeFirst(); }, (e) => e is StateError);
   
   queue.addLast(1);
   queue.addLast(2);
   queue.clear();
 
-  Expect.throws(() {queue.removeFirst();}, (e) => e is StateError);
+  Expect.throws(() { queue.removeFirst(); }, (e) => e is StateError);
 }

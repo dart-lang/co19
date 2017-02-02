@@ -8,7 +8,6 @@
  * Removes and returns the first element of this queue.
  * @description Checks that exactly the first element is removed and returned.
  * @author msyabro
- * @reviewer varlax
  */
 library removeFirst_A01_t01;
 
