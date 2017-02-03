@@ -18,6 +18,8 @@ main() {
   checkArrayEquals([0], "\u0000".codeUnits);
   checkArrayEquals([0x0061, 0x1d02, 0xd800, 0xdc00],
       "\u0061\u1d02\u{10000}".codeUnits);
+  checkArrayEquals([0x441, 0x442, 0x440, 0x43e, 0x43a, 0x430],
+      "строка".codeUnits);
 }
 
 void checkArrayEquals(List expected, List actual) {
