@@ -28,8 +28,8 @@
  * @issue 28604
  * @author sgrekhov@unipro.ru
  */
-import "dart:convert";
 import "../../../Utils/expect.dart";
+import "UriDataEncoder.lib.dart";
 
 main() {
   List<int> data = [];
@@ -38,13 +38,12 @@ main() {
   }
   Uri uri = new Uri.dataFromBytes(data, percentEncoded: true);
 
-  Expect.equals(Uri.encodeFull(new String.fromCharCodes(data)), uri.data.contentText);
+  Expect.equals(encodeList(data), uri.data.contentText);
   Expect.equals("application/octet-stream", uri.data.mimeType);
 
   Expect.equals("data", uri.scheme);
   Expect.equals("", uri.userInfo);
   Expect.equals("", uri.host);
   Expect.equals(0, uri.port);
-  Expect.equals("", uri.query);
   Expect.equals("", uri.fragment);
 }

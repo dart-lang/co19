@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,8 +11,9 @@
  * and the characters !$&'()*+,-./:;=?@_~ are percent-encoded.
  * This is the set of characters specified in in ECMA-262 version 5.1 for the
  * encodeURI function .
- * @description Checks that the set of characters specified in in ECMA-262
- * version 5.1 is not encoded
+ * @description Checks that all characters, except ones, defined in ECMA-262
+ * version 5.1, are encoded
+ * @issue 28621
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -26,5 +27,13 @@ String reserved = ";" + "/" + "?" + ":" + "@" + "&" + "=" + "+" + r"$" + ",";
 String mustNotBeEncoded = unreserved + reserved + "#";
 
 main() {
-  Expect.equals(mustNotBeEncoded, Uri.encodeFull(mustNotBeEncoded));
+  for (int i = 0; i < 65536; i++) {
+    String char = new String.fromCharCode(i);
+    if (mustNotBeEncoded.contains(char)) {
+      Expect.equals(char, Uri.encodeFull(char));
+    } else {
+      Expect.isTrue(Uri.encodeFull(char).startsWith("%"),
+          "'$char' is encoded but should not");
+    }
+  }
 }
