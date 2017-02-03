@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if there is no {key, value} pair in the map.
- * @description Check that true is returned only if the map is empty.
+ * @assertion bool isEmpty(Map map)
+ * @description Check that [true] is returned only if the [map] is empty.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

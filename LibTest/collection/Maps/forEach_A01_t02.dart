@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Checks that something is thrown when the argument is null.
+ * @assertion dynamic forEach(Map map, void f(key, value))
+ * Applies [f] to each {key, value} pair of the map.
+ * @description Checks that something is thrown when the argument is [null].
  * Compiler error appears in strong mode if it has a type that is incompatible
  * with the required function type.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

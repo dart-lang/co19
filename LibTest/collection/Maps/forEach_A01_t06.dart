@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies [f] to each {key, value} pair of the map.
- * @description Checks that keys and values can be changed in [f].
+ * @assertion dynamic forEach(Map map, void f(key, value))
+ * Applies [f] to each {key, value} pair of the map.
+ * @description Nested forEach.
  * @author msyabro
  * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
- 
+
 
 main() {
   Map<String, Object> map = new Map<String, Object>();
@@ -19,9 +20,11 @@ main() {
   map["1"] = 3;
   map["2"] = 5;
   
-  Maps.forEach(map, (String key, int value) {
-    map[key] = value + 1;
+  int count = 0;
+  Maps.forEach(map, (String key1, Object value1) {
+    Maps.forEach(map, (String key2, Object value2) {
+      Maps.forEach(map, (String key3, Object value3) {count++;});
+    });
   });
-  
-  Expect.isTrue(map["1"] == 4 && map["2"] == 6);
+  Expect.isTrue(count == 8);
 }

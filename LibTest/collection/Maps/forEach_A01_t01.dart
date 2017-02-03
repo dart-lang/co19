@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Applies [f] to each {key, value} pair of the map.
+ * @assertion dynamic forEach(Map map, void f(key, value))
+ * Applies [f] to each {key, value} pair of the [map].
  * @description Checks that all mappings are iterated exactly once.
  * @author varlax
- * @reviewer varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -31,6 +30,6 @@ main() {
   map[1] = "5";
   Maps.forEach(map, f);
   
-  Expect.isTrue(keys[0]==1 && keys[1]==1);
-  Expect.isTrue(values[0]=="3" && values[1]=="5");    
+  Expect.isTrue(keys[0] == 1 && keys[1] == 1);
+  Expect.isTrue(values[0] == "3" && values[1] == "5");
 }

@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether this map contains the given [key].
- * @description Checks that null key is allowed
+ * @assertion bool containsKey(Map map, Object key)
+ * Returns whether this map contains the given [key].
+ * @description Checks that [null] key is allowed
  * @author msyabro
- * @reviewer varlax
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

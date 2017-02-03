@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to add or remove keys from the map during iteration.
- * @description Tries to remove or add entries in [f] while iterating over the map,
- * expects a ConcurrentModificationError every time regardless of whether or not
- * it is the current key that's being removed.
+ * @assertion dynamic forEach(Map map, void f(key, value))
+ * It is an error to add or remove keys from the map during iteration.
+ * @description Tries to remove or add entries in [f] while iterating over the
+ * map, expects a [ConcurrentModificationError] every time regardless of whether
+ * or not it is the current key that's being removed.
  * @author msyabro
- * @reviewer rodionov
- * @needsreview Doesn't specify the exact error, which operation throws it and whether
- * or not add/remove can finish successfully before the error. 
+ * @needsreview Not specified. Doesn't specify the exact error, which operation
+ * throws it and whether or not add/remove can finish successfully before the
+ * error.
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

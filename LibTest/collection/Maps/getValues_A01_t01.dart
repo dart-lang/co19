@@ -5,10 +5,8 @@
  */
 /**
  * @assertion Iterable getValues(Map map)
- * The values of map.
- * @description Checks that an Iterable with all values is returned.
+ * @description Checks that an [Iterable] with all values is returned.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
