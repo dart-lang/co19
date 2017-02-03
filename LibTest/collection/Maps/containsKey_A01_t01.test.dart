@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether this map contains the given [key].
- * @description Check that the method returns true if this map contains a mapping
- * for the specified key.
+ * @assertion bool containsKey(Map map, Object key)
+ * Returns whether this [map] contains the given [key].
+ * @description Check that the method returns [true] if this map contains a
+ * mapping for the specified [key].
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

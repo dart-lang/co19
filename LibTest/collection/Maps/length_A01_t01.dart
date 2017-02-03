@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The number of {key, value} pairs in the map.
- * @description Checks that in length stored correct size of the map.
+ * @assertion int length(Map map)
+ * @description Checks that in [length] stored correct size of the [map].
  * @author msyabro
  * @reviewer varlax
  */
@@ -16,18 +16,18 @@ import "dart:collection";
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
-  Expect.isTrue(Maps.length(map) == 0);
+  Expect.equals(0, Maps.length(map));
   
   map["1"] = 1;
   
-  Expect.isTrue(Maps.length(map) == 1);
+  Expect.equals(1, Maps.length(map));
   
   map["2"] = 1;
-  Expect.isTrue(Maps.length(map) == 2);
+  Expect.equals(2, Maps.length(map));
   
   map["2"] = 2;
-  Expect.isTrue(Maps.length(map) == 2);
+  Expect.equals(2, Maps.length(map));
 
   map.clear();
-  Expect.isTrue(Maps.length(map) == 0);
+  Expect.equals(0, Maps.length(map));
 }

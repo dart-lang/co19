@@ -8,22 +8,26 @@
  * If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] the value returned by [ifAbsent].
  * Returns the value in the map.
- * @description Tries to pass null as [ifAbsent] and checks that
- * an exception or error is thrown.
+ * @description Checks that [isAbsent] shoule be called before putting the new
+ * key in the map if it's not already associated to a value, resulting in a
+ * [NoSuchMethodError] (Type error in checked mode) or [NoSuchMethodError] if
+ * the argument is [null] or can't be called like a function (according to
+ * general language rules).
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-
 main() {
-
   Map<String, Object> map = new Map<String, Object>();
-  
+  dynamic i1 = "1";
+  dynamic i2 = 1;
+      
   Expect.throws(() {
-    Maps.putIfAbsent(map, "1", null);
-  });
+      Maps.putIfAbsent(map, i1, i2);
+    }, (e) => (e is TypeError), "Type error expected in checked mode");
 
+  Expect.throws(() { Maps.putIfAbsent(map, "1", null); });
+  
   Expect.isFalse(Maps.containsKey(map, "1"));
 }

@@ -6,23 +6,28 @@
 /**
  * @assertion dynamic forEach(Map map, void f(key, value))
  * Applies [f] to each {key, value} pair of the map.
- * @description Checks that keys and values can be changed in [f].
- * @author msyabro
- * @reviewer varlax
+ * @description Checks that an exception thrown by the argument function breaks
+ * iteration and is passed through to the caller.
+ * @author varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
- 
+
 
 main() {
   Map<String, Object> map = new Map<String, Object>();
   
   map["1"] = 3;
   map["2"] = 5;
+  map["3"] = 8;
   
-  Maps.forEach(map, (String key, int value) {
-    map[key] = value + 1;
-  });
-  
-  Expect.isTrue(map["1"] == 4 && map["2"] == 6);
+  int count = 0;
+  try {
+    Maps.forEach(map, (String key, Object value) {
+      if (count++ > 0) throw "stop";
+    });
+    Expect.fail("Exception expected");
+  } on String catch(e) {}
+
+  Expect.isTrue(count == 2);
 }

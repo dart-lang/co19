@@ -5,10 +5,6 @@
  */
 /**
  * @assertion String mapToString(Map m)
- * Returns a string representing the specified map. The returned string looks
- * like this: '{key0: value0, key1: value1, ... keyN: valueN}'. The value
- * returned by its toString method is used to represent each key or value.
- *
  * If the map collection contains a reference to itself, either directly as
  * a key or value, or indirectly through other collections or maps, the
  * contained reference is rendered as '{...}'. This prevents the infinite

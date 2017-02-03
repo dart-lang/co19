@@ -5,35 +5,24 @@
  */
 /**
  * @assertion dynamic putIfAbsent(Map map, key, ifAbsent())
- * If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by [ifAbsent].
+ * If [key] is not associated to a value, calls [ifAbsent] and updates the map
+ * by mapping [key] the value returned by [ifAbsent].
  * Returns the value in the map.
- * @description Tries to pass incorrect [key].
+ * @description Tries to pass null as [ifAbsent] and checks that
+ * an exception or error is thrown.
  * @author msyabro
- * @reviewer varlax
- * @needsreview this is rather compiler check
- * issue 3223
  */
-
-import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
 import "dart:collection";
-
-class A {
-  A() {}
-  int get hashCode {
-    return 1;
-  }
-}
 
 
 main() {
-  bool  putIfAbsent() {
-    return true;
-  }
-  Map<String, bool> map = new Map<String, bool>();
 
-  var key = new A();
-  checkTypeError( () {
-    Maps.putIfAbsent(map, key, putIfAbsent);
+  Map<String, Object> map = new Map<String, Object>();
+  
+  Expect.throws(() {
+    Maps.putIfAbsent(map, "1", null);
   });
+
+  Expect.isFalse(Maps.containsKey(map, "1"));
 }

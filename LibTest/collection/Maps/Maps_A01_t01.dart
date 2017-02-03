@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Maps()
- * @description Checks that Maps object is created
+ * @description Checks that [Maps] object is created
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

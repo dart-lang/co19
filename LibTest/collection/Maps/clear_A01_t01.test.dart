@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes all pairs from the map.
- * @description Checks that all of the mappings from this map are removed.
+ * @assertion dynamic clear(Map map)
+ * @description Checks that all of the mappings from this [map] are removed.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

@@ -5,25 +5,24 @@
  */
 /**
  * @assertion dynamic putIfAbsent(Map map, key, ifAbsent())
- * If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by [ifAbsent].
+ * If [key] is not associated to a value, calls [ifAbsent] and updates the map
+ * by mapping [key] the value returned by [ifAbsent].
  * Returns the value in the map.
- * @description Checks that if [key] is already associated to a value, [ifAbsent]
- * is not called and its incorrect value is not detected.
+ * @description Checks that it's possible to pass a static function as the
+ * second argument.
  * @author msyabro
- * @needsreview undocumented
- * @reviewer varlax
  */
-import "../../../Utils/dynamic_check.dart";
 import "dart:collection";
 
-main() {
-  Map<String, Object> map = new Map<String, Object>();
-  map["1"] = 1;
+class A {
+  static Object f() {
+    return new Object();
+  }
+}
 
-  dynamic i1 = "1";
-  dynamic i2 = 1;
-  checkTypeError(() {
-    Maps.putIfAbsent(map, i1, i2);
-  });
+main() {
+  int x;
+  
+  Map<String, Object> map = new Map<String, Object>();
+  Maps.putIfAbsent(map, "1", A.f);
 }

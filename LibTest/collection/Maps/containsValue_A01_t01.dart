@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns whether this map contains the given [value].
- * @description Checks that the method returns true if this map contains a mapping
- * for the specified key.
+ * @assertion bool containsValue(Map map, Object value)
+ * Returns whether this [map] contains the given [value].
+ * @description Checks that the method returns [true] if this map contains a
+ * mapping for the specified [key].
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection"; 
@@ -32,3 +32,4 @@ main() {
   stringObjectMap["4"] = 4;
   Expect.isTrue(!Maps.containsValue(stringObjectMap, stringObjectMap));    
 }
+

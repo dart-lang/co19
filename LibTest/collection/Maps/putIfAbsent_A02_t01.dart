@@ -5,19 +5,9 @@
  */
 /**
  * @assertion dynamic putIfAbsent(Map map, key, ifAbsent())
-
-If key is not associated to a value, calls ifAbsent and
- updates the map by mapping key to the value returned by
-  ifAbsent. Returns the value in the map.
-
-It is an error to add or remove keys from the map during the call to ifAbsent.
-  If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] the value returned by
- * [ifAbsent]. Returns the value in the map.
  * @description Checks that the new mapping added only if the key is not present
  * in the map. Checks the value is returned.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

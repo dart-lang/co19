@@ -8,28 +8,28 @@
  * If [key] is not associated to a value, calls [ifAbsent] and updates the map
  * by mapping [key] the value returned by [ifAbsent].
  * Returns the value in the map.
- * @description Checks that the new mapping added only if the key is not present
- * in the map. Checks the returned value.
+ * @description Tries to pass incorrect [key].
  * @author msyabro
+ * issue 3223
  */
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
+class A {
+  A() {}
+  int get hashCode {
+    return 1;
+  }
+}
+
 
 main() {
-  int i = 1;
-  
-  Object putIfAbsent() {
-    return i;
+  bool  putIfAbsent() {
+    return true;
   }
-  
-  Map<String, Object> map = new Map<String, Object>();
-  
-  Expect.isTrue(Maps.putIfAbsent(map, "1", putIfAbsent) == 1);
-  Expect.isTrue(map["1"] == 1);
-  
-  i = 2;
-  
-  Expect.isTrue( Maps.putIfAbsent(map, "1", putIfAbsent) == 1);
-  Expect.isTrue(map["1"] == 1);
+  Map<String, bool> map = new Map<String, bool>();
+  var key = new A();
+
+  Expect.throws(() => Maps.putIfAbsent(map, key, putIfAbsent));
 }

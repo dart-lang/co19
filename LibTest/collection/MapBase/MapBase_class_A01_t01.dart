@@ -5,7 +5,7 @@
  */
 /**
  * @assertion abstract class MapBase<K, V>
- * Base class for implementing a Map.
+ * Base class for implementing a [Map].
  * @description Checks that all members of [Map] are implemented.
  * @author sgrekhov@unipro.ru
  */
