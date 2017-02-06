@@ -20,7 +20,7 @@ test(Iterable create([Iterable content])) {
   bool foo(num x) { return x > 0; }
 
   Expect.isFalse(create().any(foo));
-  Expect.isFalse(create([-1, -3, -11]).any(foo));
+  Expect.isFalse(create([-1, -3, -11]).any (foo));
   Expect.isTrue(create([-1, -3, -11, 5]).any(foo));
   Expect.isTrue(create([-1, -3, -11, 5, 3]).any(foo));
 }

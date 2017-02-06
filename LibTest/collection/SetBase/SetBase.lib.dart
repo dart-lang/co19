@@ -6,10 +6,11 @@
 /**
  * @assertion abstract class SetBase<E>
  * Base implementation of Set.
- * This class provides a base implementation of a Set that depends only on the
- * abstract members: add, contains, lookup, remove, iterator, length and toSet.
- * @description Implementation of add, contains, lookup, remove, iterator,
- * length and toSet
+ * This class provides a base implementation of a [Set] that depends only on the
+ * abstract members: [add], [contains], [lookup], [remove], [iterator], [length]
+ * and [toSet].
+ * @description Implementation of [add], [contains], [lookup], [remove],
+ * [iterator], [length] and [toSet]
  * @author sgrekhov@unipro.ru
  */
 library set_base_lib;

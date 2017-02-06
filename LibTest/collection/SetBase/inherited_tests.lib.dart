@@ -5,7 +5,7 @@
  */
 /**
  * @assertion abstract class SetBase<E>
- * Base implementation of Set.
+ * Base implementation of [Set].
  * @description Checks that all members of [Set] are implemented.
  * @author sgrekhov@unipro.ru
  */

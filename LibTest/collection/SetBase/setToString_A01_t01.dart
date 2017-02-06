@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String setToString(Set set)
- * Convert a Set to a string as {each, element, as, string}.
+ * Convert a [Set] to a string as [{each, element, as, string}].
  * @description Checks that this method converts each element to a string,
  * separates results by ", " and wraps in "{" and "}"
  * @author sgrekhov@unipro.ru
