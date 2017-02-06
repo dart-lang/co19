@@ -51,6 +51,7 @@ import "removeWhere_A01_t01.dart" as removeWhere_A01_t01;
 import "retainAll_A01_t01.dart" as retainAll_A01_t01;
 import "retainAll_A01_t02.dart" as retainAll_A01_t02;
 import "retainWhere_A01_t01.dart" as retainWhere_A01_t01;
+import "union_A01_t01.dart" as union_A01_t01;
 
 test(Set create([Iterable content])) {
   iterable_tests.test(create, isSet:true);
@@ -93,4 +94,5 @@ test(Set create([Iterable content])) {
   retainAll_A01_t01.test(create);
   retainAll_A01_t02.test(create);
   retainWhere_A01_t01.test(create);
+  union_A01_t01.test(create);
 }
