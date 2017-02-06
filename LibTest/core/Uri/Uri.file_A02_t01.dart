@@ -12,9 +12,7 @@
  * @description Checks that both forward slash and backward slashes are
  * interpreted as path separator for Windows semantics
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -24,4 +22,3 @@ main() {
   Expect.equals('/a/b', new Uri.file(r'\a\b', windows: true).path);
   Expect.equals('/a/b', new Uri.file(r'/a\b', windows: true).path);
 }
-

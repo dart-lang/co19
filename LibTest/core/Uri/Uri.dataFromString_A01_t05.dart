@@ -34,22 +34,21 @@
  * a data URI means text/plain, just as an omitted charset parameter defaults to
  * meaning US-ASCII.
  * @description Checks that this constructor creates an expected Uri. Test
- * mimeType parameter specified
+ * base64 parameter specified
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "UriDataEncoder.lib.dart";
 
-check(String content, String mType) {
-  Uri uri = new Uri.dataFromString(content, mimeType: mType);
-
-  Expect.equals(encodeString(content), uri.data.contentText);
-  Expect.equals(mType, uri.data.mimeType);
-  Expect.mapEquals({}, uri.data.parameters);
-  Expect.equals("data:" + encodeString(mType,
-      encoding: Encoding.getByName("utf-8")) + "," + encodeString(content),
-      uri.data.toString());
+check(String content) {
+  Uri uri = new Uri.dataFromString(content,
+      encoding: Encoding.getByName("utf-8"), base64: true);
+  Expect.equals(BASE64.encode(UTF8.encode(content)), uri.data.contentText);
+  Expect.equals("text/plain", uri.data.mimeType);
+  Expect.mapEquals({"charset": "utf-8"}, uri.data.parameters);
+  Expect.equals("data:;charset=utf-8;base64," +
+      BASE64.encode(UTF8.encode(content)), uri.data.toString());
 
   Expect.equals("data", uri.scheme);
   Expect.equals("", uri.userInfo);
@@ -59,12 +58,9 @@ check(String content, String mType) {
 }
 
 main() {
-  check("", "image/gif");
-  check("", "a/b");
-  check(reserved, "image/gif");
-  check(reserved, "a/b");
-  check(unreserved, "image/gif");
-  check(unreserved, "a/b");
-  check(unreserved, "а/б");
-  check(unreserved, "Кириллица / прекрасна");
+  check("Some data");
+  check("");
+  check(reserved);
+  check(unreserved);
+  check("Non ASCII: Кириллица прекрасна!");
 }
