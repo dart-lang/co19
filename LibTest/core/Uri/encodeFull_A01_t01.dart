@@ -8,7 +8,7 @@
  * Encode the string uri using percent-encoding to make it safe for literal
  * use as a full URI.
  * All characters except uppercase and lowercase letters, digits
- * and the characters !#$&'()*+,-./:;=?@_~ are percent-encoded.
+ * and the characters !$&'()*+,-./:;=?@_~ are percent-encoded.
  * @description Checks that basic and extended unicode characters are encoded
  * @author ilya
  */
