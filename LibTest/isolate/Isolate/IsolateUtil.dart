@@ -81,7 +81,6 @@ class ErrorServer extends Server {
   ErrorServer(Isolate isolate, SendPort sendPort): super(isolate, sendPort);
 
   static Future<ErrorServer> spawn({
-                                bool paused: false,
                                 bool errorsAreFatal,
                                 SendPort onExit,
                                 SendPort onError
@@ -91,7 +90,6 @@ class ErrorServer extends Server {
     Isolate isolate = await Isolate.spawn(
         isolateEntryPoint,
         receivePort.sendPort,
-        paused:paused,
         errorsAreFatal:errorsAreFatal,
         onExit:onExit,
         onError:onError
@@ -132,7 +130,6 @@ class EchoServer extends Server {
 
 
   static Future<EchoServer> spawn(SendPort dataSendPort, {
-                                   bool paused: false,
                                    bool errorsAreFatal,
                                    SendPort onExit,
                                    SendPort onError
@@ -142,7 +139,6 @@ class EchoServer extends Server {
     Isolate isolate = await Isolate.spawn(
         isolateEntryPoint,
         [receivePort.sendPort, dataSendPort],
-        paused:paused,
         errorsAreFatal:errorsAreFatal,
         onExit:onExit,
         onError:onError
