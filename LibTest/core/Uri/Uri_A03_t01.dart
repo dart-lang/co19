@@ -14,9 +14,7 @@
  * '[' and ']'  are added if not already provided.
  * @description Checks listed assertions
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

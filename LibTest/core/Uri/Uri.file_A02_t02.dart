@@ -27,10 +27,15 @@ check(String path) {
   Expect.equals("", uri.query);
   Expect.equals(0, uri.port);
   Expect.equals("", uri.fragment);
-  Expect.equals(encodeString(path.replaceAll(r"\", "/"), encoding: Encoding.getByName("utf-8")), uri.path);
+  Expect.equals(encodeString(path.replaceAll(r"\", "/"),
+      encoding: Encoding.getByName("utf-8")), uri.path);
 }
 
 main() {
+  check("");
+  check(" ");
+  check(" a ");
+
   check(r"a/b");
   check(r"a\b");
   check(r"/a/b");

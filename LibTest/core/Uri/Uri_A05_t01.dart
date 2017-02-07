@@ -18,9 +18,7 @@
  * path a leading slash / is prepended if not already there.
  * @description Checks that path set via [path] is used in its literal form
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

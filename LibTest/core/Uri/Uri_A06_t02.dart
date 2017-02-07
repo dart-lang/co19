@@ -18,9 +18,7 @@
  * @description Checks query set via [queryParameters] on space, unreserved,
  * basic and extended unicode characters
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

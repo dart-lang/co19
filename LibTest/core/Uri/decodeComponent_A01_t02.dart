@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,11 +9,10 @@
  * @description Checks expected results on unreserved characters and
  * basic and extended unicode characters on manually and library
  * encoded strings.
- * @author ilya
+ * @author sgrekhov@unipro.ru
  */
 import 'dart:convert';
 import "../../../Utils/expect.dart";
-import "UriDataEncoder.lib.dart";
 
 String unreserved = "0123456789"
                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -31,16 +30,11 @@ manuallyEncode(String s) => s.runes
   .join('');
 
 main() {
-  var x;
-  x = 'a.A- \u0000 \u0001 \u{1D11E}';
-  Expect.equals(x, Uri.decodeComponent(manuallyEncode(x)));
-  Expect.equals(x, Uri.decodeComponent(Uri.encodeComponent(x)));
-
-  x = '~foo_BAR \uD7FF \uE000 \u{10000}';
-  Expect.equals(x, Uri.decodeComponent(manuallyEncode(x)));
-  Expect.equals(x, Uri.decodeComponent(Uri.encodeComponent(x)));
-
-  x = r"! $ & ' ( ) * + , ; = : @";
-  Expect.equals(x, Uri.decodeComponent(manuallyEncode(x)));
-  Expect.equals(x, Uri.decodeComponent(Uri.encodeComponent(x)));
+  for (int i = 0; i < 65279; i++) {
+    String char = new String.fromCharCode(i);
+    String encoded = Uri.encodeComponent(char);
+    Expect.equals(char, Uri.decodeComponent(encoded), "Failed for $i");
+    Expect.equals(char, Uri.decodeComponent(manuallyEncode(char)),
+        "Failed for $i");
+  }
 }

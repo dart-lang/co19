@@ -4,13 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory Uri.file(String path, {bool windows})
- * Creates a new file URI from an absolute or relative file path.
- * With non-Windows semantics the slash ("/") is used to separate path
- * segments.
+ * @assertion Uri.directory(String path, {bool windows})
+ * Like Uri.file except that a non-empty URI path ends in a slash.
+ * If path is not empty, and it doesn't end in a directory separator, then a
+ * slash is added to the returned URI's path. In all other cases, the result is
+ * the same as returned by Uri.file
  * @description Checks that forward slash is interpreted as path separator and
  * backward slash is not interpreted as path separator for non-Windows
- * semantics
+ * semantics. Also checks that that returned URI is always ends with a slash
+ * @issue 28660
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
@@ -18,7 +20,7 @@ import "../../../Utils/expect.dart";
 import "UriDataEncoder.lib.dart";
 
 check(String path) {
-  Uri uri = new Uri.file(path, windows: false);
+  Uri uri = new Uri.directory(path, windows: false);
 
   Expect.equals(path.startsWith("/") ? "file" : "", uri.scheme);
   Expect.equals("", uri.userInfo);
@@ -26,28 +28,16 @@ check(String path) {
   Expect.equals("", uri.query);
   Expect.equals(0, uri.port);
   Expect.equals("", uri.fragment);
-  Expect.equals(encodeString(path, encoding: Encoding.getByName("utf-8")),
-      uri.path);
+  String expected = Uri.encodeComponent(path);
+  if (!expected.endsWith("/")) {
+    expected = expected + "/";
+  }
+  Expect.equals(expected, uri.path);
 }
 
 main() {
-  check("");
-  check(" ");
-  check(" a ");
-
-  check(r"a/b");
-  check(r"a\b");
-  check(r"/a/b");
-  check(r"\a\b");
-  check(r"/a\b");
-
-  check(r" a / b ");
-  check(r" a \ b ");
-  check(r"/ a / b ");
-  check(r"\ a \ b ");
-
-  check(r" й / ф ");
-  check(r" й \ ф ");
-  check(r"/ й / ф ");
-  check(r"\ й \ ф ");
+  check(r"c:");
+  check(r"c:\");
+  check(r"c: ");
+  check(r"c: \");
 }
