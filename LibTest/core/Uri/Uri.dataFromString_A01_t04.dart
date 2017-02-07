@@ -34,21 +34,22 @@
  * a data URI means text/plain, just as an omitted charset parameter defaults to
  * meaning US-ASCII.
  * @description Checks that this constructor creates an expected Uri. Test
- * mimeType parameter specified
+ * parameters parameter specified
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "UriDataEncoder.lib.dart";
 
-check(String content, String mType) {
-  Uri uri = new Uri.dataFromString(content, mimeType: mType);
+check(String content, Map<String, String> parameters) {
+  Uri uri = new Uri.dataFromString(content, parameters: parameters);
 
   Expect.equals(encodeString(content), uri.data.contentText);
-  Expect.equals(mType, uri.data.mimeType);
-  Expect.mapEquals({}, uri.data.parameters);
-  Expect.equals("data:" + encodeString(mType,
-      encoding: Encoding.getByName("utf-8")) + "," + encodeString(content),
+  Expect.equals("text/plain", uri.data.mimeType);
+  Expect.mapEquals(parameters, uri.data.parameters);
+  Expect.equals("data:" + (parameters.length > 0 ? ";" : "") +
+      map2query(parameters) + "," +
+      encodeString(content),
       uri.data.toString());
 
   Expect.equals("data", uri.scheme);
@@ -58,13 +59,21 @@ check(String content, String mType) {
   Expect.equals("", uri.fragment);
 }
 
+String map2query(Map<String, String> map) {
+  StringBuffer sb = new StringBuffer();
+  Iterator it = map.keys.iterator;
+  while (it.moveNext()) {
+    sb.write(encodeString(it.current) + "=" +
+        encodeString(map[it.current], encoding: Encoding.getByName("utf-8")));
+  }
+  return sb.toString();
+}
+
 main() {
-  check("", "image/gif");
-  check("", "a/b");
-  check(reserved, "image/gif");
-  check(reserved, "a/b");
-  check(unreserved, "image/gif");
-  check(unreserved, "a/b");
-  check(unreserved, "а/б");
-  check(unreserved, "Кириллица / прекрасна");
+  check("Some data", {"a": "b"});
+  check("", {});
+  check(reserved, {});
+  check(unreserved, {"a": "b c"});
+  check("Some data", {"a 1": "b"});
+  check("Some data", {"a": "Кириллица прекрасна!"});
 }

@@ -48,7 +48,7 @@ check(String content, String encodingName) {
   Expect.equals(encodeString(content, encoding:  encoding),
       uri.data.contentText);
   Expect.equals("text/plain", uri.data.mimeType);
-  //Expect.mapEquals({"charset": "utf-8"}, uri.data.parameters);
+  Expect.mapEquals({"charset": encodingName}, uri.data.parameters);
   Expect.equals("data:;charset=" + encoding.name + "," + encodeString(content,
       encoding:  encoding), uri.data.toString());
 
@@ -64,5 +64,5 @@ main() {
   check("", "utf-8");
   check(reserved, "utf-8");
   check(unreserved, "utf-8");
-  check("Non-ASCII: Кириллические буквы", "utf-8");
+  check("Non-ASCII: Кириллица прекрасна!", "utf-8");
 }

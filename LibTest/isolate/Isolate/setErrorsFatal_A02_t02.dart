@@ -37,8 +37,8 @@ test() async {
   );
 
   isolate.setErrorsFatal(true);
-  // verify that errors are still not fatal
 
+  // verify that errors are still not fatal
   for (int i=0; i<3; i++) {
     server.generateError();
     Expect.isTrue(await errors.moveNext());
