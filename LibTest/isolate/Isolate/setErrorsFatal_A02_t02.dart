@@ -22,7 +22,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-test() async {
+Future test(Capability wrongCapability) async {
   // setup
   ReceivePort errorPort = new ReceivePort();
   StreamIterator errors = new StreamIterator(errorPort);
@@ -33,12 +33,12 @@ test() async {
   Isolate isolate = new Isolate(
       server.isolate.controlPort,
       pauseCapability:null,
-      terminateCapability:null
+      terminateCapability:wrongCapability
   );
 
   isolate.setErrorsFatal(true);
-  // verify that errors are still not fatal
 
+  // verify that errors are still not fatal
   for (int i=0; i<3; i++) {
     server.generateError();
     Expect.isTrue(await errors.moveNext());
@@ -48,10 +48,13 @@ test() async {
   // clean up
   await server.stop();
   errorPort.close();
-  asyncEnd();
 }
 
 main() {
   asyncStart();
-  test();
+  Future.wait(
+      [test(null), test(new Capability())]
+  ).then(
+      (_) => asyncEnd()
+  );
 }
