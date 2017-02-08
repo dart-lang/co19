@@ -14,7 +14,7 @@
  * thrown.
  * @description RFC-3986 The reg-name syntax allows percent-encoded octets in
  * order to represent non-ASCII registered names.
- * checks that percent-encoded hostname is accepted.
+ * Checks that percent-encoded hostname is accepted.
  * @author ilya
  */
 import "../../../Utils/expect.dart";
