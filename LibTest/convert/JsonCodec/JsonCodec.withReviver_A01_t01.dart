@@ -1,28 +1,49 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion factory JsonCodec.withReviver(reviver(key, value))
  * Creates a JsonCodec with the given reviver.
- * @description Checks that created object implements specified elements.
- * @author kaigorodov
+ *
+ * The reviver function is called once for each object or list property that has
+ * been parsed during decoding. The key argument is either the integer list
+ * index for a list property, the string map key for object properties, or null
+ * for the final result.
+ * @description Checks that this constructor creates a JsonCodec with the
+ * reviver, which is called once for each object or list property that has been
+ * parsed during decoding
+ * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
+var reviverKeys = [];
+var reviverValues = [];
+
 reviver(key, value) {
-  return null;
+  reviverKeys.add(key);
+  reviverValues.add(value);
+  return "x";
+}
+
+check(JsonCodec codec, String toDecode, List expKeys, List expValues) {
+  reviverKeys = [];
+  reviverValues = [];
+  var decoded = codec.decode(toDecode);
+  Expect.equals("x", decoded);
+  Expect.listEquals(expKeys, reviverKeys);
+  Expect.listEquals(reviverValues, expValues);
 }
 
 main() {
-  JsonCodec res = new JsonCodec.withReviver(reviver);
-  Expect.isTrue(res is JsonCodec);
-  Expect.isTrue(res.decoder is  JsonDecoder);
-  Expect.isTrue(res.encoder is  JsonEncoder);
-  Expect.isTrue(res.inverted is  Codec);
-  Expect.isTrue(res.decode is  Function);
-  Expect.isTrue(res.encode is  Function);
-  Expect.isTrue(res.fuse is  Function);
+  JsonCodec codec = new JsonCodec.withReviver(reviver);
+  check(codec, '{"a": 3}', ["a", null], [3, {"a": "x"}]);
+  check(codec, '{"b": 3.14}', ["b", null], [3.14, {"b": "x"}]);
+  check(codec, '{"c": true}', ["c", null], [true, {"c": "x"}]);
+
+  check(codec, '["d", "e"]', [0, 1, null], ["d", "e", ["x", "x"]]);
+  check(codec, '{"f": {"g": "h"}}',
+      ["g", "f", null], ["h", {"g": "x"}, {"f": "x"}]);
 }
