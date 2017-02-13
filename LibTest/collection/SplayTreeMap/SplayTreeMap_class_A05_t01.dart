@@ -6,13 +6,12 @@
 /**
  * @assertion SplayTreeMap([int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * ...
- * To allow calling operator[], remove or containsKey with objects that are not
- * supported by the compare function, an extra isValidKey predicate function can
- * be supplied. This function is tested before using the compare function on an
- * argument value that may not be a K value. If omitted, the isValidKey function
- * defaults to testing if the value is a K
- * @description Checks that if isValidKey supplied it called before compare call
+ * To allow calling operator[], [remove] or [containsKey] with objects that are
+ * not supported by the [compare] function, an extra [isValidKey] predicate
+ * function can be supplied. This function is tested before using the [compare]
+ * function on an argument value that may not be a [K] value.
+ * @description Checks that if [isValidKey] is supplied it is called before
+ * [compare] call
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

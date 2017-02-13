@@ -5,9 +5,8 @@
  */
 /**
  * @assertion K lastKeyBefore(K key)
- * Get the last key in the map that is strictly smaller than key. Returns null
- * if no key was not found.
- * @description Checks that the last key that is strictly smaller than key is
+ * Get the last key in the map that is strictly smaller than [key].
+ * @description Checks that the last key that is strictly smaller than [key] is
  * returned
  * @author sgrekhov@unipro.ru
  */

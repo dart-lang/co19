@@ -6,9 +6,8 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * ...
- * It is an error if the two Iterables don't have the same length.
- * @description Checks that it is an error if the two Iterables don't have the
+ * It is an error if the two [Iterables] don't have the same length.
+ * @description Checks that it is an error if the two [Iterables] don't have the
  * same length.
  * @author sgrekhov@unipro.ru
  */
@@ -16,7 +15,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 
 check(Iterable keys, Iterable values) {
-  Expect.throws(() {new LinkedHashMap.fromIterables(keys, values);});
+  Expect.throws(() { new LinkedHashMap.fromIterables(keys, values); });
 }
 
 main() {

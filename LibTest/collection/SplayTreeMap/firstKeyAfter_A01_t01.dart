@@ -5,8 +5,8 @@
  */
 /**
  * @assertion K firstKeyAfter(K key)
- * Get the first key in the map that is strictly larger than key.
- * @description Checks that the first key that is strictly larger than key is
+ * Get the first key in the map that is strictly larger than [key].
+ * @description Checks that the first key that is strictly larger than [key] is
  * returned
  * @author sgrekhov@unipro.ru
  */

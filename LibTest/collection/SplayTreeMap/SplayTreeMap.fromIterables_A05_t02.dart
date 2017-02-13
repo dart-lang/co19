@@ -6,8 +6,8 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * @description Checks that if isValidKey supplied and returns false then
- * element is assumed not to be in a map
+ * @description Checks that if [isValidKey] function is supplied and returns
+ * [false] then element is assumed not to be in a map
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

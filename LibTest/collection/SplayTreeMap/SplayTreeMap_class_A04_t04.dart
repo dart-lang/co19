@@ -6,22 +6,22 @@
 /**
  * @assertion SplayTreeMap([int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * @description Checks that map created is a Map of objects that can be ordered
- * relative to each other.
+ * If the [compare] function is omitted, the objects are assumed to be
+ * [Comparable], and are compared using their [Comparable.compareTo] method.
+ * Non-comparable objects (including [null]) will not work as keys in that case.
+ * @description Checks that if [compare] function is not specified then [key]
+ * object should implement [Comparable]. If not exception is thrown
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
+class C {
+}
+
 main() {
   SplayTreeMap map = new SplayTreeMap();
-  map[2] = 2;
-  map[4] = 4;
-  map[1] = 1;
-  map[3] = 3;
 
-  Expect.equals(1, map.keys.elementAt(0));
-  Expect.equals(2, map.keys.elementAt(1));
-  Expect.equals(3, map.keys.elementAt(2));
-  Expect.equals(4, map.keys.elementAt(3));
+  map[new C()] = null;
+  Expect.throws(() { map[new C()] = null; });
 }

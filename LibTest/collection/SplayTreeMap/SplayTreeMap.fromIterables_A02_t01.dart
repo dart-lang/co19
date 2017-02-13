@@ -6,7 +6,6 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * ...
  * If keys contains the same object multiple times, the last occurrence
  * overwrites the previous value.
  * @description Checks that created SplayTreeMap contains all elements of the
