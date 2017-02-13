@@ -6,7 +6,7 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * Creates a SplayTreeMap associating the given keys to values.
+ * Creates a [SplayTreeMap] associating the given [keys] to [values].
  * @description Checks that created SplayTreeMap contains all elements of the
  * given [keys] and [values].
  * @author sgrekhov@unipro.ru

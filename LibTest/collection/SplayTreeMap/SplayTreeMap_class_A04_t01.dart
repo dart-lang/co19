@@ -6,28 +6,27 @@
 /**
  * @assertion SplayTreeMap([int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * ...
- *  If the map contains only the key a, then map.containsKey(b) will return true
- *  if and only if compare(a, b) == 0, and the value of a == b is not even
- *  checked.
- * @description Checks that if compare(a, b) == 0 then map.containsKey(b)
- * returns true
+ * If the [compare] function is omitted, the objects are assumed to be
+ * [Comparable], and are compared using their [Comparable.compareTo] method.
+ * Non-comparable objects (including [null]) will not work as keys in that case.
+ * @description Checks that [compare] method is omitted and
+ * [compareTo(other) == 0] then [map.containsKey(b)] returns [true]
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-class C {
+class C implements Comparable{
   int value;
   C(this.value);
-}
 
-int compare(C key1, C key2) {
-  return key1.value - key2.value;
+  int compareTo(Object other) {
+    return this.value - (other as C).value;
+  }
 }
 
 main() {
-  SplayTreeMap map = new SplayTreeMap(compare);
+  SplayTreeMap map = new SplayTreeMap();
   C c1 = new C(1);
   C c2 = new C(1);
 

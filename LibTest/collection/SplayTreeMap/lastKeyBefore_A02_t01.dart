@@ -5,9 +5,8 @@
  */
 /**
  * @assertion K lastKeyBefore(K key)
- * ...
- * Returns null if no key was not found.
- * @description Checks that null is returned if no key was found
+ * Returns [null] if no key was not found.
+ * @description Checks that [null] is returned if no key was found
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

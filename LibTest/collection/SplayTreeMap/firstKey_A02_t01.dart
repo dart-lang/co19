@@ -5,8 +5,8 @@
  */
 /**
  * @assertion K firstKey()
- * Get the first key in the map. Returns null if the map is empty.
- * @description Checks that null is returned if mao is empty
+ * Returns [null] if the map is empty.
+ * @description Checks that [null] is returned if map is empty
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

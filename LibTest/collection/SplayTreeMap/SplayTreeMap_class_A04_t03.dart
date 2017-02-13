@@ -9,23 +9,33 @@
  * ...
  * Keys of the map are compared using the compare function passed in the
  * constructor, both for ordering and for equality.
- * ...
- *  If the compare function is omitted, the objects are assumed to be Comparable,
- *  and are compared using their Comparable.compareTo method. Non-comparable
- *  objects (including null) will not work as keys in that case.
+ * If the [compare] function is omitted, the objects are assumed to be
+ * [Comparable], and are compared using their [Comparable.compareTo] method.
+ * Non-comparable objects (including [null]) will not work as keys in that case.
  * @description Checks that if compare function is not specified then key object
- * should implement comparable. If not exception is thrown
+ * should implement comparable.
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-class C {
+class C implements Comparable {
+  int value;
+  C(this.value);
+
+  compareTo(Object other) {
+    return this.value - (other as C).value;
+  }
 }
 
 main() {
   SplayTreeMap map = new SplayTreeMap();
+  C c1 = new C(2);
+  C c2 = new C(1);
 
-  map[new C()] = null;
-  Expect.throws(() {map[new C()] = null;});
+  map[c1] = 1;
+  map[c2] = 2;
+
+  Expect.equals(c2, map.firstKey());
+  Expect.equals(c1, map.lastKey());
 }

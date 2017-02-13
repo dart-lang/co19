@@ -7,7 +7,7 @@
  * @assertion SplayTreeMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element), int compare(K key1, K key2),
  * bool isValidKey(potentialKey)})
- * @description Checks that if isValidKey supplied and returns false then
+ * @description Checks that if [isValidKey] supplied and returns [false] then
  * element is assumed not to be in a map
  * @author sgrekhov@unipro.ru
  */

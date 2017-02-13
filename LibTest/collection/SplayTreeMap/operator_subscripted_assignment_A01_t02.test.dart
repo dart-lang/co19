@@ -5,9 +5,8 @@
  */
 /**
  * @assertion Associates the [key] with the given [value].
- * @description Checks that null key is not allowed.
+ * @description Checks that [null] key is not allowed.
  * @author msyabro
- * @reviewer varlax
  */
 library operator_subscripted_assignment_A01_t01;
  
@@ -15,7 +14,5 @@ import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
   Map map = create();
-  Expect.throws(() {
-    map[null] = null;
-  });
+  Expect.throws(() { map[null] = null; });
 }

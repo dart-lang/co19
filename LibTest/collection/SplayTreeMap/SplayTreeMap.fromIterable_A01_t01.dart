@@ -7,9 +7,9 @@
  * @assertion SplayTreeMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element), int compare(K key1, K key2),
  * bool isValidKey(potentialKey)})
- * Creates a SplayTreeMap where the keys and values are computed from the
- * iterable.
- * @description Checks that this constructor creates an SplayTreeMap that
+ * Creates a [SplayTreeMap] where the keys and values are computed from the
+ * [iterable].
+ * @description Checks that this constructor creates a [SplayTreeMap] that
  * contains all elements of the [iterable]
  * @author sgrekhov@unipro.ru
  */

@@ -7,10 +7,9 @@
  * @assertion SplayTreeMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element), int compare(K key1, K key2),
  * bool isValidKey(potentialKey)})
- * ...
  * The keys of the key/value pairs do not need to be unique. The last occurrence
- * of a key will simply overwrite any previous value.
- * @description Checks that this constructor creates an SplayTreeMap that
+ * of a [key] will simply overwrite any previous value.
+ * @description Checks that this constructor creates an [SplayTreeMap] that
  * contains all elements of the [iterable]
  * @author sgrekhov@unipro.ru
  */

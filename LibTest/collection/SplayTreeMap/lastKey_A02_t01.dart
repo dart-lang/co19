@@ -5,8 +5,8 @@
  */
 /**
  * @assertion K lastKey()
- * Get the last key in the map. Returns null if the map is empty.
- * @description Checks that null is returned if the map is empty
+ * Returns [null] if the map is empty.
+ * @description Checks that [null] is returned if the map is empty
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

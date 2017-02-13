@@ -5,7 +5,7 @@
  */
 /**
  * @assertion K firstKey()
- * Get the first key in the map. Returns null if the map is empty.
+ * Get the first key in the map.
  * @description Checks that the first key in a map is returned
  * @author sgrekhov@unipro.ru
  */
