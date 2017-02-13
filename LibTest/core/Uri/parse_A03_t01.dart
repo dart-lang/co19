@@ -4,15 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uri parse(String uri)
- * Creates a new URI object by parsing a URI string.
+ * @assertion Uri parse(String uri, [int start = 0, int end])
+ * Creates a new Uri object by parsing a URI string.
+ *
+ * If start and end are provided, only the substring from start to end is parsed
+ * as a URI.
+ *
+ * If the string is not valid as a URI or URI reference, a FormatException is
+ * thrown.
  * @description RFC-3986 The reg-name syntax allows percent-encoded octets in
  * order to represent non-ASCII registered names.
- * checks that percent-encoded hostname is accepted.
+ * Checks that percent-encoded hostname is accepted.
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

@@ -11,9 +11,7 @@
  * The fragment component is set through fragment.
  * @description Checks fragment component set through [fragment].
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

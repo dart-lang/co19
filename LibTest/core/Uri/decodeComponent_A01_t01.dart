@@ -13,6 +13,7 @@
  */
 import 'dart:convert';
 import "../../../Utils/expect.dart";
+import "UriDataEncoder.lib.dart";
 
 String unreserved = "0123456789"
                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

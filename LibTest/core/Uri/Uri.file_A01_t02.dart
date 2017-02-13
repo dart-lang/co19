@@ -31,6 +31,10 @@ check(String path) {
 }
 
 main() {
+  check("");
+  check(" ");
+  check(" a ");
+
   check(r"a/b");
   check(r"a\b");
   check(r"/a/b");

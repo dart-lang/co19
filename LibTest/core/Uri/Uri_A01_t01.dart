@@ -14,9 +14,7 @@
  * of 0. 
  * @description Check some cases with not provided components
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

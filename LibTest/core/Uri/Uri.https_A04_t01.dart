@@ -10,9 +10,7 @@
  * The query component is set from the optional queryParameters argument.
  * @description Checks expected query settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -24,5 +22,7 @@ main() {
   
   x = new Uri.https('', '', {' \u0000': ' \u0000', ' \u0001': ' \u0001'});
   Expect.equals('+%00=+%00&+%01=+%01', x.query);
-}
 
+  x = new Uri.https('', '', {' й ': ' ф '});
+  Expect.equals('+%D0%B9+=+%D1%84+', x.query);
+}

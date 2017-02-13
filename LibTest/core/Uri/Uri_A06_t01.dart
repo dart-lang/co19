@@ -17,9 +17,7 @@
  * for the unreserved characters.
  * @description Checks that query set via [query] is used in its literal form
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
