@@ -12,11 +12,31 @@
  * @issue 28682
  * @author sgrekhov@unipro.ru
  */
+import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {
   UriData uriData = new UriData.fromString("Some data");
   Expect.isNotNull(uriData.uri);
   Expect.equals(uriData.toString(), uriData.uri.data.toString());
-  //Expect.equals(uriData, uriData.uri.data);
+
+  uriData = new UriData.fromString("Some data", mimeType: "image/gif");
+  Expect.isNotNull(uriData.uri);
+  Expect.equals(uriData.toString(), uriData.uri.data.toString());
+
+  uriData = new UriData.fromString("Some data", mimeType: "image/gif",
+      parameters: {"a": "b"});
+  Expect.isNotNull(uriData.uri);
+  Expect.equals(uriData.toString(), uriData.uri.data.toString());
+
+  uriData = new UriData.fromString("Some data", mimeType: "image/gif",
+      parameters: {"a": "b"}, encoding: Encoding.getByName("utf-8"));
+  Expect.isNotNull(uriData.uri);
+  Expect.equals(uriData.toString(), uriData.uri.data.toString());
+
+  uriData = new UriData.fromString("Some data", mimeType: "image/gif",
+      parameters: {"a": "b"}, encoding: Encoding.getByName("utf-8"),
+      base64: true);
+  Expect.isNotNull(uriData.uri);
+  Expect.equals(uriData.toString(), uriData.uri.data.toString());
 }
