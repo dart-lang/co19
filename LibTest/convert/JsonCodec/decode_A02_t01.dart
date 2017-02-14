@@ -29,7 +29,7 @@ main() {
   for (List<Object> pair in table) {
     Object jsonObject = pair[0];
     String jsonString = pair[1];
-    Object res = new JsonCodec().decode(jsonString, reviver:reviver);
+    Object res = new JsonCodec().decode(jsonString, reviver: reviver);
     Expect.deepEquals(jsonObject, res);
     Expect.isTrue(count > 0);
     count = 0;

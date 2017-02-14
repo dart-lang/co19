@@ -48,4 +48,6 @@ main() {
   check(codec, '["d", "e"]', [0, 1, null], ["d", "e", ["x", "x"]]);
   check(codec, '{"f": {"g": "h"}}',
       ["g", "f", null], ["h", {"g": "x"}, {"f": "x"}]);
+  check(codec, '["й", "ф"]', [0, 1, null], ["й", "ф", ["x", "x"]]);
+  check(codec, '{"й": "ф"}', ["й", null], ["ф", {"й": "x"}]);
 }

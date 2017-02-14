@@ -13,15 +13,14 @@
  * are parsed correctly.
  * @author kaigorodov
  */
-
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "table1.lib.dart" show table;
 
 main() {
   for (List<Object> pair in table) {
-    JsonDecoder jdec=new JsonDecoder(null);
-    Converter conv=jdec.fuse(new JsonEncoder());
+    JsonDecoder jdec = new JsonDecoder(null);
+    Converter conv = jdec.fuse(new JsonEncoder());
     Object res = conv.convert(pair[1]);
     Expect.equals(pair[1], res);
   }
