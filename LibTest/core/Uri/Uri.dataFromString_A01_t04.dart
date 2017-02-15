@@ -47,9 +47,7 @@ check(String content, Map<String, String> parameters) {
   Expect.equals(encodeString(content), uri.data.contentText);
   Expect.equals("text/plain", uri.data.mimeType);
   Expect.mapEquals(parameters, uri.data.parameters);
-  Expect.equals("data:" + (parameters.length > 0 ? ";" : "") +
-      map2query(parameters) + "," +
-      encodeString(content),
+  Expect.equals("data:" + map2query(parameters) + "," + encodeString(content),
       uri.data.toString());
 
   Expect.equals("data", uri.scheme);
@@ -63,14 +61,14 @@ String map2query(Map<String, String> map) {
   StringBuffer sb = new StringBuffer();
   Iterator it = map.keys.iterator;
   while (it.moveNext()) {
-    sb.write(encodeString(it.current) + "=" +
+    sb.write(";" + encodeString(it.current) + "=" +
         encodeString(map[it.current], encoding: Encoding.getByName("utf-8")));
   }
   return sb.toString();
 }
 
 main() {
-  check("Some data", {"a": "b"});
+  check("Some data", {"a": "b", "c": "d"});
   check("", {});
   check(reserved, {});
   check(unreserved, {"a": "b c"});

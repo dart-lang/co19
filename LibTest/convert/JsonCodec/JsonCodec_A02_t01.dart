@@ -4,16 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory JsonCodec.withReviver(reviver(key, value))
- * Creates a JsonCodec with the given reviver.
- *
- * The reviver function is called once for each object or list property that has
- * been parsed during decoding. The key argument is either the integer list
- * index for a list property, the string map key for object properties, or null
- * for the final result.
- * @description Checks that this constructor creates a JsonCodec with the
- * reviver, which is called once for each object or list property that has been
- * parsed during decoding
+ * @assertion const JsonCodec({dynamic reviver(key,value),
+ * dynamic toEncodable(object)})
+ * Creates a JsonCodec with the given reviver and encoding function.
+ * ...
+ * The reviver function is called during decoding. It is invoked once for each
+ * object or list property that has been parsed. The key argument is either the
+ * integer list index for a list property, the string map key for object
+ * properties, or null for the final result.
+ * ...
+ * @description Checks that this constructor, called with reviver parameter,
+ * creates a JsonCodec with the reviver, which is called once for each object or
+ * list property that has been parsed during decoding
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
@@ -38,7 +40,7 @@ check(JsonCodec codec, String toDecode, List expKeys, List expValues) {
 }
 
 main() {
-  JsonCodec codec = new JsonCodec.withReviver(reviver);
+  JsonCodec codec = new JsonCodec(reviver: reviver);
   check(codec, '{"a": 3}', ["a", null], [3, {"a": "x"}]);
   check(codec, '{"b": 3.14}', ["b", null], [3.14, {"b": "x"}]);
   check(codec, '{"c": true}', ["c", null], [true, {"c": "x"}]);
