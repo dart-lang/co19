@@ -44,7 +44,7 @@ Map cycmap1() {
 
 Map cycmap2() {
   Map<String, Object> res = {"1": 1, "2": 2, "3": 3};
-  Map<String, Object> intlist = {"4":4, "5":5, "6": 6};
+  Map<String, Object> intlist = {"4": 4, "5": 5, "6": 6};
   intlist["54"] = res;
   res["22"] = intlist;
   return res;

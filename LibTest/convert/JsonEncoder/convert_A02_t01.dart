@@ -19,8 +19,7 @@
  * the new values may or may not be reflected in the result.
  
  * @description Checks that if the object does not support "toJson()" method,
- * a JsonUnsupportedObjectError exception is thrown,
- * and JsonUnsupportedObjectError's cause field is filled.
+ * then an exception is thrown,
  * @author kaigorodov
  */
 import "dart:convert";
@@ -28,16 +27,10 @@ import "../../../Utils/expect.dart";
 import "table2.lib.dart";
 
 main() {
-  bool failed=false;
   for (Object obj in table) {
-    try {
+    Expect.throws(() {
       JsonEncoder enc = new JsonEncoder();
       String res = enc.convert(obj);
-      print("error expected but result returned: $res");
-      failed = true;
-    } on JsonUnsupportedObjectError catch(e) {
-      Expect.isNotNull(e.cause);
-    }
+    });
   }
-  Expect.isFalse(failed);
 }

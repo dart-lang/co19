@@ -26,7 +26,6 @@
  * If an object is serialized more than once, stringify is allowed to cache the
  * JSON text for it. I.e., if an object changes after it is first serialized,
  * the new values may or may not be reflected in the result.
- 
  * @description Checks that num, String, bool, Null, List, and Map values are
  * serialized correctly.
  * @author kaigorodov

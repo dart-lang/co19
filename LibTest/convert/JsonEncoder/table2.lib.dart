@@ -11,19 +11,10 @@ class S1 {
   S1(this.a, this.b);
 }
 
-class S2 {
-  Object a;
-  Object b;
-  
-  S2(this.a, this.b);
-}
-
-List<Object> table=[
+List<Object> table = [
   new S1(1234, "1234"),
   new S1(null, []),
   new S1(1.234, {}),
-  new S2("1.234", {}),
-  new S2("key2", [null, 1.0])
+  new S1("1.234", {}),
+  new S1("key2", [null, 1.0])
 ];
-
-

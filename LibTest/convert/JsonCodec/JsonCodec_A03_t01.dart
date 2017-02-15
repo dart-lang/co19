@@ -18,7 +18,7 @@
  * effectively creating an infinite data structure through repeated call to
  * toEncodable.
  * @description Checks that this constructor, called with toEncodable parameter,
- * created object with toEncodable function which is used during encoding
+ * creates object with toEncodable function which is used during encoding
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
@@ -52,6 +52,10 @@ main() {
 
   checkEncodable(codec, 1, "1");
   checkEncodable(codec, 3.14, "3.14");
+  checkEncodable(codec, null, "null");
+  checkEncodable(codec, "str", '"str"');
+  checkEncodable(codec, true, 'true');
+  checkEncodable(codec, false, 'false');
   checkEncodable(codec, [1, 2, 3], "[1,2,3]");
   checkEncodable(codec, {"a": "b"}, '{"a":"b"}');
   checkEncodable(codec, new A(), '"A encoded by toEncodable"');
@@ -63,5 +67,4 @@ main() {
 
   // Map with a string keys
   checkEncodable(codec, {"x": new A()}, '{"x":"A encoded by toEncodable"}');
-
 }
