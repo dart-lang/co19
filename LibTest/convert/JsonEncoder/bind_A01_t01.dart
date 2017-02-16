@@ -19,38 +19,6 @@ import "dart:convert";
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-/*
-check(Object data) {
-  Stream stream1 = new Stream.fromIterable([data]);
-
-  JsonEncoder encoder = new JsonEncoder();
-  Stream stream2 = encoder.bind(stream1);
-  StringBuffer sb = new StringBuffer();
-
-  asyncStart();
-
-  stream2.listen((Object event) {
-    sb.write(event);
-  }, onError: (error) {
-    Expect.fail("onError($error) called unexpectedly");
-  }, onDone: () {
-    Expect.equals(encoder.convert(data), sb.toString());
-    asyncEnd();
-  });
-}
-
-main() {
-  check(1);
-  check(3.14);
-  check(null);
-  check(true);
-  check(false);
-  check('"str"');
-  check(["1", "2", "3.14"]);
-  check([[1, 2, 3], {"a": "3"}]);
-  check({"a": "b"});
-  check({"й": " ф "});
-}*/
 
 Future check(Object data) async {
   JsonEncoder encoder = new JsonEncoder();
@@ -78,4 +46,3 @@ main() {
       (_) => asyncEnd()
   );
 }
-
