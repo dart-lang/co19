@@ -16,7 +16,6 @@
  * Null, List, or Map, a "toJson()" method is invoked on the object and the
  * result, which must be a directly serializable value, is serialized instead of
  * the original value.
- * @note variable table in this test is used also in the test printOn_A02_t01.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -29,7 +28,7 @@ class S1 {
   S1(this.a, this.b);
   
   List toJson() {
-    return [a,b];
+    return [a, b];
   }
 }
 
@@ -40,7 +39,7 @@ class S2 {
   S2(this.a, this.b);
   
   Map toJson() {
-    return {a:b};
+    return {a: b};
   }
 }
 

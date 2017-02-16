@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream bind(Stream stream)
+ * @assertion Stream<String> bind(Stream<Object> stream)
  * Transform the incoming stream's events.
  * Creates a new stream. When this stream is listened to, it will start
  * listening on stream, and generate events on the new stream based on the
@@ -20,34 +20,34 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(Iterable<String> data) {
-  Stream stream1 = new Stream.fromIterable(data);
+check(Object data) {
+  Stream stream1 = new Stream.fromIterable([data]);
 
-  JsonDecoder decoder = new JsonDecoder();
-  Stream stream2 = decoder.bind(stream1);
+  JsonEncoder encoder = new JsonEncoder();
+  Stream stream2 = encoder.bind(stream1);
+  StringBuffer sb = new StringBuffer();
 
   asyncStart();
 
   stream2.listen((Object event) {
-    Expect.deepEquals(decoder.convert(data2string(data)), event);
+    sb.write(event);
   }, onError: (error) {
     Expect.fail("onError($error) called unexpectedly");
   }, onDone: () {
+    Expect.equals(encoder.convert(data), sb.toString());
     asyncEnd();
   });
 }
 
-String data2string(Iterable<String> data) {
-  StringBuffer sb = new StringBuffer();
-  Iterator it = data.iterator;
-  while (it.moveNext()) {
-    sb.write(it.current);
-  }
-  return sb.toString();
-}
-
 main() {
+  check(1);
+  check(3.14);
+  check(null);
+  check(true);
+  check(false);
+  check('"str"');
   check(["1", "2", "3.14"]);
-  check(["[[1, 2, 3],", '{"a": "3"}]']);
-  check(['{"a"', ':', '"b"', '}']);
+  check([[1, 2, 3], {"a": "3"}]);
+  check({"a": "b"});
+  check({"й": " ф "});
 }
