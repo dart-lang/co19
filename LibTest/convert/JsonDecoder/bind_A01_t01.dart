@@ -20,21 +20,11 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(Iterable<String> data) {
-  Stream stream1 = new Stream.fromIterable(data);
-
+Future check(List<String> data) async {
   JsonDecoder decoder = new JsonDecoder();
-  Stream stream2 = decoder.bind(stream1);
-
-  asyncStart();
-
-  stream2.listen((Object event) {
+  await for (Object event in decoder.bind(new Stream.fromIterable(data))) {
     Expect.deepEquals(decoder.convert(data2string(data)), event);
-  }, onError: (error) {
-    Expect.fail("onError($error) called unexpectedly");
-  }, onDone: () {
-    asyncEnd();
-  });
+  }
 }
 
 String data2string(Iterable<String> data) {
@@ -47,7 +37,17 @@ String data2string(Iterable<String> data) {
 }
 
 main() {
-  check(["1", "2", "3.14"]);
-  check(["[[1, 2, 3],", '{"a": "3"}]']);
-  check(['{"a"', ':', '"b"', '}']);
+  asyncStart();
+  Future.wait([
+    check(["1", "2", "3.14"]),
+    check(["[[1, 2, 3],", '{"a": 3}]']),
+    check(['{"a"', ':', '"b"', '}']),
+    check(['[{"a"', ':', '"b"', '}, ', '{"c": 5', '}]']),
+    check(["true"]),
+    check(["false"]),
+    check(["null"]),
+    check(['{"й"', ':', '"ф"', '}'])
+  ]).then(
+      (_) => asyncEnd()
+  );
 }

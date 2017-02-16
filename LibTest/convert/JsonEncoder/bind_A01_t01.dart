@@ -19,7 +19,7 @@ import "dart:convert";
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-
+/*
 check(Object data) {
   Stream stream1 = new Stream.fromIterable([data]);
 
@@ -50,4 +50,32 @@ main() {
   check([[1, 2, 3], {"a": "3"}]);
   check({"a": "b"});
   check({"й": " ф "});
+}*/
+
+Future check(Object data) async {
+  JsonEncoder encoder = new JsonEncoder();
+  StringBuffer sb = new StringBuffer();
+  await for (Object event in encoder.bind(new Stream.fromIterable([data]))) {
+    sb.write(event);
+  }
+  Expect.deepEquals(encoder.convert(data), sb.toString());
 }
+
+main() {
+  asyncStart();
+  Future.wait([
+    check(1),
+    check(3.14),
+    check(null),
+    check(true),
+    check(false),
+    check('"str"'),
+    check(["1", "2", "3.14"]),
+    check([[1, 2, 3], {"a": "3"}]),
+    check({"a": "b"}),
+    check({"й": " ф "})
+  ]).then(
+      (_) => asyncEnd()
+  );
+}
+
