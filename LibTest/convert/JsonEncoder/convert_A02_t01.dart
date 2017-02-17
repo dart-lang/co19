@@ -19,7 +19,7 @@
  * the new values may or may not be reflected in the result.
  
  * @description Checks that if the object does not support "toJson()" method,
- * then an exception is thrown,
+ * then an exception is thrown
  * @author kaigorodov
  */
 import "dart:convert";
