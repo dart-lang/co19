@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.identical(Zone.ROOT, Zone.current);
   Expect.isNull(Zone.current.parent);
   receivePort.close();
@@ -32,8 +32,6 @@ void iMain(SendPort replyPort) {
 }
 
 main() {
-  var sendPort = receivePort.sendPort;
-  Expect.isTrue(sendPort is SendPort);
   asyncStart();
-  Isolate.spawn(iMain, sendPort);
+  Isolate.spawn(iMain, receivePort.sendPort);
 }

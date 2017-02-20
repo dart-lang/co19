@@ -17,11 +17,11 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-var expectedMessage = "message";
+String expectedMessage = "message";
 
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.equals(expectedMessage, message);
   receivePort.close();
   asyncEnd();
