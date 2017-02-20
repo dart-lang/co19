@@ -5,7 +5,8 @@
  */
 /**
  * @assertion JsonDecoder decoder
- * @description Checks that returns JsonDecoder with works as expected
+ * @description Checks that this property returns JsonDecoder with works as
+ * expected
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
