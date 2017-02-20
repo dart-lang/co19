@@ -23,7 +23,7 @@ List receivedMessages = [];
 
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   receivedMessages.add(message);
 }
 
@@ -33,7 +33,7 @@ void iMain(SendPort replyPort) {
 
 main() {
   asyncStart();
-  var sendPort = receivePort.sendPort;
+  SendPort sendPort = receivePort.sendPort;
   receivePort.close();
   Isolate.spawn(iMain, sendPort).then(
       // give some time for messages to be delivered
