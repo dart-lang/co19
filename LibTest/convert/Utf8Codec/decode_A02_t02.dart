@@ -29,13 +29,12 @@ main() {
         new String.fromCharCodes([UNICODE_BOM_CHARACTER_RUNE])));
     toDecode.add(i);
     Expect.equals(s, codec.decode(toDecode, allowMalformed: true));
-
   }
 
   List<int> toDecode = [];
   toDecode.addAll(codec.encode(
       new String.fromCharCodes([UNICODE_BOM_CHARACTER_RUNE])));
   toDecode.addAll([208, 154, 208, 184, 209, 128,
-  208, 184, 208, 187, 208, 187, 208, 184, 209, 134, 208, 176, 32]);
+    208, 184, 208, 187, 208, 187, 208, 184, 209, 134, 208, 176, 32]);
   Expect.equals("Кириллица ", codec.decode(toDecode, allowMalformed: true));
 }
