@@ -12,22 +12,26 @@
  * The argument sink will receive byte lists in sizes depending on the
  * bufferSize passed to the constructor when creating this encoder.
  * @description Checks that the argument sink will receive byte lists in sizes
- * depending on the bufferSize passed to the constructor when creating this encoder.
+ * depending on the bufferSize passed to the constructor when creating this
+ * encoder.
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(JsonUtf8Encoder encoder, data, List expected) {
+  bool called = false;
   var outSink = new ChunkedConversionSink.withCallback((List chunks) {
     Expect.equals(expected.length, chunks.length);
     for (var i = 0; i < expected.length; i++) {
       Expect.listEquals(UTF8.encode(expected[i]), chunks[i]);
     }
+    called = true;
   });
   var inSink = encoder.startChunkedConversion(outSink);
   inSink.add(data);
   inSink.close();
+  Expect.isTrue(called);
 }
 
 String chunks2string(Iterable<String> data) {

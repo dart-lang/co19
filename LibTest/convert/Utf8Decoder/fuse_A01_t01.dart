@@ -23,10 +23,11 @@ check(Converter codec, List<int> toDecode) {
 }
 
 main() {
-    Utf8Decoder decoder = new Utf8Decoder();
-    Converter fused = decoder.fuse(new Utf8Codec().encoder);
+  Utf8Decoder decoder = new Utf8Decoder();
+  Converter fused = decoder.fuse(new Utf8Codec().encoder);
 
-    for (int i = 0; i < 128; i++) {
-      check(fused, [i]);
-    }
+  for (int i = 0; i < 128; i++) {
+    check(fused, [i]);
+  }
+  check(fused, UTF8.encode("Кириллица прекрасна"));
 }
