@@ -13,7 +13,7 @@ import "dart:collection";
 import "all_tests.lib.dart";
 
 Queue create([Iterable content]) {
-  if (content==null) {
+  if (content == null) {
     return new Queue();
   } else {
     return new Queue.from(content);
