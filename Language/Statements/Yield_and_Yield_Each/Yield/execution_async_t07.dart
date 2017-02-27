@@ -42,7 +42,6 @@ Stream<int> generator() async* {
 }
 
 test() async {
-  asyncStart();
   finish = false;
   Stream<int> s = generator();
   s.listen(
@@ -56,5 +55,6 @@ test() async {
 }
 
 main() {
+  asyncStart();
   test();
 }

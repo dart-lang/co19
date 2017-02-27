@@ -33,19 +33,18 @@ import 'dart:async';
 import '../../../../Utils/async_utils.dart';
 import '../../../../Utils/expect.dart';
 
-Stream generator(Iterable iterable) async* {
+Stream<int> generator(Iterable<int> iterable) async* {
   for (var o in iterable) {
     yield o;
   }
 }
 
 test() async {
-  asyncStart();
-  List data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  List log = [];
+  List<int> data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  List<int> log = [];
   Stream<int> s = generator(data);
   s.listen(
-      (var x) =>  log.add(x),
+      (int x) =>  log.add(x),
       onDone:() {
         Expect.listEquals(data, log);
         asyncEnd();
@@ -54,5 +53,6 @@ test() async {
 }
 
 main() {
+  asyncStart();
   test();
 }
