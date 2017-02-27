@@ -45,7 +45,6 @@ Stream<int> generator() async* {
 }
 
 test() async {
-  asyncStart();
   generatorAlive = false;
   Stream<int> s = generator();
   StreamSubscription<int> ss;
@@ -67,5 +66,6 @@ test() async {
 }
 
 main() {
+  asyncStart();
   test();
 }
