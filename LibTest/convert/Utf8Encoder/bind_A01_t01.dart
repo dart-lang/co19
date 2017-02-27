@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream bind(Stream stream)
+ * @assertion Stream<List<int>> bind(Stream<String> stream)
  * Transform the incoming stream's events.
+ *
  * Creates a new stream. When this stream is listened to, it will start
  * listening on stream, and generate events on the new stream based on the
  * events from stream.
@@ -19,33 +20,21 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-Future check(List<String> data) async {
-  JsonDecoder decoder = new JsonDecoder();
-  await for (Object event in decoder.bind(new Stream.fromIterable(data))) {
-    Expect.deepEquals(decoder.convert(data2string(data)), event);
-  }
-}
+Future check(String str) async {
+  Utf8Encoder encoder = new Utf8Encoder();
+  List<int> data = UTF8.encode(str);
 
-String data2string(Iterable<String> data) {
-  StringBuffer sb = new StringBuffer();
-  Iterator it = data.iterator;
-  while (it.moveNext()) {
-    sb.write(it.current);
+  await for (List<int> event in encoder.bind(new Stream.fromIterable([str]))) {
+    Expect.listEquals(encoder.convert(str), event);
   }
-  return sb.toString();
 }
 
 main() {
   asyncStart();
   Future.wait([
-    check(["1", "2", "3.14"]),
-    check(["[[1, 2, 3],", '{"a": 3}]']),
-    check(['{"a"', ':', '"b"', '}']),
-    check(['[{"a"', ':', '"b"', '}, ', '{"c": 5', '}]']),
-    check(["true"]),
-    check(["false"]),
-    check(["null"]),
-    check(['{"й"', ':', '"ф"', '}'])
+    check(""),
+    check("Some string"),
+    check("Кириллица прекрасна")
   ]).then(
       (_) => asyncEnd()
   );

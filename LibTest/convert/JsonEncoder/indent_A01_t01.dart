@@ -33,4 +33,7 @@ main() {
 
   encoder = new JsonEncoder.withIndent("--");
   Expect.equals("--", encoder.indent);
+
+  encoder = new JsonEncoder.withIndent("Non-ASCII: отступ ");
+  Expect.equals("Non-ASCII: отступ ", encoder.indent);
 }

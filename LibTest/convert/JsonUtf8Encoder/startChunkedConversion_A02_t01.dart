@@ -5,37 +5,32 @@
  */
 /**
  * @assertion ChunkedConversionSink<Object> startChunkedConversion(
- *  Sink<String> sink
+ *  Sink<List<int>> sink
  *  )
- * Starts a chunked conversion.
+ * Start a chunked conversion.
+ *
+ * Only one object can be passed into the returned sink.
  * ...
- * It is an error to invoke add more than once on the returned sink.
- * @description Checks that it is an error to invoke add more than once on the
- * returned sink.
+ * @description Checks that only one object can be passed into the returned sink
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(data) {
-  JsonEncoder encoder = new JsonEncoder();
+  JsonUtf8Encoder encoder = new JsonUtf8Encoder();
+  bool called = false;
+
   var outSink = new ChunkedConversionSink.withCallback((chunks) {
-    Expect.equals(encoder.convert(data), chunks2string(chunks));
+    Expect.listEquals([encoder.convert(data)], chunks);
+    called = true;
   });
   var inSink = encoder.startChunkedConversion(outSink);
   inSink.add(data);
   Expect.throws(() {inSink.add(data);});
   Expect.throws(() {inSink.add(null);});
   inSink.close();
-}
-
-String chunks2string(Iterable<String> data) {
-  StringBuffer sb = new StringBuffer();
-  Iterator it = data.iterator;
-  while (it.moveNext()) {
-    sb.write(it.current);
-  }
-  return sb.toString();
+  Expect.isTrue(called);
 }
 
 main() {

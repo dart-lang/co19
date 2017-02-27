@@ -5,7 +5,8 @@
  */
 /**
  * @assertion JsonEncoder encoder
- * @description Checks that returns JsonEncoder witch works as expected
+ * @description Checks that this property returns JsonEncoder witch works as
+ * expected
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";

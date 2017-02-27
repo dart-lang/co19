@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -20,34 +20,29 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(Object data) {
-  Stream stream1 = new Stream.fromIterable([data]);
-
+Future check(Object data) async {
   JsonEncoder encoder = new JsonEncoder();
-  Stream stream2 = encoder.bind(stream1);
   StringBuffer sb = new StringBuffer();
-
-  asyncStart();
-
-  stream2.listen((Object event) {
+  await for (Object event in encoder.bind(new Stream.fromIterable([data]))) {
     sb.write(event);
-  }, onError: (error) {
-    Expect.fail("onError($error) called unexpectedly");
-  }, onDone: () {
-    Expect.equals(encoder.convert(data), sb.toString());
-    asyncEnd();
-  });
+  }
+  Expect.deepEquals(encoder.convert(data), sb.toString());
 }
 
 main() {
-  check(1);
-  check(3.14);
-  check(null);
-  check(true);
-  check(false);
-  check('"str"');
-  check(["1", "2", "3.14"]);
-  check([[1, 2, 3], {"a": "3"}]);
-  check({"a": "b"});
-  check({"й": " ф "});
+  asyncStart();
+  Future.wait([
+    check(1),
+    check(3.14),
+    check(null),
+    check(true),
+    check(false),
+    check('"str"'),
+    check(["1", "2", "3.14"]),
+    check([[1, 2, 3], {"a": "3"}]),
+    check({"a": "b"}),
+    check({"й": " ф "})
+  ]).then(
+      (_) => asyncEnd()
+  );
 }
