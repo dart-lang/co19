@@ -10,7 +10,6 @@
  * before converting with other.
  * @description Checks that encoding with the resulting converter is equivalent
  * to converting with this before converting with other.
- * are parsed correctly.
  * @author kaigorodov
  */
 import "dart:convert";

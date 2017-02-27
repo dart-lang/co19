@@ -34,5 +34,6 @@ main() {
   for (int i = 0; i < 128; i++) {
     check(new String.fromCharCode(i));
   }
+  check("");
   check("Кириллица прекрасна");
 }

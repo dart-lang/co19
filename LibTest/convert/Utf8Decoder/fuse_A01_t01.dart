@@ -11,12 +11,10 @@
  * before converting with other.
  * @description Checks that encoding with the resulting converter is equivalent
  * to converting with this before converting with other.
- * are parsed correctly.
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../JsonDecoder/table1.lib.dart" show table;
 
 check(Converter codec, List<int> toDecode) {
   Expect.listEquals(toDecode, codec.convert(toDecode));

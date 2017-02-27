@@ -14,7 +14,6 @@
  * this.
  * @description Checks that encoding with the resulting converter is equivalent
  * to converting with this before converting with other.
- * are parsed correctly.
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
