@@ -21,8 +21,8 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 Future check(String str) async {
-  Utf8Decoder decoder = new Utf8Decoder();
-  List<int> data = UTF8.encode(str);
+  AsciiDecoder decoder = new AsciiDecoder();
+  List<int> data = ASCII.encode(str);
 
   await for (String event in decoder.bind(new Stream.fromIterable([data]))) {
     Expect.equals(str, event);
@@ -32,8 +32,8 @@ Future check(String str) async {
 main() {
   asyncStart();
   Future.wait([
-    check("Some string"),
-    check("Кириллица прекрасна")
+    check(r"Some string 1234567890 !@#$%^&*()_+|}{[]"),
+    check("")
   ]).then(
       (_) => asyncEnd()
   );
