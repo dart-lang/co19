@@ -65,7 +65,6 @@ Stream<int> generator(List<int> log) async* {
 }
 
 test() async {
-  asyncStart();
   List<int> log = [];
   Stream<int> s = generator(log);
   StreamSubscription<int> ss;
@@ -81,5 +80,6 @@ test() async {
 }
 
 main() {
+  asyncStart();
   test();
 }

@@ -40,7 +40,6 @@ Stream<int> generator(Iterable<int> iterable) async* {
 }
 
 test() async {
-  asyncStart();
   List<int> data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   List<int> log = [];
   Stream<int> s = generator(data);
@@ -54,5 +53,6 @@ test() async {
 }
 
 main() {
+  asyncStart();
   test();
 }
