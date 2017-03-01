@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,26 +14,19 @@
  * The overriding method must still be an equivalence relation. That is, it must
  * be:
  * ...
- * Transitive: For all objects o1, o2, and o3, if o1 == o2 and o2 == o3 are
- * true, then o1 == o3 must be true.
+ * Symmetric: For all objects o1 and o2, o1 == o2 and o2 == o1 must either both
+ * be true, or both be false.
  * ...
- * @description Checks that for all objects o1, o2, and o3, if o1 == o2 and
- * o2 == o3 are true, then o1 == o3 is also true.
- * @author sgrekhov@unipro.ru
+ * @description Checks that for all not equal objects o1 and o2, o1 == o2 and
+ * o2 == o1 is both false
+ * @author a.semenov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-class C {
-  var m;
-  C(this.m);
-}
+test(List<Object> createNotEqual(int number)) {
 
-main() {
-  Object o1 = new Object();
-  Object o2 = o1;
-  Object o3 = o1;
+  List<Object> objects = createNotEqual(2);
 
-  Expect.isTrue(o1 == o2);
-  Expect.isTrue(o2 == o3);
-  Expect.isTrue(o1 == o3);
+  Expect.isFalse(objects[0] == objects[1]);
+  Expect.isFalse(objects[1] == objects[0]);
 }
