@@ -5,7 +5,8 @@
  */
 /**
  * @assertion class Object
- * @description Checks hashCode, operator ==  and noSuchMethod of Object
+ * @description Aggregates tests for Object methods: hashCode, operator ==
+ * and noSuchMethod
  * @author a.semenov@unipro.ru
  */
 library allTests_A01_t01;
