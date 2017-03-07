@@ -21,6 +21,8 @@ import "operator_equality_A03_t03.test.dart" as operator_equality_A03_t03;
 import "operator_equality_A04_t01.test.dart" as operator_equality_A04_t01;
 import "operator_equality_A05_t01.test.dart" as operator_equality_A05_t01;
 import "operator_equality_A05_t02.test.dart" as operator_equality_A05_t02;
+import "toString_A02_t01.test.dart" as toString_A02_t01;
+import "runtimeType_A02_t01.test.dart" as runtimeType_A02_t01;
 
 test(Object create(),
      List<Object> createEqual(int number),
@@ -38,4 +40,8 @@ test(Object create(),
   operator_equality_A04_t01.test(createEqual);
   operator_equality_A05_t01.test(createEqual);
   operator_equality_A05_t02.test(createNotEqual);
+  // toString()
+  toString_A02_t01.test(create);
+  // runtimeType
+  runtimeType_A02_t01.test(create);
 }

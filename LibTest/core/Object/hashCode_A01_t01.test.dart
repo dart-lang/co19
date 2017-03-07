@@ -16,6 +16,7 @@
  *
  * @author a.semenov@unipro.ru
  */
+library hashCode_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Object create()){

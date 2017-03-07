@@ -13,12 +13,13 @@
  * method or property is accessed and by default throws NoSuchMethodError
  * @author sgrekhov@unipro.ru
  */
+library noSuchMethod_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Object create()) {
   dynamic o = create();
 
-  Expect.throws(() {o.m;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {o.m();}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {o.m = 1;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {o.noSuchMethod_A01_t01;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {o.noSuchMethod_A01_t01();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {o.noSuchMethod_A01_t01 = 1;}, (e) => e is NoSuchMethodError);
 }

@@ -17,6 +17,7 @@
  *
  * @author sgrekhov@unipro.ru
  */
+library hashCode_A01_t03;
 import "../../../Utils/expect.dart";
 
 test(List<Object> createEqual(int number)) {

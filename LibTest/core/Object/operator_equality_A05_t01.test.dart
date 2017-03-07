@@ -19,6 +19,7 @@
  *
  * @author a.semenov@unipro.ru
  */
+library operator_equality_A05_t01;
 import "../../../Utils/expect.dart";
 
 test(List<Object> createEqual(int number)) {

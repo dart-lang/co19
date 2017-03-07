@@ -21,6 +21,7 @@
  * o2 == o3 are true, then o1 == o3 is also true.
  * @author sgrekhov@unipro.ru
  */
+library operator_equality_A04_t01;
 import "../../../Utils/expect.dart";
 
 test(List<Object>createEqual(int number)) {

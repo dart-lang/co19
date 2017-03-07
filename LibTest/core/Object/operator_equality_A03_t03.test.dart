@@ -21,6 +21,7 @@
  * o2 == o1 is both false
  * @author a.semenov@unipro.ru
  */
+library operator_equality_A03_t03;
 import "../../../Utils/expect.dart";
 
 test(List<Object> createNotEqual(int number)) {
