@@ -41,8 +41,7 @@ Future f(List log, int skip) async {
   }
 }
 
-test(int skip) async {
-  asyncStart();
+Future test(int skip) async {
   List log = [];
   try {
     await f(log, skip);
@@ -50,11 +49,13 @@ test(int skip) async {
     Expect.equals('finish', e);
   }
   Expect.listEquals([4, 3, 2, 1, 0], log);
-  asyncEnd();
 }
 
 main() {
-  for (int skip = 1; skip < 4; skip++) {
-    test(skip);
-  }
+  asyncStart();
+  Future.wait(
+    [test(1), test(2), test(3)]
+  ).then(
+    (_) => asyncEnd()
+  );
 }

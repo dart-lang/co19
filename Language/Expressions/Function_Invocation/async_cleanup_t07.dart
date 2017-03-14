@@ -33,8 +33,7 @@ Stream f(Stream stream, int skip) async* {
   }
 }
 
-test(int skip) async {
-  asyncStart();
+Future test(int skip) async {
   List log = [];
   Stream stream = makeStream(['a', 'b', 'c', 'd', 'e', 'f'], 1, log);
   f(stream, skip).listen(
@@ -42,13 +41,15 @@ test(int skip) async {
       onError: (e) {
         Expect.equals('finish', e);
         Expect.listEquals([1], log);
-        asyncEnd();
       }
   );
 }
 
 main() {
-  for (int skip = 1; skip < 6; skip++) {
-    test(skip);
-  }
+  asyncStart();
+  Future.wait(
+    [test(1), test(2), test(3), test(4), test(5)]
+  ).then(
+    (_) => asyncEnd()
+  );
 }

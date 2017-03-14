@@ -10,7 +10,6 @@
  * @description Checks that [hashCode] is consistent with operator ==.
  *
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -25,19 +24,16 @@ void main() {
   SendPort s3 = r2.sendPort;
 
   Expect.isFalse(s1 == s2);
-  Expect.notEquals(s1.hashCode, s2.hashCode);
   Expect.isTrue(s2 == s3);
   Expect.equals(s2.hashCode, s3.hashCode);
 
   r1.close();
   Expect.isFalse(s1 == s2);
-  Expect.notEquals(s1.hashCode, s2.hashCode);
   Expect.isTrue(s2 == s3);
   Expect.equals(s2.hashCode, s3.hashCode);
 
   r2.close();
   Expect.isFalse(s1 == s2);
-  Expect.notEquals(s1.hashCode, s2.hashCode);
   Expect.isTrue(s2 == s3);
   Expect.equals(s2.hashCode, s3.hashCode);
 }

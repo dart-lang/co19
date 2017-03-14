@@ -21,14 +21,14 @@ test(Queue create([Iterable content])) {
   Queue queue = create([-3, -2, -1, 0, 1, 2, 3, -1]);
 
   bool throwFunction(var element) {
-    if (element < 0) {
-      return true;
-    } else {
-      queue.add(-2);
-      return false;
-    }
+    queue.remove(element);
+    return true;
   }
 
-  Expect.throws(() { queue.retainWhere(throwFunction); });
-  Expect.iterableEquals([-3, -2, -1, 0, 1, 2, 3, -1, -2], queue);
+  // A concurrent modification is always thrown if the current entry is removed
+  // from the queue during iteration. In case of other modifications result is
+  // not predictable (see https://github.com/dart-lang/co19/issues/89)
+  // So we are checking this case only
+  Expect.throws( () {queue.retainWhere(throwFunction);});
+  Expect.iterableEquals([-2, -1, 0, 1, 2, 3, -1], queue);
 }
