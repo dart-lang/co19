@@ -14,18 +14,18 @@
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
-import "unmodifiablemapbase.lib.dart";
+
 
 main() {
-  UnmodifiableMapBase base = new UnmodifiableMapBaseImpl({});
-  Expect.isFalse(base.containsValue(""));
-  Expect.isFalse(base.containsValue(0));
-  Expect.isFalse(base.containsValue(1));
-  Expect.isFalse(base.containsValue(2));
+  UnmodifiableMapView view = new UnmodifiableMapView({});
+  Expect.isFalse(view.containsValue(""));
+  Expect.isFalse(view.containsValue(0));
+  Expect.isFalse(view.containsValue(1));
+  Expect.isFalse(view.containsValue(2));
 
-  base = new UnmodifiableMapBaseImpl({0 : 0, 1 : 4});
-  Expect.isFalse(base.containsValue(""));
-  Expect.isTrue(base.containsValue(0));
-  Expect.isTrue(base.containsValue(4));
-  Expect.isFalse(base.containsKey(2));
+  view = new UnmodifiableMapView({0 : 0, 1 : 4});
+  Expect.isFalse(view.containsValue(""));
+  Expect.isTrue(view.containsValue(0));
+  Expect.isTrue(view.containsValue(4));
+  Expect.isFalse(view.containsKey(2));
 }
