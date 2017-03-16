@@ -14,7 +14,6 @@
  * @description Checks that after [complete] is called, a value in corresponding
  * future is available.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";

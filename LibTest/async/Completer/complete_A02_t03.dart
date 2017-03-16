@@ -7,17 +7,18 @@
  * @assertion void complete([T value])
  * Calling complete or completeError must not be done more than once.
  * @description Checks that an error is thrown if
- * the completer is already completed with a value.
- * @author msyabro
+ * the completer is already completed with Future instance, that is not
+ * completed yet.
+ * @author a.semenov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 
 main() {
-  var completer = new Completer();
-  var future = completer.future;
-  completer.complete('value');
+  Completer completer1 = new Completer();
+  Completer completer2 = new Completer();
+  completer1.complete(completer2.future);
 
-  Expect.throws(() => completer.complete('another value'));
+  Expect.throws(() => completer1.complete('another value'));
 }

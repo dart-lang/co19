@@ -8,7 +8,6 @@
  * The future that will contain the result provided to this completer.
  * @description Checks that this property refers to an object of the type Future.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
