@@ -25,15 +25,14 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var c = new StreamController();
-  var si = new StreamIterator(c.stream);
-
+  StreamController c = new StreamController();
+  StreamIterator si = new StreamIterator(c.stream);
+  asyncStart();
   c.addError(1);
 
-  si.moveNext().catchError((var value) {
+  si.moveNext().catchError((value) {
     Expect.equals(1, value);
-    Expect.equals(null, si.current);
+    Expect.isNull(si.current);
+    asyncEnd();
   });
-
-  c.close();
 }

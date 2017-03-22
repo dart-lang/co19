@@ -25,19 +25,24 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var c = new StreamController();
-  var si = new StreamIterator(c.stream);
+  StreamController c = new StreamController();
+  StreamIterator si = new StreamIterator(c.stream);
 
+  Expect.isNull(si.current);
   c.add(1);
-  Expect.equals(null, si.current);
+  Expect.isNull(si.current);
 
-  si.moveNext().then((var value) {
+  asyncStart();
+  si.moveNext().then((bool value) {
     Expect.isTrue(value);
     Expect.equals(1, si.current);
-    si.moveNext().then((var value) {
+
+    si.moveNext().then((bool value) {
       Expect.isFalse(value);
-      Expect.equals(null, si.current);
+      Expect.isNull(si.current);
+      asyncEnd();
     });
+
   });
 
   c.close();
