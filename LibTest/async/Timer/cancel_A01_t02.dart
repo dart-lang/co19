@@ -6,8 +6,8 @@
 /**
  * @assertion  abstract void cancel()
  * Cancels the timer.
- * @description Checks that periodic Timer can be cancelled.
- * @author kaigorodov
+ * @description Checks that non-periodic Timer is cancelled by cancel()
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
@@ -19,7 +19,7 @@ main() {
   int delay = 20;
   int count = 0;
 
-  Timer timer = new Timer.periodic(durationMs(delay), (Timer t) {
+  Timer timer = new Timer(durationMs(delay), () {
     count++;
     }
   );

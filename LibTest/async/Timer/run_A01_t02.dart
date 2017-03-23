@@ -7,7 +7,7 @@
  * @assertion static void run(void callback())
  * Runs the given callback asynchronously as soon as possible.
  * This function is equivalent to new Timer(Duration.ZERO, callback).
- * @description Checks that callback finction is called asynchronously.
+ * @description Checks that callback function is called asynchronously.
  * @author kaigorodov
  */
 
@@ -16,11 +16,11 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(value) {
-  var res=value;
+  var res = value;
 
   asyncStart();
   Timer.run(() {
-    res=null;
+    res = null;
     asyncEnd();
   });
 
@@ -33,4 +33,3 @@ main() {
   check('string');
   check(true);
 }
-

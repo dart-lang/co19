@@ -7,7 +7,7 @@
  * @assertion static void run(void callback())
  * Runs the given callback asynchronously as soon as possible.
  * This function is equivalent to new Timer(Duration.ZERO, callback).
- * @description Checks that callback finction is called once.
+ * @description Checks that callback function is called once.
  * @author kaigorodov
  */
 
@@ -20,13 +20,15 @@ check(delay) {
 }
 
 main() {
-  bool seen=false;
+  int count = 0;
 
   asyncStart();
   Timer.run(() {
-    Expect.isFalse(seen);
-    seen=true;
+    count++;
+  });
+
+  new Timer(durationMs(100), () {
+    Expect.equals(1, count);
     asyncEnd();
   });
 }
-

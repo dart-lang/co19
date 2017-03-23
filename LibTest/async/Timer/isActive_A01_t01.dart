@@ -18,10 +18,10 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(delayms) {
+check(int delayms) {
 
   asyncStart();
-  var t;
+  Timer t;
   t = new Timer(durationMs(delayms), () {
     Expect.isFalse(t.isActive);
     asyncEnd();
@@ -37,4 +37,3 @@ main() {
   check(-1);
   check(-10);
 }
-

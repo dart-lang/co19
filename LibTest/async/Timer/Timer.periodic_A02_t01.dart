@@ -14,8 +14,8 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 
 check(int delay) {
-  int times=5;
-  int count=0;
+  int times = 5;
+  int count = 0;
   asyncStart();
   new Timer.periodic(durationMs(delay), (Timer timer) {
     count++;
@@ -31,4 +31,3 @@ main() {
   check(-1);
   check(-10);
 }
-

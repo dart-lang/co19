@@ -5,7 +5,7 @@
  */
 /**
  * @assertion factory Timer(Duration duration, void callback())
- * A negative duration is treated similar to a duration of 0.
+ * A negative duration is treated the same as a duration of 0.
  * @description Checks that negative duration is accepted.
  * @author kaigorodov
  */
@@ -15,13 +15,13 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(delayms) {
-  bool seen=false;
+check(int delayms) {
+  bool seen = false;
 
   asyncStart();
   new Timer(durationMs(delayms), () {
     Expect.isFalse(seen);
-    seen=true;
+    seen = true;
     asyncEnd();
   });
 }
@@ -32,4 +32,3 @@ main() {
   check(-10);
   check(-100);
 }
-

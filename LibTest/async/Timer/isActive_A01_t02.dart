@@ -19,11 +19,11 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(int delay) {
-  int times=5;
-  int count=0;
+  int times = 5;
+  int count = 0;
 
   asyncStart();
-  var t = new Timer.periodic(durationMs(delay), (Timer timer) {
+  Timer t = new Timer.periodic(durationMs(delay), (Timer timer) {
     count++;
     Expect.isTrue(timer.isActive);
     if (count==times) {
@@ -43,4 +43,3 @@ main() {
   check(-1);
   check(-10);
 }
-

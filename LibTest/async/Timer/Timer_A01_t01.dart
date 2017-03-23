@@ -7,7 +7,7 @@
  * @assertion factory Timer(Duration duration, void callback())
  * Creates a new timer.
  * The callback callback is invoked after the given duration.
- * @description Checks that callback finction is called after the given duration.
+ * @description Checks that callback function is called after the given duration.
  * @author kaigorodov
  */
 
@@ -15,14 +15,14 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(delayms) {
-  Duration delay=durationMs(delayms);
-  Stopwatch sw=new Stopwatch();
+check(int delayms) {
+  Duration delay = durationMs(delayms);
+  Stopwatch sw = new Stopwatch();
   sw.start();
 
   asyncStart();
   new Timer(delay, () {
-    Duration actual=sw.elapsed;
+    Duration actual = sw.elapsed;
     Expect.isTrue(delay<=actual, "expected=$delay, actual=$actual");
     asyncEnd();
   });
@@ -36,4 +36,3 @@ main() {
   check(0);
   check(-5);
 }
-
