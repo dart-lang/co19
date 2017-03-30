@@ -15,9 +15,8 @@
  * never completes.
  *
  * @description Checks that returned future is completed with the result of the
- * first future in the futures that is completed. The first future in futures
- * completed with null is element 3.
- * @author ngl@unipro.ru
+ * first future in the futures that is completed.
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
@@ -26,27 +25,13 @@ import "../../../Utils/expect.dart";
 const int N = 6;
 
 main() {
-  List<Future> futures = new List<Future>(N);
-
-  for (int k = 0; k < N; k++) {
-    Completer c = new Completer();
-    futures[k] = c.future;
-    if (k == 3) {
-      c.complete(null);
-    }
-    if (k == 4) {
-      c.complete(6);
-    }
-    if (k == 5) {
-      c.complete(true);
-    }
-  }
-
+  List<Completer> completers = new List.generate(N, (_) => new Completer());
+  Iterable<Future> futures = completers.map((Completer c) => c.future);
   Future f = Future.any(futures);
-
-  asyncStart();
-  f.then((fValue) {
-    Expect.equals(fValue, null);
+  f.then((value) {
+    Expect.equals(value, "value");
     asyncEnd();
   });
+  asyncStart();
+  new Timer(durationMs(200), () => completers[3].complete("value"));
 }

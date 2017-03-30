@@ -13,36 +13,44 @@
  *    If test returns true, onError is called with the error and possibly stack
  * trace, and the returned future is completed with the result of this call in
  * exactly the same way as for then's onError.
- * @description Checks that [test] is called first with the error value, if
- * future completes with an error
- * @author a.semenov@unipro.ru
+ *    If test is omitted, it defaults to a function that always returns true.
+ * The test function should not throw, but if it does, it is handled as if
+ * the onError function had thrown.
+ * @description Checks that an exception is handled in several [catchError]
+ * handlers
+ * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
-main() {
+check(value) {
   Completer completer = new Completer();
   Future f = completer.future;
-  List log = [];
+
+  asyncMultiStart(2);
 
   f.catchError(
-    (Object error) {
-      log.add(2);
-      log.add(error);
-    },
-    test: (Object error) {
-      log.add(1);
-      log.add(error);
-      return true;
-    }
-  ).then(
-    (_) {
-      Expect.listEquals([1, "!", 2, "!"], log);
+    (exception) {
       asyncEnd();
     }
   );
 
-  asyncStart();
-  completer.completeError("!");
+  f.then(
+    (fValue) {
+      Expect.fail("Error is expected");
+    },
+    onError:(Object asyncError){
+      asyncEnd();
+    }
+  );
+
+  completer.completeError(value);
+}
+
+main() {
+  check(1);
+  check('');
+  check({});
+  check(false);
 }

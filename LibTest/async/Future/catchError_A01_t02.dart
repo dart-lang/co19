@@ -5,15 +5,15 @@
  */
 /**
  * @assertion Future catchError(Function onError, {bool test(Object error)})
- * Handles errors emitted by this Future.
- * Returns a new Future that will be completed with either the result of this
- * future or the result of calling the onError callback.
+ *    Handles errors emitted by this Future.
+ *    This is the asynchronous equivalent of a "catch" block.
+ *    Returns a new Future that will be completed with either the result of
+ * this future or the result of calling the onError callback.
  * @description Checks that several error handlers can be attached to the Future.
  * @author kaigorodov
  */
-
-import "../../../Utils/async_utils.dart";
 import "dart:async";
+import "../../../Utils/async_utils.dart";
 
 void onError1(Object asyncError) {
   asyncEnd();

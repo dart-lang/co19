@@ -11,10 +11,9 @@
  * send.
  * @author kaigorodov
  */
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-
-import "dart:async";
 
 String output1;
 
@@ -30,7 +29,7 @@ main() {
     	count = count + 1;
     },
     onDone: () {
-	  Expect.equals(2, count);
+	    Expect.equals(2, count);
       asyncEnd();
     }   // should be invoked second
   );

@@ -19,12 +19,11 @@
  * completed with false is element 2.
  * @author ngl@unipro.ru
  */
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-const N = 6;
+const int N = 6;
 
 main() {
   List<Future> futures = new List<Future>(N);

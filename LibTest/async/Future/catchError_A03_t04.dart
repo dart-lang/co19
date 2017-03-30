@@ -5,42 +5,46 @@
  */
 /**
  * @assertion Future catchError(Function onError, {bool test(Object error)})
- * When this completes with an error, test is called with the error's value.
- * If test returns false, the exception is not handled by this catchError, and
- * the returned future completes with the same error and stack trace as this
- * future.
- * If test returns true, onError is called with the error and possibly stack
+ *    If this future completes with an error, then test is first called with
+ * the error value.
+ *    If test returns false, the exception is not handled by this catchError,
+ * and the returned future completes with the same error and stack trace as
+ * this future.
+ *    If test returns true, onError is called with the error and possibly stack
  * trace, and the returned future is completed with the result of this call in
  * exactly the same way as for then's onError.
- * If test is omitted, it defaults to a function that always returns true. The
- * test function should not throw, but if it does, it is handled as if the the
- * onError function had thrown.
- * @description Checks that stack trace is passed as a second argument to
- * onError callback.
- * @author ilya
+ * @description Checks that if [test] returns true, then [onError] is called with
+ * the error and the returned future is completed with the result of this call.
+ * @author a.semenov@unipro.ru
  */
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
-  Future future;
-  var stackTtrace;
-  var error = new Error();
+  Completer completer = new Completer();
+  Future f = completer.future;
+  List log = [];
+
+  f.catchError(
+    (Object error) {
+      log.add(2);
+      log.add(error);
+      return "ok";
+    },
+    test:(Object error) {
+      log.add(1);
+      log.add(error);
+      return true;
+    }
+  ).then(
+    (value) {
+      Expect.listEquals([1, "!", 2, "!"], log);
+      Expect.equals("ok", value);
+      asyncEnd();
+    }
+  );
 
   asyncStart();
-
-  try {
-    throw error;
-  } catch (e,st) {
-    stackTtrace = st;
-    future = new Future.error(e, st);
-  }
-
-  future.catchError((e, st) {
-    Expect.identical(error, e);
-    Expect.identical(stackTtrace, st);
-    asyncEnd();
-  });
+  completer.completeError("!");
 }

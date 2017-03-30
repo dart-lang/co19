@@ -7,9 +7,9 @@
  * @assertion Future catchError(Function onError, {bool test(Object error)})
  *    If this future completes with a value, the returned future completes with
  * the same value.
- * @description Checks that if the future completes with a value, [onError]
+ * @description Checks that if the future completes with a value, [test]
  * is not called and returned future is completed with the same value.
- * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
@@ -23,6 +23,9 @@ check(value) {
   f.catchError(
     (Object error) {
       Expect.fail("onError should not be called");
+    },
+    test: (Object error){
+      Expect.fail("test should not be called");
     }
   ).then(
     (x) {

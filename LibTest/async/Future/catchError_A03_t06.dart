@@ -13,8 +13,9 @@
  *    If test returns true, onError is called with the error and possibly stack
  * trace, and the returned future is completed with the result of this call in
  * exactly the same way as for then's onError.
- * @description Checks that [test] is called first with the error value, if
- * future completes with an error
+ * @description Checks that if [test] returns true, then [onError] is called with
+ * the error and the returned future is completed with the result of this call.
+ * [onError] throws an exception.
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
@@ -30,15 +31,20 @@ main() {
     (Object error) {
       log.add(2);
       log.add(error);
+      throw "@";
     },
-    test: (Object error) {
+    test:(Object error){
       log.add(1);
       log.add(error);
       return true;
     }
   ).then(
-    (_) {
+    (value) {
+      Expect.fail("Returned future should complete with error");
+    },
+    onError: (Object e) {
       Expect.listEquals([1, "!", 2, "!"], log);
+      Expect.equals("@", e);
       asyncEnd();
     }
   );
