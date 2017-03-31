@@ -10,9 +10,9 @@
  *    If a future returned by f completes with an error, iteration ends and
  * the future returned by doWhile completes with the same error.
  *
- * @description Checks that if [f] throws error, then returned future is
- * completed with this error.
- * @author ngl@unipro.ru
+ * @description Checks that if [f] returns future, which completes with error,
+ * then returned future is completed with this error.
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
@@ -24,9 +24,9 @@ main() {
   int num = 0;
 
   dynamic f() {
-    if (num == 2) throw 5;
+    if (num == 2) return new Future.error("@");
     num++;
-    return (num < N);
+    return new Future.value(num < N);
   }
 
   asyncStart();
@@ -36,7 +36,7 @@ main() {
     },
     onError: (e) {
       Expect.equals(2, num);
-      Expect.equals(5, e);
+      Expect.equals("@", e);
       asyncEnd();
     }
   );

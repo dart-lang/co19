@@ -11,7 +11,7 @@
  *
  * @description Checks that if f returns non-Future, iteration continues
  * immediately. Future f() returns true;
- *
+ * @issue #29202
  * @author ngl@unipro.ru
  */
 import "../../../Utils/async_utils.dart";

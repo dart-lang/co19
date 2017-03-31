@@ -9,71 +9,29 @@
  * . . .
  * Otherwise it waits for the returned Future to complete.
  *
- * @description Checks that if f returns not completes future it waits for
- * the returned Future to complete.
+ * @description Checks that if [f] returns not completed future, [doWhile]
+ * waits for the returned Future to complete.
  * @author ngl@unipro.ru
  */
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-const N = 4;
-List<Completer> completers = new List<Completer>(N);
-List<Future> futures = new List<Future>(N);
-
-ontimeout() {
-  return null;
-}
+const int N = 4;
 
 main() {
   int num = 0;
 
-  // Initializatin of Lists
-  for (int k = 0; k < N; k++) {
-    completers[k] = new Completer();
-    futures[k] = completers[k].future;
+  Future f() {
+    num++;
+    return new Future.delayed(durationMs(100), () => (num < N));
   }
 
-  Future ff() {
-    if (num == 2) {
-      num++;
-      // refurn not completed future
-      return futures[2];
+  asyncStart();
+  Future.doWhile(f).then(
+    (_) {
+      Expect.equals(4, num);
+      asyncEnd();
     }
-    if (num < N) {
-      completers[num].complete(true);
-      // return future completed with frue
-      return futures[num++];
-    } else {
-      Completer c = new Completer();
-      c.complete(false);
-      // return future completed with false
-      return c.future;
-    }
-  }
-
-  Future f = Future.doWhile(ff);
-
-  asyncMultiStart(2);
-  f.then((fValue) {
-    Expect.equals(4, num);
-    asyncEnd();
-  })
-  .catchError((e) {
-    Expect.fail("Should not be here: error $e");
-    asyncEnd();
-  });
-
-  // Start timeout to complete not completed futures[2]
-  Future f1 = futures[2].timeout(new Duration(milliseconds:1),
-      onTimeout: ontimeout);
-
-  f1.then((fValue) {
-    Expect.equals(null, fValue);
-    Expect.equals(3, num);
-    // complete not commpleted future with true
-    completers[2].complete(true);
-    asyncEnd();
-  });
+  );
 }

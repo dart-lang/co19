@@ -11,22 +11,22 @@
  *    If a call to f returns false or a Future that completes to false,
  * iteration ends and the future returned by doWhile is completed.
  *
- * @description Checks that doWhile runs f repeatedly, if f returns true, and
- * returns a Future that completes once f returns false.
- * @author ngl@unipro.ru
+ * @description Checks that [doWhile] handles a mix of bool and Future<bool>
+ * values returned by [f].
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const int N = 3;
+const int N = 10;
 
 main() {
   int num = 0;
 
   dynamic f() {
     num++;
-    return num < N;
+    return (num%2==0) ? num < N : new Future.value(num < N);
   }
 
   asyncStart();
