@@ -9,7 +9,7 @@
  *
  * The returned sink serves as input for the long-running conversion. The given
  * sink serves as output.
- * @description Checks that this method transforms stream's events
+ * @description Checks that this method starts a chunked conversion
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
