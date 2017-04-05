@@ -30,7 +30,7 @@ main() {
   asyncStart();
   Future.doWhile(f).then(
     (_) {
-      Expect.equals(4, num);
+      Expect.equals(N, num);
       asyncEnd();
     }
   );

@@ -29,7 +29,7 @@ main() {
   }
 
   asyncStart();
-  Future future = Future.doWhile(f).then(
+  Future.doWhile(f).then(
     (_) {
       Expect.equals(N, num);
       asyncEnd();

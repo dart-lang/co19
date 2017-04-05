@@ -4,41 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future forEach(Iterable input, Future f(element))
+ * @assertion Future forEach(Iterable input, dynamic f(element))
  * Returns a Future that completes when all elements have been processed.
  * @description Checks that returned future completes when all elements have
  * been processed.
- * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
-import "../../../Utils/async_utils.dart";
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
-List input = [0,1,2,3,4];
-int N = input.length;
+void check(List input){
+  List<Completer> c = new List.generate(input.length, (_) => new Completer());
+  int k = 0;
 
-main() {
-  List<Completer> completers = new List<Completer>(N);
-  Future f;
-
-  for (int k = 0; k < N; k++) {
-    completers[k] = new Completer();
+  Future f(element) {
+    return c[k++].future;
   }
 
-  Future ff(int element) {
-    return completers[element].future;
-  }
-
-  f = Future.forEach(input, ff);
-
-  f.then((fValue) {
-    asyncEnd();
-  });
-
-  // complete the futures in reverse order
   asyncStart();
-  for (int k = N - 1; k >= 0; k--) {
-    completers[k].complete(k);
-  }
+  Future.forEach(input, f).then(
+    (_) {
+      Expect.isTrue(c.fold(true, (bool v, Completer x) => v && x.isCompleted));
+      asyncEnd();
+    }
+  );
+  // complete the futures in reverse order
+  c.reversed.forEach((Completer x) => x.complete(null));
 }
 
+main() {
+  check([0, 1, 2, 3, 4]);
+  check(["a", "b", "c", "d"]);
+  check([]);
+  check([0, null, "a", 3.14, true, false]);
+}

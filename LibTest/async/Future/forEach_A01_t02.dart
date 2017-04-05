@@ -8,8 +8,8 @@
  *    Perform an async operation for each element of the iterable, in turn.
  *    Runs f for each element in input in order, moving to the next element
  * only when the Future returned by f completes.
- * @description Checks that [f] is executed for each element in input with
- * respect to input order.
+ * @description Checks that Future returned by [f] is completed before next
+ * element is processed
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
@@ -20,13 +20,19 @@ void check(List input) {
   List log = [];
 
   Future f(element) {
-    log.add(element);
-    return new Future.value(null);
+    log.add("start");
+    try {
+      log.add(element);
+      return new Future.value(null);
+    } finally {
+      log.add("finish");
+    }
   }
 
   asyncStart();
+  List expected = input.expand((e)=>["start", e, "finish"]).toList();
   Future.forEach(input, f).then((_) {
-    Expect.listEquals(input, log);
+    Expect.listEquals(expected, log);
     asyncEnd();
   });
 }
@@ -37,4 +43,3 @@ main() {
   check([]);
   check([0, null, "a", 3.14, true, false]);
 }
-
