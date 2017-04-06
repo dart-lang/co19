@@ -8,7 +8,7 @@
  * Decodes the ASCII bytes (a list of unsigned 7-bit integers) to the
  * corresponding string.
  * ...
- * @description Checks that this method Decodes the ASCII bytes (a list of
+ * @description Checks that this method decodes the ASCII bytes (a list of
  * unsigned 7-bit integers) to the corresponding string
  * @author sgrekhov@unipro.ru
  */
@@ -23,5 +23,4 @@ main() {
   }
   Expect.equals("", codec.decode([]));
   Expect.equals("12345", codec.decode([0x31, 0x32, 0x33, 0x34, 0x35]));
-
 }
