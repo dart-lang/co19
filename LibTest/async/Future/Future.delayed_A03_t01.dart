@@ -5,25 +5,28 @@
  */
 /**
  * @assertion Future.delayed(Duration duration, [dynamic computation()])
- * If calling computation throws, the created future will complete with the
+ *    If calling computation throws, the created future will complete with the
  * error.
  * @description Checks that if calling computation() throws,
  * the created future will complete with the error.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(delay, value) {
-  Future future = new Future.delayed(durationMs(delay), () {throw value;});
   asyncStart();
-  future.then((fValue) {Expect.fail("should not get here");},
-    onError: (Object err) {
-      Expect.equals(value, err);
-    asyncEnd();
-  });
+  new Future.delayed(durationMs(delay), () {throw value;})
+    .then(
+      (v) {
+        Expect.fail("Created future should complete with error");
+      },
+      onError: (error) {
+        Expect.equals(value, error);
+        asyncEnd();
+      }
+    );
 }
 
 main() {
