@@ -37,20 +37,18 @@ main() {
       Expect.isTrue(completer.isCompleted);
       Expect.identical(value, x);
       asyncEnd();
-    })
-    .catchError((x) {
-      Expect.fail('should not be called');
     });
 
-  future2
-    .then((x) {
-      Expect.fail('should not be called');
-    })
-    .catchError((x) {
+  future2.then(
+    (_) {
+      Expect.fail("Created future should complete with error");
+    },
+    onError: (x) {
       Expect.isTrue(completer2.isCompleted);
       Expect.identical(value, x);
       asyncEnd();
-    });
+    }
+  );
 
   completer.complete(value);
   completer2.completeError(value);

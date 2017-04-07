@@ -25,27 +25,24 @@ import "../../../Utils/expect.dart";
 
 main() {
   var value = [1, 2, 3];
-
+  asyncMultiStart(2);
   Future future = new Future(() => new Future.value(value));
   Future future2 = new Future(() => new Future.error(value));
 
-  asyncStart();
-  future
-    .then((x) {
+  future.then(
+    (x) {
       Expect.identical(value, x);
       asyncEnd();
-    })
-    .catchError((x) {
-      Expect.fail('should not be called');
-    });
+    }
+  );
 
-  asyncStart();
-  future2
-    .then((x) {
-      Expect.fail('should not be called');
-    })
-    .catchError((x) {
+  future2.then(
+    (_) {
+      Expect.fail("Created future should complete with error");
+    },
+    onError: (x) {
       Expect.identical(value, x);
       asyncEnd();
-    });
+    }
+  );
 }

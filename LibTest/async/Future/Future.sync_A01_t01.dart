@@ -23,9 +23,9 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(value) {
+  asyncStart();
   Future future = new Future.sync(() => value);
 
-  asyncStart();
   future.then((fValue) {
     Expect.equals(fValue, value);
     asyncEnd();
