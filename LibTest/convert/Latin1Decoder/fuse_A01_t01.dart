@@ -21,10 +21,10 @@ check(Converter codec, List<int> toDecode) {
 }
 
 main() {
-  AsciiDecoder decoder = new AsciiDecoder();
-  Converter fused = decoder.fuse(new AsciiCodec().encoder);
+  Latin1Decoder decoder = new Latin1Decoder();
+  Converter fused = decoder.fuse(new Latin1Codec().encoder);
 
-  for (int i = 0; i < 128; i++) {
+  for (int i = 0; i < 256; i++) {
     check(fused, [i]);
   }
   check(fused, []);
