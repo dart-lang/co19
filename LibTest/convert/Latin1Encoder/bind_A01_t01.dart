@@ -22,7 +22,6 @@ import "../../../Utils/async_utils.dart";
 
 Future check(String str) async {
   Latin1Encoder encoder = new Latin1Encoder();
-  List<int> data = LATIN1.encode(str);
 
   await for (List<int> event in encoder.bind(new Stream.fromIterable([str]))) {
     Expect.listEquals(encoder.convert(str), event);

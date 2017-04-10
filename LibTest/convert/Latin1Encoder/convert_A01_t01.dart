@@ -11,7 +11,7 @@
  *  ])
  * Converts the String into a list of its code units.
  * ...
- * @description Checks that this method Converts the String into a list of its
+ * @description Checks that this method converts the String into a list of its
  * code units.
  * @author sgrekhov@unipro.ru
  */
