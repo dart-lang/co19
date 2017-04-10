@@ -5,41 +5,34 @@
  */
 /**
  * @assertion Future then(dynamic onValue(T value), {Function onError})
- * If the callback returns a Future, the future returned by then will be
+ *    If the callback returns a Future, the future returned by then will be
  * completed with the same result as the future returned by the callback.
- * @description Checks that the future returned by then completes with the same
+ * @description Checks that the future returned by [then] completes with the same
  * result as the future returned by the callback.
- * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  Completer completer = new Completer();
-  Future f = completer.future;
-
-  Completer completer2 = new Completer();
-  Future f2 = completer2.future;
-
+check(Object value) {
   asyncStart();
-  Future f1 = f.then((fValue) {
-    asyncEnd();
-    return f2;
-  });
+  new Future.value("1").then(
+      (_) {
+        return new Future.value(value);
+      }
+  ).then(
+      (v) {
+        Expect.identical(value, v);
+        asyncEnd();
+      }
+  );
+}
 
-  int res = null;
-  Object err = null;
-  Future f3 = f1.then(
-    (int fValue) {res = fValue;},
-    onError: (Object e) {err = e;}
-   );
-
-  runAfter(f3, (){
-    Expect.equals(2, res);
-    Expect.equals(null, err);
-  });
-
-  completer.complete();
-  completer2.complete(2);
+main() {
+  check("0");
+  check(20);
+  check(null);
+  check(3.14);
+  check(new Object());
 }
