@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Future then(dynamic onValue(T value), {Function onError})
- * If the callback returns a Future, the future returned by then will be
+ *    If the callback returns a Future, the future returned by then will be
  * completed with the same result as the future returned by the callback.
  * @description Checks that if returned future is this future, f completes with
  * this future's value.

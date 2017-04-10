@@ -5,16 +5,16 @@
  */
 /**
  * @assertion Future then(dynamic onValue(T value), {Function onError})
- * When this future completes with a value, the onValue callback will be called
- * with that value. If this future is already completed, the callback will not
- * be called immediately, but will be scheduled in a later microtask.
+ *    Register callbacks to be called when this future completes.
+ *    When this future completes with a value, the onValue callback will be
+ * called with that value. If this future is already completed, the callback
+ * will not be called immediately, but will be scheduled in a later microtask.
  * . . .
- * Returns a new Future which is completed with the result of the call to
+ *    Returns a new Future which is completed with the result of the call to
  * onValue (if this future completes with a value) or to onError (if this
  * future completes with an error).
  * @description Checks that the correct value is passes to [onValue].
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
@@ -24,7 +24,7 @@ class C {
   const C();
 }
 
-check(value) {
+voidd check(Object value) {
   Completer completer = new Completer();
   Future f = completer.future;
   f.then((fValue) {
