@@ -19,9 +19,15 @@ main() {
   var obj1 = new Int8List(0).buffer;
   var obj2 = new Int8List(0).buffer;
   var obj3 = obj1;
+  var obj4 = obj1;
 
-  Expect.isTrue(obj1 == obj3);
   Expect.isTrue(obj1 == obj1);
+  Expect.isTrue(obj1 == obj3);
+  Expect.isTrue(obj3 == obj1);
+  Expect.isTrue(obj1 == obj4);
+  Expect.isTrue(obj4 == obj1);
+  Expect.isTrue(obj3 == obj4);
+  Expect.isTrue(obj4 == obj3);
   Expect.isFalse(obj2 == obj3);
   Expect.isFalse(obj1 == obj2);
 }

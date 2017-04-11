@@ -6,7 +6,7 @@
 /**
  * @assertion final int lengthInBytes
  * Returns the length of this view, in bytes.
- * @description Checks that [lengthInBytes] is final and can't be set.
+ * @description Checks that [lengthInBytes] is read-only and can't be set.
  * @author msyabro
  */
 import "dart:typed_data";
@@ -17,7 +17,7 @@ void check(count) {
   try {
     buffer.lengthInBytes = 0;
     Expect.fail("[lengthInBytes] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }
 
 main() {
