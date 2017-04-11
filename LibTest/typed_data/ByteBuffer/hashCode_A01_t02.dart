@@ -8,13 +8,12 @@
  * Get a hash code for this object. Hash codes are guaranteed to be
  * the same for objects that are equal when compared using the equality
  * operator ==.
- * @description Checks that [hashCode] is final and can't be set.
+ * @description Checks that [hashCode] is read-only and can't be set.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-
 
 main() {
   dynamic list = new Int8List(10);
@@ -22,5 +21,5 @@ main() {
   try {
     buffer.hashCode = 1;
     Expect.fail("[hashCode] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError catch (ok) {}
 }

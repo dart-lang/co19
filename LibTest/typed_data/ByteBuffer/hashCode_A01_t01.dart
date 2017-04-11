@@ -16,7 +16,6 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-
 main() {
   var obj1 = new Int8List(10).buffer;
   var obj2 = new Int8List(10).buffer;
