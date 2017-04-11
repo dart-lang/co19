@@ -5,7 +5,7 @@
  */
 /**
  * @assertion JsonDecoder decoder
- * @description Checks that this property returns JsonDecoder with works as
+ * @description Checks that this property returns JsonDecoder which works as
  * expected
  * @author sgrekhov@unipro.ru
  */

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Utf8Decoder decoder
- * @description Checks that this property returns Utf8Decoder with works as
+ * @description Checks that this property returns Utf8Decoder which works as
  * expected
  * @author sgrekhov@unipro.ru
  */
