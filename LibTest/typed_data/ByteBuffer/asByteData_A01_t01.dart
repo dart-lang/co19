@@ -21,21 +21,21 @@ import "../../../Utils/expect.dart";
 void check(ByteBuffer buffer, int list_length, int elsize_inbytes) {
   ByteData res = buffer.asByteData(0);
   ByteData res1 = buffer.asByteData(0);
-  int veiw_size_in_bytes = res.lengthInBytes;
+  int viewSizeInBytes = res.lengthInBytes;
 
   Expect.isTrue(res is ByteData);
-  Expect.equals(list_length * elsize_inbytes, veiw_size_in_bytes);
+  Expect.equals(list_length * elsize_inbytes, viewSizeInBytes);
 
-  if (veiw_size_in_bytes != 0) {
+  if (viewSizeInBytes != 0) {
     // set value to the first byte of res1
     res1.setInt8(0, 2);
     // the first byte of res is equal to the set value
     Expect.equals(2, res.getInt8(0));
 
     // set value to the last byte of res
-    res.setInt8(veiw_size_in_bytes - 1, 4);
+    res.setInt8(viewSizeInBytes - 1, 4);
     // the last byte of res1 is equal to the set value
-    Expect.equals(4, res1.getInt8(veiw_size_in_bytes - 1));
+    Expect.equals(4, res1.getInt8(viewSizeInBytes - 1));
   }
   Expect.notEquals(res, res1);
   Expect.equals(res.buffer, res1.buffer);

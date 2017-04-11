@@ -20,39 +20,39 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   ByteData res = buffer.asByteData(0);
-  int view_size_in_bytes = res.lengthInBytes;
+  int viewSizeInBytes = res.lengthInBytes;
   int offset1 = 1;
-  int length1 = view_size_in_bytes - offset1 - 1;
+  int length1 = viewSizeInBytes - offset1 - 1;
   int offset2 = 3;
   ByteData res1 = buffer.asByteData(offset1, length1);
   ByteData res2 = buffer.asByteData(offset2);
-  int view1_size_in_bytes = res1.lengthInBytes;
-  int view2_size_in_bytes = res2.lengthInBytes;
+  int view1SizeInBytes = res1.lengthInBytes;
+  int view2SizeInBytes = res2.lengthInBytes;
 
   Expect.isTrue(res is ByteData);
   Expect.isTrue(res1 is ByteData);
   Expect.isTrue(res2 is ByteData);
-  Expect.equals(length1, view1_size_in_bytes);
-  Expect.equals(view_size_in_bytes - offset2, view2_size_in_bytes);
+  Expect.equals(length1, view1SizeInBytes);
+  Expect.equals(viewSizeInBytes - offset2, view2SizeInBytes);
 
-  if (view_size_in_bytes != 0) {
+  if (viewSizeInBytes != 0) {
     // set value to the first byte of res1
     res1.setInt8(0, 2);
     // offset1 byte of res is equal to the set value
     Expect.equals(2, res.getInt8(offset1));
     // set value to the last byte of res1
-    res1.setInt8(view1_size_in_bytes - 1, 4);
+    res1.setInt8(view1SizeInBytes - 1, 4);
     // (offset1 + view1_size_in_bytes - 1) byte of res is equal to the set value
-    Expect.equals(4, res.getInt8(offset1 + view1_size_in_bytes - 1));
+    Expect.equals(4, res.getInt8(offset1 + view1SizeInBytes - 1));
 
     // set value to the first byte of res2
     res2.setInt8(0, 3);
     // offset2 byte of res is equal to the set value
     Expect.equals(3, res.getInt8(offset2));
     // set value to the last byte of res2
-    res2.setInt8(view2_size_in_bytes - 1, 5);
+    res2.setInt8(view2SizeInBytes - 1, 5);
     // the last byte of res is equal to the set value
-    Expect.equals(5, res.getInt8(view_size_in_bytes - 1));
+    Expect.equals(5, res.getInt8(viewSizeInBytes - 1));
   }
 }
 
