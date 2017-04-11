@@ -13,38 +13,24 @@
  * @description Checks that if onTimeout is omitted, a timeout causes the
  * returned future to complete with a TimeoutException.
  * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
  */
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-check(var value) {
-  Completer c = new Completer();
-  Future future = c.future;
-
-  Future f1 = future.timeout(new Duration(microseconds:1));
-
-  asyncStart();
-  f1.then((fValue) {
-    Expect.fail("Shouldnot be here");
-    asyncEnd();
-  },
-  onError: (e) {
-    Expect.isTrue(e is TimeoutException);
-    asyncEnd();
-  }
-  );
-}
-
 main() {
-  check(0);
-  check(1);
-  check(-5);
-  check('');
-  check('string');
-  check(null);
-  check(true);
-  check(const []);
-  check(const {'k1': 1, 'k2': 2});
+  asyncStart();
+  Completer completer = new Completer();
+  completer.future.timeout(
+      new Duration(microseconds:1)
+  ).then(
+      (_) {
+        Expect.fail("Returned future should complete with error");
+      },
+      onError: (e) {
+        Expect.isTrue(e is TimeoutException);
+        asyncEnd();
+      }
+  );
 }

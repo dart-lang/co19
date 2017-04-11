@@ -16,38 +16,22 @@
  * passed, the onTimeout action is executed instead. The onTimeout returns new
  * Future completed with 55.
  * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
  */
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-ontimeout() {
-  return new Future(() => 55);
-}
-
-check(var value) {
-  Completer c = new Completer();
-  Future future = c.future;
-
-  Future f1 = future.timeout(new Duration(microseconds:1),
-      onTimeout: ontimeout);
-
-  asyncStart();
-  f1.then((fValue) {
-    Expect.identical(55, fValue);
-    asyncEnd();
-  });
-}
-
 main() {
-  check(0);
-  check(1);
-  check(-5);
-  check('');
-  check('string');
-  check(null);
-  check(true);
-  check(const []);
-  check(const {'k1': 1, 'k2': 2});
+  asyncStart();
+  Completer completer = new Completer();
+  completer.future.timeout(
+      new Duration(microseconds:1),
+      onTimeout: () => new Future.value(55)
+  ).then(
+    (value) {
+      Expect.equals(55, value);
+      asyncEnd();
+    }
+  );
 }

@@ -15,45 +15,27 @@
  * @description Checks that if future does not complete before timeLimit has
  * passed, the onTimeout action is executed instead. The onTimeout throws error.
  * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
  */
+import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-Error error = new Error();
-
-ontimeout() {
-  throw error;
-}
-
-check(var value) {
-  Completer c = new Completer();
-  Future future = c.future;
-
-  Future f1 = future.timeout(new Duration(microseconds:1),
-      onTimeout: ontimeout);
-
+main() {
+  Error error = new Error();
   asyncStart();
-  f1.then((fValue) {
-    Expect.fail("Should not be here");
-    asyncEnd();
-  },
-  onError: (e) {
-    Expect.equals(error, e);
-    asyncEnd();
-  }
+  Completer completer = new Completer();
+  completer.future.timeout(
+      new Duration(microseconds:1),
+      onTimeout: () => throw error
+  ).then(
+      (_) {
+        Expect.fail("Returned future should complete with error");
+      },
+      onError: (e) {
+        Expect.identical(error, e);
+        asyncEnd();
+      }
   );
 }
 
-main() {
-  check(0);
-  check(1);
-  check(-5);
-  check('');
-  check('string');
-  check(null);
-  check(true);
-  check(const []);
-  check(const {'k1': 1, 'k2': 2});
-}
