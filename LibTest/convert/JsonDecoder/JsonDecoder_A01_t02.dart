@@ -7,7 +7,7 @@
  * @assertion const JsonDecoder([reviver(key, value)])
  * Constructs a new JsonDecoder.
  * The reviver may be null.
- * @description Checks that this constructor creates decoder with works as
+ * @description Checks that this constructor creates decoder which works as
  * expected. Test constructor with reviver parameter
  * @author sgrekhov@unipro.ru
  */

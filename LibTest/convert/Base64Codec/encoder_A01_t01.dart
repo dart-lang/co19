@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Base64Encoder encoder
- * @description Checks that this property returns Base64Encoder with works as
+ * @description Checks that this property returns Base64Encoder which works as
  * expected
  * @author sgrekhov@unipro.ru
  */
