@@ -22,7 +22,6 @@
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../JsonDecoder/table1.lib.dart" show table;
 
 check(Encoding encoding, String toEncode) {
   Codec inverted = encoding.inverted;
@@ -35,5 +34,4 @@ main() {
   check(Encoding.getByName("us-ascii"), "123abs-");
   check(Encoding.getByName("iso-8859-1"), "âã");
   check(Encoding.getByName("utf-8"), "Кириллица прекрасна");
-
 }
