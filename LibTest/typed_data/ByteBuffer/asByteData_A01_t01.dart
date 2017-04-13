@@ -9,7 +9,7 @@
  * The view is backed by the bytes of this byte buffer. Any changes made to
  * the ByteData will also change the buffer, and vice versa.
  * @description Checks that method asByteData creates a ByteData view of a
- * region of this byte buffer and any changes made to ByteData will also change
+ * region of this byte buffer, and any changes made to ByteData will also change
  * the buffer, and vice versa. The checking is done for buffers of lists with
  * different elements size.
  * @author ngl@unipro.ru
@@ -18,13 +18,14 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(ByteBuffer buffer, int list_length, int elsize_inbytes) {
+void check(ByteBuffer buffer) {
+  int bufSizeInBytes = buffer.lengthInBytes;
   ByteData res = buffer.asByteData(0);
   ByteData res1 = buffer.asByteData(0);
   int viewSizeInBytes = res.lengthInBytes;
 
   Expect.isTrue(res is ByteData);
-  Expect.equals(list_length * elsize_inbytes, viewSizeInBytes);
+  Expect.equals(bufSizeInBytes, viewSizeInBytes);
 
   if (viewSizeInBytes != 0) {
     // set value to the first byte of res1
@@ -53,38 +54,23 @@ main() {
   var list4 = new Int32x4List(5);
   int list4_length = list4.length;
 
-  check((new Int8List.fromList(list0)).buffer, list0_length,
-      Int8List.BYTES_PER_ELEMENT);
-  check((new Int8List.fromList(list1)).buffer, list1_length,
-      Int8List.BYTES_PER_ELEMENT);
-  check((new Int8List.fromList(list2)).buffer, list2_length,
-      Int8List.BYTES_PER_ELEMENT);
+  check((new Int8List.fromList(list0)).buffer);
+  check((new Int8List.fromList(list1)).buffer);
+  check((new Int8List.fromList(list2)).buffer);
 
-  check((new Int16List.fromList(list0)).buffer, list0_length,
-      Int16List.BYTES_PER_ELEMENT);
-  check((new Int16List.fromList(list1)).buffer, list1_length,
-      Int16List.BYTES_PER_ELEMENT);
-  check((new Int16List.fromList(list2)).buffer, list2_length,
-      Int16List.BYTES_PER_ELEMENT);
+  check((new Int16List.fromList(list0)).buffer);
+  check((new Int16List.fromList(list1)).buffer);
+  check((new Int16List.fromList(list2)).buffer);
 
-  check((new Int32List.fromList(list0)).buffer, list0_length,
-      Int32List.BYTES_PER_ELEMENT);
-  check((new Int32List.fromList(list1)).buffer, list1_length,
-      Int32List.BYTES_PER_ELEMENT);
-  check((new Int32List.fromList(list2)).buffer, list2_length,
-      Int32List.BYTES_PER_ELEMENT);
+  check((new Int32List.fromList(list0)).buffer);
+  check((new Int32List.fromList(list1)).buffer);
+  check((new Int32List.fromList(list2)).buffer);
 
-  check((new Int64List.fromList(list0)).buffer, list0_length,
-      Int64List.BYTES_PER_ELEMENT);
-  check((new Int64List.fromList(list1)).buffer, list1_length,
-      Int64List.BYTES_PER_ELEMENT);
-  check((new Int64List.fromList(list2)).buffer, list2_length,
-      Int64List.BYTES_PER_ELEMENT);
+  check((new Int64List.fromList(list0)).buffer);
+  check((new Int64List.fromList(list1)).buffer);
+  check((new Int64List.fromList(list2)).buffer);
 
-  check((new Int32x4List.fromList(list0)).buffer, list0_length,
-      Int32x4List.BYTES_PER_ELEMENT);
-  check((new Int32x4List.fromList(list3)).buffer, list3_length,
-      Int32x4List.BYTES_PER_ELEMENT);
-  check((new Int32x4List.fromList(list4)).buffer, list4_length,
-      Int32x4List.BYTES_PER_ELEMENT);
+  check((new Int32x4List.fromList(list0)).buffer);
+  check((new Int32x4List.fromList(list3)).buffer);
+  check((new Int32x4List.fromList(list4)).buffer);
 }

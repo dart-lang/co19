@@ -12,7 +12,7 @@
  *  - length must not be negative, and
  *  - offsetInBytes + length must not be greater than lengthInBytes.
  * @description Checks that creating ByteData view with negative offset,
- * negative length, or length + offset greater then buffer length causes
+ * negative length, or 'length + offset' greater then buffer length causes
  * throwing error at runtime.
  * @author ngl@unipro.ru
  */
@@ -22,11 +22,11 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   // creates ByteData view with negative offset
-  Expect.throws(() {buffer.asByteData(-1);} );
+  Expect.throws(() {buffer.asByteData(-1);});
   // creates ByteData view with negative length
-  Expect.throws(() {buffer.asByteData(1, -8);} );
+  Expect.throws(() {buffer.asByteData(1, -8);});
   // creates ByteData view with length + offset greater then buffer length
-  Expect.throws(() {buffer.asByteData(1, buffer.lengthInBytes);} );
+  Expect.throws(() {buffer.asByteData(1, buffer.lengthInBytes);});
 }
 
 main() {

@@ -9,9 +9,9 @@
  * ...
  * The viewed region start at offsetInBytes and contains length bytes. If length
  * is omitted, the range extends to the end of the buffer.
- * @description Checks that the viewed region start at offsetInBytes and
- * contains length bytes. When length is omitted, the range extends to the end
- * of the buffer.
+ * @description Checks that the created viewed region begins with offsetInBytes
+ * bite and contains length bytes. When length is omitted, the range extends to
+ * the end of the buffer.
  * @author ngl@unipro.ru
  */
 
