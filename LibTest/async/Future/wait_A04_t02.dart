@@ -13,56 +13,35 @@
  * non-null result of a successful future is passed to cleanUp (case when
  * eagerError: true).
  * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const N = 5;
-
 main() {
-  List<Completer> completers = new List<Completer>(N);
-  for (int k = 0; k < N; k++) {
-    completers[k] = new Completer();
-  }
-  List<Future> futures = new List<Future>(N);
-  for (int k = 0; k < N; k++) {
-    futures[k] = completers[k].future;
-  }
-
-  List<bool> sucValues = [true, false, false, true, true];
-
-  void check(successValue) {
-    Expect.isTrue(sucValues[successValue]);
-    sucValues[successValue] = false;
-    if (successValue == N - 1) {
-      Expect.listEquals([false, false, false, false, false], sucValues);
-    }
-   // print("$successValue $sucValues");
-  }
-
-  Future f = Future.wait(futures, eagerError: true, cleanUp: check);
+  List<Completer> completers = new List.generate(5, (_) => new Completer());
+  Iterable<Future> futures = completers.map((Completer c) => c.future);
+  List successful = [];
 
   asyncStart();
-  f.then(
-      (value) {
-        Expect.fail("Should not be here");
-        asyncEnd();
+  Future.wait(futures, eagerError: true, cleanUp: (v) => successful.add(v))
+    .then(
+      (_) {
+        Expect.fail("Returned future should complete with error");
       },
-      onError: (Object err) {
+      onError: (Object error) {
+        Expect.equals(1, error);
         Expect.isTrue(completers[0].isCompleted);
         Expect.isTrue(completers[1].isCompleted);
-        Expect.isFalse(completers[2].isCompleted);
-        Expect.isFalse(completers[3].isCompleted);
         Expect.isFalse(completers[4].isCompleted);
-        completers[2].completeError(2);
-        completers[3].complete(3);
-        completers[4].complete(4);
+        Expect.listEquals([0], successful);
         asyncEnd();
       }
-  );
+    );
 
   completers[0].complete(0);
   completers[1].completeError(1);
-
+  completers[2].completeError(2);
+  completers[3].complete(3);
 }

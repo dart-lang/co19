@@ -21,24 +21,16 @@ import "../../../Utils/expect.dart";
 const N = 5;
 
 main() {
-  List<Completer> completers = new List<Completer>(N);
-  for (int k = 0; k < N; k++) {
-    completers[k] = new Completer();
-  }
-  List<Future> futures = new List<Future>(N);
-  for (int k = 0; k < N; k++) {
-    futures[k] = completers[k].future;
-  }
-
-  for (int k = 0; k < N; k++) {
-    completers[k].complete(k);
-  }
-
-  Future f = Future.wait(futures);
+  List<Completer> completers = new List.generate(5, (_)=> new Completer());
+  Iterable<Future> futures = completers.map((Completer c) => c.future);
+  int i = 0;
+  completers.forEach((Completer c) => c.complete(i++));
 
   asyncStart();
-  f.then((value) {
-    Expect.listEquals([0, 1, 2, 3, 4], value);
-    asyncEnd();
-  });
+  Future.wait(futures)
+    .then((value) {
+      List expected = new List.generate(completers.length, (i) => i);
+      Expect.listEquals(expected, value);
+      asyncEnd();
+    });
 }

@@ -12,7 +12,6 @@
  * @description Checks that the returned future has the correct value if
  * a list is empty.
  * @author msyabro
- * @reviewer iefremov
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
