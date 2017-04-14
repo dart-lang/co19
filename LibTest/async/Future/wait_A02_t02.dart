@@ -10,8 +10,8 @@
  * future also completes with an error.
  * Otherwise the value of the returned future will be a list of all the values
  * that were produced.
- * @description Checks that the returned future is completed when a single
- * future in the list is completed with exception.
+ * @description Checks that the returned future is completed with error if
+ * a single future in the list is completed with error.
  * @author iefremov
  */
 import "dart:async";
@@ -36,10 +36,11 @@ main() {
   asyncStart();
   f.then(
       (value) {
-        Expect.fail("Should not be here");
+        Expect.fail("Returned future should complete with error");
         asyncEnd();
       },
-      onError: (Object err) {
+      onError: (Object error) {
+        Expect.equals(1, error);
         Expect.isTrue(completer1.isCompleted);
         Expect.isTrue(completer2.isCompleted);
         Expect.isTrue(completer3.isCompleted);

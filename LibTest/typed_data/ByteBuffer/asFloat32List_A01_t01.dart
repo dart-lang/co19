@@ -4,14 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ByteData asByteData([int offsetInBytes = 0, int length ])
- * Creates a ByteData view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to
- * the ByteData will also change the buffer, and vice versa.
- * @description Checks that method asByteData creates a ByteData view of a
- * region of this byte buffer, and any changes made to ByteData will also change
- * the buffer, and vice versa. The checking is done for buffers of lists with
- * different elements size.
+ * @assertion Float32List asFloat32List([int offsetInBytes = 0, int length ])
+ * Creates a Float32List view of a region of this byte buffer.
+ * The view is backed by the bytes of this byte buffer. Any changes made to the
+ * Float32List will also change the buffer, and vice versa.
+ * @description Checks that method asFloat32List creates a Float32List view of
+ * a region of this byte buffer, and any changes made to Float32List will also
+ * change the buffer, and vice versa.
  * @author ngl@unipro.ru
  */
 
@@ -20,23 +19,27 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  ByteData res = buffer.asByteData(0);
-  ByteData res1 = buffer.asByteData(0);
+  Float32List res = buffer.asFloat32List(0);
+  Float32List res1 = buffer.asFloat32List(0);
   int viewSizeInBytes = res.lengthInBytes;
+  int viewLength = res.length;
+  int shift = (Float32List.BYTES_PER_ELEMENT == 4) ? 2 : 0;
 
-  Expect.isTrue(res is ByteData);
-  Expect.equals(bufSizeInBytes, viewSizeInBytes);
+  Expect.isTrue(res is Float32List);
+  Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
-    // set value to the first byte of res1
-    res1.setInt8(0, 2);
-    // the first byte of res is equal to the set value
-    Expect.equals(2, res.getInt8(0));
+    Expect.equals(res[0], res1[0]);
 
-    // set value to the last byte of res
-    res.setInt8(viewSizeInBytes - 1, 4);
-    // the last byte of res1 is equal to the set value
-    Expect.equals(4, res1.getInt8(viewSizeInBytes - 1));
+    // set value to the first element of res1
+    res1[0] = 2.0;
+    // the first element of res is equal to set value
+    Expect.equals(2.0, res[0]);
+
+    // set value to the last element of res
+    res[viewLength - 1] = 4.0;
+    // the last element of res1 is equal to set value
+    Expect.equals(4.0, res1[viewLength - 1]);
   }
   Expect.notEquals(res, res1);
   Expect.equals(res.buffer, res1.buffer);
@@ -45,9 +48,9 @@ void check(ByteBuffer buffer) {
 main() {
   var list0 = new List(0);
   int list0_length = list0.length;
-  var list1 = new List.filled(1, 0);
+  var list1 = new List.filled(5, 0);
   int list1_length = list1.length;
-  var list2 = new List.filled(5, 0);
+  var list2 = new List.filled(8, 0);
   int list2_length = list2.length;
   var list3 = new Int32x4List(1);
   int list3_length = list3.length;

@@ -27,8 +27,7 @@ main() {
   completer.complete(20);
 
   Completer completer2 = new Completer();
-  Future f2 = completer2.future;
-  f2.whenComplete(action).catchError((e) {});
+  completer2.future.whenComplete(action).catchError((e) {});
   asyncStart();
   completer2.completeError(22);
 }

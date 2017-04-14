@@ -11,50 +11,36 @@
  * complete.
  * @description Checks that the returned future is completed when all futures
  * in the list are completed.
- * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const N = 5;
-const N2 = 3;
-
 main() {
-  List<Completer> completers = new List<Completer>(N);
-  for (int k = 0; k < N; k++) {
-    completers[k] = new Completer();
-  }
-  List<Future> futures = new List<Future>(N);
-  for (int k = 0; k < N; k++) {
-    futures[k] = completers[k].future;
-  }
+  List<Completer> completers = new List.generate(5, (_)=> new Completer());
+  Iterable<Future> futures = completers.map((Completer c) => c.future);
 
-  Future f = Future.wait(futures);
-
-  bool visited = false;
+  bool futureCompleted = false;
   asyncStart();
-  f.then((value) {
-    visited = true;
-    Expect.listEquals([0, 1, 2, 3, 4], value);
-    asyncEnd();
-  });
-
-  // complete first half of the futures
-  for (int k = 0; k < N2; k++) {
-    completers[k].complete(k);
-  }
-
-  // future f is not completed
-  runLater(() {
-    Expect.isFalse(visited);
-
-    // complete second half of the futures
-    for (int k = N2; k < N; k++) {
-      completers[k].complete(k);
+  Future.wait(futures).then(
+    (value) {
+      futureCompleted = true;
+      List expected = new List.generate(completers.length, (i) => i);
+      Expect.listEquals(expected, value);
+      asyncEnd();
     }
+  );
 
-    // future f is now completed, test harness checks asyncEnd() invoked
-  });
-
+  int i = 0;
+  new Timer.periodic(
+      durationMs(50),
+      (Timer t){
+        Expect.isFalse(futureCompleted);
+        completers[i].complete(i);
+        if (++i == completers.length) {
+          t.cancel();
+        }
+      }
+  );
 }

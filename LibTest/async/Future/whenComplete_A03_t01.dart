@@ -19,10 +19,16 @@ main() {
 
   Completer completer = new Completer();
   Future f0 = completer.future;
-  f0.whenComplete(() {throw value;}).catchError((Object err) {
-    Expect.equals(value, err);
-    asyncEnd();
-  });
+  f0.whenComplete(
+    () {
+      throw value;
+    }
+  ).catchError(
+    (Object error) {
+      Expect.equals(value, error);
+      asyncEnd();
+    }
+  );
 
   asyncStart();
   completer.complete(0);

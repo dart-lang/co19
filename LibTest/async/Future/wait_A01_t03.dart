@@ -12,7 +12,6 @@
  * @description Checks that the value of the returned future is a list of all
  * values that were produced.
  * @author msyabro
- * @reviewer iefremov
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
@@ -31,13 +30,12 @@ main() {
   var future4 = completer4.future;
   var future5 = completer5.future;
 
-  var f = Future.wait([future1, future2, future3, future4, future5]);
-
   asyncStart();
-  f.then((value) {
-    Expect.listEquals([1, 2, 3, 4, 5], value);
-    asyncEnd();
-  });
+  Future.wait([future1, future2, future3, future4, future5])
+    .then((value) {
+      Expect.listEquals([1, 2, 3, 4, 5], value);
+      asyncEnd();
+    });
 
   completer1.complete(1);
   completer2.complete(2);

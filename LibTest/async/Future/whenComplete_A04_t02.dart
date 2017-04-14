@@ -29,7 +29,7 @@ main() {
   asyncStart();
   f.then(
       (var v) {
-        Expect.fail('should not be called');
+        Expect.fail("Returned future should complete with error");
       },
       onError: (Object e) {
         Expect.equals(value, e);

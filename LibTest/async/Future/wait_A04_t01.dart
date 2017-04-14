@@ -10,51 +10,34 @@
  * successful future is passed to cleanUp, which can then release any resources
  * that the successful operation allocated.
  * @description Checks if cleanUp is provided, in the case of an error, any
- * non-null result of a successful future is passed to cleanUp (case when
- * eagerError: false).
+ * non-null result of a successful future is passed to cleanUp (eagerError is
+ * false).
  * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const N = 5;
-
 main() {
-  List<Completer> completers = new List<Completer>(N);
-  for (int k = 0; k < N; k++) {
-    completers[k] = new Completer();
-  }
-  List<Future> futures = new List<Future>(N);
-  for (int k = 0; k < N; k++) {
-    futures[k] = completers[k].future;
-  }
-
-  List<bool> sucValues = [true, false, false, true, true];
-
-  void check(successValue) {
-    Expect.isTrue(sucValues[successValue]);
-    sucValues[successValue] = false;
-  }
-
-  Future f = Future.wait(futures, eagerError: false, cleanUp: check);
+  List<Completer> completers = new List.generate(5, (_)=> new Completer());
+  Iterable<Future> futures = completers.map((Completer c) => c.future);
+  List successful = [];
 
   asyncStart();
-  f.then(
-      (value) {
-        Expect.fail("Should not be here");
-        asyncEnd();
-      },
-      onError: (Object err) {
-        Expect.isTrue(completers[0].isCompleted);
-        Expect.isTrue(completers[1].isCompleted);
-        Expect.isTrue(completers[2].isCompleted);
-        Expect.isTrue(completers[3].isCompleted);
-        Expect.isTrue(completers[4].isCompleted);
-        Expect.listEquals([false, false, false, false, false], sucValues);
-        asyncEnd();
-      }
-  );
+  Future.wait(futures, eagerError: false, cleanUp: (v) => successful.add(v))
+     .then(
+        (_) {
+          Expect.fail("Returned future should complete with error");
+        },
+        onError: (Object error) {
+          Expect.isTrue(error==1 || error==2, "error: $error, expected 1 or 2");
+          Expect.isTrue(completers.fold(true, (r,v) => r && v.isCompleted));
+          successful.sort();
+          Expect.listEquals([0, 3, 4], successful);
+          asyncEnd();
+        }
+     );
 
   completers[0].complete(0);
   completers[1].completeError(1);
