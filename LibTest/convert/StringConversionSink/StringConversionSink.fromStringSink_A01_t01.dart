@@ -19,7 +19,8 @@ main() {
   StringBuffer stringSink = new StringBuffer();
   stringSink.write("initial:");
 
-  StringConversionSink outSink = new StringConversionSink.fromStringSink(stringSink);
+  StringConversionSink outSink =
+    new StringConversionSink.fromStringSink(stringSink);
 
   ByteConversionSink inSink = ASCII.decoder.startChunkedConversion(outSink);
   var list = ASCII.encode("12345");
