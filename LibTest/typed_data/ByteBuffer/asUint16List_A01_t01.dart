@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int32List asInt32List([int offsetInBytes = 0, int length ])
- * Creates a Int32List view of a region of this byte buffer.
+ * @assertion Uint16List asUint16List([int offsetInBytes = 0, int length ])
+ * Creates a Uint16List view of a region of this byte buffer.
  * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Int32List will also change the buffer, and vice versa.
- * @description Checks that method asInt32List creates a Int32List view of
- * a region of this byte buffer, and any changes made to Int32List will also
+ * Uint16List will also change the buffer, and vice versa.
+ * @description Checks that method asUint16List creates a Uint16List view of
+ * a region of this byte buffer, and any changes made to Uint16List will also
  * change the buffer, and vice versa.
  * @author ngl@unipro.ru
  */
@@ -19,13 +19,13 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Int32List res = buffer.asInt32List(0);
-  Int32List res1 = buffer.asInt32List(0);
+  Uint16List res = buffer.asUint16List(0);
+  Uint16List res1 = buffer.asUint16List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Int32List.BYTES_PER_ELEMENT == 4) ? 2 : 0;
+  int shift = (Uint16List.BYTES_PER_ELEMENT == 2) ? 1 : 0;
 
-  Expect.isTrue(res is Int32List);
+  Expect.isTrue(res is Uint16List);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
