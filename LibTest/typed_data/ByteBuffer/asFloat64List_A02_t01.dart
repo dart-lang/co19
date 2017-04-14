@@ -36,19 +36,17 @@ void check(ByteBuffer buffer) {
 
   // Float64List view of a byte buffer with offset1 and length1
   Float64List res1 = buffer.asFloat64List(offset1, length1);
-  int view1SizeInBytes = res1.lengthInBytes;
   int view1Length = res1.length;
 
   // Float64List view of a byte buffer with offset2
   Float64List res2 = buffer.asFloat64List(offset2);
-  int view2SizeInBytes = res2.lengthInBytes;
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Float64List);
   Expect.isTrue(res2 is Float64List);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
-print('$bufSizeInBytes $viewSizeInBytes');
+
   if (viewSizeInBytes != 0) {
     // set value to the first element of res1
     res1[0] = 2.0;

@@ -18,6 +18,6 @@ main() {
   try {
     obj.runtimeType = null;
     Expect.fail("[runtimeType] should be final");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError /*catch (ok)*/ {}
 }
 
