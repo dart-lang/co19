@@ -9,7 +9,7 @@
  *
  * The converter works more efficiently if the given sink is
  * a ByteConversionSink.
- * @description Checks that this method transforms stream's events
+ * @description Checks that this method starts a chunked conversion.
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";

@@ -22,7 +22,6 @@ import "../../../Utils/async_utils.dart";
 
 Future check(String str) async {
   AsciiEncoder encoder = new AsciiEncoder();
-  List<int> data = ASCII.encode(str);
 
   await for (List<int> event in encoder.bind(new Stream.fromIterable([str]))) {
     Expect.listEquals(encoder.convert(str), event);
