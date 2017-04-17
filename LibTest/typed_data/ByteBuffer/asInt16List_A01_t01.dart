@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Float64List asFloat64List([int offsetInBytes = 0, int length ])
- * Creates a Float64List view of a region of this byte buffer.
+ * @assertion Int16List asInt16List([int offsetInBytes = 0, int length ])
+ * Creates a Int16List view of a region of this byte buffer.
  * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Float64List will also change the buffer, and vice versa.
- * @description Checks that method asFloat64List creates a Float64List view of
- * a region of this byte buffer, and any changes made to Float64List will also
+ * Int16List will also change the buffer, and vice versa.
+ * @description Checks that method asInt16List creates a Int16List view of
+ * a region of this byte buffer, and any changes made to Int16List will also
  * change the buffer, and vice versa.
  * @author ngl@unipro.ru
  */
@@ -19,27 +19,27 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Float64List res = buffer.asFloat64List(0);
-  Float64List res1 = buffer.asFloat64List(0);
+  Int16List res = buffer.asInt16List(0);
+  Int16List res1 = buffer.asInt16List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Float64List.BYTES_PER_ELEMENT == 8) ? 3 : 0;
+  int shift = (Int16List.BYTES_PER_ELEMENT == 2) ? 1 : 0;
 
-  Expect.isTrue(res is Float64List);
+  Expect.isTrue(res is Int16List);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
     Expect.equals(res[0], res1[0]);
 
     // set value to the first element of res1
-    res1[0] = 2.0;
+    res1[0] = 2;
     // the first element of res is equal to set value
-    Expect.equals(2.0, res[0]);
+    Expect.equals(2, res[0]);
 
     // set value to the last element of res
-    res[viewLength - 1] = 4.0;
+    res[viewLength - 1] = 4;
     // the last element of res1 is equal to set value
-    Expect.equals(4.0, res1[viewLength - 1]);
+    Expect.equals(4, res1[viewLength - 1]);
   }
   Expect.notEquals(res, res1);
   Expect.equals(res.buffer, res1.buffer);

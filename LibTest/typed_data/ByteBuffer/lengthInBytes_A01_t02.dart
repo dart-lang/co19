@@ -17,7 +17,7 @@ void check(count) {
   try {
     buffer.lengthInBytes = 0;
     Expect.fail("[lengthInBytes] should be final");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError /*catch (ok)*/ {}
 }
 
 main() {

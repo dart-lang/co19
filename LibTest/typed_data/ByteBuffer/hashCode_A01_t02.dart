@@ -21,5 +21,5 @@ main() {
   try {
     buffer.hashCode = 1;
     Expect.fail("[hashCode] should be final");
-  } on NoSuchMethodError catch (ok) {}
+  } on NoSuchMethodError /*catch (ok)*/ {}
 }

@@ -4,18 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Float64List asFloat64List([int offsetInBytes = 0, int length ])
- * Creates a Float64List view of a region of this byte buffer.
+ * @assertion Int32List asInt32List([int offsetInBytes = 0, int length ])
+ * Creates a Int32List view of a region of this byte buffer.
  * ...
- * The viewed region start at offsetInBytes, which must be 64-bit aligned, and
- * contains length 64-bit integers. If length is omitted, the range extends as
+ * The viewed region start at offsetInBytes, which must be 32-bit aligned, and
+ * contains length 32-bit integers. If length is omitted, the range extends as
  * far towards the end of the buffer as possible - if lengthInBytes is not
- * divisible by eight, the last bytes can't be part of the view.
-
+ * divisible by four, the last bytes can't be part of the view.
  * @description Checks that the viewed region begins with offsetInBytes byte,
- * which must be 64-bit aligned, and contains length 64-bit integers. If length
+ * which must be 32-bit aligned, and contains length 32-bit integers. If length
  * is omitted, the range extends to the end of the buffer (if buffer length in
- * bytes is divisible by eight), otherwise, the last bytes can't be part of the
+ * bytes is divisible by four), otherwise, the last bytes can't be part of the
  * view.
  * @author ngl@unipro.ru
  */
@@ -25,42 +24,42 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  // Float64List view of a byte buffer
-  Float64List res = buffer.asFloat64List(0);
+  // Int32List view of a byte buffer
+  Int32List res = buffer.asInt32List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Float64List.BYTES_PER_ELEMENT == 8) ? 3 : 0;
-  int offset1 = 8;
+  int shift = (Int32List.BYTES_PER_ELEMENT == 4) ? 2 : 0;
+  int offset1 = 4;
   int length1 = ((viewSizeInBytes - offset1) >> shift) - 1;
-  int offset2 = 16;
+  int offset2 = 8;
 
-  // Float64List view of a byte buffer with offset1 and length1
-  Float64List res1 = buffer.asFloat64List(offset1, length1);
+  // Int32List view of a byte buffer with offset1 and length1
+  Int32List res1 = buffer.asInt32List(offset1, length1);
   int view1Length = res1.length;
 
-  // Float64List view of a byte buffer with offset2
-  Float64List res2 = buffer.asFloat64List(offset2);
+  // Int32List view of a byte buffer with offset2
+  Int32List res2 = buffer.asInt32List(offset2);
   int view2Length = res2.length;
 
-  Expect.isTrue(res1 is Float64List);
-  Expect.isTrue(res2 is Float64List);
+  Expect.isTrue(res1 is Int32List);
+  Expect.isTrue(res2 is Int32List);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 
   if (viewSizeInBytes != 0) {
     // set value to the first element of res1
-    res1[0] = 2.0;
-    Expect.equals(2.0, res[offset1>>shift]);
+    res1[0] = 2;
+    Expect.equals(2, res[offset1>>shift]);
     //set value to the last element if res1
-    res1[view1Length - 1] = 4.0;
-    Expect.equals(4.0, res[(offset1>>shift) + view1Length - 1]);
+    res1[view1Length - 1] = 4;
+    Expect.equals(4, res[(offset1>>shift) + view1Length - 1]);
 
     // set value to the first element of res2
-    res2[0] = 3.0;
-    Expect.equals(3.0, res[offset2>>shift]);
+    res2[0] = 3;
+    Expect.equals(3, res[offset2>>shift]);
     // set value to the last element of res2
-    res2[view2Length - 1] = 5.0;
-    Expect.equals(5.0, res[viewLength - 1]);
+    res2[view2Length - 1] = 5;
+    Expect.equals(5, res[viewLength - 1]);
 
     if (bufSizeInBytes != viewSizeInBytes) {
       ByteData resb = buffer.asByteData(0);
@@ -76,8 +75,8 @@ void check(ByteBuffer buffer) {
 }
 
 main() {
-  var list1 = new List.filled(24, 0);
-  var list2 = new List.filled(27, 0);
+  var list1 = new List.filled(12, 0);
+  var list2 = new List.filled(13, 0);
   var list4 = new Int32x4List(6);
 
   check((new Int8List.fromList(list1)).buffer);

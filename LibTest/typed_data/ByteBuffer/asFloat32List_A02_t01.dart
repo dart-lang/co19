@@ -35,12 +35,10 @@ void check(ByteBuffer buffer) {
 
   // Float32List view of a byte buffer with offset1 and length1
   Float32List res1 = buffer.asFloat32List(offset1, length1);
-  int view1SizeInBytes = res1.lengthInBytes;
   int view1Length = res1.length;
 
   // Float32List view of a byte buffer with offset2
   Float32List res2 = buffer.asFloat32List(offset2);
-  int view2SizeInBytes = res2.lengthInBytes;
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Float32List);

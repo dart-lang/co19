@@ -44,15 +44,10 @@ void check(ByteBuffer buffer) {
 
 main() {
   var list0 = new List(0);
-  int list0_length = list0.length;
   var list1 = new List.filled(1, 0);
-  int list1_length = list1.length;
   var list2 = new List.filled(5, 0);
-  int list2_length = list2.length;
   var list3 = new Int32x4List(1);
-  int list3_length = list3.length;
   var list4 = new Int32x4List(5);
-  int list4_length = list4.length;
 
   check((new Int8List.fromList(list0)).buffer);
   check((new Int8List.fromList(list1)).buffer);
