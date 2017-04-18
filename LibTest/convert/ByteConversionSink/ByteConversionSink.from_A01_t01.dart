@@ -14,7 +14,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var c = new StreamController();
-  Sink<List<int>> sink = c.sink;
+  dynamic sink = c.sink;
 
   ByteConversionSink outSink = new ByteConversionSink.from(sink);
 

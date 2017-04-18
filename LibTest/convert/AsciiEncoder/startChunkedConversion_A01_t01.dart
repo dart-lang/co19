@@ -19,7 +19,7 @@ check(String str) {
   AsciiEncoder encoder = new AsciiEncoder();
   bool called = false;
 
-  var outSink = new ChunkedConversionSink.withCallback((chunks) {
+  Sink<List<int>> outSink = new ChunkedConversionSink.withCallback((chunks) {
     Expect.listEquals([encoder.convert(str)], chunks);
     called = true;
   });

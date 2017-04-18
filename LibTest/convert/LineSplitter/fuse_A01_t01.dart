@@ -10,6 +10,7 @@
  * before converting with other.
  * @description Checks that encoding with the resulting converter is equivalent
  * to converting with this before converting with other.
+ * @issue 29372
  * @author sgrekhov@unipro.ru
  */
 import "dart:convert";
@@ -19,7 +20,7 @@ check(Converter codec, String data, String expected) {
   Expect.equals(expected, codec.convert(data));
 }
 
-class TestConverter extends Converter {
+class TestConverter extends Converter<List<String>, String> {
   String convert(List<String> lst) {
     String s = "";
     for (int i = 0; i < lst.length; i++) {

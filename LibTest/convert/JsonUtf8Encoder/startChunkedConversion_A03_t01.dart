@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 
 check(JsonUtf8Encoder encoder, data, List expected) {
   bool called = false;
-  var outSink = new ChunkedConversionSink.withCallback((List chunks) {
+  Sink<List<int>> outSink = new ChunkedConversionSink.withCallback((List chunks) {
     Expect.equals(expected.length, chunks.length);
     for (var i = 0; i < expected.length; i++) {
       Expect.listEquals(UTF8.encode(expected[i]), chunks[i]);

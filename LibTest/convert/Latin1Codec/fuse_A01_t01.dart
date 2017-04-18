@@ -19,7 +19,6 @@
  */
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../JsonDecoder/table1.lib.dart" show table;
 
 check(Codec codec, String toEncode) {
   Expect.equals(toEncode, codec.decode(toEncode));

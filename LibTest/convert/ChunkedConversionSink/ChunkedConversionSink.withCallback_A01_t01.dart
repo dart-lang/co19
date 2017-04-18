@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 main() {
   bool called = false;
 
-  var outSink = new ChunkedConversionSink.withCallback((accumulated) {
+  Sink<String> outSink = new ChunkedConversionSink.withCallback((accumulated) {
     called = true;
     Expect.listEquals(["Кириллица", "прекрасна"], accumulated);
   });

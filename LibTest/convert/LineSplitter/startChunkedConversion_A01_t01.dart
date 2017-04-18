@@ -19,7 +19,7 @@ check(String str) {
   LineSplitter ls = new LineSplitter();
   bool called = false;
 
-  var outSink = new ChunkedConversionSink.withCallback((chunks) {
+  Sink<String> outSink = new ChunkedConversionSink.withCallback((chunks) {
     Expect.listEquals(ls.convert(str), chunks);
     called = true;
   });

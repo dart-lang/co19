@@ -19,7 +19,7 @@ check(String str) {
   Latin1Encoder encoder = new Latin1Encoder();
   bool called = false;
 
-  var outSink = new ChunkedConversionSink.withCallback((chunks) {
+  Sink<List<int>> outSink = new ChunkedConversionSink.withCallback((chunks) {
     Expect.listEquals([encoder.convert(str)], chunks);
     called = true;
   });

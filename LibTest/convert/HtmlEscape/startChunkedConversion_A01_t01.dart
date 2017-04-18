@@ -19,7 +19,7 @@ main() {
   HtmlEscape converter = new HtmlEscape();
   bool called = false;
 
-  var outSink = new ChunkedConversionSink.withCallback((chunks) {
+  Sink<String> outSink = new ChunkedConversionSink.withCallback((chunks) {
     Expect.listEquals([converter.convert("\"&<>'/")], chunks);
     called = true;
   });

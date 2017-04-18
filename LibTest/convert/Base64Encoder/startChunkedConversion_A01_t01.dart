@@ -20,7 +20,7 @@ check(List<int> codeUnits) {
   Base64Encoder encoder = new Base64Encoder();
   bool called = false;
 
-  var outSink = new ChunkedConversionSink.withCallback((chunks) {
+  Sink<String> outSink = new ChunkedConversionSink.withCallback((chunks) {
     Expect.listEquals([data], chunks);
     called = true;
   });

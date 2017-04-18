@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 
 check(data) {
   JsonEncoder encoder = new JsonEncoder();
-  var outSink = new ChunkedConversionSink.withCallback((chunks) {
+  Sink<String> outSink = new ChunkedConversionSink.withCallback((chunks) {
     Expect.equals(encoder.convert(data), chunks2string(chunks));
   });
   var inSink = encoder.startChunkedConversion(outSink);
@@ -29,7 +29,7 @@ check(data) {
   inSink.close();
 }
 
-String chunks2string(Iterable<String> data) {
+String chunks2string(List<String> data) {
   StringBuffer sb = new StringBuffer();
   Iterator it = data.iterator;
   while (it.moveNext()) {
