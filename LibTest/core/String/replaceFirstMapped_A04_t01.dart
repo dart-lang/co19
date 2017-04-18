@@ -30,6 +30,6 @@ check(String str, Pattern from, List expected) {
     Expect.equals(from, m.pattern);
     Expect.equals(expected[0], m.start);
     Expect.equals(expected[1], m.end);
-    return 0;
+    return "";
   });
 }

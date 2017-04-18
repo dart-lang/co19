@@ -34,7 +34,7 @@ Future runAfter(Future f, void action()) {
  * see co19 issue #423
  * http://code.google.com/p/co19/issues/detail?id=423
  */
-var _completer = new Completer();
+dynamic _completer = new Completer();
 var asyncCompleted = _completer.future;
 
 int _asyncTestStart() {

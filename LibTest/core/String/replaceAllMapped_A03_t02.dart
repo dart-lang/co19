@@ -17,10 +17,14 @@ import "../../../Utils/expect.dart";
 
 class C {
   toString() {
-    return new Object();
+    dynamic o = new Object();
+    return o;
   }
 }
 
 main() {
-  Expect.throws(() {"1231".replaceAllMapped("1", (m) {return new C();});});
+  Expect.throws(() {"1231".replaceAllMapped("1", (m) {
+    dynamic c = new C();
+    return c;
+  });});
 }

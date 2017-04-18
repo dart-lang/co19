@@ -21,5 +21,8 @@ class C {
 }
 
 main() {
-  Expect.equals("C23C", "1231".replaceAllMapped("1", (m) {return new C();}));
+  Expect.equals("C23C", "1231".replaceAllMapped("1", (m) {
+    dynamic c = new C();
+    return c;
+  }));
 }
