@@ -17,8 +17,8 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList list1 = new LinkedList();
-  LinkedList list2 = new LinkedList();
+  LinkedList<MyLinkedListEntry> list1 = new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry>();
 
   LinkedListEntry entry = new MyLinkedListEntry(1);
   list1.add(entry);

@@ -20,7 +20,7 @@ main() {
   MyLinkedListEntry entry1 = new MyLinkedListEntry(1);
   MyLinkedListEntry entry2 = new MyLinkedListEntry(2);
   MyLinkedListEntry entry3 = new MyLinkedListEntry(3);
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   list.add(entry1);
   list.add(entry2);
   list.add(entry3);

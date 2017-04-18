@@ -17,14 +17,14 @@ import "LinkedList.lib.dart";
 main() {
   Expect.isFalse(toLinkedList([]).iterator.moveNext());
 
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.isFalse(a.iterator.moveNext());
   a.add(new MyLinkedListEntry(0));
   Iterator it = a.iterator;
   Expect.isTrue(it.moveNext());
   Expect.isFalse(it.moveNext());
 
-  a = new LinkedList();
+  a = new LinkedList<MyLinkedListEntry>();
   it = a.iterator;
   Expect.isFalse(it.moveNext());
 

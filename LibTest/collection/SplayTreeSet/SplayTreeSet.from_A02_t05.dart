@@ -20,11 +20,12 @@ int compare(String key1, String key2) {
 }
 
 main() {
-  SplayTreeSet<Object> set = new SplayTreeSet.from(["3", "2", "1", "4"], compare);
+  SplayTreeSet<String> set = new SplayTreeSet.from(["3", "2", "1", "4"], compare);
   Expect.equals(4, set.length);
   Expect.equals("1", set.elementAt(0));
   Expect.equals("2", set.elementAt(1));
   Expect.equals("3", set.elementAt(2));
   Expect.equals("4", set.elementAt(3));
-  Expect.throws(() {set.add(2);});
+  dynamic d = 2;
+  Expect.throws(() {set.add(d);});
 }

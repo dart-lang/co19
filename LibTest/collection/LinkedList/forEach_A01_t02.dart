@@ -10,8 +10,9 @@
  * @author kaigorodov
  */
 import "dart:collection";
+import "LinkedList.lib.dart";
 
 main() {
-  new LinkedList().forEach(null);
-  new LinkedList().forEach((var v){});
+  new LinkedList<MyLinkedListEntry>().forEach(null);
+  new LinkedList<MyLinkedListEntry>().forEach((var v){});
 }

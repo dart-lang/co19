@@ -19,12 +19,12 @@ main() {
   MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(1);
   Expect.isNull(entry.list);
 
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   list.add(entry);
   Expect.identical(list, entry.list);
   list.remove(entry);
 
-  LinkedList list2 = new LinkedList();
+  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry>();
   list2.add(entry);
   Expect.identical(list2, entry.list);
 }

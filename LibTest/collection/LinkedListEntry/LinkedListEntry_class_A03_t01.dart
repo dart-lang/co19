@@ -18,8 +18,8 @@ import "dart:collection";
 import "LinkedListEntry.lib.dart";
 
 main() {
-  LinkedList list1 = new LinkedList();
-  LinkedList list2 = new LinkedList();
+  LinkedList<MyLinkedListEntry> list1 = new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry>();
 
   LinkedListEntry entry = new MyLinkedListEntry(1);
   Expect.isNull(entry.list);

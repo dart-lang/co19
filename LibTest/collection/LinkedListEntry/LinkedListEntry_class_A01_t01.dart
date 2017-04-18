@@ -17,7 +17,7 @@ import "LinkedListEntry.lib.dart";
 
 main() {
   MyLinkedListEntry entry = new MyLinkedListEntry(1);
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   list.add(entry);
   Expect.throws(() { list.add(1 as dynamic); });
 }

@@ -15,10 +15,10 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   for (var i = 0; i <= 314; i++) {
     a.add(new MyLinkedListEntry(i));
-    Expect.equals(i, (a.elementAt(i) as MyLinkedListEntry).value);
+    Expect.equals(i, a.elementAt(i).value);
     Expect.equals(i + 1, a.length);
   }
 

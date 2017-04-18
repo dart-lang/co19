@@ -10,7 +10,8 @@
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
 main() {
-  Expect.isTrue(new LinkedList().every((var v) { return true; }));
+  Expect.isTrue(new LinkedList<MyLinkedListEntry>().every((var v) => true));
 }

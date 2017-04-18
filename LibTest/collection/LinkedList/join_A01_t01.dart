@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-String join(LinkedList a, [String separator = ""]) {
+String join(LinkedList<MyLinkedListEntry> a, [String separator = ""]) {
   StringBuffer sb = new StringBuffer();
   bool first = true;
   for (var element in a) {
@@ -35,8 +35,8 @@ void check(LinkedList a, [String separator = ""]) {
 }
 
 main() {
-  check(new LinkedList());
-  check(new LinkedList(), ", ");
+  check(new LinkedList<MyLinkedListEntry>());
+  check(new LinkedList<MyLinkedListEntry>(), ", ");
   LinkedList a0 = toLinkedList(["1", "3", 4, null, 6]);
   check(a0);
   check(a0, ":");

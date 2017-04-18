@@ -11,9 +11,10 @@
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
+import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.throws(() {
       a.first;
     },
