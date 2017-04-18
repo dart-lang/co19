@@ -4,18 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int8List(int length)
- * It is an error if [length] is not a non-negative integer.
- * @description Checks that it is an error if [length] is not a non-negative integer.
+ * @assertion ByteData(int length)
+ * Creates a ByteData of the specified [length] (in elements), all of whose
+ * bytes are initially zero.
+ * @description Checks that it is an error if [length] is not a non-negative
+ * integer.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
   Expect.throws( () {
-    var l = new ByteData(length);
+    new ByteData(length);
+    // new ByteData cannot be created
+    Expect.fail('length is not a non-negative integer');
   });
 }
 

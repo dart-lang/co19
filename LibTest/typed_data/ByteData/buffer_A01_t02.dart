@@ -6,9 +6,10 @@
 /**
  * @assertion final ByteBuffer buffer
  * Returns the byte buffer associated with this object.
- * @description Checks that [buffer] is final and can't be set.
+ * @description Checks that [buffer] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,7 +18,7 @@ void check(count) {
   try {
     l.buffer = new Int8List(count).buffer;
     Expect.fail("[buffer] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError {}
 }
 
 main() {

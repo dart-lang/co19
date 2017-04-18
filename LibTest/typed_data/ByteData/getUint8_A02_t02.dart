@@ -5,10 +5,11 @@
  */
 /**
  * @assertion int getUint8(int byteOffset)
- * Throws [RangeError] if [byteOffset] is negative, or
- * greater than or equal to the length of this object.
- * @description Checks that [RangeError] is thrown if [byteOffset]
- * is greater than or equal to the length of this object.
+ * ...
+ * Throws [RangeError] if [byteOffset] is negative, or greater than or equal to
+ * the length of this object.
+ * @description Checks that [RangeError] is thrown if [byteOffset] is greater
+ * than or equal to the length of this object.
  * @author msyabro
  */
 
@@ -20,10 +21,10 @@ main() {
   try {
     byteData.getUint8(5);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 
   try {
     byteData.getUint8(10);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }

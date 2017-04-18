@@ -5,11 +5,12 @@
  */
 /**
  * @assertion final int elementSizeInBytes
- * Returns the number of bytes in the representation
- * of each element in this list.
- * @description Checks that [elementSizeInBytes] is final and can't be set.
+ * Returns the number of bytes in the representation of each element in this
+ * list.
+ * @description Checks that [elementSizeInBytes] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,5 +19,5 @@ main() {
   try {
     l.elementSizeInBytes = 2;
     Expect.fail("[elementSizeInBytes] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError {}
 }

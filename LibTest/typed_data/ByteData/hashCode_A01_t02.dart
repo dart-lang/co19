@@ -5,20 +5,20 @@
  */
 /**
  * @assertion final int hashCode
- * Get a hash code for this object. Hash codes are guaranteed to be
- * the same for objects that are equal when compared using the equality operator ==.
- * @description Checks that [hashCode] is final and can't be set.
+ * Get a hash code for this object.
+ * All objects have hash codes. Hash codes are guaranteed to be the same for
+ * objects that are equal when compared using the equality operator ==.
+ * @description Checks that [hashCode] is read-only and can't be set.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-
 main() {
   dynamic list = new ByteData(0);
   try {
     list.hashCode = 1;
-    Expect.fail("[hashCode] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("hashCode should be final");
+  } on NoSuchMethodError {}
 }

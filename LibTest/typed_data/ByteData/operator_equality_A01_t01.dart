@@ -6,8 +6,8 @@
 /**
  * @assertion bool operator ==(other)
  * The equality operator.
- * The default behavior for all Objects is to return true
- * if and only if [this] and [other] are the same object.
+ * The default behavior for all Objects is to return true if and only if [this]
+ * and [other] are the same object.
  * @description Checks that only identical objects are equal.
  * @author msyabro
  */
