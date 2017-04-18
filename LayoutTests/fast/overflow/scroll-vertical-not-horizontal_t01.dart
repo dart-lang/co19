@@ -22,11 +22,11 @@ const String htmlEL2 = r'''
 ''';
 
 void startTest(e) {
-    window.location='#anchor';
+    window.location.href = '#anchor';
     runLater(finishTest, 0);
 }
 
-int count=0;
+int count = 0;
 
 void finishTest() {
 print("finishTest");

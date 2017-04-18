@@ -21,9 +21,9 @@ If the test succeeds the URL and text below will show a success message.
 
 void onload (e) {
     String search= window.location.search;
-    if (search==null || search=="") {
+    if (search == null || search == "") {
         window.onUnload.listen((e) { window.history.replaceState({}, '', '?FAIL'); });
-        window.location = window.location.href + "?PASS";
+        window.location.href = window.location.href + "?PASS";
     } else {
         document.getElementById("logger").text = window.location.search.substring(1);
     }
