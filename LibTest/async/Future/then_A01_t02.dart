@@ -24,7 +24,7 @@ class C {
   const C();
 }
 
-voidd check(Object value) {
+void check(Object value) {
   Completer completer = new Completer();
   Future f = completer.future;
   f.then((fValue) {

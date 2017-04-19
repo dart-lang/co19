@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future doWhile(dynamic f())
+ * @assertion  Future doWhile(FutureOr<bool> f())
  * Perform an async operation repeatedly until it returns false.
  * . . .
  * Otherwise it waits for the returned Future to complete.
@@ -22,7 +22,7 @@ const int N = 4;
 main() {
   int num = 0;
 
-  Future f() {
+  FutureOr<bool> f() {
     num++;
     return new Future.delayed(durationMs(100), () => (num < N));
   }

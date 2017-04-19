@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 void check(List input) {
   List log = [];
 
-  Future f(element) {
+  dynamic f(element) {
     log.add("start");
     try {
       log.add(element);

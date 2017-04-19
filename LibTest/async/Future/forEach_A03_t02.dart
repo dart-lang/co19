@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 main() {
   List log = [];
 
-  Future f(element) {
+  dynamic f(element) {
     log.add(element);
     return element==2 ? new Future.error("@") : new Future.value(null);
   }

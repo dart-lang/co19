@@ -18,7 +18,7 @@ void check(List input){
   List<Completer> c = new List.generate(input.length, (_) => new Completer());
   int k = 0;
 
-  Future f(element) {
+  dynamic f(element) {
     return c[k++].future;
   }
 
