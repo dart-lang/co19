@@ -34,8 +34,8 @@ Future runAfter(Future f, void action()) {
  * see co19 issue #423
  * http://code.google.com/p/co19/issues/detail?id=423
  */
-dynamic _completer = new Completer();
-var asyncCompleted = _completer.future;
+Completer _completer = new Completer();
+Future asyncCompleted = _completer.future;
 
 int _asyncTestStart() {
   print("unittest-suite-wait-for-done");

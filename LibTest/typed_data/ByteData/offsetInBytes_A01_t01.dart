@@ -9,6 +9,7 @@
  * @description Checks that the returned offset is correct.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

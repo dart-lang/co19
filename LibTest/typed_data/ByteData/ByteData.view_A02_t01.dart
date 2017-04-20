@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ByteData.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Changes in the [ByteData] will be visible in the byte
- * buffer and vice versa.
+ * @assertion
+ * ByteData.view(
+ *     ByteBuffer buffer, [
+ *     int offsetInBytes = 0, int length
+ * ])
+ * ...
+ * Changes in the [ByteData] will be visible in the byte buffer and vice versa.
  * @description Checks that changes in the [ByteData] will be visible in
  * the byte buffer and vice versa.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

@@ -15,13 +15,13 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-List input = [0,1,2,3,4];
+List<int> input = [0,1,2,3,4];
 int e2stop = 2;
 
 main() {
   List<bool> operationTrace = new List<bool>.filled(input.length, false);
 
-  Future f(int element) {
+  dynamic f(int element) {
     if (element == e2stop) {
        throw element;
     }

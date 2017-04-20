@@ -5,18 +5,19 @@
  */
 /**
  * @assertion ByteData(int length)
- * Creates an [ByteData] of the specified length (in elements), all of
- * whose elements are initially zero.
+ * Creates a [ByteData] of the specified length (in elements), all of whose bytes
+ * are initially zero.
  * @description Checks that all bytes of the new [ByteData] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   var l = new ByteData(length);
   for(int i = 0; i < length; ++i) {
-    Expect.equals(l.getUint8(i),0);
+    Expect.equals(0, l.getUint8(i));
   }
 }
 

@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
+ * @assertion
  * @assertion void setInt8(int byteOffset, int value)
- * Throws [RangeError] if [byteOffset] is negative, or
- * greater than or equal to the length of this object.
- * @description Checks that [RangeError] is thrown if [byteOffset]
- * is greater than or equal to the length of this object.
+ * ...
+ * Throws [RangeError] if [byteOffset] is negative, or greater than or equal to
+ * the length of this object.
+ * @description Checks that [RangeError] is thrown if [byteOffset]  is greater
+ * than or equal to the length of this object.
  * @author msyabro
  */
 
@@ -20,10 +22,10 @@ main() {
   try {
     byteData.setInt8(5, 0);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 
   try {
     byteData.setInt8(10, 0);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }

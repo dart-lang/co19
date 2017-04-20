@@ -6,9 +6,10 @@
 /**
  * @assertion final int offsetInBytes
  * Returns the offset in bytes into the underlying byte buffer of this view.
- * @description Checks that [offsetInBytes] is final and can't be set
+ * @description Checks that [offsetInBytes] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,7 +18,7 @@ void check(count) {
   try {
     l.offsetInBytes = 0;
     Expect.fail("[offsetInBytes] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError {}
 }
 
 main() {

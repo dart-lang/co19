@@ -6,7 +6,7 @@
 /**
  * @assertion final Type runtimeType
  * A representation of the runtime type of the object.
- * @description Checks that [runtimeType] is final and can not be set.
+ * @description Checks that [runtimeType] is read-only and can not be set.
  * @author msyabro
  */
 
@@ -18,6 +18,6 @@ main() {
   try {
     obj.runtimeType = null;
     Expect.fail("[runtimeType] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  } on NoSuchMethodError {}
 }
 
