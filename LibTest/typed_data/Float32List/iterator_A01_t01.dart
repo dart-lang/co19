@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Iterator<E> iterator
+ * @assertion Iterator<E> iterator
  * Returns a new [Iterator] that allows iterating the elements of this
  * [Iterable].
  * @description Checks that the returned [Iterator] iterates over
  * all elements of this [Iterable] object.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -30,7 +31,7 @@ main() {
 
   var a = new List<double>(255);
   for (var i = 0; i < a.length; i++) {
-    a[i] = i*1.0;
+    a[i] = i * 1.0;
   }
   checkIterator(a);
 }

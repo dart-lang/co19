@@ -4,13 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Float32List.view(ByteBuffer buffer, [int byteOffset = 0, int
- * length])
- * Creates an [Float32List] _view_ of the specified region in
- * the specified byte buffer.
+ * @assertion
+ * Float32List.view(
+ *     ByteBuffer buffer, [
+ *     int byteOffset = 0, int length
+ * ])
+ * Creates a [Float32List] view of the specified region in buffer.
  * @description Checks that an instance of Float32List is created.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -28,9 +31,9 @@ main() {
       0, 3);
   check([1000.0, 1000.0, 1000.0], 0, 3);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0,
-    13.0, 14.0, 15.0, 16.0, 17.0], 0, 18);
+      13.0, 14.0, 15.0, 16.0, 17.0], 0, 18);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0,
-    13.0, 14.0, 15.0, 16.0, 17.0], 5 * elemSize, 13);
+      13.0, 14.0, 15.0, 16.0, 17.0], 5 * elemSize, 13);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0,
-    13.0, 14.0, 15.0, 16.0, 17.0], 17 * elemSize, 1);
+      13.0, 14.0, 15.0, 16.0, 17.0], 17 * elemSize, 1);
 }
