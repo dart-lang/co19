@@ -9,15 +9,21 @@
  * @description Checks that static warning has no effect on execution
  * @static-warning
  * @author sgrekhov@unipro.ru
- * @issue 27161
  */
 import '../../Utils/expect.dart';
 
+class C {
+  C() { }
+  int foo() {
+    if (true) {
+      return 1;
+    } else {
+      return; /// static type warning
+    }
+  }
+}
+
 main() {
-  List l = new List();
-  List<int> li = new List<int>();
-
-  li = l; /// static type warning
-
+  new C().foo();
   Expect.isTrue(true);
 }

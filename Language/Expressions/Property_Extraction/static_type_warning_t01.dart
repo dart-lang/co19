@@ -14,10 +14,10 @@
  */
 
 class C {
-  List get m => new List();
+  double get m => 3.14;
 }
 
 main() {
   C c = new C();
-  List<int> x = c?.m; /// static type warning
+  int x = c?.m; /// static type warning
 }

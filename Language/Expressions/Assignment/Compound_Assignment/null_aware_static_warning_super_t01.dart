@@ -12,13 +12,14 @@
  * @author sgrekhov@unipro.ru
  */
 class A {
-  List<int> v;
+  int v;
 }
 
 class C extends A {
   void test() {
-    List l = new List();
-    super.v ??= l;  /// static type warning
+    try {
+      super.v ??= 1.0; /// static type warning
+    } on Exception {}
   }
 }
 

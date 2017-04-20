@@ -12,7 +12,8 @@
  * @author sgrekhov@unipro.ru
  */
 main() {
-  List<int> v = null;
-  List l = new List();
-  v ??= l;  /// static type warning
+  int v = null;
+  try {
+    v ??= 1.0;  /// static type warning
+  } on Exception {}
 }

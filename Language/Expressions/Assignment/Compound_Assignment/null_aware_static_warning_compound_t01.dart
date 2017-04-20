@@ -12,14 +12,12 @@
  * @author sgrekhov@unipro.ru
  */
 class C {
-  List<int> v;
-  C() {
-    v = new List<int>();
-  }
+  int v;
 }
 
 main() {
   C c = new C();
-  List l = new List();
-  c?.v = l;  /// static type warning
+  try {
+    c?.v = 1.0; /// static type warning
+  } on Exception {}
 }

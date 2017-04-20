@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 class A {
-  List<int> v;
+  int v;
 }
 
 class C {
@@ -26,6 +26,7 @@ class C {
 
 main() {
   C c = new C();
-  List l = new List();
-  c[1].v ??= l;  /// static type warning
+  try {
+    c[1].v ??= 1.0; /// static type warning
+  } on Exception {}
 }

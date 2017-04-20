@@ -14,12 +14,11 @@
  */
 
 class C {
-  List _m = new List();
-  List m() => _m;
+  double m() => 1.0;
 }
 
 main() {
   C c = new C();
-  List<int> l = new List<int>();
+  int l = null;
   l = c?.m(); /// static type warning
 }

@@ -14,11 +14,12 @@
  */
 
 class C {
-  List<int> v;
+  int v;
 }
 
 main() {
-  List e = new List();
   C c = new C();
-  c?.v = e; /// static type warning
+  try {
+    c?.v = 1.0; /// static type warning
+  } on Exception {}
 }

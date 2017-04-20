@@ -10,8 +10,8 @@
  * of Sj for j in 1..k, that has the same name as m, such that m' is
  * accessible to L. Then m overrides m' if m' is not already overridden by a
  * member of at least one of S1 ... Sj-1 and neither m nor m' are fields.
- * @description Checks that a setter can not override field.
- * @compile-error
+ * @description Checks that a setter may override field (they have different
+ * names because of setter's = suffix).
  * @author pagolubev
  */
 

@@ -14,13 +14,11 @@
  * . . .
  * @description Checks that if fid is a library variable, hence induced library
  * getter, then i is interpreted as a function expression invocation.
- * @static-warning
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
-var f = (p1) {  /// static type warning
+var f = (p1) {
   Expect.equals(null, p1);
   return 100;
 };
@@ -34,7 +32,7 @@ class A {
     try {
       m(1, 2, 3);
       Expect.fail("NoSuchMethodError expected");
-    } on NoSuchMethodError catch (ok) {}
+    } on NoSuchMethodError {}
   }
 }
 

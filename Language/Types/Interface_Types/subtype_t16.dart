@@ -26,9 +26,7 @@
  * @description Checks assignability (no static warnings) of S and T where T is
  * type parameter and S is it's upper bound.
  * Note: detailed checks are contained in tests for the next assertion.
- * @static-warning
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -43,7 +41,7 @@ class Checker<T extends Super> {
     Expect.isTrue(t is Super);
     Super ss = t;
     Super f() {}
-    T tt = f(); /// static type warning
+    T tt = f();
   }
 }
 
