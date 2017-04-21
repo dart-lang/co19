@@ -6,11 +6,12 @@
 /**
  * @assertion void set length(int newLength)
  * Changes the length of the list.
- * Throws an UnsupportedError if the list is not extendable.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float32List] is a fixed-size list.
+ * Throws an UnsupportedError if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Float32List] is
+ * a fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +20,7 @@ void check(List<double> array, int length) {
   try {
     l.length = 1;
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(length, l.length);
 }
 
