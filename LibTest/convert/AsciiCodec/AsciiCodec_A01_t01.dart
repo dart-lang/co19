@@ -13,7 +13,7 @@
  * If not, an exception will be thrown. Calls to the decode method can choose to
  * override this default.
  * @description Checks that this constructor, called without parameters,
- * instantiates a new AsciiCodec whith decoder which doesn't allow invalid
+ * instantiates a new AsciiCodec with decoder which doesn't allow invalid
  * values
  * @author sgrekhov@unipro.ru
  */
