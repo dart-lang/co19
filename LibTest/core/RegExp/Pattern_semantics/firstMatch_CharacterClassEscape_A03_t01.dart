@@ -31,7 +31,6 @@ main() {
       case 0xFEFF:
       // category Zs
       case 0x1680:
-      case 0x180E:
       case 0x2000:
       case 0x2001:
       case 0x2002:
