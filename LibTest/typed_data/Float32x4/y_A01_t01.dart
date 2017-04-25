@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final double y
+ * @assertion double y
  * Extracted y value.
  * @description Checks that the correct value is returned.
  * @author msyabro
@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 check(y) {
   var obj = new Float32x4(0.0 ,y, 0.0, 0.0);
-  Expect.approxEquals(y, obj.y, (y/1e7).abs());
+  Expect.approxEquals(y, obj.y, (y / 1e7).abs());
 }
 
 main() {

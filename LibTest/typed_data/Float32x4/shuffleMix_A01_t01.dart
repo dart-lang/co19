@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Float32x4 shuffleMix(Float32x4 other, int m)
+ * @assertion Float32x4 shuffleMix(Float32x4 other, int mask)
  * Shuffle the lane values in this and other.
  * The returned Float32x4 will have XY lanes from this and ZW lanes from other.
  * Uses the same mask as shuffle.
@@ -26,8 +26,8 @@ main() {
           var res = fv.shuffleMix(fv2, mask);
           Expect.equals(x, res.x);
           Expect.equals(y, res.y);
-          Expect.equals(z+10, res.z);
-          Expect.equals(w+10, res.w);
+          Expect.equals(z + 10, res.z);
+          Expect.equals(w + 10, res.w);
         }
       }
     }

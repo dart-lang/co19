@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Float32x4.splat(double v)
- * @description Checks that an instance of [Float32x4] is
- * created and all fields are set correctly.
+ * @description Checks that an instance of [Float32x4] is created and all fields
+ * are set correctly.
  * @note undocumented
  * @author msyabro
  */
@@ -17,10 +17,10 @@ import "../../../Utils/expect.dart";
 check(v) {
   var obj = new Float32x4.splat(v);
   Expect.isTrue(obj is Float32x4);
-  Expect.approxEquals(v, obj.x, (v/1e7).abs());
-  Expect.approxEquals(v, obj.y, (v/1e7).abs());
-  Expect.approxEquals(v, obj.z, (v/1e7).abs());
-  Expect.approxEquals(v, obj.w, (v/1e7).abs());
+  Expect.approxEquals(v, obj.x, (v / 1e7).abs());
+  Expect.approxEquals(v, obj.y, (v / 1e7).abs());
+  Expect.approxEquals(v, obj.z, (v / 1e7).abs());
+  Expect.approxEquals(v, obj.w, (v / 1e7).abs());
 }
 
 main() {

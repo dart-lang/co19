@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Float32x4 abs()
- * Returns the absolute value of this Float32x4.
+ * Returns the lane-wise absolute value of this Float32x4.
  * @description Checks that every lane of the new [Float32x4] equals the
  * absolute value of the corresponding lane of [this].
  * @author msyabro
@@ -17,10 +17,10 @@ import "../../../Utils/expect.dart";
 check(x1, y1, z1, w1) {
   var op1 = new Float32x4(x1, y1, z1, w1);
   var res = op1.abs();
-  Expect.approxEquals(x1.abs(), res.x, (res.x/1e7).abs());
-  Expect.approxEquals(y1.abs(), res.y, (res.y/1e7).abs());
-  Expect.approxEquals(z1.abs(), res.z, (res.z/1e7).abs());
-  Expect.approxEquals(w1.abs(), res.w, (res.w/1e7).abs());
+  Expect.approxEquals(x1.abs(), res.x, (res.x / 1e7).abs());
+  Expect.approxEquals(y1.abs(), res.y, (res.y / 1e7).abs());
+  Expect.approxEquals(z1.abs(), res.z, (res.z / 1e7).abs());
+  Expect.approxEquals(w1.abs(), res.w, (res.w / 1e7).abs());
 }
 
 main() {

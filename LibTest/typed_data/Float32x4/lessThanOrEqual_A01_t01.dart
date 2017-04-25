@@ -6,8 +6,7 @@
 /**
  * @assertion Int32x4 lessThanOrEqual(Float32x4 other)
  * Relational less than or equal.
- * @description Checks that the returned [Int32x4]
- * contains correct values.
+ * @description Checks that the returned [Int32x4] contains correct values.
  * @author msyabro
  */
 
@@ -23,8 +22,14 @@ check(op1, op2, expected) {
 }
 
 main() {
-  check(new Float32x4(.0, .0, .0, .0), new Float32x4(.0, .0, .0, .0), new Int32x4.bool(true, true, true, true));
-  check(new Float32x4(-1.0, -1.0, -.02, -1.32), new Float32x4(.0, .0, .0, .0), new Int32x4.bool(true, true, true, true));
-  check(new Float32x4(1e-30, 1.23e-40, .02, 1e-10), new Float32x4(.0, .0, .0, .0), new Int32x4.bool(false, false, false, false));
-  check(new Float32x4(1.0, 2.0, 1e-3, .04e-2), new Float32x4(1.0, 10.0, 1e-2, 0.23e40), new Int32x4.bool(true, true, true, true));
+  check(new Float32x4(.0, .0, .0, .0), new Float32x4(.0, .0, .0, .0),
+      new Int32x4.bool(true, true, true, true));
+  check(new Float32x4(-1.0, -1.0, -.02, -1.32), new Float32x4(.0, .0, .0, .0),
+      new Int32x4.bool(true, true, true, true));
+  check(new Float32x4(1e-30, 1.23e-40, .02, 1e-10),
+      new Float32x4(.0, .0, .0, .0),
+      new Int32x4.bool(false, false, false, false));
+  check(new Float32x4(1.0, 2.0, 1e-3, .04e-2),
+      new Float32x4(1.0, 10.0, 1e-2, 0.23e40),
+      new Int32x4.bool(true, true, true, true));
 }
