@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool every(bool test(E element))
- *   Checks whether every element of this iterable satisfies test.
- *   Checks every element in iteration order, and returns false if any of them
+ * @assertion bool every(bool f(E element))
+ * Checks whether every element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns false if any of them
  * make test return false, otherwise returns true.
- * @descriptionCheck that true is returned only if every element
- * of the list satisfies the predicate [f].
+ * @descriptionCheck that true is returned only if every element of the list
+ * satisfies the predicate [f].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -25,7 +26,8 @@ main() {
   l = new Float32List.fromList([1.0]);
   Expect.isFalse(l.every(pred));
 
-  l = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0]);
+  l = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0,
+      5.0]);
   Expect.isFalse(l.every(pred));
 
   l = new Float32List.fromList([2.123e13]);

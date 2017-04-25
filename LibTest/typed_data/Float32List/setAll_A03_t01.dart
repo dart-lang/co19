@@ -5,9 +5,11 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * It is an error if the [iterable] is longer than length - [index].
- * @description Checks that an error is thrown if
- * the [iterable] is longer than length - index.
+ * ...
+ * The iterable must not have more elements than what can fit from index to
+ * length.
+ * @description Checks that an error is thrown if the [iterable] is longer than
+ * length - index.
  * @author msyabro
  */
 

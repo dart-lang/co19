@@ -7,8 +7,8 @@
  * @assertion List<E> toList({bool growable: true})
  * Creates a [List] containing the elements of this [Iterable].
  * The elements will be in iteration order.
- * @description Checks that the returned [List] contains all
- * elements of [this] in the same order.
+ * @description Checks that the returned [List] contains all elements of [this]
+ * in the same order.
  * @author msyabro
  */
 
@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> list, bool grow) {
   var l = new Float32List.fromList(list);
-  var res = l.toList(growable:grow);
+  var res = l.toList(growable: grow);
 
   Expect.equals(l.length, res.length);
   Expect.listEquals(l, res);

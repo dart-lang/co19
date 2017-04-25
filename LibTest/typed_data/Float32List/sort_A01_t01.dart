@@ -6,7 +6,11 @@
 /**
  * @assertion void sort([int compare(E a, E b)])
  * Sorts the list according to the order specified by the compare function.
- * @description Checks sorting various integer arrays.
+ * The compare function must act as a Comparator.
+ * The default List implementations use Comparable.compare if compare is
+ * omitted.
+ * @description Checks sorting Float32List with specified compare functions and
+ * with omitted.
  * @author msyabro
  */
 
@@ -22,6 +26,21 @@ void check(List<double> list, List<double>  expected) {
   Expect.listEquals(expected, actual);
 }
 
+void check1(List<double> list, List<double>  expected) {
+  var actual = new Float32List.fromList(list);
+  int c(var a, var b) {
+    return a < b ? 1 : (a == b ? 0 : -1);
+  }
+  actual.sort(c);
+  Expect.listEquals(expected, actual);
+}
+
+void check2(List<double> list, List<double>  expected) {
+  var actual = new Float32List.fromList(list);
+  actual.sort();
+  Expect.listEquals(expected, actual);
+}
+
 main() {
   check([], []);
   check([1.0], [1.0]);
@@ -29,6 +48,18 @@ main() {
   check([1.0, 2.0, 4.0, 3.0, 5.0, 6.0], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
   check([2.0, 1.0, 4.0, 3.0, 6.0, 5.0], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
   check([6.0, 5.0, 4.0, 3.0, 2.0, 1.0], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
-  check([9.0, 9.0, 1.0, 2.0, 3.0, 0.0,  3.0, 2.0, 2.0, 3.0, 4.0, 1.0, 9.0, 5.0, 7.0, 7.0, 5.0, 6.0, 1.0, 0.0, 4.0, 8.0, 8.0, 8.0, 5.0, 4.0, 6.0, 7.0, 6.0, 0.0],
-         [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 5.0, 5.0, 5.0, 6.0, 6.0, 6.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 9.0, 9.0, 9.0]);
+  check([9.0, 9.0, 1.0, 2.0, 3.0, 0.0, 3.0, 2.0, 2.0, 3.0, 4.0, 1.0, 9.0, 5.0,
+         7.0, 7.0, 5.0, 6.0, 1.0, 0.0, 4.0, 8.0, 8.0, 8.0, 5.0, 4.0, 6.0, 7.0,
+         6.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 4.0, 4.0,
+         4.0, 5.0, 5.0, 5.0, 6.0, 6.0, 6.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 9.0,
+         9.0, 9.0]);
+
+  check1([1.0, 2.0], [2.0, 1.0]);
+  check2([9.0, 9.0, 1.0, 2.0, 3.0, 0.0, 3.0, 2.0, 2.0, 3.0, 4.0, 1.0, 9.0, 5.0,
+          7.0, 7.0, 5.0, 6.0, 1.0, 0.0, 4.0, 8.0, 8.0, 8.0, 5.0, 4.0, 6.0, 7.0,
+          6.0, 0.0],
+         [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 4.0, 4.0,
+          4.0, 5.0, 5.0, 5.0, 6.0, 6.0, 6.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 9.0,
+          9.0, 9.0]);
 }

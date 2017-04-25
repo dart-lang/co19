@@ -5,10 +5,16 @@
  */
 /**
  * @assertion void fillRange(int start, int end, [E fill])
- * An error occurs if start..end is not a valid range for this.
- * @description Checks that the given range is filled with [fill] value.
+ * Sets the objects in the range start inclusive to end exclusive to the given
+ * fillValue.
+ * The provide range, given by start and end, must be valid. A range from start
+ * to end is valid if 0 <= start <= end <= len, where len is this list's length.
+ * The range starts at start and has length end - start. An empty range (with
+ * end == start) is valid.
+ * @description Checks that an error occurs if the given range is not valid.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

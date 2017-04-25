@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Iterable<E> take(int count)
- * Returns an [Iterable] with at most [n] elements.
- * @description Checks that the returned [Iterable] has
- * the length [n] and contains first [n] elements from [this].
+ * Returns a lazy [Iterable] of the [count] first elements of this iterable.
+ * @description Checks that the returned [Iterable] has the length [count] and
+ * contains first [count] elements from [this].
  * @author msyabro
  */
 

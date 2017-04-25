@@ -5,11 +5,13 @@
  */
 /**
  * @assertion int lastIndexOf(Object element, [int startIndex])
- * @description Checks that if [startIndex] is out of bounds,
- * it doesn't cause any errors.
+ * Returns the last index of element in this list.
+ * @description Checks that if [startIndex] is out of bounds, it doesn't cause
+ * any errors.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

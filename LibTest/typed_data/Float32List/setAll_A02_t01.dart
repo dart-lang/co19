@@ -5,10 +5,9 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * It is an error if the index does not point inside the list
- * or at the position after the last element.
- * @description Checks that an error is thrown if [index]
- * is out of bounds.
+ * ...
+ * The index must be non-negative and no greater than length.
+ * @description Checks that an error is thrown if [index] is out of bounds.
  * @author msyabro
  */
 
@@ -37,6 +36,6 @@ check(List<double> list) {
 main() {
   check([]);
   check([1.0]);
-  check([0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]);
+  check([0.0, 0.0 ,0.0 ,0.0 ,0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 }
 

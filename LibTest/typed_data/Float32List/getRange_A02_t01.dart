@@ -5,11 +5,13 @@
  */
 /**
  * @assertion Iterable<E> getRange(int start, int end)
- * The result of this function is backed by [this].
- * @description Checks that the result of [getRange] is
- * backed by [this].
+ * Returns an [Iterable] that iterates over the objects in the range [start]
+ * inclusive to [end] exclusive.
+ * @description Checks that returned Iterable iterates over the object, and
+ * changes in object is visible in Iterable.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
