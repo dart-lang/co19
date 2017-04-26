@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final double w
+ * @assertion double w
  * Extracted w value.
- * @description Checks that [w] is final and can't be set.
+ * @description Checks that [w] is read-only and can't be set.
  * @author msyabro
  */
 
@@ -17,6 +17,6 @@ main() {
   dynamic obj = new Float32x4(0.0 ,0.0, 0.0, 0.0);
   try {
     obj.w = 1e-1;
-    Expect.fail("[w] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[w] should be read-only");
+  } on NoSuchMethodError {}
 }

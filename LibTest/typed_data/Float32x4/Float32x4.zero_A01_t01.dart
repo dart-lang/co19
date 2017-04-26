@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Float32x4.zero()
- * @description Checks that an instance of [Float32x4] is
- * created and all fields are set to 0.
+ * @description Checks that an instance of [Float32x4] is created and all fields
+ * are set to 0.
  * @note undocumented
  * @author msyabro
  */

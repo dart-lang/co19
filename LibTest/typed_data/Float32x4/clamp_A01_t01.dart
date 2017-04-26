@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Float32x4 clamp(Float32x4 lowerLimit, Float32x4 upperLimit)
- * Clamps this to be in the range [lowerLimit]- [upperLimit].
+ * Lane-wise clamp this to be in the range [lowerLimit] - [upperLimit].
  * @description Checks that the returned value is in the correct range.
  * @author msyabro
  */
@@ -23,13 +23,15 @@ check(obj, lowerLimit, upperLimit, expected) {
 
 main() {
   check(new Float32x4(.0, .0, .0, .0), new Float32x4(-1.0, -1.0, -1.0, -1.0),
-    new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(.0, .0, .0, .0));
+      new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(.0, .0, .0, .0));
   check(new Float32x4(-5.0, .0, .0, .0), new Float32x4(-1.0, -1.0, -1.0, -1.0),
-    new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(-1.0, .0, .0, .0));
+      new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(-1.0, .0, .0, .0));
   check(new Float32x4(-5.0, .0, 1.0, .0), new Float32x4(-1.0, -1.0, -1.0, -1.0),
-    new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(-1.0, .0, 1.0, .0));
-  check(new Float32x4(-5.0, .0, 1.0, 1.0001), new Float32x4(-1.0, -1.0, -1.0, -1.0),
-    new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(-1.0, .0, 1.0, 1.0));
-  check(new Float32x4(-5.0, 1e20, 0.23e-40, -0.0), new Float32x4(-1.0, -2.0, 1.0, .0),
-  new Float32x4(10.0, .05, 1.0, 1.0), new Float32x4(-1.0, .05, 1.0, .0));
+      new Float32x4(1.0, 1.0, 1.0, 1.0), new Float32x4(-1.0, .0, 1.0, .0));
+  check(new Float32x4(-5.0, .0, 1.0, 1.0001),
+      new Float32x4(-1.0, -1.0, -1.0, -1.0), new Float32x4(1.0, 1.0, 1.0, 1.0),
+      new Float32x4(-1.0, .0, 1.0, 1.0));
+  check(new Float32x4(-5.0, 1e20, 0.23e-40, -0.0),
+      new Float32x4(-1.0, -2.0, 1.0, .0), new Float32x4(10.0, .05, 1.0, 1.0),
+      new Float32x4(-1.0, .05, 1.0, .0));
 }

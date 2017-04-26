@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final double z
+ * @assertion double z
  * Extracted z value.
- * @description Checks that [z] is final and can't be set.
+ * @description Checks that [z] is read-only and can't be set.
  * @author msyabro
  */
 
@@ -17,6 +17,6 @@ main() {
   dynamic obj = new Float32x4(0.0 ,0.0, 0.0, 0.0);
   try {
     obj.z = 1e-1;
-    Expect.fail("[z] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[z] should be read-only");
+  } on NoSuchMethodError {}
 }

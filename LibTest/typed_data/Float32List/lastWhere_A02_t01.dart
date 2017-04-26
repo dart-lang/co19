@@ -5,11 +5,13 @@
  */
 /**
  * @assertion dynamic lastWhere(bool test(E element), {Object orElse()})
- * If none matches, the result of invoking the orElse function is returned.
- * @description Checks that the [orElse] function is invoked and
- * its result is returned if no element matches [test].
+ * If no element satisfies [test], the result of invoking the [orElse] function
+ * is returned.
+ * @description Checks that the [orElse] function is invoked and its result is
+ * returned if no element satisfies [test].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

@@ -4,12 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void replaceRange(int start, int end, Iterable<E> iterable)
- * Removes the elements in the range start to end exclusive and
- * replaces them with the contents of the iterable.
- * Throws an UnsupportedError, if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float32List] is a fixed-size list.
+ * @assertion void replaceRange(int start, int end, Iterable<E> replacement)
+ * Removes the objects in the range start inclusive to end exclusive and inserts
+ * the contents of replacement in its place.
+ * ...
+ * This method does not work on fixed-length lists, even when replacement has
+ * the same number of elements as the replaced range. In that case use setRange
+ * instead.
+ * @description Checks that [UnsupportedError] is thrown since [Float32List] is
+ * a fixed-size list.
  * @note undocumented
  * @author msyabro
  */
@@ -21,15 +24,15 @@ check(List<double> list) {
   var l = new Float32List.fromList(list);
   var length = l.length;
   try {
-    l.replaceRange(0,1,[0.0]);
+    l.replaceRange(0, 1, [0.0]);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
-    l.replaceRange(0,100,[0.0, 1.0, 2.0]);
+    l.replaceRange(0, 100, [0.0, 1.0, 2.0]);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
 }

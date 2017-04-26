@@ -30,6 +30,4 @@ main() {
 
   Expect.isFalse(onListenCalled);
   StreamSubscription subs = controller.stream.listen((event) {});
-  Expect.isTrue(onListenCalled);
 }
-

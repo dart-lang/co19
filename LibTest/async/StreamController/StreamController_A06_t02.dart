@@ -13,7 +13,6 @@
  * ends its subscription.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -24,13 +23,16 @@ main() {
   StreamController controller = new StreamController(
     onCancel: () {
       onCancelCalled = true;
-      asyncEnd();
     }
   );
 
   Expect.isFalse(onCancelCalled);
   StreamSubscription subs = controller.stream.listen((event) {});
 
-  subs.cancel();
-  Expect.isTrue(onCancelCalled);
+  new Future(() => subs.cancel()).then(
+      (_) {
+        Expect.isTrue(onCancelCalled);
+        asyncEnd();
+      }
+  );
 }

@@ -5,9 +5,9 @@
  */
 /**
  * @assertion int lastIndexOf(Object element, [int startIndex])
+ * ...
  * Returns -1 if element is not found.
- * @description Checks that value -1 is returned, if the element
- * is not present.
+ * @description Checks that value -1 is returned, if the element is not found.
  * @author msyabro
  */
 

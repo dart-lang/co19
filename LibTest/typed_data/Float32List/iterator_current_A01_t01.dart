@@ -9,6 +9,7 @@
  * @description Checks that the current element in the iteration is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -26,8 +27,8 @@ main() {
   checkNext([1.0, 2.0, 3.0]);
 
   var a = new List<double>(255);
-  for (var i=0; i < a.length; i++) {
-    a[i] = (a.length - i)*1.0;
+  for (var i = 0; i < a.length; i++) {
+    a[i] = (a.length - i) * 1.0;
   }
   checkNext(a);
 }

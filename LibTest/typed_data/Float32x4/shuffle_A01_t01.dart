@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Float32x4 shuffle(int m)
- * Shuffle the lane values. mask must be one of the 256 shuffle constants.
+ * @assertion Float32x4 shuffle(int mask)
+ * Shuffle the lane values. [mask] must be one of the 256 shuffle constants.
  * @description Checks that the lane values are shuffled correctly.
  * @author msyabro
  */

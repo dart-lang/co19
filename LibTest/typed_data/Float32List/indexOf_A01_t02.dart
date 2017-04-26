@@ -6,9 +6,9 @@
 /**
  * @assertion int indexOf(Object element, [int startIndex = 0])
  * Returns the first index of element in the list.
- * Searches the list from index [start] to the length of the list.
- * The first time an element e is encountered so that e == [element],
- * the index of e is returned.
+ * Searches the list from index [start] to the end of the list. The first time
+ * an element e is encountered so that e == [element], the index of e is
+ * returned.
  * @description Checks that if not specified, [startIndex] is 0.
  * @author msyabro
  */

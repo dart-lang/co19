@@ -8,11 +8,9 @@
  *                  void onResume(), dynamic onCancel(), bool sync: false})
  * A controller with a stream that supports only one single subscriber.
  *
- * @description Checks that the controller's stream supports only one single
- * subscriber.
+ * @description Checks that the controller's stream is not broadcast
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

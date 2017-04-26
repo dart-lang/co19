@@ -13,7 +13,6 @@
  * until the subscriber is registered.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -21,21 +20,21 @@ import "../../../Utils/expect.dart";
 void check(List source) {
   StreamController controller = new StreamController();
   Stream s = controller.stream;
-  List sink = new List();
+  List sink = [];
 
-  for (var element in source) {
-    controller.add(element);
-  }
+  source.forEach((e) => controller.add(e));
   Expect.isTrue(sink.isEmpty);
 
   asyncStart();
-  s.listen((var event) {
+  s.listen(
+    (event) {
       sink.add(event);
+    },
+    onDone:() {
+        Expect.listEquals(source, sink);
+        asyncEnd();
     }
-  ).onDone(() {
-      Expect.listEquals(source, sink);
-      asyncEnd();
-  });
+  );
 
   controller.close();
 }

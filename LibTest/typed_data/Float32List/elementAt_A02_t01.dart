@@ -5,12 +5,14 @@
  */
 /**
  * @assertion E elementAt(int index)
- *The index must be non-negative and less than length. Index zero represents
+ * ...
+ * The index must be non-negative and less than length. Index zero represents
  * the first element (so iterable.elementAt(0) is equivalent to iterable.first).
- * @description Checks that a [RangeError] is thrown if [this]
- * has fewer than [index] elements.
+ * @description Checks that a [RangeError] is thrown if [this] has fewer than
+ * [index] elements.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,16 +21,16 @@ check(int length) {
   try {
     l.elementAt(length + 1);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l.elementAt(length);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 
   try {
     l.elementAt(-1);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }
 
 main() {

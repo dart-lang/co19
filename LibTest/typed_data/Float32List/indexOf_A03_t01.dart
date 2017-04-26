@@ -5,11 +5,15 @@
  */
 /**
  * @assertion int indexOf(Object element, [int startIndex = 0])
- * @description Checks that if [startIndex] is out of bounds,
- * it doesn't cause any errors.
+ * Returns the first index of element in this list.
+ * Searches the list from index start to the end of the list. The first time an
+ * object o is encountered so that o == element, the index of o is returned.
+ * @description Checks that if [startIndex] is out of bounds, it doesn't cause
+ * any errors.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

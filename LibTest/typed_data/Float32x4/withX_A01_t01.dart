@@ -5,9 +5,10 @@
  */
 /**
  * @assertion Float32x4 withX(double x)
- * @description Checks that a new object is created and all its lanes
- * except [x] equal to corresponding lanes of [this]. Checks that
- * [x] of new [Float32x4] equals the [x] parameter of the method.
+ * Returns a new Float32x4 copied from this with a new x value.
+ * @description Checks that a new object is created and all its lanes except [x]
+ * equal to corresponding lanes of [this]. Checks that [x] of new [Float32x4]
+ * equals the [x] parameter of the method.
  * @note undocumented
  * @author msyabro
  */
@@ -20,10 +21,10 @@ check(x, y, z, w, newX) {
   var obj2 = obj1.withX(newX);
 
   Expect.isFalse(obj1 == obj2);
-  Expect.approxEquals(w, obj2.w, (w/1e7).abs());
-  Expect.approxEquals(z, obj2.z, (z/1e7).abs());
-  Expect.approxEquals(y, obj2.y, (y/1e7).abs());
-  Expect.approxEquals(newX, obj2.x, (newX/1e7).abs());
+  Expect.approxEquals(w, obj2.w, (w / 1e7).abs());
+  Expect.approxEquals(z, obj2.z, (z / 1e7).abs());
+  Expect.approxEquals(y, obj2.y, (y / 1e7).abs());
+  Expect.approxEquals(newX, obj2.x, (newX / 1e7).abs());
 }
 
 main() {

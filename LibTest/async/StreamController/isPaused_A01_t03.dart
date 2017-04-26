@@ -15,7 +15,6 @@
  * paused.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -25,7 +24,8 @@ main() {
 
   List events1 = new List();
   StreamSubscription ss = controller.stream.listen(
-      (event) {events1.add(event);});
+      (event) {events1.add(event);}
+  );
   Expect.isFalse(controller.isPaused);
 
   ss.pause();

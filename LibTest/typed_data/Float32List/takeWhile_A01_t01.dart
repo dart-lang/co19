@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E element))
- * Returns an [Iterable] that stops once [test] is not satisfied anymore.
- * @description Checks that all first elements that satisfy test are
- * retained, and elements after that are skipped.
+ * @assertion Iterable<E> takeWhile(bool test(E value))
+ * Returns a lazy iterable of the leading elements satisfying test.
+ * @description Checks that all first elements that satisfy test are retained,
+ * and elements after that are skipped.
  * @author msyabro
  */
 
@@ -40,15 +40,15 @@ void check(List<double> list, bool test(double element)) {
     hasNext0 = it0.moveNext();
   }
 
-  Expect.equals(l.length, len+skipCount);
+  Expect.equals(l.length, len + skipCount);
 }
 
 main() {
-  var a0=[1.0,3.0,7.0,4.0,5.0,6.0];
-  check(a0, (var element)=>element==1.0);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4.0);
-  check(a0, (var element)=>element<4.0);
-  check(a0, (var element)=>element==4.0);
+  var a0=[1.0, 3.0, 7.0, 4.0, 5.0, 6.0];
+  check(a0, (var element) => element == 1.0);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4.0);
+  check(a0, (var element) => element < 4.0);
+  check(a0, (var element) => element == 4.0);
 }
