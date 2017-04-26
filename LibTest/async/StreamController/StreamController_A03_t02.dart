@@ -9,10 +9,11 @@
  * The controller buffers all incoming events until a subscriber is registered,
  * but this feature should only be used in rare circumstances.
  *
- * @description Checks that the controller will buffer all incoming events
- * until the subscriber is registered.
- * @author kaigorodov
+ * @description Checks that the controller will buffer all incoming data and
+ * errors until the subscriber is registered.
+ * @author a.semenov@unipro.ru
  */
+
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -20,18 +21,33 @@ import "../../../Utils/expect.dart";
 void check(List source) {
   StreamController controller = new StreamController();
   Stream s = controller.stream;
+  List expectedData = source.where((e) => !(e is num) || e>=0).toList();
+  List expectedErrors = source.where((e) => e is num && e < 0).toList();
   List sink = [];
+  List errorSink = [];
 
-  source.forEach((e) => controller.add(e));
+  for (var event in source) {
+    if (event is num && event < 0) {
+      controller.addError(event);
+    } else {
+      controller.add(event);
+    }
+  }
+
   Expect.isTrue(sink.isEmpty);
+  Expect.isTrue(errorSink.isEmpty);
 
   asyncStart();
   s.listen(
     (event) {
       sink.add(event);
     },
+    onError:(error) {
+      errorSink.add(error);
+    },
     onDone:() {
-        Expect.listEquals(source, sink);
+        Expect.listEquals(expectedData, sink);
+        Expect.listEquals(expectedErrors, errorSink);
         asyncEnd();
     }
   );
@@ -41,6 +57,6 @@ void check(List source) {
 
 main() {
   check([]);
-  check([null, null, null, null]);
-  check([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+  check([-1, -2, -3, -4, -5]);
+  check([1, 2, -3, 4, -5, 6, 7, -8, 9, 0]);
 }

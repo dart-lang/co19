@@ -12,14 +12,13 @@
  * complete.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-listen(stream, expectedData, expectedErrors) {
-  var actualData = [];
-  var actualErrors = [];
+listen(Stream stream, List expectedData, List expectedErrors) {
+  List actualData = [];
+  List actualErrors = [];
 
   asyncStart();
   stream.listen(
@@ -33,12 +32,12 @@ listen(stream, expectedData, expectedErrors) {
         Expect.listEquals(expectedData, actualData);
         Expect.listEquals(expectedErrors, actualErrors);
         asyncEnd();
-      });
+      }
+  );
 }
 
-
 main() {
-  var c = new StreamController();
+  StreamController c = new StreamController();
 
   listen(c.stream, [1, 2, 3, 4, 5, 6, 7], [0]);
 

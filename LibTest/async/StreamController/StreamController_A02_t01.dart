@@ -16,7 +16,6 @@
  * listener at a later time, after the code creating the event has returned.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -33,4 +32,5 @@ main() {
   );
   controller.add(1);
   Expect.isFalse(onDataCalled);
+  controller.close();
 }

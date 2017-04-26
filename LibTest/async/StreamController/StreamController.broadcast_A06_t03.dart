@@ -16,8 +16,8 @@
  * the event is initiated (that is, when add is called) and when the event is
  * later delivered, in order to receive the event.
  *
- * @description Checks that if sync is false, the event will be passed to the
- * listener at a later time.
+ * @description Check that if a listener is not subscribed when the event is
+ * initiated, it will not get that event.
  * @author kaigorodov
  */
 import "dart:async";
@@ -25,17 +25,40 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller = new StreamController.broadcast(sync: false);
+  bool onPauseCalled = false;
+  StreamController controller = new StreamController.broadcast();
   Stream stream = controller.stream;
-  bool onDataCalled = false;
+
+  int event1 = 0;
   asyncStart();
-  stream.listen(
+  StreamSubscription sub1 = stream.listen(
     (event) {
-      onDataCalled = true;
+      Expect.equals(event1, event);
+      event1++;
+    },
+    onDone: () {
       asyncEnd();
     }
   );
-  controller.add(1);
-  Expect.isFalse(onDataCalled);
+
+  for (int k = 0; k < 5; k++) {
+    controller.add(k);
+  }
+
+  int event2 = 5;
+  asyncStart();
+  StreamSubscription sub2 = stream.listen(
+    (event) {
+      Expect.equals(event2, event);
+      event2++;
+    },
+    onDone: () {
+      asyncEnd();
+    }
+  );
+
+  for (int k = 5; k < 10; k++) {
+    controller.add(k);
+  }
   controller.close();
 }

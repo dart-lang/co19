@@ -11,9 +11,10 @@
  * internally until unpaused or canceled.
  *
  * @description Checks that if a listener is paused, only that listener is
- * affected.
- * Checks that paused listener will buffer events internally.
+ * affected. Checks that paused listener will buffer events internally.
+ * @author a.semenov@unipro.ru
  */
+
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -21,22 +22,31 @@ import "../../../Utils/expect.dart";
 main() {
   StreamController controller = new StreamController.broadcast();
   Stream stream = controller.stream;
+  asyncMultiStart(2);
+  List log1 = [];
+  StreamSubscription sub1 = stream.listen(
+    (event) => log1.add(event),
+    onDone: () {
+      Expect.listEquals([1,2,3,4,5], log1);
+      asyncEnd();
+    }
+  );
 
-  bool event1seen = false;
-  StreamSubscription sub1 = stream.listen((event) {event1seen = true;});
-  sub1.pause();
-  bool event2seen = false;
-  StreamSubscription sub2 = stream.listen((event) {event2seen = true;});
+  List log2 = [];
+  StreamSubscription sub2 = stream.listen(
+    (event) => log2.add(event),
+    onDone: () {
+      Expect.listEquals([1,2,3,4,5], log2);
+      asyncEnd();
+    }
+  );
 
   controller.add(1);
-
-  runLater(() {
-    Expect.isFalse(event1seen);
-    Expect.isTrue(event2seen);
-    sub1.resume();
-    runLater(() {
-      Expect.isTrue(event1seen);
-      controller.close();
-    });
-  });
+  controller.add(2);
+  sub1.pause();
+  controller.add(3);
+  controller.add(4);
+  sub1.resume();
+  controller.add(5);
+  controller.close();
 }

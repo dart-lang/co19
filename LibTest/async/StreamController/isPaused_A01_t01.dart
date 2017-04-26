@@ -14,7 +14,6 @@
  * @description Checks that if the controller's stream has a listener and it is
  * paused, isPaused returns true.
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,7 +21,8 @@ main() {
   StreamController controller = new StreamController();
   List events1 = new List();
   StreamSubscription ss = controller.stream.listen(
-      (event) {events1.add(event);});
+      (event) {events1.add(event);}
+  );
   ss.pause();
   Expect.isTrue(controller.isPaused);
 

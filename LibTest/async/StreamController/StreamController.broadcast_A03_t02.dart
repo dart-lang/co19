@@ -10,7 +10,9 @@
  * are no listeners at the time the event is added, it will just be dropped,
  * or, if it is an error, be reported as uncaught.
  *
- * @description Checks that data events are dropped if there are no listeners.
+ * @description Checks that errors are reported as uncaught if there are no
+ * listeners.
+ * @issue #29403
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
@@ -19,18 +21,6 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   StreamController controller = new StreamController.broadcast();
-  controller.add("lost");
-  controller.add("event");
-  asyncStart();
-  List receivedData = [];
-  controller.stream.listen(
-      (data) => receivedData.add(data),
-      onDone: () {
-        Expect.listEquals(["published", "event"], receivedData);
-        asyncEnd();
-      }
-  );
-  controller.add("published");
-  controller.add("event");
+  Expect.throws(() => controller.addError("lost event"));
   controller.close();
 }

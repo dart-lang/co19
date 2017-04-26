@@ -6,33 +6,36 @@
 /**
  * @assertion StreamController({void onListen(), void onPause(),
  *                  void onResume(), dynamic onCancel(), bool sync: false})
- * The onListen callback is called when the stream receives its listener
- * and onCancel when the listener ends its subscription.
+ * If onCancel needs to perform an asynchronous operation, onCancel should
+ * return a future that completes when the cancel operation is done.
  *
- * @description Checks that the onCancel function is called when the listener
- * ends its subscription.
- * @author kaigorodov
+ * @description Checks that stream subscription is cancelled only after
+ * the Future returned by onCancel function is completed.
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  bool onCancelCalled = false;
   asyncStart();
+  bool onCancelFutureComplete = false;
   StreamController controller = new StreamController(
-    onCancel: () {
-      onCancelCalled = true;
-    }
+    onCancel: () => new Future.delayed(
+      durationMs(100),
+      () {
+        onCancelFutureComplete = true;
+      }
+    )
   );
 
-  Expect.isFalse(onCancelCalled);
+  Expect.isFalse(onCancelFutureComplete);
   StreamSubscription subs = controller.stream.listen((event) {});
 
   new Future(() => subs.cancel()).then(
-      (_) {
-        Expect.isTrue(onCancelCalled);
-        asyncEnd();
-      }
+    (_) {
+      Expect.isTrue(onCancelFutureComplete);
+      asyncEnd();
+    }
   );
 }

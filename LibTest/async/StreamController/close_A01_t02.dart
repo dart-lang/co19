@@ -9,10 +9,9 @@
  *
  * Returns a future which is completed when the stream sink has shut down.
  *
- * @description Checks that the stream closes.
+ * @description Checks that the stream is closed.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -21,13 +20,15 @@ main() {
   StreamController controller = new StreamController();
   controller.close();
   asyncStart();
-  controller.stream.listen((value) {
-    Expect.fail("unexpected onData call");
-  },
-  onError: (error1) {
-    Expect.fail("unexpected onError call");
-  },
-  onDone: () {
-    asyncEnd();
-  });
+  controller.stream.listen(
+    (value) {
+     Expect.fail("unexpected onData call");
+    },
+    onError: (error1) {
+      Expect.fail("unexpected onError call");
+    },
+    onDone: () {
+      asyncEnd();
+    }
+  );
 }

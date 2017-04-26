@@ -13,7 +13,6 @@
  * onCancel was called, the onListen will be called again.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
