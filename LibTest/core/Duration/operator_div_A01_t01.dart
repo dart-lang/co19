@@ -21,13 +21,13 @@ void check(int d, int h, int m, int s, int ms, num q) {
 
 int seed = 1234567;
 int nextRand() {
-  seed = seed * 199933 + 11;
-  return seed & 127;
+  seed = 0x3fffffff & ((seed >> 17) + seed * 199933  + 11);
+  return (seed >> 5) & 127;
 }
 
 main() {
   for (int k = 0; k < 100; k++) {
-    check(
-        nextRand(), nextRand(), nextRand(), nextRand(), nextRand(), nextRand());
+    check(nextRand(), nextRand(), nextRand(), nextRand(), nextRand(),
+        nextRand() + 1);
   }
 }
