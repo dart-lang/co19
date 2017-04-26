@@ -13,19 +13,27 @@
 import "../../../Utils/expect.dart";
 
 void check(int d, int h, int m, int s, int ms, num q) {
-  Expect.equals((d * 24 * 3600000 + h * 3600000 + m * 60000 + s * 1000 + ms) ~/ q, 
-      (new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms) ~/ q
-      ).inMilliseconds);
+  Expect.equals(
+      (d * 24 * 3600000 + h * 3600000 + m * 60000 + s * 1000 + ms) ~/ q,
+      (new Duration(
+                  days: d,
+                  hours: h,
+                  minutes: m,
+                  seconds: s,
+                  milliseconds: ms) ~/
+              q)
+          .inMilliseconds);
 }
 
-int seed=1234567;
+int seed = 1234567;
 int nextRand() {
-  seed = seed * 199933 + 11;
-  return seed&127;
+  seed = 0x3fffffff & ((seed >> 17) + seed * 199933 + 11);
+  return (seed >> 5) & 127;
 }
 
 main() {
-  for (int k=0; k<100; k++) {
-    check(nextRand(), nextRand(), nextRand(), nextRand(), nextRand(), nextRand());
+  for (int k = 0; k < 100; k++) {
+    check(nextRand(), nextRand(), nextRand(), nextRand(), nextRand(),
+        nextRand() + 1);
   }
 }
