@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  void shuffle([Random random])
+ * @assertion void shuffle([Random random])
  * Shuffles the elements of this list randomly.
  * @description Checks that [this] is shuffled randomly.
  * @author ngl@unipro.ru
@@ -14,13 +14,13 @@ import "dart:typed_data";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(List<double> list,Float32List sl) {
+check(List<double> list, Float32List sl) {
   Expect.equals(list.length, sl.length);
 
   bool p = true;
   for (int i = 0; i < list.length; i++) {
-  Expect.isTrue(sl.contains(list[i]), "Element ${list[i]} is not in sl");
-  if (sl[i] != list[i]) p = false;
+    Expect.isTrue(sl.contains(list[i]), "Element ${list[i]} is not in sl");
+    if (sl[i] != list[i]) p = false;
   }
   Expect.isFalse(p, "sl wasn't shuffled");
 }
