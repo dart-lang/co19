@@ -15,10 +15,17 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Cookie cookie = new Cookie.fromSetCookieValue("cn=cval; HttpOnly");
+  Cookie cookie = new Cookie.fromSetCookieValue("cn=cval;");
+  Expect.isFalse(cookie.httpOnly);
+
+  cookie = new Cookie.fromSetCookieValue("cn=cval; HttpOnly");
   Expect.isTrue(cookie.httpOnly);
 
   cookie.httpOnly = false;
   Expect.isFalse(cookie.httpOnly);
   Expect.equals(-1, cookie.toString().toLowerCase().indexOf("httponly"));
+
+  cookie.httpOnly = true;
+  Expect.isTrue(cookie.httpOnly);
+  Expect.isTrue(cookie.toString().toLowerCase().indexOf("httponly") > 0);
 }

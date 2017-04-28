@@ -21,7 +21,7 @@ List<String> separators = ["(", ")","<", ">", "@", ",", ";", ":", r"\", '"',
 main() {
   List<String> invalidCharacters = [];
   /// CTL characters
-  for (int i = 0; i < 39; i++) {
+  for (int i = 0; i < 32; i++) {
     invalidCharacters.add(new String.fromCharCode(i));
   }
   // Del
