@@ -30,5 +30,5 @@ main() {
   shouldBeEqualToString(sheet.cssRules[2].cssText,
       "div content::content div content::content div.green { color: green; }");
   shouldBeEqualToString(sheet.cssRules[3].cssText,
-      "*::content * { color: blue; }");
+      "::content * { color: blue; }");
 }
