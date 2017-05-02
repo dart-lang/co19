@@ -23,5 +23,5 @@ main() {
   shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(0).cssText, ".foo::content div .bar::before { display: block; }");
   shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(1).cssText, "::content { display: block; }");
   shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(2).cssText, "div content::content div content::content div.green { color: green; }");
-  shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(3).cssText, "*::content * { color: blue; }");
+  shouldBeEqualToString(document.getElementById('style1').sheet.cssRules.item(3).cssText, "::content * { color: blue; }");
 }
