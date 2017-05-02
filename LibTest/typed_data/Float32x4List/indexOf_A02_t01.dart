@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int indexOf(Object element, [int startIndex = 0])
- * @description Checks that if [startIndex] is out of bounds,
- * it doesn't cause any errors.
+ * @assertion int indexOf(E element, [int start = 0])
+ * @description Checks that if [startIndex] is out of bounds, it doesn't cause
+ * any errors.
  * @note undocumented
  * @author msyabro
  */

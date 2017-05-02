@@ -4,10 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
- * It is an error if [start].. [end] is not a valid range pointing into the [this].
- * @description Checks that it is an error if [start].. [end] is not
- * a valid range pointing into the [this].
+ * @assertion
+ * void setRange(
+ *     int start,
+ *     int end,
+ *     Iterable<E> iterable, [
+ *     int skipCount = 0
+ * ])
+ * ...
+ * The provide range, given by [start] and [end], must be valid. A range from
+ * [start] to [end] is valid if 0 <= start <= end <= len, where len is [this]
+ * list's length.
+ * @description Checks that it is an error if [start]..[end] is not a valid
+ * range pointing into the [this].
  * @author msyabro
  */
 
@@ -39,6 +48,4 @@ main() {
         pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0),
         pack(10.0)]);
   });
-
 }
-

@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
- * Copies the elements of [iterable], skipping the [skipCount] first elements,
- * into the range [start] to [end] exclusive of [this].
+ * @assertion
+ * void setRange(
+ *     int start,
+ *     int end,
+ *     Iterable<E> iterable, [
+ *     int skipCount = 0
+ * ])
+ * Copies the objects of [iterable], skipping [skipCount] objects first, into
+ * the range [start], inclusive, to end, [exclusive], of the list.
  * @description Checks that the correct range is set with correct elements.
  * @author msyabro
  */
@@ -27,7 +33,6 @@ listEquals(expected, actual) {
     Expect.isTrue(equal(expected[i], actual[i]));
   }
 }
-
 
 main() {
   var l = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0), pack(.0),

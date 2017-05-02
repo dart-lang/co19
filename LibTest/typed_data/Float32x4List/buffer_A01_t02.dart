@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final ByteBuffer buffer
+ * @assertion ByteBuffer buffer
  * Returns the byte buffer associated with this object.
- * @description Checks that [buffer] is final and can't be set.
+ * @description Checks that [buffer] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,8 +19,8 @@ void check(List<Float32x4> list) {
   dynamic l = new Float32x4List.fromList(list);
   try {
     l.buffer = new Float32x4List.fromList(list).buffer;
-    Expect.fail("[buffer] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[buffer] should be read-only");
+  } on NoSuchMethodError {}
 }
 
 main() {

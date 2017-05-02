@@ -6,8 +6,9 @@
 /**
  * @assertion E singleWhere(bool test(E element))
  * Returns the single element that satisfies [test].
- * @description Checks that the single element satisfying [test]
- * is returned.
+ * Checks all elements to see if test(element) returns true. If exactly one
+ * element satisfies test, that element is returned.
+ * @description Checks that the single element satisfying [test] is returned.
  * @author msyabro
  */
 
@@ -25,10 +26,9 @@ main() {
   var l = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0), pack(.0),
       pack(.0), pack(5.0), pack(.0), pack(.0), pack(-10.0), pack(.0)]);
 
-  var res = l.singleWhere( (e) => e.x > 0 );
+  var res = l.singleWhere((e) => e.x > 0 );
   Expect.isTrue(equal(pack(5.0), res));
 
-  res = l.singleWhere( (e) => e.x < 0 );
+  res = l.singleWhere((e) => e.x < 0 );
   Expect.isTrue(equal(pack(-10.0), res));
 }
-

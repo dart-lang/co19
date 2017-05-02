@@ -7,8 +7,8 @@
  * @assertion List<E> toList({bool growable: true})
  * Creates a [List] containing the elements of this [Iterable].
  * The elements will be in iteration order.
- * @description Checks that the returned [List] contains all
- * elements of [this] in the same order.
+ * @description Checks that the returned [List] contains all elements of [this]
+ * in the same order.
  * @author msyabro
  */
 
@@ -41,15 +41,21 @@ main() {
   check([], false);
   check([pack(0.0)], true);
   check([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0)], false);
-  check([pack(0.0),pack(0.0),pack(0.0),pack(0.0),pack(0.0),pack(0.0),pack(0.0),pack(0.0),pack(0.0),
-         pack(0.0),pack(1.0),pack(1.0),pack(1.0),pack(1.0),pack(1.0),pack(1.0),pack(1.0),pack(1.0),
-         pack(1.0),pack(1.0),pack(2.0),pack(2.0),pack(2.0),pack(2.0),pack(2.0),pack(2.0),pack(2.0),
-         pack(2.0),pack(2.0),pack(2.0),pack(3.0),pack(3.0),pack(3.0),pack(3.0),pack(3.0),pack(3.0),
-         pack(3.0),pack(3.0),pack(3.0),pack(3.0),pack(4.0),pack(4.0),pack(4.0),pack(4.0),pack(4.0),
-         pack(4.0),pack(4.0),pack(4.0),pack(4.0),pack(4.0),pack(5.0),pack(5.0),pack(5.0),pack(5.0),
-         pack(5.0),pack(5.0),pack(5.0),pack(5.0),pack(5.0),pack(5.0),pack(6.0),pack(6.0),pack(6.0),
-         pack(6.0),pack(6.0),pack(6.0),pack(6.0),pack(6.0),pack(6.0),pack(6.0),pack(7.0),pack(7.0),
-         pack(7.0),pack(7.0),pack(7.0),pack(7.0),pack(7.0),pack(7.0),pack(7.0),pack(8.0),pack(8.0),
-         pack(8.0),pack(8.0),pack(8.0),pack(8.0),pack(8.0),pack(8.0),pack(8.0),pack(8.0),pack(8.0),
-         pack(9.0),pack(9.0),pack(9.0),pack(9.0),pack(9.0),pack(9.0),pack(9.0),pack(9.0),pack(9.0),pack(9.0)], true);
+  check([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+      pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(1.0), pack(1.0),
+      pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+      pack(1.0), pack(1.0), pack(2.0), pack(2.0), pack(2.0), pack(2.0),
+      pack(2.0), pack(2.0), pack(2.0), pack(2.0), pack(2.0), pack(2.0),
+      pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0),
+      pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(4.0), pack(4.0),
+      pack(4.0), pack(4.0), pack(4.0), pack(4.0), pack(4.0), pack(4.0),
+      pack(4.0), pack(4.0), pack(5.0), pack(5.0), pack(5.0), pack(5.0),
+      pack(5.0), pack(5.0), pack(5.0), pack(5.0), pack(5.0), pack(5.0),
+      pack(6.0), pack(6.0), pack(6.0), pack(6.0), pack(6.0), pack(6.0),
+      pack(6.0), pack(6.0), pack(6.0), pack(6.0), pack(7.0), pack(7.0),
+      pack(7.0), pack(7.0), pack(7.0), pack(7.0), pack(7.0), pack(7.0),
+      pack(7.0), pack(8.0), pack(8.0), pack(8.0), pack(8.0), pack(8.0),
+      pack(8.0), pack(8.0), pack(8.0), pack(8.0), pack(8.0), pack(8.0),
+      pack(9.0), pack(9.0), pack(9.0), pack(9.0), pack(9.0), pack(9.0),
+      pack(9.0), pack(9.0), pack(9.0), pack(9.0)], true);
 }

@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int get length
+ * @assertion int length
  * Returns the number of elements in the list.
  * @description Checks that the number of elements is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -35,5 +36,4 @@ main() {
          O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
          O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
          O(), O(), O(), O(), O(), O(), O(), O(), O(), O()], 150);
-
 }

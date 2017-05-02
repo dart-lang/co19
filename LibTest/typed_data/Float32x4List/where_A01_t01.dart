@@ -5,9 +5,13 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
- * @description Checks that the returned [Iterable] contains all elements
- * from [this] that satisfy [test], and all other elements are skipped.
+ * Returns a new lazy [Iterable] with all elements that satisfy the predicate
+ * [test].
+ * The matching elements have the same order in the returned iterable as they
+ * have in iterator.
+ * This method returns a view of the mapped elements.
+ * @description Checks that the returned [Iterable] contains all elements from
+ * [this] that satisfy [test], and all other elements are skipped.
  * @author msyabro
  */
 
@@ -28,7 +32,7 @@ void check(List<Float32x4> list, bool test (Float32x4 element)) {
   var count = 0;
 
   for(int i = 0 ; i < list.length; ++i) {
-    if(test(l[i])) {
+    if (test(l[i])) {
       Expect.isTrue(equal(l[i], res.elementAt(count)));
       ++count;
     }
@@ -39,8 +43,12 @@ void check(List<Float32x4> list, bool test (Float32x4 element)) {
 main() {
   check([], (e) => true);
   check([pack(1.0)], (e) => false);
-  check([pack(1.0), pack(1.0), pack(1.0), pack(2.0), pack(1.0), pack(1.0)], (e) => e.x == 1.0 );
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)], (e) => e.x < 5.0 );
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)], (e) => e.x > 0.0 );
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)], (e) => e.x != 2.0 );
+  check([pack(1.0), pack(1.0), pack(1.0), pack(2.0), pack(1.0), pack(1.0)],
+          (e) => e.x == 1.0 );
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)],
+          (e) => e.x < 5.0 );
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)],
+          (e) => e.x > 0.0 );
+  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)],
+          (e) => e.x != 2.0 );
 }

@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
- * If [start] equals [end] and [start].. [end] represents a
- * legal range, this method has no effect.
+ * @assertion
+ * void setRange(
+ *     int start,
+ *     int end,
+ *     Iterable<E> iterable, [
+ *     int skipCount = 0
+ * ])
+ * ...
+ * An empty range (with end == start) is valid.
  * @description Checks that the method has no effect if [end] equals [start].
  * @author msyabro
  */
@@ -45,4 +51,3 @@ main() {
   listEquals([pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
       pack(.0), pack(.0), pack(.0), pack(.0)], l);
 }
-

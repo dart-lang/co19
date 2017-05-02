@@ -5,10 +5,11 @@
  */
 /**
  * @assertion List<int> sublist(int start, [int end])
- * It is an error if [start] or [end] are not indices into [this],
- * or if [end] is before [start].
- * @description Checks that it is an error if [start] or [end]
- * are not indices into [this].
+ * ...
+ * An error occurs if [start] is outside the range 0 .. length or if [end] is
+ * outside the range start .. length.
+ * @description Checks that it is an error if [start] or [end] are not indices
+ * into [this].
  * @author msyabro
  */
 

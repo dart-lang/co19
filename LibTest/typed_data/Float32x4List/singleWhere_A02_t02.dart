@@ -5,9 +5,11 @@
  */
 /**
  * @assertion E singleWhere(bool test(E element))
- * If no or more than one element match then a [StateError] is thrown.
- * @description Checks that a [StateError] is thrown if more than one
- * element match [test].
+ *  * ...
+ * Otherwise, if there are no matching elements, or if there is more than one
+ * matching element, a [StateError] is thrown.
+ * @description Checks that a [StateError] is thrown if more than one element
+ * match [test].
  * @author msyabro
  */
 
@@ -20,15 +22,14 @@ main() {
   var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
       pack(4.0), pack(5.0)]);
   try {
-    l.singleWhere( (e) => true);
+    l.singleWhere((e) => true);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 
   l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0),
       pack(5.0)]);
   try {
-    l.singleWhere( (e) => e.x != 0.0);
+    l.singleWhere((e) => e.x != 0.0);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }
-

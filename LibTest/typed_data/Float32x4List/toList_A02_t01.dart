@@ -6,8 +6,8 @@
 /**
  * @assertion List<E> toList({bool growable: true})
  * The list is fixed-length if [growable] is false.
- * @description Checks that the returned list is fixed-length
- * if [growable] is false.
+ * @description Checks that the returned list is fixed-length if [growable] is
+ * false.
  * @author msyabro
  */
 
@@ -21,6 +21,6 @@ main() {
   try {
     resList.length = 10;
     Expect.fail("List should be fixed-length");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(1, resList.length);
 }

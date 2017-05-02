@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void operator []=(int index, int value)
+ * @assertion void operator []=(int index, E value)
  * Sets the entry at the given index in the list to value.
  * @description Checks that the entry at the given index is set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
