@@ -101,7 +101,7 @@ main() {
     ".\\39 _class",
     ".-\\30 _class",
     ".-\\39 _class",
-    ".-\\-_class",
+    ".--_class",
     ".\x81_class",
     ".日本語_class",
     ".𐐀_class",
