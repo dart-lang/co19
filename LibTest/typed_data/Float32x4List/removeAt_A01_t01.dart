@@ -5,13 +5,17 @@
  */
 /**
  * @assertion E removeAt(int index)
- * Removes the element at position index from the list.
- * Throws an UnsupportedError, and doesn't remove the element,
- * if the length of [this] cannot be changed.
+ * Removes the object at position index from the list.
+ * This method reduces the length of this by one and moves all later objects
+ * down by one position.
+ * Returns the removed object.
+ * The index must be in the range 0 ≤ index < length.
+ * Throws an UnsupportedError if this is a fixed-length list.
  * @description Checks that [UnsupportedError] is thrown
  * since [Float32x4List] is a fixed-size list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -23,7 +27,7 @@ check(List<Float32x4> list) {
   try {
     l.removeAt(0);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E first
+ * @assertion E first
  * Returns the first element.
- * @description Checks that [first] is final and can't be set.
+ * @description Checks that [first] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,15 +19,15 @@ void check(List<Float32x4> array) {
   dynamic l = new Float32x4List.fromList(array);
   try {
     l.first = 0;
-    Expect.fail("[first] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[first] should be read-only");
+  } on NoSuchMethodError {}
 }
 void checkClear(int length) {
   dynamic l = new Float32x4List(length);
   try {
     l.first = 0;
-    Expect.fail("[first] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[first] should be read-only");
+  } on NoSuchMethodError {}
 }
 
 main() {

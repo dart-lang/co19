@@ -6,8 +6,8 @@
 /**
  * @assertion List<E> toList({bool growable: true})
  * The list is fixed-length if [growable] is false.
- * @description Checks that the returned list is not fixed-length
- * if [growable] is true.
+ * @description Checks that the returned list is not fixed-length if [growable]
+ * is true.
  * @author msyabro
  */
 

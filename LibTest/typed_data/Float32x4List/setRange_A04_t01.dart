@@ -4,11 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
- * It is an error if the [iterable] does not have enough
- * elements after skipping [skipCount] elements.
- * @description Checks that it is an error if the [iterable] does not have enough
- * elements after skipping [skipCount] elements.
+ * @assertion
+ * void setRange(
+ *     int start,
+ *     int end,
+ *     Iterable<E> iterable, [
+ *     int skipCount = 0
+ * ])
+ * ...
+ * The [iterable] must have enough objects to fill the range from start to end
+ * after skipping [skipCount] objects.
+ * @description Checks that it is an error if the [iterable] does not have
+ * enough elements after skipping [skipCount] elements.
  * @author msyabro
  */
 
@@ -20,20 +27,21 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 main() {
   var l = new Float32x4List(10);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setRange(0, 1, [], 0);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setRange(0, 1, [pack(1.0), pack(2.0)], 2);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setRange(0, 10, [pack(1.0), pack(2.0), pack(3.0), pack(4.0)], 0);
   });
 
-  Expect.throws( () {
-    l.setRange(0, 5, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)], 1);
+  Expect.throws(() {
+    l.setRange(0, 5, [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)],
+        1);
   });
 
 }

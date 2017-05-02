@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E element))
- * Returns an [Iterable] that stops once [test] is not satisfied anymore.
- * @description Checks that all first elements that satisfy test are
- * retained, and elements after that are skipped.
+ * @assertion Iterable<E> takeWhile(bool test(E value))
+ * Returns a lazy iterable of the leading elements satisfying [test].
+ * @description Checks that all first elements that satisfy test are retained,
+ * and elements after that are skipped.
  * @author msyabro
  */
 
@@ -47,16 +47,16 @@ void check(List<Float32x4> list, bool test(Float32x4 element)) {
     hasNext0 = it0.moveNext();
   }
 
-  Expect.equals(l.length, len+skipCount);
+  Expect.equals(l.length, len + skipCount);
 }
 
 main() {
   List<Float32x4> a0 =
-    [pack(1.0),pack(3.0),pack(7.0),pack(4.0),pack(5.0),pack(6.0)];
-  check(a0, (var element)=>element.x==1.0);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element.x>4.0);
-  check(a0, (var element)=>element.x<4.0);
-  check(a0, (var element)=>element.x==4.0);
+    [pack(1.0), pack(3.0), pack(7.0), pack(4.0), pack(5.0), pack(6.0)];
+  check(a0, (var element) => element.x == 1.0);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element.x > 4.0);
+  check(a0, (var element) => element.x < 4.0);
+  check(a0, (var element) => element.x == 4.0);
 }

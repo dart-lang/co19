@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic lastWhere(bool test(E element), {Object orElse()})
+ * @assertion E lastWhere(bool test(E element), {E orElse()})
  * Returns the last element that satisfies the given predicate [test].
- * @description Checks that the last element that satisfies
- * the given predicate is returned.
+ * @description Checks that the last element that satisfies the given predicate
+ * is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -21,8 +22,8 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0),
-      pack(5.0), pack(6.0), pack(9.0)]);
+  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
+      pack(4.0), pack(5.0), pack(6.0), pack(9.0)]);
   var res = l.lastWhere(
     (element) => element.x == 1.0
   );

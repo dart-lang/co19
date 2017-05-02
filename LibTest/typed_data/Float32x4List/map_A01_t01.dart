@@ -4,12 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable map(f(E element))
+ * @assertion Iterable<T> map<t>(T f(E e))
  * Returns a lazy [Iterable] where each element e of this is
  * replaced by the result of f(e).
+ *
+ * Returns a new lazy [Iterable] with elements that are created by calling f on
+ * each element of this Iterable in iteration order.
  * @description Checks that the correct [Iterable] is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -21,7 +25,6 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var m = new Map();
   var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(6.0),
       pack(10.0), pack(3.0), pack(0.0), pack(8.0)]);
   var res = l.map( (e) => e.x);

@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion E reduce(E combine(E previousValue, E element))
- * If [this] is empty, a [StateError] is thrown.
- * @description Checks that a [StateError] is thrown.
+ * @assertion E reduce(E combine(E value, E element))
+ * ...
+ * The iterable must have at least one element.
+ * @description Checks that a [StateError] is thrown if [this] is empty.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,5 +22,5 @@ main() {
   try {
     l.reduce((prev, cur) => pack(0.0));
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }

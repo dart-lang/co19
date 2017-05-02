@@ -4,11 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> skipWhile(bool test(E element))
- * Once an element does not satisfy the [test] the iterator
- * stops testing and uses every later element unconditionally.
- * @description Checks that once an element does not satisfy
- * the [test] every later element is used unconditionally.
+ * @assertion Iterable<E> skipWhile(bool test(E value))
+ * ...
+ * The returned iterable provides elements by iterating this iterable, but
+ * skipping over all initial elements where test(element) returns true. If all
+ * elements satisfy test the resulting iterable is empty, otherwise it iterates
+ * the remaining elements in their original order, starting with the first
+ * element for which test(element) returns false.
+ *
+ *
+ * @description Checks that Iterable iterates the remaining elements in their
+ * original order, starting with the first element for which test(element)
+ * returns false. If all elements satisfy test the resulting Iterable is empty.
+ *
+ * once an element does not satisfy the [test] every
+ * later element is used unconditionally.
  * @author msyabro
  */
 
@@ -23,10 +33,15 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var list = new Float32x4List.fromList([pack(1.0), pack(1.0), pack(2.0), pack(1.0), pack(1.0), pack(1.0)]);
+  var list = new Float32x4List.fromList([pack(1.0), pack(1.0), pack(2.0),
+      pack(1.0), pack(1.0), pack(1.0)]);
   var res = list.skipWhile((e) => e.x == 1.0);
   Expect.equals(4, res.length);
-  for(int i = 1; i < 4; ++i) {
-    Expect.isTrue(equal(pack(1.0), res.elementAt(i)));
+  for (int i = 0; i < 4; ++i) {
+    Expect.isTrue(equal(list.elementAt(i+2), res.elementAt(i)));
   }
+
+  res = list.skipWhile((e) => e.x < 3.0);
+  Expect.equals(0, res.length);
+  Expect.isTrue(res.isEmpty);
 }

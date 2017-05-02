@@ -5,8 +5,9 @@
  */
 /**
  * @assertion List<int> sublist(int start, [int end])
- * It is an error if [start] or [end] are not indices into [this],
- * or if [end] is before [start].
+ * ...
+ * An error occurs if [start] is outside the range 0 .. length or if [end] is
+ * outside the range start .. length.
  * @description Checks that it is an error if [end] is before [start].
  * @author msyabro
  */
@@ -17,7 +18,8 @@ import "../../../Utils/expect.dart";
 Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
-  var list = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0), pack(.0)]);
+  var list = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0),
+      pack(.0)]);
 
   Expect.throws( () {
     list.sublist(3, 2);

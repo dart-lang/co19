@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * Returns an [Iterable] that skips the first [n] elements.
+ * Returns an [Iterable] that provides all but the first count elements.
  * @description Checks that the correct [Iterable] is returned.
  * @author msyabro
  */
@@ -38,4 +38,3 @@ main() {
       pack(6.0), pack(7.0), pack(8.0), pack(9.0)], i);
   }
 }
-

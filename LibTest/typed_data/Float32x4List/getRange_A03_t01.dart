@@ -5,10 +5,14 @@
  */
 /**
  * @assertion Iterable<E> getRange(int start, int end)
- * It is an error if end is before start.
- * @description Checks that an error is thrown.
+ * ...
+ * A range from start to end is valid if 0 <= start <= end <= len, where len is
+ * this list's length. The range starts at start and has length end - start. An
+ * empty range (with end == start) is valid.
+ * @description Checks that an error is thrown if end is before start.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,7 +22,7 @@ main() {
   var l = new Float32x4List.fromList([pack(0.0), pack(0.0), pack(0.0),
       pack(0.0), pack(0.0)]);
 
-  Expect.throws( () {
-    var res = l.getRange(1, 0);
+  Expect.throws(() {
+    l.getRange(1, 0);
   });
 }

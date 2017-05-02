@@ -5,14 +5,15 @@
  */
 /**
  * @assertion void removeRange(int start, int end)
- * Removes the elements in the range start to end exclusive.
- * Throws an UnsupportedError, and doesn't remove elements,
- * if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float32x4List] is a fixed-size list.
+ * Removes the elements in the range start inclusive to end exclusive.
+ * ...
+ * Throws an UnsupportedError if this is a fixed-length list.
+ * @description Checks that [UnsupportedError] is thrown since [Float32x4List]
+ * is a fixed-size list.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -24,7 +25,7 @@ check(List<Float32x4> list) {
   try {
     l.removeRange(0, 1);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

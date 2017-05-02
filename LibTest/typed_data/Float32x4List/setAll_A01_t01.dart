@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * Overwrites elements of this with the elemenst of [iterable]
- * starting at position [index] in the list.
+ * Overwrites objects of this with the objects of [iterable], starting at
+ * position [index] in the list.
  * This operation does not increase the length of [this].
  * @description Checks that method overwrites elements correctly.
  * @author msyabro

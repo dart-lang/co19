@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion E reduce(E combine(E previousValue, E element))
- * Reduces a collection to a single value by iteratively combining
- * elements of the collection using the provided function.
+ * @assertion E reduce(E combine(E value, E element))
+ * Reduces a collection to a single value by iteratively combining elements of
+ * the collection using the provided function.
  * @description Checks that the returned value is correct.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -36,7 +37,8 @@ checkConst(List<Float32x4> list, expected) {
 main() {
   check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
          pack(7.0), pack(8.0), pack(9.0), pack(10.0)], pack(55.0));
-  check([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], pack(0.0));
+  check([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)],
+         pack(0.0));
 
   checkConst([pack(1.0), pack(2.0), pack(3.0)], pack(1.0));
 }

@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void operator []=(int index, int value)
- * Throws an [RangeError] if index is out of bounds.
+ * @assertion void operator []=(int index, E value)
+ * ...
+ * or throws a RangeError if index is out of bounds.
  * @description Checks that an exception is thrown as expected.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,19 +21,19 @@ check(List<Float32x4> list) {
   try {
     l[-1] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[l.length] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[0x80000000] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[0x7fffffff] = new Float32x4.zero();
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }
 
 main() {

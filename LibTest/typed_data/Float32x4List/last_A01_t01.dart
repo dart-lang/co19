@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E last
+ * @assertion E last
  * Returns the last element.
  * @description Checks that the last element of a list is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -31,11 +32,15 @@ void checkClear(int length) {
 main() {
   check([pack(1.0)]);
   check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
-  check([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(1.0)]);
+  check([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+         pack(0.0), pack(1.0)]);
 
   checkClear(1);
   checkClear(100);

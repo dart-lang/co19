@@ -5,10 +5,12 @@
  */
 /**
  * @assertion int operator [](int index)
- * Throws an [RangeError] if index is out of bounds.
+ * ...
+ * or throws a [RangeError] if index is out of bounds.
  * @description Checks that an exception is thrown as expected.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,19 +21,19 @@ check(List<Float32x4> list) {
   try {
     l[-1];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[l.length];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[0x80000000];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[0x7fffffff];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }
 
 main() {
@@ -39,7 +41,7 @@ main() {
   check([pack(1.0)]);
   List<Float32x4> list = new List(255);
   for(int i = 0; i < 255; ++i) {
-    list[i] = pack(i*1.0);
+    list[i] = pack(i * 1.0);
   }
   check(list);
 }

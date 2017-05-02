@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Iterable<E> getRange(int start, int end)
- * Returns an [Iterable] that iterates over the elements in
- * the range [start] to [end] exclusive.
+ * Returns an [Iterable] that iterates over the elements in the range [start]
+ * inclusive to [end] exclusive.
  * @description Checks that the correct [Iterable] is returned.
  * @author msyabro
  */
