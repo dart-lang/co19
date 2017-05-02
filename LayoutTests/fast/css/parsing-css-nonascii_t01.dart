@@ -50,7 +50,7 @@ main() {
 
 <p>Expected result:</p>
 
-<pre id="expected">#a127_\ { color: red; }
+<pre id="expected">#a127_\7f  { color: red; }
 #a128_ { color: red; }
 #b128_ { color: green; }
 #a159_ { color: red; }
