@@ -30,11 +30,8 @@ main() {
   StyleElement se1 = document.getElementById('style1');
   CssStyleSheet sh1 = se1.sheet;
 
-  shouldBeLikeString(
-      sh1.cssRules[0].cssText,
-      ".foo:host(div,body.mytheme,p#myid,.bar::before,span:hover) > div { display: block; }");
-  shouldBeLikeString(sh1.cssRules[1].cssText, ":host { display: block; }");
-  shouldBeLikeString(sh1.cssRules[2].cssText, ":host(*) { display: block; }");
+  shouldBeLikeString(sh1.cssRules[0].cssText, ":host { display: block; }");
+  shouldBeLikeString(sh1.cssRules[1].cssText, ":host(*) { display: block; }");
 
   StyleElement se2 = document.getElementById('style-invalid');
   CssStyleSheet sh2 = se2.sheet;
