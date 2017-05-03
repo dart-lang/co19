@@ -30,9 +30,7 @@ main() {
   CssStyleSheet sh1 = se1.sheet;
 
   shouldBeLikeString(sh1.cssRules[0].cssText,
-      ".foo:host-context(div,body.mytheme,p#myid,div::before,span:hover) > div { display: block; }");
-  shouldBeLikeString(sh1.cssRules[1].cssText,
-      ":host-context(*) { display: block; }");
+      ":host-context(*){display:block;}");
 
   StyleElement se2 = document.getElementById('style-invalid');
   CssStyleSheet sh2 = se2.sheet;
