@@ -19,31 +19,36 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var s = new Stream.fromIterable([1,2,3,4,5]);
+  Stream s = new Stream.fromIterable([1,2,3,4,5]);
   
   // odd numbers as data events, even numbers as error events
   s = s.map((x) => x.isOdd ? x : throw x);
 
-  var stackTraces = [];
-  StreamTransformer<int, dynamic> tr =
-      new StreamTransformer.fromHandlers(handleError: (x, st, sink) {
-    stackTraces.add(st);
-    sink.addError((x as int)+10, st);
-  });
+  List stackTraces = [];
+  StreamTransformer<int, dynamic> tr = new StreamTransformer.fromHandlers(
+    handleError: (x, st, sink) {
+      stackTraces.add(st);
+      sink.addError((x as int)+10, st);
+    }
+  );
   
-  var data = 1;
-  var error = 12;
-  var error_count = 0;
+  int data = 1;
+  int error = 12;
+  int error_count = 0;
 
   asyncStart();
-  s.transform(tr).listen((x) {
-    Expect.equals(data, x);
-    data += 2;
-  }, onError:(x, st) {
-    Expect.equals(error, x);
-    Expect.equals(stackTraces[error_count++], st);
-    error += 2;
-  }, onDone:() {
-    asyncEnd();
-  });
+  s.transform(tr).listen(
+    (x) {
+      Expect.equals(data, x);
+      data += 2;
+    },
+    onError:(x, st) {
+      Expect.equals(error, x);
+      Expect.equals(stackTraces[error_count++], st);
+      error += 2;
+    },
+    onDone:() {
+      asyncEnd();
+    }
+  );
 }
