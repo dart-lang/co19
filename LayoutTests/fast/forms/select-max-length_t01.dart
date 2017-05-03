@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description This test that setting HTMLSelectElement.length is capped to
- * 10,000, but that you can add additional Option elements by calling add.
+ * @description This test that setting HTMLSelectElement.length is not capped to
+ * 10,000 any longer
  */
 import "dart:html";
 import "../../testcommon.dart";
@@ -18,9 +18,9 @@ main() {
   SelectElement sel = document.getElementById('theSelect') as SelectElement;
   shouldBe(sel.length, 0);
   sel.length = 20000;
-  shouldBe(sel.length, 10000);
+  shouldBe(sel.length, 20000);
   sel.add(new OptionElement(), 0);
-  shouldBe(sel.length, 10001);
+  shouldBe(sel.length, 20001);
   sel.length = 0;
   shouldBe(sel.length, 0);
 }
