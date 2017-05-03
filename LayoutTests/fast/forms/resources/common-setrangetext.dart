@@ -86,13 +86,6 @@ void runTestsShouldPass(String tagName, [Map<String,String> attributes=const {}]
 
   element.value = '0123456789';
   element.setSelectionRange(6, 9);
-  element.setRangeText('AB', start:1, end:1, selectionMode:'invalid'); // Invalid selectMode values default to preserve.
-  shouldBeEqualToString(element.value, "0AB123456789");
-  shouldBe(element.selectionStart, 8);
-  shouldBe(element.selectionEnd, 11);
-
-  element.value = '0123456789';
-  element.setSelectionRange(6, 9);
   element.setRangeText('A', start:1, end:3, selectionMode:'preserve');
   shouldBeEqualToString(element.value, "0A3456789");
   shouldBe(element.selectionStart, 5);
