@@ -4,7 +4,7 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 runTestsShouldPass(tagName, [attributes=const {}]) {
-  var element = document.createElement(tagName);
+  InputElement element = document.createElement(tagName);
   for (var key in attributes.keys)
     element.setAttribute(key, attributes[key]);
   document.body.append(element);
@@ -83,13 +83,6 @@ runTestsShouldPass(tagName, [attributes=const {}]) {
   shouldBeEqualToString(element.value, "0A23456789");
   shouldBe(element.selectionStart, 6);
   shouldBe(element.selectionEnd, 9);
-
-  element.value = '0123456789';
-  element.setSelectionRange(6, 9);
-  element.setRangeText('AB', start:1, end:1, selectionMode:'invalid'); // Invalid selectMode values default to preserve.
-  shouldBeEqualToString(element.value, "0AB123456789");
-  shouldBe(element.selectionStart, 8);
-  shouldBe(element.selectionEnd, 11);
 
   element.value = '0123456789';
   element.setSelectionRange(6, 9);
