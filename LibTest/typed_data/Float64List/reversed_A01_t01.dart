@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Iterable<E> reversed
- * Returns an [Iterable] of the elements of this [List] in reverse order.
+ * @assertion Iterable<E> reversed
+ * Returns an [Iterable] of the objects of this [List] in reverse order.
  * @description Checks that the elements of [reversed] are the elements
  * of [this] in reverse order.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -28,7 +29,7 @@ main() {
   check([1.0, 2.0, 3.0]);
   var list = new List<double>(255);
   for(int i = 0; i < 255; ++i) {
-    list[i] = i*1.0;
+    list[i] = i * 1.0;
   }
   check(list);
 }

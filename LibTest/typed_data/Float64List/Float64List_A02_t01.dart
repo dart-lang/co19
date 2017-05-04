@@ -6,15 +6,17 @@
 /**
  * @assertion Float64List(int length)
  * It is an error if [length] is not a non-negative integer.
- * @description Checks that it is an error if [length] is not a non-negative integer.
+ * @description Checks that it is an error if [length] is not a non-negative
+ * integer.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
   Expect.throws( () {
-    Float64List l = new Float64List(length);
+    new Float64List(length);
   });
 }
 

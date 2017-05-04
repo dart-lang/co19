@@ -1,13 +1,15 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion void sort([int compare(E a, E b)])
- * Sorts the list according to the order specified by the compare function.
+ * ...
+ * The default List implementations use Comparable.compare if compare is
+ * omitted.
  * @description Checks that sorting is correct.
- * @author msyabro
+ * @author ngl@unipro.ru
  */
 
 import "dart:typed_data";
@@ -15,10 +17,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> list, List<double> expected) {
   var actual = new Float64List.fromList(list);
-  int c(var a, var b) {
-    return a < b ? -1 : (a == b ? 0 : 1);
-  }
-  actual.sort(c);
+  actual.sort();
   Expect.listEquals(expected, actual);
 }
 

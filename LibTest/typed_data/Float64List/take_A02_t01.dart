@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Iterable<E> take(int count)
- * The returned [Iterable] may contain fewer than [n] elements,
- * if [this] contains fewer than [n] elements.
- * @description Checks that the returned [Iterable] contains
- * fewer then [n] elements if [this] contains fewer then [n] elements.
+ * The returned [Iterable] may contain fewer than [count] elements, if [this]
+ * contains fewer than [count] elements.
+ * @description Checks that the returned [Iterable] contains fewer then [count]
+ * elements if [this] contains fewer then [count] elements.
  * @author msyabro
  */
 
@@ -31,5 +31,4 @@ main() {
 
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], 11);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], 1000000);
-
 }

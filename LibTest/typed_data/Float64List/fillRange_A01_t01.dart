@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void fillRange(int start, int end, [E fill])
- * Sets the elements in the range [start] to [end] exclusive to
- * the given fillValue.
- * @description Checks that the given range is filled with [fill] value.
+ * @assertion void fillRange(int start, int end, [E fillValue])
+ * Sets the objects in the range [start] inclusive to [end] exclusive to the
+ * given fillValue.
+ * @description Checks that the given range is filled with [fillValue].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
