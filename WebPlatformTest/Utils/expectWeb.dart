@@ -55,7 +55,7 @@ void assert_class_string(var object, String expected, [String diag]) {
   _fail("assert_class_string(expected: <$expected>, actual: <$actual>$msg) fails.");
 }
 
-void assert_in_array(List actual, var expected, String description) {
+void assert_in_array(var actual, List expected, String description) {
    Expect.isTrue(expected.indexOf(actual) != -1, description);
 }
 
