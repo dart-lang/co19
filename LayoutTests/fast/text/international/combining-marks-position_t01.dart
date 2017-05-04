@@ -51,7 +51,7 @@ void main() {
     // Ignore a slight diff of the width between target and reference.
     var diff1 = (reference1.offsetWidth - target1.offsetWidth).abs();
     var diff2 = (reference2.offsetWidth - target2.offsetWidth).abs();
-    Expect.isTrue(diff1 < 2 && diff2 < 2, '''
+    Expect.isTrue(diff1 < 3 && diff2 < 3, '''
                            reference1.offsetWidth = ${reference1.offsetWidth}
                            target1.offsetWidth = ${target1.offsetWidth}
                            reference2.offsetWidth = ${reference2.offsetWidth}
