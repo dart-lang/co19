@@ -10,7 +10,7 @@
  * http://www.w3.org/Consortium/Legal/2008/04-testsuite-copyright.html
  */
 /**
- * @assertion The following events must always be stopped at the nearest 
+ * @assertion The following events should not be stopped at the nearest
  * shadow boundary: abort, error, select, change, load, reset, resize, scroll,
  * selectstart
  */
@@ -39,14 +39,15 @@ main() {
   asyncStart();
 
   s.addEventListener('error', (event) {
-    assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadoe tree: Wrong target');
-    asyncEnd();
+    assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadow tree: Wrong target');
   }, false);
 
   d.body.addEventListener('error', (event) {
-    assert_true(false, 'error event should always be stopped at Shadow boundary');
+    assert_equals(event.target.getAttribute('id'), 'host', 'Ouside shadow tree: Wrong target');
+    event.stopPropagation();
+    asyncEnd();
   }, false);
 
-  var event = new Event("error", canBubble:true, cancelable:false);
+  var event = new Event("error", canBubble: true, cancelable: false);
   inp1.dispatchEvent(event);
 }
