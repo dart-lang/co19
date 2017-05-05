@@ -10,13 +10,12 @@
  * http://www.w3.org/Consortium/Legal/2008/04-testsuite-copyright.html
  */
 /**
- * @assertion The following events must always be stopped at the nearest 
+ * @assertion The following events should not be stopped at the nearest
  * shadow boundary: abort, error, select, change, load, reset, resize, scroll,
  * selectstart
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
 import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
@@ -40,14 +39,14 @@ main() {
   asyncStart();
 
   s.addEventListener('reset', (event) {
-    assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadoe tree: Wrong target');
-    asyncEnd();
+    assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadow tree: Wrong target');
   }, false);
 
   d.body.addEventListener('reset', (event) {
-    assert_true(false, 'reset event should always be stopped at Shadow boundary');
+    assert_equals(event.target.getAttribute('id'), 'host', 'Outside shadow tree: Wrong target');
+    asyncEnd();
   }, false);
 
-  var event = new Event("reset", canBubble:true, cancelable:false);
+  var event = new Event("reset", canBubble: true, cancelable: false);
   inp1.dispatchEvent(event);
 }
