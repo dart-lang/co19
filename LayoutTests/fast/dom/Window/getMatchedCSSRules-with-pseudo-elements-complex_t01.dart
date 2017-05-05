@@ -6,12 +6,10 @@
 /**
  * @description Test for WebKit bug 78595: CollectingRules and QueryingRules 
  * modes of SelectorChecker miss some complex selectors with pseudo elements
+ * @issue 29538
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
