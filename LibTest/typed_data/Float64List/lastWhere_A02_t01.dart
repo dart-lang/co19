@@ -4,18 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic lastWhere(bool test(E element), {Object orElse()})
- * If none matches, the result of invoking the orElse function is returned.
- * @description Checks that the [orElse] function is invoked and
- * its result is returned if no element matches [test].
+ * @assertion E lastWhere(bool test(E element), {Object orElse()})
+ * ...
+ * If no element satisfies test, the result of invoking the orElse function is
+ * returned.
+ * @description Checks that the [orElse] function is invoked and its result is
+ * returned if no element matches [test].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  f () {
+  f() {
     count++;
     return 1.0;
   }

@@ -5,11 +5,12 @@
  */
 /**
  * @assertion Iterable<E> getRange(int start, int end)
- * Returns an [Iterable] that iterates over the elements in
- * the range [start] to [end] exclusive.
+ * Returns an [Iterable] that iterates over the elements in the range [start]
+ * nclusive to [end] exclusive.
  * @description Checks that the correct [Iterable] is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

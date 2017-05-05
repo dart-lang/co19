@@ -5,13 +5,13 @@
  */
 /**
  * @assertion E removeLast()
- * Pops and returns the last element of the list.
- * Throws an UnsupportedError, and doesn't remove the element,
- * if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float64List] is a fixed-size list.
+ * Pops and returns the last object of this list.
+ * Throws an UnsupportedError if this is a fixed-length list.
+ * @description Checks that [UnsupportedError] is thrown since [Float64List] is
+ * a fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -21,7 +21,7 @@ check(List<double> list) {
   try {
     l.removeLast();
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

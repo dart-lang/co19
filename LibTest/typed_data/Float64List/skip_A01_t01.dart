@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * Returns an [Iterable] that skips the first [n] elements.
+ * Returns an [Iterable] that provides all but the first [count] elements.
  * @description Checks that the correct [Iterable] is returned.
  * @author msyabro
  */
@@ -19,15 +19,14 @@ check(List<double> list, int n) {
   Expect.equals(l.length - n, res.length);
 
   for(int i = 0; i < res.length; ++i) {
-    Expect.equals(l.elementAt(i+n), res.elementAt(i));
+    Expect.equals(l.elementAt(i + n), res.elementAt(i));
   }
 }
 
 main() {
   check([],0);
 
-  for(int i = 0; i <= 10 ; ++i) {
+  for(int i = 0; i <= 10; ++i) {
     check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], i);
   }
 }
-

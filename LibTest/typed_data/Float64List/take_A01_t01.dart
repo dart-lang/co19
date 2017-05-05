@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Iterable<E> take(int count)
- * Returns an [Iterable] with at most [n] elements.
- * @description Checks that the returned [Iterable] has
- * the length [n] and contains first [n] elements from [this].
+ * Returns a lazy iterable of the [count] first elements of this iterable.
+ * @description Checks that the returned [Iterable] has the length [count] and
+ * contains first [count] elements from [this].
  * @author msyabro
  */
 
@@ -33,5 +33,4 @@ main() {
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], 1);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], 5);
   check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], 10);
-
 }

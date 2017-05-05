@@ -7,9 +7,11 @@
  * @assertion Float64List(int length)
  * Creates an [Float64List] of the specified length (in elements), all of
  * whose elements are initially zero.
- * @description Checks that an instance of Float64List of the specified length is created.
+ * @description Checks that an instance of Float64List of the specified length
+ * is created.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

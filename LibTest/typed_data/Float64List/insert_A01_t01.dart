@@ -4,14 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void insert(int index, E value)
- * Inserts the element at position [index] in the list.
- * This increases the length of the list by one and shifts
- * all elements at or after the [index] towards the end of the list.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float64List] is a fixed-size list.
+ * @assertion void insert(int index, E element)
+ * Inserts the object at position [index] in the list.
+ * This increases the length of the list by one and shifts all objects at or
+ * after the [index] towards the end of the list.
+ * An error occurs if the index is less than 0 or greater than length. An
+ * UnsupportedError occurs if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Float64List] is
+ * a fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,13 +23,13 @@ main() {
   try {
     l.insert(0, 0.0);
     Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(10, l.length);
 
   l = new Float64List(0);
   try {
     l.insert(0, 0.0);
     Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(0, l.length);
 }

@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> skipWhile(bool test(E element))
+ * @assertion Iterable<E> skipWhile(bool test(E value))
  * Returns an [Iterable] that skips elements while [test] is satisfied.
- * @description Checks that all first elements that satisfy test are
- * removed, and elements after that are retained.
+ * @description Checks that all first elements that satisfy test are removed,
+ * and elements after that are retained.
  * @author msyabro
  */
 
@@ -16,36 +16,36 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> list, bool test(double element)) {
   var l = new Float64List.fromList(list);
-  var it0=l.iterator;
-  var res=l.skipWhile(test);
-  var it=res.iterator;
-  var skipCount=0;
+  var it0 = l.iterator;
+  var res = l.skipWhile(test);
+  var it = res.iterator;
+  var skipCount = 0;
 
-// skip manually
+  // skip manually
   var hasNext0;
-  while ((hasNext0=it0.moveNext()) && test(it0.current)) {
+  while ((hasNext0 = it0.moveNext()) && test(it0.current)) {
     skipCount++;
   }
 
-// check that the rest of a0 is identical to a
-  var len=0;
+  // check that the rest of a0 is identical to a
+  var len = 0;
   for (;;) {
-    var hasNext=it.moveNext();
+    var hasNext = it.moveNext();
     Expect.equals(hasNext0, hasNext);
     if (!hasNext0) break;
     len++;
     Expect.equals(it0.current, it.current);
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
-  Expect.equals(l.length-skipCount, len);
+  Expect.equals(l.length - skipCount, len);
 }
 
 main() {
-  var a0=[1.0,3.0,7.0,4.0,5.0,6.0];
-  check(a0, (var element)=>element==1.0);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4.0);
-  check(a0, (var element)=>element<4.0);
-  check(a0, (var element)=>element==4.0);
+  var a0 = [1.0, 3.0, 7.0, 4.0, 5.0, 6.0];
+  check(a0, (var element) => element == 1.0);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4.0);
+  check(a0, (var element) => element < 4.0);
+  check(a0, (var element) => element == 4.0);
 }

@@ -5,7 +5,10 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
+ * Returns a lazy [Iterable] with all elements that satisfy the predicate
+ * [test].
+ * The matching elements have the same order in the returned iterable as they
+ * have in iterator.
  * @description Checks that the returned [Iterable] contains all elements
  * from [this] that satisfy [test], and all other elements are skipped.
  * @author msyabro
