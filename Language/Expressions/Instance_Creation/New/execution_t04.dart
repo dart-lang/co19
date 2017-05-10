@@ -53,5 +53,5 @@ class C extends S {
 main() {
   evalOrder = "";
   new C(new A().logAndAdd3(1));
-  Expect.equals("123456", evalOrder);
+  Expect.equals("124356", evalOrder);
 }
