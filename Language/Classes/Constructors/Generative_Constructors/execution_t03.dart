@@ -83,7 +83,7 @@ main() {
 
   log = "";
   d = new D.named();
-  Expect.equals("yxd4d3C.namedD.named", log);
+  Expect.equals("d4d3yxC.namedD.named", log);
 
   log = "";
   d = new D.rdr();

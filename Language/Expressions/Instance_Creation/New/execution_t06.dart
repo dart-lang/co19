@@ -50,5 +50,5 @@ class C extends S {
 main() {
   evalOrder = new StringBuffer();
   new C.name(new A().logAndAdd3(1));
-  Expect.equals("123456", evalOrder.toString());
+  Expect.equals("142356", evalOrder.toString());
 }
