@@ -56,7 +56,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   testSelector(":disabled"
     , ["button2", "input2", "select2", "optgroup2", "option2", "textarea2", "fieldset2", "clubname", "clubnum"]
  //     '[button2, input2, select2, optgroup2, option2, textarea2, fieldset2, clubname, clubnum, ]'

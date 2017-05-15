@@ -28,5 +28,5 @@ void main() {
     var elm = document.getElementsByTagName("br")[0];
     Expect.isNotNull(elm);
     Expect.notEquals("fail", elm.className);
-    document.body.appendHtml("PASS");
+    document.body.appendHtml("PASS", treeSanitizer: new NullTreeSanitizer());
 }

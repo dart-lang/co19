@@ -23,9 +23,10 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+    XPathEvaluator evaluator = new XPathEvaluator();
     var test = document.getElementById('test');
-    var result = evaluator.evaluate('count(//span)', test, null, XPathResult.NUMBER_TYPE, null);
+    var result = evaluator.evaluate('count(//span)', test, null,
+        XPathResult.NUMBER_TYPE, null);
     shouldBe(result.numberValue, 2);
 }

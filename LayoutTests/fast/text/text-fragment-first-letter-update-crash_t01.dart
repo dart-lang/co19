@@ -41,5 +41,6 @@ void main() {
     document.execCommand('selectall', false, null);
     document.execCommand('removeFormat', false, null);
 
-    document.body.appendHtml("PASS. WebKit didn't crash.");
+    document.body.appendHtml("PASS. WebKit didn't crash.",
+        treeSanitizer: new NullTreeSanitizer());
 }

@@ -9,6 +9,7 @@
  * XMLHttpRequest.open.
  */
 import "dart:html";
+import "../../testharness.dart";
 import "../../../Utils/async_utils.dart";
 
 const String htmlEL = r'''
@@ -28,7 +29,7 @@ void checkPass(event) {
 }
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var request = new HttpRequest();
   asyncStart();
   request.onReadyStateChange.listen(checkPass);

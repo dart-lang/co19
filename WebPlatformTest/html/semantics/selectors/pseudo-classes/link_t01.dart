@@ -30,7 +30,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   testSelector(":link"
     , ["link7", "link8", "link9", "link10"]

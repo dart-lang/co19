@@ -22,8 +22,8 @@ void allocate() {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+    XPathEvaluator evaluator = new XPathEvaluator();
 
     // Fill the heap with event listeners...
     var a = [];
@@ -38,7 +38,8 @@ void main() {
         div.addEventListener("click", a[i], false);
 
     // Eliminate JS references to the div and its listeners, but keep a reference to the div in an XPath query.
-    var query = evaluator.evaluate("//div", document.documentElement, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    var query = evaluator.evaluate("//div", document.documentElement, null,
+        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
     div.remove();
     div = null;
     a = null;

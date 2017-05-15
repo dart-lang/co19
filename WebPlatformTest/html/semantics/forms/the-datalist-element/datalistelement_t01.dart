@@ -28,7 +28,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   test(() {
     assert_true(document.getElementsByTagName("datalist")[0] is DataListElement);

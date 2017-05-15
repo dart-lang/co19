@@ -106,7 +106,7 @@ void checkTestFailures() {
 }
 
 void description(String descr) {
-    document.body.appendHtml(descr, treeSanitizer:new NullTreeSanitizer());
+    document.body.appendHtml(descr, treeSanitizer: new NullTreeSanitizer());
 }
 
 var reason;
@@ -117,7 +117,7 @@ debug(msg) {
   var x = document.getElementById('console');
   if (x != null) {
     var span = document.createElement("span");
-    span.setInnerHtml(msg + '<br />', treeSanitizer:new NullTreeSanitizer());
+    span.setInnerHtml(msg + '<br />', treeSanitizer: new NullTreeSanitizer());
     x.append(span);
   }
   reason = msg;

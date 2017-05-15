@@ -26,7 +26,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   
   var button=document.getElementsByTagName("button")[0];
   var inputs=document.getElementsByTagName("input");

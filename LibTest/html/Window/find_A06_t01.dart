@@ -22,17 +22,18 @@ main() {
 //  frame.contentWindow.document.body.append(new Text(text));
 //  frame.appendHtml("<div>$text</div>");
 //  frame.setInnerHtml("<html><head></head><body><div>$text</div></body></html>");
-  frame.appendHtml("<html><head></head><body><div>$text</div></body></html>");
-  var child=frame;
-  for (int k=1; k<5; k++) {
-     var nodes=child.nodes;
+  frame.appendHtml("<html><head></head><body><div>$text</div></body></html>",
+      treeSanitizer: NodeTreeSanitizer.trusted);
+  var child = frame;
+  for (int k = 1; k<5; k++) {
+     var nodes = child.nodes;
      print("$k $child nodes.length=${nodes.length}");
-     for (int n=1; n<nodes.length; n++) {
-        var node=nodes[n];
+     for (int n = 1; n < nodes.length; n++) {
+        var node = nodes[n];
         print("  node $n = $node");
      }
      child=child.firstChild;
-     if (child==null) break;
+     if (child == null) break;
   }
 
   bool res=window.find(text, false, false, false, false, false, false);

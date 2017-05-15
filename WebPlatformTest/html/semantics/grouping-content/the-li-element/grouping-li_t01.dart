@@ -120,7 +120,7 @@ const String htmlEL=r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 //        "use strict";
 

@@ -25,7 +25,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   // Regexp from http://www.w3.org/html/wg/drafts/html/master/forms.html#e-mail-state-(type=email)
   RegExp validEmailRegexp = new RegExp(r"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/");

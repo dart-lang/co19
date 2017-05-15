@@ -42,7 +42,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 test(() {
   var embed = document.getElementsByTagName("embed")[0];

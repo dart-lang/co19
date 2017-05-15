@@ -12,7 +12,8 @@ import "../../../Utils/async_utils.dart";
 import "resources/file-writer-utils.dart";
 
 main() {
-  document.body.appendHtml('<div id="console"></div>');
+  document.body.appendHtml('<div id="console"></div>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   var fileEntry;
   var sawWriteStart;

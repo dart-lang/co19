@@ -24,12 +24,11 @@ void main() {
   document.body.appendHtml("""
 <iframe id="subset1"  src="data:application/xml,&lt;!DOCTYPE foo [ &lt;!ELEMENT foo (%23PCDATA)> ]>&lt;foo/>" />
 <iframe id="subset2"  src="data:application/xml,&lt;!DOCTYPE foo [ &lt;!ELEMENT foo EMPTY> ]>&lt;foo/>" />
-"""
-);
+""", treeSanitizer: NodeTreeSanitizer.trusted);
 
 void testNullHandling(node) {
   test(() {
-    assert_false(node==null);
+    assert_false(node == null);
   }, "testNullHandling");
 }
 
@@ -50,7 +49,7 @@ test(() {
   var b = document.createElement("foo");
   b.setAttribute("b", "baz");
   b.setAttribute("a", "bar");
-  assert_true(a==b);
+  assert_true(a == b);
 }, "isEqualNode should return true when the attributes are in a different order");
 
 test(() {
@@ -58,7 +57,7 @@ test(() {
   a.setAttributeNS("ns", "x:a", "bar");
   var b = document.createElement("foo");
   b.setAttributeNS("ns", "y:a", "bar");
-  assert_true(a==b);
+  assert_true(a == b);
 }, "isEqualNode should return true when the attributes have different prefixes");
 
 /*
@@ -79,18 +78,18 @@ var wait = 2;;
 */
 
 test(() {
-  IFrameElement subset1=document.getElementById("subset1");
-  IFrameElement subset2=document.getElementById("subset2");
+  IFrameElement subset1 = document.getElementById("subset1");
+  IFrameElement subset2 = document.getElementById("subset2");
 
-  Future f1=subset1.onLoad.drain();
-  Future f2=subset1.onLoad.drain();
+  Future f1 = subset1.onLoad.drain();
+  Future f2 = subset1.onLoad.drain();
 
   asyncStart();
   Future.wait([f1, f2]).then((v) {
       var doc1 = subset1.contentDocument;
       var doc2 = subset2.contentDocument;
 //      assert_true(doc1.doctype.isEqualNode(doc2.doctype), "doc1.doctype.isEqualNode(doc2.doctype)");
-      assert_true(doc1==doc2, "doc1.isEqualNode(doc2)");
+      assert_true(doc1 == doc2, "doc1.isEqualNode(doc2)");
       asyncEnd();
     },
     onError: (e) {

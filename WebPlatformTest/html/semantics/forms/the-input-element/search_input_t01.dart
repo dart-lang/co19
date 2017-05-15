@@ -24,7 +24,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   InputElement input0=document.getElementsByTagName("input")[0];
 
   test(() {

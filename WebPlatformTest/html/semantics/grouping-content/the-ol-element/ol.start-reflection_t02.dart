@@ -28,7 +28,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
-  OListElement ol=document.getElementById("ol");
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  OListElement ol = document.getElementById("ol");
   assert_equals(ol.start, 3);
 }

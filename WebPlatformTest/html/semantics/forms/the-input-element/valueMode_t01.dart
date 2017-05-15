@@ -25,7 +25,7 @@ const String sanitizedValue='sanitizedValue';
 const String mode='mode';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   var types = [
     { type: "hidden", mode: "default" },

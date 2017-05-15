@@ -35,7 +35,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   test((){
     assert_equals(document.activeElement, document.body);

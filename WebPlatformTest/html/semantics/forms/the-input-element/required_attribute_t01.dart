@@ -26,7 +26,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
-  InputElement input0=document.getElementsByTagName("input")[0];
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  InputElement input0 = document.getElementsByTagName("input")[0];
   assert_equals(input0.getAttribute("required"), "required", "required attribute support on input element");
 }

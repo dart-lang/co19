@@ -50,7 +50,7 @@ pre {
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     
     var p = new HttpRequest();
     

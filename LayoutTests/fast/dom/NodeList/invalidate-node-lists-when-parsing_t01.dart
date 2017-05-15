@@ -62,17 +62,20 @@ main() {
   }
 
 
-  document.body.appendHtml('<p><ol id=console></ol></p>');
+  document.body.appendHtml('<p><ol id=console></ol></p>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   result1 = testForElement("before", "testElement");    // expect not to see "testElement"
   shouldBe(result1, 'before: not found');
 
-  document.body.appendHtml('<p id="testElement"></p>');
+  document.body.appendHtml('<p id="testElement"></p>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   result2 = testForElement("after", "testElement");    // expect to see "testElement"
   shouldBe(result2, 'after: found');
 
-  document.body.appendHtml('<p id="testElement2"></p>');
+  document.body.appendHtml('<p id="testElement2"></p>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   runTest();
   shouldBe(result3, 'onload: found');

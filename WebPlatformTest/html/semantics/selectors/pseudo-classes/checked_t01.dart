@@ -45,7 +45,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   testSelector(":checked"
     , ["option1", "checkbox1", "radio1", "menuitem1", "menuitem4"]
     , "':checked' matches checked <input>/<menuitem> in checkbox and radio button states, selected <option>s");

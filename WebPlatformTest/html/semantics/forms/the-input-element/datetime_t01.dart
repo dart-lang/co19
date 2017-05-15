@@ -29,7 +29,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   List<InputElement> inputs=document.getElementsByTagName("input") as List<InputElement>;
 
   test(() {assert_equals(inputs[0].type, "date");}

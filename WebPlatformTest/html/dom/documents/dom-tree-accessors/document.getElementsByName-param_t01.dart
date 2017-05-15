@@ -27,7 +27,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   assert_equals(document.getElementsByName("test1").length, 1);
   assert_equals(document.getElementsByName("test1")[0],
                 document.getElementsByTagName("param")[0]);

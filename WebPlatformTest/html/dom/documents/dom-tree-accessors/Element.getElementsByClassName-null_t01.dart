@@ -27,7 +27,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var wrapper = document.getElementById("test");
   var nullClass=wrapper.getElementsByClassName("null");
   assert_equals(nullClass.length, 2);

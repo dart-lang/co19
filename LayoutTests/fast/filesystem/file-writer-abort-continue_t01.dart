@@ -31,7 +31,8 @@ class MethodSet {
 }
 
 main() {
-  document.body.appendHtml('<div id="console"></div>');
+  document.body.appendHtml('<div id="console"></div>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   var sawWriteStart;
   var sawAbort;

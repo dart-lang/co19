@@ -24,7 +24,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   assert_equals(document.getElementsByName("ABCD").length, 0);
   assert_equals(document.getElementsByName("abcd").length, 1);
 }

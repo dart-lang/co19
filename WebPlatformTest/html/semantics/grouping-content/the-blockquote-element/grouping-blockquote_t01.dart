@@ -40,7 +40,7 @@ const String actual='actual';
 const String resolved='resolved';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 //        "use strict";
         var location=window.location;
         

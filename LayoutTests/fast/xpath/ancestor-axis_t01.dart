@@ -16,10 +16,11 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+    XPathEvaluator evaluator = new XPathEvaluator();
 
-    var result = evaluator.evaluate("//div/ancestor::*", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    var result = evaluator.evaluate("//div/ancestor::*", document.body, null,
+        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 
     Expect.equals(2, result.snapshotLength);
 }

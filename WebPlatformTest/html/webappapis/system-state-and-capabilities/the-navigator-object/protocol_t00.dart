@@ -24,7 +24,7 @@ increase that limit for the tests below to run.</p>
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     Navigator navigator = window.navigator;
     Location location = window.location;
     

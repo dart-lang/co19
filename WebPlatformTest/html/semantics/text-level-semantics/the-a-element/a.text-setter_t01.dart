@@ -29,7 +29,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var d = document.getElementById("test")
                 .append(document.createElement("a"));
   d.href = "d";

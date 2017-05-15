@@ -42,7 +42,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var d1 = document.getElementById('d1'),
       d2 = document.getElementById('d2'),
       d3 = document.getElementById('d3'),

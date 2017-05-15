@@ -24,8 +24,7 @@ import "../../Utils/expectWeb.dart";
 void main() {
    document.body.appendHtml("""
 <iframe id="helper" style="display: none"></iframe>
-   """
-   );
+   """, treeSanitizer: NodeTreeSanitizer.trusted);
 
    var HELPER = document.getElementById("helper");
     

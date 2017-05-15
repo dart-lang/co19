@@ -230,7 +230,8 @@ createContext2d(id) {
   return canvas.getContext('2d');
 }
 
-addConsole() => document.body.appendHtml('<div id="console"></div>');
+addConsole() => document.body.appendHtml('<div id="console"></div>',
+    treeSanitizer: NodeTreeSanitizer.trusted);
 
 qwe([x]) => testFailed(x.toString());
 

@@ -12,8 +12,8 @@ import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 
 main() {
-  document.body
-    .appendHtml('<canvas id="c"></canvas>');
+  document.body.appendHtml('<canvas id="c"></canvas>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   var c = document.getElementById("c");
   var gl = c.getContext("webgl");

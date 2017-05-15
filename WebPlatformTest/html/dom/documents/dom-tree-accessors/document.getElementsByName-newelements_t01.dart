@@ -50,7 +50,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   assert_equals(document.getElementsByName("section").length, 1);
   assert_equals(document.getElementsByName("section")[0],

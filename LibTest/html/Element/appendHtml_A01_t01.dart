@@ -14,11 +14,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<span></span>');
-  x.appendHtml('text');
+  x.appendHtml('text', treeSanitizer: NodeTreeSanitizer.trusted);
   Expect.isTrue(x.firstChild is Text, 'append to empty children list');
 
   x = new Element.html('<span><div><div></span>');
-  x.appendHtml('<!--comment-->text');
+  x.appendHtml('<!--comment-->text', treeSanitizer: NodeTreeSanitizer.trusted);
 
   Expect.isTrue(x.firstChild is DivElement, 'div');
   Expect.isTrue(x.firstChild.nextNode is Comment, 'comment');

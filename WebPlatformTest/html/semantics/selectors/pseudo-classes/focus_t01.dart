@@ -34,7 +34,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
     document.getElementById("input1").focus(); // set the focus on input1
     testSelector(":focus", ["input1"], "input1 has the focus");

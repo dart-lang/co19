@@ -22,18 +22,19 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+    XPathEvaluator evaluator = new XPathEvaluator();
     var results = "";
     var result;
     var testNum = 1;
     bool failed=false;
     
     void runXPath(xpath) {
-        var result = evaluator.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
+        var result = evaluator.evaluate(xpath, document, null,
+            XPathResult.ANY_TYPE, null).iterateNext();
         bool passed=true;
-        if (result==null) {
-          failed=true;
+        if (result == null) {
+          failed = true;
         }        
         results = '${results}${xpath} + ${(passed ? "PASSED" : "FAILED")}: $result<br />';
     }

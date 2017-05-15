@@ -27,11 +27,12 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
-  XPathEvaluator evaluator=new XPathEvaluator();
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  XPathEvaluator evaluator = new XPathEvaluator();
 
   var UNORDERED_NODE_SNAPSHOT_TYPE = 6;
 
-  var result = evaluator.evaluate("id(id(' test1  test2 '))", document.body, null, UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  var result = evaluator.evaluate("id(id(' test1  test2 '))", document.body,
+      null, UNORDERED_NODE_SNAPSHOT_TYPE, null);
   Expect.equals(4, result.snapshotLength);
 }

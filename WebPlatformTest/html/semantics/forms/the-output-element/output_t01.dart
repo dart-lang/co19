@@ -23,7 +23,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
     var output = document.getElementById("output");
     assert_equals(output.type, "output", "type must return the string 'output'");

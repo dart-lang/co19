@@ -32,7 +32,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 		test((){
 			var element = document.getElementById('type_support');
 			assert_equals(element.type, 'url');

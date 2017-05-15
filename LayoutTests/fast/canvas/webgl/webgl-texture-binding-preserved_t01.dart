@@ -15,8 +15,8 @@ import "resources/webgl-test-utils.dart" as wtu;
 import "../../../../Utils/async_utils.dart";
 
 main() {
-  document.body
-    .appendHtml('<canvas id="webgl-canvas" width="32px" height="32px"></canvas>');
+  document.body.appendHtml('<canvas id="webgl-canvas" width="32px" ' +
+      'height="32px"></canvas>', treeSanitizer: NodeTreeSanitizer.trusted);
 
   var canvas;
   var context;

@@ -34,7 +34,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 //var items = document.getElementById("test").getElementsByTagName("li");
 var items = document.querySelector('#test').queryAll('li');
