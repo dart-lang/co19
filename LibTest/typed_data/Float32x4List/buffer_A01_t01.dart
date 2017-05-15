@@ -15,10 +15,12 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
+Float32x4 pack(x, y, z, w) => new Float32x4(x,y,z,w);
 
 main() {
-  var tmp = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0,
-      9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0]);
+  var tmp = new Float32x4List.fromList([pack(1.0, 2.0, 3.0, 4.0),
+      pack(5.0, 6.0, 7.0, 8.0), pack(9.0, 10.0, 11.0, 12.0),
+      pack(13.0, 14.0, 15.0, 16.0)]);
   var byteBuffer = tmp.buffer;
   var elemSize = Float32x4List.BYTES_PER_ELEMENT;
 
