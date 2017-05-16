@@ -213,7 +213,7 @@ String getComputedStyleValue(property, value) {
     return computedValue;
 }
 
-List getParentAndChildComputedStyles(property, parentValue, childValue) {
+List<String> getParentAndChildComputedStyles(property, parentValue, childValue) {
     var parentElement = document.createElement("div");
     document.body.append(parentElement);
     parentElement.style.setProperty(property, parentValue);
@@ -232,7 +232,7 @@ String getParentAndChildComputedStylesString(property, parentValue, childValue) 
     return "parent: ${styles[0]}, child: ${styles[1]}";
 }
 
-void getChildComputedStyle(property, parentValue, childValue) {
+String getChildComputedStyle(property, parentValue, childValue) {
     var styles = getParentAndChildComputedStyles(property, parentValue, childValue);
     return styles[1];
 }

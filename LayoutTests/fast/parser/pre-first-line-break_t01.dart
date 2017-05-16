@@ -15,7 +15,7 @@ void main() {
 
     var element = document.createElement("div");
 
-    void roundTrip(string) {
+    String roundTrip(string) {
         element.setInnerHtml(string, treeSanitizer:new NullTreeSanitizer());
         return element.innerHtml;
     }
