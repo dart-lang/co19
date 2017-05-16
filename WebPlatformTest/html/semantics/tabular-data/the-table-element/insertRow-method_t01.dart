@@ -28,7 +28,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   Element table = document.getElementById("test").querySelector("table");
   assert_throws("IndexSizeError", () {

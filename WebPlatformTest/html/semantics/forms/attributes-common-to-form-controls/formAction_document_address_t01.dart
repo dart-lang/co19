@@ -40,7 +40,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-      document.body.appendHtml(htmlEL);
+      document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
       
       // formaction content attribute is missing
       test(() {

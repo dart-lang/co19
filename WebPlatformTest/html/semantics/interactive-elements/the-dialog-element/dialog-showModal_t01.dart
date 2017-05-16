@@ -55,7 +55,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   DialogElement d1 = document.getElementById('d1') as DialogElement;
   DialogElement d2 = document.getElementById('d2') as DialogElement;
   DialogElement d3 = document.getElementById('d3') as DialogElement;

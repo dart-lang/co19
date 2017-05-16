@@ -37,7 +37,7 @@ const String expected = 'expected';
 const String testname = 'testname';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   InputElement valid = document.getElementById("valid");
   InputElement too_small_value = document.getElementById("too_small_value");
   InputElement too_large_value = document.getElementById("too_large_value");

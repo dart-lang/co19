@@ -28,7 +28,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   Node e = document.getElementById("test")
                 .append(document.createElement("a"));
   (e as AnchorElement).href = "d";

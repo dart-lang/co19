@@ -12,7 +12,8 @@ import "../../testcommon.dart";
 import "resources/file-writer-utils.dart";
 
 main() {
-  document.body.appendHtml('<div id="console"></div>');
+  document.body.appendHtml('<div id="console"></div>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   onTestSuccess(_) {
     testPassed("Successfully wrote blob.");

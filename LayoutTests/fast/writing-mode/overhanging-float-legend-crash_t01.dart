@@ -29,6 +29,6 @@ void crash(e)  {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     window.onLoad.listen(crash);
 }

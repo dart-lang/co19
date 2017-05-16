@@ -18,11 +18,12 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+    XPathEvaluator evaluator = new XPathEvaluator();
     var UNORDERED_NODE_SNAPSHOT_TYPE = 6;
 
-    var result = evaluator.evaluate("id('a bb ccc')[@id != 'ccc']/div", document.body, null, UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    var result = evaluator.evaluate("id('a bb ccc')[@id != 'ccc']/div",
+        document.body, null, UNORDERED_NODE_SNAPSHOT_TYPE, null);
 
     Expect.equals(2, result.snapshotLength);
 }

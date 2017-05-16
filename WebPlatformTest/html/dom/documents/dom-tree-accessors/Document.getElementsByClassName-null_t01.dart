@@ -33,7 +33,7 @@ const fragment='''
 ''';
 
 void main() {
-  document.body.appendHtml(fragment);
+  document.body.appendHtml(fragment, treeSanitizer: NodeTreeSanitizer.trusted);
   var nullClass= document.getElementsByClassName(null);
   assert_equals(nullClass.length, 2);
   assert_equals(nullClass[0], document.getElementById("p3"));

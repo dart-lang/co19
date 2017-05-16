@@ -26,7 +26,7 @@ const String htmlEL = '''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     test(() {
       LinkElement linkNotImport = document.getElementById("linkNotImport");
       assert_equals(linkNotImport.import, null);

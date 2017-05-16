@@ -32,7 +32,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   testSelector(":indeterminate"
     , ["radio2", "radio3", "radio4", "radio5", "progress1"]

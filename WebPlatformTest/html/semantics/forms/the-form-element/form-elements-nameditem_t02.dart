@@ -35,7 +35,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var form = document.getElementById("form");
   assert_array_equals(form.children,
                       [document.getElementById("r0"),

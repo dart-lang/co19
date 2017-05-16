@@ -57,7 +57,7 @@ void load(e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
     xhr = new HttpRequest();
     xhr.onLoad.listen(load);

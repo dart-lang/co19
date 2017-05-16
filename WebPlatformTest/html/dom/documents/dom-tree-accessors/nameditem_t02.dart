@@ -41,7 +41,7 @@ const String htmlEL='''
 ''';
          
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 test(() {
   var iframe = document.getElementsByTagName("iframe")[0] as IFrameElement;

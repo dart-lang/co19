@@ -24,30 +24,36 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator = new XPathEvaluator();
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  XPathEvaluator evaluator = new XPathEvaluator();
 
-    void testId(String expr, String id, String expected) {
-       Node res = evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-       shouldBe((res as Element).id, expected, expr);
-    }
-    
-    void testTag(String expr, String id, String expected) {
-       Node res=evaluator.evaluate(expr, document.getElementById(id), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-       shouldBe((res as Element).tagName, expected, expr);
-    }
-    
-    testId('preceding-sibling::*[1]', 'd3', 'd2');
+  void testId(String expr, String id, String expected) {
+    Node res = evaluator
+        .evaluate(expr, document.getElementById(id), null,
+            XPathResult.ANY_UNORDERED_NODE_TYPE, null)
+        .singleNodeValue;
+    shouldBe((res as Element).id, expected, expr);
+  }
 
-    testId('preceding::*[1]', 'd31', 'd21');
-    testId('preceding::*[2]', 'd31', 'd2');
-    testId('preceding::*[3]', 'd31', 'd1');
-    testTag('preceding::*[4]', 'd31', 'A');
-    testTag('preceding::*[5]', 'd31', 'P');
+  void testTag(String expr, String id, String expected) {
+    Node res = evaluator
+        .evaluate(expr, document.getElementById(id), null,
+            XPathResult.ANY_UNORDERED_NODE_TYPE, null)
+        .singleNodeValue;
+    shouldBe((res as Element).tagName, expected, expr);
+  }
 
-    testId('ancestor::*[1]', 'd31', 'd3');
+  testId('preceding-sibling::*[1]', 'd3', 'd2');
 
-    testId('ancestor-or-self::*[1]', 'd31', 'd31');
+  testId('preceding::*[1]', 'd31', 'd21');
+  testId('preceding::*[2]', 'd31', 'd2');
+  testId('preceding::*[3]', 'd31', 'd1');
+  testTag('preceding::*[4]', 'd31', 'A');
+  testTag('preceding::*[5]', 'd31', 'P');
 
-    checkTestFailures();    
+  testId('ancestor::*[1]', 'd31', 'd3');
+
+  testId('ancestor-or-self::*[1]', 'd31', 'd31');
+
+  checkTestFailures();
 }

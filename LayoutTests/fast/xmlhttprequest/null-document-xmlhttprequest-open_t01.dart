@@ -28,7 +28,7 @@ void checkPass(event) {
 }
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var request = new HttpRequest();
   asyncStart();
   request.onReadyStateChange.listen(checkPass);

@@ -36,7 +36,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   testSelector(":required", ["text1", "text2", "select1", "textarea1"], "':required' matches required <input>s, <select>s and <textarea>s");
   testSelector(":optional", ["text3", "select2", "textarea2"], "':optional' matches elements <input>s, <select>s and <textarea>s that are not required");

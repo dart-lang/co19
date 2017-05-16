@@ -30,7 +30,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   List<InputElement> input = document.getElementsByTagName("input");
   test(() {assert_equals(input[0].type, "text");}, "text type support on input element");
   test(() {assert_equals(input[1].type, "number");}, "number type support on input element");

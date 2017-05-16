@@ -26,7 +26,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.attributes["style"]="margin: 0;";
-    document.head.appendHtml(htmlEL1);
+    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Expect.identical(document.caretRangeFromPoint(115, 550).startContainer, document.getElementById("target"));
 }

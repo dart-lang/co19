@@ -26,8 +26,8 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
-  InputElement input0=document.getElementsByTagName("input")[0];
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  InputElement input0 = document.getElementsByTagName("input")[0];
   var pattern=input0.getAttribute("pattern");
   assert_equals(pattern, "[a-z]{3}", "pattern attribute support on input element");
 }

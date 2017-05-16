@@ -26,7 +26,7 @@ const String htmlEL=r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var select = document.getElementById("test");
   var option = select.firstChild;
   assert_equals(option.text, "\\", "${option.text.length}");

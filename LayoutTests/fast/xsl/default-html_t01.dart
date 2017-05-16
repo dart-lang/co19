@@ -17,39 +17,45 @@ const String htmlEL = r'''
 ''';
 
 main() {
-    document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
-    var xsl = (new DomParser()).parseFromString('<?xml version="1.0" encoding="ISO-8859-1"?>'+
-    '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">'+
-    '<xsl:template match="doc">'+
-    '<span style="color:green">result.</span>'+
-    '</xsl:template>'+
-    '</xsl:stylesheet>', 'application/xml');
-    
-    var xsl2 = (new DomParser()).parseFromString('<?xml version="1.0" encoding="ISO-8859-1"?>'+
-    '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">'+
-    '<xsl:output method="xml"/>'+
-    '<xsl:template match="doc">'+
-    '<span style="color:green">result.</span>'+
-    '</xsl:template>'+
-    '</xsl:stylesheet>', 'application/xml');
-    
-    var xml = (new DomParser()).parseFromString('<?xml version="1.0" encoding="ISO-8859-1"?>'+
-    '<doc/>', 'application/xml');
-    
-    var processor = new XsltProcessor();
-    processor.importStylesheet(xsl);
-    var result = processor.transformToFragment(xml, document);
-    
-    document.getElementById("result").append(result);
-    
-    // The HTML default shouldn't override an explicitly specified method.
-    processor = new XsltProcessor();
-    processor.importStylesheet(xsl2);
-    var result2 = processor.transformToFragment(xml, document);
-    document.getElementById("result2").append(result2);
+  var xsl = (new DomParser()).parseFromString(
+      '<?xml version="1.0" encoding="ISO-8859-1"?>' +
+          '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">' +
+          '<xsl:template match="doc">' +
+          '<span style="color:green">result.</span>' +
+          '</xsl:template>' +
+          '</xsl:stylesheet>',
+      'application/xml');
 
-    Expect.equals("green", (document.getElementById("result").childNodes[1] as Element).style.color);
-    Expect.isNotNull((document.getElementById("result2").childNodes[1] as Element).style);
+  var xsl2 = (new DomParser()).parseFromString(
+      '<?xml version="1.0" encoding="ISO-8859-1"?>' +
+          '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">' +
+          '<xsl:output method="xml"/>' +
+          '<xsl:template match="doc">' +
+          '<span style="color:green">result.</span>' +
+          '</xsl:template>' +
+          '</xsl:stylesheet>',
+      'application/xml');
+
+  var xml = (new DomParser()).parseFromString(
+      '<?xml version="1.0" encoding="ISO-8859-1"?>' + '<doc/>',
+      'application/xml');
+
+  var processor = new XsltProcessor();
+  processor.importStylesheet(xsl);
+  var result = processor.transformToFragment(xml, document);
+
+  document.getElementById("result").append(result);
+
+  // The HTML default shouldn't override an explicitly specified method.
+  processor = new XsltProcessor();
+  processor.importStylesheet(xsl2);
+  var result2 = processor.transformToFragment(xml, document);
+  document.getElementById("result2").append(result2);
+
+  Expect.equals("green",
+      (document.getElementById("result").childNodes[1] as Element).style.color);
+  Expect.isNotNull(
+      (document.getElementById("result2").childNodes[1] as Element).style);
 }
-

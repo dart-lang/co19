@@ -43,7 +43,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   testSelector(":dir(rtl)"
     , ["bdo1", "bdi2", "span1", "span2", "span4", "span5", "bdo4"]

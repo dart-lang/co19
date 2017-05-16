@@ -41,7 +41,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   testSelector(":valid"
     , ["text1", "form1", "text3", "fieldset1", "text5", "text8", "number2"]

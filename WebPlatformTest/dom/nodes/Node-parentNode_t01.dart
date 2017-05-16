@@ -22,8 +22,7 @@ import "../../Utils/expectWeb.dart";
 void main() {
   document.body.appendHtml("""
 <iframe id=a src="data:text/html,<a name='c'>c</a>"></iframe>
-"""
-);
+""", treeSanitizer: NodeTreeSanitizer.trusted);
 
 // XXX need to test for more node types
 test(() {

@@ -11,8 +11,8 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 main() {
-  document.body
-    .appendHtml('<canvas id="c"></canvas>');
+  document.body.appendHtml('<canvas id="c"></canvas>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
   dynamic c = document.getElementById("c");
   var gl = c.getContext("webgl");

@@ -28,7 +28,7 @@ const String htmlEL='''
 InputElement getInputElement(String id) => document.getElementById(id);
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 test(() {
   getInputElement('r00').value = "";

@@ -53,12 +53,27 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
-  testSelector(":enabled"
-    , ["link6", "link7", "link8", "button1", "input1", "select1", "optgroup1", "option1", "textarea1", "submitbutton", "menuitem1", "fieldset1"]
+  testSelector(
+      ":enabled",
+      [
+        "link6",
+        "link7",
+        "link8",
+        "button1",
+        "input1",
+        "select1",
+        "optgroup1",
+        "option1",
+        "textarea1",
+        "submitbutton",
+        "menuitem1",
+        "fieldset1"
+      ]
 //,                               '[button1, input1, select1, optgroup1, option1, textarea1, submitbutton, fieldset1]') fails
-    , "':enabled' should <a>s/<area>s/<link>s that have an href attribute and elements that are not disabled");
-  
+      ,
+      "':enabled' should <a>s/<area>s/<link>s that have an href attribute and elements that are not disabled");
+
   checkTestFailures();
 }

@@ -24,7 +24,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
     var xhr = new HttpRequest(),
         url = "$testSuiteRoot/fast/xmlhttprequest/resources/xmlhttprequest-responseXML-html-document-responsetype.html",

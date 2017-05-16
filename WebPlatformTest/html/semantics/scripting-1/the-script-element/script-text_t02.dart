@@ -28,7 +28,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 //  var script = document.body.getElementsByTagName("script")[0];
   var script = document.getElementsByName("script")[0];
   assert_equals(script.text, '\n\n\n  var x = "y";\n\n');

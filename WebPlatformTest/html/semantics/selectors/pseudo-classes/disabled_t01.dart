@@ -56,32 +56,89 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
-  testSelector(":disabled"
-    , ["button2", "input2", "select2", "optgroup2", "option2", "textarea2", "fieldset2", "clubname", "clubnum"]
- //     '[button2, input2, select2, optgroup2, option2, textarea2, fieldset2, clubname, clubnum, ]'
-    , "':disabled' should match only disabled elements");
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  testSelector(
+      ":disabled",
+      [
+        "button2",
+        "input2",
+        "select2",
+        "optgroup2",
+        "option2",
+        "textarea2",
+        "fieldset2",
+        "clubname",
+        "clubnum"
+      ]
+      //     '[button2, input2, select2, optgroup2, option2, textarea2, fieldset2, clubname, clubnum, ]'
+      ,
+      "':disabled' should match only disabled elements");
 
   document.getElementById("button2").attributes.remove("disabled");
-  testSelector(":disabled"
-    , ["input2", "select2", "optgroup2", "option2", "textarea2", "fieldset2", "clubname", "clubnum"]
-    , "':disabled' should not match elements whose disabled attribute has been removed");
+  testSelector(
+      ":disabled",
+      [
+        "input2",
+        "select2",
+        "optgroup2",
+        "option2",
+        "textarea2",
+        "fieldset2",
+        "clubname",
+        "clubnum"
+      ],
+      "':disabled' should not match elements whose disabled attribute has been removed");
 
   document.getElementById("button1").setAttribute("disabled", "disabled");
-  testSelector(":disabled"
-    , ["button1", "input2", "select2", "optgroup2", "option2", "textarea2", "fieldset2", "clubname", "clubnum"]
-    , "':disabled' should also match elements whose disabled attribute has been set");
+  testSelector(
+      ":disabled",
+      [
+        "button1",
+        "input2",
+        "select2",
+        "optgroup2",
+        "option2",
+        "textarea2",
+        "fieldset2",
+        "clubname",
+        "clubnum"
+      ],
+      "':disabled' should also match elements whose disabled attribute has been set");
 
-  document.getElementById("input2").setAttribute("type", "submit"); // change input type to submit
-  testSelector(":disabled"
-    , ["button1", "input2", "select2", "optgroup2", "option2", "textarea2", "fieldset2", "clubname", "clubnum"]
-    , "':disabled' should also match disabled elements whose type has changed");
+  document
+      .getElementById("input2")
+      .setAttribute("type", "submit"); // change input type to submit
+  testSelector(
+      ":disabled",
+      [
+        "button1",
+        "input2",
+        "select2",
+        "optgroup2",
+        "option2",
+        "textarea2",
+        "fieldset2",
+        "clubname",
+        "clubnum"
+      ],
+      "':disabled' should also match disabled elements whose type has changed");
 
   var input = document.createElement("input");
   input.setAttribute("disabled", "disabled");
-  testSelector(":disabled"
-    , ["button1", "input2", "select2", "optgroup2", "option2", "textarea2", "fieldset2", "clubname", "clubnum"]
-    , "':disabled' should not match elements not in the document");
-  
+  testSelector(
+      ":disabled",
+      [
+        "button1",
+        "input2",
+        "select2",
+        "optgroup2",
+        "option2",
+        "textarea2",
+        "fieldset2",
+        "clubname",
+        "clubnum"
+      ],
+      "':disabled' should not match elements not in the document");
+
   checkTestFailures();
 }

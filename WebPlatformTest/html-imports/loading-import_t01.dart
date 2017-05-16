@@ -26,32 +26,31 @@ const String htmlEL = '''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
-    test(() {
-      LinkElement linkImport1 = document.getElementById("linkImport1") as LinkElement;
-      LinkElement linkImport2 = document.getElementById("linkImport2") as LinkElement;
-      assert_equals(linkImport1.import, linkImport2.import);
-      assert_true(linkImport1.import != null, "is null");
-    }, 
-    "Check on sharing imports. Imports in same location should be represented as same object."
-    );
-    
-    test(() {
-      LinkElement link = document.getElementById("linkToTypicalHtml") as LinkElement;
-      assert_equals(link.import.querySelector("p2").parentNode, 
-                    link.import.querySelector("parent"));
-    }, 
-    "Check on HTML Parsing. An HTML parser should be used to parse the import."
-    );
-    
-    test(() {
-      LinkElement parent = document.getElementById("linkIncludingSubImport") as LinkElement;
-      var child = (parent.import.querySelector("link") as LinkElement).import as HtmlDocument;
-      assert_equals(child.head.title, "Hello");
-    }, 
-    "Check on sub-imports. Sub-improts should be loaded as usual imports."
-    );
+  test(() {
+    LinkElement linkImport1 =
+        document.getElementById("linkImport1") as LinkElement;
+    LinkElement linkImport2 =
+        document.getElementById("linkImport2") as LinkElement;
+    assert_equals(linkImport1.import, linkImport2.import);
+    assert_true(linkImport1.import != null, "is null");
+  }, "Check on sharing imports. Imports in same location should be represented as same object.");
 
-    checkTestFailures();
+  test(() {
+    LinkElement link =
+        document.getElementById("linkToTypicalHtml") as LinkElement;
+    assert_equals(link.import.querySelector("p2").parentNode,
+        link.import.querySelector("parent"));
+  }, "Check on HTML Parsing. An HTML parser should be used to parse the import.");
+
+  test(() {
+    LinkElement parent =
+        document.getElementById("linkIncludingSubImport") as LinkElement;
+    var child = (parent.import.querySelector("link") as LinkElement).import
+        as HtmlDocument;
+    assert_equals(child.head.title, "Hello");
+  }, "Check on sub-imports. Sub-improts should be loaded as usual imports.");
+
+  checkTestFailures();
 }

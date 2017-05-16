@@ -29,5 +29,5 @@ void main() {
 
     Expect.isTrue(span.offsetHeight > 0);
 //test.parentNode.removeChild(test);
-    document.body.appendHtml('PASS');
+    document.body.appendHtml('PASS', treeSanitizer: new NullTreeSanitizer());
 }

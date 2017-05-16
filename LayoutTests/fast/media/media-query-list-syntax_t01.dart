@@ -22,7 +22,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
-    document.body.appendHtml(htmlEL2);
+    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     var tests = [
         [ "@media all, not,{}", "all, not all, not all" , "Media query error #1" ],
         [ "@media screen, all and f() {}", "screen, not all", "Media query error #2" ],

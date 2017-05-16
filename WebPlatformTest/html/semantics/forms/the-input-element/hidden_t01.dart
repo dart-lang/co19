@@ -29,7 +29,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   InputElement hidden=document.getElementById("hidden");
   InputElement hidden_with_value=document.getElementById("hidden_with_value");
 

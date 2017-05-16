@@ -15,12 +15,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   IFrameElement x = new IFrameElement();
-  x.appendHtml('text');
+  x.appendHtml('text', treeSanitizer: NodeTreeSanitizer.trusted);
   Expect.isTrue(x.firstChild is Text, 'append to empty children list');
 
   x = new IFrameElement();
-  x.appendHtml('<div><div>');
-  x.appendHtml('<!--comment-->text');
+  x.appendHtml('<div><div>', treeSanitizer: NodeTreeSanitizer.trusted);
+  x.appendHtml('<!--comment-->text', treeSanitizer: NodeTreeSanitizer.trusted);
   document.body.append(x);
   Expect.isTrue(x.firstChild is DivElement, 'div');
   Expect.isTrue(x.firstChild.nextNode is Comment, 'comment');

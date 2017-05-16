@@ -51,7 +51,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   
     test(() {
       assert_equals(document.getElementById("m1"),document.getElementsByTagName("math")[0]);

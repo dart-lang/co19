@@ -22,38 +22,41 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
-    XPathEvaluator evaluator=new XPathEvaluator();
-    var results = "";
-    var result;
-    var testNum = 1;
-    bool failed=false;
-    
-    void runXPath(xpath) {
-        var result = evaluator.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
-        bool passed=true;
-        if (result==null) {
-          failed=true;
-        }        
-        results = '${results}${xpath} + ${(passed ? "PASSED" : "FAILED")}: $result<br />';
-    }
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  XPathEvaluator evaluator = new XPathEvaluator();
+  var results = "";
+  var result;
+  var testNum = 1;
+  bool failed = false;
 
-    void init() {
-        var tests = [
-            "id('nested1')",
-            "id('nested1')/div[1]",
-            "id('nested1')//div[1]",
-            "id('nested1')/div[1]/input[2]",
-            "id('nested1')/div[1]//input[2]",
-            "id('nested1')//div[1]/input[2]",
-            "id('nested1')//div[1]//input[2]"
-        ];
-        for (var i = 0; i < tests.length; i++) {
-            runXPath(tests[i]);
-        }
-        document.getElementById('results').innerHtml = results;
+  void runXPath(xpath) {
+    var result = evaluator
+        .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
+        .iterateNext();
+    bool passed = true;
+    if (result == null) {
+      failed = true;
     }
-    
-    init();
-    Expect.isFalse(failed);
+    results =
+        '${results}${xpath} + ${(passed ? "PASSED" : "FAILED")}: $result<br />';
+  }
+
+  void init() {
+    var tests = [
+      "id('nested1')",
+      "id('nested1')/div[1]",
+      "id('nested1')//div[1]",
+      "id('nested1')/div[1]/input[2]",
+      "id('nested1')/div[1]//input[2]",
+      "id('nested1')//div[1]/input[2]",
+      "id('nested1')//div[1]//input[2]"
+    ];
+    for (var i = 0; i < tests.length; i++) {
+      runXPath(tests[i]);
+    }
+    document.getElementById('results').innerHtml = results;
+  }
+
+  init();
+  Expect.isFalse(failed);
 }

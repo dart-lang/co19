@@ -31,7 +31,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   InputElement checkbox_default = document.getElementById('checkbox_default'),
       checkbox_checked = document.getElementById('checkbox_checked'),

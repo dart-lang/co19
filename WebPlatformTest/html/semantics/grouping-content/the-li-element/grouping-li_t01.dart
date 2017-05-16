@@ -120,7 +120,7 @@ const String htmlEL=r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
         var testLI = document.getElementById("test_li") as LIElement;
         var testList = [];

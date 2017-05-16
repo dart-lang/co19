@@ -26,7 +26,7 @@ const String htmlEL = '''
 LinkElement linkElement(String id) => document.getElementById(id);
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     
     test(() {
       var linkImport = linkElement("linkImport");

@@ -49,7 +49,7 @@ void check(String id, String expected) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
     check('table1', null);
     check('table2', "");

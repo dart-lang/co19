@@ -29,8 +29,8 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
-  List<InputElement> inputs=document.getElementsByTagName("input") as List<InputElement>;
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  List<InputElement> inputs = document.getElementsByTagName("input") as List<InputElement>;
 
   test(() {assert_equals(inputs[0].type, "date");}
     , "date type support on input element"

@@ -40,7 +40,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   void testEvent(evt) {
     assert_false(evt.bubbles, "event doesn't bubble");

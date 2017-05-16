@@ -22,7 +22,7 @@ const String htmlEL='''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   var element = document.getElementsByTagName('ins')[0] as Element;
   var textDecoration = element.getComputedStyle().textDecorationLine;
   if (textDecoration == null || textDecoration == "") {

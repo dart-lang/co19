@@ -24,8 +24,7 @@ void main() {
   document.body.appendHtml("""
 <iframe id="subset1"  src="data:application/xml,&lt;!DOCTYPE foo [ &lt;!ELEMENT foo (%23PCDATA)> ]>&lt;foo/>" />
 <iframe id="subset2"  src="data:application/xml,&lt;!DOCTYPE foo [ &lt;!ELEMENT foo EMPTY> ]>&lt;foo/>" />
-"""
-);
+""", treeSanitizer: NodeTreeSanitizer.trusted);
 
 void testNullHandling(node) {
   test(() {

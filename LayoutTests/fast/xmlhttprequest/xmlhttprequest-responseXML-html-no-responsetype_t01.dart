@@ -18,7 +18,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL);
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     HttpRequest xhr = new HttpRequest();
     String url = window.location.href;
     xhr.onLoad.listen((e) {
