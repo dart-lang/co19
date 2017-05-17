@@ -24,10 +24,6 @@ String g() async { /// static type warning
   return 'a';
 }
 
-void h() async { /// static type warning
-  return null;
-}
-
 dynamic a() async { // ok
   return 'a';
 }
@@ -39,7 +35,6 @@ Future b() async { // ok
 main() {
   checkTypeError(f);
   checkTypeError(g);
-  checkTypeError(h);
   a();
   b();
 }

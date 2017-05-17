@@ -22,8 +22,6 @@ int f() sync* { } /// static type warning
 
 String g() sync* { } /// static type warning
 
-void h() sync* { } /// static type warning
-
 dynamic a() sync* { } // ok
 
 Iterable b() sync* { } // ok
@@ -39,7 +37,6 @@ TestItearble c() sync* { } // ok
 main() {
   checkTypeError(f);
   checkTypeError(g);
-  checkTypeError(h);
   a();
   b();
   checkTypeError(c);

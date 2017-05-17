@@ -10,13 +10,10 @@
  * checked mode, a dynamic type error would arise if a non-null object was
  * returned from a void method (since no object has runtime type dynamic).
  * @description Checks that returning null or a value with static type dynamic
- * from within a void method does not result in a static type warning, but it's
- * a type error in the latter case.
+ * from within a void method does not result in a static type warning.
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
  */
-import "../../../Utils/dynamic_check.dart";
 
 void foo() {
   return null;
@@ -28,8 +25,5 @@ void bar(var v) {
 
 main() {
   foo();
-
-  checkTypeError(() {
-    bar(1);
-  });
+  bar(1);
 }

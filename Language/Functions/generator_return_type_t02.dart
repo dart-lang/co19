@@ -22,8 +22,6 @@ int f() async* { } /// static type warning
 
 String g() async* { } /// static type warning
 
-void h() async* { } /// static type warning
-
 dynamic a() async* { } // ok
 
 Stream b() async* { } // ok
@@ -40,7 +38,6 @@ TestStream c() async* { } // ok
 main() {
   checkTypeError(f);
   checkTypeError(g);
-  checkTypeError(h);
   a();
   b();
   checkTypeError(c);
