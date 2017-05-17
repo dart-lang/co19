@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void operator []=(int index, E value)
- * Sets the entry at the given index in the list to value.
- * @description Checks that the entry at the given index is set.
+ * Sets the value at the given index in the list to value.
+ * @description Checks that the value at the given index is set.
  * @author msyabro
  */
 
