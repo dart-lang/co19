@@ -9,11 +9,10 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that it is a compile error, if the declared
+ * @description Check that it is no compile error, if the declared
  * return type of synchronous generator function may not be assigned
- * to Iterable.
+ * to Iterable but is void.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
 

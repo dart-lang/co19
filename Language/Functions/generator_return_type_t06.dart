@@ -9,10 +9,10 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that it is a compile error, if the declared
- * return type of a function marked async* may not be assigned to Stream.
+ * @description Check that it is no compile error, if the declared
+ * return type of a function marked async* may not be assigned to Stream but is
+ * void.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
 

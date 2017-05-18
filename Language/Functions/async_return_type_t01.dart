@@ -13,7 +13,6 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
 
 int f() async {
   return 1;

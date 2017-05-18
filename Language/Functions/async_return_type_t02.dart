@@ -7,13 +7,12 @@
  * @assertion It is a static warning if the declared return type of a function
  * marked async may not be assigned to Future.
  *
- * @description Check that it is a compile time error, if the declared
- * return type of asynchronous function may not be assigned to Future.
+ * @description Check that it is no compile time error, if the declared
+ * return type of asynchronous function may not be assigned to Future but is
+ * void.
  *
- * @compile-error
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
 
 void h() async {
   return null;
