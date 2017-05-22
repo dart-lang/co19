@@ -16,29 +16,29 @@ import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-String newPath;
-
 void entryPoint(SendPort sendPort) {
-  sendPort.send(Directory.current);
+  ReceivePort receivePort = new ReceivePort();
+  receivePort.listen((_) => sendPort.send(Directory.current.path));
+  sendPort.send(receivePort.sendPort);
 }
 
 test() async {
+  String newPath;
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen(
-      (data){
-      Expect.isTrue(Directory.current is Directory);
-      Expect.equals(newPath, Directory.current.path);
-    asyncEnd();
-  }
-  );
-  Isolate isolate = await Isolate.spawn(
-      entryPoint,
-      receivePort.sendPort);
+  receivePort.listen((data) {
+    if (data is SendPort) {
+      newPath = Directory.current.path + Platform.pathSeparator + "TestDir";
+      Directory.current = newPath;
+      (data as SendPort).send("");
+    } else {
+      Expect.equals(newPath, data);
+      asyncEnd();
+    }
+  });
+  await Isolate.spawn(entryPoint, receivePort.sendPort);
 }
 
 main() {
   asyncStart();
   test();
-  newPath = Directory.current.path + Platform.pathSeparator + "TestDir";
-  Directory.current = newPath;
 }

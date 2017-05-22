@@ -19,16 +19,17 @@ import "../../../Utils/expect.dart";
 String newPath;
 
 void entryPoint(SendPort sendPort) {
-  sendPort.send(Directory.current);
+  sendPort.send(Directory.current.path);
 }
 
 test() async {
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
       (data){
-      Expect.isTrue(Directory.current is Directory);
-      Expect.equals(newPath, Directory.current.path);
-    asyncEnd();
+        Expect.equals(newPath, data);
+        Expect.isTrue(Directory.current is Directory);
+        Expect.equals(newPath, Directory.current.path);
+        asyncEnd();
   }
   );
   Isolate isolate = await Isolate.spawn(
