@@ -8,7 +8,8 @@
  * Create a Directory object from a URI.
  *
  * If uri cannot reference a directory this throws UnsupportedError.
- * @description Checks that this constructor creates a Directory object from a URI.
+ * @description Checks that this constructor creates a Directory object from a
+ * URI.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -16,5 +17,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   Uri uri = new Uri(scheme: "http", host: "dartlang.org");
+  Expect.throws(() {new Directory.fromUri(uri);}, (e) => e is UnsupportedError);
+
+  uri = new Uri.http("", "some/path");
   Expect.throws(() {new Directory.fromUri(uri);}, (e) => e is UnsupportedError);
 }
