@@ -11,14 +11,9 @@
  * elements satisfy test the resulting iterable is empty, otherwise it iterates
  * the remaining elements in their original order, starting with the first
  * element for which test(element) returns false.
- *
- *
  * @description Checks that Iterable iterates the remaining elements in their
  * original order, starting with the first element for which test(element)
  * returns false. If all elements satisfy test the resulting Iterable is empty.
- *
- * once an element does not satisfy the [test] every
- * later element is used unconditionally.
  * @author msyabro
  */
 

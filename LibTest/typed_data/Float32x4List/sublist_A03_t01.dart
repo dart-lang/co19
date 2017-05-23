@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
+ * @assertion List<E> sublist(int start, [int end])
  * ...
  * An error occurs if [start] is outside the range 0 .. length or if [end] is
  * outside the range start .. length.

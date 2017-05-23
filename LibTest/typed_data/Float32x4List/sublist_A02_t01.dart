@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
+ * @assertion List<E> sublist(int start, [int end])
  * ...
  * If [end] is omitted, the [length] of [this] is used.
  * @description Checks that if [end] is omitted, the [length] of [this] is used.

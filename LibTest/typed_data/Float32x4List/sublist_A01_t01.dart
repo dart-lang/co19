@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
+ * @assertion List<E> sublist(int start, [int end])
  * Returns a new list containing the elements from [start] inclusive to [end]
  * exclusive.
  * @description Checks that the returned list contains all elements of [this]
