@@ -8,9 +8,9 @@
 import "dart:async";
 import "dart:isolate";
 
-Duration ONE_SECOND = new Duration(seconds:1);
-Duration TWO_SECONDS = new Duration(seconds:2);
-Duration THREE_SECONDS = new Duration(seconds:3);
+Duration ONE_SECOND = new Duration(seconds: 1);
+Duration TWO_SECONDS = new Duration(seconds: 2);
+Duration THREE_SECONDS = new Duration(seconds: 3);
 
 /**
  * send ping with given payload to given isolate. Returns the response,
@@ -21,8 +21,8 @@ Duration THREE_SECONDS = new Duration(seconds:3);
 Future ping(Isolate isolate, payload, [Duration timeout]) {
   ReceivePort pingPort = new ReceivePort();
   Future result = pingPort.first;
-  isolate.ping(pingPort.sendPort, response:payload);
-  if (timeout!=null){
+  isolate.ping(pingPort.sendPort, response: payload);
+  if (timeout != null) {
     result = result.timeout(timeout, onTimeout: () {
       pingPort.close();
       return "timeout";
@@ -35,7 +35,6 @@ Future ping(Isolate isolate, payload, [Duration timeout]) {
  * Basement for Echo and Error servers
  */
 abstract class Server {
-
   static const String _STOP = "!stop";
 
   Isolate isolate;
@@ -62,38 +61,28 @@ abstract class Server {
     ReceivePort exitPort = new ReceivePort();
     isolate.addOnExitListener(exitPort.sendPort);
     Future result = exitPort.first; // subscribe first
-    isolate.kill(priority:priority);
+    isolate.kill(priority: priority);
     return result;
   }
 
-  void send(message){
+  void send(message) {
     sendPort.send(message);
   }
 }
-
 
 /**
  * Utility class, that helps to spawn isolates, which sole purpose is
  * to generate errors.
  */
 class ErrorServer extends Server {
+  ErrorServer(Isolate isolate, SendPort sendPort) : super(isolate, sendPort);
 
-  ErrorServer(Isolate isolate, SendPort sendPort): super(isolate, sendPort);
-
-  static Future<ErrorServer> spawn({
-                                bool errorsAreFatal,
-                                SendPort onExit,
-                                SendPort onError
-                              }) async {
-
+  static Future<ErrorServer> spawn(
+      {bool errorsAreFatal, SendPort onExit, SendPort onError}) async {
     ReceivePort receivePort = new ReceivePort();
     Isolate isolate = await Isolate.spawn(
-        isolateEntryPoint,
-        receivePort.sendPort,
-        errorsAreFatal:errorsAreFatal,
-        onExit:onExit,
-        onError:onError
-    );
+        isolateEntryPoint, receivePort.sendPort,
+        errorsAreFatal: errorsAreFatal, onExit: onExit, onError: onError);
     SendPort sendPort = await receivePort.first;
     return new ErrorServer(isolate, sendPort);
   }
@@ -102,16 +91,14 @@ class ErrorServer extends Server {
     ReceivePort receivePort = new ReceivePort();
     int i = 0;
     StreamSubscription ss;
-    ss = receivePort.listen(
-        (x) {
-          if (x==Server._STOP){
-            ss.cancel();
-            receivePort.close();
-          } else {
-            throw i++;
-          }
-        }
-    );
+    ss = receivePort.listen((x) {
+      if (x == Server._STOP) {
+        ss.cancel();
+        receivePort.close();
+      } else {
+        throw i++;
+      }
+    });
     sendPort.send(receivePort.sendPort);
   }
 
@@ -125,24 +112,14 @@ class ErrorServer extends Server {
  * to send back the received data
  */
 class EchoServer extends Server {
+  EchoServer(Isolate isolate, SendPort sendPort) : super(isolate, sendPort);
 
-  EchoServer(Isolate isolate, SendPort sendPort): super(isolate, sendPort);
-
-
-  static Future<EchoServer> spawn(SendPort dataSendPort, {
-                                   bool errorsAreFatal,
-                                   SendPort onExit,
-                                   SendPort onError
-                                   }) async {
-
+  static Future<EchoServer> spawn(SendPort dataSendPort,
+      {bool errorsAreFatal, SendPort onExit, SendPort onError}) async {
     ReceivePort receivePort = new ReceivePort();
     Isolate isolate = await Isolate.spawn(
-        isolateEntryPoint,
-        [receivePort.sendPort, dataSendPort],
-        errorsAreFatal:errorsAreFatal,
-        onExit:onExit,
-        onError:onError
-    );
+        isolateEntryPoint, [receivePort.sendPort, dataSendPort],
+        errorsAreFatal: errorsAreFatal, onExit: onExit, onError: onError);
     SendPort sendPort = await receivePort.first;
     return new EchoServer(isolate, sendPort);
   }
@@ -150,26 +127,25 @@ class EchoServer extends Server {
   static void isolateEntryPoint(List<SendPort> sendPort) {
     ReceivePort receivePort = new ReceivePort();
     StreamSubscription ss;
-    ss = receivePort.listen(
-        (dynamic x) {
-            if (x == Server._STOP) {
-              ss.cancel();
-              receivePort.close();
-            } else if ((x is List) && (x.length == 2) && (x[0] is SendPort)) {
-              x[0].send(x[1]);
-            } else {
-              sendPort[1].send(x);
-            }
-        }
-    );
+    ss = receivePort.listen((dynamic x) {
+      if (x == Server._STOP) {
+        ss.cancel();
+        receivePort.close();
+      } else if ((x is List) && (x.length == 2) && (x[0] is SendPort)) {
+        x[0].send(x[1]);
+      } else {
+        sendPort[1].send(x);
+      }
+    });
     sendPort[0].send(receivePort.sendPort);
   }
 
-  Future<Object> ping(Object message, [Duration timeout, Object timeoutResponse]) {
+  Future<Object> ping(Object message,
+      [Duration timeout, Object timeoutResponse]) {
     ReceivePort receivePort = new ReceivePort();
     Future<Object> result = receivePort.first;
     sendPort.send([receivePort.sendPort, message]);
-    if (timeout!=null){
+    if (timeout != null) {
       result = result.timeout(timeout, onTimeout: () {
         receivePort.close();
         return timeoutResponse;
