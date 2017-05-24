@@ -17,14 +17,18 @@ import "../../../Utils/expect.dart";
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 main() {
-  Float64x2List l = new Float64x2List(10);
+  Float64x2List l = new Float64x2List.fromList([f64x2(0.0), f64x2(1.0),
+      f64x2(2.0), f64x2(3.0), f64x2(4.0)]);
   var count = 0;
-  test(e) {
+  test1(e) {
     count++;
     return false;
   }
-
-  var res = l.skipWhile(test);
+  test2(e) {
+    count++;
+    return e.x < 1;
+  }
+  var res = l.skipWhile(test1);
   Expect.equals(0, count);
   res.elementAt(0);
   Expect.equals(1, count);
@@ -32,4 +36,14 @@ main() {
   Expect.equals(2, count);
   res.elementAt(1);
   Expect.equals(3, count);
+
+  count = 0;
+  res = l.skipWhile(test2);
+  Expect.equals(0, count);
+  res.elementAt(0);
+  Expect.equals(2, count);
+  res.elementAt(3);
+  Expect.equals(4, count);
+  res.elementAt(1);
+  Expect.equals(6, count);
 }
