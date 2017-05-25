@@ -27,9 +27,12 @@ test() async {
     getTempDirectory(tmp.path).then((dir) {
       dir.create(recursive: true).then((created) {
         created.exists().then((result) {
-          Expect.isTrue(result);
-          tmp.delete(recursive: true);
-          asyncEnd();
+          try {
+            Expect.isTrue(result);
+          } finally {
+            tmp.delete(recursive: true);
+            asyncEnd();
+          }
         });
       });
     });

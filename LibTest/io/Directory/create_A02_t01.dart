@@ -25,7 +25,7 @@ test() async {
   Directory dir = new Directory("TestDir");
   dir.create().then((created) {
     Expect.equals(dir, created);
-      asyncEnd();
+    asyncEnd();
   });
 }
 

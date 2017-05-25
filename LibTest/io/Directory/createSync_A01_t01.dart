@@ -23,9 +23,12 @@ import "directory_utils.dart";
 
 test(dir) async {
   dir.exists().then((result) {
-    Expect.isTrue(result);
-    dir.delete();
-    asyncEnd();
+    try {
+      Expect.isTrue(result);
+    } finally {
+      dir.delete();
+      asyncEnd();
+    }
   });
 }
 

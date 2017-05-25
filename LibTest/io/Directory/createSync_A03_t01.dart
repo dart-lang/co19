@@ -25,9 +25,12 @@ test(Directory dir1, Directory dir2) async {
   dir1.exists().then((res1) {
     Expect.isTrue(res1);
     dir2.exists().then((res2) {
-      Expect.isTrue(res2);
-      dir1.delete(recursive: true);
-      asyncEnd();
+      try {
+        Expect.isTrue(res2);
+      } finally {
+        dir1.delete(recursive: true);
+        asyncEnd();
+      }
     });
   });
 }

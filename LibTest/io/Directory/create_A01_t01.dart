@@ -25,9 +25,12 @@ test() async {
   getTempDirectory("TestDir").then((dir) {
     dir.create().then((created) {
       created.exists().then((result) {
-        Expect.isTrue(result);
-        dir.delete();
-        asyncEnd();
+        try {
+          Expect.isTrue(result);
+        } finally {
+          dir.delete();
+          asyncEnd();
+        }
       });
     });
   });
