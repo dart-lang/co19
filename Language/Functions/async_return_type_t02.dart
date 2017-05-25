@@ -11,6 +11,7 @@
  * return type of asynchronous function may not be assigned to Future but is
  * void.
  *
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 
