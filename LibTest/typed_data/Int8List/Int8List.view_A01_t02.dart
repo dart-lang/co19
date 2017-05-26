@@ -5,12 +5,12 @@
  */
 /**
  * @assertion Int8List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Creates an [Int8List] _view_ of the specified region in
- * the specified byte buffer.
- * @description Checks that a new instance has the same elements as
- * the specified region.
+ * Creates an [Int8List] view of the specified region in buffer.
+ * @description Checks that a new instance has the same elements as the
+ * specified region.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +19,7 @@ void check(List<int> array, int offset, int length) {
   var byteBuffer = tmp.buffer;
   var l = new Int8List.view(byteBuffer, offset, length);
   Expect.equals(length, l.length);
-  for(int i = 0; i < l.length; ++i) {
+  for (int i = 0; i < l.length; ++i) {
     Expect.equals(tmp[offset ~/ Int8List.BYTES_PER_ELEMENT + i], l[i]);
   }
 }

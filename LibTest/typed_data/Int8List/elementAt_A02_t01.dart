@@ -5,24 +5,30 @@
  */
 /**
  * @assertion E elementAt(int index)
- * If [this] has fewer than [index] elements throws a RangeError.
- * @description Checks that a [RangeError] is thrown if [this]
- * has fewer than [index] elements.
+ * ...
+ * The index must be non-negative and less than length.
+ * @description Checks that a [RangeError] is thrown if index < 0 or
+ * index >= length.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Int8List(length);
   try {
+    l.elementAt(length);
+    Expect.fail("RangeError is expected");
+  } on RangeError {}
+  try {
     l.elementAt(length + 1);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l.elementAt(-1);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }
 
 main() {

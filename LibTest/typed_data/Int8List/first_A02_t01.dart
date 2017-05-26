@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E first
+ * @assertion E first
+ * ...
  * If [this] is empty throws a [StateError].
  * @description Checks that a [StateError] is thrown if a list is empty.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,5 +19,5 @@ main() {
   try {
     l.first;
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }

@@ -5,11 +5,12 @@
  */
 /**
  * @assertion E reduce(E combine(E previousValue, E element))
- * Reduces a collection to a single value by iteratively combining
- * elements of the collection using the provided function.
+ * Reduces a collection to a single value by iteratively combining elements of
+ * the collection using the provided function.
  * @description Checks that the returned value is correct.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -24,7 +25,6 @@ checkConst(List<int> list, int expected) {
   var res = l.reduce((prev, cur) => 1);
   Expect.equals(expected, res);
 }
-
 
 main() {
   check([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 55);

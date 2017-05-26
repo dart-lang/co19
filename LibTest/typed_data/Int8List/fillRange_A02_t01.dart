@@ -4,11 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void fillRange(int start, int end, [E fill])
- * It is an error if start.. end is not a valid range pointing into the [this].
- * @description Checks that the given range is filled with [fill] value.
+ * @assertion void fillRange(int start, int end, [E fillValue])
+ * ...
+ * The provide range, given by start and end, must be valid. A range from start
+ * to end is valid if 0 <= start <= end <= len, where len is this list's length.
+ * @description Checks that it is an error if given range is not valid.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

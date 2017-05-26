@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Iterable<E> skipWhile(bool test(E element))
- * Every new [Iterator] of the returned [Iterable]
- * iterates over all elements of [this].
+ * ...
+ * Every new [Iterator] of the returned [Iterable] iterates over all elements
+ * of [this].
  * @description Checks that every new [Iterator] of the returned [Iterable]
  * iterates over all elements of [this].
  * @author msyabro

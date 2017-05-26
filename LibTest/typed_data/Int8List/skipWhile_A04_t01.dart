@@ -5,10 +5,15 @@
  */
 /**
  * @assertion Iterable<E> skipWhile(bool test(E element))
- * Once an element does not satisfy the [test] the iterator
- * stops testing and uses every later element unconditionally.
- * @description Checks that once an element does not satisfy
- * the [test] every later element is used unconditionally.
+ * ...
+ * The returned iterable provides elements by iterating this iterable, but
+ * skipping over all initial elements where test(element) returns true. If all
+ * elements satisfy test the resulting iterable is empty, otherwise it iterates
+ * the remaining elements in their original order, starting with the first
+ * element for which test(element) returns false.
+ * @description Checks that all initial elements where test(element) returns
+ * true are skipped, and the remaining elements are iterated in their original
+ * order, starting with the first element for which test(element) returns false.
  * @author msyabro
  */
 
@@ -19,7 +24,7 @@ main() {
   var list = new Int8List.fromList([1, 1, 2, 1, 1, 1]);
   var res = list.skipWhile((e) => e == 1);
   Expect.equals(4, res.length);
-  for(int i = 1; i < 4; ++i) {
-    Expect.equals(1, res.elementAt(i));
+  for (int i = 0; i < 4; ++i) {
+    Expect.equals(list[i + 2], res.elementAt(i));
   }
 }
