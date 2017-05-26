@@ -34,8 +34,8 @@ check(List<Float64x2> list, Float64x2List sl) {
 }
 
 main() {
-  var list = new Float64x2List.fromList([f64x2(1.0, 2.0), f64x2(2.0, 3.0),
-      f64x2(3.0, 4.0), f64x2(4.0, 5.0,), f64x2(5.0, 6.0)]);
+  var list = [f64x2(1.0, 2.0), f64x2(2.0, 3.0), f64x2(3.0, 4.0),
+      f64x2(4.0, 5.0), f64x2(5.0, 6.0)];
   var sl = new Float64x2List.fromList(list);
   sl.shuffle();
   check(list, sl);
