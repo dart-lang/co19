@@ -10,13 +10,14 @@
  * @description Checks that all elements of the new [Int16List] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Int16List l = new Int16List(length);
-  for(int i = 0; i < length; ++i) {
-    Expect.equals(l[i],0);
+  for (int i = 0; i < length; ++i) {
+    Expect.equals(l[i], 0);
   }
 }
 

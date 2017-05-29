@@ -5,10 +5,11 @@
  */
 /**
  * @assertion void operator []=(int index, int value)
- * Sets the entry at the given index in the list to value.
+ * Sets the value at the given index in the list to value.
  * @description Checks that the entry at the given index is set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -22,5 +23,6 @@ check(List<int> list) {
 
 main() {
   check([1]);
-  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+      20]);
 }
