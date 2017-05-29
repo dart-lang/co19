@@ -23,8 +23,8 @@
  *
  * The result is a stream of FileSystemEntity objects for the directories,
  * files, and links.
- * @description Checks that this method lists the sub-directories of this
- * Directory. Test recursive parameter
+ * @description Checks that if recursive parameter false then subdirectories are
+ * not listed
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -32,28 +32,36 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 List<String> setUp(Directory parent, Map directories) {
-  List<String> created = new List<String>();
+  List<String> expected = new List<String>();
   directories.forEach((key, value) {
     Directory dir = new Directory(parent.path + Platform.pathSeparator + key);
     dir.createSync();
-    created.add(dir.path);
+    expected.add(dir.path);
     if (value != null) {
-      created.addAll(setUp(dir, value));
+      setUp(dir, value);
     }
   });
-  return created;
+  return expected;
+}
+
+Map getContent(Directory dir) {
+  Map found = new Map();
+  dir.list(recursive: true).forEach((entity) {
+      found.addAll({entity.path: null});
+  });
+  return found;
 }
 
 test(Directory dir) async {
   Map struct = {"a": null, "b": null, "c": {"c1": null, "c2": null}, "d": null};
-  List<String> created = setUp(dir, struct);
+  List<String> expected = setUp(dir, struct);
 
   List<String> found = new List<String>();
-  dir.list(recursive: true).forEach((entity) {
+  dir.list(recursive: false).forEach((entity) {
     found.add(entity.path);
   }).then((_) {
     try {
-      Expect.listEquals(created, found);
+      Expect.listEquals(expected, found);
     } finally {
       dir.delete(recursive: true);
       asyncEnd();

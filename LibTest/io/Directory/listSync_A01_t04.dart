@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<FileSystemEntity> list({
+ * @assertion List<FileSystemEntity> listSync({
  *  bool recursive: false,
  *  bool followLinks: true
  *  })
@@ -16,20 +16,18 @@
  *
  * If followLinks is true, then working links are reported as directories or
  * files, depending on their type, and links to directories are recursed into.
- * Broken links are reported as Link objects. If a symbolic link makes a loop in
- * the file system, then a recursive listing will not follow a link twice in the
- * same recursive descent, but will report it as a Link the second time it is
- * seen.
+ * Broken links are reported as Link objects. If a link makes a loop in the file
+ * system, then a recursive listing will not follow a link twice in the same
+ * recursive descent, but will report it as a Link the second time it is seen.
  *
- * The result is a stream of FileSystemEntity objects for the directories,
+ * Returns a List containing FileSystemEntity objects for the directories,
  * files, and links.
- * @description Checks that this method lists the sub-directories of this
- * Directory. Test recursive parameter
+ * @description Checks that if recursive parameter false then subdirectories are
+ * not listed
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 List<String> setUp(Directory parent, Map directories) {
   List<String> created = new List<String>();
@@ -38,31 +36,24 @@ List<String> setUp(Directory parent, Map directories) {
     dir.createSync();
     created.add(dir.path);
     if (value != null) {
-      created.addAll(setUp(dir, value));
+      setUp(dir, value);
     }
   });
   return created;
 }
 
-test(Directory dir) async {
+main() {
+  Directory dir = new Directory("TestDir").createTempSync();
   Map struct = {"a": null, "b": null, "c": {"c1": null, "c2": null}, "d": null};
   List<String> created = setUp(dir, struct);
 
   List<String> found = new List<String>();
-  dir.list(recursive: true).forEach((entity) {
+  dir.listSync(recursive: false).forEach((entity) {
     found.add(entity.path);
-  }).then((_) {
-    try {
-      Expect.listEquals(created, found);
-    } finally {
-      dir.delete(recursive: true);
-      asyncEnd();
-    }
   });
-}
-
-main() {
-  Directory dir = new Directory("TestDir").createTempSync();
-  asyncStart();
-  test(dir);
+  try {
+    Expect.listEquals(created, found);
+  } finally {
+    dir.delete(recursive: true);
+  }
 }
