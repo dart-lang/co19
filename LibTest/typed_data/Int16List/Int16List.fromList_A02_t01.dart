@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int8List.fromList(List<int> elements)
+ * @assertion Int16List.fromList(List<int> elements)
  * ...
  * Values are truncated to fit in the list when they are copied, the same way
  * storing values truncates them.
@@ -15,18 +15,18 @@
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt8.lib.dart";
+import "../toInt16.lib.dart";
 
 void check(List<int> list) {
-  Int8List l = new Int8List.fromList(list);
+  Int16List l = new Int16List.fromList(list);
   Expect.equals(l.length, list.length);
-  Expect.listEquals(list.map(toInt8).toList(), l);
+  Expect.listEquals(list.map(toInt16).toList(), l);
 }
 
 main() {
-  check([128, -129]);
-  check([1000, 1001, 1002]);
-  check([-1000, -1001, -1002]);
-  check([1024, 2048, 4096]);
-  check([-1024, -2048, -4096]);
+  check([32768, -32769]);
+  check([40000, 40001, 40002]);
+  check([-40000, -40001, -40002]);
+  check([65536, 131072, 262144]);
+  check([-65536, -131072, -262144]);
 }

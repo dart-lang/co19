@@ -14,8 +14,6 @@ import "dart:typed_data";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-f64x2(x, y) => new Float64x2(x, y);
-
 check(List<int> list, Int8List sl) {
   Expect.equals(list.length, sl.length);
   bool p1 = false;

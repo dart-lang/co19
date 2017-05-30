@@ -6,9 +6,11 @@
 /**
  * @assertion bool moveNext()
  * Returns whether the [Iterator] has elements left.
- * @description Checks that true is returned only if the [Iterator] has elements left.
+ * @description Checks that true is returned only if the [Iterator] has elements
+ * left.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

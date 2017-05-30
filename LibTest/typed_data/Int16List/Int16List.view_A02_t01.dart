@@ -4,18 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int16List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Changes in the [Int16List] will be visible in the byte
- * buffer and vice versa.
- * @description Checks that changes in the [Int16List] will be visible in
- * the byte buffer and vice versa.
+ * @assertion
+ * Int16List.view(
+ *   ByteBuffer buffer, [
+ *   int offsetInBytes = 0,
+ *   int length
+ * ])
+ * ...
+ * Changes in the [Int16List] will be visible in the byte buffer and vice versa.
+ * @description Checks that changes in the [Int16List] will be visible in the
+ * byte buffer and vice versa.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var tmp = new Int16List.fromList([0,0,0]);
+  var tmp = new Int16List.fromList([0, 0, 0]);
   var byteBuffer = tmp.buffer;
   var l = new Int16List.view(byteBuffer, 0, 3);
 

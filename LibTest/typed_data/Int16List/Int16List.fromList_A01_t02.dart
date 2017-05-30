@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int16List.fromList(List<num> list)
+ * @assertion Int16List.fromList(List<int> elements)
  * Creates a [Int16List] with the same size as the [elements] list
  * and copies over the elements.
- * @description Checks that a new [Int16List] has the same size and elements as
- * the [elements].
+ * @description Checks that a new [Int16List] has the same length and elements
+ * as the [elements].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
