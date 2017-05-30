@@ -24,7 +24,7 @@ void check(List<int> list, bool test (int element)) {
   var count = 0;
 
   for (int i = 0 ; i < list.length; ++i) {
-    if(test(l[i])) {
+    if (test(l[i])) {
       Expect.equals(l[i], res.elementAt(count));
       ++count;
     }
