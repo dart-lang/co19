@@ -28,6 +28,7 @@ test(Directory srcDir, Directory target) async {
     try {
       Expect.isTrue(thrown);
     } finally {
+      srcDir.delete();
       asyncEnd();
     }
   });
