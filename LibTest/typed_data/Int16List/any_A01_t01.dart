@@ -5,12 +5,14 @@
  */
 /**
  * @assertion bool any(bool f(E element))
- * Returns true if one element of this collection satisfies
- * the predicate [test]. Returns false otherwise.
- * @description Checks that true is returned if one or more
- * elements satisfies the predicate f, false otherwise.
+ * Checks whether any element of this iterable satisfies test.
+ * Checks every element in iteration order, and returns true if any of them
+ * make test return true, otherwise returns false.
+ * @description Checks that true is returned if one or more elements satisfies
+ * the predicate f, false otherwise.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

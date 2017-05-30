@@ -1,34 +1,34 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion E reduce(E combine(E value, E element))
- * Reduces a collection to a single value by iteratively combining elements of
- * the collection using the provided function.
+ * ...
+ * If it has only one element, that element is returned.
  * @description Checks that the returned value is correct.
- * @author msyabro
+ * @author ngl@unipro.ru
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(List<int> list, int expected) {
+check(List<int> list) {
   var l = new Int16List.fromList(list);
   var res = l.reduce((prev, cur) => prev + cur);
-  Expect.equals(expected, res);
+  Expect.equals(list[0], res);
 }
 
-checkConst(List<int> list, int expected) {
+checkConst(List<int> list) {
   var l = new Int16List.fromList(list);
   var res = l.reduce((prev, cur) => 1);
-  Expect.equals(expected, res);
+  Expect.equals(list[0], res);
 }
 
 main() {
-  check([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 55);
-  check([10, -1, -2, -3, -4], 0);
+  check([1]);
+  check([10]);
 
-  checkConst([1, 2, 3], 1);
+  checkConst([3]);
 }

@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Int16List(list.length);
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     l[i] = list.elementAt(i);
     Expect.identical(list.elementAt(i), l.elementAt(i));
   }

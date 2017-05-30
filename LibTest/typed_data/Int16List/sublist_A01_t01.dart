@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
- * Returns a new list containing the elements from [start] to [end].
- * @description Checks that the returned list contains all elements
- * of [this] from [start] to [end].
+ * @assertion List<E> sublist(int start, [int end])
+ * Returns a new list containing the objects from [start] inclusive to [end]
+ * exclusive.
+ * @description Checks that the returned list contains all elements of [this]
+ * from [start] to [end].
  * @author msyabro
  */
 
@@ -18,7 +19,7 @@ void check(List<int> list, int start, int end) {
   var l = new Int16List.fromList(list);
   var res = l.sublist(start, end);
 
-  for(int i = start; i<end; ++i) {
+  for (int i = start; i < end; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }
