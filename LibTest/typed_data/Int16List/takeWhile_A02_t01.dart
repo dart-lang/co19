@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E element))
+ * @assertion Iterable<E> takeWhile(bool test(E value))
+ * ...
  * The filtering happens lazily.
- * @description Checks that [test] is not invoked until returned
- * [Iterable] is not iterated.
+ * @description Checks that [test] is not invoked until returned [Iterable] is
+ * not iterated.
  * @author msyabro
  */
 

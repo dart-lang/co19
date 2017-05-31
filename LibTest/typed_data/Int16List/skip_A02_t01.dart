@@ -5,9 +5,11 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * If [this] has fewer than [n] elements, then the resulting [Iterable] will be empty.
+ * ...
+ * If [this] has fewer than [count] elements, then the resulting [Iterable] will
+ * be empty.
  * @description Checks that the returned [Iterable] is empty if [this] has
- * fewer than [n] elements.
+ * fewer than [count] elements.
  * @author msyabro
  */
 
@@ -25,4 +27,3 @@ main() {
   check([1, 2], 3);
   check([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 100);
 }
-

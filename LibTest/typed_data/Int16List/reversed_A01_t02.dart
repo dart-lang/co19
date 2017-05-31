@@ -24,7 +24,7 @@ check(List<int> list) {
 main() {
   check([]);
   var list = new List<int>(255);
-  for(int i = 0; i < 255; ++i) {
+  for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }
   check(list);
