@@ -24,9 +24,10 @@ test(Directory srcDir, Directory targetDir) async {
     renamed.exists().then((res) {
       try {
         Expect.isTrue(res);
+        Expect.equals(0, renamed.listSync().length);
       } catch (e) {
         srcDir.delete();
-        targetDir.delete();
+        targetDir.delete(recursive: true);
         throw e;
       }
       Directory oldDir = new Directory(srcDir.path);
@@ -34,7 +35,7 @@ test(Directory srcDir, Directory targetDir) async {
         try {
           Expect.isFalse(res);
         } finally {
-          targetDir.delete();
+          targetDir.delete(recursive: true);
           asyncEnd();
         }
       });
@@ -46,6 +47,7 @@ main() {
   Directory parent = new Directory("TestDir");
   Directory srcDir = parent.createTempSync();
   Directory targetDir = parent.createTempSync();
+  targetDir.createTempSync();
 
   asyncStart();
   test(srcDir, targetDir);
