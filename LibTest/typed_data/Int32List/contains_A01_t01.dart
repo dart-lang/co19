@@ -5,9 +5,9 @@
  */
 /**
  * @assertion bool contains(Object element)
- * Check whether the collection contains an element equal to element.
- * @description Checks that true is returned if the collection contains
- * an element equal to [element], false otherwise.
+ * Returns true if the collection contains an element equal to element.
+ * @description Checks that true is returned if the collection contains an
+ * element equal to [element], false otherwise.
  * @author msyabro
  */
 import "dart:typed_data";
