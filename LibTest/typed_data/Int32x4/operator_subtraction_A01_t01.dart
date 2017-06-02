@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int32x4 operator &(Int32x4 other)
- * The bit-wise and operator.
+ * @assertion Int32x4 operator -(Int32x4 other)
+ * Subtraction operator.
  * @description Checks that every lane of the new [Int32x4] equals the result
- * of applying bit-wise 'and' operator to corresponding lanes of operands.
+ * of applying subtraction operator to corresponding lanes of operands.
  * @note undocumented
- * @author msyabro
+ * @author ngl@unipro.ru
  */
 
 import "dart:typed_data";
@@ -19,12 +19,12 @@ import "../toInt32.lib.dart";
 check(x1, y1, z1, w1, x2, y2, z2, w2) {
   var obj1 = new Int32x4(x1, y1, z1, w1);
   var obj2 = new Int32x4(x2, y2, z2, w2);
-  var res = obj1 & obj2;
+  var res = obj1 - obj2;
 
-  Expect.equals(toInt32(x1 & x2), res.x);
-  Expect.equals(toInt32(y1 & y2), res.y);
-  Expect.equals(toInt32(z1 & z2), res.z);
-  Expect.equals(toInt32(w1 & w2), res.w);
+  Expect.equals(toInt32(x1 - x2), res.x);
+  Expect.equals(toInt32(y1 - y2), res.y);
+  Expect.equals(toInt32(z1 - z2), res.z);
+  Expect.equals(toInt32(w1 - w2), res.w);
 }
 
 main() {

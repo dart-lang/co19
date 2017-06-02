@@ -15,7 +15,8 @@ import "../../../Utils/expect.dart";
 import "../toInt32.lib.dart";
 
 main() {
-  var obj = new Float32x4(double.INFINITY, double.NEGATIVE_INFINITY, double.NAN, -double.NAN);
+  var obj = new Float32x4(double.INFINITY, double.NEGATIVE_INFINITY,
+      double.NAN, -double.NAN);
   var res = new Int32x4.fromFloat32x4Bits(obj);
 
   Expect.equals(0x7f800000, res.x);

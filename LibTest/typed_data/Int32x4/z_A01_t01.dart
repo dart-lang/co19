@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int z
+ * @assertion int z
  * Extracts 32-bit mask from z lane.
  * @description Checks that the correct value is returned.
  * @author msyabro
@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(z) {
-  var obj = new Int32x4(0 ,0, z, 0);
+  var obj = new Int32x4(0, 0, z, 0);
   Expect.equals(z, obj.z);
 }
 

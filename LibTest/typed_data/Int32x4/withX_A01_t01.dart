@@ -6,9 +6,9 @@
 /**
  * @assertion Int32x4 withX(int x)
  * Returns a new [Int32x4] copied from [this] with a new [x] value.
- * @description Checks that a new object is created and all its lanes
- * except [x] equal to corresponding lanes of [this]. Checks that
- * [x] of new [Int32x4] equals the [x] parameter of the method.
+ * @description Checks that a new object is created and all its lanes except
+ * [x] equal to corresponding lanes of [this]. Checks that [x] of new [Int32x4]
+ * equals the [x] parameter of the method.
  * @author msyabro
  */
 

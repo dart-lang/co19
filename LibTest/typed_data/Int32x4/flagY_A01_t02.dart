@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool flagY
+ * @assertion bool flagY
  * Extracted [y] value. Returns false for 0, true for any other value.
- * @description Checks that false is returned if [y] was set to false
- * and true otherwise.
+ * @description Checks that false is returned if [y] was set to false and true
+ * otherwise.
  * @author msyabro
  */
 
