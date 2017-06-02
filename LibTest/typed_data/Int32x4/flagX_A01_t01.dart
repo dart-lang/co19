@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool flagX
+ * @assertion bool flagX
  * Extracted [x] value. Returns false for 0, true for any other value.
  * @description Checks that false is returned if [x] is 0 and
  * true otherwise.
@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(x) {
   var obj = new Int32x4(x, 0, 0, 0);
-  if(x == 0) {
+  if (x == 0) {
     Expect.isFalse(obj.flagX);
   } else {
     Expect.isTrue(obj.flagX);

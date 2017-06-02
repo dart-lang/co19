@@ -6,8 +6,8 @@
 /**
  * @assertion Int32x4.bool(bool x, bool y, bool z, bool w)
  * Creates a new [Int32x4] instance.
- * @description Checks that an instance of [Int32x4] is
- * created and all fields are set correctly.
+ * @description Checks that an instance of [Int32x4] is created and all fields
+ * are set correctly.
  * @author msyabro
  */
 

@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool flagY
+ * @assertion bool flagY
  * Extracted [y] value. Returns false for 0, true for any other value.
- * @description Checks that [flagY] is final and can't be set.
+ * @description Checks that [flagY] is read-only and can't be set.
  * @author msyabro
  */
 
@@ -17,6 +17,6 @@ main() {
   dynamic obj = new Int32x4.bool(false, false, false, false);
   try {
     obj.flagY = true;
-    Expect.fail("[flagY] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[flagY] should be read-only");
+  } on NoSuchMethodError {}
 }

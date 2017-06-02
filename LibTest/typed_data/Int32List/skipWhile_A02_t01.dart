@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> skipWhile(bool test(E element))
+ * @assertion Iterable<E> skipWhile(bool test(E value))
+ * ...
  * The filtering happens lazily.
  * @description Checks that [test] is not invoked until returned
  * [Iterable] is not iterated.

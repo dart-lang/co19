@@ -5,7 +5,8 @@
  */
 /**
  * @assertion void sort([int compare(E a, E b)])
- * Sorts the list according to the order specified by the compare function.
+ * Sorts this list according to the order specified by the compare function.
+ * The compare function must act as a Comparator.
  * @description Checks sorting various integer arrays.
  * @author msyabro
  */
@@ -29,6 +30,10 @@ main() {
   check([1, 2, 4, 3, 5, 6], [1, 2, 3, 4, 5, 6]);
   check([2, 1, 4, 3, 6, 5], [1, 2, 3, 4, 5, 6]);
   check([6, 5, 4, 3, 2, 1], [1, 2, 3, 4, 5, 6]);
-  check([9, 9, 1, 2, 3, 0,  3, 2, 2, 3, 4, 1, 9, 5, 7, 7, 5, 6, 1, 0, 4, 8, 8, 8, 5, 4, 6, 7, 6, 0],
-         [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9]);
+  check(
+      [9, 9, 1, 2, 3, 0, 3, 2, 2, 3, 4, 1, 9, 5, 7, 7, 5, 6, 1, 0, 4, 8, 8, 8,
+      5, 4, 6, 7, 6, 0],
+      [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7,
+      8, 8, 8, 9, 9, 9]
+  );
 }

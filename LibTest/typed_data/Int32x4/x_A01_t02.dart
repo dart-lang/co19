@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int x
+ * @assertion int x
  * Extracts 32-bit mask from x lane.
- * @description Checks that [x] is final and can't be set.
+ * @description Checks that [x] is read-only and can't be set.
  * @author msyabro
  */
 
@@ -17,6 +17,6 @@ main() {
   dynamic obj = new Int32x4(0, 0, 0, 0);
   try {
     obj.x = 1;
-    Expect.fail("[x] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[x] should be read-only");
+  } on NoSuchMethodError {}
 }

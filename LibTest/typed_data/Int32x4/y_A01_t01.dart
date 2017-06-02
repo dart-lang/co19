@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int y
+ * @assertion int y
  * Extracts 32-bit mask from y lane.
  * @description Checks that the correct value is returned.
  * @author msyabro

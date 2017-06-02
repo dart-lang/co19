@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool flagZ
+ * @assertion bool flagZ
  * Extracted [z] value. Returns false for 0, true for any other value.
- * @description Checks that [flagZ] is final and can't be set.
+ * @description Checks that [flagZ] is read-only and can't be set.
  * @author msyabro
  */
 
@@ -17,6 +17,6 @@ main() {
   dynamic obj = new Int32x4.bool(false, false, false, false);
   try {
     obj.flagZ = true;
-    Expect.fail("[flagZ] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[flagZ] should be read-only");
+  } on NoSuchMethodError {}
 }

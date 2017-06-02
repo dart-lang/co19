@@ -4,13 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Int32List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Throws [RangeError] if [offsetInBytes] or [length] are negative, or
- * if [offsetInBytes] + ([length] * elementSizeInBytes) is greater than
- * the length of [buffer].
+ * @assertion
+ * Int32List.view(
+ *     ByteBuffer buffer, [
+ *     int offsetInBytes = 0,
+ *     int length
+ * ])
+ * ...
+ * Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
+ * [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the length
+ * of [buffer].
  * @description Checks that [RangeError] is thrown if [length] is negative.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,9 +25,9 @@ void check(List<int> array, int offset, int length) {
   var tmp = new Int32List.fromList(array);
   var byteBuffer = tmp.buffer;
   try {
-    var l = new Int32List.view(byteBuffer, offset, length);
+    new Int32List.view(byteBuffer, offset, length);
     Expect.fail("RangeError exception is expected");
-  } on RangeError catch(ok) {
+  } on RangeError {
   }
 }
 

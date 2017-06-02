@@ -6,8 +6,8 @@
 /**
  * @assertion Int32x4(int x, int y, int z, int w)
  * Creates a new [Int32x4] instance.
- * @description Checks that an instance of [Int32x4] is
- * created and all fields are set correctly.
+ * @description Checks that an instance of [Int32x4] is created and all fields
+ * are set correctly.
  * @author msyabro
  */
 
@@ -25,7 +25,7 @@ check(x, y, z, w) {
 }
 
 main() {
-  check(0,0,0,0);
+  check(0, 0, 0, 0);
   check(4, 1, 3, 10);
   check(256, 65536, 0, 2147483648);
 }
