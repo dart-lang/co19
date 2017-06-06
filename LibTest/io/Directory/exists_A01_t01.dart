@@ -14,7 +14,7 @@
  * exists in the file system object exists and is of the correct type (file,
  * directory, or link). To check whether a path points to an object on the file
  * system, regardless of the object's type, use the type static method.
- * @description Checks that this method Checks whether the file system entity
+ * @description Checks that this method checks whether the file system entity
  * with this path exists
  * @author sgrekhov@unipro.ru
  */
