@@ -25,7 +25,7 @@ void check(List<Float32x4> list, dynamic start) {
   var l = new Float32x4List.fromList(list);
   var res = l.sublist(start);
 
-  for(int i = start; i < l.length; ++i) {
+  for (int i = start; i < l.length; ++i) {
     Expect.isTrue(equal(l[i], res[i - start]));
   }
 }

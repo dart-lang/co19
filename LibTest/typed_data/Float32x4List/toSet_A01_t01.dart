@@ -26,7 +26,7 @@ void check(List<Float32x4> list) {
   var res = l.toSet();
 
   Expect.equals(list.length, res.length);
-  for(int i = 0; i < l.length; ++i) {
+  for (int i = 0; i < l.length; ++i) {
     Expect.isTrue(res.any( (x) => equal(l[i], x)));
   }
 }

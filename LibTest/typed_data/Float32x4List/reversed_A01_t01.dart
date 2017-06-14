@@ -24,7 +24,7 @@ equal(obj1, obj2) {
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var rev = l.reversed;
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.isTrue(equal(l.elementAt(list.length - 1 - i), rev.elementAt(i)));
   }
 }
@@ -35,7 +35,7 @@ main() {
   check([pack(1.0), pack(2.0)]);
   check([pack(1.0), pack(2.0), pack(3.0)]);
   var list = new List<Float32x4>(1000);
-  for(int i = 0; i < 1000; ++i) {
+  for (int i = 0; i < 1000; ++i) {
     list[i] = pack(i * 1.0);
   }
   check(list);

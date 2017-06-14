@@ -26,8 +26,8 @@ equal(obj1, obj2) {
 void check(List<Float32x4> list) {
   Float32x4List l = new Float32x4List.fromList(list);
   Expect.equals(l.length, list.length);
-  //Expect.listEquals(list, l);
-  for(int i = 0; i < l.length; ++i) {
+
+  for (int i = 0; i < l.length; ++i) {
     Expect.isTrue(equal(l[i], list[i]));
   }
 }

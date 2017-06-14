@@ -24,7 +24,7 @@ main() {
   var byteBuffer = tmp.buffer;
   var elemSize = Float32x4List.BYTES_PER_ELEMENT;
 
-  for(int i = 0; i <= 4; ++i) {
+  for (int i = 0; i <= 4; ++i) {
     var l = new Float32x4List.view(byteBuffer, i * elemSize, 4 - i) ;
     Expect.equals(byteBuffer, l.buffer);
   }

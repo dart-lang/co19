@@ -24,7 +24,7 @@ equal(obj1, obj2) {
 
 listEquals(expected, actual) {
   Expect.equals(expected.length, actual.length);
-  for(int i = 0; i < expected.length; ++i) {
+  for (int i = 0; i < expected.length; ++i) {
     Expect.isTrue(equal(expected[i], actual[i]));
   }
 }
@@ -33,7 +33,7 @@ main() {
   var l = new Float32x4List(10);
 
   l.setAll(9, [pack(1.0)]);
-  listEquals([pack(.0),pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+  listEquals([pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
       pack(.0), pack(.0), pack(.0), pack(1.0)], l);
 
   l.setAll(2, [pack(2.0), pack(2.0), pack(2.0), pack(2.0)]);

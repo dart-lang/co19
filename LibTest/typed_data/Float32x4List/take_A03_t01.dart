@@ -26,5 +26,5 @@ void check(List<Float32x4> list, int n) {
 
 main() {
   check([], -1);
-  check([pack(1.0), pack(2.0) ,pack(3.0)], -16);
+  check([pack(1.0), pack(2.0), pack(3.0)], -16);
 }

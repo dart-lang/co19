@@ -21,7 +21,7 @@ equal(obj1, obj2) {
 
 void check(int length) {
   Float32x4List l = new Float32x4List(length);
-  for(int i = 0; i < length; ++i) {
+  for (int i = 0; i < length; ++i) {
     Expect.isTrue(equal(new Float32x4.zero(), l[i]));
   }
 }

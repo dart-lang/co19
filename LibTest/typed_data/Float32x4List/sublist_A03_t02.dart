@@ -27,10 +27,10 @@ check(List<Float32x4> list, dynamic start, dynamic end) {
 }
 
 main() {
-  check([],0, 1);
+  check([], 0, 1);
   check([pack(.0), pack(.0), pack(.0)],-1, 1);
   check([pack(.0), pack(.0), pack(.0)],-1, 2);
   check([pack(.0), pack(.0), pack(.0)], 0, 4);
-  check([pack(.0), pack(.0) ,pack(.0)], 2, 100);
+  check([pack(.0), pack(.0), pack(.0)], 2, 100);
   check([pack(.0), pack(.0), pack(.0)],-10, 10);
 }

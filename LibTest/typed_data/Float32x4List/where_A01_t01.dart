@@ -31,7 +31,7 @@ void check(List<Float32x4> list, bool test (Float32x4 element)) {
 
   var count = 0;
 
-  for(int i = 0 ; i < list.length; ++i) {
+  for (int i = 0 ; i < list.length; ++i) {
     if (test(l[i])) {
       Expect.isTrue(equal(l[i], res.elementAt(count)));
       ++count;

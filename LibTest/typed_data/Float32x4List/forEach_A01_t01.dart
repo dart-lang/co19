@@ -31,7 +31,7 @@ main() {
   Expect.isTrue(equal(pack(.0), res));
 
   l = new Float32x4List.fromList([pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-     pack(1.0), pack(1.0) ,pack(1.0), pack(1.0), pack(1.0), pack(1.0)]);
+     pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0)]);
   l.forEach((e) {
     res += e;
   });

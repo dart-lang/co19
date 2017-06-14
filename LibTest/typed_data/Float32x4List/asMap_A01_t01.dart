@@ -21,7 +21,7 @@ Float32x4 pack(x, y, z, w) => new Float32x4(x, y, z, w);
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var m = l.asMap();
-  for(int key = 0; key < list.length; ++key) {
+  for (int key = 0; key < list.length; ++key) {
     Expect.isTrue(m.containsKey(key));
     Expect.equals(l[key].x, m[key].x);
     Expect.equals(l[key].y, m[key].y);

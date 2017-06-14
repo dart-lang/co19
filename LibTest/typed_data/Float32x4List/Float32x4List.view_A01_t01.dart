@@ -29,7 +29,7 @@ void check(List<Float32x4> array, int offset, int length) {
 
 main() {
   var elemSize = Float32x4List.BYTES_PER_ELEMENT;
-  check([],0,0);
+  check([], 0, 0);
   check([pack(3.4028234663852886e38), pack(1.401298464324817e-45),
       pack(1.1754943508222875e-38)], 0, 3);
   check([pack(1000.0), pack(1000.0), pack(1000.0)], 0, 3);

@@ -29,7 +29,7 @@ main() {
       pack(1.0), pack(1.0), pack(1.0)]);
   var res = list.takeWhile((e) => e.x == 1.0);
   Expect.equals(2, res.length);
-  for(int i = 1; i < 2; ++i) {
+  for (int i = 1; i < 2; ++i) {
     Expect.isTrue(equal(pack(1.0), res.elementAt(i)));
   }
 }

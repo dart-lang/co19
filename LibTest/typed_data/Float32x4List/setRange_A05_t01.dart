@@ -31,7 +31,7 @@ equal(obj1, obj2) {
 
 listEquals(expected, actual) {
   Expect.equals(expected.length, actual.length);
-  for(int i = 0; i < expected.length; ++i) {
+  for (int i = 0; i < expected.length; ++i) {
     Expect.isTrue(equal(expected[i], actual[i]));
   }
 }

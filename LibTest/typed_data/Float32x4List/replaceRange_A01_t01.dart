@@ -25,13 +25,13 @@ check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var length = l.length;
   try {
-    l.replaceRange(0,1,[pack(.0)]);
+    l.replaceRange(0, 1, [pack(.0)]);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
-    l.replaceRange(0,100,[pack(0.0), pack(1.0), pack(2.0)]);
+    l.replaceRange(0, 100, [pack(0.0), pack(1.0), pack(2.0)]);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError {};
   Expect.equals(length, l.length);

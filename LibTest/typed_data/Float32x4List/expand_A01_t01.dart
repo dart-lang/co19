@@ -23,7 +23,7 @@ check(List<Float32x4> list) {
 
   var res = l.expand((element) => [element * pack(2.0)]);
   Expect.equals(list.length, res.length);
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.isTrue(res.elementAt(i).equal(list[i] * pack(2.0)).flagX);
     Expect.isTrue(res.elementAt(i).equal(list[i] * pack(2.0)).flagY);
     Expect.isTrue(res.elementAt(i).equal(list[i] * pack(2.0)).flagZ);
@@ -32,7 +32,7 @@ check(List<Float32x4> list) {
 
   res = l.expand((element) => [element, element * pack(2.0)]);
   Expect.equals(list.length * 2, res.length);
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.isTrue(res.elementAt(2 * i).equal(list[i]).flagX);
     Expect.isTrue(res.elementAt(2 * i).equal(list[i]).flagY);
     Expect.isTrue(res.elementAt(2 * i).equal(list[i]).flagZ);
