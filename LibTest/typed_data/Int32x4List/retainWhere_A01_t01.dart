@@ -38,4 +38,5 @@ main() {
     l.retainWhere((e) => false);
     Expect.fail("UnsupportedError is expected");
   } on UnsupportedError {}
-  Expect.equals(0, l.length);}
+  Expect.equals(0, l.length);
+}
