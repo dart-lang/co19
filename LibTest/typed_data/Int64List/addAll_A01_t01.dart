@@ -6,11 +6,13 @@
 /**
  * @assertion void addAll(Iterable<E> iterable)
  * Appends all elements of the iterable to the end of this list.
- * Throws an [UnsupportedError] if the list is not extendable.
- * @description Checks that [UnsupportedError] is thrown
- * since [Int64List] is a fixed-size list.
+ * ...
+ * Throws an [UnsupportedError] if this list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Int64List] is a
+ * fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +21,7 @@ check(length) {
   try {
     l.addAll([]);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(length, l.length);
 }
 

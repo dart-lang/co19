@@ -5,10 +5,13 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * Iterating multiple times over the the returned [Iterable]
- * will invoke the supplied function [test] multiple times on the same element.
+ * ...
+ * Iterating will not cache results, and thus iterating multiple times over the
+ * returned [Iterable] may invoke the supplied function [test] multiple times on
+ * the same element.
  * @description Checks that iterating multiple times over the the returned
- * [Iterable] will invoke the supplied function [test] multiple times on the same element.
+ * [Iterable] will invoke the supplied function [test] multiple times on the
+ * same element.
  * @author msyabro
  */
 

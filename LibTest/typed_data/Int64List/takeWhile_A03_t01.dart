@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E element))
- * Every new [Iterator] of the returned [Iterable]
- * iterates over all elements of [this].
+ * @assertion Iterable<E> takeWhile(bool test(E value))
+ * ...
+ * Every new [Iterator] of the returned [Iterable] starts iterating over the
+ * elements of [this].
  * @description Checks that every new [Iterator] of the returned [Iterable]
  * iterates over all elements of [this].
  * @author msyabro
