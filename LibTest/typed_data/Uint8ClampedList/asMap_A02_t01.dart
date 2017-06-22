@@ -5,10 +5,13 @@
  */
 /**
  * @assertion Map<int, E> asMap()
- * The [Map.keys] [Iterable] will iterate the indices of this list in numerical order.
- * @description Checks that the [Maps.keys] iterates the indices in numerical order.
+ * The [Map.keys] [Iterable] iterates the indices of this list in numerical
+ * order.
+ * @description Checks that the [Maps.keys] iterates the indices in numerical
+ * order.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

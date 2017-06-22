@@ -5,9 +5,10 @@
  */
 /**
  * @assertion List<int> sublist(int start, [int end])
- * Returns a new list containing the elements from [start] to [end].
- * @description Checks that the returned list contains all elements
- * of [this] from [start] to [end].
+ * Returns a new list containing the elements from [start] inclusive to [end]
+ * exclusive.
+ * @description Checks that the returned list contains all elements of [this]
+ * from [start] to [end].
  * @author msyabro
  */
 
@@ -18,7 +19,7 @@ void check(List<int> list, int start, int end) {
   var l = new Uint8ClampedList.fromList(list);
   var res = l.sublist(start, end);
 
-  for(int i = start; i<end; ++i) {
+  for (int i = start; i < end; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }

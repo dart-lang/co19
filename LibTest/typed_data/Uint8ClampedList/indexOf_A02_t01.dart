@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int indexOf(Object element, [int startIndex = 0])
+ * @assertion int indexOf(E element, [int start = 0])
+ * ...
  * Returns -1 if element is not found.
- * @description Checks that the correct index is returned, if the element
- * is not present.
+ * @description Checks that the -1 is returned, if the element is not present.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

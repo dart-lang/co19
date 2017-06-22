@@ -6,11 +6,12 @@
 /**
  * @assertion Uint8ClampedList.fromList(List<num> list)
  * Creates a [Uint8ClampedList] with the same size as the [elements] list
- * and copies over the elements.
- * @description Checks that a new [Uint8ClampedList] has the same size and elements as
- * the [elements].
+ * and copies over the values clamping when needed.
+ * @description Checks that a new [Uint8ClampedList] has the same size and
+ * elements as the [elements].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

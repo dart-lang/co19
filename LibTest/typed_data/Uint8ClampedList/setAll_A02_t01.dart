@@ -5,10 +5,10 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * It is an error if the index does not point inside the list
+ * ...
+ * The index must be non-negative and no greater than length.
  * or at the position after the last element.
- * @description Checks that an error is thrown if [index]
- * is out of bounds.
+ * @description Checks that an error is thrown if [index] is out of bounds.
  * @author msyabro
  */
 
@@ -17,19 +17,19 @@ import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Uint8ClampedList.fromList(list);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(-1, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(list.length + 1, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0x80000000, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0x7fffffff, []);
   });
 }
@@ -37,6 +37,5 @@ check(List<int> list) {
 main() {
   check([]);
   check([1]);
-  check([0,0,0,0,0,0,0,0,0,0]);
+  check([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 }
-

@@ -10,13 +10,14 @@
  * @description Checks that all elements of the new [Uint8ClampedList] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Uint8ClampedList l = new Uint8ClampedList(length);
-  for(int i = 0; i < length; ++i) {
-    Expect.equals(l[i],0);
+  for (int i = 0; i < length; ++i) {
+    Expect.equals(l[i], 0);
   }
 }
 

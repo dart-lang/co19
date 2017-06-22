@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Iterable<E> takeWhile(bool test(E element))
- * Returns an [Iterable] that stops once [test] is not satisfied anymore.
- * @description Checks that all first elements that satisfy test are
- * retained, and elements after that are skipped.
+ * Returns a lazy iterable of the leading elements satisfying [test].
+ * @description Checks that all first elements that satisfy test are retained,
+ * and elements after that are skipped.
  * @author msyabro
  */
 
@@ -44,11 +44,11 @@ void check(List<int> list, bool test(int element)) {
 }
 
 main() {
-  var a0 = [1,3,7,4,5,6];
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  var a0 = [1, 3, 7, 4, 5, 6];
+  check(a0, (var element) => element == 1);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4);
+  check(a0, (var element) => element < 4);
+  check(a0, (var element) => element == 4);
 }

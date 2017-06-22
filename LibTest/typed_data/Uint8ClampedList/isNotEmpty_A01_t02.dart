@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool isNotEmpty
+ * @assertion bool isNotEmpty
  * Returns true if there is at least one element in this collection.
- * @description Checks that [isEmpty] is final and can't be set.
+ * @description Checks that [isNotEmpty] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,6 +18,6 @@ main() {
 
   try {
     l.isNotEmpty = false;
-    Expect.fail("[isNotEmpty] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[isNotEmpty] should be read-only");
+  } on NoSuchMethodError {}
 }
