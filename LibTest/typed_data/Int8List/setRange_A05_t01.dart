@@ -17,7 +17,7 @@
  * even if the two ranges overlap.
  * @description Checks that the correct range is set with correct elements when
  * two ranges overlap.
- * @author nl@unipro.ru
+ * @author ngl@unipro.ru
  */
 
 import "dart:typed_data";
