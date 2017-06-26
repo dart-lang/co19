@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
+ * Returns a new lazy [Iterable] with all elements that satisfy the predicate
+ * [test].
  * @description Checks that the returned [Iterable] contains all elements
  * from [this] that satisfy [test], and all other elements are skipped.
  * @author msyabro
@@ -20,8 +21,8 @@ void check(List<int> list, bool test (int element)) {
 
   var count = 0;
 
-  for(int i = 0 ; i < list.length; ++i) {
-    if(test(l[i])) {
+  for (int i = 0 ; i < list.length; ++i) {
+    if (test(l[i])) {
       Expect.equals(l[i], res.elementAt(count));
       ++count;
     }
@@ -32,8 +33,8 @@ void check(List<int> list, bool test (int element)) {
 main() {
   check([], (e) => true);
   check([1], (e) => false);
-  check([1, 1, 1, 2, 1, 1], (e) => e == 1 );
-  check([0, 1, 2, 3, 4, 5], (e) => e < 5 );
-  check([0, 1, 2, 3, 4, 5], (e) => e > 0 );
-  check([0, 1, 2, 3, 4, 5], (e) => e != 2 );
+  check([1, 1, 1, 2, 1, 1], (e) => e == 1);
+  check([0, 1, 2, 3, 4, 5], (e) => e < 5);
+  check([0, 1, 2, 3, 4, 5], (e) => e > 0);
+  check([0, 1, 2, 3, 4, 5], (e) => e != 2);
 }

@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int lastIndexOf(Object element, [int startIndex])
- * @description Checks that if [startIndex] is out of bounds,
- * it doesn't cause any errors.
+ * @assertion int lastIndexOf(Object element, [int start])
+ * @description Checks that if [startIndex] is out of bounds, it doesn't cause
+ * any errors.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

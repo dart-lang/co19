@@ -5,6 +5,7 @@
  */
 /**
  * @assertion int operator [](int index)
+ * ...
  * Throws an [RangeError] if index is out of bounds.
  * @description Checks that an exception is thrown as expected.
  * @author msyabro
@@ -17,26 +18,26 @@ check(List<int> list) {
   try {
     l[-1];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[l.length];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[0x80000000];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
   try {
     l[0x7fffffff];
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }
 
 main() {
   check([]);
   check([1]);
   var list = new List<int>(255);
-  for(int i = 0; i < 255; ++i) {
+  for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }
   check(list);

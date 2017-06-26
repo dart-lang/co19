@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uint8List.fromList(List<num> list)
- * Creates a [Uint8List] with the same size as the [elements] list
- * and copies over the elements.
+ * @assertion Uint8List.fromList(List<int> list)
+ * Creates a [Uint8List] with the same length as the [elements] list and copies
+ * over the elements.
  * @description Checks that a new [Uint8List] has the same size and elements as
- * the [elements].
+ * the [elements] list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

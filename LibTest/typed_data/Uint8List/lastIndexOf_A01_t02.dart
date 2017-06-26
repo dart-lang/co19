@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int lastIndexOf(Object element, [int startIndex])
- * Returns the last index in the list a of the given [element],
- * starting the search at index [startIndex] to 0.
- * @description Checks that if not specified, [startIndex] is set
- * to the value of length of this list.
- * @note undocumented
+ * @assertion int lastIndexOf(Object element, [int start])
+ * ...
+ * If start is not provided, this method searches from the end of the list.
+ * @description Checks that if not specified, [start] is set to the value of
+ * length of this list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

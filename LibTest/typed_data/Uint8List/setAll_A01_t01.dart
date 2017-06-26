@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * Overwrites elements of this with the elemenst of [iterable]
- * starting at position [index] in the list.
+ * Overwrites objects of [this] with the objects of [iterable], starting at
+ * position [index] in this list.
  * This operation does not increase the length of [this].
  * @description Checks that method overwrites elements correctly.
  * @author msyabro
@@ -16,16 +16,16 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Uint8List.fromList([0,0,0,0,0,0,0,0,0, 0]);
+  var l = new Uint8List.fromList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   l.setAll(9, [1]);
-  Expect.listEquals([0,0,0,0,0,0,0,0, 0,1], l);
+  Expect.listEquals([0, 0, 0, 0, 0, 0, 0, 0, 0, 1], l);
 
   l.setAll(2, [2, 2, 2, 2]);
-  Expect.listEquals([0,0,2,2,2,2,0,0,0,1], l);
+  Expect.listEquals([0, 0, 2, 2, 2, 2, 0, 0, 0, 1], l);
 
   l.setAll(0, [3, 3, 3, 3, 3]);
-  Expect.listEquals([3,3,3,3,3,2,0,0,0,1], l);
+  Expect.listEquals([3, 3, 3, 3, 3, 2, 0, 0, 0, 1], l);
 
   l.setAll(0, [11, 11, 11, 11, 11, 11, 11, 11, 11, 11]);
   Expect.listEquals([11, 11, 11, 11, 11, 11, 11, 11, 11, 11], l);
@@ -33,4 +33,3 @@ main() {
   l.setAll(0, []);
   Expect.listEquals([11, 11, 11, 11, 11, 11, 11, 11, 11, 11], l);
 }
-
