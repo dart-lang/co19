@@ -16,7 +16,7 @@
  * range from skipCount to skipCount + (end - start) to the range start to end,
  * even if the two ranges overlap.
  * @description Checks that the correct range is set with correct elements when
- * two ranges overlap.
+ * the two ranges overlap.
  * @author ngl@unipro.ru
  */
 
@@ -24,9 +24,9 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Int8List.fromList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  var l = new Uint8List.fromList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   var buffer = l.buffer;
-  var l1 = new Int8List.view(buffer, 3, 4);
+  var l1 = new Uint8List.view(buffer, 3, 4);
 
   l.setRange(2, 4, l1, 2);
   Expect.listEquals([0, 1, 5, 6, 4, 5, 6, 7, 8, 9], l);

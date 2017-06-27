@@ -6,12 +6,15 @@
 /**
  * @assertion void insert(int index, E value)
  * Inserts the element at position [index] in the list.
- * This increases the length of the list by one and shifts
- * all elements at or after the [index] towards the end of the list.
- * @description Checks that [UnsupportedError] is thrown
- * since [Uint8List] is a fixed-size list.
+ * This increases the length of the list by one and shifts all elements at or
+ * after the [index] towards the end of the list.
+ * ...
+ * An UnsupportedError occurs if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Uint8List] is a
+ * fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,13 +23,13 @@ main() {
   try {
     l.insert(0, 0);
     Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(10, l.length);
 
   l = new Uint8List(0);
   try {
     l.insert(0, 0);
     Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(0, l.length);
 }
