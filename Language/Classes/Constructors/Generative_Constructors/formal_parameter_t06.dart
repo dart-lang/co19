@@ -25,4 +25,5 @@ class C implements I {
 }
 
 main() {
-  new C(null);}
+  new C(null);
+}

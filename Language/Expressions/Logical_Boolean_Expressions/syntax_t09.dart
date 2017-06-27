@@ -22,4 +22,5 @@
  */
 
 main() {
-  true && && false;}
+  true && && false;
+}

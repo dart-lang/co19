@@ -18,4 +18,5 @@ library my_lib;
 import "invalid_uri_t01_part.dart";
 
 main() {
-  var someVar = 0;}
+  var someVar = 0;
+}

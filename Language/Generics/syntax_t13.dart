@@ -24,4 +24,5 @@ class A<T
 class C<T extends Function>{}
 
 main() {
-  new C();}
+  new C();
+}

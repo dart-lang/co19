@@ -23,4 +23,5 @@
 class C<T extend Function>{}
 
 main() {
-  new C();}
+  new C();
+}

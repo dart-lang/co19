@@ -17,4 +17,5 @@
 static void f() {}
 
 main() {
-  f();}
+  f();
+}

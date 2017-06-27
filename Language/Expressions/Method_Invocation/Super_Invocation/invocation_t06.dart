@@ -18,4 +18,5 @@
 var xx = super.f();
 
 main() {
-  print(xx);}
+  print(xx);
+}

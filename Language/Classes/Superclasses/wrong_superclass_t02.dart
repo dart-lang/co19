@@ -19,4 +19,5 @@ typedef void foo();
 class A extends foo {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

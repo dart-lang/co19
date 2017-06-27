@@ -17,4 +17,5 @@
 void f(var super) {}
 
 main() {
-  f();}
+  f();
+}

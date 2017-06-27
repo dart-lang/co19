@@ -15,4 +15,5 @@
 class A extends Null {}
 
 main() {
-  new A();}
+  new A();
+}

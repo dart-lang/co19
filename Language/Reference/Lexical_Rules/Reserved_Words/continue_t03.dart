@@ -17,4 +17,5 @@
 typedef void continue();
 
 main() {
-  null is continue;}
+  null is continue;
+}

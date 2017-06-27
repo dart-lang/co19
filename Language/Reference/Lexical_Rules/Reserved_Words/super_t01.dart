@@ -17,4 +17,5 @@
 class super { } // error
 
 main() {
-  null is super;}
+  null is super;
+}

@@ -17,4 +17,5 @@
 class const { } // error
 
 main() {
-  null is const;}
+  null is const;
+}

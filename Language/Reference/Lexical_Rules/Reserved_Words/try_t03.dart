@@ -17,4 +17,5 @@
 typedef void try();
 
 main() {
-  null is try;}
+  null is try;
+}

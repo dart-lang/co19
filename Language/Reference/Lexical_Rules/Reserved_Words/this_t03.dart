@@ -17,4 +17,5 @@
 typedef void this();
 
 main() {
-  null is this;}
+  null is this;
+}

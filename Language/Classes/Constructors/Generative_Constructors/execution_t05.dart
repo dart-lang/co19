@@ -44,4 +44,5 @@ class C {
 }
 
 main() {
-  var c = new C();}
+  var c = new C();
+}

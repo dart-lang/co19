@@ -31,4 +31,5 @@
 f() => while (true);
 
 main() {
-  f();}
+  f();
+}

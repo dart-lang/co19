@@ -19,4 +19,5 @@
 class T {}
 
 main() {
-  T id = new T()}
+  T id = new T()
+}

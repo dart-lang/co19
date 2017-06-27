@@ -17,4 +17,5 @@
  */
 
 main() {
-  var x = const 1, 2, 3];}
+  var x = const 1, 2, 3];
+}

@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().for is int;}
+  new C().for is int;
+}

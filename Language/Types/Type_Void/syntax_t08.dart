@@ -17,4 +17,5 @@
 class A<T extends void> {}
 
 main() {
-  new A();}
+  new A();
+}

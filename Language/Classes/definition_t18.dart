@@ -19,4 +19,5 @@
 class A<T1;T2> {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

@@ -31,4 +31,5 @@
 f() => typedef void f();
 
 main() {
-  f();}
+  f();
+}

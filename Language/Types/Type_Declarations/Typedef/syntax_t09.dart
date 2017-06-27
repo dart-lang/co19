@@ -29,4 +29,5 @@ abstract class A {}
 typedef A B;
 
 main() {
-  Expect.isFalse(null is B);}
+  Expect.isFalse(null is B);
+}

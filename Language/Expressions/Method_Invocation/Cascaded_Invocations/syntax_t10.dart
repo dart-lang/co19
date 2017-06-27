@@ -27,5 +27,6 @@ class C {
 
 main() {
   var o = new C();
-  o..null;}
+  o..null;
+}
 

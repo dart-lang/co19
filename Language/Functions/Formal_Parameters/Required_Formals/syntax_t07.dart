@@ -38,4 +38,5 @@ func(var x()) {
 }
 
 main() {
-  func(() {});}
+  func(() {});
+}

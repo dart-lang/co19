@@ -16,4 +16,5 @@
 typedef int factory();
 
 main() {
-  null is factory;}
+  null is factory;
+}

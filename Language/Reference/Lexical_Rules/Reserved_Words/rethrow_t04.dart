@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().rethrow is int;}
+  new C().rethrow is int;
+}

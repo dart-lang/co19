@@ -13,5 +13,6 @@
  */
 
 main() {
-  external foo;}
+  external foo;
+}
 

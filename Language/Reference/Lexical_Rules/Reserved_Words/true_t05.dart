@@ -16,4 +16,5 @@
 
 main() {
   void true() {}
-    true();}
+    true();
+}

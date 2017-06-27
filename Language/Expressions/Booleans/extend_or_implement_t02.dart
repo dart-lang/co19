@@ -16,4 +16,5 @@
 class C implements bool {}
 
 main() {
-  new C();}
+  new C();
+}

@@ -15,4 +15,5 @@
 class A extends int {}
 
 main() {
-  new A();}
+  new A();
+}

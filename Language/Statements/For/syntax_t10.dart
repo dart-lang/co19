@@ -25,4 +25,5 @@
  */
 
 main() {
-  for ( var x in  ) break;}
+  for ( var x in  ) break;
+}

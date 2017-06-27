@@ -20,4 +20,5 @@ class  T {
 }
 
 main() {
-  const T(1, 2, [0, 1]);}
+  const T(1, 2, [0, 1]);
+}

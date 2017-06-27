@@ -14,4 +14,5 @@
  */
 
 main() {
-  get foo;}
+  get foo;
+}

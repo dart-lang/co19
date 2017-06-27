@@ -20,4 +20,5 @@ class A {
 }
 
 main() {
-  new ();}
+  new ();
+}

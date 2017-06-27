@@ -15,4 +15,5 @@
 class export {}
 
 main() {
-  null is export;}
+  null is export;
+}

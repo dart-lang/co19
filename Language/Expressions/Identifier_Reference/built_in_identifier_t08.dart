@@ -18,4 +18,5 @@ class dynamic {}
 class foo extends dynamic {}
 
 main() {
-  null is foo;}
+  null is foo;
+}

@@ -26,4 +26,5 @@
 import 'dart:async';
 
 main() async {
-  await for (var x, y in new Stream.fromIterable(new List(100))) break;}
+  await for (var x, y in new Stream.fromIterable(new List(100))) break;
+}

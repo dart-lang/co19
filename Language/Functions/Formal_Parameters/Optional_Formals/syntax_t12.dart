@@ -24,4 +24,5 @@ foo({const p: 1]) {
 }
 
 main() {
-  foo();}
+  foo();
+}

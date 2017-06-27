@@ -26,4 +26,5 @@ class A {
 var a = const A(new DateTime.now().millisecondsSinceEpoch);
 
 main() {
-  var b = a;}
+  var b = a;
+}

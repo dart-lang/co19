@@ -20,4 +20,5 @@
 import "syntax_t01_lib.dart";
 
 main() {
-  var x = foo;}
+  var x = foo;
+}

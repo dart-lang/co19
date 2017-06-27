@@ -32,4 +32,5 @@
  */
 
 main() {
-  do {} while (true) = null;}
+  do {} while (true) = null;
+}

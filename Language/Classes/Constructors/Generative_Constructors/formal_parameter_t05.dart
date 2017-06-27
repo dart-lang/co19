@@ -25,4 +25,5 @@ class C extends S {
 }
 
 main() {
-  new C(null);}
+  new C(null);
+}

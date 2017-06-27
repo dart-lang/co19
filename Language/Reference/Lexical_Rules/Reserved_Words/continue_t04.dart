@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().continue is int;}
+  new C().continue is int;
+}

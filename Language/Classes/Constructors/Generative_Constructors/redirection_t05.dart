@@ -26,4 +26,5 @@ class C {
 }
 
 main() {
-  var x = new C(1);}
+  var x = new C(1);
+}

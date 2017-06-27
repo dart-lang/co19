@@ -28,4 +28,5 @@ class C {
 }
 
 main() {
-  C c = new C("Initialization by means of an initializing formal of k");}
+  C c = new C("Initialization by means of an initializing formal of k");
+}

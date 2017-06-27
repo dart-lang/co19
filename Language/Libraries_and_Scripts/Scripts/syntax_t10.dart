@@ -25,4 +25,5 @@ final int script = 1; // error
 part "../Parts/part_0.dart";
 
 main() {
-  Expect.equals(1, script);}
+  Expect.equals(1, script);
+}

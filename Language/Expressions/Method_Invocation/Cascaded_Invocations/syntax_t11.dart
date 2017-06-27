@@ -28,5 +28,6 @@ class C {
 
 main() {
   var o = new C();
-  o..false;}
+  o..false;
+}
 

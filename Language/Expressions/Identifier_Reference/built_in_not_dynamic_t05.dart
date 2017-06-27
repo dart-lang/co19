@@ -15,4 +15,5 @@
 
 
 main() {
-  factory foo;}
+  factory foo;
+}

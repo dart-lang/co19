@@ -15,4 +15,5 @@
 class A implements double {}
 
 main() {
-  new A();}
+  new A();
+}

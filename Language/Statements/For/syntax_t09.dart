@@ -26,5 +26,6 @@
  */
 
 main() {
-  for ( var x, y in new List(10) ) break;}
+  for ( var x, y in new List(10) ) break;
+}
 

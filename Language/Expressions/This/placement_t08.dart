@@ -18,4 +18,5 @@
 var x = this.a;
 
 main() {
-  print(x);}
+  print(x);
+}

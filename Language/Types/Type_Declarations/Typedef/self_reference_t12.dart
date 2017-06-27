@@ -15,4 +15,5 @@
 typedef F<T>(F<T> x);
 
 main() {
-  F<int> x;}
+  F<int> x;
+}

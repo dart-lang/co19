@@ -33,4 +33,5 @@ class C {
 }
 
 main() {
-  var x = new C.c0();}
+  var x = new C.c0();
+}

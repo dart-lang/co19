@@ -21,4 +21,5 @@ class C<T> {
 }
 
 main() {
-  new C().test();}
+  new C().test();
+}

@@ -17,4 +17,5 @@
 class this { } // error
 
 main() {
-  null is this;}
+  null is this;
+}

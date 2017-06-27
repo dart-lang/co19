@@ -23,4 +23,5 @@ class A {
 
 main() {
   DateTime d = new DateTime.now();
-  var a = const A(d.millisecond);}
+  var a = const A(d.millisecond);
+}

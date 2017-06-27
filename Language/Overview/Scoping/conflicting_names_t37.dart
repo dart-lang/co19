@@ -18,4 +18,5 @@
  */
 
 main() {
-  int i, i;}
+  int i, i;
+}

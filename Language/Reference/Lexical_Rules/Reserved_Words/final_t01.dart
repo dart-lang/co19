@@ -17,4 +17,5 @@
 class final { } // error
 
 main() {
-  null is final;}
+  null is final;
+}

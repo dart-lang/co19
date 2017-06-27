@@ -30,4 +30,5 @@ class C implements I {
 }
 
 main() {
-  new I.foo();}
+  new I.foo();
+}

@@ -36,4 +36,5 @@
  */
 
 main() {
-  var x = return 0;}
+  var x = return 0;
+}

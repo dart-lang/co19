@@ -19,4 +19,5 @@ void this() {
 }
 
 main() {
-  this();}
+  this();
+}

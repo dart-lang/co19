@@ -15,4 +15,5 @@
  */
 
 main() {
-  f(void a) {};}
+  f(void a) {};
+}

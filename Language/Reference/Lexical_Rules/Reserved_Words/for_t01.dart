@@ -17,4 +17,5 @@
 class for { } // error
 
 main() {
-  null is for;}
+  null is for;
+}

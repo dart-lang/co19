@@ -68,4 +68,5 @@
 import "namespace_changes_lib.dart" as PP;
 
 main() {
-  new PP.P.B.spec().foo();}
+  new PP.P.B.spec().foo();
+}

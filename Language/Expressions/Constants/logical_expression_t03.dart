@@ -20,4 +20,5 @@
 const m = (true || 0);
 
 main() {
-  print(m);}
+  print(m);
+}

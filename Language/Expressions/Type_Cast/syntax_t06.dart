@@ -19,4 +19,5 @@
  */
 
 main() {
-  (int x) => 1 as (num x) => 2;}
+  (int x) => 1 as (num x) => 2;
+}

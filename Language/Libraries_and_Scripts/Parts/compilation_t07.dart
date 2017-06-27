@@ -20,4 +20,5 @@ library Parts_test_lib;
 part "part_9_lib.dart";
 
 main() {
-  var x = foo;}
+  var x = foo;
+}

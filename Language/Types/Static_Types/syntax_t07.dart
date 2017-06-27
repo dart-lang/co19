@@ -33,4 +33,5 @@ class G<T> {
 }
 
 main() {
-  G<null> t;}
+  G<null> t;
+}

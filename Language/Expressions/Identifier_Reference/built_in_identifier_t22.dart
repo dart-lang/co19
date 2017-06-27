@@ -16,4 +16,5 @@
 typedef int operator();
 
 main() {
-  null is operator;}
+  null is operator;
+}

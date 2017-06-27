@@ -21,4 +21,5 @@ class A {
 const a = const A();
 
 main() {
-  a;}
+  a;
+}

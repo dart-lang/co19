@@ -19,4 +19,5 @@ abstract class J {}
 class A implements I, dynamic, J {}
 
 main() {
-  new A();}
+  new A();
+}

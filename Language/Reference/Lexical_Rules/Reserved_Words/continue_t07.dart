@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.continue();}
+  C.continue();
+}

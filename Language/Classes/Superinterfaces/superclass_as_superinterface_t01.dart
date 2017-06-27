@@ -16,4 +16,5 @@ abstract class A {}
 class C extends A implements A {}
 
 main () {
-  C c = new C();}
+  C c = new C();
+}

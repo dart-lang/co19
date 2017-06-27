@@ -15,4 +15,5 @@
 
 
 main() {
-  as foo;}
+  as foo;
+}

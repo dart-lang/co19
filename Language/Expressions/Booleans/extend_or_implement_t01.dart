@@ -17,4 +17,5 @@ abstract class I extends bool {}
 class C implements I {}
 
 main() {
-  new C();}
+  new C();
+}

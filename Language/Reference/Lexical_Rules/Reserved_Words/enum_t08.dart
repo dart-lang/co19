@@ -16,4 +16,5 @@
 void f(var enum) {}
 
 main() {
-  f();}
+  f();
+}

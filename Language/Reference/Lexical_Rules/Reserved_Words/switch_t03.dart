@@ -17,4 +17,5 @@
 typedef void switch();
 
 main() {
-  null is switch;}
+  null is switch;
+}

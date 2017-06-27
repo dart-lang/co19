@@ -24,4 +24,5 @@ class A extends S {
 }
 
 main() {
-  A.v;}
+  A.v;
+}

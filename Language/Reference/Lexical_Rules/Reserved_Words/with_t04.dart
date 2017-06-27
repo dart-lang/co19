@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().with is int;}
+  new C().with is int;
+}

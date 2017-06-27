@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().extends is int;}
+  new C().extends is int;
+}

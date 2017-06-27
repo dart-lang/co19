@@ -20,4 +20,5 @@ class A {}
 class C extends A with {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

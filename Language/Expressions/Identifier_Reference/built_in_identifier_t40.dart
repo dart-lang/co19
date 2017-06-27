@@ -15,4 +15,5 @@
 typedef int export();
 
 main() {
-  null is export;}
+  null is export;
+}

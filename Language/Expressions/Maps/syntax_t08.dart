@@ -22,4 +22,5 @@
  */
 
 main() {
-  var x = {"key1": true, "key2":false;}
+  var x = {"key1": true, "key2":false;
+}

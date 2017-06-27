@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().void is int;}
+  new C().void is int;
+}

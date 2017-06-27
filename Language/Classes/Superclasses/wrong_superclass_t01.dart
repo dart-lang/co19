@@ -18,4 +18,5 @@
 class A extends Unavailable {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

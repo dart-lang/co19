@@ -18,4 +18,5 @@
  */
 
 main() {
-  var false;}
+  var false;
+}

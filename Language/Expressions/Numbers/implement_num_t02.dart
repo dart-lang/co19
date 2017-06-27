@@ -15,4 +15,5 @@
 class A implements num {}
 
 main() {
-  new A();}
+  new A();
+}

@@ -14,4 +14,5 @@
 class A implements Null {}
 
 main() {
-  new A();}
+  new A();
+}

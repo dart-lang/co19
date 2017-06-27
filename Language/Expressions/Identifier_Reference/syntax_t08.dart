@@ -50,4 +50,5 @@ class C {
 }
 
 main() {
-  Expect.isTrue(new C().x());}
+  Expect.isTrue(new C().x());
+}

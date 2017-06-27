@@ -23,4 +23,5 @@
 main() {
   var $x = "dollar";
   var x = "dollar";
-  '$$x';}
+  '$$x';
+}

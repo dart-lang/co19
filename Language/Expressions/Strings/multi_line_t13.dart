@@ -30,4 +30,5 @@
  */
 
 main() {
-  '''incorrect string;}
+  '''incorrect string;
+}

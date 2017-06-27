@@ -21,4 +21,5 @@ final a = const A();
 const m = a.m;
 
 main() {
-  print(m);}
+  print(m);
+}

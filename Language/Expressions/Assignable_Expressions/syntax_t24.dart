@@ -38,4 +38,5 @@ class A {
 
 main() {
   A a = new A();
-  a.test() = 1;}
+  a.test() = 1;
+}

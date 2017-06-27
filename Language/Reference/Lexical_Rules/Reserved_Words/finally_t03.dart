@@ -17,4 +17,5 @@
 typedef void finally();
 
 main() {
-  null is finally;}
+  null is finally;
+}

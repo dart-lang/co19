@@ -16,4 +16,5 @@
 typedef void enum();
 
 main() {
-  null is enum;}
+  null is enum;
+}

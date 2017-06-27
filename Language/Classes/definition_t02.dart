@@ -21,4 +21,5 @@ class A {
   void someMethod() {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

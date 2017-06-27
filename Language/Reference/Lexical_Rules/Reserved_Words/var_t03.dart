@@ -17,4 +17,5 @@
 typedef void var();
 
 main() {
-  null is var;}
+  null is var;
+}

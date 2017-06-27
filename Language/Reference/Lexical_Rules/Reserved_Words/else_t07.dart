@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.else();}
+  C.else();
+}

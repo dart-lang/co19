@@ -18,4 +18,5 @@ class C {
 }
 
 main() {
-  new C().enum is int;}
+  new C().enum is int;
+}

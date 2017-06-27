@@ -23,5 +23,6 @@ abstract class A implements B {}
 class D implements A {}
 
 main() {
-  new D();}
+  new D();
+}
 

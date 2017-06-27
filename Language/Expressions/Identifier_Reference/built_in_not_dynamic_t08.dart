@@ -14,4 +14,5 @@
  */
 
 main() {
-  import foo;}
+  import foo;
+}

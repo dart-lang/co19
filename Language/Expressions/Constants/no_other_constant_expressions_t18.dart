@@ -16,4 +16,5 @@ var a = 1;
 const m = a++;
 
 main() {
-  print(m);}
+  print(m);
+}

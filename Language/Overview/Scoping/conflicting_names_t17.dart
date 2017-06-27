@@ -23,4 +23,5 @@ func() {
 }
 
 main() {
-  func();}
+  func();
+}

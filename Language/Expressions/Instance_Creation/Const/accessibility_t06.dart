@@ -17,4 +17,5 @@
 typedef foo();
 
 main() {
-  const foo();}
+  const foo();
+}

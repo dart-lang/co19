@@ -35,4 +35,5 @@ class C {}
 class D {}
 
 main() {
-  new D();}
+  new D();
+}

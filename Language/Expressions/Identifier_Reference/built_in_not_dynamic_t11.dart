@@ -14,4 +14,5 @@
  */
 
 main() {
-  set foo;}
+  set foo;
+}

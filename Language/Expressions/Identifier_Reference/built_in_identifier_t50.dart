@@ -15,4 +15,5 @@
 class part {}
 
 main() {
-  null is part;}
+  null is part;
+}

@@ -30,4 +30,5 @@
 import as lib show foo;
 
 main() {
-  someVar = 0;}
+  someVar = 0;
+}

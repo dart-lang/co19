@@ -22,4 +22,5 @@ class C {
 }
 
 main() {
-  C.foo();}
+  C.foo();
+}

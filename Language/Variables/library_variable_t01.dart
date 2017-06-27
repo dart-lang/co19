@@ -17,4 +17,5 @@
 import "library_variable_t01_lib.dart";
 
 main() {
-  foo = 1;}
+  foo = 1;
+}

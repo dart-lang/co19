@@ -23,4 +23,5 @@ foo() => 1;
 const i1 = "${foo()}";
 
 main() {
-  print(i1);}
+  print(i1);
+}

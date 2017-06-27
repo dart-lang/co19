@@ -15,4 +15,5 @@
 typedef List<F> F();
 
 main() {
-  F x;}
+  F x;
+}

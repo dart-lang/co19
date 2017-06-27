@@ -28,4 +28,5 @@ class Foo2 extends foo {
 }
 
 main() {
-  new Foo2();}
+  new Foo2();
+}

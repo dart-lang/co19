@@ -17,4 +17,5 @@
 typedef void is();
 
 main() {
-  null is is;}
+  null is is;
+}

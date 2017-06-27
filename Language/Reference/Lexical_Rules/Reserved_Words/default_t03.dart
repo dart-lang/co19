@@ -17,4 +17,5 @@
 typedef void default();
 
 main() {
-  null is default;}
+  null is default;
+}

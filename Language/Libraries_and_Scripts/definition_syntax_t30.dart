@@ -29,4 +29,5 @@
 library Libraries.and.Scripts.A03.t18.lib;
 
 main() {
-  var someVar = 1;}
+  var someVar = 1;
+}

@@ -15,4 +15,5 @@
  */
 
 main() {
-  bool b = null is void;}
+  bool b = null is void;
+}

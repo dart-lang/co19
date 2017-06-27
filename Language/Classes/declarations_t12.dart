@@ -46,4 +46,5 @@ class A {
 }
 
 main() {
-  A.v;}
+  A.v;
+}

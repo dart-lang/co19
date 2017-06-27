@@ -19,4 +19,5 @@
 const a = [];
 
 main() {
-  print(a);}
+  print(a);
+}

@@ -31,4 +31,5 @@
 
 main() {
   int function1 => 1;
-  function1();}
+  function1();
+}

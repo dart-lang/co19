@@ -17,4 +17,5 @@
 typedef void false();
 
 main() {
-  null is false;}
+  null is false;
+}

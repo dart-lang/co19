@@ -26,4 +26,5 @@ class A {
 }
 
 main() {
-  var a = const A();}
+  var a = const A();
+}

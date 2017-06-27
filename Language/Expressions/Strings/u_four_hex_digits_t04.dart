@@ -17,4 +17,5 @@
  */
 
 main() {
-  "empty \u{}";}
+  "empty \u{}";
+}

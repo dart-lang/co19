@@ -47,4 +47,5 @@ class C {
 
 
 main() {
-  new C.id();}
+  new C.id();
+}

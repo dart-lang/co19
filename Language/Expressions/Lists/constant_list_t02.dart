@@ -19,4 +19,5 @@ class A {
 }
 
 main() {
-  new A();}
+  new A();
+}

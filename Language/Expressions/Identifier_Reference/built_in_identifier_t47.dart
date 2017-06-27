@@ -15,4 +15,5 @@
 class library {}
 
 main() {
-  null is library;}
+  null is library;
+}

@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.var();}
+  C.var();
+}

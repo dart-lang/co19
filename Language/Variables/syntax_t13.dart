@@ -36,4 +36,5 @@
  */
 
 main() {
-  const final x = 1;}
+  const final x = 1;
+}

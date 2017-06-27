@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  bool b = new C()[0];}
+  bool b = new C()[0];
+}

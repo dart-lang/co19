@@ -16,4 +16,5 @@
 class get {}
 
 main() {
-  null is get;}
+  null is get;
+}

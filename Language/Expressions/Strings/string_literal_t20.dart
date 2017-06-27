@@ -36,4 +36,5 @@
  */
 
 main() {
-  r"invalid " string";}
+  r"invalid " string";
+}

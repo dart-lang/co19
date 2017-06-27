@@ -28,4 +28,5 @@ class A {}
 typedef A B;
 
 main() {
-  new A();}
+  new A();
+}

@@ -19,4 +19,5 @@ int foo;
 class A implements foo {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

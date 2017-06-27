@@ -14,4 +14,5 @@
  */
 
 main() {
-  static foo;}
+  static foo;
+}

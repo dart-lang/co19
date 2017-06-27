@@ -17,4 +17,5 @@
 void f(var const) {}
 
 main() {
-  f();}
+  f();
+}

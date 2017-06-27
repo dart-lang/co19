@@ -18,4 +18,5 @@
 final c = 1;
 
 main() {
-  const c();}
+  const c();
+}

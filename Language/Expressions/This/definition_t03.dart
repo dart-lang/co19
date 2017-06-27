@@ -23,4 +23,5 @@ class A implements this {
 }
 
 main() {
-  new A();}
+  new A();
+}

@@ -18,4 +18,5 @@ class C {
 }
 
 main() {
-  var b = (new C() === new C());}
+  var b = (new C() === new C());
+}

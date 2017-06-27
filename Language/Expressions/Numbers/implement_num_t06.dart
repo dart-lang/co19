@@ -16,4 +16,5 @@ class A {}
 class C = A with num;
 
 main() {
-  new C();}
+  new C();
+}

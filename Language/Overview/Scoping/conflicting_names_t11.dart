@@ -21,4 +21,5 @@ var conflictingName;
 var conflictingName;
 
 main() {
-  conflictingName = null;}
+  conflictingName = null;
+}

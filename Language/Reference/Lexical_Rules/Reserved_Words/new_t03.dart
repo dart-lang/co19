@@ -17,4 +17,5 @@
 typedef void new();
 
 main() {
-  null is new;}
+  null is new;
+}

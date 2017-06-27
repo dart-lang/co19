@@ -27,4 +27,5 @@ class C {
 }
 
 main() {
-  new C();}
+  new C();
+}

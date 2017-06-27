@@ -17,4 +17,5 @@
 void f(var for) {}
 
 main() {
-  f();}
+  f();
+}

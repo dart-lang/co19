@@ -17,4 +17,5 @@
 class A<T> {}
 
 main() {
-  A<void> a = null;}
+  A<void> a = null;
+}

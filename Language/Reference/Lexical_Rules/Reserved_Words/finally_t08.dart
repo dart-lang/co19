@@ -17,4 +17,5 @@
 void f(var finally) {}
 
 main() {
-  f();}
+  f();
+}

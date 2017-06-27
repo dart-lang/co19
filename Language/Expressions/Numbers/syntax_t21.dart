@@ -36,4 +36,5 @@
  */
 
 main() {
-  var i = 1e;}
+  var i = 1e;
+}

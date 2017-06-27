@@ -24,4 +24,5 @@
  */
 
 main() async {
-  await for (var i in ) break;}
+  await for (var i in ) break;
+}

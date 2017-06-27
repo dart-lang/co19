@@ -18,4 +18,5 @@
 func() {}
 
 main() {
-  const func();}
+  const func();
+}

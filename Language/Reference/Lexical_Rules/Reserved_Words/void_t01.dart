@@ -17,4 +17,5 @@
 class void { } // error
 
 main() {
-  null is void;}
+  null is void;
+}

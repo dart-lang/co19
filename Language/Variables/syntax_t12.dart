@@ -36,4 +36,5 @@
  */
 
 main() {
-  const var x = 1;}
+  const var x = 1;
+}

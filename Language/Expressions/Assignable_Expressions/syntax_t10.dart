@@ -32,4 +32,5 @@
  */
 
 main() {
-  {int x; x = 1;} = null;}
+  {int x; x = 1;} = null;
+}

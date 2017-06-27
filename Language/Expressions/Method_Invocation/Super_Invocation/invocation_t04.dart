@@ -26,4 +26,5 @@ class A extends S {
 }
 
 main() {
-  A.staticMethod();}
+  A.staticMethod();
+}

@@ -21,4 +21,5 @@ class conflictingName {}
 class conflictingName implements Map {}
 
 main() {
-  new conflictingName();}
+  new conflictingName();
+}

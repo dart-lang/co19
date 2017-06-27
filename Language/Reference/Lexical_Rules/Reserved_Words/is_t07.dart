@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.is();}
+  C.is();
+}

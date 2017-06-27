@@ -17,4 +17,5 @@
 typedef void with();
 
 main() {
-  null is with;}
+  null is with;
+}

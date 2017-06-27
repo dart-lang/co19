@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().try is int;}
+  new C().try is int;
+}

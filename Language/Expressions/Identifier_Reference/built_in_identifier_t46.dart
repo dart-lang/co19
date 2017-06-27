@@ -15,4 +15,5 @@
 typedef int import();
 
 main() {
-  null is import;}
+  null is import;
+}

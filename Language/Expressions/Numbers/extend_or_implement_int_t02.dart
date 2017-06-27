@@ -15,4 +15,5 @@
 class A implements int {}
 
 main() {
-  new A();}
+  new A();
+}

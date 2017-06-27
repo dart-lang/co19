@@ -17,4 +17,5 @@
 void f(var while) {}
 
 main() {
-  f();}
+  f();
+}

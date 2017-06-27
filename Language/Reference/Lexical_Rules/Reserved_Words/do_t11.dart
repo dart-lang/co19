@@ -16,4 +16,5 @@
 import "lib.dart" show do;
 
 main() {
-  int x = 1;}
+  int x = 1;
+}

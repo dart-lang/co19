@@ -16,4 +16,5 @@
 typedef int implements();
 
 main() {
-  null is implements;}
+  null is implements;
+}

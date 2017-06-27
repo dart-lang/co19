@@ -15,4 +15,5 @@
 
 main() {
   var o;
-  o.f(name: null, 1);}
+  o.f(name: null, 1);
+}

@@ -34,4 +34,5 @@ class A {
 }
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

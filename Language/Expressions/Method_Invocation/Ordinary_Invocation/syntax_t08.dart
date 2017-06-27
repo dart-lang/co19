@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.f(1, name: null, 1);}
+  C.f(1, name: null, 1);
+}

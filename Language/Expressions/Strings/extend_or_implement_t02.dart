@@ -17,4 +17,5 @@ abstract class I extends String {}
 class C implements I {}
 
 main() {
-  new C();}
+  new C();
+}

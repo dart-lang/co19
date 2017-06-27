@@ -17,4 +17,5 @@
 void f({const x}) {}
 
 main () {
-  f(1);}
+  f(1);
+}

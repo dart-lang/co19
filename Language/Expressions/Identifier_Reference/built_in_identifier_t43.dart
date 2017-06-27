@@ -15,4 +15,5 @@
 typedef int external();
 
 main() {
-  null is external;}
+  null is external;
+}

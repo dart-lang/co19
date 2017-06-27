@@ -17,4 +17,5 @@
  */
 
 main() {
-  'some text\umore text';}
+  'some text\umore text';
+}

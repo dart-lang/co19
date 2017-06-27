@@ -33,4 +33,5 @@ class G<A, B> {
 }
 
 main() {
-  G<int double> g;}
+  G<int double> g;
+}

@@ -38,4 +38,5 @@ func(const x) {
 }
 
 main() {
-  func(1);}
+  func(1);
+}

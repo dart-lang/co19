@@ -18,4 +18,5 @@
 import "reexport_lib.dart";
 
 main() {
-  1 is foo;}
+  1 is foo;
+}

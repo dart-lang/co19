@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.setter = null;}
+  C.setter = null;
+}

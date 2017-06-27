@@ -17,4 +17,5 @@
 class do { } // error
 
 main() {
-  null is do;}
+  null is do;
+}

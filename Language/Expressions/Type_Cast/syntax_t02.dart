@@ -19,4 +19,5 @@
  */
 
 main() {
-  var x = (as int);}
+  var x = (as int);
+}

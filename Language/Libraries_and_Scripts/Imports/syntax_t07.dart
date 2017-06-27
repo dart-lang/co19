@@ -30,4 +30,5 @@
 import "syntax_lib.dart" as id.entifier;
 
 main() {
-  someVar = 0;}
+  someVar = 0;
+}

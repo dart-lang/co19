@@ -24,4 +24,5 @@ class G<T, T> {
 }
 
 main() {
-  new G<int, String>();}
+  new G<int, String>();
+}

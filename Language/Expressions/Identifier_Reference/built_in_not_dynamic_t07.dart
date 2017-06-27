@@ -14,4 +14,5 @@
  */
 
 main() {
-  implements foo;}
+  implements foo;
+}

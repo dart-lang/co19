@@ -16,4 +16,5 @@
 class typedef {}
 
 main() {
-  null is typedef;}
+  null is typedef;
+}

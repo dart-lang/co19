@@ -19,4 +19,5 @@ class this {
 }
 
 main() {
-  new this();}
+  new this();
+}

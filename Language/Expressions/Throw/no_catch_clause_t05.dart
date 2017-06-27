@@ -20,4 +20,5 @@
  */
 
 main() {
-  throw;}
+  throw;
+}

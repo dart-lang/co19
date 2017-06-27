@@ -20,4 +20,5 @@ class C {
 }
 
 main() {
-  (new C()).setter = null;}
+  (new C()).setter = null;
+}

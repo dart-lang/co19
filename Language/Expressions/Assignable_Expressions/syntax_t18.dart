@@ -32,4 +32,5 @@
  */
 
 main() {
-  assert (false) = null;}
+  assert (false) = null;
+}

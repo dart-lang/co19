@@ -18,4 +18,5 @@
 class A implements Unavailable {}
 
 main() {
-  new A();}
+  new A();
+}

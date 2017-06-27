@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().break is int;}
+  new C().break is int;
+}

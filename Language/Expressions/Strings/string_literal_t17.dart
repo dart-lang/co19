@@ -36,4 +36,5 @@
  */
 
 main() {
-  'string;}
+  'string;
+}

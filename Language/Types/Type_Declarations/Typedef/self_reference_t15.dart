@@ -16,4 +16,5 @@ typedef G F();
 typedef F G();
 
 main() {
-  F x;}
+  F x;
+}

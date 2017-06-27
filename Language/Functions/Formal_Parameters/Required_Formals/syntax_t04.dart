@@ -36,4 +36,5 @@
 f(static var x) {}
 
 main() {
-  f(1);}
+  f(1);
+}

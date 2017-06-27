@@ -23,4 +23,5 @@ class B extends A {
 }
 
 main() {
-  var x = new B();}
+  var x = new B();
+}

@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().case is int;}
+  new C().case is int;
+}

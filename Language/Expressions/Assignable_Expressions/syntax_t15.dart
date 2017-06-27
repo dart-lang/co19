@@ -32,4 +32,5 @@
  */
 
 main() {
-  switch (1) {case 1: true; default: false;} = null;}
+  switch (1) {case 1: true; default: false;} = null;
+}

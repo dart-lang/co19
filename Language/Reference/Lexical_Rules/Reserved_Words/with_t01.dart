@@ -17,4 +17,5 @@
 class with { } // error
 
 main() {
-  null is with;}
+  null is with;
+}

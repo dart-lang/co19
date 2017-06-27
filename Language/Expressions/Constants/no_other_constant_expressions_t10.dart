@@ -19,4 +19,5 @@ class A {
 const m = A.m();
 
 main() {
-  print(m);}
+  print(m);
+}

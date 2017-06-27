@@ -16,4 +16,5 @@
 class set {}
 
 main() {
-  null is set;}
+  null is set;
+}

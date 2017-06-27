@@ -17,4 +17,5 @@
 typedef void void();
 
 main() {
-  void x;}
+  void x;
+}

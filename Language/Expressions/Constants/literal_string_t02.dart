@@ -21,4 +21,5 @@
 const l = "${const {'k1': 1, 'k2': 2}}";
 
 main() {
-  print(l);}
+  print(l);
+}

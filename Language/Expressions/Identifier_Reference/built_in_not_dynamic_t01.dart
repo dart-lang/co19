@@ -15,4 +15,5 @@
 
 
 main() {
-  abstract foo;}
+  abstract foo;
+}

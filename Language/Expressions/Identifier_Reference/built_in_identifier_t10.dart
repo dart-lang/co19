@@ -16,4 +16,5 @@
 typedef int dynamic();
 
 main() {
-  null is dynamic;}
+  null is dynamic;
+}

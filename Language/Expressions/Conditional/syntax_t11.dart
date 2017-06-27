@@ -19,4 +19,5 @@
 class A {}
 
 main() {
-  true ? 1 : A;}
+  true ? 1 : A;
+}

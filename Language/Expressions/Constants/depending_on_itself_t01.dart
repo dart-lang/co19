@@ -16,4 +16,5 @@
 const m = m;
 
 main() {
-  print(m);}
+  print(m);
+}

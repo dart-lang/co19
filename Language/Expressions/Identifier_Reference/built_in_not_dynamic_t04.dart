@@ -14,4 +14,5 @@
  */
 
 main() {
-  export foo;}
+  export foo;
+}

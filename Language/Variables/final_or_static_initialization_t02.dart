@@ -18,4 +18,5 @@ class C {
 }
 
 main() {
-  print(C.v);}
+  print(C.v);
+}

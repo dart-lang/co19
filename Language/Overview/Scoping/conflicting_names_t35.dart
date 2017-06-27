@@ -20,4 +20,5 @@
 typedef f<T, T>();
 
 main() {
-  f<int, String> foo = () {};}
+  f<int, String> foo = () {};
+}

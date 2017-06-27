@@ -15,4 +15,5 @@
  */
 
 main() {
-  void v = null;}
+  void v = null;
+}

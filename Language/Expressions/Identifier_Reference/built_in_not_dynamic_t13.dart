@@ -14,4 +14,5 @@
  */
 
 main() {
-  typedef foo;}
+  typedef foo;
+}

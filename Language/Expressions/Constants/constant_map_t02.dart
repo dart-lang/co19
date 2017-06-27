@@ -19,4 +19,5 @@
 const a = {"a" : "b"};
 
 main() {
-  print(a);}
+  print(a);
+}

@@ -15,4 +15,5 @@
 
 main() {
   var x;
-  const {"$x": 1};}
+  const {"$x": 1};
+}

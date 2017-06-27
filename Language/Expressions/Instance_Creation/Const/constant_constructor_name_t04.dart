@@ -20,4 +20,5 @@ class  A {
 }
 
 main() {
-  const A.method();}
+  const A.method();
+}

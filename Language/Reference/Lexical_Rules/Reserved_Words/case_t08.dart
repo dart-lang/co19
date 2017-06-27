@@ -17,4 +17,5 @@
 void f(var case) {}
 
 main() {
-  f();}
+  f();
+}

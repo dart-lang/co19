@@ -22,4 +22,5 @@
 typedef int fun();
 
 main() {
-  '$fun';}
+  '$fun';
+}

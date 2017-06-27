@@ -36,4 +36,5 @@
 void f(var a, [var b], [var c]) {}
 
 main () {
-  f(1, 2, 3);}
+  f(1, 2, 3);
+}

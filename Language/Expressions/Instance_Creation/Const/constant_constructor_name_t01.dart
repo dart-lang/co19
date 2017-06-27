@@ -18,4 +18,5 @@
 class  A {}
 
 main() {
-  const A.nonexistentConstructor();}
+  const A.nonexistentConstructor();
+}

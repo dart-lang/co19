@@ -17,4 +17,5 @@
 typedef void class();
 
 main() {
-  null is class;}
+  null is class;
+}

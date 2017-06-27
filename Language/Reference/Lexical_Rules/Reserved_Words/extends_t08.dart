@@ -17,4 +17,5 @@
 void f(var extends) {}
 
 main() {
-  f();}
+  f();
+}

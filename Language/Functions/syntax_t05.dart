@@ -31,4 +31,5 @@
 int function1 {}
 
 main() {
-  function1();}
+  function1();
+}

@@ -16,4 +16,5 @@ class A {}
 class C extends A with double {}
 
 main() {
-  new C();}
+  new C();
+}

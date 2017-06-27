@@ -43,4 +43,5 @@ class C {
 }
 
 main() {
-  var c = const C();}
+  var c = const C();
+}

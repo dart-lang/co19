@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().while is int;}
+  new C().while is int;
+}

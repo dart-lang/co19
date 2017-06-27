@@ -20,4 +20,5 @@
 typedef f(x, x);
 
 main() {
-  f foo = (x, y) {};}
+  f foo = (x, y) {};
+}

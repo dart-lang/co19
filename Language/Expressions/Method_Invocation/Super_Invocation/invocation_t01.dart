@@ -16,4 +16,5 @@
  */
 
 main() {
-  super.f();}
+  super.f();
+}

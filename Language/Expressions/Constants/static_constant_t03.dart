@@ -24,4 +24,5 @@ class A {
 const i1 = x;
 
 main() {
-  print(i1);}
+  print(i1);
+}

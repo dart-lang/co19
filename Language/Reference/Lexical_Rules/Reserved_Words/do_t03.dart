@@ -17,4 +17,5 @@
 typedef void do();
 
 main() {
-  null is do;}
+  null is do;
+}

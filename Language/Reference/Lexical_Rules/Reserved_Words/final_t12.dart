@@ -16,4 +16,5 @@
 part "final_lib.dart";
 
 void main() {
-  int x = 0;}
+  int x = 0;
+}

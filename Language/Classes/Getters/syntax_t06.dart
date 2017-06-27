@@ -22,4 +22,5 @@ class C {
 }
 
 main() {
-  var x = C.getter;}
+  var x = C.getter;
+}

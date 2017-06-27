@@ -32,4 +32,5 @@
  */
 
 main() {
-  try {} catch (e) {} = null;}
+  try {} catch (e) {} = null;
+}

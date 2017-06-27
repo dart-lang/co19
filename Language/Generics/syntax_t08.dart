@@ -22,4 +22,5 @@
 class C<T, >{}
 
 main() {
-  new C();}
+  new C();
+}

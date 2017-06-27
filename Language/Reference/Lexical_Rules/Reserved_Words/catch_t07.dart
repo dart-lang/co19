@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  C.catch();}
+  C.catch();
+}

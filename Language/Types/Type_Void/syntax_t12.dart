@@ -17,4 +17,5 @@
 class void {}
 
 main() {
-  new void();}
+  new void();
+}

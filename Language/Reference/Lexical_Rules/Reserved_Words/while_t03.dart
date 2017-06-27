@@ -17,4 +17,5 @@
 typedef void while();
 
 main() {
-  null is while;}
+  null is while;
+}

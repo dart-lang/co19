@@ -33,4 +33,5 @@ class Generic<T> {
 }
 
 main() {
-  Generic <> t;}
+  Generic <> t;
+}

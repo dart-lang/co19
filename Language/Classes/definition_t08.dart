@@ -21,4 +21,5 @@ class S {}
 class A extends S
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

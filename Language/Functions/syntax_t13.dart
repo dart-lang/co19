@@ -30,4 +30,5 @@
 f(var y) => int x;
 
 main() {
-  f(null);}
+  f(null);
+}

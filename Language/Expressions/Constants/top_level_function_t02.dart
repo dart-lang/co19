@@ -20,4 +20,5 @@
 const a = () => null;
 
 main() {
-  print(a);}
+  print(a);
+}

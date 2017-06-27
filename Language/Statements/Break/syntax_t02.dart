@@ -16,4 +16,5 @@
 
 
 main() {
-  L: break L;}
+  L: break L;
+}

@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().super is int;}
+  new C().super is int;
+}

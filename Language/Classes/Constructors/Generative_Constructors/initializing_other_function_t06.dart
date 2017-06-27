@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().x = 1;}
+  new C().x = 1;
+}

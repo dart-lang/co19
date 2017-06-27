@@ -24,4 +24,5 @@
  */
 
 main() async {
-  await for () {}}
+  await for () {}
+}

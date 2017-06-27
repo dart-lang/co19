@@ -17,4 +17,5 @@
 typedef void case();
 
 main() {
-  null is case;}
+  null is case;
+}

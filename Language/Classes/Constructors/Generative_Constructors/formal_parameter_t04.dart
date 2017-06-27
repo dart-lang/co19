@@ -22,4 +22,5 @@ class C {
 }
 
 main() {
-  new C(null);}
+  new C(null);
+}

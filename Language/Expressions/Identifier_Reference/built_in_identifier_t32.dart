@@ -15,4 +15,5 @@
 class as {}
 
 main() {
-  null is as;}
+  null is as;
+}

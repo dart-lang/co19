@@ -17,4 +17,5 @@
 class A<T> extends T {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

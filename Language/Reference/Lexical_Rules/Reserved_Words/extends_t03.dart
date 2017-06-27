@@ -17,4 +17,5 @@
 typedef void extends();
 
 main() {
-  null is extends;}
+  null is extends;
+}

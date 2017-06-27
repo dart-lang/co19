@@ -17,4 +17,5 @@
 void f(var rethrow) {}
 
 main() {
-  f();}
+  f();
+}

@@ -16,4 +16,5 @@
  */
 
 main() {
-  const UnavailableType();}
+  const UnavailableType();
+}

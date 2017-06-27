@@ -17,4 +17,5 @@
 class new { } // error
 
 main() {
-  null is new;}
+  null is new;
+}

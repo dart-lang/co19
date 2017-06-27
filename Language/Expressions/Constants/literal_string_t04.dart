@@ -21,4 +21,5 @@
 const i1 = "${1 is int}";
 
 main() {
-  print(i1);}
+  print(i1);
+}

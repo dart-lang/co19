@@ -30,4 +30,5 @@
 import;
 
 main() {
-  var someVar = 0;}
+  var someVar = 0;
+}

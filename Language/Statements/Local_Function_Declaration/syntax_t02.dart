@@ -31,4 +31,5 @@
 
 main() {
   void function1 {}
-  function1();}
+  function1();
+}

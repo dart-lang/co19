@@ -13,5 +13,6 @@
  */
 
 main() {
-  library foo;}
+  library foo;
+}
 

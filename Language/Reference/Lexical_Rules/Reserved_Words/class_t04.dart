@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().class is int;}
+  new C().class is int;
+}

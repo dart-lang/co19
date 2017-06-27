@@ -32,4 +32,5 @@
 import 'top_level_syntax_t07_lib.dart';
 
 main() {
-  var someVar = '';}
+  var someVar = '';
+}

@@ -21,4 +21,5 @@ abstract class I {}
 class A implements I
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

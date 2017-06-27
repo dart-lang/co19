@@ -17,4 +17,5 @@ import "../../Utils/expect.dart";
 const foo;
 
 main() {
-  Expect.isNull(foo);}
+  Expect.isNull(foo);
+}

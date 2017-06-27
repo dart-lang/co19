@@ -31,4 +31,5 @@
 import "definition_syntax_t21_lib.dart";
 
 main() {
-  var someVar = 0;}
+  var someVar = 0;
+}

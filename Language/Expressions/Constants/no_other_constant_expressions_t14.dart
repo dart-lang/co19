@@ -20,4 +20,5 @@ class A {
 const m = ((const A()).z = 1);
 
 main() {
-  print(m);}
+  print(m);
+}

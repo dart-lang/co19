@@ -16,4 +16,5 @@
 class abstract {}
 
 main() {
-  null is abstract;}
+  null is abstract;
+}

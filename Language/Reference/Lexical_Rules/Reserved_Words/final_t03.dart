@@ -17,4 +17,5 @@
 typedef void final();
 
 main() {
-  null is final;}
+  null is final;
+}

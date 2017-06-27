@@ -18,4 +18,5 @@ import "library_name_t02_libA.dart";
 import "library_name_t02_libB.dart";
 
 main() {
-  var someVar = 0;}
+  var someVar = 0;
+}

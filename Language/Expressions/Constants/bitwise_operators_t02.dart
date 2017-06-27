@@ -21,4 +21,5 @@
 const m = ~true;
 
 main() {
-  print(m);}
+  print(m);
+}

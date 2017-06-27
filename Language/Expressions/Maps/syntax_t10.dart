@@ -22,4 +22,5 @@
  */
 
 main() {
-  var x = const <String, int>  "key": 1 };}
+  var x = const <String, int>  "key": 1 };
+}

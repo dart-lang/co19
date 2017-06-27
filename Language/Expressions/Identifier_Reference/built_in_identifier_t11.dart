@@ -16,4 +16,5 @@
 class factory {}
 
 main() {
-  null is factory;}
+  null is factory;
+}

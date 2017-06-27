@@ -28,5 +28,6 @@ class C {
 main() {
   var a = 1;
   var b = 0;
-  new C().. a + b;}
+  new C().. a + b;
+}
 

@@ -15,4 +15,5 @@
 typedef int library();
 
 main() {
-  null is library;}
+  null is library;
+}

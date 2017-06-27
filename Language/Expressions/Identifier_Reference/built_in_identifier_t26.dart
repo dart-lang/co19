@@ -16,4 +16,5 @@
 class static {}
 
 main() {
-  null is static;}
+  null is static;
+}

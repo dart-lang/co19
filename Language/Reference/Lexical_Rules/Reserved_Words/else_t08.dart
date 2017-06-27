@@ -17,4 +17,5 @@
 void f(var else) {}
 
 main() {
-  f();}
+  f();
+}

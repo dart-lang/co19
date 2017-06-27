@@ -17,4 +17,5 @@
 class continue { } // error
 
 main() {
-  null is continue;}
+  null is continue;
+}

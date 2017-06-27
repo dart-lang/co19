@@ -20,4 +20,5 @@ class C {
 
 
 main() {
-  new C.c3();}
+  new C.c3();
+}

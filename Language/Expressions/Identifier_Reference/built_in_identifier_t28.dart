@@ -16,4 +16,5 @@
 typedef int static();
 
 main() {
-  null is static;}
+  null is static;
+}

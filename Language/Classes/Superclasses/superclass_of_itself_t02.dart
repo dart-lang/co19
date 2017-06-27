@@ -18,4 +18,5 @@ class C extends B {}
 class D extends C {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

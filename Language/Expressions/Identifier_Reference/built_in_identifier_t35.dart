@@ -16,4 +16,5 @@
 class deferred {}
 
 main() {
-  null is deferred;}
+  null is deferred;
+}

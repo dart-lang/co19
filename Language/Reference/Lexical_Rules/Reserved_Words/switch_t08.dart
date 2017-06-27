@@ -17,4 +17,5 @@
 void f(var switch) {}
 
 main() {
-  f();}
+  f();
+}

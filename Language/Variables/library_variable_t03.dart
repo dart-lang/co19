@@ -17,4 +17,5 @@
 static int foo = 1; // error
 
 main() {
-  foo = 1;}
+  foo = 1;
+}

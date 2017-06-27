@@ -15,4 +15,5 @@
  */
 
 main() {
-  static void f() {}}
+  static void f() {}
+}

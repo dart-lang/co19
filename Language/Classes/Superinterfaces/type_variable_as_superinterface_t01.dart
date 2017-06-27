@@ -17,4 +17,5 @@
 class A<T> implements T {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

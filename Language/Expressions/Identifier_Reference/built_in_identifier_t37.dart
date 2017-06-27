@@ -16,4 +16,5 @@
 typedef int deferred();
 
 main() {
-  null is deferred;}
+  null is deferred;
+}

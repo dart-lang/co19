@@ -15,4 +15,5 @@ class A {}
 class C extends A with String {}
 
 main() {
-  new C();}
+  new C();
+}

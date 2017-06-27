@@ -15,4 +15,5 @@
 class A extends num {}
 
 main() {
-  new A();}
+  new A();
+}

@@ -20,4 +20,5 @@ class C {
 }
 
 main() {
-  print(new C().x);}
+  print(new C().x);
+}

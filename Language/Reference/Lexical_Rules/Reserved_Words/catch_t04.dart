@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().catch is int;}
+  new C().catch is int;
+}

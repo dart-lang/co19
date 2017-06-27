@@ -18,4 +18,5 @@ class C {
 }
 
 main() {
-  C.enum();}
+  C.enum();
+}

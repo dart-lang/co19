@@ -16,4 +16,5 @@ typedef void F(G g);
 typedef void G(List<F> f);
 
 main() {
-  F x;}
+  F x;
+}

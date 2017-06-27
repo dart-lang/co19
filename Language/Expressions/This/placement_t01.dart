@@ -18,4 +18,5 @@
 func(p1, p2) => this;
 
 main() {
-  func(1, 2);}
+  func(1, 2);
+}

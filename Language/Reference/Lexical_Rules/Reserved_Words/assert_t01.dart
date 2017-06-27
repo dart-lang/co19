@@ -17,4 +17,5 @@
 class assert { } // error
 
 main() {
-  null is assert;}
+  null is assert;
+}

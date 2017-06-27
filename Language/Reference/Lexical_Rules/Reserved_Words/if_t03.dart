@@ -17,4 +17,5 @@
 typedef void if();
 
 main() {
-  null is if;}
+  null is if;
+}

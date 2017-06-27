@@ -31,4 +31,5 @@
  */
 
 main() {
-  label: for (var i in []) {};++;}
+  label: for (var i in []) {};++;
+}

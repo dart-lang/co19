@@ -47,4 +47,5 @@ class A {
 }
 
 main() {
- A a = const A();}
+ A a = const A();
+}

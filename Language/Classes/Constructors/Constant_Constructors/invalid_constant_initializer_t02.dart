@@ -30,4 +30,5 @@ class IntPair {
 
 
 main() {
-  var a = const A(const IntPair(1,2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator}
+  var a = const A(const IntPair(1,2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
+}

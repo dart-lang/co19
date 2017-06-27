@@ -16,4 +16,5 @@
 typedef F({F x});
 
 main() {
-  null is F;}
+  null is F;
+}

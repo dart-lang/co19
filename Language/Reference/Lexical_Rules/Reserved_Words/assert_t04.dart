@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().assert is int;}
+  new C().assert is int;
+}

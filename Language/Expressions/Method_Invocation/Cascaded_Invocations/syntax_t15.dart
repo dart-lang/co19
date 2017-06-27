@@ -28,5 +28,6 @@ class C {
 }
 
 main() {
-  new C().test();}
+  new C().test();
+}
 

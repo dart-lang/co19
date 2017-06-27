@@ -16,4 +16,5 @@
 class C extends bool {}
 
 main() {
-  new C();}
+  new C();
+}

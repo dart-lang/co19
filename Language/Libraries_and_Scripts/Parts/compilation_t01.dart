@@ -22,4 +22,5 @@ part "part_0.dart";
 var foo;
 
 main() {
-  foo = 1;}
+  foo = 1;
+}

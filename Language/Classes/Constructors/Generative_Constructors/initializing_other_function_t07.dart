@@ -20,4 +20,5 @@ class C {
 }
 
 main() {
-  new C.redirect(null);}
+  new C.redirect(null);
+}

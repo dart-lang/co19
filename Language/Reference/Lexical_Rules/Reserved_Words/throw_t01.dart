@@ -17,4 +17,5 @@
 class throw { } // error
 
 main() {
-  null is throw;}
+  null is throw;
+}

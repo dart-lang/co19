@@ -17,4 +17,5 @@
 typedef void return();
 
 main() {
-  null is return;}
+  null is return;
+}

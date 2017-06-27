@@ -25,4 +25,5 @@ class A extends CC {
 }
 
 main() {
-  var a = const A();}
+  var a = const A();
+}

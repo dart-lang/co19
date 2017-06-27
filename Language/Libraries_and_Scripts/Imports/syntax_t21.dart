@@ -30,4 +30,5 @@
 import show foo hide someVar "syntax_lib.dart" as prfx;
 
 main() {
-  someVar = 0;}
+  someVar = 0;
+}

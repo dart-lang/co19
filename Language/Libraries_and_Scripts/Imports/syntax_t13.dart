@@ -30,4 +30,5 @@
 import 7 + 7;
 
 main() {
-  someVar = 0;}
+  someVar = 0;
+}

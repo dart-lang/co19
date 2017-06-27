@@ -15,4 +15,5 @@
 const m = null is Object;
 
 main() {
-  print(m);}
+  print(m);
+}

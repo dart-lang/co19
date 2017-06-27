@@ -20,4 +20,5 @@ class  T {
 }
 
 main() {
-  const T(1, new Object(), 2);}
+  const T(1, new Object(), 2);
+}

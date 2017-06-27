@@ -17,4 +17,5 @@
 typedef void super();
 
 main() {
-  null is super;}
+  null is super;
+}

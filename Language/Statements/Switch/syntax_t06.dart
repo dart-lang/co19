@@ -33,4 +33,5 @@ switchTest(value) {
 }
 
 main() {
-  switchTest(1);}
+  switchTest(1);
+}

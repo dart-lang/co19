@@ -17,4 +17,5 @@
 typedef void in();
 
 main() {
-  null is in;}
+  null is in;
+}

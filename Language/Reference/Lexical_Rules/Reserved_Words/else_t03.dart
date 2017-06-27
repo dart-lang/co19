@@ -17,4 +17,5 @@
 typedef void else();
 
 main() {
-  null is else;}
+  null is else;
+}

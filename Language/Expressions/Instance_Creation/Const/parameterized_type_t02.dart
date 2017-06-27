@@ -27,4 +27,5 @@ class A<T> {
 }
 
 main() {
-  new A<int>().test();}
+  new A<int>().test();
+}

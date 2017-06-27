@@ -22,4 +22,5 @@
 
 
 main() {
-  : while (true) { break L; }}
+  : while (true) { break L; }
+}

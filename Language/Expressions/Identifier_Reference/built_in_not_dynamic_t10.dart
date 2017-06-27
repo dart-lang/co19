@@ -14,4 +14,5 @@
  */
 
 main() {
-  operator foo;}
+  operator foo;
+}

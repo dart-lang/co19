@@ -18,4 +18,5 @@ class Foo {}
 const Foo foo = new Foo();
 
 main() {
-  Expect.isTrue(foo is Foo);}
+  Expect.isTrue(foo is Foo);
+}

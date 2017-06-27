@@ -16,4 +16,5 @@
  */
 
 main() {
-  var this;}
+  var this;
+}

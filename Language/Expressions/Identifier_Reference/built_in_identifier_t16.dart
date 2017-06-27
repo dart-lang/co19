@@ -16,4 +16,5 @@
 typedef int get();
 
 main() {
-  null is get;}
+  null is get;
+}

@@ -21,4 +21,5 @@ part "part_0.dart";
 part "part_0.dart";
 
 main() {
-  foo is int;}
+  foo is int;
+}

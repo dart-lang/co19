@@ -17,4 +17,5 @@
 typedef void const();
 
 main() {
-  null is const;}
+  null is const;
+}

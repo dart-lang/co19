@@ -29,6 +29,7 @@
  */
 
 main() {
-  function();}
+  function();
+}
 
 function() {

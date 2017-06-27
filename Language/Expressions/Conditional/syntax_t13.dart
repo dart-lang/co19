@@ -20,4 +20,5 @@
 typedef int fun();
 
 main() {
-  false ? fun : [];}
+  false ? fun : [];
+}

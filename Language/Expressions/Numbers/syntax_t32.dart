@@ -35,4 +35,5 @@
  */
 
 main() {
-  var i = 0x1g;}
+  var i = 0x1g;
+}

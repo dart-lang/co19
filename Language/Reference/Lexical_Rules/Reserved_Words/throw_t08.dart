@@ -17,4 +17,5 @@
 void f(var throw) {}
 
 main() {
-  f();}
+  f();
+}

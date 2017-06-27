@@ -17,4 +17,5 @@
 class else { } // error
 
 main() {
-  null is else;}
+  null is else;
+}

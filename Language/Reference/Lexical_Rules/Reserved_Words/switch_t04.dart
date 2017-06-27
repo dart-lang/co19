@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().switch is int;}
+  new C().switch is int;
+}

@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  new C().throw is int;}
+  new C().throw is int;
+}

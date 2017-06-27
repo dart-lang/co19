@@ -32,4 +32,5 @@ import "definition_syntax_t05_lib.dart";
 library Libraries_and_Scripts_A04_t08;
 
 main() {
-  var someVar = 1;}
+  var someVar = 1;
+}

@@ -20,4 +20,5 @@ class  T {
 }
 
 main() {
-  const T();}
+  const T();
+}

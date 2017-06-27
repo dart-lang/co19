@@ -19,4 +19,5 @@ class C {
 }
 
 main() {
-  (new C()).foo();}
+  (new C()).foo();
+}

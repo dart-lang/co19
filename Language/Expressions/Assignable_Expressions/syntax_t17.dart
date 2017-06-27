@@ -32,4 +32,5 @@
  */
 
 main() {
-  throw "something" = null;}
+  throw "something" = null;
+}

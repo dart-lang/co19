@@ -35,4 +35,5 @@
  */
 
 main() {
-  var i = 0x;}
+  var i = 0x;
+}

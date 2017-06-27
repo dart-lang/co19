@@ -22,4 +22,5 @@ final x = 1;
 const i1 = x;
 
 main() {
-  print(i1);}
+  print(i1);
+}

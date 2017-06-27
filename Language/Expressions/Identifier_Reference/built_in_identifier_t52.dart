@@ -15,4 +15,5 @@
 typedef int part();
 
 main() {
-  null is part;}
+  null is part;
+}

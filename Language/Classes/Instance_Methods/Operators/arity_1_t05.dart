@@ -20,4 +20,5 @@ class C {
 }
 
 main() {
-  bool b = (new C() >= new C());}
+  bool b = (new C() >= new C());
+}

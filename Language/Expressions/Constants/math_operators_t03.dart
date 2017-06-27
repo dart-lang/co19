@@ -23,4 +23,5 @@
 const m = 1 - "1";
 
 main() {
-  print(m);}
+  print(m);
+}

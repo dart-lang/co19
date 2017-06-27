@@ -23,4 +23,5 @@
 class C<T extend >{}
 
 main() {
-  new C();}
+  new C();
+}

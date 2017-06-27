@@ -15,4 +15,5 @@
  */
 
 main() {
-  var void;}
+  var void;
+}

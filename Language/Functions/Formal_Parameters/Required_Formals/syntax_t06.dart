@@ -36,4 +36,5 @@ func(final x()) {
 }
 
 main() {
-  func(() {});}
+  func(() {});
+}

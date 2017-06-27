@@ -19,5 +19,6 @@ class C {
 }
 
 main() {
-  new C()[0] = new C();}
+  new C()[0] = new C();
+}
 

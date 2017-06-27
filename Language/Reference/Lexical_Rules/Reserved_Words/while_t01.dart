@@ -17,4 +17,5 @@
 class while { } // error
 
 main() {
-  null is while;}
+  null is while;
+}

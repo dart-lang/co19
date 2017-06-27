@@ -18,5 +18,6 @@
 class T<K,V> {}
 
 main() {
-  T<int, String;> id;}
+  T<int, String;> id;
+}
 

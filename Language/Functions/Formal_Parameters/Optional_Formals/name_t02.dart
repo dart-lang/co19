@@ -21,4 +21,5 @@ class A {
 }
 
 main() {
-  new A(_p: "Optional parameters names must not begin with an underscore!");}
+  new A(_p: "Optional parameters names must not begin with an underscore!");
+}

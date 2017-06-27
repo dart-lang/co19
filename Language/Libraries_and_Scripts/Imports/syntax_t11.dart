@@ -32,4 +32,5 @@
 import as lib;
 
 main() {
-  someVar = 0;}
+  someVar = 0;
+}

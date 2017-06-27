@@ -16,4 +16,5 @@
 class C implements String {}
 
 main() {
-  new C();}
+  new C();
+}

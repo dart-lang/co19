@@ -17,4 +17,5 @@
 class A implements dynamic {}
 
 main() {
-  new A();}
+  new A();
+}

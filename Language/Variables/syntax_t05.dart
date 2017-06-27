@@ -36,4 +36,5 @@
  */
 
 main() {
-  var int x = 1;}
+  var int x = 1;
+}

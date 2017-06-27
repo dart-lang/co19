@@ -14,5 +14,6 @@
  */
 
 main() {
-  deferred foo;}
+  deferred foo;
+}
 

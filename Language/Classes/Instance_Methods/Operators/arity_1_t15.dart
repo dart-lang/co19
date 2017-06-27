@@ -20,5 +20,6 @@ class C {
 }
 
 main() {
-  bool b = (new C()[1]);}
+  bool b = (new C()[1]);
+}
 

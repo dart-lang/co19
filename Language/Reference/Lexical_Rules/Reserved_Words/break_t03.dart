@@ -17,4 +17,5 @@
 typedef void break();
 
 main() {
-  null is break;}
+  null is break;
+}

@@ -17,4 +17,5 @@
 void f(var default) {}
 
 main() {
-  f();}
+  f();
+}

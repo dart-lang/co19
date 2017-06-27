@@ -15,4 +15,5 @@
 typedef F<T extends List<F>>();
 
 main() {
-  F<int> x;}
+  F<int> x;
+}

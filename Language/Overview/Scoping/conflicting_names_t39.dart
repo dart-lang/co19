@@ -20,4 +20,5 @@
 typedef f([x, x]);
 
 main() {
-  (([x, xx]) {}) is f;}
+  (([x, xx]) {}) is f;
+}

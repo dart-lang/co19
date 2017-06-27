@@ -17,4 +17,5 @@
 static const foo = 1; // error
 
 main() {
-  print(foo);}
+  print(foo);
+}

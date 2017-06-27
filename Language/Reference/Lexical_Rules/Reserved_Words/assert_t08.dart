@@ -17,4 +17,5 @@
 void f(var assert) {}
 
 main() {
-  f();}
+  f();
+}

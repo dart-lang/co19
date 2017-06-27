@@ -21,4 +21,5 @@ f(var func) {
 }
 
 main() {
-  f(void func() =>);}
+  f(void func() =>);
+}

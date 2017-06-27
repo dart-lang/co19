@@ -31,4 +31,5 @@
 f() => assert (false);
 
 main() {
-  f();}
+  f();
+}

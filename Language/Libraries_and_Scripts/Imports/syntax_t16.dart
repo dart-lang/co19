@@ -30,4 +30,5 @@
 import 'syntax_lib.dart' as lib1 as lib2;
 
 main() {
-  someVar = 0;}
+  someVar = 0;
+}

@@ -17,4 +17,5 @@
 typedef void for();
 
 main() {
-  null is for;}
+  null is for;
+}

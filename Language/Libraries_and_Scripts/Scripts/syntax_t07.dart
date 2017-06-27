@@ -22,4 +22,5 @@ abstract class I {}
 library Script_A01_t09;
 
 main() {
-  new I();}
+  new I();
+}

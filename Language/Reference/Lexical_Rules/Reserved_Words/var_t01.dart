@@ -17,4 +17,5 @@
 class var { } // error
 
 main() {
-  null is var;}
+  null is var;
+}

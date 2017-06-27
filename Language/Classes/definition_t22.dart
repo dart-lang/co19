@@ -22,4 +22,5 @@ class B2 {}
 class C extends A with B1 B2 {}
 
 main() {
-  A a = new A();}
+  A a = new A();
+}

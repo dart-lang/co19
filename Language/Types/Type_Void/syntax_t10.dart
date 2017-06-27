@@ -17,4 +17,5 @@
 void void() {}
 
 main() {
-  void();}
+  void();
+}

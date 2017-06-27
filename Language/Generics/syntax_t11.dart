@@ -23,4 +23,5 @@
 class C<T<T>>{}
 
 main() {
-  new C();}
+  new C();
+}

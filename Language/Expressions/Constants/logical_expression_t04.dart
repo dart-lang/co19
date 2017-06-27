@@ -23,4 +23,5 @@ final constList = const [
 ];
 
 main() {
-  constList is List;}
+  constList is List;
+}

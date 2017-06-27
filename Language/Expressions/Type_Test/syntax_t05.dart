@@ -19,4 +19,5 @@
  */
 
 main () {
-  if (1 < 2) {} is bool;}
+  if (1 < 2) {} is bool;
+}

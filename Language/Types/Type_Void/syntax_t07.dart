@@ -17,4 +17,5 @@
 class A implements void {}
 
 main() {
-  new A();}
+  new A();
+}
