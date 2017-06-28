@@ -19,11 +19,11 @@
 import "../../../../Utils/expect.dart";
 
 class A {
-  A(this.a, this.b);
   var a;
   final b = 2;
+  A(this.a, this.b);
 }
 
 main() {
-  new A(1,2);
+  new A(1, 2);
 }
