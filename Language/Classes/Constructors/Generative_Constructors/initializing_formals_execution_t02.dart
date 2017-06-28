@@ -13,7 +13,7 @@
  * @description Checks that runtime error occurs, not compile-error, if id
  * is final instance variable that has already been initialized.
  * are assigned correctly.
- * @static-warning
+ * @compile-error
  * @author ilya
  * @issue 13335
  */
@@ -26,5 +26,5 @@ class A {
 }
 
 main() {
-  Expect.throws(() => new A(1,2));
+  Expect.throws(() => new A(1, 2));
 }

@@ -20,15 +20,15 @@
  * @static-warning
  * @author ilya
  * @issue 13335
+ * @issue 30036
  */
 import "../../../../Utils/expect.dart";
 
 class C {
-  C() : this.x = 2 {}
   final x = 1;
+  C() : this.x = 2 {}
 }
 
 main() {
   Expect.throws(() => new C());
 }
-
