@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int elementSizeInBytes
- * Returns the number of bytes in the representation
- * of each element in this list.
- * @description Checks that the number of bytes for each
- * element in an [Uint16List] equals 1.
+ * @assertion int elementSizeInBytes
+ * Returns the number of bytes in the representation of each element in this
+ * list.
+ * @description Checks that the number of bytes for each element in a
+ * [Uint16List] equals 2.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

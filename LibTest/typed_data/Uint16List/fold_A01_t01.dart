@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic fold(initialValue, combine(previousValue, E element))
- * Reduces a collection to a single value by iteratively combining each
- * element of the collection with an existing value using the provided function.
- * Use initialValue as the initial value, and the function combine
- * to create a new value from the previous one and an element.
+ * @assertion T fold<T>(T initialValue, T combine(previousValue, E element))
+ * Reduces a collection to a single value by iteratively combining each element
+ * of the collection with an existing value.
+ * Uses initialValue as the initial value, then iterates through the elements
+ * and updates the value with each element using the combine function.
  * @description Checks that the returned value is correct.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

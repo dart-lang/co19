@@ -5,9 +5,11 @@
  */
 /**
  * @assertion E singleWhere(bool test(E element))
- * If no or more than one element match then a [StateError] is thrown.
- * @description Checks that a [StateError] is thrown if no element
- * matches [test].
+ * ...
+ * Otherwise, if there are no matching elements, or if there is more than one
+ * matching element, a [StateError] is thrown.
+ * @description Checks that a [StateError] is thrown if no element satisfies
+ * [test].
  * @author msyabro
  */
 
@@ -17,20 +19,19 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Uint16List.fromList([]);
   try {
-    l.singleWhere( (e) => true);
+    l.singleWhere((e) => true);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 
   l = new Uint16List.fromList([1, 2, 3, 4, 5]);
   try {
-    l.singleWhere( (e) => e == 0);
+    l.singleWhere((e) => e == 0);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 
   l = new Uint16List.fromList([1, 2, 3, 4, 5]);
   try {
-    l.singleWhere( (e) => false);
+    l.singleWhere((e) => false);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }
-
