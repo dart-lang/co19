@@ -23,11 +23,10 @@
 import "../../../../Utils/expect.dart";
 
 class C {
-  C() : this.x = 2 {}
   final x = 1;
+  C() : this.x = 2 {}
 }
 
 main() {
   new C();
 }
-
