@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
+ * Returns a new lazy [Iterable] with all elements that satisfy the predicate
+ * [test].
  * @description Checks that the returned [Iterable] contains all elements
  * from [this] that satisfy [test], and all other elements are skipped.
  * @author msyabro
@@ -20,8 +21,8 @@ void check(List<int> list, bool test (int element)) {
 
   var count = 0;
 
-  for(int i = 0 ; i < list.length; ++i) {
-    if(test(l[i])) {
+  for (int i = 0 ; i < list.length; ++i) {
+    if (test(l[i])) {
       Expect.equals(l[i], res.elementAt(count));
       ++count;
     }

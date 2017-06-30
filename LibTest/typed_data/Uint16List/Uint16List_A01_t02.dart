@@ -5,18 +5,19 @@
  */
 /**
  * @assertion Uint16List(int length)
- * Creates an [Uint16List] of the specified length (in elements), all of
- * whose elements are initially zero.
+ * Creates a [Uint16List] of the specified length (in elements), all of whose
+ * elements are initially zero.
  * @description Checks that all elements of the new [Uint16List] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Uint16List l = new Uint16List(length);
-  for(int i = 0; i < length; ++i) {
-    Expect.equals(l[i],0);
+  for (int i = 0; i < length; ++i) {
+    Expect.equals(l[i], 0);
   }
 }
 

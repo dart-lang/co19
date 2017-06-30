@@ -6,19 +6,20 @@
 /**
  * @assertion Map<int, E> asMap()
  * Returns an unmodifiable [Map] view of this.
- * It has the indices of this list as keys, and the corresponding elements
+ * The map uses the indices of this list as keys and the corresponding objects
  * as values.
- * @description Checks that the returned map has the indices of this list as keys
- * and corresponding elements as values.
+ * @description Checks that the returned map has the indices of this list as
+ * keys and corresponding elements as values.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Uint16List.fromList(list);
   var m = l.asMap();
-  for(int key = 0; key < list.length; ++key) {
+  for (int key = 0; key < list.length; ++key) {
     Expect.isTrue(m.containsKey(key));
     Expect.identical(l[key], m[key]);
   }

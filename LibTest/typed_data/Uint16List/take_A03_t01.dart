@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Iterable<E> take(int count)
- * It is an error if [n] is negative.
- * @description Checks that it is an error if [n] is negative.
+ * ...
+ * The [count] must not be negative
+ * @description Checks that it is an error if [count] is negative.
  * @author msyabro
  */
 
@@ -16,12 +17,12 @@ import "../../../Utils/expect.dart";
 void check(List<int> list, int n) {
   var l = new Uint16List.fromList(list);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.take(n);
   });
 }
 
 main() {
   check([], -1);
-  check([1, 2 ,3], -16);
+  check([1, 2, 3], -16);
 }

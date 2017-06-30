@@ -6,18 +6,19 @@
 /**
  * @assertion Map<int, E> asMap()
  * Returns an unmodifiable [Map] view of this.
- * It has the indices of this list as keys, and the corresponding elements
+ * The map uses the indices of this list as keys and the corresponding objects
  * as values.
  * @description Checks that the returned map is unmodifiable.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Uint16List.fromList(list);
   var m = l.asMap();
-  Expect.throws( () {
+  Expect.throws(() {
     m[0] = 0;
   });
 }

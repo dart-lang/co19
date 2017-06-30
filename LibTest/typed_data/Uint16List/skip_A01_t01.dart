@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * Returns an [Iterable] that skips the first [n] elements.
+ * Returns an [Iterable] that provides all but the first [count] elements.
  * @description Checks that the correct [Iterable] is returned.
  * @author msyabro
  */
@@ -18,15 +18,15 @@ check(List<int> list, int n) {
   var res = l.skip(n);
   Expect.equals(l.length - n, res.length);
 
-  for(int i = 0; i < res.length; ++i) {
-    Expect.equals(l.elementAt(i+n), res.elementAt(i));
+  for (int i = 0; i < res.length; ++i) {
+    Expect.equals(l.elementAt(i + n), res.elementAt(i));
   }
 }
 
 main() {
-  check([],0);
+  check([], 0);
 
-  for(int i = 0; i <= 10 ; ++i) {
+  for (int i = 0; i <= 10 ; ++i) {
     check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], i);
   }
 }
