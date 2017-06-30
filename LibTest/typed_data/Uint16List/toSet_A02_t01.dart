@@ -10,7 +10,7 @@
  * contains an element more than once, or it contains one or more elements that
  * are equal.
  * @description Checks that the set may contain fewer elements than the
- * iterable, it contains elements that are equal.
+ * iterable, if iterable contains elements that are equal.
  * @author ngl@unipro.ru
  */
 
