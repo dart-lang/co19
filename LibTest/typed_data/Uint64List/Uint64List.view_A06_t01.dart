@@ -4,23 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uint64List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
+ * @assertion
+ * Uint64List.view(
+ *     ByteBuffer buffer, [
+ *     int offsetInBytes = 0,
+ *     int length
+ * ])
+ * ...
  * Throws [ArgumentError] if [offsetInBytes] is not a multiple of
  * BYTES_PER_ELEMENT.
  * @description Checks that [ArgumentError] is thrown if [offsetInBytes] is
  * not a multiple of BYTES_PER_ELEMENT.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   var list = new Uint64List(2);
   var buffer = list.buffer;
-  for(int i = 1; i < Uint64List.BYTES_PER_ELEMENT; ++i) {
+  for (int i = 1; i < Uint64List.BYTES_PER_ELEMENT; ++i) {
     try {
-      var res = new Uint64List.view(buffer, i);
+      new Uint64List.view(buffer, i);
       Expect.fail("ArgumentError is expected");
-    } on ArgumentError catch(ok) {}
+    } on ArgumentError {}
   }
 }

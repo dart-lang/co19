@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
- * Copies the elements of [iterable], skipping the [skipCount] first elements,
- * into the range [start] to [end] exclusive of [this].
+ * @assertion
+ * void setRange(
+ *     int start,
+ *     int end,
+ *     Iterable<E> iterable, [
+ *     int skipCount = 0
+ * ])
+ * Copies the objects of [iterable], skipping the [skipCount] objects first,
+ * into the range [start], inclusive, to [end], exclusive, of the list.
  * @description Checks that the correct range is set with correct elements.
  * @author msyabro
  */
@@ -15,15 +21,14 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Uint64List.fromList([0,0,0,0,0,0,0,0,0,0]);
+  var l = new Uint64List.fromList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   l.setRange(1, 2, [1, 2, 3], 2);
-  Expect.listEquals([0,3,0,0,0,0,0,0,0,0], l);
+  Expect.listEquals([0, 3, 0, 0, 0, 0, 0, 0, 0, 0], l);
 
   l.setRange(3, 5, [1, 2, 3], 0);
-  Expect.listEquals([0,3,0,1,2,0,0,0,0,0], l);
+  Expect.listEquals([0, 3, 0, 1, 2, 0, 0, 0, 0, 0], l);
 
   l.setRange(0, 10, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1);
-  Expect.listEquals([1,2,3,4,5,6,7,8,9,10], l);
+  Expect.listEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], l);
 }
-

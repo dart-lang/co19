@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion E reduce(E combine(E value, E element))
- * Reduces a collection to a single value by iteratively combining elements of
- * the collection using the provided function.
+ * @assertion E reduce(E combine(E previousValue, E element))
+ * ...
+ * If it has only one element, that element is returned.
  * @description Checks that the returned value is correct.
- * @author msyabro
+ * @author ngl@unipro.ru
  */
 
 import "dart:typed_data";
@@ -27,8 +27,8 @@ checkConst(List<int> list, int expected) {
 }
 
 main() {
-  check([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 55);
-  check([10, 1, 2, 3, 4], 20);
+  check([10], 10);
+  check([-24], -24 & 0xffffffffffffffff);
 
-  checkConst([1, 2, 3], 1);
+  checkConst([2], 2);
 }

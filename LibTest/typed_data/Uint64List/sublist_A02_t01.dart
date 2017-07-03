@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
+ * @assertion List<E> sublist(int start, [int end])
+ * ...
  * If [end] is omitted, the [length] of [this] is used.
  * @description Checks that if [end] is omitted, the [length] of [this] is used.
  * @author msyabro
@@ -17,7 +18,7 @@ void check(List<int> list, int start) {
   var l = new Uint64List.fromList(list);
   var res = l.sublist(start);
 
-  for(int i = start; i < l.length; ++i) {
+  for (int i = start; i < l.length; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }
