@@ -24,10 +24,10 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync();
+  Directory dir = getTempDirectorySync();
   dir.deleteSync();
 
   asyncStart();

@@ -16,9 +16,10 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir").createTempSync();
+  Directory dir = getTempDirectorySync();
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     try {

@@ -18,12 +18,12 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-import "directory_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test(Directory dir) async {
   String oldName = dir.path;
   String newName = getTempDirectoryName();
-  dir.rename("TestDir" + Platform.pathSeparator + newName).then((renamed) {
+  dir.rename(dir.parent.path + Platform.pathSeparator + newName).then((renamed) {
     try {
       Expect.isTrue(renamed.path.endsWith(newName));
     } catch (e) {
@@ -51,8 +51,7 @@ test(Directory dir) async {
 }
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync();
+  Directory dir = getTempDirectorySync();
 
   asyncStart();
   test(dir);

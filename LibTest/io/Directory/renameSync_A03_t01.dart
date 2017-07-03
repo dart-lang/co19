@@ -18,13 +18,14 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory srcDir = parent.createTempSync();
+  Directory srcDir = getTempDirectorySync();
+  File file = getTempFileSync();
 
   Expect.throws(() {
-    srcDir.renameSync("TestDir" + Platform.pathSeparator + "tmp.dart");
+    srcDir.renameSync(file.path);
   });
 
   asyncStart();
@@ -33,7 +34,8 @@ main() {
     try {
       Expect.isTrue(res);
     } finally {
-      srcDir.delete();
+      srcDir.delete(recursive: true);
+      file.delete(recursive: true);
       asyncEnd();
     }
   });

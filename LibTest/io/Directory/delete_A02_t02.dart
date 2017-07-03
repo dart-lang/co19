@@ -26,6 +26,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test(Directory dir, Directory sub) async {
   bool thrown = false;
@@ -42,8 +43,7 @@ test(Directory dir, Directory sub) async {
 }
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync();
+  Directory dir = getTempDirectorySync();
   Directory sub = dir.createTempSync();
 
   asyncStart();

@@ -27,6 +27,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test(Directory dir) async {
   dir.delete().then((deleted) {
@@ -41,8 +42,7 @@ test(Directory dir) async {
 }
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync();
+  Directory dir = getTempDirectorySync();
 
   asyncStart();
   test(dir);

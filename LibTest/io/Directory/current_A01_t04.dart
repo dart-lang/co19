@@ -15,8 +15,11 @@ import "dart:io";
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
+Directory dir;
 String newPath;
+String oldPath;
 
 void entryPoint(SendPort sendPort) {
   sendPort.send(Directory.current.path);
@@ -26,10 +29,15 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
       (data){
-        Expect.equals(newPath, data);
-        Expect.isTrue(Directory.current is Directory);
-        Expect.equals(newPath, Directory.current.path);
-        asyncEnd();
+        try {
+          Expect.equals(newPath, data);
+          Expect.isTrue(Directory.current is Directory);
+          Expect.equals(newPath, Directory.current.path);
+        } finally {
+          Directory.current = oldPath;
+          dir.delete(recursive: true);
+          asyncEnd();
+        }
   }
   );
   Isolate isolate = await Isolate.spawn(
@@ -38,7 +46,9 @@ test() async {
 }
 
 main() {
-  newPath = Directory.current.path + Platform.pathSeparator + "TestDir";
+  dir = getTempDirectorySync();
+  oldPath = Directory.current.path;
+  newPath = dir.path;
   Directory.current = newPath;
   asyncStart();
   test();

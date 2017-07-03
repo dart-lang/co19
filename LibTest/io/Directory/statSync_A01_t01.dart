@@ -18,8 +18,15 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-    Expect.equals(FileSystemEntityType.DIRECTORY, dir.statSync().type);
+  Directory dir = getTempDirectorySync();
+  try {
+    Expect.equals(FileSystemEntityType.DIRECTORY, dir
+        .statSync()
+        .type);
+  } finally {
+    dir.delete(recursive: true);
+  }
 }

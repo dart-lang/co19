@@ -20,11 +20,11 @@
  */
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-import "directory_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test() async {
-  getTempDirectory("TestDir").then((tmp) {
-    getTempDirectory(tmp.path).then((dir) {
+  getTempDirectory().then((tmp) {
+    getTempDirectory(tmp).then((dir) {
       dir.create(recursive: true).then((created) {
         created.exists().then((result) {
           try {

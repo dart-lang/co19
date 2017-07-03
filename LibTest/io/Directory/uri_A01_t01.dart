@@ -18,11 +18,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  Expect.equals("TestDir/", dir.uri.path);
-  Expect.equals("", dir.uri.scheme);
-
-  dir = new Directory("NotExist");
-  Expect.equals("NotExist/", dir.uri.path);
+  Directory dir = new Directory("NotExisting");
+  Expect.equals("NotExisting/", dir.uri.path);
   Expect.equals("", dir.uri.scheme);
 }

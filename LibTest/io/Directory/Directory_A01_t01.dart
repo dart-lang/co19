@@ -18,9 +18,11 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "TestDir",
+  String dirName = getTempDirectoryName();
+  Directory dir = new Directory(dirName);
+  Expect.equals(Directory.current.path + Platform.pathSeparator + dirName,
       dir.absolute.path);
 }

@@ -12,8 +12,8 @@
  * directory already exists nothing is done.
  *
  * If the directory cannot be created an exception is thrown.
- * @description Checks that this method synchronously creates the directory with
- * this name
+ * @description Checks that if the directory already exists nothing is done.
+ * Test the case when the directory is not empty
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -23,10 +23,19 @@ import "../../../Utils/file_utils.dart";
 main() {
   Directory tmp = getTempDirectorySync();
   try {
-    Directory dir = new Directory(tmp.path + Platform.pathSeparator +
-        getTempDirectoryName());
+    Directory dir =
+        new Directory(tmp.path + Platform.pathSeparator + "TestDir");
     dir.createSync();
     Expect.isTrue(dir.existsSync());
+
+    Directory dir2 =
+      new Directory(dir.path + Platform.pathSeparator + "TestDir2");
+    dir2.createSync();
+    Expect.isTrue(dir2.existsSync());
+
+    dir.createSync();
+    Expect.isTrue(dir.existsSync());
+    Expect.isTrue(dir2.existsSync());
   } finally {
     tmp.delete(recursive: true);
   }

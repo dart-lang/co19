@@ -19,12 +19,18 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir" + Platform.pathSeparator + "tmp.dart");
+  File file = getTempFileSync();
+  Directory dir = new Directory(file.path);
   asyncStart();
   dir.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
-    asyncEnd();
+    try {
+      Expect.equals(FileSystemEntityType.FILE, fs.type);
+    } finally {
+      file.delete(recursive: true);
+      asyncEnd();
+    }
   });
 }

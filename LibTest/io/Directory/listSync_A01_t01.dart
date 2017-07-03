@@ -28,14 +28,20 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  bool found = false;
-  dir.listSync().forEach((entity) {
-    if (entity.path.endsWith("TestDir" + Platform.pathSeparator + "tmp.dart")) {
-      found = true;
-    }
-  });
-  Expect.isTrue(found);
+  Directory dir = getTempDirectorySync();
+  File file = getTempFileSync(dir);
+  try {
+    bool found = false;
+    dir.listSync().forEach((entity) {
+      if (entity.path == file.path) {
+        found = true;
+      }
+    });
+    Expect.isTrue(found);
+  } finally {
+    dir.delete(recursive: true);
+  }
 }

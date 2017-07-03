@@ -28,6 +28,7 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 List<String> setUp(Directory parent, List<String> directories) {
   List<String> created = new List<String>();
@@ -40,7 +41,7 @@ List<String> setUp(Directory parent, List<String> directories) {
 }
 
 main() {
-  Directory dir = new Directory("TestDir").createTempSync();
+  Directory dir = getTempDirectorySync();
   List<String> expected = ["a", "b", "c", "d"];
   expected = setUp(dir, expected);
 

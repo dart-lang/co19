@@ -28,6 +28,7 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 List<String> setUp(Directory parent, Map directories) {
   List<String> created = new List<String>();
@@ -43,7 +44,7 @@ List<String> setUp(Directory parent, Map directories) {
 }
 
 main() {
-  Directory dir = new Directory("TestDir").createTempSync();
+  Directory dir = getTempDirectorySync();
   Map struct = {"a": null, "b": null, "c": {"c1": null, "c2": null}, "d": null};
   List<String> created = setUp(dir, struct);
 
