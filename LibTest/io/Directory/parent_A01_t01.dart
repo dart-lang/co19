@@ -15,9 +15,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  Expect.equals(".", dir.parent.path);
-
-  dir = new Directory("NotExist");
+  Directory dir = new Directory("NotExisting");
   Expect.equals(".", dir.parent.path);
 }

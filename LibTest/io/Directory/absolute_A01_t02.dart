@@ -14,9 +14,16 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
+import "../../../Utils/file_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  Expect.equals(Directory.current.path, dir.absolute.parent.path);
+  Directory tmp = getTempDirectorySync();
+  try {
+    Directory dir =
+        new Directory(tmp.path + Platform.pathSeparator + "TestDir");
+    Expect.equals(tmp.path, dir.absolute.parent.path);
+  } finally {
+    tmp.deleteSync(recursive: true);
+  }
 }

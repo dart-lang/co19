@@ -18,30 +18,19 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
-import "directory_utils.dart";
-
-test(Directory dir1, Directory dir2) async {
-  dir1.exists().then((res1) {
-    Expect.isTrue(res1);
-    dir2.exists().then((res2) {
-      try {
-        Expect.isTrue(res2);
-      } finally {
-        dir1.delete(recursive: true);
-        asyncEnd();
-      }
-    });
-  });
-}
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir1 = new Directory("TestDir" + Platform.pathSeparator +
-      getTempDirectoryName());
-  Directory dir2 = new Directory(dir1.path + Platform.pathSeparator +
-      getTempDirectoryName());
-  dir2.createSync(recursive: true);
-
-  asyncStart();
-  test(dir1, dir2);
+  Directory tmp = getTempDirectorySync();
+  try {
+    Directory dir1 = new Directory(tmp.path + Platform.pathSeparator +
+        getTempDirectoryName());
+    Directory dir2 = new Directory(dir1.path + Platform.pathSeparator +
+        getTempDirectoryName());
+    dir2.createSync(recursive: true);
+    Expect.isTrue(dir1.existsSync());
+    Expect.isTrue(dir2.existsSync());
+  } finally {
+    tmp.delete(recursive: true);
+  }
 }

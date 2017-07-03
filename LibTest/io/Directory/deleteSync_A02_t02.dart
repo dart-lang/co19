@@ -23,14 +23,14 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync();
+  Directory dir = getTempDirectorySync();
   Directory sub = dir.createTempSync();
   try {
     Expect.throws(() {
-      dir.deleteSync(recursive: true);
+      dir.deleteSync(recursive: false);
     });
   } finally {
     dir.deleteSync(recursive: true);

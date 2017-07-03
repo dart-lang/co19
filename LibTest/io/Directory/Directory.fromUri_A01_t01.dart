@@ -14,23 +14,34 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Uri uri = new Uri.directory(Directory.current.path +
-      Platform.pathSeparator + "TestDir");
-  Directory dir = new Directory.fromUri(uri);
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "TestDir"
-      + Platform.pathSeparator, dir.path);
+  Directory tmp = getTempDirectorySync();
+  try {
+    // test existing Directory
+    Uri uri = new Uri.directory(tmp.path);
+    Directory dir = new Directory.fromUri(uri);
+    Expect.equals(tmp.path + Platform.pathSeparator, dir.path);
 
-  uri = new Uri.directory(Directory.current.path +
-      Platform.pathSeparator + "NotExistentDir");
-  dir = new Directory.fromUri(uri);
-  Expect.equals(Directory.current.path + Platform.pathSeparator +
-      "NotExistentDir" + Platform.pathSeparator, dir.path);
+    // test not existing Directory
+    String dirName = getTempDirectoryName();
+    uri = new Uri.directory(Directory.current.path +
+        Platform.pathSeparator + dirName);
+    dir = new Directory.fromUri(uri);
+    Expect.equals(Directory.current.path + Platform.pathSeparator +
+        dirName + Platform.pathSeparator, dir.path);
 
-  uri = new Uri.file(Directory.current.path +
-      Platform.pathSeparator + "TestDir" + Platform.pathSeparator + "tmp.dart");
-  dir = new Directory.fromUri(uri);
-  Expect.equals(Directory.current.path + Platform.pathSeparator +
-      "TestDir" + Platform.pathSeparator + "tmp.dart", dir.path);
+    // test file
+    File file = getTempFileSync(tmp);
+    try {
+      uri = new Uri.file(file.path);
+      dir = new Directory.fromUri(uri);
+      Expect.equals(file.path, dir.path);
+    } finally {
+      file.delete(recursive: true);
+    }
+  } finally {
+    tmp.delete(recursive: true);
+  }
 }

@@ -18,7 +18,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-import "directory_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test(Directory dir, Directory renamed) async {
   renamed.exists().then((res) {
@@ -35,9 +35,9 @@ test(Directory dir, Directory renamed) async {
 }
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync();
-  Directory renamed = dir.renameSync(getTempDirectoryName());
+  Directory dir = getTempDirectorySync();
+  Directory renamed = dir.renameSync(dir.parent.path + Platform.pathSeparator +
+      getTempDirectoryName());
 
   asyncStart();
   test(dir, renamed);

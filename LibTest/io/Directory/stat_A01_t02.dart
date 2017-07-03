@@ -18,19 +18,24 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
+  Directory dir = getTempDirectorySync();
   asyncStart();
   dir.stat().then((FileStat fs) {
     FileStat.stat(dir.path).then((FileStat fs2) {
-      Expect.equals(fs2.type, fs.type);
-      Expect.equals(fs2.mode, fs.mode);
-      Expect.equals(fs2.changed, fs.changed);
-      Expect.equals(fs2.modified, fs.modified);
-      Expect.equals(fs2.size, fs.size);
-      Expect.equals(fs2.accessed, fs.accessed);
-      asyncEnd();
+      try {
+        Expect.equals(fs2.type, fs.type);
+        Expect.equals(fs2.mode, fs.mode);
+        Expect.equals(fs2.changed, fs.changed);
+        Expect.equals(fs2.modified, fs.modified);
+        Expect.equals(fs2.size, fs.size);
+        Expect.equals(fs2.accessed, fs.accessed);
+      } finally {
+        dir.delete(recursive: true);
+        asyncEnd();
+      }
     });
   });
 }

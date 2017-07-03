@@ -16,11 +16,17 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
+  Directory dir = new Directory(getTempDirectoryName());
   Expect.isFalse(dir.isAbsolute);
 
-  dir = new Directory("NotExist");
-  Expect.isFalse(dir.isAbsolute);
+  Directory tmp = getTempDirectorySync();
+  try {
+    Directory dir2 = new Directory(tmp.path);
+    Expect.isTrue(dir2.isAbsolute);
+  } finally {
+    tmp.delete(recursive: true);
+  }
 }

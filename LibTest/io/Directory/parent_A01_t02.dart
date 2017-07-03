@@ -12,16 +12,20 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory(Directory.current.path +
-      Platform.pathSeparator + "TestDir");
-  Expect.equals(Directory.current.path, dir.parent.path);
+  Directory tmp = getTempDirectorySync();
+  try {
+    Directory child = getTempDirectorySync(tmp);
+    Directory dir = new Directory(child.path);
+    Expect.equals(tmp.path, dir.parent.path);
 
-  dir = new Directory(Directory.current.path +
-      Platform.pathSeparator + "NotExistent");
-  Expect.equals(Directory.current.path, dir.parent.path);
-
-  dir = new Directory(Directory.current.path);
-  Expect.isTrue(dir.parent.path.endsWith(Platform.pathSeparator + "io"));
+    String notExisting = tmp.path + Platform.pathSeparator +
+        getTempDirectoryName();
+    dir = new Directory(notExisting);
+    Expect.equals(tmp.path, dir.parent.path);
+  } finally {
+    tmp.delete(recursive: true);
+  }
 }

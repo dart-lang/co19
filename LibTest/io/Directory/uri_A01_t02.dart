@@ -16,18 +16,18 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  String path = Directory.current.path + Platform.pathSeparator + "TestDir";
-  Directory dir = new Directory(path);
+  Directory dir = getTempDirectorySync();
   if (Platform.isWindows) {
-    Expect.equals("/" + path.replaceAll("\\", "/") + "/", dir.uri.path);
+    Expect.equals("/" + dir.path.replaceAll("\\", "/") + "/", dir.uri.path);
   } else {
-    Expect.equals(path + "/", dir.uri.path);
+    Expect.equals(dir.path + "/", dir.uri.path);
   }
   Expect.equals("file", dir.uri.scheme);
 
-  path = Directory.current.path + Platform.pathSeparator + "NotExist";
+  String path = dir.path + Platform.pathSeparator + "NotExisting";
   dir = new Directory(path);
   if (Platform.isWindows) {
     Expect.equals("/" + path.replaceAll("\\", "/") + "/", dir.uri.path);

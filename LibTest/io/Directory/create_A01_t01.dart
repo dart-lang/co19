@@ -19,10 +19,10 @@
  */
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-import "directory_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test() async {
-  getTempDirectory("TestDir").then((dir) {
+  getTempDirectory().then((dir) {
     dir.create().then((created) {
       created.exists().then((result) {
         try {

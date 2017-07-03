@@ -14,16 +14,24 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
+import "../../../Utils/file_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  Expect.isNotNull(dir.absolute);
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "TestDir",
-      dir.absolute.path);
+  Directory tmp = getTempDirectorySync();
+  try {
+    Directory dir =
+        new Directory(tmp.path + Platform.pathSeparator + "TestDir");
+    dir.createSync();
+    Expect.isNotNull(dir.absolute);
+    Expect.equals(
+        tmp.path + Platform.pathSeparator + "TestDir", dir.absolute.path);
 
-  dir = new Directory("NotExist");
-  Expect.isNotNull(dir.absolute);
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "NotExist",
-      dir.absolute.path);
+    dir = new Directory(tmp.path + Platform.pathSeparator + "NotExist");
+    Expect.isNotNull(dir.absolute);
+    Expect.equals(
+        tmp.path + Platform.pathSeparator + "NotExist", dir.absolute.path);
+  } finally {
+    tmp.deleteSync(recursive: true);
+  }
 }

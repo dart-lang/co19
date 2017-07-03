@@ -20,8 +20,13 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  Expect.isTrue(dir.existsSync());
+  Directory dir = getTempDirectorySync();
+  try {
+    Expect.isTrue(dir.existsSync());
+  } finally {
+    dir.delete(recursive: true);
+  }
 }

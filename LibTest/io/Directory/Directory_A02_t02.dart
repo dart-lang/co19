@@ -13,15 +13,17 @@
  * If path is an absolute path, it will be immune to changes to the current
  * working directory.
  * @description Checks that this constructor creates a Directory object. Test
- * absolute path and not existent directory
+ * absolute path and not existing directory
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
+  String dirName = getTempDirectoryName();
   Directory dir = new Directory(
-      Directory.current.path + Platform.pathSeparator + "NotExistentDir");
-  Expect.equals(Directory.current.path + Platform.pathSeparator +
-      "NotExistentDir", dir.absolute.path);
+      Directory.current.path + Platform.pathSeparator + dirName);
+  Expect.equals(Directory.current.path + Platform.pathSeparator + dirName,
+      dir.absolute.path);
 }

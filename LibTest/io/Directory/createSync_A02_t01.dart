@@ -17,19 +17,19 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
-
-test(dir) async {
-  dir.exists().then((res) {
-    Expect.isTrue(res);
-    asyncEnd();
-  });
-}
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  dir.createSync();
+  Directory tmp = getTempDirectorySync();
+  try {
+    Directory dir =
+        new Directory(tmp.path + Platform.pathSeparator + "TestDir");
+    dir.createSync();
+    Expect.isTrue(dir.existsSync());
 
-  asyncStart();
-  test(dir);
+    dir.createSync();
+    Expect.isTrue(dir.existsSync());
+  } finally {
+    tmp.delete(recursive: true);
+  }
 }

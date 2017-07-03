@@ -16,31 +16,17 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
-test(parent, dir) async {
+main() {
+  Directory parent = getTempDirectorySync();
   try {
+    Directory dir = parent.createTempSync("co19");
     Expect.equals(parent.path, dir.parent.path);
     Expect.isTrue(dir.path.startsWith("co19",
         (dir.parent.path + Platform.pathSeparator).length));
-  } catch (e){
-    dir.delete();
-    throw e;
+    Expect.isTrue(dir.existsSync());
+  } finally {
+    parent.delete(recursive: true);
   }
-  dir.exists().then((res) {
-    try {
-      Expect.isTrue(res);
-    } finally {
-      dir.delete();
-      asyncEnd();
-    }
-  });
-}
-
-main() {
-  Directory parent = new Directory("TestDir");
-  Directory dir = parent.createTempSync("co19");
-
-  asyncStart();
-  test(parent, dir);
 }

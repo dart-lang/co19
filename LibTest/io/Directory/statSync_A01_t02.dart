@@ -18,15 +18,20 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir");
-  FileStat fs = dir.statSync();
-  FileStat fs2 = FileStat.statSync(dir.path);
-  Expect.equals(fs2.type, fs.type);
-  Expect.equals(fs2.mode, fs.mode);
-  Expect.equals(fs2.changed, fs.changed);
-  Expect.equals(fs2.modified, fs.modified);
-  Expect.equals(fs2.size, fs.size);
-  Expect.equals(fs2.accessed, fs.accessed);
+  Directory dir = getTempDirectorySync();
+  try {
+    FileStat fs = dir.statSync();
+    FileStat fs2 = FileStat.statSync(dir.path);
+    Expect.equals(fs2.type, fs.type);
+    Expect.equals(fs2.mode, fs.mode);
+    Expect.equals(fs2.changed, fs.changed);
+    Expect.equals(fs2.modified, fs.modified);
+    Expect.equals(fs2.size, fs.size);
+    Expect.equals(fs2.accessed, fs.accessed);
+  } finally {
+    dir.delete(recursive: true);
+  }
 }

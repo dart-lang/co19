@@ -18,6 +18,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 test(Directory dir, Directory renamed) async {
   renamed.exists().then((res) {
@@ -34,7 +35,7 @@ test(Directory dir, Directory renamed) async {
       try {
         Expect.isFalse(res);
       } finally {
-        renamed.delete();
+        renamed.delete(recursive: true);
         asyncEnd();
       }
     });
@@ -42,9 +43,8 @@ test(Directory dir, Directory renamed) async {
 }
 
 main() {
-  Directory parent = new Directory("TestDir");
-  Directory srcDir = parent.createTempSync();
-  Directory targetDir = parent.createTempSync();
+  Directory srcDir = getTempDirectorySync();
+  Directory targetDir = getTempDirectorySync();
   targetDir.createTempSync();
 
   Directory dir = srcDir.renameSync(targetDir.path);

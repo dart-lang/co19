@@ -18,8 +18,9 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("NotExistentDir");
+  Directory dir = new Directory(getTempDirectoryName());
   Expect.equals(FileSystemEntityType.NOT_FOUND, dir.statSync().type);
 }

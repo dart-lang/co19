@@ -30,6 +30,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 List<String> setUp(Directory parent, Map directories) {
   List<String> created = new List<String>();
@@ -62,7 +63,7 @@ test(Directory dir) async {
 }
 
 main() {
-  Directory dir = new Directory("TestDir").createTempSync();
+  Directory dir = getTempDirectorySync();
   asyncStart();
   test(dir);
 }

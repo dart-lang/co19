@@ -18,9 +18,10 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = new Directory("TestDir" + Platform.pathSeparator + "tmp.dart");
+  File file = getTempFileSync();
+  Directory dir = new Directory(file.path);
   Expect.equals(FileSystemEntityType.FILE, dir.statSync().type);
 }
