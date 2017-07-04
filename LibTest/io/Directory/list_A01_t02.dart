@@ -52,9 +52,9 @@ test(Directory dir) async {
   }).then((_) {
     try {
       Expect.listEquals(expected, found);
+      asyncEnd();
     } finally {
       dir.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

@@ -35,9 +35,9 @@ test(Directory dir, Directory sub) async {
   }).then((_) {
     try {
       Expect.isTrue(thrown);
+      asyncEnd();
     } finally {
       dir.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

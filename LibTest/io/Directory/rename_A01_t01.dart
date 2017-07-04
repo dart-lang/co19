@@ -41,9 +41,9 @@ test(Directory dir) async {
       oldDir.exists().then((res) {
         try {
           Expect.isFalse(res);
+          asyncEnd();
         } finally {
           renamed.delete();
-          asyncEnd();
         }
       });
     });

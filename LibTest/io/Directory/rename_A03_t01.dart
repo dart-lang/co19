@@ -28,10 +28,10 @@ test(Directory srcDir, File target) async {
   }).then((d) {
     try {
       Expect.isTrue(thrown);
+      asyncEnd();
     } finally {
       srcDir.delete(recursive: true);
       target.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

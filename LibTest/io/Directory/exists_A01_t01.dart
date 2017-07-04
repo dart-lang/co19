@@ -30,9 +30,9 @@ main() {
   dir.exists().then((result) {
     try {
       Expect.isTrue(result);
+      asyncEnd();
     } finally {
       dir.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

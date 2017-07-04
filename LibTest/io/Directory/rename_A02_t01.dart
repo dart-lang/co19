@@ -35,9 +35,9 @@ test(Directory srcDir, Directory targetDir) async {
       oldDir.exists().then((res) {
         try {
           Expect.isFalse(res);
+          asyncEnd();
         } finally {
           targetDir.delete(recursive: true);
-          asyncEnd();
         }
       });
     });

@@ -34,9 +34,9 @@ test(Directory dir, Directory renamed) async {
     dir.exists().then((res) {
       try {
         Expect.isFalse(res);
+        asyncEnd();
       } finally {
         renamed.delete(recursive: true);
-        asyncEnd();
       }
     });
   });

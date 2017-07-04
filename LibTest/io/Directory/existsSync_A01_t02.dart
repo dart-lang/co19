@@ -25,8 +25,7 @@ import "../../../Utils/file_utils.dart";
 main() {
   File tmp = getTempFileSync();
   try {
-    Directory dir =
-      new Directory(tmp.path);
+    Directory dir = new Directory(tmp.path);
     Expect.isFalse(dir.existsSync());
   } finally {
     tmp.delete(recursive: true);

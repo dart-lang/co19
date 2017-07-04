@@ -28,9 +28,9 @@ main() {
   dir.stat().then((FileStat fs) {
     try {
       Expect.equals(FileSystemEntityType.FILE, fs.type);
+      asyncEnd();
     } finally {
       file.delete(recursive: true);
-      asyncEnd();
     }
   });
 }
