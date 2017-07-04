@@ -16,18 +16,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Uint8ClampedList.fromList([1, 2, 3, 4, 5, 6, 9]);
-  var res = l.lastWhere(
-          (element) => element == 1
-  );
+  var res = l.lastWhere((element) => element == 1);
   Expect.equals(1, res);
 
-  res = l.lastWhere(
-          (element) => element > 6
-  );
+  res = l.lastWhere((element) => element > 6);
   Expect.equals(9, res);
 
-  res = l.lastWhere(
-          (element) => element > 1
-  );
+  res = l.lastWhere((element) => element > 1);
   Expect.equals(9, res);
 }
