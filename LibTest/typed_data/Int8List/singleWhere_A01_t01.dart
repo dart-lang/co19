@@ -18,9 +18,9 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Int8List.fromList([0, 0, 0, 0, 0, 5, 0, 0, -10, 0]);
 
-  var res = l.singleWhere( (e) => e > 0 );
+  var res = l.singleWhere((e) => e > 0 );
   Expect.equals(5, res);
 
-  res = l.singleWhere( (e) => e < 0 );
+  res = l.singleWhere((e) => e < 0 );
   Expect.equals(-10, res);
 }

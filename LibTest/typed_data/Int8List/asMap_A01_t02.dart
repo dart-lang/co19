@@ -19,7 +19,7 @@ check(List<int> list) {
   var l = new Int8List.fromList(list);
   var m = l.asMap();
 
-  Expect.throws( () {
+  Expect.throws(() {
     m[0] = 0;
   });
 }

@@ -18,19 +18,19 @@ import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Int8List.fromList(list);
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(-1, list.length);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(0, list.length + 1);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(-1, list.length + 1);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(0x80000000, 0x7fffffff);
   });
 }

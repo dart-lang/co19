@@ -25,7 +25,7 @@ check(List<int> list, int start, int end) {
 }
 
 main() {
-  check([],0, 1);
+  check([], 0, 1);
   check([0, 0, 0],-1, 1);
   check([0, 0, 0],-1, 2);
   check([0, 0, 0], 0, 4);

@@ -32,7 +32,7 @@ check(List<int> list) {
     Expect.equals(list[i] + 1, res.elementAt(2 * i + 1));
   }
 
-  res = l.expand( (element) => [] );
+  res = l.expand((element) => []);
   Expect.equals(0, res.length);
 }
 

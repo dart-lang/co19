@@ -19,19 +19,19 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Int8List.fromList([]);
   try {
-    l.singleWhere( (e) => true);
+    l.singleWhere((e) => true);
     Expect.fail("StateError is expected");
   } on StateError {}
 
   l = new Int8List.fromList([1, 2, 3, 4, 5]);
   try {
-    l.singleWhere( (e) => e == 0);
+    l.singleWhere((e) => e == 0);
     Expect.fail("StateError is expected");
   } on StateError {}
 
   l = new Int8List.fromList([1, 2, 3, 4, 5]);
   try {
-    l.singleWhere( (e) => false);
+    l.singleWhere((e) => false);
     Expect.fail("StateError is expected");
   } on StateError {}
 }

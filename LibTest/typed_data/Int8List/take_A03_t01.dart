@@ -17,12 +17,12 @@ import "../../../Utils/expect.dart";
 void check(List<int> list, int n) {
   var l = new Int8List.fromList(list);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.take(n);
   });
 }
 
 main() {
   check([], -1);
-  check([1, 2 ,3], -16);
+  check([1, 2, 3], -16);
 }

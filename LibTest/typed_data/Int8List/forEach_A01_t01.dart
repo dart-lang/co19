@@ -23,7 +23,7 @@ main() {
   });
   Expect.equals(0, res);
 
-  l = new Int8List.fromList([1, 1, 1, 1, 1, 1 ,1, 1, 1, 1]);
+  l = new Int8List.fromList([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   l.forEach((e) {
     res += e;
   });
