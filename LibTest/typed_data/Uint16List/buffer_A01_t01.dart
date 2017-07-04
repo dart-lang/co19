@@ -20,7 +20,7 @@ main() {
   var byteBuffer = tmp.buffer;
   var elemSize = Uint16List.BYTES_PER_ELEMENT;
 
-  for (int i= 0; i <= 10; ++i) {
+  for (int i = 0; i <= 10; ++i) {
     var l = new Uint16List.view(byteBuffer, i * elemSize, 10 - i) ;
     Expect.equals(byteBuffer, l.buffer);
   }
