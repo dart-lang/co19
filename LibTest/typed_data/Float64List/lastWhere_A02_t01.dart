@@ -23,16 +23,16 @@ main() {
     return 1.0;
   }
   var l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 9.0]);
-  var res = l.lastWhere( (element) => false, orElse: f);
+  var res = l.lastWhere((element) => false, orElse: f);
   Expect.equals(1, count);
   Expect.equals(1.0, res);
 
-  res = l.lastWhere( (element) => element > 100.0, orElse: f);
+  res = l.lastWhere((element) => element > 100.0, orElse: f);
   Expect.equals(2, count);
   Expect.equals(1.0, res);
 
   l = new Float64List.fromList([]);
-  res = l.lastWhere( (element) => true, orElse: f);
+  res = l.lastWhere((element) => true, orElse: f);
   Expect.equals(3, count);
   Expect.equals(1.0, res);
 }

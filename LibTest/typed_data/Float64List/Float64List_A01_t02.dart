@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(int length) {
   Float64List l = new Float64List(length);
-  for(int i = 0; i < length; ++i) {
+  for (int i = 0; i < length; ++i) {
     Expect.equals(0.0, l[i]);
   }
 }

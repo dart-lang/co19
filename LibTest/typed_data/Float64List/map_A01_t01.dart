@@ -26,7 +26,7 @@ main() {
   var l = new Float64List.fromList([1.0, 2.0, 6.0, 10.0, 3.0, 0.0, 8.0]);
   var res = l.map((e) => m[e]);
 
-  for(int i = 0; i < l.length; ++i) {
+  for (int i = 0; i < l.length; ++i) {
     Expect.equals(m[l[i]], res.elementAt(i));
   }
 
@@ -34,10 +34,10 @@ main() {
   res = l.map((e) => 0.0);
   Expect.isTrue(res.isEmpty);
 
-  l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0,
-      10.0]);
+  l = new Float64List.fromList(
+      [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
   res = l.map((e) => 1.0 );
-  for(int i = 0; i < l.length; ++i) {
+  for (int i = 0; i < l.length; ++i) {
     Expect.equals(1.0, res.elementAt(i));
   }
 }

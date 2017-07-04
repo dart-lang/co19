@@ -27,7 +27,7 @@ main() {
   checkNext([1.0, 2.0, 3.0]);
 
   var a = new List<double>(255);
-  for (var i=0; i < a.length; i++) {
+  for (var i = 0; i < a.length; i++) {
     a[i] = (a.length - i) * 1.0;
   }
   checkNext(a);

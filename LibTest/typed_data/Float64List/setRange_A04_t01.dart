@@ -23,8 +23,8 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float64List.fromList([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-      0.0, 0.0]);
+  var l = new Float64List.fromList(
+      [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 
   Expect.throws(() {
     l.setRange(0, 1, [], 0);

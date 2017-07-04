@@ -10,7 +10,6 @@
  * to end is valid if 0 <= start <= end <= len, where len is this list's length.
  * The range starts at start and has length end - start. An empty range
  * (with end == start) is valid.
- *
  * It is an error if start.. end is not a valid range pointing into the [this].
  * @description Checks that it is an error if the given range is not valid.
  * @author msyabro

@@ -23,7 +23,7 @@ main() {
   var list = new Float64List.fromList([1.0, 1.0, 2.0, 1.0, 1.0, 1.0]);
   var res = list.skipWhile((e) => e == 1.0);
   Expect.equals(4, res.length);
-  for(int i = 1; i < 4; ++i) {
+  for (int i = 1; i < 4; ++i) {
     Expect.equals(1.0, res.elementAt(i));
   }
 }

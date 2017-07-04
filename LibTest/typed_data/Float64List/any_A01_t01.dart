@@ -26,8 +26,8 @@ main() {
   l = new Float64List.fromList([1.0]);
   Expect.isFalse(l.any(pred));
 
-  l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0,
-      5.0]);
+  l = new Float64List.fromList(
+      [1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0]);
   Expect.isFalse(l.any(pred));
 
   l = new Float64List.fromList([100.0]);
