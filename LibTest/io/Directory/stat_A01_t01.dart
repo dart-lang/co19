@@ -25,7 +25,11 @@ main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
   dir.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.DIRECTORY, fs.type);
-    asyncEnd();
+    try {
+      Expect.equals(FileSystemEntityType.DIRECTORY, fs.type);
+      asyncEnd();
+    } finally {
+      dir.delete(recursive: true);
+    }
   });
 }
