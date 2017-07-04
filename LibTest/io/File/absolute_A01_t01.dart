@@ -15,15 +15,20 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = new File("TestDir" + Platform.pathSeparator + "tmp.dart");
-  Expect.isNotNull(file.absolute);
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "TestDir" +
-      Platform.pathSeparator + "tmp.dart", file.absolute.path);
+  File file = getTempFileSync();
+  try {
+    Expect.isNotNull(file.absolute);
+    Expect.equals(file.path, file.absolute.path);
 
-  file = new File("NotExist");
-  Expect.isNotNull(file.absolute);
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "NotExist",
-      file.absolute.path);
+    String fileName = getTempFileName();
+    file = new File(fileName);
+    Expect.isNotNull(file.absolute);
+    Expect.equals(Directory.current.path + Platform.pathSeparator + fileName,
+        file.absolute.path);
+  } finally {
+    file.delete();
+  }
 }

@@ -11,18 +11,17 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = new File("TestDir" + Platform.pathSeparator + "tmp.dart");
-  Expect.equals("TestDir" + Platform.pathSeparator + "tmp.dart", file.path);
+  File tmp = getTempFileSync();
+  try {
+    File file = new File(tmp.path);
+    Expect.equals(tmp.path, file.path);
 
-  file = new File("NotExist");
-  Expect.equals("NotExist", file.path);
-
-  file = new File(
-      Directory.current.path + Platform.pathSeparator + "TestDir" +
-          Platform.pathSeparator + "tmp.dart");
-  Expect.equals(
-      Directory.current.path + Platform.pathSeparator + "TestDir" +
-          Platform.pathSeparator + "tmp.dart", file.path);
+    file = new File("NotExisting");
+    Expect.equals("NotExisting", file.path);
+  } finally {
+    tmp.delete();
+  }
 }

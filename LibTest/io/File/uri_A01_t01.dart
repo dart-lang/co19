@@ -21,8 +21,4 @@ main() {
   File file = new File("TestDir" + Platform.pathSeparator + "tmp.dart");
   Expect.equals("TestDir/tmp.dart", file.uri.path);
   Expect.equals("", file.uri.scheme);
-
-  file = new File("NotExist");
-  Expect.equals("NotExist", file.uri.path);
-  Expect.equals("", file.uri.scheme);
 }

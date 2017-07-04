@@ -13,11 +13,10 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = new File("TestDir" + Platform.pathSeparator + "tmp.dart");
-  Expect.equals("TestDir", file.parent.path);
-
-  file = new File("NotExist");
-  Expect.equals(".", file.parent.path);
+  String dirName = getTempDirectoryName();
+  File file = new File(dirName + Platform.pathSeparator + "tmp.dart");
+  Expect.equals(dirName, file.parent.path);
 }
