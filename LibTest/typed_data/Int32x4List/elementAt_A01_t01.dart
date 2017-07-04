@@ -16,8 +16,10 @@ import "../../../Utils/expect.dart";
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 main() {
-  var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5),
-      i32x4(6), i32x4(7),i32x4(8), i32x4(9)];
+  var list = [
+    i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5), i32x4(6),
+    i32x4(7),i32x4(8), i32x4(9)
+  ];
   var l = new Int32x4List.fromList(list);
   for (int i = 0; i < l.length; ++i) {
     Expect.equals(i, l.elementAt(i).x);

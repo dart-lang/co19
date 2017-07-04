@@ -27,8 +27,10 @@ equal(o1, o2) {
 }
 
 main() {
-  var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5),
-  i32x4(6), i32x4(7),i32x4(8), i32x4(9)];
+  var list = [
+    i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5), i32x4(6),
+    i32x4(7),i32x4(8), i32x4(9)
+  ];
   var l = new Int32x4List.fromList(list);
   var buffer = l.buffer;
   var view = new Int32x4List.view(buffer, 0, 10);

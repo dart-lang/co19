@@ -37,8 +37,10 @@ void check(list, offset) {
 }
 
 main() {
-  var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5),
-      i32x4(6), i32x4(7),i32x4(8), i32x4(9)];
+  var list = [
+    i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5), i32x4(6),
+    i32x4(7),i32x4(8), i32x4(9)
+  ];
   check([i32x4(1)], 0);
   check(list, 0);
   check(list, 2 * Int32x4List.BYTES_PER_ELEMENT);

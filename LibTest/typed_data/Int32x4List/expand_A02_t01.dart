@@ -40,6 +40,8 @@ void check(list) {
 main() {
   check([i32x4p(1)]);
   check([i32x4p(1), i32x4p(5), i32x4p(9), i32x4p(13)]);
-  check([i32x4p(0), i32x4p(1), i32x4p(2), i32x4p(3), i32x4p(4), i32x4p(5),
-      i32x4p(6), i32x4p(7),i32x4p(8), i32x4p(9)]);
+  check([
+    i32x4p(0), i32x4p(1), i32x4p(2), i32x4p(3), i32x4p(4), i32x4p(5), i32x4p(6),
+    i32x4p(7), i32x4p(8), i32x4p(9)]
+  );
 }

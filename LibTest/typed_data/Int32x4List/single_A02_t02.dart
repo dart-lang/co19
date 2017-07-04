@@ -19,7 +19,7 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 main() {
   var l = new Int32x4List.fromList([i32x4(10), i32x4(11)]);
-  try{
+  try {
     l.single;
     Expect.fail("StateError is expected");
   } on StateError {}

@@ -37,8 +37,10 @@ void check(list, offset, length) {
 }
 
 main() {
-  var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5),
-      i32x4(6), i32x4(7),i32x4(8), i32x4(9)];
+  var list = [
+    i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5), i32x4(6),
+    i32x4(7),i32x4(8), i32x4(9)
+  ];
   check([], 0, 0);
   check([i32x4(1)], 0, 1);
   check(list, 0, 10);
