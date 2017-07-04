@@ -17,7 +17,7 @@
  * @description Checks that runtime error occurs, not compile-error, by using
  * an initializer of the form this.v = e for already initiailized final
  * instance variable.
- * @static-warning
+ * @compile-error
  * @author ilya
  * @issue 13335
  * @issue 30036
