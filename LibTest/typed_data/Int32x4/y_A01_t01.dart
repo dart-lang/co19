@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(y) {
-  var obj = new Int32x4(0 ,y, 0, 0);
+  var obj = new Int32x4(0, y, 0, 0);
   Expect.equals(y, obj.y);
 }
 
