@@ -18,13 +18,13 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Float64List(0);
   double res = 0.0;
-  l.forEach( (e) {
+  l.forEach((e) {
     res += e;
   });
   Expect.equals(0, res);
 
-  l = new Float64List.fromList([1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ,1.0, 1.0, 1.0,
-      1.0]);
+  l = new Float64List.fromList(
+      [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]);
   l.forEach((e) {
     res += e;
   });

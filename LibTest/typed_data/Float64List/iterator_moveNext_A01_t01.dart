@@ -26,7 +26,7 @@ main() {
 
   l = new Float64List(1000);
   it = l.iterator;
-  for(var i = 0; i < 1000; ++i) {
+  for (var i = 0; i < 1000; ++i) {
     Expect.isTrue(it.moveNext());
   }
   Expect.isFalse(it.moveNext());

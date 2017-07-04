@@ -19,7 +19,7 @@ void check(List<double> list, int start, int end) {
   var l = new Float64List.fromList(list);
   var res = l.sublist(start, end);
 
-  for(int i = start; i < end; ++i) {
+  for (int i = start; i < end; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }

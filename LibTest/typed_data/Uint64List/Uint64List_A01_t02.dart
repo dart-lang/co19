@@ -5,18 +5,19 @@
  */
 /**
  * @assertion Uint64List(int length)
- * Creates an [Uint64List] of the specified length (in elements), all of
- * whose elements are initially zero.
+ * Creates an [Uint64List] of the specified length (in elements), all of whose
+ * elements are initially zero.
  * @description Checks that all elements of the new [Uint64List] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Uint64List l = new Uint64List(length);
-  for(int i = 0; i < length; ++i) {
-    Expect.equals(l[i],0);
+  for (int i = 0; i < length; ++i) {
+    Expect.equals(l[i], 0);
   }
 }
 

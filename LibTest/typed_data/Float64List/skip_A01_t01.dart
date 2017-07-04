@@ -18,15 +18,15 @@ check(List<double> list, int n) {
   var res = l.skip(n);
   Expect.equals(l.length - n, res.length);
 
-  for(int i = 0; i < res.length; ++i) {
+  for (int i = 0; i < res.length; ++i) {
     Expect.equals(l.elementAt(i + n), res.elementAt(i));
   }
 }
 
 main() {
-  check([],0);
+  check([], 0);
 
-  for(int i = 0; i <= 10; ++i) {
+  for (int i = 0; i <= 10; ++i) {
     check([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], i);
   }
 }

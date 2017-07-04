@@ -16,19 +16,19 @@ import "../../../Utils/expect.dart";
 
 check(List<double> list) {
   var l = new Float64List.fromList(list);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(-1, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(list.length + 1, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0x80000000, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0x7fffffff, []);
   });
 }

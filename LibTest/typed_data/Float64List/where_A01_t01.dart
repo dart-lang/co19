@@ -23,8 +23,8 @@ void check(List<double> list, bool test (double element)) {
 
   var count = 0;
 
-  for(int i = 0 ; i < list.length; ++i) {
-    if(test(l[i])) {
+  for (int i = 0 ; i < list.length; ++i) {
+    if (test(l[i])) {
       Expect.equals(l[i], res.elementAt(count));
       ++count;
     }

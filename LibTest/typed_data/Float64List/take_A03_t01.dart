@@ -23,5 +23,5 @@ void check(List<double> list, int n) {
 
 main() {
   check([], -1);
-  check([1.0, 2.0 ,3.0], -16);
+  check([1.0, 2.0, 3.0], -16);
 }

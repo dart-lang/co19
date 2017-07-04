@@ -9,12 +9,13 @@
  * @description Checks that the element at the given index is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Uint64List.fromList(list);
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.identical(l.elementAt(i), l[i]);
   }
 }
@@ -23,7 +24,7 @@ main() {
   check([]);
   check([1]);
   var list = new List<int>(255);
-  for(int i = 0; i < 255; ++i) {
+  for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }
   check(list);

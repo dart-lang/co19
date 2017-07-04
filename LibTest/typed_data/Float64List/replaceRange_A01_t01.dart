@@ -23,13 +23,13 @@ check(List<double> list) {
   var l = new Float64List.fromList(list);
   var length = l.length;
   try {
-    l.replaceRange(0,1,[0.0]);
+    l.replaceRange(0, 1, [0.0]);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
-    l.replaceRange(0,100,[0.0, 1.0, 2.0]);
+    l.replaceRange(0, 100, [0.0, 1.0, 2.0]);
     Expect.fail("This operation should not be supported");
   } on UnsupportedError {};
   Expect.equals(length, l.length);

@@ -23,8 +23,8 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float64List.fromList([0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0,
-      8.0, 9.0]);
+  var l = new Float64List.fromList(
+      [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]);
 
   l.setRange(1, 3, l.getRange(2, 6), 2);
   Expect.listEquals([0.0, 4.0, 5.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], l);

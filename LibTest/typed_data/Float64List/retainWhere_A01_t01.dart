@@ -21,13 +21,13 @@ check(List<double> list) {
   var l = new Float64List.fromList(list);
   var length = l.length;
   try {
-    l.retainWhere( (e) => true );
+    l.retainWhere((e) => true );
     Expect.fail("This operation should not be supported");
   } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
-    l.retainWhere( (e) => false );
+    l.retainWhere((e) => false );
     Expect.fail("This operation should not be supported");
   } on UnsupportedError {};
   Expect.equals(length, l.length);

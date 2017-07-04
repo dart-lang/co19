@@ -37,7 +37,7 @@ main() {
   check([]);
   check([1.0]);
   var list = new List<double>(255);
-  for(int i = 0; i < 255; ++i) {
+  for (int i = 0; i < 255; ++i) {
     list[i] = i * 1.0;
   }
   check(list);

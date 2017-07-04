@@ -19,7 +19,7 @@ check(List<double> list, int start, int end) {
   var res = l.getRange(start, end);
   var it = res.iterator;
   var i = start;
-  while(it.moveNext()) {
+  while (it.moveNext()) {
     Expect.equals(l[i++], it.current);
   }
 }
@@ -27,6 +27,6 @@ check(List<double> list, int start, int end) {
 main() {
   check([], 0, 0);
   check([1.0], 0, 1);
-  check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0 ,10.0], 0, 10);
-  check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0 ,10.0], 9, 10);
+  check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 0, 10);
+  check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 9, 10);
 }
