@@ -7,7 +7,7 @@
  * @assertion int elementSizeInBytes
  * Returns the number of bytes in the representation of each element in this
  * list.
- * @description Checks that [elementSizeInBytes] is reag-only and can't be set.
+ * @description Checks that [elementSizeInBytes] is read-only and can't be set.
  * @author msyabro
  */
 

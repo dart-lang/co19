@@ -25,10 +25,10 @@ check(List<int> list, int start, int end) {
 }
 
 main() {
-  check([],0, 1);
+  check([], 0, 1);
   check([0, 0, 0],-1, 1);
   check([0, 0, 0],-1, 2);
   check([0, 0, 0], 0, 4);
-  check([0,0 , 0], 2, 100);
+  check([0, 0, 0], 2, 100);
   check([0, 0, 0],-10, 10);
 }

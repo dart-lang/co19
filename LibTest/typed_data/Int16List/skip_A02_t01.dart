@@ -23,7 +23,7 @@ check(List<int> list, int n) {
 }
 
 main() {
-  check([],1);
+  check([], 1);
   check([1, 2], 3);
   check([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 100);
 }

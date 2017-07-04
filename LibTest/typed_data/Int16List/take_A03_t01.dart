@@ -23,5 +23,5 @@ void check(List<int> list, int n) {
 
 main() {
   check([], -1);
-  check([1, 2 ,3], -16);
+  check([1, 2, 3], -16);
 }
