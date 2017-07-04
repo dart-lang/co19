@@ -55,9 +55,9 @@ test(Directory dir) async {
   }).then((_) {
     try {
       Expect.listEquals(created, found);
+      asyncEnd();
     } finally {
       dir.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

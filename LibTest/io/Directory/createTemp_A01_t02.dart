@@ -34,9 +34,9 @@ test() async {
     dir.exists().then((res) {
       try {
         Expect.isTrue(res);
+        asyncEnd();
       } finally {
         parent.delete(recursive: true);
-        asyncEnd();
       }
     });
   });

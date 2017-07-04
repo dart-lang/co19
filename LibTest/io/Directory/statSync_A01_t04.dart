@@ -22,6 +22,12 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   File file = getTempFileSync();
-  Directory dir = new Directory(file.path);
-  Expect.equals(FileSystemEntityType.FILE, dir.statSync().type);
+  try {
+    Directory dir = new Directory(file.path);
+    Expect.equals(FileSystemEntityType.FILE, dir
+        .statSync()
+        .type);
+  } finally {
+    file.delete();
+  }
 }

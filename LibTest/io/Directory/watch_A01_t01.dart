@@ -22,11 +22,8 @@ main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    try {
-      Expect.equals(FileSystemEvent.CREATE, event.type);
-    } finally {
-      asyncEnd();
-    }
+    Expect.equals(FileSystemEvent.CREATE, event.type);
+    asyncEnd();
   });
   dir.createTemp().then((_) {}).timeout(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {

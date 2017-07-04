@@ -18,10 +18,15 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = new File(Directory.current.path + Platform.pathSeparator +
-      "TestDir" + Platform.pathSeparator + "tmp.dart");
-  Expect.equals(Directory.current.path + Platform.pathSeparator + "TestDir" +
-      Platform.pathSeparator + "tmp.dart", file.absolute.path);
+  Directory dir = getTempDirectorySync();
+  try {
+    File file = new File(dir.path + Platform.pathSeparator + "tmp.dart");
+    Expect.equals(dir.path + Platform.pathSeparator + "tmp.dart",
+        file.absolute.path);
+  } finally {
+    dir.delete(recursive: true);
+  }
 }

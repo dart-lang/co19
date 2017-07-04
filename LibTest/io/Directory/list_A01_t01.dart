@@ -41,9 +41,9 @@ test(Directory dir, File file) async {
   }).then((_) {
     try {
       Expect.isTrue(found);
+      asyncEnd();
     } finally {
       dir.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

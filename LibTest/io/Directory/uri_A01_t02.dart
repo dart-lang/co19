@@ -20,19 +20,23 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  if (Platform.isWindows) {
-    Expect.equals("/" + dir.path.replaceAll("\\", "/") + "/", dir.uri.path);
-  } else {
-    Expect.equals(dir.path + "/", dir.uri.path);
-  }
-  Expect.equals("file", dir.uri.scheme);
+  try {
+    if (Platform.isWindows) {
+      Expect.equals("/" + dir.path.replaceAll("\\", "/") + "/", dir.uri.path);
+    } else {
+      Expect.equals(dir.path + "/", dir.uri.path);
+    }
+    Expect.equals("file", dir.uri.scheme);
 
-  String path = dir.path + Platform.pathSeparator + "NotExisting";
-  dir = new Directory(path);
-  if (Platform.isWindows) {
-    Expect.equals("/" + path.replaceAll("\\", "/") + "/", dir.uri.path);
-  } else {
-    Expect.equals(path + "/", dir.uri.path);
+    String path = dir.path + Platform.pathSeparator + "NotExisting";
+    Directory dir2 = new Directory(path);
+    if (Platform.isWindows) {
+      Expect.equals("/" + path.replaceAll("\\", "/") + "/", dir2.uri.path);
+    } else {
+      Expect.equals(path + "/", dir2.uri.path);
+    }
+    Expect.equals("file", dir2.uri.scheme);
+  } finally {
+    dir.delete(recursive: true);
   }
-  Expect.equals("file", dir.uri.scheme);
 }

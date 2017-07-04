@@ -33,10 +33,10 @@ main() {
     Expect.isTrue(res);
     try {
       Expect.isTrue(res);
+      asyncEnd();
     } finally {
       srcDir.delete(recursive: true);
       file.delete(recursive: true);
-      asyncEnd();
     }
   });
 }

@@ -32,9 +32,9 @@ main() {
         Expect.equals(fs2.modified, fs.modified);
         Expect.equals(fs2.size, fs.size);
         Expect.equals(fs2.accessed, fs.accessed);
+        asyncEnd();
       } finally {
         dir.delete(recursive: true);
-        asyncEnd();
       }
     });
   });

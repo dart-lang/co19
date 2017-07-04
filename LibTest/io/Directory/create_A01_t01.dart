@@ -27,9 +27,9 @@ test() async {
       created.exists().then((result) {
         try {
           Expect.isTrue(result);
+          asyncEnd();
         } finally {
           dir.delete();
-          asyncEnd();
         }
       });
     });

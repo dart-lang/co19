@@ -20,7 +20,4 @@ import "../../../Utils/expect.dart";
 main() {
   File file = new File("TestDir"+ Platform.pathSeparator + "tmp.dart");
   Expect.isFalse(file.isAbsolute);
-
-  file = new File("NotExist");
-  Expect.isFalse(file.isAbsolute);
 }
