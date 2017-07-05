@@ -18,11 +18,11 @@ import "../../../Utils/expect.dart";
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 main() {
-  var l = new Float64x2List.fromList(
-      [f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0), f64x2(10.0),
-      f64x2(11.0), f64x2(12.0), f64x2(13.0), f64x2(14.0), f64x2(15.0),
-      f64x2(16.0), f64x2(17.0)]
-  );
+  var l = new Float64x2List.fromList([
+    f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0), f64x2(10.0),
+    f64x2(11.0), f64x2(12.0), f64x2(13.0), f64x2(14.0), f64x2(15.0),
+    f64x2(16.0), f64x2(17.0)
+  ]);
   try {
     l.firstWhere((element) => element.x > 20);
     Expect.fail("StateError is expected");

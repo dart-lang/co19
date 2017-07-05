@@ -35,9 +35,11 @@ void check(List<Float64x2> list, int offsetInEl, length) {
 }
 
 main() {
-  check([f64x2V(5.0), f64x2V(6.0), f64x2V(7.0), f64x2V(8.0), f64x2V(9.0),
-      f64x2V(10.0), f64x2V(11.0), f64x2V(12.0), f64x2V(13.0), f64x2V(14.0),
-      f64x2V(15.0), f64x2V(16.0), f64x2V(17.0)], 4, 16);
+  check([
+    f64x2V(5.0), f64x2V(6.0), f64x2V(7.0), f64x2V(8.0), f64x2V(9.0),
+    f64x2V(10.0), f64x2V(11.0), f64x2V(12.0), f64x2V(13.0), f64x2V(14.0),
+    f64x2V(15.0), f64x2V(16.0), f64x2V(17.0)
+  ], 4, 16);
   check([f64x2V(0.0), f64x2V(1.0), f64x2V(2.0)], 2, 2);
   check([f64x2V(10.0), f64x2V(11.0)], 0, 3);
 }

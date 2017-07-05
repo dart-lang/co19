@@ -24,8 +24,8 @@ import "../../../Utils/expect.dart";
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 main() {
-  Float64x2List l = new Float64x2List.fromList([f64x2(1.0), f64x2(2.0),
-      f64x2(3.0), f64x2(1.0), f64x2(2.0)]);
+  Float64x2List l = new Float64x2List.fromList(
+      [f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(1.0), f64x2(2.0)]);
 
   var res = l.skipWhile((e) => e.x < 3.0);
   for (int i = 0; i < 3; ++i) {

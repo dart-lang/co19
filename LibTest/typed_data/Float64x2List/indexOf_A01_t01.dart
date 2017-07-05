@@ -19,8 +19,8 @@ import "../../../Utils/expect.dart";
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 main() {
-  var l = new Float64x2List.fromList([
-      f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0)]);
+  var l = new Float64x2List.fromList(
+      [f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0)]);
   Expect.equals(-1, l.indexOf(f64x2(0.0)));
   Expect.equals(-1, l.indexOf(f64x2(1.0)));
   Expect.equals(-1, l.indexOf(f64x2(2.0)));

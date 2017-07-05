@@ -29,8 +29,9 @@ listEquals(Float64x2List expected, Float64x2List actual) {
 }
 
 main() {
-  var l = new Float64x2List.fromList([f64x2(1.0), f64x2(2.0), f64x2(2.0),
-      f64x2(3.0), f64x2(4.0,), f64x2(5.0)]);
+  var l = new Float64x2List.fromList([
+    f64x2(1.0), f64x2(2.0), f64x2(2.0), f64x2(3.0), f64x2(4.0,), f64x2(5.0)
+  ]);
 
   try {
     l.singleWhere((e) => e.x > 5.0);

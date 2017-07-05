@@ -34,18 +34,26 @@ listEquals(Float64x2List expected, Float64x2List actual) {
 }
 
 main() {
-  var l = new Float64x2List.fromList([f64x2(1.0), f64x2(2.0), f64x2(3.0),
-      f64x2(4.0), f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0)]);
+  var l = new Float64x2List.fromList([
+    f64x2(1.0), f64x2(2.0), f64x2(3.0),
+    f64x2(4.0), f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0)
+  ]);
 
   l.setRange(4, 5, l, 1);
-  listEquals([f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(2.0),
-      f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0)], l);
+  listEquals([
+    f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(2.0),
+    f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0)
+  ], l);
 
   l.setRange(3, 7, l);
-  listEquals([f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(1.0), f64x2(2.0),
-      f64x2(3.0), f64x2(4.0), f64x2(8.0), f64x2(9.0)], l);
+  listEquals([
+    f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(1.0), f64x2(2.0),
+    f64x2(3.0), f64x2(4.0), f64x2(8.0), f64x2(9.0)
+  ], l);
 
   l.setRange(5, 9, l, 2);
-  listEquals([f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(1.0), f64x2(2.0),
-      f64x2(3.0), f64x2(1.0), f64x2(2.0), f64x2(3.0)], l);
+  listEquals([
+    f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(1.0), f64x2(2.0),
+    f64x2(3.0), f64x2(1.0), f64x2(2.0), f64x2(3.0)
+  ], l);
 }

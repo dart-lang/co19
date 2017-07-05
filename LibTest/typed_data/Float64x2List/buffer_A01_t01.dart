@@ -17,14 +17,15 @@ import "../../../Utils/expect.dart";
 Float64x2 f64x2(x, y) => new Float64x2(x,y);
 
 main() {
-  var tmp = new Float64x2List.fromList([f64x2(1.0, 2.0), f64x2(3.0, 4.0),
-      f64x2(5.0, 6.0), f64x2(7.0, 8.0), f64x2(9.0, 10.0), f64x2(11.0, 12.0),
-      f64x2(13.0, 14.0), f64x2(15.0, 16.0)]);
+  var tmp = new Float64x2List.fromList([
+    f64x2(1.0, 2.0), f64x2(3.0, 4.0), f64x2(5.0, 6.0), f64x2(7.0, 8.0),
+    f64x2(9.0, 10.0), f64x2(11.0, 12.0), f64x2(13.0, 14.0), f64x2(15.0, 16.0)
+  ]);
   var tmpSize = tmp.length;
   var byteBuffer = tmp.buffer;
   var elemSize = Float64x2List.BYTES_PER_ELEMENT;
 
-  for(int i = 0; i <= tmpSize; ++i) {
+  for (int i = 0; i <= tmpSize; ++i) {
     var l = new Float64x2List.view(byteBuffer, i * elemSize, tmpSize - i) ;
     Expect.equals(byteBuffer, l.buffer);
   }

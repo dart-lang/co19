@@ -33,9 +33,11 @@ main() {
   l = new Float64x2List.fromList(list);
   Expect.isTrue(l.any(test));
 
-  list = [f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0),
-      f64x2(7.0), f64x2(8.0), f64x2(9.0), f64x2(10.0), f64x2(11.0), f64x2(12.0),
-      f64x2(13.0), f64x2(14.0), f64x2(15.0), f64x2(16.0)];
+  list = [
+    f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0),
+    f64x2(7.0), f64x2(8.0), f64x2(9.0), f64x2(10.0), f64x2(11.0),
+    f64x2(12.0), f64x2(13.0), f64x2(14.0), f64x2(15.0), f64x2(16.0)
+  ];
   l = new Float64x2List.fromList(list);
   Expect.isTrue(l.any(test));
 }

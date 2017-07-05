@@ -35,8 +35,9 @@ check(List<Float64x2> list, bool test(Float64x2 e)) {
 }
 
 main() {
-  List<Float64x2> list = [f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0),
-      f64x2(5.0), f64x2(6.0)];
+  List<Float64x2> list = [
+    f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0)
+  ];
   check(list, (e) => e.x == 1.0);
   check(list, (e) => true);
   check(list, (e) => false);

@@ -23,7 +23,8 @@ main() {
   Expect.equals(1.0, res.y);
 
   l = new Float64x2List.fromList([
-      f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0)]);
+    f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0)
+  ]);
   res = f64x2(0.0);
   l.forEach((el) => res += el );
   Expect.equals(21.0, res.x);

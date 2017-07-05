@@ -24,11 +24,11 @@ main() {
     count++;
     return f64x2(20.0);
   }
-  var l = new Float64x2List.fromList(
-      [f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0), f64x2(10.0),
-      f64x2(11.0), f64x2(12.0), f64x2(13.0), f64x2(14.0), f64x2(15.0),
-      f64x2(16.0), f64x2(17.0)]
-  );
+  var l = new Float64x2List.fromList([
+    f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0), f64x2(10.0),
+    f64x2(11.0), f64x2(12.0), f64x2(13.0), f64x2(14.0), f64x2(15.0),
+    f64x2(16.0), f64x2(17.0)
+  ]);
   var res = l.firstWhere((element) => element.x > 20, orElse: f);
   Expect.equals(1, count);
   Expect.equals(20.0, res.x);
