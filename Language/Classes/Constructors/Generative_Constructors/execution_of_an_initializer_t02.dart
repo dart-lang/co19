@@ -20,7 +20,6 @@
  * @author ilya
  * @issue 13335
  */
-import "../../../../Utils/expect.dart";
 
 class C {
   final x = 1;

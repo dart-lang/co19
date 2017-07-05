@@ -16,7 +16,6 @@
  * @author ilya
  * @issue 13335
  */
-import "../../../../Utils/expect.dart";
 
 class A {
   var a;
