@@ -50,14 +50,14 @@ void check(ByteBuffer buffer) {
   if (viewSizeInBytes != 0) {
     // set value to the first element of res1
     res1[0] = 2.0;
-    Expect.equals(2.0, res[offset1>>shift]);
+    Expect.equals(2.0, res[offset1 >> shift]);
     //set value to the last element if res1
     res1[view1Length - 1] = 4.0;
-    Expect.equals(4.0, res[(offset1>>shift) + view1Length - 1]);
+    Expect.equals(4.0, res[(offset1 >> shift) + view1Length - 1]);
 
     // set value to the first element of res2
     res2[0] = 3.0;
-    Expect.equals(3.0, res[offset2>>shift]);
+    Expect.equals(3.0, res[offset2 >> shift]);
     // set value to the last element of res2
     res2[view2Length - 1] = 5.0;
     Expect.equals(5.0, res[viewLength - 1]);

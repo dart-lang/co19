@@ -50,26 +50,26 @@ void check(ByteBuffer buffer) {
     Float32x4 v1 = new Float32x4(2.0, 2.1, 2.2, 2.3);
     // set value to the first element of res1
     res1[0] = v1;
-    Expect.equals(v1.x, res[offset1>>shift].x);
-    Expect.equals(v1.y, res[offset1>>shift].y);
-    Expect.equals(v1.z, res[offset1>>shift].z);
-    Expect.equals(v1.w, res[offset1>>shift].w);
+    Expect.equals(v1.x, res[offset1 >> shift].x);
+    Expect.equals(v1.y, res[offset1 >> shift].y);
+    Expect.equals(v1.z, res[offset1 >> shift].z);
+    Expect.equals(v1.w, res[offset1 >> shift].w);
 
     Float32x4 v2 = new Float32x4(4.0, 4.1, 4.2, 4.3);
     //set value to the last element if res1
     res1[view1Length - 1] = v2;
-    Expect.equals(v2.x, res[(offset1>>shift) + view1Length - 1].x);
-    Expect.equals(v2.y, res[(offset1>>shift) + view1Length - 1].y);
-    Expect.equals(v2.z, res[(offset1>>shift) + view1Length - 1].z);
-    Expect.equals(v2.w, res[(offset1>>shift) + view1Length - 1].w);
+    Expect.equals(v2.x, res[(offset1 >> shift) + view1Length - 1].x);
+    Expect.equals(v2.y, res[(offset1 >> shift) + view1Length - 1].y);
+    Expect.equals(v2.z, res[(offset1 >> shift) + view1Length - 1].z);
+    Expect.equals(v2.w, res[(offset1 >> shift) + view1Length - 1].w);
 
     Float32x4 v3 = new Float32x4(3.0, 3.1, 3.2, 3.3);
     // set value to the first element of res2
     res2[0] = v3;
-    Expect.equals(v3.x, res[offset2>>shift].x);
-    Expect.equals(v3.y, res[offset2>>shift].y);
-    Expect.equals(v3.z, res[offset2>>shift].z);
-    Expect.equals(v3.w, res[offset2>>shift].w);
+    Expect.equals(v3.x, res[offset2 >> shift].x);
+    Expect.equals(v3.y, res[offset2 >> shift].y);
+    Expect.equals(v3.z, res[offset2 >> shift].z);
+    Expect.equals(v3.w, res[offset2 >> shift].w);
 
     Float32x4 v4 = new Float32x4(5.0, 5.1, 5.2, 5.3);
     // set value to the last element of res2

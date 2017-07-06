@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int hashCode
+ * @assertion int hashCode
  * Get a hash code for this object. Hash codes are guaranteed to be
  * the same for objects that are equal when compared using the equality
  * operator ==.
@@ -20,6 +20,6 @@ main() {
   var buffer = list.buffer;
   try {
     buffer.hashCode = 1;
-    Expect.fail("[hashCode] should be final");
+    Expect.fail("[hashCode] should be read-only");
   } on NoSuchMethodError /*catch (ok)*/ {}
 }

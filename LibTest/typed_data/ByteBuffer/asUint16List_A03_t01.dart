@@ -26,14 +26,22 @@ import "../../../Utils/expect.dart";
 void check(ByteBuffer buffer) {
   int shift = (Uint16List.BYTES_PER_ELEMENT == 2) ? 1 : 0;
   // creates Uint16List view with negative offset
-  Expect.throws(() {buffer.asUint16List(-2);});
+  Expect.throws(() {
+    buffer.asUint16List(-2);
+  });
   // creates Uint16List view with offset not divisible by two
-  Expect.throws(() {buffer.asUint16List(1);});
+  Expect.throws(() {
+    buffer.asUint16List(1);
+  });
   // creates Uint16List view with negative length
-  Expect.throws(() {buffer.asUint16List(0, -8);});
+  Expect.throws(() {
+    buffer.asUint16List(0, -8);
+  });
   // creates Uint16List view with 'offsetInBytes + length * 2'
   // greater then buffer length
-  Expect.throws(() {buffer.asUint16List(4, buffer.lengthInBytes >> shift);});
+  Expect.throws(() {
+    buffer.asUint16List(4, buffer.lengthInBytes >> shift);
+  });
 }
 
 main() {

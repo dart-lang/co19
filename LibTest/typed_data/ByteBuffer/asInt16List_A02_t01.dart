@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
@@ -49,14 +49,14 @@ void check(ByteBuffer buffer) {
   if (viewSizeInBytes != 0) {
     // set value to the first element of res1
     res1[0] = 2;
-    Expect.equals(2, res[offset1>>shift]);
+    Expect.equals(2, res[offset1 >> shift]);
     //set value to the last element if res1
     res1[view1Length - 1] = 4;
-    Expect.equals(4, res[(offset1>>shift) + view1Length - 1]);
+    Expect.equals(4, res[(offset1 >> shift) + view1Length - 1]);
 
     // set value to the first element of res2
     res2[0] = 3;
-    Expect.equals(3, res[offset2>>shift]);
+    Expect.equals(3, res[offset2 >> shift]);
     // set value to the last element of res2
     res2[view2Length - 1] = 5;
     Expect.equals(5, res[viewLength - 1]);

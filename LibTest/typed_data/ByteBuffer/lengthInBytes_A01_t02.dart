@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int lengthInBytes
+ * @assertion int lengthInBytes
  * Returns the length of this view, in bytes.
  * @description Checks that [lengthInBytes] is read-only and can't be set.
  * @author msyabro
@@ -16,7 +16,7 @@ void check(count) {
   dynamic buffer = new Int8List(count).buffer;
   try {
     buffer.lengthInBytes = 0;
-    Expect.fail("[lengthInBytes] should be final");
+    Expect.fail("[lengthInBytes] should be read-only");
   } on NoSuchMethodError /*catch (ok)*/ {}
 }
 

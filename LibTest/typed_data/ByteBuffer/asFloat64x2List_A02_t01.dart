@@ -52,20 +52,20 @@ void check(ByteBuffer buffer) {
     Float64x2 v1 = new Float64x2(2.0, 2.1);
     // set value to the first element of res1
     res1[0] = v1;
-    Expect.equals(v1.x, res[offset1>>shift].x);
-    Expect.equals(v1.y, res[offset1>>shift].y);
+    Expect.equals(v1.x, res[offset1 >> shift].x);
+    Expect.equals(v1.y, res[offset1 >> shift].y);
 
     Float64x2 v2 = new Float64x2(4.0, 4.1);
     //set value to the last element if res1
     res1[view1Length - 1] = v2;
-    Expect.equals(v2.x, res[(offset1>>shift) + view1Length - 1].x);
-    Expect.equals(v2.y, res[(offset1>>shift) + view1Length - 1].y);
+    Expect.equals(v2.x, res[(offset1 >> shift) + view1Length - 1].x);
+    Expect.equals(v2.y, res[(offset1 >> shift) + view1Length - 1].y);
 
     Float64x2 v3 = new Float64x2(3.0, 3.1);
     // set value to the first element of res2
     res2[0] = v3;
-    Expect.equals(v3.x, res[offset2>>shift].x);
-    Expect.equals(v3.y, res[offset2>>shift].y);
+    Expect.equals(v3.x, res[offset2 >> shift].x);
+    Expect.equals(v3.y, res[offset2 >> shift].y);
 
     Float64x2 v4 = new Float64x2(5.0, 5.1);
     // set value to the last element of res2

@@ -27,14 +27,22 @@ void check(ByteBuffer buffer) {
   int bufSizeInBytes =buffer.lengthInBytes;
   int shift = (Float64x2List.BYTES_PER_ELEMENT == 16) ? 4 : 0;
   // creates Float64x2List view with negative offset
-  Expect.throws(() {buffer.asFloat64x2List(-1);});
+  Expect.throws(() {
+    buffer.asFloat64x2List(-1);
+  });
   // creates Float64x2List view with offset not divisible by sixteen
-  Expect.throws(() {buffer.asFloat64x2List(1);});
+  Expect.throws(() {
+    buffer.asFloat64x2List(1);
+  });
   // creates Float64x2List view with negative length
-  Expect.throws(() {buffer.asFloat64x2List(0, -8);});
+  Expect.throws(() {
+    buffer.asFloat64x2List(0, -8);
+  });
   // creates Float64x2List view with 'offsetInBytes + length * 16' greater then
   // buffer length
-  Expect.throws(() {buffer.asFloat64x2List(16,  bufSizeInBytes >> shift);});
+  Expect.throws(() {
+    buffer.asFloat64x2List(16,  bufSizeInBytes >> shift);
+  });
 }
 
 main() {

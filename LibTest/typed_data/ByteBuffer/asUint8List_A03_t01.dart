@@ -22,11 +22,17 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   // creates Uint8List view with negative offset
-  Expect.throws(() {buffer.asUint8List(-1);});
+  Expect.throws(() {
+    buffer.asUint8List(-1);
+  });
   // creates Uint8List view with negative length
-  Expect.throws(() {buffer.asUint8List(1, -8);});
+  Expect.throws(() {
+    buffer.asUint8List(1, -8);
+  });
   // creates Uint8List view with length + offset greater then buffer length
-  Expect.throws(() {buffer.asUint8List(1, buffer.lengthInBytes);});
+  Expect.throws(() {
+    buffer.asUint8List(1, buffer.lengthInBytes);
+  });
 }
 
 main() {

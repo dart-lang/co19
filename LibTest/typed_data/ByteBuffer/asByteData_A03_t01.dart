@@ -22,11 +22,17 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   // creates ByteData view with negative offset
-  Expect.throws(() {buffer.asByteData(-1);});
+  Expect.throws(() {
+    buffer.asByteData(-1);
+  });
   // creates ByteData view with negative length
-  Expect.throws(() {buffer.asByteData(1, -8);});
+  Expect.throws(() {
+    buffer.asByteData(1, -8);
+  });
   // creates ByteData view with length + offset greater then buffer length
-  Expect.throws(() {buffer.asByteData(1, buffer.lengthInBytes);});
+  Expect.throws(() {
+    buffer.asByteData(1, buffer.lengthInBytes);
+  });
 }
 
 main() {

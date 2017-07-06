@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Type runtimeType
+ * @assertion Type runtimeType
  * A representation of the runtime type of the object.
  * @description Checks that [runtimeType] is read-only and can not be set.
  * @author msyabro
@@ -17,7 +17,7 @@ main() {
   dynamic obj = new Int8List(0).buffer;
   try {
     obj.runtimeType = null;
-    Expect.fail("[runtimeType] should be final");
+    Expect.fail("[runtimeType] should be read-only");
   } on NoSuchMethodError /*catch (ok)*/ {}
 }
 

@@ -26,14 +26,22 @@ import "../../../Utils/expect.dart";
 void check(ByteBuffer buffer) {
   int shift = (Uint64List.BYTES_PER_ELEMENT == 8) ? 3 : 0;
   // creates Uint64List view with negative offset
-  Expect.throws(() {buffer.asUint64List(-8);});
+  Expect.throws(() {
+    buffer.asUint64List(-8);
+  });
   // creates Uint64List view with offset not divisible by four
-  Expect.throws(() {buffer.asUint64List(1);});
+  Expect.throws(() {
+    buffer.asUint64List(1);
+  });
   // creates Uint64List view with negative length
-  Expect.throws(() {buffer.asUint64List(0, -8);});
+  Expect.throws(() {
+    buffer.asUint64List(0, -8);
+  });
   // creates Uint64List view with 'offsetInBytes + length * 4'
   // greater then buffer length
-  Expect.throws(() {buffer.asUint64List(8, buffer.lengthInBytes >> shift);});
+  Expect.throws(() {
+    buffer.asUint64List(8, buffer.lengthInBytes >> shift);
+  });
 }
 
 main() {
