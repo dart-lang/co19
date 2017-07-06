@@ -19,22 +19,22 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float32List.fromList([]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0, [1.0]);
   });
 
   l = new Float32List.fromList([1.0, 2.0, 3.0]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0, [1.0, 2.0, 3.0, 4.0]);
   });
 
   l = new Float32List.fromList([1.0, 2.0, 3.0]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(1, [1.0, 2.0, 3.0]);
   });
 
   l = new Float32List.fromList([1.0, 2.0, 3.0]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(2, [1.0, 2.0]);
   });
 }

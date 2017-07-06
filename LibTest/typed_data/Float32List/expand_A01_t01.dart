@@ -21,13 +21,13 @@ check(List<double> list) {
 
   var res = l.expand((element) => [element * 2]);
   Expect.equals(list.length, res.length);
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.equals(list[i] * 2, res.elementAt(i));
   }
 
   res = l.expand((element) => [element, element + 1]);
   Expect.equals(list.length * 2, res.length);
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.equals(list[i], res.elementAt(2 * i));
     Expect.equals(list[i] + 1, res.elementAt(2 * i + 1));
   }

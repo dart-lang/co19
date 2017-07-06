@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E current
+ * @assertion E current
  * Gets the current element in the iteration.
  * @description Checks that the current element in the iteration is returned.
  * @author msyabro

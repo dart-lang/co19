@@ -21,7 +21,7 @@ main() {
   var list = new Float32List.fromList([1.0, 1.0, 2.0, 1.0, 1.0, 1.0]);
   var res = list.takeWhile((e) => e == 1.0);
   Expect.equals(2, res.length);
-  for(int i = 1; i < 2; ++i) {
+  for (int i = 1; i < 2; ++i) {
     Expect.equals(1.0, res.elementAt(i));
   }
 }

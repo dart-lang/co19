@@ -22,7 +22,7 @@ main() {
   var byteBuffer = tmp.buffer;
   var elementSize = Float32List.BYTES_PER_ELEMENT;
 
-  for(int i = 0; i <= dlLength; ++i) {
+  for (int i = 0; i <= dlLength; ++i) {
     var l = new Float32List.view(byteBuffer, i * elementSize, dlLength - i) ;
     Expect.equals(byteBuffer, l.buffer);
   }

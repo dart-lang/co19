@@ -18,7 +18,7 @@ void check(List<double> list, int start) {
   var l = new Float32List.fromList(list);
   var res = l.sublist(start);
 
-  for(int i = start; i < l.length; ++i) {
+  for (int i = start; i < l.length; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }

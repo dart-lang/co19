@@ -20,8 +20,8 @@ main() {
   l.forEach((e) {res += e;});
   Expect.equals(0, res);
 
-  l = new Float32List.fromList([1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ,1.0, 1.0, 1.0,
-      1.0]);
+  l = new Float32List.fromList(
+      [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]);
   l.forEach((e) {res += e;});
   Expect.equals(10.0, res);
 }

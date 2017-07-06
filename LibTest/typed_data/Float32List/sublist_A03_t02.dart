@@ -19,16 +19,16 @@ import "../../../Utils/expect.dart";
 check(List<double> list, int start, int end) {
   var l = new Float32List.fromList(list);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.sublist(start, end);
   });
 }
 
 main() {
-  check([],0, 1);
+  check([], 0, 1);
   check([0.0, 0.0, 0.0], -1, 1);
   check([0.0, 0.0, 0.0], -1, 2);
   check([0.0, 0.0, 0.0], 0, 4);
-  check([0.0, 0.0 ,0.0], 2, 100);
+  check([0.0, 0.0, 0.0], 2, 100);
   check([0.0, 0.0, 0.0], -10, 10);
 }

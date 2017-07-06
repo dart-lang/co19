@@ -19,11 +19,11 @@ import "../../../Utils/expect.dart";
 main() {
   var list = new Float32List.fromList([0.0, 0.0, 0.0, 0.0]);
 
-  Expect.throws( () {
+  Expect.throws(() {
     list.sublist(3, 2);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     list.sublist(4, 0);
   });
 }

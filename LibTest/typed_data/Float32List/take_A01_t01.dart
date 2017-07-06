@@ -19,7 +19,7 @@ void check(List<double> list, int n) {
   var res = l.take(n);
   Expect.equals(n, res.length);
 
-  for(int i = 0; i < n; ++i) {
+  for (int i = 0; i < n; ++i) {
     Expect.equals(l[i], res.elementAt(i));
   }
 }

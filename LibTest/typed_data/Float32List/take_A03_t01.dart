@@ -17,12 +17,12 @@ import "../../../Utils/expect.dart";
 void check(List<double> list, int n) {
   var l = new Float32List.fromList(list);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.take(n);
   });
 }
 
 main() {
   check([], -1);
-  check([1.0, 2.0 ,3.0], -16);
+  check([1.0, 2.0, 3.0], -16);
 }

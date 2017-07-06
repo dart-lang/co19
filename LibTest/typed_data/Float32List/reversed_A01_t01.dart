@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 check(List<double> list) {
   var l = new Float32List.fromList(list);
   var rev = l.reversed;
-  for(int i = 0; i < list.length; ++i) {
+  for (int i = 0; i < list.length; ++i) {
     Expect.equals(l.elementAt(list.length - 1 - i), rev.elementAt(i));
   }
 }
@@ -28,8 +28,8 @@ main() {
   check([1.0, 2.0]);
   check([1.0, 2.0, 3.0]);
   var list = new List<double>(255);
-  for(int i = 0; i < 255; ++i) {
-    list[i] = i*1.0;
+  for (int i = 0; i < 255; ++i) {
+    list[i] = i * 1.0;
   }
   check(list);
 }

@@ -15,8 +15,8 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float32List.fromList([0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0,
-      -10.0, 0.0]);
+  var l = new Float32List.fromList(
+      [0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, -10.0, 0.0]);
 
   var res = l.singleWhere((e) => e > 0 );
   Expect.equals(5.0, res);

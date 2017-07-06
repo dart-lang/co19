@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Float32List.fromList([0.0, 0.0, 0.0, 0.0, 0.0]);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(1, 0);
   });
 }
