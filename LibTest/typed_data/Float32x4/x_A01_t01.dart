@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(x) {
-  var obj = new Float32x4(x ,0.0, 0.0, 0.0);
+  var obj = new Float32x4(x, 0.0, 0.0, 0.0);
   Expect.approxEquals(x, obj.x, (x / 1e7).abs());
 }
 

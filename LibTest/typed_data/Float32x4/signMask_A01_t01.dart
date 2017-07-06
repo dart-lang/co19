@@ -15,7 +15,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var fl32x4 = new Float32x4(-1.0 ,2.0, 3.0, 4.0);
+  var fl32x4 = new Float32x4(-1.0, 2.0, 3.0, 4.0);
   int sm = fl32x4.signMask;
   Expect.equals(0x00000001, sm);
 

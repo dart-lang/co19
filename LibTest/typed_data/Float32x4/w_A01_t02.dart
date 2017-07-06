@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  dynamic obj = new Float32x4(0.0 ,0.0, 0.0, 0.0);
+  dynamic obj = new Float32x4(0.0, 0.0, 0.0, 0.0);
   try {
     obj.w = 1e-1;
     Expect.fail("[w] should be read-only");
