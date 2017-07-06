@@ -23,24 +23,27 @@ import "../../../Utils/expect.dart";
 
 main() {
   var u64 = new Uint64List(16);
-  var valuesToBeSet = [123, 95, 25, 98, 0, 113, 20, 9, 1, 9223372036854775807,
-      18446744073709551615, 25, 69, 52, 125, 31];
-  var expectedBigEndian = [8863084066665136128, 6845471433603153920,
-      1801439850948198400, 7061644215716937728, 0, 8142508126285856768,
-      1441151880758558720, 648518346341351424, 72057594037927936,
-      18446744073709551487, 18446744073709551615, 1801439850948198400,
-      4971973988617027584, 3746994889972252672, 9007199254740992000,
-      2233785415175766016];
+  var valuesToBeSet = [
+    123, 95, 25, 98, 0, 113, 20, 9, 1, 9223372036854775807,
+    18446744073709551615, 25, 69, 52, 125, 31
+  ];
+  var expectedBigEndian = [
+    8863084066665136128, 6845471433603153920, 1801439850948198400,
+    7061644215716937728, 0, 8142508126285856768, 1441151880758558720,
+    648518346341351424, 72057594037927936, 18446744073709551487,
+    18446744073709551615, 1801439850948198400, 4971973988617027584,
+    3746994889972252672, 9007199254740992000, 2233785415175766016
+  ];
   int bytesInElement = Int64List.BYTES_PER_ELEMENT;
 
   var byteDataFromU64 = new ByteData.view(u64.buffer);
-  for(int i = 0; i < byteDataFromU64.lengthInBytes / bytesInElement; ++i) {
-    byteDataFromU64.setUint64(i * bytesInElement, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+  for (int i = 0; i < byteDataFromU64.lengthInBytes / bytesInElement; ++i) {
+    byteDataFromU64.setUint64(
+        i * bytesInElement, valuesToBeSet[i], Endianness.LITTLE_ENDIAN);
   }
   Expect.listEquals(valuesToBeSet, u64);
 
-  for(int i = 0; i < byteDataFromU64.lengthInBytes / bytesInElement; ++i) {
+  for (int i = 0; i < byteDataFromU64.lengthInBytes / bytesInElement; ++i) {
     byteDataFromU64.setUint64(i * bytesInElement, valuesToBeSet[i]);
   }
   Expect.listEquals(expectedBigEndian, u64);

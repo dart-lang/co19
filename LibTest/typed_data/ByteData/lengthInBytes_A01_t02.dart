@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int lengthInBytes
+ * @assertion int lengthInBytes
  * Returns the length of this view, in bytes.
  * @description Checks that [lengthInBytes] is read-only and can't be set.
  * @author msyabro
@@ -17,7 +17,7 @@ void check(count) {
   dynamic l = new ByteData(count);
   try {
     l.lengthInBytes = 0;
-    Expect.fail("[lengthInBytes] should be final");
+    Expect.fail("[lengthInBytes] should be read-only");
   } on NoSuchMethodError {}
 }
 

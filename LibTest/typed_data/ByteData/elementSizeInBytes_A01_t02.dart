@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int elementSizeInBytes
+ * @assertion int elementSizeInBytes
  * Returns the number of bytes in the representation of each element in this
  * list.
  * @description Checks that [elementSizeInBytes] is read-only and can't be set.
@@ -18,6 +18,6 @@ main() {
   dynamic l = new ByteData(0);
   try {
     l.elementSizeInBytes = 2;
-    Expect.fail("[elementSizeInBytes] should be final");
+    Expect.fail("[elementSizeInBytes] should be read-only");
   } on NoSuchMethodError {}
 }

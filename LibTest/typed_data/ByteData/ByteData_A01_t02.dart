@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 void check(int length) {
   var l = new ByteData(length);
-  for(int i = 0; i < length; ++i) {
+  for (int i = 0; i < length; ++i) {
     Expect.equals(0, l.getUint8(i));
   }
 }

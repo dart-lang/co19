@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final ByteBuffer buffer
+ * @assertion ByteBuffer buffer
  * Returns the byte buffer associated with this object.
  * @description Checks that the returned buffer is equal to the buffer
  * with which this object is associated.
@@ -19,8 +19,8 @@ main() {
   var tmp = new Int8List.fromList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   var byteBuffer = tmp.buffer;
 
-  for(int i= 0; i <= 10; ++i) {
-    var l = new ByteData.view(byteBuffer, i, 10 - i) ;
+  for (int i = 0; i <= 10; ++i) {
+    var l = new ByteData.view(byteBuffer, i, 10 - i);
     Expect.equals(byteBuffer, l.buffer);
   }
 }

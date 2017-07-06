@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int lengthInBytes
+ * @assertion int lengthInBytes
  * Returns the length of this view, in bytes.
  * @description Checks that the correct length is returned.
  * @author msyabro

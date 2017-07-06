@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final ByteBuffer buffer
+ * @assertion ByteBuffer buffer
  * Returns the byte buffer associated with this object.
  * @description Checks that [buffer] is read-only and can't be set.
  * @author msyabro
@@ -17,7 +17,7 @@ void check(count) {
   dynamic l = new ByteData(count);
   try {
     l.buffer = new Int8List(count).buffer;
-    Expect.fail("[buffer] should be final");
+    Expect.fail("[buffer] should be read-only");
   } on NoSuchMethodError {}
 }
 

@@ -20,7 +20,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var tmp = new Int8List.fromList([0,0,0]);
+  var tmp = new Int8List.fromList([0, 0, 0]);
   var byteBuffer = tmp.buffer;
   var l = new ByteData.view(byteBuffer, 0, 3);
 

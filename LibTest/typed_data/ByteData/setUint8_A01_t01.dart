@@ -18,12 +18,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   var u8 = new Uint8List(16);
-  var valuesToBeSet = [123, 161, 231, 98, 0, 113, 236, 247, 1, 1, 24, 231, 187,
-      204, 131, 31];
+  var valuesToBeSet = [
+    123, 161, 231, 98, 0, 113, 236, 247, 1, 1, 24, 231, 187, 204, 131, 31
+  ];
   int bytesInElement =  Uint8List.BYTES_PER_ELEMENT;
 
   var byteData = new ByteData.view(u8.buffer);
-  for(int i = 0; i < byteData.lengthInBytes / bytesInElement; ++i) {
+  for (int i = 0; i < byteData.lengthInBytes / bytesInElement; ++i) {
     byteData.setUint8(i, valuesToBeSet[i]);
   }
 

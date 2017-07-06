@@ -20,23 +20,25 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var u32 = new Uint32List.fromList([0, 1, 2147483647, 4294967295, 12, 54, 100,
-      23, 98, 23, 43, 15, 3]);
-  var u8 = new Uint8List.fromList([0x62, 0xe7, 0xa1, 0x7b, 0xf7, 0xec, 0x71,
-      0x00, 0xe7, 0x18, 0x01, 0x01, 0x1f, 0x83, 0xcc, 0xbb]);
+  var u32 = new Uint32List.fromList(
+      [0, 1, 2147483647, 4294967295, 12, 54, 100, 23, 98, 23, 43, 15, 3]);
+  var u8 = new Uint8List.fromList([
+    0x62, 0xe7, 0xa1, 0x7b, 0xf7, 0xec, 0x71, 0x00, 0xe7, 0x18, 0x01, 0x01,
+    0x1f, 0x83, 0xcc, 0xbb
+  ]);
   int bytesInElement = Uint32List.BYTES_PER_ELEMENT;
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
-  for(int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
+  for (int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(u32[i],
-        byteDataFromU32.getUint32(i * bytesInElement,
-            Endianness.LITTLE_ENDIAN));
+        byteDataFromU32.getUint32(
+            i * bytesInElement, Endianness.LITTLE_ENDIAN));
   }
 
   var byteDataFromU8 = new ByteData.view(u8.buffer);
   var expectedBigEndian = [1659347323, 4159467776, 3877110017, 528731323];
-  var expectedLittleEndian = [2074208098,7466231,16849127,3150742303];
-  for(int i = 0; i < byteDataFromU8.lengthInBytes / bytesInElement; ++i) {
+  var expectedLittleEndian = [2074208098, 7466231, 16849127, 3150742303];
+  for (int i = 0; i < byteDataFromU8.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(expectedBigEndian[i],
         byteDataFromU8.getUint32(i * bytesInElement, Endianness.BIG_ENDIAN));
     Expect.equals(expectedLittleEndian[i],

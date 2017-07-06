@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int elementSizeInBytes
+ * @assertion int elementSizeInBytes
  * Returns the number of bytes in the representation of each element in this
  * list.
  * @description Checks that the number of bytes in element of [ByteData] equals

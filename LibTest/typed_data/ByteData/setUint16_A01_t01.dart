@@ -23,20 +23,23 @@ import "../../../Utils/expect.dart";
 
 main() {
   var u16 = new Uint16List(16);
-  var valuesToBeSet = [123, 95, 25, 98, 0, 113, 20, 9, 65535, 1, 24, 25, 69, 52,
-      125, 31];
-  var expectedBigEndian = [31488, 24320, 6400, 25088, 0, 28928, 5120, 2304,
-      65535, 256, 6144, 6400, 17664, 13312, 32000, 7936];
+  var valuesToBeSet = [
+    123, 95, 25, 98, 0, 113, 20, 9, 65535, 1, 24, 25, 69, 52, 125, 31
+  ];
+  var expectedBigEndian = [
+    31488, 24320, 6400, 25088, 0, 28928, 5120, 2304, 65535, 256, 6144, 6400,
+    17664, 13312, 32000, 7936
+  ];
   int bytesInElement = Int16List.BYTES_PER_ELEMENT;
 
   var byteDataFromU16 = new ByteData.view(u16.buffer);
-  for(int i = 0; i < byteDataFromU16.lengthInBytes / bytesInElement; ++i) {
+  for (int i = 0; i < byteDataFromU16.lengthInBytes / bytesInElement; ++i) {
     byteDataFromU16.setUint16(i * bytesInElement, valuesToBeSet[i],
         Endianness.LITTLE_ENDIAN);
   }
   Expect.listEquals(valuesToBeSet, u16);
 
-  for(int i = 0; i < byteDataFromU16.lengthInBytes / bytesInElement; ++i) {
+  for (int i = 0; i < byteDataFromU16.lengthInBytes / bytesInElement; ++i) {
     byteDataFromU16.setUint16(i * bytesInElement, valuesToBeSet[i]);
   }
   Expect.listEquals(expectedBigEndian, u16);
