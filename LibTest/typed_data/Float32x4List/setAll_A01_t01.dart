@@ -33,23 +33,35 @@ main() {
   var l = new Float32x4List(10);
 
   l.setAll(9, [pack(1.0)]);
-  listEquals([pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
-      pack(.0), pack(.0), pack(.0), pack(1.0)], l);
+  listEquals([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0), pack(1.0)
+  ], l);
 
   l.setAll(2, [pack(2.0), pack(2.0), pack(2.0), pack(2.0)]);
-  listEquals([pack(.0), pack(.0), pack(2.0), pack(2.0), pack(2.0), pack(2.0),
-      pack(.0), pack(.0), pack(.0), pack(1.0)], l);
+  listEquals([
+    pack(.0), pack(.0), pack(2.0), pack(2.0), pack(2.0), pack(2.0),
+    pack(.0), pack(.0), pack(.0), pack(1.0)
+  ], l);
 
   l.setAll(0, [pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0)]);
-  listEquals([pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(2.0),
-      pack(.0), pack(.0), pack(.0), pack(1.0)], l);
+  listEquals([
+    pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(3.0), pack(2.0),
+    pack(.0), pack(.0), pack(.0), pack(1.0)
+  ], l);
 
-  l.setAll(0, [pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
-      pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)]);
-  listEquals([pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
-      pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)], l);
+  l.setAll(0, [
+    pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
+    pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)
+  ]);
+  listEquals([
+    pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
+    pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)
+  ], l);
 
   l.setAll(0, []);
-  listEquals([pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
-      pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)], l);
+  listEquals([
+    pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0),
+    pack(11.0), pack(11.0), pack(11.0), pack(11.0), pack(11.0)
+  ], l);
 }

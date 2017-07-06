@@ -22,8 +22,8 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var l = new Float32x4List.fromList([pack(0.0), pack(0.0), pack(0.0),
-      pack(0.0), pack(0.0)]);
+  var l = new Float32x4List.fromList(
+      [pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0)]);
   var res = l.getRange(0, 5);
   Expect.isTrue(equal(pack(0.0), res.elementAt(0)));
   l[0] = pack(1.0);

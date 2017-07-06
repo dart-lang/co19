@@ -39,9 +39,11 @@ check(List<Float32x4> list, Float32x4List sl) {
 }
 
 main() {
-  var list = [pack(1.0, 2.0, 3.0, 4.0), pack(2.0, 3.0, 4.0, 5.0),
-      pack(3.0, 4.0, 5.0, 6.0), pack(4.0, 5.0, 6.0, 7.0),
-      pack(5.0, 6.0, 7.0, 8.0)];
+  var list = [
+    pack(1.0, 2.0, 3.0, 4.0), pack(2.0, 3.0, 4.0, 5.0),
+    pack(3.0, 4.0, 5.0, 6.0), pack(4.0, 5.0, 6.0, 7.0),
+    pack(5.0, 6.0, 7.0, 8.0)
+  ];
   var sl = new Float32x4List.fromList(list);
   sl.shuffle();
   check(list, sl);

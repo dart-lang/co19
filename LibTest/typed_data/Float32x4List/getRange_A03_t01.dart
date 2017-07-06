@@ -19,8 +19,8 @@ import "../../../Utils/expect.dart";
 Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
-  var l = new Float32x4List.fromList([pack(0.0), pack(0.0), pack(0.0),
-      pack(0.0), pack(0.0)]);
+  var l = new Float32x4List.fromList(
+      [pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0)]);
 
   Expect.throws(() {
     l.getRange(1, 0);

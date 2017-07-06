@@ -19,19 +19,19 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(-1, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(list.length + 1, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0x80000000, []);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0x7fffffff, []);
   });
 }
@@ -39,7 +39,9 @@ check(List<Float32x4> list) {
 main() {
   check([]);
   check([pack(1.0)]);
-  check([pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
-      pack(.0), pack(.0), pack(.0)]);
+  check([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0)
+  ]);
 }
 

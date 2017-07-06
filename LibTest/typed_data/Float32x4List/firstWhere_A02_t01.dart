@@ -25,12 +25,13 @@ equal(obj1, obj2) {
 
 main() {
   var count = 0;
-  Float32x4 f () {
+  Float32x4 f() {
     count++;
     return pack(0.0);
   }
-  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
-      pack(4.0), pack(5.0), pack(6.0), pack(9.0)]);
+  var l = new Float32x4List.fromList([
+    pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(9.0)
+  ]);
   var res = l.firstWhere((element) => false, orElse: f);
   Expect.equals(1, count);
   Expect.isTrue(equal(pack(.0), res));

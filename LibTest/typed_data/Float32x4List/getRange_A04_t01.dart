@@ -21,19 +21,19 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(-1, list.length);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(0, list.length + 1);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(-1, list.length + 1);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(0x80000000, 0x7fffffff);
   });
 }

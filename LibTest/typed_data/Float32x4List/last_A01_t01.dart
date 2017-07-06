@@ -32,15 +32,17 @@ void checkClear(int length) {
 main() {
   check([pack(1.0)]);
   check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
-  check([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
-         pack(0.0), pack(1.0)]);
+  check([
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0),
+    pack(0.0), pack(1.0)
+  ]);
 
   checkClear(1);
   checkClear(100);

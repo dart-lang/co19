@@ -27,12 +27,14 @@ check(List<Float32x4> array) {
 
 main() {
   check([pack(1.0), pack(2.0)]);
-  check([pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0)]);
+  check([
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0)
+  ]);
 }

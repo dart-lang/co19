@@ -28,6 +28,8 @@ check(List<Float32x4> list) {
 main() {
   check([]);
   check([zero()]);
-  check([zero(), zero(), zero(), zero(), zero(), zero(), zero(), zero(), zero(),
-      zero(), zero(), zero(), zero(), zero()]);
+  check([
+    zero(), zero(), zero(), zero(), zero(), zero(), zero(), zero(), zero(),
+    zero(), zero(), zero(), zero(), zero()
+  ]);
 }

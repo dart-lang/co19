@@ -21,11 +21,11 @@ main() {
   var list = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0),
       pack(.0)]);
 
-  Expect.throws( () {
+  Expect.throws(() {
     list.sublist(3, 2);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     list.sublist(4, 0);
   });
 }

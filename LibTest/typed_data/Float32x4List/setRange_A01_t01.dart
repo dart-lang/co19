@@ -35,19 +35,29 @@ listEquals(expected, actual) {
 }
 
 main() {
-  var l = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0), pack(.0),
-      pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0)]);
+  var l = new Float32x4List.fromList([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0)
+  ]);
 
   l.setRange(1, 2, [pack(1.0), pack(2.0), pack(3.0)], 2);
-  listEquals([pack(.0), pack(3.0), pack(.0), pack(.0), pack(.0), pack(.0),
-      pack(.0), pack(.0), pack(.0), pack(.0)], l);
+  listEquals([
+    pack(.0), pack(3.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0), pack(.0)
+  ], l);
 
   l.setRange(3, 5, [pack(1.0), pack(2.0), pack(3.0)], 0);
-  listEquals([pack(.0), pack(3.0), pack(.0), pack(1.0), pack(2.0), pack(.0),
-      pack(.0), pack(.0), pack(.0), pack(.0)], l);
+  listEquals([
+    pack(.0), pack(3.0), pack(.0), pack(1.0), pack(2.0), pack(.0),
+    pack(.0), pack(.0), pack(.0), pack(.0)
+  ], l);
 
-  l.setRange(0, 10, [pack(.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0),
-      pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)], 1);
-  listEquals([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-      pack(7.0), pack(8.0), pack(9.0), pack(10.0)], l);
+  l.setRange(0, 10, [
+    pack(.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0),
+    pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)
+  ], 1);
+  listEquals([
+    pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
+    pack(7.0), pack(8.0), pack(9.0), pack(10.0)
+  ], l);
 }

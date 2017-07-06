@@ -51,6 +51,8 @@ check(List<Float32x4> list) {
 main() {
   check([]);
   check([pack(1.0)]);
-  check([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-      pack(7.0), pack(8.0), pack(9.0), pack(10.0)]);
+  check([
+    pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
+    pack(7.0), pack(8.0), pack(9.0), pack(10.0)
+  ]);
 }

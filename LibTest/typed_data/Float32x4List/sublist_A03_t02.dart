@@ -21,7 +21,7 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 check(List<Float32x4> list, dynamic start, dynamic end) {
   var l = new Float32x4List.fromList(list);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.sublist(start, end);
   });
 }

@@ -28,21 +28,26 @@ main() {
   l = new Float32x4List.fromList([pack(1.0, 1.0, 1.0, 1.0)]);
   Expect.isFalse(l.any(pred));
 
-  l = new Float32x4List.fromList([pack(.0, .0, 1.0, .0), pack(.0, .0, 2.0, .0),
-      pack(.0, .0, 3.0, .0), pack(.0, .0, 4.0, .0), pack(.0, .0, 5.0, .0),
-      pack(.0, .0, 1.0, .0), pack(.0, .0, 2.0, .0), pack(.0, .0, 3.0, .0),
-      pack(.0, .0, 4.0, .0), pack(.0, .0, 5.0, .0)]);
+  l = new Float32x4List.fromList([
+    pack(.0, .0, 1.0, .0), pack(.0, .0, 2.0, .0), pack(.0, .0, 3.0, .0),
+    pack(.0, .0, 4.0, .0), pack(.0, .0, 5.0, .0), pack(.0, .0, 1.0, .0),
+    pack(.0, .0, 2.0, .0), pack(.0, .0, 3.0, .0), pack(.0, .0, 4.0, .0),
+    pack(.0, .0, 5.0, .0)
+  ]);
   Expect.isFalse(l.any(pred));
 
   l = new Float32x4List.fromList([pack(.0, .0, 100.0, .0)]);
   Expect.isTrue(l.any(pred));
 
-  l = new Float32x4List.fromList([pack(.0, .0, 6.0, .0), pack(.0, .0, 7.0, .0),
-      pack(.0, .0, 8.0, .0), pack(.0, .0, 9.0, .0), pack(.0, .0, 10.0, .0)]);
+  l = new Float32x4List.fromList([
+    pack(.0, .0, 6.0, .0), pack(.0, .0, 7.0, .0), pack(.0, .0, 8.0, .0),
+    pack(.0, .0, 9.0, .0), pack(.0, .0, 10.0, .0)
+  ]);
   Expect.isTrue(l.any(pred));
 
-  l = new Float32x4List.fromList([pack(.0, .0, 1.0, .0), pack(.0, .0, 2.0, .0),
-      pack(.0, .0, 3.0, .0), pack(.0, .0, 6.0, .0), pack(.0, .0, 4.0, .0),
-      pack(.0, .0, 5.0, .0)]);
+  l = new Float32x4List.fromList([
+    pack(.0, .0, 1.0, .0), pack(.0, .0, 2.0, .0), pack(.0, .0, 3.0, .0),
+    pack(.0, .0, 6.0, .0), pack(.0, .0, 4.0, .0), pack(.0, .0, 5.0, .0)
+  ]);
   Expect.isTrue(l.any(pred));
 }

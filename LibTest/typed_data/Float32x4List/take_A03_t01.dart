@@ -19,7 +19,7 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 void check(List<Float32x4> list, int n) {
   var l = new Float32x4List.fromList(list);
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.take(n);
   });
 }

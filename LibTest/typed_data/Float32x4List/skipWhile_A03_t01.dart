@@ -25,8 +25,8 @@ main() {
     return e.x < 3.0;
   }
 
-  var list = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
-      pack(4.0), pack(5.0)]);
+  var list = new Float32x4List.fromList(
+      [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
   var res = list.skipWhile(test);
   Expect.equals(0, count);
   res.elementAt(0);

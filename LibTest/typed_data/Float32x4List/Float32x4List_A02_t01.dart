@@ -15,7 +15,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(dynamic length) {
-  Expect.throws( () {
+  Expect.throws(() {
     new Float32x4List(length);
   });
 }

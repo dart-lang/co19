@@ -41,19 +41,24 @@ check(List<Float32x4> list, int offset, int length) {
 
 main() {
   check([], 0, 0);
-  check([pack(3.4028234663852886e38), pack(1.401298464324817e-45),
-      pack(1.1754943508222875e-38)], 0, 3);
+  check([
+    pack(3.4028234663852886e38), pack(1.401298464324817e-45),
+    pack(1.1754943508222875e-38)
+  ], 0, 3);
   check([pack(1000.0), pack(1000.0), pack(1000.0)], 0, 3);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
-      pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
-      pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)],
-      0, 18);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
-      pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
-      pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)],
-      32, 13);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
-      pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
-      pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)],
-      16*16, 1);
+  check([
+    pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+    pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
+    pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)
+  ], 0, 18);
+  check([
+    pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+    pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
+    pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)
+  ], 32, 13);
+  check([
+    pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+    pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
+    pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)
+  ], 16*16, 1);
 }

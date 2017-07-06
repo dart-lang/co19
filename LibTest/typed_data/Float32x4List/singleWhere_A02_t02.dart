@@ -19,15 +19,15 @@ import "../../../Utils/expect.dart";
 Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
-  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0),
-      pack(4.0), pack(5.0)]);
+  var l = new Float32x4List.fromList(
+      [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
   try {
     l.singleWhere((e) => true);
     Expect.fail("StateError is expected");
   } on StateError {}
 
-  l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0),
-      pack(5.0)]);
+  l = new Float32x4List.fromList(
+      [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
   try {
     l.singleWhere((e) => e.x != 0.0);
     Expect.fail("StateError is expected");
