@@ -15,12 +15,12 @@ import "pwd.dart";
 main() {
   var count = 0;
   var maxCount = 10;
-  var timeout = 100;
+  var timeout = 1000;
 
   waitForStylesheetLoad()
   {
     count++;
-
+print(count);
     if (getComputedStyle(document.getElementById('description'), null).color == "rgb(0, 128, 0)") {
       //shouldBe(getComputedStyle(document.getElementById('description'), null).color, 'rgb(0, 128, 0)');
       asyncEnd();
