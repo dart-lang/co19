@@ -15,7 +15,7 @@ import "pwd.dart";
 main() {
   var count = 0;
   var maxCount = 10;
-  var timeout = 100;
+  var timeout = 1000;
 
   waitForStylesheetLoad()
   {
