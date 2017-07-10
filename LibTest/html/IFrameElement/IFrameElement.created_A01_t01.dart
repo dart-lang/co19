@@ -13,7 +13,13 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 class MyIFrameElement extends IFrameElement {
+  factory MyIFrameElement() {
+    return new Element.tag('my-iframe');
+  }
+
   MyIFrameElement.created() : super.created();
+
+  String testit() => "In testit";
 }
 
 main() {
@@ -25,7 +31,8 @@ main() {
   var tag = 'my-iframe';
   document.register(tag, MyIFrameElement, extendsTag:"iframe");
 
-  ife = new Element.tag(tag);
+  ife = document.createElement('iframe', 'my-iframe');
   document.body.append(ife);
   Expect.isTrue(ife is MyIFrameElement);
+  Expect.equals("In testit", ife.testit());
 }

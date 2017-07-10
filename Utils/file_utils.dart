@@ -64,3 +64,10 @@ String getPrefix() {
   String fileName = Platform.script.pathSegments[Platform.script.pathSegments.length - 1];
   return fileName.substring(0, fileName.indexOf(".")) + "_";
 }
+
+String getTempFilePath([Directory parent]) {
+  if (parent == null) {
+    parent = Directory.systemTemp;
+  }
+  return parent.path + Platform.pathSeparator + getTempFileName();
+}
