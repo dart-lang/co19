@@ -9,9 +9,9 @@
  * @description Checks that [sqrt] returns -0.0 if [x] is -0.0
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(-.0, Math.sqrt(-0.0));

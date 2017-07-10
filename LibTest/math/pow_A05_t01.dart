@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * If either x or y is NaN then the result is NaN.
+ * @assertion num pow(num x, num exponent)
+ * For doubles, pow(x, y) handles edge cases as follows:
+ * ...
+ * - otherwise, if either x or y is NaN then the result is NaN.
  * @description Checks the result when [x] or [y] is NaN.
  * @author pagolubev
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.pow(double.NAN, double.INFINITY).isNaN);

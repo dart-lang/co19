@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * if x is 0.0 and y is positive, the result is 0.0.
+ * @assertion num pow(num x, num exponent)
+ * For doubles, pow(x, y) handles edge cases as follows:
+ * ...
+ *  - if x is 0.0 and y is positive, the result is 0.0.
  * @description Checks the result when [x] is 0.0 and [y] is positive.
  * @author pagolubev
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(.0, Math.pow(.0, 111));

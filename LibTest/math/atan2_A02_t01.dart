@@ -5,16 +5,17 @@
  */
 /**
  * @assertion double atan2(num a, num b)
- * If [b] is positive, this is the same as atan([b]/[a]).
+ * If [b] is positive, this is the same as atan(b/a).
  * @description Checks that if [b] is positive, the result equals
  * atan([a]/[b]).
  * @author msyabro
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 check(num a, num b) {
-  Expect.equals(Math.atan(a/b), Math.atan2(a, b));
+  Expect.equals(Math.atan(a / b), Math.atan2(a, b));
 }
 
 main() {

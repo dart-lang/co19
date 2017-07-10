@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double sin(num x)
- * Converts [x] to a double and returns the sine of the value.
+ * @assertion double sin(num radians)
+ * Converts [radians] to a double and returns the sine of the value.
  * @description Checks values from [0, 2pi].
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1: S15.8.2.16_A7.js
  * @needsreview Returned value precision is not specified.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;

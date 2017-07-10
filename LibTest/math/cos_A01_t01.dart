@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double cos(num x)
- * Converts [x] to a double and returns the cosine of the value.
+ * @assertion double cos(num radians)
+ * Converts [radians] to a double and returns the cosine of the value.
  *
  * @description Checks values from [0, 2pi].
  *
@@ -16,8 +16,9 @@
  * @needsreview Returned value precision is not specified.
  * Checks exact match with values calculated with LibC.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;

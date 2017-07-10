@@ -5,7 +5,8 @@
  */
 /**
  * @assertion double atan2(num a, num b)
- * Returns the angle between the positive x-axis and the vector ( [b], [a]).
+ * Returns the angle in radians between the positive x-axis and the vector
+ * ([b], [a]).
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev
@@ -13,8 +14,9 @@
  * @needsreview Returned value precision is not specified.
  * Checks exact match with values calculated with LibC.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;

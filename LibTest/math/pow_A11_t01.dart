@@ -4,23 +4,29 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * if [x] is -Infinity or -0.0 and [y] is an odd integer,
- * then the result is -pow(-[x] ,[y]).
- * @description Checks the result when [x] is -Infinity
- * or -0.0 and [y] is an odd integer.
+ * @assertion num pow(num x, num exponent)
+ * For doubles, pow(x, y) handles edge cases as follows:
+ * ...
+ *  - if [x] is -Infinity or -0.0 and [y] is an odd integer, then the result
+ *    is -pow(-[x] ,[y]).
+ * @description Checks the result when [x] is -Infinity or -0.0 and [y] is an
+ * odd integer.
  * @author pagolubev
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1.0));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11.0));
+  Expect.equals(
+      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1));
+  Expect.equals(
+      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1.0));
+  Expect.equals(
+      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11));
+  Expect.equals(
+      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11.0));
 
   Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -1));
   Expect.isTrue(Math.pow(double.NEGATIVE_INFINITY, -1).isNegative);

@@ -5,18 +5,20 @@
  */
 /**
  * @assertion double acos(num x)
+ * Converts x to a double and returns its arc cosine in radians.
  * Throws an error if [x] is null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * @description Checks that Error is thrown when an argument is a null (not
+ * a number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.acos(null);
   });
 }

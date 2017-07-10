@@ -5,7 +5,7 @@
  */
 /**
  * @assertion double atan(num x)
- * Converts [x] to a dobule and returns the arc tangent of the vlaue.
+ * Converts [x] to a dobule and returns its arc tangent in radians.
  *
  * @description Checks set of values.
  *
@@ -16,8 +16,9 @@
  * @needsreview Returned value precision is not specified.
  * Checks exact match with values calculated with LibC.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;

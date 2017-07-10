@@ -9,9 +9,9 @@
  * @description Checks that [atan] returns NaN if [x] is NaN.
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.atan(double.NAN).isNaN);

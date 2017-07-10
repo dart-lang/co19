@@ -10,9 +10,9 @@
  * @author msyabro
  * @reviewer pagolubev
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.sqrt(-1).isNaN);

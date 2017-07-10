@@ -5,18 +5,20 @@
  */
 /**
  * @assertion double atan2(num a, num b)
- * Throws an error if either [a] or [b] is null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * A variant of atan.
+ * Converts both arguments to doubles.
+ * @description Checks that an Error is thrown when argument is a null (not a
+ * number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 void checkNPE(var arg1, var arg2) {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.atan2(arg1, arg2);
   });
 }

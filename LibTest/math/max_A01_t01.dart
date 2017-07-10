@@ -4,21 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num max(num a, num b)
+ * @assertion T max<T extends num>(T a, T b)
  * Returns the larger of two numbers.
  * @description Checks set of values.
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  List<double> data = [double.NEGATIVE_INFINITY, -1e200, -10.0, -0.001, 0.0,
-    0.001, 10.0, 1e200, double.INFINITY];
+  List<double> data = [
+    double.NEGATIVE_INFINITY, -1e200, -10.0, -0.001, 0.0, 0.001, 10.0, 1e200,
+    double.INFINITY
+  ];
   
-  for(int i = 0; i < data.length; i++) {
-    for(int j = 0; j < data.length; j++) {
+  for (int i = 0; i < data.length; i++) {
+    for (int j = 0; j < data.length; j++) {
       num actualMaximum = data[((i >= j) ? i : j)];
       Expect.equals(actualMaximum, Math.max(data[i], data[j]));
     }

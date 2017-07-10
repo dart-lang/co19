@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num min(num a, num b)
+ * @assertion T min<T extends num>(T a, T b)
  * The lesser of -0.0 and 0.0 is -0.0
  * @description Checks that -0.0 is lesser than 0.0.
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.min(.0, -.0).isNegative);

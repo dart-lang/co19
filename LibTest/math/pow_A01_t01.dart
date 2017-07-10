@@ -12,8 +12,9 @@
  * @3rdparty sputnik-v1: S15.8.2.13_A24.js
  * @needsreview Returned value precision is not specified.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
@@ -217,6 +218,6 @@ main() {
   y[63] = 18446744073709552000.00000000000000000000;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.approxEquals(y[i], Math.pow(x1[i], x2[i]), (y[i]/1e7).abs());
+    Expect.approxEquals(y[i], Math.pow(x1[i], x2[i]), (y[i] / 1e7).abs());
   }
 }

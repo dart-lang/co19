@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * Throws an error if either [x] or [y] is null.
- * @description Checks that this method throws an Error when passed a null argument.
+ * @assertion num pow(num x, num exponent)
+ * Returns x to the power of exponent.
+ * @description Checks that this method throws an Error if either [x] or
+ * [exponent] is null (not a number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 check(var a1, var a2) {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.pow(a1, a2);
   });
 }

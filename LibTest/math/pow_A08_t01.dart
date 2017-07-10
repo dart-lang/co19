@@ -4,15 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * if [x] is Infinity and [y] is positive, the result is Infinity.
+ * @assertion num pow(num x, num exponent)
+ * For doubles, pow(x, y) handles edge cases as follows:
+ * ...
+ *  - if [x] is Infinity and [y] is positive, the result is Infinity.
  * @description Checks the result if [x] is Infinity and [y] is positive.
  * @author pagolubev
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(double.INFINITY, Math.pow(double.INFINITY, 1));

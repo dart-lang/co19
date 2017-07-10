@@ -5,16 +5,16 @@
  */
 /**
  * @assertion double atan(num x)
- * Converts [x] to a dobule and returns the arc tangent of the vlaue.
+ * Converts [x] to a dobule and returns its arc tangent in radians.
  * @description Checks special values.
  * @author msyabro
  * @reviewer pagolubev
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(Math.atan(double.INFINITY) == Math.PI/2);
-  Expect.isTrue(Math.atan(double.NEGATIVE_INFINITY) == -Math.PI/2);
+  Expect.isTrue(Math.atan(double.INFINITY) == Math.PI / 2);
+  Expect.isTrue(Math.atan(double.NEGATIVE_INFINITY) == -Math.PI / 2);
 }

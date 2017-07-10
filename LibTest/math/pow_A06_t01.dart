@@ -4,16 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * if [x] is negative (but not -0.0) and [y] is a finite non-integer, the result is NaN.
+ * @assertion num pow(num x, num exponent)
+ * For doubles, pow(x, y) handles edge cases as follows:
+ * ...
+ *  - if [x] is negative (but not -0.0) and [y] is a finite non-integer, the
+ *    result is NaN.
  * @description Checks that if [x] is a negative number and
  * [y] is a finite non-integer, the result is NaN.
  * @author pagolubev
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.pow(-1, 0.5).isNaN);

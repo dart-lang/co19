@@ -5,18 +5,20 @@
  */
 /**
  * @assertion double exp(num x)
- * Throws an error if [x] is a null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * TConverts [x] to a double and returns the natural exponent, E, to the power
+ * [x].
+ * @description Checks that Error is thrown when an argument is a null (not a
+ * number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.exp(null);
   });
 }

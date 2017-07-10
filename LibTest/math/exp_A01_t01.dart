@@ -5,15 +5,17 @@
  */
 /**
  * @assertion double exp(num x)
- * Converts [x] to a double and returns the natural exponent, E, to the power [x].
+ * Converts [x] to a double and returns the natural exponent, E, to the power
+ * [x].
  * @description Checks set of values.
  * @author msyabro
  * @reviewer pagolubev
  * @3rdparty sputnik-v1:S15.8.2.2_A5.js
  * @needsreview Returned value precision is not specified.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   

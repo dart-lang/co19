@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double cos(num x)
- * If [x] is not a finite number, the result is NaN.
- * @description Checks that [cos] returns NaN if [x] is not a finite number.
+ * @assertion double cos(num radians)
+ * If [radians] is not a finite number, the result is NaN.
+ * @description Checks that [cos] returns NaN if [radians] is not a finite
+ * number.
  * @author msyabro
  * @reviewer pagolubev
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.cos(double.NAN).isNaN);
