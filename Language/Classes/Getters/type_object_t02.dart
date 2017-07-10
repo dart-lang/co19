@@ -8,8 +8,9 @@
  * an instance getter with the same name and signature to the Type object for 
  * class C that forwards to the static getter.
  * @description Check that the instance getter, added to the Type object by 
- * static getter declaration, added to the Type object of the current class 
- * only and not added to the Type object of the ancestor
+ * static getter declaration, is not added to the Type object of the current
+ * class and not added to the Type object of the ancestor
+ * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -41,7 +42,6 @@ main() {
   Expect.throws(() {var x = t.g4;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {var x = t.g5;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {var x = t.g6;}, (e) => e is NoSuchMethodError);
-
-  Expect.equals("", t.g7, "Static getter should return expected value");
-  Expect.equals(8, t.g8, "Static getter should return expected value");
+  Expect.throws(() {var x = t.g7;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = t.g8;}, (e) => e is NoSuchMethodError);
 }

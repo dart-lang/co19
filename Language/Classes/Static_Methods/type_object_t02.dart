@@ -8,8 +8,9 @@
  * instance method with the same name and signature to the Type object for
  * class C that forwards to the static method.
  * @description Check that the instance method, added to the Type object by
- * static method declaration, is added to Type object of this class only and
+ * static method declaration, is not added to Type object of this class and
  * not added to the Type of the ancestor
+ * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -35,6 +36,6 @@ main() {
 
   Expect.throws(() {var x = t.a1();}, (e) => e is NoSuchMethodError);
   Expect.throws(() {var x = t.a2();}, (e) => e is NoSuchMethodError);
-  Expect.equals(3, t.s1());
-  Expect.equals(4, t.s2());
+  Expect.throws(() {var x = t.s1();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var x = t.s2();}, (e) => e is NoSuchMethodError);
 }

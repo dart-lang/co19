@@ -7,8 +7,9 @@
  * @assertion The effect of a static getter declaration in class C is to add 
  * an instance getter with the same name and signature to the Type object for 
  * class C that forwards to the static getter.
- * @description Check that static getter declaration adds the instance getter 
- * with the same name to the Type object of this class
+ * @description Check that static getter declaration doesn/t add the instance
+ * getter with the same name to the Type object of this class
+ * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -24,5 +25,5 @@ main() {
   Type t = c.runtimeType;
 
   Expect.throws(() {var x = t.g1;}, (e) => e is NoSuchMethodError);
-  Expect.equals(1, t.g2, "Static getter should exist and return expected value");
+  Expect.throws(() {var x = t.g2;}, (e) => e is NoSuchMethodError);
 }

@@ -8,8 +8,9 @@
  * an instance setter with the same name and signature to the Type object for
  * class C that forwards to the static setter.
  * @description Check that the instance setter, added to the Type object by
- * static setter declaration, is added to Type object of this class only
- * and not added to the Type of the ancestor
+ * static setter declaration, is not added to Type object of this class  and not
+ * added to the Type of the ancestor
+ * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -41,9 +42,7 @@ main() {
   Expect.throws(() {t.s3 = 1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {t.s4 = 1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {t.s5 = 1;}, (e) => e is NoSuchMethodError);
-
-  Expect.equals("", t.s6 = "string", "Static setter should return expected value");
-  Expect.equals(7, t.s7 = 0, "Static setter should return expected value");
-  t.s8 = -1;
-  Expect.equals(-1, C._s8, "Static setter should set expected value");
+  Expect.throws(() {t.s6 = "1";}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.s7 = 1;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.s8 = 1;}, (e) => e is NoSuchMethodError);
 }

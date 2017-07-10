@@ -7,9 +7,10 @@
  * @assertion The effect of a static setter declaration in class C is to add
  * an instance setter with the same name and signature to the Type object for
  * class C that forwards to the static setter.
- * @description Check that static setter declaration adds instance setter with
- * the same name to the Type object of the class and this instance forwards to
- * the static getter
+ * @description Check that static setter declaration doesn't add instance setter
+ * with the same name to the Type object of the class and this instance forwards
+ * to the static getter
+ * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -28,9 +29,5 @@ main() {
   Type t = c.runtimeType;
 
   Expect.throws(() {t.s1 = 1;}, (e) => e is NoSuchMethodError);
-
-  t.s2 = 3;
-  Expect.equals(3, t.s2, "Static setter should set expected value");
-  Expect.equals(3, C.s2, "Static setter should be forwarded by instance " +
-      "one added to the Type object");
+  Expect.throws(() {t.s2 = 1;}, (e) => e is NoSuchMethodError);
 }
