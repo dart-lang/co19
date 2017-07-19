@@ -30,7 +30,7 @@ main() {
   asyncStart();
   file.openRead(1).toList().then((data) {
     try {
-      Expect.listEquals(data, [[2, 3, 4]]);
+      Expect.listEquals([[2, 3, 4]], data);
       asyncEnd();
     } finally {
       file.delete();
