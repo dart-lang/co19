@@ -13,6 +13,8 @@ import "dart:io";
 import "dart:async";
 import "dart:math";
 
+const int ALLOWED_DIFF_IN_SECONDS = 2;
+
 /**
  * Creates temporary file in a temporary directory. Test must call
  * [file.parent.delete()] at the end
@@ -70,4 +72,11 @@ String getTempFilePath([Directory parent]) {
     parent = Directory.systemTemp;
   }
   return parent.path + Platform.pathSeparator + getTempFileName();
+}
+
+String getTempDirectoryPath([Directory parent]) {
+  if (parent == null) {
+    parent = Directory.systemTemp;
+  }
+  return parent.path + Platform.pathSeparator + getTempDirectoryName();
 }

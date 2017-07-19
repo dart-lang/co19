@@ -4,37 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<File> copy(String newPath)
- * Copy this file. Returns a Future<File> that completes with a File instance
- * for the copied file.
+ * @assertion File copySync(String newPath)
+ * Synchronously copy this file. Returns a File instance for the copied file.
  *
  * If newPath identifies an existing file, that file is replaced. If newPath
- * identifies an existing directory, the operation fails and the future
- * completes with an exception.
+ * identifies an existing directory the operation fails and an exception is
+ * thrown.
  * @description Checks that if newPath identifies an existing directory, the
- * operation fails and the future completes with an exception
+ * operation fails and an exception is thrown.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/file_utils.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   File file = getTempFileSync();
   Directory dir = getTempDirectorySync();
-  asyncStart();
-  file.copy(dir.path).then((File copied) {
+  try {
+    Expect.throws(() {file.copySync(dir.path);});
+  } finally {
     file.delete();
     dir.delete();
-    Expect.fail("Exception expected");
-  }, onError: (_) {
-    try {
-      Expect.isTrue(dir.existsSync());
-      asyncEnd();
-    } finally {
-      file.delete();
-      dir.delete();
-    }
-  });
+  }
 }
