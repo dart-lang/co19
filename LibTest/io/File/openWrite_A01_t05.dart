@@ -29,5 +29,11 @@ import "../../../Utils/file_utils.dart";
 main() {
   File file = getTempFileSync();
   file.writeAsStringSync("UTF-8: кириллица прекрасна");
-  Expect.throws(() {file.openWrite(mode: FileMode.READ);});
+  try {
+    Expect.throws(() {
+      file.openWrite(mode: FileMode.READ);
+    });
+  } finally {
+    file.delete();
+  }
 }
