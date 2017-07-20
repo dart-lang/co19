@@ -8,17 +8,19 @@
  * A Point is only equal to another Point with the same coordinates.
  * This point is equal to other if, and only if, other is a Point with x equal
  * to other.x and y equal to other.y.
- * @description checks that Point with a coordinate equal to NaN is not equal to itself.
+ * @description Checks that Point with a coordinate equal to NaN is not equal
+ * to itself.
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  Point point=new Point(0, double.NAN);
+  Point point = new Point(0, double.NAN);
   Expect.isFalse(point == point);
-  point=new Point(double.NAN, 0);
+  point = new Point(double.NAN, 0);
   Expect.isFalse(point == point);
-  point=new Point(double.NAN, double.NAN);
+  point = new Point(double.NAN, double.NAN);
   Expect.isFalse(point == point);
 }
