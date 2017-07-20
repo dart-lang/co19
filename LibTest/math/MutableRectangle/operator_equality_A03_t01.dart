@@ -5,21 +5,31 @@
  */
 /**
  * @assertion bool operator ==(other)
- * A MutableRectangle is only equal to another MutableRectangle with the same coordinates.
- * This MutableRectangle is equal to other if, and only if, other is a MutableRectangle with
- * the same coordinates.
+ * The equality operator.
+ * ...
+ * Reflexive: For all objects o, o == o must be true.
+ * @description Checks that MutableRectangle with a coordinate equal to NaN is
+ * not equal to itself.
  * @needsreview #16167, #16170
- * @description checks that MutableRectangle with a coordinate equal to NaN is not equal to itself.
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  MutableRectangle point=new MutableRectangle(0, double.NAN, 0, 0);
+  MutableRectangle point = new MutableRectangle(0, double.NAN, 0, 0);
   Expect.isFalse(point == point);
-  point=new MutableRectangle(double.NAN, 0, 0, 0);
+  point = new MutableRectangle(double.NAN, 0, 0, 0);
   Expect.isFalse(point == point);
-  point=new MutableRectangle(double.NAN, double.NAN, 0, 0);
+  point = new MutableRectangle(double.NAN, double.NAN, 0, 0);
+  Expect.isFalse(point == point);
+  point = new MutableRectangle(double.INFINITY, 0, double.NEGATIVE_INFINITY, 0);
+  Expect.isFalse(point == point);
+  point = new MutableRectangle(double.NEGATIVE_INFINITY, 0, double.INFINITY, 0);
+  Expect.isFalse(point == point);
+  point = new MutableRectangle(0, double.INFINITY, 0, double.NEGATIVE_INFINITY);
+  Expect.isFalse(point == point);
+  point = new MutableRectangle(0, double.NEGATIVE_INFINITY, 0, double.INFINITY);
   Expect.isFalse(point == point);
 }

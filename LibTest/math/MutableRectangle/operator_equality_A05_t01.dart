@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -7,11 +7,10 @@
  * @assertion bool operator ==(other)
  * The equality operator.
  * ...
- * Symmetric: For all objects o1 and o2, o1 == o2 and o2 == o1 must either both
- * be true, or both be false.
- * @description Checks that the equality operator is symmetric.
- * @needsreview #16170
- * @author kaigorodov
+ * Transitive: For all objects o1, o2, and o3, if o1 == o2 and o2 == o3 are
+ * true, then o1 == o3 must be true.
+ * @description Checks that the equality operator is transitive.
+ * @author ngl@unipru.ru
  */
 
 import "dart:math";
@@ -32,11 +31,14 @@ main() {
               new MutableRectangle(values[i], values[j], values[k], values[l]);
           MutableRectangle r2 =
               new MutableRectangle(values[k], values[l], values[i], values[j]);
-          var res1 = (r1 == r2);
-    	    var res2 = (r2 == r1);
-    	    var res = (res1 == res2);
-    	    Expect.isTrue(res);
-    	    Expect.isNotNull(res);
+          MutableRectangle r3 =
+              new MutableRectangle(values[k], values[l], values[i], values[j]);
+    	    var res1 = (r1 == r2);
+    	    var res2 = (r2 == r3);
+          var res3 = (r1 == r3);
+          if (res1 && res2) {
+            Expect.isTrue(res3);
+          }
         }
       }
     }
