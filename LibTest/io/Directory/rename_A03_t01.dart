@@ -12,8 +12,7 @@
  * newPath identifies an existing file, the operation fails and the future
  * completes with an exception.
  * @description Checks that if newPath identifies an existing file, the
- * operation fails and the future
- * completes with an exception.
+ * operation fails and the future completes with an exception.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -22,24 +21,25 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
 test(Directory srcDir, File target) async {
+}
+
+main() {
+  Directory srcDir = getTempDirectorySync();
+  File target = getTempFileSync();
+
+  asyncStart();
   bool thrown = false;
-  srcDir.rename(target.path).catchError((e) {
-    thrown = true;
-  }).then((d) {
+  srcDir.rename(target.path).then((d) {
+    srcDir.delete(recursive: true);
+    target.delete(recursive: true);
+    Expect.fail("Exception expected");
+  }, onError: (e) {
     try {
-      Expect.isTrue(thrown);
+      Expect.isTrue(e is FileSystemException);
       asyncEnd();
     } finally {
       srcDir.delete(recursive: true);
       target.delete(recursive: true);
     }
   });
-}
-
-main() {
-  Directory srcDir = getTempDirectorySync();
-  File file = getTempFileSync();
-
-  asyncStart();
-  test(srcDir, file);
 }
