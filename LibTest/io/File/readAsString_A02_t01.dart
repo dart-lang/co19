@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<String> readAsLinesSync({Encoding encoding: UTF8})
- * Synchronously read the entire file contents as lines of text using the given
- * Encoding.
+ * @assertion Future<String> readAsString({Encoding encoding: UTF8})
+ * Read the entire file contents as a string using the given Encoding.
  *
- * Throws a FileSystemException if the operation fails.
- * @description Checks that this method synchronously reads the entire file
- * contents as lines of text using the given Encoding. Test encoding argument
+ * Returns a Future<String> that completes with the string once the file
+ * contents has been read.
+ * @description Checks that this method reads the entire file contents as lines
+ * of text using the given Encoding. Test encoding argument
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -29,11 +29,13 @@ main() {
   sink.writeCharCode(0xe3);
   asyncStart();
   sink.close().then((_) {
-    try {
-      Expect.listEquals(["â", "ã"], file.readAsLinesSync(encoding: encoding));
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    file.readAsString(encoding: encoding).then((data) {
+      try {
+        Expect.equals("â\nã", data);
+        asyncEnd();
+      } finally {
+        file.delete();
+      }
+    });
   });
 }
