@@ -5,12 +5,13 @@
  */
 /**
  * @assertion bool operator ==(other)
- * The equality operator.
- * It must by symmetric: for all objects o1 and o2, o1 == o2 and o2 == o1
- * must either both be true, or both be false.
- * @description checks that the equality operator is symmetric.
+ * A Point is only equal to another Point with the same coordinates.
+ * This point is equal to other if, and only if, other is a Point with x equal
+ * to other.x and y equal to other.y.
+ * @description Checks that the equality operator is symmetric.
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
@@ -26,13 +27,13 @@ main() {
     for (int j = 0; j < values.length; j++) {
       for (int k = 0; k < values.length; k++) {
         for (int l = 0; l < values.length; l++) {
-          Point point1=new Point(values[i], values[j]);
-          Point point2=new Point(values[k], values[l]);
-    	  var res1 = (point1==point2);
-    	  var res2 = (point2==point1);
-    	  var res= (res1==res2);
-    	  Expect.isTrue(res);
-    	  Expect.isNotNull(res);
+          Point point1 = new Point(values[i], values[j]);
+          Point point2 = new Point(values[k], values[l]);
+          var res1 = (point1 == point2);
+          var res2 = (point2 == point1);
+          var res = (res1 == res2);
+          Expect.isTrue(res);
+          Expect.isNotNull(res);
         }
       }
     }

@@ -4,18 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String toString()
- * Returns a string representation of this object.
- * @description Checks that the returned string representation contains class
- * name and coordinates.
+ * @assertion T x
+ * @description Checks that [x] read-only and cannot be set.
+ * @note undocumented
  * @author ngl@unipro.ru
  */
 
 import "dart:math";
 import "../../../Utils/expect.dart";
 
+
 main() {
-  var str = new MutableRectangle(0, 1, 1, 1).toString();
-  Expect.isTrue(str is String);
-  Expect.equals("Rectangle (0, 1) 1 x 1", str);
+  dynamic r = new Point(3, 5);
+  try {
+    r.x = 1;
+    Expect.fail("[x] should be read-only");
+  } on NoSuchMethodError {}
 }
