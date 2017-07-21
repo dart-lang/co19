@@ -49,6 +49,11 @@ main() {
 
   Directory dir = srcDir.renameSync(targetDir.path);
 
-  asyncStart();
-  test(srcDir, targetDir);
+  try {
+    Expect.isTrue(targetDir.existsSync());
+    Expect.isFalse(srcDir.existsSync());
+    Expect.equals(0, targetDir.listSync().length);
+  } finally {
+    targetDir.delete(recursive: true);
+  }
 }

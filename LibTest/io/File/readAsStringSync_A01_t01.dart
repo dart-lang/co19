@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<String> readAsLinesSync({Encoding encoding: UTF8})
- * Synchronously read the entire file contents as lines of text using the given
+ * @assertion String readAsStringSync({Encoding encoding: UTF8})
+ * Synchronously read the entire file contents as a string using the given
  * Encoding.
  *
  * Throws a FileSystemException if the operation fails.
  * @description Checks that this method synchronously read the entire file
- * contents as lines of text using the given Encoding. Test empty file
+ * contents as a string using the given Encoding. Test empty file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,7 +20,7 @@ import "../../../Utils/file_utils.dart";
 main() {
   File file = getTempFileSync();
   try {
-    Expect.listEquals([], file.readAsLinesSync());
+    Expect.equals("", file.readAsStringSync());
   } finally {
     file.delete();
   }
