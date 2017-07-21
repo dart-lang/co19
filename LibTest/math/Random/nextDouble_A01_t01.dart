@@ -11,13 +11,13 @@
  * @author msyabro
  * @reviewer pagolubev
  */
-import "../../../Utils/expect.dart";
 
 import "dart:math";
+import "../../../Utils/expect.dart";
 
 main() {
   Random rand = new Random(1023);
-  for(int i = 0; i < 1000; i++) {
+  for (int i = 0; i < 1000; i++) {
     double x = rand.nextDouble();
     Expect.isTrue(x < 1 && x >= 0);
   }

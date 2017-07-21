@@ -9,13 +9,13 @@
  * @description Checks generated values.
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
 
 import "dart:math";
+import "../../../Utils/expect.dart";
 
 main() {
   Random rand = new Random(97531);
-  for(int i = 0; i < 1000; i++) {
+  for (int i = 0; i < 1000; i++) {
     var x = rand.nextBool();
     Expect.isTrue(x is bool);
   }
