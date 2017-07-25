@@ -17,26 +17,18 @@
  * @description Checks that this method creates the directory with this name
  * @author sgrekhov@unipro.ru
  */
+import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
-test() async {
-  getTempDirectory().then((dir) {
-    dir.create().then((created) {
-      created.exists().then((result) {
-        try {
-          Expect.isTrue(result);
-          asyncEnd();
-        } finally {
-          dir.delete();
-        }
-      });
-    });
-  });
-}
-
 main() {
   asyncStart();
-  test();
+  Directory dir = getTempDirectorySync();
+  dir.create().then((created) {
+    Expect.isTrue(created.existsSync());
+    asyncEnd();
+  }).whenComplete(() {
+    dir.delete();
+  });
 }

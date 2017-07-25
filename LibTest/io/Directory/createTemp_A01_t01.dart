@@ -20,27 +20,14 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/file_utils.dart";
 import "../../../Utils/async_utils.dart";
 
-test() async {
-  Directory parent = getTempDirectorySync();
-  parent.createTemp().then((dir) {
-    try {
-      Expect.equals(parent.path, dir.parent.path);
-    } catch (e){
-      parent.delete(recursive: true);
-      throw e;
-    }
-    dir.exists().then((res) {
-      try {
-        Expect.isTrue(res);
-        asyncEnd();
-      } finally {
-        parent.delete(recursive: true);
-      }
-    });
-  });
-}
-
 main() {
   asyncStart();
-  test();
+  Directory parent = getTempDirectorySync();
+  parent.createTemp().then((dir) {
+    Expect.equals(parent.path, dir.parent.path);
+    Expect.isTrue(dir.existsSync());
+    asyncEnd();
+  }).whenComplete(() {
+    parent.delete(recursive: true);
+  });
 }

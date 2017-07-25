@@ -53,7 +53,9 @@ Map getContent(Directory dir) {
   return found;
 }
 
-test(Directory dir) async {
+main() {
+  Directory dir = getTempDirectorySync();
+  asyncStart();
   Map struct = {"a": null, "b": null, "c": {"c1": null, "c2": null}, "d": null};
   List<String> expected = setUp(dir, struct);
 
@@ -61,17 +63,9 @@ test(Directory dir) async {
   dir.list(recursive: false).forEach((entity) {
     found.add(entity.path);
   }).then((_) {
-    try {
-      Expect.listEquals(expected, found);
-      asyncEnd();
-    } finally {
-      dir.delete(recursive: true);
-    }
+    Expect.listEquals(expected, found);
+    asyncEnd();
+  }).whenComplete(() {
+    dir.delete(recursive: true);
   });
-}
-
-main() {
-  Directory dir = getTempDirectorySync();
-  asyncStart();
-  test(dir);
 }

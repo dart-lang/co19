@@ -26,11 +26,9 @@ main() {
   Directory dir = new Directory(file.path);
   asyncStart();
   dir.stat().then((FileStat fs) {
-    try {
-      Expect.equals(FileSystemEntityType.FILE, fs.type);
-      asyncEnd();
-    } finally {
-      file.delete(recursive: true);
-    }
+    Expect.equals(FileSystemEntityType.FILE, fs.type);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete(recursive: true);
   });
 }

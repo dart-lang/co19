@@ -22,16 +22,13 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/file_utils.dart";
 import "../../../Utils/async_utils.dart";
 
-test() async {
+main() {
+  asyncStart();
   Directory dir = getTempDirectorySync();
   dir.create().then((created) {
     Expect.equals(dir, created);
-    dir.delete(recursive: true);
     asyncEnd();
+  }).whenComplete(() {
+    dir.delete(recursive: true);
   });
-}
-
-main() {
-  asyncStart();
-  test();
 }

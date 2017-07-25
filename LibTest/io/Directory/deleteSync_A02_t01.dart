@@ -23,25 +23,13 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
-
-test(Directory dir, Directory sub) async {
-  dir.delete(recursive: true).then((deleted) {
-  });
-}
 
 main() {
   Directory dir = getTempDirectorySync();
   Directory sub = dir.createTempSync();
   dir.deleteSync(recursive: true);
 
-  asyncStart();
-  dir.exists().then((res) {
-    Expect.isFalse(res);
-      sub.exists().then((res2) {
-        Expect.isFalse(res2);
-        asyncEnd();
-      });
-  });
+  Expect.isFalse(dir.existsSync());
+  Expect.isFalse(sub.existsSync());
 }

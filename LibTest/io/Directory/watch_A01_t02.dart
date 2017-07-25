@@ -24,7 +24,7 @@ main() {
   bool called = false;
   asyncStart();
   StreamSubscription s =
-  dir.watch(events: FileSystemEvent.CREATE).listen((FileSystemEvent event) {
+      dir.watch(events: FileSystemEvent.CREATE).listen((FileSystemEvent event) {
     Expect.isFalse(called);
     called = true;
     Expect.equals(FileSystemEvent.CREATE, event.type);
