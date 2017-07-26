@@ -23,11 +23,9 @@ main() {
   file.writeAsStringSync("Line 1\nLine 2\rLine3");
   asyncStart();
   file.readAsString().then((data) {
-    try {
-      Expect.equals("Line 1\nLine 2\rLine3", data);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.equals("Line 1\nLine 2\rLine3", data);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

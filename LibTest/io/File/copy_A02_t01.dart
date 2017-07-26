@@ -32,8 +32,9 @@ main() {
       Expect.equals("", copied.readAsStringSync());
       asyncEnd();
     } finally {
-      file1.delete();
-      file2.delete();
     }
+  }).whenComplete(() {
+    file1.delete();
+    file2.delete();
   });
 }

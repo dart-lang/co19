@@ -30,13 +30,11 @@ main() {
   File file = new File(tmp.path);
   asyncStart();
   file.create().then((File created) {
-    try {
-      Expect.isTrue(created.existsSync());
-      Expect.equals(tmp.path, created.path);
-      Expect.equals("Existing file content", created.readAsStringSync());
-      asyncEnd();
-    } finally {
-      tmp.delete();
-    }
+    Expect.isTrue(created.existsSync());
+    Expect.equals(tmp.path, created.path);
+    Expect.equals("Existing file content", created.readAsStringSync());
+    asyncEnd();
+  }).whenComplete(() {
+    tmp.delete();
   });
 }

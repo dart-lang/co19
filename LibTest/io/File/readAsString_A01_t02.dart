@@ -23,11 +23,9 @@ main() {
   file.writeAsStringSync("File content");
   asyncStart();
   file.readAsString().then((data) {
-    try {
-      Expect.equals("File content", data);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.equals("File content", data);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

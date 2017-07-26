@@ -29,11 +29,9 @@ main() {
   file.writeAsBytesSync([1, 2, 3]);
   asyncStart();
   file.openRead().toList().then((data) {
-    try {
-      Expect.listEquals([[1, 2, 3]], data);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.listEquals([[1, 2, 3]], data);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

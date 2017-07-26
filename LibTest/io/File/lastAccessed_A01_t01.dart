@@ -24,13 +24,11 @@ main() {
   File file = getTempFileSync();
   asyncStart();
   file.lastAccessed().then((DateTime date) {
-    try {
-      Expect.isNotNull(date);
-      Expect.isTrue(date.difference(new DateTime.now()).inSeconds <
-          ALLOWED_DIFF_IN_SECONDS);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.isNotNull(date);
+    Expect.isTrue(date.difference(new DateTime.now()).inSeconds <
+        ALLOWED_DIFF_IN_SECONDS);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

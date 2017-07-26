@@ -21,16 +21,18 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   File file = getTempFileSync();
+  File copy = null;
   asyncStart();
   String newPath = getTempFilePath();
   file.copy(newPath).then((File copied) {
-    try {
+      copy = copied;
       Expect.equals(newPath, copied.path);
       Expect.isTrue(copied.existsSync());
       asyncEnd();
-    } finally {
-      file.delete();
-      copied.delete();
+  }).whenComplete(() {
+    file.delete();
+    if (copy != null) {
+      copy.delete();
     }
   });
 }
