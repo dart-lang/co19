@@ -24,7 +24,7 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   asyncStart();
-  Directory dir = getTempDirectorySync();
+  Directory dir = new Directory(getTempDirectoryPath());
   dir.create().then((created) {
     Expect.isTrue(created.existsSync());
     asyncEnd();
