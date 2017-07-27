@@ -8,10 +8,8 @@
  * function: it is a compile-time error to use void in any other context.
  * For example, as a type argument, or as the type of a variable or parameter.
  * @description Checks that specifying void as a function's parameter type
- * causes a compile-time error.
- * @compile-error
+ * causes no compile-time error.
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

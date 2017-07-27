@@ -11,13 +11,13 @@
  * causes a compile-time error.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 void v = null;
 
 main() {
   try {
-    print(v);
+    var x = v;
+    print(x);
   } catch (x) {}
 }

@@ -11,7 +11,6 @@
  * compile-time error.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A<T extends void> {}

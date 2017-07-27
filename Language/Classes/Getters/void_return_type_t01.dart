@@ -7,13 +7,12 @@
  * @assertion It is a static warning if the return type of a getter is void.
  * @description Checks that a static warning is produced if the return type 
  * of declared getter is void.
- * @static-warning
  * @author ngl@unipro.ru
  */
 
 
 class A {
-  void get foo { /// static type warning
+  void get foo {
   }
 }
 
