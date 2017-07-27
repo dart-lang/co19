@@ -46,7 +46,8 @@ main() {
       asyncEnd();
     } finally {
       raFile.closeSync();
-      file.delete();
     }
+  }).whenComplete(() {
+    file.delete();
   });
 }

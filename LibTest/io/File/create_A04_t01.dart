@@ -32,11 +32,9 @@ main() {
   file.create(recursive: false).then((File created) {
     Expect.fail("FileSystemException is expected");
   }, onError: (e) {
-    try {
-      Expect.isTrue(e is FileSystemException);
-      asyncEnd();
-    } finally {
-      dir.delete();
-    }
+    Expect.isTrue(e is FileSystemException);
+    asyncEnd();
+  }).whenComplete(() {
+    dir.delete();
   });
 }

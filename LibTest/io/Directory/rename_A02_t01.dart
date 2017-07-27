@@ -35,5 +35,12 @@ main() {
     } finally {
       renamed.delete();
     }
+  }).whenComplete(() {
+    if (srcDir.existsSync()) {
+      srcDir.delete(recursive: true);
+    }
+    if (targetDir.existsSync()) {
+      targetDir.delete(recursive: true);
+    }
   });
 }

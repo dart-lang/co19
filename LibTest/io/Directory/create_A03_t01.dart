@@ -18,28 +18,19 @@
  * components are created
  * @author sgrekhov@unipro.ru
  */
+import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
-test() async {
-  getTempDirectory().then((tmp) {
-    getTempDirectory(tmp).then((dir) {
-      dir.create(recursive: true).then((created) {
-        created.exists().then((result) {
-          try {
-            Expect.isTrue(result);
-            asyncEnd();
-          } finally {
-            tmp.delete(recursive: true);
-          }
-        });
-      });
-    });
-  });
-}
-
 main() {
   asyncStart();
-  test();
+  Directory tmp = new Directory(getTempDirectoryPath());
+  Directory dir = new Directory(getTempDirectoryPath(tmp));
+  dir.create(recursive: true).then((created) {
+    Expect.isTrue(created.existsSync());
+    asyncEnd();
+  }).whenComplete(() {
+    tmp.delete(recursive: true);
+  });
 }

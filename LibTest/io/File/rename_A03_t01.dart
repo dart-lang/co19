@@ -30,12 +30,10 @@ main() {
     target.delete();
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
-    try {
-      Expect.isTrue(e is FileSystemException);
-      asyncEnd();
-    } finally {
-      file.delete();
-      target.delete();
-    }
+    Expect.isTrue(e is FileSystemException);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
+    target.delete();
   });
 }

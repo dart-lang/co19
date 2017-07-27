@@ -23,11 +23,9 @@ main() {
   file.writeAsBytesSync(bytes);
   asyncStart();
   file.length().then((int length) {
-    try {
-      Expect.equals(bytes.length, length);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.equals(bytes.length, length);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

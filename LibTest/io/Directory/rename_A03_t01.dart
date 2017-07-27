@@ -20,9 +20,6 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
-test(Directory srcDir, File target) async {
-}
-
 main() {
   Directory srcDir = getTempDirectorySync();
   File target = getTempFileSync();
@@ -34,12 +31,10 @@ main() {
     target.delete(recursive: true);
     Expect.fail("Exception expected");
   }, onError: (e) {
-    try {
-      Expect.isTrue(e is FileSystemException);
-      asyncEnd();
-    } finally {
-      srcDir.delete(recursive: true);
-      target.delete(recursive: true);
-    }
+    Expect.isTrue(e is FileSystemException);
+    asyncEnd();
+  }).whenComplete(() {
+    srcDir.delete(recursive: true);
+    target.delete(recursive: true);
   });
 }

@@ -22,11 +22,9 @@ main() {
   File file = getTempFileSync();
   asyncStart();
   file.readAsString().then((data) {
-    try {
-      Expect.equals("", data);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.equals("", data);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

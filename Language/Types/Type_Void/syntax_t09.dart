@@ -7,17 +7,16 @@
  * @assertion The special type void may only be used as the return type of a
  * function: it is a compile-time error to use void in any other context.
  * For example, as a type argument, or as the type of a variable or parameter.
- * @description Checks that specifying void as the type of a top-level variable
- * causes a compile-time error.
+ * @description Checks that with generalized void specifying [void] as the type
+ * of a top-level variable causes no compile-time error.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 void v = null;
 
 main() {
   try {
-    print(v);
+    print(v); /// compile-time error
   } catch (x) {}
 }

@@ -29,12 +29,10 @@ main() {
     dir.delete();
     Expect.fail("Exception expected");
   }, onError: (_) {
-    try {
-      Expect.isTrue(dir.existsSync());
-      asyncEnd();
-    } finally {
-      file.delete();
-      dir.delete();
-    }
+    Expect.isTrue(dir.existsSync());
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
+    dir.delete();
   });
 }

@@ -23,16 +23,10 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
   dir.deleteSync();
-
-  asyncStart();
-  dir.exists().then((res) {
-    Expect.isFalse(res);
-    asyncEnd();
-  });
+  Expect.isFalse(dir.existsSync());
 }

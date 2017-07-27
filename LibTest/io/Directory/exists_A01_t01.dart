@@ -28,11 +28,9 @@ main() {
   asyncStart();
 
   dir.exists().then((result) {
-    try {
-      Expect.isTrue(result);
-      asyncEnd();
-    } finally {
-      dir.delete(recursive: true);
-    }
+    Expect.isTrue(result);
+    asyncEnd();
+  }).whenComplete(() {
+    dir.delete(recursive: true);
   });
 }

@@ -32,25 +32,19 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
-test(Directory dir, File file) async {
+main() {
+  Directory dir = getTempDirectorySync();
+  File file = getTempFileSync(dir);
+  asyncStart();
   bool found = false;
   dir.list().forEach((entity) {
     if (entity.path == file.path) {
       found = true;
     }
   }).then((_) {
-    try {
-      Expect.isTrue(found);
-      asyncEnd();
-    } finally {
-      dir.delete(recursive: true);
-    }
+    Expect.isTrue(found);
+    asyncEnd();
+  }).whenComplete(() {
+    dir.delete(recursive: true);
   });
-}
-
-main() {
-  Directory dir = getTempDirectorySync();
-  File file = getTempFileSync(dir);
-  asyncStart();
-  test(dir, file);
 }

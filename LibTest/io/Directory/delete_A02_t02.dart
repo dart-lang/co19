@@ -29,17 +29,6 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
 test(Directory dir, Directory sub) async {
-  bool thrown = false;
-  dir.delete(recursive: false).catchError((_) {
-    thrown = true;
-  }).then((_) {
-    try {
-      Expect.isTrue(thrown);
-      asyncEnd();
-    } finally {
-      dir.delete(recursive: true);
-    }
-  });
 }
 
 main() {
@@ -47,5 +36,13 @@ main() {
   Directory sub = dir.createTempSync();
 
   asyncStart();
-  test(dir, sub);
+  bool thrown = false;
+  dir.delete(recursive: false).catchError((_) {
+    thrown = true;
+  }).then((_) {
+    Expect.isTrue(thrown);
+    asyncEnd();
+  }).whenComplete(() {
+    dir.delete(recursive: true);
+  });
 }

@@ -31,12 +31,10 @@ main() {
   File file = new File(filePath);
   asyncStart();
   file.create(recursive: true).then((File created) {
-    try {
-      Expect.isTrue(created.existsSync());
-      Expect.equals(file.path, created.path);
-      asyncEnd();
-    } finally {
-      created.parent.delete(recursive: true);
-    }
+    Expect.isTrue(created.existsSync());
+    Expect.equals(file.path, created.path);
+    asyncEnd();
+  }).whenComplete(() {
+    new Directory(dirPath).delete(recursive: true);
   });
 }

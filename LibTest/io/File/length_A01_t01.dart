@@ -20,11 +20,9 @@ main() {
   File file = getTempFileSync();
   asyncStart();
   file.length().then((int length) {
-    try {
-      Expect.equals(0, length);
-      asyncEnd();
-    } finally {
-      file.delete();
-    }
+    Expect.equals(0, length);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

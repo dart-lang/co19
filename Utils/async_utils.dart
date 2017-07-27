@@ -114,3 +114,87 @@ class Sync2<T> {
 
 }
 /*----------------------------*/
+/**
+ * AsyncExpect is intended for async test to ease checking
+ * Future completion value and checking Stream content.
+ */
+class AsyncExpect {
+
+  /**
+   * Checks whether the given future completes with expected value.
+   * Returns the Future, that may be used for test cleanup via method
+   * whenComplete(). If checks are passed, the returned future completes
+   * the same way as supplied one. Otherwise, the returned future completes
+   * with error.
+   */
+  static Future value(Object expected, Future future) {
+    asyncStart();
+    return future.then((value){
+      Expect.equals(expected, value);
+      asyncEnd();
+      return value;
+    });
+  }
+
+  /**
+   * Checks whether the given future completes with expected error.
+   * Returns the Future, that may be used for test cleanup via method
+   * whenComplete(). If checks are passed, the returned future completes
+   * the same way as supplied one. Otherwise, the returned future completes
+   * with error.
+   */
+  static Future error(Object error, Future future) {
+    asyncStart();
+    return future.then(
+      (_) {
+        Expect.fail("The future is expceted to complete with error");
+      },
+      onError: (e){
+        Expect.equals(error, e);
+        asyncEnd();
+        throw e;
+      }
+    );
+  }
+
+  /**
+   * Checks whether the given stream contains expected data events.
+   * Any error in the stream is unexpected and wil fail the test.
+   */
+  static void data(List<T> data, Stream<T> stream) {
+    List actual = [];
+    asyncStart();
+    stream.listen(
+        (T value) {
+          actual.add(value);
+        },
+        onDone: () {
+          Expect.listEquals(data, actual);
+          asyncEnd();
+        }
+    );
+  }
+
+  /**
+   * Checks whether the given stream contains expected data and error events.
+   */
+  static void events(List<T> data, List errors, Stream<T> stream) {
+    List actualData = [];
+    List actualErrors = [];
+    asyncStart();
+    stream.listen(
+        (value) {
+          actualData.add(value);
+        },
+        onError: (error) {
+          actualErrors.add(error);
+        },
+        onDone: () {
+          Expect.listEquals(data, actualData);
+          Expect.listEquals(errors, actualErrors);
+          asyncEnd();
+        }
+    );
+  }
+
+}

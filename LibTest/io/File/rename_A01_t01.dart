@@ -22,19 +22,24 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   File file = getTempFileSync();
+  File ren = null;
   file.writeAsStringSync("File content");
   String newName = getTempFilePath();
 
   asyncStart();
   file.rename(newName).then((renamed) {
-    try {
-      Expect.equals(newName, renamed.path);
-      Expect.isTrue(renamed.existsSync());
-      Expect.isFalse(file.existsSync());
-      Expect.equals("File content", renamed.readAsStringSync());
-      asyncEnd();
-    } finally {
-      renamed.delete();
+    ren = renamed;
+    Expect.equals(newName, renamed.path);
+    Expect.isTrue(renamed.existsSync());
+    Expect.isFalse(file.existsSync());
+    Expect.equals("File content", renamed.readAsStringSync());
+    asyncEnd();
+  }).whenComplete(() {
+    if (ren != null) {
+      ren.delete();
+    }
+    if (file.existsSync()) {
+      file.delete();
     }
   });
 }

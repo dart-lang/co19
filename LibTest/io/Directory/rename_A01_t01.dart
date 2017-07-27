@@ -36,5 +36,9 @@ main() {
     } finally {
       renamed.delete();
     }
+  }).whenComplete(() {
+    if (dir.existsSync()) {
+      dir.delete(recursive: true);
+    }
   });
 }

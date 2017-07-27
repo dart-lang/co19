@@ -28,12 +28,10 @@ main() {
   File file = new File(getTempFilePath());
   asyncStart();
   file.create().then((File created) {
-    try {
-      Expect.isTrue(created.existsSync());
-      Expect.equals(file.path, created.path);
-      asyncEnd();
-    } finally {
-      created.delete();
-    }
+    Expect.isTrue(created.existsSync());
+    Expect.equals(file.path, created.path);
+    asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }

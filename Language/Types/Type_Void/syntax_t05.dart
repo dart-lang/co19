@@ -11,7 +11,6 @@
  * expression causes a compile-time error.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

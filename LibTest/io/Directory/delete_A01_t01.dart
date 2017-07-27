@@ -29,21 +29,12 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
-test(Directory dir) async {
-  dir.delete().then((deleted) {
-    dir.exists().then((res) {
-      Expect.isFalse(res);
-      deleted.exists().then((res2) {
-        Expect.isFalse(res2);
-        asyncEnd();
-      });
-    });
-  });
-}
-
 main() {
   Directory dir = getTempDirectorySync();
-
   asyncStart();
-  test(dir);
+  dir.delete().then((deleted) {
+    Expect.isFalse(dir.existsSync());
+    Expect.isFalse(deleted.existsSync());
+    asyncEnd();
+  });
 }

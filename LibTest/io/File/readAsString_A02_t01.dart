@@ -30,12 +30,10 @@ main() {
   asyncStart();
   sink.close().then((_) {
     file.readAsString(encoding: encoding).then((data) {
-      try {
-        Expect.equals("â\nã", data);
-        asyncEnd();
-      } finally {
-        file.delete();
-      }
+      Expect.equals("â\nã", data);
+      asyncEnd();
+    }).whenComplete(() {
+      file.delete();
     });
   });
 }
