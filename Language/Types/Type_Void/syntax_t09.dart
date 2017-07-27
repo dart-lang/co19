@@ -16,6 +16,5 @@
 void v = null;
 
 main() {
-  var x = v;
-  print(x);
+  print(v); /// compile-time error
 }

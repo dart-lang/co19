@@ -5,8 +5,9 @@
  */
 /**
  * @assertion It is a static warning if the return type of a getter is void.
- * @description Checks that no static warning is produced if the return type
- * of declared getter is void.
+ * @description Checks that with generalized void no static warning is produced
+ * if the return type of declared getter is [void].
+ * @static-clean
  * @author ngl@unipro.ru
  */
 
