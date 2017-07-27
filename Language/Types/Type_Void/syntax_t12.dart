@@ -11,7 +11,6 @@
  * compile-time error.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class void {}

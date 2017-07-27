@@ -11,7 +11,6 @@
  * ompile-time error.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

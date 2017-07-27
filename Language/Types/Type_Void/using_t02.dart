@@ -13,7 +13,6 @@
  * a variable whose declared type is not dynamic results in a static warning.
  * @static-warning
  * @author rodionov
- * @reviewer iefremov
  * @needsreview Assertion of this test cites non-normative text.
  * Possibly, this text in the spec should be normative?
  */
