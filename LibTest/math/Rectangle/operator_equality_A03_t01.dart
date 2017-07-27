@@ -5,21 +5,23 @@
  */
 /**
  * @assertion bool operator ==(other)
- * A Rectangle is only equal to another Rectangle with the same coordinates.
+ * The equality operator.
  * This Rectangle is equal to other if, and only if, other is a Rectangle with
  * the same coordinates.
  * @needsreview #16167, #16170
- * @description checks that Rectangle with a coordinate equal to NaN is not equal to itself.
+ * @description Checks that Rectangle with a coordinate equal to NaN is not
+ * equal to itself.
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  Rectangle point=new Rectangle(0, double.NAN, 0, 0);
+  Rectangle point = new Rectangle(0, double.NAN, 0, 0);
   Expect.isFalse(point == point);
-  point=new Rectangle(double.NAN, 0, 0, 0);
+  point = new Rectangle(double.NAN, 0, 0, 0);
   Expect.isFalse(point == point);
-  point=new Rectangle(double.NAN, double.NAN, 0, 0);
+  point = new Rectangle(double.NAN, double.NAN, 0, 0);
   Expect.isFalse(point == point);
 }
