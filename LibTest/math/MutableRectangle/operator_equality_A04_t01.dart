@@ -33,10 +33,10 @@ main() {
           MutableRectangle r2 =
               new MutableRectangle(values[k], values[l], values[i], values[j]);
           var res1 = (r1 == r2);
-    	    var res2 = (r2 == r1);
-    	    var res = (res1 == res2);
-    	    Expect.isTrue(res);
-    	    Expect.isNotNull(res);
+          var res2 = (r2 == r1);
+          var res = (res1 == res2);
+          Expect.isTrue(res);
+          Expect.isNotNull(res);
         }
       }
     }

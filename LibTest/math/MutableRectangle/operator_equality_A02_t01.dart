@@ -32,9 +32,9 @@ main() {
         for (int l = 0; l < values.length; l++) {
           MutableRectangle r2 =
               new MutableRectangle(values[i], values[j], values[k], values[l]);
-    	    var res = (r1 == r2);
-    	    Expect.isTrue(res is bool);
-    	    Expect.isNotNull(res);
+          var res = (r1 == r2);
+          Expect.isTrue(res is bool);
+          Expect.isNotNull(res);
         }
       }
     }
