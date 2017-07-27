@@ -17,7 +17,6 @@ void v = null;
 
 main() {
   try {
-    var x = v;
-    print(x);
+    print(v);
   } catch (x) {}
 }
