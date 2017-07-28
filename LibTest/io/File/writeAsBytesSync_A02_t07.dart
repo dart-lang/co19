@@ -21,7 +21,8 @@
  * system before returning.
  *
  * Throws a FileSystemException if the operation fails.
- * @description Checks that in a FileMode.WRITE_ONLY file is truncated
+ * @description Checks that in a FileMode.WRITE_ONLY_APPEND file is not
+ * truncated
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -33,8 +34,8 @@ main() {
 
   try {
     file.writeAsBytesSync([1, 1, 1, 1, 1]);
-    file.writeAsBytesSync([3, 1, 4, 1, 5], mode: FileMode.WRITE_ONLY);
-    Expect.listEquals([3, 1, 4, 1, 5], file.readAsBytesSync());
+    file.writeAsBytesSync([3, 1, 4, 1, 5], mode: FileMode.WRITE_ONLY_APPEND);
+    Expect.listEquals([1, 1, 1, 1, 1, 3, 1, 4, 1, 5], file.readAsBytesSync());
   } finally {
     file.delete();
   }

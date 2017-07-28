@@ -21,9 +21,9 @@
  *
  * If the argument flush is set to true, the data written will be flushed to the
  * file system before the returned future completes.
- * @description Checks that in a FileMode.WRITE_ONLY_APPEND file can be read
+ * @description Checks that in a FileMode.WRITE writeAsBytes creates the file
+ * for writing and truncates the file if it already exists
  * @author sgrekhov@unipro.ru
- * @issue 30262
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -31,13 +31,13 @@ import "../../../Utils/file_utils.dart";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  File file = new File(getTempFilePath());
-  file.writeAsBytesSync([3, 1, 4, 5, 2, 6]);
+  File file = getTempFileSync();
+  file.writeAsBytesSync([1, 1, 1, 2]);
   asyncStart();
-  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.WRITE_ONLY_APPEND).then((f) {
+  file.writeAsBytes([0, 1, 2, 255]).then((f) {
     Expect.isTrue(file.existsSync());
-    Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], f.readAsBytesSync());
-    Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], file.readAsBytesSync());
+    Expect.listEquals([0, 1, 2, 255], f.readAsBytesSync());
+    Expect.listEquals([0, 1, 2, 255], file.readAsBytesSync());
     asyncEnd();
   }).whenComplete(() {
     file.delete();

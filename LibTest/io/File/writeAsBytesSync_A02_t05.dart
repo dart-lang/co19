@@ -22,7 +22,7 @@
  *
  * Throws a FileSystemException if the operation fails.
  * @description Checks that in a FileMode.READ a FileSystemException is thrown.
- * Test not existing file
+ * Test an existing file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -30,7 +30,7 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = new File(getTempFilePath());
+  File file = getTempFileSync();
 
   try {
     file.writeAsBytesSync([1, 1, 1, 1, 1]);
