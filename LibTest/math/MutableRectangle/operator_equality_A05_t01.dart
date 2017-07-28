@@ -33,8 +33,8 @@ main() {
               new MutableRectangle(values[k], values[l], values[i], values[j]);
           MutableRectangle r3 =
               new MutableRectangle(values[k], values[l], values[i], values[j]);
-    	    var res1 = (r1 == r2);
-    	    var res2 = (r2 == r3);
+          var res1 = (r1 == r2);
+          var res2 = (r2 == r3);
           var res3 = (r1 == r3);
           if (res1 && res2) {
             Expect.isTrue(res3);

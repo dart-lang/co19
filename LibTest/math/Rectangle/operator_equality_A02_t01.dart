@@ -6,11 +6,14 @@
 /**
  * @assertion bool operator ==(other)
  * The equality operator.
- * It must return a boolean for all arguments. It should never throw or return null.
- * @description checks that it never throws or return null.
+ * ...
+ * It must return a boolean for all arguments. It should never throw or return
+ * null.
+ * @description Checks that it never throws or return null.
  * @needsreview #16170
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
@@ -22,15 +25,17 @@ const List<num> values = const [
  ];
  
 main() {
-  Rectangle r1=new Rectangle(0, double.MAX_FINITE, double.INFINITY, double.NAN);
+  Rectangle r1 =
+      new Rectangle(0, double.MAX_FINITE, double.INFINITY, double.NAN);
   for (int i = 0; i < values.length; i++) {
     for (int j = 0; j < values.length; j++) {
       for (int k = 0; k < values.length; k++) {
         for (int l = 0; l < values.length; l++) {
-          Rectangle r2=new Rectangle(values[i], values[j], values[k], values[l]);
-    	  var res = (r1==r2);
-    	  Expect.isTrue(res is bool);
-    	  Expect.isNotNull(res);
+          Rectangle r2 =
+              new Rectangle(values[i], values[j], values[k], values[l]);
+          var res = (r1 == r2);
+          Expect.isTrue(res is bool);
+          Expect.isNotNull(res);
         }
       }
     }
