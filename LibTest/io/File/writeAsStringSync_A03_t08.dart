@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void writeAsBytesSync(
- * List<int> bytes, {
- * FileMode mode: FileMode.WRITE,
- * bool flush: false
- * })
- * Synchronously write a list of bytes to a file.
+ * @assertion void writeAsStringSync(
+ *  String contents, {
+ *  FileMode mode: FileMode.WRITE,
+ *  Encoding encoding: UTF8,
+ *  bool flush: false
+ *  })
+ * Synchronously write a string to a file.
  *
- * Opens the file, writes the list of bytes to it and closes the file.
+ * Opens the file, writes the string in the given encoding, and closes the file.
  *
- * By default writeAsBytesSync creates the file for writing and truncates the
+ * By default writeAsStringSync creates the file for writing and truncates the
  * file if it already exists. In order to append the bytes to an existing file,
  * pass FileMode.APPEND as the optional mode parameter.
  *
@@ -21,7 +22,7 @@
  * system before returning.
  *
  * Throws a FileSystemException if the operation fails.
- * @description Checks that in a FileMode.WRITE writeAsBytesSync creates the
+ * @description Checks that in a FileMode.WRITE writeAsString creates the
  * file for writing and truncates the file if it already exists
  * @author sgrekhov@unipro.ru
  */
@@ -31,11 +32,10 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   File file = getTempFileSync();
-
   try {
-    file.writeAsBytesSync([1, 1, 1, 1, 1]);
-    file.writeAsBytesSync([3, 1, 4, 1, 5], mode: FileMode.WRITE);
-    Expect.listEquals([3, 1, 4, 1, 5], file.readAsBytesSync());
+    file.writeAsStringSync("Old content");
+    file.writeAsStringSync("New content", mode: FileMode.WRITE);
+    Expect.equals("New content", file.readAsStringSync());
   } finally {
     file.delete();
   }

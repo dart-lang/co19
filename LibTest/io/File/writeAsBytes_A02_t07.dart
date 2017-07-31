@@ -21,7 +21,7 @@
  *
  * If the argument flush is set to true, the data written will be flushed to the
  * file system before the returned future completes.
- * @description Checks that in a FileMode.WRITE_ONLY file can be read
+ * @description Checks that in a FileMode.WRITE_ONLY_APPEND file can be read
  * @author sgrekhov@unipro.ru
  * @issue 30262
  */
@@ -34,10 +34,10 @@ main() {
   File file = new File(getTempFilePath());
   file.writeAsBytesSync([3, 1, 4, 5, 2, 6]);
   asyncStart();
-  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.WRITE_ONLY).then((f) {
+  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.WRITE_ONLY_APPEND).then((f) {
     Expect.isTrue(file.existsSync());
-    Expect.listEquals([0, 1, 2, 255], f.readAsBytesSync());
-    Expect.listEquals([0, 1, 2, 255], file.readAsBytesSync());
+    Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], f.readAsBytesSync());
+    Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], file.readAsBytesSync());
     asyncEnd();
   }).whenComplete(() {
     file.delete();

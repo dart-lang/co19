@@ -21,8 +21,8 @@
  * system before returning.
  *
  * Throws a FileSystemException if the operation fails.
- * @description Checks that in a FileMode.APPEND bytes are appended the bytes to
- * a file. Test not existing file
+ * @description Checks that in a FileMode.READ a FileSystemException is thrown.
+ * Test not existing file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -32,12 +32,7 @@ import "../../../Utils/file_utils.dart";
 main() {
   File file = new File(getTempFilePath());
 
-  try {
-    file.writeAsBytesSync([1, 1, 1, 1, 1]);
-    file.writeAsBytesSync([3, 1, 4, 1, 5], mode: FileMode.APPEND);
-    Expect.isTrue(file.existsSync());
-    Expect.listEquals([1, 1, 1, 1, 1, 3, 1, 4, 1, 5], file.readAsBytesSync());
-  } finally {
-    file.delete();
-  }
+    Expect.throws(() {file.writeAsBytesSync([3, 1, 4], mode: FileMode.READ);},
+        (e) => e is FileSystemException);
+  Expect.isFalse(file.existsSync());
 }

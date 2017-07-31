@@ -21,8 +21,8 @@
  * system before returning.
  *
  * Throws a FileSystemException if the operation fails.
- * @description Checks that in a FileMode.APPEND bytes are appended the bytes to
- * an existing file
+ * @description Checks that in a FileMode.APPEND bytes are appended to an
+ * existing file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";

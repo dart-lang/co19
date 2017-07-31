@@ -21,8 +21,8 @@
  *
  * If the argument flush is set to true, the data written will be flushed to the
  * file system before the returned future completes.
- * @description Checks that in a FileMode.APPEND bytes are appended the bytes to
- * a file. Test not existing file
+ * @description Checks that in a FileMode.READ returned Future completes with a
+ * FileSystemException. Test not existing file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -32,13 +32,12 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   File file = new File(getTempFilePath());
-  file.writeAsBytesSync([3, 1, 4, 5, 2, 6]);
   asyncStart();
-  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.APPEND).then((f) {
-    Expect.isTrue(file.existsSync());
-    Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], f.readAsBytesSync());
+  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.READ).then((f) {
+    Expect.fail("FileSystemException is expected");
+  }, onError: (e) {
+    Expect.isTrue(e is FileSystemException);
+    Expect.isFalse(file.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    file.delete();
   });
 }

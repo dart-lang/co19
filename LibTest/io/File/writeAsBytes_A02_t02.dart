@@ -37,6 +37,7 @@ main() {
   file.writeAsBytes([0, 1, 2, 255]).then((f) {
     Expect.isTrue(file.existsSync());
     Expect.listEquals([0, 1, 2, 255], f.readAsBytesSync());
+    Expect.listEquals([0, 1, 2, 255], file.readAsBytesSync());
     asyncEnd();
   }).whenComplete(() {
     file.delete();
