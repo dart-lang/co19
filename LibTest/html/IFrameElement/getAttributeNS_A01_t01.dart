@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
-  x.setAttributeNS(XlinkNamespace, 'href','1');
+  IFrameElement x = new IFrameElement();
+  x.setAttributeNS(XlinkNamespace, 'href', '1');
   x.setAttributeNS(XlinkNamespace, 'custom', '2');
 
   Expect.equals('1', x.getAttributeNS(XlinkNamespace, 'href'));

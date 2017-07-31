@@ -12,10 +12,10 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   Expect.equals("", x.text, 'document');
-  
-  var text="Content Text";
+
+  var text = "Content Text";
   x = new Element.html('<iframe>$text</iframe>');
   Expect.equals(text, x.text, "text");
 }

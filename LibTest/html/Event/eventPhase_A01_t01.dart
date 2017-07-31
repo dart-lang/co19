@@ -26,7 +26,7 @@ main() {
     Expect.equals(Event.BUBBLING_PHASE, e.eventPhase);
     asyncEnd();
   });
-  
+
   Element.clickEvent.forElement(div).listen((e) {
     Expect.equals(Event.AT_TARGET, e.eventPhase);
     asyncEnd();

@@ -18,8 +18,8 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<div></div>',
-      treeSanitizer: new NullTreeSanitizer());
+  var x =
+      new Element.html('<div></div>', treeSanitizer: new NullTreeSanitizer());
   Expect.isFalse(x.isContentEditable, 'default');
 
   x = new Element.html('<div contenteditable="false"></div>',
@@ -29,7 +29,7 @@ main() {
   x = new Element.html('<div contenteditable="true"></div>',
       treeSanitizer: new NullTreeSanitizer());
   Expect.isTrue(x.isContentEditable, 'explicit true');
-  
+
   x = new Element.html('<div contenteditable=""></div>',
       treeSanitizer: new NullTreeSanitizer());
   Expect.isTrue(x.isContentEditable, 'empty string is true');

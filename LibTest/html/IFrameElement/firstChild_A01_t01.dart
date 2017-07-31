@@ -15,8 +15,8 @@ main() {
   IFrameElement iframe = new Element.html('<iframe>Content</iframe>');
   var ref = iframe.firstChild;
   Expect.equals("Content", ref.toString());
-  
-  var hr=new HRElement();
+
+  var hr = new HRElement();
   iframe.insertBefore(hr, ref);
   Expect.equals(hr, iframe.firstChild);
 }

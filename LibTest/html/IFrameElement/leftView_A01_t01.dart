@@ -22,7 +22,7 @@ class IFrameElement1 extends IFrameElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, IFrameElement1, extendsTag:"iframe");
+  document.register(tag, IFrameElement1, extendsTag: "iframe");
 
   asyncStart();
   IFrameElement1 x = new Element.tag(tag);

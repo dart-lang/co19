@@ -18,22 +18,22 @@ main() {
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
   HttpRequestUpload upload = request.upload;
   asyncStart();
-  upload.onLoad.listen((event){
-      switch(request.readyState) {
-        case HttpRequest.DONE:
-          asyncEnd();
-          break;
-        case HttpRequest.HEADERS_RECEIVED:
-          break;
-        case HttpRequest.LOADING:
-          break;
-        default:
-          Expect.fail("request.onLoad.listen: unexpected readyState:${request.readyState}");
-        }
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+  upload.onLoad.listen((event) {
+    switch (request.readyState) {
+      case HttpRequest.DONE:
+        asyncEnd();
+        break;
+      case HttpRequest.HEADERS_RECEIVED:
+        break;
+      case HttpRequest.LOADING:
+        break;
+      default:
+        Expect.fail(
+            "request.onLoad.listen: unexpected readyState:${request.readyState}");
+    }
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
   request.send();
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

@@ -21,7 +21,7 @@ main() {
   document.body.append(new Text(text));
   bool res = window.find(text, false, false, false, false, false, false);
   Expect.isTrue(res, "text not found");
-  
+
   res = window.find(text, false, false, true, false, false, false);
   Expect.isTrue(res, "wrapped text not found");
 }

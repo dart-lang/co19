@@ -17,9 +17,8 @@ main() {
   var ref = div.querySelector('span');
   div.insertAllBefore([], ref);
 
-  Expect.equals('<div><span></span></div>', div.outerHtml,
-      'insert empty list');
- 
+  Expect.equals('<div><span></span></div>', div.outerHtml, 'insert empty list');
+
   //-------------------
   div = new Element.html('<div><span></span></div>');
   ref = div.querySelector('span');
@@ -27,7 +26,7 @@ main() {
 
   Expect.equals('<div><hr><a></a><span></span></div>', div.outerHtml,
       'insert before existing child');
-  
+
   //-------------------
   div = new Element.html('<div><span></span></div>');
   ref = new PreElement(); // not a child

@@ -18,20 +18,20 @@ main() {
   var x1 = new Element.html(html);
   document.body.append(x1);
   var r1 = x1.getBoundingClientRect();
-  
+
   var x2 = new Element.html(html);
   x2.style.padding = '10px';
   document.body.append(x2);
   var r2 = x2.getBoundingClientRect();
   Expect.isTrue(r2.height > r1.height, 'padding');
-  
+
   var x3 = new Element.html(html);
   x3.style.padding = '10px';
   x3.style.overflow = 'scroll';
   document.body.append(x3);
   var r3 = x3.getBoundingClientRect();
   Expect.isTrue(r3.height > r2.height, 'padding scrollbar');
-  
+
   var x4 = new Element.html(html);
   x4.style.padding = '10px';
   x4.style.overflow = 'scroll';

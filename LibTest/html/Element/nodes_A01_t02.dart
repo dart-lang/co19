@@ -18,6 +18,6 @@ main() {
   x.nodes.removeAt(0);
   x.nodes.removeAt(0);
   x.nodes.add(new DivElement());
-  
+
   Expect.equals('<body><div></div></body>', x.outerHtml);
 }

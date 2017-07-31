@@ -12,7 +12,7 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const text="Hi there!";
+const text = "Hi there!";
 
 main() {
   asyncStart();
@@ -21,7 +21,6 @@ main() {
     Expect.equals(text, (event as MessageEvent).data);
     asyncEnd();
   });
-  
-  window.postMessage(text,  "*");
-  
+
+  window.postMessage(text, "*");
 }

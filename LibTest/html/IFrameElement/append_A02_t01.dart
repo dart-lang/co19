@@ -13,7 +13,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   var h = new Element.html('<span><button></button></span>');
   var y = new Comment("cool");
   h.append(y);

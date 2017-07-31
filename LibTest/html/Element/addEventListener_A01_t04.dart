@@ -34,7 +34,7 @@ main() {
     Expect.equals(Event.AT_TARGET, e.eventPhase);
     asyncEnd();
   });
-  
+
   // click on button
   var event = new Event(type, canBubble: false);
   x.dispatchEvent(event);

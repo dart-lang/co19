@@ -22,7 +22,7 @@ main() {
   var x = new Comment("cool");
   document.insertBefore(x, document.firstChild);
   Expect.equals(document.firstChild, x, 'insert before existing child');
-  
+
   Expect.throws(() {
     document.insertBefore(new Comment("cool"), new HRElement());
   }, null, 'insert before not existing child');

@@ -14,16 +14,14 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
-  x.append(new Element.html(
-      '''<div class="foo">
+  IFrameElement x = new IFrameElement();
+  x.append(new Element.html('''<div class="foo">
            <table></table>
            <iframe class="foo"></iframe>
            <span class="bar">
              <pre class="foo"></pre>
            </span>
-         </div>''',
-      treeSanitizer: new NullTreeSanitizer()));
+         </div>''', treeSanitizer: new NullTreeSanitizer()));
 
   var y = x.getElementsByClassName('foo');
 

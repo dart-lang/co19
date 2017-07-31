@@ -16,8 +16,8 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new IFrameElement(),
     document,

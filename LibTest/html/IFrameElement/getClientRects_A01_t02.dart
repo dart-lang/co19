@@ -14,15 +14,15 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.append(new Element.html('<span>foo<br/>bar</span>'));
   document.body.append(x);
   var rects = x.getClientRects();
   var bigRrect = x.getBoundingClientRect();
 
-  for (var i=0; i<rects.length; ++i) {
+  for (var i = 0; i < rects.length; ++i) {
     print("rects[$i]=${rects[i]}; bigRrect=$bigRrect");
-    Expect.isTrue(bigRrect.containsRectangle(rects[i]),
-        '${i+1} of ${rects.length}');
+    Expect.isTrue(
+        bigRrect.containsRectangle(rects[i]), '${i+1} of ${rects.length}');
   }
 }

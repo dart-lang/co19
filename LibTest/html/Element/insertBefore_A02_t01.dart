@@ -17,6 +17,6 @@ main() {
   var div = new Element.html('<div><span></span></div>');
   div.insertBefore(new HRElement(), null);
 
-  Expect.equals('<div><span></span><hr></div>', div.outerHtml,
-      'insert before null');
+  Expect.equals(
+      '<div><span></span><hr></div>', div.outerHtml, 'insert before null');
 }

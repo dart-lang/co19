@@ -17,6 +17,6 @@ main() {
   IFrameElement iframe = new Element.html('<iframe>Content</iframe>');
 
   iframe.insertBefore(new HRElement(), null);
-  Expect.equals('<iframe>Content<hr></iframe>', iframe.outerHtml,
-      'insert before null');
+  Expect.equals(
+      '<iframe>Content<hr></iframe>', iframe.outerHtml, 'insert before null');
 }

@@ -16,7 +16,7 @@ main() {
   var type = 'load';
   dynamic x = document.body;
   x.innerHtml =
-    '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
+      '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
 
   asyncStart();
   x.firstChild.onLoad.listen((e) {

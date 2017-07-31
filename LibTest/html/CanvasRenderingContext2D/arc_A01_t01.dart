@@ -14,17 +14,17 @@ import "dart:html";
 main() {
   CanvasElement canvas = new CanvasElement();
   CanvasRenderingContext2D ctx = canvas.context2D
-  ..fillStyle = "rgb(200,0,0)"
-  ..fillRect(10, 10, 55, 50);
-document.body.append(canvas);
+    ..fillStyle = "rgb(200,0,0)"
+    ..fillRect(10, 10, 55, 50);
+  document.body.append(canvas);
 
 //Create a new image element from the data URI.
-ImageElement img = new ImageElement();
-img.src = canvas.toDataUrl("image/jpeg", 0.95);
+  ImageElement img = new ImageElement();
+  img.src = canvas.toDataUrl("image/jpeg", 0.95);
 // The Data Uri would look similar to
 // 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA
 // AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
 // 9TXL0Y4OHwAAAABJRU5ErkJggg=='
 
-document.body.children.add(img);
+  document.body.children.add(img);
 }

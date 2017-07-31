@@ -18,7 +18,7 @@ import "../testcommon.dart";
 
 main() {
   var x = new Element.html('<a xlink:href="1" xlink:custom="2">a</a>',
-       treeSanitizer: new NullTreeSanitizer());
+      treeSanitizer: new NullTreeSanitizer());
 
   document.body.append(x);
 

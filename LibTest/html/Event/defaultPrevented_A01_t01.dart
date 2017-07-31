@@ -21,7 +21,7 @@ main() {
     Expect.isTrue(e.defaultPrevented);
     asyncEnd();
   });
-  
+
   div.onClick.listen((e) {
     Expect.isFalse(e.defaultPrevented);
     e.preventDefault();

@@ -15,7 +15,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'select';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
 
   asyncStart();
   Element.selectEvent.forElement(x).listen((e) {

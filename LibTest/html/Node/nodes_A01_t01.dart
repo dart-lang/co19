@@ -16,13 +16,13 @@ void check(Node x) {
   var z = new Text('text');
   x.append(y);
   x.append(z);
-  List<Node> nodes=x.nodes;
+  List<Node> nodes = x.nodes;
   Expect.isTrue(nodes.contains(y));
   Expect.isTrue(nodes.contains(z));
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     new DocumentFragment(),
   ];

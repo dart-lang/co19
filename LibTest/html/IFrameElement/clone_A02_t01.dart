@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   IFrameElement x = new IFrameElement();
-  Map<String, String> attrs={'id':'id1', 'foo':'foo1'};
+  Map<String, String> attrs = {'id': 'id1', 'foo': 'foo1'};
   x.attributes = attrs;
 
   IFrameElement y = x.clone(false);

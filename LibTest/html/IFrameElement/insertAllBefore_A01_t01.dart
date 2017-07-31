@@ -17,8 +17,8 @@ main() {
   var ref = iframe.childNodes[0];
 
   iframe.insertAllBefore([], ref);
-  Expect.equals('<iframe>Content</iframe>', iframe.outerHtml,
-      'insert empty list');
+  Expect.equals(
+      '<iframe>Content</iframe>', iframe.outerHtml, 'insert empty list');
 
   //-------------------
   iframe = new Element.html('<iframe>Content</iframe>');
@@ -27,7 +27,7 @@ main() {
 
   Expect.equals('<iframe><hr><a></a>Content</iframe>', iframe.outerHtml,
       'insert before existing child');
-  
+
   //-------------------
   iframe = new Element.html('<iframe></iframe>');
   ref = new PreElement(); // not a child

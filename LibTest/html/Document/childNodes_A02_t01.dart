@@ -13,6 +13,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var d = document;
-  var ch= document.childNodes;
+  var ch = document.childNodes;
   Expect.throws(() => d.childNodes.add(new Text('text')));
 }

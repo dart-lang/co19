@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   var div, span, x;
 
-  void init () {
+  void init() {
     div = new Element.html('<div><span><h1></h1></span></div>');
     span = div.firstChild;
     x = new PreElement();
@@ -23,8 +23,8 @@ main() {
   init();
   span.insertAdjacentElement('beforeBegin', x);
   Expect.equals('<div><pre></pre><span><h1></h1></span></div>', div.outerHtml,
-     'beforeBegin');
-  
+      'beforeBegin');
+
   init();
   span.insertAdjacentElement('afterBegin', x);
   Expect.equals('<div><span><pre></pre><h1></h1></span></div>', div.outerHtml,

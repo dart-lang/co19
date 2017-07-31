@@ -14,5 +14,6 @@ import "../../../Utils/expect.dart";
 main() {
   List<Node> ch = document.childNodes;
   Expect.equals(2, ch.length);
-  Expect.isTrue(ch[1] is HtmlHtmlElement, "${ch[1].runtimeType}!=HtmlHtmlElement");
+  Expect.isTrue(
+      ch[1] is HtmlHtmlElement, "${ch[1].runtimeType}!=HtmlHtmlElement");
 }

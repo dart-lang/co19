@@ -13,7 +13,7 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
 
   asyncStart();

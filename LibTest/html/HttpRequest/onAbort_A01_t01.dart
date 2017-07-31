@@ -15,10 +15,10 @@ import "../../../UtilsHtml/expect.dart";
 main() {
   var request = new HttpRequest();
   request.open('GET', "test.dart");
-  request.onAbort.listen((event){
-      UtilsHtml.show("request.onAbort.listen: $event");
-      asyncEnd();
-    });
+  request.onAbort.listen((event) {
+    UtilsHtml.show("request.onAbort.listen: $event");
+    asyncEnd();
+  });
   asyncStart();
   request.send();
   request.abort();

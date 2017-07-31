@@ -16,12 +16,12 @@
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
-const values=const['arraybuffer', 'blob', 'document', 'json', 'text'];
+const values = const ['arraybuffer', 'blob', 'document', 'json', 'text'];
 
 main() {
   var request = new HttpRequest();
   for (String v in values) {
-    request.responseType=v;
+    request.responseType = v;
     Expect.equals(v, request.responseType);
   }
 }

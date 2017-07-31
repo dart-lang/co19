@@ -19,7 +19,7 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  WindowBase nw = window.open("about:blank", "_blank");
   nw.close();
   Expect.isTrue(nw.closed);
 }

@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = document.body;
   x.innerHtml = '<div><button>foo</button></div>';
-  
+
   Expect.equals(document, x.ownerDocument, 'nest1');
 
   Expect.equals(document, x.firstChild.ownerDocument, 'nest2');

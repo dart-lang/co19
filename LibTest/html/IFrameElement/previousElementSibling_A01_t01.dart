@@ -16,8 +16,8 @@ main() {
   IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
   Expect.isNull(x.previousElementSibling);
 
-  var body=document.body;
-  var child=body.children.last;
+  var body = document.body;
+  var child = body.children.last;
   body.append(x);
   Expect.equals(child, x.previousElementSibling);
 }

@@ -20,7 +20,7 @@ main() {
   x.innerHtml = '<div>11<span>21</span><!--skip--><span>22</span>12</div>';
 
   x.text = 'single text node';
-  
+
   Expect.equals(1, x.nodes.length);
 
   Expect.isTrue(x.firstChild is Text);

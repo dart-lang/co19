@@ -26,13 +26,12 @@ main() {
   asyncStart();
 
   EventListener genHandler() => (e) {
-    Expect.equals(0, numCalled++);
-    e.stopImmediatePropagation();
-    asyncEnd();
-  };
+        Expect.equals(0, numCalled++);
+        e.stopImmediatePropagation();
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
-    x.addEventListener(type, genHandler());
+  for (var i = 0; i < n; ++i) x.addEventListener(type, genHandler());
 
   var event = new Event(type);
   x.dispatchEvent(event);

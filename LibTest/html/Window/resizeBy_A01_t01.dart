@@ -15,13 +15,13 @@ void check(Window nw, int dx, int dy) {
   int x = nw.screenLeft;
   int y = nw.screenTop;
   nw.resizeBy(dx, dy);
-  Expect.equals(x+dx, nw.innerWidth);
-  Expect.equals(y+dy, nw.innerHeight);
+  Expect.equals(x + dx, nw.innerWidth);
+  Expect.equals(y + dy, nw.innerHeight);
 }
 
 main() {
   Window nw = window.open("about:blank", "_blank");
-  print("nw.innerWidth=${nw.innerWidth} nw.innerHeight=${nw.innerHeight}"); 
+  print("nw.innerWidth=${nw.innerWidth} nw.innerHeight=${nw.innerHeight}");
   try {
     check(nw, 0, 0);
     check(nw, 1, 0);

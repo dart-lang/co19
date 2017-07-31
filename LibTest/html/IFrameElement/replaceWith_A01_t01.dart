@@ -13,7 +13,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   //------
-  var x = new Element.html('<div><iframe><pre></pre></iframe><span></span></div>');
+  var x =
+      new Element.html('<div><iframe><pre></pre></iframe><span></span></div>');
   var oldElem = x.querySelector('iframe');
   Expect.isTrue(oldElem is IFrameElement);
   var newElem = new AnchorElement();

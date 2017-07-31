@@ -1,20 +1,34 @@
-
 var html_elements = [
-  'a', 'article', 'aside', 'audio',
+  'a',
+  'article',
+  'aside',
+  'audio',
   'br',
   'canvas',
   'div',
   'footer',
-  'header', 'hr',
-  'iframe', 'img',
+  'header',
+  'hr',
+  'iframe',
+  'img',
   'li',
   'nav',
-  'ol', 'option',
-  'p', 'pre',
-  'section', 'select', 'span', 'svg',
-  'table', 'td', 'textarea', 'th', 'tr',
+  'ol',
+  'option',
+  'p',
+  'pre',
+  'section',
+  'select',
+  'span',
+  'svg',
+  'table',
+  'td',
+  'textarea',
+  'th',
+  'tr',
   'ul',
-  'video'];
+  'video'
+];
 
 main() {
   print('''main () {

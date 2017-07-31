@@ -24,7 +24,7 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
   DivElement div = x.firstChild;
 
-  Expect.mapEquals({'foo':'foo'}, div.attributes);
+  Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = div.querySelector('#bar');
   Expect.equals('BAR', bar.tagName);

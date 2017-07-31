@@ -12,15 +12,15 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  Element el=document.createElement("div");
+  Element el = document.createElement("div");
   Expect.equals(document, el.ownerDocument);
   Expect.isTrue(el is DivElement);
-  
-  el=document.createElement("table");
+
+  el = document.createElement("table");
   Expect.equals(document, el.ownerDocument);
   Expect.isTrue(el is TableElement);
-  
-  el=document.createElement("unknownTag");
+
+  el = document.createElement("unknownTag");
   Expect.equals(document, el.ownerDocument);
   Expect.isTrue(el is UnknownElement);
 }

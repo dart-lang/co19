@@ -18,10 +18,10 @@ main() {
   bool first = true;
   request.open('GET', "test.dart");
   asyncStart();
-  upload.onLoadEnd.listen((event){
-      Expect.isTrue(first);
-      first = false;
-      asyncEnd();
-    });
+  upload.onLoadEnd.listen((event) {
+    Expect.isTrue(first);
+    first = false;
+    asyncEnd();
+  });
   request.send();
 }

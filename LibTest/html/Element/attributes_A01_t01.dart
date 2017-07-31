@@ -17,9 +17,9 @@ main() {
   Expect.mapEquals({}, x.attributes);
 
   var y = new Element.html('<div id="foo" class="bar"></div>');
-  Expect.mapEquals({'id':'foo', 'class':'bar'}, y.attributes);
-  
+  Expect.mapEquals({'id': 'foo', 'class': 'bar'}, y.attributes);
+
   var z = new Element.html('<div custom="foobar"></div>',
       treeSanitizer: new NullTreeSanitizer());
-  Expect.mapEquals({'custom':'foobar'}, z.attributes);
+  Expect.mapEquals({'custom': 'foobar'}, z.attributes);
 }

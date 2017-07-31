@@ -12,9 +12,9 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-main () {
+main() {
   var x;
-  
+
   x = new Element.a();
   Expect.equals('A', x.tagName);
 

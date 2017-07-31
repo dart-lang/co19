@@ -21,7 +21,7 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new Comment("comment"),
     new Text("text"),
     new DocumentFragment(),

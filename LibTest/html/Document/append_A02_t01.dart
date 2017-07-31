@@ -13,7 +13,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l0=document.nodes.length;
+  var l0 = document.nodes.length;
   var x = new Element.html('<span><button></button></span>');
   var y = new Comment("cool");
   x.append(y);
@@ -21,7 +21,7 @@ main() {
 
   document.append(y);
 
-  Expect.equals(l0+1, document.nodes.length);
+  Expect.equals(l0 + 1, document.nodes.length);
   Expect.isTrue(x.firstChild is ButtonElement);
   Expect.equals(y, document.lastChild);
 }

@@ -22,7 +22,7 @@ class MyIFrameElement extends IFrameElement {
 }
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   asyncStart();
   document.body.append(x);
 }

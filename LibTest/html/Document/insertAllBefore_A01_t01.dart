@@ -15,8 +15,8 @@ main() {
   var x = [new Comment("cool1"), new Comment("cool2"), new Comment("cool3")];
   document.insertAllBefore(x, document.firstChild);
   Expect.equals(document.firstChild, x[0], 'insert before existing child');
-  
+
   Expect.throws(() {
     document.insertAllBefore([new Comment("cool")], new HRElement());
-  }, null, 'insert before not existing child');	
+  }, null, 'insert before not existing child');
 }

@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(Node.COMMENT_NODE, new Comment().nodeType, 'ctor');
-  
+
   var x = document.body;
   x.innerHtml = '<!--text-->';
   Expect.equals(Node.COMMENT_NODE, x.firstChild.nodeType, 'parsed');

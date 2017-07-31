@@ -12,7 +12,7 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const text="Hi there!";
+const text = "Hi there!";
 
 main() {
   WindowBase nw = window.open("about:blank", "_blank");
@@ -24,7 +24,6 @@ main() {
     nw.close();
     asyncEnd();
   });
-  
-  nw.postMessage(text,  "*");
-  
+
+  nw.postMessage(text, "*");
 }

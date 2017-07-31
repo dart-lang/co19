@@ -15,7 +15,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'reset';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
 
   asyncStart();
   Element.resetEvent.forElement(x).listen((e) {

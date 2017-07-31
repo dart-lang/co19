@@ -13,7 +13,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.hidden = true;
   document.body.append(x);
   var r = x.getBoundingClientRect();

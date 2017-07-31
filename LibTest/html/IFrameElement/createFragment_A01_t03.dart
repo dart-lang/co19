@@ -18,12 +18,12 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
       treeSanitizer: new NullTreeSanitizer());
   DivElement div = f.firstChild;
 
-  Expect.mapEquals({'foo':'foo'}, div.attributes);
+  Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = f.querySelector('#bar');
   Expect.equals('BAR', bar.tagName);

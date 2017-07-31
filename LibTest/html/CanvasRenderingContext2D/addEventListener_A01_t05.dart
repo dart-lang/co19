@@ -19,26 +19,25 @@ void check(Node x) {
   var type = 'click';
 
   EventListener genHandler() => (e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  };
+        Expect.equals(type, e.type);
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
-    x.addEventListener(type, genHandler());
+  for (var i = 0; i < n; ++i) x.addEventListener(type, genHandler());
 
   var event = new Event(type);
   x.dispatchEvent(event);
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new IFrameElement(),
     document,
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length*n);
+  asyncMultiStart(targets.length * n);
   for (Node x in targets) {
     check(x);
   }

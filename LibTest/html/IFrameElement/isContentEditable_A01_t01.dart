@@ -30,7 +30,7 @@ main() {
   x = new Element.html('<iframe contenteditable="true"></iframe>',
       treeSanitizer: new NullTreeSanitizer());
   Expect.isTrue(x.isContentEditable, 'explicit true');
-  
+
   x = new Element.html('<iframe contenteditable=""></iframe>',
       treeSanitizer: new NullTreeSanitizer());
   Expect.isTrue(x.isContentEditable, 'empty string is true');

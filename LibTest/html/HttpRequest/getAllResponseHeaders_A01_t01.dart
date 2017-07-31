@@ -15,10 +15,10 @@ import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 void check(String allHeaders) {
-  List<String> headers=allHeaders.split('\n');
-  for (String header in  headers) {
-    List<String> entry=header.split(':');
-    if (entry[0]=="content-type") {
+  List<String> headers = allHeaders.split('\n');
+  for (String header in headers) {
+    List<String> entry = header.split(':');
+    if (entry[0] == "content-type") {
       Expect.equals("application/dart", entry[1].trim());
       return;
     }
@@ -30,23 +30,23 @@ main() {
   var request = new HttpRequest();
   request.open('GET', "test.dart");
   asyncStart();
-  request.onLoad.listen((event){
-      switch(request.readyState) {
-        case HttpRequest.DONE:
-          check(request.getAllResponseHeaders());
-          asyncEnd();
-          break;
-        case HttpRequest.HEADERS_RECEIVED:
-          break;
-        case HttpRequest.LOADING:
-          break;
-        default:
-          Expect.fail("request.onLoad.listen: unexpected readyState:${request.readyState}");
-        }
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+  request.onLoad.listen((event) {
+    switch (request.readyState) {
+      case HttpRequest.DONE:
+        check(request.getAllResponseHeaders());
+        asyncEnd();
+        break;
+      case HttpRequest.HEADERS_RECEIVED:
+        break;
+      case HttpRequest.LOADING:
+        break;
+      default:
+        Expect.fail(
+            "request.onLoad.listen: unexpected readyState:${request.readyState}");
+    }
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
   request.send();
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

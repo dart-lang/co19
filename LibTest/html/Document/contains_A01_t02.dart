@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 void check(Node n1, bool expected) {
   Expect.equals(expected, document.contains(n1));
   var ch1 = n1.childNodes;
-  if (ch1==null) {
+  if (ch1 == null) {
     return;
   }
   for (Node chn in ch1) {

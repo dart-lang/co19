@@ -21,9 +21,8 @@ main() {
 
   ev = new Event.eventType('KeyboardEvent', 'keyup',
       canBubble: false, cancelable: false);
-  
+
   Expect.isTrue(ev is KeyboardEvent);
   Expect.isFalse(ev.bubbles);
   Expect.isFalse(ev.cancelable);
-
 }

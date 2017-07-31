@@ -12,16 +12,14 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  document.body.setInnerHtml(
-      '''<div>
+  document.body.setInnerHtml('''<div>
          <iframe class="ief">
          </iframe>
-         </div>''',
-      treeSanitizer: new NullTreeSanitizer());
+         </div>''', treeSanitizer: new NullTreeSanitizer());
   Element x = document.body.getElementsByClassName('ief')[0];
 
-  x.style.color='red';
-  x.style.direction='rtl';
+  x.style.color = 'red';
+  x.style.direction = 'rtl';
   Expect.equals('red', x.style.color, 'color');
   Expect.equals('rtl', x.style.direction, 'direction');
 }

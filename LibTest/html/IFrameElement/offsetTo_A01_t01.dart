@@ -21,32 +21,28 @@ import "../testcommon.dart";
 
 void check(int a, int b, String m) {
 // Expect.equals(a, b, m);
-   if (a == b) {
-     print("$m: ok");
-   } else {
-     print("$m: $a expected $b actual");
-   }
- }
- 
+  if (a == b) {
+    print("$m: ok");
+  } else {
+    print("$m: $a expected $b actual");
+  }
+}
+
 main() {
   var b = document.body;
 
-  b.setInnerHtml(
-        '''<iframe class="ief1"
+  b.setInnerHtml('''<iframe class="ief1"
                    style="position: absolute; left: 10px; top: 10px">
           some text
-         </iframe>'''
-         , treeSanitizer: new NullTreeSanitizer());
+         </iframe>''', treeSanitizer: new NullTreeSanitizer());
   IFrameElement ief1 = b.getElementsByClassName("ief1")[0];
   var ref = ief1.childNodes[0];
-  
-  IFrameElement ief2 = new Element.html(
-        '''<iframe  class="ief1"
+
+  IFrameElement ief2 = new Element.html('''<iframe  class="ief1"
                     style="position: absolute; left: 50px; top: 50px">
-         </iframe>'''
-         , treeSanitizer: new NullTreeSanitizer());
+         </iframe>''', treeSanitizer: new NullTreeSanitizer());
   ief1.insertBefore(ief2, ref);
-  
+
   print("ief1=${ief1.outerHtml}");
 
   check(10, ief1.offsetTo(b).x, "id1 relative to body x");

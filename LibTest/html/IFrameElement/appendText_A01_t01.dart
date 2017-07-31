@@ -12,12 +12,12 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.appendText('text');
   Expect.isTrue(x.firstChild is Text, 'text node');
   Expect.equals('text', x.text, 'text contents');
 
-  x=new IFrameElement();
+  x = new IFrameElement();
   x.append(new Element.html('<span><div><div></span>'));
   x.appendText('text');
 

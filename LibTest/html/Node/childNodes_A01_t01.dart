@@ -12,13 +12,13 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 void check(Node x) {
-  var z=x.childNodes;
+  var z = x.childNodes;
   Expect.isTrue(z is List);
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new DocumentFragment(),
     document
@@ -27,4 +27,3 @@ main() {
     check(x);
   }
 }
-

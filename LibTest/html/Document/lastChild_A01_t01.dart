@@ -12,6 +12,6 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var ch=document.childNodes;
-  Expect.equals(ch[ch.length-1], document.lastChild);
+  var ch = document.childNodes;
+  Expect.equals(ch[ch.length - 1], document.lastChild);
 }

@@ -11,5 +11,5 @@
 import "dart:html";
 
 main() {
-  bool supportsRegister=document.supportsRegister;
+  bool supportsRegister = document.supportsRegister;
 }

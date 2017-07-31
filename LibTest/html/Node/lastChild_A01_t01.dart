@@ -16,7 +16,7 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     new DocumentFragment(),
   ];

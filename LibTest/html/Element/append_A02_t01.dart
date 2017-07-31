@@ -20,6 +20,6 @@ main() {
   Expect.equals(2, x.nodes.length);
 
   Expect.isTrue(x.firstChild is ButtonElement);
-  
+
   Expect.equals(y, x.lastChild);
 }

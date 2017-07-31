@@ -30,7 +30,7 @@ main() {
     Expect.identical(id1, e.matchingTarget);
     asyncEnd();
   });
-  
+
   body.onClick.matches('.class').listen((e) {
     Expect.identical(class1, e.matchingTarget);
     asyncEnd();
