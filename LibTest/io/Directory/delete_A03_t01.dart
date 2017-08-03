@@ -19,8 +19,8 @@
  * Returns a Future<FileSystemEntity> that completes with this FileSystemEntity
  * when the deletion is done. If the FileSystemEntity cannot be deleted, the
  * future completes with an exception.
- * @description Checks that if recursive is false and directory is not empty
- * then exception is thrown
+ * @description Checks that if the FileSystemEntity cannot be deleted, the
+ * future completes with an exception.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -30,16 +30,13 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  Directory sub = dir.createTempSync();
+  dir.deleteSync();
 
   asyncStart();
-  bool thrown = false;
-  dir.delete(recursive: false).catchError((_) {
-    thrown = true;
-  }).then((_) {
-    Expect.isTrue(thrown);
+  dir.delete(recursive: true).then((_) {
+    Expect.fail("FileSystemException expected");
+  }, onError: (e) {
+    Expect.isTrue(e is FileSystemException);
     asyncEnd();
-  }).whenComplete(() {
-    dir.delete(recursive: true);
   });
 }

@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<FileSystemEntity> delete({bool recursive: false})
- * Deletes this FileSystemEntity.
+ * @assertion void deleteSync({bool recursive: false})
+ * Synchronously deletes this FileSystemEntity.
  *
  * If the FileSystemEntity is a directory, and if recursive is false, the
  * directory must be empty. Otherwise, if recursive is true, the directory and
@@ -14,32 +14,19 @@
  *
  * If recursive is true, the FileSystemEntity is deleted even if the type of the
  * FileSystemEntity doesn't match the content of the file system. This behavior
- * allows delete to be used to unconditionally delete any file system object.
+ * allows deleteSync to be used to unconditionally delete any file system object.
  *
- * Returns a Future<FileSystemEntity> that completes with this FileSystemEntity
- * when the deletion is done. If the FileSystemEntity cannot be deleted, the
- * future completes with an exception.
- * @description Checks that if recursive is false and directory is not empty
- * then exception is thrown
+ * Throws an exception if the FileSystemEntity cannot be deleted.
+ * @description Checks that this method synchronously deletes this
+ * FileSystemEntity
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
-  Directory sub = dir.createTempSync();
-
-  asyncStart();
-  bool thrown = false;
-  dir.delete(recursive: false).catchError((_) {
-    thrown = true;
-  }).then((_) {
-    Expect.isTrue(thrown);
-    asyncEnd();
-  }).whenComplete(() {
-    dir.delete(recursive: true);
-  });
+  File file = getTempFileSync();
+  file.deleteSync();
+  Expect.isFalse(file.existsSync());
 }
