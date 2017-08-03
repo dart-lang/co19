@@ -20,5 +20,5 @@ main() {
   var y = new Element.html('<p id="id" data-foo="0" data-foo-bar="1"></p>',
       treeSanitizer: new NullTreeSanitizer());
 
-  Expect.mapEquals({'foo':'0', 'fooBar':'1'}, y.dataset);
+  Expect.mapEquals({'foo': '0', 'fooBar': '1'}, y.dataset);
 }

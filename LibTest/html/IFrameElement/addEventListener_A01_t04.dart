@@ -16,7 +16,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'focus';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
 
   asyncMultiStart(2);
@@ -34,7 +34,7 @@ main() {
     Expect.equals(Event.AT_TARGET, e.eventPhase);
     asyncEnd();
   });
-  
+
   // click on button
   var event = new Event(type, canBubble: false);
   x.dispatchEvent(event);

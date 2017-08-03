@@ -14,13 +14,13 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  bool first=true;
+  bool first = true;
   request.open('GET', "test.dart");
   asyncStart();
-  request.onLoadEnd.listen((event){
-      Expect.isTrue(first);
-      first=false;
-      asyncEnd();
-    });
+  request.onLoadEnd.listen((event) {
+    Expect.isTrue(first);
+    first = false;
+    asyncEnd();
+  });
   request.send();
 }

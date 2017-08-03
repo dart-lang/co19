@@ -12,12 +12,12 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 void check(dynamic x) {
-  Expect.throws(() => x.childNodes=[]);
+  Expect.throws(() => x.childNodes = []);
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new DocumentFragment(),
     document
@@ -26,4 +26,3 @@ main() {
     check(x);
   }
 }
-

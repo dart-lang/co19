@@ -15,6 +15,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isNull(new DivElement().nodeValue, 'ctor');
-  
+
   Expect.isNull(new Element.html('<div></div>').nodeValue, 'parsed');
 }

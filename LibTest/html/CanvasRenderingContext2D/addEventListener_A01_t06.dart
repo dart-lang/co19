@@ -22,12 +22,12 @@ void check(Node x) {
   asyncMultiStart(n);
 
   EventListener genHandler() => (e) {
-    Expect.equals(type, e.type);
-    Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
-    asyncEnd();
-  };
+        Expect.equals(type, e.type);
+        Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
+  for (var i = 0; i < n; ++i)
     document.body.addEventListener(type, genHandler(), true);
 
   var event = new Event(type);
@@ -35,14 +35,14 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new IFrameElement(),
     document,
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length*n);
+  asyncMultiStart(targets.length * n);
   for (Node x in targets) {
     check(x);
   }

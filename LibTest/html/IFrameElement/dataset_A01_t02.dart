@@ -20,6 +20,6 @@ main() {
   x.dataset['fooBar'] = 'one';
   x.dataset['fooBarBaz'] = 'two';
 
-  Expect.mapEquals({'data-foo-bar':'one', 'data-foo-bar-baz':'two'},
-      x.attributes);
+  Expect.mapEquals(
+      {'data-foo-bar': 'one', 'data-foo-bar-baz': 'two'}, x.attributes);
 }

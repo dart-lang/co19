@@ -14,9 +14,9 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   asyncStart();
-  Future<HttpRequest> f=HttpRequest.request("test.dart");
-  f.then((HttpRequest r){
-      Expect.equals(200, r.status);
-      asyncEnd();
-    });
+  Future<HttpRequest> f = HttpRequest.request("test.dart");
+  f.then((HttpRequest r) {
+    Expect.equals(200, r.status);
+    asyncEnd();
+  });
 }

@@ -16,4 +16,3 @@ main() {
   Expect.isFalse(Element.isTagSupported('foo'));
   Expect.isFalse(Element.isTagSupported('foo_bar'));
 }
-

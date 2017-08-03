@@ -26,18 +26,15 @@ main() {
   asyncStart();
   nw.requestFileSystem(10).then((FileSystem fs) {
     fs.root.createFile("xyz").then((Entry entry) {
-    print("file created:$entry");
+      print("file created:$entry");
       Expect.isTrue(entry.isFile);
       asyncEnd();
-    },
-    onError: (e){
+    }, onError: (e) {
       asyncEnd();
       Expect.fail("createFile:$e");
     });
-  },
-  onError: (e){
+  }, onError: (e) {
     asyncEnd();
     Expect.fail(e.toString());
   });
-    
 }

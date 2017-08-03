@@ -15,6 +15,6 @@ main() {
   var d = document.implementation.createHtmlDocument('doc');
 
   Expect.equals(d, d.createElement('text').ownerDocument, 'text');
-  
+
   Expect.equals(d, d.createElement('paragraph').ownerDocument, 'paragraph');
 }

@@ -12,7 +12,7 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const text="Hi there!";
+const text = "Hi there!";
 
 main() {
   IFrameElement ife = new IFrameElement();
@@ -25,6 +25,5 @@ main() {
     asyncEnd();
   });
 
-  nw.postMessage(text,  "*");
-  
+  nw.postMessage(text, "*");
 }

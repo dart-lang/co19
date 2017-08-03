@@ -15,7 +15,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'my_event';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
 
   asyncStart();

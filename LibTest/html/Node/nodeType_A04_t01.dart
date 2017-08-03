@@ -14,6 +14,6 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(Node.DOCUMENT_FRAGMENT_NODE,
-      document.createDocumentFragment().nodeType);
+  Expect.equals(
+      Node.DOCUMENT_FRAGMENT_NODE, document.createDocumentFragment().nodeType);
 }

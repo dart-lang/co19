@@ -11,7 +11,7 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-const myButton="myButton";
+const myButton = "myButton";
 
 main() {
   var x = new Element.html('<button id="$myButton"></button>');
@@ -19,6 +19,6 @@ main() {
   y.append(x);
   document.body.append(y);
 
-  var z=document.getElementById(myButton);
+  var z = document.getElementById(myButton);
   Expect.equals(x, z);
 }

@@ -14,10 +14,10 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<table></table>');
   Expect.equals(0, x.nodes.length);
-  
+
   x = document.body;
   x.innerHtml = '<div></div>text node<p></p><!--commment node-->';
-  
+
   Expect.equals(4, x.nodes.length);
   Expect.isTrue(x.nodes[0] is DivElement);
   Expect.isTrue(x.nodes[1] is Text);

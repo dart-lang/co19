@@ -15,7 +15,7 @@ import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
 
   var n = 10;
@@ -23,12 +23,12 @@ main() {
   asyncMultiStart(n);
 
   EventListener genHandler() => (e) {
-    Expect.equals(type, e.type);
-    Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
-    asyncEnd();
-  };
+        Expect.equals(type, e.type);
+        Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
+  for (var i = 0; i < n; ++i)
     document.body.addEventListener(type, genHandler(), true);
 
   var event = new Event(type);

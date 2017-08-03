@@ -14,8 +14,7 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<p></p>',
-      treeSanitizer: new NullTreeSanitizer());
+  var x = new Element.html('<p></p>', treeSanitizer: new NullTreeSanitizer());
   Expect.equals('', x.lang);
 
   x = new Element.html('<p lang="fr">voilà</p>',

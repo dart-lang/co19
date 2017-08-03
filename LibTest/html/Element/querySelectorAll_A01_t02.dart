@@ -33,4 +33,3 @@ void main() {
   });
   Expect.equals(4, checked.length);
 }
-

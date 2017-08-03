@@ -19,7 +19,8 @@ main() {
   document.body.append(new Text(text));
   bool res = window.find(text, false, false, false, false, false, false);
   Expect.isTrue(res, "text not found");
-  
-  res = window.find("non-existing text", false, false, false, false, false, false);
+
+  res = window.find(
+      "non-existing text", false, false, false, false, false, false);
   Expect.isFalse(res, "non-existing text found");
 }

@@ -19,7 +19,7 @@ main() {
 
   Expect.equals('<div><hr><span></span></div>', div.outerHtml,
       'insert before existing child');
-  
+
   //-------------------
   div = new Element.html('<div><span></span></div>');
   ref = new PreElement(); // not a child

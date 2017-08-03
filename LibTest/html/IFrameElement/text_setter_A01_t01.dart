@@ -23,7 +23,7 @@ main() {
   Expect.equals(h, x.firstChild);
   Expect.equals(2, x.nodes.length);
 
-  var text='single text node';
+  var text = 'single text node';
   x.text = text;
   Expect.equals(1, x.nodes.length);
   Expect.isTrue(x.firstChild is Text);

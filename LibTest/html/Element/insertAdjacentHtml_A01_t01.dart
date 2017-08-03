@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var div, span, x;
 
-  void init () {
+  void init() {
     div = new Element.html('<div><span><h1></h1></span></div>');
     span = div.firstChild;
     x = '<pre>foo</pre>';
@@ -23,21 +23,21 @@ main() {
 
   init();
   span.insertAdjacentHtml('beforeBegin', x);
-  Expect.equals('<div><pre>foo</pre><span><h1></h1></span></div>', div.outerHtml,
-     'beforeBegin');
-  
+  Expect.equals('<div><pre>foo</pre><span><h1></h1></span></div>',
+      div.outerHtml, 'beforeBegin');
+
   init();
   span.insertAdjacentHtml('afterBegin', x);
-  Expect.equals('<div><span><pre>foo</pre><h1></h1></span></div>', div.outerHtml,
-      'afterBegin');
+  Expect.equals('<div><span><pre>foo</pre><h1></h1></span></div>',
+      div.outerHtml, 'afterBegin');
 
   init();
   span.insertAdjacentHtml('beforeEnd', x);
-  Expect.equals('<div><span><h1></h1><pre>foo</pre></span></div>', div.outerHtml,
-      'beforeEnd');
+  Expect.equals('<div><span><h1></h1><pre>foo</pre></span></div>',
+      div.outerHtml, 'beforeEnd');
 
   init();
   span.insertAdjacentHtml('afterEnd', x);
-  Expect.equals('<div><span><h1></h1></span><pre>foo</pre></div>', div.outerHtml,
-      'afterEnd');
+  Expect.equals('<div><span><h1></h1></span><pre>foo</pre></div>',
+      div.outerHtml, 'afterEnd');
 }

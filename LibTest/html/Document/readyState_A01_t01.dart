@@ -15,6 +15,6 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  var readyState=document.readyState;
-  Expect.isTrue(("interactive"==readyState)||("complete"==readyState));
+  var readyState = document.readyState;
+  Expect.isTrue(("interactive" == readyState) || ("complete" == readyState));
 }

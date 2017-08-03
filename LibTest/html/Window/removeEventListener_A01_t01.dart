@@ -10,19 +10,19 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-const myType="myType";
+const myType = "myType";
 
 bool first = true;
 
 void listener(Event event) {
   if (first) {
-    first=false;
+    first = false;
     window.removeEventListener(myType, listener);
   } else {
     Expect.fail("removed listener called");
   }
 }
-  
+
 main() {
   window.addEventListener(myType, (listener));
   window.dispatchEvent(new Event(myType));

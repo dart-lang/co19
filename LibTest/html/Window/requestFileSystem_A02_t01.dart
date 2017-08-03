@@ -31,16 +31,12 @@ main() {
     fs.root.createFile("abc").then((Entry entry) {
       Expect.isTrue(entry.isFile);
       asyncEnd();
-    },
-    onError: (e){
+    }, onError: (e) {
       asyncEnd();
       Expect.fail("createFile:$e");
     });
-  },
-  onError: (e){
+  }, onError: (e) {
     asyncEnd();
     Expect.fail("requestFileSystem:$e");
   });
-  
-  
 }

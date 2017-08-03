@@ -17,4 +17,3 @@ main() {
     Expect.equals(element.toUpperCase(), new Element.tag(element).tagName);
   }
 }
-

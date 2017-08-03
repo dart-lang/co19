@@ -14,9 +14,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');  
-  
-  var body=document.body;
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
+
+  var body = document.body;
   body.append(x);
   Expect.equals(body, x.parentNode);
 

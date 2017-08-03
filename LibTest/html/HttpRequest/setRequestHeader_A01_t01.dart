@@ -18,23 +18,24 @@ main() {
   var request = new HttpRequest();
   request.open('GET', "test.dart");
   asyncStart();
-  request.onLoad.listen((event){
-      switch(request.readyState) {
-        case HttpRequest.DONE:
-          Expect.equals("application/dart", request.getResponseHeader("content-type"));
-          asyncEnd();
-          break;
-        case HttpRequest.HEADERS_RECEIVED:
-          break;
-        case HttpRequest.LOADING:
-          break;
-        default:
-          Expect.fail("request.onLoad.listen: unexpected readyState:${request.readyState}");
-        }
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+  request.onLoad.listen((event) {
+    switch (request.readyState) {
+      case HttpRequest.DONE:
+        Expect.equals(
+            "application/dart", request.getResponseHeader("content-type"));
+        asyncEnd();
+        break;
+      case HttpRequest.HEADERS_RECEIVED:
+        break;
+      case HttpRequest.LOADING:
+        break;
+      default:
+        Expect.fail(
+            "request.onLoad.listen: unexpected readyState:${request.readyState}");
+    }
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
   request.send();
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

@@ -17,11 +17,11 @@ main() {
   var request = new HttpRequest();
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
-  request.onError.listen((event){
-      Expect.equals(request.status, 404);
-      Expect.isNull(request.response);
-      Expect.isTrue(request.responseText.length==0);
-      asyncEnd();
-    });
+  request.onError.listen((event) {
+    Expect.equals(request.status, 404);
+    Expect.isNull(request.response);
+    Expect.isTrue(request.responseText.length == 0);
+    asyncEnd();
+  });
   request.send();
 }

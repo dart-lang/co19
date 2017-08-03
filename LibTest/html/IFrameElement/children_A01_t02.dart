@@ -20,5 +20,6 @@ main() {
   x.children[0].text = 'foo';
   x.children.add(new Element.html('<span>bar</span>'));
 
-  Expect.equals('<iframe><span>foo</span><span>bar</span></iframe>', x.outerHtml);
+  Expect.equals(
+      '<iframe><span>foo</span><span>bar</span></iframe>', x.outerHtml);
 }

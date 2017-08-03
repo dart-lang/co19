@@ -13,30 +13,30 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const desired="text/plain";
+const desired = "text/plain";
 
 main() {
   var request = new HttpRequest();
   request.open('GET', "test.dart");
   request.overrideMimeType(desired);
   asyncStart();
-  request.onLoad.listen((event){
-      switch(request.readyState) {
-        case HttpRequest.DONE:
-          Expect.equals(desired, request.getResponseHeader("content-type"));
-          asyncEnd();
-          break;
-        case HttpRequest.HEADERS_RECEIVED:
-          break;
-        case HttpRequest.LOADING:
-          break;
-        default:
-          Expect.fail("request.onLoad.listen: unexpected readyState:${request.readyState}");
-        }
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+  request.onLoad.listen((event) {
+    switch (request.readyState) {
+      case HttpRequest.DONE:
+        Expect.equals(desired, request.getResponseHeader("content-type"));
+        asyncEnd();
+        break;
+      case HttpRequest.HEADERS_RECEIVED:
+        break;
+      case HttpRequest.LOADING:
+        break;
+      default:
+        Expect.fail(
+            "request.onLoad.listen: unexpected readyState:${request.readyState}");
+    }
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
   request.send();
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

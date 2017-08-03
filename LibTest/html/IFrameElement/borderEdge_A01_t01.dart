@@ -24,7 +24,7 @@ main() {
   document.body.append(x);
   int width = x.borderEdge.width;
   int height = x.borderEdge.height;
-  
+
   x.hidden = true;
   Expect.equals(width, x.borderEdge.width, 'width');
   Expect.equals(height, x.borderEdge.height, 'height');

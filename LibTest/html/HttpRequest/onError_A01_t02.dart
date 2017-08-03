@@ -18,9 +18,9 @@ main() {
   var request = new HttpRequest();
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
-  request.onError.listen((event){
-      UtilsHtml.show("request.onError.listen: $event");
-      asyncEnd();
-    });
+  request.onError.listen((event) {
+    UtilsHtml.show("request.onError.listen: $event");
+    asyncEnd();
+  });
   request.send();
 }

@@ -26,7 +26,7 @@ main() {
     Expect.identical(div, e.target);
     asyncEnd();
   });
-  
+
   Element.clickEvent.forElement(div).listen((e) {
     Expect.identical(div, e.target);
     asyncEnd();

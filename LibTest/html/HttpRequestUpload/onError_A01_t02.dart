@@ -19,9 +19,9 @@ main() {
   HttpRequestUpload upload = request.upload;
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
-  upload.onError.listen((event){
-      UtilsHtml.show("request.onError.listen: $event");
-      asyncEnd();
-    });
+  upload.onError.listen((event) {
+    UtilsHtml.show("request.onError.listen: $event");
+    asyncEnd();
+  });
   request.send();
 }

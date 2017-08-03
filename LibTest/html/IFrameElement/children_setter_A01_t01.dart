@@ -13,8 +13,8 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   Expect.equals(0, x.children.length);
-  
-  x.children=[new DivElement(), new ParagraphElement()];
+
+  x.children = [new DivElement(), new ParagraphElement()];
   Expect.equals(2, x.children.length);
   Expect.isTrue(x.children[0] is DivElement);
   Expect.isTrue(x.children[1] is ParagraphElement);

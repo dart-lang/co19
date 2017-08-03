@@ -29,16 +29,15 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   asyncStart();
-  Future<HttpRequest> f=HttpRequest.request("test.dart", method:"GET",
-    onProgress:(event){
+  Future<HttpRequest> f =
+      HttpRequest.request("test.dart", method: "GET", onProgress: (event) {
 //      UtilsHtml.show("event.type=${event.type}");
-      Expect.equals("progress", event.type, "stream.listen.onData");
-    });
-  f.then((HttpRequest r){
-      Expect.isTrue(r.responseText.length>0);
-      asyncEnd();
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+    Expect.equals("progress", event.type, "stream.listen.onData");
+  });
+  f.then((HttpRequest r) {
+    Expect.isTrue(r.responseText.length > 0);
+    asyncEnd();
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
 }

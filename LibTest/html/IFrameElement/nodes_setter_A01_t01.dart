@@ -20,7 +20,7 @@ main() {
   nodes.removeAt(0);
   nodes.removeAt(0);
   nodes.add(new DivElement());
-  
-  x.nodes=nodes;
+
+  x.nodes = nodes;
   Expect.equals('<iframe>t2<div></div></iframe>', x.outerHtml);
 }

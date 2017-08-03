@@ -12,9 +12,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
-  
+
   Expect.isFalse(x.hasChildNodes(), 'no children');
 
   x.append(new Comment("foo"));

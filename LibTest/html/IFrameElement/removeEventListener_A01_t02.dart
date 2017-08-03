@@ -23,14 +23,14 @@ main() {
     Expect.equals(type, e.type);
     asyncEnd();
   };
-  
+
   var seen = false;
   EventListener handler2;
   handler2 = (e) {
-    if (seen)
-      Expect.fail('should be run once');
+    if (seen) Expect.fail('should be run once');
     Expect.equals(type, e.type);
-    body.removeEventListener(type, handler2, true); // remove itself when triggered
+    body.removeEventListener(
+        type, handler2, true); // remove itself when triggered
     seen = true;
     asyncEnd();
   };

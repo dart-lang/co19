@@ -18,7 +18,7 @@ main() {
   document.body.append(x);
   var rects = x.getClientRects();
 
-  for (var i=0; i<rects.length; ++i) {
+  for (var i = 0; i < rects.length; ++i) {
     Expect.isTrue(x.getBoundingClientRect().containsRectangle(rects[i]),
         '${i+1} of ${rects.length}');
   }

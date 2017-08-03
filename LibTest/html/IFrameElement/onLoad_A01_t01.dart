@@ -16,12 +16,12 @@ main() {
   var type = 'load';
   var x = new IFrameElement();
   document.body.append(x);
-  
+
   asyncStart();
   x.onLoad.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });
-  
-  x.src ="/root_dart/tests/co19/src/LibTest/html/IFrameElement/iframe.html";
+
+  x.src = "/root_dart/tests/co19/src/LibTest/html/IFrameElement/iframe.html";
 }

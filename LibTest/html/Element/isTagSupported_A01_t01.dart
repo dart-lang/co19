@@ -18,4 +18,3 @@ main() {
     Expect.isTrue(Element.isTagSupported(element), "$element is not supported");
   }
 }
-

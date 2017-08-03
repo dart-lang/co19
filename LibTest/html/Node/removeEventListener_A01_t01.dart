@@ -20,12 +20,11 @@ void check(Node x) {
     Expect.equals(type, e.type);
     asyncEnd();
   };
-  
+
   var seen = false;
   EventListener handler2;
   handler2 = (e) {
-    if (seen)
-      Expect.fail('should be run once');
+    if (seen) Expect.fail('should be run once');
     Expect.equals(type, e.type);
     x.removeEventListener(type, handler2); // remove itself when triggered
     seen = true;
@@ -42,12 +41,13 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length*3); // first time two handlers, second time one handler
+  asyncMultiStart(
+      targets.length * 3); // first time two handlers, second time one handler
   for (Node x in targets) {
     check(x);
   }

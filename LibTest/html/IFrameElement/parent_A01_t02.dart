@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var f = document.createDocumentFragment();
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');  
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
   f.append(x);
 
   Expect.isNull(x.parent);

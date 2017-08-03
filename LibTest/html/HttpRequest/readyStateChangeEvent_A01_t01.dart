@@ -15,35 +15,35 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  EventStreamProvider<ProgressEvent> sreamProvider=HttpRequest.readyStateChangeEvent;
-  Stream<ProgressEvent> stream=sreamProvider.forTarget(document);
-  stream.listen((event){
-      Expect.equals("readystatechange", event.type, "stream.listen.onData");
-    },
-    onError:(Object error){
-      Expect.fail("stream.listen:onError($error)");
-    });
-  
+  EventStreamProvider<ProgressEvent> sreamProvider =
+      HttpRequest.readyStateChangeEvent;
+  Stream<ProgressEvent> stream = sreamProvider.forTarget(document);
+  stream.listen((event) {
+    Expect.equals("readystatechange", event.type, "stream.listen.onData");
+  }, onError: (Object error) {
+    Expect.fail("stream.listen:onError($error)");
+  });
+
   request.open('GET', "test.dart");
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
   asyncStart();
-  request.onLoad.listen((event){
-      switch(request.readyState) {
-        case HttpRequest.DONE:
+  request.onLoad.listen((event) {
+    switch (request.readyState) {
+      case HttpRequest.DONE:
 //          UtilsHtml.show(request.responseText);
-          asyncEnd();
-          break;
-        case HttpRequest.HEADERS_RECEIVED:
-          break;
-        case HttpRequest.LOADING:
-          break;
-        default:
-          Expect.fail("request.onLoad.listen: unexpected readyState:${request.readyState}");
-        }
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+        asyncEnd();
+        break;
+      case HttpRequest.HEADERS_RECEIVED:
+        break;
+      case HttpRequest.LOADING:
+        break;
+      default:
+        Expect.fail(
+            "request.onLoad.listen: unexpected readyState:${request.readyState}");
+    }
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
   request.send();
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

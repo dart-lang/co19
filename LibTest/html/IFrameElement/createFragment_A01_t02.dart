@@ -17,15 +17,15 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
       validator: new NodeValidatorBuilder()
-      //..allowHtml5()
-      ..allowElement('bar', attributes: ["id"])
-      ..allowElement('div', attributes: ["foo"]));
+        //..allowHtml5()
+        ..allowElement('bar', attributes: ["id"])
+        ..allowElement('div', attributes: ["foo"]));
   DivElement div = f.firstChild;
 
-  Expect.mapEquals({'foo':'foo'}, div.attributes);
+  Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = f.querySelector('#bar');
   Expect.equals('BAR', bar.tagName);

@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 void check(Node x) {
   var y = new Comment("Comment");
   var z = new Text('text');
-  List<Node> nodes=[y,z];
-  x.nodes=nodes;
+  List<Node> nodes = [y, z];
+  x.nodes = nodes;
   Expect.identical(x.nodes, nodes);
 }
 

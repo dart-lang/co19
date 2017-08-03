@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<iframe translate=no></iframe>');
   Expect.isFalse(x.translate, 'explicit no');
-  
+
   x = new Element.html('<iframe translate=yes></iframe>');
   Expect.isTrue(x.translate, 'explicit yes');
 

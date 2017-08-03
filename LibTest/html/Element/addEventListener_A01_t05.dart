@@ -23,12 +23,11 @@ main() {
   asyncMultiStart(n);
 
   EventListener genHandler() => (e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  };
+        Expect.equals(type, e.type);
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
-    x.addEventListener(type, genHandler());
+  for (var i = 0; i < n; ++i) x.addEventListener(type, genHandler());
 
   var event = new Event(type);
   x.dispatchEvent(event);

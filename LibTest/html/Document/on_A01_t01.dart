@@ -13,7 +13,7 @@ import "dart:html";
 import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const eventType='keydown';
+const eventType = 'keydown';
 
 main() {
   asyncStart();

@@ -13,13 +13,13 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var nodes=document.nodes;
+  var nodes = document.nodes;
   Expect.listEquals(document.childNodes, nodes);
-  var l0=nodes.length;
-  var node0=nodes[0];
-  var res=nodes.remove(node0);
+  var l0 = nodes.length;
+  var node0 = nodes[0];
+  var res = nodes.remove(node0);
   Expect.isTrue(res);
-  Expect.equals(l0-1, nodes.length);
+  Expect.equals(l0 - 1, nodes.length);
   nodes.insert(0, node0);
   Expect.equals(l0, nodes.length);
 }

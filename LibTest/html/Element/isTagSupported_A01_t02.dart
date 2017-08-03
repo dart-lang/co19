@@ -15,4 +15,3 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.isTrue(Element.isTagSupported('foo-bar-123'));
 }
-

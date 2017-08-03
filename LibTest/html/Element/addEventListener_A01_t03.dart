@@ -29,7 +29,7 @@ main() {
     Expect.equals(type, e.type);
     asyncEnd();
   });
-  
+
   x.on[type].listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();

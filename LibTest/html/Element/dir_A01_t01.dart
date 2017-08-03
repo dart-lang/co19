@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<p dir="ltr"></p>');
   Expect.equals('ltr', x.dir);
-  
+
   x = new Element.html('<p dir="rtl"></p>');
   Expect.equals('rtl', x.dir);
 }
