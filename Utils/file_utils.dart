@@ -71,7 +71,7 @@ String getTempFilePath([Directory parent]) {
   if (parent == null) {
     parent = Directory.systemTemp;
   }
-  return parent.path + Platform.pathSeparator + getTempFileName();
+  return parent.path + Platform.pathSeparator + getPrefix() + getTempFileName();
 }
 
 String getTempDirectoryPath([Directory parent]) {
