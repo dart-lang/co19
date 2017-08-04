@@ -18,7 +18,6 @@
  * returns a sink that correctly implements EventSink.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -37,20 +36,24 @@ class MySink implements EventSink<int> {
   void close() => _sink.close();
 }
 
-var input = [1, 2, 3, 4, 5];
+List<int> input = [1, 2, 3, 4, 5];
 
 main() {
-  var s = new Stream.fromIterable(input).map((x) {throw x;});
-  var s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
-  var values = [];
+  Stream s = new Stream.fromIterable(input).map((x) {throw x;});
+  Stream s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
+  List<int> values = [];
 
   asyncStart();
-  s2.listen((_) {
-    Expect.fail('unexpected onData event');
-  }, onError:(e) {
-    values.add(e);
-  }, onDone:() {
-    Expect.listEquals(input, values);
-    asyncEnd();
-  });
+  s2.listen(
+    (_) {
+      Expect.fail('unexpected onData event');
+    },
+    onError:(e) {
+      values.add(e);
+    },
+    onDone:() {
+      Expect.listEquals(input, values);
+      asyncEnd();
+    }
+  );
 }

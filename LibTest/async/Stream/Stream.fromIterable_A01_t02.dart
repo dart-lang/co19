@@ -9,26 +9,29 @@
  * @description Checks that created stream returns all the data from Iterable.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(Iterable<int> data) {
+void check(Iterable<int> data) {
   Iterator<int> it = data.iterator;
   Stream s = new Stream.fromIterable(data);
 
   asyncStart();
 
-  s.listen((int event) {
-    Expect.isTrue(it.moveNext());
-    Expect.equals(it.current, event);
-  }, onError: (error) {
-    Expect.fail("onError($error) called unexpectedly");
-  }, onDone: () {
-    Expect.isFalse(it.moveNext());
-    asyncEnd();
-  });
+  s.listen(
+    (int event) {
+      Expect.isTrue(it.moveNext());
+      Expect.equals(it.current, event);
+    },
+    onError: (error) {
+      Expect.fail("onError($error) called unexpectedly");
+    },
+    onDone: () {
+      Expect.isFalse(it.moveNext());
+      asyncEnd();
+    }
+  );
 }
 
 main() {

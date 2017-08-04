@@ -25,7 +25,6 @@ List<Completer> completers = new List<Completer>(N);
 List<Future> futures = new List<Future>(N);
 int num = 0;
 
-
 main() {
   for (int k = 0; k < N; k++) {
     completers[k] = new Completer();
@@ -36,17 +35,20 @@ main() {
 
   asyncStart();
 
-  s.listen((int event) {
-    Expect.equals(num++, event);
-  }, onError: (_) {
-    Expect.fail("onError called unexpectedly");
-  }, onDone: () {
-    Expect.equals(N, num, "onDone");
-    asyncEnd();
-  });
+  s.listen(
+    (int event) {
+      Expect.equals(num++, event);
+    },
+    onError: (_) {
+      Expect.fail("onError called unexpectedly");
+    },
+    onDone: () {
+      Expect.equals(N, num, "onDone");
+      asyncEnd();
+    }
+  );
 
   for (int k = 0; k < N; k++) {
     completers[k].complete(k);
   }
 }
-

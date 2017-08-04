@@ -17,7 +17,6 @@
  * @description Checks that data events are produced according to transform.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -36,12 +35,12 @@ class MySink implements EventSink<int> {
   void close() => _sink.close();
 }
 
-var input = [1, 2, 3, 4, 5];
-var expected = [1, 2, 3, 6, 5, 10];
+List<int> input = [1, 2, 3, 4, 5];
+List<int> expected = [1, 2, 3, 6, 5, 10];
 
 main() {
-  var s = new Stream.fromIterable(input);
-  var s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
+  Stream s = new Stream.fromIterable(input);
+  Stream s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
 
   asyncStart();
   s2.toList().then((x) {

@@ -14,14 +14,13 @@
  * propagated correctly to onError callback.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var error = new Error();
-  var stackTrace;
+  Error error = new Error();
+  StackTrace stackTrace;
   var s;
   try {
     throw error;
@@ -30,7 +29,7 @@ main() {
     s = new Stream.fromFuture(new Future.error(e, st));
   }
 
-  var s2 = s.handleError((e, st) {
+  Stream s2 = s.handleError((e, st) {
     Expect.identical(error, e);
     Expect.identical(stackTrace, st);
     asyncEnd();

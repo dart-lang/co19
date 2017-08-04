@@ -20,7 +20,6 @@
  * EventSink that allows putting events into the returned stream.
  * @author ngl@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
@@ -29,7 +28,7 @@ List<Completer> cl = [new Completer(), new Completer(), new Completer()];
 List<int> cv = [1, 2, 3];
 int i = 0;
 
-ontimeout(EventSink sink) {
+void ontimeout(EventSink sink) {
   sink.add(cv[1]);
 }
 

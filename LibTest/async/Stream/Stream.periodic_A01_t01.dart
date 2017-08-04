@@ -12,14 +12,13 @@
  * Checks that if computation is omitted the event value is null.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(int periodMs) {
+void check(int periodMs) {
   Duration period = durationMs(periodMs);
-  const maxCount = 5;
+  const int maxCount = 5;
   int count = 0;
 
   Stopwatch sw = new Stopwatch();
@@ -28,20 +27,21 @@ check(int periodMs) {
   asyncStart();
 
   Stream s = new Stream.periodic(period);
-
-  var subs = s.listen(null);
-  subs.onData((int event) {
-    count++;
-    Expect.isNull(event, "onData");
-    Duration expected = period*count;
-    Duration actual = sw.elapsed;
-    Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
-    //print('expected=$expected actual=$actual');
-    if (count >= maxCount) {
-      subs.cancel();
-      asyncEnd();
+  StreamSubscription ss;
+  ss = s.listen(
+    (int event) {
+      count++;
+      Expect.isNull(event);
+      Duration expected = period*count;
+      Duration actual = sw.elapsed;
+      Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
+      //print('expected=$expected actual=$actual');
+      if (count >= maxCount) {
+        ss.cancel();
+        asyncEnd();
+      }
     }
-  });
+  );
 }
 
 main() {
