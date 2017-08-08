@@ -166,7 +166,7 @@ void test(Stream<T> create(Iterable<T> data)) {
   asyncMap_A02_t01.test(create);
   asyncMap_A03_t02.test(create);
   asyncMap_A03_t03.test(create);
-//  asyncMap_A04_t01.test(create); // TODO fails with error
+//  asyncMap_A04_t01.test(create); // fails with error, moved to allTests_A03
 
   contains_A01_t01.test(create);
   contains_A02_t01.test(create);
@@ -175,10 +175,10 @@ void test(Stream<T> create(Iterable<T> data)) {
   distinct_A01_t02.test(create);
   distinct_A02_t01.test(create);
   distinct_A02_t02.test(create);
-//  distinct_A03_t01.test(create); // TODO fails with error
+//  distinct_A03_t01.test(create); // fails with error, moved to allTests_A03
   distinct_A05_t01.test(create);
 
-  // drain_A02_t01.test(create); // TODO fails with error
+//  drain_A02_t01.test(create); // fails with error, moved to allTests_A03
   drain_A02_t02.test(create);
 
   elementAt_A01_t01.test(create);
@@ -290,9 +290,4 @@ void test(Stream<T> create(Iterable<T> data)) {
   transform_A01_t02.test(create);
 
   where_A01_t01.test(create);
-
-  // failures TODO move in place when fixed
-  asyncMap_A04_t01.test(create);
-  distinct_A03_t01.test(create);
-  drain_A02_t01.test(create);
 }
