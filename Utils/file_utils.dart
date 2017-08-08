@@ -29,6 +29,14 @@ File getTempFileSync([Directory parent]) {
   return file;
 }
 
+Future<File> getTempFile([Directory parent]) async {
+  if (parent == null) {
+    parent = Directory.systemTemp;
+  }
+  return new File(getTempFilePath(parent)).create();
+}
+
+
 Directory getTempDirectorySync([Directory parent]) {
   if (parent == null) {
     parent = Directory.systemTemp;
@@ -41,7 +49,7 @@ Future<Directory> getTempDirectory([Directory parent]) async {
   if (parent == null) {
     parent = Directory.systemTemp;
   }
-  return parent.createTempSync(getPrefix());
+  return parent.createTemp(getPrefix());
 }
 
 String getTempFileName([String ext]) {
