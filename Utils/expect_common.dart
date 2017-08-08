@@ -20,8 +20,11 @@ class Expect {
    */
   static void equals(var expected, var actual, [String reason = null]) {
     if (expected == actual) return;
-    if ((expected is double) && (actual is double) && (expected.isNaN) && (actual.isNaN)) {
-       return;
+    if ((expected is double) &&
+        (actual is double) &&
+        (expected.isNaN) &&
+        (actual.isNaN)) {
+      return;
     }
     String msg = _getMessage(reason);
     _fail("Expect.equals(expected: <$expected>, actual: <$actual>$msg) fails.");
@@ -71,7 +74,7 @@ class Expect {
     if (_identical(expected, actual)) return;
     String msg = _getMessage(reason);
     _fail("Expect.identical(expected: <$expected>, actual: <$actual>$msg) "
-          "fails.");
+        "fails.");
   }
 
   // Unconditional failure.
@@ -84,10 +87,8 @@ class Expect {
    * given tolerance. If no tolerance is given, tolerance is assumed to be the
    * value 4 significant digits smaller than the value given for expected.
    */
-  static void approxEquals(num expected,
-                           num actual,
-                           [num tolerance = null,
-                            String reason = null]) {
+  static void approxEquals(num expected, num actual,
+      [num tolerance = null, String reason = null]) {
     if (tolerance == null) {
       tolerance = (expected / 1e4).abs();
     }
@@ -96,14 +97,14 @@ class Expect {
 
     String msg = _getMessage(reason);
     _fail('Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
-          'tolerance:<$tolerance>$msg) fails');
+        'tolerance:<$tolerance>$msg) fails');
   }
 
   static void notEquals(unexpected, actual, [String reason = null]) {
     if (unexpected != actual) return;
     String msg = _getMessage(reason);
     _fail("Expect.notEquals(unexpected: <$unexpected>, actual:<$actual>$msg) "
-          "fails.");
+        "fails.");
   }
 
   /**
@@ -160,9 +161,8 @@ class Expect {
    * Specialized equality test for strings. When the strings don't match,
    * this method shows where the mismatch starts and ends.
    */
-  static void stringEquals(String expected,
-                           String actual,
-                           [String reason = null]) {
+  static void stringEquals(String expected, String actual,
+      [String reason = null]) {
     String msg = _getMessage(reason);
     String defaultMessage =
         'Expect.stringEquals(expected: <$expected>", <$actual>$msg) fails';
@@ -177,13 +177,13 @@ class Expect {
     int aLen = actual.length;
     while (true) {
       if (left == eLen) {
-        assert (left < aLen);
+        assert(left < aLen);
         String snippet = actual.substring(left, aLen);
         _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
         return;
       }
       if (left == aLen) {
-        assert (left < eLen);
+        assert(left < eLen);
         String snippet = expected.substring(left, eLen);
         _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
         return;
@@ -198,13 +198,13 @@ class Expect {
     int right = 0;
     while (true) {
       if (right == eLen) {
-        assert (right < aLen);
+        assert(right < aLen);
         String snippet = actual.substring(0, aLen - right);
         _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
         return;
       }
       if (right == aLen) {
-        assert (right < eLen);
+        assert(right < eLen);
         String snippet = expected.substring(0, eLen - right);
         _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
         return;
@@ -228,9 +228,8 @@ class Expect {
    * Checks that every element of [expected] is also in [actual], and that
    * every element of [actual] is also in [expected].
    */
-  static void setEquals(Iterable expected,
-                        Iterable actual,
-                        [String reason = null]) {
+  static void setEquals(Iterable expected, Iterable actual,
+      [String reason = null]) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);
     final extraSet = new Set.from(actual);
@@ -269,11 +268,11 @@ class Expect {
    *     Expect.throws(myThrowingFunction, (e) => e is MyException);
    */
   static void throws(void f(),
-                     [_CheckExceptionFn check = null,
-                      String reason = null]) {
+      [_CheckExceptionFn check = null, String reason = null]) {
     if (!(f is Function)) {
-       String msg = reason == null ? "" : reason;
-       _fail("Expect.throws($f, $msg): first argument is not a Function, but a ${f.runtimeType}");
+      String msg = reason == null ? "" : reason;
+      _fail(
+          "Expect.throws($f, $msg): first argument is not a Function, but a ${f.runtimeType}");
     }
     try {
       f();
@@ -290,8 +289,8 @@ class Expect {
     _fail('Expect.throws($msg) fails');
   }
 
-  static String _getMessage(String reason)
-      => (reason == null) ? "" : ", '$reason'";
+  static String _getMessage(String reason) =>
+      (reason == null) ? "" : ", '$reason'";
 
 //  static void deepListEquals(var expected, var actual, [String reason = null]) {
   static void listEquals(var expected, var actual, [String reason = null]) {
@@ -305,7 +304,7 @@ class Expect {
   }
 
   static void mapEquals(var expected, var actual, [String reason = null]) {
-    if((expected is! Map) || (actual is! Map)) {
+    if ((expected is! Map) || (actual is! Map)) {
       Expect.fail("not a Map");
     }
     deepEquals(expected, actual, reason);
@@ -315,26 +314,27 @@ class Expect {
    *  useful to check cyclic collections passed through ports and streams.
    */
   static void deepEquals(var expected, var actual, [String reason = null]) {
-    Map planned=new Map();
-    Map processed=new Map();
-  
+    Map planned = new Map();
+    Map processed = new Map();
+
     void plan2check(var expected, var actual) {
       if (expected == null) {
-         Expect.isNull(actual);
-      };
+        Expect.isNull(actual);
+      }
+      ;
       if ((expected is Map) || (expected is List)) {
-        var savedActual=planned[expected];
-        if (savedActual!=null) {
+        var savedActual = planned[expected];
+        if (savedActual != null) {
           // this pair is planned to investigate
           Expect.equals(savedActual, actual);
-        } else if ((savedActual=processed[expected])!=null) {
+        } else if ((savedActual = processed[expected]) != null) {
           // this pair is checked already
           Expect.equals(savedActual, actual);
         } else {
           // this pair is not yet investigated
           Expect.equals(expected.length, actual.length,
-            "Collections' lengths are not equal: expected length=${expected.length}, actual length=${actual.length}");
-          planned[expected]=actual;
+              "Collections' lengths are not equal: expected length=${expected.length}, actual length=${actual.length}");
+          planned[expected] = actual;
         }
       } else {
         Expect.equals(expected, actual);
@@ -344,12 +344,12 @@ class Expect {
     void runPlanned(var expected, var actual) {
       if (expected is Map) {
         for (var key in expected.keys) {
-//        TODO check that key sets are equivalent. Following method does not work:        
+//        TODO check that key sets are equivalent. Following method does not work:
 //          Expect.isTrue(actual.keys.toSet().remove(key)");
           plan2check(expected[key], actual[key]);
         }
       } else if (expected is List) {
-        for(int i = 0; i != expected.length; i++) {
+        for (int i = 0; i != expected.length; i++) {
           plan2check(expected[i], actual[i]);
         }
       } else {
@@ -357,17 +357,17 @@ class Expect {
       }
       // move pair from planned to processed
       planned.remove(expected);
-      processed[expected]=actual;
+      processed[expected] = actual;
     }
 
     try {
-      plan2check (expected, actual);
+      plan2check(expected, actual);
       for (;;) {
-        Iterable keys=planned.keys;
+        Iterable keys = planned.keys;
         if (keys.isEmpty) {
           return;
         }
-        var key=keys.first;
+        var key = keys.first;
         runPlanned(key, planned[key]);
       }
     } catch (error) {
@@ -377,8 +377,8 @@ class Expect {
   }
 
   static void iterableEquals(Iterable expected, Iterable actual) {
-    Iterator eit=expected.iterator;
-    Iterator ait=actual.iterator;
+    Iterator eit = expected.iterator;
+    Iterator ait = actual.iterator;
     while (eit.moveNext()) {
       Expect.isTrue(ait.moveNext());
       Expect.equals(eit.current, ait.current);
@@ -396,4 +396,3 @@ class ExpectException implements Exception {
   ExpectException([this.message]);
   String toString() => message;
 }
-
