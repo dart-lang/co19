@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isDirectory
+ * @assertion String path
  * final
- * Is true if the event target was a directory.
- * @description Checks that this property returns true if the event target was a
- * directory.
+ * The path that triggered the event. Depending on the platform and the
+ * FileSystemEntity, the path may be relative.
+ * @description Checks that this property returns path that triggered the event.
+ * Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -18,12 +19,25 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
+  String path = null;
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemCreateEvent event) {
-    Expect.isTrue(event.isDirectory);
-    asyncEnd();
+    if (path != null) {
+      Expect.equals(path, event.path);
+      asyncEnd();
+    } else {
+      path = event.path;
+    }
   });
-  dir.createTemp().timeout(new Duration(seconds: 1)).then((_) {
+
+  getTempFile(dir).then((File file) {
+    if (path != null) {
+      Expect.equals(file.path, path);
+      asyncEnd();
+    } else {
+      path = file.path;
+    }
+  }).timeout(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });

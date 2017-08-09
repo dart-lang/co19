@@ -7,7 +7,7 @@
  * @assertion int type
  *  final
  * The type of event. See FileSystemEvent for a list of events.
- * @description Checks that this property returns type of event
+ * @description Checks that this property returns type of event. Test Directory
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -22,7 +22,8 @@ main() {
     Expect.equals(FileSystemEvent.CREATE, event.type);
     asyncEnd();
   });
-  dir.createTemp().then((_) {}).timeout(new Duration(seconds: 1)).then((_) {
+  dir.createTempSync();
+  new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });

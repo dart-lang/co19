@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isDirectory
- * final
- * Is true if the event target was a directory.
- * @description Checks that this property returns true if the event target was a
- * directory.
+ * @assertion int type
+ *  final
+ * The type of event. See FileSystemEvent for a list of events.
+ * @description Checks that this property returns type of event. Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,10 +19,11 @@ main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemCreateEvent event) {
-    Expect.isTrue(event.isDirectory);
+    Expect.equals(FileSystemEvent.CREATE, event.type);
     asyncEnd();
   });
-  dir.createTemp().timeout(new Duration(seconds: 1)).then((_) {
+  getTempFileSync(dir);
+  new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });

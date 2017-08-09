@@ -23,7 +23,7 @@ main() {
     Expect.isFalse(event.isDirectory);
     asyncEnd();
   });
-  getTempFile(dir).then((_) {}).timeout(new Duration(seconds: 1)).then((_) {
+  getTempFile(dir).timeout(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });

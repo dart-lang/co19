@@ -9,7 +9,7 @@
  * The path that triggered the event. Depending on the platform and the
  * FileSystemEntity, the path may be relative.
  * @description Checks that this property returns path that triggered the event.
- * Test Directory
+ * Test file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,23 +20,19 @@ import "../../../Utils/file_utils.dart";
 main() {
   Directory dir = getTempDirectorySync();
   String path = null;
+  File f = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemCreateEvent event) {
-    if (path != null) {
+  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+    if (event is FileSystemDeleteEvent) {
       Expect.equals(path, event.path);
       asyncEnd();
     } else {
-      path = event.path;
+      f.delete();
     }
   });
-  dir.createTemp().then((Directory d) {
-    if (path != null) {
-      Expect.equals(d.path, path);
-      asyncEnd();
-    } else {
-      path = d.path;
-    }
-  }).timeout(new Duration(seconds: 1)).then((_) {
+  f = getTempFileSync(dir);
+  path = f.path;
+  new Future.delayed(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });
