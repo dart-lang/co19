@@ -30,12 +30,13 @@ main() {
 
   Expect.isTrue(callback is ZoneUnaryCallback);
   Expect.equals(1, callback(1));
- 
 
-  dummy(_) => 42;
+  ZoneUnaryCallback<R, T> registerFunction<R, T>(
+                    Zone self, ZoneDelegate parent, Zone zone, f(T arg)){
+    return (_) => 42 as R;
+  }
 
-  z.fork(specification: new ZoneSpecification(registerUnaryCallback:
-        (Zone self, ZoneDelegate parent, Zone zone, f(arg)) => dummy))
+  z.fork(specification: new ZoneSpecification(registerUnaryCallback:registerFunction))
       .run(() {
         var callback = Zone.current.registerUnaryCallback(f);
         Expect.isTrue(callback is ZoneUnaryCallback);
