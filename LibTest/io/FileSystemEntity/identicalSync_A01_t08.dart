@@ -17,8 +17,9 @@
  * though, to find the file system object.
  *
  * Throws an error if one of the paths points to an object that does not exist.
- * @description Checks that error is thrown if one of the paths points to an
- * object that does not exist
+ * @description Checks that this method completes with true if two paths refer
+ * to the same object in the file system. Test Test absolute and relative paths
+ * for link
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -26,19 +27,15 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  String linkName = getTempFileName();
+  File target = getTempFileSync();
+  Link link =
+      new Link(Directory.current.path + Platform.pathSeparator + linkName);
+  link.createSync(target.path);
   try {
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(dir.path, getTempDirectoryName());
-    });
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(getTempDirectoryName(), dir.path);
-    });
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(
-          getTempDirectoryName(), getTempDirectoryName());
-    });
+    Expect.isTrue(FileSystemEntity.identicalSync(link.path, linkName));
+    Expect.isTrue(FileSystemEntity.identicalSync(linkName, link.path));
   } finally {
-    dir.delete();
+    deleteLinkWithTarget(link);
   }
 }

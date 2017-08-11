@@ -26,19 +26,14 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Link link = getTempLinkSync();
   try {
     Expect.throws(() {
-      FileSystemEntity.identicalSync(dir.path, getTempDirectoryName());
-    });
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(getTempDirectoryName(), dir.path);
-    });
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(
-          getTempDirectoryName(), getTempDirectoryName());
+      FileSystemEntity.identicalSync(link.path, getTempFileName());
+      FileSystemEntity.identicalSync(getTempFileName(), link.path);
+      FileSystemEntity.identicalSync(getTempFileName(), getTempFileName());
     });
   } finally {
-    dir.delete();
+    deleteLinkWithTarget(link);
   }
 }

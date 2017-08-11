@@ -4,40 +4,36 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool identicalSync(
+ * @assertion Future<bool> identical(
  *  String path1,
  *  String path2
  *  )
- * Synchronously checks whether two paths refer to the same object in the file
- * system.
+ * Checks whether two paths refer to the same object in the file system. Returns
+ * a Future<bool> that completes with the result.
  *
  * Comparing a link to its target returns false, as does comparing two links
  * that point to the same target. To check the target of a link, use Link.target
  * explicitly to fetch it. Directory links appearing inside a path are followed,
  * though, to find the file system object.
  *
- * Throws an error if one of the paths points to an object that does not exist.
- * @description Checks that error is thrown if one of the paths points to an
- * object that does not exist
+ * Completes the returned Future with an error if one of the paths points to an
+ * object that does not exist.
+ * @description Checks that this method completes with true if two paths refer
+ * to the same object in the file system. Test absolute paths for links
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
-  try {
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(file.path, getTempFileName());
-    });
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(getTempFileName(), file.path);
-    });
-    Expect.throws(() {
-      FileSystemEntity.identicalSync(getTempFileName(), getTempFileName());
-    });
-  } finally {
-    file.delete();
-  }
+  Link link = getTempLinkSync();
+  asyncStart();
+  FileSystemEntity.identical(link.path, link.path).then((result) {
+    Expect.isTrue(result);
+    asyncEnd();
+  }).whenComplete(() {
+    deleteLinkWithTarget(link);
+  });
 }
