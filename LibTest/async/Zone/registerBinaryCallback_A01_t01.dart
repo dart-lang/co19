@@ -31,12 +31,13 @@ main() {
 
   Expect.isTrue(callback is ZoneBinaryCallback);
   Expect.equals(3, callback(1,2));
- 
 
-  dummy(_,__) => 42;
+  ZoneBinaryCallback<R, T1, T2> registerFunction<R, T1, T2>(
+            Zone self, ZoneDelegate parent, Zone zone,R f(T1 arg1, T2 arg2)) {
+        return (_, __) => 42 as R;
+  }
 
-  z.fork(specification: new ZoneSpecification(registerBinaryCallback:
-        (Zone self, ZoneDelegate parent, Zone zone, f(arg1, arg2)) => dummy))
+  z.fork(specification: new ZoneSpecification(registerBinaryCallback:registerFunction))
       .run(() {
         var callback = Zone.current.registerBinaryCallback(f);
         Expect.isTrue(callback is ZoneBinaryCallback);

@@ -30,12 +30,12 @@ main() {
 
   Expect.isTrue(callback is ZoneCallback);
   Expect.equals(0, callback());
- 
 
-  dummy() => 42;
+  ZoneCallback<R> registerFunction<R>(Zone self, ZoneDelegate parent, Zone zone, R f()) {
+    return () => 42 as R;
+  }
 
-  z.fork(specification: new ZoneSpecification(registerCallback:
-        (Zone self, ZoneDelegate parent, Zone zone, f()) => dummy))
+  z.fork(specification: new ZoneSpecification(registerCallback:registerFunction))
       .run(() {
         var callback = Zone.current.registerCallback(f);
         Expect.isTrue(callback is ZoneCallback);
