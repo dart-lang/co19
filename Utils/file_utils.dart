@@ -13,8 +13,6 @@ import "dart:io";
 import "dart:async";
 import "dart:math";
 
-const int ALLOWED_DIFF_IN_SECONDS = 2;
-
 /**
  * Creates temporary file in a temporary directory. Test must call
  * [file.parent.delete()] at the end
@@ -50,6 +48,49 @@ Future<Directory> getTempDirectory([Directory parent]) async {
     parent = Directory.systemTemp;
   }
   return parent.createTemp(getPrefix());
+}
+
+Link getTempLinkSync([Directory parent, String target]) {
+  if (parent == null) {
+    parent = Directory.systemTemp;
+  }
+  if (target == null) {
+    Directory dir = getTempDirectorySync(parent);
+    dir.createSync();
+    target = dir.path;
+  }
+  Link link = new Link(parent.path + Platform.pathSeparator + getPrefix() +
+      getTempFileName(".lnk"));
+  link.createSync(target);
+  return link;
+}
+
+Future<Link> getTempLink([Directory parent, String target]) {
+  if (parent == null) {
+    parent = Directory.systemTemp;
+  }
+  if (target == null) {
+    Directory dir = getTempDirectorySync(parent);
+    dir.createSync();
+    target = dir.path;
+  }
+  Link link = new Link(parent.path + Platform.pathSeparator + getPrefix() +
+      getTempFileName());
+  return link.create(target);
+}
+
+void deleteLinkWithTarget(Link link) {
+  String linkTarget = link.targetSync();
+  FileSystemEntity target = null;
+  if (FileSystemEntity.isDirectorySync(linkTarget)) {
+    target = new Directory(linkTarget);
+  } else if (FileSystemEntity.isFileSync(linkTarget)) {
+    target = new File(linkTarget);
+  } else if (FileSystemEntity.isLinkSync(linkTarget)) {
+    target = new Link(linkTarget);
+  }
+  target.delete(recursive: true);
+  link.delete();
 }
 
 String getTempFileName([String ext]) {
