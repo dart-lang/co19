@@ -13,21 +13,35 @@
  * is added, and will stay subscribed until this stream ends, or a callback
  * cancels the subscription.
  *
- * @description Checks that if this stream is single-subscription,
- * returned stream is indeed a broadcast stream.
- * @author kaigorodov
+ * @description Checks that returned stream will subscribe to this stream
+ * when its first subscriber is added.
+ * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  Stream s1 = new Stream.fromIterable([]);
-  Stream s2 = s1.asBroadcastStream();
-  Stream s3 = s2.asBroadcastStream();
-
-  Expect.isFalse(s1.isBroadcast);
-  Expect.isTrue(s2.isBroadcast);
-  Expect.isTrue(s3.isBroadcast);
+  bool hasListener = false;
+  StreamController controller = new StreamController(
+      onListen:(){ hasListener = true;}
+  );
+  Stream b = controller.stream.asBroadcastStream();
+  Expect.isFalse(hasListener);
+  asyncMultiStart(2);
+  b.listen(
+    (_) {
+      Expect.isTrue(hasListener);
+      asyncEnd();
+    }
+  );
+  b.listen(
+    (_) {
+      Expect.isTrue(hasListener);
+      asyncEnd();
+    }
+  );
+  Expect.isTrue(hasListener);
+  controller.add("a");
+  new Future(() => controller.close());
 }
-

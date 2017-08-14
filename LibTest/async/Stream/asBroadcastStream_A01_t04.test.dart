@@ -17,46 +17,45 @@
  * other still listen to completion.
  * @author ilya
  */
-
+library asBroadcastStream_A01_t04;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const subscribersCount = 10;
-const dataSize = 1000;
+const int subscribersCount = 10;
+const int dataSize = 1000;
 
-multiListen(Stream s) {
+void multiListen(Stream s) {
 
   for(int i = 0; i < subscribersCount; ++i) {
     asyncStart();
     if (i.isEven) {
       // listener that quits after half of data
-      var listening = true;
-      var quitter = s.listen(null);
-      quitter.onData((data) {
-        if (listening) {
+      StreamSubscription quitter;
+      quitter = s.listen(
+        (data) {
           if (data > dataSize / 2) {
             quitter.cancel();
-            listening = false;
             asyncEnd();
           }
-        } else {
-          Expect.fail('onData event after cancel');
         }
-      });
+      );
     } else {
       // listener that works to completion
       int processed = 0;
-      s.listen((data) {++processed;}, onDone: () {
-        Expect.equals(dataSize, processed);
-        asyncEnd();
-      });
+      s.listen(
+        (data) {++processed;},
+        onDone: () {
+          Expect.equals(dataSize, processed);
+          asyncEnd();
+        }
+      );
     }
   }
 }
 
-main() {
-  multiListen(new Stream.fromIterable(new Iterable.generate(dataSize, (i) => i))
-      .asBroadcastStream());
+void test(Stream<T> create(Iterable<T> data)) {
+  multiListen(
+      create(new Iterable.generate(dataSize, (i) => i)).asBroadcastStream()
+  );
 }
-

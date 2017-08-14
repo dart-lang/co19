@@ -14,31 +14,21 @@
  * the onListen function is called again.
  *
  * @description Checks that onCancel callback is called when broadcast stream
- * stops having listeners because they all cancel subscription.
+ * stops having listeners because the underlying stream ends.
  * @author ilya
  */
-
+library asBroadcastStream_A04_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 
-main() {
-  var s = new Stream.fromIterable([1, 2, 3]);
+void test(Stream<T> create(Iterable<T> data)) {
+  Stream s = create([1, 2, 3]);
 
   asyncStart();
-  var b = s.asBroadcastStream(onCancel: (subs) {
-    // cancel subscription to underlying stream
-    subs.cancel();
+  Stream b = s.asBroadcastStream(onCancel: (subs) {
     asyncEnd();
   });
-
-  newSubscription(stream) {
-    // get one element and cancel
-    var subs = stream.listen(null);
-    subs.onData((_) {subs.cancel();});
-  }
-
-  newSubscription(b);
-  newSubscription(b);
-  newSubscription(b);
+  b.listen((_) {});
+  b.listen((_) {});
+  b.listen((_) {});
 }
-

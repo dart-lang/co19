@@ -20,18 +20,18 @@
  * in this callback, no onData events will be fired.
  * @author ilya
  */
-
+library asBroadcastStream_A03_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  var s = new Stream.periodic(new Duration(milliseconds:1), (i) => i);
+void test(Stream<T> create(Iterable<T> data)) {
+  Stream s = create([1,2,3,4,5]);
 
   asyncStart();
 
-  var b = s.asBroadcastStream(onListen: (subs) {
-    subs.cancel();
+  Stream b = s.asBroadcastStream(onListen: (StreamSubscription ss) {
+    ss.cancel();
     asyncEnd();
   });
 

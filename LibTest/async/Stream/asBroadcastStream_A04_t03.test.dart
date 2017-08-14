@@ -18,25 +18,25 @@
  * again in onListen callback when new listeners appear.
  * @author ilya
  */
-
+library asBroadcastStream_A04_t03;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  var iter = new Iterable.generate(100, (x) => x);
-  var values = iter.toList();
-  var s = new Stream.fromIterable(iter);
+void test(Stream<T> create(Iterable<T> data)) {
+  Iterable iterable = new Iterable.generate(100, (x) => x);
+  List values = iterable.toList();
+  Stream s = create(iterable);
 
-  var anySubscribers = false;
-  var firstListen = true;
-  var streamOpen = true;
-  var timer;
+  bool anySubscribers = false;
+  bool firstListen = true;
+  bool streamOpen = true;
+  Timer timer;
 
   asyncStart();
 
-  var b = s.asBroadcastStream(
-      onListen: (subs) {
+  Stream b = s.asBroadcastStream(
+      onListen: (StreamSubscription subs) {
         if (firstListen)
           firstListen = false;
         else {
@@ -44,7 +44,7 @@ main() {
           subs.resume();
         }
       },
-      onCancel: (subs) {
+      onCancel: (StreamSubscription subs) {
         if (streamOpen) {
           Expect.isFalse(subs.isPaused);
           subs.pause();
@@ -55,12 +55,13 @@ main() {
           Expect.listEquals([], values);
           asyncEnd();
         }
-      });
+      }
+  );
 
-  newSubscription(stream, n) {
+  newSubscription(Stream stream, int n) {
     // get n elements and cancel
-    var count = 0;
-    var subs = stream.listen(null);
+    int count = 0;
+    StreamSubscription subs = stream.listen(null);
     subs.onData((x) {
       // remove seen value from list
       values.remove(x);
@@ -83,4 +84,3 @@ main() {
 
   timer = new Timer.periodic(durationMs(10), addSubscribersIfNeeded);
 }
-

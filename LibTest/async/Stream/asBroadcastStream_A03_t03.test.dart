@@ -16,25 +16,17 @@
  * StreamSubscription.asFuture.
  *
  * @description Checks that it is a runtime error to try to change event
- * handlers for underlying subscription.
+ * handlers for underlying subscription using StreamSubscription.asFuture.
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
-
+library asBroadcastStream_A03_t03;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
-f() {
-  var s = new Stream.fromIterable([1]);
-
-  s.asBroadcastStream(onListen: (subs) {
-    subs.onData((_) {});
-  }).listen((_) {});
+void test(Stream<T> create(Iterable<T> data)) {
+  Stream s = create([1,2,3]);
+  s.asBroadcastStream(onListen: (StreamSubscription ss){
+    Expect.throws(()=>ss.asFuture());
+  }).listen((_){});
 }
-
-main() {
-  asyncStart();
-  runZoned(f, onError: (_) {
-    asyncEnd();
-  });
-}
-

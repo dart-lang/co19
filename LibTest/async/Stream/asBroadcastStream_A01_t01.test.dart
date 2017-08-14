@@ -13,38 +13,44 @@
  * is added, and will stay subscribed until this stream ends, or a callback
  * cancels the subscription.
  *
- * @description Checks that the returned stream will unsubscribe from
- * this stream when this stream ends.
- *
- * @author a.semenov@unipro.ru
+ * @description Checks that returned stream is indeed a multi-subscription
+ * stream and it produces the same events as this.
+ * @author kaigorodov
  */
+library asBroadcastStream_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  bool hasListener = false;
-  bool listenerCancelled = false;
-  StreamController controller = new StreamController(
-      onListen:() { hasListener = true;},
-      onCancel:() { listenerCancelled = true;}
-  );
-  Stream b = controller.stream.asBroadcastStream();
-  Expect.isFalse(hasListener);
-  Expect.isFalse(listenerCancelled);
+void check(Stream<T> s0, List<T> data) {
+  Stream s1 = s0.asBroadcastStream();
 
+  List events1 = new List();
   asyncStart();
-  StreamSubscription subs;
-  subs = b.listen(
-      (_) { },
+  StreamSubscription ss1 = s1.listen(
+      (event) {
+        events1.add(event);
+      },
       onDone: () {
-          Expect.isTrue(listenerCancelled);
-          asyncEnd();
+        Expect.listEquals(data, events1);
+        asyncEnd();
       }
   );
-  Expect.isTrue(hasListener);
-  Expect.isFalse(listenerCancelled);
-  controller.add("a");
-  controller.add("b");
-  new Future(() => controller.close());
+
+  List events2 = new List();
+  asyncStart();
+  StreamSubscription ss2 = s1.listen(
+      (event) {
+        events2.add(event);
+      },
+      onDone: () {
+        Expect.listEquals(data, events2);
+        asyncEnd();
+      }
+  );
+}
+
+void test(Stream<T> create(Iterable<T> data)) {
+  check(create([]), []);
+  check(create([1, 2, null, []]), [1, 2, null, []]);
 }
