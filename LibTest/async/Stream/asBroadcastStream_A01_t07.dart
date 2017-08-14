@@ -14,7 +14,7 @@
  * cancels the subscription.
  *
  * @description Checks that the returned stream will unsubscribe from
- * this stream when this stream ends.
+ * this stream when onCancel callback cancels the subscription.
  *
  * @author a.semenov@unipro.ru
  */
@@ -26,22 +26,34 @@ main() {
   bool hasListener = false;
   bool listenerCancelled = false;
   StreamController controller = new StreamController(
-      onListen:() { hasListener = true;},
-      onCancel:() { listenerCancelled = true;}
+    onListen:() { hasListener = true;},
+    onCancel:() { listenerCancelled = true;}
   );
-  Stream b = controller.stream.asBroadcastStream();
+  Stream b = controller.stream.asBroadcastStream(
+    onCancel:(StreamSubscription subscription){
+      subscription.cancel();
+    }
+  );
   Expect.isFalse(hasListener);
   Expect.isFalse(listenerCancelled);
-
   asyncStart();
-  StreamSubscription subs;
-  subs = b.listen(
-      (_) { },
-      onDone: () {
-          Expect.isTrue(listenerCancelled);
-          asyncEnd();
+  StreamSubscription ss;
+  ss = b.listen(
+    (_) {
+      Future f = ss.cancel();
+      if (f==null) {
+        f = new Future.value(0);
       }
+      f.then(
+        (_) {
+            Expect.isTrue(listenerCancelled);
+            controller.close();
+            asyncEnd();
+        }
+      );
+    }
   );
+
   Expect.isTrue(hasListener);
   Expect.isFalse(listenerCancelled);
   controller.add("a");

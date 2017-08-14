@@ -14,6 +14,16 @@ import "dart:async";
 import "any_A01_t01.test.dart" as any_A01_t01;
 import "any_A01_t02.test.dart" as any_A01_t02;
 
+import "asBroadcastStream_A01_t01.test.dart" as asBroadcastStream_A01_t01;
+import "asBroadcastStream_A01_t02.test.dart" as asBroadcastStream_A01_t02;
+import "asBroadcastStream_A01_t04.test.dart" as asBroadcastStream_A01_t04;
+import "asBroadcastStream_A03_t01.test.dart" as asBroadcastStream_A03_t01;
+import "asBroadcastStream_A03_t02.test.dart" as asBroadcastStream_A03_t02;
+import "asBroadcastStream_A03_t03.test.dart" as asBroadcastStream_A03_t03;
+import "asBroadcastStream_A04_t01.test.dart" as asBroadcastStream_A04_t01;
+import "asBroadcastStream_A04_t02.test.dart" as asBroadcastStream_A04_t02;
+import "asBroadcastStream_A04_t03.test.dart" as asBroadcastStream_A04_t03;
+
 import "asyncExpand_A01_t01.test.dart" as asyncExpand_A01_t01;
 import "asyncExpand_A02_t01.test.dart" as asyncExpand_A02_t01;
 import "asyncExpand_A03_t01.test.dart" as asyncExpand_A03_t01;
@@ -154,6 +164,16 @@ import "where_A01_t01.test.dart" as where_A01_t01;
 void test(Stream<T> create(Iterable<T> data)) {
   any_A01_t01.test(create);
   any_A01_t02.test(create);
+
+  asBroadcastStream_A01_t01.test(create);
+  asBroadcastStream_A01_t02.test(create);
+  asBroadcastStream_A01_t04.test(create);
+  asBroadcastStream_A03_t01.test(create);
+  asBroadcastStream_A03_t02.test(create);
+  asBroadcastStream_A03_t03.test(create);
+  asBroadcastStream_A04_t01.test(create);
+  asBroadcastStream_A04_t02.test(create);
+  asBroadcastStream_A04_t03.test(create);
 
   asyncExpand_A01_t01.test(create);
   asyncExpand_A02_t01.test(create);
