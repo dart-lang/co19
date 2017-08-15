@@ -51,16 +51,16 @@ Future<List> subscribe(Stream stream) {
   return completer.future;
 }
 
-Map<Key, int> equalsLog = new Map<Key, int>();
-
-bool equals(Object p, Object n) {
-//  print("equals($p,$n)");
-  Key key = new Key(p,n);
-  equalsLog[key] = 1 + equalsLog.putIfAbsent(key, () => 0);
-  return p==n;
-}
-
 void check(Stream<T> s) {
+  Map<Key, int> equalsLog = new Map<Key, int>();
+
+  bool equals(Object p, Object n) {
+  //  print("equals($p,$n)");
+    Key key = new Key(p,n);
+    equalsLog[key] = 1 + equalsLog.putIfAbsent(key, () => 0);
+    return p==n;
+  }
+
   Stream d = s.asBroadcastStream().distinct(equals);
   Future.wait([
     subscribe(d),

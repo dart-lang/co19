@@ -13,6 +13,8 @@ import "dart:async";
 
 import "any_A02_t01.test.dart" as any_A02_t01;
 
+import "asBroadcastStream_A05_t02.test.dart" as asBroadcastStream_A05_t02;
+
 import "asyncMap_A03_t01.test.dart" as asyncMap_A03_t01;
 
 import "contains_A03_t01.test.dart" as contains_A03_t01;
@@ -77,6 +79,8 @@ import "where_A01_t02.test.dart" as where_A01_t02;
 
 void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
   any_A02_t01.test(create);
+
+  asBroadcastStream_A05_t02.test(create);
 
   asyncMap_A03_t01.test(create);
 
