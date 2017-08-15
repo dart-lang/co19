@@ -22,13 +22,6 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Map<Object,int> convertLog = new Map<Object,int>();
-
-dynamic convert(Object event) {
-  convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
-  return event;
-}
-
 Future<List> subscribe(Stream stream) {
   Completer<List> completer = new Completer<List>();
   List received = [];
@@ -44,6 +37,13 @@ Future<List> subscribe(Stream stream) {
 }
 
 Future check(Stream<T> stream, List expected) {
+  Map<Object,int> convertLog = new Map<Object,int>();
+
+  dynamic convert(Object event) {
+    convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
+    return event;
+  }
+
   asyncStart();
   Stream converted = stream.asyncMap(convert);
   Future.wait([

@@ -21,7 +21,9 @@ void test(Stream<T> create(Iterable<T> data)) {
   asyncStart();
   s.elementAt(5).then(
     (t) {
-      Expect.throws(() => s.listen((_){}));
+      if (!s.isBroadcast) {
+        Expect.throws(() => s.listen((_) {}));
+      }
       asyncEnd();
     }
   );
