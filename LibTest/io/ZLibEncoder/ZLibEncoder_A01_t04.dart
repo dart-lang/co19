@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var v = new ZLibEncoder(windowBits: 8);
-  Expect.isTrue(v is ZLibEncoder );
+  Expect.isTrue(v is ZLibEncoder);
   Expect.equals(false, v.gzip);
   Expect.equals(6, v.level);
   Expect.equals(8, v.windowBits);

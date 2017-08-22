@@ -18,7 +18,7 @@ import "../../../Utils/async_utils.dart";
 
 Future check(List<int> l) async {
   ZLibEncoder encoder = new ZLibEncoder();
-  var sc = new StreamController();//<List<int>>();
+  var sc = new StreamController();
   var s = sc.stream;
 
   Sink<List<int>> sink = sc.sink;

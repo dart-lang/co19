@@ -24,7 +24,7 @@ import "../../../Utils/expect.dart";
 main() {
   List<int> l = new List<int>();
   var v = new ZLibEncoder(dictionary: l);
-  Expect.isTrue(v is ZLibEncoder );
+  Expect.isTrue(v is ZLibEncoder);
   Expect.equals(false, v.gzip);
   Expect.equals(6, v.level);
   Expect.equals(15, v.windowBits);
