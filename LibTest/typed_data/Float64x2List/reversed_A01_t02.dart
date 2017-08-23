@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Float64x2List(0);
+  var dynamic = new Float64x2List(0);
   try {
     obj.reversed = obj.reversed;
     Expect.fail("[reversed] should be read-only");

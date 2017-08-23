@@ -15,7 +15,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Int32x4(1, 2, 3, 4);
+  dynamic obj = new Int32x4(1, 2, 3, 4);
   try {
     obj.signMask = 0;
     Expect.fail("[signMask] should be read-only");

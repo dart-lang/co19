@@ -15,7 +15,7 @@ import "dart:typed_data";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(obj1, obj2) {
+check(Float64x2 obj1, Float64x2 obj2) {
   var res = obj1.min(obj2);
   Expect.equals(min(obj1.x, obj2.x), res.x);
   Expect.equals(min(obj1.y, obj2.y), res.y);

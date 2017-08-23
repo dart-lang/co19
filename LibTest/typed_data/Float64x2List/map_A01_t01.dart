@@ -20,7 +20,7 @@ main() {
   var l = new Float64x2List.fromList(
       [f64x2(5.0), f64x2(7.0), f64x2(9.0), f64x2(11.0)]
   );
-  var res = l.map((e) => e.x + e.y);
+  dynamic res = l.map((e) => e.x + e.y);
   for (int i = 0; i < l.length; ++i) {
     Expect.equals(l[i].x + l[i].y, res.elementAt(i));
   }
