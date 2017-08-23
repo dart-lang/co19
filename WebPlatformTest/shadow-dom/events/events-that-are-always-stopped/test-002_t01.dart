@@ -42,7 +42,8 @@ main() {
   }, false);
 
   d.body.addEventListener('error', (event) {
-    assert_equals(event.target.getAttribute('id'), 'host', 'Ouside shadow tree: Wrong target');
+    Element e = event.target as Element;
+    assert_equals(e.getAttribute('id'), 'host', 'Ouside shadow tree: Wrong target');
     event.stopPropagation();
     asyncEnd();
   }, false);

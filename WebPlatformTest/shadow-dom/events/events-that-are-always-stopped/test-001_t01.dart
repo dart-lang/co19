@@ -42,7 +42,8 @@ main() {
   }, false);
 
   d.body.addEventListener('abort', (event) {
-    assert_equals(event.target.getAttribute('id'), 'host', 'Outside shadow tree: Wrong target');
+    Element e = event.target as Element;
+    assert_equals(e.getAttribute('id'), 'host', 'Outside shadow tree: Wrong target');
     asyncEnd();
   }, false);
 
