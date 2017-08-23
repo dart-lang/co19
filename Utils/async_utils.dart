@@ -161,7 +161,7 @@ class AsyncExpect {
    * Checks whether the given stream contains expected data events.
    * Any error in the stream is unexpected and wil fail the test.
    */
-  static void data(List<T> data, Stream<T> stream) {
+  static void data<T>(List<T> data, Stream<T> stream) {
     List actual = [];
     asyncStart();
     stream.listen(
@@ -178,7 +178,7 @@ class AsyncExpect {
   /**
    * Checks whether the given stream contains expected data and error events.
    */
-  static void events(List<T> data, List errors, Stream<T> stream) {
+  static void events<T>(List<T> data, List errors, Stream<T> stream) {
     List actualData = [];
     List actualErrors = [];
     asyncStart();
