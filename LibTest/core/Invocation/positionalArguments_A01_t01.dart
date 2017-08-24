@@ -32,33 +32,21 @@ class C extends D {
     Expect.throws(() => i.positionalArguments.clear());
     Expect.listEquals(expect, i.positionalArguments);
   }
-  test() {
-    expect = []; foo;
-    expect = [1]; bar = 1;
-    expect = []; setOnly;
-    expect = [1]; getOnly = 1;
-    expect = [1, 'baz']; foo(1, 'baz');
-
-    expect = []; super.foo;
-    expect = [1]; super.bar = 1;
-    expect = []; super.setOnly;
-  }
   var d;
   C() : d = new D();
 }
 
 test(dynamic x) {
   var y = new C();
-  expect = [y]; x+y;
+  expect = [y]; x + y;
   expect = []; -x;
   expect = []; x.foo;
   expect = [1]; x.bar = 1;
   expect = []; x.setOnly;
-  expect = [1]; x.getOnly = 1;
-  expect = [1, 'baz']; x.foo(1, 'baz');
-  expect = [1, 'baz']; x.method(1, 'baz');
-  expect = [1, 'baz']; x.d(1, 'baz');
-  x.test();
+  expect = [2]; x.getOnly = 2;
+  expect = [3, 'baz']; x.foo(3, 'baz');
+  expect = [4, 'baz']; x.method(4, 'baz');
+  expect = [5, 'baz']; x.d(5, 'baz');
 }
 
 main() {

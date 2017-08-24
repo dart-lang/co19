@@ -30,17 +30,10 @@ class C extends D {
     Expect.listEquals([], i.positionalArguments);
     Expect.mapEquals({}, i.namedArguments);
   }
-  test() {
-    foo;
-    setOnly;
-    super.foo;
-    super.setOnly;
-  }
 }
 
 main() {
-  var x = new C();
+  dynamic x = new C();
   x.foo;
   x.setOnly;
-  x.test();
 }

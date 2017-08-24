@@ -25,9 +25,6 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isTrue(i.isMethod);
   }
-  test() {
-    foo();
-  }
   var d;
   C() : d = new D();
 }
@@ -38,7 +35,6 @@ test(dynamic x) {
   - x;
   x.foo();
   x.method();
-  x.test();
   x.d();
 }
 

@@ -25,9 +25,6 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isAccessor);
   }
-  test() {
-    foo();
-  }
   var d;
   C() : d = new D();
 }
