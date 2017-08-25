@@ -27,6 +27,6 @@ abstract class I implements S2 {
 }
 
 main() {
-  Expect.throws(() {var x = I.foo;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = I.bar;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {I.foo;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {I.bar;}, (e) => e is NoSuchMethodError);
 }

@@ -31,7 +31,7 @@ class TestConverter extends Converter<List<String>, String> {
 }
 
 main() {
-  LineSplitter ls = new LineSplitter();
+  dynamic ls = new LineSplitter();
   Converter fused = ls.fuse(new TestConverter());
 
   check(fused, "aaa\nbb", "+aaa+bb");

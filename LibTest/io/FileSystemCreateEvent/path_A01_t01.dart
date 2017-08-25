@@ -21,7 +21,7 @@ main() {
   Directory dir = getTempDirectorySync();
   String path = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemCreateEvent event) {
+  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     if (path != null) {
       Expect.equals(path, event.path);
       asyncEnd();

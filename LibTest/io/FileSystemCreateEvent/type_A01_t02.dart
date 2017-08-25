@@ -18,7 +18,7 @@ import "../../../Utils/file_utils.dart";
 main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemCreateEvent event) {
+  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     Expect.equals(FileSystemEvent.CREATE, event.type);
     asyncEnd();
   });

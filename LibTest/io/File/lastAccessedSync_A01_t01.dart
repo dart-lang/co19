@@ -24,8 +24,7 @@ main() {
   DateTime date = file.lastAccessedSync();
   try {
     Expect.isNotNull(date);
-    Expect.isTrue(date.difference(new DateTime.now()).inSeconds <
-        ALLOWED_DIFF_IN_SECONDS);
+    Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 1);
   } finally {
     file.delete();
   }
