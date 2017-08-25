@@ -32,16 +32,6 @@ class C extends D {
     Expect.throws(() => i.namedArguments.clear());
     Expect.mapEquals(expect, i.namedArguments);
   }
-  test() {
-    expect = {}; foo;
-    expect = {}; bar = 1;
-    expect = {}; setOnly;
-    expect = {}; getOnly = 1;
-    expect = {#foo:1, #bar:'baz'}; foo(foo:1, bar:'baz');
-    expect = {}; super.foo;
-    expect = {}; super.bar = 1;
-    expect = {}; super.setOnly;
-  }
   var d;
   C() : d = new D();
 }
@@ -57,7 +47,6 @@ test(dynamic x) {
   expect = {#foo:1, #bar:'baz'}; x.foo(foo:1, bar:'baz');
   expect = {#foo:1, #bar:'baz'}; x.method(foo:1, bar:'baz');
   expect = {#foo:1, #bar:'baz'}; x.d(foo:1, bar:'baz');
-  x.test();
 }
 
 main() {

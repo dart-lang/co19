@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Float64x2List(0);
+  dynamic obj = new Float64x2List(0);
   try {
     obj.isEmpty = true;
     Expect.fail("[isEmpty] should be read-only");

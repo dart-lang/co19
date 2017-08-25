@@ -25,15 +25,6 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isMethod);
   }
-  test() {
-    foo;
-    bar = 1;
-    setOnly;
-    getOnly = 1;
-    super.foo;
-    super.bar = 1;
-    super.setOnly;
-  }
 }
 
 test(dynamic x) {
@@ -41,7 +32,6 @@ test(dynamic x) {
   x.bar = 1;
   x.setOnly;
   x.getOnly = 1;
-  x.test();
 }
 
 main() {

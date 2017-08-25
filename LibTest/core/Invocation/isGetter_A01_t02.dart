@@ -28,12 +28,6 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isGetter);
   }
-  test() {
-    foo();
-    bar = 1;
-    getOnly = 1;
-    super.bar = 1;
-  }
   var d;
   C() : d = new D();
 }
@@ -46,7 +40,6 @@ test(dynamic x) {
   x.method();
   x.bar = 1;
   x.getOnly = 1;
-  x.test();
   x.d();
 
 }

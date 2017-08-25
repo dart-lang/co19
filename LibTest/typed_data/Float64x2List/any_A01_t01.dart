@@ -16,7 +16,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-test(element) => element.x > 5.0 && element.y > 5.0;
+bool test(Float64x2 element) => element.x > 5.0 && element.y > 5.0;
 
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 

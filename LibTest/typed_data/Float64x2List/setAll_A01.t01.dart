@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
-listEquals(Float64x2List expected, Float64x2List actual) {
+listEquals(List<Float64x2>  expected, Float64x2List actual) {
   Expect.equals(expected.length, actual.length);
   for (int i = 0; i < expected.length; ++i) {
     Expect.equals(expected[i].x, actual[i].x);

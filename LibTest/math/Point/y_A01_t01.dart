@@ -14,22 +14,22 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  var p = new Point(3, 5);
+  var p = new Point(3.0, 5.0);
   Expect.equals(5, p.y);
-  p = new Point(3, 4.5);
+  p = new Point(3.0, 4.5);
   Expect.equals(4.5, p.y);
-  p = new Point(3, double.INFINITY);
+  p = new Point(3.0, double.INFINITY);
   Expect.equals(double.INFINITY, p.y);
-  p = new Point(3, double.NEGATIVE_INFINITY);
+  p = new Point(3.0, double.NEGATIVE_INFINITY);
   Expect.equals(double.NEGATIVE_INFINITY, p.y);
-  p = new Point(3, double.MIN_POSITIVE);
+  p = new Point(3.0, double.MIN_POSITIVE);
   Expect.equals(double.MIN_POSITIVE, p.y);
-  p = new Point(3, -double.MIN_POSITIVE);
+  p = new Point(3.0, -double.MIN_POSITIVE);
   Expect.equals(-double.MIN_POSITIVE, p.y);
-  p = new Point(3, double.MAX_FINITE);
+  p = new Point(3.0, double.MAX_FINITE);
   Expect.equals(double.MAX_FINITE, p.y);
-  p = new Point(3, -double.MAX_FINITE);
+  p = new Point(3.0, -double.MAX_FINITE);
   Expect.equals(-double.MAX_FINITE, p.y);
-  p = new Point(3, double.NAN);
+  p = new Point(3.0, double.NAN);
   Expect.notEquals(double.NAN, p.y);
 }

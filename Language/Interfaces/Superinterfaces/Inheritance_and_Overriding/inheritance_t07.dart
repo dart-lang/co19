@@ -25,13 +25,10 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks there is no static warning if non-abstract class
- * implements several interfaces with same named methods that have different
- * number of required and optional positional formal parameters. In this case
- * interface of this non-abstract class has a method with minimum numbers of
- * of required parameters and maximum numbers of positional parameters of type
- * dynamic.
- * @static-clean
+ * @description Checks there is a compile error in a strong mode if non-abstract
+ * class implements several interfaces with same named methods that have
+ * different number of required and optional positional formal parameters.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 import '../../../../Utils/expect.dart';

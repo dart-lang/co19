@@ -24,7 +24,7 @@ main() {
     count++;
     return false;
   }
-  test2(e) {
+  bool test2(Float64x2 e) {
     count++;
     return e.x < 1;
   }

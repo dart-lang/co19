@@ -17,7 +17,7 @@ const eventType = 'siberianFrost';
 
 main() {
   asyncStart();
-  document.on[eventType].listen((CustomEvent e) {
+  document.on[eventType].listen((Event e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
   });

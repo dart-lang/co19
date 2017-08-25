@@ -12,14 +12,14 @@
  * • A static warning is issued.
  * @description Checks that implicit hiding of SDK library classes is
  * prohibited.
- * @compile-error
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 import 'implicit_hide_t01_lib1.dart';
 
 main() {
-  Expect.equals('MYLIST', List.typename);
+  Expect.equals('MYLIST', List.typename); /// static-type warning
   Expect.equals('MYLIST2', List2.typename);
 }
 

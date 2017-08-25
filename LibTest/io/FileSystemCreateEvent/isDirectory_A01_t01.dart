@@ -19,8 +19,8 @@ import "../../../Utils/file_utils.dart";
 main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemCreateEvent event) {
-    Expect.isTrue(event.isDirectory);
+  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+    Expect.isTrue((event as FileSystemCreateEvent).isDirectory);
     asyncEnd();
   });
   dir.createTemp().timeout(new Duration(seconds: 1)).then((_) {

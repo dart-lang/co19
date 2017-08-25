@@ -31,16 +31,10 @@ class C extends D {
     Expect.equals(1, i.positionalArguments.length);
     Expect.mapEquals({}, i.namedArguments);
   }
-  test() {
-    bar = 1;
-    getOnly = 1;
-    super.bar = 1;
-  }
 }
 
 main() {
   dynamic x = new C();
   x.bar = 1;
   x.getOnly = 1;
-  x.test();
 }

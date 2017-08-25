@@ -28,16 +28,6 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.equals(expect, i.memberName);
   }
-  test() {
-    expect = #foo; foo;
-    expect = const Symbol('bar='); bar = 1;
-    expect = #setOnly; setOnly;
-    expect = const Symbol('getOnly='); getOnly = 1;
-    
-    expect = #foo; super.foo;
-    expect = const Symbol('bar='); super.bar = 1;
-    expect = #setOnly; super.setOnly;
-  }
   var d;
   C() : d = new D();
 }
@@ -51,7 +41,6 @@ test(dynamic x) {
   expect = #setOnly; x.setOnly;
   expect = const Symbol('getOnly='); x.getOnly = 1;
   expect = #call; x.d();
-  x.test();
 }
 
 main() {

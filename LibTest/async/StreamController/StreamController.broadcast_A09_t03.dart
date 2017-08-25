@@ -20,7 +20,7 @@
 import "dart:async";
 import "../Stream/allTests_A03.lib.dart";
 
-Stream<T> create(Iterable<T> data, {boolean isError(T element)}) {
+Stream<T> create(Iterable<T> data, {bool isError(T element)}) {
   StreamController sc;
   sc = new StreamController.broadcast(
     onListen:() {

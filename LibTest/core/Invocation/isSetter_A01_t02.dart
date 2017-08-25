@@ -28,13 +28,6 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isSetter);
   }
-  test() {
-    foo();
-    foo;
-    setOnly;
-    super.foo;
-    super.setOnly;
-  }
   var d;
   C() : d = new D();
 }
@@ -47,7 +40,6 @@ test(dynamic x) {
   x.method();
   x.foo;
   x.setOnly;
-  x.test();
   x.d();
 }
 
