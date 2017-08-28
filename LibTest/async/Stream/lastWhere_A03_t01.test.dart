@@ -18,7 +18,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool test(T element), Object expectedError) {
+void check<T>(Stream<T> s, bool test(T element), Object expectedError) {
   asyncStart();
   s.lastWhere(test).then(
     (data) {
@@ -31,7 +31,7 @@ void check(Stream<T> s, bool test(T element), Object expectedError) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   check(create([1,2,3], isError:(e) =>true), (x) => x > 0, 1);
   check(create([1,2,3], isError:(e) => e==3), (x) => x > 0, 3);
   check(create([-1,1,-2,2,3], isError:(e) => e==3), (x) => x < 0, 3);

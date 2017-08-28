@@ -22,7 +22,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   Stream s = create([1, 2, 3, 4, 5]);
   int cancelCount = 0;
   asyncStart();

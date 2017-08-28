@@ -14,14 +14,15 @@
  */
 library asBroadcastStream_A05_t02;
 import "dart:async";
+import '../../../Utils/async_utils.dart';
 import "allTests_A02.lib.dart" as StreamTests;
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   Stream s = create([], isError:(_) => false);
-  if (!s.isBroadcast){
+  if (!s.isBroadcast) {
     StreamTests.test(
-        (Iterable<T> data, {bool isError(T x)}) {
-            return create(data, isError:isError).asBroadcastStream();
+        <T>(Iterable<T> data, {bool isError(T x)}) {
+          return create<T>(data, isError: isError).asBroadcastStream();
         }
     );
   }

@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, T combine(T p, T e), Object expected) {
+void check<T>(Stream<T> s, T combine(T p, T e), Object expected) {
   asyncStart();
   s.reduce(combine).then(
     (_) {
@@ -28,7 +28,7 @@ void check(Stream<T> s, T combine(T p, T e), Object expected) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   check(create([1, 2, 3, 4, 5], isError:(_) => true), (p, e) => p + e, 1);
   check(create([1, 2, 3, 4, 5], isError:(x) => x.isEven), (p, e) => p * e, 2);
   check(create([1, 2, 3, 4, 5], isError:(x) => x==5), (p, e) => p + e, 5);

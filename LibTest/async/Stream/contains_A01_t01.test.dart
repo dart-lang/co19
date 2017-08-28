@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, Object match, bool expected) {
+void check<T>(Stream<T> s, Object match, bool expected) {
   asyncStart();
   Future<bool> future = s.contains(match);
   future.then((actual){
@@ -24,7 +24,7 @@ void check(Stream<T> s, Object match, bool expected) {
   });
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), null, false);
   check(create([1, 2, []]), null, false);
   check(create([1, 2 ,null, []]), null, true);

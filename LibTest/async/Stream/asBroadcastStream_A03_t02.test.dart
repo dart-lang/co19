@@ -22,10 +22,11 @@
  */
 library asBroadcastStream_A03_t02;
 import "dart:async";
+import '../../../Utils/async_utils.dart';
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
-  Stream s = create([1,2,3]);
+void test(CreateStreamFunction create) {
+  Stream<int> s = create([1,2,3]);
   s.asBroadcastStream(onListen: (StreamSubscription ss) {
     Expect.throws(()=>ss.onData((_){}));
   }).listen((_){});

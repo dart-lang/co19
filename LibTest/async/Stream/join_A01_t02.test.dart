@@ -16,8 +16,8 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
-  Iterable iterable = [1, null, false, true, 'string', #symbol, (x) => x++];
+void test(CreateStreamFunction create) {
+  List iterable = [1, null, false, true, 'string', #symbol, (x) => x++];
   iterable.add(iterable); // add self reference
   Stream s = create(iterable);
 

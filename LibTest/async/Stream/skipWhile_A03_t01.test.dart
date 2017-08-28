@@ -15,11 +15,11 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool test(T element)) {
+void check<T>(Stream<T> s, bool test(T element)) {
   Expect.equals(s.isBroadcast, s.skipWhile(test).isBroadcast);
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), (x) => false);
   check(create([]).asBroadcastStream(), (x) => false);
   check(create([]), (x) => true);

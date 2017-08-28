@@ -16,7 +16,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   Stream s = create([1,2,3], isError:(_)=>true);
   asyncStart();
   s.first.then(

@@ -16,5 +16,5 @@ import "dart:async";
 import "allTests_A03.lib.dart";
 
 main() {
-  test((Iterable<T> data) => new Stream<T>.fromIterable(data));
+  test(<T>(Iterable<T> data) => new Stream<T>.fromIterable(data));
 }

@@ -25,7 +25,7 @@ import "../../../Utils/expect.dart";
 const int subscribersCount = 10;
 const int dataSize = 1000;
 
-void multiListen(Stream s) {
+void multiListen(Stream<int> s) {
 
   for(int i = 0; i < subscribersCount; ++i) {
     asyncStart();
@@ -33,7 +33,7 @@ void multiListen(Stream s) {
       // listener that quits after half of data
       StreamSubscription quitter;
       quitter = s.listen(
-        (data) {
+        (int data) {
           if (data > dataSize / 2) {
             quitter.cancel();
             asyncEnd();
@@ -44,7 +44,7 @@ void multiListen(Stream s) {
       // listener that works to completion
       int processed = 0;
       s.listen(
-        (data) {++processed;},
+        (int data) {++processed;},
         onDone: () {
           Expect.equals(dataSize, processed);
           asyncEnd();
@@ -54,8 +54,8 @@ void multiListen(Stream s) {
   }
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   multiListen(
-      create(new Iterable.generate(dataSize, (i) => i)).asBroadcastStream()
+      create(new Iterable<int>.generate(dataSize, (i) => i)).asBroadcastStream()
   );
 }

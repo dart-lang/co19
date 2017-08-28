@@ -17,14 +17,14 @@ import "../../../Utils/async_utils.dart";
 
 void check(Stream s) {
   asyncStart();
-  StreamSubscription ss = s.listen(null,
+  s.listen(null,
     onDone: () {
       asyncEnd();
     }
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]));
   check(create([1, 2, 3, 4]));
   check(create([null, "2", -3, 4.0, []]));

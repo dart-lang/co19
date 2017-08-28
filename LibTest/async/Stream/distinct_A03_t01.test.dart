@@ -16,17 +16,15 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-class Key {
-  Object previous;
-  Object next;
+class Key<T> {
+  T previous;
+  T next;
 
   Key(this.previous, this.next);
 
-  bool operator ==(other) {
-    return (other is Key)
+  bool operator ==(other) => (other is Key)
       && (other as Key).previous==this.previous
       && (other as Key).next==this.next;
-  }
 
   int get hashCode {
     return previous.hashCode ^ next.hashCode;
@@ -37,11 +35,11 @@ class Key {
   }
 }
 
-Future<List> subscribe(Stream stream) {
-  Completer<List> completer = new Completer<List>();
-  List received = [];
+Future<List<T>> subscribe<T>(Stream<T> stream) {
+  Completer<List<T>> completer = new Completer<List<T>>();
+  List<T> received = [];
   stream.listen(
-      (event) {
+      (T event) {
         received.add(event);
       },
       onDone: () {
@@ -51,23 +49,23 @@ Future<List> subscribe(Stream stream) {
   return completer.future;
 }
 
-void check(Stream<T> s) {
-  Map<Key, int> equalsLog = new Map<Key, int>();
+void check<T>(Stream<T> s) {
+  Map<Key<T>, int> equalsLog = new Map<Key<T>, int>();
 
-  bool equals(Object p, Object n) {
+  bool equals(T p, T n) {
   //  print("equals($p,$n)");
-    Key key = new Key(p,n);
+    Key<T> key = new Key<T>(p,n);
     equalsLog[key] = 1 + equalsLog.putIfAbsent(key, () => 0);
     return p==n;
   }
 
-  Stream d = s.asBroadcastStream().distinct(equals);
+  Stream<T> d = s.asBroadcastStream().distinct(equals);
   Future.wait([
     subscribe(d),
     subscribe(d),
     subscribe(d)
   ]).then(
-    (List<List> result) {
+    (List<List<T>> result) {
       print(equalsLog);
       result.forEach(print);
       result.forEach((received) => Expect.listEquals(result[0], received));
@@ -78,7 +76,7 @@ void check(Stream<T> s) {
 
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]));
   check(create([1, 2, 4, 3]));
   check(create([1, 2, 2, 3]));

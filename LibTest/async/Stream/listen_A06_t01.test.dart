@@ -14,7 +14,7 @@ library listen_A06_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   asyncStart();
   create([]).listen((_) {}, onDone: () {asyncEnd();});
 

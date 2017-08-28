@@ -12,13 +12,13 @@
 import "dart:async";
 import "../Stream/allTests_A03.lib.dart";
 
-Stream<T> create(Iterable<T> data, {boolean isError(T element)}) {
-  StreamController sc;
-  sc = new StreamController(
+Stream<T> create<T>(Iterable<T> data, {bool isError(T element)}) {
+  StreamController<T> sc;
+  sc = new StreamController<T>(
     sync:true,
     onListen:() {
       new Future(() {
-        for (var e in data) {
+        for (T e in data) {
           if (sc.isClosed){
             break;
           }

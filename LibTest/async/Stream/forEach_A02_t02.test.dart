@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, Object errorElement) {
+void check<T>(Stream<T> s, Object errorElement) {
   Error expectedError = new Error();
   asyncStart();
   s.forEach((element) {
@@ -34,7 +34,7 @@ void check(Stream<T> s, Object errorElement) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([1, 2, 3, 4]), 4);
   Map m={};
   check(create([null, "2", -3, 4.0, m]), m);

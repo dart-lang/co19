@@ -12,15 +12,14 @@
  * @author ilya
  */
 library any_A01_t02;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   int count = 0;
   asyncStart();
   int last = -1;
-  create(new Iterable.generate(100, (_) => ++count))
+  create(new Iterable<int>.generate(100, (_) => ++count))
     .any((x) => (last = x) % 10 == 0)
     .then((x) {
       Expect.isTrue(x);

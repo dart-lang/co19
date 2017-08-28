@@ -32,7 +32,7 @@ class TestStreamConsumer<T> implements StreamConsumer<T> {
   int get closeCallCount => _closeCallCount;
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   TestStreamConsumer<int> c = new TestStreamConsumer<int>();
   Stream<int> s = create([1, 2, 3, 4, 5]);
 

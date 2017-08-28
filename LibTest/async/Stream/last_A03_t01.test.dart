@@ -30,7 +30,7 @@ void check(Stream s, Object expectedError){
   );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   check(create([1, 2, error, 4, 5], isError: (e) => e is Error), error);
   check(create([error, 4, 5], isError: (e) => e is Error), error);

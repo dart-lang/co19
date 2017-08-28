@@ -17,7 +17,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, List<T> expectedData, List expectedErrors) {
+void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
   List<T> actualData = [];
   List<T> actualErrors = [];
   asyncStart();
@@ -36,7 +36,7 @@ void check(Stream<T> s, List<T> expectedData, List expectedErrors) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   check(create([1,2,3,4,5], isError: (x) => true), [], [1,2,3,4,5]);
   check(create([1,2,3,4,5], isError: (x) => x.isEven), [1,3,5], [2,4]);
   check(create([1,2,3,4,5], isError: (x) => x.isOdd), [2,4], [1,3,5]);

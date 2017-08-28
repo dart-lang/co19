@@ -16,11 +16,11 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> stream, bool equals(T previous, T next)) {
+void check<T>(Stream<T> stream, bool equals(T previous, T next)) {
   Expect.equals(stream.isBroadcast, stream.distinct(equals).isBroadcast);
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
 
   check(create([]), (p,n) => true);
   check(create([]).asBroadcastStream(), (p,n) => true);

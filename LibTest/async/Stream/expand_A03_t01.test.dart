@@ -15,11 +15,11 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream s, List expected) {
-  Map<Object,int> convertLog = new Map();
+void check<T>(Stream<T> s, List<T> expected) {
+  Map<T,int> convertLog = new Map();
   asyncStart();
-  Stream stream = s.asBroadcastStream().expand(
-    (event) {
+  Stream<T> stream = s.asBroadcastStream().expand(
+    (T event) {
       convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
       return [event];
     }
@@ -29,7 +29,7 @@ void check(Stream s, List expected) {
     stream.toList(),
     stream.toList()
   ]).then(
-    (List<List<S>> results) {
+    (List<List<T>> results) {
       Expect.equals(3, results.length);
       results.forEach((actual) => Expect.listEquals(expected,actual));
       Expect.equals(expected.length, convertLog.length);
@@ -39,7 +39,7 @@ void check(Stream s, List expected) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
     check(create([]), []);
     check(create([1,2,3,4,5]), [1,2,3,4,5]);
     check(create(["a","b","c"]), ["a","b","c"]);

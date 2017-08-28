@@ -22,13 +22,13 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s0, List<T> data) {
-  Stream s1 = s0.asBroadcastStream();
+void check<T>(Stream<T> s0, List<T> data) {
+  Stream<T> s1 = s0.asBroadcastStream();
 
-  List events1 = new List();
+  List<T> events1 = new List<T>();
   asyncStart();
-  StreamSubscription ss1 = s1.listen(
-      (event) {
+  s1.listen(
+      (T event) {
         events1.add(event);
       },
       onDone: () {
@@ -37,10 +37,10 @@ void check(Stream<T> s0, List<T> data) {
       }
   );
 
-  List events2 = new List();
+  List<T> events2 = new List<T>();
   asyncStart();
-  StreamSubscription ss2 = s1.listen(
-      (event) {
+  s1.listen(
+      (T event) {
         events2.add(event);
       },
       onDone: () {
@@ -50,7 +50,7 @@ void check(Stream<T> s0, List<T> data) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), []);
   check(create([1, 2, null, []]), [1, 2, null, []]);
 }

@@ -20,12 +20,12 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Future check(Stream<T> stream, dynamic convert(T event), List expected) async {
+Future check<T>(Stream<T> stream, dynamic convert(T event), List expected) async {
   List actual = await stream.asyncMap(convert).toList();
   Expect.listEquals(expected, actual);
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   asyncStart();
   Future.wait([
     check(create([]), (_) => 1, []),

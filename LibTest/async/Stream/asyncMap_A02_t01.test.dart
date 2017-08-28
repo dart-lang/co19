@@ -11,16 +11,16 @@
  * if source stream is.
  * @author a.semenov@unipro.ru
  */
-library asyncExpand_A02_t01;
+library asyncMap_A02_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> stream, dynamic convert(T event)) {
+void check<T>(Stream<T> stream, dynamic convert(T event)) {
   Expect.equals(stream.isBroadcast, stream.asyncMap(convert).isBroadcast);
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
 
   check(create([]), (_) => null);
   check(create([]).asBroadcastStream(), (_) => null);

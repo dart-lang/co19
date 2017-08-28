@@ -20,12 +20,12 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Future check(Stream<T> stream, Stream<E> convert(T event), List<E> expected) async {
-  List actual = await stream.asyncExpand(convert).toList();
+Future check<T,E>(Stream<T> stream, Stream<E> convert(T event), List<E> expected) async {
+  List<E> actual = await stream.asyncExpand(convert).toList();
   Expect.listEquals(expected, actual);
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   asyncStart();
   Future.wait([
     // expand to empty stream

@@ -20,7 +20,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   int count = 0;
   Stream s1 = create(["a", "b", "c"]);
   Stream s2 = s1.asyncMap((x) => new Future.delayed(durationMs(100), () => x));

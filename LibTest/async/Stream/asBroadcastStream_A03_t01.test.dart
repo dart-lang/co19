@@ -25,12 +25,12 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
-  Stream s = create([1,2,3,4,5]);
+void test(CreateStreamFunction create) {
+  Stream<int> s = create([1,2,3,4,5]);
 
   asyncStart();
 
-  Stream b = s.asBroadcastStream(onListen: (StreamSubscription ss) {
+  Stream<int> b = s.asBroadcastStream(onListen: (StreamSubscription ss) {
     ss.cancel();
     asyncEnd();
   });

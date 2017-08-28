@@ -16,7 +16,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   Stream s = create(["a", 1, "b", 2, "c", 3], isError: (x) => x is num);
   Map onErrorCalls = new Map();
   Map testCalls = new Map();

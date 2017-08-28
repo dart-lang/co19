@@ -21,7 +21,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check (Stream<T> s, List expectedEvents) {
+void check<T>(Stream<T> s, List expectedEvents) {
   int count = 0;
   // delay for 100 ms and throw error if element starts with '!'
   Stream s2 = s.asyncMap(
@@ -57,7 +57,7 @@ void check (Stream<T> s, List expectedEvents) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create(["!a", "!b", "!c"]), ["+TE0", "+!a", "+TE1", "+!b", "+TE2", "+!c"]);
   check(create(["!a", "b", "!c"]), ["+TE0", "+!a", "+TE1", "b", "+TE2", "+!c"]);
   check(create(["a", "b", "!c"]), ["+TE0", "a", "+TE1", "b", "+TE2", "+!c"]);

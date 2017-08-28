@@ -19,7 +19,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s) {
+void check<T>(Stream<T> s) {
   Stream d = s.distinct();
   bool first = true;
   Object previous;
@@ -36,7 +36,7 @@ void check(Stream<T> s) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]));
   check(create([1, 2, 2, 3]));
   check(create([1, 2, null, null]));

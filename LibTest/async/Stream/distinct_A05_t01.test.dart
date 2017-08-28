@@ -18,7 +18,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool equals(T previous, T next),
+void check<T>(Stream<T> s, bool equals(T previous, T next),
            List expectedData, List expectedErrors) {
   Stream d = s.distinct(equals);
   List data = [], errors = [];
@@ -38,7 +38,7 @@ void check(Stream<T> s, bool equals(T previous, T next),
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), (p, n) => throw "error", [], []);
   check(create([1,2,3]), (p, n) => throw "a", [1], ["a","a"]);
   check(create([1,2,3,4,5]), (p, n) => n.isOdd ? throw n : p==n, [1,2,4], [3,5]);

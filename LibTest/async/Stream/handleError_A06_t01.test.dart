@@ -15,12 +15,12 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> stream, Function onError(T event), bool test(error)) {
+void check<T>(Stream<T> stream, Function onError(T event), bool test(error)) {
   Expect.equals(stream.isBroadcast, stream.handleError(onError).isBroadcast);
   Expect.equals(stream.isBroadcast, stream.handleError(onError, test:test).isBroadcast);
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
 
   check(create([]), (_) => null, (_) => true);
   check(create([]).asBroadcastStream(), (_) => null, (_) => true);

@@ -22,7 +22,7 @@ void check(Stream s, Object expectedValue) {
   });
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([123]), 123);
   check(create([123/2, 123]), 123);
   check(create(new Iterable.generate(10, (int index) => index)), 9);

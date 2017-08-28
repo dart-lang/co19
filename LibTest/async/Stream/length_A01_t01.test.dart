@@ -24,7 +24,7 @@ void check(Stream s, int expected) {
   });
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), 0);
   check(create([1, 2, 3, null]), 4);
   check(create(new Iterable.generate(0, (int index) => index * 2)), 0);

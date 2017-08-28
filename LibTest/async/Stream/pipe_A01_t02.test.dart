@@ -30,7 +30,7 @@ class TestStreamConsumer<T> implements StreamConsumer<T> {
   Stream get stream => _controller.stream;
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   List values = [];
   List errors = [];
   TestStreamConsumer<int> c = new TestStreamConsumer<int>();

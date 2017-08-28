@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future fold(initialValue, combine(previous, T element))
+ * @assertion Future<S> fold<S>(S initialValue, S combine(S previous, T element))
  * Reduces a sequence of values by repeatedly applying combine.
  * @description Checks that the result is correct.
  * @author kaigorodov
@@ -14,18 +14,18 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, Object initialValue, S combine(S previous, element),
-           Object expected) {
+void check<T,S>(Stream<T> s, S initialValue, S combine(S previous, T element),
+           S expected) {
   asyncStart();
   s.fold(initialValue, combine).then(
-    (int actual) {
+    (S actual) {
       Expect.equals(expected, actual);
       asyncEnd();
     }
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([1, 2, 3, 4]), 0,
       (int previous, int element) => previous + element, 10);
   check(create([1, 2, 3, 4]), 1,

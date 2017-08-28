@@ -14,19 +14,19 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s) {
-  const expected = -11;
-  Future f = s.drain(expected);
+void check<T>(Stream<T> s) {
+  const int expected = -11;
+  Future<int> f = s.drain(expected);
   asyncStart();
   f.then(
-    (value) {
+    (int value) {
       Expect.equals(expected, value);
       asyncEnd();
     }
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]));
   check(create(new Iterable.generate(10, (int index) => index)));
 }

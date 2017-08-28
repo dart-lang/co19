@@ -33,7 +33,7 @@ void check(Stream s) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([123]));
   check(create([1,2,3]));
 }

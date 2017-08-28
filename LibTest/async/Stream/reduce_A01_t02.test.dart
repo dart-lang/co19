@@ -16,7 +16,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, T combine(T previous, T element), Object expected) {
+void check<T>(Stream<T> s, T combine(T previous, T element), T expected) {
   asyncStart();
   s.reduce(combine).then((actual) {
     Expect.equals(expected, actual);
@@ -24,6 +24,10 @@ void check(Stream<T> s, T combine(T previous, T element), Object expected) {
   });
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
-  check(create([777]), (a,b) => Expect.fail("combine should not be called"), 777);
+void test(CreateStreamFunction create) {
+  int combine(int a, int b) {
+    Expect.fail("combine should not be called");
+    return 0;
+  }
+  check<int>(create<int>([777]), combine , 777);
 }

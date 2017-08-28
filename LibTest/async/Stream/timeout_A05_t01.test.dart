@@ -16,21 +16,21 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s) {
+void check<T>(Stream<T> s, T timeoutValue) {
   Expect.equals(s.isBroadcast, s.timeout(durationMs(10)).isBroadcast);
   Expect.equals(s.isBroadcast,
                 s.timeout(
                     durationMs(10),
-                    onTimeout:(sink) => sink.add(-1)
+                    onTimeout:(EventSink<T> sink) => sink.add(timeoutValue)
                 ).isBroadcast
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
-  check(create([]));
-  check(create([]).asBroadcastStream());
-  check(create([null]));
-  check(create([null]).asBroadcastStream());
-  check(create([1, 2, 3]));
-  check(create([1, 2, 3]).asBroadcastStream());
+void test(CreateStreamFunction create) {
+  check(create([]), -1);
+  check(create([]).asBroadcastStream(), -1);
+  check(create([null]), null);
+  check(create([null]).asBroadcastStream(), null);
+  check(create([1, 2, 3]), -1);
+  check(create([1, 2, 3]).asBroadcastStream(), -1);
 }

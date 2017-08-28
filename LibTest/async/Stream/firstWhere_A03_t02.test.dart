@@ -29,7 +29,7 @@ void check(Stream<int> s, bool test(int element)) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), (int element) => true);
   check(create([1, 2, 3]), (int element) => element == null);
   check(create([null, null]), (int element) => element != null);

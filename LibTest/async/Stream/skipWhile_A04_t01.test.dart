@@ -23,7 +23,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool test(T element),
+void check<T>(Stream<T> s, bool test(T element),
            Object expectedError, List<T> expected) {
   Object actualError = null;
   List actual = [];
@@ -43,7 +43,7 @@ void check(Stream<T> s, bool test(T element),
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), (e) => throw "a", null, []);
   check(create([1, 2, 3]), (e) => throw "b", "b", [2, 3]);
   check(

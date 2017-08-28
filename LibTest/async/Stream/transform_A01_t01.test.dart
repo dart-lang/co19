@@ -24,11 +24,11 @@ StreamTransformer<int, int> doubleDataNegateError =
         sink.add(event);
       },
       handleError: (Object error, StackTrace st, EventSink<int> sink) {
-        sink.addError(-error);
+        sink.addError(-(error as int));
       }
     );
 
-void check(Stream<T> s, StreamTransformer<T,S> transformer,
+void check<T,S>(Stream<T> s, StreamTransformer<T,S> transformer,
            List expectedData, List expectedErrors) {
   List actualData = [];
   List actualErrors = [];
@@ -49,7 +49,7 @@ void check(Stream<T> s, StreamTransformer<T,S> transformer,
   );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   check(create([1,2,3,4,5]), passThrough, [1,2,3,4,5], []);
   check(create([1,2,3,4,5], isError: (x) => x.isOdd), passThrough, [2,4], [1,3,5]);
   check(create([1,2,3,4,5], isError: (x) => true), passThrough, [], [1,2,3,4,5]);

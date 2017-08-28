@@ -14,7 +14,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   List values = [];
   StreamController<int> c = new StreamController<int>();
 
@@ -25,7 +25,7 @@ void test(Stream<T> create(Iterable<T> data)) {
   Stream<int> s = create([1, 2, 3]);
 
   asyncStart();
-  s.pipe(c.sink as StreamConsumer<int>).then((x) {
+  s.pipe(c.sink).then((x) {
     Expect.listEquals([1, 2, 3], values);
     asyncEnd();
   });

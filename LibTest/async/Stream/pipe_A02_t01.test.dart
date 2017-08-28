@@ -46,7 +46,7 @@ class TestStreamConsumer<T> implements StreamConsumer<T> {
   int get closeCallCount => _closeCallCount;
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   List values = [];
   TestStreamConsumer<int> c = new TestStreamConsumer<int>();
 

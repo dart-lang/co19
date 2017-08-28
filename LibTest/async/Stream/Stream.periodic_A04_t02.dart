@@ -15,7 +15,7 @@
 import "dart:async";
 import "allTests_A02.lib.dart";
 
-Stream<T> create(Iterable<T> data, {bool isError(T x)}){
+Stream<T> create<T>(Iterable<T> data, {bool isError(T x)}){
   int count = data.length;
   Iterator<T> iterator = data.iterator;
   return new Stream.periodic(

@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, List<T> expectedData) {
+void check<T>(Stream<T> s, List<T> expectedData) {
   asyncStart();
   s.toList().then((value) {
       Expect.listEquals(expectedData, value);
@@ -23,7 +23,7 @@ void check(Stream<T> s, List<T> expectedData) {
   });
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), []);
   check(create([-1, -2, -3, 1, 2, 3, -1, -2, -3]), [-1, -2, -3, 1, 2, 3, -1, -2, -3]);
   check(create([1, 2, 3]), [1, 2, 3]);

@@ -18,11 +18,11 @@
 import "dart:async";
 import "allTests_A03.lib.dart";
 
-Stream<T> create(Iterable<T> data){
+Stream<T> create<T>(Iterable<T> data){
   Future future = new Future.value();
   return new Stream.fromFutures(
     data.map(
-      (x) {
+      (T x) {
         return future = future.then((_) => x);
       }
     )

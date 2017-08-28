@@ -29,7 +29,7 @@ void checkError(Stream s, int index) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   checkError(create([]), 1);
   for (int k = 1; k < 10; k++) {
     Iterable it = new Iterable.generate(k - 1, (int index) => index);

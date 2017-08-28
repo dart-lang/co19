@@ -23,10 +23,10 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
-  Iterable iterable = new Iterable.generate(100, (x) => x);
-  List values = iterable.toList();
-  Stream s = create(iterable);
+void test(CreateStreamFunction create) {
+  Iterable<int> iterable = new Iterable<int>.generate(100, (int x) => x);
+  List<int> values = iterable.toList();
+  Stream<int> s = create(iterable);
 
   bool anySubscribers = false;
   bool firstListen = true;
@@ -35,8 +35,8 @@ void test(Stream<T> create(Iterable<T> data)) {
 
   asyncStart();
 
-  Stream b = s.asBroadcastStream(
-      onListen: (StreamSubscription subs) {
+  Stream<int> b = s.asBroadcastStream(
+      onListen: (StreamSubscription<int> subs) {
         if (firstListen)
           firstListen = false;
         else {
@@ -44,7 +44,7 @@ void test(Stream<T> create(Iterable<T> data)) {
           subs.resume();
         }
       },
-      onCancel: (StreamSubscription subs) {
+      onCancel: (StreamSubscription<int> subs) {
         if (streamOpen) {
           Expect.isFalse(subs.isPaused);
           subs.pause();
@@ -58,7 +58,7 @@ void test(Stream<T> create(Iterable<T> data)) {
       }
   );
 
-  newSubscription(Stream stream, int n) {
+  newSubscription(Stream<int> stream, int n) {
     // get n elements and cancel
     int count = 0;
     StreamSubscription subs = stream.listen(null);

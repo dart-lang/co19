@@ -29,7 +29,7 @@ void checkError(Stream s, int index, Object expected) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   for (int k=0; k<10; k++) {
     Iterable i = new Iterable.generate(10, (x) => x);
     Stream s = create(i, isError:(e) => e==k);

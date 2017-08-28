@@ -19,9 +19,10 @@
  */
 library asBroadcastStream_A01_t02;
 import "dart:async";
+import '../../../Utils/async_utils.dart';
 import "../../../Utils/expect.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   Stream s1 = create([]);
   Stream s2 = s1.asBroadcastStream();
   Stream s3 = s2.asBroadcastStream();

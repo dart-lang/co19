@@ -6,6 +6,10 @@ import "expect.dart";
 
 const ONE_MS = const Duration(milliseconds: 1);
 
+typedef CreateStreamFunction = Stream<T> Function<T>(Iterable<T> values);
+typedef CreateStreamWithErrorsFunction =
+  Stream<T> Function<T>(Iterable<T> values, {bool isError(T element)});
+
 Duration durationMs(delay) {
   return delay == null ? Duration.ZERO : ONE_MS * delay;
 }
@@ -127,9 +131,9 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future value(Object expected, Future future) {
+  static Future<T> value<T>(T expected, Future<T> future) {
     asyncStart();
-    return future.then((value){
+    return future.then((T value){
       Expect.equals(expected, value);
       asyncEnd();
       return value;
@@ -143,7 +147,7 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future error(Object error, Future future) {
+  static Future<T> error<T>(Object error, Future<T> future) {
     asyncStart();
     return future.then(
       (_) {
@@ -162,7 +166,7 @@ class AsyncExpect {
    * Any error in the stream is unexpected and wil fail the test.
    */
   static void data<T>(List<T> data, Stream<T> stream) {
-    List actual = [];
+    List<T> actual = [];
     asyncStart();
     stream.listen(
         (T value) {
@@ -179,11 +183,11 @@ class AsyncExpect {
    * Checks whether the given stream contains expected data and error events.
    */
   static void events<T>(List<T> data, List errors, Stream<T> stream) {
-    List actualData = [];
+    List<T> actualData = [];
     List actualErrors = [];
     asyncStart();
     stream.listen(
-        (value) {
+        (T value) {
           actualData.add(value);
         },
         onError: (error) {

@@ -43,7 +43,7 @@ void check(Stream s, void onError(error), List data, List intercepted, List expe
    );
 }
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   check(create([]), (e) => throw e, [], [], []);
   check(create([], isError:(x) => true), (e) => throw e, [], [], []);
 

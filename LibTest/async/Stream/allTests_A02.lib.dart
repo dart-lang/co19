@@ -9,7 +9,7 @@
  * @author a.semenov@unipro.ru
  */
 library allTests_A02;
-import "dart:async";
+import '../../../Utils/async_utils.dart';
 
 import "any_A02_t01.test.dart" as any_A02_t01;
 
@@ -77,7 +77,7 @@ import "transform_A01_t01.test.dart" as transform_A01_t01;
 
 import "where_A01_t02.test.dart" as where_A01_t02;
 
-void test(Stream<T> create(Iterable<T> data, {bool isError(T x)})) {
+void test(CreateStreamWithErrorsFunction create) {
   any_A02_t01.test(create);
 
   asBroadcastStream_A05_t02.test(create);

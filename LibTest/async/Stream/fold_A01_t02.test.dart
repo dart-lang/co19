@@ -26,7 +26,7 @@ void check(Stream s, Object initialValue) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), null);
   check(create([]), 777);
   check(create([]), "");

@@ -14,7 +14,7 @@
 import "dart:async";
 import "allTests_A03.lib.dart";
 
-Stream<T> create(Iterable<T> data){
+Stream<T> create<T>(Iterable<T> data){
 
   return new Stream.periodic(
       new Duration(milliseconds:10),

@@ -33,7 +33,7 @@ Future<List> subscribe(Stream stream) {
   return completer.future;
 }
 
-Future check(Stream<T> stream, List expected) {
+Future check<T>(Stream<T> stream, List expected) {
   Map<Object,int> convertLog = new Map<Object,int>();
 
   dynamic convert(Object event) {
@@ -55,9 +55,10 @@ Future check(Stream<T> stream, List expected) {
         asyncEnd();
       }
   );
+  return null;
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]).asBroadcastStream(), []);
   check(create([1, 2, 3, 4, 5]).asBroadcastStream(), [1, 2, 3, 4, 5]);
   check(create(['a', 'b', 'c']).asBroadcastStream(), ['a', 'b', 'c']);

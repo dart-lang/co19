@@ -24,7 +24,7 @@ void check(Stream s, Object expected) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([123]), 123);
   check(create([1,2,3]), 1);
 }

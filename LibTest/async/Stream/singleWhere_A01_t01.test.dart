@@ -16,7 +16,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool test(T element), Object expected) {
+void check<T>(Stream<T> s, bool test(T element), Object expected) {
   asyncStart();
   s.singleWhere(test).then(
     (actual) {
@@ -26,7 +26,7 @@ void check(Stream<T> s, bool test(T element), Object expected) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([1, 2, 3, null]), (int element) => element == null, null);
   check(create([1, 2, 3]), (int element) => element > 2, 3);
   check(

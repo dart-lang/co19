@@ -30,7 +30,7 @@ StreamTransformer<int, int> createMyTransformer() {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   Stream<int> s = create(input).transform(createMyTransformer());
   List<int> actual = [];
 

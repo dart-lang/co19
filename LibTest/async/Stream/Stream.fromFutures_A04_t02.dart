@@ -17,13 +17,12 @@
  */
 import "dart:async";
 import "allTests_A02.lib.dart";
-import "distinct_A05_t01.test.dart" as distinct_A05_t01;
 
-Stream<T> create(Iterable<T> data, {bool isError(T x)}){
+Stream<T> create<T>(Iterable<T> data, {bool isError(T x)}){
   Future future = new Future.value();
   return new Stream.fromFutures(
      data.map(
-        (x) {
+        (T x) {
           return future = future.catchError((_){}).then(
             (_) {
               if (isError!=null && isError(x)){

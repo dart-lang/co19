@@ -12,11 +12,10 @@
  */
 library contains_A02_t01;
 import "dart:async";
-import "dart:collection";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, Object match, bool expected) {
+void check<T>(Stream<T> s, Object match, bool expected) {
   List seen = [];
   s = s.map((x) {
     seen.add(x);
@@ -35,7 +34,7 @@ void check(Stream<T> s, Object match, bool expected) {
   });
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), null, false);
   check(create([1, 2 ,[]]), null, false);
   check(create([1, 2 ,null, []]), null, true);

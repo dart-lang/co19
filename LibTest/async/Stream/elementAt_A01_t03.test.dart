@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 const int INDEX = 10;
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   int i = -1;
   Stream s = create(new Iterable.generate(100, (i) => i));
   s = s.map(

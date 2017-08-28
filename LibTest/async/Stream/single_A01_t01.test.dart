@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 const int VALUE = 123;
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   Stream s = create([VALUE]);
   asyncStart();
   s.single.then(

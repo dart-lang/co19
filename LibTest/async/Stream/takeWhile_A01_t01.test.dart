@@ -20,7 +20,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool test(T element), List<T> expectedData) {
+void check<T>(Stream<T> s, bool test(T element), List<T> expectedData) {
   asyncStart();
   List actualData = [];
   s.takeWhile(test).listen(
@@ -34,7 +34,7 @@ void check(Stream<T> s, bool test(T element), List<T> expectedData) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), null, []);
   check(create([-1, -2, -3, 1, 2, 3, -1, -2, -3]), (x) => x < 0, [-1, -2, -3]);
   check(create([1, 2, 3]), (element) => true, [1, 2, 3]);

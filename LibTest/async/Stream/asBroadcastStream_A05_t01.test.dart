@@ -14,11 +14,12 @@
  */
 library asBroadcastStream_A05_t01;
 import "dart:async";
+import '../../../Utils/async_utils.dart';
 import "allTests_A01.lib.dart" as StreamTests;
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   Stream s = create([]);
   if (!s.isBroadcast){
-    StreamTests.test((Iterable<T> data) => create(data).asBroadcastStream());
+    StreamTests.test(<T>(Iterable<T> data) => create(data).asBroadcastStream());
   }
 }

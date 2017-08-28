@@ -19,7 +19,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, bool equals(T previous, T next)) {
+void check<T>(Stream<T> s, bool equals(T previous, T next)) {
   Stream d = s.distinct(equals);
   bool first = true;
   Object previous;
@@ -40,7 +40,7 @@ int abs(x) => x < 0 ? -x: x;
 
 int sign(x) => (x < 0) ? -1: (x == 0 ? 0 : 1);
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(
       create([1, 2, 2, 3]),
       (previous, next) => previous == next

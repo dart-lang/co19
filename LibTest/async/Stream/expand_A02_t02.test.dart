@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s, Iterable<S>convert(T value), List<S> expected) {
+void check<T,S>(Stream<T> s, Iterable<S>convert(T value), List<S> expected) {
   asyncStart();
   Stream<S> stream = s.asBroadcastStream().expand(convert);
   Future.wait([
@@ -31,7 +31,7 @@ void check(Stream<T> s, Iterable<S>convert(T value), List<S> expected) {
   );
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
 
     check(create([]), (value) => [], []);
     check(create([]), (value) => [1], []);

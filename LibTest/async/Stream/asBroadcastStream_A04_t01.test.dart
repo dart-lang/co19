@@ -21,13 +21,15 @@ library asBroadcastStream_A04_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 
-void test(Stream<T> create(Iterable<T> data)) {
-  Stream s = create([1, 2, 3]);
+void test(CreateStreamFunction create) {
+  Stream<int> s = create([1, 2, 3]);
 
   asyncStart();
-  Stream b = s.asBroadcastStream(onCancel: (subs) {
-    asyncEnd();
-  });
+  Stream<int> b = s.asBroadcastStream(
+      onCancel: (StreamSubscription<int> subs) {
+        asyncEnd();
+      }
+  );
   b.listen((_) {});
   b.listen((_) {});
   b.listen((_) {});

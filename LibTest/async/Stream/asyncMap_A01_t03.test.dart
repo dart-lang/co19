@@ -21,8 +21,8 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream<T> s1, List<T> expected) {
-  List sink = new List();
+void check<T>(Stream<T> s1, List expected) {
+  List sink = [];
   int len = expected.length;
   List<Completer> c = new List.generate(len, (_) => new Completer());
   int i = 0;
@@ -44,7 +44,7 @@ void check(Stream<T> s1, List<T> expected) {
   }
 }
 
-void test(Stream<T> create(Iterable<T> data)) {
+void test(CreateStreamFunction create) {
   check(create([]), []);
   check(create([1, 2, 3, 4]), [1, 2, 3, 4]);
   check(create([null, "2", -3, 4.0, []]), [null, "2", -3, 4.0, []]);
