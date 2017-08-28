@@ -10,10 +10,11 @@
  * @description Checks that with generalized void specifying [void] as the type
  * of a top-level variable causes no compile-time error.
  * @compile-error
+ * @issue 30177
  * @author kaigorodov
  */
 
-void v = null;
+void v = null; // no compile-time error here
 
 main() {
   try {
