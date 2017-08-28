@@ -16,7 +16,6 @@
  * @compile-error
  * @issue 27477
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C<T> {
