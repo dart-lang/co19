@@ -22,6 +22,7 @@
  * a setter v and that such code results in a NoSuchMethodError. Test the case
  * when e1 is a static type literal
  * @author msyabro
+ * @issue 30573
  */
 import '../../../Utils/expect.dart';
 

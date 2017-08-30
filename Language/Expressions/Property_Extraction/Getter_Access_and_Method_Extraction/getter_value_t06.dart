@@ -9,6 +9,7 @@
  * @description Checks that the getter in superclass is called with this bound
  * to the current value of this and the result is the result of supper.m
  * @author ilya, sgrekhov@unipro.ru
+ * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 

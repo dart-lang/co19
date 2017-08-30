@@ -9,6 +9,7 @@
  * @description Checks that method noSuchMethod is invoked
  * (which results in NoSuchMethodError) if superclass doesn't define an
  * []= operator.
+ * @issue 25540
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

@@ -20,6 +20,7 @@
  * @description Checks that there is no static type warning if T does not
  * have an instance member named m but have  @proxy annotation.
  * @static-clean
+ * @issue 25540
  * @author kaigorodov
  */
 import '../../../../Utils/expect.dart';
@@ -31,7 +32,5 @@ main() {
   C o = new C();
   Expect.throws(() {
     o.nonExistingMethod();
-  }
-  , (e) => e is NoSuchMethodError
-  );
+  }, (e) => e is NoSuchMethodError);
 }

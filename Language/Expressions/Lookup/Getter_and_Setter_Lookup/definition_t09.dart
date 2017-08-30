@@ -12,8 +12,8 @@
  * up getter (respectively setter) m in S with respect to L. Otherwise, we say
  * that the lookup has failed.
  * @description Checks that an implicit getter can be looked up dynamically.
+ * @issue 25540
  * @author msyabro, sgrekhov@unipro.ru
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

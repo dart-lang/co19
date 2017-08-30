@@ -13,7 +13,7 @@
  * NoSuchMethodError as long as the identifier is placed in such a way that it
  * cannot be mistaken.
  * @author rodionov
- * @reviewer iefremov
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 

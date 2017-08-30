@@ -20,6 +20,7 @@
  * m found
  * @static-clean
  * @author sgrekhov@unipro.ru
+ * @issue 30573
  */
 
 class A {

@@ -16,6 +16,7 @@
  * @description Checks that there is no static warning if the class of e1 does
  * not have a setter named v but is annotated with @proxy.
  * @static-clean
+ * @issue 25540
  * @author kaigorodov
  */
 import '../../../Utils/expect.dart';

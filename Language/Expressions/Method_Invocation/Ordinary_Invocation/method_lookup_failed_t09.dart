@@ -25,8 +25,6 @@
  * members named m. This causes a compile error
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class C {}

@@ -13,6 +13,7 @@
  * @description Check that static type of the extracted method is dynamic
  * if no member named m found.
  * @static-clean
+ * @issue 25540
  * @author sgrekhov@unipro.ru
  */
 class B {

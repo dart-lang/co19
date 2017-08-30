@@ -11,6 +11,7 @@
  * Expects a NoSuchMethodError when trying to access a superinterface's static
  * member S via a subinterface, as specified in (Expressions/Getter Invocation)
  * @author sgrekhov@unipro.ru
+ * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 

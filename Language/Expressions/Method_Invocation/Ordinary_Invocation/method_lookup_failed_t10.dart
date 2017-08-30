@@ -25,8 +25,7 @@
  * a static method m even though its superclass does. Default method
  * noSuchMethod() is invoked. It throws NoSuchMethodError.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
+ * @issue 30573
  */
 import "../../../../Utils/expect.dart";
 

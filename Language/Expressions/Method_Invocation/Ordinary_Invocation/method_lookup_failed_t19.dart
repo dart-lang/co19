@@ -25,7 +25,7 @@
  * denote a class in the current scope, or if C does not declare a static
  * method or getter with the required name.
  * @author rodionov
- * @reviewer kaigorodov
+ * @issue 30573
  */
 import "../../../../Utils/expect.dart";
 

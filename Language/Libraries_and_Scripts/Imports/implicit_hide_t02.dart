@@ -14,7 +14,7 @@
  * @description Checks that if N is referenced by L and N would be introduced
  * by explicit import of 'dart:core' and library whose URI does not begin with
  * 'dart:', then compile error is issued.
- * @compile-error
+ * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";
@@ -23,5 +23,5 @@ import 'dart:core'; // explicit import
 import "implicit_hide_lib.dart";
 
 main() {
-  Expect.equals('MYLIST', List.typename);
+  Expect.equals('MYLIST', List.typename); /// static-type warning
 }

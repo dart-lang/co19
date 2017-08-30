@@ -20,7 +20,6 @@
  * superclass.
  * @issue 25540
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

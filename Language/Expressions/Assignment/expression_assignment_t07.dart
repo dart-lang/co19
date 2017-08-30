@@ -16,6 +16,7 @@
  * even if setter lookup failed. Test the case when e1 is a constant type
  * literal
  * @author ilya
+ * @issue 30573
  */
 import '../../../Utils/expect.dart';
 

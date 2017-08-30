@@ -15,6 +15,7 @@
  * @description Checks that the value of an assignment expression is o
  * even if setter lookup failed.
  * @author sgrekhov@unipro.ru
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 

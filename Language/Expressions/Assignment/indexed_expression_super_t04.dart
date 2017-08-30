@@ -10,6 +10,7 @@
  * the form super[e1] = e2 is still returned even if no []= operator was found
  * in the superclass
  * @author sgrekhov@unipro.ru
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 

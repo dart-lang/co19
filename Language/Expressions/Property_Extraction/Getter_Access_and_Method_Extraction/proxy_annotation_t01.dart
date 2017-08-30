@@ -14,10 +14,12 @@
  * annotated with the constant @proxy. Test object instance
  * @static-clean
  * @author sgrekhov@unipro.ru
+ * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 
-@proxy class C {
+@proxy
+class C {
 }
 
 main() {

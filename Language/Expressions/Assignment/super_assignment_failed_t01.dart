@@ -23,6 +23,7 @@
  * @description Checks that method noSuchMethod is invoked with the right
  * argument if there is no setter for v in Sdynamic.
  * @author sgrekhov@unipro.ru
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 

@@ -13,6 +13,7 @@
  * parameter bound to o and this bound to this.
  * @description Checks that expression e is evaluated even if super.v=
  * assignment failed
+ * @issue 25540
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

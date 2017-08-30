@@ -21,7 +21,7 @@
  * @description Checks that method noSuchMethod is invoked with the specified
  * argument if v is the name of an instance method.
  * @author msyabro
- * @reviewer iefremov
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 

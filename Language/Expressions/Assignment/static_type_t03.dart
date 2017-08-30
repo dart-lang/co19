@@ -18,6 +18,7 @@
  * @static-clean
  * @author kaigorodov
  * @note issue #16233
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 

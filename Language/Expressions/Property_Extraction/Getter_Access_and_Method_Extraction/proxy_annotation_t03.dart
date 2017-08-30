@@ -14,10 +14,12 @@
  * superinterface is annotated with the constant @proxy. Test object instance
  * @static-clean
  * @author sgrekhov@unipro.ru
+ * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 
-@proxy class A {
+@proxy
+class A {
 }
 
 class C extends A {

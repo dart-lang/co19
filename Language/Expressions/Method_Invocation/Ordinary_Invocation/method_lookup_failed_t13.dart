@@ -25,7 +25,7 @@
  * method with the name m instead of declaring a static one. Default method
  * noSuchMethod() is invoked. It throws NoSuchMethodError.
  * @author rodionov
- * @reviewer kaigorodov
+ * @issue 30573
  */
 import "../../../../Utils/expect.dart";
 

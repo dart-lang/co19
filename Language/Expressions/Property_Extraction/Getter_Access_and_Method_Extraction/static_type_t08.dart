@@ -22,8 +22,8 @@
  * should not be any static warnings.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
- * @needsreview issue 3223
+ * @issue 3223
+ * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 

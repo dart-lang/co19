@@ -11,6 +11,7 @@
  * @description Checks that an assignment of the form v = e, where v is not
  * declared in the lexical scope is equivalent to the assignment this.v = e and
  * causes NoSuchMethodError
+ * @issue 25540
  * @author msyabro
  * @author sgrekhov@unipro.ru
  */

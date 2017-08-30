@@ -16,6 +16,7 @@
  * noSuchMethod() then this method called with Invocation as agrument
  * with properties set to the values listed in the assertion.
  * @issue 24331
+ * @issue 25540
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

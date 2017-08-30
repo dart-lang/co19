@@ -15,6 +15,7 @@
  * method/getter
  * @static-clean
  * @author sgrekhov@unipro.ru
+ * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 

@@ -15,6 +15,7 @@
  * equivalent to this.id, by implementing noSuchMethod() in the class and
  * intercepting NoSuchMethodError.
  * @author ilya
+ * @issue 25540
  */
 import '../../../Utils/expect.dart';
 
