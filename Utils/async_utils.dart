@@ -6,9 +6,8 @@ import "expect.dart";
 
 const ONE_MS = const Duration(milliseconds: 1);
 
-typedef CreateStreamFunction = Stream<T> Function<T>(Iterable<T> values);
-typedef CreateStreamWithErrorsFunction =
-  Stream<T> Function<T>(Iterable<T> values, {bool isError(T element)});
+typedef Stream<T> CreateStreamFunction<T>(Iterable<T> values);
+typedef Stream<T> CreateStreamWithErrorsFunction<T>(Iterable<T> values, {bool isError(T element)});
 
 Duration durationMs(delay) {
   return delay == null ? Duration.ZERO : ONE_MS * delay;
@@ -134,7 +133,11 @@ class AsyncExpect {
   static Future<T> value<T>(T expected, Future<T> future) {
     asyncStart();
     return future.then((T value){
-      Expect.equals(expected, value);
+      if (expected is List) {
+        Expect.listEquals(expected, value);
+      } else {
+        Expect.equals(expected, value);
+      }
       asyncEnd();
       return value;
     });
@@ -151,12 +154,16 @@ class AsyncExpect {
     asyncStart();
     return future.then(
       (_) {
-        Expect.fail("The future is expceted to complete with error");
+        Expect.fail("The future is expected to complete with error");
       },
       onError: (e){
-        Expect.equals(error, e);
+        if (error is Function){
+          Expect.isTrue(Function.apply(error, [e]));
+        } else {
+          Expect.equals(error, e);
+        }
         asyncEnd();
-        throw e;
+//        throw e;
       }
     );
   }
