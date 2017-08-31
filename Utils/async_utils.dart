@@ -6,8 +6,9 @@ import "expect.dart";
 
 const ONE_MS = const Duration(milliseconds: 1);
 
-typedef Stream<T> CreateStreamFunction<T>(Iterable<T> values);
-typedef Stream<T> CreateStreamWithErrorsFunction<T>(Iterable<T> values, {bool isError(T element)});
+typedef CreateStreamFunction = Stream<T> Function<T>(Iterable<T> values);
+typedef CreateStreamWithErrorsFunction =
+    Stream<T> Function<T>(Iterable<T> values, {bool Function(T element) isError});
 
 Duration durationMs(delay) {
   return delay == null ? Duration.ZERO : ONE_MS * delay;
