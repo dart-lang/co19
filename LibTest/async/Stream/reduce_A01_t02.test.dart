@@ -12,22 +12,17 @@
  * @author kaigorodov
  */
 library reduce_A01_t02;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, T combine(T previous, T element), T expected) {
-  asyncStart();
-  s.reduce(combine).then((actual) {
-    Expect.equals(expected, actual);
-    asyncEnd();
-  });
-}
-
 void test(CreateStreamFunction create) {
-  int combine(int a, int b) {
+  int combine(int p, int e){
     Expect.fail("combine should not be called");
-    return 0;
+    return 0; // makes analyzer happy
   }
-  check<int>(create<int>([777]), combine , 777);
+
+  AsyncExpect.value(
+      777,
+      create([777]).reduce(combine)
+  );
 }

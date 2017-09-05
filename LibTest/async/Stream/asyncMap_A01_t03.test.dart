@@ -19,25 +19,13 @@
 library asyncMap_A01_t03;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s1, List expected) {
-  List sink = [];
+void check<T,E>(Stream<T> s1, List<E> expected) {
   int len = expected.length;
-  List<Completer> c = new List.generate(len, (_) => new Completer());
+  List<Completer<E>> c = new List.generate(len, (_) => new Completer<E>());
   int i = 0;
 
-  asyncStart();
-  Stream s2 = s1.asyncMap((event) => c[i++].future);
-  s2.listen(
-    (event) {
-      sink.add(event);
-    },
-    onDone: () {
-      Expect.listEquals(expected, sink);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.data(expected, s1.asyncMap((event) => c[i++].future));
 
   for (int k = 0; k < len; k++) {
     c[k].complete(expected[k]);

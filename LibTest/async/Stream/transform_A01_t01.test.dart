@@ -14,7 +14,6 @@
 library transform_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 StreamTransformer<int, int> passThrough = new StreamTransformer.fromHandlers();
 StreamTransformer<int, int> doubleDataNegateError =
@@ -29,24 +28,8 @@ StreamTransformer<int, int> doubleDataNegateError =
     );
 
 void check<T,S>(Stream<T> s, StreamTransformer<T,S> transformer,
-           List expectedData, List expectedErrors) {
-  List actualData = [];
-  List actualErrors = [];
-
-  asyncStart();
-  s.transform(transformer).listen(
-    (value){
-      actualData.add(value);
-    },
-    onError: (error) {
-      actualErrors.add(error);
-    },
-    onDone:() {
-      Expect.listEquals(expectedData, actualData);
-      Expect.listEquals(expectedErrors, actualErrors);
-      asyncEnd();
-    }
-  );
+           List<S> expectedData, List expectedErrors) {
+  AsyncExpect.events(expectedData, expectedErrors, s.transform(transformer));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

@@ -16,26 +16,10 @@
 library skipWhile_A02_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T element),
            List<T> expectedData, List expectedErrors) {
-  List actualData = [];
-  List actualErrors = [];
-  asyncStart();
-  s.skipWhile(test).listen(
-    (value) {
-      actualData.add(value);
-    },
-    onError: (error) {
-      actualErrors.add(error);
-    },
-    onDone: () {
-      Expect.listEquals(expectedData, actualData);
-      Expect.listEquals(expectedErrors, actualErrors);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.events(expectedData, expectedErrors, s.skipWhile(test));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

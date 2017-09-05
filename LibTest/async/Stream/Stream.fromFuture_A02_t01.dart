@@ -13,38 +13,16 @@
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Future f, Object expected) {
-  int eventCount = 0;
-  Stream s = new Stream.fromFuture(f);
-  Object actual;
-  asyncStart();
-  s.listen(
-    (event) {
-      eventCount++;
-      actual = event;
-    },
-    onError: (_) {
-      Expect.fail("onError called unexpectedly");
-    },
-    onDone: () {
-      Expect.equals(1, eventCount);
-      Expect.equals(expected, actual);
-      asyncEnd();
-    }
-  );
-}
 
 main() {
   // using immediate sync future
-  check(new Future.sync(() => 123), 123);
+  AsyncExpect.data([123], new Stream.fromFuture(new Future.sync(() => 123)));
 
   // using immediate future
-  check(new Future(() => "abc"), "abc");
+  AsyncExpect.data(["abc"], new Stream.fromFuture(new Future(() => "abc")));
 
   // using completable future
   Completer completer = new Completer();
-  check(completer.future, 3.14);
+  AsyncExpect.data([3.14], new Stream.fromFuture(completer.future));
   completer.complete(3.14);
 }

@@ -12,27 +12,12 @@
  * @author kaigorodov
  */
 library elementAt_A03_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void checkError(Stream s, int index) {
-  asyncStart();
-  s.elementAt(index).then(
-    (actual) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError: (error) {
-      Expect.isTrue(error is RangeError, "error is ${error.runtimeType}");
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  checkError(create([]), 1);
+  AsyncExpect.error((e) => e is RangeError, create([]).elementAt(1));
   for (int k = 1; k < 10; k++) {
-    Iterable it = new Iterable.generate(k - 1, (int index) => index);
-    checkError(create(it), k);
+    Iterable<int> it = new Iterable<int>.generate(k - 1, (int index) => index);
+    AsyncExpect.error((e) => e is RangeError, create(it).elementAt(k));
   }
 }

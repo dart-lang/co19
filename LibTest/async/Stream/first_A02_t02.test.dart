@@ -18,8 +18,6 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const VAL = 123;
-
 void check(Stream s) {
   asyncStart();
   s = s.asBroadcastStream();

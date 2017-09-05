@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 
 void check(Stream s) {
   asyncStart();
-  s.firstWhere((_)=>true).then(
+  s.firstWhere((_) => true).then(
     (_) {
       if (!s.isBroadcast){
         Expect.throws(() => s.listen((_){}));

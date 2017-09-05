@@ -20,12 +20,12 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool equals(T previous, T next)) {
-  Stream d = s.distinct(equals);
+  Stream<T> d = s.distinct(equals);
   bool first = true;
-  Object previous;
+  T previous;
   asyncStart();
   d.listen(
-    (event) {
+    (T event) {
       Expect.isTrue(first || !equals(previous, event), "p=$previous, e=$event");
       first = false;
       previous = event;

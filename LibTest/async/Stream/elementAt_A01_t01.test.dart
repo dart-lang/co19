@@ -14,25 +14,12 @@
 library elementAt_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-const VALUE = 123;
-
-void check(Stream s, int index, Object expected) {
-  asyncStart();
-  s.elementAt(index).then(
-    (actual) {
-      Expect.equals(expected, actual);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([VALUE]), 0, VALUE);
-  check(create([1,VALUE,2,3]), 1, VALUE);
+  AsyncExpect.value(123, create([123]).elementAt(0));
+  AsyncExpect.value(123, create([1,123,2,3]).elementAt(1));
   for (int k = 0; k < 10; k++) {
-    Stream s = create(new Iterable.generate(10, (int index) => index));
-    check(s, k, k);
+    Stream<int> s = create(new Iterable<int>.generate(10, (int index) => index));
+    AsyncExpect.value(k, s.elementAt(k));
   }
 }

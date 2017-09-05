@@ -19,10 +19,10 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, Iterable<T> expectedData) {
-  List sink = new List();
+  List<T> sink = new List();
   asyncStart();
   s.listen(
-    (event) {
+    (T event) {
       sink.add(event);
     },
     onDone: () {

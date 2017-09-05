@@ -20,11 +20,11 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List<T> data, List errors) {
-  List dataSink = [];
+  List<T> dataSink = [];
   List errorSink = [];
   asyncStart();
   s.listen(
-      (event) {
+      (T event) {
         dataSink.add(event);
       },
       onError: (Object error) {

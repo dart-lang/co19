@@ -10,23 +10,12 @@
  * @author kaigorodov
  */
 library drain_A02_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s) {
-  const int expected = -11;
-  Future<int> f = s.drain(expected);
-  asyncStart();
-  f.then(
-    (int value) {
-      Expect.equals(expected, value);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]));
-  check(create(new Iterable.generate(10, (int index) => index)));
+  AsyncExpect.value(-11, create([]).drain(-11));
+  AsyncExpect.value(
+    "abc",
+    create(new Iterable.generate(10, (int index) => index)).drain("abc")
+  );
 }

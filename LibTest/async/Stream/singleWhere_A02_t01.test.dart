@@ -12,29 +12,16 @@
  * @author kaigorodov
  */
 library singleWhere_A02_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool test(T element), Object expected) {
-  asyncStart();
-  s.singleWhere(test).then(
-    (_) {
-      Expect.fail("Returned future sould complete with error");
-    },
-    onError: (Object error) {
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3]), (int element) => true, 3);
-  check(create([1, 2, 3]), (int element) => element != null, 3);
-  check(create([1, 2, 3]), (int element) => element > 0, 3);
-  check(
-      create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element != 30,
-      45
+  AsyncExpect.error((e) => e is Error, create([1, 2, 3]).singleWhere((int e) => true));
+  AsyncExpect.error((e) => e is Error, create([1, 2, 3]).singleWhere((int e) => e!=null));
+  AsyncExpect.error((e) => e is Error, create([-1, 2, 3]).singleWhere((int e) => e > 0));
+  AsyncExpect.error(
+    (e) => e is Error,
+    create(
+        new Iterable.generate(10, (int i) => i * 5)
+    ).singleWhere((int e) => e != 30)
   );
 }

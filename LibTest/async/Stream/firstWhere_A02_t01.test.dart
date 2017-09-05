@@ -16,20 +16,13 @@
 library firstWhere_A02_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
-void check(Stream<int> s, bool test(int element), int expected) {
-  asyncStart();
-  s.firstWhere(test, defaultValue: () => expected).then(
-    (int actual){
-      Expect.equals(expected, actual);
-      asyncEnd();
-    }
-  );
+void check<T>(Stream<T> s, bool test(T element), T expected) {
+  AsyncExpect.value(expected, s.firstWhere(test, defaultValue: () => expected));
 }
 
 void test(CreateStreamFunction create) {
-  check(create([]), (int element) => true, 1);
+  check(create([]), (element) => true, 1);
   check(create([1, 2, 3]), (int element) => element == null, null);
   check(create(new Iterable.generate(0, (int index) => index)),
       (int element) => false, 0);

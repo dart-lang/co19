@@ -12,24 +12,10 @@
  * @author kaigorodov
  */
 library single_A02_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s) {
-  asyncStart();
-  s.single.then(
-    (value) {
-      Expect.fail("Returned future sould complete with error");
-    },
-    onError: (error) {
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]));
-  check(create([1, 2]));
-  check(create(["a", "b", "c"]));
+  AsyncExpect.error((e) => e is StateError, create([]).single);
+  AsyncExpect.error((e) => e is StateError, create([1, 2]).single);
+  AsyncExpect.error((e) => e is StateError, create(["a", "b", "c"]).single);
 }

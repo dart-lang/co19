@@ -14,19 +14,9 @@
 library firstWhere_A03_t03;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Error expected = new Error();
   Stream s = create([1,2,3,4,5]);
-  asyncStart();
-  s.firstWhere((v) => throw expected).then(
-    (data) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError: (error) {
-      Expect.equals(expected, error);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(expected, s.firstWhere((v) => throw expected));
 }

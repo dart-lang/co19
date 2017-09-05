@@ -14,19 +14,9 @@
 library forEach_A02_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check(Stream s, Object expectedError) {
-  asyncStart();
-  s.forEach((var element) {}).then(
-    (_) {
-      Expect.fail("Returned future should copmlete with error");
-    },
-    onError: (Object error){
-      Expect.equals(expectedError, error);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(expectedError, s.forEach((element) {}));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

@@ -13,16 +13,9 @@
 library contains_A03_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   Stream s = create([1, error], isError: (e) => e is Error);
-  asyncStart();
-  s.contains(1).then(
-    (found) {
-      Expect.isTrue(found);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.value(true, s.contains(1));
 }

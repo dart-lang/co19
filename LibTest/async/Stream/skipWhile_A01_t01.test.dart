@@ -13,28 +13,12 @@
  * @author kaigorodov
  */
 library skipWhile_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool test(T element), List<T> expected) {
-  List actual = [];
-  asyncStart();
-  s.skipWhile(test).listen(
-    (value) {
-      actual.add(value);
-    },
-    onDone: () {
-      Expect.listEquals(expected, actual);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), null, []);
-  check(create([1, 2, 3]), (element) => false, [1, 2 ,3]);
-  check(create([-1, -2, -3, 1, 2, 3]), (element) => element < 0, [1, 2 ,3]);
-  check(create([1, 2, 3]), (element) => element == 1, [2, 3]);
-  check(create([1, 2, 3]), (element) => true, []);
+  AsyncExpect.data([], create([]).skipWhile(null));
+  AsyncExpect.data([1, 2 ,3], create([1, 2, 3]).skipWhile((element) => false));
+  AsyncExpect.data([1, 2 ,3], create([-1, -2, -3, 1, 2, 3]).skipWhile((e) => e < 0));
+  AsyncExpect.data([2 ,3], create([1, 2, 3]).skipWhile((e) => e == 1));
+  AsyncExpect.data([], create([1, 2, 3]).skipWhile((element) => true));
 }

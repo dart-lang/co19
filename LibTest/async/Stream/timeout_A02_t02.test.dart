@@ -34,7 +34,10 @@ void check<T>(Stream<T> s, List expectedEvents) {
                               }
                           )
   );
-  Stream s3 = s2.timeout(durationMs(10), onTimeout: (EventSink sink) => sink.add(count++));
+  Stream s3 = s2.timeout(
+      durationMs(10),
+      onTimeout: (EventSink sink) => sink.add(count++)
+  );
   List actualEvents = [];
   asyncStart();
   s3.listen(

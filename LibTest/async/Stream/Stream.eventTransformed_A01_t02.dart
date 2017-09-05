@@ -41,19 +41,6 @@ List<int> input = [1, 2, 3, 4, 5];
 main() {
   Stream s = new Stream.fromIterable(input).map((x) {throw x;});
   Stream s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
-  List<int> values = [];
 
-  asyncStart();
-  s2.listen(
-    (_) {
-      Expect.fail('unexpected onData event');
-    },
-    onError:(e) {
-      values.add(e);
-    },
-    onDone:() {
-      Expect.listEquals(input, values);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.events([], input, s2);
 }

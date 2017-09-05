@@ -13,32 +13,18 @@
  * @author kaigorodov
  */
 library where_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool test(T event), List<T> expectedData) {
-  List actualData = [];
-  asyncStart();
-  s.where(test).listen(
-    (value) {
-      actualData.add(value);
-    },
-    onDone: () {
-      Expect.listEquals(expectedData, actualData);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3, null]), (int event) => event == null, [null]);
-  check(create([1, 2, 3]), (int event) => event > 2, [3]);
-  check(
-      create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element == 30,
-      [30]
+  AsyncExpect.data([], create([]).where((e) => true));
+  AsyncExpect.data([], create([]).where((e) => false));
+
+  AsyncExpect.data([null], create([1, 2, 3, null]).where((int e) => e == null));
+  AsyncExpect.data([3], create([1, 2, 3]).where((int e) => e > 2));
+  AsyncExpect.data(
+      [30],
+      create(new Iterable.generate(10, (int i) => i * 5)).where((int e) => e == 30)
   );
-  check(create([1, 2, 3, 4, 5]), (int event) => event.isOdd, [1,3,5]);
-  check(create([1, 2, 3, 4, 5]), (int event) => event.isEven, [2,4]);
+  AsyncExpect.data([1,3,5], create([1, 2, 3, 4, 5]).where((int e) => e.isOdd));
+  AsyncExpect.data([2,4], create([1, 2, 3, 4, 5]).where((int e) => e.isEven));
 }

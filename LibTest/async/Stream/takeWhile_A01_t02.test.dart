@@ -18,26 +18,10 @@
 library takeWhile_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T element),
            List<T> expectedData, List expectedErrors) {
-  List<T> actualData = [];
-  List<T> actualErrors = [];
-  asyncStart();
-  s.takeWhile(test).listen(
-      (value) {
-        actualData.add(value);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone: () {
-        Expect.listEquals(expectedErrors, actualErrors);
-        Expect.listEquals(expectedData, actualData);
-        asyncEnd();
-      }
-  );
+  AsyncExpect.events(expectedData, expectedErrors, s.takeWhile(test));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

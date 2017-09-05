@@ -12,17 +12,10 @@
 library fold_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T,S>(Stream<T> s, S initialValue, S combine(S previous, T element),
-           S expected) {
-  asyncStart();
-  s.fold(initialValue, combine).then(
-    (S actual) {
-      Expect.equals(expected, actual);
-      asyncEnd();
-    }
-  );
+    S expected) {
+  AsyncExpect.value(expected, s.fold(initialValue, combine));
 }
 
 void test(CreateStreamFunction create) {

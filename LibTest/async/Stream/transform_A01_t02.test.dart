@@ -13,7 +13,6 @@
 library transform_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 List<int> input = [1, 2, 3, 4, 5];
 List<int> expected = [1, 2, 3, 6, 5, 10];
@@ -31,15 +30,5 @@ StreamTransformer<int, int> createMyTransformer() {
 }
 
 void test(CreateStreamFunction create) {
-  Stream<int> s = create(input).transform(createMyTransformer());
-  List<int> actual = [];
-
-  asyncStart();
-
-  s.listen((x) {
-    actual.add(x);
-  }, onDone: () {
-    Expect.listEquals(expected, actual);
-    asyncEnd();
-  });
+  AsyncExpect.data(expected, create(input).transform(createMyTransformer()));
 }

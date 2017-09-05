@@ -14,34 +14,21 @@
  * @author kaigorodov
  */
 library take_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, List<T> expected, int count) {
-  List<T> actual = [];
-  asyncStart();
-  s.take(count).listen(
-      (value) {
-        actual.add(value);
-      },
-      onDone: () {
-        Expect.listEquals(expected, actual);
-        asyncEnd();
-      }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), [], 0);
-  check(create([]), [], 1);
-  check(create([]), [], 10);
-  check(create([null]),[], 0);
-  check(create([null]),[null], 1);
-  check(create([null]),[null], 2);
-  check(create([1, 2, 3]), [], 0);
-  check(create([1, 2, 3]), [1], 1);
-  check(create([1, 2, 3]), [1, 2], 2);
-  check(create([1, 2, 3]), [1,2,3], 12);
-  check(create([[], [[]], [[[]]]]), [[], [[]]], 2);
+  AsyncExpect.data([], create([]).take(0));
+  AsyncExpect.data([], create([]).take(1));
+  AsyncExpect.data([], create([]).take(10));
+
+  AsyncExpect.data([], create([null]).take(0));
+  AsyncExpect.data([null], create([null]).take(1));
+  AsyncExpect.data([null], create([null]).take(2));
+
+  AsyncExpect.data([], create([1,2,3]).take(0));
+  AsyncExpect.data([1], create([1,2,3]).take(1));
+  AsyncExpect.data([1,2], create([1,2,3]).take(2));
+  AsyncExpect.data([1,2,3], create([1,2,3]).take(12));
+
+  AsyncExpect.data([[], [[]]], create([[], [[]], [[[]]]]).take(2));
 }

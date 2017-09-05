@@ -13,19 +13,7 @@
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 main() {
-  asyncStart();
-  new Stream.fromFutures([]).listen(
-    (int event) {
-      Expect.fail("Created stream should not contain data events");
-    },
-    onError: (_) {
-      Expect.fail("Created stream should not contain error events");
-    },
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  AsyncExpect.events([], [], new Stream.fromFutures([]));
 }

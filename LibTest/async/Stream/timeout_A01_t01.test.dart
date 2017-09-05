@@ -13,29 +13,18 @@
  * @author ngl@unipro.ru
  */
 library timeout_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, List<T> expectedData) {
-  List<T> actualData = [];
-  asyncStart();
-
-  s.timeout(new Duration(days:10)).listen(
-    (event) {
-      actualData.add(event);
-    },
-    onDone: () {
-      Expect.listEquals(expectedData, actualData);
-      asyncEnd();
-    }
-  );
-}
+const Duration _10DAYS = const Duration(days:10);
 
 void test(CreateStreamFunction create) {
-  check(create([]), []);
-  check(create([1, 2, 3, null]), [1, 2, 3, null]);
+  AsyncExpect.data([], create([]).timeout(_10DAYS));
+  AsyncExpect.data([1, 2, 3, null], create([1, 2, 3, null]).timeout(_10DAYS));
   List<int> data = new List<int>.generate(10, (int index) => index * 2);
-  check(create(data), data);
-  check(create(["a", "b", "c", 3.14, 100]), ["a", "b", "c", 3.14, 100]);
+  AsyncExpect.data(data, create(data).timeout(_10DAYS));
+
+  AsyncExpect.data(
+      ["a", "b", "c", 3.14, 100],
+      create(["a", "b", "c", 3.14, 100]).timeout(_10DAYS)
+  );
 }

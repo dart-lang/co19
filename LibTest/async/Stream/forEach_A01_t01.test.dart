@@ -18,9 +18,9 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List<T> data) {
-  List sink = [];
+  List<T> sink = [];
   asyncStart();
-  s.forEach((element) => sink.add(element)).then(
+  s.forEach((T element) => sink.add(element)).then(
     (_) {
       Expect.listEquals(data, sink);
       asyncEnd();

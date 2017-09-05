@@ -19,11 +19,11 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Future<List> subscribe(Stream stream) {
-  Completer<List> completer = new Completer<List>();
-  List received = [];
+Future<List<T>> subscribe<T>(Stream<T> stream) {
+  Completer<List<T>> completer = new Completer<List<T>>();
+  List<T> received = [];
   stream.listen(
-      (event) {
+      (T event) {
         received.add(event);
       },
       onDone: () {
@@ -33,23 +33,23 @@ Future<List> subscribe(Stream stream) {
   return completer.future;
 }
 
-Future check<T>(Stream<T> stream, List expected) {
-  Map<Object,int> convertLog = new Map<Object,int>();
+Future check<T>(Stream<T> stream, List<T> expected) {
+  Map<T,int> convertLog = new Map<T,int>();
 
-  dynamic convert(Object event) {
+  T convert(T event) {
 //  print("convert $event");
     convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
     return event;
   }
 
   asyncStart();
-  Stream converted = stream.map(convert);
+  Stream<T> converted = stream.map(convert);
   Future.wait([
     subscribe(converted),
     subscribe(converted),
     subscribe(converted)
   ]).then(
-      (List<List> result) {
+      (List<List<T>> result) {
         result.forEach((received) => Expect.listEquals(expected, received));
         expected.forEach((event) => Expect.equals(3, convertLog[event]));
         asyncEnd();

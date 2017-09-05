@@ -16,28 +16,15 @@
  * @author a.semenov@unipro.ru
  */
 library takeWhile_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool test(T element), List<T> expectedData) {
-  asyncStart();
-  List actualData = [];
-  s.takeWhile(test).listen(
-    (value) {
-      actualData.add(value);
-    },
-    onDone: () {
-      Expect.listEquals(expectedData, actualData);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), null, []);
-  check(create([-1, -2, -3, 1, 2, 3, -1, -2, -3]), (x) => x < 0, [-1, -2, -3]);
-  check(create([1, 2, 3]), (element) => true, [1, 2, 3]);
-  check(create([1, 2, 3, 1]), (element) => element == 1, [1]);
-  check(create([1, 2, 3]), (element) => false, []);
+  AsyncExpect.data([], create([]).takeWhile(null));
+  AsyncExpect.data(
+      [-1, -2, -3],
+      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).takeWhile((x) => x < 0)
+  );
+  AsyncExpect.data([1, 2, 3], create([1, 2, 3]).takeWhile((element) => true));
+  AsyncExpect.data([1], create([1, 2, 3, 1]).takeWhile((element) => element == 1));
+  AsyncExpect.data([], create([1, 2, 3]).takeWhile((element) => false));
 }

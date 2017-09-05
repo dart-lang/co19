@@ -14,16 +14,11 @@
 library join_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   List iterable = [1, null, false, true, 'string', #symbol, (x) => x++];
   iterable.add(iterable); // add self reference
   Stream s = create(iterable);
 
-  asyncStart();
-  s.join('---qwe---').then((x) {
-    Expect.equals(iterable.join('---qwe---'), x);
-    asyncEnd();
-  });
+  AsyncExpect.value(iterable.join('---qwe---'), s.join('---qwe---'));
 }

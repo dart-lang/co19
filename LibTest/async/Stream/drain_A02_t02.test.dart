@@ -11,22 +11,12 @@
  * @author kaigorodov
  */
 library drain_A02_t02;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s) {
-  Future f = s.drain();
-  asyncStart();
-  f.then(
-    (value) {
-      Expect.equals(null, value);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]));
-  check(create(new Iterable.generate(10, (int index) => index)));
+  AsyncExpect.value(null, create([]).drain());
+  AsyncExpect.value(
+      null,
+      create(new Iterable.generate(10, (int index) => index)).drain()
+  );
 }

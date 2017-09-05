@@ -19,24 +19,16 @@
 library asyncMap_A01_t04;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
-Future check<T>(Stream<T> stream, List expected) async {
-  List actual = await stream.asyncMap(
-                  (e) => new Future.delayed(durationMs(50), () => e)
-                ).toList();
-  Expect.listEquals(expected, actual);
+void check<T>(Stream<T> stream, List<T> expected) {
+  AsyncExpect.data(
+      expected,
+      stream.asyncMap((e) => new Future.delayed(durationMs(50), () => e))
+  );
 }
 
 void test(CreateStreamFunction create) {
-  asyncStart();
-  Future.wait([
-    check(create([]), []),
-    check(create([1, 2, 3, 4]), [1, 2, 3, 4]),
-    check(create([null, "2", -3, 4.0, []]), [null, "2", -3, 4.0, []])
-  ]).then(
-    (_) {
-      asyncEnd();
-    }
-  );
+  check(create([]), []);
+  check(create([1, 2, 3, 4]), [1, 2, 3, 4]);
+  check(create([null, "2", -3, 4.0, []]), [null, "2", -3, 4.0, []]);
 }

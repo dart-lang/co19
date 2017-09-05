@@ -20,34 +20,11 @@
 library asBroadcastStream_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s0, List<T> data) {
   Stream<T> s1 = s0.asBroadcastStream();
-
-  List<T> events1 = new List<T>();
-  asyncStart();
-  s1.listen(
-      (T event) {
-        events1.add(event);
-      },
-      onDone: () {
-        Expect.listEquals(data, events1);
-        asyncEnd();
-      }
-  );
-
-  List<T> events2 = new List<T>();
-  asyncStart();
-  s1.listen(
-      (T event) {
-        events2.add(event);
-      },
-      onDone: () {
-        Expect.listEquals(data, events2);
-        asyncEnd();
-      }
-  );
+  AsyncExpect.data(data, s1);
+  AsyncExpect.data(data, s1);
 }
 
 void test(CreateStreamFunction create) {

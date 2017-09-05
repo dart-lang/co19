@@ -19,42 +19,21 @@
  * @author a.semenov@unipro.ru
  */
 library skipWhile_A04_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool test(T element),
-           Object expectedError, List<T> expected) {
-  Object actualError = null;
-  List actual = [];
-  asyncStart();
-  s.skipWhile(test).listen(
-    (value) {
-      actual.add(value);
-    },
-    onError: (error) {
-      actualError = error;
-    },
-    onDone: () {
-      Expect.equals(expectedError, actualError);
-      Expect.listEquals(expected, actual);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), (e) => throw "a", null, []);
-  check(create([1, 2, 3]), (e) => throw "b", "b", [2, 3]);
-  check(
-      create([-1, -2, -3, 1, 2, 3]),
-      (element) {
-        if (element > 0) {
-          throw "c";
-        };
-        return true;
-      },
-      "c",
-      [2 ,3]
+  AsyncExpect.data([], create([]).skipWhile((e) => throw "a"));
+  AsyncExpect.events([2, 3], ["b"], create([1, 2, 3]).skipWhile((e) => throw "b"));
+  AsyncExpect.events(
+      [2, 3], // expected data
+      ["c"],  // expected errors
+      create([-1, -2, -3, 1, 2, 3]).skipWhile(
+        (element) {
+          if (element > 0) {
+            throw "c";
+          };
+          return true;
+        }
+      )
   );
 }

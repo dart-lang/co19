@@ -14,20 +14,8 @@
  * @author kaigorodov
  */
 library first_A02_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Stream s = create([]);
-  asyncStart();
-  s.first.then(
-    (value) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError:(error) {
-      Expect.isTrue(error is StateError);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error((e) => e is StateError, create([]).first);
 }

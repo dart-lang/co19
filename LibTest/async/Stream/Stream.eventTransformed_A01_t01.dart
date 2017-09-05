@@ -39,12 +39,8 @@ List<int> input = [1, 2, 3, 4, 5];
 List<int> expected = [1, 2, 3, 6, 5, 10];
 
 main() {
-  Stream s = new Stream.fromIterable(input);
-  Stream s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
+  Stream<int> s = new Stream.fromIterable(input);
+  Stream<int> s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
 
-  asyncStart();
-  s2.toList().then((x) {
-    Expect.listEquals(expected, x);
-    asyncEnd();
-  });
+  AsyncExpect.data(expected, s2);
 }

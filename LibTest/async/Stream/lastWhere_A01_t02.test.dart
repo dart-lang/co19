@@ -17,11 +17,11 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream s, bool test(int element), Object expected) {
+void check<T>(Stream<T> s, bool test(T element), T expected) {
   bool defaultValueCalled = false;
   asyncStart();
   s.lastWhere(test, defaultValue:() {defaultValueCalled = true;})
-   .then((int actual){
+   .then((T actual){
      Expect.equals(expected, actual);
      Expect.isFalse(defaultValueCalled);
      asyncEnd();
@@ -29,12 +29,12 @@ void check(Stream s, bool test(int element), Object expected) {
 }
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3]), (int element) => true, 3);
-  check(create([1, 2, 3]), (int element) => element != null, 3);
-  check(create([1, 2, 3, null]), (int element) => element == null, null);
-  check(create([1, 2, 3]), (int element) => element > 0, 3);
-  check(create(new Iterable.generate(10, (int index) => index * 5)),
+  check(create<int>([1, 2, 3]), (int element) => true, 3);
+  check(create<int>([1, 2, 3]), (int element) => element != null, 3);
+  check(create<int>([1, 2, 3, null]), (int element) => element == null, null);
+  check(create<int>([1, 2, 3]), (int element) => element > 0, 3);
+  check(create<int>(new Iterable<int>.generate(10, (int index) => index * 5)),
       (int element) => element != 30, 45);
-  check(create(new Iterable.generate(10, (int index) => index * 5)),
+  check(create<int>(new Iterable<int>.generate(10, (int index) => index * 5)),
       (int element) => element == 30, 30);
 }

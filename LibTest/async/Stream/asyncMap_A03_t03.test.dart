@@ -23,37 +23,17 @@
 library asyncMap_A03_t03;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> stream, List<T> expectedData, List expectedErrors) {
-  List actualData = [];
-  List actualErrors = [];
-  asyncStart();
-  stream.listen(
-      (data) {
-        actualData.add(data);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  Stream stream = create(["a", "b", "c"]);
-  check(stream.asyncMap((e) => new Future.error(e)), [], ["a", "b", "c"]);
+  Stream<String> stream1 = create(["a", "b", "c"]);
+  AsyncExpect.events([], ["a", "b", "c"], stream1.asyncMap((e) => new Future.error(e)));
 
-  stream = create([1, 2, 3, 4, 5]);
-  check(
-    stream.asyncMap(
-      (e) => new Future.delayed(durationMs(50), () => e.isOdd ? e : throw e)
-    ),
+  Stream<int> stream2 = create([1, 2, 3, 4, 5]);
+  AsyncExpect.events(
     [1, 3, 5],
-    [2, 4]
+    [2, 4],
+    stream2.asyncMap(
+      (int e) => new Future.delayed(durationMs(50), () => e.isOdd ? e : throw e)
+    )
   );
 }

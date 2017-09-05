@@ -10,20 +10,10 @@
  * @author kaigorodov
  */
 library last_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s, Object expectedValue) {
-  asyncStart();
-  s.last.then((value) {
-    Expect.equals(expectedValue, value);
-    asyncEnd();
-  });
-}
 
 void test(CreateStreamFunction create) {
-  check(create([123]), 123);
-  check(create([123/2, 123]), 123);
-  check(create(new Iterable.generate(10, (int index) => index)), 9);
+  AsyncExpect.value(123, create([123]).last);
+  AsyncExpect.value(123, create([123/2, 123]).last);
+  AsyncExpect.value(9, create(new Iterable.generate(10, (int i) => i)).last);
 }

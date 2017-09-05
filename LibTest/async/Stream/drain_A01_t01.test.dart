@@ -17,22 +17,8 @@
 library drain_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create([1,2,3,4,5], isError:(e) => true);
-  Future f = s.drain();
-  bool errorSeen = false;
-  asyncStart();
-  f.then(
-    (value) {
-      Expect.fail("Returned should complete with error, but got $value");
-    },
-    onError: (error) {
-      Expect.isFalse(errorSeen);
-      Expect.equals(1, error);
-      errorSeen = true;
-      asyncEnd();
-    }
-  );
+  Stream<int> s = create([1,2,3,4,5], isError:(e) => true);
+  AsyncExpect.error(1, s.drain());
 }

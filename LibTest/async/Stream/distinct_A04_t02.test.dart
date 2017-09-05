@@ -16,25 +16,9 @@
 library distinct_A04_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
-  Stream d = s.distinct((p,n) => p==n);
-  List data = [], errors = [];
-  asyncStart();
-  d.listen(
-    (event) {
-      data.add(event);
-    },
-    onError: (error) {
-      errors.add(error);
-    },
-    onDone:() {
-      Expect.listEquals(expectedData, data);
-      Expect.listEquals(expectedErrors, errors);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.events(expectedData, expectedErrors, s.distinct((p,n) => p==n));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

@@ -13,24 +13,18 @@
 library forEach_A02_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, Object errorElement) {
   Error expectedError = new Error();
-  asyncStart();
-  s.forEach((element) {
-    if (element == errorElement) {
-      throw expectedError;
-    }
-  })
-  .then(
-    (_) {
-      Expect.fail("Returned future should copmlete with error");
-    },
-    onError: (Object error){
-      Expect.identical(expectedError, error);
-      asyncEnd();
-    }
+  AsyncExpect.error(
+      expectedError,
+      s.forEach(
+        (element) {
+          if (element == errorElement) {
+            throw expectedError;
+          }
+        }
+      )
   );
 }
 

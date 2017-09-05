@@ -15,27 +15,10 @@
 library where_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T event),
            List<T> expectedData, List expectedErrors) {
-  List actualData = [];
-  List actualErrors = [];
-
-  asyncStart();
-  s.where(test).listen(
-      (value){
-        actualData.add(value);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone:() {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      }
-  );
+  AsyncExpect.events(expectedData, expectedErrors, s.where(test));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

@@ -17,35 +17,14 @@
  * @author a.semenov@unipro.ru
  */
 library skip_A03_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, int count, List<T> expectedData, List expectedErrors) {
-  List<T> actualData = [];
-  List<T> actualErrors = [];
-  asyncStart();
-  s.skip(count).listen(
-    (value) {
-      actualData.add(value);
-    },
-    onError: (error) {
-      actualErrors.add(error);
-    },
-    onDone: () {
-      Expect.listEquals(expectedErrors, actualErrors);
-      Expect.listEquals(expectedData, actualData);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3], isError: (_) => true), 0, [], [1,2,3]);
-  check(create([1, 2, 3], isError: (_) => true), 1, [], [1,2,3]);
-  check(create([1, 2, 3], isError: (_) => true), 10, [], [1,2,3]);
+  AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(0));
+  AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(1));
+  AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(10));
 
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isOdd), 10, [], [1,3,5]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isEven), 1, [3,5], [2,4]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isEven), 2, [5], [2,4]);
+  AsyncExpect.events([], [1,3,5], create([1, 2, 3, 4, 5], isError: (x) => x.isOdd).skip(10));
+  AsyncExpect.events([3,5], [2,4], create([1, 2, 3, 4, 5], isError: (x) => x.isEven).skip(1));
+  AsyncExpect.events([5], [2,4], create([1, 2, 3, 4, 5], isError: (x) => x.isEven).skip(2));
 }

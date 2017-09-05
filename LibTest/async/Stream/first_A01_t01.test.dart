@@ -10,21 +10,9 @@
  * @author kaigorodov
  */
 library first_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s, Object expected) {
-  asyncStart();
-  s.first.then(
-    (value) {
-      Expect.equals(expected, value);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([123]), 123);
-  check(create([1,2,3]), 1);
+  AsyncExpect.value(123, create([123]).first);
+  AsyncExpect.value(1, create([1,2,3]).first);
 }

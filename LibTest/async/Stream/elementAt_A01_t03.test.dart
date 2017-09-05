@@ -20,16 +20,16 @@ const int INDEX = 10;
 
 void test(CreateStreamFunction create) {
   int i = -1;
-  Stream s = create(new Iterable.generate(100, (i) => i));
+  Stream<int> s = create(new Iterable<int>.generate(100, (int i) => i));
   s = s.map(
-    (e) {
+    (int e) {
       i++;
       return e;
     }
   );
   asyncStart();
   s.elementAt(INDEX).then(
-    (t) {
+    (int t) {
       Expect.equals(INDEX, i);
       asyncEnd();
     }

@@ -10,19 +10,8 @@
  * @author kaigorodov
  */
 library single_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-const int VALUE = 123;
 
 void test(CreateStreamFunction create) {
-  Stream s = create([VALUE]);
-  asyncStart();
-  s.single.then(
-      (value) {
-        Expect.equals(VALUE, value);
-        asyncEnd();
-      }
-  );
+  AsyncExpect.value(123, create([123]).single);
 }

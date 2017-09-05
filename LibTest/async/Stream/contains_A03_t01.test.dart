@@ -13,19 +13,9 @@
 library contains_A03_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   Stream s = create([error], isError: (e) => true);
-  asyncStart();
-  s.contains(1).then(
-    (_) {
-      Expect.fail("Returned future is expected to fail with error");
-    },
-    onError: (e) {
-      Expect.equals(error, e);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(error, s.contains(1));
 }

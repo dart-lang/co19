@@ -13,19 +13,9 @@
 library reduce_A03_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, T combine(T p, T e), Object expected) {
-  asyncStart();
-  s.reduce(combine).then(
-    (_) {
-      Expect.fail("Returned future sould complete with error");
-    },
-    onError: (error) {
-      Expect.equals(expected, error);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(expected, s.reduce(combine));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

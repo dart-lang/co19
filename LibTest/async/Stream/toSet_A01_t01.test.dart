@@ -10,23 +10,19 @@
  * @author kaigorodov
  */
 library toSet_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, List<T> expectedData) {
-  asyncStart();
-  s.toList().then((value) {
-    Expect.setEquals(expectedData, value);
-    asyncEnd();
-  });
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), []);
-  check(create([-1, -2, -3, 1, 2, 3, -1, -2, -3]), [-1, -2, -3, 1, 2, 3, -1, -2, -3]);
-  check(create([1, 2, 3]), [1, 2, 3]);
-  var data = [[], [[]], [[[]]]];
-  check(create(data), data);
-  check(create(["1", 2, null]),["1", 2, null]);
+  AsyncExpect.value(new Set.from([]), create([]).toSet());
+  AsyncExpect.value(new Set.from([1, 2, 3]), create([1, 2, 3]).toSet());
+  Set data = new Set.from([[], [[]], [[[]]]]);
+  AsyncExpect.value(data, create(data).toSet());
+  AsyncExpect.value(new Set.from(["1", 2, null]), create(["1", 2, null]).toSet());
+
+  AsyncExpect.value(new Set.from([1]), create([1,1,1]).toSet());
+  AsyncExpect.value(new Set.from([1,2,3]), create([1,2,3,1,2,3]).toSet());
+  AsyncExpect.value(
+      new Set.from([-1, -2, -3, 1, 2, 3]),
+      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).toSet()
+  );
 }

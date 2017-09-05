@@ -11,24 +11,22 @@
  * @author kaigorodov
  */
 library any_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> stream, bool test(T element), bool expected) {
-  asyncStart();
-  stream.any(test).then((bool actual) {
-    Expect.equals(expected, actual);
-    asyncEnd();
-  });
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), (element) => true, false);
-  check(create([1, 2, 3]), (int element) => element == null, false);
-  check(create([1, 2, 3, null]), (int element) => element == null, true);
-  check(create(new Iterable<int>.generate(0, (int index) => index * 2)),
-      (int element) => true, false);
-  check(create(new Iterable<int>.generate(10, (int index) => index * 5)),
-      (int element) => element == 30, true);
+  AsyncExpect.value(false, create([]).any((element) => true));
+  AsyncExpect.value(false, create([1, 2, 3]).any((int e) => e == null));
+  AsyncExpect.value(true, create([1, 2, 3, null]).any((int e) => e == null));
+  AsyncExpect.value(
+      false,
+      create(
+          new Iterable<int>.generate(0, (int index) => index * 2)
+      ).any((int element) => true)
+  );
+  AsyncExpect.value(
+      true,
+      create(
+          new Iterable<int>.generate(10, (int index) => index * 5)
+      ).any((int element) => element == 30)
+  );
 }

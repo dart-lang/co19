@@ -13,26 +13,20 @@
  * @author a.semenov@unipro.ru
  */
 library last_A03_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s, Object expectedError){
-  asyncStart();
-  s.last.then(
-    (_) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError: (error) {
-      Expect.identical(expectedError, error);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
-  check(create([1, 2, error, 4, 5], isError: (e) => e is Error), error);
-  check(create([error, 4, 5], isError: (e) => e is Error), error);
-  check(create([1, 2, error], isError: (e) => e is Error), error);
+  AsyncExpect.error(
+    error,
+    create([1, 2, error, 4, 5], isError: (e) => e is Error).last
+  );
+  AsyncExpect.error(
+      error,
+      create([error, 4, 5], isError: (e) => e is Error).last
+  );
+  AsyncExpect.error(
+      error,
+      create([1, 2, error], isError: (e) => e is Error).last
+  );
 }

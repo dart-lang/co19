@@ -15,25 +15,11 @@
 library timeout_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+
+const Duration _10DAYS = const Duration(days:10);
 
 void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
-  List<T> actualData = [];
-  List<T> actualErrors = [];
-  asyncStart();
-  s.timeout(new Duration(days: 10)).listen(
-      (value) {
-        actualData.add(value);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone: () {
-        Expect.listEquals(expectedErrors, actualErrors);
-        Expect.listEquals(expectedData, actualData);
-        asyncEnd();
-      }
-  );
+  AsyncExpect.events(expectedData, expectedErrors, s.timeout(_10DAYS));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

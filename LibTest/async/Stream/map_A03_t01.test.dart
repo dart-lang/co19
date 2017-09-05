@@ -14,31 +14,11 @@
 library map_A03_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> stream, List<T> expectedData, List expectedErrors) {
-  List actualData = [];
-  List actualErrors = [];
-  asyncStart();
-  stream.listen(
-      (data) {
-        actualData.add(data);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      }
-  );
-}
 
 void test(CreateStreamWithErrorsFunction create) {
   Stream stream = create(["a", "b", "c"], isError:(e) => true);
-  check(stream.map((e) => e), [], ["a", "b", "c"]);
+  AsyncExpect.events([], ["a", "b", "c"], stream.map((e) => e));
 
   stream = create([1, 2, 3, 4, 5], isError:(e) => e.isEven);
-  check(stream.map((e) => e), [1, 3, 5], [2, 4]);
+  AsyncExpect.events([1, 3, 5], [2, 4], stream.map((e) => e));
 }

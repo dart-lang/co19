@@ -11,22 +11,15 @@
  * @author kaigorodov
  */
 library toList_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, List<T> expectedData) {
-  asyncStart();
-  s.toList().then((value) {
-      Expect.listEquals(expectedData, value);
-      asyncEnd();
-  });
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), []);
-  check(create([-1, -2, -3, 1, 2, 3, -1, -2, -3]), [-1, -2, -3, 1, 2, 3, -1, -2, -3]);
-  check(create([1, 2, 3]), [1, 2, 3]);
-  check(create([[], [[]], [[[]]]]), [[], [[]], [[[]]]]);
-  check(create(["1", 2, null]),["1", 2, null]);
+  AsyncExpect.value([], create([]).toList());
+  AsyncExpect.value(
+      [-1, -2, -3, 1, 2, 3, -1, -2, -3],
+      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).toList()
+  );
+  AsyncExpect.value([1, 2, 3], create([1, 2, 3]).toList());
+  AsyncExpect.value([[], [[]], [[[]]]], create([[], [[]], [[[]]]]).toList());
+  AsyncExpect.value(["1", 2, null], create(["1", 2, null]).toList());
 }

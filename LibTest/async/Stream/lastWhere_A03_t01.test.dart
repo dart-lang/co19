@@ -16,19 +16,9 @@
 library lastWhere_A03_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T element), Object expectedError) {
-  asyncStart();
-  s.lastWhere(test).then(
-    (data) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError: (error) {
-      Expect.equals(expectedError, error);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(expectedError, s.lastWhere(test));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

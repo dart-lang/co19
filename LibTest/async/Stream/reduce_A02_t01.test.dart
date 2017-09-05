@@ -11,32 +11,17 @@
  * @author a.semenov@unipro.ru
  */
 library reduce_A02_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, T combine(T p, T e), Object expected) {
-  asyncStart();
-  s.reduce(combine).then(
-    (_) {
-      Expect.fail("Returned future sould complete with error");
-    },
-    onError: (error) {
-      Expect.equals(expected, error);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3]), (p,e) => throw "a", "a");
-  check(create([1, 2, 3]), (p,e) => throw e, 2);
-  check(
-      create([1, 2, 3, 4, 5]),
-      (p, e) {
-        if (e==3) throw e;
-        return p + e;
-      },
-      3 // expected error
+  AsyncExpect.error("a", create([1, 2, 3]).reduce((p,e) => throw "a"));
+  AsyncExpect.error(2, create([1, 2, 3]).reduce((p,e) => throw e));
+  AsyncExpect.error(3,
+      create([1, 2, 3, 4, 5]).reduce(
+        (p, e) {
+          if (e==3) throw e;
+          return p + e;
+        }
+      )
   );
 }

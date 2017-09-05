@@ -13,29 +13,20 @@
 library map_A01_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
-Future check<T>(Stream<T> stream, dynamic convert(T event), List expected) async {
-  List actual = await stream.map(convert).toList();
-  Expect.listEquals(expected, actual);
+void check<T>(Stream<T> stream, dynamic convert(T event), List expected) {
+  AsyncExpect.data(expected, stream.map(convert));
 }
 
 void test(CreateStreamFunction create) {
-  asyncStart();
-  Future.wait([
-    check(create([]), (_) => 1, []),
-    check(create([1,2,3,4,5]), (e) => e, [1,2,3,4,5]),
-    check(create([1,2,3,4,5]), (e) => -e, [-1,-2,-3,-4,-5]),
-    check(create([1,2,3,4,5]), (e) => 0, [0,0,0,0,0]),
-    // expand to the same stream
-    check(
-      create([null, "2", -3, 4.0, []]),
-      (e) => e,
-      [null, "2", -3, 4.0, []]
-    )
-  ]).then(
-    (_) {
-      asyncEnd();
-    }
+  check(create([]), (_) => 1, []);
+  check(create([1,2,3,4,5]), (e) => e, [1,2,3,4,5]);
+  check(create([1,2,3,4,5]), (e) => -e, [-1,-2,-3,-4,-5]);
+  check(create([1,2,3,4,5]), (e) => 0, [0,0,0,0,0]);
+  // expand to the same stream
+  check(
+    create([null, "2", -3, 4.0, []]),
+    (e) => e,
+    [null, "2", -3, 4.0, []]
   );
 }

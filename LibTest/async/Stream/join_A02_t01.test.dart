@@ -15,19 +15,10 @@
 library join_A02_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   Stream s = create([1, 2, error, 4, 5], isError: (e) => e is Error);
-  asyncStart();
 
-  s.join().then(
-    (_) {
-      Expect.fail("Returned future should complete with error");
-    }).catchError((e) {
-      Expect.identical(error, e);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(error, s.join());
 }

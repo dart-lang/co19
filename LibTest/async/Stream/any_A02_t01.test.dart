@@ -13,19 +13,9 @@
 library any_A02_t01;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> stream, Object expectedError) {
-  asyncStart();
-  stream.any((_) => true).then(
-    (data) {
-      Expect.fail("Unexpected data passed: $data");
-    },
-    onError: (error) {
-      Expect.equals(expectedError, error);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.error(expectedError, stream.any((_) => true));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

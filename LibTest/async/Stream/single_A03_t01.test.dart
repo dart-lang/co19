@@ -8,31 +8,16 @@
  * Returns the single element.
  * If an error event occurs before or after the first data event, the resulting
  * future is completed with that error.
- * @description Checks that an error event occurs before the first data event,
- * the resulting future is completed with that error.
+ * @description Checks that an error event occurs before or after the first
+ * data event, the resulting future is completed with that error.
  * @author ngl@unipro.ru
  */
 library single_A03_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s, Object expected) {
-  asyncStart();
-  s.single.then(
-    (_) {
-      Expect.fail("Returned future sould complete with error");
-    },
-    onError: (error) {
-      Expect.equals(expected, error);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1,2,3], isError: (_) => true), 1);
-  check(create([1,2,3], isError: (x) => x==1), 1);
-  check(create([1,2], isError: (x) => x==2), 2);
-  check(create([1,2,3], isError: (x) => x==2), 2);
+  AsyncExpect.error(1, create([1,2,3], isError: (_) => true).single);
+  AsyncExpect.error(1, create([1,2,3], isError: (x) => x==1).single);
+  AsyncExpect.error(2, create([1,2], isError: (x) => x==2).single);
+  AsyncExpect.error(2, create([1,2,3], isError: (x) => x==2).single);
 }

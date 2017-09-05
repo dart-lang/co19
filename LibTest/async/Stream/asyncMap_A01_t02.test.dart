@@ -18,24 +18,14 @@
 library asyncMap_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, List<T> expected) {
-  List<T> actual = [];
-  asyncStart();
-  s.asyncMap((event) => new Future.value(event)).listen(
-    (T event) {
-      actual.add(event);
-    },
-    onDone: () {
-      Expect.listEquals(expected, actual);
-      asyncEnd();
-    }
-  );
-}
+dynamic convert(event) => new Future.value(event);
 
 void test(CreateStreamFunction create) {
-  check(create([]), []);
-  check(create([1, 2, 3, 4]), [1, 2, 3, 4]);
-  check(create([null, "2", -3, 4.0, []]), [null, "2", -3, 4.0, []]);
+  AsyncExpect.data([], create([]).asyncMap(convert));
+  AsyncExpect.data([1, 2, 3, 4], create([1, 2, 3, 4]).asyncMap(convert));
+  AsyncExpect.data(
+      [null, "2", -3, 4.0, []],
+      create([null, "2", -3, 4.0, []]).asyncMap(convert)
+  );
 }

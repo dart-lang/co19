@@ -17,5 +17,5 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 
 main() {
-  AsyncExpect.value(0, new Stream.empty().length);
+  AsyncExpect.value(new Set(), new Stream.empty().toSet());
 }

@@ -13,26 +13,10 @@
  * @author a.semenov@unipro.ru
  */
 library isEmpty_A03_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check(Stream s, bool expected, Object error) {
-  asyncStart();
-  s.isEmpty.then(
-    (bool actual) {
-      Expect.isTrue(expected);
-      asyncEnd();
-    },
-    onError: (e) {
-      Expect.equals(error, e);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([]), true, null);
-  check(create([1, 2, 3, null], isError:(x) => x==1), false, 1);
-  check(create([1, 2, 3, null], isError:(x) => x==3), true, 3);
+  AsyncExpect.value(true, create([]).isEmpty);
+  AsyncExpect.error(1, create([1, 2, 3, null], isError:(x) => x==1).isEmpty);
+  AsyncExpect.value(false, create([1, 2, 3, null], isError:(x) => x==3).isEmpty);
 }

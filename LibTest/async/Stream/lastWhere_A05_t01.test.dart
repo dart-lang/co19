@@ -13,24 +13,12 @@
  * @author a.semenov@unipro
  */
 library lastWhere_A05_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool test(T element), Object expected) {
-  asyncStart();
-  s.lastWhere(test).then(
-    (data) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError: (error) {
-      Expect.equals(expected, error);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3]), (e) => throw "a", "a");
-  check(create([1, 2, 3]), (e) { if (e==3) throw "b"; return true; }, "b");
+  AsyncExpect.error("a", create([1, 2, 3]).lastWhere((e) => throw "a"));
+  AsyncExpect.error(
+      "b",
+      create([1, 2, 3]).lastWhere((e) { if (e==3) throw "b"; return true; })
+  );
 }

@@ -14,32 +14,14 @@
  * @author a.semenov@unipro.ru
  */
 library distinct_A05_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, bool equals(T previous, T next),
-           List expectedData, List expectedErrors) {
-  Stream d = s.distinct(equals);
-  List data = [], errors = [];
-  asyncStart();
-  d.listen(
-    (event) {
-      data.add(event);
-    },
-    onError: (error, st) {
-      errors.add(error);
-    },
-    onDone:() {
-      Expect.listEquals(expectedData, data);
-      Expect.listEquals(expectedErrors, errors);
-      asyncEnd();
-    }
-  );
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), (p, n) => throw "error", [], []);
-  check(create([1,2,3]), (p, n) => throw "a", [1], ["a","a"]);
-  check(create([1,2,3,4,5]), (p, n) => n.isOdd ? throw n : p==n, [1,2,4], [3,5]);
+  AsyncExpect.events([], [], create([]).distinct((p, n) => throw "error"));
+  AsyncExpect.events([1], ["a","a"], create([1,2,3]).distinct((p, n) => throw "a"));
+  AsyncExpect.events(
+      [1,2,4], // data
+      [3,5],  // errors
+      create([1,2,3,4,5]).distinct((p, n) => n.isOdd ? throw n : p==n)
+  );
 }

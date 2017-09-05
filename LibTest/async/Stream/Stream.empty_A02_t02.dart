@@ -15,14 +15,7 @@
  */
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 main() {
-  asyncStart();
-  new Stream.empty().isEmpty.then(
-    (bool value) {
-      Expect.isTrue(value);
-      asyncEnd();
-    }
-  );
+  AsyncExpect.value(true, new Stream.empty().isEmpty);
 }

@@ -18,25 +18,9 @@
 library take_A01_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, int count, List<T> expectedData, List expectedErrors) {
-  List<T> actualData = [];
-  List<T> actualErrors = [];
-  asyncStart();
-  s.take(count).listen(
-          (value) {
-        actualData.add(value);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone: () {
-        Expect.listEquals(expectedErrors, actualErrors);
-        Expect.listEquals(expectedData, actualData);
-        asyncEnd();
-      }
-  );
+  AsyncExpect.events(expectedData, expectedErrors, s.take(count));
 }
 
 void test(CreateStreamWithErrorsFunction create) {

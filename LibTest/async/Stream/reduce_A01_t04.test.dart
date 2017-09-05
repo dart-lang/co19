@@ -16,7 +16,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  List log = [];
+  List<int> log = [];
 
   int combine(int p, int e) {
     log.add(p);

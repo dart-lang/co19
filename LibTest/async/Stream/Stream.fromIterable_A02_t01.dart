@@ -18,7 +18,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-int f(i) {
+int f(int i) {
   if (i < 5)
     return i;
   if (i == 5)
@@ -28,13 +28,13 @@ int f(i) {
 }
 
 main() {
-  Iterable it = new Iterable.generate(10, (i) => f(i));
-  Stream s = new Stream.fromIterable(it);
+  Iterable<int> it = new Iterable<int>.generate(10, (int i) => f(i));
+  Stream<int> s = new Stream<int>.fromIterable(it);
   List events = [];
   asyncStart();
 
   s.listen(
-    (x) {
+    (int x) {
       events.add(x);
     },
     onError: (error) {

@@ -11,23 +11,12 @@
  * @author kaigorodov
  */
 library contains_A01_t01;
-import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
-void check<T>(Stream<T> s, Object match, bool expected) {
-  asyncStart();
-  Future<bool> future = s.contains(match);
-  future.then((actual){
-    Expect.equals(expected, actual);
-    asyncEnd();
-  });
-}
 
 void test(CreateStreamFunction create) {
-  check(create([]), null, false);
-  check(create([1, 2, []]), null, false);
-  check(create([1, 2 ,null, []]), null, true);
-  check(create([1, 2, []]), 4, false);
-  check(create([1, 2, null, []]), 2, true);
+  AsyncExpect.value(false, create([]).contains(null));
+  AsyncExpect.value(false, create([1, 2, []]).contains(null));
+  AsyncExpect.value(true, create([1, 2, null, []]).contains(null));
+  AsyncExpect.value(false, create([1, 2, []]).contains(4));
+  AsyncExpect.value(true, create([1, 2, null, []]).contains(2));
 }

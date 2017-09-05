@@ -15,22 +15,10 @@
 library join_A02_t02;
 import "dart:async";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Stream s = create([1, 2, 3]).asBroadcastStream();
 
-  asyncStart();
-  s.join().then((x) {
-    Expect.equals('123', x);
-    asyncEnd();
-  });
-
-  asyncStart();
-  s.listen(
-    (_) {},
-    onDone:() {
-      asyncEnd();
-    }
-  );
+  AsyncExpect.value('123', s.join());
+  AsyncExpect.data([1, 2, 3], s);
 }
