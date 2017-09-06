@@ -13,7 +13,6 @@
  * @description Checks that it is a compile error if you have a static member
  * named m in superclass and an abstract instance method of the same name.
  * @issue 27476
- * @compile-error
  * @author msyabro
  */
 import "../../../../Utils/expect.dart";

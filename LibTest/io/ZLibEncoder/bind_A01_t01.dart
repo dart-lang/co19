@@ -21,7 +21,7 @@ Future check(List<int> l) async {
   var sc = new StreamController();
   var s = sc.stream;
 
-  Sink<List<int>> sink = sc.sink;
+  StreamSink<List<int>> sink = sc.sink;
   sink.add(l);
   sink.close();
 
