@@ -6,14 +6,15 @@
 /**
  * @assertion Otherwise, the body of f is executed with this bound to o. The
  * value of i is the result returned by the call to the getter function.
- * @description Checks that the getter in superclass is called with this bound
- * to the current value of this and the result is the result of supper.m
- * @author ilya, sgrekhov@unipro.ru
- * @issue 30573
+ * @description Checks that it is a compile error if the getter in superclass is
+ * called with this bound to the current value of this and the result is the
+ * result of supper.m
+ * @compile-error
+ * @author ilya
+ * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
 
-@proxy
 class A {
   get field => this.x + 1;
 }

@@ -21,11 +21,10 @@
  *   values as {xn+1: on+1, ..., xn+k: on+k}.
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
- * @description Checks static invocations when class C does not declare
- * a static method m even though its superclass does. Default method
- * noSuchMethod() is invoked. It throws NoSuchMethodError.
+ * @description Checks that it is a compile error when class C does not declare
+ * a static method m even though its superclass does.
+ * @compile-error
  * @author msyabro
- * @issue 30573
  */
 import "../../../../Utils/expect.dart";
 
@@ -33,7 +32,6 @@ class S {
   static m() {}
 }
 
-@proxy
 class C extends S {}
 
 main() {

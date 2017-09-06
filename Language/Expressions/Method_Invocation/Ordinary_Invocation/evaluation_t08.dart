@@ -27,7 +27,6 @@
  * @description Checks that the argument list is evaluated before a
  * NoSuchMethodError is thrown.
  * @author rodionov
- * @issue 30573
  */
 import "../../../../Utils/expect.dart";
 
@@ -35,7 +34,6 @@ class S {
   static func(int v) {}
 }
 
-@proxy
 class C extends S {}
 
 int count = 0;
@@ -46,6 +44,7 @@ int incCount() {
 }
 
 main()  {
-  Expect.throws(() {C.func(incCount());}, (e) => e is NoSuchMethodError);
+  dynamic c = new C();
+  Expect.throws(() {c.func(incCount());}, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 }

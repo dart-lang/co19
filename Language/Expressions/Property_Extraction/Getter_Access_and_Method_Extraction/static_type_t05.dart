@@ -20,18 +20,17 @@
  * m found
  * @static-clean
  * @author sgrekhov@unipro.ru
- * @issue 30573
  */
 
 class A {
 }
 
-@proxy class C {
+class C {
 }
 
 main() {
   try {
-    var o = new C();
+    dynamic o = new C();
     A i = o.m;
   } on NoSuchMethodError {}
 }

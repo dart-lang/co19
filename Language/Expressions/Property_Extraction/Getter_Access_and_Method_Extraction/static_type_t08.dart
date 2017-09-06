@@ -23,16 +23,14 @@
  * @static-clean
  * @author msyabro
  * @issue 3223
- * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 
-@proxy
 class A {
 }
 
 main()  {
-  var a = new A();
+  dynamic  a = new A();
 
   Expect.throws(() {a.v.someMethod();}, (e) => e is NoSuchMethodError);
   Expect.throws(() {a.v.someVariable;}, (e) => e is NoSuchMethodError);

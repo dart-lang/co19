@@ -8,10 +8,10 @@
  * are not overridden by members declared in I.
  * @description Checks that an interface does not inherit static members of
  * its superinterfaces.
- * Expects a NoSuchMethodError when trying to access a superinterface's static
+ * Expects a compile time error when trying to access a superinterface's static
  * member S via a subinterface, as specified in (Expressions/Getter Invocation)
+ * @compile-error
  * @author sgrekhov@unipro.ru
- * @issue 30573
  */
 import '../../../../Utils/expect.dart';
 
@@ -23,7 +23,6 @@ abstract class S2 implements S {
   static dynamic get bar => 2;
 }
 
-@proxy
 abstract class I implements S2 {
 }
 

@@ -21,18 +21,18 @@
  *   values as {xn+1: on+1, ..., xn+k: on+k}.
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
- * @description Checks that a NoSuchMethodError is thrown if C does not
+ * @description Checks that it is a compile error if C does not
  * denote a class in the current scope, or if C does not declare a static
  * method or getter with the required name.
+ * @compile-error
  * @author rodionov
- * @issue 30573
  */
 import "../../../../Utils/expect.dart";
 
 class S {
   static func() {}
 }
-@proxy
+
 class C extends S {}
 
 main()  {
