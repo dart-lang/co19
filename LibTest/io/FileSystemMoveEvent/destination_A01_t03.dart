@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String path
+ * @assertion String destination
  * final
- * The path that triggered the event. Depending on the platform and the
- * FileSystemEntity, the path may be relative.
- * @description Checks that this property returns path that triggered the event.
- * Test Directory
+ * If the underlying implementation is able to identify the destination of the
+ * moved file, destination will be set. Otherwise, it will be null.
+ * @description Checks that this property returns the destination of the
+ * moved link
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -19,18 +19,19 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  String path = null;
+  Link renamed = null;
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemModifyEvent) {
-      Expect.equals(path, event.path);
+    if (event is FileSystemMoveEvent) {
+      if (event.destination != null) {
+        Expect.equals(renamed.path, event.destination);
+      }
       asyncEnd();
     }
   });
-  Directory d = dir.createTempSync();
-  path = d.path;
-  getTempFileSync(d);
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
+  Link link = getTempLinkSync(dir);
+  renamed = link.renameSync(getTempFilePath(dir));
+  new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });

@@ -4,12 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String path
- * final
- * The path that triggered the event. Depending on the platform and the
- * FileSystemEntity, the path may be relative.
- * @description Checks that this property returns path that triggered the event.
- * Test Directory
+ * @assertion int type
+ *  final
+ * The type of event. See FileSystemEvent for a list of events.
+ * @description Checks that this property returns type of event. Test Directory
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -19,18 +17,16 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  String path = null;
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemModifyEvent) {
-      Expect.equals(path, event.path);
+    if (event is FileSystemMoveEvent) {
+      Expect.equals(FileSystemEvent.MOVE, event.type);
       asyncEnd();
     }
   });
-  Directory d = dir.createTempSync();
-  path = d.path;
-  getTempFileSync(d);
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
+  Directory d = getTempDirectorySync(dir);
+  d.renameSync(getTempDirectoryPath(dir));
+  new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);
     });

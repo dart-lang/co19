@@ -18,7 +18,6 @@ import "../../../Utils/file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  File file = null;
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
@@ -26,7 +25,7 @@ main() {
       asyncEnd();
     }
   });
-  file = getTempFileSync(dir);
+  File file = getTempFileSync(dir);
   file.writeAsStringSync("File modified");
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
