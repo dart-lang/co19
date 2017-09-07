@@ -16,16 +16,14 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-check(Converter fused, List<int> l) {
-  Expect.listEquals(l, fused.convert(l));
-}
-
 main() {
   ZLibEncoder encoder = new ZLibEncoder();
   Converter fused = encoder.fuse(new ZLibDecoder());
 
+  Expect.listEquals([], fused.convert([]));
+
   for (int i = 0; i < 10; i++) {
-    check(fused, [i, i + 1]);
+    List<int> data = new List.generate(i, (i) => i);
+    Expect.listEquals(data, fused.convert(data));
   }
-  check(fused, []);
 }

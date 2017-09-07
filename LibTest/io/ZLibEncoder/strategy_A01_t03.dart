@@ -18,6 +18,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibEncoder(strategy: ZLibOption.STRATEGY_HUFFMAN_ONLY);
+  ZLibEncoder v = new ZLibEncoder(strategy: ZLibOption.STRATEGY_HUFFMAN_ONLY);
   Expect.equals(2, v.strategy);
 }

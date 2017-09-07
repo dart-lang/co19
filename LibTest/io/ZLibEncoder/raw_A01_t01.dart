@@ -15,9 +15,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibEncoder();
-  Expect.equals(false, v.raw);
-  v = new ZLibEncoder(raw: true);
+  ZLibEncoder v = new ZLibEncoder(raw: true);
   Expect.equals(true, v.raw);
   v = new ZLibEncoder(raw: false);
   Expect.equals(false, v.raw);

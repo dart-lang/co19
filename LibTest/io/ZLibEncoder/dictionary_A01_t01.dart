@@ -13,18 +13,16 @@
  * with good accuracy; the data can then be compressed better than with the
  * default empty dictionary.
  * @description Checks that [dictionary] is set correctly with values null or
- * List<int>. The default value is null.
+ * List<int>.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new List<int>();
-  var v = new ZLibEncoder();
-  Expect.equals(null, v.dictionary);
-  v = new ZLibEncoder(dictionary: l);
-  Expect.equals(l, v.dictionary);
-  v = new ZLibEncoder(dictionary: null);
-  Expect.equals(null, v.dictionary);
+  List<int> data = [1,2,3];
+  ZLibEncoder encoder = new ZLibEncoder(dictionary: data);
+  Expect.listEquals(data, encoder.dictionary);
+  encoder = new ZLibEncoder(dictionary: null);
+  Expect.isNull(encoder.dictionary);
 }

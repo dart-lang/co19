@@ -18,6 +18,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibEncoder(strategy: ZLibOption.STRATEGY_FILTERED);
+  ZLibEncoder v = new ZLibEncoder(strategy: ZLibOption.STRATEGY_FILTERED);
   Expect.equals(1, v.strategy);
 }

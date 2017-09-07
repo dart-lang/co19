@@ -15,23 +15,23 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-check(List l) {
+void check(List<int> data) {
   ZLibEncoder encoder = new ZLibEncoder();
+  List<int> expectedData = encoder.convert(data);
   bool called = false;
 
   Sink<List<int>> outSink = new ChunkedConversionSink.withCallback((chunks) {
     int first = 0;
     for (int i = 0; i < chunks.length; i++) {
-      var el = [encoder.convert(l)];
-      var cl = chunks[i].length;
-      Expect.listEquals((el[0]).sublist(first, first + cl), chunks[i]);
-      first += cl;
+      int chunkLength = chunks[i].length;
+      Expect.listEquals(expectedData.sublist(first, first + chunkLength), chunks[i]);
+      first += chunkLength;
     }
     called = true;
   });
 
   ByteConversionSink inSink = encoder.startChunkedConversion(outSink);
-  inSink.add(l);
+  inSink.add(data);
   inSink.close();
   Expect.isTrue(called, "called false");
 }
