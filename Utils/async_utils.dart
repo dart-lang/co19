@@ -131,13 +131,18 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future<T> value<T>(T expected, Future<T> future) {
+  static Future<T> value<T>(T expected, Future<T> future, [String reason = null]) {
+    if (reason==null){
+      reason = StackTrace.current.toString();
+    }
     asyncStart();
     return future.then((T value){
       if (expected is List) {
-        Expect.listEquals(expected, value);
+        Expect.listEquals(expected, value, reason);
+      } else if (expected is Set) {
+        Expect.setEquals(expected as Set, value as Iterable, reason);
       } else {
-        Expect.equals(expected, value);
+        Expect.equals(expected, value, reason);
       }
       asyncEnd();
       return value;
@@ -151,17 +156,20 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future<T> error<T>(Object error, Future<T> future) {
+  static Future<T> error<T>(Object error, Future<T> future, [String reason = null]) {
+    if (reason==null){
+      reason = StackTrace.current.toString();
+    }
     asyncStart();
     return future.then(
       (_) {
-        Expect.fail("The future is expected to complete with error");
+        Expect.fail("The future is expected to complete with error " + reason);
       },
       onError: (e){
         if (error is Function){
-          Expect.isTrue(Function.apply(error, [e]));
+          Expect.isTrue(Function.apply(error, [e]), reason);
         } else {
-          Expect.equals(error, e);
+          Expect.equals(error, e, reason);
         }
         asyncEnd();
 //        throw e;
@@ -173,7 +181,10 @@ class AsyncExpect {
    * Checks whether the given stream contains expected data events.
    * Any error in the stream is unexpected and wil fail the test.
    */
-  static void data<T>(List<T> data, Stream<T> stream) {
+  static void data<T>(List<T> data, Stream<T> stream, [String reason = null]) {
+    if (reason==null){
+      reason = StackTrace.current.toString();
+    }
     List<T> actual = [];
     asyncStart();
     stream.listen(
@@ -181,7 +192,7 @@ class AsyncExpect {
           actual.add(value);
         },
         onDone: () {
-          Expect.listEquals(data, actual);
+          Expect.listEquals(data, actual, reason);
           asyncEnd();
         }
     );
@@ -190,7 +201,10 @@ class AsyncExpect {
   /**
    * Checks whether the given stream contains expected data and error events.
    */
-  static void events<T>(List<T> data, List errors, Stream<T> stream) {
+  static void events<T>(List<T> data, List errors, Stream<T> stream, [String reason = null]) {
+    if (reason==null){
+      reason = StackTrace.current.toString();
+    }
     List<T> actualData = [];
     List actualErrors = [];
     asyncStart();
@@ -202,11 +216,10 @@ class AsyncExpect {
           actualErrors.add(error);
         },
         onDone: () {
-          Expect.listEquals(data, actualData);
-          Expect.listEquals(errors, actualErrors);
+          Expect.listEquals(data, actualData, reason);
+          Expect.listEquals(errors, actualErrors, reason);
           asyncEnd();
         }
     );
   }
-
 }
