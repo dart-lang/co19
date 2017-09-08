@@ -20,11 +20,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new List<int>();
-  var v = new ZLibCodec();
-  Expect.equals(null, v.dictionary);
-  v = new ZLibCodec(dictionary: l);
-  Expect.equals(l, v.dictionary);
-  v = new ZLibCodec(dictionary: null);
-  Expect.equals(null, v.dictionary);
+  ZLibCodec codec = new ZLibCodec(dictionary: [1,2,3]);
+  Expect.listEquals([1,2,3], codec.dictionary);
+  codec = new ZLibCodec(dictionary: null);
+  Expect.equals(null, codec.dictionary);
 }

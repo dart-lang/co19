@@ -18,6 +18,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibCodec(strategy: ZLibOption.STRATEGY_HUFFMAN_ONLY);
-  Expect.equals(2, v.strategy);
+  ZLibCodec codec = new ZLibCodec(strategy: ZLibOption.STRATEGY_HUFFMAN_ONLY);
+  Expect.equals(2, codec.strategy);
 }

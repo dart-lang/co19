@@ -21,18 +21,19 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-check(Codec fused, List<int> l) {
-  Expect.listEquals(l, fused.encode(l));
-  Expect.listEquals(l, fused.decode(l));
+void check(Codec fused, List<int> expectedData) {
+  Expect.listEquals(expectedData, fused.encode(expectedData));
+  Expect.listEquals(expectedData, fused.decode(expectedData));
 }
 
 main() {
-  var codec = new ZLibCodec();
-  var inverted = codec.inverted;
+  ZLibCodec codec = new ZLibCodec();
+  Codec inverted = codec.inverted;
   Codec fused = codec.fuse(inverted);
 
   for (int i = 0; i < 10; i++) {
-    check(fused, [i, i + 1]);
+    List<int> data = new List.generate(i, (int i) => i);
+    check(fused, data);
   }
   check(fused, []);
 }

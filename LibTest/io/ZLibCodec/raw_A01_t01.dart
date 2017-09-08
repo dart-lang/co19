@@ -8,16 +8,13 @@
  * When true, deflate generates raw data with no zlib header or trailer, and
  * will not compute an adler32 check value
  * @description Checks that [raw] is set correctly with value true or false.
- * The default value is false.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibCodec();
-  Expect.equals(false, v.raw);
-  v = new ZLibCodec(raw: true);
+  ZLibCodec v = new ZLibCodec(raw: true);
   Expect.equals(true, v.raw);
   v = new ZLibCodec(raw: false);
   Expect.equals(false, v.raw);

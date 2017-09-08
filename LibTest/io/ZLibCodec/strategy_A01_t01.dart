@@ -18,6 +18,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibCodec(strategy: ZLibOption.STRATEGY_DEFAULT);
-  Expect.equals(0, v.strategy);
+  ZLibCodec codec = new ZLibCodec(strategy: ZLibOption.STRATEGY_DEFAULT);
+  Expect.equals(0, codec.strategy);
 }

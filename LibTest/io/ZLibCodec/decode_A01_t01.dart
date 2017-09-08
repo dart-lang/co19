@@ -14,11 +14,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var codec = new ZLibCodec();
-  var encoder = codec.encoder;
+  ZLibCodec codec = new ZLibCodec();
+  ZLibEncoder encoder = codec.encoder;
 
 
-  var l = [1, 2, 3];
-  var l1 = encoder.convert(l);
-  Expect.listEquals(l, codec.decode(l1));
+  List<int> data = [1, 2, 3];
+  List<int> encodedData = encoder.convert(data);
+  Expect.listEquals(data, codec.decode(encodedData));
 }

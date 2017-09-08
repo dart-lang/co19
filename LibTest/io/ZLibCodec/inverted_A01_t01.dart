@@ -11,12 +11,13 @@
  * swapped
  * @author ngl@unipro.ru
  */
+import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var codec = new ZLibCodec();
-  var inverted = codec.inverted;
+  ZLibCodec codec = new ZLibCodec();
+  Codec inverted = codec.inverted;
 
   Expect.isTrue(inverted.encoder is ZLibDecoder);
   Expect.isTrue(inverted.decoder is ZLibEncoder);

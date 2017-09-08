@@ -22,7 +22,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibCodec(gzip: true);
+  ZLibCodec v = new ZLibCodec(gzip: true);
   Expect.isTrue(v is ZLibCodec);
   Expect.equals(6, v.level);
   Expect.equals(15, v.windowBits);
