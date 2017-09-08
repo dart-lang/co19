@@ -38,7 +38,7 @@ void check(List<int> data) {
 
 main() {
   for (int i = 0; i < 128; i++) {
-    check([i]);
+    check(new List.generate(i, (int i) => i%256));
   }
   check([]);
 }

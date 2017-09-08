@@ -10,30 +10,26 @@
  * provided stream.
  * @description Checks that the bind method transforms stream's events.
  * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
+ * @issue @30656
  */
 import "dart:async";
 import "dart:io";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-Future check(List<int> l) async {
+void check(List<int> data) {
   ZLibEncoder encoder = new ZLibEncoder();
-  var list = encoder.convert(l);
+  List<int> encodedData = encoder.convert(data);
+
   ZLibDecoder decoder = new ZLibDecoder();
-  var sc = new StreamController();
-  var s = sc.stream;
+  Stream<List<int>> s = new Stream.fromIterable([encodedData]);
 
-  StreamSink<List<int>> sink = sc.sink;
-  sink.add(list);
-  sink.close();
-
-  await for (List<int> event in decoder.bind(s)) {
-    Expect.listEquals(l, event);
-  }
+  AsyncExpect.data(data, decoder.bind(s).expand<int>((List<int> e) => e));
 }
 
 main() {
-  var l1 = [1, 2, 3, 4, 5, 6];
-  asyncStart();
-  Future.wait([check([]), check([1]), check(l1)]).then((_) => asyncEnd());
+  check([]);
+  check([1]);
+  check([1, 2, 3, 4, 5, 6]);
+  check(new List.generate(1000, (int i) => i%256));
 }

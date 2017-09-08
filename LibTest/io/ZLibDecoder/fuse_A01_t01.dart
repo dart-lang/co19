@@ -25,8 +25,10 @@ main() {
   ZLibDecoder decoder = new ZLibDecoder();
   Converter fused = decoder.fuse(new ZLibEncoder());
 
+  Expect.listEquals(encoder.convert([]), fused.convert([]));
+
   for (int i = 0; i < 10; i++) {
-    check(fused, encoder.convert([i, i + 1]));
+    List<int> data = encoder.convert(new List<int>.generate(i, (int i) => i));
+    Expect.listEquals(data, fused.convert(data));
   }
-  check(fused, encoder.convert([]));
 }

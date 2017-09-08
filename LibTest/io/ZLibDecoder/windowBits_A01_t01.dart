@@ -16,10 +16,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v = new ZLibDecoder();
-  Expect.equals(15, v.windowBits);
-  for (int l = 8; l <= 15; l++) {
-    v = new ZLibDecoder(windowBits: l);
-    Expect.equals(l, v.windowBits);
+  for (int value = 8; value <= 15; value++) {
+    ZLibDecoder decoder = new ZLibDecoder(windowBits: value);
+    Expect.equals(value, decoder.windowBits);
   }
 }
