@@ -18,9 +18,13 @@
  */
 import 'dart:async';
 
+import '../../../Utils/dynamic_check.dart';
+
 typedef Future funcParam(int p1, {bool p2});
 
 main() {
-  funcParam sfp1 = (int p1, {bool p2}) async* {};
-  sfp1(2);
+  checkTypeError(() {
+    funcParam sfp1 = (int p1, {bool p2}) async* {};
+    sfp1(2);
+  });
 }
