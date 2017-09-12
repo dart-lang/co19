@@ -17,10 +17,13 @@
  * @author ngl@unipro.ru
  */
 import 'dart:async';
+import '../../../Utils/dynamic_check.dart';
 
 typedef Future streamFuncParam(int p1, [bool p2]);
 
 main() {
-  streamFuncParam sfp1 = (int p1, [bool p2]) async* {}; /// static type warning
-  sfp1(1);
+  checkTypeError(() {
+    streamFuncParam sfp1 = (int p1, [bool p2]) async* {}; /// static type warning
+    sfp1(1);
+  });
 }

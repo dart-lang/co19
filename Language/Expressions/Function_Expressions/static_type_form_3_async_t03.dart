@@ -16,11 +16,14 @@
  * @static-warning
  * @author ngl@unipro.ru
  */
+import '../../../Utils/dynamic_check.dart';
 
 typedef int futureFunc(int p1, {int p2});
 
 main() {
-  futureFunc ff1 =
-      (int p1, {int p2}) async {return 2;}; /// static type warning
-  ff1(1, p2:3);
+  checkTypeError(() {
+	futureFunc ff1 =
+	    (int p1, {int p2}) async {return 2;}; /// static type warning
+	ff1(1, p2:3);
+  });
 }

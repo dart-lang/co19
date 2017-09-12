@@ -17,10 +17,13 @@
  * @author ngl@unipro.ru
  */
 import 'dart:async';
+import '../../../Utils/dynamic_check.dart';
 
 typedef Future iterFuncParam(List p1, {List p2});
 
 main() {
-  iterFuncParam ifp1 = (List p1, {List p2}) sync* {}; /// static type warning
-  ifp1([]);
+  checkTypeError(() {
+    iterFuncParam ifp1 = (List p1, {List p2}) sync* {}; /// static type warning
+    ifp1([]);
+  });
 }
