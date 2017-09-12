@@ -22,7 +22,7 @@ main() {
     Expect.isNotNull(link.absolute);
     Expect.equals(link.path, link.absolute.path);
 
-    String fileName = getTempFileName();
+    String fileName = getTempFileName("lnk");
     Link link2 = new Link(fileName);
     Expect.isNotNull(link2.absolute);
     Expect.equals(Directory.current.path + Platform.pathSeparator + fileName,
