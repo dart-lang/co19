@@ -13,7 +13,7 @@
  * If path is an absolute path, it will be immune to changes to the current
  * working directory.
  * @description Checks that this constructor creates a File object. Test
- * absolute path and file
+ * absolute path and an existing file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";

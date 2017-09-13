@@ -38,7 +38,7 @@ import "../../../Utils/async_utils.dart";
 main() {
   String dirPath = getTempDirectoryPath();
   Directory target = getTempDirectorySync();
-  String linkPath = dirPath + Platform.pathSeparator + getTempFileName();
+  String linkPath = dirPath + Platform.pathSeparator + getTempFileName("lnk");
   Link link = new Link(linkPath);
   asyncStart();
   link.create(target.path, recursive: false).then((Link created) {
