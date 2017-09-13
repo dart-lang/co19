@@ -89,8 +89,12 @@ void deleteLinkWithTarget(Link link) {
   } else if (FileSystemEntity.isLinkSync(linkTarget)) {
     target = new Link(linkTarget);
   }
-  target.delete(recursive: true);
-  link.delete();
+  try {
+    target.delete(recursive: true);
+  } on Exception {}
+  try {
+    link.delete();
+  } on Exception {}
 }
 
 String getTempFileName([String ext]) {
