@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "../../../Utils/file_utils.dart";
+import "../file_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {

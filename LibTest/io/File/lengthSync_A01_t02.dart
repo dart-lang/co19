@@ -14,7 +14,7 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/file_utils.dart";
+import "../file_utils.dart";
 
 main() {
   List<int> bytes = [1, 2, 3, 17, 255];

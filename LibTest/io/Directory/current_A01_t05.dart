@@ -15,7 +15,7 @@ import "dart:io";
 import "dart:isolate";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-import "../../../Utils/file_utils.dart";
+import "../file_utils.dart";
 
 void entryPoint(SendPort sendPort) {
   ReceivePort receivePort = new ReceivePort();

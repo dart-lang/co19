@@ -26,7 +26,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
-import "../../../Utils/file_utils.dart";
+import "../file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();

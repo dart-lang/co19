@@ -12,7 +12,7 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/file_utils.dart";
+import "../file_utils.dart";
 
 main() {
   String dirName = getTempDirectoryName();

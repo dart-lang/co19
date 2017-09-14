@@ -29,7 +29,7 @@
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/file_utils.dart";
+import "../file_utils.dart";
 
 main() {
   Encoding encoding = Encoding.getByName("iso-8859-1");
