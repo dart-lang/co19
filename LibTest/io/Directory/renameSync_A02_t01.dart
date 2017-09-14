@@ -25,9 +25,8 @@ main() {
   Directory targetDir = getTempDirectorySync();
   targetDir.createTempSync();
 
-  srcDir.renameSync(targetDir.path);
-
   try {
+    srcDir.renameSync(targetDir.path);
     Expect.isTrue(targetDir.existsSync());
     Expect.isFalse(srcDir.existsSync());
     Expect.equals(0, targetDir.listSync().length);

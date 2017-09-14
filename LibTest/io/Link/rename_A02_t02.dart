@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<File> rename(String newPath)
- * Renames this file. Returns a Future<File> that completes with a File instance
- * for the renamed file.
+ * @assertion Future<Link> rename(String newPath)
+ * Renames this link. Returns a Future<Link> that completes with a Link instance
+ * for the renamed link.
  *
- * If newPath identifies an existing file, that file is replaced. If newPath
- * identifies an existing directory, the operation fails and the future
+ * If newPath identifies an existing link, that link is replaced. If newPath
+ * identifies an existing file or directory, the operation fails and the future
  * completes with an exception.
  * @description Checks that If newPath identifies an existing directory, the
  * operation fails and the future completes with an exception.
@@ -21,20 +21,20 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
-  Directory target = getTempDirectorySync();
+  Link link = getTempLinkSync();
+  Directory dir = getTempDirectorySync();
 
   asyncStart();
-  file.rename(target.path).then((renamed) {
+  link.rename(dir.path).then((renamed) {
     renamed.delete();
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   }).whenComplete(() {
-    if (file.existsSync()) {
-      file.delete();
+    if (link.existsSync()) {
+      link.delete();
     }
-    target.delete();
+    dir.delete();
   });
 }

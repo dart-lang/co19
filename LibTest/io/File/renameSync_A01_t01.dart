@@ -12,7 +12,7 @@
  * identifies an existing directory the operation fails and an exception is
  * thrown.
  * @description Checks that this method synchronously renames this file and
- * returns a File instance for the renamed directory.
+ * returns a File instance for the renamed file.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";

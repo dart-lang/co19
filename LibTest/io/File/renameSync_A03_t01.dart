@@ -23,11 +23,11 @@ main() {
   File file = getTempFileSync();
   Directory target = getTempDirectorySync();
 
-  Expect.throws(() {
-    file.renameSync(target.path);
-  });
-
   try {
+    Expect.throws(() {
+      file.renameSync(target.path);
+    });
+
     Expect.isTrue(file.existsSync());
     Expect.isTrue(target.existsSync());
   } finally {

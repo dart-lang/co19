@@ -23,9 +23,8 @@ main() {
   Directory srcDir = getTempDirectorySync();
   File file = getTempFileSync();
 
-  Expect.throws(() {srcDir.renameSync(file.path);});
-
   try {
+    Expect.throws(() {srcDir.renameSync(file.path);});
     Expect.isTrue(srcDir.existsSync());
     Expect.isTrue(file.existsSync());
   } finally {
