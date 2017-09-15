@@ -38,7 +38,6 @@ Future<File> getTempFile([Directory parent, String fileName]) async {
   return new File(parent.path + Platform.pathSeparator + fileName).create();
 }
 
-
 Directory getTempDirectorySync([Directory parent]) {
   if (parent == null) {
     parent = Directory.systemTemp;
@@ -63,7 +62,9 @@ Link getTempLinkSync({Directory parent, String target}) {
     dir.createSync();
     target = dir.path;
   }
-  Link link = new Link(parent.path + Platform.pathSeparator + getPrefix() +
+  Link link = new Link(parent.path +
+      Platform.pathSeparator +
+      getPrefix() +
       getTempFileName(".lnk"));
   link.createSync(target);
   return link;
@@ -78,13 +79,16 @@ Future<Link> getTempLink({Directory parent, String target}) {
     dir.createSync();
     target = dir.path;
   }
-  Link link = new Link(parent.path + Platform.pathSeparator + getPrefix() +
-      getTempFileName());
+  Link link = new Link(
+      parent.path + Platform.pathSeparator + getPrefix() + getTempFileName());
   return link.create(target);
 }
 
 void deleteLinkWithTarget(Link link) {
   String linkTarget = link.targetSync();
+  if (linkTarget == null) {
+    return;
+  }
   FileSystemEntity target = null;
   if (FileSystemEntity.isDirectorySync(linkTarget)) {
     target = new Directory(linkTarget);
@@ -103,24 +107,32 @@ void deleteLinkWithTarget(Link link) {
 
 String getTempFileName([String ext]) {
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
-  String name = rnd.nextInt(10000).toString() + "-" +
-      rnd.nextInt(10000).toString() + "-" +
-      rnd.nextInt(10000).toString() + "-" +
-      rnd.nextInt(10000).toString() + (ext == null ? ".tmp" : ext);
+  String name = rnd.nextInt(10000).toString() +
+      "-" +
+      rnd.nextInt(10000).toString() +
+      "-" +
+      rnd.nextInt(10000).toString() +
+      "-" +
+      rnd.nextInt(10000).toString() +
+      (ext == null ? ".tmp" : ext);
   return name;
 }
 
 String getTempDirectoryName() {
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
-  String name = rnd.nextInt(10000).toString() + "-" +
-      rnd.nextInt(10000).toString() + "-" +
-      rnd.nextInt(10000).toString() + "-" +
+  String name = rnd.nextInt(10000).toString() +
+      "-" +
+      rnd.nextInt(10000).toString() +
+      "-" +
+      rnd.nextInt(10000).toString() +
+      "-" +
       rnd.nextInt(10000).toString();
   return name;
 }
 
 String getPrefix() {
-  String fileName = Platform.script.pathSegments[Platform.script.pathSegments.length - 1];
+  String fileName =
+      Platform.script.pathSegments[Platform.script.pathSegments.length - 1];
   return fileName.substring(0, fileName.indexOf(".")) + "_";
 }
 
@@ -137,3 +149,6 @@ String getTempDirectoryPath([Directory parent]) {
   }
   return parent.path + Platform.pathSeparator + getTempDirectoryName();
 }
+
+String getEntityName(FileSystemEntity entity) =>
+    entity.path.substring(entity.path.lastIndexOf(Platform.pathSeparator) + 1);
