@@ -31,7 +31,7 @@ main() {
     }
   });
 
-  getTempLink(dir, target.path).then((Link link) {
+  getTempLink(parent: dir, target: target.path).then((Link link) {
     if (path != null) {
       Expect.equals(link.path, path);
       asyncEnd();

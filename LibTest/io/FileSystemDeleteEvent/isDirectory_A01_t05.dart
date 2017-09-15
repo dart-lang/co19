@@ -32,7 +32,7 @@ main() {
       }
     }
   });
-  l = getTempLinkSync(dir);
+  l = getTempLinkSync(parent: dir);
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);

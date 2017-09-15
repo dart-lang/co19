@@ -29,7 +29,7 @@ main() {
       asyncEnd();
     }
   });
-  Link link = getTempLinkSync(dir);
+  Link link = getTempLinkSync(parent: dir);
   renamed = link.renameSync(getTempFilePath(dir));
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {

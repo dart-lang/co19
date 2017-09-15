@@ -24,8 +24,8 @@ main() {
   Directory target1 = getTempDirectorySync();
   Directory target2 = getTempDirectorySync();
 
-  Link link1 = getTempLinkSync(Directory.systemTemp, target1.path);
-  Link link2 = getTempLinkSync(Directory.systemTemp, target2.path);
+  Link link1 = getTempLinkSync(target: target1.path);
+  Link link2 = getTempLinkSync(target: target2.path);
 
   Link renamed = null;
   try {

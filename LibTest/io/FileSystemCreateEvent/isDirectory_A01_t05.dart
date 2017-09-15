@@ -25,7 +25,8 @@ main() {
     Expect.isFalse(event.isDirectory);
     asyncEnd();
   });
-  getTempLink(dir, target.path).timeout(new Duration(seconds: 1)).then((_) {
+  getTempLink(parent: dir, target: target.path)
+      .timeout(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
       dir.delete(recursive: true);
       target.delete();

@@ -14,24 +14,28 @@ import "dart:async";
 import "dart:math";
 
 /**
- * Creates temporary file in a temporary directory. Test must call
- * [file.parent.delete()] at the end
+ * Creates temporary file in a parent directory
  */
-File getTempFileSync([Directory parent]) {
+File getTempFileSync([Directory parent, String fileName]) {
   if (parent == null) {
     parent = Directory.systemTemp;
   }
-  File file = new File(parent.path + Platform.pathSeparator + getPrefix() +
-      getTempFileName());
+  if (fileName == null) {
+    fileName = getPrefix() + getTempFileName();
+  }
+  File file = new File(parent.path + Platform.pathSeparator + fileName);
   file.createSync();
   return file;
 }
 
-Future<File> getTempFile([Directory parent]) async {
+Future<File> getTempFile([Directory parent, String fileName]) async {
   if (parent == null) {
     parent = Directory.systemTemp;
   }
-  return new File(getTempFilePath(parent)).create();
+  if (fileName == null) {
+    fileName = getPrefix() + getTempFileName();
+  }
+  return new File(parent.path + Platform.pathSeparator + fileName).create();
 }
 
 
@@ -50,7 +54,7 @@ Future<Directory> getTempDirectory([Directory parent]) async {
   return parent.createTemp(getPrefix());
 }
 
-Link getTempLinkSync([Directory parent, String target]) {
+Link getTempLinkSync({Directory parent, String target}) {
   if (parent == null) {
     parent = Directory.systemTemp;
   }
@@ -65,7 +69,7 @@ Link getTempLinkSync([Directory parent, String target]) {
   return link;
 }
 
-Future<Link> getTempLink([Directory parent, String target]) {
+Future<Link> getTempLink({Directory parent, String target}) {
   if (parent == null) {
     parent = Directory.systemTemp;
   }

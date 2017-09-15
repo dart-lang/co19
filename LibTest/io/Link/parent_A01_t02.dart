@@ -17,7 +17,7 @@ import "../file_utils.dart";
 main() {
   Directory parent = getTempDirectorySync();
   try {
-    Link link = getTempLinkSync(parent);
+    Link link = getTempLinkSync(parent: parent);
     Expect.equals(parent.path, link.parent.path);
 
     link = new Link(parent.path + Platform.pathSeparator + "NotExisting");

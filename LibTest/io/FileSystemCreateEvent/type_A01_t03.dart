@@ -23,7 +23,7 @@ main() {
     Expect.equals(FileSystemEvent.CREATE, event.type);
     asyncEnd();
   });
-  getTempLinkSync(dir, target.path);
+  getTempLinkSync(parent: dir, target: target.path);
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);

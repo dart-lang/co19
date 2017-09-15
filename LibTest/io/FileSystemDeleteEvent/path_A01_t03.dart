@@ -34,7 +34,7 @@ main() {
       }
     }
   });
-  l = getTempLinkSync(dir);
+  l = getTempLinkSync(parent: dir);
   path = l.path;
   new Future.delayed(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
