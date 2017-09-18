@@ -119,6 +119,34 @@ class Sync2<T> {
 }
 /*----------------------------*/
 /**
+ *  asyncTest is intended for executing tests with asynchronous nature.
+ *  If [setup] is provided, it will be executed first in order to prepare
+ * necessary environment for the test (i.e. create some files, start some
+ * services, etc). The [setup] may return some value, which will be passed to
+ * [test] and to [cleanup].
+ *  [test] is main test code. It should return Future instance, which completes
+ * when test is over. The future may complete with error, in this case the whole
+ * test will fail.
+ *   If [cleanup] is provided it will be executed after Future returned by [test]
+ * is completed. [cleanup] is always called, regardless of test's status.
+ *
+ */
+void asyncTest<T>(Future test(T value), {Future<T> setup(), void cleanup(T value)}) {
+  asyncStart();
+  Future<T> setupFuture = (setup != null) ? setup() : new Future.value(null);
+  setupFuture.then((T setupValue) {
+    test(setupValue)
+      .then((_) => asyncEnd())
+      .whenComplete(() {
+        if (cleanup != null) {
+          cleanup(setupValue);
+        }
+    });
+  });
+}
+
+/*----------------------------*/
+/**
  * AsyncExpect is intended for async test to ease checking
  * Future completion value and checking Stream content.
  */
@@ -181,10 +209,11 @@ class AsyncExpect {
    * Checks whether the given stream contains expected data events.
    * Any error in the stream is unexpected and wil fail the test.
    */
-  static void data<T>(List<T> data, Stream<T> stream, [String reason = null]) {
+  static Future<bool> data<T>(List<T> data, Stream<T> stream, [String reason = null]) {
     if (reason==null){
       reason = StackTrace.current.toString();
     }
+    Completer<bool> completer = new Completer<bool>();
     List<T> actual = [];
     asyncStart();
     stream.listen(
@@ -194,17 +223,20 @@ class AsyncExpect {
         onDone: () {
           Expect.listEquals(data, actual, reason);
           asyncEnd();
+          completer.complete(true);
         }
     );
+    return completer.future;
   }
 
   /**
    * Checks whether the given stream contains expected data and error events.
    */
-  static void events<T>(List<T> data, List errors, Stream<T> stream, [String reason = null]) {
+  static Future<bool> events<T>(List<T> data, List errors, Stream<T> stream, [String reason = null]) {
     if (reason==null){
       reason = StackTrace.current.toString();
     }
+    Completer<bool> completer = new Completer<bool>();
     List<T> actualData = [];
     List actualErrors = [];
     asyncStart();
@@ -219,7 +251,9 @@ class AsyncExpect {
           Expect.listEquals(data, actualData, reason);
           Expect.listEquals(errors, actualErrors, reason);
           asyncEnd();
+          completer.complete(true);
         }
     );
+    return completer.future;
   }
 }

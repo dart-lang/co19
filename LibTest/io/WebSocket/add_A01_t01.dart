@@ -9,28 +9,20 @@
  * String, or a List<int> holding bytes.
  * @description Checks that the String data are send on the WebSocket
  * connection.
- * @author ngl@unipro.ru
+ * @author a.semenov@unipro.ru
  */
 import "dart:io";
-import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
+import "../http_utils.dart";
 
 main() {
-  HttpServer.bind("127.0.0.1", 0).then((server) {
-    server.listen((request) {
-      WebSocketTransformer
-          .upgrade(request)
-          .then((websocket) {
-        websocket.add("Hello");
-        websocket.close();
-      });
-    });
-
-    var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
-    webs.then((client) {
-      return client.listen((message) {
-        Expect.equals("Hello", message);
-        client.close();
-      }).asFuture();
-    }).then((_) => server.close());
-  });
+  asyncTest<HttpServer>(
+    (HttpServer server) async =>
+      AsyncExpect.data(
+        ["Hello"],
+        await WebSocket.connect("ws://${server.address.address}:${server.port}/")
+      ),
+    setup: () => spawnStaticContentWebSocketServer("Hello"),
+    cleanup: (HttpServer server) => server.close()
+  );
 }
