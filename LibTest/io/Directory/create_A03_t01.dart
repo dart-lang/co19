@@ -26,7 +26,7 @@ import "../file_utils.dart";
 main() {
   asyncStart();
   Directory tmp = new Directory(getTempDirectoryPath());
-  Directory dir = new Directory(getTempDirectoryPath(tmp));
+  Directory dir = new Directory(getTempDirectoryPath(parent: tmp));
   dir.create(recursive: true).then((created) {
     Expect.isTrue(created.existsSync());
     asyncEnd();

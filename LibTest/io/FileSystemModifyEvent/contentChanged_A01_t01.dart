@@ -27,7 +27,7 @@ main() {
       asyncEnd();
     }
   });
-  f = getTempFileSync(dir);
+  f = getTempFileSync(parent: dir);
   f.setLastAccessedSync(new DateTime.now());
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {

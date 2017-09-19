@@ -16,71 +16,53 @@ import "dart:math";
 /**
  * Creates temporary file in a parent directory
  */
-File getTempFileSync([Directory parent, String fileName]) {
-  if (parent == null) {
-    parent = Directory.systemTemp;
-  }
-  if (fileName == null) {
-    fileName = getPrefix() + getTempFileName();
-  }
-  File file = new File(parent.path + Platform.pathSeparator + fileName);
+File getTempFileSync({Directory parent, String name}) {
+  parent ??= Directory.systemTemp;
+  name ??= getPrefix() + getTempFileName();
+  File file = new File(parent.path + Platform.pathSeparator + name);
   file.createSync();
   return file;
 }
 
-Future<File> getTempFile([Directory parent, String fileName]) async {
-  if (parent == null) {
-    parent = Directory.systemTemp;
-  }
-  if (fileName == null) {
-    fileName = getPrefix() + getTempFileName();
-  }
-  return new File(parent.path + Platform.pathSeparator + fileName).create();
+Future<File> getTempFile({Directory parent, String name}) async {
+  parent ??= Directory.systemTemp;
+  name ??= getPrefix() + getTempFileName();
+  return new File(parent.path + Platform.pathSeparator + name).create();
 }
 
-Directory getTempDirectorySync([Directory parent]) {
-  if (parent == null) {
-    parent = Directory.systemTemp;
+Directory getTempDirectorySync({Directory parent, String name}) {
+  parent ??= Directory.systemTemp;
+  if (name == null) {
+    return parent.createTempSync(getPrefix());
   }
-  Directory dir = parent.createTempSync(getPrefix());
+  Directory dir = new Directory(parent.path + Platform.pathSeparator + name);
+  dir.createSync();
   return dir;
 }
 
-Future<Directory> getTempDirectory([Directory parent]) async {
-  if (parent == null) {
-    parent = Directory.systemTemp;
+Future<Directory> getTempDirectory({Directory parent, String name}) async {
+  parent ??= Directory.systemTemp;
+  if (name == null) {
+    return parent.createTemp(getPrefix());
   }
-  return parent.createTemp(getPrefix());
+  Directory dir = new Directory(parent.path + Platform.pathSeparator + name);
+  return dir.create();
 }
 
-Link getTempLinkSync({Directory parent, String target}) {
-  if (parent == null) {
-    parent = Directory.systemTemp;
-  }
-  if (target == null) {
-    Directory dir = getTempDirectorySync(parent);
-    dir.createSync();
-    target = dir.path;
-  }
-  Link link = new Link(parent.path +
-      Platform.pathSeparator +
-      getPrefix() +
-      getTempFileName(".lnk"));
+Link getTempLinkSync({Directory parent, String target, String name}) {
+  parent ??= Directory.systemTemp;
+  target ??= getTempDirectorySync(parent: parent).path;
+  name ??= getPrefix() + getTempFileName(extension: ".lnk");
+  Link link = new Link(parent.path + Platform.pathSeparator + name);
   link.createSync(target);
   return link;
 }
 
-Future<Link> getTempLink({Directory parent, String target}) {
-  if (parent == null) {
-    parent = Directory.systemTemp;
-  }
-  if (target == null) {
-    Directory dir = getTempDirectorySync(parent);
-    dir.createSync();
-    target = dir.path;
-  }
-  Link link = new Link(
-      parent.path + Platform.pathSeparator + getPrefix() + getTempFileName());
+Future<Link> getTempLink({Directory parent, String target, String name}) {
+  parent ??= Directory.systemTemp;
+  target ??= getTempDirectorySync(parent: parent).path;
+  name ??= getPrefix() + getTempFileName();
+  Link link = new Link(parent.path + Platform.pathSeparator + name);
   return link.create(target);
 }
 
@@ -105,7 +87,7 @@ void deleteLinkWithTarget(Link link) {
   } on Exception {}
 }
 
-String getTempFileName([String ext]) {
+String getTempFileName({String extension}) {
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
   String name = rnd.nextInt(10000).toString() +
       "-" +
@@ -114,7 +96,7 @@ String getTempFileName([String ext]) {
       rnd.nextInt(10000).toString() +
       "-" +
       rnd.nextInt(10000).toString() +
-      (ext == null ? ".tmp" : ext);
+      (extension == null ? ".tmp" : extension);
   return name;
 }
 
@@ -136,18 +118,16 @@ String getPrefix() {
   return fileName.substring(0, fileName.indexOf(".")) + "_";
 }
 
-String getTempFilePath([Directory parent]) {
-  if (parent == null) {
-    parent = Directory.systemTemp;
-  }
-  return parent.path + Platform.pathSeparator + getPrefix() + getTempFileName();
+String getTempFilePath({Directory parent, String name}) {
+  parent ??= Directory.systemTemp;
+  name ??= getPrefix() + getTempFileName();
+  return parent.path + Platform.pathSeparator + name;
 }
 
-String getTempDirectoryPath([Directory parent]) {
-  if (parent == null) {
-    parent = Directory.systemTemp;
-  }
-  return parent.path + Platform.pathSeparator + getTempDirectoryName();
+String getTempDirectoryPath({Directory parent, String name}) {
+  parent ??= Directory.systemTemp;
+  name ??= getTempDirectoryName();
+  return parent.path + Platform.pathSeparator + name;
 }
 
 String getEntityName(FileSystemEntity entity) =>

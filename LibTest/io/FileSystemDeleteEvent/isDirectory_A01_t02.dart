@@ -29,7 +29,7 @@ main() {
       f.delete();
     }
   });
-  f = getTempFileSync(dir);
+  f = getTempFileSync(parent: dir);
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);

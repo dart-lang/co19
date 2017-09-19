@@ -25,8 +25,8 @@ main() {
       asyncEnd();
     }
   });
-  Directory d = getTempDirectorySync(dir);
-  d.renameSync(getTempDirectoryPath(dir));
+  Directory d = getTempDirectorySync(parent: dir);
+  d.renameSync(getTempDirectoryPath(parent: dir));
   new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);

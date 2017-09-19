@@ -30,7 +30,7 @@ main() {
       f.delete();
     }
   });
-  f = getTempFileSync(dir);
+  f = getTempFileSync(parent: dir);
   path = f.path;
   new Future.delayed(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {

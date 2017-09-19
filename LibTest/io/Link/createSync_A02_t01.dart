@@ -35,11 +35,13 @@ import "../file_utils.dart";
 main() {
   String dirPath = getTempDirectoryPath();
   Directory target = getTempDirectorySync();
-  String linkPath = dirPath + Platform.pathSeparator + getTempFileName("lnk");
+  String linkPath =
+      dirPath + Platform.pathSeparator + getTempFileName(extension: "lnk");
   Link link = new Link(linkPath);
   try {
-    Expect.throws(() {link.createSync(target.path);},
-        (e) => e is FileSystemException);
+    Expect.throws(() {
+      link.createSync(target.path);
+    }, (e) => e is FileSystemException);
   } finally {
     target.delete();
   }

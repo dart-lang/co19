@@ -24,6 +24,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
+import "dart:math";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
@@ -34,13 +35,27 @@ main() {
   Directory dir2 = getTempDirectorySync();
   String dir2Name = getEntityName(dir2);
 
-  // create link to the directory dir 1
-  Link link1 = getTempLinkSync(target: dir1.path);
+  var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
+  // create link to the directory dir1
+  Link link1 = getTempLinkSync(
+      target: dir1.path,
+      name: "resolveSymbolicLinks_A01_t01_1_" +
+          rnd.nextInt(10000).toString() +
+          ".lnk");
   // in dir1 create link to dir1
-  Link link2 = getTempLinkSync(parent: dir1, target: ".");
+  Link link2 = getTempLinkSync(
+      parent: dir1,
+      target: ".",
+      name: "resolveSymbolicLinks_A01_t01_2_" +
+          rnd.nextInt(10000).toString() +
+          ".lnk");
   // in dir1 create link to dir2
   Link link3 = getTempLinkSync(
-      parent: dir1, target: ".." + Platform.pathSeparator + dir2Name);
+      parent: dir1,
+      target: ".." + Platform.pathSeparator + dir2Name,
+      name: "resolveSymbolicLinks_A01_t01_3_" +
+          rnd.nextInt(10000).toString() +
+          ".lnk");
 
   asyncStart();
   link1.resolveSymbolicLinks().then((String path) {

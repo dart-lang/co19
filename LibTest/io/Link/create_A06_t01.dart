@@ -44,7 +44,7 @@ main() {
         Platform.pathSeparator + dirName);
     target.createSync();
     Link link = new Link(dir.path + Platform.pathSeparator +
-        getTempFileName("lnk"));
+        getTempFileName(extension: "lnk"));
     asyncStart();
     link.create(dirName).then((Link created) {
       Expect.equals(dirName, created.targetSync());

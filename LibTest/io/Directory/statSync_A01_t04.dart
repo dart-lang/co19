@@ -24,9 +24,7 @@ main() {
   File file = getTempFileSync();
   try {
     Directory dir = new Directory(file.path);
-    Expect.equals(FileSystemEntityType.FILE, dir
-        .statSync()
-        .type);
+    Expect.equals(FileSystemEntityType.FILE, dir.statSync().type);
   } finally {
     file.delete();
   }

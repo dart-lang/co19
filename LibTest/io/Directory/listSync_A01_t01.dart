@@ -32,7 +32,7 @@ import "../file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  File file = getTempFileSync(dir);
+  File file = getTempFileSync(parent: dir);
   try {
     bool found = false;
     dir.listSync().forEach((entity) {

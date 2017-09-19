@@ -28,7 +28,7 @@ main() {
       asyncEnd();
     }
   });
-  File f = getTempFileSync(dir);
+  File f = getTempFileSync(parent: dir);
   path = f.path;
   f.writeAsStringSync("File modified");
   new Future.delayed(new Duration(seconds: 1)).then((_) {

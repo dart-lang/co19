@@ -30,7 +30,7 @@ main() {
     }
   });
 
-  getTempFile(dir).then((File file) {
+  getTempFile(parent: dir).then((File file) {
     if (path != null) {
       Expect.equals(file.path, path);
       asyncEnd();

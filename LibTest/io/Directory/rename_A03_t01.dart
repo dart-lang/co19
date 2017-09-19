@@ -25,7 +25,6 @@ main() {
   File target = getTempFileSync();
 
   asyncStart();
-  bool thrown = false;
   srcDir.rename(target.path).then((d) {
     srcDir.delete(recursive: true);
     target.delete(recursive: true);

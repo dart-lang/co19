@@ -27,9 +27,9 @@ main() {
       asyncEnd();
     }
   });
-  File file = getTempFileSync(dir);
+  File file = getTempFileSync(parent: dir);
   path = file.path;
-  file.renameSync(getTempFilePath(dir));
+  file.renameSync(getTempFilePath(parent: dir));
   new Future.delayed(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
       dir.delete(recursive: true);

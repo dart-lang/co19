@@ -39,7 +39,8 @@ main() {
   String dirPath = getTempDirectoryPath();
   String targetPath = getTempDirectoryPath();
   Directory target = new Directory(targetPath);
-  String linkPath = dirPath + Platform.pathSeparator + getTempFileName();
+  String linkPath =
+      dirPath + Platform.pathSeparator + getTempFileName(extension: "lnk");
   Link link = new Link(linkPath);
   asyncStart();
   link.create(target.path, recursive: true).then((Link created) {

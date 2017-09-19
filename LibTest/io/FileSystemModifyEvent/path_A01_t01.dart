@@ -29,7 +29,7 @@ main() {
   });
   Directory d = dir.createTempSync();
   path = d.path;
-  getTempFileSync(d);
+  getTempFileSync(parent: d);
   new Future.delayed(new Duration(seconds: 1)).then((_) {
     s.cancel().then((_) {
       dir.delete(recursive: true);

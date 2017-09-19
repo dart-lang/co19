@@ -34,7 +34,7 @@ import "../file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  File file = getTempFileSync(dir);
+  File file = getTempFileSync(parent: dir);
   asyncStart();
   bool found = false;
   dir.list().forEach((entity) {

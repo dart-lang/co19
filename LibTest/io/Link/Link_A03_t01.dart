@@ -19,7 +19,7 @@ main() {
   Directory dir = getTempDirectorySync();
   // create file in this directory
   String fileName = getTempFileName();
-  File file = getTempFileSync(dir, fileName);
+  getTempFileSync(parent: dir, name: fileName);
   // create link to the directory
   Link link = getTempLinkSync(target: dir.path);
 

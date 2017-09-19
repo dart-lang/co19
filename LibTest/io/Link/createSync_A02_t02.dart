@@ -36,7 +36,8 @@ main() {
   String dirPath = getTempDirectoryPath();
   Directory dir = new Directory(dirPath);
   Directory target = getTempDirectorySync();
-  String linkPath = dirPath + Platform.pathSeparator + getTempFileName();
+  String linkPath =
+      dirPath + Platform.pathSeparator + getTempFileName(extension: "lnk");
   Link link = new Link(linkPath);
   try {
     link.createSync(target.path, recursive: true);
