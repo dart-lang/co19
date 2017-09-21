@@ -20,16 +20,19 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target = getTempDirectorySync();
-  Link link = new Link(target.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
+  Directory parent = getTempDirectorySync();
+  Directory target = getTempDirectorySync(parent: parent);
+  Link link = new Link(
+      target.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
   link.createSync("..");
   try {
     if (Platform.isWindows) {
-      Expect.equals(target.parent.path + Platform.pathSeparator, link.targetSync());
+      Expect.equals(
+          target.parent.path + Platform.pathSeparator, link.targetSync());
     } else {
       Expect.equals("..", link.targetSync());
     }
   } finally {
-    deleteLinkWithTarget(link);
+    parent.delete(recursive: true);
   }
 }

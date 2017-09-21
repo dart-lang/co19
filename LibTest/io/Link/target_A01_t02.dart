@@ -23,19 +23,21 @@ import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target = getTempDirectorySync();
-  Link link = new Link(target.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
+  Directory parent = getTempDirectorySync();
+  Directory target = getTempDirectorySync(parent: parent);
+  Link link = new Link(
+      target.path + Platform.pathSeparator + getTempFileName(extension: ".lnk"));
   link.createSync("..");
 
   asyncStart();
   link.target().then((String path) {
     if (Platform.isWindows) {
-      Expect.equals(target.parent.path + Platform.pathSeparator, path);
+      Expect.equals(parent.path + Platform.pathSeparator, path);
     } else {
       Expect.equals("..", path);
     }
     asyncEnd();
   }).whenComplete(() {
-    target.delete(recursive: true);
+    parent.delete(recursive: true);
   });
 }
