@@ -12,7 +12,7 @@
  *
  * If the link does not exist, or is not a link, throws a FileSystemException.
  * @description Check that this method returns the target of the link. Test
- * directory as a target and a relative path
+ * file as a target and a relative path
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,16 +21,19 @@ import "../file_utils.dart";
 
 main() {
   Directory parent = getTempDirectorySync();
-  Directory target = getTempDirectorySync(parent: parent);
+  Directory dir = getTempDirectorySync(parent: parent);
+  File target = getTempFileSync(parent: parent);
+  String targetFileName = getEntityName(target);
   Link link = new Link(
-      target.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
-  link.createSync("..");
+      dir.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
+  link.createSync(".." + Platform.pathSeparator + targetFileName);
   try {
     if (Platform.isWindows) {
-      Expect.equals(
-          target.parent.path + Platform.pathSeparator, link.targetSync());
+      Expect.equals(parent.path + Platform.pathSeparator + targetFileName,
+          link.targetSync());
     } else {
-      Expect.equals("..", link.targetSync());
+      Expect.equals(
+          ".." + Platform.pathSeparator + targetFileName, link.targetSync());
     }
   } finally {
     parent.delete(recursive: true);

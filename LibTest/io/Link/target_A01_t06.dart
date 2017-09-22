@@ -4,35 +4,40 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String targetSync()
- * Synchronously gets the target of the link. Returns the path to the target.
+ * @assertion Future<String> target()
+ * Gets the target of the link. Returns a future that completes with the path to
+ * the target.
  *
  * If the returned target is a relative path, it is relative to the directory
  * containing the link.
  *
- * If the link does not exist, or is not a link, throws a FileSystemException.
+ * If the link does not exist, or is not a link, the future completes with a
+ * FileSystemException.
  * @description Check that this method returns the target of the link. Test
- * directory as a target and a relative path
+ * file as a target with relative path
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
   Directory parent = getTempDirectorySync();
   Directory target = getTempDirectorySync(parent: parent);
   Link link = new Link(
-      target.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
+      target.path + Platform.pathSeparator + getTempFileName(extension: ".lnk"));
   link.createSync("..");
-  try {
+
+  asyncStart();
+  link.target().then((String path) {
     if (Platform.isWindows) {
-      Expect.equals(
-          target.parent.path + Platform.pathSeparator, link.targetSync());
+      Expect.equals(parent.path + Platform.pathSeparator, path);
     } else {
-      Expect.equals("..", link.targetSync());
+      Expect.equals("..", path);
     }
-  } finally {
+    asyncEnd();
+  }).whenComplete(() {
     parent.delete(recursive: true);
-  }
+  });
 }

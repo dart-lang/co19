@@ -89,6 +89,9 @@ void deleteLinkWithTarget(Link link) {
 
 String getTempFileName({String extension}) {
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
+  extension = (extension == null
+      ? ".tmp"
+      : (extension.startsWith(".") ? extension : "." + extension));
   String name = rnd.nextInt(10000).toString() +
       "-" +
       rnd.nextInt(10000).toString() +
@@ -96,7 +99,7 @@ String getTempFileName({String extension}) {
       rnd.nextInt(10000).toString() +
       "-" +
       rnd.nextInt(10000).toString() +
-      (extension == null ? ".tmp" : extension);
+      extension;
   return name;
 }
 

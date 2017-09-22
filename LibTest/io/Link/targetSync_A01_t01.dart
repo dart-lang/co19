@@ -11,7 +11,8 @@
  * containing the link.
  *
  * If the link does not exist, or is not a link, throws a FileSystemException.
- * @description Check that this method returns the target of the link
+ * @description Check that this method returns the target of the link. Test
+ * directory as a target
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";

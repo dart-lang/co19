@@ -13,8 +13,8 @@
  *
  * If the link does not exist, or is not a link, the future completes with a
  * FileSystemException.
- * @description Check that this method returns the target of the link. Test
- * directory as a target and the relative path
+ * @description Check that this method returns the target of the link. Test file
+ * as a target
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -23,21 +23,15 @@ import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory parent = getTempDirectorySync();
-  Directory target = getTempDirectorySync(parent: parent);
-  Link link = new Link(
-      target.path + Platform.pathSeparator + getTempFileName(extension: ".lnk"));
-  link.createSync("..");
+  File target = getTempFileSync();
+  Link link = new Link(getTempFilePath());
+  link.createSync(target.path);
 
   asyncStart();
   link.target().then((String path) {
-    if (Platform.isWindows) {
-      Expect.equals(parent.path + Platform.pathSeparator, path);
-    } else {
-      Expect.equals("..", path);
-    }
+    Expect.equals(target.path, path);
     asyncEnd();
   }).whenComplete(() {
-    parent.delete(recursive: true);
+    deleteLinkWithTarget(link);
   });
 }
