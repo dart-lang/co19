@@ -17,6 +17,7 @@
  * @description Checks that this method checks whether the file system entity
  * with this path exists and has correct type. Test Link
  * @author sgrekhov@unipro.ru
+ * @issue 30873
  */
 import "dart:io";
 import "../../../Utils/expect.dart";

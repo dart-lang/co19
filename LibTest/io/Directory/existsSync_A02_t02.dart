@@ -17,6 +17,7 @@
  * @description Checks that this method synchronously checks whether the file
  * system entity with this path exists. Test link
  * @author sgrekhov@unipro.ru
+ * @issue 30873
  */
 import "dart:io";
 import "../../../Utils/expect.dart";

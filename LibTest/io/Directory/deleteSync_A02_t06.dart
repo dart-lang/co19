@@ -21,6 +21,7 @@
  * deleted if the type of the FileSystemEntity doesn't match the content of
  * the file system. Test Link
  * @author sgrekhov@unipro.ru
+ * @issue 30874
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
