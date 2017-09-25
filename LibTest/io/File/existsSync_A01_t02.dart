@@ -15,7 +15,7 @@
  * the file system, regardless of the object's type, use the typeSync static
  * method.
  * @description Checks that this method synchronously checks whether the file
- * system entity with this path exists. Test directory
+ * system entity with this path exists. Test not existing file
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -23,11 +23,6 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory tmp = getTempDirectorySync();
-  try {
-    File file = new File(tmp.path);
-    Expect.isFalse(file.existsSync());
-  } finally {
-    tmp.delete(recursive: true);
-  }
+  File file = new File(getTempFilePath());
+  Expect.isFalse(file.existsSync());
 }

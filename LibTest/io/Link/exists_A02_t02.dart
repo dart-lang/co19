@@ -15,7 +15,7 @@
  * directory, or link). To check whether a path points to an object on the file
  * system, regardless of the object's type, use the type static method.
  * @description Checks that this method checks whether the file system entity
- * with this path exists. Test not existing file
+ * with this path exists and has correct type. Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -24,11 +24,14 @@ import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = new File(getTempFilePath());
+  File file = getTempFileSync();
+  Link link = new Link(file.path);
   asyncStart();
 
-  file.exists().then((result) {
+  link.exists().then((result) {
     Expect.isFalse(result);
     asyncEnd();
+  }).whenComplete(() {
+    file.delete();
   });
 }
