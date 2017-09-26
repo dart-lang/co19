@@ -12,8 +12,8 @@
  *
  * If the call fails, returns a FileStat object with .type set to
  * FileSystemEntityType.NOT_FOUND and the other fields invalid.
- * @description Checks that this method calls the operating system's stat()
- * function. Test directory
+ * @description Checks that this method identical to
+ * FileStat.statSync(this.path)
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,11 +21,17 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Link link = getTempLinkSync();
   try {
-    File file = new File(dir.path);
-    Expect.equals(FileSystemEntityType.DIRECTORY, file.statSync().type);
+    FileStat fs = link.statSync();
+    FileStat fs2 = FileStat.statSync(link.path);
+    Expect.equals(fs2.type, fs.type);
+    Expect.equals(fs2.mode, fs.mode);
+    Expect.equals(fs2.changed, fs.changed);
+    Expect.equals(fs2.modified, fs.modified);
+    Expect.equals(fs2.size, fs.size);
+    Expect.equals(fs2.accessed, fs.accessed);
   } finally {
-    dir.delete();
+    deleteLinkWithTarget(link);
   }
 }

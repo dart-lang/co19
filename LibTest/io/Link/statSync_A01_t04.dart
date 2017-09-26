@@ -23,8 +23,8 @@ import "../file_utils.dart";
 main() {
   Directory dir = getTempDirectorySync();
   try {
-    File file = new File(dir.path);
-    Expect.equals(FileSystemEntityType.DIRECTORY, file.statSync().type);
+    Link link = new Link(dir.path);
+    Expect.equals(FileSystemEntityType.DIRECTORY, link.statSync().type);
   } finally {
     dir.delete();
   }

@@ -13,7 +13,7 @@
  * If the call fails, completes the future with a FileStat object with .type set
  * to FileSystemEntityType.NOT_FOUND and the other fields invalid.
  * @description Checks that this method calls the operating system's stat()
- * function. Test file
+ * function. Test directory
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";

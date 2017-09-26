@@ -12,8 +12,8 @@
  *
  * If the call fails, completes the future with a FileStat object with .type set
  * to FileSystemEntityType.NOT_FOUND and the other fields invalid.
- * @description Checks that this method calls the operating system's stat()
- * function
+ * @description Checks that if the call fails, completes the future with a
+ * FileStat object with .type set to FileSystemEntityType.NOT_FOUND
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -22,12 +22,10 @@ import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Link link = new Link(getTempFileName());
   asyncStart();
-  file.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+  link.stat().then((FileStat fs) {
+    Expect.equals(FileSystemEntityType.NOT_FOUND, fs.type);
     asyncEnd();
-  }).whenComplete(() {
-    file.delete(recursive: true);
   });
 }

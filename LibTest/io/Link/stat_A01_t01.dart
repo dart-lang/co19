@@ -22,12 +22,12 @@ import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Link link = getTempLinkSync();
   asyncStart();
-  file.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+  link.stat().then((FileStat fs) {
+    Expect.equals(FileSystemEntityType.LINK, fs.type);
     asyncEnd();
   }).whenComplete(() {
-    file.delete(recursive: true);
+    deleteLinkWithTarget(link);
   });
 }

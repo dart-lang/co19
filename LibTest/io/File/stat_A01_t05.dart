@@ -13,7 +13,7 @@
  * If the call fails, completes the future with a FileStat object with .type set
  * to FileSystemEntityType.NOT_FOUND and the other fields invalid.
  * @description Checks that this method calls the operating system's stat()
- * function
+ * function. Test link
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -22,12 +22,13 @@ import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Link link = getTempLinkSync();
+  File file = new File(link.path);
   asyncStart();
   file.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+    Expect.equals(FileSystemEntityType.LINK, fs.type);
     asyncEnd();
   }).whenComplete(() {
-    file.delete(recursive: true);
+    deleteLinkWithTarget(link);
   });
 }

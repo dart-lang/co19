@@ -12,8 +12,8 @@
  *
  * If the call fails, returns a FileStat object with .type set to
  * FileSystemEntityType.NOT_FOUND and the other fields invalid.
- * @description Checks that this method calls the operating system's stat()
- * function. Test directory
+ * @description Checks that if the call fails, completes the future with a
+ * FileStat object with .type set to FileSystemEntityType.NOT_FOUND
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,11 +21,6 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
-  try {
-    File file = new File(dir.path);
-    Expect.equals(FileSystemEntityType.DIRECTORY, file.statSync().type);
-  } finally {
-    dir.delete();
-  }
+  Link link = new Link(getTempFileName());
+  Expect.equals(FileSystemEntityType.NOT_FOUND, link.statSync().type);
 }
