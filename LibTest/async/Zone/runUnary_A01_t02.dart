@@ -4,16 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ZoneCallback<R> bindCallback<R>(
- *                 R callback()
- *            )
- * Registers the provided callback and returns a function that will execute
- * in this zone.
- * Equivalent to:
- *    ZoneCallback registered = this.registerCallback(callback);
- *    return () => this.run(registered);
- * @description Checks that synchronous [callback] errors are not caught by zone.
- * @author ilya
+ * @assertion aR runUnary<R, T>(R action(T argument), T argument)
+ *    Executes the given action with argument in this zone.
+ *    As run except that action is called with one argument instead of none.
+ * @description Checks that synchronous [action] exceptions are not caught
+ * in zone.
  * @author a.semenov@unipro.ru
  */
 
@@ -33,11 +28,13 @@ main() {
       )
   );
 
-  int callback() {
-    throw "callback error";
+  int action(String x) {
+    throw "action error";
   }
 
-  ZoneCallback<int> boundCallback = zone.bindCallback<int>(callback);
-  Expect.throws(() => boundCallback(), (e) => e == "callback error");
+  Expect.throws(
+          () => zone.runUnary<int, String>(action, "2"),
+          (e) => e=="action error"
+  );
   Expect.equals(0, handlerCallCount);
 }

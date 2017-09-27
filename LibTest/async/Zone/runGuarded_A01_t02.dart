@@ -13,26 +13,34 @@
  *    this.handleUncaughtError(e, s);
  * }
  *    See run.
- * @description Checks that [action] is run in this zone
- * @author ilya
+ * @description Checks that synchronous [action] exceptions are caught
+ * in zone.
  * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void test(Zone zone) {
-  Zone actionZone = null;
+main() {
+  int handlerCallCount = 0;
+  var caughtError = null;
+
+  void handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
+    handlerCallCount++;
+    caughtError = e;
+  }
+
+  Zone zone = Zone.current.fork(
+      specification: new ZoneSpecification(
+          handleUncaughtError: handler
+      )
+  );
 
   void action() {
-    actionZone = Zone.current;
+    throw "action error";
   }
 
   zone.runGuarded(action);
-  Expect.equals(zone, actionZone);
-}
-
-main() {
-  test(Zone.current);
-  test(Zone.current.fork());
+  Expect.equals(1, handlerCallCount);
+  Expect.equals("action error", caughtError);
 }

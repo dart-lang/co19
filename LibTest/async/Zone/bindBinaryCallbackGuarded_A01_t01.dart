@@ -4,16 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ZoneCallback<R> bindCallback<R>(
- *                 R callback()
+ * @assertion void Function(T1, T2) bindBinaryCallbackGuarded<T1, T2>(
+ *                void callback(T1 argument1,T2 argument2)
  *            )
  * Registers the provided callback and returns a function that will execute
  * in this zone.
  * Equivalent to:
- *    ZoneCallback registered = this.registerCallback(callback);
- *    return () => this.run(registered);
+ *    ZoneCallback registered = registerBinaryCallback(callback);
+ *    return (arg1, arg2) => this.runBinaryGuarded(registered, arg1, arg2);
  * @description Checks that [callback] is run in the zone it was bound to.
- * @author ilya
  * @author a.semenov@unipro.ru
  */
 
@@ -23,15 +22,15 @@ import "../../../Utils/expect.dart";
 main() {
   Zone zone = Zone.current;
   Zone callbackZone = null;
-
-  ZoneCallback<int> boundCallback = zone.bindCallback<int>(() {
+  void callback(int x, int y) {
     callbackZone = Zone.current;
-    return 1;
-  });
-  int result = null;
+  }
+
+  void Function(int, int) boundCallback =
+                  zone.bindBinaryCallbackGuarded<int, int>(callback);
+
   runZoned(() {
-    result = boundCallback();
+    boundCallback(1,2);
   });
-  Expect.equals(1, result);
   Expect.equals(zone, callbackZone);
 }

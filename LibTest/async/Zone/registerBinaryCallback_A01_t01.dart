@@ -4,32 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract ZoneBinaryCallback registerBinaryCallback(
- *    callback(arg1, arg2))
+ * @assertion ZoneBinaryCallback<R, T1, T2> registerBinaryCallback<R, T1, T2>(
+ *                                                R callback(T1 arg1, T2 arg2)
+ *                                          )
  * Registers the given callback in this zone.
  * @description Checks that ZoneBinaryCallback is returned and that
- * registerBinaryCallback can be overriden by ZoneSpecification.
+ * registerBinaryCallback can be overridden by ZoneSpecification.
  * @author ilya
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-test(Zone z) {
+void test(Zone z) {
   z.run(() {
     Expect.equals(z, Zone.current);
   });
 }
 
 main() {
-  var z = Zone.current;
+  Zone z = Zone.current;
 
-  f(x,y) => x+y;
+  int f(int x, int y) => x + y;
 
-  var callback = z.registerBinaryCallback(f);
+  ZoneBinaryCallback<int,int,int> callback = z.registerBinaryCallback<int,int,int>(f);
 
-  Expect.isTrue(callback is ZoneBinaryCallback);
+  Expect.isTrue(callback is ZoneBinaryCallback<int,int,int>);
   Expect.equals(3, callback(1,2));
 
   ZoneBinaryCallback<R, T1, T2> registerFunction<R, T1, T2>(
@@ -39,7 +39,7 @@ main() {
 
   z.fork(specification: new ZoneSpecification(registerBinaryCallback:registerFunction))
       .run(() {
-        var callback = Zone.current.registerBinaryCallback(f);
+        ZoneBinaryCallback<int,int,int> callback = Zone.current.registerBinaryCallback<int,int,int>(f);
         Expect.isTrue(callback is ZoneBinaryCallback);
         Expect.equals(42, callback(1,2));
       });

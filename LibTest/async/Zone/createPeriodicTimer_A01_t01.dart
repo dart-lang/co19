@@ -16,14 +16,14 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-test(Zone z) {
-  var count=0;
-  var timer;
+void test(Zone zone) {
+  int count=0;
+  Timer timer;
 
   asyncStart();
-  timer = z.createPeriodicTimer(new Duration(milliseconds: 10), (_timer) {
+  timer = zone.createPeriodicTimer(new Duration(milliseconds: 10), (_timer) {
     Expect.equals(timer,_timer);
-    Expect.equals(z, Zone.current);
+    Expect.equals(zone, Zone.current);
     if (++count > 5) {
       _timer.cancel();
       asyncEnd();

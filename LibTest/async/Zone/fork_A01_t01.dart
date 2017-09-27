@@ -12,12 +12,11 @@
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var count=0;
+int count=0;
 
-test(Zone z) {
+void test(Zone z) {
   Zone z2 = z.fork();
   Expect.equals(z, z2.parent);
 
