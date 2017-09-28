@@ -4,31 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract ZoneUnaryCallback registerUnaryCallback(callback(arg))
+ * @assertion ZoneUnaryCallback<R, T> registerUnaryCallback<R, T>(
+ *                                                    R callback(T arg)
+ *                                    )
  * Registers the given callback in this zone.
  * @description Checks that ZoneUnaryCallback is returned and that
- * registerUnaryCallback can be overriden by ZoneSpecification.
+ * registerUnaryCallback can be overridden by ZoneSpecification.
  * @author ilya
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-test(Zone z) {
+void test(Zone z) {
   z.run(() {
     Expect.equals(z, Zone.current);
   });
 }
 
 main() {
-  var z = Zone.current;
+  Zone z = Zone.current;
 
-  f(x) => x;
+  int f(int x) => x;
 
-  var callback = z.registerUnaryCallback(f);
+  ZoneUnaryCallback<int,int> callback = z.registerUnaryCallback<int,int>(f);
 
-  Expect.isTrue(callback is ZoneUnaryCallback);
+  Expect.isTrue(callback is ZoneUnaryCallback<int,int>);
   Expect.equals(1, callback(1));
 
   ZoneUnaryCallback<R, T> registerFunction<R, T>(
@@ -38,8 +39,8 @@ main() {
 
   z.fork(specification: new ZoneSpecification(registerUnaryCallback:registerFunction))
       .run(() {
-        var callback = Zone.current.registerUnaryCallback(f);
-        Expect.isTrue(callback is ZoneUnaryCallback);
+        ZoneUnaryCallback<int,int> callback = Zone.current.registerUnaryCallback<int,int>(f);
+        Expect.isTrue(callback is ZoneUnaryCallback<int,int>);
         Expect.equals(42, callback(1));
       });
 }

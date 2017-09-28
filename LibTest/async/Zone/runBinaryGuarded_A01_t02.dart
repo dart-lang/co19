@@ -12,26 +12,34 @@
  *    Executes the given action with argument1 and argument2 in this zone
  * and catches synchronous errors.
  *    See runGuarded.
- * @description Checks that [action] is run in this zone with provided args.
- * @author ilya
+ * @description Checks that synchronous [action] exceptions are caught
+ * in zone.
  * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void test(Zone zone) {
-  Zone actionZone = null;
+main() {
+  int handlerCallCount = 0;
+  var caughtError = null;
 
-  void action(int x, int y) {
-    actionZone = Zone.current;
+  void handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
+    handlerCallCount++;
+    caughtError = e;
   }
 
-  zone.runBinaryGuarded<int, int>(action, 1, 2);
-  Expect.equals(zone, actionZone);
-}
+  Zone zone = Zone.current.fork(
+      specification: new ZoneSpecification(
+          handleUncaughtError: handler
+      )
+  );
 
-main() {
-  test(Zone.current);
-  test(Zone.current.fork());
+  void action(int x, String y) {
+    throw "action error";
+  }
+
+  zone.runBinaryGuarded<int, int, String>(action, 1, "2");
+  Expect.equals(1, handlerCallCount);
+  Expect.equals("action error", caughtError);
 }

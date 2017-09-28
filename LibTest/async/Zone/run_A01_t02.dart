@@ -13,24 +13,31 @@
  *    Since the root zone is the only zone that can modify the value of current,
  * custom zones intercepting run should always delegate to their parent zone.
  * They may take actions before and after the call.
- * @description Checks that [action] is run in this zone and that [action]
- * result is returned.
- * @author ilya
+ * @description Checks that synchronous [action] exceptions are not caught
+ * in zone.
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void test(Zone zone) {
-  int result = zone.run<int>(() {
-    Expect.equals(zone, Zone.current);
-    return 1;
-  });
-
-  Expect.equals(1, result);
-}
-
 main() {
-  test(Zone.current);
-  test(Zone.current.fork());
+  int handlerCallCount = 0;
+
+  void handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
+    handlerCallCount++;
+  }
+
+  Zone zone = Zone.current.fork(
+      specification: new ZoneSpecification(
+          handleUncaughtError: handler
+      )
+  );
+
+  int action() {
+    throw "action error";
+  }
+
+  Expect.throws(() => zone.run(action), (e) => e=="action error");
+  Expect.equals(0, handlerCallCount);
 }

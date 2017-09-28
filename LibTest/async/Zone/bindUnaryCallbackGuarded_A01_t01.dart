@@ -4,16 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ZoneUnaryCallback<R, T> bindUnaryCallback<R, T>(
- *                                      R callback(T argument)
- *                                    )
- *    Registers the provided callback and returns a function that will
- * execute in this zone.
+ * @assertion void Function(T) bindUnaryCallbackGuarded<T>(
+ *                                  void callback(T argument)
+ *                               )
+ *    Registers the provided callback and returns a function that will execute
+ * in this zone.
+ *    When the function executes, errors are caught and treated as uncaught
+ * errors.
  *    Equivalent to:
  * ZoneCallback registered = this.registerUnaryCallback(callback);
- * return (arg) => thin.runUnary(registered, arg);
+ * return (arg) => this.runUnaryGuarded(registered, arg);
  * @description Checks that [callback] is run in the zone it was bound to.
- * @author ilya
  * @author a.semenov@unipro.ru
  */
 
@@ -24,18 +25,15 @@ main() {
   Zone zone = Zone.current;
   Zone callbackZone = null;
 
-  int callback(int x) {
+  void callback(int x) {
     callbackZone = Zone.current;
-    return x * 2;
   }
 
-  ZoneUnaryCallback<int, int> boundCallback =
-                                    zone.bindUnaryCallback<int, int>(callback);
+  void Function(int) boundCallback =
+                                  zone.bindUnaryCallbackGuarded<int>(callback);
 
-  int result = null;
   runZoned(() {
-    result = boundCallback(3);
+    boundCallback(3);
   });
-  Expect.equals(6, result);
   Expect.equals(zone, callbackZone);
 }

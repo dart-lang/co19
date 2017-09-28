@@ -15,14 +15,14 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-test(Zone z) {
-  var count=0;
-  var timer;
+void test(Zone zone) {
+  int count = 0;
+  Timer timer;
 
   asyncStart();
-  timer = z.createTimer(new Duration(milliseconds: 10), () {
+  timer = zone.createTimer(new Duration(milliseconds: 10), () {
     Expect.isTrue(timer is Timer);
-    Expect.equals(z, Zone.current);
+    Expect.equals(zone, Zone.current);
     if (count++ > 0) {
       Expect.fail('Timer should not be periodic');
     }

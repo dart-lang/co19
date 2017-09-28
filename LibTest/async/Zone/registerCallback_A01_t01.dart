@@ -4,41 +4,40 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract ZoneCallback registerCallback(callback())
+ * @assertion ZoneCallback<R> registerCallback<R>(R callback())
  * Registers the given callback in this zone.
  * @description Checks that ZoneCallback is returned and that
- * registerCallback can be overriden by ZoneSpecification.
+ * registerCallback can be overridden by ZoneSpecification.
  * @author ilya
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-test(Zone z) {
+void test(Zone z) {
   z.run(() {
     Expect.equals(z, Zone.current);
   });
 }
 
 main() {
-  var z = Zone.current;
+  Zone z = Zone.current;
 
-  f() => 0;
+  int f() => 0;
 
-  var callback = z.registerCallback(f);
+  ZoneCallback<int> callback = z.registerCallback<int>(f);
 
-  Expect.isTrue(callback is ZoneCallback);
+  Expect.isTrue(callback is ZoneCallback<int>);
   Expect.equals(0, callback());
 
   ZoneCallback<R> registerFunction<R>(Zone self, ZoneDelegate parent, Zone zone, R f()) {
     return () => 42 as R;
   }
 
-  z.fork(specification: new ZoneSpecification(registerCallback:registerFunction))
+  z.fork(specification: new ZoneSpecification(registerCallback: registerFunction))
       .run(() {
-        var callback = Zone.current.registerCallback(f);
-        Expect.isTrue(callback is ZoneCallback);
+        ZoneCallback<int> callback = Zone.current.registerCallback<int>(f);
+        Expect.isTrue(callback is ZoneCallback<int>);
         Expect.equals(42, callback());
       });
 }

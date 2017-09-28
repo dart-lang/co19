@@ -4,16 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ZoneBinaryCallback<R, T1, T2> bindBinaryCallback<R, T1, T2>(
- *            R callback(T1 argument1, T2 argument2)
- * )
+ * @assertion void Function(T1, T2) bindBinaryCallbackGuarded<T1, T2>(
+ *                void callback(T1 argument1,T2 argument2)
+ *            )
  * Registers the provided callback and returns a function that will execute
  * in this zone.
  * Equivalent to:
  *    ZoneCallback registered = registerBinaryCallback(callback);
- *    return (arg1, arg2) => thin.runBinary(registered, arg1, arg2);
- * @description Checks that synchronous [callback] errors are not caught in zone
- * @author ilya
+ *    return (arg1, arg2) => this.runBinaryGuarded(registered, arg1, arg2);
+ * @description Checks that synchronous [callback] errors are caught in zone
  * @author a.semenov@unipro.ru
  */
 
@@ -22,23 +21,28 @@ import "../../../Utils/expect.dart";
 
 main() {
   int handlerCallCount = 0;
+  var caughtError = null;
 
   void handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
     handlerCallCount++;
+    caughtError = e;
   }
 
   Zone zone = Zone.current.fork(
       specification: new ZoneSpecification(
-        handleUncaughtError: handler
+          handleUncaughtError: handler
       )
   );
 
-  int callback(int x, int y) {
+  void callback(int x, int y) {
+    Expect.equals(1, x);
+    Expect.equals(2, y);
     throw "callback error";
   }
 
-  ZoneBinaryCallback<int,int,int> boundCallback =
-                              zone.bindBinaryCallback<int,int,int>(callback);
-  Expect.throws(() => boundCallback(1,2), (e) => e=="callback error");
-  Expect.equals(0, handlerCallCount);
+  void Function(int, int) boundCallback =
+                          zone.bindBinaryCallbackGuarded<int,int>(callback);
+  boundCallback(1,2);
+  Expect.equals(1, handlerCallCount);
+  Expect.equals("callback error", caughtError);
 }

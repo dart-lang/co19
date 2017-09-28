@@ -4,23 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract dynamic runUnary(f(arg), arg) 
- * Executes the given callback f with argument arg in this zone.
- * @description Checks that f is run in this zone with provided arg.
+ * @assertion aR runUnary<R, T>(R action(T argument), T argument)
+ *    Executes the given action with argument in this zone.
+ *    As run except that action is called with one argument instead of none.
+ * @description Checks that [action] is run in this zone with provided arg.
  * @author ilya
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-test(Zone z) {
-  var res = z.runUnary((x) {
-    Expect.equals(z, Zone.current);
-    return x;
-  }, 1);
+void test(Zone zone) {
+  int result = zone.runUnary<int>(
+    (int x) {
+      Expect.equals(zone, Zone.current);
+      return x;
+    },
+    1
+  );
 
-  Expect.equals(1, res);
+  Expect.equals(1, result);
 }
 
 main() {

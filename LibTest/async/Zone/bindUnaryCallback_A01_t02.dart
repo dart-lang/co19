@@ -4,34 +4,40 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract ZoneUnaryCallback bindUnaryCallback(f(arg),
- *    {bool runGuarded: true})
- * @description Checks expected effect of runGuarded parameter and that
- * default is true.
+ * @assertion ZoneUnaryCallback<R, T> bindUnaryCallback<R, T>(
+ *                                      R callback(T argument)
+ *                                    )
+ *    Registers the provided callback and returns a function that will
+ * execute in this zone.
+ *    Equivalent to:
+ * ZoneCallback registered = this.registerUnaryCallback(callback);
+ * return (arg) => thin.runUnary(registered, arg);
+ * @description Checks that synchronous [callback] errors are not caught by zone.
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
-  Expect.equals(1, e);
-}
-
 main() {
-  var z = Zone.current.fork(specification: new ZoneSpecification(
-        handleUncaughtError: handler));
+  int handlerCallCount = 0;
 
-  var bound = z.bindUnaryCallback((x) => throw 1);
-  
-  bound(1);
+  void handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
+    handlerCallCount++;
+  }
 
-  bound = z.bindUnaryCallback((x) => throw 1, runGuarded:true);
-  
-  bound(1);
+  Zone zone = Zone.current.fork(
+      specification: new ZoneSpecification(
+          handleUncaughtError: handler
+      )
+  );
 
-  var boundThrows = z.bindUnaryCallback((x) => throw 1, runGuarded:false);
+  int callback(int x) {
+    throw "callback error";
+  }
 
-  Expect.throws(() => boundThrows(1));
+  ZoneUnaryCallback<int,int> boundCallback =
+                                  zone.bindUnaryCallback<int,int>(callback);
+  Expect.throws( () => boundCallback(2), (e) => e=="callback error");
+  Expect.equals(0, handlerCallCount);
 }
