@@ -28,9 +28,24 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'pwd';
+    args = [];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
+  setCommand();
   Process
-      .start('pwd', [], mode: ProcessStartMode.NORMAL)
+      .start(command, args, mode: ProcessStartMode.NORMAL)
       .then((Process process) {
     Expect.isTrue(process.pid is int);
 

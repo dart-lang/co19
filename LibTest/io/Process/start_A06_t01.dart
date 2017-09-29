@@ -32,9 +32,24 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'pwd';
+    args = [];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
+  setCommand();
   Process
-      .start('pwd', [], mode: ProcessStartMode.DETACHED_WITH_STDIO)
+      .start(command, args, mode: ProcessStartMode.DETACHED_WITH_STDIO)
       .then((Process process) {
     Future<List<List<int>>> outList = process.stdout.toList();
     outList.then((List outList) {

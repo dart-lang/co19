@@ -40,7 +40,6 @@ main() {
   String eFile = ePath + "checkEnvironment_lib.dart";
 
   Future<Process> fProcess = Process.start(executable, [eFile]);
-
   fProcess.then((Process process) {
     Future<List<List<int>>> outList = process.stdout.toList();
     outList.then((List outList) {

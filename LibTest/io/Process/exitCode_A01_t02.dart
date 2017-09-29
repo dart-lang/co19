@@ -37,8 +37,23 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'sleep';
+    args = ['5'];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
-  Process.start('sleep', ['5']).then((Process process) {
+  setCommand();
+  Process.start(command, args).then((Process process) {
     process.kill(ProcessSignal.SIGTERM);
 
     Expect.isTrue(process.exitCode is Future<int>);

@@ -34,8 +34,23 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'pwd';
+    args = [];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
-  Process.start('pwd', []).then((Process process) {
+  setCommand();
+  Process.start(command, args).then((Process process) {
     Expect.isTrue(process.exitCode is Future<int>);
     Future<int> eCode = process.exitCode;
     eCode.then((value) {

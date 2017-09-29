@@ -32,9 +32,24 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'echo';
+    args = ['abc'];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
+  setCommand();
   bool testExit = false;
-  Future<ProcessResult> fProcessResult = Process.run('echo', ['abc']);
+  Future<ProcessResult> fProcessResult = Process.run(command, args);
   fProcessResult.then((ProcessResult results) {
     Expect.isTrue(testExit);
     int exitCode = results.exitCode;

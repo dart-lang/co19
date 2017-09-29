@@ -29,9 +29,24 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'abc';
+    args = [];
+  }
+  if (Platform.isWindows) {
+    command = 'abc';
+    args = [];
+  }
+}
+
 main() {
   bool pFailed = false;
-  Future<Process> eProcess = Process.start('abc', []);
+  setCommand();
+  Future<Process> eProcess = Process.start(command, args);
   eProcess.catchError((onError) {
     Expect.isTrue(onError is Exception);
     pFailed = true;

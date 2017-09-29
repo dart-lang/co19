@@ -17,8 +17,23 @@ import 'dart:convert';
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'cat';
+    args = [];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
-  Process.start('cat', []).then((Process process) {
+  setCommand();
+  Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stdin is IOSink);
 
     Future<List<List<int>>> outList = process.stdout.toList();

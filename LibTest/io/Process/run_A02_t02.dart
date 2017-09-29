@@ -30,9 +30,24 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'echo';
+    args = ['abc'];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
+  setCommand();
   Future<ProcessResult> fProcessResult =
-      Process.run('echo', ['abc'], stderrEncoding: null);
+      Process.run(command, args, stderrEncoding: null);
   fProcessResult.then((ProcessResult results) {
     int exitCode = results.exitCode;
     Expect.equals(0, exitCode);

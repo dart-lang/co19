@@ -17,8 +17,23 @@ import 'dart:convert';
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+String command;
+List<String> args;
+
+void setCommand() {
+  if (Platform.isLinux) {
+    command = 'echo';
+    args = ['-start'];
+  }
+  if (Platform.isWindows) {
+    command = 'echo';
+    args = ['abc'];
+  }
+}
+
 main() {
-  Process.start('echo', ['-start']).then((Process process) {
+  setCommand();
+  Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stdout is Stream<List<int>>);
 
     Future<List<List<int>>> outList = process.stdout.toList();
