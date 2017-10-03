@@ -38,14 +38,8 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'pwd';
-    args = [];
-  }
-  if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
-  }
+  command = 'dart';
+  args = ['--version'];
 }
 
 main() {
@@ -55,9 +49,7 @@ main() {
     Future<int> eCode = process.exitCode;
     eCode.then((value) {
       Expect.isTrue(value is int);
-      if (Platform.isLinux) {
-        Expect.isTrue(value >= 0 && value < 256);
-      }
+      Expect.isTrue(value >= 0 && value < 256);
     });
   });
 }

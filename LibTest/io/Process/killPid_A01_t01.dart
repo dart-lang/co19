@@ -32,8 +32,8 @@ void setCommand() {
     args = ['5'];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'ping';
+    args = ['127.0.0.1 -n 6 > nul'];
   }
 }
 
@@ -42,6 +42,10 @@ main() {
   Process.start(command, args).then((Process process) {
     int pid = process.pid;
     bool res = Process.killPid(pid);
-    Expect.isTrue(res);
+    if (!Platform.isWindows) {
+      Expect.isTrue(res);
+    } else {
+      Expect.isFalse(res);
+    }
   });
 }

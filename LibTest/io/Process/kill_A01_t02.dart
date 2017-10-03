@@ -39,8 +39,8 @@ void setCommand() {
     args = ['-start'];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'dart';
+    args = ['--version'];
   }
 }
 
@@ -52,23 +52,22 @@ main() {
 
     Expect.isTrue(process.exitCode is Future<int>);
     Future<int> eCode = process.exitCode;
-    eCode.then((value) {
-      Expect.isTrue(value is int);
-      if (Platform.isLinux) {
-        Expect.isTrue(value == 0);
-      }
+    eCode.then((int value) {
+      Expect.equals(0, value);
     });
 
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
-      Expect.isTrue(decoded.contains("-start"));
-    });
+    if (!Platform.isWindows) {
+      Future<List<List<int>>> outList = process.stdout.toList();
+      outList.then((List outList) {
+        Utf8Decoder decode = new Utf8Decoder();
+        String decoded = decode.convert(outList[0]);
+        Expect.isTrue(decoded.contains("-start"));
+      });
 
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Expect.equals(0, errList.length);
-    });
+      Future<List<List<int>>> errList = process.stderr.toList();
+      errList.then((List errList) {
+        Expect.equals(0, errList.length);
+      });
+    }
   });
 }

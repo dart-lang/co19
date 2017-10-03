@@ -46,8 +46,8 @@ void setCommand() {
     args = ['5'];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'ping';
+    args = ['127.0.0.1 -n 6 > nul'];
   }
 }
 
@@ -60,9 +60,10 @@ main() {
     Future<int> eCode = process.exitCode;
     eCode.then((value) {
       Expect.isTrue(value is int);
-      if (Platform.isLinux) {
-        Expect.isTrue(value < 0 && value > -260);
-        Expect.isTrue(value == -15);
+      if (Platform.isWindows) {
+        Expect.equals(1, value);
+      } else if (Platform.isLinux || Platform.isMacOS) {
+        Expect.equals(-15, value);
       }
     });
   });
