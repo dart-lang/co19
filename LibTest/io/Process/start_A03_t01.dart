@@ -24,10 +24,10 @@
  * taking precedence. Default is true.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   Map<String, String> m = new Map<String, String>();
@@ -41,19 +41,19 @@ main() {
   String ePath = file.substring(0, index);
   String eFile = ePath + "checkEnvironment_lib.dart";
 
-  Future<Process> fProcess = Process.start(executable, [eFile],
-      environment: m, includeParentEnvironment: true);
-  fProcess.then((Process process) {
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
-      Expect.isTrue(decoded.contains('a: aa,'));
+  asyncStart();
+  Process.start(executable, [eFile], environment: m,
+      includeParentEnvironment: true).then((Process process) {
+    process.stdout.toList().then((List outList) {
+      Utf8Decoder decoder = new Utf8Decoder();
+      String decoded = decoder.convert(outList[0]);
+      Expect.isTrue(decoded.toLowerCase().contains('a: aa'));
       Expect.isTrue(decoded.contains(envString.substring(1)));
-    });
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Expect.equals(0, errList.length);
+    }).then((_) {
+      process.stderr.toList().then((List errList) {
+        Expect.equals(0, errList.length);
+        asyncEnd();
+      });
     });
   });
 }

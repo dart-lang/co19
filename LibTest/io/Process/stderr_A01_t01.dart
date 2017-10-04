@@ -10,42 +10,31 @@
  *
  * @description Checks that [stderr] returns Stream<List<int>> value that is the
  * standard error stream of the process as a Stream.
- * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-import "dart:async";
 import 'dart:convert';
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'pwd';
-    args = ['-start'];
-  }
-  if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
-  }
+  command = 'dart';
+  args = ['stream_lib.dart', 'Hi stdout', 'Hi, stderr'];
 }
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
-
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
-      Expect.equals(0, outList.length);
-    });
-
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(errList[0]);
-      Expect.isTrue(decoded.contains("pwd: invalid option "));
+    Utf8Decoder decoder = new Utf8Decoder();
+    process.stderr.toList().then((List errList) {
+      String decoded = decoder.convert(errList[0]);
+      Expect.isTrue(decoded.contains("Hi, stderr"));
+      asyncEnd();
     });
   });
 }

@@ -27,10 +27,11 @@
  * completes with the result of running the process, i.e., exit code, standard
  * out and standard in.
  * @author ngl@unipro.ru
+ * @issue 30945
  */
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -41,23 +42,25 @@ void setCommand() {
     args = ['abc'];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'dart';
+    args = ['--version'];
   }
 }
 
 main() {
   setCommand();
-  bool testExit = false;
-  Future<ProcessResult> fProcessResult = Process.run(command, args);
-  fProcessResult.then((ProcessResult results) {
-    Expect.isTrue(testExit);
-    int exitCode = results.exitCode;
-    Expect.equals(0, exitCode);
+  asyncStart();
+  Process.run(command, args).then((ProcessResult results) {
+    Expect.equals(0, results.exitCode);
     Expect.isTrue(results.stdout is String);
-    Expect.isTrue((results.stdout).substring(0, 3) == "abc");
     Expect.isTrue(results.stderr is String);
-    Expect.equals("", results.stderr);
+    if (!Platform.isWindows) {
+      Expect.equals("abc", (results.stdout).substring(0, 3));
+      Expect.equals("", results.stderr);
+    } else {
+      Expect.isTrue(results.stderr.indexOf(Platform.version) > -1);
+      Expect.equals("", results.stdout);
+    }
+    asyncEnd();
   });
-  testExit = true;
 }

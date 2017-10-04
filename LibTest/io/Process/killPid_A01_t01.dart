@@ -22,6 +22,7 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -39,6 +40,7 @@ void setCommand() {
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     int pid = process.pid;
     bool res = Process.killPid(pid);
@@ -47,5 +49,6 @@ main() {
     } else {
       Expect.isFalse(res);
     }
+    asyncEnd();
   });
 }

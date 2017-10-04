@@ -20,9 +20,9 @@
  * is already dead.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -40,18 +40,20 @@ void setCommand() {
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     int pid = process.pid;
     bool res = Process.killPid(pid);
     if (Platform.isWindows) {
       Expect.isFalse(res);
+      asyncEnd();
     } else {
       Expect.isTrue(res);
-      Future<int> eCode = process.exitCode;
-      eCode.then((value) {
+      process.exitCode.then((value) {
         if (value == -15) {
           res = Process.killPid(pid);
           Expect.isFalse(res);
+          asyncEnd();
         }
       });
     }

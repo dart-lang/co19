@@ -27,10 +27,10 @@
  * started. Check running dart test that finished successfully.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
@@ -40,16 +40,17 @@ main() {
   String ePath = file.substring(0, index);
   String eFile = ePath + "start_A01_t01_lib.dart";
 
+  asyncStart();
   Process.start(executable, [eFile]).then((Process process) {
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
+    process.stdout.toList().then((List outList) {
+      Utf8Decoder decoder = new Utf8Decoder();
+      String decoded = decoder.convert(outList[0]);
       Expect.equals("start_A01_t01_lib.dart run", decoded);
-    });
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Expect.equals(0, errList.length);
+    }).then((_) {
+      process.stderr.toList().then((List errList) {
+        Expect.equals(0, errList.length);
+        asyncEnd();
+      });
     });
   });
 }

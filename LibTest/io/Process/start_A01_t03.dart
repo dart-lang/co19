@@ -25,32 +25,27 @@
  * Future completes with an exception.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'abc';
+    command = 'notexistingcommand';
     args = [];
-  }
-  if (Platform.isWindows) {
-    command = 'abc';
-    args = [];
-  }
 }
 
 main() {
   bool pFailed = false;
   setCommand();
-  Future<Process> eProcess = Process.start(command, args);
-  eProcess.catchError((onError) {
+  asyncStart();
+  Process.start(command, args).catchError((onError) {
     Expect.isTrue(onError is Exception);
     pFailed = true;
-  }).then((process) {
+  }).then((_) {
     Expect.isTrue(pFailed);
+    asyncEnd();
   });
 }

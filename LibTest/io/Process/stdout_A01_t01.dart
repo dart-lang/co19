@@ -12,40 +12,29 @@
  * standard output stream of the process as a Stream.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import 'dart:convert';
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'echo';
-    args = ['-start'];
-  }
-  if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
-  }
+  command = 'dart';
+  args = ['stream_lib.dart', 'Hi, stdout', 'Hi, stderr'];
 }
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
-    Expect.isTrue(process.stdout is Stream<List<int>>);
-
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
-      Expect.isTrue(decoded.contains("-start"));
-    });
-
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Expect.equals(0, errList.length);
+    Expect.isTrue(process.stderr is Stream<List<int>>);
+    Utf8Decoder decoder = new Utf8Decoder();
+    process.stdout.toList().then((List outList) {
+      String decoded = decoder.convert(outList[0]);
+      Expect.isTrue(decoded.contains("Hi, stdout"));
+      asyncEnd();
     });
   });
 }

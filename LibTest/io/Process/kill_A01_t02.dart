@@ -25,10 +25,10 @@
  * completes with the exit code 0 when the process completes.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import 'dart:convert';
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -46,27 +46,28 @@ void setCommand() {
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     bool pKill = process.kill();
     Expect.isFalse(pKill);
 
-    Expect.isTrue(process.exitCode is Future<int>);
-    Future<int> eCode = process.exitCode;
-    eCode.then((int value) {
+    process.exitCode.then((int value) {
       Expect.equals(0, value);
+      if (Platform.isWindows) {
+        asyncEnd();
+      }
     });
 
     if (!Platform.isWindows) {
-      Future<List<List<int>>> outList = process.stdout.toList();
-      outList.then((List outList) {
+      process.stdout.toList().then((List outList) {
         Utf8Decoder decode = new Utf8Decoder();
         String decoded = decode.convert(outList[0]);
         Expect.isTrue(decoded.contains("-start"));
-      });
-
-      Future<List<List<int>>> errList = process.stderr.toList();
-      errList.then((List errList) {
-        Expect.equals(0, errList.length);
+      }).then((_) {
+        process.stderr.toList().then((List errList) {
+          Expect.equals(0, errList.length);
+          asyncEnd();
+        });
       });
     }
   });

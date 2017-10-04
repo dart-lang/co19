@@ -39,8 +39,8 @@ void setCommand() {
     args = [];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'dart';
+    args = ['--version'];
   }
 }
 
@@ -49,15 +49,10 @@ main() {
   Process
       .start(command, args, mode: ProcessStartMode.DETACHED)
       .then((Process process) {
-
     Expect.isTrue(process.pid is int);
-
     Expect.isNull(process.stdout);
-
     Expect.isNull(process.stderr);
-
     Expect.isNull(process.stdin);
-
     Expect.isNull(process.exitCode);
   });
 }

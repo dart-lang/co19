@@ -29,9 +29,9 @@
  * has number 15.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -49,16 +49,14 @@ void setCommand() {
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     bool pKill = process.kill();
     if (!Platform.isWindows) {
       Expect.isTrue(pKill);
     }
 
-    Expect.isTrue(process.exitCode is Future<int>);
-    Future<int> eCode = process.exitCode;
-    eCode.then((value) {
-      Expect.isTrue(value is int);
+    process.exitCode.then((int value) {
       if (Platform.isLinux || Platform.isMacOS) {
         Expect.equals(-15, value);
       } else if (Platform.isWindows) {
@@ -66,6 +64,7 @@ main() {
       }
       pKill = process.kill(ProcessSignal.SIGTERM);
       Expect.isFalse(pKill);
+      asyncEnd();
     });
   });
 }

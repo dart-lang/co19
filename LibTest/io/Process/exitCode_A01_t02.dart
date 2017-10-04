@@ -33,9 +33,9 @@
  * code is -15, as the signal SIGTERM has number 15.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -53,18 +53,17 @@ void setCommand() {
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     process.kill(ProcessSignal.SIGTERM);
 
-    Expect.isTrue(process.exitCode is Future<int>);
-    Future<int> eCode = process.exitCode;
-    eCode.then((value) {
-      Expect.isTrue(value is int);
+    process.exitCode.then((int value) {
       if (Platform.isWindows) {
         Expect.equals(1, value);
       } else if (Platform.isLinux || Platform.isMacOS) {
         Expect.equals(-15, value);
       }
+      asyncEnd();
     });
   });
 }

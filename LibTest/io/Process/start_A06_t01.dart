@@ -26,11 +26,12 @@
  * connected. The process' exit code will not become available when it
  * terminated.
  * @author ngl@unipro.ru
+ * @issue 30945
  */
-import "dart:async";
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -41,30 +42,45 @@ void setCommand() {
     args = [];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'dart';
+    args = ['--version'];
   }
+}
+
+Future testEmpty(var stream) {
+  return stream.toList().then((List errList) {
+    Expect.equals(0, errList.length);
+  });
+
+}
+
+Future testNotEmpty(var stream) {
+  return stream.toList().then((List outList) {
+    Utf8Decoder decoder = new Utf8Decoder();
+    String decoded = decoder.convert(outList[0]);
+    Expect.isTrue(decoded.length > 0);
+  });
 }
 
 main() {
   setCommand();
+  asyncStart();
   Process
       .start(command, args, mode: ProcessStartMode.DETACHED_WITH_STDIO)
       .then((Process process) {
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
-      Expect.isTrue(decoded.length > 0);
-    });
+    if (Platform.isWindows) {
+      testEmpty(process.stdout).then((_) {
+        testNotEmpty(process.stderr).then((_) {
+          asyncEnd();
+        });
+      });
 
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Expect.equals(0, errList.length);
-    });
-
-    Expect.isTrue(process.stdin is IOSink);
-
-    Expect.isNull(process.exitCode);
+    } else {
+      testEmpty(process.stderr).then((_) {
+        testNotEmpty(process.stdout).then((_) {
+          asyncEnd();
+        });
+      });
+    }
   });
 }

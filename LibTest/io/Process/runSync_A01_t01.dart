@@ -29,6 +29,7 @@
  * process terminates. Returns a ProcessResult with the result of running the
  * process, i.e., exit code, standard out and standard in.
  * @author ngl@unipro.ru
+ * @issue 30945
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -42,21 +43,22 @@ void setCommand() {
     args = ['abc'];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'dart';
+    args = ['--version'];
   }
 }
 
 main() {
   setCommand();
-  bool testExit = false;
   ProcessResult processResult = Process.runSync(command, args);
-  Expect.isFalse(testExit);
-  int exitCode = processResult.exitCode;
-  Expect.equals(0, exitCode);
+  Expect.equals(0, processResult.exitCode);
   Expect.isTrue(processResult.stdout is String);
-  Expect.isTrue((processResult.stdout).substring(0, 3) == "abc");
   Expect.isTrue(processResult.stderr is String);
-  Expect.equals("", processResult.stderr);
-  testExit = true;
+  if (Platform.isWindows) {
+    Expect.isTrue((processResult.stderr).indexOf(Platform.version) > -1);
+    Expect.equals("", processResult.stdout);
+  } else {
+    Expect.isTrue((processResult.stdout).substring(0, 3) == "abc");
+    Expect.equals("", processResult.stderr);
+  }
 }

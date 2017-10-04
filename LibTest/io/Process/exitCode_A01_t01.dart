@@ -33,6 +33,7 @@
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;
@@ -44,12 +45,12 @@ void setCommand() {
 
 main() {
   setCommand();
+  asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.exitCode is Future<int>);
-    Future<int> eCode = process.exitCode;
-    eCode.then((value) {
-      Expect.isTrue(value is int);
+    process.exitCode.then((int value) {
       Expect.isTrue(value >= 0 && value < 256);
+      asyncEnd();
     });
   });
 }

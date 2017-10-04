@@ -27,10 +27,10 @@
  * started. Check running dart test that finished with error.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
@@ -40,17 +40,17 @@ main() {
   String ePath = file.substring(0, index);
   String eFile = ePath + "start_A01_t02_lib.dart";
 
-  Future<Process> eProcess = Process.start(executable, [eFile]);
-  eProcess.then((process) {
-    Future<List<List<int>>> outList = process.stdout.toList();
-    outList.then((List outList) {
+  asyncStart();
+  Process.start(executable, [eFile]).then((process) {
+    process.stdout.toList().then((List outList) {
       Expect.equals(0, outList.length);
-    });
-    Future<List<List<int>>> errList = process.stderr.toList();
-    errList.then((List errList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(errList[0]);
-      Expect.isTrue(decoded.contains("Unable to find 'main'"));
+    }).then((_) {
+      process.stderr.toList().then((List errList) {
+        Utf8Decoder decoder = new Utf8Decoder();
+        String decoded = decoder.convert(errList[0]);
+        Expect.isTrue(decoded.contains("Unable to find 'main'"));
+        asyncEnd();
+      });
     });
   });
 }

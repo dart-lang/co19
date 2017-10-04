@@ -21,9 +21,10 @@
  * SYSTEM_ENCODING. If null is used no decoding will happen and the
  * ProcessResult will hold binary data.
  *
- * @description Checks that [stderrEncoding] is null no decoding will happen and
- * the ProcessResult.stderr will hold binary data.
+ * @description Checks that if [stderrEncoding] is null no decoding is happen
+ * and the ProcessResult.stderr holds binary data.
  * @author ngl@unipro.ru
+ * @issue 30945
  */
 import "dart:convert";
 import "dart:io";
@@ -38,8 +39,8 @@ void setCommand() {
     args = ['abc'];
   }
   if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
+    command = 'dart';
+    args = ['--version'];
   }
 }
 
@@ -47,13 +48,18 @@ main() {
   setCommand();
   ProcessResult processResult =
       Process.runSync(command, args, stderrEncoding: null);
-  int exitCode = processResult.exitCode;
-  Expect.equals(0, exitCode);
+  Expect.equals(0, processResult.exitCode);
   Expect.isTrue(processResult.stdout is String);
-  Expect.isTrue(processResult.stdout.substring(0, 3) == "abc");
   Expect.isTrue(processResult.stderr is List);
-  Expect.isTrue((processResult.stderr).length == 0);
-  Utf8Decoder decode = new Utf8Decoder();
-  String decoded = decode.convert(processResult.stderr);
-  Expect.equals("", decoded);
+  Utf8Decoder decoder = new Utf8Decoder();
+  if (Platform.isWindows) {
+    Expect.equals(0, (processResult.stdout).length);
+    String decoded = decoder.convert(processResult.stderr);
+    Expect.isTrue(decoded.indexOf(Platform.version) > -1);
+  } else {
+    Expect.isTrue(processResult.stdout.substring(0, 3) == "abc");
+    Expect.isTrue((processResult.stderr).length == 0);
+    String decoded = decoder.convert(processResult.stderr);
+    Expect.equals("", decoded);
+  }
 }
