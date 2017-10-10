@@ -7,24 +7,24 @@
  * @assertion void add(data)
  * Sends data on the WebSocket connection. The data in data must be either a
  * String, or a List<int> holding bytes.
- * @description Checks that the List<int> data are sent on the WebSocket
- * connection from server.
+ * @description Checks that the String data are sent on the WebSocket
+ * connection from client.
  * @author a.semenov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/async_utils.dart";
 import "../http_utils.dart";
 
-const List<int> BYTES = const [1, 2, 3];
-
 main() {
   asyncTest<HttpServer>(
-      (HttpServer server) async =>
-        AsyncExpect.data(
-          [BYTES],
-          await WebSocket.connect("ws://${server.address.address}:${server.port}/")
-        ),
-      setup: () => spawnStaticContentWebSocketServer(BYTES),
-      cleanup: (HttpServer server) => server.close()
+    (HttpServer server) async {
+      WebSocket ws = await WebSocket.connect("ws://${server.address.address}:${server.port}/");
+      ws.add("Hello");
+      ws.close();
+    },
+    setup: () => spawnWebSocketServer(
+      (WebSocket ws) => AsyncExpect.data(["Hello"], ws)
+    ),
+    cleanup: (HttpServer server) => server.close()
   );
 }
