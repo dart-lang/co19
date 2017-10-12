@@ -4,16 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void add(data)
- * Sends data on the WebSocket connection. The data in data must be either a
- * String, or a List<int> holding bytes.
- * @description Checks that the String data are sent on the WebSocket
+ * @assertion void addUtf8Text(List<int> bytes)
+ *    Sends a text message with the text represented by bytes.
+ *    The bytes should be valid UTF-8 encoded Unicode characters.
+ * If they are not, the receiving end will close the connection.
+ * @description Checks that the UTF-8 encoded string is sent on the WebSocket
  * connection from server.
  * @author a.semenov@unipro.ru
+ * @issue #31051
  */
 import "dart:io";
+import "dart:convert";
 import "../../../Utils/async_utils.dart";
 import "../http_utils.dart";
+
+const Utf8Codec UTF8 = const Utf8Codec();
 
 main() {
   asyncTest<HttpServer>(
@@ -22,7 +27,12 @@ main() {
         ["Hello"],
         await WebSocket.connect("ws://${server.address.address}:${server.port}/")
       ),
-    setup: () => spawnStaticContentWebSocketServer("Hello"),
+    setup: () => spawnWebSocketServer(
+      (WebSocket ws) {
+        ws.addUtf8Text(UTF8.encode("Hello"));
+        ws.close();
+      }
+    ),
     cleanup: (HttpServer server) => server.close()
   );
 }
