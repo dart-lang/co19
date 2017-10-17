@@ -29,37 +29,34 @@
  * If any of these are passed in the headers map they will be ignored.
  * If the url contains user information this will be passed as basic
  * authentication when setting up the connection.
- *
- * @description Checks that the static method WebSocket.connect with parameter
- * [protolols] creates a new Future that will complete with WebSocket.
- * @author ngl@unipro.ru
+ * @description Checks that the static method WebSocket.connect creates a new
+ * Future that will complete with WebSocket. Tests methods and properties of
+ * created instance (error processing)
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "dart:io";
-import "../../../Utils/expect.dart";
+import "../http_utils.dart";
 
-main() {
-  selector(List<String> receivedProtocols) {
-    Expect.listEquals(["p1.com", "p2.com"], receivedProtocols);
-    return "p1.com";
-  }
-  HttpServer.bind("127.0.0.1", 0).then((server) {
-    server.listen((request) {
-      WebSocketTransformer
-          .upgrade(request, protocolSelector: selector)
-          .then((websocket) {
-        websocket.close();
-      });
+import "allTests_A02.lib.dart";
+
+Future<Stream<T>> create<T>(Iterable<T> data, {bool Function(T element) isError}) async {
+  HttpServer server;
+  server = await spawnWebSocketServer((WebSocket ws) {
+    data.forEach((T x) {
+      if (isError!=null && isError(x)){
+        ws.addError(x);
+      } else {
+        ws.add(x);
+      }
     });
-
-    var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/",
-        protocols: ["p1.com", "p2.com"]);
-    Expect.isTrue(webs is Future);
-    webs.then((client) {
-      Expect.isTrue(client.protocol == "p1.com");
-      Expect.isTrue(client is WebSocket);
-      client.close();
+    ws.close(WebSocketStatus.NORMAL_CLOSURE).then((_) {
       server.close();
     });
   });
+  return WebSocket.connect("ws://${server.address.address}:${server.port}/");
+}
+
+main() {
+  test(create);
 }

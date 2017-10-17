@@ -30,29 +30,27 @@
  * If the url contains user information this will be passed as basic
  * authentication when setting up the connection.
  * @description Checks that the static method WebSocket.connect creates a new
- * Future that will complete with WebSocket.
- * @author ngl@unipro.ru
+ * Future that will complete with WebSocket. Tests methods and properties of
+ * created instance
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
 import "dart:io";
-import "../../../Utils/expect.dart";
+import "../http_utils.dart";
 
-main() {
-  HttpServer.bind("127.0.0.1", 0).then((server) {
-    server.listen((request) {
-      WebSocketTransformer
-          .upgrade(request)
-          .then((websocket) {
-        websocket.close();
-      });
-    });
+import "allTests_A01.lib.dart";
 
-    var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
-    Expect.isTrue(webs is Future<Socket>);
-    webs.then((client) {
-      Expect.isTrue(client is WebSocket);
-      client.close();
+Future<Stream<T>> create<T>(Iterable<T> data) async {
+  HttpServer server;
+  server = await spawnWebSocketServer((WebSocket ws) {
+    data.forEach((T x) => ws.add(x));
+    ws.close(WebSocketStatus.NORMAL_CLOSURE).then((_) {
       server.close();
     });
   });
+  return WebSocket.connect("ws://${server.address.address}:${server.port}/");
+}
+
+main() {
+  test(create);
 }
