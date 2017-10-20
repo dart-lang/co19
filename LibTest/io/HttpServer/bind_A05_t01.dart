@@ -24,8 +24,9 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
-main() async {
+test() async {
   HttpServer server1 =
       await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 1234);
   HttpServer server2 = null;
@@ -41,4 +42,10 @@ main() async {
     }
     Expect.isTrue(thrown);
   }
+  asyncEnd();
+}
+
+main() {
+  asyncStart();
+  test();
 }

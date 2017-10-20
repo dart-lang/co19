@@ -24,7 +24,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() async {
+test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server =
       await HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 0, v6Only: true);
@@ -48,4 +48,10 @@ main() async {
     Expect.equals(HttpStatus.HTTP_VERSION_NOT_SUPPORTED, response.statusCode);
     asyncEnd();
   });
+  asyncEnd();
+}
+
+main() {
+  asyncStart();
+  test();
 }

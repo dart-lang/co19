@@ -29,7 +29,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() async {
+test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 0);
 
@@ -55,4 +55,10 @@ main() async {
       asyncEnd();
     });
   });
+  asyncEnd();
+}
+
+main() {
+  asyncStart();
+  test();
 }

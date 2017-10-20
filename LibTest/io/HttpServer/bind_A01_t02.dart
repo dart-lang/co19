@@ -23,7 +23,7 @@ import "../../../Utils/async_utils.dart";
 
 const String SERVER_URL = "127.0.0.1";
 
-main() async {
+test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server = await HttpServer.bind(SERVER_URL, 1234);
   asyncStart();
@@ -46,4 +46,10 @@ main() async {
       asyncEnd();
     });
   });
+  asyncEnd();
+}
+
+main() {
+  asyncStart();
+  test();
 }

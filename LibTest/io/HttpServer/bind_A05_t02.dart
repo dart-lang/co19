@@ -23,9 +23,10 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "../../../Utils/expect.dart";
+import "../../../Utils/async_utils.dart";
 
-main() async {
+test() async {
+  asyncStart();
   HttpServer server1 = null;
   HttpServer server2 = null;
   try {
@@ -37,4 +38,9 @@ main() async {
     server1.close();
     server2.close();
   }
+}
+
+main() {
+  asyncStart();
+  test();
 }
