@@ -60,7 +60,7 @@ main() {
       if (Platform.isLinux || Platform.isMacOS) {
         Expect.equals(-15, value);
       } else if (Platform.isWindows) {
-        Expect.equals(1, value);
+        Expect.equals(-1, value);
       }
       pKill = process.kill(ProcessSignal.SIGTERM);
       Expect.isFalse(pKill);
