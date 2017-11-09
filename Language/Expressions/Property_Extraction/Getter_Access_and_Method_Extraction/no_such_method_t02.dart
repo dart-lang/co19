@@ -8,8 +8,8 @@
  * predefined class Invocation is created, such that :
  * • im.isGetter evaluates to true.
  * • im.memberName evaluates to the symbol m.
- * • im.positionalArguments evaluates to the value of const [].
- * • im.namedArguments evaluates to the value of const {}.
+ * • im.positionalArguments evaluates to an immutable/unmodifiable empty list.
+ * • im.namedArguments evaluates to the an immutable/unmodifiable empty map.
  * Then the method noSuchMethod() is looked up in o and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
  * @description Checks that the result of invocation in case of failed getter

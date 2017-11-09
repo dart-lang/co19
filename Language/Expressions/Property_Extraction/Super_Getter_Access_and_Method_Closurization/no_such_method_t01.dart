@@ -8,8 +8,8 @@
  * predefined class Invocation is created, such that:
  * • im.isGetter evaluates to true.
  * • im.memberName evaluates to the symbol m.
- * • im.positionalArguments evaluates to the value of const [].
- * • im.namedArguments evaluates to the value of const {}.
+ * • im.positionalArguments evaluates to an immutable/unmodifiable empty list.
+ * • im.namedArguments evaluates to the an immutable/unmodifiable empty map.
  * Then the method noSuchMethod() is looked up in Sdynamic and invoked with
  * argument im, and the result of this invocation is the result of evaluating i.
  * @description Check that if getter lookup failed and object has
@@ -28,8 +28,10 @@ class A {
     called = true;
     Expect.isTrue(i.isGetter);
     Expect.equals(new Symbol('someGetter'), i.memberName);
-    Expect.equals(const[], i.positionalArguments);
-    Expect.equals(const{}, i.namedArguments);
+    Expect.listEquals(const[], i.positionalArguments);
+    Expect.throws(() => i.positionalArguments.clear());
+    Expect.mapEquals(const{}, i.namedArguments);
+    Expect.throws(() => i.namedArguments.clear());
   }
 }
 
