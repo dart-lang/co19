@@ -8,7 +8,9 @@
  *   { InternetAddressType type: InternetAddressType.ANY })
  * If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
  * (IPv4) and IP version 6 (IPv6) addresses.
- * @description Checks that created [Future] contains correct IPv4 and IPv6
+ * @description Checks that created [Future] contains IPv4 and IPv6 addresses
+ * and each address string corresponds type of [InternetAddress] object.
+ * [InternetAddressType.ANY].
  * @author iarkh@unipro.ru
  */
 
@@ -16,23 +18,22 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 import "dart:async";
 
+RegExp ipv4 = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
+RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4})$');
+
 main() {
-  Future<List<InternetAddress>> list = InternetAddress.lookup("localhost");
-  bool contains4 = false, contains6 = false;
+  Future<List<InternetAddress>> list =
+    InternetAddress.lookup("localhost", type: InternetAddressType.ANY);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
-      if(addr.address == "::1") {
-        Expect.equals(InternetAddressType.IP_V6, addr.type);
-        Expect.isFalse(contains6);
-        contains6 = true;
-      } else if (addr.address == "127.0.0.1") {
-        Expect.equals(InternetAddressType.IP_V4, addr.type);
-        Expect.isFalse(contains4);
-        contains4 = true;
+      if(addr.type == InternetAddressType.IP_V4) {
+        Expect.isTrue(ipv4.hasMatch(addr.address),
+            "Address string does not correspond its type");
+      } else {
+        Expect.isTrue(ipv6.hasMatch(addr.address),
+            "Address string does not correspond its type");
       }
     });
-    Expect.isTrue(contains6);
-    Expect.isTrue(contains4);
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
 }
