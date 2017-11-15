@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  InternetAddress LOOPBACK_IP_V4
+ * @assertion InternetAddress ANY_IP_V4
  * IP version 4 loopback address. Use this address when listening on or
  * connecting to the loopback adapter using IP version 4 (IPv4).
- * read-only
- * @description Checks that [LOOPBACK_IP_V4] is read-only
+ * @description Checks that [LOOPBACK_IP_V4] is an address of IPv4 type in
+ * correct format
  * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";
 import "dart:io";
 
+RegExp ipv4 = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
+
 main() {
-  dynamic address = new InternetAddress("192.168.16.23");;
-  Expect.throws(() {
-    address.LOOPBACK_IP_V4  = 1;
-  }, (e) => e is NoSuchMethodError);
+  Expect.equals(InternetAddress.LOOPBACK_IP_V4.type, InternetAddressType.IP_V4);
+  Expect.isTrue(ipv4.hasMatch(InternetAddress.LOOPBACK_IP_V4.address),
+      "Address string does not correspond its type");
 }
