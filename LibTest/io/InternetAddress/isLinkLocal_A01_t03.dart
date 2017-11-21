@@ -15,6 +15,6 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  dynamic address = new InternetAddress("00:21:2F:B5:6E:10");
+  dynamic address = new InternetAddress("FE80::C001:1DFF:FEE0:0");
   Expect.isTrue(address.isLinkLocal);
 }

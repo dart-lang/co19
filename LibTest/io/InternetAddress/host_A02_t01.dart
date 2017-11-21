@@ -16,6 +16,6 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  dynamic address = new InternetAddress("999:13:14:771");
-  Expect.equals("999:13:14:771", address.host);
+  dynamic address = new InternetAddress("193.13.14.71");
+  Expect.equals("193.13.14.71", address.host);
 }

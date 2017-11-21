@@ -15,6 +15,6 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  dynamic address = new InternetAddress("00:21:2F:B5:6E:10");
-  Expect.isTrue(address.isMulticast);
+  dynamic address = new InternetAddress("1201:11:0:40:0:77:11:6");
+  Expect.isFalse(address.isMulticast);
 }
