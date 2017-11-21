@@ -5,9 +5,10 @@
  */
 /**
  * @assertion InternetAddress(String address)
- * Creates a new [InternetAddress] from a numeric address.
+ * If the [address] in address is not a numeric IPv4 (dotted-decimal notation)
+ * or IPv6 (hexadecimal representation) address [ArgumentError] is thrown.
  * @description Checks that attempt to create an [InternetAddress] with
- * empty address causes an [ArgumentError].
+ * incorrect address causes an [ArgumentError].
  * @author iarkh@unipro.ru
  */
 
@@ -15,5 +16,7 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  Expect.throws(() { new InternetAddress(""); }, (e) => e is ArgumentError);
+  Expect.throws(() {
+    new InternetAddress("incorrect address");
+  }, (e) => e is ArgumentError);
 }

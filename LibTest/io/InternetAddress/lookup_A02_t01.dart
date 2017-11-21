@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future<List<InternetAddress>> lookup(String host,
+ * @assertion Future<List<InternetAddress>> lookup(String host,
  *   { InternetAddressType type: InternetAddressType.ANY })
  * If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
  * (IPv4) and IP version 6 (IPv6) addresses.

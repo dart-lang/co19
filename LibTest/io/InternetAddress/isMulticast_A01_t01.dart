@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion InternetAddress(String address)
- * Creates a new [InternetAddress] from a numeric address.
- * @description Checks that attempt to create an [InternetAddress] with
- * incorrect address causes an [ArgumentError].
+ * @assertion bool isMulticast
+ * Returns [true] if the [InternetAddresss] scope is multicast.
+ * @description Checks that [isLinkLocal] returns [true] for multicast IPv4
+ * addresses (i.e. for [224.0.0.0] - [239.255.255.255]).
  * @author iarkh@unipro.ru
  */
 
@@ -15,7 +15,6 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  Expect.throws(() {
-    new InternetAddress("incorrect address");
-  }, (e) => e is ArgumentError);
+  dynamic address = new InternetAddress("225.14.17.1");
+  Expect.isTrue(address.isMulticast);
 }
