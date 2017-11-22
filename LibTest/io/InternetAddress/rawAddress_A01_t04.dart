@@ -5,8 +5,7 @@
  */
 /**
  * @assertion List<int> rawAddress
- * Get the raw address of this [InternetAddress]. The result is either a [4] or
- * [16] byte long list.
+ * Get the raw address of this [InternetAddress].
  * @description Checks that result list for IPv6 unspecified address is 16 byte
  * long and contains expected values (all zeros)
  * @author iarkh@unipro.ru

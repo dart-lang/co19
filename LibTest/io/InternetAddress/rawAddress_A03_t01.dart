@@ -5,10 +5,10 @@
  */
 /**
  * @assertion List<int> rawAddress
- * Get the raw address of this [InternetAddress].
- * @description Checks that result list for IPv5 address is 16 byte long and
- * contains expected values if some zero values are omitted in the original
- * [InternetAddress] string.
+ * The returned list is a copy, making it possible to change the list without
+ * modifying the [InternetAddress].
+ * @description Checks that for IPv4 result [List] is a copy, i.e. its elements
+ * can be modified without the original [InternetAddress] row list update.
  * @author iarkh@unipro.ru
  */
 
@@ -23,16 +23,20 @@ check(List expected, List actual) {
   });
 }
 
+test(String addr) {
+  InternetAddress address = new InternetAddress(addr);
+  List expected = address.rawAddress;
+  List list = address.rawAddress;
+  check(expected, list);
+  check(expected, address.rawAddress);
+  list[3] = 11;
+  check(expected, address.rawAddress);
+  list[1]++;
+  check(expected, address.rawAddress);
+}
+
 main() {
-  List expected = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 1, 57, 0, 1];
-  InternetAddress address = new InternetAddress("::12:139:1");
-  check(expected, address.rawAddress);
-
-  expected = [0, 17, 2, 172, 1, 77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  address = new InternetAddress("11:2ac:14d::");
-  check(expected, address.rawAddress);
-
-  expected = [0, 17, 2, 172, 1, 77, 0, 0, 0, 0, 0, 18, 1, 57, 0, 1];
-  address = new InternetAddress("11:2ac:14d::12:139:1");
-  check(expected, address.rawAddress);
+  test("192.168.13.22");
+  test("0.0.1.0");
+  test("0.0.1.0");
 }

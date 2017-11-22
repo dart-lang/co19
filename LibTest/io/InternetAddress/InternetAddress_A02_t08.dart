@@ -41,4 +41,6 @@ main() {
       (e) => e is ArgumentError);
   Expect.throws(() { new InternetAddress(": :"); },
       (e) => e is ArgumentError);
+  Expect.throws(() { new InternetAddress("192:156:6:23:ab14::8c10:1:12"); },
+      (e) => e is ArgumentError);
 }
