@@ -7,8 +7,8 @@
  * @assertion List<int> rawAddress
  * Get the raw address of this [InternetAddress]. The result is either a [4] or
  * [16] byte long list.
- * @description Checks that result list contains correct 4 byte long list for
- * IPv4 addresses in dotted decimal format.
+ * @description Checks that result list contains correct 16 byte long list for
+ * IPv6 addresses.
  * @author iarkh@unipro.ru
  */
 
@@ -24,19 +24,8 @@ check(List expected, List actual) {
 }
 
 main() {
-  InternetAddress address = new InternetAddress("192.168.71.114");
-  List<int> list = address.rawAddress;
-  Expect.equals(4, list.length);
-  Expect.equals(192, list[0]);
-  Expect.equals(168, list[1]);
-  Expect.equals(71, list[2]);
-  Expect.equals(114, list[3]);
-
-  address = new InternetAddress("1.1.0.1");
-  list = address.rawAddress;
-  Expect.equals(4, list.length);
-  Expect.equals(1, list[0]);
-  Expect.equals(1, list[1]);
-  Expect.equals(0, list[2]);
-  Expect.equals(1, list[3]);
+  List expected = [32, 1, 13, 184, 0, 0, 0, 66, 0, 0, 138, 46, 3, 112, 115, 52];
+  InternetAddress address = new InternetAddress(
+      "2001:0db8:0000:0042:0000:8a2e:0370:7334");
+  check(expected, address.rawAddress);
 }

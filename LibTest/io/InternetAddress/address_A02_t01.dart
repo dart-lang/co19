@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String address
- * read-only
+ * For IPv6 it is using the hexadecimal representation.
  * @description Checks that [address] string is correct for IPv6 addresses
  * @author iarkh@unipro.ru
  */

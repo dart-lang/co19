@@ -5,8 +5,10 @@
  */
 /**
  * @assertion String address
- * read-only
- * @description Checks that [address] string is correct for IPv6 addresses
+ * For IPv6 it is using the hexadecimal representation.
+ * @description Checks that [address] string is correct for some reserved IPv6
+ * addresses (localhost and unspecified)
+ * address
  * @author iarkh@unipro.ru
  */
 
@@ -14,6 +16,12 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  dynamic address = new InternetAddress("ff02::1");
-  Expect.equals("ff02::1", address.address);
+  // localhost
+  dynamic address = new InternetAddress("::1");
+  Expect.equals("::1", address.address);
+
+  // unspecified
+  address = new InternetAddress("::");
+  Expect.equals("::", address.address);
+
 }
