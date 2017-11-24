@@ -17,13 +17,18 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 import "dart:async";
 
-main() {
+check(String name) {
   Future<List<InternetAddress>> list =
-  InternetAddress.lookup("localhost", type: InternetAddressType.IP_V4);
+  InternetAddress.lookup(name, type: InternetAddressType.IP_V4);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
       Expect.equals(InternetAddressType.IP_V4, addr.type);
     });
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+}
+
+main() {
+  check("localhost");
+  check("google.com");
 }

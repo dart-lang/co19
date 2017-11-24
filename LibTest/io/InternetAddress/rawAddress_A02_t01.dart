@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String address
- * The numeric address of the host. For IPv4 addresses this is using the
- * dotted-decimal notation.
- * @description Checks that [address] string is correct for IPv4 addresses.
+ * @assertion List<int> rawAddress
+ * The result is either a [4] or [16] byte long list.
+ * @description Checks that for IPv4 addresses 4-byte long [List] is returned.
  * @author iarkh@unipro.ru
  */
 
@@ -15,6 +14,7 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  dynamic address = new InternetAddress("::1");
-  Expect.equals("::1", address.address);
+  InternetAddress address = new InternetAddress("123.14.1.128");
+  List<int> list = address.rawAddress;
+  Expect.equals(4, list.length);
 }

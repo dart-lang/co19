@@ -7,8 +7,7 @@
  * @assertion Future<List<InternetAddress>> lookup(String host,
  *   { InternetAddressType type: InternetAddressType.ANY })
  * Lookup a host, returning a [Future] of a list of [InternetAddresss].
- * @description Checks that result [internetAddress] list contains addresses for
- * the given host only.
+ * @description Checks that exception is thrown if such a host does not exist.
  * @author iarkh@unipro.ru
  */
 
@@ -16,16 +15,13 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 import "dart:async";
 
-check(String name) {
-  Future<List<InternetAddress>> list = InternetAddress.lookup(name);
+main() {
+  Future<List<InternetAddress>> list = InternetAddress.lookup("does-not-exist");
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
-      Expect.equals(name, addr.host);
+      Expect.fail("Host does not exist");
     });
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
-}
-
-main() {
-  check("localhost");
-  check("google.com");
+  }, onError: (e) {
+    print(e);
+  });
 }

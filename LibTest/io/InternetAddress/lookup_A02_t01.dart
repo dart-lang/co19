@@ -8,7 +8,7 @@
  *   { InternetAddressType type: InternetAddressType.ANY })
  * If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
  * (IPv4) and IP version 6 (IPv6) addresses.
- * @description Checks that created [Future] contains correct IPv4 and IPv6
+ * @description Checks that created [Future] can contain both IPv4 and IPv6
  * @author iarkh@unipro.ru
  */
 

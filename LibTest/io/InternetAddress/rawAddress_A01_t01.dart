@@ -5,8 +5,7 @@
  */
 /**
  * @assertion List<int> rawAddress
- * Get the raw address of this [InternetAddress]. The result is either a [4] or
- * [16] byte long list.
+ * Get the raw address of this [InternetAddress].
  * @description Checks that result list contains correct 4 byte long list for
  * IPv4 addresses in dotted decimal format.
  * @author iarkh@unipro.ru
@@ -14,6 +13,14 @@
 
 import "../../../Utils/expect.dart";
 import "dart:io";
+
+check(List expected, List actual) {
+  Expect.equals(expected.length, actual.length);
+  int i = 0;
+  actual.forEach((var element) {
+    Expect.equals(expected[i++], element);
+  });
+}
 
 main() {
   InternetAddress address = new InternetAddress("192.168.71.114");

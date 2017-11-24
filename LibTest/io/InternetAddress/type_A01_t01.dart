@@ -4,11 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion InternetAddress(String address)
- * Creates a new [InternetAddress] from a numeric address.
- * @description Checks that new [InternetAddress] object with given address and
- * [IPv4] type is created if [address] is a correct address in IPv4 dotted
- * decimal notation.
+ * @assertion InternetAddressType type
+ * The type of the [InternetAddress] specified what IP protocol.
+ * @description Checks that type is set to [IPv4] for IPv4 addresses
  * @author iarkh@unipro.ru
  */
 
@@ -17,6 +15,8 @@ import "dart:io";
 
 main() {
   InternetAddress address = new InternetAddress("192.168.16.23");
-  Expect.equals("192.168.16.23", address.address);
+  Expect.equals(InternetAddressType.IP_V4, address.type);
+
+  address = new InternetAddress("1.1.0.1");
   Expect.equals(InternetAddressType.IP_V4, address.type);
 }

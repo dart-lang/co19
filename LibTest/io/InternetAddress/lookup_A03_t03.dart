@@ -19,9 +19,9 @@ import "dart:async";
 
 RegExp ipv4 = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
 
-main() {
+check(String name) {
   Future<List<InternetAddress>> list =
-    InternetAddress.lookup("localhost", type: InternetAddressType.IP_V4);
+    InternetAddress.lookup(name, type: InternetAddressType.IP_V4);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
@@ -29,4 +29,9 @@ main() {
           "Address string does not correspond its type");
     });
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+}
+
+main() {
+  check("localhost");
+  check("google.com");
 }
