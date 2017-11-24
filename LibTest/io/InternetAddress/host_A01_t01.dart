@@ -4,11 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future<List<InternetAddress>> lookup(String host,
- *   { InternetAddressType type: InternetAddressType.ANY })
- * Lookup a host, returning a [Future] of a list of [InternetAddresss].
- * @description Checks that result [internetAddress] list contains addresses for
- * the given host only.
+ * @assertion String host
+ * The host used to lookup the address.
+ * @description Checks that [host] string is correct for localhost.
  * @author iarkh@unipro.ru
  */
 

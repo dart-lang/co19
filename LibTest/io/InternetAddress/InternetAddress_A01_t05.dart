@@ -6,7 +6,9 @@
 /**
  * @assertion InternetAddress(String address)
  * Creates a new [InternetAddress] from a numeric address.
- * @description Checks that new [InternetAddress] of correct type is created.
+ * @description Checks that new [InternetAddress] object with given address and
+ * [IPv6] type is created if [address] is some address in IPv6 notation with
+ * some value groups omitted.
  * @author iarkh@unipro.ru
  */
 
@@ -14,8 +16,15 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  InternetAddress address = new InternetAddress("192.168.16.23");
-  Expect.equals(InternetAddressType.IP_V4, address.type);
-  address = new InternetAddress("::29");
+  InternetAddress address = new InternetAddress("::11:ab:4");
+  Expect.equals("::11:ab:4", address.address);
+  Expect.equals(InternetAddressType.IP_V6, address.type);
+
+  address = new InternetAddress("11:ab:4::");
+  Expect.equals("11:ab:4::", address.address);
+  Expect.equals(InternetAddressType.IP_V6, address.type);
+
+  address = new InternetAddress("11:ab:4::12:83");
+  Expect.equals("11:ab:4::12:83", address.address);
   Expect.equals(InternetAddressType.IP_V6, address.type);
 }

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future<List<InternetAddress>> lookup(String host,
+ * @assertion Future<List<InternetAddress>> lookup(String host,
  *   { InternetAddressType type: InternetAddressType.ANY })
  * If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
  * (IPv4) and IP version 6 (IPv6) addresses.
@@ -21,9 +21,9 @@ import "dart:async";
 RegExp ipv4 = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
 RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4})$');
 
-main() {
+check(String name) {
   Future<List<InternetAddress>> list =
-    InternetAddress.lookup("localhost", type: InternetAddressType.ANY);
+    InternetAddress.lookup(name, type: InternetAddressType.ANY);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
@@ -36,4 +36,9 @@ main() {
       }
     });
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+}
+
+main() {
+  check("localhost");
+  check("google.com");
 }

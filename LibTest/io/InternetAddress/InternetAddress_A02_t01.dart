@@ -5,9 +5,10 @@
  */
 /**
  * @assertion InternetAddress(String address)
- * Creates a new [InternetAddress] from a numeric address.
- * @description Checks that new [InternetAddress] object with given address and
- * [IPv6] type is created if [address] is localhost in IPv6 notation [::1].
+ * If the [address] in address is not a numeric IPv4 (dotted-decimal notation)
+ * or IPv6 (hexadecimal representation) address [ArgumentError] is thrown.
+ * @description Checks that attempt to create an [InternetAddress] with [null]
+ * address causes an [ArgumentError].
  * @author iarkh@unipro.ru
  */
 
@@ -15,7 +16,5 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  InternetAddress address = new InternetAddress("::1");
-  Expect.equals("::1", address.address);
-  Expect.equals(InternetAddressType.IP_V6, address.type);
+  Expect.throws(() { new InternetAddress(null); }, (e) => e is ArgumentError);
 }
