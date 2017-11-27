@@ -23,7 +23,7 @@
  * If the Future completes with true the request will be retried using the
  * updated credentials. Otherwise response processing will continue normally.
  * @description Checks that this setter sets the function to be called when a
- * site is requesting authentication. Test Digest authentication
+ * site is requesting authentication. Test Basic authorisation
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -39,19 +39,13 @@ test() async {
     if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
       response.statusCode = HttpStatus.UNAUTHORIZED;
       StringBuffer authHeader = new StringBuffer();
-      authHeader.write('Digest');
-      authHeader.write(', realm="realm"');
-      authHeader.write(', nonce="123"');
-      authHeader.write(', domain="/xxxt/"');
-      response.headers.set(HttpHeaders.WWW_AUTHENTICATE, authHeader);
+      response.headers.set(HttpHeaders.WWW_AUTHENTICATE,
+          'Basic, realm="realm", domain="/xxxt/"');
       response.close();
     } else {
       var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
-      Expect.isTrue(authorization.contains('Digest'));
-      Expect.isTrue(authorization.contains('username="co19-test"'));
-      Expect.isTrue(authorization.contains('realm="realm"'));
-      Expect.isTrue(authorization.contains('algorithm="MD5"'));
-      Expect.isTrue(authorization.contains('uri="/xxx"'));
+      String encoded = BASE64.encode(UTF8.encode("co19-test:password"));
+      Expect.equals("Basic ${encoded}", authorization);
       response.close();
       server.close();
       asyncEnd();
@@ -60,14 +54,14 @@ test() async {
   HttpClient client = new HttpClient();
 
   client.authenticate = (Uri url, String scheme, String realm) {
-    Expect.equals("Digest", scheme);
+    Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
     Completer completer = new Completer();
     client.addCredentials(
         Uri.parse(
             "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"),
         "realm",
-        new HttpClientDigestCredentials("co19-test", "password"));
+        new HttpClientBasicCredentials("co19-test", "password"));
     completer.complete(true);
 
     return completer.future;
