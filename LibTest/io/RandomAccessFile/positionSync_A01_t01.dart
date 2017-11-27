@@ -35,6 +35,7 @@ main() {
     rfPos = rf.positionSync();
     Expect.isTrue(rfPos is int);
     Expect.isTrue(rfPos == 3);
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

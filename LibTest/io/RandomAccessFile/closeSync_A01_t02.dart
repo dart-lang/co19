@@ -12,8 +12,6 @@
  * @description Checks that method closeSync() closes the file and another
  * attempt to close synchronously already closed file throws a
  * FileSystemException.
- *
- * length synchronously of closed file throws a FileSystemException.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -29,13 +27,12 @@ main() {
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
     rf.closeSync();
-
     try {
       rf.closeSync();
+      Expect.fail('should not be here');
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

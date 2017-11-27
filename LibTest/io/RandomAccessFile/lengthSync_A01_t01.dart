@@ -28,7 +28,7 @@ void check(int fLen) {
     }
     var rfLen = rf.lengthSync();
     Expect.isTrue(rfLen == fLen);
-
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

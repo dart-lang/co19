@@ -35,9 +35,11 @@ check(int number) {
     num.then((int n) {
       Expect.isTrue(n is int);
       Expect.equals(number, n);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

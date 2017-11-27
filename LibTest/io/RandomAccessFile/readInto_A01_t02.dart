@@ -40,9 +40,11 @@ check(int start) {
       for (int i = 0; i < n; i++) {
         Expect.equals((i + 1) & 0xff, list[start + i]);
       }
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

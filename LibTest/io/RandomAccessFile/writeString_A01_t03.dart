@@ -36,9 +36,11 @@ check(String s) {
       var ed = new Latin1Codec();
       String s1 = ed.decode(l);
       Expect.equals(s, s1);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

@@ -33,6 +33,7 @@ main() {
     Expect.isTrue(len2 == 6);
     Expect.isTrue(len2 < len1);
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

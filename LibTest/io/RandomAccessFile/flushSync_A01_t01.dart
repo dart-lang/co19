@@ -25,10 +25,10 @@ main() {
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
     rf.writeByteSync(9);
-    rf.flush();
-
+    rf.closeSync();
     try {
       rf.flushSync();
+      Expect.fail('should not be here');
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }

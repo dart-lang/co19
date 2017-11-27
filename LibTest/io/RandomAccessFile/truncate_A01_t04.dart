@@ -36,9 +36,11 @@ main() {
     f1.then((RandomAccessFile f) {
       Expect.isTrue(f is RandomAccessFile);
       Expect.isTrue(f == rf);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

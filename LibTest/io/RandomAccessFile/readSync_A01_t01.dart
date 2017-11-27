@@ -47,6 +47,7 @@ void check(int num) {
       Expect.isTrue(list2[i] == (i + num + 2) & 0xff);
     }
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

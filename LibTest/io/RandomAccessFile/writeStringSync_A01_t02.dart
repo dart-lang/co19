@@ -32,6 +32,7 @@ check(String s) {
     String s1 = ed.decode(l);
     Expect.equals(s, s1);
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

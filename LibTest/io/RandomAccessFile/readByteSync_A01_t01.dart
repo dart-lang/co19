@@ -43,6 +43,7 @@ main() {
     Expect.isTrue(byte is int);
     Expect.equals(-1, byte);
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

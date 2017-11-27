@@ -35,9 +35,10 @@ void check(int num) {
     byte.then((int b) {
       Expect.isTrue(b is int);
       Expect.equals((num + 1) & 0xff, b);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
-
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });
