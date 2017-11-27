@@ -5,16 +5,18 @@
  */
 /**
  * @assertion
- * Future<RandomAccessFile> lock([
+ * void lockSync([
  *     FileLock mode = FileLock.EXCLUSIVE,
  *     int start = 0,
  *     int end = -1
- * ])
- * . . .
- * To obtain an exclusive lock on a file it must be opened for writing.
+ *     ])
+ * Synchronously locks the file or part of the file.
  *
- * @description Checks that if a file is open for reading an exclusive lock
- * cannot be set.
+ * By default an exclusive lock will be obtained, but that can be overridden by
+ * the mode argument.
+ *
+ * @description Checks that method lockSync synchronously locks the whole file
+ * (by default in an exclusive mode).
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -23,12 +25,13 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
-// Check whether the file is may be locked with an exclusive lock.
+// Check whether the file is locked or not.
 checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
-  var expected = 'OS Error:';
+  // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
+  var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
   var arguments = []
     ..addAll(Platform.executableArguments)
-    ..add(Platform.script.resolve('lock_A03_t03_lib.dart').toFilePath())
+    ..add(Platform.script.resolve('lock_A01_t01_lib.dart').toFilePath())
     ..add(path)
     ..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
@@ -49,20 +52,36 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   });
 }
 
-main() {
-  int fLen = 10;
+checkLocked(String path,
+        [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
+    checkLock(path, start, end, mode, locked: true);
+
+checkUnlocked(String path,
+        [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
+    checkLock(path, start, end, mode, locked: false);
+
+void check(int fLen) {
   File file = getTempFileSync();
-  file.writeAsBytesSync(new List.filled(fLen, 1));
-  var rf = file.openSync(mode: FileMode.READ);
-
   asyncStart();
-  var tests = [
-    () => checkLock(rf.path, 0, fLen, FileLock.EXCLUSIVE, locked: false)
-  ];
+  var rf = file.openSync(mode: FileMode.WRITE);
+  rf.writeFromSync(new List.filled(fLen, 1));
+  rf.lockSync(FileLock.EXCLUSIVE);
+  Expect.isTrue(fLen == rf.lengthSync());
 
+  var tests = [
+    () => checkLocked(rf.path),
+    () => checkLocked(rf.path, 0, fLen, FileLock.SHARED)
+  ];
   Future.forEach(tests, (f) => f()).whenComplete(() {
+    rf.unlockSync();
     rf.closeSync();
     file.deleteSync();
     asyncEnd();
   });
+}
+
+main() {
+  check(10);
+  check(100);
+  check(1000);
 }

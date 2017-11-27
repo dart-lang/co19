@@ -5,19 +5,20 @@
  */
 /**
  * @assertion
- * Future<RandomAccessFile> lock([
+ * void lockSync([
  *     FileLock mode = FileLock.EXCLUSIVE,
  *     int start = 0,
  *     int end = -1
- * ])
+ *     ])
+ * Synchronously locks the file or part of the file.
  * . . .
- * If mode is FileLock.EXCLUSIVE or FileLock.SHARED, an error is signaled if the
- * lock cannot be obtained. If mode is FileLock.BLOCKING_EXCLUSIVE or
- * FileLock.BLOCKING_SHARED, the returned Future is resolved only when the lock
- * has been obtained.
+ * If mode is FileLock.EXCLUSIVE or FileLock.SHARED, an exception is thrown if
+ * the lock cannot be obtained. If mode is FileLock.BLOCKING_EXCLUSIVE or
+ * FileLock.BLOCKING_SHARED, the call returns only after the lock has been
+ * obtained.
  *
- * @description Checks that if mode is FileLock.SHARED, an error is signaled if
- * the lock cannot be obtained.
+ * @description Checks that if mode is FileLock.SHARED, an exception is thrown
+ * if the lock cannot be obtained.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -83,16 +84,14 @@ void check(int fLen) {
   var rf = file.openSync(mode: FileMode.WRITE);
   rf.writeFromSync(new List.filled(fLen, 1));
 
-  var rfLock = rf.lock(FileLock.EXCLUSIVE);
+  rf.lockSync(FileLock.EXCLUSIVE);
 
-  rfLock.then((RandomAccessFile f) {
-    var tests = [() => checkLocked(f.path, 0, -1, FileLock.SHARED)];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
-      rf.unlockSync();
-      rf.closeSync();
-      file.deleteSync();
-      asyncEnd();
-    });
+  var tests = [() => checkLocked(rf.path, 0, -1, FileLock.SHARED)];
+  Future.forEach(tests, (f) => f()).whenComplete(() {
+    rf.unlockSync();
+    rf.closeSync();
+    file.deleteSync();
+    asyncEnd();
   });
 }
 

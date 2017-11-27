@@ -5,11 +5,12 @@
  */
 /**
  * @assertion
- * Future<RandomAccessFile> lock([
+ * void lockSync([
  *     FileLock mode = FileLock.EXCLUSIVE,
  *     int start = 0,
  *     int end = -1
- * ])
+ *     ])
+ * Synchronously locks the file or part of the file.
  * . . .
  * NOTE file locking does have slight differences in behavior across platforms:
  *
@@ -79,38 +80,35 @@ main() {
     rf1.writeByteSync((i + 1) & 0xff);
   }
 
-  var rfLock = rf1.lock(FileLock.EXCLUSIVE, 4, 6);
-  rf2.lock(FileLock.EXCLUSIVE, 7, 8);
+  rf1.lockSync(FileLock.EXCLUSIVE, 4, 6);
+  rf2.lockSync(FileLock.EXCLUSIVE, 7, 8);
 
-  rfLock.then((RandomAccessFile f) {
-    var tests = [
-      () => checkLocked(f.path, 4),
-      () => checkUnlocked(f.path, 0, 4),
-      () => checkUnlocked(f.path, 6, 7),
-      () => checkUnlocked(f.path, 8),
-      () => checkLocked(f.path, 7),
-      () => rf1.unlock(7, 8)
-    ];
+  var tests = [
+    () => checkLocked(rf1.path, 4),
+    () => checkUnlocked(rf1.path, 0, 4),
+    () => checkUnlocked(rf1.path, 6, 7),
+    () => checkUnlocked(rf2.path, 8),
+    () => checkLocked(rf2.path, 7),
+    () => rf1.unlock(7, 8)
+  ];
 
-    if (Platform.isWindows) {
-      tests
-          .addAll([() => rf1.unlockSync(4, 6), () => checkUnlocked(file.path)]);
-    } else {
-      tests.addAll([
-        () => rf1.unlockSync(4, 5),
-        () => checkUnlocked(file.path, 0, 5),
-        () => checkLocked(file.path, 5),
-        () => checkUnlocked(file.path, 6),
-        () => rf2.unlockSync(5, 6),
-        () => checkUnlocked(file.path)
-      ]);
-    }
+  if (Platform.isWindows) {
+    tests.addAll([() => rf1.unlockSync(4, 6), () => checkUnlocked(file.path)]);
+  } else {
+    tests.addAll([
+      () => rf1.unlockSync(4, 5),
+      () => checkUnlocked(file.path, 0, 5),
+      () => checkLocked(file.path, 5),
+      () => checkUnlocked(file.path, 6),
+      () => rf2.unlockSync(5, 6),
+      () => checkUnlocked(file.path)
+    ]);
+  }
 
-    Future.forEach(tests, (f) => f()).whenComplete(() {
-      rf1.closeSync();
-      rf2.closeSync();
-      file.deleteSync();
-      asyncEnd();
-    });
+  Future.forEach(tests, (f) => f()).whenComplete(() {
+    rf1.closeSync();
+    rf2.closeSync();
+    file.deleteSync();
+    asyncEnd();
   });
 }
