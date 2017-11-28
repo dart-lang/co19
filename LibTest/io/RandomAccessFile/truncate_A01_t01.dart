@@ -35,9 +35,11 @@ main() {
       var len2 = f.lengthSync();
       Expect.isTrue(len2 == 4);
       Expect.isTrue(len2 < len1);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

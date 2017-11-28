@@ -23,9 +23,8 @@
  * On Windows the regions used for lock and unlock needs to match. If that is
  * not the case unlocking will result in the OS error "The segment is already
  * unlocked".
-
  *
- * @description Checks that On Windows the regions used for lock and unlock
+ * @description Checks that on Windows the regions used for lock and unlock
  * needs to match.
  * @author ngl@unipro.ru
  */
@@ -95,7 +94,7 @@ main() {
 
     if (Platform.isWindows) {
       tests
-          .addAll([() => rf1.unlockSync(4, 4), () => checkUnlocked(file.path)]);
+          .addAll([() => rf1.unlockSync(4, 6), () => checkUnlocked(file.path)]);
     } else {
       tests.addAll([
         () => rf1.unlockSync(4, 5),

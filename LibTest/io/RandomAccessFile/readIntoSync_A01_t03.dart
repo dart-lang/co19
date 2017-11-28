@@ -39,6 +39,7 @@ check(int start) {
       Expect.equals(list[i], null);
     }
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

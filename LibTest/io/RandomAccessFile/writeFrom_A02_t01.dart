@@ -12,10 +12,8 @@
  * ])
  * Writes from a List<int> to the file.
  * . . .
- *
  * Returns a Future<RandomAccessFile> that completes with this RandomAccessFile
  * when the write completes.
- *
  *
  * @description Checks that method writeFrom writes from a List<int> to the file
  * and returns Future<RandomAccessFile> that completes with this
@@ -48,9 +46,12 @@ void check(List<int> list) {
       for (int i = 0; i < len; i++) {
         Expect.isTrue(i == l[i]);
       }
+
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

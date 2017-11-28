@@ -34,9 +34,10 @@ main(m) {
     byte.then((int b) {
       Expect.isTrue(b is int);
       Expect.equals(-1, b);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
-
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

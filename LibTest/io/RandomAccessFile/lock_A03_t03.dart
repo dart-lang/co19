@@ -61,6 +61,7 @@ main() {
   ];
 
   Future.forEach(tests, (f) => f()).whenComplete(() {
+    rf.closeSync();
     file.deleteSync();
     asyncEnd();
   });

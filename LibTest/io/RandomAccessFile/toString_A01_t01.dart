@@ -29,6 +29,7 @@ main() {
     String s = rf.toString();
     Expect.isTrue(s is String);
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

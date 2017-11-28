@@ -42,9 +42,11 @@ void check(int len) {
       for (int i = 0; i < len; i++) {
         Expect.isTrue(i == l[i]);
       }
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

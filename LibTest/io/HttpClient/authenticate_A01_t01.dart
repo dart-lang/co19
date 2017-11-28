@@ -23,7 +23,7 @@
  * If the Future completes with true the request will be retried using the
  * updated credentials. Otherwise response processing will continue normally.
  * @description Checks that this setter sets the function to be called when a
- * site is requesting authentication
+ * site is requesting authentication. Test Digest authentication
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -50,6 +50,8 @@ test() async {
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));
+      Expect.isTrue(authorization.contains('algorithm="MD5"'));
+      Expect.isTrue(authorization.contains('uri="/xxx"'));
       response.close();
       server.close();
       asyncEnd();
@@ -62,7 +64,8 @@ test() async {
     Expect.equals("realm", realm);
     Completer completer = new Completer();
     client.addCredentials(
-        Uri.parse("http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"),
+        Uri.parse(
+            "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"),
         "realm",
         new HttpClientDigestCredentials("co19-test", "password"));
     completer.complete(true);
@@ -71,11 +74,11 @@ test() async {
   };
 
   client
-      .getUrl(Uri.parse("http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
+      .getUrl(Uri.parse(
+          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {
-    });
+    response.transform(UTF8.decoder).listen((content) {});
   });
 }
 

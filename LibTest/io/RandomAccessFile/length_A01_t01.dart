@@ -33,8 +33,11 @@ void check(int fLen) {
     rfLen.then((int len) {
       Expect.isTrue(len is int);
       Expect.isTrue(len == fLen);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
-    asyncEnd();
+
   }).whenComplete(() {
     file.deleteSync();
   });

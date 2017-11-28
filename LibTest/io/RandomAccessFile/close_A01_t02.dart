@@ -33,8 +33,10 @@ main() {
       } on Exception catch (e) {
         Expect.isTrue(e is FileSystemException);
       }
+    }).whenComplete(() {
+      asyncEnd();
     });
-    asyncEnd();
+
   }).whenComplete(() {
     file.deleteSync();
   });

@@ -41,7 +41,7 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
     ..addAll(Platform.executableArguments)
     ..add(Platform.script.resolve('lock_A04_t01_lib.dart').toFilePath())
     ..add(path)
-    ..add(mode = amode)
+    ..add(amode)
     ..add('$start')
     ..add('$end');
   return Process
@@ -81,6 +81,7 @@ void check(int fLen) {
       () => checkUnlocked(f.path, 0, -1, FileLock.BLOCKING_EXCLUSIVE)
     ];
     Future.forEach(tests, (f) => f()).whenComplete(() {
+      rf.unlockSync();
       rf.closeSync();
       file.deleteSync();
       asyncEnd();

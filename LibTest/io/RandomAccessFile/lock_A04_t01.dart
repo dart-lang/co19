@@ -54,7 +54,6 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
     ..add('$start')
     ..add('$end');
   return Process
-      //    var result = Process.runSync(Platform.executable, arguments);
       .run(Platform.executable, arguments)
       .then((ProcessResult result) {
     if (result.exitCode != 0 || !result.stdout.contains(expected)) {

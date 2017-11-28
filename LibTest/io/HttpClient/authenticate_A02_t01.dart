@@ -47,6 +47,8 @@ test() async {
       response.close();
       server.close();
       asyncEnd();
+    } else {
+      Expect.fail("No request expected");
     }
   });
   HttpClient client = new HttpClient();
@@ -60,11 +62,11 @@ test() async {
   };
 
   client
-      .getUrl(Uri.parse("http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
+      .getUrl(Uri.parse(
+          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {
-    });
+    response.transform(UTF8.decoder).listen((content) {});
   });
 }
 
