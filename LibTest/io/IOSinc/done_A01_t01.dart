@@ -15,7 +15,7 @@ import "dart:io";
 import "dart:async";
 
 main() {
-  StreamController controller = new StreamController();
+  StreamController<List<int>> controller = new StreamController<List<int>>();
   dynamic sink = new IOSink(controller);
 
   Future done = sink.done;
