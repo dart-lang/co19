@@ -36,9 +36,11 @@ void check(int num) {
       Expect.isTrue(f == rf);
       int byte = f.readByteSync();
       Expect.equals((num + 1) & 0xff, byte);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
 
-    asyncEnd();
   }).whenComplete(() {
     file.deleteSync();
   });

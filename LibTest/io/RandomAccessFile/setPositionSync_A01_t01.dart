@@ -33,6 +33,7 @@ void check(int num) {
     int byte = rf.readByteSync();
     Expect.equals((num + 1) & 0xff, byte);
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

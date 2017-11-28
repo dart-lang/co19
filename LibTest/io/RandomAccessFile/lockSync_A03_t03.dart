@@ -5,11 +5,12 @@
  */
 /**
  * @assertion
- * Future<RandomAccessFile> lock([
+ * void lockSync([
  *     FileLock mode = FileLock.EXCLUSIVE,
  *     int start = 0,
  *     int end = -1
- * ])
+ *     ])
+ * Synchronously locks the file or part of the file.
  * . . .
  * To obtain an exclusive lock on a file it must be opened for writing.
  *
@@ -23,16 +24,14 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
-// Check whether the file is may be locked with an exclusive lock.
+// Check whether the file is locked or not.
 checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   var expected = 'OS Error:';
   var arguments = []
     ..addAll(Platform.executableArguments)
-    ..add(Platform.script.resolve('lock_A03_t03_lib.dart').toFilePath())
-    ..add(path)
-    ..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')
-    ..add('$start')
-    ..add('$end');
+    ..add(Platform.script.resolve('lock_A03_t03_lib.dart').toFilePath())..add(
+        path)..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')..add(
+        '$start')..add('$end');
   return Process
       .run(Platform.executable, arguments)
       .then((ProcessResult result) {
@@ -57,7 +56,7 @@ main() {
 
   asyncStart();
   var tests = [
-    () => checkLock(rf.path, 0, fLen, FileLock.EXCLUSIVE, locked: false)
+        () => checkLock(rf.path, 0, fLen, FileLock.EXCLUSIVE, locked: false)
   ];
 
   Future.forEach(tests, (f) => f()).whenComplete(() {

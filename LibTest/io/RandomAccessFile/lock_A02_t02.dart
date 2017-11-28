@@ -59,7 +59,7 @@ checkLocked(String path,
     checkLock(path, start, end, mode, locked: true);
 
 checkUnlocked(String path,
-    [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
+        [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
     checkLock(path, start, end, mode, locked: false);
 
 void check(int fLen) {

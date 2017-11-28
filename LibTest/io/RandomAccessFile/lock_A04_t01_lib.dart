@@ -33,10 +33,6 @@ main(List<String> args) {
     end = int.parse(args[3]);
   }
   var raf = file.openSync(mode: WRITE);
-  print(raf.runtimeType);
-  print(raf.path);
-  var t3 = new DateTime.now();
-  print('l1 ${t3.toString()} $pid');
 
   try {
     raf.lockSync(mode, start, end);

@@ -36,6 +36,7 @@ void check(int start, int end) {
       Expect.isTrue(i + start == l[i]);
     }
 
+    rf.closeSync();
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

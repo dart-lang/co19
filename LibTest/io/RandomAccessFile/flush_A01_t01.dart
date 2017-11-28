@@ -35,8 +35,11 @@ main() {
       f.setPositionSync(0);
       list = f.readSync(1);
       Expect.isTrue(list[0] == 9);
+    }).whenComplete(() {
+      rf.closeSync();
+      asyncEnd();
     });
-    asyncEnd();
+
   }).whenComplete(() {
     file.deleteSync();
   });

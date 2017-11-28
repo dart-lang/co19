@@ -5,19 +5,21 @@
  */
 /**
  * @assertion
- * Future<RandomAccessFile> lock([
+ * void lockSync([
  *     FileLock mode = FileLock.EXCLUSIVE,
  *     int start = 0,
  *     int end = -1
- * ])
+ *     ])
+ * Synchronously locks the file or part of the file.
  * . . .
- * If mode is FileLock.EXCLUSIVE or FileLock.SHARED, an error is signaled if the
- * lock cannot be obtained. If mode is FileLock.BLOCKING_EXCLUSIVE or
- * FileLock.BLOCKING_SHARED, the returned Future is resolved only when the lock
- * has been obtained.
+ * Locks the byte range from start to end of the file, with the byte at position
+ * end not included. If no arguments are specified, the full file is locked, If
+ * only start is specified the file is locked from byte position start to the
+ * end of the file, no matter how large it grows. It is possible to specify an
+ * explicit value of end which is past the current length of the file.
  *
- * @description Checks that if mode is FileLock.BLOCKING_EXCLUSIVE, the returned
- * Future is resolved only when the lock has been obtained.
+ * @description Checks that if no arguments are specified, the full file is
+ * locked.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -29,19 +31,12 @@ import "../file_utils.dart";
 // Check whether the file is locked or not.
 checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
-  var expected = 'LOCK SUCCEEDED';
-  var amode;
-  switch (mode) {
-    case FileLock.SHARED : amode = 'SHARED'; expected = 'LOCK FAILED';  break;
-    case FileLock.EXCLUSIVE : amode = 'EXCLUSIVE'; expected = 'LOCK FAILED'; break;
-    case FileLock.BLOCKING_SHARED : amode = 'BLOCKING_SHARED'; break;
-    case FileLock.BLOCKING_EXCLUSIVE : amode = 'BLOCKING_EXCLUSIVE';
-  }
+  var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
   var arguments = []
     ..addAll(Platform.executableArguments)
-    ..add(Platform.script.resolve('lock_A04_t01_lib.dart').toFilePath())
+    ..add(Platform.script.resolve('lock_A01_t01_lib.dart').toFilePath())
     ..add(path)
-    ..add(amode)
+    ..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
     ..add('$end');
   return Process
@@ -70,28 +65,25 @@ checkUnlocked(String path,
 
 void check(int fLen) {
   File file = getTempFileSync();
-
   asyncStart();
   var rf = file.openSync(mode: FileMode.WRITE);
   rf.writeFromSync(new List.filled(fLen, 1));
-  var rfLock = rf.lock(FileLock.EXCLUSIVE);
+  rf.lockSync(FileLock.EXCLUSIVE);
 
-  rfLock.then((RandomAccessFile f) {
-    var tests = [
-      () => checkUnlocked(f.path, 0, -1, FileLock.BLOCKING_EXCLUSIVE)
-    ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
-      rf.unlockSync();
-      rf.closeSync();
-      file.deleteSync();
-      asyncEnd();
-    });
-  }).whenComplete(() {
+  var tests = [
+    () => checkLocked(rf.path),
+    () => checkLocked(rf.path, fLen, fLen + 10)
+  ];
+  Future.forEach(tests, (f) => f()).whenComplete(() {
     rf.unlockSync();
+    rf.closeSync();
+    file.deleteSync();
+    asyncEnd();
   });
 }
 
 main() {
   check(10);
+  check(100);
   check(1000);
 }
