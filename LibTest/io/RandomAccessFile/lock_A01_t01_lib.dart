@@ -30,7 +30,7 @@ main(List<String> args) {
   if (args[3] != 'null') {
     end = int.parse(args[3]);
   }
-  var raf = file.openSync(mode: WRITE);
+  var raf = file.openSync(mode: APPEND);
   try {
     raf.lockSync(mode, start, end);
     print('LOCK SUCCEEDED');
