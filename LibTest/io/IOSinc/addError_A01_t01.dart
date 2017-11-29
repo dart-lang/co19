@@ -4,32 +4,34 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future addStream(Stream<List<int>> stream)
- * Adds all elements of the given stream to this.
- * @description Checks that the target is added to the consumer after the [add]
- * method call
+ * @assertion void addError(error, [StackTrace stackTrace])
+ * Passes the [error] to the target consumer as an error event.
+ * @description Checks that it's impossible to add anything else to consumer
+ * after the error appeared.
  * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
+import "dart:typed_data";
 
-Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  bool isClosed = false;
   MyStreamConsumer() {}
 
-  Future addStream(Stream<List> stream) {
-    Expect.equals(aStream, stream);
-    called = true;
-    return new Future(() => "OK");
+  Future<dynamic> addStream(Stream<List> stream) {
+    stream.toList().then((x) {
+      Expect.fail("Should not be here!");
+    }, onError: (error, StackTrace st) {
+      called = true;
+      Expect.equals("ERROR", error.toString());
+    });
+    return new Future(() => "ADD");
   }
 
   Future close() {
-    isClosed = true;
     return new Future(() => "CLOSED");
   }
 }
@@ -37,8 +39,8 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 main() {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-
-  sink.addStream(aStream);
+  sink.addError("ERROR");
+  sink.add(new Int32List.fromList([1, 2, 3]));
   consumer.close();
   Expect.isTrue(called);
 }
