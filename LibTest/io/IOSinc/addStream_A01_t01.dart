@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void add(List<int> data)
- * Adds byte data to the target consumer.
+ * @assertion Future addStream(Stream<List<int>> stream)
+ * Adds all elements of the given stream to this.
  * @description Checks that the target is added to the consumer after the [add]
  * method call
  * @author iarkh@unipro.ru
@@ -16,18 +16,16 @@ import "dart:async";
 import "dart:io";
 import "dart:typed_data";
 
-Int32List aList = new Int32List.fromList([1, 2, 3, 4, 5]);
+Stream<List> aStream = new Stream.fromIterable(new Int32List(5));
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   bool isClosed = false;
   MyStreamConsumer() {}
 
-  Future<dynamic> addStream(Stream<List> stream) {
-    stream.toList().then((x) {
-      called = true;
-      Expect.listEquals([1, 2, 3, 4, 5], x.first);
-    });
+  Future addStream(Stream<List> stream) {
+    Expect.equals(aStream, stream);
+    called = true;
     return new Future(() => "OK");
   }
 
@@ -40,8 +38,8 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 main() {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  sink.add(aList);
-  sink.close();
+
+  sink.addStream(aStream);
   consumer.close();
   Expect.isTrue(called);
 }
