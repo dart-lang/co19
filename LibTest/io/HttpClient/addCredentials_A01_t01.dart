@@ -25,14 +25,13 @@ test() async {
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
   server.listen((HttpRequest request) {
-    var response = request.response;
     Expect.isNotNull(request.headers[HttpHeaders.AUTHORIZATION]);
     Expect.isNotNull(request.headers[HttpHeaders.AUTHORIZATION].length > 0);
     var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
     String encoded = BASE64.encode(UTF8.encode("co19-test:password"));
     Expect.equals("Basic ${encoded}", authorization);
-    response.write(helloWorld);
-    response.close();
+    request.response.write(helloWorld);
+    request.response.close();
     server.close();
     asyncEnd();
   });
