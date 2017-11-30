@@ -5,10 +5,9 @@
  */
 /**
  * @assertion void add(List<int> data)
- * This function must not be called when a stream is currently being added using
- * [addStream].
- * @description Checks that calling the several [add] functions does not cause
- * error.
+ * Adds byte data to the target consumer.
+ * @description Checks that several [List<int>] targets can be added to the
+ * consumer
  * @author iarkh@unipro.ru
  */
 
@@ -17,13 +16,22 @@ import "dart:async";
 import "dart:io";
 import "dart:typed_data";
 
+Int32List list1 = new Int32List.fromList([10, 20, 30, 40, 50]);
+Int32List list2 = new Int32List.fromList([1, 2, 3]);
+Int32List list3 = new Int32List.fromList([1, 2, 3]);
+
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   MyStreamConsumer() {}
 
   Future addStream(Stream<List> stream) {
-    stream.toList().then((x) { called = true; });
+    stream.toList().then((x) {
+      Expect.listEquals(list1, x[0]);
+      Expect.listEquals(list2, x[1]);
+      Expect.listEquals(list3, x[2]);
+    });
+    called = true;
     return new Future(() => "OK");
   }
 
@@ -33,9 +41,6 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 }
 
 main() {
-  Int32List list1 = new Int32List.fromList([10, 20, 30, 40, 50]);
-  Int32List list2 = new Int32List.fromList([1, 2, 3]);
-  Int32List list3 = new Int32List.fromList([1, 2, 3]);
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.add(list1);
@@ -44,7 +49,6 @@ main() {
 
   sink.close();
   consumer.close();
-  sink.done.then((x) {
-    Expect.equals("CLOSED", x);
-  });
+
+  Expect.isTrue(called);
 }
