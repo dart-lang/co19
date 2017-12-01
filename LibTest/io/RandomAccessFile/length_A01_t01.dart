@@ -26,20 +26,14 @@ void check(int fLen) {
     Expect.isNotNull(rf);
     for (int i = 0; i < fLen; i++) {
       rf.writeByteSync((i + 1) & 0xff);
-    }
-    var rfLen = rf.length();
-    Expect.isTrue(rfLen is Future<int>);
-
-    rfLen.then((int len) {
-      Expect.isTrue(len is int);
-      Expect.isTrue(len == fLen);
+    };
+    rf.length().then((int len) {
+      Expect.equals(fLen, len);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
+      file.deleteSync();
     });
-
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }
 
