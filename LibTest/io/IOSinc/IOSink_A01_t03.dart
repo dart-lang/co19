@@ -36,4 +36,8 @@ main() {
   sink = new IOSink(new StreamController(), encoding: enc);
   Expect.equals(enc, sink.encoding);
   sink.close();
+
+  sink = new IOSink(new StreamController(), encoding: null);
+  Expect.isNull(sink.encoding);
+  sink.close();
 }
