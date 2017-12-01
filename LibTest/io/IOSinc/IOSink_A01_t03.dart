@@ -20,16 +20,20 @@ main() {
   Encoding enc = new Utf8Codec();
   IOSink sink = new IOSink(new StreamController(), encoding: enc);
   Expect.equals(enc, sink.encoding);
+  sink.close();
 
   enc = new AsciiCodec();
   sink = new IOSink(new StreamController(), encoding: enc);
   Expect.equals(enc, sink.encoding);
+  sink.close();
 
   enc = new Latin1Codec();
   sink = new IOSink(new StreamController(), encoding: enc);
   Expect.equals(enc, sink.encoding);
+  sink.close();
 
   enc = new SystemEncoding();
   sink = new IOSink(new StreamController(), encoding: enc);
   Expect.equals(enc, sink.encoding);
+  sink.close();
 }

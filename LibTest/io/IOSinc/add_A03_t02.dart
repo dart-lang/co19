@@ -5,38 +5,40 @@
  */
 /**
  * @assertion void add(List<int> data)
- * Adds byte data to the target consumer.
- * @description Checks that the target is added to the consumer after the [add]
- * method call
+ * This function must not be called when a stream is currently being added using
+ * [addStream].
+ * @description Checks that calling the [add] function after [addStream] does
+ * not cause error if stream adding is finished before the [add] method call.
  * @author iarkh@unipro.ru
  */
 
+import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
+
 import "dart:async";
 import "dart:io";
 import "dart:typed_data";
 
-Int32List aList = new Int32List.fromList([1, 2, 3, 4, 5]);
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   MyStreamConsumer() {}
 
-  Future<dynamic> addStream(Stream<List> stream) {
-    stream.toList().then((x) {
-      called = true;
-      Expect.listEquals(aList, x.first);
-    });
-    return new Future(() => "OK");
+  Future addStream(Stream<List> stream) {
+    stream.toList().then((x) { called = true; });
+    return new Future(() => "ADD");
   }
 
   Future close() { return new Future(() => "CLOSED"); }
 }
 
 main() async {
+  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  Int32List list2 = new Int32List.fromList([10, 20, 30, 40, 50]);
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  sink.add(aList);
-  await sink.close();
+  await sink.addStream(aStream);
   Expect.isTrue(called);
+  await sink.add(list2);
+  await sink.close();
 }

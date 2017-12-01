@@ -19,4 +19,5 @@ import "dart:convert";
 main() {
   IOSink sink = new IOSink(new StreamController());
   Expect.isTrue(sink.encoding is Utf8Codec);
+  sink.close();
 }

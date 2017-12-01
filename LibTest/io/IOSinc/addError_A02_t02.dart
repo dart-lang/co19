@@ -4,19 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void add(List<int> data)
- * Adds byte data to the target consumer.
- * @description Checks that the target is added to the consumer after the [add]
- * method call
+ * @assertion void addError(error, [StackTrace stackTrace])
+ * This function must not be called when a stream is currently being added using
+ * [addStream].
+ * @description Checks that adding [error] after another stream has already been
+ * added does not cause [StateError].
  * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
-Int32List aList = new Int32List.fromList([1, 2, 3, 4, 5]);
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
@@ -25,9 +24,10 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
       called = true;
-      Expect.listEquals(aList, x.first);
+    }, onError: (error, StackTrace st) {
+      Expect.equals("ERROR", error.toString());
     });
-    return new Future(() => "OK");
+    return new Future(() => "ADD");
   }
 
   Future close() { return new Future(() => "CLOSED"); }
@@ -36,7 +36,9 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 main() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  sink.add(aList);
+  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  await sink.addStream(aStream);
+  await sink.addError("ERROR");
   await sink.close();
   Expect.isTrue(called);
 }

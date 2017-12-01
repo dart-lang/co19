@@ -5,11 +5,8 @@
  */
 /**
  * @assertion Future addStream(Stream<List<int>> stream)
- * Adds all elements of the given stream to this.
- * Returns a [Future] that completes when all elements of the given stream are
- * added to this.
- * @description Checks that the [stream] is added to the consumer after the
- * [addStream] method call
+ * @description Checks that the [stream] cannot be added is another stream is
+ * being added right now.
  * @author iarkh@unipro.ru
  */
 
@@ -17,30 +14,26 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-Stream<List> aStream = new Stream<List>.fromIterable(
-    [[1, 2, 3, 4, 5], [12], [3, 22]]);
+Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
+Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  bool isClosed = false;
   MyStreamConsumer() {}
 
   Future addStream(Stream<List> stream) {
-    Expect.equals(aStream, stream);
     called = true;
     return new Future(() => "OK");
   }
 
-  Future close() {
-    isClosed = true;
-    return new Future(() => "CLOSED");
-  }
+  Future close() { return new Future(() => "CLOSED"); }
 }
 
 main() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  sink.addStream(aStream);
-  await consumer.close();
+  await sink.addStream(stream1);
+  await sink.addStream(stream2);
+  await sink.close();
   Expect.isTrue(called);
 }
