@@ -22,14 +22,8 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'echo';
-    args = ['abc'];
-  }
-  if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
-  }
+  command = 'dart';
+  args = ['--version'];
 }
 
 main() {
@@ -38,10 +32,6 @@ main() {
   fProcessResult.then((ProcessResult result) {
     ProcessResult pr = new ProcessResult(
         result.pid, result.exitCode, result.stdout, result.stderr);
-    if (Platform.isLinux) {
-      Expect.isTrue(pr.exitCode == 0);
-    } else {
-      Expect.fail("Unknown platform.");
-    }
+    Expect.equals(0, pr.exitCode);
   });
 }

@@ -39,7 +39,6 @@ check(ProcessSignal signal, int ec) {
       if (dokill < 2 ) {
         process.kill(signal);
         dokill++;
-      //print(dokill);
       }
     });
     process.exitCode.then((exitCode) {
