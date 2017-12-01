@@ -35,18 +35,16 @@ import "../../../Utils/async_utils.dart";
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
   server.listen((HttpRequest request) {
-    var response = request.response;
     if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      response.statusCode = HttpStatus.UNAUTHORIZED;
-      StringBuffer authHeader = new StringBuffer();
-      response.headers.set(HttpHeaders.WWW_AUTHENTICATE,
+      request.response.statusCode = HttpStatus.UNAUTHORIZED;
+      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE,
           'Basic, realm="realm", domain="/xxxt/"');
-      response.close();
+      request.response.close();
     } else {
       var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
       String encoded = BASE64.encode(UTF8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
-      response.close();
+      request.response.close();
       server.close();
       asyncEnd();
     }

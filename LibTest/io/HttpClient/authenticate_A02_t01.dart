@@ -35,16 +35,15 @@ import "../../../Utils/async_utils.dart";
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
   server.listen((HttpRequest request) {
-    var response = request.response;
     if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      response.statusCode = HttpStatus.UNAUTHORIZED;
+      request.response.statusCode = HttpStatus.UNAUTHORIZED;
       StringBuffer authHeader = new StringBuffer();
       authHeader.write('Digest');
       authHeader.write(', realm="realm"');
       authHeader.write(', nonce="123"');
       authHeader.write(', domain="/xxxt/"');
-      response.headers.set(HttpHeaders.WWW_AUTHENTICATE, authHeader);
-      response.close();
+      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE, authHeader);
+      request.response.close();
       server.close();
       asyncEnd();
     } else {

@@ -4,14 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void addCredentials(
- *  Uri url,
+ * @assertion void addProxyCredentials(
+ *  String host,
+ *  int port,
  *  String realm,
  *  HttpClientCredentials credentials
  *  )
- * Add credentials to be used for authorizing HTTP requests.
+ * Add credentials to be used for authorizing HTTP proxies.
  * @description Checks that this method adds credentials to be used for
- * authorizing HTTP requests. Test wrong url argument
+ * authorizing HTTP proxies. Test wrong url argument
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -23,21 +24,23 @@ var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
   server.listen((HttpRequest request) {
-    Expect.isNull(request.headers[HttpHeaders.AUTHORIZATION]);
+    Expect.isNull(request.headers[HttpHeaders.PROXY_AUTHORIZATION]);
     request.response.close();
     server.close();
     asyncEnd();
   });
 
   HttpClient client = new HttpClient();
-  client.addCredentials(Uri.parse("http://dartlang.org/xxx"),
-      "realm", new HttpClientBasicCredentials("co19-test", "password"));
+  client.findProxy = (Uri uri) {
+    return "PROXY ${localhost}:${server.port}";
+  };
+  client.addProxyCredentials("http://dartlang.org", server.port, "realm",
+      new HttpClientBasicCredentials("co19-test", "password"));
 
-  client.getUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
-    .then((HttpClientRequest request) {
-      return request.close();
-    }).then((HttpClientResponse response) {
-    });
+  client.getUrl(Uri.parse("http://${localhost}:${server.port}"))
+      .then((HttpClientRequest request) => request.close())
+      .then((HttpClientResponse response) {
+  });
 }
 
 main() {
