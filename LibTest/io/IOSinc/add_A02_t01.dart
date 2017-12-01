@@ -22,32 +22,30 @@ Int32List aList = new Int32List.fromList([10, 20, 30, 40, 50]);
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  bool isClosed = false;
   MyStreamConsumer() {}
 
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
+      Expect.equals(1, x.length);
+      Expect.listEquals(aList, x.first);
       called = true;
-      Expect.listEquals([10, 20, 30, 40, 50], x.first);
     });
     return new Future(() => "OK");
   }
 
   Future close() {
-    isClosed = true;
     return new Future(() => "CLOSED");
   }
 }
 
-test(Encoding enc) {
+test(Encoding enc) async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink;
   sink = (enc == null) ?
     new IOSink(consumer) : new IOSink(consumer, encoding : enc);
   called = false;
   sink.add(aList);
-  sink.close();
-  consumer.close();
+  await sink.close();
   Expect.isTrue(called);
 }
 

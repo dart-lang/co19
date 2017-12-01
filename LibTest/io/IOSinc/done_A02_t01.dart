@@ -6,8 +6,8 @@
 /**
  * @assertion Future done
  * This future is identical to the future returned by [close].
- * @description Checks that returned [Future] is idential to one returned by
- * [close] method.
+ * @description Checks that returned [Future] is identical to one returned by
+ * the [close] method.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -22,4 +22,5 @@ main() {
   Future close = sink.close();
 
   Expect.equals(close, done);
+  sink.close();
 }

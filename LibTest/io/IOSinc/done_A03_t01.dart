@@ -16,4 +16,5 @@ import "dart:async";
 main() {
   dynamic sink = new IOSink(new StreamController());
   Expect.throws(() { sink.done = null; }, (e) => e is NoSuchMethodError);
+  sink.close();
 }

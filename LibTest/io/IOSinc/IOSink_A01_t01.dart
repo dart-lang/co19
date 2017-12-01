@@ -17,4 +17,5 @@ import "dart:async";
 main() {
   dynamic sink = new IOSink(new StreamController());
   Expect.isTrue(sink is IOSink);
+  sink.close();
 }

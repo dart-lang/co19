@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Encoding encoding
- * The Encoding used when writing strings. Depending on the underlying consumer
- * this property might be mutable.
+ * The [Encoding] used when writing strings. Depending on the underlying
+ * consumer this property might be mutable.
  * @description Checks that [encoding] can be changed
  * @author iarkh@unipro.ru
  */
@@ -33,4 +33,6 @@ main() {
   enc = new SystemEncoding();
   sink.encoding = enc;
   Expect.equals(enc, sink.encoding);
+
+  sink.close();
 }

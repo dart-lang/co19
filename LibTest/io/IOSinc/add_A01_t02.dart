@@ -18,7 +18,7 @@ import "dart:typed_data";
 
 Int32List list1 = new Int32List.fromList([10, 20, 30, 40, 50]);
 Int32List list2 = new Int32List.fromList([1, 2, 3]);
-Int32List list3 = new Int32List.fromList([1, 2, 3]);
+Int32List list3 = new Int32List.fromList([4, 5]);
 
 bool called = false;
 
@@ -27,28 +27,25 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      Expect.listEquals(list1, x[0]);
-      Expect.listEquals(list2, x[1]);
-      Expect.listEquals(list3, x[2]);
+      Expect.equals(3, x.length);
+      Expect.isTrue(x.contains(list1));
+      Expect.isTrue(x.contains(list2));
+      Expect.isTrue(x.contains(list3));
+      called = true;
     });
-    called = true;
     return new Future(() => "OK");
   }
 
-  Future close() {
-    return new Future(() => "CLOSED");
-  }
+  Future close() { return new Future(() => "CLOSED"); }
 }
 
-main() {
+main() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.add(list1);
   sink.add(list2);
   sink.add(list3);
 
-  sink.close();
-  consumer.close();
-
+  await sink.close();
   Expect.isTrue(called);
 }

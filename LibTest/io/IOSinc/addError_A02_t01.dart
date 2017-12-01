@@ -5,8 +5,10 @@
  */
 /**
  * @assertion void addError(error, [StackTrace stackTrace])
- * Passes the [error] to the target consumer as an error event.
- * @description Checks that error can be added to the consumer.
+ * This function must not be called when a stream is currently being added using
+ * [addStream].
+ * @description Checks that adding [error] when another stream is being added
+ * causes [StateError].
  * @author iarkh@unipro.ru
  */
 
@@ -14,16 +16,12 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
-
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   MyStreamConsumer() {}
 
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      Expect.fail("Should not be here!");
     }, onError: (error, StackTrace st) {
-      called = true;
       Expect.equals("ERROR", error.toString());
     });
     return new Future(() => "ADD");
@@ -32,10 +30,16 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
   Future close() { return new Future(() => "CLOSED"); }
 }
 
-main() async {
+main() {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  sink.addError("ERROR");
-  await sink.close();
-  Expect.isTrue(called);
+  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  sink.addStream(aStream).then((x) {
+    new Future.delayed(new Duration(seconds: 3)).then((_) {
+      sink.close();
+    });
+  });
+  Expect.throws(() {
+    sink.addError("ERROR");
+  }, (e) => e is StateError);
 }
