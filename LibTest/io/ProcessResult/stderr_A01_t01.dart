@@ -24,15 +24,8 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'echo';
-    args = ['abc'];
-  }
-  if (Platform.isWindows) {
-    command = 'echo';
-    args = ['abc'];
-  }
-
+  command = 'dart';
+  args = ['--version'];
 }
 
 main() {

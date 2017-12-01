@@ -23,14 +23,8 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'pwd';
-    args = ["-l"];
-  }
-  if (Platform.isWindows) {
-    command = 'pwd';
-    args = ["-l"];
-  }
+  command = 'dart';
+  args = ["-l"];
 }
 
 main() {
@@ -39,10 +33,6 @@ main() {
   fProcessResult.then((ProcessResult result) {
     ProcessResult pr = new ProcessResult(
         result.pid, result.exitCode, result.stdout, result.stderr);
-    if (Platform.isLinux) {
-      Expect.isFalse(pr.exitCode == 0);
-    } else {
-      Expect.fail("Unknown platform.");
-    }
+    Expect.isFalse(pr.exitCode == 0);
   });
 }

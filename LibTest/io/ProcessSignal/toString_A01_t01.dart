@@ -42,12 +42,10 @@ check(String sig) {
 }
 
 main() {
-//  if (!Platform.isWindows) {
-    check('SIGHUP');
-    check('SIGINT');
-    check('SIGTERM');
-    check('SIGUSR1');
-    check('SIGUSR2');
-    check('SIGWINCH');
-//  }
+  check('SIGHUP');
+  check('SIGINT');
+  check('SIGTERM');
+  check('SIGUSR1');
+  check('SIGUSR2');
+  check('SIGWINCH');
 }
