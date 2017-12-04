@@ -4,19 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<HttpClientRequest> get(
+ * @assertion Future<HttpClientRequest> put(
  *  String host,
  *  int port,
  *  String path
  *  )
- * Opens a HTTP connection using the GET method.
+ * Opens a HTTP connection using the PUT method.
  *
  * The server is specified using host and port, and the path (including a
  * possible query) is specified using path.
  *
  * See open for details.
- * @description Checks that this method opens a HTTP connection using the GET
- * method and path may contain query
+ * @description Checks that this method opens a HTTP connection using the PUT
+ * method
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -30,8 +30,8 @@ test() async {
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    Expect.equals("GET", request.method);
-    Expect.equals("/y/Xxx?q=12&i=j", request.uri.toString());
+    Expect.equals("PUT", request.method);
+    Expect.equals("/xxx", request.uri.toString());
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -39,7 +39,7 @@ test() async {
   });
 
   HttpClient client = new HttpClient();
-  client.get(localhost, server.port, "y/Xxx?q=12&i=j#fragment")
+  client.put(localhost, server.port, "/xxx")
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
         response.transform(UTF8.decoder).listen((content) {

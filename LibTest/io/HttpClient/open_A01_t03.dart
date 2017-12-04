@@ -4,19 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<HttpClientRequest> get(
+ * @assertion Future<HttpClientRequest> open(
+ *  String method,
  *  String host,
  *  int port,
  *  String path
  *  )
- * Opens a HTTP connection using the GET method.
+ * Opens a HTTP connection.
  *
- * The server is specified using host and port, and the path (including a
- * possible query) is specified using path.
+ * The HTTP method to use is specified in method, the server is specified using
+ * host and port, and the path (including a possible query) is specified using
+ * path. The path may also contain a URI fragment, which will be ignored.
  *
- * See open for details.
- * @description Checks that this method opens a HTTP connection using the GET
- * method and path may contain query
+ * The Host header for the request will be set to the value host:port. This can
+ * be overridden through the HttpClientRequest interface before the request is
+ * sent. NOTE if host is an IP address this will still be set in the Host
+ * header.
+ *
+ * For additional information on the sequence of events during an HTTP
+ * transaction, and the objects returned by the futures, see the overall
+ * documentation for the class HttpClient.
+ * @description Checks that method argument is case insensitive and path is case
+ * sensitive
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -31,7 +40,7 @@ test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     Expect.equals("GET", request.method);
-    Expect.equals("/y/Xxx?q=12&i=j", request.uri.toString());
+    Expect.equals("/Xxx", request.uri.toString());
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -39,7 +48,7 @@ test() async {
   });
 
   HttpClient client = new HttpClient();
-  client.get(localhost, server.port, "y/Xxx?q=12&i=j#fragment")
+  client.open("get", localhost, server.port, "/Xxx")
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
         response.transform(UTF8.decoder).listen((content) {

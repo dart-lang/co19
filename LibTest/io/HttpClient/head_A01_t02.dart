@@ -31,7 +31,7 @@ test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     Expect.equals("HEAD", request.method);
-    Expect.equals("/y/xxx?q=12&i=j", request.uri.toString());
+    Expect.equals("/y/Xxx?q=12&i=j", request.uri.toString());
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -39,7 +39,7 @@ test() async {
   });
 
   HttpClient client = new HttpClient();
-  client.head(localhost, server.port, "y/xxx?q=12&i=j#fragment")
+  client.head(localhost, server.port, "y/Xxx?q=12&i=j#fragment")
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
         response.transform(UTF8.decoder).listen((content) {
