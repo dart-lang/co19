@@ -62,7 +62,6 @@ checkUnlocked(String path,
     [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
     checkLock(path, start, end, mode, locked: false);
 
-
 main(List<String> args) {
   File file = new File(args[0]);
   int start = null;
