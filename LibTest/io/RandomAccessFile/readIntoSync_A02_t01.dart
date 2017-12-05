@@ -32,16 +32,13 @@ main() {
     var num = rf.readIntoSync(list, 0);
     Expect.isTrue(num is int);
     Expect.equals(10, num);
-
     rf.closeSync();
-
     try {
       rf.readIntoSync(list, 0);
       Expect.fail("should not be here.");
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

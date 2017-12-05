@@ -29,7 +29,6 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     rf.setPositionSync(1);
     var list1 = rf.readSync(5);
     Expect.isTrue(list1 is List<int>);
@@ -39,14 +38,12 @@ main() {
       Expect.isTrue(list1[i] == (i + 2) & 0xff);
     }
     rf.closeSync();
-
     try {
       rf.readSync(5);
       Expect.fail("should not be here.");
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

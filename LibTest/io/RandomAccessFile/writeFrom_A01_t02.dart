@@ -33,20 +33,17 @@ void check(int len) {
   raFile.then((RandomAccessFile rf) {
     Expect.equals(0, file.lengthSync());
     var f = rf.writeFrom(list.sublist(0, len));
-
     f.then((RandomAccessFile file) {
       Expect.equals(len, file.lengthSync());
       rf.setPositionSync(0);
       List<int> l = file.readSync(len);
-
       for (int i = 0; i < len; i++) {
         Expect.isTrue(i == l[i]);
       }
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

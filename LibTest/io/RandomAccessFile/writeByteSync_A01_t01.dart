@@ -31,19 +31,16 @@ main() {
     Expect.isTrue(n is int);
     Expect.equals(1, n);
     Expect.equals(1, rf.lengthSync());
-
     for (int i = 1; i < 10; i++) {
       n = rf.writeByteSync(i);
       Expect.equals(1, n);
       Expect.equals(i + 1, rf.lengthSync());
     }
-
     rf.setPositionSync(0);
     rf.readIntoSync(list);
     Expect.listEquals([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], list);
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

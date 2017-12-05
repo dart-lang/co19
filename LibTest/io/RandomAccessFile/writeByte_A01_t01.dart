@@ -40,11 +40,10 @@ void check(int num, List<int> list) {
       for (int i = num + 1; i < 10; i++) {
         Expect.isTrue(null == list[i]);
       }
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

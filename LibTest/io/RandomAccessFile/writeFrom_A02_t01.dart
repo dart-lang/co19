@@ -35,23 +35,19 @@ void check(List<int> list) {
     Expect.equals(0, file.lengthSync());
     var f = rf.writeFrom(list);
     Expect.isTrue(f is Future<RandomAccessFile>);
-
     f.then((RandomAccessFile file) {
       Expect.isTrue(file is RandomAccessFile);
       Expect.equals(rf, file);
       Expect.equals(len, file.lengthSync());
       rf.setPositionSync(0);
       List<int> l = file.readSync(len);
-
       for (int i = 0; i < len; i++) {
         Expect.isTrue(i == l[i]);
       }
-
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

@@ -24,16 +24,14 @@ check(String s) {
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
   raFile.then((RandomAccessFile rf) {
     rf.writeStringSync(s, encoding: LATIN1);
-
     var flen = file.lengthSync();
     rf.setPositionSync(0);
     List<int> l = rf.readSync(flen);
     var ed = new Latin1Codec();
     String s1 = ed.decode(l);
     Expect.equals(s, s1);
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

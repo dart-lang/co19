@@ -30,7 +30,6 @@ void check(int start, int end) {
     Expect.equals(0, file.lengthSync());
     rf.writeFromSync(list, start, end);
     Expect.equals(len, file.lengthSync());
-
     rf.closeSync();
     try {
       rf.writeByteSync(1);
@@ -38,7 +37,6 @@ void check(int start, int end) {
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

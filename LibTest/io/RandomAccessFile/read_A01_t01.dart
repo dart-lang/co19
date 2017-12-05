@@ -47,9 +47,9 @@ void check(int num) {
         for (int i = 0; i < len; i++) {
           Expect.isTrue(list[i] == (i + num + 1) & 0xff);
         }
+        asyncEnd();
       }).whenComplete(() {
         rf.closeSync();
-        asyncEnd();
       });
     });
   }).whenComplete(() {

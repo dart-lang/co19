@@ -29,18 +29,15 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     var f1 = rf.truncate(10);
     Expect.isTrue(f1 is Future<RandomAccessFile>);
-
     f1.then((RandomAccessFile f) {
       Expect.isTrue(f is RandomAccessFile);
       Expect.isTrue(f == rf);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

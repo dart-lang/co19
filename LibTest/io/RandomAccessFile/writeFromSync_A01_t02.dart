@@ -28,17 +28,14 @@ void check(int len) {
   raFile.then((RandomAccessFile rf) {
     Expect.equals(0, file.lengthSync());
     rf.writeFromSync(list.sublist(0, len));
-
     Expect.equals(len, file.lengthSync());
     rf.setPositionSync(0);
     List<int> l = rf.readSync(len);
-
     for (int i = 0; i < len; i++) {
       Expect.isTrue(i == l[i]);
     }
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

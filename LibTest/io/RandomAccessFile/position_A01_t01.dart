@@ -40,9 +40,9 @@ main() {
       rfPos.then((int pos) {
         Expect.isTrue(pos is int);
         Expect.isTrue(pos == 5);
+        asyncEnd();
       }).whenComplete(() {
         rf.closeSync();
-        asyncEnd();
       });
     });
   }).whenComplete(() {

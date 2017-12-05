@@ -24,7 +24,6 @@ check(String s) {
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
   raFile.then((RandomAccessFile rf) {
     rf.writeStringSync(s);
-
     rf.closeSync();
     try {
       rf.writeStringSync(s);
@@ -32,7 +31,6 @@ check(String s) {
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

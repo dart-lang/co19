@@ -35,10 +35,11 @@ main() {
       f.setPositionSync(0);
       list = f.readSync(1);
       Expect.equals(9, list[0]);
-    }).whenComplete(() {
-      rf.close();
-      file.delete();
       asyncEnd();
+    }).whenComplete(() {
+      rf.closeSync();
     });
+  }).whenComplete(() {
+    file.deleteSync();
   });
 }

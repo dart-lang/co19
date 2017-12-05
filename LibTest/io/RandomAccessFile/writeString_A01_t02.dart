@@ -28,7 +28,6 @@ check(String s) {
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
   raFile.then((RandomAccessFile rf) {
     var f = rf.writeString(s, encoding: ASCII);
-
     f.then((RandomAccessFile file) {
       var flen = file.lengthSync();
       rf.setPositionSync(0);
@@ -36,11 +35,10 @@ check(String s) {
       var ed = new AsciiCodec();
       String s1 = ed.decode(l);
       Expect.equals(s, s1);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

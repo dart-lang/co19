@@ -31,15 +31,13 @@ check(int number) {
     rf.setPositionSync(0);
     var num = rf.readInto(list, 0, number);
     Expect.isTrue(num is Future<int>);
-
     num.then((int n) {
       Expect.isTrue(n is int);
       Expect.equals(number, n);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

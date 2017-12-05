@@ -35,11 +35,10 @@ check(String s) {
     f.then((RandomAccessFile file) {
       Expect.isTrue(file is RandomAccessFile);
       Expect.equals(rf, file);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

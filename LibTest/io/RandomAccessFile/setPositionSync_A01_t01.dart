@@ -28,13 +28,11 @@ void check(int num) {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     rf.setPositionSync(num);
     int byte = rf.readByteSync();
     Expect.equals((num + 1) & 0xff, byte);
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

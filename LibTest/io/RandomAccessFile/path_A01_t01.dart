@@ -27,8 +27,8 @@ main() {
     Directory parent = Directory.systemTemp;
     String name = getPrefix();
     Expect.isTrue(rfPath.contains(parent.path + Platform.pathSeparator + name));
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });
