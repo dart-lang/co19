@@ -7,41 +7,27 @@
  * @assertion void write(Object obj)
  * Converts [obj] to a [String] by invoking [Object.toString] and adds the
  * encoding of the result to the target consumer.
- * @description Checks that objects of the different types can be correctly
- * added to the consumer
+ * @description Checks that [String] is correctly added to the consumer with
+ * [UTF8] encoding.
  * @author iarkh@unipro.ru
  */
 
 import "../../../Utils/expect.dart";
 import "dart:async";
+import "dart:convert";
 import "dart:io";
 
 bool called = false;
 
-List objects = [
-  "Testme",
-  123,
-  new StackTrace.fromString("Stack trace"),
-  [1, 2, 3],
-  null];
-
-List expected = [
-  [84, 101, 115, 116, 109, 101],
-  [49, 50, 51],
-  [83, 116, 97, 99, 107, 32, 116, 114, 97, 99, 101],
-  [91, 49, 44, 32, 50, 44, 32, 51, 93],
-  [110, 117, 108, 108]];
+String str = "ащ";
+List expected = [0xd0, 0xb0, 0xd1, 0x89];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   MyStreamConsumer() {}
 
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      Expect.equals(expected.length, x.length);
-      for (int i = 0; i < expected.length; i++) {
-        Expect.listEquals(expected[i], x[i],
-            "'" + objects[i].toString() + "' object fails!");
-      }
+      Expect.listEquals(expected, x[0]);
       called = true;
     });
     return new Future(() => "ADD");
@@ -51,11 +37,10 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 }
 
 main() async {
+  called = false;
   StreamConsumer consumer = new MyStreamConsumer();
-  IOSink sink = new IOSink(consumer);
-  for (int i = 0; i < expected.length; i++) {
-    await sink.write(objects[i]);
-  }
-  sink.close();
+  IOSink sink = new IOSink(consumer, encoding: new Utf8Codec());
+  await sink.write(str);
+  await sink.close();
   Expect.isTrue(called);
 }
