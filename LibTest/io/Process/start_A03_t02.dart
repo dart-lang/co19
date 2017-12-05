@@ -46,7 +46,7 @@ main() {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decode = new Utf8Decoder();
       String decoded = decode.convert(outList[0]);
-      Expect.isFalse(decoded.toLowerCase().contains('a: aa,'));
+      Expect.isTrue(decoded.toLowerCase().contains('a: aa'));
       Expect.isFalse(decoded.contains(envString.substring(1)));
     }).then((_) {
       process.stderr.toList().then((List errList) {
