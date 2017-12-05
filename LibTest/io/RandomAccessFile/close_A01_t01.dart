@@ -29,7 +29,6 @@ main() {
     clf.then((RandomAccessFile f) {
       Expect.isTrue(f is RandomAccessFile);
       Expect.isTrue(f == rf);
-    }).whenComplete(() {
       asyncEnd();
     });
   }).whenComplete(() {

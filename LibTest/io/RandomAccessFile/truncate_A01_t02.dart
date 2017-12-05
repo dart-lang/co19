@@ -29,17 +29,15 @@ main() {
       rf.writeByteSync((i + 1) & 0xff);
     }
     var len1 = rf.lengthSync();
-
     var f1 = rf.truncate(15);
     f1.then((RandomAccessFile f) {
       var len2 = f.lengthSync();
       Expect.isTrue(len2 == 15);
       Expect.isTrue(len2 > len1);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

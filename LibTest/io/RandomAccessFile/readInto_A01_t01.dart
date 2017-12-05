@@ -40,11 +40,10 @@ main() {
       for (int i = 0; i < n; i++) {
         Expect.equals((i + 1) & 0xff, list[i]);
       }
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

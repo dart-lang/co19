@@ -28,7 +28,6 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     rf.setPositionSync(0);
     int byte = rf.readByteSync();
     Expect.equals((1), byte);
@@ -39,7 +38,6 @@ main() {
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

@@ -32,7 +32,6 @@ main() {
     Expect.isTrue(rfPos == 10);
     rf.setPositionSync(3);
     rf.closeSync();
-
     try {
       rfPos = rf.positionSync();
       Expect.fail("should not be here.");

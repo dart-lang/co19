@@ -29,19 +29,16 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     var byte = rf.readByteSync();
     Expect.isTrue(byte is int);
     Expect.equals(-1, byte);
     rf.closeSync();
-
     try {
       byte = rf.readByteSync();
       Expect.fail("should not be here.");
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

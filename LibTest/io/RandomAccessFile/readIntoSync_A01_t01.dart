@@ -34,13 +34,11 @@ main() {
     rf.setPositionSync(0);
     var num = rf.readIntoSync(list);
     Expect.isTrue(num is int);
-
     for (int i = 0; i < num; i++) {
       Expect.equals((i + 1) & 0xff, list[i]);
     }
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

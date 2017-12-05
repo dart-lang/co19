@@ -30,16 +30,13 @@ main() {
     Expect.isTrue(n is int);
     Expect.equals(1, n);
     Expect.equals(1, rf.lengthSync());
-
     rf.closeSync();
-
     try {
       n = rf.writeByteSync(1);
       Expect.fail("should not be here.");
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

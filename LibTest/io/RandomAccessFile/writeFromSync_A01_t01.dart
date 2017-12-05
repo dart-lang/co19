@@ -31,13 +31,11 @@ void check(int start, int end) {
     Expect.equals(len, file.lengthSync());
     rf.setPositionSync(0);
     List<int> l = rf.readSync(len);
-
     for (int i = 0; i < len; i++) {
       Expect.isTrue(i + start == l[i]);
     }
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

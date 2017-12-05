@@ -27,17 +27,14 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     rf.truncateSync(10);
     rf.closeSync();
-
     try {
       rf.truncateSync(10);
       Expect.fail("should not be here");
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
-
     asyncEnd();
   }).whenComplete(() {
     file.deleteSync();

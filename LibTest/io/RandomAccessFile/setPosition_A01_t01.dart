@@ -27,20 +27,17 @@ void check(int num) {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     var raf = rf.setPosition(num);
     Expect.isTrue(raf is Future<RandomAccessFile>);
-
     raf.then((RandomAccessFile f) {
       Expect.isTrue(f is RandomAccessFile);
       Expect.isTrue(f == rf);
       int byte = f.readByteSync();
       Expect.equals((num + 1) & 0xff, byte);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });

@@ -27,16 +27,14 @@ main(m) {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     var byte = rf.readByte();
     Expect.isTrue(byte is Future<int>);
-
     byte.then((int b) {
       Expect.isTrue(b is int);
       Expect.equals(-1, b);
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
   }).whenComplete(() {
     file.deleteSync();

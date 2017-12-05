@@ -29,7 +29,6 @@ void check(int num) {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     rf.setPositionSync(1);
     var list1 = rf.readSync(num);
     Expect.isTrue(list1 is List<int>);
@@ -38,7 +37,6 @@ void check(int num) {
     for (int i = 0; i < len; i++) {
       Expect.isTrue(list1[i] == (i + 2) & 0xff);
     }
-
     var list2 = rf.readSync(10 - num);
     Expect.isTrue(list1 is List<int>);
     len = list2.length;
@@ -46,9 +44,8 @@ void check(int num) {
     for (int i = 0; i < len; i++) {
       Expect.isTrue(list2[i] == (i + num + 2) & 0xff);
     }
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

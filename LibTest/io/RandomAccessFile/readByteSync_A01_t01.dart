@@ -30,7 +30,6 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-
     var byte;
     rf.setPositionSync(0);
     for (int i = 0; i < 10; i++) {
@@ -38,13 +37,11 @@ main() {
       Expect.isTrue(byte is int);
       Expect.equals((i + 1) & 0xff, byte);
     }
-
     byte = rf.readByteSync();
     Expect.isTrue(byte is int);
     Expect.equals(-1, byte);
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

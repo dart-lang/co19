@@ -30,13 +30,12 @@ main() {
     var rfPos = rf.positionSync();
     Expect.isTrue(rfPos is int);
     Expect.isTrue(rfPos == 10);
-
     rf.setPositionSync(3);
     rfPos = rf.positionSync();
     Expect.isTrue(rfPos is int);
     Expect.isTrue(rfPos == 3);
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

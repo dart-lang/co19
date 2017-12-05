@@ -32,8 +32,9 @@ void check(int fLen) {
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      file.deleteSync();
     });
+  }).whenComplete(() {
+    file.deleteSync();
   });
 }
 

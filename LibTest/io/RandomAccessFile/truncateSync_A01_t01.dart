@@ -27,14 +27,12 @@ main() {
       rf.writeByteSync((i + 1) & 0xff);
     }
     var len1 = rf.lengthSync();
-
     rf.truncateSync(6);
     var len2 = rf.lengthSync();
     Expect.isTrue(len2 == 6);
     Expect.isTrue(len2 < len1);
-
-    rf.closeSync();
     asyncEnd();
+    rf.closeSync();
   }).whenComplete(() {
     file.deleteSync();
   });

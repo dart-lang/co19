@@ -33,18 +33,16 @@ check(int start) {
     rf.setPositionSync(0);
     var num = rf.readInto(list, start, start);
     Expect.isTrue(num is Future<int>);
-
     num.then((int n) {
       Expect.isTrue(n is int);
       Expect.equals(0, n);
       for (int i = 0; i < n; i++) {
         Expect.equals(null, list[i]);
       }
+      asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
-      asyncEnd();
     });
-
   }).whenComplete(() {
     file.deleteSync();
   });
