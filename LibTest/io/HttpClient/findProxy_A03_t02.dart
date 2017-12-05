@@ -40,8 +40,8 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 test() async {
+  bool findProxyCalled = false;
   bool authenticateProxyCalled = false;
-  int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
   server.listen((HttpRequest request) {
@@ -60,6 +60,7 @@ test() async {
       Expect.isTrue(
           authorization.contains('uri="http://127.0.0.1:${server.port}"'));
       Expect.isTrue(authenticateProxyCalled);
+      Expect.isTrue(findProxyCalled);
       request.response.close();
       server.close();
       asyncEnd();
@@ -68,21 +69,22 @@ test() async {
 
   HttpClient client = new HttpClient();
   client.findProxy = (Uri uri) {
-    authenticateProxyCalled = true;
+    findProxyCalled = true;
     return "PROXY ${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}";
   };
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
-    Expect.equals(InternetAddress.LOOPBACK_IP_V4.address, host);
-    Expect.equals(server.port, port);
-    Expect.equals("Digest", scheme);
-    Expect.equals("realm", realm);
-    Completer completer = new Completer();
-    client.addProxyCredentials(InternetAddress.LOOPBACK_IP_V4.address, port,
-        "realm", new HttpClientDigestCredentials("co19-test", "password"));
-    completer.complete(true);
-    return completer.future;
+        authenticateProxyCalled = true;
+        Expect.equals(InternetAddress.LOOPBACK_IP_V4.address, host);
+        Expect.equals(server.port, port);
+        Expect.equals("Digest", scheme);
+        Expect.equals("realm", realm);
+        Completer completer = new Completer();
+        client.addProxyCredentials(InternetAddress.LOOPBACK_IP_V4.address, port,
+            "realm", new HttpClientDigestCredentials("co19-test", "password"));
+        completer.complete(true);
+        return completer.future;
   };
 
   client
