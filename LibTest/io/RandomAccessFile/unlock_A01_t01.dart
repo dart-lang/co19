@@ -28,16 +28,15 @@ check(FileLock lock) {
   file.writeAsBytesSync(new List.filled(10, 0));
   asyncStart();
   rf.lockSync(lock);
-
   var rfUnlock = rf.unlock();
   Expect.isTrue(rfUnlock is Future<RandomAccessFile>);
   rfUnlock.then((RandomAccessFile f) {
       Expect.isTrue(rf is RandomAccessFile);
       Expect.isTrue(rf == f);
     }).whenComplete(() {
+    asyncEnd();
     rf.closeSync();
     file.deleteSync();
-    asyncEnd();
   });
 }
 
