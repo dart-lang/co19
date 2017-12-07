@@ -42,9 +42,8 @@ check(int start, end) {
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
+      file.deleteSync();
     });
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }
 

@@ -27,11 +27,10 @@ main() {
     var clf = rf.close();
     Expect.isTrue(clf is Future<RandomAccessFile>);
     clf.then((RandomAccessFile f) {
-      Expect.isTrue(f is RandomAccessFile);
       Expect.isTrue(f == rf);
       asyncEnd();
+    }).whenComplete(() {
+      file.delete();
     });
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }

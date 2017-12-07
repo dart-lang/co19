@@ -40,6 +40,7 @@ import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 test() async {
+  bool findProxyCalled = false;
   bool authenticateProxyCalled = false;
   int requestCounter = 0;
 
@@ -54,6 +55,7 @@ test() async {
       request.response.close();
     } else  {
       Expect.isTrue(authenticateProxyCalled);
+      Expect.isTrue(findProxyCalled);
       request.response.close();
       server.close();
       asyncEnd();
@@ -61,15 +63,16 @@ test() async {
   });
   HttpClient client = new HttpClient();
   client.findProxy = (Uri uri) {
-    authenticateProxyCalled = true;
+    findProxyCalled = true;
     return "DIRECT";
   };
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
-    Completer completer = new Completer();
-    completer.complete(true);
-    return completer.future;
+        authenticateProxyCalled = true;
+        Completer completer = new Completer();
+        completer.complete(true);
+        return completer.future;
   };
 
   client
