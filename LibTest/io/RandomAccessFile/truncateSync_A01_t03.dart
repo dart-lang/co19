@@ -29,8 +29,8 @@ main() {
     var len1 = rf.lengthSync();
     rf.truncateSync(10);
     var len2 = rf.lengthSync();
-    Expect.isTrue(len2 == 10);
-    Expect.isTrue(len2 == len1);
+    Expect.equals(10, len2);
+    Expect.equals(len1, len2);
     asyncEnd();
     rf.closeSync();
   }).whenComplete(() {

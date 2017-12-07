@@ -48,7 +48,11 @@ main() {
       ];
       Future.forEach(tests, (f) => f()).whenComplete(() {
         asyncEnd();
-        rf2.unlockSync();
+        if (Platform.isWindows) {
+          rf2.unlockSync(20, 25);
+        } else {
+          rf2.unlockSync();
+        }
         rf1.closeSync();
         rf2.closeSync();
         file.deleteSync();

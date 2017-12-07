@@ -37,9 +37,8 @@ check(int number) {
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
+      file.deleteSync();
     });
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }
 

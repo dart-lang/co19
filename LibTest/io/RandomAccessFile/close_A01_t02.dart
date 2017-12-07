@@ -26,7 +26,6 @@ main() {
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
     rf.close().then((RandomAccessFile f) {
-      Expect.isTrue(f is RandomAccessFile);
       try {
         rf.lengthSync();
         Expect.fail('should not be here');
@@ -34,8 +33,8 @@ main() {
         Expect.isTrue(e is FileSystemException);
       }
       asyncEnd();
+    }).whenComplete(() {
+      file.delete();
     });
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }

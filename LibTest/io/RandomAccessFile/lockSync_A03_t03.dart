@@ -17,6 +17,7 @@
  * @description Checks that if a file is open for reading an exclusive lock
  * cannot be set.
  * @author ngl@unipro.ru
+ * @issue 31557
  */
 import "dart:async";
 import "dart:io";

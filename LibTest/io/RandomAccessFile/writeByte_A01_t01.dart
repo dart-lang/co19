@@ -43,9 +43,8 @@ void check(int num, List<int> list) {
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
+      file.deleteSync();
     });
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }
 

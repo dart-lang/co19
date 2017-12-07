@@ -46,7 +46,11 @@ void check(int fLen) {
     ];
     Future.forEach(tests, (f) => f()).whenComplete(() {
       asyncEnd();
-      rf.unlockSync();
+      if (Platform.isWindows) {
+        rf.unlockSync(start, end);
+      } else {
+        rf.unlockSync();
+      }
       rf.closeSync();
       file.deleteSync();
     });

@@ -51,14 +51,18 @@ main() {
     () => checkUnlocked(rf1.path, 0, 4),
     () => checkUnlocked(rf1.path, 6, 7),
     () => checkUnlocked(rf2.path, 8),
-    () => checkLocked(rf2.path, 7),
-    () => rf1.unlock(7, 8)
+    () => checkLocked(rf2.path, 7)
   ];
   if (Platform.isWindows) {
-    tests.addAll([() => rf1.unlockSync(4, 6), () => checkUnlocked(file.path)]);
+    tests.addAll([
+          () => rf1.unlockSync(4, 6),
+          () => rf2.unlock(7, 8),
+          () => checkUnlocked(file.path)
+    ]);
   } else {
     tests.addAll([
       () => rf1.unlockSync(4, 5),
+      () => rf1.unlock(7, 8),
       () => checkUnlocked(file.path, 0, 5),
       () => checkLocked(file.path, 5),
       () => checkUnlocked(file.path, 6),

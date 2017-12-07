@@ -36,7 +36,6 @@ void check(int fLen) {
     var tests = [() => checkUnlocked(f.path, 0, -1, FileLock.BLOCKING_SHARED)];
     Future.forEach(tests, (f) => f()).whenComplete(() {
       asyncEnd();
-      rf.unlockSync();
       rf.closeSync();
       file.deleteSync();
     });

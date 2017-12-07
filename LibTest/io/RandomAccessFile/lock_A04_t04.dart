@@ -38,7 +38,6 @@ void check(int fLen) {
     ];
     Future.forEach(tests, (f) => f()).whenComplete(() {
       asyncEnd();
-      rf.unlockSync();
       rf.closeSync();
       file.deleteSync();
     });

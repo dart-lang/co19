@@ -43,9 +43,8 @@ void check(int len) {
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
+      file.deleteSync();
     });
-  }).whenComplete(() {
-    file.deleteSync();
   });
 }
 

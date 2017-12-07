@@ -37,6 +37,9 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
 }
 
 main(List<String> args) {
+  if (args.length == 0) {
+    return 0;
+  }
   File file = new File(args[0]);
   int start = null;
   int end = null;
