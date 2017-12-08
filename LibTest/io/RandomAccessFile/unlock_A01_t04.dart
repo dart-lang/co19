@@ -23,6 +23,9 @@ import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
 main() {
+  if (Platform.isWindows) {
+    return;
+  }
   File file = getTempFileSync();
   var rf = file.openSync(mode: FileMode.WRITE);
   rf.writeFromSync(new List.filled(30, 0));
