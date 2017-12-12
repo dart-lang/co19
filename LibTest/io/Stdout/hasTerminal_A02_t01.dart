@@ -13,7 +13,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main(List<String> args) {
+main() {
   dynamic out = stdout;
   Expect.throws(() { out.hasTerminal = true; }, (e) => e is NoSuchMethodError);
   out = stderr;

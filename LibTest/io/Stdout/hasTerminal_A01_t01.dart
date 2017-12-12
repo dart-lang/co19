@@ -13,7 +13,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main(List<String> args) {
+main() {
   if (stdout.hasTerminal) {
     Expect.notEquals(0, stdout.terminalColumns);
     Expect.notEquals(0, stdout.terminalLines);
