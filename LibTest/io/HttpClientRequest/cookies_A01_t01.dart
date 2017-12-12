@@ -4,12 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int contentLength
- *  read / write
- * Gets and sets the content length of the request. If the size of the request
- * is not known in advance set content length to -1, which is also the default.
- * @description Checks that setting contentLength value то -1 allows any content
- * length
+ * @assertion List<Cookie> cookies
+ * Cookies to present to the server (in the 'cookie' header).
+ * @description Checks that this getter represents cookies
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -19,23 +16,27 @@ import "../../../Utils/async_utils.dart";
 
 var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
-test(method) async {
+test(String method) async {
   asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
+    Expect.isNotNull(request.cookies);
+    Expect.equals(1, request.cookies.length);
+    Expect.equals("cname" + method, request.cookies[0].name);
+    Expect.equals("cval" + method, request.cookies[0].value);
     request.response.write(helloWorld);
     request.response.close();
     server.close();
     asyncEnd();
   });
 
-  String data = "Hi there";
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
-        request.contentLength = -1;
-        request.write(data);
+        Expect.isNotNull(request.cookies.length);
+        Expect.equals(0, request.cookies.length);
+        request.cookies.add(new Cookie("cname" + method, "cval" + method));
         return request.close();
       })
       .then((HttpClientResponse response) {
@@ -46,10 +47,10 @@ test(method) async {
 }
 
 main() {
-  test("POST");
-  test("DELETE");
-  test("PUT");
-  test("GET");
-  test("HEAD");
-  test("PATCH");
+  test("get");
+  test("head");
+  test("delete");
+  test("put");
+  test("post");
+  test("patch");
 }

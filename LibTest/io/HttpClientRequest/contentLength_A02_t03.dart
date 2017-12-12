@@ -8,8 +8,8 @@
  *  read / write
  * Gets and sets the content length of the request. If the size of the request
  * is not known in advance set content length to -1, which is also the default.
- * @description Checks that setting contentLength value то -1 allows any content
- * length
+ * @description Checks that setting of contentLength value to the shorter value
+ * leads to error.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -19,30 +19,30 @@ import "../../../Utils/async_utils.dart";
 
 var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
-test(method) async {
+test(String method) async {
   asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     request.response.write(helloWorld);
     request.response.close();
-    server.close();
-    asyncEnd();
   });
 
-  String data = "Hi there";
+  String data = "Hi there ";
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
-        request.contentLength = -1;
+        request.contentLength = data.length - 1;
         request.write(data);
         return request.close();
       })
       .then((HttpClientResponse response) {
-        response.transform(UTF8.decoder).listen((content) {
-          Expect.equals(helloWorld, content);
-        });
-      });
+          Expect.fail("Error expected");
+      }, onError: (e) {
+        Expect.isTrue(e is HttpException);
+        server.close();
+        asyncEnd();
+  });
 }
 
 main() {
@@ -51,5 +51,4 @@ main() {
   test("PUT");
   test("GET");
   test("HEAD");
-  test("PATCH");
-}
+  test("PATCH");}

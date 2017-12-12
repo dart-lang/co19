@@ -4,22 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int contentLength
- *  read / write
- * Gets and sets the content length of the request. If the size of the request
- * is not known in advance set content length to -1, which is also the default.
- * @description Checks that setting contentLength value то -1 allows any content
- * length
+ * @assertion Future<HttpClientResponse> done
+ * A HttpClientResponse future that will complete once the response is
+ * available. If an error occurs before the response is available, this future
+ * will complete with an error.
+ * @description Checks that this future completes once the response is
+ * available
  * @author sgrekhov@unipro.ru
+ * @issue 31599
  */
 import "dart:io";
 import "dart:convert";
-import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
 var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
-test(method) async {
+test(String method) async {
   asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
@@ -27,29 +27,25 @@ test(method) async {
     request.response.write(helloWorld);
     request.response.close();
     server.close();
-    asyncEnd();
   });
 
-  String data = "Hi there";
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
-        request.contentLength = -1;
-        request.write(data);
-        return request.close();
-      })
-      .then((HttpClientResponse response) {
-        response.transform(UTF8.decoder).listen((content) {
-          Expect.equals(helloWorld, content);
+        request.done.then((HttpClientResponse response) {
+          asyncEnd();
+          response.transform(UTF8.decoder).listen((content) {
+          });
         });
-      });
+        return request.close();
+  });
 }
 
 main() {
-  test("POST");
-  test("DELETE");
-  test("PUT");
-  test("GET");
-  test("HEAD");
-  test("PATCH");
+  test("get");
+  test("head");
+  test("delete");
+  test("put");
+  test("post");
+  test("patch");
 }
