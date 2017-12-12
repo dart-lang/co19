@@ -8,7 +8,8 @@
  *  read / write
  * Gets and sets the content length of the request. If the size of the request
  * is not known in advance set content length to -1, which is also the default.
- * @description Checks setting contentLength value to the longer value
+ * @description Checks that setting of contentLength value to the longer value
+ * leads to error.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -18,7 +19,8 @@ import "../../../Utils/async_utils.dart";
 
 var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
-test() async {
+test(String method) async {
+  asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
@@ -28,7 +30,7 @@ test() async {
 
   String data = "Hi there ";
   HttpClient client = new HttpClient();
-  client.post(localhost, server.port, "")
+  client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
         request.contentLength = data.length + 1;
         request.write(data);
@@ -44,6 +46,9 @@ test() async {
 }
 
 main() {
-  asyncStart();
-  test();
-}
+  test("POST");
+  test("DELETE");
+  test("PUT");
+  test("GET");
+  test("HEAD");
+  test("PATCH");}
