@@ -33,6 +33,6 @@ main() {
   Expect.throws(() { sink.addError("error"); }, (e) => e is StateError);
   Expect.throws(() { sink.write(1); }, (e) => e is StateError);
   Expect.throws(() { sink.writeAll([1, "test"]); }, (e) => e is StateError);
-  Expect.throws(() { sink.writeln(); }, (e) => e is Error);
-  Expect.throws(() { sink.writeCharCode(53); }, (e) => e is Error);
+  Expect.throws(() { sink.writeln(); }, (e) => e is StateError);
+  Expect.throws(() { sink.writeCharCode(53); }, (e) => e is StateError);
 }
