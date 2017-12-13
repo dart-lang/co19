@@ -5,16 +5,18 @@
  */
 /**
  * @assertion Future close()
- * NOTE: Writes to the [IOSink] may be buffered, and may not be flushed by a
- * call to close().
- * @description Checks that target consumer cannot be closed while stream is
- * being added to the consumer.
+ * Close the target consumer.
+ * @description Checks that it's impossible to write to the stream after the
+ * [IOSink.close] call.
  * @author iarkh@unipro.ru
+ * @Issue 29554
  */
 
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
+
+bool closed = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   MyStreamConsumer() {}
@@ -23,21 +25,12 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
     return new Future(() => "ADD");
   }
 
-  Future close() {
-    return new Future(() => "CLOSE").then((x) {});
-  }
+  Future close() { return new Future(() => "CLOSE"); }
 }
 
-main() {
-  Stream<List> stream = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
+main() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  sink.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {
-      sink.close();
-    });
-  });
-  Expect.throws(() {
-    sink.close();
-  }, (e) => e is StateError);
+  await sink.close();
+  Expect.throws(() { sink.writeln(); }, (e) => e is Error);
 }

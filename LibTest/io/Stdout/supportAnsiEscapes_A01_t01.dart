@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool hasTerminal
+ * @assertion bool supportsAnsiEscapes
  * Read-only
- * @description Checks that [hasTerminal] is a read-only property.
+ * @description Checks that [supportAnsiEscapes] is a read-only property.
  * @author iarkh@unipro.ru
  */
 
@@ -15,7 +15,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic out = stdout;
-  Expect.throws(() { out.hasTerminal = true; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { out.supportsAnsiEscapes = true; },
+      (e) => e is NoSuchMethodError);
   out = stderr;
-  Expect.throws(() { out.hasTerminal = true; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { out.supportsAnsiEscapes = true; },
+      (e) => e is NoSuchMethodError);
 }

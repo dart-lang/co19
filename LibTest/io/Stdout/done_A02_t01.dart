@@ -11,15 +11,14 @@
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "dart:io";
 import "dart:async";
+import "dart:io";
+
+test(Stdout sink) {
+  Expect.equals(sink.done, sink.close());
+}
 
 main() {
-  StreamController<List<int>> controller = new StreamController<List<int>>();
-  IOSink sink = new IOSink(controller);
-
-  Future done = sink.done;
-  Future close = sink.close();
-
-  Expect.equals(close, done);
+  test(stdout);
+  test(stderr);
 }

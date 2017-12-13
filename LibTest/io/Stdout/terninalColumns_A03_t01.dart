@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool hasTerminal
+ * int terminalColumns
  * Read-only
- * @description Checks that [hasTerminal] is a read-only property.
+ * @description Checks that [terminalColumns] is a read only field.
  * @author iarkh@unipro.ru
  */
 
@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic out = stdout;
-  Expect.throws(() { out.hasTerminal = true; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { out.terminalColumns = 5; }, (e) => e is NoSuchMethodError);
   out = stderr;
-  Expect.throws(() { out.hasTerminal = true; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { out.terminalColumns = 22; }, (e) => e is NoSuchMethodError);
 }
