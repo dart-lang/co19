@@ -26,13 +26,10 @@ main() {
   file2.writeAsStringSync("Existing file content");
   asyncStart();
   file1.copy(file2.path).then((File copied) {
-    try {
-      Expect.equals(file2.path, copied.path);
-      Expect.isTrue(copied.existsSync());
-      Expect.equals("", copied.readAsStringSync());
-      asyncEnd();
-    } finally {
-    }
+    Expect.equals(file2.path, copied.path);
+    Expect.isTrue(copied.existsSync());
+    Expect.equals("", copied.readAsStringSync());
+    asyncEnd();
   }).whenComplete(() {
     file1.delete();
     file2.delete();

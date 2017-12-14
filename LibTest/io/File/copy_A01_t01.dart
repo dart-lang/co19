@@ -25,10 +25,10 @@ main() {
   asyncStart();
   String newPath = getTempFilePath();
   file.copy(newPath).then((File copied) {
-      copy = copied;
-      Expect.equals(newPath, copied.path);
-      Expect.isTrue(copied.existsSync());
-      asyncEnd();
+    copy = copied;
+    Expect.equals(newPath, copied.path);
+    Expect.isTrue(copied.existsSync());
+    asyncEnd();
   }).whenComplete(() {
     file.delete();
     if (copy != null) {
