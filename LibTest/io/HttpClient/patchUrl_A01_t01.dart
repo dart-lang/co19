@@ -37,10 +37,12 @@ test() async {
 
   HttpClient client = new HttpClient();
   client.patchUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
-      .then((HttpClientRequest request) => request.close())
-      .then((HttpClientResponse response) {
-        response.transform(UTF8.decoder).listen((content) {
-          Expect.equals(helloWorld, content);
+    .then((HttpClientRequest request) {
+      Expect.equals("PATCH", request.method);
+      return request.close();
+    }).then((HttpClientResponse response) {
+      response.transform(UTF8.decoder).listen((content) {
+        Expect.equals(helloWorld, content);
     });
   });
 }

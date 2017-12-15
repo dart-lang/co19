@@ -37,8 +37,10 @@ test() async {
 
   HttpClient client = new HttpClient();
   client.postUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
-      .then((HttpClientRequest request) => request.close())
-      .then((HttpClientResponse response) {
+    .then((HttpClientRequest request) {
+      Expect.equals("POST", request.method);
+      return request.close();
+    }).then((HttpClientResponse response) {
         response.transform(UTF8.decoder).listen((content) {
           Expect.equals(helloWorld, content);
     });

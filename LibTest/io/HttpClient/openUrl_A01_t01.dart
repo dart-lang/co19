@@ -45,10 +45,12 @@ test() async {
 
   HttpClient client = new HttpClient();
   client.openUrl("GET", Uri.parse("http://${localhost}:${server.port}/xxx"))
-      .then((HttpClientRequest request) => request.close())
-      .then((HttpClientResponse response) {
-        response.transform(UTF8.decoder).listen((content) {
-          Expect.equals(helloWorld, content);
+    .then((HttpClientRequest request) {
+      Expect.equals("GET", request.method);
+      return request.close();
+    }).then((HttpClientResponse response) {
+      response.transform(UTF8.decoder).listen((content) {
+        Expect.equals(helloWorld, content);
     });
   });
 }
