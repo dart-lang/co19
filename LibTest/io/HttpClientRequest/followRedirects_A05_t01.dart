@@ -42,7 +42,6 @@ test(String method, int statusCode) async {
         Expect.fail("Excessive request");
       }
       request.response.redirect(redirectUri, status: statusCode);
-      request.response.close();
     } else if (request.uri.path == "/yyy") {
       Expect.equals("GET", request.method);
       request.response.close();

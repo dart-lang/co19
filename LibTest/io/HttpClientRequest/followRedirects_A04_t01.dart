@@ -36,16 +36,17 @@ test(String method, int statusCode) async {
   int counter = 0;
   Uri redirectUri = Uri.parse("http://${localhost}:${server.port}/yyy");
   server.listen((HttpRequest request) {
-    new Future.delayed(new Duration(seconds: 1), () {
-      server.close();
-      asyncEnd();
-    });
+    if (counter == 0) {
+      new Future.delayed(new Duration(seconds: 1), () {
+        server.close();
+        asyncEnd();
+      });
+    }
     if (request.uri.path == "/xxx") {
         if (counter++ > 0) {
           Expect.fail("Excessive request");
         }
         request.response.redirect(redirectUri, status: statusCode);
-        request.response.close();
     } else {
       Expect.fail("Wrong URI:" + request.uri.path);
     }
