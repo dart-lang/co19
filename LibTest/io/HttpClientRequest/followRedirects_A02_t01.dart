@@ -39,7 +39,6 @@ test(String method, int statusCode) async {
   server.listen((HttpRequest request) {
     if (request.uri.path == "/xxx") {
       request.response.redirect(redirectUri, status: statusCode);
-      request.response.close();
       redirected = true;
     } else if (request.uri.path == "/yyy") {
       Expect.isTrue(redirected);

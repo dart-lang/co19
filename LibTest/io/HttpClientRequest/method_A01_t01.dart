@@ -4,19 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<HttpClientRequest> get(
- *  String host,
- *  int port,
- *  String path
- *  )
- * Opens a HTTP connection using the GET method.
- *
- * The server is specified using host and port, and the path (including a
- * possible query) is specified using path.
- *
- * See open for details.
- * @description Checks that this method opens a HTTP connection using the GET
- * method
+ * @assertion String method
+ * The method of the request.
+ * @description Checks that this property returns the method of the request
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -26,31 +16,32 @@ import "../../../Utils/async_utils.dart";
 
 var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
-test() async {
+test(String method) async {
+  asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    Expect.equals("GET", request.method);
-    Expect.equals("/xxx", request.uri.toString());
     request.response.write(helloWorld);
     request.response.close();
     server.close();
-    asyncEnd();
   });
 
   HttpClient client = new HttpClient();
-  client.get(localhost, server.port, "/xxx")
+  client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
-        Expect.equals("GET", request.method);
+        Expect.equals(method.toUpperCase(), request.method);
         return request.close();
-      }).then((HttpClientResponse response) {
-        response.transform(UTF8.decoder).listen((content) {
-          Expect.equals(helloWorld, content);
-    });
+  }).then((HttpClientResponse response) {
+    response.transform(UTF8.decoder).listen((content) {});
+    asyncEnd();
   });
 }
 
 main() {
-  asyncStart();
-  test();
+  test("get");
+  test("head");
+  test("delete");
+  test("put");
+  test("post");
+  test("patch");
 }

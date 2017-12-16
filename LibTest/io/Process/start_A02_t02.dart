@@ -33,8 +33,7 @@ import "../../../Utils/async_utils.dart";
 main() {
   String envString = Platform.environment.toString();
   String executable = Platform.resolvedExecutable;
-  String eScript = Platform.script.toString();
-  String file = eScript.substring(7);
+  String file = Platform.script.toFilePath(windows: Platform.isWindows);
   int index = file.indexOf("start_A02_t02.dart");
   String ePath = file.substring(0, index);
   String eFile = ePath + "checkEnvironment_lib.dart";

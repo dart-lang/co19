@@ -4,16 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<HttpClientRequest> headUrl(
- *  Uri url
- *  )
- * Opens a HTTP connection using the HEAD method.
- *
- * The URL to use is specified in url.
- *
- * See openUrl for details.
- * @description Checks that this method opens a HTTP connection using the HEAD
- * method
+ * @assertion Uri uri
+ * The uri of the request.
+ * @description Checks that this getter returns the uri of the request
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -23,31 +16,33 @@ import "../../../Utils/async_utils.dart";
 
 var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
-test() async {
+test(String method) async {
+  asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    Expect.equals("HEAD", request.method);
-    Expect.equals("/xxx", request.uri.toString());
     request.response.write(helloWorld);
     request.response.close();
     server.close();
-    asyncEnd();
   });
 
   HttpClient client = new HttpClient();
-  client.headUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
+  client.open(method, localhost, server.port, "/xxx?q=1#fr")
     .then((HttpClientRequest request) {
-      Expect.equals("HEAD", request.method);
+      Expect.equals("http://${localhost}:${server.port}/xxx?q=1",
+          request.uri.toString());
       return request.close();
     }).then((HttpClientResponse response) {
-      response.transform(UTF8.decoder).listen((content) {
-        Expect.equals(helloWorld, content);
+      response.transform(UTF8.decoder).listen((content) {});
+      asyncEnd();
     });
-  });
 }
 
 main() {
-  asyncStart();
-  test();
+  test("get");
+  test("head");
+  test("delete");
+  test("put");
+  test("post");
+  test("patch");
 }
