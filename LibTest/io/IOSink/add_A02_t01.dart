@@ -18,7 +18,7 @@ import "dart:convert";
 import "dart:io";
 import "dart:typed_data";
 
-Int32List aList = new Int32List.fromList([10, 20, 30, 40, 50]);
+Int32List aList = new Int32List.fromList([310, 320, 330, 340, 350]);
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
