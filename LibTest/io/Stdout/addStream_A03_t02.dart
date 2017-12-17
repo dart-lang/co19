@@ -9,31 +9,21 @@
  * already added.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
-Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
 bool called = false;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
-  Future addStream(Stream<List> stream) {
-    called = true;
-    return new Future(() => "OK");
-  }
-
-  Future close() { return new Future(() => "CLOSED"); }
+test(Stdout sink) async {
+  Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
+  Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
+  await sink.addStream(stream1);
+  await sink.addStream(stream2).then((x) { called = true; });
+  Expect.isTrue(called);
 }
 
-main() async {
-  StreamConsumer consumer = new MyStreamConsumer();
-  IOSink sink = new IOSink(consumer);
-  await sink.addStream(stream1);
-  await sink.addStream(stream2);
-  await sink.close();
-  Expect.isTrue(called);
+main(List<String> args) {
+  test(stdout);
+  test(stderr);
 }

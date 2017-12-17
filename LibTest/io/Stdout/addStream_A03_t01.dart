@@ -9,31 +9,22 @@
  * being added right now.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
-Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
-
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
-  Future addStream(Stream<List> stream) { return new Future(() => "OK"); }
-
-  Future close() { return new Future(() => "CLOSED"); }
-}
-
-main() {
-  StreamConsumer consumer = new MyStreamConsumer();
-  IOSink sink = new IOSink(consumer);
+test(Stdout sink) async {
+  Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
+  Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
   sink.addStream(stream1).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {
-      sink.close();
-    });
+    new Future.delayed(new Duration(seconds: 3)).then((_) {});
   });
   Expect.throws(() {
     sink.addStream(stream2);
   }, (e) => e is StateError);
+}
+
+main(List<String> args) {
+  test(stdout);
+  test(stderr);
 }
