@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future close()
+ * @assertion Future flush()
  * This method must not be called while an [addStream] is incomplete.
- * @description Checks that [flush] causes erros if addStream is currently
+ * @description Checks that [flush] causes error if [addStream] is currently
  * incomplete.
  * @author iarkh@unipro.ru
  */

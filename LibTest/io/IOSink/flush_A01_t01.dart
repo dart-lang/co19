@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future close()
- * Close the target consumer.
- * @description Checks that target consumer gets closed after the [IOSink.close]
+ * @assertion Future flush()
+ * Returns a [Future] that completes once all buffered data is accepted by the
+ * underlying [StreamConsumer].
+ * @description Checks that data is flushed after the [flush] call.
  * @author iarkh@unipro.ru
  */
 
