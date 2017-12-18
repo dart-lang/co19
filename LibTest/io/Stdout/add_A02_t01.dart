@@ -24,21 +24,11 @@ Int32List aList = new Int32List.fromList([84, 69, 83, 84]);
 run_process(IOSink sink) { sink.add(aList); }
 
 run_main(String mode, Encoding enc) async {
-  Encoding outenc, errenc;
-
-  if (mode == "err") {
-    outenc = SYSTEM_ENCODING;
-    errenc = enc;
-  } else {
-    errenc = SYSTEM_ENCODING;
-    outenc = enc;
-  }
-
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
 
   await Process.run(executable, [eScript, mode],
-      stdoutEncoding: outenc, stderrEncoding: errenc).
+      stdoutEncoding: enc, stderrEncoding: enc).
         then((ProcessResult results) {
         Expect.equals("TEST", mode == "err" ? results.stderr : results.stdout);
     called = true;

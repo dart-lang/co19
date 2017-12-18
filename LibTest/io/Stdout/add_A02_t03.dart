@@ -26,21 +26,11 @@ Int32List expected = new Int32List.fromList([254, 255, 0, 1, 232]);
 run_process(IOSink sink) { sink.add(aList); }
 
 run_main(String mode, Encoding enc) async {
-  Encoding outenc, errenc;
-
-  if (mode == "err") {
-    outenc = SYSTEM_ENCODING;
-    errenc = enc;
-  } else {
-    errenc = SYSTEM_ENCODING;
-    outenc = enc;
-  }
-
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
 
   await Process.run(executable, [eScript, mode],
-      stdoutEncoding: outenc, stderrEncoding: errenc).
+      stdoutEncoding: enc, stderrEncoding: enc).
         then((ProcessResult results) {
         Expect.listEquals(
             expected, mode == "err" ? results.stderr : results.stdout);
