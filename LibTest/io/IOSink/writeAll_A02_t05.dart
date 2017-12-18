@@ -6,7 +6,7 @@
 /**
  * @assertion void writeAll(Iterable objects, [String separator = ""])
  * Iterates over the given [objects] and writes them in sequence.
- * @description Check that [separator] does not affest the result output if
+ * @description Check that [separator] does not affect the result output if
  * [objects] contains only one element.
  * @author iarkh@unipro.ru
  */
