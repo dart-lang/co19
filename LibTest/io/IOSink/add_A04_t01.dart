@@ -6,12 +6,9 @@
 /**
  * @assertion void add(List<int> data)
  * ...
- * This function must not be called when a stream is currently being added using
- * [addStream].
- * ...
- * @description Checks that calling the [add] function after [addStream] does
- * not cause error if stream adding is finished before the [add] method call.
- * @author iarkh@unipro.ru
+ * The data list should not be modified after it has been passed to add.
+ * @description Checks that the data list should not be modified after it has
+ * been passed to add.
  * @author sgrekhov@unipro.ru
  */
 
@@ -20,7 +17,6 @@ import "../../../Utils/expect.dart";
 
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
 int callCounter = 0;
 
@@ -28,11 +24,9 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      if(callCounter++ == 0) {
-        Expect.listEquals([[1, 2, 3, 4, 5]], x);
-      } else {
-        Expect.listEquals([[10, 20, 30, 40, 50]], x);
-      }
+      callCounter++;
+      Expect.listEquals([[0, 1, 4, 1, 5, 9]], x);
+      asyncEnd();
     });
     return new Future(() {});
   }
@@ -41,17 +35,14 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 }
 
 test() async {
-  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
-  List<int> list2 = [10, 20, 30, 40, 50];
+  List<int> data = [3, 1, 4, 1, 5];
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  await sink.addStream(aStream);
+  sink.add(data);
+  data.add(9);
+  data[0] = 0;
+  await sink.close();
   Expect.equals(1, callCounter);
-  sink.add(list2);
-  sink.close().then((_) {
-    Expect.equals(2, callCounter);
-    asyncEnd();
-  });
 }
 
 main() {
