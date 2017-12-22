@@ -11,34 +11,32 @@
  * added does not cause [StateError].
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      called = true;
+      called++;
     }, onError: (error, StackTrace st) {
       Expect.equals("ERROR", error.toString());
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
   await sink.addStream(aStream);
-  await sink.addError("ERROR");
+  sink.addError("ERROR");
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

@@ -10,33 +10,30 @@
  * method call
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
-Int32List aList = new Int32List.fromList([1, 2, 3, 4, 5]);
-bool called = false;
+int called = 0;
+List<int> aList = [1, 2, 3, 4, 5];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      called = true;
+      called++;
       Expect.listEquals(aList, x.first);
     });
-    return new Future(() => "OK");
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.add(aList);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

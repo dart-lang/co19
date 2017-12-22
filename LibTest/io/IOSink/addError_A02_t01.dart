@@ -11,23 +11,19 @@
  * causes [StateError].
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
     }, onError: (error, StackTrace st) {
       Expect.equals("ERROR", error.toString());
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
 main() {
@@ -39,7 +35,5 @@ main() {
       sink.close();
     });
   });
-  Expect.throws(() {
-    sink.addError("ERROR");
-  }, (e) => e is StateError);
+  Expect.throws(() { sink.addError("ERROR"); }, (e) => e is StateError);
 }

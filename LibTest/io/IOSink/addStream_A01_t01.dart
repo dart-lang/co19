@@ -12,35 +12,29 @@
  * [addStream] method call
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
 Stream<List> aStream = new Stream<List>.fromIterable(
     [[1, 2, 3, 4, 5], [12], [3, 22]]);
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  bool isClosed = false;
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     Expect.equals(aStream, stream);
-    called = true;
-    return new Future(() => "OK");
+    called++;
+    return new Future(() {});
   }
-
-  Future close() {
-    isClosed = true;
-    return new Future(() => "CLOSED");
-  }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(aStream);
   await consumer.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

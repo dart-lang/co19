@@ -16,24 +16,23 @@ import "dart:io";
 
 Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
 Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
-    called = true;
-    return new Future(() => "OK");
+    called++;
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   await sink.addStream(stream1);
   await sink.addStream(stream2);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(2, called);
 }
+
+main() { test(); }

@@ -9,22 +9,15 @@
  * @description Checks that target consumer gets closed after the [IOSink.close]
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool closed = false;
+int closed = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
-  Future addStream(Stream<List> stream) {
-    return new Future(() => "ADD");
-  }
-
-  Future close() {
-    return new Future(() => "CLOSE").then((x) { closed = true; });
+  Future addStream(Stream<List> stream) { return new Future(() {}); }
+  Future close() { return new Future(() {}).then((x) { closed++; });
   }
 }
 
@@ -33,7 +26,7 @@ main() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   await sink.addStream(stream);
-  Expect.isFalse(closed);
+  Expect.equals(0, closed);
   await sink.close();
-  Expect.isTrue(closed);
+  Expect.equals(1, closed);
 }

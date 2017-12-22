@@ -11,32 +11,25 @@
  * causes error.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
 bool called = false;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) { called = true; });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
-
-  Future close() {
-    return new Future(() => "CLOSED");
-  }
+  Future close() { return new Future(() {} ); }
 }
 
-main() async {
+main() {
   Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
-  Int32List aList = new Int32List.fromList([10, 20, 30, 40, 50]);
+  List<int> aList = [10, 20, 30, 40, 50];
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
 
@@ -47,4 +40,5 @@ main() async {
   });
 
   Expect.throws(() { sink.add(aList); }, (e) => e is StateError);
+  Expect.isFalse(called);
 }

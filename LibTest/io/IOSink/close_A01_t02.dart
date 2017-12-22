@@ -11,26 +11,22 @@
  * @author iarkh@unipro.ru
  * @Issue 29554
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool closed = false;
+int closed = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
-  Future addStream(Stream<List> stream) {
-    return new Future(() => "ADD");
-  }
-
-  Future close() { return new Future(() => "CLOSE"); }
+  Future addStream(Stream<List> stream) { return new Future(() {}); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   await sink.close();
   Expect.throws(() { sink.writeln(); }, (e) => e is Error);
 }
+
+main() { test(); }

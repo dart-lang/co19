@@ -14,17 +14,18 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 import "dart:async";
 
-bool isDone = false;
-
-main() async {
+test() async {
   StreamController<List<int>> controller = new StreamController<List<int>>();
   dynamic sink = new IOSink(controller);
+  int isDone = 0;
 
   sink.done.then((addresses) {
     Expect.isTrue(controller.isClosed);
-    isDone = true;
+    isDone++;
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
 
   await controller.close();
-  Expect.isTrue(isDone);
+  Expect.equals(1, isDone);
 }
+
+main() { test(); }

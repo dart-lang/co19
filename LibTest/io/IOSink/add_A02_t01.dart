@@ -11,42 +11,35 @@
  * @description Checks that [encoding] does not affect this method call.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:convert";
 import "dart:io";
-import "dart:typed_data";
 
-Int32List aList = new Int32List.fromList([310, 320, 330, 340, 350]);
-bool called = false;
+List<int> aList = [310, 320, 330, 340, 350];
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(1, x.length);
       Expect.listEquals(aList, x.first);
-      called = true;
+      called++;
     });
-    return new Future(() => "OK");
+    return new Future(() {});
   }
-
-  Future close() {
-    return new Future(() => "CLOSED");
-  }
+  Future close() { return new Future(() {}); }
 }
 
 test(Encoding enc) async {
+  called = 0;
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink;
   sink = (enc == null) ?
     new IOSink(consumer) : new IOSink(consumer, encoding : enc);
-  called = false;
   sink.add(aList);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main() {

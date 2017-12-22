@@ -10,36 +10,31 @@
  * consumer
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
-Int32List list1 = new Int32List.fromList([10, 20, 30, 40, 50]);
-Int32List list2 = new Int32List.fromList([1, 2, 3]);
-Int32List list3 = new Int32List.fromList([4, 5]);
+List<int> list1 = [10, 20, 30, 40, 50];
+List<int> list2 = [1, 2, 3];
+List<int> list3 = ([4, 5]);
 
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(3, x.length);
       Expect.isTrue(x.contains(list1));
       Expect.isTrue(x.contains(list2));
       Expect.isTrue(x.contains(list3));
-      called = true;
+      called++;
     });
-    return new Future(() => "OK");
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.add(list1);
@@ -47,5 +42,7 @@ main() async {
   sink.add(list3);
 
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

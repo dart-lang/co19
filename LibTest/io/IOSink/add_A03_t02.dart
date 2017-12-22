@@ -14,25 +14,21 @@
  * @author iarkh@unipro.ru
  * @author sgrekhov@unipro.ru
  */
-
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
 int callCounter = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      if(callCounter++ == 0) {
+      if(callCounter++ == 0)
         Expect.listEquals([[1, 2, 3, 4, 5]], x);
-      } else {
+       else
         Expect.listEquals([[10, 20, 30, 40, 50]], x);
-      }
     });
     return new Future(() {});
   }

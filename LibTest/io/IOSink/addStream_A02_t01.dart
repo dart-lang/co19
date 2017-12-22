@@ -18,11 +18,8 @@ Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
 Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
-  Future addStream(Stream<List> stream) { return new Future(() => "OK"); }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future addStream(Stream<List> stream) { return new Future(() {}); }
+  Future close() { return new Future(() {}); }
 }
 
 main() {
@@ -33,7 +30,5 @@ main() {
       sink.close();
     });
   });
-  Expect.throws(() {
-    sink.addStream(stream2);
-  }, (e) => e is StateError);
+  Expect.throws(() { sink.addStream(stream2); }, (e) => e is StateError);
 }

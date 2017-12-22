@@ -11,20 +11,13 @@
  * being added to the consumer.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
-  Future addStream(Stream<List> stream) {
-    return new Future(() => "ADD");
-  }
-
-  Future close() {
-    return new Future(() => "CLOSE").then((x) {});
+  Future addStream(Stream<List> stream) { return new Future(() {}); }
+  Future close() { return new Future(() {});
   }
 }
 
@@ -33,11 +26,7 @@ main() {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {
-      sink.close();
-    });
+    new Future.delayed(new Duration(seconds: 3)).then((_) { sink.close(); });
   });
-  Expect.throws(() {
-    sink.close();
-  }, (e) => e is StateError);
+  Expect.throws(() { sink.close(); }, (e) => e is StateError);
 }

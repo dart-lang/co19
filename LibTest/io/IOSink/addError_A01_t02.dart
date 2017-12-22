@@ -10,34 +10,31 @@
  * data adding is finished.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future<dynamic> addStream(Stream<List> stream) {
-    stream.toList().then((x) { }, onError: (error, StackTrace st) {
-      called = true;
+    stream.toList().then((x) {}, onError: (error, StackTrace st) {
+      called++;
       Expect.equals("ERROR", error.toString());
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {} ); }
 }
 
-main() async {
-  Int32List aList = new Int32List.fromList([1, 2, 3, 4, 5]);
+test() async {
+  List<int> aList = [1, 2, 3, 4, 5];
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  await sink.add(aList);
+  sink.add(aList);
   sink.addError("ERROR");
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }
