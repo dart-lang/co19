@@ -28,16 +28,16 @@ run_main(String mode) {
   String eScript = Platform.script.toString();
 
   encodings.forEach((enc) async {
-    bool called = false;
+    int called = 0;
     await Process.run(executable,
         [eScript, mode],
         stdoutEncoding: enc,
         stderrEncoding: enc).then((ProcessResult results) {
       Expect.equals(
           "I am here", mode == "err" ? results.stderr : results.stdout);
-      called = true;
+      called++;
     });
-    Expect.isTrue(called);
+    Expect.equals(1, called);
   });
 }
 

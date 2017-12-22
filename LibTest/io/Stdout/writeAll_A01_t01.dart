@@ -13,7 +13,6 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 class ObjectToPass {
-  ObjectToPass() {}
   String toString() { return "I am here"; }
 }
 
@@ -32,12 +31,12 @@ run_process(IOSink sink) { sink.writeAll(objects); }
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  bool called = false;
+  int called = 0;
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

@@ -22,14 +22,14 @@ run_process(IOSink sink) { sink.write(str); }
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
 
-  bool called = false;
   await Process.run(executable, [eScript, mode],
       stdoutEncoding: UTF8, stderrEncoding: UTF8).then((ProcessResult results) {
     Expect.equals(str, mode == "err" ? results.stderr : results.stdout);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

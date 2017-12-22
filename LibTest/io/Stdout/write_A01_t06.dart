@@ -10,7 +10,6 @@
  * @description Checks that [String] cannot be written if [encoding] is [null].
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:io";
 

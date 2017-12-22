@@ -27,7 +27,6 @@ import "dart:convert";
 import "dart:io";
 
 class ObjectToPass {
-  ObjectToPass() {}
   String toString() {
     return "I am here";
   }
