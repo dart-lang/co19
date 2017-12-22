@@ -6,11 +6,10 @@
 /**
  * int terminalColumns
  * Get the number of columns of the terminal.
- * @description Checks that [terminalColumns] is a positive number if output is
- * attached to the terminal.
+ * @description Checks that [terminalColumns] is a positive number if [output]
+ * is attached to the terminal.
  * @author iarkh@unipro.ru
  */
-
 import "dart:io";
 import "../../../Utils/expect.dart";
 

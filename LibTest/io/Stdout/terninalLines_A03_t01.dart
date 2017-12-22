@@ -9,7 +9,6 @@
  * @description Checks that [terminalLines] is a read only field.
  * @author iarkh@unipro.ru
  */
-
 import "dart:io";
 import "../../../Utils/expect.dart";
 

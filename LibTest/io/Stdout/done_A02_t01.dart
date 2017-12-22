@@ -14,9 +14,7 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-test(Stdout sink) {
-  Expect.equals(sink.done, sink.close());
-}
+test(Stdout sink) { Expect.equals(sink.done, sink.close()); }
 
 main() {
   test(stdout);

@@ -11,7 +11,6 @@
  * being added to the consumer.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
@@ -19,7 +18,7 @@ import "dart:io";
 test(Stdout sink) {
   Stream<List> stream = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
   sink.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) { });
+    new Future.delayed(new Duration(seconds: 3));
   });
   Expect.throws(() { sink.close(); }, (e) => e is StateError);
 }

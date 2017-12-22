@@ -17,7 +17,7 @@ import "dart:io";
 test(Stdout sink) async {
   Stream<List> stream = new Stream<List>.fromIterable([[1, 2]]);
   sink.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
   Expect.throws(() { sink.flush(); }, (e) => e is StateError);
 }

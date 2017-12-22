@@ -10,25 +10,22 @@
  * stderr and stdout.
  * @author iarkh@unipro.ru
  */
-
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-Stream<List> aStream = new Stream<List>.fromIterable(
-    [[1, 2, 3]]);
+Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3]]);
 List<int> expected = [84, 101, 115, 116, 1, 2, 3];
-bool called = false;
 
 run_process(Stdout sink) {
   sink.nonBlocking.addStream(aStream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
   sink.write("Test");
 }
 
 run_main(String mode) async {
-  called = false;
+  int called = 0;
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
@@ -38,9 +35,9 @@ run_main(String mode) async {
     expected.forEach((entity) {
       Expect.isTrue(result.contains(entity));
     });
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) async {
