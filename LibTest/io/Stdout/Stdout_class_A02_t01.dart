@@ -24,7 +24,7 @@ Stream<List> stream2 = new Stream<List>.fromIterable(
 
 test(Stdout sink, Stream<List> stream) async {
   sink.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
   Expect.throws(() { sink.writeln(); }, (e) => e is StateError);
 }

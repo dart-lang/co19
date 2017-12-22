@@ -14,8 +14,6 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-bool called = false;
-
 List objects = [
   "Testme",
   123,
@@ -32,11 +30,12 @@ run_process(IOSink sink) {
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

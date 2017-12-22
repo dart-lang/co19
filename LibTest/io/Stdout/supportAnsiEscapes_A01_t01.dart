@@ -9,7 +9,6 @@
  * @description Checks that [supportAnsiEscapes] is a read-only property.
  * @author iarkh@unipro.ru
  */
-
 import "dart:io";
 import "../../../Utils/expect.dart";
 

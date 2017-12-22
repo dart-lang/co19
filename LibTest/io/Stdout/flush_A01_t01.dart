@@ -15,7 +15,7 @@ import "dart:async";
 import "dart:io";
 
 test(Stdout sink) async {
-  bool called = false;
+  int called = 0;
   int cnt = 0;
   Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2]]);
   Stream<List> stream2 = new Stream<List>.fromIterable([[12], [3, 22]]);
@@ -36,9 +36,9 @@ test(Stdout sink) async {
   sink.writeAll([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
   await sink.flush().then((x) {
     Expect.equals(5, cnt);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

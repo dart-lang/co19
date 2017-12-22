@@ -13,11 +13,11 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-test(Stdout sink) async {
+test(Stdout sink) {
   Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
   Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
   sink.addStream(stream1).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
   Expect.throws(() {
     sink.addStream(stream2);

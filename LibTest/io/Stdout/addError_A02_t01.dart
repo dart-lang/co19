@@ -19,7 +19,7 @@ test(Stdout sink) {
   Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
 
   sink.addStream(aStream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
 
   Expect.throws(() { sink.addError("Error"); }, (e) => e is StateError);

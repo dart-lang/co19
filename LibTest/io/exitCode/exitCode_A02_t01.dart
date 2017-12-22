@@ -17,12 +17,12 @@ run_process() { exitCode = -1; }
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  bool called = false;
+  int called = 0;
   await Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
     Expect.equals(Platform.isWindows ? -1 : 255, results.exitCode);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

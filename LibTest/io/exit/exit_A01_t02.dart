@@ -4,19 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future done
- * This future is identical to the future returned by [close].
- * @description Checks that returned [Future] is identical to one returned by
- * the [close] method.
+ * @assertion void exit(int code)
+ * Exit the Dart VM process immediately with the given exit code.
+ * @description Checks that calling [exit(null)] causes [ArgumentError].
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "dart:async";
 import "dart:io";
 
-test(Stdout sink) { Expect.equals(sink.done, sink.close()); }
-
-main() {
-  test(stdout);
-  test(stderr);
+main(List<String> args) {
+  Expect.throws(() { exit(null); }, (e) => e is ArgumentError);
 }

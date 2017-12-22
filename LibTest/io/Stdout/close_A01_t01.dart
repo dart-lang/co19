@@ -13,11 +13,10 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-bool closed = false;
-
 test(Stdout sink) async {
-  await sink.close().then((x) { closed = true; });
-  Expect.isTrue(closed);
+  int closed = 0;
+  await sink.close().then((x) { closed++; });
+  Expect.equals(1, closed);
   Expect.throws(() { sink.writeln(); }, (e) => e is Error);
 }
 

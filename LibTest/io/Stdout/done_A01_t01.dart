@@ -13,18 +13,16 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-bool isDone = false;
-
 test(Stdout sink) async {
-  isDone = false;
+  int isDone = 0;
 
   sink.done.then((addresses) {
-     isDone = true;
+     isDone++;
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
 
-  Expect.isFalse(isDone);
+  Expect.equals(0, isDone);
   await sink.close();
-  Expect.isTrue(isDone);
+  Expect.equals(1, isDone);
 }
 
 main() {

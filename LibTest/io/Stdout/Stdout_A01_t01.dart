@@ -11,22 +11,20 @@
  * process
  * @author iarkh@unipro.ru
  */
-
 import "dart:io";
 import "../../../Utils/expect.dart";
-
-bool called = false;
 
 run_process() { stdout.write('Test'); }
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
   await Process.run(executable, [eScript, 'run']).then((ProcessResult results) {
     Expect.equals("Test", results.stdout);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) async {

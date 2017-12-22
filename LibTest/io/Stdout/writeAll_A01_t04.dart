@@ -12,7 +12,6 @@
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
-
 test(Stdout sink) {
   Expect.throws(() { sink.writeAll(null); }, (e) => e is NoSuchMethodError);
 }

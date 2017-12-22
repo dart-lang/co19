@@ -15,18 +15,18 @@ import "dart:async";
 import "dart:io";
 
 Stream<List> aStream = new Stream<List>.fromIterable([[86, 73, 45]]);
-bool called = false;
 
 run_process(IOSink sink) { sink.addStream(aStream); }
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
     Expect.equals("VI-", mode == "err" ? results.stderr : results.stdout);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

@@ -13,20 +13,14 @@
  * used.
  * @author iarkh@unipro.ru
  */
-
 import "dart:async";
 import "dart:io";
 
-bool called = false;
-
-Stream<List> stream1 = new Stream<List>.fromIterable(
-    [[1, 2, 3, 4, 5], [12], [3, 22]]);
-Stream<List> stream2 = new Stream<List>.fromIterable(
-    [[1, 2, 3, 4, 5], [12], [3, 22]]);
-
-test(Stdout sink, Stream<List> stream) async {
+test(Stdout sink) async {
+  Stream<List> stream = new Stream<List>.fromIterable(
+      [[1, 2, 3, 4, 5], [12], [3, 22]]);
   sink.nonBlocking.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
   sink.writeln();
   sink.writeAll([1, 2, 48, "abc"], ",");
@@ -36,6 +30,6 @@ test(Stdout sink, Stream<List> stream) async {
 }
 
 main() async {
-  test(stdout, stream1);
-  test(stderr, stream2);
+  test(stdout);
+  test(stderr);
 }

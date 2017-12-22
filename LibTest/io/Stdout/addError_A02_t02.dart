@@ -15,24 +15,23 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 import "dart:async";
 
-bool called = false;
-
 run_process(IOSink sink) async {
   Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
   await sink.addStream(aStream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
   sink.addError("error for synk");
 }
 
 run_main(String mode) async {
+  int called = 0;
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
     Expect.isTrue(results.stderr.contains("error for synk"));
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {
