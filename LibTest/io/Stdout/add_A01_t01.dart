@@ -10,24 +10,22 @@
  * method call
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:io";
-import "dart:typed_data";
 
-bool called = false;
-Int32List aList = new Int32List.fromList([84, 69, 83, 84]);
+List<int> aList = [84, 69, 83, 84];
 
 run_process(IOSink sink) { sink.add(aList); }
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
     Expect.equals("TEST", mode == "err" ? results.stderr : results.stdout);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

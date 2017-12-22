@@ -13,14 +13,13 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
-
 test(Stdout sink) async {
+  int called = 0;
   Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
   Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
   await sink.addStream(stream1);
-  await sink.addStream(stream2).then((x) { called = true; });
-  Expect.isTrue(called);
+  await sink.addStream(stream2).then((x) { called++; });
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

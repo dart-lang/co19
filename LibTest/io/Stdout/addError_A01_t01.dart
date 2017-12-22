@@ -14,19 +14,18 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-bool called = false;
-
 run_process(IOSink sink) { sink.addError("my test error"); }
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
     Expect.isTrue(results.stderr.contains("my test error"));
     Expect.equals(0, results.stdout.length);
-    called = true;
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

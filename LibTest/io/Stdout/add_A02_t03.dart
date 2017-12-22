@@ -13,30 +13,27 @@
  * Maybe this test should be corrected, see issue #31670 for more details.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:convert";
 import "dart:io";
-import "dart:typed_data";
 
-bool called = false;
-Int32List aList = new Int32List.fromList([254, 255, 256, 257, 1000]);
-Int32List expected = new Int32List.fromList([254, 255, 0, 1, 232]);
+List<int> aList = [254, 255, 256, 257, 1000];
+List<int> expected = [254, 255, 0, 1, 232];
 
 run_process(IOSink sink) { sink.add(aList); }
 
 run_main(String mode, Encoding enc) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  int called = 0;
 
   await Process.run(executable, [eScript, mode],
       stdoutEncoding: enc, stderrEncoding: enc).
         then((ProcessResult results) {
-        Expect.listEquals(
-            expected, mode == "err" ? results.stderr : results.stdout);
-    called = true;
+    Expect.listEquals(expected, mode == "err" ? results.stderr : results.stdout);
+    called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

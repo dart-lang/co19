@@ -18,10 +18,10 @@ test(Stdout sink) async{
   Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
 
   await sink.addStream(aStream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {});
+    new Future.delayed(new Duration(seconds: 3));
   });
 
-  await sink.add([71, 72, 73, 74, 75]);
+  sink.add([71, 72, 73, 74, 75]);
 }
 
 main() {
