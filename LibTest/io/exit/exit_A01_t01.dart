@@ -4,18 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int exitCode
- * Get the global exit code for the Dart VM.
- * The exit code is global for the Dart VM and the last assignment to [exitCode]
- * from any isolate determines the exit code of the Dart VM on normal
- * termination.
- * @description Checks that process returns [exitCode] when finishes normally.
+ * @assertion void exit(int code)
+ * Exit the Dart VM process immediately with the given exit code.
+ * @description Checks that process returns given code after the [exit] call.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { exitCode = 123; }
+run_process() { exit(123); }
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
