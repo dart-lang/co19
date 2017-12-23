@@ -11,36 +11,34 @@
  * [UTF8] encoding.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 String str = "ащ";
 List expected = [0xd0, 0xb0, 0xd1, 0x89];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.listEquals(expected, x[0]);
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future((){});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
-  called = false;
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer, encoding: new Utf8Codec());
-  await sink.write(str);
+  sink.write(str);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

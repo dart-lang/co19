@@ -11,15 +11,13 @@
  * values.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-  Future addStream(Stream<List> stream) { return new Future(() => "ADD"); }
-  Future close() { return new Future(() => "CLOSE").then((x) {}); }
+  Future addStream(Stream<List> stream) { return new Future((){}); }
+  Future close() { return new Future(() {}); }
 }
 
 void testNegative(IOSink sink, int i) {

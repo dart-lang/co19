@@ -11,12 +11,11 @@
  * without any separator if [separator] is set to empty string ([]).
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 List objects = [
   "Testme",
@@ -41,18 +40,20 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
       for (int i = 0; i < expected.length; i++) {
         Expect.listEquals(expected[i], x[i]);
       }
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() => {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  await sink.writeAll(objects, "");
+  sink.writeAll(objects, "");
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

@@ -10,13 +10,12 @@
  * some encoding was specified.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 List objects = [
   "Testme",
@@ -35,8 +34,6 @@ List expected = [
   [0xe2, 0xe3]];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);
@@ -44,18 +41,21 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
         Expect.listEquals(expected[i], x[i],
             "'" + objects[i].toString() + "' object fails!");
       }
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
-  IOSink sink = new IOSink(consumer, encoding : Encoding.getByName("iso-8859-1"));
-  await sink.writeAll(objects);
+  IOSink sink = new IOSink(
+      consumer, encoding : Encoding.getByName("iso-8859-1"));
+  sink.writeAll(objects);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

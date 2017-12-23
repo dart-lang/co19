@@ -11,13 +11,12 @@
  * the consumer for any encoding.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 String str = "Testme";
 
@@ -30,26 +29,27 @@ List encodings = [
 List expected = [84, 101, 115, 116, 109, 101];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
 
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.listEquals(expected, x[0]);
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   encodings.forEach((enc) async {
-    called = false;
+    called = 0;
     StreamConsumer consumer = new MyStreamConsumer();
     IOSink sink = new IOSink(consumer, encoding: enc);
-    await sink.write(str);
+    sink.write(str);
     await sink.close();
-    Expect.isTrue(called);
+    Expect.equals(1, called);
   });
 }
+
+main() { test(); }

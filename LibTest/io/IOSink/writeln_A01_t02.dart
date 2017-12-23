@@ -11,32 +11,31 @@
  * the result stream.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      called = true;
+      called++;
       Expect.equals(1, x.length);
       Expect.listEquals([10], x[0]);
     });
-    return new Future(() => "OK");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.writeln();
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

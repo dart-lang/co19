@@ -18,10 +18,9 @@
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
-import "dart:typed_data";
 
-Int32List aList1 = new Int32List.fromList([1, 2, 3, 4, 5]);
-Int32List aList2 = new Int32List.fromList([11, 23]);
+List<int> aList1 = [1, 2, 3, 4, 5];
+List<int> aList2 = [11, 23];
 String str1 = "I am here";
 String str2 = "I am 2";
 StackTrace trace = new StackTrace.fromString("I am a stack trace");
@@ -46,11 +45,9 @@ List expected = [
   [10]
 ];
 
-bool called = false;
+int called = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(12, x.length);
@@ -58,15 +55,14 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
         Expect.listEquals(expected[i], x[i],
             "'" + x[i].toString() + "' object fails!");
       }
-      called = true;
+      called++;
     });
-    return new Future(() => "OK");
+    return new Future(() {});
   }
-
-  Future close() { return new Future(() => "CLOSED"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
 
@@ -79,5 +75,7 @@ main() async {
   sink.writeCharCode(8);
 
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

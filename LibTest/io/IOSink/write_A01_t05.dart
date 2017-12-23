@@ -11,37 +11,35 @@
  * [iso-8859-1] encoding.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 String str = "âã";
 List expected = [0xe2, 0xe3];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.listEquals(expected, x[0]);
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
-  called = false;
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(
       consumer, encoding : Encoding.getByName("iso-8859-1"));
-  await sink.write(str);
+  sink.write(str);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

@@ -11,17 +11,14 @@
  * @issue 29554
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
   MyStreamConsumer() {}
-  Future<dynamic> addStream(Stream<List> stream) {
-    return new Future(() => "OK");
-  }
-  Future close() { return new Future(() => "CLOSED"); }
+  Future<dynamic> addStream(Stream<List> stream) { return new Future(() {}); }
+  Future close() { return new Future(() {} ); }
 }
 
 main() {

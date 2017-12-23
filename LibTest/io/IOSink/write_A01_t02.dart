@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 List objects = [
   "Testme",
@@ -33,8 +33,6 @@ List expected = [
   [110, 117, 108, 108]];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);
@@ -42,20 +40,18 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
         Expect.listEquals(expected[i], x[i],
             "'" + objects[i].toString() + "' object fails!");
       }
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+main() {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  for (int i = 0; i < expected.length; i++) {
-    await sink.write(objects[i]);
-  }
+  objects.forEach((x) { sink.write(x); });
   sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called );
 }

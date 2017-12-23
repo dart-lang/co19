@@ -11,42 +11,41 @@
  * consumer
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
-bool printed = false;
+int called = 0;
+int printed = 0;
 
 String str = "I am here";
 List<int> res = [73, 32, 97, 109, 32, 104, 101, 114, 101];
 
 class ObjectToPass {
-  ObjectToPass() {}
   String toString() {
-    called = true;
+    called++;
     return str;
   }
 }
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-  Future close() { return new Future(() => "CLOSE").then((x) {}); }
+  Future close() { return new Future(() {}); }
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      printed = true;
+      printed++;
       Expect.listEquals(res, x.first);
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  await sink.write(new ObjectToPass());
+  sink.write(new ObjectToPass());
   await sink.flush();
-  Expect.isTrue(called);
-  Expect.isTrue(printed);
+  Expect.equals(1, called);
+  Expect.equals(1, printed);
 }
+
+main() { test(); }

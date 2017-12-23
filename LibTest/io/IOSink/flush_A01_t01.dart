@@ -10,27 +10,21 @@
  * @description Checks that data is flushed after the [flush] call.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool flushed = false;
+int flushed = 0;
 int cnt = 0;
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
-    return new Future(() => "ADD").then((x) {cnt++; } );
+    return new Future(() {}).then((x) { cnt++; } );
   }
-
-  Future close() {
-    return new Future(() => "CLOSE").then((x) {});
-  }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2]]);
   Stream<List> stream2 = new Stream<List>.fromIterable([[12], [3, 22]]);
   Stream<List> stream3 = new Stream<List>.fromIterable([[3, 22]]);
@@ -40,7 +34,6 @@ main() async {
   StreamConsumer consumer = new MyStreamConsumer();
 
   IOSink sink = new IOSink(consumer);
-  sink.flush();
 
   await sink.addStream(stream1).then((x) { cnt++; });
   sink.add([0]);
@@ -56,8 +49,10 @@ main() async {
   sink.writeAll([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
   await sink.flush().then((x) {
     Expect.equals(14, cnt);
-    flushed = true;
+    flushed++;
   });
   await sink.close();
-  Expect.isTrue(flushed);
+  Expect.equals(1, flushed);
 }
+
+main() { test(); }

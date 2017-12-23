@@ -11,12 +11,11 @@
  * the provided [separator] which is a long string.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 
 List objects = [
   "Testme",
@@ -37,26 +36,26 @@ List expected = [
   [110, 117, 108, 108]];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);
       for (int i = 0; i < expected.length; i++) {
         Expect.listEquals(expected[i], x[i]);
       }
-      called = true;
+      called++;
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() { return new Future(() => "CLOSE"); }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  await sink.writeAll(objects, "longstring");
+  sink.writeAll(objects, "longstring");
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }

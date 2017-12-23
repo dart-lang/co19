@@ -10,35 +10,32 @@
  * @description Checks that [String] is correctly added to the consumer
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-bool called = false;
+int called = 0;
 String str = "I am here";
 List<int> res = [73, 32, 97, 109, 32, 104, 101, 114, 101];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  MyStreamConsumer() {}
-
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      called = true;
+      called++;
       Expect.listEquals(res, x.first);
     });
-    return new Future(() => "ADD");
+    return new Future(() {});
   }
 
-  Future close() {
-    return new Future(() => "CLOSE").then((x) {});
-  }
+  Future close() { return new Future(() {}); }
 }
 
-main() async {
+test () async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  await sink.write(str);
+  sink.write(str);
   await sink.close();
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
+
+main() { test(); }
