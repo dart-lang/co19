@@ -60,7 +60,7 @@ check([bool no_write_events = false]) {
         var datagram = receiver.receive();
         if (datagram != null) {
           rList = datagram.data;
-            Expect.equals(list[received - 1].length, rList.length);
+          Expect.equals(list[received - 1].length, rList.length);
         }
         if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
