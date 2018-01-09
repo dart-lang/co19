@@ -6,8 +6,10 @@
 /**
  * @assertion E last
  * Returns the last element.
- * @description Checks that [last] is read-only and can't be set.
+ * @description Checks that [last] can be set.
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
 
 import "dart:typed_data";
@@ -17,18 +19,16 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> array) {
   dynamic l = new Float64x2List.fromList(array);
-  try {
-    l.last = f64x2(11.0);
-    Expect.fail("[last] should be read-only");
-  } on NoSuchMethodError {}
+  l.last = f64x2(3.14);
+  Expect.equals(3.14, l.last.x);
+  Expect.equals(3.14, l.last.y);
 }
 
 void checkClear(int length) {
   dynamic l = new Float64x2List(length);
-  try {
-    l.last = f64x2(12.0);
-    Expect.fail("[last] should be read-only");
-  } on NoSuchMethodError {}
+  l.last = f64x2(3.14);
+  Expect.equals(3.14, l.last.x);
+  Expect.equals(3.14, l.last.y);
 }
 
 main() {

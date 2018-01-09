@@ -6,8 +6,10 @@
 /**
  * @assertion E first
  * Returns the first element.
- * @description Checks that [first] is read-only and can't be set.
+ * @description Checks that [first] can be set.
  * @author msyabro
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
 
 import "dart:typed_data";
@@ -15,19 +17,20 @@ import "../../../Utils/expect.dart";
 
 Float32x4 pack(v) => new Float32x4.splat(v);
 
+equal(obj1, obj2) {
+  var res = obj1.equal(obj2);
+  return res.flagX && res.flagY && res.flagZ && res.flagW;
+}
+
 void check(List<Float32x4> array) {
   dynamic l = new Float32x4List.fromList(array);
-  try {
-    l.first = 0;
-    Expect.fail("[first] should be read-only");
-  } on NoSuchMethodError {}
+  l.first = pack(3.14);
+  Expect.isTrue(equal(pack(3.14), l.first));
 }
 void checkClear(int length) {
   dynamic l = new Float32x4List(length);
-  try {
-    l.first = 0;
-    Expect.fail("[first] should be read-only");
-  } on NoSuchMethodError {}
+  l.first = pack(3.14);
+  Expect.isTrue(equal(pack(3.14), l.first));
 }
 
 main() {

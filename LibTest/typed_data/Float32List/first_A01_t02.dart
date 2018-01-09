@@ -8,8 +8,10 @@
  * Returns the first element.
  * Throws a StateError if this is empty. Otherwise returns the first element
  * in the iteration order, equivalent to this.elementAt(0).
- * @description Checks that [first] is read-only and can't be set.
+ * @description Checks that [first] is can be set.
  * @author msyabro
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
 
 import "dart:typed_data";
@@ -17,18 +19,14 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
   dynamic l = new Float32List.fromList(array);
-  try {
-    l.first = 0.0;
-    Expect.fail("[first] should be read-only");
-  } on NoSuchMethodError {}
+  l.first = 3.14;
+  Expect.equals(3.14, l.first);
 }
 
 void checkClear(int length) {
   dynamic l = new Float32List(length);
-  try {
-    l.first = 0.0;
-    Expect.fail("[first] should be read-only");
-  } on NoSuchMethodError {}
+  l.first = 3.14;
+  Expect.equals(3.14, l.first);
 }
 
 main() {

@@ -6,8 +6,10 @@
 /**
  * @assertion E last
  * Returns the last element.
- * @description Checks that [last] is read-only and can't be set.
+ * @description Checks that [last] can be set.
  * @author msyabro
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
 
 import "dart:typed_data";
@@ -15,18 +17,14 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
   dynamic l = new Float32List.fromList(array);
-  try {
-    l.last = 0;
-    Expect.fail("[last] should be read-only");
-  } on NoSuchMethodError {}
+  l.last = 3.14;
+  Expect.equals(3.14, l.last);
 }
 
 void checkClear(length) {
   dynamic l = new Float32List(length);
-  try {
-    l.last = 0;
-    Expect.fail("[last] should be read-only");
-  } on NoSuchMethodError {}
+  l.last = 3.14;
+  Expect.equals(3.14, l.last);
 }
 
 main() {

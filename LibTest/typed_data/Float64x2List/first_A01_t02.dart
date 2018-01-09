@@ -6,8 +6,10 @@
 /**
  * @assertion E first
  * Returns the first element.
- * @description Checks that [first] is read-only and can't be set.
+ * @description Checks that [first] can be set.
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
 
 import "dart:typed_data";
@@ -17,18 +19,16 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> array) {
   dynamic l = new Float64x2List.fromList(array);
-  try {
-    l.first = f64x2(11.0);
-    Expect.fail("[first] should be read-only");
-  } on NoSuchMethodError {}
+  l.first = f64x2(3.14);
+  Expect.equals(3.14, l.first.x);
+  Expect.equals(3.14, l.first.y);
 }
 
 void checkClear(int length) {
   dynamic l = new Float64x2List(length);
-  try {
-    l.first = f64x2(12.0);
-    Expect.fail("[first] should be read-only");
-  } on NoSuchMethodError {}
+  l.first = f64x2(3.14);
+  Expect.equals(3.14, l.first.x);
+  Expect.equals(3.14, l.first.y);
 }
 
 main() {

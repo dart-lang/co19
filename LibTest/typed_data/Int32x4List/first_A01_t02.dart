@@ -6,8 +6,10 @@
 /**
  * @assertion E first
  * Returns the first element.
- * @description Checks that first is read-only and cannot be set.
+ * @description Checks that first can be set.
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
 
 import "dart:typed_data";
@@ -15,12 +17,14 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
+equal(o1, o2) {
+  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
+}
+
 void check(list) {
   dynamic l = new Int32x4List.fromList(list);
-  try {
     l.first = i32x4(55);
-    Expect.fail("first should be read-only");
-  } on NoSuchMethodError {}
+    Expect.isTrue(equal(i32x4(55), l.first));
 }
 
 main() {
