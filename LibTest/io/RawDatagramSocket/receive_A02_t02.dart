@@ -64,8 +64,6 @@ main() {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
-      }, onError: (error) {
-        Expect.isTrue(error is StateError);
       }).onDone(action);
     });
   });

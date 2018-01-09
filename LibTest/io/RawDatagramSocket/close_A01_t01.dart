@@ -37,6 +37,7 @@ check([bool no_write_events = false]) {
       });
 
       void action() {
+        Expect.equals(sent, received - 1);
         asyncEnd();
       }
 
@@ -51,8 +52,6 @@ check([bool no_write_events = false]) {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
-      }, onError: (error) {
-        Expect.isTrue(error is StateError);
       }).onDone(action);
     });
   });

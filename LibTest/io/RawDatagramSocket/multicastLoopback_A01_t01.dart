@@ -20,7 +20,6 @@ import "../../../Utils/async_utils.dart";
 
 check(InternetAddress address) {
   asyncStart();
-  var address = InternetAddress.ANY_IP_V4;
   RawDatagramSocket.bind(address, 0).then((socket) {
     Expect.isTrue(socket.multicastLoopback);
     socket.multicastLoopback = false;

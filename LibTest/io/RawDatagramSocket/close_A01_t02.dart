@@ -58,8 +58,6 @@ check([bool no_write_events = false]) {
           Expect.equals(3, received);
           receiver.close();
         });
-      }, onError: (error) {
-        Expect.isTrue(error is StateError);
       }).onDone(action);
     });
   });
