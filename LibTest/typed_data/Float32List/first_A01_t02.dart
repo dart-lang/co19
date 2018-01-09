@@ -8,7 +8,7 @@
  * Returns the first element.
  * Throws a StateError if this is empty. Otherwise returns the first element
  * in the iteration order, equivalent to this.elementAt(0).
- * @description Checks that [first] is can be set.
+ * @description Checks that [first] can be set.
  * @author msyabro
  * @author sgrekhov@unipro.ru
  * @issue dart-lang/co19#130
