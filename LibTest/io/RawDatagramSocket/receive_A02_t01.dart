@@ -9,7 +9,7 @@
  * . . .
  * The maximum length of the datagram that can be received is 65503 bytes.
  *
- * @description Checks that the 65507 bytes datagram can be received.
+ * @description Checks that the 65503 bytes datagram can be received.
  * @issue 31733
  * @author ngl@unipro.ru
  */
@@ -18,7 +18,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-int sentLength = 65507;
+int sentLength = 65503;
 
 check([bool no_write_events = false]) {
   asyncStart();
@@ -28,8 +28,7 @@ check([bool no_write_events = false]) {
       if (no_write_events) {
         receiver.writeEventsEnabled = false;
       }
-      Timer timer2;
-      int received = 0;
+      Timer timer;
       List<int> sList = new List<int>(sentLength);
       for (int i = 0; i < sentLength; i++) {
         sList[i] = i & 0xff;
@@ -42,15 +41,9 @@ check([bool no_write_events = false]) {
       producer.send(sentLists[2], address, receiver.port);
       producer.close();
 
-      void action() {
-        Expect.equals(4, received);
-        asyncEnd();
-      }
-
       List<int> rList;
       int longDataLength = 0;
       receiver.listen((event) {
-        received++;
         if (event == RawSocketEvent.CLOSED) {
           if (longDataLength != sentLength) {
             Expect.fail('Long datagram was not received.');
@@ -63,12 +56,16 @@ check([bool no_write_events = false]) {
             longDataLength = rList.length;
           }
         }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
+        if (timer != null) {
+          timer.cancel();
+        }
+        timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
-      }).onDone(action);
+      }).onDone(() {
+        asyncEnd();
+      });
     });
   });
 }

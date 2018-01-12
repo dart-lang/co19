@@ -13,14 +13,15 @@
  * @description Checks that method send returns 0 if buffer length is greater
  * then a maximum length of a received datagram.
  * @author ngl@unipro.ru
+ * @issue 31873
  */
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-int maxSentLength = 65507;
-int sentLength = 65508;
+int maxSentLength = 65503;
+int sentLength = 66000;
 
 check([bool no_write_events = false]) {
   asyncStart();
@@ -46,11 +47,7 @@ check([bool no_write_events = false]) {
       List<List<int>> list = [[1], sList1, sList2];
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
         int count = producer.send(list[sent], address, receiver.port);
-        if (sent == 2) {
-          Expect.equals(0, count);
-        } else {
-          Expect.equals(list[sent].length, count);
-        }
+        Expect.isTrue(count == 0 || count == list[sent].length);
         sent++;
         if (sent > 2) {
           timer.cancel();
