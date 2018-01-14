@@ -4,26 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void add(List<int> data)
- * void addError(error, [StackTrace stackTrace])
- * Passes the [error] to the target consumer as an error event.
- * @description Checks that [error] appears in [stderr] as a result of the
- * [addError] method call.
+ * @assertion void write(Object obj)
+ * This operation is non-blocking.
+ * @description Checks that [write] is non-blocking operation.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process(IOSink sink) {
-  sink.addError("my test error"); }
+  sink.write("Test1");
+  sink.write("Test2");
+  sink.write("Test3");
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
-    Expect.isTrue(results.stderr.contains("my test error"));
-    Expect.equals(0, results.stdout.length);
+    Expect.equals("Test1Test2Test3",
+        mode == "err" ? results.stderr : results.stdout);
     called++;
   });
   Expect.equals(1, called);
