@@ -4,23 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void write(Object obj)
- * Converts [obj] to a [String] by invoking [Object.toString] and adds the
- * encoding of the result to the target consumer.
- * @description Checks that [String] is correctly added to the consumer
+ * @assertion void writeln([Object obj = ""])
+ * This operation is non-blocking.
+ * @description Checks that [writeln] is non-blocking operation.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process(IOSink sink) { sink.write("I am here"); }
+String str = "Testme";
+
+run_process(IOSink sink) {
+  sink.writeln(str);
+  sink.writeln(str);
+  sink.writeln();
+  sink.writeln();
+  sink.writeln(str);
+}
 
 run_main(String mode) async {
+  int called = 0;
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
-    Expect.equals("I am here", mode == "err" ? results.stderr : results.stdout);
+  await Process.run(executable, [eScript, mode]).then((
+      ProcessResult results) {
+    Expect.equals(str + "\n" + str + "\n\n\n" + str + "\n",
+        mode == "err" ? results.stderr : results.stdout);
     called++;
   });
   Expect.equals(1, called);

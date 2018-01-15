@@ -7,20 +7,19 @@
  * @assertion void write(Object obj)
  * Converts [obj] to a [String] by invoking [Object.toString] and adds the
  * encoding of the result to the target consumer.
- * @description Checks that attempt to write [String] with non-latin1 characters
- * causes exception if encoding is Latin-a with [allowInvalid] set to [true].
+ * @description Checks that [String] cannot be written if [encoding] is [null].
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "dart:convert";
 import "dart:io";
 
-run_main(Stdout sink, Encoding enc) async {
-  sink.encoding = enc;
-  Expect.throws(() { sink.write("�"); }, (e) => e is ArgumentError);
+test(Stdout sink) {
+  sink.encoding = null;
+  Expect.throws(() { sink.write("testme"); }, (e) => e is NoSuchMethodError);
+  sink.close();
 }
 
-main(List<String> args) {
-  run_main(stdout, new Latin1Codec(allowInvalid: false));
-  run_main(stderr, new Latin1Codec(allowInvalid: false));
+main() {
+  test(stdout);
+  test(stderr);
 }
