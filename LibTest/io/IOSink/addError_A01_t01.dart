@@ -32,6 +32,8 @@ test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addError("ERROR");
+  sink.addError("ERROR");
+
   await sink.close();
   Expect.equals(1, called);
 }
