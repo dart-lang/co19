@@ -11,7 +11,6 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
@@ -31,7 +30,6 @@ test(String method) async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.equals(0, response.cookies.length);
-    response.transform(UTF8.decoder).listen((content) {});
     asyncEnd();
   });
 }

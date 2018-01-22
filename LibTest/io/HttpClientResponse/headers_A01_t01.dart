@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
@@ -33,7 +32,6 @@ test(String method) async {
   }).then((HttpClientResponse response) {
     Expect.equals("text/plain; charset=utf-8",
         response.headers.value("content-type"));
-    response.transform(UTF8.decoder).listen((content) {});
     asyncEnd();
   });
 }
