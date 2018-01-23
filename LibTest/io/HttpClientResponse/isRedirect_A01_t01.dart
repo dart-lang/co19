@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion HttpHeaders headers
- * Returns the client response headers.
- * The client response headers are immutable.
- * @description Checks that this property returns the client response headers.
- * Test not default headers
+ * @assertion bool isRedirect
+ * Returns whether the status code is one of the normal redirect codes
+ * HttpStatus.MOVED_PERMANENTLY, HttpStatus.FOUND, HttpStatus.MOVED_TEMPORARILY,
+ * HttpStatus.SEE_OTHER and HttpStatus.TEMPORARY_REDIRECT.
+ * @description Checks that this getter returns whether the status code is one
+ * of the normal redirect codes
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,8 +22,6 @@ test(String method) async {
   asyncStart();
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.headers.add(HttpHeaders.AGE, 21);
-    request.response.headers.add(HttpHeaders.TE, "");
     request.response.close();
     server.close();
   });
@@ -32,10 +31,7 @@ test(String method) async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.equals("text/plain; charset=utf-8",
-        response.headers.value("content-type"));
-    Expect.equals("21", response.headers.value(HttpHeaders.AGE));
-    Expect.equals("", response.headers.value(HttpHeaders.TE));
+    Expect.isFalse(response.isRedirect);
     asyncEnd();
   });
 }

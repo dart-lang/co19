@@ -11,7 +11,6 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
@@ -36,7 +35,6 @@ test(String method) async {
     Expect.equals("Lily-cookie", response.cookies[0].name);
     Expect.equals("Lily-was-here", response.cookies[0].value);
     Expect.isNull(response.cookies[0].expires);
-    response.transform(UTF8.decoder).listen((content) {});
     asyncEnd();
   });
 }

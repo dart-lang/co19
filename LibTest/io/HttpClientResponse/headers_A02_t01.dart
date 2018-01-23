@@ -7,8 +7,7 @@
  * @assertion HttpHeaders headers
  * Returns the client response headers.
  * The client response headers are immutable.
- * @description Checks that this property returns the client response headers.
- * Test not default headers
+ * @description Checks that the client response headers are immutable.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,8 +20,6 @@ test(String method) async {
   asyncStart();
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.headers.add(HttpHeaders.AGE, 21);
-    request.response.headers.add(HttpHeaders.TE, "");
     request.response.close();
     server.close();
   });
@@ -34,8 +31,12 @@ test(String method) async {
   }).then((HttpClientResponse response) {
     Expect.equals("text/plain; charset=utf-8",
         response.headers.value("content-type"));
-    Expect.equals("21", response.headers.value(HttpHeaders.AGE));
-    Expect.equals("", response.headers.value(HttpHeaders.TE));
+    Expect.throws(() {
+      response.headers.add(HttpHeaders.AGE, 21);
+    });
+    Expect.throws(() {
+      response.headers.set(HttpHeaders.AGE, 22);
+    });
     asyncEnd();
   });
 }
