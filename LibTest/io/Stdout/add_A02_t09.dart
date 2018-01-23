@@ -8,8 +8,8 @@
  * Adds byte data to the target consumer, ignoring [encoding].
  * The [encoding] does not apply to this method, and the [data] list is passed
  * directly to the target consumer as a stream event.
- * @description Checks that expected data passed for Latin1 stdout encoding with
- * [allowInvalid] parameter set to [false]
+ * @description Checks that expected data passed for Utf8 stdout encoding with
+ * [allowMalformed] parameter set to [true]
  * @author iarkh@unipro.ru
  * @issue 31894
  */
@@ -24,5 +24,5 @@ run_process() { stdout.add(aList); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new Latin1Codec(allowInvalid: false), run_process, aList, aList);
+      new Utf8Codec(allowMalformed: true), run_process, aList, aList);
 }

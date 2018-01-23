@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,38 +9,18 @@
  * The [encoding] does not apply to this method, and the [data] list is passed
  * directly to the target consumer as a stream event.
  * @description Checks that if [stdout] encoding is set to [null] then number
- * more than 256 are converted to some ASCII codes.
- * Maybe this test should be corrected, see issue #31670 for more details.
+ * are passed to [stdout] as is.
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
-import "dart:convert";
 import "dart:io";
+import "test.lib.dart";
 
-List<int> aList = [254, 255, 256, 257, 1000];
-List<int> expected = [254, 255, 0, 1, 232];
+List<int> aList =
+  [126, 127, 128, 254, 255, 256, 510, 511, 512, 513, 1000, 2000, 3000,
+    -1, -2, -3, -255, -256];
 
-run_process(IOSink sink) { sink.add(aList); }
-
-run_main(String mode, Encoding enc) async {
-  String executable = Platform.resolvedExecutable;
-  String eScript = Platform.script.toString();
-  int called = 0;
-
-  await Process.run(executable, [eScript, mode],
-      stdoutEncoding: enc, stderrEncoding: enc).
-        then((ProcessResult results) {
-    Expect.listEquals(expected, mode == "err" ? results.stderr : results.stdout);
-    called++;
-  });
-  Expect.equals(1, called);
-}
+run_process() { stdout.add(aList); }
 
 main(List<String> args) {
-  if(args.length > 0)
-    run_process(args[0] == "err" ? stderr : stdout);
-  else {
-    run_main("out", null);
-    run_main("err", null);
-  }
+  args.length > 0 ? run_process() : run_main(null, run_process, aList, aList);
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,32 +11,17 @@
  * [UTF8] encoding.
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
 import "dart:convert";
 import "dart:io";
+import "test.lib.dart";
 
 String str = "Тест для проверки";
+List<int> expected = [1058, 1077, 1089, 1090, 32, 1076, 1083, 1103, 32, 1087,
+    1088, 1086, 1074, 1077, 1088, 1082, 1080];
 
-run_process(IOSink sink) { sink.write(str); }
-
-run_main(String mode) async {
-  String executable = Platform.resolvedExecutable;
-  String eScript = Platform.script.toString();
-  int called = 0;
-
-  await Process.run(executable, [eScript, mode],
-      stdoutEncoding: UTF8, stderrEncoding: UTF8).then((ProcessResult results) {
-    Expect.equals(str, mode == "err" ? results.stderr : results.stdout);
-    called++;
-  });
-  Expect.equals(1, called);
-}
+run_process() { stdout.write(str); }
 
 main(List<String> args) {
-  if(args.length > 0)
-    run_process(args[0] == "err" ? stderr : stdout);
-  else {
-    run_main("out");
-    run_main("err");
-  }
+  args.length > 0 ? run_process() : run_main(
+      new Utf8Codec(allowMalformed: false), run_process, str, expected);
 }
