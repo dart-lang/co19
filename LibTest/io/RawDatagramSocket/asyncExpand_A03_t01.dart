@@ -25,6 +25,7 @@ check(Stream convert(event)) {
     Stream stream2 = stream.asyncExpand(convert);
     Expect.isTrue(stream2.isBroadcast);
     socket.close();
+    asyncEnd();
   });
 }
 
