@@ -9,7 +9,7 @@
  * The [encoding] does not apply to this method, and the [data] list is passed
  * directly to the target consumer as a stream event.
  * @description Checks that [data] passed directly and all is OK for any
- * [encoding] if the [data] is an ascii string.
+ * [encoding] if the [data] contains some ascii codes.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
