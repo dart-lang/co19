@@ -28,9 +28,5 @@ run_main() async {
 }
 
 main(List<String> args) {
-  if (args.length > 0)
-    run_process();
-  else {
-    run_main();
-  }
+  args.length > 0 ? run_process() : run_main();
 }
