@@ -4,27 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool lineMode
- * Check if line mode is enabled on [stdin].
- * @description Checks that [lineMode] is a valid [boolean] value
+ * @assertion int readByteSync()
+ * If at end of file, [-1] is returned.
+ * @description Checks that [-1] is returned if no there is any input actually.
  * @author iarkh@unipro.ru
- * @issue 31932
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { exit (stdin.lineMode ? 0 : 1); }
+run_process() {
+  stdout.write(stdin.readByteSync());
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  int called = -1;
+  int called = 0;
   await Process.run(executable, [eScript, "test"],
       runInShell: true).then((ProcessResult results) {
-    called = results.exitCode;
-    if (called != 0 && called != 1) print(results.stderr);
+    called++;
+    Expect.equals("-1", results.stdout);
   });
-  Expect.isTrue(called == 0 || called == 1);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {
