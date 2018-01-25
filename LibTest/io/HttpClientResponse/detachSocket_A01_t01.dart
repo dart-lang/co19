@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool persistentConnection
- * Gets the persistent connection state returned by the server.
+ * @assertion Future<Socket> detachSocket()
+ * Detach the underlying socket from the HTTP client. When the socket is
+ * detached the HTTP client will no longer perform any operations on it.
  *
- * If the persistent connection state needs to be set, it must be set before the
- * body is written to. Setting the reason phrase after writing to the body will
- * throw a StateError.
- * @description Checks that this getter returns the persistent connection state
- * returned by the server
+ * This is normally used when a HTTP upgrade is negotiated and the communication
+ * should continue with a different protocol.
+ * @description Checks that this method detaches the underlying socket from the
+ * HTTP client
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -23,11 +23,9 @@ var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
 test(String method) async {
   asyncStart();
-  String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
+  int port = server.port;
   server.listen((HttpRequest request) {
-    request.response.persistentConnection = false;
-    request.response.write(helloWorld);
     request.response.close();
     server.close();
   });
@@ -37,9 +35,13 @@ test(String method) async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.isFalse(response.persistentConnection);
-    response.transform(UTF8.decoder).listen((content) {});
-    asyncEnd();
+    response.transform(UTF8.decoder).listen((content) {
+
+    });
+    response.detachSocket().then((Socket socket) {
+      Expect.notEquals(port, socket.port);
+      asyncEnd();
+    });
   });
 }
 
