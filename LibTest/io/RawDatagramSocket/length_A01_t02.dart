@@ -1,20 +1,14 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<RawSocketEvent> last
- * Returns the last element of the stream.
+ * @assertion Future<int> length
+ * Counts the elements in the stream.
  *
- * If an error event occurs before the first data event, the resulting future
- * is completed with that error.
- *
- * If this stream is empty (a done event occurs before the first data event),
- * the resulting future completes with a StateError.
- *
- * @description Checks that property last returns the last element of the
- * stream when no one sent event was received ang  RawDatagramSocket was closed.
+ * @description Checks that property length returns the number of elements in
+ * the socket when this RawDatagramSocket is regarded as a broadcast stream.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -30,18 +24,27 @@ check([bool no_write_events = false]) {
         receiver.writeEventsEnabled = false;
       }
       int sent = 0;
-      var rEvent;
-
+      int counter = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
-      receiver.close();
 
-      receiver.last.then((event) {
-        rEvent = event;
-      }).whenComplete (() {
-        Expect.equals(RawSocketEvent.CLOSED, rEvent);
+      Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
+      stream.length.then((value) {
+        Expect.equals(4, value);
+      });
+
+      new Timer(const Duration(milliseconds: 200), () {
+        Expect.isNull(receiver.receive());
+        receiver.close();
+      });
+
+      stream.listen((event) {
+        counter++;
+        receiver.receive();
+      }).onDone(() {
+        Expect.equals(4, counter);
         asyncEnd();
       });
     });
