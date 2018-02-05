@@ -4,14 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool persistentConnection
- * Gets the persistent connection state returned by the server.
+ * @assertion int statusCode
+ * Returns the status code.
  *
- * If the persistent connection state needs to be set, it must be set before the
- * body is written to. Setting the reason phrase after writing to the body will
- * throw a StateError.
- * @description Checks that this getter returns the persistent connection state
- * returned by the server
+ * The status code must be set before the body is written to. Setting the status
+ * code after writing to the body will throw a StateError.
+ * @description Checks that this getter returns the status code.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -26,7 +24,7 @@ test(String method) async {
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.persistentConnection = false;
+    request.response.statusCode = HttpStatus.ACCEPTED;
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -37,7 +35,7 @@ test(String method) async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.isFalse(response.persistentConnection);
+    Expect.equals(HttpStatus.ACCEPTED, response.statusCode);
     response.transform(UTF8.decoder).listen((content) {});
     asyncEnd();
   });

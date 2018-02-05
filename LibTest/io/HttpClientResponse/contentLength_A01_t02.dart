@@ -24,7 +24,6 @@ var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
 test(String method) async {
   asyncStart();
-  String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     request.response.contentLength = 0;

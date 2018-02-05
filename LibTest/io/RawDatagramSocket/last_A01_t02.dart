@@ -7,16 +7,11 @@
  * @assertion Future<RawSocketEvent> last
  * Returns the last element of the stream.
  *
- * If an error event occurs before the first data event, the resulting future
- * is completed with that error.
- *
- * If this stream is empty (a done event occurs before the first data event),
- * the resulting future completes with a StateError.
- *
  * @description Checks that property last returns the last element of the
- * stream when no one sent event was received ang  RawDatagramSocket was closed.
+ * stream when all sent events were received and RawDatagramSocket was closed.
  * @author ngl@unipro.ru
  */
+import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
@@ -31,18 +26,30 @@ check([bool no_write_events = false]) {
       }
       int sent = 0;
       var rEvent;
+      int counter = 0;
 
+      Stream stream = receiver.asBroadcastStream();
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
-      receiver.close();
 
-      receiver.last.then((event) {
+      stream.last.then((event) {
         rEvent = event;
       }).whenComplete (() {
         Expect.equals(RawSocketEvent.CLOSED, rEvent);
+        Expect.equals(4, counter);
         asyncEnd();
+      });
+
+      stream.listen((e) {
+        counter++;
+        receiver.receive();
+      });
+
+      new Timer(const Duration(milliseconds: 200), () {
+        Expect.isNull(receiver.receive());
+        receiver.close();
       });
     });
   });

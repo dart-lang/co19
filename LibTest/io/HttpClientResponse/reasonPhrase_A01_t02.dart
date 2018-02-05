@@ -4,14 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool persistentConnection
- * Gets the persistent connection state returned by the server.
+ * @assertion String reasonPhrase
+ * Returns the reason phrase associated with the status code.
  *
- * If the persistent connection state needs to be set, it must be set before the
- * body is written to. Setting the reason phrase after writing to the body will
- * throw a StateError.
- * @description Checks that this getter returns the persistent connection state
- * returned by the server
+ * The reason phrase must be set before the body is written to. Setting the
+ * reason phrase after writing to the body will throw a StateError.
+ * @description Checks that this getter returns the reason phrase associated
+ * with the status code.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -26,7 +25,7 @@ test(String method) async {
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.persistentConnection = false;
+    request.response.reasonPhrase = "Reason-Phrase";
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -37,7 +36,7 @@ test(String method) async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.isFalse(response.persistentConnection);
+    Expect.equals("Reason-Phrase", response.reasonPhrase);
     response.transform(UTF8.decoder).listen((content) {});
     asyncEnd();
   });
