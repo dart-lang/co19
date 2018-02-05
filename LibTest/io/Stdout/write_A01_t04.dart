@@ -16,12 +16,13 @@ import "dart:io";
 import "test.lib.dart";
 
 String str = "Тест для проверки";
-List<int> expected = [1058, 1077, 1089, 1090, 32, 1076, 1083, 1103, 32, 1087,
-    1088, 1086, 1074, 1077, 1088, 1082, 1080];
+List<int> expected = [208, 162, 208, 181, 209, 129, 209, 130, 32, 208, 180, 208,
+    187, 209, 143, 32, 208, 191, 209, 128, 208, 190, 208, 178, 208, 181, 209,
+    128, 208, 186, 208, 184];
 
 run_process() { stdout.write(str); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new Utf8Codec(allowMalformed: false), run_process, str, expected);
+      new Utf8Codec(allowMalformed: false), run_process, expected);
 }

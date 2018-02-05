@@ -31,7 +31,7 @@ Future<ProcessResult> run_Linux(
       runInShell: true, stdoutEncoding: enc);
 }
 
-run_main(Encoding enc, void run(), dynamic str, List<int> expected) async {
+run_main(Encoding enc, void run(), List<int> expected) async {
   String executable = Platform.resolvedExecutable;
   String script = Platform.script.toString();
   int called = 0;
@@ -44,8 +44,7 @@ run_main(Encoding enc, void run(), dynamic str, List<int> expected) async {
     File fl = new File(filename);
     await fl.readAsBytes().then((List<int> contents) {
       fl.delete();
-      Expect.listEquals(expected, str.runtimeType == String ?
-          (str as String).codeUnits : str);
+      Expect.listEquals(expected, contents);
     });
     called++;
   });

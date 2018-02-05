@@ -18,10 +18,12 @@ import "test.lib.dart";
 
 List<int> aList =
   [254, 255, 256, 510, 511, 512, 513, 1000, 2000, 3000, -1, -2, -3, -255, -256];
+List<int> expected =
+  [254, 255, 0, 254, 255, 0, 1, 232, 208, 184, 255, 254, 253, 1, 0];
 
 run_process() { stdout.add(aList); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new Latin1Codec(allowInvalid: true), run_process, aList, aList);
+      new Latin1Codec(allowInvalid: true), run_process, expected);
 }

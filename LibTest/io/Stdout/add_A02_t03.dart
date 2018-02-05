@@ -9,7 +9,7 @@
  * The [encoding] does not apply to this method, and the [data] list is passed
  * directly to the target consumer as a stream event.
  * @description Checks that if [stdout] encoding is set to [null] then number
- * are passed to [stdout] as is.
+ * are passed to [stdout].
  * @author iarkh@unipro.ru
  */
 import "dart:io";
@@ -18,9 +18,11 @@ import "test.lib.dart";
 List<int> aList =
   [126, 127, 128, 254, 255, 256, 510, 511, 512, 513, 1000, 2000, 3000,
     -1, -2, -3, -255, -256];
+List<int> expected = [126, 127, 128, 254, 255, 0, 254, 255, 0, 1, 232, 208, 184,
+    255, 254, 253, 1, 0];
 
 run_process() { stdout.add(aList); }
 
 main(List<String> args) {
-  args.length > 0 ? run_process() : run_main(null, run_process, aList, aList);
+  args.length > 0 ? run_process() : run_main(null, run_process, expected);
 }

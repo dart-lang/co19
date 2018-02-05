@@ -9,9 +9,6 @@
  * encoding of the result to the target consumer.
  * @description Checks that [String] with non-ascii characters is correctly
  * added to the consumer with ASCII] encoding with [allowInvalid] set to [true].
- * See also [AsciiCodec] Spec:
- * If allowing invalid values, the values will be decoded into the Unicode
- * Replacement character ([U+FFFD]).
  * @author iarkh@unipro.ru
  */
 import "dart:convert";
@@ -19,11 +16,11 @@ import "dart:io";
 import "test.lib.dart";
 
 String str = "1âã";
-List<int> expected = [49, 226, 227];
+List<int> expected = [49, 195, 162, 195, 163];
 
 run_process() { stdout.write(str); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new AsciiCodec(allowInvalid: true), run_process, str, expected);
+      new AsciiCodec(allowInvalid: true), run_process, expected);
 }

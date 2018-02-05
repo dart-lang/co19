@@ -15,7 +15,9 @@ import "dart:convert";
 import "dart:io";
 import "test.lib.dart";
 
-List objects = [1, 500, 500, 512, 513, 1024, 2500, 111000, 1114111];
+List<int> objects = [1, 500, 500, 512, 513, 1024, 2500, 111000, 1114111];
+List<int> expected = [1, 199, 180, 199, 180, 200, 128, 200, 129, 208, 128, 224,
+    167, 132, 240, 155, 134, 152, 244, 143, 191, 191];
 
 run_process() {
   for(int i = 0; i < objects.length; i++) {
@@ -25,5 +27,5 @@ run_process() {
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      Encoding.getByName("UTF-16"), run_process, objects, objects);
+      Encoding.getByName("UTF-16"), run_process, expected);
 }
