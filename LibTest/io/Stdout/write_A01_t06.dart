@@ -8,10 +8,7 @@
  * Converts [obj] to a [String] by invoking [Object.toString] and adds the
  * encoding of the result to the target consumer.
  * @description Checks that attempt to write [String] with non-ascii characters
- * causes exception if encoding is ASCI with [allowInvalid] set to [true].
- * See also [AsciiCodec] Spec:
- * If allowing invalid values, the values will be decoded into the Unicode
- * Replacement character ([U+FFFD]). If not, an exception will be thrown.
+ * causes exception if encoding is ASCII with [allowInvalid] set to [false].
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";

@@ -23,7 +23,7 @@ run_main(String mode) async {
     Expect.equals("1", mode == "err" ? results.stderr : results.stdout);
     called++;
   });
-  Expect.isTrue(called);
+  Expect.equals(1, called);
 }
 
 main(List<String> args) {

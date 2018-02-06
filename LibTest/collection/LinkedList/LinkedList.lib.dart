@@ -15,10 +15,10 @@ class MyLinkedListEntry<E> extends LinkedListEntry<MyLinkedListEntry<E>> {
   }
 }
 
-LinkedList<MyLinkedListEntry> toLinkedList(Iterable entries) {
-  LinkedList<MyLinkedListEntry> res = new LinkedList<MyLinkedListEntry>();
-  entries.forEach((entry) => res.add(new MyLinkedListEntry(entry)));
-  return res;
+LinkedList<MyLinkedListEntry<E>> toLinkedList<E>(Iterable entries) {
+  var result = new LinkedList<MyLinkedListEntry<E>>();
+  entries.forEach((entry) => result.add(new MyLinkedListEntry<E>(entry)));
+  return result;
 }
 
 void entriesEquals(Iterable<MyLinkedListEntry> expected,
