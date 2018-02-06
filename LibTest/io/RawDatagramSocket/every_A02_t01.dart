@@ -29,7 +29,7 @@ main() {
       producer.close();
       receiver.close();
 
-      Future<bool> b = receiver.every((e) => throw(1));
+      Future<bool> b = receiver.every((e) => throw 1);
       b.then((value) {
         Expect.fail('Should not be here.');
       }).catchError((e) {

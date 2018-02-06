@@ -41,14 +41,14 @@ main() {
       producer.close();
 
       Stream bcs = receiver.asBroadcastStream();
-      Stream s = bcs.distinct((previous, next) => throw("ex"));
+      Stream s = bcs.distinct((previous, next) => throw "ex");
       s.listen((event) {
         list.add(event);
         counter1++;
-      },onError: (e) {
+      }, onError: (e) {
         errorList.add(e);
         counter2++;
-      },onDone: () {
+      }, onDone: () {
         Expect.equals(1, counter1);
         Expect.equals(3, counter2);
         Expect.equals(4, received);

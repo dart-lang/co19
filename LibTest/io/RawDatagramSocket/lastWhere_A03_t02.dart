@@ -56,7 +56,7 @@ check(test(e), rValue(), expected) {
 
 main() {
   Error error = new Error();
-  check((e) => e == null, () => throw(1), 1);
-  check((e) => e == 1, () => throw(3), 3);
+  check((e) => e == null, () => throw 1, 1);
+  check((e) => e == 1, () => throw 3, 3);
   check((e) => !(e is RawSocketEvent), () => throw error, error);
 }
