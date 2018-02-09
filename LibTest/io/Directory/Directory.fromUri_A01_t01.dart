@@ -33,7 +33,7 @@ main() {
         dirName + Platform.pathSeparator, dir.path);
 
     // test file
-    File file = getTempFileSync(tmp);
+    File file = getTempFileSync();
     try {
       uri = new Uri.file(file.path);
       dir = new Directory.fromUri(uri);

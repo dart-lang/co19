@@ -22,7 +22,7 @@ main() {
 
   // create file in dir2
   String fileName = getTempFileName();
-  File file = getTempFileSync(dir2, fileName);
+  File file = getTempFileSync(parent: dir2, name: fileName);
   // create link to the directory dir 1
   Link link1 = getTempLinkSync(target: dir1.path);
   // in dir1 create link to dir1
