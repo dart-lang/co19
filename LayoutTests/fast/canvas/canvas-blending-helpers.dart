@@ -25,16 +25,16 @@ var separateBlendFunctions;
 
 initHelpers() {
   separateBlendFunctions = {
-    'normal': (b, s) {
+    'normal': (num b, num s) {
       return s;
     },
-    'multiply': (b, s) {
+    'multiply': (num b, num s) {
       return b * s;
     },
-    'screen': (b, s) {
+    'screen': (num b, num s) {
       return b + s - b * s;
     },
-    'overlay': (b, s) {
+    'overlay': (num b, num s) {
       return separateBlendFunctions['hardLight'](b, s);
     },
     'darken': (num b, num s) {
@@ -53,13 +53,13 @@ initHelpers() {
         return 0;
       return 1 - Math.min(1, (1 - b) / s);
     },
-    'hardLight': (b, s) {
+    'hardLight': (num b, num s) {
       if(s <= 0.5)
         return separateBlendFunctions['multiply'](s, 2 * b);
 
       return separateBlendFunctions['screen'](s, 2 * b - 1);
     },
-    'softLight': (b, s) {
+    'softLight': (num b, num s) {
       double c = 0.0;
       if(b <= 0.25)
         c = ((16 * b - 12) * b + 4) * b;
@@ -71,10 +71,10 @@ initHelpers() {
 
       return b + (2  * s - 1) * (c - b);
     },
-    'difference': (b, s) {
+    'difference': (num b, num s) {
       return abs(b - s);
     },
-    'exclusion': (b, s) {
+    'exclusion': (num b, num s) {
       return s + b - 2 * b * s;
     }
   };

@@ -17,7 +17,7 @@ import "../file_utils.dart";
 main() {
   Directory parent = getTempDirectorySync();
   try {
-    File file = getTempFileSync(parent);
+    File file = getTempFileSync(parent: parent);
     Expect.equals(parent.path, file.parent.path);
 
     file = new File(parent.path + Platform.pathSeparator + "NotExisting");
