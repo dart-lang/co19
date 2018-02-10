@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,21 +15,17 @@ import "dart:convert";
 import "dart:io";
 
 test(Stdout sink) {
-  Encoding enc = new Utf8Codec();
-  sink.encoding = enc;
-  Expect.equals(enc, sink.encoding);
+  sink.encoding = UTF8;
+  Expect.equals(UTF8, sink.encoding);
 
-  enc = new AsciiCodec();
-  sink.encoding = enc;
-  Expect.equals(enc, sink.encoding);
+  sink.encoding = ASCII;
+  Expect.equals(ASCII, sink.encoding);
 
-  enc = new Latin1Codec();
-  sink.encoding = enc;
-  Expect.equals(enc, sink.encoding);
+  sink.encoding = LATIN1;
+  Expect.equals(LATIN1, sink.encoding);
 
-  enc = new SystemEncoding();
-  sink.encoding = enc;
-  Expect.equals(enc, sink.encoding);
+  sink.encoding = SYSTEM_ENCODING;
+  Expect.equals(SYSTEM_ENCODING, sink.encoding);
 
   sink.encoding = null;
   Expect.isNull(sink.encoding);
