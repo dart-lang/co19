@@ -21,7 +21,7 @@ Future<ProcessResult> run_Windows(String executable, String script) {
 Future<ProcessResult> run_Linux(
     String executable, String script) {
   return Process.run(
-      "bash", ["-c", "echo abc | " + executable + " " + script + "test"],
+      "bash", ["-c", "echo abc | " + executable + " " + script + " test"],
       runInShell: true);
 }
 

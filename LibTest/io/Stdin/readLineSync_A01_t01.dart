@@ -5,8 +5,10 @@
  */
 /**
  * @assertion int readByteSync()
- * String readLineSync({Encoding encoding: SYSTEM_ENCODING,
- *  bool retainNewlines: false})
+ * @assertion String readLineSync({
+ *   Encoding encoding: SYSTEM_ENCODING,
+ *   bool retainNewlines: false
+ *   })
  * Synchronously read a line from stdin.
  * @description Checks that line is read from stdin.
  * @author iarkh@unipro.ru
@@ -14,9 +16,7 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() {
-  stdout.write(stdin.readLineSync());
-}
+run_process() { stdout.write(stdin.readLineSync()); }
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
