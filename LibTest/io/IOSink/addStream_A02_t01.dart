@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -26,9 +26,7 @@ main() {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(stream1).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) {
-      sink.close();
-    });
+    new Future.delayed(new Duration(seconds: 3)).then((_) { sink.close(); });
   });
   Expect.throws(() { sink.addStream(stream2); }, (e) => e is StateError);
 }

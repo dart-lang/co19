@@ -14,7 +14,7 @@ import "dart:async";
 import "dart:io";
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) { return new Future((){}); }
+  Future addStream(Stream<List> stream) { return new Future(() {}); }
   Future close() { return new Future((){}); }
 }
 

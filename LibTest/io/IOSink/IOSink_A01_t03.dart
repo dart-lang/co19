@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -17,24 +17,20 @@ import "dart:io";
 import "dart:convert";
 
 main() {
-  Encoding enc = new Utf8Codec();
-  IOSink sink = new IOSink(new StreamController(), encoding: enc);
-  Expect.equals(enc, sink.encoding);
+  IOSink sink = new IOSink(new StreamController(), encoding: UTF8);
+  Expect.equals(UTF8, sink.encoding);
   sink.close();
 
-  enc = new AsciiCodec();
-  sink = new IOSink(new StreamController(), encoding: enc);
-  Expect.equals(enc, sink.encoding);
+  sink = new IOSink(new StreamController(), encoding: ASCII);
+  Expect.equals(ASCII, sink.encoding);
   sink.close();
 
-  enc = new Latin1Codec();
-  sink = new IOSink(new StreamController(), encoding: enc);
-  Expect.equals(enc, sink.encoding);
+  sink = new IOSink(new StreamController(), encoding: LATIN1);
+  Expect.equals(LATIN1, sink.encoding);
   sink.close();
 
-  enc = new SystemEncoding();
-  sink = new IOSink(new StreamController(), encoding: enc);
-  Expect.equals(enc, sink.encoding);
+  sink = new IOSink(new StreamController(), encoding: SYSTEM_ENCODING);
+  Expect.equals(SYSTEM_ENCODING, sink.encoding);
   sink.close();
 
   sink = new IOSink(new StreamController(), encoding: null);
