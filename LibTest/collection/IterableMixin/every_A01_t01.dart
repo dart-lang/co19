@@ -26,9 +26,9 @@ class MyIterable extends Object with IterableMixin {
 
 main() {
   MyIterable iterable = new MyIterable([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  Expect.isTrue(iterable.every((int element) { return true; }));
-  Expect.isTrue(iterable.every((int element) { return element > 0; }));
-  Expect.isFalse(iterable.every((int element) { return false; }));
-  Expect.isFalse(iterable.every((int element) { return element < 0; }));
-  Expect.isFalse(iterable.every((int element) { return element > 4; }));
+  Expect.isTrue(iterable.every((var element) { return true; }));
+  Expect.isTrue(iterable.every((var element) { return element > 0; }));
+  Expect.isFalse(iterable.every((var element) { return false; }));
+  Expect.isFalse(iterable.every((var element) { return element < 0; }));
+  Expect.isFalse(iterable.every((var element) { return element > 4; }));
 }

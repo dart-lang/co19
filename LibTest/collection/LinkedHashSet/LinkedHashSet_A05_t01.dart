@@ -21,7 +21,7 @@ import "dart:collection";
 bool checkDone = false;
 bool isValidKeyCalled = false;
 
-bool myEquals(int key1, int key2) {
+bool myEquals(var key1, var key2) {
   if (!checkDone) {
     Expect.isTrue(isValidKeyCalled);
     checkDone = true;
@@ -29,7 +29,7 @@ bool myEquals(int key1, int key2) {
   return key1 == key2;
 }
 
-int myHashCode(int key) {
+int myHashCode(var key) {
   if (!checkDone) {
     Expect.isTrue(isValidKeyCalled);
     checkDone = true;

@@ -24,19 +24,19 @@ class MyIterable extends Object with IterableMixin {
 
 List iterated = [];
 
-bool test1(int value) {
+bool test1(var value) {
   iterated.add(value);
   return value > 1;
 }
 
-bool test2(int value) {
+bool test2(var value) {
   iterated.add(value);
   return value == 0;
 }
 
-bool test3(dynamic value) {
+bool test3(var value) {
   iterated.add(value);
-  return false;
+  return value == 1254;
 }
 
 check(List list, bool test(value), List expected) {

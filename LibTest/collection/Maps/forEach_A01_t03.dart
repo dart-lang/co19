@@ -23,11 +23,11 @@ main() {
   
   int count = 0;
   try {
-    Maps.forEach(map, (String key, Object value) {
+    Maps.forEach(map, (var key, var value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");
-  } on String catch(e) {}
+  } on String {}
 
   Expect.isTrue(count == 2);
 }

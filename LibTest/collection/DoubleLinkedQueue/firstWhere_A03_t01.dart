@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
-  Expect.throws(() { queue.firstWhere((int value) => false); },
+  Expect.throws(() { queue.firstWhere((var value) => false); },
       (e) => e is StateError
   );
 }

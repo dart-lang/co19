@@ -18,9 +18,9 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(int key1, int key2) => key1 == key2;
+bool myEquals(var key1, var key2) => key1 == key2;
 
-int myHashCode(int key) => key.hashCode;
+int myHashCode(var key) => key.hashCode;
 
 bool isValidKey(var potentialKey) {
   return (potentialKey is int) && potentialKey < 100;

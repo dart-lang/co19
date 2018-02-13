@@ -21,10 +21,9 @@ check(LinkedList<MyLinkedListEntry> llist,
   llist.remove(entry);
   Expect.equals(length - 1, llist.length);
   Expect.isFalse(llist.contains(entry));
-  initial.forEach((MyLinkedListEntry entry) {
+  initial.forEach((var entry) {
     Expect.isTrue(initial.contains(entry));
-  }
-  );
+  });
 }
 
 main() {

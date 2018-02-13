@@ -23,7 +23,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-bool test(int value) {
+bool test(var value) {
   Expect.fail("test($value) called");
   return true;
 }

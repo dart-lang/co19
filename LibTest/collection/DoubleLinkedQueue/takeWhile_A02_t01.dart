@@ -18,7 +18,7 @@ DoubleLinkedQueue fromList(List list) {
   return new DoubleLinkedQueue.from(list);
 }
 
-bool test(int value) {
+bool test(var value) {
   Expect.fail("test($value) called");
   return true;
 }

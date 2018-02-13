@@ -25,7 +25,7 @@ int compare(String key1, String key2) {
 }
 
 main() {
-  SplayTreeSet set = new SplayTreeSet(compare);
+  SplayTreeSet<String> set = new SplayTreeSet<String>(compare);
   set.add("3");
   set.add("2");
   set.add("1");

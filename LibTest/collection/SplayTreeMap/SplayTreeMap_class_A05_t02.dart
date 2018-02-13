@@ -22,11 +22,11 @@ class C {
   C(this.value);
 }
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   return key1.value - key2.value;
 }
 
-bool isValidKey(C potentialKey) => potentialKey.value != 3;
+bool isValidKey(var potentialKey) => potentialKey.value != 3;
 
 main() {
   SplayTreeMap map = new SplayTreeMap(compare, isValidKey);

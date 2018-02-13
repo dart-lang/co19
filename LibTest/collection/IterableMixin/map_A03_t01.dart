@@ -27,7 +27,7 @@ class MyIterable<int> extends Object with IterableMixin {
 
 List<int> visited = new List<int>(200);
 
-int f(int element) {
+int f(var element) {
   visited[element]++;
   return element;
 }

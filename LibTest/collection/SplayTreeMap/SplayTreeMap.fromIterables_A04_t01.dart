@@ -29,8 +29,8 @@ main() {
   C c1 = new C(2);
   C c2 = new C(2);
   Iterable<C> keys = [new C(1), c1, c2];
-  Iterable values = [1, 2, 3];
-  SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare);
+  Iterable<int> values = [1, 2, 3];
+  SplayTreeMap<C, int> map = new SplayTreeMap<C, int>.fromIterables(keys, values, compare);
 
   Expect.equals(2, map.length);
   Expect.equals(3, map[c1]);

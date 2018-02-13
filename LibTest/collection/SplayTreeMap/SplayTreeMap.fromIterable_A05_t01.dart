@@ -21,7 +21,7 @@ class C {
   C(this.value);
 }
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   compareCalled = true;
   return key1.value - key2.value;
 }

@@ -26,21 +26,21 @@ main() {
   List res = [];
   MyIterable iterable = new MyIterable(original);
 
-  iterable.every((int element) {
+  iterable.every((var element) {
       res.add(element);
       return true;
     });
   Expect.listEquals(original, res);
 
   res.clear();
-  iterable.every((int element) {
+  iterable.every((var element) {
     res.add(element);
     return element > 0;
   });
   Expect.listEquals(res, [1, 2, 7, -5]);
 
   res.clear();
-  iterable.every((int element) {
+  iterable.every((var element) {
     res.add(element);
     return element < 10;
   });

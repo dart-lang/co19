@@ -13,7 +13,7 @@
 library skipWhile_A02_t01;
 import "../../../Utils/expect.dart"	;
 
-bool f(int value) {
+bool f(var value) {
   Expect.fail("test($value) called");
   return false;
 }

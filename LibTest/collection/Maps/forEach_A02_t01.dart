@@ -24,32 +24,32 @@ main() {
   map["1"] = 3;
   map["2"] = 5;
   try {
-    Maps.forEach(map, (String key, Object value) {
+    Maps.forEach(map, (var key, var value) {
       map["3"] = key;
     });
     Expect.fail("ConcurrentModificationError expected");
-  } on ConcurrentModificationError catch(e) {}
+  } on ConcurrentModificationError {}
   
   try {
-    Maps.forEach(map, (String key, Object value) {
+    Maps.forEach(map, (var key, var value) {
       map.remove("2");
     });
     Expect.fail("ConcurrentModificationError expected");
-  } on ConcurrentModificationError catch(e) {}
+  } on ConcurrentModificationError {}
 
   try {
-    Maps.forEach(map, (String key, Object value) {
+    Maps.forEach(map, (var key, var value) {
       map.remove(key);
     });
     Expect.fail("ConcurrentModificationError expected");
-  } on ConcurrentModificationError catch(e) {}
+  } on ConcurrentModificationError {}
   
   map["1"] = 1;
   map["2"] = 2;
   try {
-    Maps.forEach(map, (String key, Object value) {
+    Maps.forEach(map, (var key, var value) {
       Maps.clear(map);
     });
     Expect.fail("ConcurrentModificationError expected");
-  } on ConcurrentModificationError catch(e) {}
+  } on ConcurrentModificationError {}
 }

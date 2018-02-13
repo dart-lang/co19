@@ -23,11 +23,11 @@ test(Map create([Map content])) {
   
   int count = 0;
   try {
-    map.forEach((String key, Object value) {
+    map.forEach((var key, var value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");
-  } on String catch(e) {}
+  } on String {}
 
   Expect.isTrue(count == 2);
 }

@@ -34,7 +34,7 @@ int compare(String key1, String key2) {
 }
 
 main() {
-  SplayTreeSet set = new SplayTreeSet.from(["", "1", "2", "3"], compare,
+  SplayTreeSet<String> set = new SplayTreeSet<String>.from(["", "1", "2", "3"], compare,
       isValidKey);
 
   startTesting = true;

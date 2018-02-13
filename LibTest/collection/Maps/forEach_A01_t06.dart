@@ -21,9 +21,9 @@ main() {
   map["2"] = 5;
   
   int count = 0;
-  Maps.forEach(map, (String key1, Object value1) {
-    Maps.forEach(map, (String key2, Object value2) {
-      Maps.forEach(map, (String key3, Object value3) {count++;});
+  Maps.forEach(map, (var key1, var value1) {
+    Maps.forEach(map, (var key2, var value2) {
+      Maps.forEach(map, (var key3, var value3) {count++;});
     });
   });
   Expect.isTrue(count == 8);

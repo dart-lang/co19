@@ -39,8 +39,8 @@ main() {
   C c1 = new C(1);
   C c2 = new C(2);
   Iterable<C> keys = [c1, c2];
-  Iterable values = [1, 2];
-  SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare,
+  Iterable<int> values = [1, 2];
+  SplayTreeMap<C, int> map = new SplayTreeMap<C, int>.fromIterables(keys, values, compare,
       isValidKey);
 
   startTesting = true;

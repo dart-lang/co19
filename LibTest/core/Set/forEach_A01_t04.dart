@@ -19,10 +19,10 @@ test(Set create([Set content])) {
   s.addAll([1, -3, 10, 17]);
 
   Set outer = create();
-  s.forEach((int x) {
+  s.forEach((var x) {
     outer.add(x);
     Set inner = create();
-    s.forEach((int y) {
+    s.forEach((var y) {
       inner.add(y);
     });
     Expect.isTrue(inner.containsAll(s));

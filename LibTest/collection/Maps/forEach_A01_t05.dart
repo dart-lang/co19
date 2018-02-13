@@ -20,7 +20,7 @@ main() {
   map["1"] = 3;
   map["2"] = 5;
   
-  Maps.forEach(map, (String key, int value) {
+  Maps.forEach(map, (var key, var value) {
     map[key] = value + 1;
   });
   

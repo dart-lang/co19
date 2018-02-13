@@ -17,7 +17,7 @@ test(Map create([Map content])) {
   map["1"] = 3;
   map["2"] = 5;
   
-  int f(String x, Object y) {
+  int f(var x, var y) {
     return 1;
   }
   

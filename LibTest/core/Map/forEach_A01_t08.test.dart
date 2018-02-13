@@ -20,9 +20,9 @@ test(Map create([Map content])) {
   map["2"] = 5;
   
   int count = 0;
-  map.forEach((String key1, Object value1) {
-    map.forEach((String key2, Object value2) {
-      map.forEach((String key3, Object value3) {count++;});
+  map.forEach((var key1, var value1) {
+    map.forEach((var key2, var value2) {
+      map.forEach((var key3, var value3) {count++;});
     });
   });
   Expect.isTrue(count == 8);

@@ -20,7 +20,7 @@ test(Set create([Set content])) {
   List<int> a = new List(s.length);
   int i = 0;
 
-  s.forEach((int x) {
+  s.forEach((var x) {
     a[i] = x;
     i++;
   });

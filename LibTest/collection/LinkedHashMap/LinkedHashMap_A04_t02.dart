@@ -20,11 +20,11 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(int key1, int key2) {
+bool myEquals(var key1, var key2) {
   return key1 == key2;
 }
 
-int myHashCode(int key) {
+int myHashCode(var key) {
   return key.hashCode;
 }
 

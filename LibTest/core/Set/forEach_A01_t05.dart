@@ -18,7 +18,7 @@ test(Set create([Set content])) {
   s.addAll([1, 2, 3, 4, 5]);
 
   int i = 0;
-  s.forEach((int x) {
+  s.forEach((var x) {
     i++;
   });
 

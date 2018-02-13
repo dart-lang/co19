@@ -16,9 +16,9 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(int key1, int key2) =>
+bool myEquals(var key1, var key2) =>
     key1 > 0 && key2 > 0 || key1 <= 0 && key2 <= 0;
-int myHashCode(int key) => key > 0 ? 1 : -1;
+int myHashCode(var key) => key > 0 ? 1 : -1;
 
 check(LinkedHashSet set, List expected) {
   Expect.equals(expected.length, set.length);

@@ -18,7 +18,7 @@ test(Set create([Set content])) {
   Set s = create();
 
   int i = 0;
-  void foo(int x) {
+  void foo(var x) {
     i++;
   }
   s.forEach(foo);

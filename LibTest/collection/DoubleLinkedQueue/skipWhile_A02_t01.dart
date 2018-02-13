@@ -14,7 +14,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-bool test(int value) {
+bool test(var value) {
   Expect.fail("test($value) called");
   return false;
 }

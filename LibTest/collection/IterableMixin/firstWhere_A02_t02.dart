@@ -24,7 +24,7 @@ class MyIterable extends Object with IterableMixin {
 
 List iterated = [];
 
-bool test1(int value) {
+bool test1(var value) {
   iterated.add(value);
   return value < 0;
 }

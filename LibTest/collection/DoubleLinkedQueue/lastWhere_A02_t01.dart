@@ -18,7 +18,7 @@ class TestException {}
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-      queue.lastWhere((int value) => false, orElse: () {
+      queue.lastWhere((var value) => false, orElse: () {
         throw new TestException();
       });
     },

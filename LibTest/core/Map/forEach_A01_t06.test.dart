@@ -19,7 +19,7 @@ test(Map create([Map content])) {
   map["1"] = 3;
   map["2"] = 5;
   
-  map.forEach((String key, int value) {
+  map.forEach((var key, var value) {
     map[key] = value + 1;
   });
   

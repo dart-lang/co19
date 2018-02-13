@@ -30,7 +30,7 @@ test(Set create([Set content])) {
   Set s = create();
   s.addAll([new A(1), new A(-1)]);
 
-  s.forEach((A a) {
+  s.forEach((var a) {
     a.x *= 2;
   });
 

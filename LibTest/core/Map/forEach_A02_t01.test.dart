@@ -22,20 +22,20 @@ test(Map create([Map content])) {
   map["2"] = 5;
 
   Expect.throws(() {
-      map.forEach((String key, Object value) {
+      map.forEach((var key, var value) {
         map["3"] = key;
       });
     }, (e)=> e is ConcurrentModificationError
   );
   
   Expect.throws(() {
-      map.forEach((String key, Object value) {
+      map.forEach((var key, var value) {
         map.remove("2");
       });
     }, (e)=> e is ConcurrentModificationError
   );
   Expect.throws(() {
-      map.forEach((String key, Object value) {
+      map.forEach((var key, var value) {
         map.remove(key);
       });
     }, (e)=> e is ConcurrentModificationError
@@ -44,7 +44,7 @@ test(Map create([Map content])) {
   map["1"] = 1;
   map["2"] = 2;
   Expect.throws(() {
-      map.forEach((String key, Object value) {
+      map.forEach((var key, var value) {
         map.clear();
       });
     }, (e)=> e is ConcurrentModificationError

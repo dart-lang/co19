@@ -24,8 +24,8 @@ check(Iterable expectedKeys, Iterable expectedValues, Map m2) {
   }
 }
 
-int getKey(int element) => element * 2;
-String getValue(int element) => "value=" + element.toString();
+int getKey(var element) => element * 2;
+String getValue(var element) => "value=" + element.toString();
 
 main() {
   SplayTreeMap map = new SplayTreeMap.fromIterable([],

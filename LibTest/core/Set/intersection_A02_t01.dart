@@ -19,7 +19,7 @@ void check(Set create([Iterable content]), Set s) {
   var res = new Set.from([1]);
   try {
     res = s.intersection(null);
-  } on Error catch(e) {
+  } on Error {
     return;
   }
   Expect.isTrue(res.isEmpty);

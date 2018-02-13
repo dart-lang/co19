@@ -16,7 +16,7 @@ library any_A01_t03;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  bool foo(num x) { return x > 0; }
+  bool foo(var x) { return x > 0; }
 
   Iterable s = create([-1, -3, -11]);
   List content = new List.from(s);

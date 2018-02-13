@@ -19,7 +19,7 @@ test(Map create([Map content])) {
   keys[0] = 0;
   keys[1] = 0;
   List values = new List(2);
-  void f(int i, Object value) {
+  void f(var i, var value) {
     keys[i] += 1;
     values[i] = value;
   }

@@ -19,7 +19,7 @@ class TestException {}
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-      queue.firstWhere((int value) => false, orElse: () {
+      queue.firstWhere((var value) => false, orElse: () {
         throw new TestException();
       });
     },

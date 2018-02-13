@@ -23,7 +23,7 @@ class C {
 
 bool compared;
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   compared = true;
   return key1.value - key2.value;
 }

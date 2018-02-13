@@ -20,10 +20,10 @@ test(Set create([Set content])) {
   s.addAll([1, -3, 10, 17]);
 
   Set outer = create();
-  s.every((int x) {
+  s.every((var x) {
     outer.add(x);
     Set inner = create();
-    s.every((int y) {
+    s.every((var y) {
       inner.add(y);
       return true;
     });
