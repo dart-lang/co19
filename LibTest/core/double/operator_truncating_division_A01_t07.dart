@@ -10,7 +10,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 check(int expected, double a, double b) {
   Expect.identical(expected, a ~/ b);
   Expect.identical(expected, (-a) ~/ (-b));

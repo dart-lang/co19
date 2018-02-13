@@ -10,7 +10,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   double inf = double.INFINITY;
   double negativeInf = -inf;

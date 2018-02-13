@@ -11,7 +11,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final List values = const [
+final List<double> values = const [
    .0,
    4.9406564584124654e-324, // min
    2.2250738585072014e-308, // min normal

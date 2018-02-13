@@ -10,7 +10,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final List values = const [
+final List<double> values = const [
   -1 / 0,
   -1.7976931348623157e308,
   -3.273390607896142E150,

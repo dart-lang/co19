@@ -10,7 +10,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final List sample_doubles = const [
+final List<double> sample_doubles = const [
   double.NEGATIVE_INFINITY,
   -1.7976931348623157e308,
   -3.273390607896142E150,

@@ -11,7 +11,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   double nan = double.NAN;
   Expect.isTrue((-nan).isNaN);
