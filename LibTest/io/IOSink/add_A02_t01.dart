@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -44,8 +44,8 @@ test(Encoding enc) async {
 
 main() {
   test(null);
-  test(new Utf8Codec());
-  test(new AsciiCodec());
-  test(new Latin1Codec());
-  test(new SystemEncoding());
+  test(UTF8);
+  test(ASCII);
+  test(LATIN1);
+  test(SYSTEM_ENCODING);
 }

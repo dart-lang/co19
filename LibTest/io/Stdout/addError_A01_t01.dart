@@ -15,7 +15,8 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process(IOSink sink) {
-  sink.addError("my test error"); }
+  sink.addError("my test error");
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;

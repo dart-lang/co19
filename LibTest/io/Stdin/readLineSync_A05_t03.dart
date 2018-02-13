@@ -9,39 +9,32 @@
  *   Encoding encoding: SYSTEM_ENCODING,
  *   bool retainNewlines: false
  *   })
- * This call will block until a full line is available.
- * @description Checks that the call is blocked until a full line is available.
+ * If [retainNewlines] is [false], the returned [String] will not contain the
+ * final [newline]. If [true], the returned [String] will contain the line
+ * terminator. Default is [false].
+ * @description Check that [retainNewlines] is [false] by default.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "dart:async";
 import "dart:io";
 
-run_process() {
-  stdout.write("Start");
-  String str = stdin.readLineSync();
-  stdout.write(str);
-  stdout.write("End");
-}
+run_process() { stdout.write(stdin.readLineSync()); }
 
 run_main() async {
+  const CR = 13;
+  const LF = 10;
+
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
 
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-    process.stdin.write("1");
-    await new Future.delayed(new Duration(seconds: 2)).then((_) async {
-      // Wait some time: call should be blocked until no new line in stdin
-      process.stdin.writeln("2");
-    });
-    await process.exitCode.then((_) async {
-      await process.stdout.toList().then((out) {
-        // Correct substring sequence should be: Start -> 1 -> 2 -> End
-        Expect.listEquals([[83, 116, 97, 114, 116, 49, 50, 69, 110, 100]], out);
-        called++;
-      });
+    process.stdin.writeln("Hello");
+    await process.stdout.toList().then((out) {
+      Expect.isTrue((out[0][out[0].length - 1] != CR) &&
+          (out[0][out[0].length - 1] != LF));
+      called++;
     });
   });
   Expect.equals(1, called);

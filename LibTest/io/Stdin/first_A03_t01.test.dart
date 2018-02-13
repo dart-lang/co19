@@ -4,19 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int readByteSync()
- * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
- *   bool retainNewlines: false
- *   })
- * Synchronously read a line from stdin.
- * @description Checks that line is read from stdin.
+ * @assertion Future<T> first
+ * If this stream is empty (a [done] event occurs before the first data event),
+ * the resulting future completes with a [StateError].
+ * @description [StateError] occurs if the stream is empty
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { stdout.write(stdin.readLineSync()); }
+run_process() async {
+  await stdin.first.then((_) async {
+    try {
+      await stdin.first;
+    } catch (e) {
+      exit(e is StateError ? 0 : 99);
+    }
+  });
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
@@ -25,9 +30,9 @@ run_main() async {
 
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-    process.stdin.writeln("Hello");
-    await process.stdout.toList().then((out) {
-      Expect.listEquals([[72, 101, 108, 108, 111]], out);
+    process.stdin.writeln("1");
+    await process.exitCode.then((int code) async {
+      Expect.equals(0, code);
       called++;
     });
   });
@@ -37,3 +42,4 @@ run_main() async {
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main();
 }
+
