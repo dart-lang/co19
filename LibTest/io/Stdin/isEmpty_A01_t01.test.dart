@@ -4,37 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> first
- * Returns the first element of the stream.
- * @description Checks that [first] returns non-read elements.
+ * @assertion Future<bool> isEmpty
+ * Reports whether this stream contains any elements.
+ * @description Checks that stream contain any elements if no input
+ * line in [stdin]
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process() async {
-  stdin.readByteSync();
-  stdin.first.then((List<int> l) { print(new String.fromCharCodes(l)); });
+  await stdin.isEmpty.then((empty) { exit(empty ? 99 : 0); });
 }
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-        process.stdin.writeln("12345");
-      await process.exitCode.then((_) async {
-        process.stderr.toList().then((errors){ Expect.isTrue(errors.isEmpty); });
-        await process.stdout.toList().then((out) {
-          String res = SYSTEM_ENCODING.decode(out[0]);
-          // Get rid from possible new line symbols here
-          Expect.equals("2345", res.trimRight());
-          called++;
-        });
-      });
+    process.stdin.write("123");
+    await process.exitCode.then((code) {
+      Expect.equals(0, code);
+      called++;
     });
+  });
   Expect.equals(1, called);
 }
 

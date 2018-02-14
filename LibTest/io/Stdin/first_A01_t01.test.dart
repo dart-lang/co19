@@ -12,7 +12,7 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() async {
+run_process() {
   stdin.first.then((List<int> l) { print(new String.fromCharCodes(l)); });
 }
 
@@ -23,17 +23,17 @@ run_main() async {
 
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-        process.stdin.writeln("Testme");
-      await process.exitCode.then((_) async {
-        process.stderr.toList().then((errors){ Expect.isTrue(errors.isEmpty); });
-        await process.stdout.toList().then((out) {
-          String res = SYSTEM_ENCODING.decode(out[0]);
-          // Get rid from possible new line symbols here
-          Expect.equals("Testme", res.trimRight());
-          called++;
-        });
-      });
+    process.stdin.writeln("Testme");
+    await process.stderr.toList().then((errors){
+      Expect.isTrue(errors.isEmpty);
     });
+    await process.stdout.toList().then((out) {
+      String res = SYSTEM_ENCODING.decode(out[0]);
+      // Get rid from possible new line symbols here
+      Expect.equals("Testme", res.trimRight());
+      called++;
+    });
+  });
   Expect.equals(1, called);
 }
 
