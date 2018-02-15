@@ -174,8 +174,8 @@ void main() {
       ];
 
       Map<String,TableElement> rows = new Map.fromIterable((table as TableElement).rows,
-                                                        key: (TableElement te) => te.id,
-                                                        value: (TableElement te) => te);
+                                                        key: (var te) => te.id,
+                                                        value: (var te) => te);
 
       ids.forEach((String id) {
         assert_true(rows.containsKey(id), "contains($id) 1");
@@ -185,8 +185,8 @@ void main() {
         table.firstChild.remove();
       }
       rows = new Map.fromIterable((table as TableElement).rows,
-                                key: (TableElement te) => te.id,
-                                value: (TableElement te) => te);
+                                key: (var te) => te.id,
+                                value: (var te) => te);
       ids.forEach((id) {
         assert_false(rows.containsKey(id), "contains($id) 2");
         assert_equals(rows[id], null, "null");
