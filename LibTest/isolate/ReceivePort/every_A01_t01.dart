@@ -10,14 +10,13 @@
  * @description Checks that correct answer is passed to the future.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, bool test(int element), bool expected) {
-  Stream s=IsolateStream.fromIterable(data);
+check(Iterable<int> data, bool test(var element), bool expected) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   s.every(test).then((bool actual){
     Expect.equals(expected, actual);
@@ -26,14 +25,14 @@ check(Iterable<int> data, bool test(int element), bool expected) {
 }
 
 main() {
-  check([], (int element)=>true, true);
-  check([1,2,3], (int element)=>element!=null, true);
-  check([1,2,3,null], (int element)=>element==null, false);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>false, true);
-  check(new Iterable.generate(10, (int index)=>index), (int element)=>false, false);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>true, true);
-  check(new Iterable.generate(2, (int index)=>index), (int element)=>true, true);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element!=30, false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element>=0, true);
+  check([], (var element) => true, true);
+  check([1, 2, 3], (var element) => element != null, true);
+  check([1, 2, 3, null], (var element) => element == null, false);
+  check(new Iterable.generate(0, (int index) => index), (var element) => false, true);
+  check(new Iterable.generate(10, (int index) => index), (var element) => false, false);
+  check(new Iterable.generate(0, (int index) => index), (var element) => true, true);
+  check(new Iterable.generate(2, (int index) => index), (var element) => true, true);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element == 30, false);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element != 30, false);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element >= 0, true);
 }

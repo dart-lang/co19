@@ -12,7 +12,7 @@
 library last_A01_t01;
 import "../../../Utils/async_utils.dart";
 
-void test(CreateStreamFunctionAsync create) {
+void test(var create) {
   AsyncExpect.value("123", create(["123"]).then((s) => s.last));
   AsyncExpect.value("123", create(["aaa", "123"]).then((s) => s.last));
   AsyncExpect.value([123], create([[123]]).then((s) =>s.last));

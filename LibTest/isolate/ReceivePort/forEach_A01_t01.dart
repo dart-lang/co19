@@ -17,13 +17,13 @@ import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(List data) {
-  Stream s=IsolateStream.fromIterable(data);
-  List sink=new List();
+  Stream s = IsolateStream.fromIterable(data);
+  List sink = new List();
   asyncStart();
-  Future f=s.forEach((var element){
+  Future f = s.forEach((var element){
     sink.add(element);
   });
-  f.then((bool actual){
+  f.then((var actual){
     Expect.listEquals(data, sink);
     asyncEnd();
   });
@@ -31,6 +31,6 @@ void check(List data) {
 
 main() {
   check([]);
-  check([1,2,3,4]);
-  check([null,"2",-3,4.0, []]);
+  check([1, 2, 3, 4]);
+  check([null, "2", -3, 4.0, []]);
 }

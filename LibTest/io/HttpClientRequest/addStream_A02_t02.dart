@@ -42,7 +42,7 @@ test(String method) async {
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
     request.contentLength = -1;
-    Future f = request.addStream(stream1).then((HttpClientRequest request) {
+    Future<HttpClientResponse> f = request.addStream(stream1).then((var request) {
       return request.close();
     });
     Expect.throws(() {

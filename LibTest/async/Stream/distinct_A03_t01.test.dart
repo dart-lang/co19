@@ -23,8 +23,8 @@ class Key<T> {
   Key(this.previous, this.next);
 
   bool operator ==(other) => (other is Key)
-      && (other as Key).previous==this.previous
-      && (other as Key).next==this.next;
+      && other.previous == this.previous
+      && other.next == this.next;
 
   int get hashCode {
     return previous.hashCode ^ next.hashCode;

@@ -15,17 +15,17 @@
 library last_A03_t01;
 import "../../../Utils/async_utils.dart";
 
-void test(CreateStreamWithErrorsFunctionAsync create) {
+void test(var create) {
   AsyncExpect.error(
     "error",
-    create(["a", "b", "error", "c", "d"], isError: (e) => e=="error").then((s) => s.last)
+    create(["a", "b", "error", "c", "d"], isError: (e) => e == "error").then((s) => s.last)
   );
   AsyncExpect.error(
       "error",
-      create(["error", [4], [5]], isError: (e) => e=="error").then((s) => s.last)
+      create(["error", [4], [5]], isError: (e) => e == "error").then((s) => s.last)
   );
   AsyncExpect.error(
       "error",
-      create([[1,2], "error"], isError: (e) => e=="error").then((s) => s.last)
+      create([[1,2], "error"], isError: (e) => e == "error").then((s) => s.last)
   );
 }

@@ -12,14 +12,13 @@
  * @author a.semenov@unipro.ru
  */
 library allTests_A01;
-import "../../../Utils/async_utils.dart";
 
 import "last_A01_t01.test.dart" as last_A01_t01;
 import "last_A02_t01.test.dart" as last_A02_t01;
 
 import "length_A01_t01.test.dart" as length_A01_t01;
 
-void test(CreateStreamFunctionAsync create) {
+void test(var create) {
   last_A01_t01.test(create);
   last_A02_t01.test(create);
   length_A01_t01.test(create);

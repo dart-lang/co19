@@ -9,17 +9,16 @@
  * @description Checks that returned set contains all elements of the stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(List data) {
-  Stream s=IsolateStream.fromIterable(data);
-  Future f=s.toSet();
+  Stream s = IsolateStream.fromIterable(data);
+  Future f = s.toSet();
   asyncStart();
-  f.then((Set value){
+  f.then((var value){
       Expect.setEquals(data, value);
       asyncEnd();
     });

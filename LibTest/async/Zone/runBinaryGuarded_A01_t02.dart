@@ -39,7 +39,7 @@ main() {
     throw "action error";
   }
 
-  zone.runBinaryGuarded<int, int, String>(action, 1, "2");
+  zone.runBinaryGuarded<int, String>(action, 1, "2");
   Expect.equals(1, handlerCallCount);
   Expect.equals("action error", caughtError);
 }

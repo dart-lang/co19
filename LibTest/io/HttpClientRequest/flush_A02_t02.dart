@@ -43,10 +43,10 @@ test(String method) async {
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
     request.contentLength = 9;
-    request.addStream(stream).then((HttpClientRequest request) {
+    request.addStream(stream).then((var request) {
       request.flush();
       return request.close();
-    }).then((HttpClientResponse response) {
+    }).then((var response) {
       response.transform(UTF8.decoder).listen((content) {});
       asyncEnd();
     });

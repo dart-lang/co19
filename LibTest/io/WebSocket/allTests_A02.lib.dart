@@ -12,10 +12,9 @@
  * @author a.semenov@unipro.ru
  */
 library allTests_A02;
-import "../../../Utils/async_utils.dart";
 
 import "last_A03_t01.test.dart" as last_A03_t01;
 
-void test(CreateStreamWithErrorsFunctionAsync create) {
+void test(var create) {
   last_A03_t01.test(create);
 }

@@ -9,18 +9,16 @@
  * @description Checks that it is an error if more than one matching element occurs in the stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, bool test(int element), var expected) {
-  Stream s=IsolateStream.fromIterable(data);
+void check(Iterable data, bool test(var element), var expected) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future f=s.singleWhere(test);
-  f.then(
-    (var value){
+  Future f = s.singleWhere(test);
+  f.then((var value) {
       Expect.fail("unexpected call ot onValue($value)");
     },
     onError: (Object error){
@@ -30,8 +28,8 @@ void check(Iterable data, bool test(int element), var expected) {
 }
 
 main() {
-  check([1,2,3], (int element)=>true, 3);
-  check([1,2,3], (int element)=>element!=null, 3);
-  check([1,2,3], (int element)=>element>0, 3);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element!=30, 45);
+  check([1, 2, 3], (var element) => true, 3);
+  check([1, 2, 3], (var element) => element != null, 3);
+  check([1, 2, 3], (var element) => element > 0, 3);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element != 30, 45);
 }

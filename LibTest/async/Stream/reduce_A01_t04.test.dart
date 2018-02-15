@@ -24,7 +24,7 @@ void test(CreateStreamFunction create) {
     return p + e;
   }
 
-  Stream s = create([1, 2, 3, 4]);
+  Stream<int> s = create([1, 2, 3, 4]);
   asyncStart();
   s.reduce(combine).then(
       (value) {

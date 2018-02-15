@@ -14,6 +14,6 @@
 library last_A02_t01;
 import "../../../Utils/async_utils.dart";
 
-void test(CreateStreamFunctionAsync create) {
+void test(var create) {
   AsyncExpect.error((e) => e is StateError, create([]).then((s) => s.last));
 }

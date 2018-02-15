@@ -39,7 +39,7 @@ main() {
   asyncStart();
 
   s.listen(
-    (int event) {
+    (var event) {
       events.add(event);
     },
     onError: (_) {

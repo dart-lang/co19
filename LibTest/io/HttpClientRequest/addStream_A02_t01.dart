@@ -39,10 +39,9 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "")
-      .then((HttpClientRequest request) {
+  client.open(method, localhost, server.port, "").then((var request) {
     request.contentLength = -1;
-    request.addStream(stream1).then((HttpClientRequest request) {
+    request.addStream(stream1).then((var request) {
       request.addStream(stream2).then((HttpClientRequest request) {
         return request.close();
       }).then((HttpClientResponse response) {

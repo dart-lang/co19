@@ -17,7 +17,7 @@ List<List<int>> BYTES = new List.generate(
     (int i) => new List.generate(i, (int k) => k*2)
 );
 
-void test(CreateStreamFunctionAsync create) {
+void test(var create) {
   AsyncExpect.value(0, create([]).then((s) => s.length));
   AsyncExpect.value(4, create(["1", "2", "3", "null"]).then((s) => s.length));
   AsyncExpect.value(BYTES.length, create(BYTES).then((s) => s.length));

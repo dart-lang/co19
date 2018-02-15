@@ -22,14 +22,14 @@ int expectedMessage = 10;
 void receiveHandler(int message) {
   Expect.equals(expectedMessage, message);
   expectedMessage--;
-  if (message==0) {
+  if (message == 0) {
     asyncEnd();
     receivePort.close();
   }
 }
 
-void iMain(SendPort replyPort) {
-  for (int k=expectedMessage; k>=0; k--) {
+void iMain(var replyPort) {
+  for (int k = expectedMessage; k >= 0; k--) {
     replyPort.send(k);
   }
 }

@@ -17,12 +17,12 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-void check(Stream s, bool test(int element), Object expected) {
+void check(Stream<int> s, bool test(int element), Object expected) {
   asyncStart();
   bool defaultValueUsed = false;
   Future f = s.firstWhere(test, defaultValue: () {defaultValueUsed = true;});
   f.then(
-    (int actual) {
+    (var actual) {
       Expect.equals(expected, actual);
       Expect.isFalse(defaultValueUsed);
       asyncEnd();

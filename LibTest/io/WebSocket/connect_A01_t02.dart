@@ -40,11 +40,11 @@ import "../http_utils.dart";
 
 import "allTests_A02.lib.dart";
 
-Future<Stream<T>> create<T>(Iterable<T> data, {bool Function(T element) isError}) async {
+Future<Stream> create<T>(Iterable<T> data, {bool Function(T element) isError}) async {
   HttpServer server;
   server = await spawnWebSocketServer((WebSocket ws) {
     data.forEach((T x) {
-      if (isError!=null && isError(x)){
+      if (isError != null && isError(x)){
         ws.addError(x);
       } else {
         ws.add(x);

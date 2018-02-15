@@ -14,7 +14,7 @@ library every_A01_t01;
 import "../../../Utils/async_utils.dart";
 
 void test(CreateStreamFunction create) {
-  AsyncExpect.value(true, create([]).every((int element) => true));
+  AsyncExpect.value(true, create([]).every((var element) => true));
   AsyncExpect.value(true, create([1, 2, 3]).every((int e) => e != null));
   AsyncExpect.value(false, create([1, 2, 3, null]).every((int e) => e == null));
   AsyncExpect.value(true,

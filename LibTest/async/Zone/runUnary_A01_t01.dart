@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
-  int result = zone.runUnary<int>(
+  int result = zone.runUnary<int, int>(
     (int x) {
       Expect.equals(zone, Zone.current);
       return x;

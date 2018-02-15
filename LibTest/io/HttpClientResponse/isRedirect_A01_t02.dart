@@ -35,7 +35,7 @@ test(String method, int statusCode) async {
       request.response.write(helloWorld);
       request.response.close();
       server.close();
-      asyncEnd();
+
     } else {
       server.close();
       Expect.fail("Wrong URI:" + request.uri.path);
@@ -49,6 +49,7 @@ test(String method, int statusCode) async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.isTrue(response.isRedirect);
+    asyncEnd();
     response.transform(UTF8.decoder).listen((content) {
 
     });
@@ -68,4 +69,3 @@ main() {
   test("head", HttpStatus.SEE_OTHER);
   test("head", HttpStatus.TEMPORARY_REDIRECT);
 }
-

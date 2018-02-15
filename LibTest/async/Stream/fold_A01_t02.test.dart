@@ -16,7 +16,7 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Object combine(Object p, int c) {
+  Object combine(Object p, var c) {
     Expect.fail("should not be called");
     return 0;
   }

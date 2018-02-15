@@ -17,10 +17,10 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable data, bool test(int element), int expected) {
-  Stream s=IsolateStream.fromIterable(data);
+check(Iterable data, bool test(var element), int expected) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future f=s.firstWhere(test, defaultValue: ()=>expected);
+  Future<int> f = s.firstWhere(test, defaultValue: ()=>expected);
   f.then((int actual){
     Expect.equals(expected, actual);
     asyncEnd();
@@ -28,10 +28,10 @@ check(Iterable data, bool test(int element), int expected) {
 }
 
 main() {
-  check([], (int element)=>true, 1);
-  check([1,2,3], (int element)=>element==null, null);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>false, 0);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>true, 0);
-  check(new Iterable.generate(10, (int index)=>index), (int element)=>false, 22);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element<0, 33);
+  check([], (var element) => true, 1);
+  check([1,2,3], (var element) => element == null, null);
+  check(new Iterable.generate(0, (int index) => index), (var element) => false, 0);
+  check(new Iterable.generate(0, (int index) => index), (var element) => true, 0);
+  check(new Iterable.generate(10, (int index) => index), (var element) => false, 22);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element < 0, 33);
 }

@@ -17,8 +17,8 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable data, bool test(int element)) {
-  Stream s=IsolateStream.fromIterable(data);
+check(Iterable data, bool test(var element)) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   s.firstWhere(test).then(
     (data) {
@@ -32,11 +32,11 @@ check(Iterable data, bool test(int element)) {
 }
 
 main() {
-  check([], (int element)=>true);
-  check([1,2,3], (int element)=>element=null);
-  check([null,null], (int element)=>element!=null);
-  check(new Iterable.generate(0, (int index)=>index), (int element)=>false);
-  check(new Iterable.generate(10, (int index)=>index), (int element)=>false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element<0);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==300);
+  check([], (var element) => true);
+  check([1,2,3], (var element) => element == null);
+  check([null,null], (var element) => element != null);
+  check(new Iterable.generate(0, (int index) => index), (var element)=>false);
+  check(new Iterable.generate(10, (int index) => index), (var element)=>false);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element)=>element<0);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element)=>element==300);
 }

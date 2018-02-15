@@ -36,7 +36,7 @@ main() {
   asyncStart();
 
   s.listen(
-    (int event) {
+    (var event) {
       Expect.equals(num++, event);
     },
     onError: (_) {

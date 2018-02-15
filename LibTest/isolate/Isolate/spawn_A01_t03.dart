@@ -43,7 +43,7 @@ class Connection {
     asyncEnd();
   }
 
-  start(void entryPoint(message)) {
+  start(void entryPoint(SendPort message)) {
     asyncStart();
     Isolate.spawn(entryPoint, receivePort.sendPort);
     receivePort.listen(receiveHandler);

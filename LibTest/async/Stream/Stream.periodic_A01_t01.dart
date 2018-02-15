@@ -29,7 +29,7 @@ void check(int periodMs) {
   Stream s = new Stream.periodic(period);
   StreamSubscription ss;
   ss = s.listen(
-    (int event) {
+    (var event) {
       count++;
       Expect.isNull(event);
       Duration expected = period*count;
