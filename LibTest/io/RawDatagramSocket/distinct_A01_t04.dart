@@ -12,9 +12,9 @@
  * are passed through to the returned stream, and data events are passed through
  * if they are distinct from the most recently emitted data event.
  *
- * @description Checks that for the returned stream provides the same events as
- * this stream, except that it never provides two consecutive data events that
- * are equal.
+ * @description Checks that the returned stream provides the same events as this
+ * stream, except that it never provides two consecutive data events that are
+ * equal.
  * @author ngl@unipro.ru
  */
 import "dart:io";
