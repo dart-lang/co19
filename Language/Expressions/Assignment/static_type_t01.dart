@@ -19,7 +19,6 @@
  * @author kaigorodov
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class C {
 }

@@ -9,15 +9,13 @@
  * member named m unless Sstatic or a superinterface of Sstatic is annotated
  * with an annotation denoting a constant identical to the constant @proxy
  * deﬁned in dart:core.
- * @description Checks that there is no static type warning if superclass
- * does not have an instance member named m but is annotated with @proxy.
- * @static-clean
- * @issue 25540
+ * @description Checks that it is a compile error if superclass
+ * does not have an instance member named m
+ * @compile-error
  * @author kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
-@proxy
 class S {}
 
 class A extends S {

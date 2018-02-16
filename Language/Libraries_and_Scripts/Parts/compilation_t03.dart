@@ -33,7 +33,7 @@ main() {
   Expect.equals(0, _privateFunc());
 
   //function alias
-  func ff = (bool bParam, [String sParam]) {};
+  func<bool, String> ff = (bool bParam, [String sParam]) {};
 
   // get/set
   value = 1;

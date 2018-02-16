@@ -30,7 +30,7 @@ main() {
   Expect.listEquals(new List(1000), list(1000));
 
   //function alias
-  func ff = (bool b, [String s]) {};
+  func<bool, String> ff = (bool b, [String s]) {};
 
   // get/set
   value = 1;

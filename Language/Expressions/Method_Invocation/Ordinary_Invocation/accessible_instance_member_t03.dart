@@ -17,15 +17,13 @@
  *   subclass of Function that fails to implement call will also provoke a
  *   warning, as this exemption is limited to type Function, and does not apply
  *   to its subtypes.
- * @description Checks that there is no static type warning if T does not
- * have an instance member named m but have  @proxy annotation.
- * @static-clean
- * @issue 25540
+ * @description Checks that there is a compile error if T does not
+ * have an instance member named m
+ * @compile-error
  * @author kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
-@proxy
 class C {}
 
 main() {

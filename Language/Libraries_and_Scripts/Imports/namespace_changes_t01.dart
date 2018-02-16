@@ -70,7 +70,7 @@ import "namespace_changes_lib.dart";
 main() {
   Expect.equals("A_FOO", aFoo);
   Expect.equals('aFunc', aFunc());
-  aTypeAlias ff = (bool b, String s) {};
+  aTypeAlias ff = (var b, var s) {};
 
   A a = new A();
   J j = new J();

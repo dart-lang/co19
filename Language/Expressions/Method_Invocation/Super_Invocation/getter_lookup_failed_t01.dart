@@ -15,17 +15,16 @@
  * Then the method noSuchMethod() is looked up in Sdynamic and invoked on this
  * with argument im, and the result of this invocation is the result of
  * evaluating i.
- * @description Checks that noSuchMethod is invoked if there're no members,
+ * @description Checks that it is a compile error if there're no members,
  * instance or static, with the required name in the invoking class's
  * superclass.
- * @issue 25540
+ * @compile-error
  * @author msyabro
  */
 import '../../../../Utils/expect.dart';
 
 class TestException {}
 
-@proxy
 class S {
   noSuchMethod(Invocation im) {
     throw new TestException();

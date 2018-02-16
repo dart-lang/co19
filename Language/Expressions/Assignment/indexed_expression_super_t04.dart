@@ -6,15 +6,13 @@
 /**
  * @assertion An assignment of the form super[e1] = e2 is equivalent to the
  * expression super.[e1] = e2
- * @description Checks that the correct value of an assignment expression of
- * the form super[e1] = e2 is still returned even if no []= operator was found
+ * @description Checks that it is a compile error if no []= operator was found
  * in the superclass
  * @author sgrekhov@unipro.ru
- * @issue 25540
+ * @compile-error
  */
 import '../../../Utils/expect.dart';
 
-@proxy
 class A {
   operator [](idx) {}
 
@@ -32,6 +30,7 @@ class C extends A {
     Expect.equals(true, super[-1.11] = 1 < 2);
   }
 }
+
 main() {
   C c = new C();
   c.test();
