@@ -47,17 +47,15 @@ main() {
     document.fonts.addEventListener('loadingdone', (_) {
       debug('loadingdone');
       testDiv = document.getElementById('test');
-      shouldBeEqualToString(getComputedStyle(testDiv, '0').width, '48px');
+      shouldBeApprox(
+          getNumValue(getComputedStyle(testDiv, '0').width, strip: "px"),
+          48, 1);
     });
 
-    /*document.fonts.ready().then(() {
-      debug('ready() promise fulfilled');
-      shouldBeEqualToString('window.getComputedStyle(testDiv, 0).width', '48px');
-      asyncEnd();
-    });*/
-
     setTimeout(() {
-      shouldBeEqualToString(getComputedStyle(testDiv, '0').width, '48px');
+      shouldBeApprox(
+          getNumValue(getComputedStyle(testDiv, '0').width, strip: "px"),
+          48, 1);
       asyncEnd();
     }, 500);
   }
