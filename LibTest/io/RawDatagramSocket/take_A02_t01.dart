@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> take(int count)
+ * @assertion Stream<RawSocketEvent> take(int count)
  * Provides at most the first count data events of this stream.
  * . . .
  * If this is a broadcast stream, the returned stream is a broadcast stream.

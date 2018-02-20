@@ -4,21 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> skipWhile(bool test(T element))
+ * @assertion Stream<RawSocketEvent> skipWhile(bool test(T element))
  * Skip data events from this stream while they are matched by test.
  * . . .
- * Starting with the first data event where test returns false for the event
- * data, the returned stream will have the same events as this stream.
+ * The test fails when called with a data event if it returns a non-true value
+ * or if the call to test throws. If the call throws, the error is emitted as an
+ * error event on the returned stream instead of the data event, otherwise the
+ * event that made test return non-true is emitted as the first data event.
  *
- * @description Checks that the returned stream contains all events starting
- * with the first data event where [test] returns false for the event data.
+ * Error and done events are provided by the returned stream unmodified.
+ *
+ * @description Checks that if [test] throws, this error is emitted as an error
+ * event on the returned stream instead of the data event, and it is considered
+ * as [test] failure.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test(e), expected) {
+check(test(e), dataExpected, errorExpected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -26,18 +31,21 @@ check(test(e), expected) {
       int sent = 0;
       int counter = 0;
       List list = [];
+      List errList = [];
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.close();
 
       Stream bcs = receiver.asBroadcastStream();
-
       Stream s = bcs.skipWhile((e) => test(e));
       s.listen((event) {
         list.add(event);
+      }, onError: (e) {
+        errList.add(e);
       }, onDone: () {
-        Expect.listEquals(expected, list);
+        Expect.listEquals(dataExpected, list);
+        Expect.listEquals(errorExpected, errList);
         asyncEnd();
       });
 
@@ -63,9 +71,10 @@ main() {
     RawSocketEvent.READ,
     RawSocketEvent.CLOSED
   ];
-  check((e) => e == RawSocketEvent.WRITE, expected.sublist(1));
-  check((e) => e != RawSocketEvent.READ, expected.sublist(1));
-  check((e) => e != RawSocketEvent.CLOSED, expected.sublist(3));
-  check((e) => true, []);
-  check((e) => false, expected);
+  check((e) => throw 11, expected.sublist(1), [11]);
+  check((e) => e == RawSocketEvent.READ ? throw 6 : e != RawSocketEvent.CLOSED,
+      expected.sublist(2), [6]);
+  check((e) => e == RawSocketEvent.READ ? throw 7 : true, expected.sublist(2),
+      [7]);
+  check((e) => e == RawSocketEvent.READ ? throw 8 : false, expected, []);
 }

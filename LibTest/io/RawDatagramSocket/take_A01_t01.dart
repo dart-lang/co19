@@ -4,21 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> take(int count)
+ * @assertion Stream<RawSocketEvent> take(int count)
  * Provides at most the first count data events of this stream.
  *
- * Forwards all events of this stream to the returned stream until count data
- * events have been forwarded or this stream ends, then ends the returned stream
- * with a done event.
+ * Returns a stream that emits the same events that this stream would if
+ * listened to at the same time, until either this stream ends or it has emitted
+ * count data events, at which point the returned stream is done.
  *
  * If this stream produces fewer than count data events before it's done, so
  * will the returned stream.
  *
- * @description Checks that all events of this stream are forwarded to the
+ * Starts listening to this stream when the returned stream is listened to and
+ * stops listening when the first count data events have been received.
+ *
+ * @description Checks that the events of this stream are forwarded to the
  * returned stream until count data events have been forwarded or this stream
- * ends, when this stream is closed without receiving any sent events. If this
- * stream produces fewer than count data events before it's done, this stream
- * will be returned.
+ * ends. (This RawDatagramStream is closed without receiving any sent events.)
+ * If this stream produces fewer than count data events before it's done, this
+ * stream will be returned.
  * @author ngl@unipro.ru
  */
 import "dart:io";

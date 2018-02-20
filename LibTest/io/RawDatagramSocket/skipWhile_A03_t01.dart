@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> skipWhile(bool test(T element))
+ * @assertion Stream<RawSocketEvent> skipWhile(bool test(T element))
  * Skip data events from this stream while they are matched by test.
  * . . .
  * The returned stream is a broadcast stream if this stream is. For a broadcast
