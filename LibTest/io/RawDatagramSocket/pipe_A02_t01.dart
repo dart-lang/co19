@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
+ * @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
  * . . .
- * The events of this stream are added to streamConsumer using
+ * All events of this stream are added to streamConsumer using
  * StreamConsumer.addStream. The streamConsumer is closed when this stream has
  * been successfully added to it - when the future returned by addStream
  * completes without an error.

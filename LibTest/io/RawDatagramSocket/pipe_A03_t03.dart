@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
+ * @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
  * . . .
  * The returned future completes with the same result as the future returned by
- * StreamConsumer.close. If the adding of the stream itself fails in some way,
- * then the consumer is expected to be closed, and won't be closed again. In
- * that case the returned future completes with the error from calling
- * addStream.
+ * StreamConsumer.close. If the call to StreamConsumer.addStream fails in some
+ * way, this method fails in the same way.
  *
  * @description Checks that the returned future completes with the same result
  * as the future returned by StreamConsumer.close. StreamConsumer.close returns

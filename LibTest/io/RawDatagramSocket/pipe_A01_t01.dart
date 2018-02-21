@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
+ * @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
  * Pipe the events of this stream into streamConsumer.
  *
  * @description Checks that the stream is piped through streamConsumer.
