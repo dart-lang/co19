@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * StreamSubscription<T> listen(
+ * StreamSubscription<RawSocketEvent> listen(
  *     void onData(
  *         T event
  *     ), {
@@ -16,7 +16,6 @@
  * Adds a subscription to this stream.
  * . . .
  * If onDone is null, nothing happens.
-
  *
  * @description Checks that onData can be null.
  * @author ngl@unipro.ru

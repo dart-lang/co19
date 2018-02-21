@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * StreamSubscription<T> listen(
+ * StreamSubscription<RawSocketEvent> listen(
  *     void onData(
  *         T event
  *     ), {
@@ -54,7 +54,6 @@ check(int n) {
       }, onError: (e) {
         Expect.fail('Should not be here.');
       }, onDone: () {
-        print('ss1:  $counter1  $counter2  $counter2');
         Expect.fail('Should not be here.');
       });
 

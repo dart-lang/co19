@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * StreamSubscription<T> listen(
+ * StreamSubscription<RawSocketEvent> listen(
  *     void onData(
  *         T event
  *     ), {

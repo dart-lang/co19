@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * StreamSubscription<T> listen(
+ * StreamSubscription<RawSocketEvent> listen(
  *     void onData(
  *         T event
  *     ), {
@@ -19,8 +19,8 @@
  *
  * If this stream closes and sends a done event, the onDone handler is called.
  *
- * @description Checks that onData can be null, however RawDatagramSocket should
- * be closed before this method [listen] call, and the onDone handler is called.
+ * @description Checks that onData can be null, and if this stream closes and
+ * sends a done event, the onDone handler is called.
  * @author ngl@unipro.ru
  */
 import "dart:io";
