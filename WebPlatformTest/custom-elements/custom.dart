@@ -210,10 +210,6 @@ class Foo_kbd extends HtmlElement {
   static const tag = 'x-foo-kbd';
   Foo_kbd.created() : super.created();
 }
-class Foo_keygen extends KeygenElement {
-  static const tag = 'x-foo-keygen';
-  Foo_keygen.created() : super.created();
-}
 class Foo_label extends LabelElement {
   static const tag = 'x-foo-label';
   Foo_label.created() : super.created();
@@ -468,7 +464,6 @@ case 'x-foo-img': return Foo_img;
 case 'x-foo-input': return Foo_input;
 case 'x-foo-ins': return Foo_ins;
 case 'x-foo-kbd': return Foo_kbd;
-case 'x-foo-keygen': return Foo_keygen;
 case 'x-foo-label': return Foo_label;
 case 'x-foo-legend': return Foo_legend;
 case 'x-foo-li': return Foo_li;
