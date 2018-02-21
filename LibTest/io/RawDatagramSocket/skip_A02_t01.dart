@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> skip(int count)
+ * @assertion Stream<RawSocketEvent> skip(int count)
  * . . .
  * The returned stream is a broadcast stream if this stream is.
  *

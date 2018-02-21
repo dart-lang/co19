@@ -4,8 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> reduce(T combine(T previous, T element))
- * Reduces a sequence of values by repeatedly applying combine.
+ * @assertion
+ * Future<RawSocketEvent> reduce(
+ *     RawSocketEvent combine(T previous, T element)
+ * )
+ * . . .
+ * Similar to Iterable.reduce, this function maintains a value, starting with
+ * the first element of the stream and updated for each further element of this
+ * stream. For each element after the first, the value is updated to the result
+ * of calling combine with the previous value and the element.
  *
  * @description Checks that combine method is called for each event of stream
  * beginning with the second event.

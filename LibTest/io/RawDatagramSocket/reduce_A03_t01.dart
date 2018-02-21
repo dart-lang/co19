@@ -4,32 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> reduce(T combine(T previous, T element))
- * Reduces a sequence of values by repeatedly applying combine.
+ * @assertion
+ * Future<RawSocketEvent> reduce(
+ *     RawSocketEvent combine(T previous, T element)
+ * )
+ * . . .
+ * When this stream is done, the returned future is completed with the value at
+ * that time.
  *
- * @description Checks that the returned future is completed with an error, if
- * method combine throws a error.
+ * @description Checks that when this stream is done, the returned future is
+ * completed with the value at that time.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() {
+check(nReceived) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
-      int nCalls = 0;
       int counter = 0;
-      dynamic combine(previous, element) {
-        nCalls++;
-        if (nCalls == 2) {
-          throw nCalls;
+      RawSocketEvent combine(previous, element) {
+        if (element == RawSocketEvent.CLOSED) {
+          return previous;
         }
-        return element;
+        if (element == RawSocketEvent.READ) {
+          return element;
+        }
+        return previous;
       }
+
+      producer.send([sent++], address, receiver.port);
+      producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.close();
@@ -37,9 +46,8 @@ main() {
       Stream bcs = receiver.asBroadcastStream();
       Future future = bcs.reduce(combine);
       future.then((event) {
-        Expect.fail('Method reduce should be completed with error.');
-      }).catchError((error) {
-        Expect.equals(nCalls, error);
+        Expect.equals(
+            nReceived == 1 ? RawSocketEvent.WRITE : RawSocketEvent.READ, event);
       }).whenComplete(() {
         asyncEnd();
       });
@@ -47,8 +55,11 @@ main() {
       bcs.listen((event) {
         receiver.receive();
         counter++;
+        if (counter == nReceived) {
+          receiver.close();
+        }
       }).onDone(() {
-        Expect.equals(3, counter);
+        Expect.equals(nReceived + 1, counter);
       });
 
       new Timer(const Duration(milliseconds: 200), () {
@@ -57,4 +68,10 @@ main() {
       });
     });
   });
+}
+
+main() {
+  for (int i = 1; i < 5; i++) {
+    check(i);
+  }
 }

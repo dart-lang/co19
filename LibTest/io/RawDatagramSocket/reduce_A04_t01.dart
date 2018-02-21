@@ -8,23 +8,33 @@
  * Future<RawSocketEvent> reduce(
  *     RawSocketEvent combine(T previous, T element)
  * )
- * Combines a sequence of values by repeatedly applying combine.
+ * . . .
+ * If this stream emits an error, or the call to combine throws, the returned
+ * future is completed with that error, and processing is stopped.
  *
- * @description Checks that method [reduce] reduces a sequence of values
- * according to method combine.
+ * @description Checks that if method combine throws an error, the returned
+ * future is completed with that error, and processing is stopped.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(combine(previous, element), expected) {
+main() {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
+      int nCalls = 0;
       int counter = 0;
+      dynamic combine(previous, element) {
+        nCalls++;
+        if (nCalls == 1) {
+          throw nCalls;
+        }
+        return element;
+      }
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.close();
@@ -32,7 +42,9 @@ check(combine(previous, element), expected) {
       Stream bcs = receiver.asBroadcastStream();
       Future future = bcs.reduce(combine);
       future.then((event) {
-        Expect.equals(expected, event);
+        Expect.fail('Method reduce should be completed with error.');
+      }).catchError((error) {
+        Expect.equals(nCalls, error);
       }).whenComplete(() {
         asyncEnd();
       });
@@ -50,9 +62,4 @@ check(combine(previous, element), expected) {
       });
     });
   });
-}
-
-main() {
-  check((previous, element) => previous, RawSocketEvent.WRITE);
-  check((previous, element) => element, RawSocketEvent.CLOSED);
 }
