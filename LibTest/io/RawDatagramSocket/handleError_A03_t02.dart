@@ -9,10 +9,15 @@
  *     Function onError, {
  *     bool test(error)
  * })
- * Creates a wrapper Stream that intercepts some errors from this stream.
+ * . . .
+ * If this stream sends an error that matches test, then it is intercepted by
+ * the onError function.
+ * . . .
+ * An asynchronous error error is matched by a test function if test(error)
+ * returns true. If test is omitted, every error is considered matching.
  *
- * @description Checks the usage of [handleError] method for instance of
- * RawDatagramSocket.
+ * @description Checks that if this stream sends an error that doesn't matches
+ * test, then it is not intercepted by the onError function.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -30,26 +35,21 @@ main() {
       List data = [];
       List errors = [];
       producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
 
       Stream bcs = receiver.asBroadcastStream();
-      bcs.handleError((e) {
+      Stream s = bcs.skipWhile((e) => throw 11);
+      s.handleError((e) {
         intercepted.add(e);
-      }).listen((d) {
+      }, test: (e) => e == 12).listen((d) {
         data.add(d);
       }, onError: (err) {
         errors.add(err);
       }, onDone: () {
         Expect.listEquals([], intercepted);
-        Expect.listEquals([
-          RawSocketEvent.WRITE,
-          RawSocketEvent.READ,
-          RawSocketEvent.READ,
-          RawSocketEvent.CLOSED
-        ], data);
-        Expect.listEquals([], errors);
+        Expect.listEquals([RawSocketEvent.READ, RawSocketEvent.CLOSED], data);
+        Expect.listEquals([11], errors);
         asyncEnd();
       });
 
@@ -62,7 +62,7 @@ main() {
         counter++;
         receiver.receive();
       }).onDone(() {
-        Expect.equals(4, counter);
+        Expect.equals(3, counter);
       });
     });
   });
