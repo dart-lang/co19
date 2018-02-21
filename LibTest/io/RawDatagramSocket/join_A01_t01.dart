@@ -5,13 +5,13 @@
  */
 /**
  * @assertion Future<String> join([String separator = ""])
- * Collects string of data events' string representations.
+ * Combines the string representation of elements into a single string.
  *
- * If separator is provided, it is inserted between any two elements.
+ * Each element is converted to a string using its Object.toString method. If
+ * separator is provided, it is inserted between element string representations.
  *
  * @description Checks that method [join] collects string of data events' string
- * representations and returns future, that completes when the "done" event
- * arrives.
+ * representations and returns future, that completes when this stream is done.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -26,7 +26,6 @@ check(bool no_write_events, expected) {
       if (no_write_events) {
         receiver.writeEventsEnabled = false;
       }
-
       int sent = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);

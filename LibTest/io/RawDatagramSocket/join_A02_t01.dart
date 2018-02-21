@@ -5,31 +5,32 @@
  */
 /**
  * @assertion Future<String> join([String separator = ""])
- * Combines the string representation of elements into a single string.
+ * . . .
+ * The returned future is completed with the combined string when the stream is
+ * done.
  *
- * Each element is converted to a string using its Object.toString method. If
- * separator is provided, it is inserted between element string representations.
- *
- * @description Checks that if separator is provided, it is inserted between any
- * two elements.
+ * @description Checks that the returned future is completed with the combined
+ * string when the stream is done.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(separator, expected) {
+check(n, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
+      int counter = 0;
       int sent = 0;
+      producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.close();
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future l = bcs.join(separator);
+      Future l = bcs.join();
       l.then((value) {
         Expect.equals(expected, value);
       }).whenComplete(() {
@@ -43,20 +44,19 @@ check(separator, expected) {
 
       bcs.listen((event) {
         receiver.receive();
+        if (++counter == n) {
+          receiver.close();
+        }
       });
     });
   });
 }
 
 main() {
-  String sep() => "--";
-  check("", "RawSocketEvent:WRITERawSocketEvent:READRawSocketEvent:CLOSED");
+  check(1, "RawSocketEvent:WRITERawSocketEvent:CLOSED");
+  check(2, "RawSocketEvent:WRITERawSocketEvent:READRawSocketEvent:CLOSED");
   check(
-      ", ", "RawSocketEvent:WRITE, RawSocketEvent:READ, RawSocketEvent:CLOSED");
-  check(
-      "11", "RawSocketEvent:WRITE11RawSocketEvent:READ11RawSocketEvent:CLOSED");
-  check(sep(),
-      "RawSocketEvent:WRITE--RawSocketEvent:READ--RawSocketEvent:CLOSED");
-  check(null,
-      "RawSocketEvent:WRITEnullRawSocketEvent:READnullRawSocketEvent:CLOSED");
+      3,
+      "RawSocketEvent:WRITERawSocketEvent:READRawSocketEvent:READ"
+      "RawSocketEvent:CLOSED");
 }
