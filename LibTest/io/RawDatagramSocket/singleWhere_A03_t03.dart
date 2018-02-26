@@ -14,16 +14,15 @@
  * Like lastWhere, except that it is an error if more than one matching element
  * occurs in the stream.
  *
- * @description Checks that method [singleWhere] returns Future that is
- * completed with (1) the event of this stream, if this event is single event
- * that matches the test, or (2) error otherwise.
+ * @description Checks that if orElse function throws, the returns future is
+ * completed with that error.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test, expected, valueExpected, errorExpected) {
+check(test, orElseFunction, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -36,19 +35,12 @@ check(test, expected, valueExpected, errorExpected) {
       producer.close();
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.singleWhere(test);
+      Future fValue =
+          bcs.singleWhere(test, orElse: orElseFunction);
       fValue.then((value) {
-        if (valueExpected) {
-          Expect.equals(expected, value);
-        } else {
-          Expect.fail('Future should be completed with error');
-        }
+        Expect.fail('Future should be completed with error');
       }).catchError((error) {
-        if (errorExpected) {
-          Expect.isTrue((error is StateError));
-        } else {
-          Expect.fail('Future should be completed with event');
-        }
+        Expect.equals(expected, error);
       }).whenComplete(() {
         asyncEnd();
       });
@@ -69,10 +61,8 @@ check(test, expected, valueExpected, errorExpected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, RawSocketEvent.WRITE, true, false);
-  check((e) => e == RawSocketEvent.READ, RawSocketEvent.READ, false, true);
-  check((e) => e == RawSocketEvent.CLOSED, RawSocketEvent.CLOSED, true, false);
-  check((e) => e is RawSocketEvent, RawSocketEvent.WRITE, false, true);
-  check((e) => true, RawSocketEvent.WRITE, false, true);
-  check((e) => e != RawSocketEvent.WRITE, RawSocketEvent.READ, false, true);
+  check((e) => e == RawSocketEvent.READ_CLOSED, () => throw 11, 11);
+  check((e) => false, () => throw 12, 12);
+  Error error = new Error();
+  check((e) => !(e is RawSocketEvent), () => throw error, error);
 }
