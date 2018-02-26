@@ -5,15 +5,14 @@
  */
 /**
  * @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
- * Transforms each element of this stream into a sequence of elements.
+ * . . .
+ * If calling convert throws, or if the iteration of the returned values throws,
+ * the error is emitted on the returned stream and iteration ends for that
+ * element of this stream.
  *
- * Returns a new stream where each element of this stream is replaced by zero or
- * more data events. The event values are provided as an Iterable by a call to
- * convert with the element as argument, and the elements of that iterable is
- * emitted in iteration order.
- *
- * @description Checks that method [expand] returns a new stream where each
- * element of this stream is replaced by zero or more data events.
+ * @description Checks that if the iteration of the returned values throws,
+ * the error is emitted on the returned stream and iteration ends for that
+ * element of this stream.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -27,6 +26,7 @@ check(convert, expected) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       int counter = 0;
+      List list = [];
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
@@ -34,10 +34,12 @@ check(convert, expected) {
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
       Stream stream = bcs.expand(convert);
-      Future l = stream.toList();
-      l.then((v) {
-        Expect.listEquals(expected, v);
-      }).whenComplete(() {
+      stream.listen((event) {
+        list.add(event);
+      }, onError: (error) {
+        list.add(error);
+      }, onDone: () {
+        Expect.listEquals(expected, list);
         asyncEnd();
       });
 
@@ -57,22 +59,23 @@ check(convert, expected) {
 }
 
 main() {
-  check((e) => [], []);
-  check((e) => [e], [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
-  ]);
-  check((e) => [e, e], [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED,
-    RawSocketEvent.CLOSED
-  ]);
-  check((e) => [1, 2, 3], [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]);
+  int element(int n) {
+    if (n == 5) {
+      throw 15;
+    }
+    return n;
+  }
+  check(
+      (e) => e == RawSocketEvent.WRITE
+          ? [element(4), element(5), element(6)]
+          : [1, 2, 3],
+      [15, 1, 2, 3, 1, 2, 3, 1, 2, 3]);
+  check((e) => e == RawSocketEvent.READ
+      ? [element(4), element(5), element(6)]
+      : [1, 2, 3],
+      [1, 2, 3, 15, 15, 1, 2, 3]);
+  check((e) => e == RawSocketEvent.CLOSED
+      ? [element(4), element(5), element(6)]
+      : [1, 2, 3],
+      [1, 2, 3, 1, 2, 3, 1, 2, 3, 15]);
 }

@@ -5,42 +5,49 @@
  */
 /**
  * @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
- * Transforms each element of this stream into a sequence of elements.
+ * Creates a new stream from this stream that converts each element into zero
+ * or more events.
+ * . . .
+ * If a broadcast stream is listened to more than once, each subscription will
+ * individually call convert and expand the events.
  *
- * Returns a new stream where each element of this stream is replaced by zero or
- * more data events. The event values are provided as an Iterable by a call to
- * convert with the element as argument, and the elements of that iterable is
- * emitted in iteration order.
- *
- * @description Checks that method [expand] returns a new stream where each
- * element of this stream is replaced by zero or more data events.
+ * @description Checks that if a broadcast stream is listened to more than once,
+ * each subscription will individually call convert and expand the events.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(convert, expected) {
+check(bool secondListen, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       int counter = 0;
+      int n = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
+      Iterable convert(value) {
+        n++;
+        return [1];
+      }
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
       Stream stream = bcs.expand(convert);
       Future l = stream.toList();
       l.then((v) {
-        Expect.listEquals(expected, v);
-      }).whenComplete(() {
-        asyncEnd();
+        Expect.equals(expected, n);
       });
-
+      if (secondListen) {
+        Future l1 = stream.toList();
+        l1.then((v) {
+          Expect.equals(expected, n);
+        });
+      }
       new Timer(const Duration(milliseconds: 200), () {
         Expect.isNull(receiver.receive());
         receiver.close();
@@ -51,28 +58,13 @@ check(convert, expected) {
         receiver.receive();
       }).onDone(() {
         Expect.equals(4, counter);
+        asyncEnd();
       });
     });
   });
 }
 
 main() {
-  check((e) => [], []);
-  check((e) => [e], [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
-  ]);
-  check((e) => [e, e], [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED,
-    RawSocketEvent.CLOSED
-  ]);
-  check((e) => [1, 2, 3], [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]);
+  check(false, 4);
+  check(true, 8);
 }
