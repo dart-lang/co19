@@ -19,25 +19,25 @@ var HTML5_ELEMENTS = [ 'a', 'abbr', 'address', 'area', 'article', 'aside',
         'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br',
         'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup',
         'command', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div',
-        'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure',
-        'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header',
-        'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd',
-        'keygen', 'label', 'legend', 'li', 'link', 'map', 'mark', 'menu',
-        'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup',
-        'option', 'output', 'p', 'param', 'pre', 'progress', 'q', 'rp', 'rt',
-        'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source',
-        'span', 'strong', 'style', 'sub', 'table', 'tbody', 'td', 'textarea',
-        'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul',
-        'var', 'video', 'wbr' ];
+        'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer',
+        'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup',
+        'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'label',
+        'legend', 'li', 'link', 'map', 'mark', 'menu', 'meta', 'meter', 'nav',
+        'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p',
+        'param', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp',
+        'script', 'section', 'select', 'small', 'source', 'span', 'strong',
+        'style', 'sub', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th',
+        'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video',
+        'wbr' ];
 
 // only void (without end tag) HTML5 elements
 var HTML5_VOID_ELEMENTS = [ 'area', 'base', 'br', 'col', 'command', 'embed',
-        'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source',
-        'track', 'wbr' ];
+        'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track',
+        'wbr' ];
 
 // http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#form-associated-element
-var HTML5_FORM_ASSOCIATED_ELEMENTS = [ 'button', 'fieldset', 'input', 'keygen',
-        'label', 'object', 'output', 'select', 'textarea' ];
+var HTML5_FORM_ASSOCIATED_ELEMENTS = [ 'button', 'fieldset', 'input', 'label', 
+        'object', 'output', 'select', 'textarea' ];
 
 var HTML5_DOCUMENT_ELEMENTS = [ 'html', 'head', 'body' ];
 
