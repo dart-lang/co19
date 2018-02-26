@@ -8,38 +8,43 @@
  * Future<RawSocketEvent> firstWhere (
  *     bool test(T element), {
  *     dynamic defaultValue(),
- *     T orElse()
+ *     RawSocketEvent orElse()
  * })
  * Finds the first element of this stream matching test.
+ * . . .
+ * If no such element is found before this stream is done, and a orElse function
+ * is provided, the result of calling orElse becomes the value of the future.
+ * If orElse throws, the returned future is completed with that error.
  *
- * Returns a future that is completed with the first element of this stream that
- * test returns true for.
- *
- * @description Checks that method [firstWhere] returns Future that is completed
- * with the first element of this stream that test returns true for.
+ * @description Checks that if orElse throws, the returned future is completed
+ * with that error.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test, expected) {
+main() {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       int counter = 0;
+      int expected = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.firstWhere(test);
+      Future fValue = bcs.firstWhere((e) => e == null, orElse: () => throw 11);
       fValue.then((value) {
-        Expect.equals(expected, value);
+        Expect.fail('Error expected.');
+      }, onError: (error) {
+        expected = error;
       }).whenComplete(() {
+        Expect.equals(11, expected);
         asyncEnd();
       });
 
@@ -56,15 +61,4 @@ check(test, expected) {
       });
     });
   });
-}
-
-main() {
-  check((e) => e == RawSocketEvent.WRITE, RawSocketEvent.WRITE);
-  check((e) => e == RawSocketEvent.READ, RawSocketEvent.READ);
-  check((e) => e == RawSocketEvent.CLOSED, RawSocketEvent.CLOSED);
-  check((e) => e is RawSocketEvent, RawSocketEvent.WRITE);
-  check((e) => true, RawSocketEvent.WRITE);
-  check((e) => e != RawSocketEvent.WRITE, RawSocketEvent.READ);
-  check((e) => e != RawSocketEvent.WRITE && e != RawSocketEvent.READ,
-      RawSocketEvent.CLOSED);
 }

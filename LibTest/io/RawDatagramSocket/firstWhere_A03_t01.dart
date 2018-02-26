@@ -4,7 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future firstWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future
+ * Future<RawSocketEvent> firstWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     T orElse()
+ * })
  * Finds the first element of this stream matching test.
  * . . .
  * Stops listening to the stream after the first matching element has been
