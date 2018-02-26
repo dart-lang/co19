@@ -43,12 +43,14 @@ main() {
 
   runTest() {
     var testDiv = document.getElementById('test');
-    shouldBeEqualToString(getComputedStyle(testDiv, '0').width, '48px');
+    shouldBeApprox(
+        getNumValue(getComputedStyle(testDiv, '0').width, strip: "px"),
+        48, 2);
     asyncEnd();
   }
 
   window.onLoad.listen((_) {
     asyncStart();
-    setTimeout(runTest, 100);
+    setTimeout(runTest, 500);
   });
 }
