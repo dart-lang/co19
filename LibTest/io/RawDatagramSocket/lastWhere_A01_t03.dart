@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion
+ * Future<T> lastWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     T orElse()
+ * })
  * Finds the last element in this stream matching test.
  *
  * As firstWhere, except that the last matching element is found. That means
  * that the result cannot be provided before this stream is done.
  *
- * @description Checks that method [lastWhere] returns Future that is filled
+ * @description Checks that method [lastWhere] returns Future that is completed
  * with the first element of this stream that test returns true for and this
  * stream is closed.
  * @author ngl@unipro.ru
