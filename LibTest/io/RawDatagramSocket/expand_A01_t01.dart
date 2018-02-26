@@ -5,13 +5,15 @@
  */
 /**
  * @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
- * Creates a new stream from this stream that converts each element into zero
- * or more events.
+ * Transforms each element of this stream into a sequence of elements.
  *
- * Each incoming event is converted to an Iterable of new events, and each of
- * these new events are then sent by the returned stream in order.
+ * Returns a new stream where each element of this stream is replaced by zero or
+ * more data events. The event values are provided as an Iterable by a call to
+ * convert with the element as argument, and the elements of that iterable is
+ * emitted in iteration order.
  *
- * @description Checks that method [expand] converts elements correctly.
+ * @description Checks that method [expand] returns a new stream where each
+ * element of this stream is replaced by zero or more data events.
  * @author ngl@unipro.ru
  */
 import "dart:io";
