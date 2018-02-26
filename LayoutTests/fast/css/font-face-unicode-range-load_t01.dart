@@ -51,7 +51,6 @@ main() {
       <p id="test2">hello</p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var latin1Loaded = false;
   var cyrillicLoaded = false;
   var arabicLoaded = false;
   var iconLoaded = false;
@@ -59,8 +58,6 @@ main() {
   onloadingdone(e) {
     for (var i = 0; i < e.fontfaces.length; i++) {
       var range = e.fontfaces[i].unicodeRange;
-      if (range == 'U+0-FF')
-        latin1Loaded = true;
       if (range == 'U+400-4FF')
         cyrillicLoaded = true;
       if (range == 'U+600-6FF')
@@ -69,7 +66,6 @@ main() {
         iconLoaded = true;
     }
 
-    shouldBeTrue(latin1Loaded); // Latin-1 font is loaded for basic font metrics.
     shouldBeTrue(cyrillicLoaded);
     shouldBeFalse(arabicLoaded);
     shouldBeFalse(iconLoaded);

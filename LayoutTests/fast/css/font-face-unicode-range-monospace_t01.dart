@@ -41,5 +41,5 @@ main() {
       <div id="sans" class="sans">m</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  shouldBe(document.getElementById('test').offsetWidth, document.getElementById('sans').offsetWidth);
+  shouldBeApprox(document.getElementById('test').offsetWidth, document.getElementById('sans').offsetWidth, 1);
 }

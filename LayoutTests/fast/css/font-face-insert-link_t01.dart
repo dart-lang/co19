@@ -40,15 +40,12 @@ main() {
         link.setAttribute("rel", "stylesheet");
         link.setAttribute("type", "text/css");
         document.head.append(link);
-        setTimeout(
-          () {
-            var a = document.getElementById('a');
-            var b = document.getElementById('b');
-            shouldBeFalse(getComputedStyle(a).width == getComputedStyle(b).width);
-            asyncEnd();
-          },
-          500
-          );
+        setTimeout(() {
+          var a = document.getElementById('a');
+          var b = document.getElementById('b');
+          shouldBeFalse(getComputedStyle(a).width == getComputedStyle(b).width);
+          asyncEnd();
+        }, 1000);
       },
       1);
 }

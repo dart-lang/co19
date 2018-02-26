@@ -22,7 +22,7 @@ main() {
 
   var computedStyle = getComputedStyle(spanElement);
   shouldBe(spanElement.innerHtml, 'foo');
-  shouldBe(computedStyle.getPropertyValue('font-family'),
+  shouldBeLikeString(computedStyle.getPropertyValue('font-family'),
       "'Arial [ding dong]', 'Helvetica [Xft]', Courier");
 
   spanElement.remove();
