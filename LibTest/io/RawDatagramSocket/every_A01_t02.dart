@@ -7,10 +7,16 @@
  * @assertion Future<bool> every(bool test(T element))
  * Checks whether test accepts all elements provided by this stream.
  *
- * Completes the Future when the answer is known.
+ * Calls test on each element of the stream. If the call returns false, the
+ * returned future is completed with false and processing stops.
  *
- * @description Checks whether [test] accepts all elements provided by this
- * RawDatagramSocket.
+ * If the stream ends without finding an element that test rejects, the returned
+ * future is completed with true.
+ *
+ * @description Checks that [test] accepts the elements provided by this
+ * RawDatagramSocket, and if the call returns false, the returned future is
+ * completed with false, if the stream ends without finding an element that test
+ * rejects, the returned future is completed with true.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -33,6 +39,8 @@ check(test, expected) {
       Future<bool> b = stream.every(test);
       b.then((value) {
         Expect.equals(expected, value);
+      }).whenComplete(() {
+        asyncEnd();
       });
 
       new Timer(const Duration(milliseconds: 200), () {
@@ -45,7 +53,6 @@ check(test, expected) {
         receiver.receive();
       }).onDone(() {
         Expect.equals(4, counter);
-        asyncEnd();
       });
     });
   });

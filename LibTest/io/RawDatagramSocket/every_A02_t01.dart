@@ -7,10 +7,11 @@
  * @assertion Future<bool> every(bool test(T element))
  * Checks whether test accepts all elements provided by this stream.
  * . . .
- * If this stream reports an error, the Future will report that error.
+ * If this stream contains an error, or if the call to test throws, the returned
+ * future is completed with that error, and processing stops.
  *
- * @description Checks that if [test] reports an error, the Future will report
- * that error.
+ * @description Checks that if [test] throws, the future is completed with that
+ * error.
  * @author ngl@unipro.ru
  */
 import "dart:io";

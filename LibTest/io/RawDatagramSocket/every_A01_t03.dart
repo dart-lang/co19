@@ -13,39 +13,67 @@
  * If the stream ends without finding an element that test rejects, the returned
  * future is completed with true.
  *
- * @description Checks that [test] accepts the single element provided by this
+ * @description Checks that [test] accepts the elements provided by this
  * RawDatagramSocket, and if the call returns false, the returned future is
- * completed with false, otherwise the returned future is completed with true.
+ * completed with false and processing stops, if the stream ends without finding
+ * an element that test rejects, the returned future is completed with true.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test, expected) {
+check(nCall) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
+      int counter = 0;
+      int nTestCall = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
-      receiver.close();
 
-      Future<bool> b = receiver.every(test);
+      bool test(e) {
+        nTestCall++;
+        if (nTestCall < nCall) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
+      Future<bool> b = stream.every(test);
+      bool expected = nCall < 5 ? false : true;
       b.then((value) {
         Expect.equals(expected, value);
+        if (!expected) {
+          Expect.equals(nCall, nTestCall);
+        }
+      }).whenComplete(() {
         asyncEnd();
+      });
+
+      new Timer(const Duration(milliseconds: 200), () {
+        Expect.isNull(receiver.receive());
+        receiver.close();
+      });
+
+      stream.listen((event) {
+        counter++;
+        receiver.receive();
+      }).onDone(() {
+        Expect.equals(4, counter);
       });
     });
   });
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, false);
-  check((e) => e == RawSocketEvent.READ, false);
-  check((e) => e == RawSocketEvent.CLOSED, true);
-  check((e) => e == RawSocketEvent.READ_CLOSED, false);
+  for (int i = 1; i <= 5; i++) {
+    check(i);
+  }
 }

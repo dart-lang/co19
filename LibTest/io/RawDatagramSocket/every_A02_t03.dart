@@ -11,38 +11,43 @@
  * future is completed with that error, and processing stops.
  *
  * @description Checks that if [test] throws, the future is completed with that
- * error.
+ * error, and processing stops.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() {
+check(nCall) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       int counter = 0;
+      int nTestCall = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
 
       bool test(e) {
-        if (e == RawSocketEvent.WRITE || e == RawSocketEvent.READ) {
+        nTestCall++;
+        if (nTestCall < nCall) {
           return true;
         } else {
           throw 2;
         }
       }
+
       Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
       Future<bool> b = stream.every(test);
       b.then((value) {
-        Expect.fail('Should not be here.');
+        Expect.isTrue(value);
+        Expect.equals(4, nTestCall);
       }).catchError((e) {
         Expect.equals(2, e);
+        Expect.equals(nCall, nTestCall);
       }).whenComplete(() {
         asyncEnd();
       });
@@ -60,4 +65,10 @@ main() {
       });
     });
   });
+}
+
+main() {
+  for (int i = 1; i <= 5; i++) {
+    check(i);
+  }
 }
