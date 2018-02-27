@@ -22,6 +22,8 @@ check(dynamic convert(event)) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((socket) {
+    Stream stream1 = socket.asyncMap(convert);
+    Expect.isFalse(stream1.isBroadcast);
     var stream = socket.asBroadcastStream();
     Stream stream2 = stream.asyncMap(convert);
     Expect.isTrue(stream2.isBroadcast);
