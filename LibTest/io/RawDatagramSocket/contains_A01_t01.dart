@@ -5,10 +5,11 @@
  */
 /**
  * @assertion Future<bool> contains(Object needle)
- * Checks whether needle occurs in the elements provided by this stream.
+ * Returns whether needle occurs in the elements provided by this stream.
  *
- * Completes the Future when the answer is known. If this stream reports an
- * error, the Future will report that error.
+ * Compares each element of this stream to needle using Object.==. If an equal
+ * element is found, the returned future is completed with true. If the stream
+ * ends without finding a match, the future is completed with false.
  *
  * @description Checks whether needle occurs in the elements provided by this
  * RawDatagramSocket.
