@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -61,7 +60,6 @@ main() {
 
   finish() {
     shouldBeList(firedEvents, ['loading', 'loadingdone', 'loadingerror']);
-    asyncEnd();
   }
 
   onLoading(e) {
@@ -78,9 +76,9 @@ main() {
   onLoadingError(e) {
     firedEvents.add(e.type);
     event = e;
-    shouldBe(event.fontfaces.length, 4);
+    shouldBe(event.fontfaces.length, 1);
     failedFonts = e.fontfaces.map((face){return face.family;}).toList()..sort();
-    shouldBeList(failedFonts, ['myfont1', 'myfont2', 'myfont3', 'myfont5']);
+    shouldBeList(failedFonts, ['myfont2']);
     finish();
   }
 
@@ -89,15 +87,11 @@ main() {
     document.fonts.addEventListener('loadingdone', onLoadingDone);
     document.fonts.addEventListener('loadingerror', onLoadingError);
 
-    //document.fonts.ready().then(finish);
   }
-
-  asyncStart();
 
   if (document.fonts != null)
     runTests();
   else {
     testFailed('document.fonts does not exist');
-    asyncEnd();
   }
 }
