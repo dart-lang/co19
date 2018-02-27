@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> elementAt(int index)
+ * @assertion Future<RawSocketEvent> elementAt(int index)
  * Returns the value of the indexth data event of this stream.
  *
  * Stops listening to the stream after the indexth data event has been received.
@@ -16,7 +16,7 @@
  * If an error event occurs before the value is found, the future completes with
  * this error.
  *
- * @description Checks that if receiver RawDatagramSocket was listen and closed,
+ * @description Checks that if receiver RawDatagramSocket receives sent events,
  * method 'elementAt' returns correct value of 0, 1, 2, and 3 indexes.
  * @author ngl@unipro.ru
  */
