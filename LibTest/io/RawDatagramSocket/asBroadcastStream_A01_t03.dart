@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * Stream<T> asBroadcastStream({
+ * Stream<RawSocketEvent> asBroadcastStream({
  *     void onListen(StreamSubscription<T> subscription),
  *     void onCancel(StreamSubscription<T> subscription)
  * })
