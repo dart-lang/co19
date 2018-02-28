@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Stream<E> asyncExpand<E>(Stream<E> convert(T event))
- * Creates a new stream with the events of a stream per original event.
+ * Transforms each element into a sequence of asynchronous events.
  * . . .
  * The returned stream is a broadcast stream if this stream is.
  *
@@ -21,6 +21,8 @@ check(Stream convert(event)) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((socket) {
+    Stream stream1 = socket.asyncExpand(convert);
+    Expect.isFalse(stream1.isBroadcast);
     var stream = socket.asBroadcastStream();
     Stream stream2 = stream.asyncExpand(convert);
     Expect.isTrue(stream2.isBroadcast);

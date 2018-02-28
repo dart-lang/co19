@@ -20,9 +20,8 @@
  *   stream in the order it is produced. When the convert-stream ends, this
  *   stream is resumed.
  *
- * @description Checks that the convert function is called with the element as
- * argument to produce a convert-stream for the element, and a convert-stream
- * is emitted on the returned stream in the order it is produced.
+ * @description Checks that if the convert function throws, the error is emitted
+ * on the returned stream in the order it is produced.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -30,47 +29,35 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(convert, int n) {
+check(convert, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
-      List expected = [
-        RawSocketEvent.WRITE,
-        RawSocketEvent.READ,
-        RawSocketEvent.READ,
-        RawSocketEvent.CLOSED
-      ];
       List list = [];
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.close();
 
-      int count = sent * n;
-      int counter = 0;
-
       Stream s = receiver.asyncExpand(convert);
+      int counter = 0;
       s.listen((e) {
         list.add(e);
-        if (e == RawSocketEvent.CLOSED) {
-          return;
-        }
         counter++;
-        if (counter >= count) {
+        if (counter >= sent) {
+          receiver.close();
+        }
+      }, onError: (e) {
+        list.add(e);
+        counter++;
+        if (counter >= sent) {
           receiver.close();
         }
       }).onDone(() {
-        if (n == 1) {
-          Expect.listEquals(expected, list);
-        } else {
-          for (int i = 0; i < list.length; i+=2) {
-            Expect.equals(expected[i >> 1], list[i]);
-            Expect.equals(expected[i >> 1], list[i + 1]);
-          }
-        }
-        Expect.equals(count, counter);
+        Expect.listEquals(expected, list);
+        Expect.equals(sent + 1, counter);
         asyncEnd();
       });
     });
@@ -78,6 +65,15 @@ check(convert, int n) {
 }
 
 main() {
-  check((e) => new Stream.fromIterable([e]), 1);
-  check((e) => new Stream.fromIterable([e, e]), 2);
+  check(
+      (e) =>
+          new Stream.fromIterable([e == RawSocketEvent.WRITE ? throw 11 : e]),
+      [11, RawSocketEvent.READ, RawSocketEvent.READ, RawSocketEvent.CLOSED]);
+  check(
+      (e) => new Stream.fromIterable([e == RawSocketEvent.READ ? throw 12 : e]),
+      [RawSocketEvent.WRITE, 12, 12, RawSocketEvent.CLOSED]);
+  check(
+      (e) =>
+          new Stream.fromIterable([e == RawSocketEvent.CLOSED ? throw 13 : e]),
+      [RawSocketEvent.WRITE, RawSocketEvent.READ, RawSocketEvent.READ, 13]);
 }

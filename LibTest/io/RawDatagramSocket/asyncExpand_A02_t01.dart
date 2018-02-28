@@ -5,10 +5,11 @@
  */
 /**
  * @assertion Stream<E> asyncExpand<E>(Stream<E> convert(T event))
- * Creates a new stream with the events of a stream per original event.
+ * Transforms each element into a sequence of asynchronous events.
+ *
+ * Returns a new stream and for each event of this stream, do the following:
  * . . .
- * If convert returns null, no value is put on the output stream, just as if it
- * returned an empty stream.
+ * - If the call returns null, no further action is taken for the elements.
  *
  * @description Checks that if convert returns null, no value is put on the
  * output stream, just as if it returned an empty stream.

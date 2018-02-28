@@ -5,21 +5,31 @@
  */
 /**
  * @assertion Stream<E> asyncExpand<E>(Stream<E> convert(T event))
- * Creates a new stream with the events of a stream per original event.
+ * Transforms each element into a sequence of asynchronous events.
  *
- * This acts like expand, except that convert returns a Stream instead of an
- * Iterable. The events of the returned stream becomes the events of the
- * returned stream, in the order they are produced.
+ * Returns a new stream and for each event of this stream, do the following:
  *
- * @description Checks that the events of the returned stream becomes the events
- * this stream, in the order they are produced.
+ * - If the event is an error event or a done event, it is emitted directly by
+ *   the returned stream.
+ * - Otherwise it is an element. Then the convert function is called with the
+ *   element as argument to produce a convert-stream for the element.
+ * - If that call throws, the error is emitted on the returned stream.
+ * - . . .
+ * - Otherwise, this stream is paused and convert-stream is listened to. Every
+ *   data and error event of the convert-stream is emitted on the returned
+ *   stream in the order it is produced. When the convert-stream ends, this
+ *   stream is resumed.
+ *
+ * @description Checks that the convert function is called with the element as
+ * argument to produce a convert-stream for the element, and a convert-stream
+ * is emitted on the returned stream in the order it is produced.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(convert(event), int n) {
+check(convert, n) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
