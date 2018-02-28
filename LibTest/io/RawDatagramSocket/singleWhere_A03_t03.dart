@@ -5,44 +5,42 @@
  */
 /**
  * @assertion
- * Future<T> lastWhere (
+ * Future<RawSocketEvent> singleWhere (
  *     bool test(T element), {
- *     dynamic defaultValue(),
  *     T orElse()
  * })
- * Finds the last element in this stream matching test.
+ * Finds the single element in this stream matching test.
  *
- * As firstWhere, except that the last matching element is found. That means
- * that the result cannot be provided before this stream is done.
- * . . .
- *   If an error occurs, or if this stream ends without finding a match and with
- *   no orError function provided, the future will receive an error.
+ * Like lastWhere, except that it is an error if more than one matching element
+ * occurs in the stream.
  *
- * @description Checks that if this stream ends without finding a match and with
- * no orElse function provided, the future will receive an error.
+ * @description Checks that if orElse function throws, the returns future is
+ * completed with that error.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test) {
+check(test, orElseFunction, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
+      int counter = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.lastWhere(test);
+      Future fValue =
+          bcs.singleWhere(test, orElse: orElseFunction);
       fValue.then((value) {
-        Expect.fail('Should not be here.');
-      }).catchError((e) {
-        Expect.isTrue(e is StateError);
+        Expect.fail('Future should be completed with error');
+      }).catchError((error) {
+        Expect.equals(expected, error);
       }).whenComplete(() {
         asyncEnd();
       });
@@ -53,15 +51,18 @@ check(test) {
       });
 
       bcs.listen((event) {
+        counter++;
         receiver.receive();
+      }).onDone(() {
+        Expect.equals(4, counter);
       });
     });
   });
 }
 
 main() {
-  check((e) => e == null);
-  check((e) => e == 1);
-  check((e) => !(e is RawSocketEvent));
-  check((e) => false);
+  check((e) => e == RawSocketEvent.READ_CLOSED, () => throw 11, 11);
+  check((e) => false, () => throw 12, 12);
+  Error error = new Error();
+  check((e) => !(e is RawSocketEvent), () => throw error, error);
 }

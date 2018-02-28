@@ -4,45 +4,50 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- * Future<T> lastWhere (
- *     bool test(T element), {
- *     dynamic defaultValue(),
- *     T orElse()
- * })
- * Finds the last element in this stream matching test.
- *
- * As firstWhere, except that the last matching element is found. That means
- * that the result cannot be provided before this stream is done.
+ * @assertion Future<bool> every(bool test(T element))
+ * Checks whether test accepts all elements provided by this stream.
  * . . .
- *   If an error occurs, or if this stream ends without finding a match and with
- *   no orError function provided, the future will receive an error.
+ * If this stream contains an error, or if the call to test throws, the returned
+ * future is completed with that error, and processing stops.
  *
- * @description Checks that if this stream ends without finding a match and with
- * no orElse function provided, the future will receive an error.
+ * @description Checks that if [test] throws, the future is completed with that
+ * error, and processing stops.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test) {
+check(nCall) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
+      int counter = 0;
+      int nTestCall = 0;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
       producer.send([sent], address, receiver.port);
       producer.close();
 
-      Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.lastWhere(test);
-      fValue.then((value) {
-        Expect.fail('Should not be here.');
+      bool test(e) {
+        nTestCall++;
+        if (nTestCall < nCall) {
+          return true;
+        } else {
+          throw 2;
+        }
+      }
+
+      Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
+      Future<bool> b = stream.every(test);
+      b.then((value) {
+        Expect.isTrue(value);
+        Expect.equals(4, nTestCall);
       }).catchError((e) {
-        Expect.isTrue(e is StateError);
+        Expect.equals(2, e);
+        Expect.equals(nCall, nTestCall);
       }).whenComplete(() {
         asyncEnd();
       });
@@ -52,16 +57,18 @@ check(test) {
         receiver.close();
       });
 
-      bcs.listen((event) {
+      stream.listen((event) {
+        counter++;
         receiver.receive();
+      }).onDone(() {
+        Expect.equals(4, counter);
       });
     });
   });
 }
 
 main() {
-  check((e) => e == null);
-  check((e) => e == 1);
-  check((e) => !(e is RawSocketEvent));
-  check((e) => false);
+  for (int i = 1; i <= 5; i++) {
+    check(i);
+  }
 }

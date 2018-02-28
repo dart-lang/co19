@@ -4,19 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion
+ * Future<T> lastWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     T orElse()
+ * })
  * Finds the last element in this stream matching test.
  *
  * As firstWhere, except that the last matching element is found. That means
  * that the result cannot be provided before this stream is done.
  * . . .
- *   If no such element is found before this stream is done, and a defaultValue
- *   function is provided, the result of calling defaultValue becomes the value
+ *   If no such element is found before this stream is done, and a orElse
+ *   function is provided, the result of calling orElse becomes the value
  *   of the future.
  *
  * @description Checks that if no such element is found before this stream is
- * done, and a defaultValue function is provided, the result of calling
- * defaultValue becomes the value of the future.
+ * done, and a orElse function is provided, the result of calling orElse becomes
+ * the value of the future.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -36,7 +41,7 @@ check(test, rValue, expected) {
       producer.close();
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.lastWhere(test, defaultValue: rValue);
+      Future fValue = bcs.lastWhere(test, orElse: rValue);
       fValue.then((value) {
         Expect.equals(expected, value);
       }).whenComplete(() {
@@ -59,10 +64,10 @@ check(test, rValue, expected) {
 }
 
 main() {
-  check((e) => e == null, () => 1, 1);
-  check(
-      (e) => e == RawSocketEvent.READ && e == RawSocketEvent.WRITE, () => 2, 2);
-  check((e) => e == 1, () => 3, 3);
-  check((e) => !(e is RawSocketEvent), () => 4, 4);
-  check((e) => false, () => null, null);
+  check((e) => e == null, () => RawSocketEvent.READ_CLOSED,
+      RawSocketEvent.READ_CLOSED);
+  check((e) => e == 1, () => RawSocketEvent.READ, RawSocketEvent.READ);
+  check((e) => !(e is RawSocketEvent), () => RawSocketEvent.CLOSED,
+      RawSocketEvent.CLOSED);
+  check((e) => false, () => RawSocketEvent.WRITE, RawSocketEvent.WRITE);
 }

@@ -4,21 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future firstWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future
+ * Future<RawSocketEvent> firstWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     T orElse()
+ * })
  * Finds the first element of this stream matching test.
  * . . .
  * If an error occurs, or if this stream ends without finding a match and with
- * no defaultValue function provided, the future will receive an error.
+ * no orElse function provided, the future will receive an error.
  *
  * @description Checks that if this stream ends without finding a match and with
- * no defaultValue function provided, the future will receive an error.
+ * no orElse function provided, the future will receive an error.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test(e)) {
+check(test) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {

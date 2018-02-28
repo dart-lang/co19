@@ -4,26 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion
+ * Future<T> lastWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     T orElse()
+ * })
  * Finds the last element in this stream matching test.
  *
  * As firstWhere, except that the last matching element is found. That means
  * that the result cannot be provided before this stream is done.
  * . . .
- *   If no such element is found before this stream is done, and a defaultValue
- *   function is provided, the result of calling defaultValue becomes the value
+ *   If no such element is found before this stream is done, and a orElse
+ *   function is provided, the result of calling orElse becomes the value
  *   of the future.
  *
  * @description Checks that if no such element is found before this stream is
- * done, and a defaultValue function is provided, the result of calling
- * defaultValue becomes the value of the future.
+ * done, and a orElse function is provided, the result of calling orElse becomes
+ * the value of the future.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test(e), rValue(), expected) {
+check(test, rValue, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -35,7 +40,7 @@ check(test(e), rValue(), expected) {
       producer.close();
       receiver.close();
 
-      Future fValue = receiver.lastWhere(test, defaultValue: rValue);
+      Future fValue = receiver.lastWhere(test, orElse: rValue);
       fValue.then((value) {
         Expect.equals(expected, value);
       }).catchError((e) {

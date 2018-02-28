@@ -4,16 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion
+ * Future<T> lastWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     T orElse()
+ * })
  * Finds the last element in this stream matching test.
  *
  * As firstWhere, except that the last matching element is found. That means
  * that the result cannot be provided before this stream is done.
  * . . .
  *   If an error occurs, or if this stream ends without finding a match and with
- *   no defaultValue function provided, the future will receive an error.
+ *   no orElse function provided, the future will receive an error.
  *
- * @description Checks that if an error occurs in [defaultValue] method, the
+ * @description Checks that if an error occurs in [orElse] function, the
  * future will receive an error.
  * @author ngl@unipro.ru
  */
@@ -21,7 +26,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test(e), rValue(), expected) {
+check(test, rValue, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -33,7 +38,7 @@ check(test(e), rValue(), expected) {
       producer.close();
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.lastWhere(test, defaultValue: rValue);
+      Future fValue = bcs.lastWhere(test, orElse: rValue);
       fValue.then((value) {
         Expect.fail('Should not be here.');
       }).catchError((e) {

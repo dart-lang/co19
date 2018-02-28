@@ -4,23 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future firstWhere(bool test(T element), {Object defaultValue()})
+ * @assertion
+ * Future<RawSocketEvent> firstWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     RawSocketEvent orElse()
+ * })
  * Finds the first element of this stream matching test.
  * . . .
- * If no such element is found before this stream is done, and a defaultValue
- * function is provided, the result of calling defaultValue becomes the value of
- * the future.
+ * If no such element is found before this stream is done, and a orElse function
+ * is provided, the result of calling orElse becomes the value of the future.
+ * If orElse throws, the returned future is completed with that error.
  *
  * @description Checks that if no such element is found before this stream is
- * done, and a defaultValue function is provided, the result of calling
- * defaultValue becomes the value of the future.
+ * done, and a orElse function is provided, the result of calling orElse becomes
+ * the value of the future.
  * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(test(e), rValue(), expected) {
+check(test, rValue, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -32,11 +37,9 @@ check(test(e), rValue(), expected) {
       producer.close();
       receiver.close();
 
-      Future fValue = receiver.firstWhere(test, defaultValue: rValue);
+      Future fValue = receiver.firstWhere(test, orElse: rValue);
       fValue.then((value) {
         Expect.equals(expected, value);
-      }).catchError((e) {
-        print('err: $e');
       }).whenComplete(() {
         asyncEnd();
       });

@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Stream<T> distinct([bool equals(T previous, T next)])
+ * @assertion Stream<RawSocketEvent> distinct([bool equals(T previous, T next)])
  * Skips data events if they are equal to the previous data event.
  * . . .
  * The returned stream is a broadcast stream if this stream is. If a broadcast
  * stream is listened to more than once, each subscription will individually
  * perform the equals test.
  *
- * @description Checks that the The returned stream is a broadcast stream if
- * this stream is, and if a broadcast stream is listened to more than once, each
+ * @description Checks that the returned stream is a broadcast stream if this
+ * stream is, and if a broadcast stream is listened to more than once, each
  * subscription will individually perform the equals test.
  * @author ngl@unipro.ru
  */

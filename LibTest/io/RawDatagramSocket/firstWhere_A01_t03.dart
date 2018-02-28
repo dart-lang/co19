@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future firstWhere(bool test(T element), {Object defaultValue()})
+ * @assertion
+ * Future<RawSocketEvent> firstWhere (
+ *     bool test(T element), {
+ *     dynamic defaultValue(),
+ *     RawSocketEvent orElse()
+ * })
  * Finds the first element of this stream matching test.
  *
- * Returns a future that is filled with the first element of this stream that
+ * Returns a future that is completed with the first element of this stream that
  * test returns true for.
  *
- * @description Checks that method [firstWhere] returns Future that is filled
+ * @description Checks that method [firstWhere] returns Future that is completed
  * with the first element of this stream that test returns true for.
  * @author ngl@unipro.ru
  */

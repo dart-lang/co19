@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> elementAt(int index)
+ * @assertion Future<RawSocketEvent> elementAt(int index)
  * Returns the value of the indexth data event of this stream.
  * . .  .
  * If a done event occurs before the value is found, the future completes with
