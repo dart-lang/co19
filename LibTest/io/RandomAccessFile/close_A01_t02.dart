@@ -25,7 +25,7 @@ main() {
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.READ);
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
-    rf.close().then((RandomAccessFile f) {
+    rf.close().then((_) {
       try {
         rf.lengthSync();
         Expect.fail('should not be here');

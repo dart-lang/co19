@@ -25,9 +25,9 @@ main() {
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
     var clf = rf.close();
-    Expect.isTrue(clf is Future<RandomAccessFile>);
-    clf.then((RandomAccessFile f) {
-      Expect.isTrue(f == rf);
+    Expect.isTrue(clf is Future);
+    clf.then((f) {
+      Expect.isNull(f);
       asyncEnd();
     }).whenComplete(() {
       file.delete();
