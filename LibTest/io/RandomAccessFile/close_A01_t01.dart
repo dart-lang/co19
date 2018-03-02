@@ -27,7 +27,7 @@ main() {
     var clf = rf.close();
     Expect.isTrue(clf is Future);
     clf.then((f) {
-      Expect.isNull(f);
+      Expect.isTrue(f == rf);
       asyncEnd();
     }).whenComplete(() {
       file.delete();
