@@ -6,13 +6,12 @@
 /**
  * @assertion Future<bool> any(bool test(T element))
  * Checks whether test accepts any element provided by this stream.
+ * . . .
+ * If this stream contains an error, or if the call to test throws, the returned
+ * future is completed with that error, and processing stops.
  *
- * Calls test on each element of the stream. If the call returns true, the
- * returned future is completed with true and processing stops.
- *
- * @description Checks whether test accepts any element provided by this stream
- * and stops listening to the stream after the first matching element has been
- * found.
+ * @description Checks that if the call to test throws, the returned future is
+ * completed with that error, and processing stops.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -20,7 +19,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(int expectedValue, [bool no_write_events = false]) {
+check([bool no_write_events = false]) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -43,17 +42,26 @@ check(int expectedValue, [bool no_write_events = false]) {
 
       bool test(RawSocketEvent x) {
         count++;
+        if (x == RawSocketEvent.READ) {
+          throw 11;
+        }
         var d = receiver == null ? null : receiver.receive();
-        if (d != null) {
-          return d.data[0] == expectedValue;
+        if (d == null) {
+          return true;
         } else {
           return false;
         }
       }
 
       receiver.any((event) => test(event)).then((value) {
-        Expect.equals(true, value);
-        Expect.equals(expectedValue + 1, count);
+        Expect.fail('Should completed with throw.');
+      }).catchError((error) {
+        Expect.equals(11, error);
+        if (no_write_events) {
+          Expect.equals(1, count);
+        } else {
+          Expect.equals(2, count);
+        }
       }).whenComplete(() {
         asyncEnd();
       });
@@ -62,8 +70,6 @@ check(int expectedValue, [bool no_write_events = false]) {
 }
 
 main() {
-  for (int i = 0; i < 3; i++) {
-    check(i);
-    check(i, true);
-  }
+  check();
+  check(true);
 }

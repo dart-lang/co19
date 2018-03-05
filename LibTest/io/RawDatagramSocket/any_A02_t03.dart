@@ -6,16 +6,12 @@
 /**
  * @assertion Future<bool> any(bool test(T element))
  * Checks whether test accepts any element provided by this stream.
- *
- * Completes the Future when the answer is known.
- *
- * If this stream reports an error, the Future reports that error.
- *
- * Stops listening to the stream after the first matching element has been
- * found.
+ * . . .
+ * If the stream ends without finding an element that test accepts, the returned
+ * future is completed with false.
  *
  * @description Checks that method any returns false when writeEventsEnabled is
- * true and RawSocketEvent.READ_CLOSED is searched. In this case the listening
+ * false and RawSocketEvent.READ_CLOSED is searched. In this case the listening
  * to the stream is stopped after the last received event.
  * @issue 31881
  * @author ngl@unipro.ru
@@ -31,7 +27,7 @@ main() {
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      receiver.writeEventsEnabled = true;
+      receiver.writeEventsEnabled = false;
       int sent = 0;
       int count = 0;
 
@@ -47,6 +43,9 @@ main() {
 
       bool test(x) {
         count++;
+        if (count > 4) {
+          Expect.fail('count = $count. It should not be more then 4.');
+        }
         return x == expectedEvent;
       }
 

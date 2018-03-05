@@ -7,17 +7,12 @@
  * @assertion Future<bool> any(bool test(T element))
  * Checks whether test accepts any element provided by this stream.
  *
- * Completes the Future when the answer is known.
+ * Calls test on each element of the stream. If the call returns true, the
+ * returned future is completed with true and processing stops.
  *
- * If this stream reports an error, the Future reports that error.
- *
- * Stops listening to the stream after the first matching element has been
+ * @description Checks whether test accepts any element provided by this stream
+ * and stops listening to the stream after the first matching element has been
  * found.
- *
- * @description Checks that method any returns false when RawSocketEvent.WRITE
- * is searched and writeEventsEnabled is false. In this case the listening to
- * the stream is stopped after the last received event.
- * @issue 31881
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -25,13 +20,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() {
-  var expectedEvent = RawSocketEvent.WRITE;
+check([bool no_write_events = false]) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      receiver.writeEventsEnabled = false;
+      if (no_write_events) {
+        receiver.writeEventsEnabled = false;
+      }
       int sent = 0;
       int count = 0;
 
@@ -45,23 +41,27 @@ main() {
         }
       });
 
-      bool test(x) {
+      bool test(RawSocketEvent x) {
         count++;
-        return x == expectedEvent;
-      }
-      bool test2(x) {
-        count++;
-        var d = receiver == null ? null: receiver.receive();
-        print(d.data);
-        return x == expectedEvent;
+        var d = receiver == null ? null : receiver.receive();
+        if (d == null) {
+          return true;
+        } else {
+          return false;
+        }
       }
 
       receiver.any((event) => test(event)).then((value) {
-        Expect.equals(false, value);
+        Expect.equals(true, value);
         Expect.equals(4, count);
       }).whenComplete(() {
         asyncEnd();
       });
     });
   });
+}
+
+main() {
+  check();
+  check(true);
 }
