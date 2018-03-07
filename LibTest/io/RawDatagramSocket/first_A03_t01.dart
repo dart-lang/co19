@@ -6,16 +6,12 @@
 /**
  * @assertion Future<RawSocketEvent> first
  * The first element of the stream.
+ * . . .
+ * If an error event occurs before the first data event, the returned future is
+ * completed with that error.
  *
- * Stops listening to the stream after the first element has been received.
- *
- * Internally the method cancels its subscription after the first element.
- * This means that single-subscription (non-broadcast) streams are closed and
- * cannot be reused after a call to this getter.
- *
- * @description Checks that property first returns the first element of the
- * stream and stops listening to the stream after the first element has been
- * received.
+ * @description Checks that if an error event occurs before the first data
+ * event, the returned future is completed with that error.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -23,18 +19,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check([bool no_write_events = false]) {
+check(convert, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
       Timer timer2;
       int sent = 0;
       bool completed = false;
-      int received = 0;
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
         if (sent == 10 || completed) {
           timer.cancel();
@@ -50,24 +42,29 @@ check([bool no_write_events = false]) {
         asyncEnd();
       }
 
-      receiver.first.then((event) {
-        received++;
-        Expect.equals(
-            no_write_events ? RawSocketEvent.READ : RawSocketEvent.WRITE,
-            event);
+      receiver.expand(convert).first.then((event) { // print(event);
+        if (expected == 11) {
+          Expect.fail('Future should be completed with an error.');
+        } else {
+          Expect.equals(RawSocketEvent.WRITE, event);
+        }
         if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
-          if (received != 1) {
-            Expect.fail('Number of receiver messages should be equal to 1');
-          }
         });
+      }, onError: (error) {
+        if (expected == 11) {
+          Expect.equals(11, error);
+        } else {
+          Expect.fail('Future should be completed with RawSocketEvent.WRITE');
+        }
       }).whenComplete(action);
     });
   });
 }
 
 main() {
-  check();
-  check(true);
+  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [e], 11);
+  check((e) => e == RawSocketEvent.READ ? throw 12 : [e], 12);
+  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [e], 13);
 }
