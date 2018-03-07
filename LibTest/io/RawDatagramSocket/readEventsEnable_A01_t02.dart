@@ -50,7 +50,9 @@ check(int expReceive, [bool no_read_events = false]) {
       int s = 0;
       receiver.listen((event) {
         received++;
-        if (event == RawSocketEvent.READ) read++;
+        if (event == RawSocketEvent.READ) {
+          read++;
+        }
         var datagram = receiver.receive();
         if (datagram != null) {
           Expect.listEquals([s++], datagram.data);
