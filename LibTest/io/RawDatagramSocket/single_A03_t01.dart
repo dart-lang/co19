@@ -7,10 +7,11 @@
  * @assertion Future<RawSocketEvent> single
  * The single element of this stream.
  * . . .
- * If this is empty or has more than one element throws a StateError.
+ * If this stream emits an error event, the returned future is completed with
+ * that error and processing stops.
  *
- * @description Checks that if this has more than one element a StateError is
- * thrown.
+ * @description Checks that if this stream emits an error event, the returned 
+ * future is completed with that error and processing stops.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -18,7 +19,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check([bool no_write_events = false]) {
+check(convert, expected, [bool no_write_events = false]) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -29,26 +30,31 @@ check([bool no_write_events = false]) {
       int sent = 0;
       bool stError = false;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        if (sent == 1) {
-          timer.cancel();
-          producer.close();
-          receiver.close();
-        } else {
-          producer.send([sent], address, receiver.port);
-          sent++;
-        }
-      });
+      if (expected == 13) {
+        producer.close();
+        receiver.close();
+      } else {
+        new Timer.periodic(const Duration(microseconds: 1), (timer) {
+          if (sent == 1) {
+            timer.cancel();
+            producer.close();
+            receiver.close();
+          } else {
+            producer.send([sent], address, receiver.port);
+            sent++;
+          }
+        });
+      }
 
       void action() {
         Expect.isTrue(stError);
         asyncEnd();
       }
 
-      receiver.single.then((event) {
+      receiver.expand(convert).single.then((event) {
         Expect.fail('Future should be completed wit error.');
       }, onError: (error) {
-        Expect.isTrue(error is StateError);
+        Expect.equals(expected, error);
         stError = true;
       }).whenComplete(action);
     });
@@ -56,6 +62,7 @@ check([bool no_write_events = false]) {
 }
 
 main() {
-  check();
-  check(true);
+  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [e], 11);
+  check((e) => e == RawSocketEvent.READ ? throw 12 : [e], 12, true);
+  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [e], 13);
 }
