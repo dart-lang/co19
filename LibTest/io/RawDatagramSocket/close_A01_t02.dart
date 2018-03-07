@@ -9,7 +9,6 @@
  *
  * @description Checks that if RawDatagramSocket is closed with method close,
  * it does not receive sent events.
- * thrown.
  * @author ngl@unipro.ru
  */
 import "dart:async";
