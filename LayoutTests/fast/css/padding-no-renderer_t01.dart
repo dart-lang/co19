@@ -57,7 +57,9 @@ main() {
   shouldBeEqualToString(getComputedStyle(test0, null).paddingTop, "0px");
   shouldBeEqualToString(getComputedStyle(test1, null).paddingTop, "10px");
   shouldBeEqualToString(getComputedStyle(test2, null).paddingTop, "10px");
-  shouldBeEqualToString(getComputedStyle(test3, null).paddingTop, "10px");
+  if (!isIE) {
+    shouldBeEqualToString(getComputedStyle(test3, null).paddingTop, "10px");
+  }
   shouldBeEqualToString(getComputedStyle(test4, null).paddingTop, "10px");
   shouldBeEqualToString(getComputedStyle(test5, null).paddingTop, "10px");
   shouldBeEqualToString(getComputedStyle(test6, null).paddingTop, "10%");
