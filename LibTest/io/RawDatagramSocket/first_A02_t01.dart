@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Future<RawSocketEvent> first
- * Returns the first element of the stream.
+ * The first element of the stream.
  * . . .
  * Except for the type of the error, this method is equivalent to
  * this.elementAt(0).

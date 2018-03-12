@@ -7,12 +7,8 @@
  * @assertion Future<bool> any(bool test(T element))
  * Checks whether test accepts any element provided by this stream.
  *
- * Completes the Future when the answer is known.
- *
- * If this stream reports an error, the Future reports that error.
- *
- * Stops listening to the stream after the first matching element has been
- * found.
+ * Calls test on each element of the stream. If the call returns true, the
+ * returned future is completed with true and processing stops.
  *
  * @description Checks that method any returns true when RawSocketEvent.CLOSED
  * is searched and writeEventsEnabled is true. In this case the listening to the
@@ -47,6 +43,9 @@ main() {
 
       bool test(x) {
         count++;
+        if (count > 4) {
+          Expect.fail('count = $count. It should not be more then 4.');
+        }
         return x == expectedEvent;
       }
 

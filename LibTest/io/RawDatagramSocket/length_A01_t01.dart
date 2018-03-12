@@ -5,7 +5,10 @@
  */
 /**
  * @assertion Future<int> length
- * Counts the elements in the stream.
+ * The number of elements in this stream.
+ *
+ * Waits for all elements of this stream. When the stream ends, the returned
+ * future is completed with the number of elements.
  *
  * @description Checks that property length returns the number of elements
  * in the socket when this RawDatagramSocket is closed (returns 1).

@@ -6,18 +6,12 @@
 /**
  * @assertion Future<bool> any(bool test(T element))
  * Checks whether test accepts any element provided by this stream.
+ * . . .
+ * If this stream contains an error, or if the call to test throws, the returned
+ * future is completed with that error, and processing stops.
  *
- * Completes the Future when the answer is known.
- *
- * If this stream reports an error, the Future reports that error.
- *
- * Stops listening to the stream after the first matching element has been
- * found.
- *
- * @description Checks that method any returns false when writeEventsEnabled is
- * true and RawSocketEvent.READ_CLOSED is searched. In this case the listening
- * to the stream is stopped after the last received event.
- * @issue 31881
+ * @description Checks that if the call to test throws, the returned future is
+ * completed with that error, and processing stops.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -25,13 +19,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-main() {
-  var expectedEvent = RawSocketEvent.READ_CLOSED;
+check([bool no_write_events = false]) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      receiver.writeEventsEnabled = true;
+      if (no_write_events) {
+        receiver.writeEventsEnabled = false;
+      }
       int sent = 0;
       int count = 0;
 
@@ -45,17 +40,36 @@ main() {
         }
       });
 
-      bool test(x) {
+      bool test(RawSocketEvent x) {
         count++;
-        return x == expectedEvent;
+        if (x == RawSocketEvent.READ) {
+          throw 11;
+        }
+        var d = receiver == null ? null : receiver.receive();
+        if (d == null) {
+          return true;
+        } else {
+          return false;
+        }
       }
 
       receiver.any((event) => test(event)).then((value) {
-        Expect.equals(false, value);
-        Expect.equals(4, count);
+        Expect.fail('Should completed with throw.');
+      }).catchError((error) {
+        Expect.equals(11, error);
+        if (no_write_events) {
+          Expect.equals(1, count);
+        } else {
+          Expect.equals(2, count);
+        }
       }).whenComplete(() {
         asyncEnd();
       });
     });
   });
+}
+
+main() {
+  check();
+  check(true);
 }

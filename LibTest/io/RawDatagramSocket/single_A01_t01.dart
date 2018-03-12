@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Future<RawSocketEvent> single
- * Returns the single element.
+ * The single element of this stream.
  *
  * @description Checks that property single returns the single element of the
  * stream.

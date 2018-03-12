@@ -7,7 +7,7 @@
  * @assertion bool isBroadcast
  * Whether this stream is a broadcast stream.
  *
- * @description Checks that the property isBroadcast.
+ * @description Checks the property isBroadcast.
  * @author ngl@unipro.ru
  */
 import "dart:io";

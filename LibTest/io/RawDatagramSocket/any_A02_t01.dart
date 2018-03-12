@@ -6,13 +6,14 @@
 /**
  * @assertion Future<bool> any(bool test(T element))
  * Checks whether test accepts any element provided by this stream.
+ * . . .
+ * If the stream ends without finding an element that test accepts, the returned
+ * future is completed with false.
  *
- * Calls test on each element of the stream. If the call returns true, the
- * returned future is completed with true and processing stops.
- *
- * @description Checks whether test accepts any element provided by this stream
- * and stops listening to the stream after the first matching element has been
- * found.
+ * @description Checks that method any returns false when RawSocketEvent.WRITE
+ * is searched and writeEventsEnabled is false. In this case the listening to
+ * the stream is stopped after the last received event.
+ * @issue 31881
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -20,14 +21,13 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check(int expectedValue, [bool no_write_events = false]) {
+main() {
+  var expectedEvent = RawSocketEvent.WRITE;
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
+      receiver.writeEventsEnabled = false;
       int sent = 0;
       int count = 0;
 
@@ -41,29 +41,20 @@ check(int expectedValue, [bool no_write_events = false]) {
         }
       });
 
-      bool test(RawSocketEvent x) {
+      bool test(x) {
         count++;
-        var d = receiver == null ? null : receiver.receive();
-        if (d != null) {
-          return d.data[0] == expectedValue;
-        } else {
-          return false;
+        if (count > 4) {
+          Expect.fail('count = $count. It should not be more then 4.');
         }
+        return x == expectedEvent;
       }
 
       receiver.any((event) => test(event)).then((value) {
-        Expect.equals(true, value);
-        Expect.equals(expectedValue + 1, count);
+        Expect.equals(false, value);
+        Expect.equals(4, count);
       }).whenComplete(() {
         asyncEnd();
       });
     });
   });
-}
-
-main() {
-  for (int i = 0; i < 3; i++) {
-    check(i);
-    check(i, true);
-  }
 }

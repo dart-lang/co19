@@ -5,7 +5,13 @@
  */
 /**
  * @assertion Future<RawSocketEvent> last
- * Returns the last element of the stream.
+ * The last element of this stream.
+ *
+ * If an error event occurs before the first data event, the resulting future
+ * is completed with that error.
+ *
+ * If this stream is empty (a done event occurs before the first data event),
+ * the resulting future completes with a StateError.
  *
  * @description Checks that property last returns the last element of the
  * stream when all sent events were received and RawDatagramSocket was closed.

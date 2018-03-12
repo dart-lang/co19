@@ -5,17 +5,12 @@
  */
 /**
  * @assertion Future<RawSocketEvent> last
- * The last element of this stream.
+ * . . .
+ * If this stream emits an error event, the returned future is completed with
+ * that error and processing stops.
  *
- * If an error event occurs before the first data event, the resulting future
- * is completed with that error.
- *
- * If this stream is empty (a done event occurs before the first data event),
- * the resulting future completes with a StateError.
- *
- * @description Checks that property last returns the last element of the
- * stream when not all sent events were received and RawDatagramSocket was
- * closed.
+ * @description Checks that if this stream emits an error event, the returned
+ * future is completed with that error and processing stops.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -23,16 +18,12 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../../../Utils/async_utils.dart";
 
-check([bool no_write_events = false]) {
+check(convert, expected) {
   asyncStart();
   var address = InternetAddress.LOOPBACK_IP_V4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
       int sent = 0;
-      var rEvent;
       int counter = 0;
 
       Stream stream = receiver.asBroadcastStream();
@@ -41,20 +32,19 @@ check([bool no_write_events = false]) {
       producer.send([sent], address, receiver.port);
       producer.close();
 
-      stream.last.then((event) {
-        rEvent = event;
+      stream.expand(convert).last.then((event) {  print('ev: $event');
+        Expect.fail("event == $event. Future should be completed with error.");
+      }, onError: (error) {
+        Expect.equals(expected, error);
       }).whenComplete (() {
-        Expect.equals(RawSocketEvent.CLOSED, rEvent);
-        Expect.equals(2, counter);
         asyncEnd();
       });
 
       stream.listen((e) {
         counter++;
         receiver.receive();
-        if (counter == 1) {
-          receiver.close();
-        }
+      }).onDone(() {
+        Expect.equals(4, counter);
       });
 
       new Timer(const Duration(milliseconds: 200), () {
@@ -66,6 +56,7 @@ check([bool no_write_events = false]) {
 }
 
 main() {
-  check();
-  check(true);
+  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [e], 11);
+  check((e) => e == RawSocketEvent.READ ? throw 12 : [e], 12);
+  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [e], 13);
 }

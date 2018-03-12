@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Future<RawSocketEvent> last
- * Returns the last element of the stream.
+ * The last element of this stream.
  *
  * If an error event occurs before the first data event, the resulting future
  * is completed with that error.
@@ -14,7 +14,7 @@
  * the resulting future completes with a StateError.
  *
  * @description Checks that property last returns the last element of the
- * stream when no one sent event was received ang  RawDatagramSocket was closed.
+ * stream when no one sent event was received and RawDatagramSocket was closed.
  * @author ngl@unipro.ru
  */
 import "dart:io";
