@@ -4,12 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future<T> lastWhere (bool test(T element),
+ *     {@deprecated dynamic defaultValue(),  T orElse()})
+ *
  * Finds the last element in this stream matching test.
- * As firstWhere, except that the last matching element is found.
- * That means that the result cannot be provided before this stream is done.
+ *
+ * If this stream emits an error, the returned future is completed with that
+ * error, and processing stops.
+ *
+ * Otherwise as firstWhere, except that the last matching element is found
+ * instead of the first. That means that a non-error result cannot be provided
+ * before this stream is done.
+ *
+ * The defaultValue parameter is deprecated, and orElse should be used instead.
  * @description Checks that if element is found, it is passed to the resulting
- * future. [defaultValue] is provided.
+ * future. [orElse] is provided.
  * @author a.semenov@unipro.ru
  */
 library lastWhere_A01_t02;
@@ -18,12 +27,12 @@ import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T element), T expected) {
-  bool defaultValueCalled = false;
+  bool orElseCalled = false;
   asyncStart();
-  s.lastWhere(test, defaultValue:() {defaultValueCalled = true;})
+  s.lastWhere(test, orElse:() {orElseCalled = true;})
    .then((T actual){
      Expect.equals(expected, actual);
-     Expect.isFalse(defaultValueCalled);
+     Expect.isFalse(orElseCalled);
      asyncEnd();
    });
 }

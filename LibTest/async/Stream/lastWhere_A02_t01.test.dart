@@ -4,12 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future<T> lastWhere (bool test(T element),
+ *     {@deprecated dynamic defaultValue(),  T orElse()})
+ *
  * Finds the last element in this stream matching test.
- * As firstWhere, except that the last matching element is found.
- * That means that the result cannot be provided before this stream is done.
+ *
+ * If this stream emits an error, the returned future is completed with that
+ * error, and processing stops.
+ *
+ * Otherwise as firstWhere, except that the last matching element is found
+ * instead of the first. That means that a non-error result cannot be provided
+ * before this stream is done.
+ *
+ * The defaultValue parameter is deprecated, and orElse should be used instead.
  * @description Checks that if this stream ends without finding a match and a
- * defaultValue function is provided, the result of calling defaultValue becomes
+ * defaultValue function is provided, the result of calling [orElse] becomes
  * the value of the future.
  * @author kaigorodov
  */
@@ -18,7 +27,7 @@ import "dart:async";
 import "../../../Utils/async_utils.dart";
 
 void check<T>(Stream<T> s, bool test(T element), Object expected) {
-  AsyncExpect.value(expected, s.lastWhere(test, defaultValue: () => expected));
+  AsyncExpect.value(expected, s.lastWhere(test, orElse: () => expected));
 }
 
 void test(CreateStreamFunction create) {

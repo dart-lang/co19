@@ -4,10 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future<T> lastWhere (bool test(T element),
+ *     {@deprecated dynamic defaultValue(),  T orElse()})
+ *
  * Finds the last element in this stream matching test.
- * As firstWhere, except that the last matching element is found.
- * That means that the result cannot be provided before this stream is done.
+ *
+ * If this stream emits an error, the returned future is completed with that
+ * error, and processing stops.
+ *
+ * Otherwise as firstWhere, except that the last matching element is found
+ * instead of the first. That means that a non-error result cannot be provided
+ * before this stream is done.
+ *
+ * The defaultValue parameter is deprecated, and orElse should be used instead.
  * @description Checks that if [test] throws error, the returned future will
  * receive this error.
  * @author a.semenov@unipro
@@ -19,6 +28,6 @@ void test(CreateStreamFunction create) {
   AsyncExpect.error("a", create([1, 2, 3]).lastWhere((e) => throw "a"));
   AsyncExpect.error(
       "b",
-      create([1, 2, 3]).lastWhere((e) { if (e==3) throw "b"; return true; })
+      create([1, 2, 3]).lastWhere((e) { if (e == 3) throw "b"; return true; })
   );
 }
