@@ -22,7 +22,6 @@ main() {
     + '<select name="victim"></select>'
     + '<output name="victim"></output>'
     + '<object name="victim"></object>'
-    + '<keygen name="victim">'
     + '</form>',
     treeSanitizer: new NullTreeSanitizer());
 
@@ -33,5 +32,4 @@ main() {
   shouldBeTrue((document.body.querySelector("textarea") as dynamic).setCustomValidity is Function);
   shouldBeTrue((document.body.querySelector("output") as dynamic).setCustomValidity is Function);
   shouldBeTrue((document.body.querySelector("object") as dynamic).setCustomValidity is Function);
-  shouldBeTrue((document.body.querySelector("keygen") as dynamic).setCustomValidity is Function);
 }
