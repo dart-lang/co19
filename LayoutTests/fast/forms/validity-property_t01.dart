@@ -19,7 +19,6 @@ main() {
       <button name="victim"></button>
       <output name="victim"></output>
       <object name="victim"></object>
-      <keygen name="victim"></keygen>
       </fieldset>
       ''', treeSanitizer: new NullTreeSanitizer());
 
@@ -32,6 +31,4 @@ main() {
     shouldBeTrue(validity1 is ValidityState);
     shouldBe(validity1, validity2);
   }
-
-//  shouldThrow(() => new ValidityState());
 }
