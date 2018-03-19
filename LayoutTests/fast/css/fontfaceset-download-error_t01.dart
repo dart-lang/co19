@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -17,7 +16,7 @@ main() {
       /* Test 1: Invalid font data */
       @font-face {
           font-family: myfont1;
-          src: url('$root/resources/invalidfont.png') format(opentype);
+          src: url('$root/resources/invalidfont.png');
       }
 
       /* Test 2: Download error */
@@ -29,7 +28,7 @@ main() {
       /* Test 3: Empty data url */
       @font-face {
           font-family: myfont3;
-          src: url(data:application/x-truetype-font,) format(truetype);
+          src: url(data:application/x-truetype-font,);
       }
 
       /* Test 4: Download error followed by existing local font */
@@ -41,7 +40,7 @@ main() {
       /* Test 5: Multiple errors */
       @font-face {
           font-family: myfont5;
-          src: url('resources/IntentionallyMissingFile.otf'), url(data:application/x-truetype-font,) format(truetype);
+          src: url('resources/IntentionallyMissingFile.otf'), url(data:application/x-truetype-font,));
       }
       </style>
       ''', treeSanitizer: new NullTreeSanitizer());
@@ -61,7 +60,6 @@ main() {
 
   finish() {
     shouldBeList(firedEvents, ['loading', 'loadingdone', 'loadingerror']);
-    asyncEnd();
   }
 
   onLoading(e) {
@@ -89,15 +87,11 @@ main() {
     document.fonts.addEventListener('loadingdone', onLoadingDone);
     document.fonts.addEventListener('loadingerror', onLoadingError);
 
-    //document.fonts.ready().then(finish);
   }
-
-  asyncStart();
 
   if (document.fonts != null)
     runTests();
   else {
     testFailed('document.fonts does not exist');
-    asyncEnd();
   }
 }

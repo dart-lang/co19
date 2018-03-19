@@ -249,3 +249,25 @@ num getNumValue(String strValue, {String strip}) {
   }
   return num.parse(str);
 }
+
+String get userAgent => window.navigator.userAgent;
+
+/**
+ * Determines if the current device is running Opera.
+ */
+bool get isOpera => userAgent.contains("Opera", 0);
+
+/**
+ * Determines if the current device is running Internet Explorer.
+ */
+bool get isIE => !isOpera && userAgent.contains("Trident/", 0);
+
+/**
+ * Determines if the current device is running Firefox.
+ */
+bool get isFirefox => userAgent.contains("Firefox", 0);
+
+/**
+ * Determines if the current device is running WebKit.
+ */
+bool get isWebKit => !isOpera && userAgent.contains("WebKit", 0);
