@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -24,7 +24,6 @@ main() {
     + '<select name="victim"></select>'
     + '<output name="victim"></output>'
     + '<object name="victim"></object>'
-    + '<keygen name="victim">'
     + '</form>',
     treeSanitizer: new NullTreeSanitizer());
 
@@ -35,5 +34,4 @@ main() {
   shouldBeTrue(document.body.query("textarea").setCustomValidity is Function);
   shouldBeTrue(document.body.query("output").setCustomValidity is Function);
   shouldBeTrue(document.body.query("object").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("keygen").setCustomValidity is Function);
 }

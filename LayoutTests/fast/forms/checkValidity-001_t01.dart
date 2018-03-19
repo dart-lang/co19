@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,7 +21,6 @@ main() {
       <textarea name="victim"></textarea>
       <output name="victim"></output>
       <object name="victim"></object>
-      <keygen name="victim"></keygen>
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
@@ -32,5 +31,4 @@ main() {
   shouldBe(document.body.queryAll("textarea")[0].checkValidity(), true);
   shouldBe(document.body.queryAll("output")[0].checkValidity(), true);
   shouldBe(document.body.queryAll("object")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("keygen")[0].checkValidity(), true);
 }
