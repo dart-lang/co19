@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -22,7 +22,6 @@ main() {
     + '<select name="victim"></select>'
     + '<output name="victim"></output>'
     + '<object name="victim"></object>'
-    + '<keygen name="victim">'
     + '</form>',
     treeSanitizer: new NullTreeSanitizer());
   List<Node> controls = document.getElementsByName('victim');
@@ -88,9 +87,4 @@ main() {
   debug('Object element');
   parent.setInnerHtml('<form><object></object></form>', treeSanitizer: new NullTreeSanitizer());
   shouldBeFalse((document.getElementsByTagName("object")[0] as ObjectElement).willValidate);
-
-  debug('');
-  debug('Keygen element');
-  parent.setInnerHtml('<form><keygen></form>',treeSanitizer: new NullTreeSanitizer());
-  shouldBeFalse((document.getElementsByTagName("keygen")[0] as KeygenElement).willValidate);
 }
