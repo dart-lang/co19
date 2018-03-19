@@ -24,7 +24,6 @@ main() {
     + '<select name="victim"></select>'
     + '<output name="victim"></output>'
     + '<object name="victim"></object>'
-    + '<keygen name="victim">'
     + '</form>',
     treeSanitizer: new NullTreeSanitizer());
 
@@ -35,5 +34,4 @@ main() {
   shouldBeTrue(document.body.query("textarea").setCustomValidity is Function);
   shouldBeTrue(document.body.query("output").setCustomValidity is Function);
   shouldBeTrue(document.body.query("object").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("keygen").setCustomValidity is Function);
 }
