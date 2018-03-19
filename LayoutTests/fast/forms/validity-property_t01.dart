@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,11 +20,10 @@ main() {
       <button name="victim"></button>
       <output name="victim"></output>
       <object name="victim"></object>
-      <keygen name="victim"></keygen>
       </fieldset>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var controls = document.getElementsByName("victim");
+  List<Node> controls = document.getElementsByName("victim");
   for (var i = 0; i < controls.length; ++i) {
     debug('===> Tests for ' + controls[i].tagName);
     var validity1, validity2;
@@ -34,6 +32,4 @@ main() {
     shouldBeTrue(validity1 is ValidityState);
     shouldBe(validity1, validity2);
   }
-
-  shouldThrow(() => new ValidityState());
 }
