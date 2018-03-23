@@ -46,7 +46,7 @@ check([bool no_write_events = false]) {
       }
 
       receiver.single.then((event) {
-        Expect.fail('Future should be completed wit error.');
+        Expect.fail('Future should be completed with error.');
       }, onError: (error) {
         Expect.isTrue(error is StateError);
         stError = true;
