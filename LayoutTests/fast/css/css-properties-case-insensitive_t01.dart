@@ -44,7 +44,7 @@ main() {
     test.style.removeProperty("FONT-WEIGHT");
     lowerValue = getComputedStyle(test).getPropertyValue("font-weight");
     debug("removeProperty");
-    shouldBe(lowerValue, "normal");
+    shouldBeTrue(lowerValue=="400" || lowerValue=="normal");
   }
 
   test();
