@@ -52,7 +52,7 @@ check(convert, expected, [bool no_write_events = false]) {
       }
 
       receiver.expand(convert).single.then((event) {
-        Expect.fail('Future should be completed wit error.');
+        Expect.fail('Future should be completed with error.');
       }, onError: (error) {
         Expect.equals(expected, error);
         stError = true;
