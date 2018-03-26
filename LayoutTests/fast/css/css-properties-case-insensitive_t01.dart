@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -46,7 +44,7 @@ main() {
     test.style.removeProperty("FONT-WEIGHT");
     lowerValue = getComputedStyle(test).getPropertyValue("font-weight");
     debug("removeProperty");
-    shouldBe(lowerValue, "normal");
+    shouldBeTrue(lowerValue=="400" || lowerValue=="normal");
   }
 
   test();
