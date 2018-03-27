@@ -23,9 +23,8 @@
  *
  * The method will ignore HttpClientRequest.maxRedirects and will always perform
  * the redirect.
- * @description Checks that the default value for method is the
- * method for the current request. The default value for url is the value of the
- * HttpHeaders.LOCATION header of the current response
+ * @description Checks that followLoops is false (default) then redirect won't
+ * go to the URL visited before
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -37,17 +36,17 @@ var localhost = InternetAddress.LOOPBACK_IP_V4.address;
 
 test(String method) async {
   asyncStart();
+  var count = 0;
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     if (request.uri.path == "/xxx") {
-      request.response.headers.set(HttpHeaders.LOCATION,
-          new Uri(path: "yyy").toString());
       request.response.write("xxx");
       request.response.close();
-    } else if (request.uri.path == "/yyy") {
-      request.response.write("yyy");
-      request.response.close();
-      server.close();
+      if (count++ > 0) {
+        new Future.delayed(new Duration(seconds: 1), () {
+          server.close();
+        });
+      }
     } else {
       server.close();
       Expect.fail("Wrong URI:" + request.uri.path);
@@ -55,20 +54,25 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "/xxx")
+  client
+      .open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
     response.transform(utf8.decoder).listen((content) {
       Expect.equals("xxx", content);
     });
-    response.redirect().then((HttpClientResponse resp) {
-      Expect.equals(1, resp.redirects.length);
-      Expect.equals(method.toUpperCase(), resp.redirects[0].method);
-      Expect.equals("yyy", resp.redirects[0].location.path);
-      resp.transform(utf8.decoder).listen((content2) {
+    response
+        .redirect("GET", new Uri(path: "xxx"))
+        .then((HttpClientResponse resp) {
+      resp.transform(utf8.decoder).listen((content2) {});
+      resp.redirect("GET", new Uri(path: "xxx")).then(
+          (HttpClientResponse resp2) {
+        Expect.fail("Redirect should not be performed");
+      }, onError: (e) {
+        Expect.isTrue(e is RedirectException);
+        asyncEnd();
       });
-      asyncEnd();
     });
   });
 }

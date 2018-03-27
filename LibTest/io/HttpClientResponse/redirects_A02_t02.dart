@@ -4,28 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<HttpClientResponse> redirect([
- *  String method,
- *  Uri url,
- *  bool followLoops
- *  ])
- * Redirects this connection to a new URL. The default value for method is the
- * method for the current request. The default value for url is the value of the
- * HttpHeaders.LOCATION header of the current response. All body data must have
- * been read from the current response before calling redirect.
- *
- * All headers added to the request will be added to the redirection request.
- * However, any body sent with the request will not be part of the redirection
- * request.
- *
- * If followLoops is set to true, redirect will follow the redirect, even if the
- * URL was already visited. The default value is false.
- *
- * The method will ignore HttpClientRequest.maxRedirects and will always perform
- * the redirect.
- * @description Checks that the default value for method is the
- * method for the current request. The default value for url is the value of the
- * HttpHeaders.LOCATION header of the current response
+ * @assertion List<RedirectInfo> redirects
+ * Returns the series of redirects this connection has been through. The list
+ * will be empty if no redirects were followed. redirects will be updated both
+ * in the case of an automatic and a manual redirect.
+ * @description Checks that this method returns the series of redirects this
+ * connection has been through. Test POST redirect
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -40,8 +24,6 @@ test(String method) async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     if (request.uri.path == "/xxx") {
-      request.response.headers.set(HttpHeaders.LOCATION,
-          new Uri(path: "yyy").toString());
       request.response.write("xxx");
       request.response.close();
     } else if (request.uri.path == "/yyy") {
@@ -55,20 +37,25 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "/xxx")
+  client
+      .open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
     response.transform(utf8.decoder).listen((content) {
       Expect.equals("xxx", content);
     });
-    response.redirect().then((HttpClientResponse resp) {
+    response
+        .redirect("post", new Uri(path: "yyy"))
+        .then((HttpClientResponse resp) {
       Expect.equals(1, resp.redirects.length);
-      Expect.equals(method.toUpperCase(), resp.redirects[0].method);
+      Expect.equals("post", resp.redirects[0].method);
       Expect.equals("yyy", resp.redirects[0].location.path);
+      Expect.equals(200, resp.redirects[0].statusCode);
+
       resp.transform(utf8.decoder).listen((content2) {
+        asyncEnd();
       });
-      asyncEnd();
     });
   });
 }

@@ -51,15 +51,18 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "/xxx")
+  client
+      .open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {
+    response.transform(utf8.decoder).listen((content) {
       Expect.equals("xxx", content);
     });
-    response.redirect("get", new Uri(path: "yyy")).then((HttpClientResponse resp) {
-      resp.transform(UTF8.decoder).listen((content2) {
+    response
+        .redirect("get", new Uri(path: "yyy"))
+        .then((HttpClientResponse resp) {
+      resp.transform(utf8.decoder).listen((content2) {
         Expect.equals("yyy", content2);
         asyncEnd();
       });

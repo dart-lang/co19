@@ -23,9 +23,8 @@
  *
  * The method will ignore HttpClientRequest.maxRedirects and will always perform
  * the redirect.
- * @description Checks that the default value for method is the
- * method for the current request. The default value for url is the value of the
- * HttpHeaders.LOCATION header of the current response
+ * @description Checks that all headers added to the request will be added to
+ * the redirection request
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -40,13 +39,14 @@ test(String method) async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     if (request.uri.path == "/xxx") {
-      request.response.headers.set(HttpHeaders.LOCATION,
-          new Uri(path: "yyy").toString());
       request.response.write("xxx");
       request.response.close();
     } else if (request.uri.path == "/yyy") {
       request.response.write("yyy");
       request.response.close();
+      Expect.equals("23", request.headers.value(HttpHeaders.AGE));
+      Expect.equals(
+          "From Dart with Love", request.headers.value(HttpHeaders.FROM));
       server.close();
     } else {
       server.close();
@@ -55,20 +55,23 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "/xxx")
+  client
+      .open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
+    request.headers.set(HttpHeaders.AGE, 23);
+    request.headers.set(HttpHeaders.FROM, "From Dart with Love");
     return request.close();
   }).then((HttpClientResponse response) {
     response.transform(utf8.decoder).listen((content) {
       Expect.equals("xxx", content);
     });
-    response.redirect().then((HttpClientResponse resp) {
-      Expect.equals(1, resp.redirects.length);
-      Expect.equals(method.toUpperCase(), resp.redirects[0].method);
-      Expect.equals("yyy", resp.redirects[0].location.path);
+    response
+        .redirect("GET", new Uri(path: "yyy"))
+        .then((HttpClientResponse resp) {
       resp.transform(utf8.decoder).listen((content2) {
+        Expect.equals("yyy", content2);
+        asyncEnd();
       });
-      asyncEnd();
     });
   });
 }
