@@ -26,5 +26,5 @@ main() {
 
   asyncStart();
   setTimeout(check, 10);
-  document.body.queryAll('input')[1].click();
+  document.body.querySelectorAll('input')[1].click();
 }

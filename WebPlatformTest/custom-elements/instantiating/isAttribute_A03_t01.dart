@@ -30,11 +30,11 @@ class Foo2 extends HtmlElement {
 }
 
 main() {
-  document.register('x-foo-1', Foo1);
-  document.register('x-foo-2', Foo2);
+  document.registerElement('x-foo-1', Foo1);
+  document.registerElement('x-foo-2', Foo2);
   document.body.setInnerHtml('<x-foo-1 id="xfoo" is="x-foo-2"></x-foo-1>',
       treeSanitizer: new NoCheck());
     
-  var x = document.query('#xfoo');
+  var x = document.querySelector('#xfoo');
   Expect.isTrue(x is Foo1);
 }

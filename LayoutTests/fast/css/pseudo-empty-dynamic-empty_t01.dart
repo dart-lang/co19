@@ -34,7 +34,7 @@ main() {
     return new RegExp('none').allMatches(styles).length == elements.length;
   }
 
-  var elements = document.body.queryAll("p");
+  var elements = document.body.querySelectorAll("p");
   for (var i = 0; i < elements.length; ++i) {
     var element = elements[i];
     if (element.id == '')

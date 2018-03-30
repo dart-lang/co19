@@ -19,8 +19,10 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.body.query('div').onError.listen((_) => testFailed('FAILED: inline script load error bubbled'));
-  document.body.query('script').onError.listen((_) => testPassed('PASS: script error handler invoked'));
+  document.body.querySelector('div').onError.listen((_) =>
+      testFailed('FAILED: inline script load error bubbled'));
+  document.body.querySelector('script').onError.listen((_) =>
+      testPassed('PASS: script error handler invoked'));
 
   test() {
     setTimeout(asyncEnd, 3000);

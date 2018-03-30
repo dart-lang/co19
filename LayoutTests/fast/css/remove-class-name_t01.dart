@@ -22,6 +22,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   document.body.offsetLeft; // force style recalc
-  document.body.queryAll("div")[1].className = "";
-  shouldBe(getComputedStyle(document.body.queryAll('div')[1], null).backgroundColor, 'rgba(0, 0, 0, 0)');
+  document.body.querySelectorAll("div")[1].className = "";
+  shouldBe(getComputedStyle(document.body.querySelectorAll('div')[1], null).backgroundColor, 'rgba(0, 0, 0, 0)');
 }

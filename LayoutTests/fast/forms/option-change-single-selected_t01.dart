@@ -27,8 +27,8 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  SelectElement select0 = document.body.queryAll('select')[0];
-  SelectElement select1 = document.body.queryAll('select')[1];
+  SelectElement select0 = document.body.querySelectorAll('select')[0];
+  SelectElement select1 = document.body.querySelectorAll('select')[1];
 
   select0.options[1].selected = true;
   select1.options[1].selected = true;

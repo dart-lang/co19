@@ -32,7 +32,7 @@ main() {
   
   for (var element in elements) {
     var name = 'x-foo-$element';
-    document.register(name, Foo);
+    document.registerElement(name, Foo);
     if (HTML5_TABLE_ELEMENTS.contains(element)) {
       document.body.setInnerHtml('<table><$element id="qwe" is="$name"></$element></table>',
           treeSanitizer: new NoCheck());
@@ -41,14 +41,14 @@ main() {
           treeSanitizer: new NoCheck());
     }
     
-    var x = document.query('#qwe');
+    var x = document.querySelector('#qwe');
     var elementType = new Element.tag(element).runtimeType;
 
     for (var element2 in elements) {
       var name2 = 'x-foo-$element-$element2';
-      document.register(name2, Foo);
+      document.registerElement(name2, Foo);
       x.setAttribute('is', name2);
-      var y = document.query('#qwe');
+      var y = document.querySelector('#qwe');
       Expect.equals(elementType, y.runtimeType);
     }
   }

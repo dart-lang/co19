@@ -37,7 +37,7 @@ void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 //var items = document.getElementById("test").getElementsByTagName("li");
-var items = document.querySelector('#test').queryAll('li');
+var items = document.querySelector('#test').querySelectorAll('li');
 var tests = [null, 0, double.NAN, double.INFINITY, -double.INFINITY];
 
   for (var i = 0, il = items.length; i < il; ++i) {

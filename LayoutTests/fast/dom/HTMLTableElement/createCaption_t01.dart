@@ -63,7 +63,7 @@ main() {
   captionfruit();
   captionveggie();
 
-  var captions = document.body.queryAll('caption');
+  var captions = document.body.querySelectorAll('caption');
   shouldBe(captions.length, 2);
   shouldBe(captions[0].text, "Fruity");
   shouldBe(captions[1].text, "Vegetabley");

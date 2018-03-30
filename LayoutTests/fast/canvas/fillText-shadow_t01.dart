@@ -16,7 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  CanvasElement canvas = document.query('canvas');
+  CanvasElement canvas = document.querySelector('canvas');
   dynamic ctx = canvas.getContext('2d');
   ctx.font = 'bold 128px sans-serif';
   ctx.shadowColor = 'red';

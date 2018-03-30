@@ -15,6 +15,6 @@ main() {
       <input name="input" id="input"></input>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  dynamic input = document.body.query('input');
+  dynamic input = document.body.querySelector('input');
   shouldEvaluateTo(input.entries.length, 0);
 }

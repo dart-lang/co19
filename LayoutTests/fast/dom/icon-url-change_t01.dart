@@ -16,7 +16,7 @@ main() {
   setFavIcon(iconURL) {
     HeadElement docHead = document.getElementsByTagName("head")[0];
     //var links = docHead.getElementsByTagName("link"); // no such in dart
-    List links = docHead.queryAll("link");
+    List links = docHead.querySelectorAll("link");
     for (var i = index; i < links.length; ++i) {
       var link = links[i];
       if (link.type == "image/x-icon" && link.rel == "shortcut icon") {
@@ -33,7 +33,7 @@ main() {
 
   // test framefork may have some links
   index = (document.getElementsByTagName("head")[0] as HeadElement).
-      queryAll("link").length;
+      querySelectorAll("link").length;
 
   document.head.append(new Element.html('''
         <link rel="shortcut icon" type="image/x-icon" href="http://test.com/oldfavicon.ico"/>,
@@ -42,7 +42,7 @@ main() {
   asyncStart();
   window.onLoad.first.then((_) {
     HeadElement aHead = document.getElementsByTagName("head")[0];
-    var iconURL = (aHead.queryAll("link")[index] as LinkElement).href;
+    var iconURL = (aHead.querySelectorAll("link")[index] as LinkElement).href;
     debug('Original iconURL is: ' + iconURL);
     shouldBe(iconURL, 'http://test.com/oldfavicon.ico');
 
