@@ -23,7 +23,7 @@ main() {
     newLink.href = iconURL;
 
     //var links = docHead.getElementsByTagName("link"); // no such in dart
-    List links = docHead.queryAll("link");
+    List links = docHead.querySelectorAll("link");
     for (var i = index; i < links.length; ++i) {
       var oldLink = links[i];
       if (oldLink.type=="image/x-icon" && oldLink.rel=="shortcut icon") {
@@ -39,7 +39,7 @@ main() {
 
   // test framefork may have some links
   index = (document.getElementsByTagName("head")[0] as HeadElement).
-      queryAll("link").length;
+      querySelectorAll("link").length;
 
   document.head.append(new DocumentFragment.html('''
     <link rel="shortcut icon" type="image/x-icon" href="http://test.com/oldfavicon.ico"/>

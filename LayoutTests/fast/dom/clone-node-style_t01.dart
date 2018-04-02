@@ -131,7 +131,7 @@ main() {
   var divClones = [];
 
   var div;
-  while ((div=document.body.query('div')) != null) {
+  while ((div=document.body.querySelector('div')) != null) {
     divClones.add(div.clone(false));
     div.remove();
   }

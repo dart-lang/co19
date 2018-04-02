@@ -19,6 +19,6 @@ main() {
     tr.insertCell(0).innerHtml = "<td>cell inside table inside cell 0</td>";
     tr.insertCell(1).innerHtml = "<td>cell inside table inside cell 1</td>";
 
-    List cells = tr.queryAll('td');
+    List cells = tr.querySelectorAll('td');
     shouldBe(cells.length, 2);
 }

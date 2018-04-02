@@ -78,13 +78,13 @@ Element LANG = DOM.getElementsByTagName("lang")[0] as Element;
 var NONASCIIQNAME = DOM.getElementsByTagName("f\xf6\xf8")[0];
 
 var CHILDREN = [CHILD1, CHILD2, CHILD3, LANG];
-var GCHILDREN1 = [CHILD1.queryAll("GCHILD")[0], CHILD1.queryAll("GCHILD")[1]];
+var GCHILDREN1 = [CHILD1.querySelectorAll("GCHILD")[0], CHILD1.querySelectorAll("GCHILD")[1]];
 var GCHILD11 = GCHILDREN1[0];
 var GCHILD12 = GCHILDREN1[1];
 var TEXT1 = CHILD1.lastChild;
-var GCHILDREN2 = [CHILD2.queryAll("GCHILD")[0], CHILD2.queryAll("GCHILD")[1]];
+var GCHILDREN2 = [CHILD2.querySelectorAll("GCHILD")[0], CHILD2.querySelectorAll("GCHILD")[1]];
 var GCHILD21 = GCHILDREN2[0];
 var GCHILD22 = GCHILDREN2[1];
-var LCHILDREN = [LANG.queryAll("foo")[0], LANG.queryAll("foo")[1], LANG.queryAll("f\xf6\xf8")[0]];
+var LCHILDREN = [LANG.querySelectorAll("foo")[0], LANG.querySelectorAll("foo")[1], LANG.querySelectorAll("f\xf6\xf8")[0]];
 var LCHILD1 = LCHILDREN[0];
 var LCHILD2 = LCHILDREN[1];

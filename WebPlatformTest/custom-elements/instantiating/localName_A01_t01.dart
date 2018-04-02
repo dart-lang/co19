@@ -31,8 +31,8 @@ class Foo2 extends HtmlElement {
 }
 
 main() {
-  document.register('x-foo-1', Foo1);
-  document.register('x-foo-2', Foo2);
+  document.registerElement('x-foo-1', Foo1);
+  document.registerElement('x-foo-2', Foo2);
   
   var x = document.createElement('x-foo-1');
   Expect.equals('x-foo-1', x.localName);
@@ -40,6 +40,6 @@ main() {
   document.body.setInnerHtml('<x-foo-2 id="xfoo2"></x-foo-2>',
       treeSanitizer: new NoCheck());
     
-  x = document.query('#xfoo2');
+  x = document.querySelector('#xfoo2');
   Expect.equals('x-foo-2', x.localName);
 }

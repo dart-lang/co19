@@ -29,7 +29,7 @@ main() {
   document.body.append(e);
   print("e=${e.runtimeType} ${e.toString()}");
 
-  var star = e.query('*');
+  var star = e.querySelector('*');
   print("star=${star.runtimeType} ${star.toString()}");
 
   Expect.isTrue(e.querySelector('*') is SpanElement, 'Universal selector');

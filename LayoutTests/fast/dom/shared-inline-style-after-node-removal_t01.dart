@@ -22,7 +22,7 @@ main() {
 
   var testDiv = document.getElementById('test');
   //var pees = testDiv.getElementsByTagName('p');
-  var pees = testDiv.queryAll('p');
+  var pees = testDiv.querySelectorAll('p');
 
   pees[1].remove();
 
@@ -30,7 +30,7 @@ main() {
   {
     var testDiv = document.getElementById('test');
     //var pees = testDiv.getElementsByTagName('p');
-    var pees = testDiv.queryAll('p');
+    var pees = testDiv.querySelectorAll('p');
 
     // Trigger a style recalc on pees[0].
     pees[0].style.background = 'white';

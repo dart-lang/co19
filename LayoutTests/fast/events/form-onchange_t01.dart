@@ -21,13 +21,13 @@ main() {
 
   var count=0;
 
-  document.body.query('input').onChange.listen((_) {
+  document.body.querySelector('input').onChange.listen((_) {
     shouldBe(++count, 1);
   });
-  document.body.query('form').onChange.listen((_) {
+  document.body.querySelector('form').onChange.listen((_) {
     shouldBe(++count, 2);
   });
-  document.body.query('div').onChange.listen((_) {
+  document.body.querySelector('div').onChange.listen((_) {
     shouldBe(++count, 3);
   });
 

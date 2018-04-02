@@ -33,21 +33,21 @@ main() {
   table.tFoot.append(rows[6]);
 
   shouldBe(table.rows.length, 6);
-  shouldBe(table.queryAll('tr').length, 6);
+  shouldBe(table.querySelectorAll('tr').length, 6);
   shouldBe(table.childNodes.length, 3);
   shouldBe(table.tHead, table.childNodes[0]);
-  shouldBe(table.tHead.childNodes[0], table.queryAll('tr')[0]);
-  shouldBe(table.tHead.childNodes[1], table.queryAll('tr')[1]);
-  shouldBe(rows[2], table.queryAll('tr')[1]);
-  shouldBe(table.tHead.childNodes[2], table.queryAll('tr')[2]);
-  shouldBe(rows[3], table.queryAll('tr')[2]);
+  shouldBe(table.tHead.childNodes[0], table.querySelectorAll('tr')[0]);
+  shouldBe(table.tHead.childNodes[1], table.querySelectorAll('tr')[1]);
+  shouldBe(rows[2], table.querySelectorAll('tr')[1]);
+  shouldBe(table.tHead.childNodes[2], table.querySelectorAll('tr')[2]);
+  shouldBe(rows[3], table.querySelectorAll('tr')[2]);
   shouldBe(table.tFoot, table.childNodes[1]);
-  shouldBe(table.tFoot.childNodes[0], table.queryAll('tr')[3]);
-  shouldBe(rows[0], table.queryAll('tr')[3]);
-  shouldBe(table.tFoot.childNodes[1], table.queryAll('tr')[4]);
-  shouldBe(rows[6], table.queryAll('tr')[4]);
-  shouldBe(table.childNodes[2], table.queryAll('tr')[5]);
-  shouldBe(rows[1], table.queryAll('tr')[5]);
+  shouldBe(table.tFoot.childNodes[0], table.querySelectorAll('tr')[3]);
+  shouldBe(rows[0], table.querySelectorAll('tr')[3]);
+  shouldBe(table.tFoot.childNodes[1], table.querySelectorAll('tr')[4]);
+  shouldBe(rows[6], table.querySelectorAll('tr')[4]);
+  shouldBe(table.childNodes[2], table.querySelectorAll('tr')[5]);
+  shouldBe(rows[1], table.querySelectorAll('tr')[5]);
   shouldBe(table.tBodies.length, 0);
 }
 

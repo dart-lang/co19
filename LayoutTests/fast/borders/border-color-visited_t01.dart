@@ -49,7 +49,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var spans = document.queryAll('span');
+  var spans = document.querySelectorAll('span');
   shouldBe(spans[0].getComputedStyle().borderColor, "rgb(208, 208, 208)");
   shouldBe(spans[1].getComputedStyle().borderColor, "rgb(208, 208, 208)");
 }

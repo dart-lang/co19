@@ -24,13 +24,13 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   check([_]) {
-    shouldBe(document.activeElement, document.body.query("input"));
+    shouldBe(document.activeElement, document.body.querySelector("input"));
     asyncEnd();
   }
 
   test() {
-    var input = document.body.query('input');
-    var p = document.body.query('p');
+    var input = document.body.querySelector('input');
+    var p = document.body.querySelector('p');
     input = input..remove();
     input.setAttribute('autofocus','false');
     input.addEventListener('focus', check, false);

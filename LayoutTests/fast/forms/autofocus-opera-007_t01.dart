@@ -35,7 +35,7 @@ main() {
     asyncEnd();
   }
 
-  var input = document.body.query('input');
+  var input = document.body.querySelector('input');
 
   input.onFocus.listen((_) {
     input.blur();

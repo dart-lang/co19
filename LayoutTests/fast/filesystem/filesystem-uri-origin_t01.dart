@@ -15,7 +15,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var expectedOrigin = 'http://www.webkit.org:8080';
-  AnchorElement a = document.body.query('a');
+  AnchorElement a = document.body.querySelector('a');
   var actualOrigin = a.origin;
   shouldBe(actualOrigin, expectedOrigin);
 }
