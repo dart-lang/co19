@@ -2,7 +2,6 @@ library async_utils;
 
 import "dart:async";
 export "dart:async";
-import "expect.dart";
 
 const ONE_MS = const Duration(milliseconds: 1);
 
@@ -56,7 +55,9 @@ void  asyncMultiStart(int delta) {
 
 void  asyncEnd() {
 //  print("asyncEnd");
-  Expect.isFalse(_asyncCounter == 0, "asyncEnd: _asyncCounter==0");
+  if (_asyncCounter == 0) {
+    throw new Exception("_asyncCounter==0");
+  }
   _asyncCounter--;
   if (_asyncCounter == 0) {
     print("unittest-suite-success");
